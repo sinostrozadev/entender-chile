@@ -1,0 +1,249 @@
+{
+  "version": 1,
+  "meta": {
+    "titulo": "Colo Colo se escapa y la reforma de seguridad baja la velocidad",
+    "descripcion": "El Gobierno se abre a moderar su reforma de seguridad, Chile cierra su embajada en Teherán y Colo Colo gana el Superclásico doscientos.",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "duracionSeg": 101.05
+  },
+  "audio": null,
+  "fuentes": [
+    "Cadem, 22 ago 2026",
+    "Banco Central de Chile, 18 ago 2026",
+    "ANFP, 23 ago 2026"
+  ],
+  "eventos": [
+    {
+      "tipo": "seccion",
+      "texto": "Apertura",
+      "from": 0.24999999999999997,
+      "to": 22.118,
+      "overlay": true
+    },
+    {
+      "tipo": "narracion",
+      "texto": "Domingo veintitrés de agosto de dos mil veintiséis.",
+      "from": 0.35,
+      "to": 3.741,
+      "seccion": "Apertura"
+    },
+    {
+      "tipo": "tesis",
+      "texto": "La reforma de seguridad empieza a cambiar antes de su votación más difícil.",
+      "from": 4.381,
+      "to": 9.225,
+      "seccion": "Apertura"
+    },
+    {
+      "tipo": "narracion",
+      "texto": "El Ejecutivo abrió la puerta a bajar la urgencia y a acortar el nuevo estado de excepción. Y en el fútbol chileno hubo Superclásico: Colo Colo ganó dos a uno y se escapó en la punta.",
+      "from": 9.865,
+      "to": 21.578,
+      "seccion": "Apertura"
+    },
+    {
+      "tipo": "seccion",
+      "texto": "Reforma de seguridad",
+      "from": 22.118,
+      "to": 52.019,
+      "overlay": true
+    },
+    {
+      "tipo": "tesis",
+      "texto": "Hay acuerdo en endurecer la mano; el desacuerdo está en los contrapesos.",
+      "from": 22.218,
+      "to": 27.001,
+      "seccion": "Reforma de seguridad"
+    },
+    {
+      "tipo": "narracion",
+      "texto": "Según Cadem, un cincuenta y ocho por ciento rechaza que el nuevo estado de excepción pueda ser decretado exclusivamente por el Presidente. Si requiere autorización del Congreso, el apoyo llega al cincuenta y dos por ciento.",
+      "from": 27.641,
+      "to": 42.014,
+      "seccion": "Reforma de seguridad",
+      "etiqueta": "hecho",
+      "soporte": true
+    },
+    {
+      "tipo": "dato",
+      "grafico": "barras",
+      "fuente": "Cadem, 22 ago 2026",
+      "series": [
+        {
+          "etiqueta": "Rechazo a decreto solo presidencial",
+          "num": 58,
+          "unidad": "",
+          "raw": "58"
+        },
+        {
+          "etiqueta": "Apoyo si autoriza el Congreso",
+          "num": 52,
+          "unidad": "",
+          "raw": "52"
+        }
+      ],
+      "seccion": "Reforma de seguridad",
+      "caption": "Según Cadem, un cincuenta y ocho por ciento rechaza que el nuevo estado de excepción pueda ser decretado exclusivamente por el Presidente. Si requiere autorización del Congreso, el apoyo llega al cincuenta y dos por ciento.",
+      "from": 27.641,
+      "to": 42.014
+    },
+    {
+      "tipo": "narracion",
+      "texto": "Una lectura posible es que la ciudadanía distingue entre endurecer la respuesta al crimen y concentrar facultades sin control parlamentario.",
+      "from": 42.654,
+      "to": 51.479,
+      "seccion": "Reforma de seguridad",
+      "etiqueta": "interpretacion"
+    },
+    {
+      "tipo": "seccion",
+      "texto": "Economía",
+      "from": 52.019,
+      "to": 65.53800000000001,
+      "overlay": true
+    },
+    {
+      "tipo": "tesis",
+      "texto": "Una economía estancada, no un derrumbe.",
+      "from": 52.119,
+      "to": 54.898,
+      "seccion": "Economía"
+    },
+    {
+      "tipo": "narracion",
+      "texto": "El Producto Interno Bruto cayó cero coma dos por ciento en el segundo trimestre, pero el PIB no minero aumentó, impulsado por servicios y comercio.",
+      "from": 55.538,
+      "to": 64.998,
+      "seccion": "Economía",
+      "soporte": true
+    },
+    {
+      "tipo": "dato",
+      "grafico": "comparacion",
+      "fuente": "Banco Central, 18 ago 2026",
+      "series": [
+        {
+          "etiqueta": "PIB total",
+          "num": -0.2,
+          "unidad": "%",
+          "raw": "-0,2%"
+        },
+        {
+          "etiqueta": "PIB no minero",
+          "num": 0.4,
+          "unidad": "%",
+          "raw": "+0,4%"
+        }
+      ],
+      "seccion": "Economía",
+      "caption": "El Producto Interno Bruto cayó cero coma dos por ciento en el segundo trimestre, pero el PIB no minero aumentó, impulsado por servicios y comercio.",
+      "from": 55.538,
+      "to": 64.998
+    },
+    {
+      "tipo": "seccion",
+      "texto": "Deportes",
+      "from": 65.53800000000001,
+      "to": 89.135,
+      "overlay": true
+    },
+    {
+      "tipo": "tesis",
+      "texto": "Colo Colo gana el Superclásico doscientos y queda a trece puntos de la U.",
+      "from": 65.638,
+      "to": 70.351,
+      "seccion": "Deportes"
+    },
+    {
+      "tipo": "narracion",
+      "texto": "Colo Colo derrotó dos a uno a Universidad de Chile en el Estadio Nacional, en el Superclásico número doscientos de Primera División.",
+      "from": 70.991,
+      "to": 79.424,
+      "seccion": "Deportes",
+      "soporte": true
+    },
+    {
+      "tipo": "dato",
+      "grafico": "marcador",
+      "fuente": "ANFP, 23 ago 2026",
+      "series": [
+        {
+          "etiqueta": "Colo Colo",
+          "num": 2,
+          "unidad": "",
+          "raw": "2"
+        },
+        {
+          "etiqueta": "U. de Chile",
+          "num": 1,
+          "unidad": "",
+          "raw": "1"
+        }
+      ],
+      "seccion": "Deportes",
+      "caption": "Colo Colo derrotó dos a uno a Universidad de Chile en el Estadio Nacional, en el Superclásico número doscientos de Primera División.",
+      "from": 70.991,
+      "to": 79.424
+    },
+    {
+      "tipo": "narracion",
+      "texto": "Con el resultado, el líder llegó a cuarenta y nueve puntos, contra treinta y seis de la U, cuando quedan diez fechas por disputar.",
+      "from": 80.064,
+      "to": 88.595,
+      "seccion": "Deportes",
+      "soporte": true
+    },
+    {
+      "tipo": "dato",
+      "grafico": "tabla",
+      "fuente": "ANFP, 23 ago 2026",
+      "series": [
+        {
+          "etiqueta": "Colo Colo",
+          "num": 49,
+          "unidad": "",
+          "raw": "49"
+        },
+        {
+          "etiqueta": "U. de Chile",
+          "num": 36,
+          "unidad": "",
+          "raw": "36"
+        },
+        {
+          "etiqueta": "Ñublense",
+          "num": 32,
+          "unidad": "",
+          "raw": "32"
+        }
+      ],
+      "seccion": "Deportes",
+      "caption": "Con el resultado, el líder llegó a cuarenta y nueve puntos, contra treinta y seis de la U, cuando quedan diez fechas por disputar.",
+      "from": 80.064,
+      "to": 88.595
+    },
+    {
+      "tipo": "seccion",
+      "texto": "Cierre",
+      "from": 89.135,
+      "to": 101.048,
+      "overlay": true
+    },
+    {
+      "tipo": "tesis",
+      "texto": "Una reforma que buscaba velocidad ahora entra en una negociación más cuidadosa.",
+      "from": 89.235,
+      "to": 94.334,
+      "seccion": "Cierre"
+    },
+    {
+      "tipo": "narracion",
+      "texto": "Eso es lo que está pasando este domingo. Nos encontramos en la próxima.",
+      "from": 94.974,
+      "to": 99.848,
+      "seccion": "Cierre"
+    }
+  ]
+}

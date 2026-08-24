@@ -1,0 +1,21 @@
+{
+  "name": "canal-pipeline",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "parse": "node scripts/parse.js",
+    "studio": "remotion studio",
+    "render": "remotion render Informe out/video.mp4 --props=./out/timeline.json"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.515",
+    "@remotion/google-fonts": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.515"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.31",
+    "typescript": "^5.9.3"
+  }
+}
