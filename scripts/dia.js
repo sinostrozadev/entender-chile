@@ -16,6 +16,12 @@ const { execFileSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
+// sincronizar con lo que generó la automatización (best-effort)
+try {
+  require("child_process").execFileSync("git", ["pull", "--ff-only"], { stdio: "pipe" });
+  console.log("git pull: repositorio actualizado.");
+} catch { console.log("git pull: omitido (sin remoto o sin red)."); }
+
 const args = process.argv.slice(2);
 const conVoz = args.includes("--voz");
 const conRender = args.includes("--render");
@@ -33,6 +39,7 @@ if (!guion) {
     const dir = path.join("contenido", "guiones", "claves");
     const candidatos = fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => f.startsWith(fecha) && f.endsWith(".md")) : [];
     if (!candidatos.length) {
+      if (args.includes("--si-existe")) { console.log("Hoy no hay guion de Claves; nada que producir."); process.exit(0); }
       console.error(`No hay guion de Claves de hoy en ${dir}/${fecha}-*.md`);
       process.exit(1);
     }

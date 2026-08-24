@@ -3,6 +3,28 @@
 Convierte el guion diario (con las marcas definidas en los prompts) en un video
 1920×1080 renderizado por código con Remotion. Sin edición manual.
 
+## Automatización total (GitHub Actions)
+
+La generación ya no depende de ChatGPT ni de copy-paste: el workflow
+`.github/workflows/edicion-diaria.yml` corre cada madrugada, llama a la API de
+Claude con los prompts de `prompts/` (informe con búsqueda web, guiones sin
+búsqueda para fidelidad) y commitea todo a `contenido/`.
+
+Puesta en marcha (una vez):
+1. Crea el repositorio en GitHub (privado) y sube este proyecto.
+2. Consigue una API key en https://console.anthropic.com y cárgale crédito
+   (estimación: US$8–20/mes para la edición diaria completa; el informe usa
+   ~15 búsquedas web a US$10 por cada mil, más tokens del modelo — verifica
+   precios vigentes en https://docs.claude.com/en/docs/about-claude/pricing).
+3. En GitHub: Settings → Secrets and variables → Actions → New repository
+   secret → nombre `ANTHROPIC_API_KEY`.
+4. Pestaña Actions → "Edición diaria" → Run workflow (prueba manual).
+5. Revisa el commit "edición AAAA-MM-DD [bot]" y los archivos en contenido/.
+
+Desde entonces tu mañana es: `git pull` (dia.js lo hace solo) y el comando
+único de abajo. Las tareas de ChatGPT quedan como respaldo apagado.
+Prueba local sin gastar API: `node scripts/generar.js --simular`.
+
 ## Flujo diario (comando único)
 
 ```bash

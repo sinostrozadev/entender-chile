@@ -1,0 +1,74 @@
+name: Edición diaria
+
+on:
+  schedule:
+    # 09:00 UTC = 05:00 Chile en invierno (UTC-4) / 06:00 en verano (UTC-3).
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+    inputs:
+      simular:
+        description: "Textos simulados (no gasta API; solo prueba la maquinaria)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  edicion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: 1 · Generar textos de la edición
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generar.js ${{ inputs.simular && '--simular' || '' }}
+
+      - name: 2 · Commit de los textos (antes de renderizar, por si el render falla)
+        run: |
+          git config user.name "edicion-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add contenido/
+          git diff --cached --quiet || { git commit -m "edición $(TZ=America/Santiago date +%F) [bot]"; git push; }
+
+      - name: 3 · Producir video del informe (voz si hay secrets; si no, mudo)
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          VOICE_ID: ${{ secrets.VOICE_ID }}
+        run: |
+          if [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; then VOZ="--voz"; else VOZ=""; echo "Sin secrets de voz: video mudo de prueba."; fi
+          node scripts/dia.js $VOZ --render
+
+      - name: 4 · Producir video de la Clave (si hubo)
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          VOICE_ID: ${{ secrets.VOICE_ID }}
+        run: |
+          if [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; then VOZ="--voz"; else VOZ=""; fi
+          node scripts/dia.js --clave --si-existe $VOZ --render
+
+      - name: 5 · Commit de las descripciones
+        run: |
+          git add contenido/descripciones/ || true
+          git diff --cached --quiet || { git commit -m "descripciones $(TZ=America/Santiago date +%F) [bot]"; git pull --rebase; git push; }
+
+      - name: 6 · Publicar videos como release del día
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          FECHA=$(TZ=America/Santiago date +%F)
+          TAG="edicion-$FECHA"
+          gh release create "$TAG" --title "Edición $FECHA" \
+            --notes-file "contenido/descripciones/$FECHA-informe.txt" 2>/dev/null \
+            || echo "release ya existe, subiendo archivos"
+          gh release upload "$TAG" out/$FECHA/*.mp4 out/$FECHA/*.mp3 --clobber 2>/dev/null || gh release upload "$TAG" out/$FECHA/*.mp4 --clobber
