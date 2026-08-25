@@ -80,11 +80,13 @@ if (conVoz) {
 }
 
 console.log("── 3/4 · Timeline ────────────────────────────────");
-// serie y música de fondo para la composición (el sello y la cama musical)
+// serie, música de fondo y logo sonoro para la composición
 process.env.SERIE = etiqueta;
 const musicaRel = `musica/${etiqueta}.mp3`;
 if (fs.existsSync(path.join("public", musicaRel))) process.env.MUSICA = musicaRel;
 else delete process.env.MUSICA;
+if (fs.existsSync(path.join("public", "musica", "logo.mp3"))) process.env.LOGO = "musica/logo.mp3";
+else delete process.env.LOGO;
 run("build-timeline.js", [
   path.join(OUT, "parsed.json"),
   path.join(OUT, "alignment.json"),

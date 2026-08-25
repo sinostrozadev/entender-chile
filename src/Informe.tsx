@@ -11,6 +11,7 @@ export type Timeline = {
     fecha?: string;              // AAAA-MM-DD (Chile), para el sello de inicio
     serie?: string;              // "informe" | "clave"
     musica?: string | null;      // ruta en public/, ej. "musica/informe.mp3"
+    logo?: string | null;        // logo sonoro del sello (2 s)
     fps: number;
     width: number;
     height: number;
@@ -71,6 +72,12 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
       {tl.meta.musica ? (
         // cama musical: baja bajo la voz, protagonista mientras el video es mudo
         <Audio src={staticFile(tl.meta.musica)} volume={tl.audio ? 0.1 : 0.3} loop />
+      ) : null}
+      {tl.meta.logo ? (
+        // logo sonoro: suena junto al sello de identidad
+        <Sequence from={0} durationInFrames={Math.round(2.4 * fps)}>
+          <Audio src={staticFile(tl.meta.logo)} volume={0.5} />
+        </Sequence>
       ) : null}
       {tarjetas.map((ev, i) => (
         <Sequence key={i} from={f(ev.from)} durationInFrames={Math.max(1, f(ev.to) - f(ev.from) + HOLD)}>

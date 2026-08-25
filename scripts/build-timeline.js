@@ -97,6 +97,7 @@ const timeline = {
     }).format(new Date()),
     serie: process.env.SERIE || "informe",          // informe | clave (lo fija dia.js)
     musica: process.env.MUSICA || null,             // ej. "musica/informe.mp3" en public/
+    logo: process.env.LOGO || null,                 // logo sonoro del sello (2 s)
     fps: 30,
     width: 1920,
     height: 1080,
