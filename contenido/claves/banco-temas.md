@@ -1,0 +1,4 @@
+- controles institucionales de los estados de excepción | Gobierno pone en pausa su reforma constitucional de seguridad y abre la puerta a cambios | 2026-08-25
+- auditorías de Contraloría y recuperación de recursos públicos | Contraloría detecta pagos irregulares en subsidios de arriendo y el Minvu abre un sumario | 2026-08-25
+- sanciones económicas internacionales y sanciones secundarias | Estados Unidos amplía las sanciones contra Irán y Teherán promete responder | 2026-08-25
+- extradición y cooperación penal internacional | Chile solicita a Estados Unidos extradición de integrantes del Tren de Aragua | 2026-08-25
