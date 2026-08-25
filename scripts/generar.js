@@ -26,7 +26,7 @@ const MODELO = process.env.MODELO || "claude-sonnet-4-6";
 const WS_TYPE = process.env.WEB_SEARCH_TYPE || "web_search_20250305";
 const KEY = process.env.ANTHROPIC_API_KEY;
 
-const fecha = new Intl.DateTimeFormat("en-CA", {
+const fecha = process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
   timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
 }).format(new Date());
 

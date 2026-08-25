@@ -28,8 +28,9 @@ const conRender = args.includes("--render");
 const esClave = args.includes("--clave");
 const rutaExplicita = args.find((a) => !a.startsWith("--"));
 
-// fecha local de Chile
-const fecha = new Intl.DateTimeFormat("en-CA", {
+// fecha local de Chile (FECHA_EDICION la fija el workflow para que un job
+// que cruza la medianoche siga hablando de la misma edición)
+const fecha = process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
   timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
 }).format(new Date()); // AAAA-MM-DD
 
@@ -79,6 +80,11 @@ if (conVoz) {
 }
 
 console.log("── 3/4 · Timeline ────────────────────────────────");
+// serie y música de fondo para la composición (el sello y la cama musical)
+process.env.SERIE = etiqueta;
+const musicaRel = `musica/${etiqueta}.mp3`;
+if (fs.existsSync(path.join("public", musicaRel))) process.env.MUSICA = musicaRel;
+else delete process.env.MUSICA;
 run("build-timeline.js", [
   path.join(OUT, "parsed.json"),
   path.join(OUT, "alignment.json"),

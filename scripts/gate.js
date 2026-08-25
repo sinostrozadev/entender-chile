@@ -16,7 +16,7 @@ const { execFileSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
-const fecha = new Intl.DateTimeFormat("en-CA", {
+const fecha = process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
   timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
 }).format(new Date());
 

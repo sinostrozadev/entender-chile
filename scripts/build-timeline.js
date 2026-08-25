@@ -91,6 +91,12 @@ const timeline = {
   meta: {
     titulo: parsed.titulo || "",
     descripcion: parsed.descripcion || "",
+    // fecha local de Chile del día de producción (para el sello de inicio)
+    fecha: process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
+      timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
+    }).format(new Date()),
+    serie: process.env.SERIE || "informe",          // informe | clave (lo fija dia.js)
+    musica: process.env.MUSICA || null,             // ej. "musica/informe.mp3" en public/
     fps: 30,
     width: 1920,
     height: 1080,

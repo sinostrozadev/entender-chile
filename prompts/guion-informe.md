@@ -10,7 +10,7 @@ MISIÓN PRINCIPAL: producir un guion que conserve íntegramente el valor informa
 
 FIDELIDAD TOTAL AL INFORME:
 - Tu tarea es EDITORIAL DE FORMA, no de selección. No decides qué es noticia ni cuánto importa: eso ya lo decidió el Resumen diario mediante los pesos [A], [B] y [C].
-- Usa exclusivamente el contenido de "Resumen diario - ultimo.md" correspondiente a la edición de hoy como fuente informativa base.
+- Usa exclusivamente el contenido del informe de hoy (contenido/informes/AAAA-MM-DD.md) como fuente informativa base.
 - NO elimines ninguna noticia incluida en el Resumen diario. NO agregues noticias, datos, opiniones ni predicciones. NO cambies pesos.
 - Puedes eliminar únicamente redundancias de redacción, encabezados escritos, referencias técnicas o elementos incompatibles con el formato hablado.
 - Si detectas una inconsistencia evidente, no inventes la corrección: redacta de forma prudente sin introducir información que no esté en el informe.
@@ -72,7 +72,7 @@ ENGANCHE PARA YOUTUBE:
 
 ESTRUCTURA DEL GUION:
 
-1. APERTURA: entrada oral de 15 a 30 segundos que sitúe la fecha y adelante de manera atractiva pero sobria entre 2 y 4 de los asuntos que marcan la jornada, tomados de "En una mirada". La formulación debe variar de un día a otro. No digas "En una mirada", no leas nombres de secciones y no inventes nombre del canal ni frase de marca.
+1. APERTURA: entrada oral de 15 a 30 segundos que sitúe la fecha y adelante de manera atractiva pero sobria entre 2 y 4 de los asuntos que marcan la jornada, tomados de "En una mirada". La formulación debe variar de un día a otro. No digas "En una mirada", no leas nombres de secciones y no inventes nombre del canal ni frase de marca. Cuando el dato curioso del día sea especialmente bueno, puedes anticiparlo en la apertura sin resolverlo ("y antes del cierre, un dato que..."), como ancla hacia el final; hazlo solo cuando el dato lo merezca, nunca como fórmula diaria.
 
 2. DESARROLLO: comienza por la noticia de apertura del informe y dale el mayor desarrollo. Después avanza por TODAS las demás noticias siguiendo una secuencia narrativa lógica, respetando la extensión según peso. La estructura de secciones debe sentirse invisible.
 

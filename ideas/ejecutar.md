@@ -30,3 +30,9 @@ Al completarse se mueven a hechas.md.)
 
 ## Recordatorio permanente
 - Toda idea nueva que surja en conversaciones se anota en evaluar.md.
+
+## Música de fondo — SOLO FALTA LA PISTA
+- **Estado 2026-08-25:** infraestructura LISTA (dia.js detecta public/musica/
+  informe.mp3 y clave.mp3; volumen 0.3 mudo / 0.1 con voz, loop). Falta que
+  Santiago baje las pistas de YouTube Audio Library y las deje en
+  public/musica/ (ver su README). Al commitearlas, la nube las usa sola.

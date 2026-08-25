@@ -13,3 +13,11 @@
 - **Fecha:** 2026-08-24 · **Origen:** Santiago
 - **Qué:** backlog persistente en ideas/ con etapas evaluar → ejecutar →
   hechas / descartadas, commiteado en el repo.
+
+## Sello de identidad al inicio (2026-08-25)
+- 2,8 s bajo la narración: eyebrow de la serie, "Entender Chile" en Fraunces,
+  línea pátina y fecha del día; fade a la primera tarjeta. Verificado en still.
+
+## Mini-gancho del dato curioso (2026-08-25)
+- Línea agregada a la APERTURA de prompts/guion-informe.md: anticipar el dato
+  sin resolverlo, solo cuando lo merezca.

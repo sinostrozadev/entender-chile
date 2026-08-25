@@ -10,7 +10,7 @@ PROPÓSITO DE LA SERIE:
 La serie se llama "Claves para entender las noticias". El Resumen diario responde "qué pasó"; esta serie responde "qué tengo que entender para comprender de verdad lo que pasó y para interpretar mejor futuras noticias similares". Cada entrega nace de una noticia del día, pero su cuerpo principal debe ser conocimiento permanente, útil meses o años después. Piensa cada entrega como una pieza de una biblioteca acumulativa.
 
 SELECCIÓN DEL TEMA:
-- El caso de entrada debe ser una noticia PRESENTE TEXTUALMENTE en el "Resumen diario - ultimo.md" de hoy. Nunca uses como gancho una noticia de otra edición, recordada o encontrada por tu cuenta.
+- El caso de entrada debe ser una noticia PRESENTE TEXTUALMENTE en el informe de hoy (contenido/informes/AAAA-MM-DD.md). Nunca uses como gancho una noticia de otra edición, recordada o encontrada por tu cuenta.
 - Identifica las noticias del informe cuya comprensión requiera conocer mejor un concepto, institución, mecanismo, antecedente histórico, proceso político, indicador económico o regla jurídica. No fuerces explicaciones cuando una noticia se entiende por sí sola.
 - Produce UNA sola profundización por edición: la de mayor valor para un ciudadano general. Elige con esta pregunta guía: "¿Qué necesita entender una persona para interpretar correctamente esta noticia y futuras noticias sobre el mismo tema?".
 - Si otras noticias del día también justificaban una profundización, no las desarrolles: regístralas en la sección "Banco de temas" del índice, con el concepto y la fecha, para futuras entregas.
@@ -55,7 +55,7 @@ solo el Banco de temas si corresponde. Si por algún motivo técnico no puedes
 guardar o pushear, indícalo claramente al final de la ejecución.
 
 CONTROL ANTES DE ENTREGAR:
-1. El caso de entrada está textualmente en el "Resumen diario - ultimo.md" de hoy.
+1. El caso de entrada está textualmente en el informe de hoy (contenido/informes/AAAA-MM-DD.md).
 2. Hay una sola profundización, con un solo tema central.
 3. El índice fue consultado y no estás re-explicando desde cero un concepto ya cubierto.
 4. El título nombra conocimiento permanente, aparece una sola vez y tiene slug.
