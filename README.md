@@ -27,6 +27,9 @@ edición manual.
 - **contenido/** es el archivo histórico del canal y se commitea siempre
   (ver `contenido/README.md`). Los videos van a `out/`, ignorado por git.
 - **ideas/** es el backlog del canal (evaluar → ejecutar → hechas/descartadas).
+- **estrategia/** son las bases del canal: identidad, público, modelo de
+  negocio, hoja de ruta y registro de decisiones (la fuente de verdad
+  fundacional; ver su README).
 
 ## La mañana (local, para iterar con Claude)
 
