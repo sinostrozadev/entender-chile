@@ -7,8 +7,7 @@ registrar la decisión en decisiones.md.
 
 ## Fase 0 - Fundamentos (papel y decisiones, esta semana)
 
-- [x] Validar `identidad.md` - APROBADA en general (2026-08-25); quedan
-      por incorporar los ajustes puntuales de Santiago.
+- [x] `identidad.md` DECIDIDA (2026-08-25), ajustes incorporados.
 - [x] Tagline DECIDIDA (2026-08-25): "El resumen sin gritos".
 - [x] Perfil primario DECIDIDO (2026-08-25): "el ciudadano ocupado".
 - [ ] Alinear el escaparate del canal en YouTube con la identidad:

@@ -31,10 +31,12 @@ secundario (busca conceptos, llega a Claves) suma pero no desempata.
 **Por qué**: calza con el producto principal (informe diario a hora fija)
 y con el mejor CPM. **Decidió**: Santiago.
 
-## 2026-08-25 - Identidad aprobada en general, con ajustes pendientes
-**Qué**: estrategia/identidad.md pasa de BORRADOR a base oficial; los
-ajustes puntuales de Santiago se incorporarán cuando los detalle.
-**Decidió**: Santiago.
+## 2026-08-25 - Identidad DECIDIDA
+**Qué**: estrategia/identidad.md es la base oficial. Los ajustes de
+Santiago fueron dos, ya aplicados: (1) cero jerga interna del pipeline en
+documentos fundacionales (los pesos [A]/[B]/[C] se quedan en prompts/);
+(2) cero rayas largas en todo el proyecto, con regla en los prompts para
+que el contenido generado tampoco las use. **Decidió**: Santiago.
 
 ## 2026-08-25 - El trabajo de Claude se pushea directo a main
 **Qué**: permiso explícito de Santiago para commitear directo a main, sin

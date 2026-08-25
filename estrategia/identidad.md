@@ -1,8 +1,8 @@
 # Identidad - qué es Entender Chile
 
-Estado: APROBADA CON AJUSTES EN CURSO (2026-08-25). Santiago aprobó el
-borrador en general; sus ajustes puntuales están pendientes de incorporar.
-Tagline y público primario: DECIDIDOS (ver decisiones.md).
+Estado: DECIDIDA (2026-08-25). Aprobada por Santiago con dos ajustes ya
+incorporados: sin jerga interna del pipeline y sin rayas largas. Tagline y
+público primario también decididos (ver decisiones.md).
 
 ## En una frase
 
