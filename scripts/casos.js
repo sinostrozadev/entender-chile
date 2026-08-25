@@ -42,8 +42,8 @@ function regenerarIndice() {
       archivo: path.basename(p),
       caso: campo(t, /^# Caso:\s*(.+)$/m),
       estado: campo(t, /^Estado:\s*(\S+)/m),
-      confirmado: cifra(campo(t, /Monto CONFIRMADO por fuente oficial:\s*(.+)$/m)),
-      recuperado: cifra(campo(t, /Dinero recuperado a la fecha:\s*(.+)$/m)),
+      confirmado: cifra(campo(t, /Monto CONFIRMADO[^:\n]*:\s*(.+)$/m)),
+      recuperado: cifra(campo(t, /Dinero recuperado[^:\n]*:\s*(.+)$/m)),
       actualizado: campo(t, /Última actualización:\s*([0-9]{4}-[0-9]{2}-[0-9]{2})/),
     };
   });
