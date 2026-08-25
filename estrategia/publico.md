@@ -1,10 +1,13 @@
 # Público objetivo — para quién es esto
 
-Estado: HIPÓTESIS v1 (2026-08-25). No hay analítica real todavía: estos
-perfiles se validan contra YouTube Analytics en la semana 4 (demografía,
-dispositivos, fuentes de tráfico, retención por video).
+Estado: PERFIL PRIMARIO DECIDIDO (2026-08-25): "el ciudadano ocupado".
+Para él se escriben los títulos, se eligen los temas y se fija el horario;
+el perfil secundario llega igual (vía Claves) pero no manda en los empates.
+Las características internas de cada perfil siguen siendo HIPÓTESIS a
+validar contra YouTube Analytics en la semana 4 (demografía, dispositivos,
+fuentes de tráfico, retención por video).
 
-## Perfil primario (hipótesis): "el ciudadano ocupado"
+## Perfil primario — DECIDIDO: "el ciudadano ocupado"
 
 Chileno/a de 25 a 55 años. Trabaja, le interesa la actualidad, pero
 desconfía de los matinales y las redes lo agotan. Quiere, en diez minutos y

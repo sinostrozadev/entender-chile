@@ -15,6 +15,25 @@ confianza declarado).
   primeros 1.000 subs (caso citable: ~157 días con 60 videos). Desconfiar
   de cualquier promesa de "semanas".
 
+## Calendario hacia atrás (PROPUESTO, pendiente de OK de Santiago)
+
+Desde hoy (25-ago-2026) al deadline hay ~5 meses. Propuesta de hitos:
+
+| Cuándo | Hito | Criterio de éxito |
+|--------|------|-------------------|
+| Sep 2026 | Voz clonada + cumplimiento IA operativos | Primer video CON voz, marcado "contenido alterado", QA humano hecho |
+| Sep–Oct 2026 | Masa crítica y lanzamiento | 8–10 videos publicados en 2–3 semanas; 1–2 Claves ancla; horario fijo sostenido |
+| Oct 2026 | Distribución encendida | Shorts/clips + canal WhatsApp + Ko-fi/Patreon activos |
+| Nov 2026 | Primera revisión con datos | Hipótesis de publico.md validadas/corregidas; decidir dónde doblar la apuesta |
+| Dic 2026–Ene 2027 | Empuje final | Revisión semanal de subs/horas contra el umbral; auspicio local si hay tracción |
+| Antes del 1-feb-2027 | Postular al YPP | Con las reglas actuales (1.000 subs / 4.000 h) |
+
+Advertencia honesta: llegar al umbral completo en 5 meses es AMBICIOSO
+(el caso citable tomó ~5 meses solo para los 1.000 subs, con 60 videos).
+El calendario sirve igual: si en noviembre los datos dicen que no alcanza,
+se decide con evidencia si empujar Shorts (10M vistas/90 días) o asumir
+el umbral 2027 — pero se decide, no se descubre en enero.
+
 ## Requisitos no negociables (sin esto no hay monetización)
 
 1. **Voz clonada operativa.** Los videos mudos rozan la definición de

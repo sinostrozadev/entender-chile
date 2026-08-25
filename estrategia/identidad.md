@@ -1,7 +1,8 @@
 # Identidad — qué es Entender Chile
 
-Estado: BORRADOR v1 (2026-08-25). Redactado desde lo que ya estaba implícito
-en prompts/, README.md y src/tema.ts. Pendiente de validación de Santiago.
+Estado: APROBADA CON AJUSTES EN CURSO (2026-08-25). Santiago aprobó el
+borrador en general; sus ajustes puntuales están pendientes de incorporar.
+Tagline y público primario: DECIDIDOS (ver decisiones.md).
 
 ## En una frase
 
@@ -66,8 +67,19 @@ Profesor particular brillante: cercano, sobrio, inteligente, humano. Español
 de Chile neutro. Preguntas retóricas con mesura, cero grosería, cero
 locutor engolado.
 
-## Tagline
+## Tagline — DECIDIDA (2026-08-25)
 
-Candidata: **"El resumen sin gritos"** (ya propuesta en ideas/IMPLEMENTAR.md).
-[POR DEFINIR — Santiago] Validarla o proponer alternativas; una vez elegida
-va en: descripción del canal, cierre de cada video, banner, y bio de redes.
+**"El resumen sin gritos."**
+
+Va en: descripción del canal, cierre de cada video, banner y bio de redes.
+
+## Descripción del canal (borrador para YouTube → Información)
+
+> Las noticias de Chile, explicadas en diez minutos y sin gritos. Cada
+> mañana, un informe con lo que de verdad importa: jerarquizado, con las
+> fuentes a la vista y los hechos separados de las interpretaciones. Y en
+> la serie Claves, los conceptos que necesitas para entender las próximas
+> noticias, no solo las de hoy. El resumen sin gritos.
+
+[POR DEFINIR — Santiago] Validar este texto antes de pegarlo en YouTube
+Studio; al usarlo, mantenerlo idéntico en las bios de redes.

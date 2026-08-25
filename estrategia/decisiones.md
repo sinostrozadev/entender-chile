@@ -18,6 +18,30 @@ auspicios) necesitan una fuente de verdad, y el registro de decisiones es
 además evidencia de cumplimiento YPP. **Evidencia**:
 ideas/investigacion-crecimiento-2026-08-25.md, dimensión 6.
 
+## 2026-08-25 — Tagline: "El resumen sin gritos"
+**Qué**: tagline oficial del canal, para descripción, cierre de videos,
+banner y bios. **Por qué**: nombra el diferenciador real (sobriedad frente
+a matinales y redes) y es memorable; venía propuesta del backlog y Santiago
+la eligió entre alternativas. **Decidió**: Santiago.
+
+## 2026-08-25 — Público primario: "el ciudadano ocupado"
+**Qué**: 25–55 años, trabaja, quiere informarse y entender en ~10 min por
+la mañana. Manda en títulos, selección de temas y horario; el perfil
+secundario (busca conceptos, llega a Claves) suma pero no desempata.
+**Por qué**: calza con el producto principal (informe diario a hora fija)
+y con el mejor CPM. **Decidió**: Santiago.
+
+## 2026-08-25 — Identidad aprobada en general, con ajustes pendientes
+**Qué**: estrategia/identidad.md pasa de BORRADOR a base oficial; los
+ajustes puntuales de Santiago se incorporarán cuando los detalle.
+**Decidió**: Santiago.
+
+## 2026-08-25 — El trabajo de Claude se pushea directo a main
+**Qué**: permiso explícito de Santiago para commitear directo a main, sin
+rama intermedia ni PR. **Por qué**: main es lo que leen la automatización
+de madrugada y el workflow; una rama paralela solo agrega fricción a un
+repo de un solo dueño. **Decidió**: Santiago.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 - **Firma epistémica del canal**: toda cifra con fuente visible en pantalla;

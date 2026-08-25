@@ -7,10 +7,10 @@ registrar la decisión en decisiones.md.
 
 ## Fase 0 — Fundamentos (papel y decisiones, esta semana)
 
-- [ ] Validar/corregir `identidad.md`: misión, propuesta de valor, qué NO
-      es, tono. — Santiago
-- [ ] Decidir la tagline ("El resumen sin gritos" es la candidata).
-- [ ] Elegir el perfil primario de `publico.md` y escribir para él.
+- [x] Validar `identidad.md` — APROBADA en general (2026-08-25); quedan
+      por incorporar los ajustes puntuales de Santiago.
+- [x] Tagline DECIDIDA (2026-08-25): "El resumen sin gritos".
+- [x] Perfil primario DECIDIDO (2026-08-25): "el ciudadano ocupado".
 - [ ] Alinear el escaparate del canal en YouTube con la identidad:
       descripción del canal, banner, avatar, trailer, secciones de inicio.
 - [ ] Fijar la meta con fecha y calendario hacia atrás: YPP antes del
