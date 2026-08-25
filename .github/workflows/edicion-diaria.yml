@@ -43,6 +43,12 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/generar.js ${{ inputs.simular && '--simular' || '' }}
 
+      - name: 1b · Observatorio de casos (novedades + índice; no bloquea la edición)
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/casos.js
+
       - name: 2 · Commit de los textos (antes de renderizar, por si el render falla)
         run: |
           git config user.name "edicion-bot"

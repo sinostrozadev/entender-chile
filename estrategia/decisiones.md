@@ -44,6 +44,16 @@ rama intermedia ni PR. **Por qué**: main es lo que leen la automatización
 de madrugada y el workflow; una rama paralela solo agrega fricción a un
 repo de un solo dueño. **Decidió**: Santiago.
 
+## 2026-08-25 - Observatorio de la plata pública: recopilar desde ya
+**Qué**: se crea contenido/casos/ (dossiers vivos por caso de fondos
+públicos mal usados, con reglas de rigor estrictas) y su actualización
+diaria automática (scripts/casos.js en la madrugada). La recopilación de
+datos queda decidida; el formato de publicación (reportaje mensual,
+mega-informe, contador) queda en evaluación en ideas/evaluar.md.
+**Por qué**: el seguimiento sostenido de casos es un vacío de los medios
+grandes y calza con la identidad del canal; acumular primero permite
+decidir el formato con material real. **Decidió**: Santiago.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 - **Firma epistémica del canal**: toda cifra con fuente visible en pantalla;

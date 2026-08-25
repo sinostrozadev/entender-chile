@@ -28,6 +28,20 @@ Al completarse se mueven a hechas.md.)
 - **Valor:** evita subir un error factual a YouTube sin retrasar la mañana.
 - **Esfuerzo:** bajo (crear la rutina con /schedule). Pendiente de OK.
 
+## Observatorio de la plata pública 💰💰
+- **Fecha:** 2026-08-25 · **Origen:** Santiago · **Aprobada:** 2026-08-25
+  (la recopilación; los formatos de presentación siguen en evaluar.md)
+- **Qué:** dossiers vivos por caso de uso irregular de fondos públicos en
+  contenido/casos/ (formato y reglas de rigor en su README), actualizados a
+  diario por scripts/casos.js con búsqueda web (corre en la madrugada, no
+  bloquea la edición). Primeros dos casos: subsidios de arriendo (Contraloría
+  314-2026) y el caso JUNAEB/JUNJI en investigación.
+- **Valor:** nadie hace seguimiento sostenido de estos casos; el archivo
+  acumulado alimenta Claves, reportajes y una futura pieza "cuánto dinero
+  público se ha perdido". Diferenciador editorial fuerte y material evergreen.
+- **Esfuerzo:** infra lista (2026-08-25); costo marginal diario bajo (1
+  llamada API con búsqueda por caso abierto).
+
 ## Recordatorio permanente
 - Toda idea nueva que surja en conversaciones se anota en evaluar.md.
 

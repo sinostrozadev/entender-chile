@@ -57,3 +57,31 @@ madrugada" en ejecutar.md, 2026-08-24.)
   noticias"; las Claves atemporales se prestan al binge.
 - **Valor:** el algoritmo premia sesiones largas encadenadas.
 - **Esfuerzo:** trivial (configuración en YouTube Studio).
+
+## Formatos de presentación del observatorio de la plata pública
+- **Fecha:** 2026-08-25 · **Origen:** Santiago (idea original) + Claude (estructura)
+- **Qué:** decidir cómo se publica lo que acumula contenido/casos/. Opciones
+  a evaluar, combinables:
+  1. Sección mensual tipo REPORTAJE (un día fijo al mes, video especial que
+     repasa el estado de todos los casos: qué avanzó, qué se durmió, cuánto
+     se ha recuperado).
+  2. Mega-informe anual "la cuenta de la plata perdida": suma de montos
+     confirmados de todos los casos, comparada con cosas concretas (cuántas
+     viviendas, cuántos años de JUNAEB equivalen), con la metodología a la
+     vista.
+  3. Contador acumulado como tarjeta recurrente en el informe diario cuando
+     un caso tenga novedades.
+  4. Estadísticas transversales cuando haya masa crítica de casos: por
+     institución, por región, por cargo, por partido, tiempo promedio hasta
+     sanción, % de dinero recuperado. Con umbral mínimo de casos para no
+     inferir de 2 datos.
+- **Valor:** convierte el archivo en piezas de alto interés público y
+  búsqueda permanente; potencial de viralidad alto con datos duros.
+- **Cuidados editoriales (van con la idea):** montos confirmados vs
+  reportados siempre separados; presunción de inocencia estricta (el "roban"
+  coloquial no puede aparecer: se publica lo que consta en fuentes oficiales
+  y su estado procesal); las estadísticas por partido solo con metodología
+  explícita y muestra suficiente, o se vuelven munición partidista y rompen
+  la identidad apolítica del canal.
+- **Esfuerzo:** medio por pieza (el dato ya estará acumulado; el trabajo es
+  guion y diseño).
