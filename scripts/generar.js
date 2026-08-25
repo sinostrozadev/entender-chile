@@ -76,7 +76,26 @@ const SIM = {
 };
 
 async function main() {
-  if (!SIMULAR && !KEY) { console.error("Falta ANTHROPIC_API_KEY (o usa --simular)."); process.exit(1); }
+  // Flujo normal: la edición la genera ChatGPT de madrugada y la pushea a
+  // contenido/. Este script solo actúa como PLAN B si ese proceso falló.
+  const hayInforme = fs.existsSync(path.join("contenido", "informes", `${fecha}.md`));
+  const hayGuionInf = fs.existsSync(path.join("contenido", "guiones", "informe", `${fecha}.md`));
+  const claveHoy = fs.existsSync(path.join("contenido", "claves"))
+    ? fs.readdirSync(path.join("contenido", "claves")).find((f) => f.startsWith(fecha) && f.endsWith(".md"))
+    : null;
+  const hayGuionClave = !!claveHoy && fs.existsSync(path.join("contenido", "guiones", "claves", claveHoy));
+  if (!FORZAR && hayInforme && hayGuionInf && (!claveHoy || hayGuionClave)) {
+    console.log(`Edición del ${fecha} completa en contenido/ (la subió el generador de madrugada). Nada que generar.`);
+    return;
+  }
+  if (!SIMULAR && !KEY) {
+    const faltan = [
+      !hayInforme && "informe", !hayGuionInf && "guion del informe",
+      claveHoy && !hayGuionClave && "guion de la clave",
+    ].filter(Boolean).join(", ");
+    console.error(`Edición del ${fecha} INCOMPLETA (faltan: ${faltan || "?"}) y no hay ANTHROPIC_API_KEY para completarla (o usa --simular).`);
+    process.exit(1);
+  }
   console.log(`Edición del ${fecha} · modelo ${MODELO}${SIMULAR ? " · MODO SIMULADO" : ""}\n`);
 
   // ── 1. Informe ────────────────────────────────────────────────

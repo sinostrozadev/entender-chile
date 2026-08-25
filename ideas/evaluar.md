@@ -1,20 +1,7 @@
 # Ideas para evaluar
 
-## Shorts automáticos 💰
-- **Fecha:** 2026-08-24 · **Origen:** Claude
-- **Qué:** composición Remotion vertical (1080×1920) que tome 1–2 secciones del
-  timeline y genere 2–3 Shorts diarios del mismo contenido. La Clave es la
-  fuente ideal: conceptual y atemporal.
-- **Valor:** vía rápida a los 1.000 suscriptores; 10M vistas Shorts en 90 días
-  es ruta alternativa de monetización. Costo marginal ~cero.
-- **Esfuerzo:** medio (nueva composición + recorte del timeline).
-
-## Miniaturas automáticas
-- **Fecha:** 2026-08-24 · **Origen:** Claude
-- **Qué:** generar la miniatura del día con Remotion (still 1280×720 con el
-  titular principal + identidad visual del canal).
-- **Valor:** el CTR es la variable #1 de ingresos; hoy no hay miniatura.
-- **Esfuerzo:** bajo (composición de 1 frame + `remotion still`).
+(Shorts automáticos y Miniaturas automáticas → movidas a ejecutar.md el
+2026-08-24 con aprobación de Santiago.)
 
 ## Acortar el informe a 8–10 min
 - **Fecha:** 2026-08-24 · **Origen:** Claude
@@ -49,10 +36,5 @@
 - **Esfuerzo:** bajo por réplica, PERO solo tiene sentido después de validar
   Chile. Largo plazo.
 
-## Paso revisor de calidad matinal
-- **Fecha:** 2026-08-24 · **Origen:** Claude
-- **Qué:** cada mañana, antes de dar por buena la edición, revisar el guion
-  contra el informe (cifras, fechas, coherencia, secciones obligatorias).
-  Puede ser checklist automático (script) + revisión de Claude.
-- **Valor:** evita subir un error factual a YouTube. Gratis.
-- **Esfuerzo:** bajo.
+(Paso revisor de calidad → evolucionó a "Revisión de calidad automática de
+madrugada" en ejecutar.md, 2026-08-24.)

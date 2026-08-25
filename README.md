@@ -1,75 +1,57 @@
-# Pipeline del canal — guion marcado → voz → video
+# Entender Chile — pipeline del canal
 
-Convierte el guion diario (con las marcas definidas en los prompts) en un video
-1920×1080 renderizado por código con Remotion. Sin edición manual.
+Canal diario de noticias chilenas en YouTube, producido por código. El guion
+marcado se convierte en un video 1920×1080 renderizado con Remotion. Sin
+edición manual.
 
-## Automatización total (GitHub Actions)
+## Cómo funciona de verdad (la madrugada)
 
-La generación ya no depende de ChatGPT ni de copy-paste: el workflow
-`.github/workflows/edicion-diaria.yml` corre cada madrugada, llama a la API de
-Claude con los prompts de `prompts/` (informe con búsqueda web, guiones sin
-búsqueda para fidelidad) y commitea todo a `contenido/`.
+```
+04:00  ChatGPT genera la edición con los prompts de prompts/ y la PUSHEA:
+       contenido/informes/AAAA-MM-DD.md          (informe fuente)
+       contenido/guiones/informe/AAAA-MM-DD.md   (guion del video diario)
+       contenido/claves/AAAA-MM-DD-<slug>.md     (Clave, si corresponde)
+       contenido/guiones/claves/AAAA-MM-DD-….md  (guion de la Clave)
+05:00  GitHub Actions ("Edición diaria", 09:00 UTC) hace checkout, verifica
+       que la edición esté completa, renderiza los MP4 (mudos mientras no haya
+       secrets de voz) y publica el release "edicion-AAAA-MM-DD" con los videos
+       y la descripción lista para YouTube.
+06:00  Santiago revisa el video en el release y la revisión de calidad.
+```
 
-Puesta en marcha (una vez):
-1. Crea el repositorio en GitHub (privado) y sube este proyecto.
-2. Consigue una API key en https://console.anthropic.com y cárgale crédito
-   (estimación: US$8–20/mes para la edición diaria completa; el informe usa
-   ~15 búsquedas web a US$10 por cada mil, más tokens del modelo — verifica
-   precios vigentes en https://docs.claude.com/en/docs/about-claude/pricing).
-3. En GitHub: Settings → Secrets and variables → Actions → New repository
-   secret → nombre `ANTHROPIC_API_KEY`.
-4. Pestaña Actions → "Edición diaria" → Run workflow (prueba manual).
-5. Revisa el commit "edición AAAA-MM-DD [bot]" y los archivos en contenido/.
+- **prompts/** es la única fuente de verdad de los prompts: se editan aquí, se
+  commitean, y ChatGPT los lee desde aquí antes de ejecutar su tarea.
+- **scripts/generar.js** es el PLAN B: si la edición del día está completa no
+  hace nada; si falta algo y hay `ANTHROPIC_API_KEY`, la completa con la API
+  de Claude; si falta algo y no hay key, falla ruidosamente (workflow en rojo).
+- **contenido/** es el archivo histórico del canal y se commitea siempre
+  (ver `contenido/README.md`). Los videos van a `out/`, ignorado por git.
+- **ideas/** es el backlog del canal (evaluar → ejecutar → hechas/descartadas).
 
-Desde entonces tu mañana es: `git pull` (dia.js lo hace solo) y el comando
-único de abajo. Las tareas de ChatGPT quedan como respaldo apagado.
-Prueba local sin gastar API: `node scripts/generar.js --simular`.
-
-## Flujo diario (comando único)
+## La mañana (local, para iterar con Claude)
 
 ```bash
-# 1. Copia el guion de la Biblioteca a: contenido/guiones/informe/AAAA-MM-DD.md
-# 2. Un solo comando hace todo:
-node scripts/dia.js --voz --render        # informe de hoy, voz real, MP4
-node scripts/dia.js                       # modo prueba: voz simulada, sin créditos
-node scripts/dia.js --clave --voz --render  # video de Claves de hoy
+bash scripts/manana.sh     # pull + produce informe y clave (mudos)
+                           # + apunta el Studio al timeline de HOY
+npx remotion studio        # previsualizar en http://localhost:3000
 ```
 
-Salidas del día en `out/AAAA-MM-DD/` (video incluido) y la descripción lista
-para pegar en YouTube (resumen + capítulos + fuentes) en
-`contenido/descripciones/`. La estructura de `contenido/` es la fuente de
-verdad del canal y se commitea; ver `contenido/README.md`.
+`manana.sh` reapunta `src/Root.tsx` a `out/AAAA-MM-DD/timeline.json` como
+cambio LOCAL — ese archivo modificado no se commitea (la versión del repo
+importa el ejemplo, que es lo que la nube necesita para el build).
 
-## Flujo paso a paso (lo que dia.js hace por dentro)
-
-```
-guion.md (del agente de guion, copiado de la Biblioteca)
-   │  node scripts/parse.js guion.md out/
-   ▼
-out/parsed.json + out/narracion.txt
-   │  ELEVENLABS_API_KEY=... VOICE_ID=... node scripts/tts-elevenlabs.js out/narracion.txt out/
-   │  (o SIN gastar créditos:  node scripts/mock-tts.js out/narracion.txt out/alignment.json)
-   ▼
-out/narracion.mp3 + out/alignment.json
-   │  node scripts/build-timeline.js out/parsed.json out/alignment.json out/timeline.json narracion.mp3
-   ▼
-out/timeline.json
-   │  cp out/narracion.mp3 public/
-   │  npx remotion render Informe out/video.mp4 --props=./out/timeline.json
-   ▼
-out/video.mp4  →  escucha completa → disclosure de contenido sintético → subir
-```
-
-## Primer uso
+## Flujo diario a mano (lo que hace por dentro)
 
 ```bash
-npm install
-npx remotion studio        # previsualiza con ejemplos/timeline.ejemplo.json
+node scripts/dia.js                       # informe de hoy, voz simulada (gratis)
+node scripts/dia.js --clave --si-existe   # video de Claves si hoy hubo
+node scripts/dia.js --voz --render        # voz real ElevenLabs + MP4
 ```
 
-En el primer `studio`/`render`, Remotion descarga un Chrome headless y las
-tipografías de Google (Fraunces, IBM Plex Sans, IBM Plex Mono): necesita red.
-Sin red, comenta los `loadFont()` en `src/tema.ts` (hay stacks de respaldo).
+`dia.js` hace git pull solo, y encadena: parse → voz (real o simulada) →
+timeline → capítulos + descripción → (render). Salidas del día en
+`out/AAAA-MM-DD/`; la descripción lista para pegar en YouTube queda en
+`contenido/descripciones/`.
 
 ## Qué hace cada script
 
@@ -85,6 +67,22 @@ Sin red, comenta los `loadFont()` en `src/tema.ts` (hay stacks de respaldo).
 - `scripts/build-timeline.js` — cruza eventos con tiempos. Los `[DATO]` y
   `[ESQUEMA]` toman el intervalo del párrafo que los sigue (ese párrafo pasa a
   ser el pie del gráfico). Las secciones son banners superpuestos de 2,6 s.
+- `scripts/chapters.js` — capítulos de YouTube desde el timeline (primero en
+  00:00, fusiona secciones de <10 s).
+- `scripts/dia.js` — orquesta todo lo anterior en un comando.
+- `scripts/generar.js` — plan B de generación por API (ver arriba).
+- `scripts/manana.sh` — rutina matinal local (pull + producir + Studio a hoy).
+
+## Primer uso
+
+```bash
+npm install
+npx remotion studio        # previsualiza con ejemplos/timeline.ejemplo.json
+```
+
+En el primer `studio`/`render`, Remotion descarga un Chrome headless y las
+tipografías de Google (Fraunces, IBM Plex Sans, IBM Plex Mono): necesita red.
+Sin red, comenta los `loadFont()` en `src/tema.ts` (hay stacks de respaldo).
 
 ## Sistema visual (src/tema.ts)
 
@@ -94,20 +92,19 @@ Firma del canal: toda cifra muestra `FUENTE · …` en mono; chip HECHO sólido 
 tinta, chip INTERPRETACIÓN de contorno en pátina. Una animación de entrada por
 tarjeta y nada más.
 
-## Verificar antes del primer video real
+## Voz (pendiente de activar)
 
-1. Endpoint y límites vigentes de ElevenLabs `with-timestamps`, y el modelo
-   recomendado actual para español (el script usa `eleven_multilingual_v2`).
-2. Licencia de Remotion para tu caso (gratuita para personas naturales y
-   empresas pequeñas; confirmar términos vigentes).
-3. Escuchar el audio completo SIEMPRE antes de subir. Ese paso no se automatiza.
-4. Marcar el disclosure de contenido alterado/sintético en YouTube Studio.
+El pipeline ya soporta ElevenLabs (`tts-elevenlabs.js`). Cuando exista el clon
+profesional de la voz de Santiago: cargar `ELEVENLABS_API_KEY` y `VOICE_ID`
+como secrets del repo y el workflow pasa solo de mudo a con voz.
 
-## Pendiente (v2, en orden)
+## Antes de subir un video real
 
-1. Subtítulos .srt desde `alignment.json` (los timestamps ya existen).
-2. Composición `Clave` (misma base; el componente `TarjetaEsquema` ya está).
-3. Composición vertical 9:16 para Shorts/TikTok reutilizando el mejor bloque.
-4. Thumbnail como still de Remotion (`renderStill`).
-5. Migrar la generación de textos de tareas ChatGPT a llamadas API en un
-   orquestador propio (elimina el copy-paste de la Biblioteca).
+1. Escuchar el audio completo SIEMPRE. Ese paso no se automatiza.
+2. Revisar el guion contra el informe (cifras, fechas, coherencia).
+3. Marcar el disclosure de contenido alterado/sintético en YouTube Studio.
+
+## Qué sigue
+
+El backlog vivo está en `ideas/` — próximos en cola: shorts automáticos 9:16,
+miniaturas automáticas, subtítulos .srt desde `alignment.json`.

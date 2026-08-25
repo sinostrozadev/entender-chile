@@ -3,13 +3,30 @@
 (Las ideas llegan aquí desde evaluar.md cuando Santiago las aprueba.
 Al completarse se mueven a hechas.md.)
 
-## Actualización del pipeline al flujo real (batch de 5)
-- **Fecha:** 2026-08-24 · **Estado:** pendiente de OK de Santiago
-- **Qué:** (1) generar.js: no exigir API key si los 4 archivos del día ya
-  existen — queda de plan B; (2) cron del workflow a 10:00 UTC (06:00 Chile);
-  (3) prompts/README.md al flujo real (ChatGPT genera y lee prompts de ahí);
-  (4) README principal actualizado; (5) rutina matinal que reapunte el Studio
-  a la fecha del día (scripts/manana.sh).
+## Shorts automáticos 💰
+- **Fecha:** 2026-08-24 · **Origen:** Claude · **Aprobada:** 2026-08-24
+- **Qué:** composición Remotion vertical (1080×1920) que tome 1–2 secciones del
+  timeline y genere 2–3 Shorts diarios del mismo contenido. La Clave es la
+  fuente ideal: conceptual y atemporal.
+- **Valor:** vía rápida a los 1.000 suscriptores; 10M vistas Shorts en 90 días
+  es ruta alternativa de monetización. Costo marginal ~cero.
+- **Esfuerzo:** medio (nueva composición + recorte del timeline).
+
+## Miniaturas automáticas
+- **Fecha:** 2026-08-24 · **Origen:** Claude · **Aprobada:** 2026-08-24
+- **Qué:** generar la miniatura del día con Remotion (still 1280×720 con el
+  titular principal + identidad visual del canal).
+- **Valor:** el CTR es la variable #1 de ingresos; hoy no hay miniatura.
+- **Esfuerzo:** bajo (composición de 1 frame + `remotion still`).
+
+## Revisión de calidad automática de madrugada
+- **Fecha:** 2026-08-24 · **Origen:** Claude (plan de las 6:00)
+- **Qué:** rutina programada de Claude en la nube (~4:40 Chile) que lea el
+  guion del día contra el informe (cifras, fechas, coherencia) y deje
+  contenido/revisiones/FECHA.md en el repo, antes del render de las 5:00.
+  Santiago despierta a las 6:00 con video + informe de revisión.
+- **Valor:** evita subir un error factual a YouTube sin retrasar la mañana.
+- **Esfuerzo:** bajo (crear la rutina con /schedule). Pendiente de OK.
 
 ## Recordatorio permanente
 - Toda idea nueva que surja en conversaciones se anota en evaluar.md.
