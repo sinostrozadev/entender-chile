@@ -10,8 +10,15 @@ registrar la decisión en decisiones.md.
 - [x] `identidad.md` DECIDIDA (2026-08-25), ajustes incorporados.
 - [x] Tagline DECIDIDA (2026-08-25): "El resumen sin gritos".
 - [x] Perfil primario DECIDIDO (2026-08-25): "el ciudadano ocupado".
+- [ ] Crear la identidad de cuentas del proyecto: verificar disponibilidad
+      del handle (@entenderchile o variante) en YouTube, TikTok, Instagram y
+      Gmail; crear el correo de marca; crear el canal como CUENTA DE MARCA
+      (permite administradores sin compartir contraseña) con 2FA desde el
+      día uno y la cuenta personal como administrador. El mismo handle,
+      idéntico, en todas las plataformas. - Santiago
 - [ ] Alinear el escaparate del canal en YouTube con la identidad:
-      descripción del canal, banner, avatar, trailer, secciones de inicio.
+      descripción del canal (borrador listo en identidad.md), banner,
+      avatar, trailer, secciones de inicio.
 - [ ] Fijar la meta con fecha y calendario hacia atrás: YPP antes del
       1-feb-2027 → ¿cuándo se lanza en serio, cuántos videos/semana, qué
       hito a los 30/90/180 días?
