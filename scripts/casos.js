@@ -25,6 +25,8 @@ const fecha = process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
 
 const leer = (p) => fs.readFileSync(p, "utf8");
 const campo = (t, re) => { const m = t.match(re); return m ? m[1].trim() : "?"; };
+// para el índice: solo la primera cifra en pesos de la línea (la ficha completa vive en el dossier)
+const cifra = (texto) => { const m = String(texto).match(/(?:USD\s*)?\$\s?[\d.,]+(?:\s*(?:millones|mil millones))?/); return m ? m[0] : String(texto).slice(0, 60); };
 
 function listarDossiers() {
   if (!fs.existsSync(DIR)) return [];
@@ -40,8 +42,8 @@ function regenerarIndice() {
       archivo: path.basename(p),
       caso: campo(t, /^# Caso:\s*(.+)$/m),
       estado: campo(t, /^Estado:\s*(\S+)/m),
-      confirmado: campo(t, /Monto CONFIRMADO por fuente oficial:\s*(.+)$/m),
-      recuperado: campo(t, /Dinero recuperado a la fecha:\s*(.+)$/m),
+      confirmado: cifra(campo(t, /Monto CONFIRMADO por fuente oficial:\s*(.+)$/m)),
+      recuperado: cifra(campo(t, /Dinero recuperado a la fecha:\s*(.+)$/m)),
       actualizado: campo(t, /Última actualización:\s*([0-9]{4}-[0-9]{2}-[0-9]{2})/),
     };
   });
