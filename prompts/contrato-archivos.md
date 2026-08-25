@@ -1,4 +1,4 @@
-CONTRATO DE ARCHIVOS — repo entender-chile (todas las rutas desde la raíz)
+CONTRATO DE ARCHIVOS - repo entender-chile (todas las rutas desde la raíz)
 Este contrato es compartido por las cuatro tareas; cada prompt lo referencia.
 
 Fecha = fecha local de Chile (America/Santiago), formato AAAA-MM-DD.

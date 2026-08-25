@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * dia.js — Flujo diario completo en un comando.
+ * dia.js - Flujo diario completo en un comando.
  *
  * Uso:
  *   node scripts/dia.js                       → guion del informe de HOY (contenido/guiones/informe/AAAA-MM-DD.md), voz simulada

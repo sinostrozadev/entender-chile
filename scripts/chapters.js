@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * chapters.js — Genera los capítulos de YouTube desde el timeline.
+ * chapters.js - Genera los capítulos de YouTube desde el timeline.
  * Pega la salida al inicio de la descripción del video.
  *
  * Uso: node scripts/chapters.js out/timeline.json

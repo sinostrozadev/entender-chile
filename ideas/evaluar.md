@@ -3,9 +3,9 @@
 (Shorts y Miniaturas → ejecutar.md 2026-08-24. Sello de inicio y mini-gancho
 → hechas.md 2026-08-25. Música → ejecutar.md 2026-08-25: infra lista, falta pista.)
 
-## Acortar el informe a 8–10 min
+## Acortar el informe a 8-10 min
 - **Fecha:** 2026-08-24 · **Origen:** Claude
-- **Qué:** ajustar el prompt del guion para apuntar a 8–10 min (hoy salió 14.7).
+- **Qué:** ajustar el prompt del guion para apuntar a 8-10 min (hoy salió 14.7).
 - **Valor:** mejor retención (mudo y con tarjetas, 15 min es mucho), habilita
   mid-rolls (>8 min) y baja el costo futuro de TTS a casi la mitad.
 - **Esfuerzo:** bajo (editar prompts/guion-informe.md).
@@ -42,7 +42,7 @@ madrugada" en ejecutar.md, 2026-08-24.)
 
 ## Fondos por sección (tinte + kicker)
 - **Fecha:** 2026-08-24 · **Origen:** Santiago + Claude
-- **Qué:** tinte sutil del papel por sección (2–4% saturación) + etiqueta
+- **Qué:** tinte sutil del papel por sección (2-4% saturación) + etiqueta
   permanente en esquina (POLÍTICA, REGIONES…). Un solo acento verde se
   mantiene. La Clave con mundo visual propio.
 - **Valor:** sentido de estructura y progreso → retención; identidad

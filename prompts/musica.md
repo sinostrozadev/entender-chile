@@ -11,16 +11,16 @@ Guardar comprobante del plan activo el día de la generación.
 
 ---
 
-## Pista 1 — Cama del INFORME (pulso informativo)
+## Pista 1 - Cama del INFORME (pulso informativo)
 
 **Prompt (inglés, para el generador):**
 
 > Minimal news-bulletin background bed, instrumental only. Calm, confident,
-> editorial mood — neutral, never emotional or epic. Soft marimba and muted
+> editorial mood - neutral, never emotional or epic. Soft marimba and muted
 > felt piano pulse at 92 BPM, warm analog pad underneath, discreet round
 > bass. No lead melody, no hummable theme, no drum buildup, no risers, no
 > vocals. Very low dynamic range, mixed to sit quietly UNDER a spoken male
-> voice (leave the 1–4 kHz range clean). Seamless loop, consistent energy
+> voice (leave the 1-4 kHz range clean). Seamless loop, consistent energy
 > from start to end, clean loop point. Key of D minor. 2 minutes.
 
 **En español (la idea):** cama mínima de noticiero, solo instrumental; ánimo
@@ -29,15 +29,15 @@ pad cálido; sin melodía protagonista, sin builds, sin voces; rango dinámico
 bajísimo para convivir bajo una voz hablada; loop perfecto, energía constante;
 re menor; 2 minutos.
 
-## Pista 2 — Cama de las CLAVES (didáctica, cálida)
+## Pista 2 - Cama de las CLAVES (didáctica, cálida)
 
 **Prompt (inglés):**
 
 > Warm educational background bed, instrumental only. Thoughtful, curious,
-> patient mood — like a brilliant private tutor explaining something
+> patient mood - like a brilliant private tutor explaining something
 > fascinating. Soft felt piano and warm pads at 70 BPM, occasional gentle
 > mallet accents. No lead melody, no percussion buildup, no vocals. Very low
-> dynamic range, sits quietly under narration (keep 1–4 kHz clean). Seamless
+> dynamic range, sits quietly under narration (keep 1-4 kHz clean). Seamless
 > loop, consistent energy, clean loop point. Key of F major. 2 minutes.
 
 **En español:** cama cálida y didáctica, solo instrumental; ánimo curioso y
@@ -45,7 +45,7 @@ paciente, de profesor particular; piano de fieltro y pads a 70 BPM con
 acentos suaves de mazo; sin melodía protagonista ni builds ni voces; dinámica
 plana para convivir con narración; loop perfecto; fa mayor; 2 minutos.
 
-## Pista 3 — Logo sonoro del sello (opcional, 2 s)
+## Pista 3 - Logo sonoro del sello (opcional, 2 s)
 
 **Prompt (inglés):**
 
@@ -68,7 +68,7 @@ plana para convivir con narración; loop perfecto; fa mayor; 2 minutos.
 
 1. ¿El plan usado incluye uso comercial? (guardar comprobante)
 2. ¿Loop limpio? (oírla 3 veces seguidas: el empalme no se debe notar)
-3. ¿Convive con voz? (probar bajo una narración: no debe pelear en 1–4 kHz)
+3. ¿Convive con voz? (probar bajo una narración: no debe pelear en 1-4 kHz)
 4. ¿Energía constante? (sin builds que roben atención en el minuto 8)
 5. ¿Neutra tras 10 escuchas? (si cansa al productor, cansa a la audiencia)
 6. Instalar: renombrar a informe.mp3 / clave.mp3 en public/musica/, commit,

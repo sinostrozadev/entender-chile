@@ -1,4 +1,4 @@
-# contenido/ — la fuente de verdad del canal
+# contenido/ - la fuente de verdad del canal
 
 Aquí vive todo el material editorial, un archivo por pieza, nombrado por fecha
 local de Chile. Cada mañana copias las salidas de la Biblioteca a su carpeta y

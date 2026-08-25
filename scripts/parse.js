@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * parse.js — Convierte un guion marcado (.md) en:
+ * parse.js - Convierte un guion marcado (.md) en:
  *   out/parsed.json     eventos estructurados con offsets de caracteres
  *   out/narracion.txt   texto limpio que se envía a la voz (TTS)
  *

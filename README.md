@@ -1,4 +1,4 @@
-# Entender Chile — pipeline del canal
+# Entender Chile - pipeline del canal
 
 Canal diario de noticias chilenas en YouTube, producido por código. El guion
 marcado se convierte en un video 1920×1080 renderizado con Remotion. Sin
@@ -40,7 +40,7 @@ npx remotion studio        # previsualizar en http://localhost:3000
 ```
 
 `manana.sh` reapunta `src/Root.tsx` a `out/AAAA-MM-DD/timeline.json` como
-cambio LOCAL — ese archivo modificado no se commitea (la versión del repo
+cambio LOCAL - ese archivo modificado no se commitea (la versión del repo
 importa el ejemplo, que es lo que la nube necesita para el build).
 
 ## Flujo diario a mano (lo que hace por dentro)
@@ -58,23 +58,23 @@ timeline → capítulos + descripción → (render). Salidas del día en
 
 ## Qué hace cada script
 
-- `scripts/parse.js` — parsea las marcas (`##`, `[TESIS]`, `[DATO tipo | fuente]`,
+- `scripts/parse.js` - parsea las marcas (`##`, `[TESIS]`, `[DATO tipo | fuente]`,
   `[ESQUEMA | título]`, `[HECHO]`, `[INTERPRETACIÓN]`, `[CITA | quién | fuente]`),
   separa lo narrado de lo visual, y produce el texto limpio para la voz con los
   offsets de caracteres de cada evento.
-- `scripts/tts-elevenlabs.js` — voz con timestamps por caracter. Trocea por
+- `scripts/tts-elevenlabs.js` - voz con timestamps por caracter. Trocea por
   párrafos (~4.000 caracteres) y desplaza los tiempos para que la alineación
   final corresponda exactamente a `narracion.txt`.
-- `scripts/mock-tts.js` — misma salida, simulada (~16 caracteres/seg), para
+- `scripts/mock-tts.js` - misma salida, simulada (~16 caracteres/seg), para
   probar render y diseño sin gastar créditos.
-- `scripts/build-timeline.js` — cruza eventos con tiempos. Los `[DATO]` y
+- `scripts/build-timeline.js` - cruza eventos con tiempos. Los `[DATO]` y
   `[ESQUEMA]` toman el intervalo del párrafo que los sigue (ese párrafo pasa a
   ser el pie del gráfico). Las secciones son banners superpuestos de 2,6 s.
-- `scripts/chapters.js` — capítulos de YouTube desde el timeline (primero en
+- `scripts/chapters.js` - capítulos de YouTube desde el timeline (primero en
   00:00, fusiona secciones de <10 s).
-- `scripts/dia.js` — orquesta todo lo anterior en un comando.
-- `scripts/generar.js` — plan B de generación por API (ver arriba).
-- `scripts/manana.sh` — rutina matinal local (pull + producir + Studio a hoy).
+- `scripts/dia.js` - orquesta todo lo anterior en un comando.
+- `scripts/generar.js` - plan B de generación por API (ver arriba).
+- `scripts/manana.sh` - rutina matinal local (pull + producir + Studio a hoy).
 
 ## Primer uso
 
@@ -109,5 +109,5 @@ como secrets del repo y el workflow pasa solo de mudo a con voz.
 
 ## Qué sigue
 
-El backlog vivo está en `ideas/` — próximos en cola: shorts automáticos 9:16,
+El backlog vivo está en `ideas/` - próximos en cola: shorts automáticos 9:16,
 miniaturas automáticas, subtítulos .srt desde `alignment.json`.

@@ -1,4 +1,4 @@
-// Sistema visual del canal — tokens únicos, todo se deriva de aquí.
+// Sistema visual del canal - tokens únicos, todo se deriva de aquí.
 //
 // Dirección: papel de diario frío + tinta + UN acento: verde pátina de cobre
 // (cobre oxidado: chileno sin bandera, apolítico). La firma del canal es el

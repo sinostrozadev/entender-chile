@@ -1,4 +1,4 @@
-# Identidad — qué es Entender Chile
+# Identidad - qué es Entender Chile
 
 Estado: APROBADA CON AJUSTES EN CURSO (2026-08-25). Santiago aprobó el
 borrador en general; sus ajustes puntuales están pendientes de incorporar.
@@ -7,7 +7,7 @@ Tagline y público primario: DECIDIDOS (ver decisiones.md).
 ## En una frase
 
 Entender Chile explica cada día, en unos diez minutos y sin gritos, lo que
-de verdad importa para entender el país — con las fuentes a la vista y los
+de verdad importa para entender el país - con las fuentes a la vista y los
 hechos separados de las interpretaciones.
 
 ## Propósito
@@ -30,8 +30,10 @@ compite por hacer entender mejor.
 
 ## Propuesta de valor (por qué elegirnos)
 
-1. **Jerarquización explícita**: qué importa hoy y cuánto ([A]/[B]/[C] en el
-   informe fuente). No cobertura total: cero secciones de trámite.
+1. **Jerarquización explícita**: cada edición dice qué importa hoy y
+   cuánto. Pocas noticias centrales bien desarrolladas, lo relevante en un
+   segundo plano y el resto en registro breve. No cobertura total: cero
+   secciones de trámite.
 2. **Fuentes a la vista**: toda cifra aparece en pantalla con su fuente en
    mono (`FUENTE · …`). Una cifra sin fuente no entra.
 3. **Hechos e interpretación separados y etiquetados** (chips HECHO /
@@ -45,9 +47,9 @@ compite por hacer entender mejor.
 
 ## Las dos series
 
-- **El informe diario** — hábito. Publica a hora fija cada mañana; su
+- **El informe diario** - hábito. Publica a hora fija cada mañana; su
   trabajo es la retención y la relación diaria con la audiencia.
-- **Claves para entender las noticias** — evergreen. Su trabajo es el
+- **Claves para entender las noticias** - evergreen. Su trabajo es el
   crecimiento: captar búsqueda permanente (UF, AFP, TPM, cómo se elige al
   Presidente), traer suscriptores y seguir siendo útil en dos años.
 
@@ -67,7 +69,7 @@ Profesor particular brillante: cercano, sobrio, inteligente, humano. Español
 de Chile neutro. Preguntas retóricas con mesura, cero grosería, cero
 locutor engolado.
 
-## Tagline — DECIDIDA (2026-08-25)
+## Tagline - DECIDIDA (2026-08-25)
 
 **"El resumen sin gritos."**
 
@@ -81,5 +83,5 @@ Va en: descripción del canal, cierre de cada video, banner y bio de redes.
 > la serie Claves, los conceptos que necesitas para entender las próximas
 > noticias, no solo las de hoy. El resumen sin gritos.
 
-[POR DEFINIR — Santiago] Validar este texto antes de pegarlo en YouTube
+[POR DEFINIR - Santiago] Validar este texto antes de pegarlo en YouTube
 Studio; al usarlo, mantenerlo idéntico en las bios de redes.

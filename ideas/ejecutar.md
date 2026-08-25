@@ -5,8 +5,8 @@ Al completarse se mueven a hechas.md.)
 
 ## Shorts automáticos 💰
 - **Fecha:** 2026-08-24 · **Origen:** Claude · **Aprobada:** 2026-08-24
-- **Qué:** composición Remotion vertical (1080×1920) que tome 1–2 secciones del
-  timeline y genere 2–3 Shorts diarios del mismo contenido. La Clave es la
+- **Qué:** composición Remotion vertical (1080×1920) que tome 1-2 secciones del
+  timeline y genere 2-3 Shorts diarios del mismo contenido. La Clave es la
   fuente ideal: conceptual y atemporal.
 - **Valor:** vía rápida a los 1.000 suscriptores; 10M vistas Shorts en 90 días
   es ruta alternativa de monetización. Costo marginal ~cero.
@@ -31,7 +31,7 @@ Al completarse se mueven a hechas.md.)
 ## Recordatorio permanente
 - Toda idea nueva que surja en conversaciones se anota en evaluar.md.
 
-## Música de fondo — SOLO FALTA LA PISTA
+## Música de fondo - SOLO FALTA LA PISTA
 - **Estado 2026-08-25:** infraestructura LISTA (dia.js detecta public/musica/
   informe.mp3 y clave.mp3; volumen 0.3 mudo / 0.1 con voz, loop). Falta que
   Santiago baje las pistas de YouTube Audio Library y las deje en

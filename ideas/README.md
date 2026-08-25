@@ -1,4 +1,4 @@
-# ideas/ — el backlog del canal
+# ideas/ - el backlog del canal
 
 Toda idea que surja (en conversaciones con Claude, con ChatGPT, o de Santiago)
 se anota aquí para que no se pierda. Flujo de vida de una idea:

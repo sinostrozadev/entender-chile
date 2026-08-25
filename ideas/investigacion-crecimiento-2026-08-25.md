@@ -8,7 +8,7 @@ blog.youtube, backlinko.com, etc.); los datos vienen de `WebSearch` (snippets
 reales de esas páginas, con URL verificada) más un par de verificaciones
 cruzadas que hice yo mismo después sobre las afirmaciones más importantes de
 cumplimiento. Donde un dato solo tiene respaldo de blogs/prensa secundaria sin
-fuente primaria confirmable, se marca explícitamente como tal — no se presenta
+fuente primaria confirmable, se marca explícitamente como tal - no se presenta
 como hecho duro.
 
 No repite lo ya cubierto en `ideas/investigacion-mejoras-2026-08-25.md`
@@ -32,14 +32,14 @@ exacto de cumplimiento IA.
 - Esfuerzo: alto (exige que el pipeline esté ya fiable antes del lanzamiento).
 - Fuente: https://support.google.com/youtube/answer/9962575
 
-## No existe "sandbox" oficial — cada video compite desde el día 1
+## No existe "sandbox" oficial - cada video compite desde el día 1
 - Qué: no planificar para "sobrevivir 90 días" (jerga de comunidad, no
   política documentada). Tratar cada video, incluido el primero, como una
   prueba real de CTR/retención: miniatura, título y primeros 15-30 s cuidados
   desde ya.
 - Valor: YouTube no reconoce oficialmente el término "sandbox". Su sistema de
   recomendaciones documentado recomienda videos (no canales) según señales de
-  comportamiento (CTR, watch time, retención) — un canal nuevo enfrenta un
+  comportamiento (CTR, watch time, retención) - un canal nuevo enfrenta un
   "cold start" de datos, no un bloqueo deliberado. Un video bueno de un canal
   con 0 subs puede competir con uno de un canal grande en el mismo tema.
 - Esfuerzo: medio (disciplina de miniatura/título/gancho, no producción extra).
@@ -50,7 +50,7 @@ exacto de cumplimiento IA.
   lanzada en 2024) para los primeros 1.000 subs.
 - Valor: según la ayuda oficial, Hype solo está disponible para canales ya
   dentro del YPP con entre 500 y 500.000 suscriptores, y Chile no figura en la
-  lista de países habilitados (a diferencia de España, México o Brasil) —
+  lista de países habilitados (a diferencia de España, México o Brasil) -
   irrelevante para esta fase.
 - Esfuerzo: bajo (decisión de no invertir tiempo ahí).
 - Fuente: https://support.google.com/youtube/answer/15509925
@@ -72,7 +72,7 @@ exacto de cumplimiento IA.
   blogs de gurús sin caso citado.
 - Valor: el caso más cercano y citable (documentado por la propia empresa,
   no verificado en detalle vía fetch directo) es un canal "faceless" de
-  Kapwing que llegó a 1.000 subs en ~157 días con 60 videos publicados —
+  Kapwing que llegó a 1.000 subs en ~157 días con 60 videos publicados -
   ritmo alto y sostenido, no atajo. Trata cualquier promesa de "1.000 subs en
   pocas semanas" con escepticismo salvo caso y cifra verificable.
 - Esfuerzo: n/a (ajuste de expectativas, no una tarea).
@@ -119,7 +119,7 @@ exacto de cumplimiento IA.
   la documentación de YouTube dice que el sistema de recomendaciones no
   favorece ningún formato ni canal de origen en particular, usando señales de
   co-visualización y relación temática. No hay cifra dura de qué % de tráfico
-  inicial viene de cada fuente — esto es inferencia razonable, no dato medido.
+  inicial viene de cada fuente - esto es inferencia razonable, no dato medido.
 - Esfuerzo: medio (optimizar miniaturas/retención, no solo metadata).
 - Fuente: https://backlinko.com/youtube-ranking-factors ·
   https://creatoracademy.youtube.com/page/lesson/discovery
@@ -159,10 +159,10 @@ exacto de cumplimiento IA.
   el informe diario y "Claves": encuestas sobre el tema del día, adelantos, y
   un recordatorio en el horario de publicación.
 - Valor: YouTube eliminó en 2023 el requisito de 500 suscriptores para
-  acceder a Posts — un canal recién lanzado ya puede usarla si tiene
+  acceder a Posts - un canal recién lanzado ya puede usarla si tiene
   funciones avanzadas activadas. (Cifras de "+15-30% retención" que circulan
   en blogs de marketing tipo vidIQ/TubeBuddy no citan estudio ni metodología
-  — trátalas como marketing, no dato verificado.)
+  - trátalas como marketing, no dato verificado.)
 - Esfuerzo: bajo.
 - Fuente: https://routenote.com/blog/how-to-create-a-youtube-community-post/ ·
   https://www.socialmediatoday.com/news/youtube-expands-access-to-its-community-posting-tab-within-creator-channels/606343/
@@ -175,7 +175,7 @@ exacto de cumplimiento IA.
   "video nuevo todos los días, lunes a jueves" como pilar declarado de la
   relación con la audiencia. La documentación oficial de YouTube es más
   cauta: dice que la consistencia del calendario importa más que la hora
-  exacta del día — sé escéptico con cualquier "horario mágico".
+  exacta del día - sé escéptico con cualquier "horario mágico".
 - Esfuerzo: bajo (decisión operativa del pipeline).
 - Fuente: https://en.wikipedia.org/wiki/The_Philip_DeFranco_Show
 
@@ -187,10 +187,10 @@ exacto de cumplimiento IA.
 - Valor: caso real de un canal 100% narrado sin mostrar rostro (Half as
   Interesting, hermano de Wendover Productions) que construyó marca
   reconocible solo con voz y tono. No hay estudio que aísle el efecto
-  específico de "responder comentarios" en canales sin presentador — es
+  específico de "responder comentarios" en canales sin presentador - es
   evidencia cualitativa de guías de creadores, no dato medido. Nota de
   riesgo: en 2025-2026 YouTube endureció la política de "contenido
-  inauténtico" (ver Dimensión 6) — mostrar interacción real puede ayudar a
+  inauténtico" (ver Dimensión 6) - mostrar interacción real puede ayudar a
   diferenciarse de ese patrón, pero es inferencia razonable, no hecho
   documentado por YouTube.
 - Esfuerzo: medio (exige presupuesto de tiempo humano diario para moderar).
@@ -208,7 +208,7 @@ exacto de cumplimiento IA.
   por prensa especializada) de un canal informativo tipo explicador que
   escaló creando hábito de audiencia.
 - Esfuerzo: alto (diversificar formato/canales y monetización, no solo
-  tácticas de engagement — a evaluar recién con el canal ya validado).
+  tácticas de engagement - a evaluar recién con el canal ya validado).
 - Fuente: https://pressgazette.co.uk/social_media/tldr-news-jack-kelly-youtube/
 
 ---
@@ -221,14 +221,14 @@ exacto de cumplimiento IA.
   vez, con llamado a la acción al video completo.
 - Valor: TikTok es la red de mayor crecimiento en Chile (+56% interanual
   2025 vs 2024) y ya es fuente de noticias para el 43% de los chilenos,
-  superando a los diarios (31%) — salto de 23 puntos desde 2022.
+  superando a los diarios (31%) - salto de 23 puntos desde 2022.
 - Esfuerzo: bajo (re-empaquetar contenido ya producido por el pipeline, no
   crear contenido nuevo).
 - Fuente: https://www.diariopalena.cl/noticia/actualidad/2025/04/tiktok-supera-a-los-diarios-como-fuente-de-noticias-en-chile-y-se-consolida-entre-las-redes-mas-influyentes
 
 ## Canal de difusión de WhatsApp
 - Qué: crear un Canal de WhatsApp (broadcast unidireccional, no grupo) donde
-  cada día se publique el link al video + 1-2 titulares — el mismo formato
+  cada día se publique el link al video + 1-2 titulares - el mismo formato
   que ya usan La Tercera, T13 y El Mostrador en Chile.
 - Valor: WhatsApp es el canal informativo de uso MÁS FRECUENTE en Chile
   (68%, por sobre TV abierta 63% e Instagram 61%), con >90% de penetración
@@ -242,10 +242,10 @@ exacto de cumplimiento IA.
 
 ## Newsletter: evaluar recién más adelante, no en esta etapa
 - Qué: descartar la newsletter diaria/semanal para la fase actual del canal
-  (aunque sí funciona en Chile a largo plazo — ver valor).
+  (aunque sí funciona en Chile a largo plazo - ver valor).
 - Valor: "El Semanal" de El Mostrador (Iván Weissman) llegó a ~19.774
   suscriptores partiendo de cero en 2020, con ~5% de conversión a plan
-  pago — caso real y verificable de que el email SÍ funciona en Chile para
+  pago - caso real y verificable de que el email SÍ funciona en Chile para
   retención informativa, pero el crecimiento fue gradual (años, no meses) y
   exige producción editorial extra que no se desprende automáticamente del
   pipeline de video actual.
@@ -260,7 +260,7 @@ exacto de cumplimiento IA.
   ya comprobada en Chile.
 - Valor: el Digital News Report 2025 confirma que en Chile los principales
   canales sociales para noticias son Facebook (40%), Instagram (32%), YouTube
-  (26%), WhatsApp (26%) y TikTok (23%) — combinados, clips + WhatsApp cubren
+  (26%), WhatsApp (26%) y TikTok (23%) - combinados, clips + WhatsApp cubren
   a la mayoría de chilenos conectados con cero producción adicional de
   contenido, solo redistribución.
 - Esfuerzo: bajo (clips+WhatsApp) vs. medio-alto (newsletter).
@@ -269,14 +269,14 @@ exacto de cumplimiento IA.
 ## SEO dentro de YouTube antes que audiencia externa
 - Qué: optimizar títulos/descripciones/primeras palabras con los términos
   exactos que se buscan ese día en Chile (nombres, fechas), porque no depende
-  de tener audiencia ya construida en ninguna otra plataforma — a diferencia
+  de tener audiencia ya construida en ninguna otra plataforma - a diferencia
   de TikTok/WhatsApp, que necesitan "empujar" tráfico desde afuera.
 - Valor: no encontré estudio o caso chileno que mida "retorno por esfuerzo"
-  comparando SEO vs. redes vs. WhatsApp para un canal de noticias en video —
+  comparando SEO vs. redes vs. WhatsApp para un canal de noticias en video -
   este punto es más débil en evidencia que los anteriores; se declara como
   inferencia lógica, no dato duro.
 - Esfuerzo: bajo (ajuste de metadatos).
-- Fuente: sin estudio específico verificado para Chile — inferencia
+- Fuente: sin estudio específico verificado para Chile - inferencia
   declarada, no dato duro.
 
 ---
@@ -287,10 +287,10 @@ exacto de cumplimiento IA.
 - Qué: activar Ko-fi o Patreon y fijar el enlace en la descripción y en
   pantalla de cada video, pidiendo apoyo puntual o mensual.
 - Valor: a diferencia de Membresías de Canal y Super Thanks (exigen YPP:
-  1.000 subs + 4.000 h), Ko-fi/Patreon no tienen piso mínimo de audiencia —
+  1.000 subs + 4.000 h), Ko-fi/Patreon no tienen piso mínimo de audiencia -
   se puede activar hoy mismo. Cifras de cuánto se gana (USD 50-500/mes en
   canales chicos, conversión 0,5-2%) vienen de calculadoras de blogs sin
-  fuente primaria citable — orientativas, no verificadas.
+  fuente primaria citable - orientativas, no verificadas.
 - Esfuerzo: bajo.
 - Fuente: https://creatorrevenuecalculator.com/blog/how-much-do-kofi-creators-make-2026/
   (cifras de baja confianza, sin estudio primario)
@@ -304,7 +304,7 @@ exacto de cumplimiento IA.
   por episodio que consiguió auspicio de un negocio local por USD 150 (3
   pre-rolls, USD 50/episodio) apelando a audiencia hiperlocal, no a escala.
   El CPM publicitario promedio en Chile ronda 1.360 CLP (~USD 1,4) por 1.000
-  vistas — un auspicio directo negociado puede superar por mucho ese piso.
+  vistas - un auspicio directo negociado puede superar por mucho ese piso.
 - Esfuerzo: medio (armar rate card + outreach manual, sin intermediarios).
 - Fuente: https://www.goodreads.com/author_blog_posts/25137905-1000-from-one-deal-on-his-tiny-youtube-channel ·
   https://aceleratusredes.com/blog/cuanto-paga-youtube-en-chile
@@ -312,10 +312,10 @@ exacto de cumplimiento IA.
 ## Membresías de Canal como complemento automático al llegar al YPP
 - Qué: diseñar 1-2 niveles de membresía (ej. acceso anticipado a comentarios,
   una "clase extra" de "Claves") listos para activar apenas el canal entre al
-  YPP — no es trabajo aparte, se habilita con el mismo umbral que ya
+  YPP - no es trabajo aparte, se habilita con el mismo umbral que ya
   persiguen para AdSense.
 - Valor: el piso de Membresías bajó de 5.000 a 1.000 suscriptores en
-  diciembre de 2020 — coincide exactamente con la meta actual. Dato de
+  diciembre de 2020 - coincide exactamente con la meta actual. Dato de
   industria sin fuente primaria confirmada: canales educativos/informativos
   convertirían mejor a miembros pagos (2-4%) que canales de entretenimiento
   (0,5-1%), lo que favorecería a "Claves" sobre el informe diario.
@@ -323,13 +323,13 @@ exacto de cumplimiento IA.
 - Fuente: https://www.uscreen.tv/blog/youtube-channel-memberships/
 
 ## Orden de prioridad: donaciones y auspicio ya, Super Thanks/Membresías al llegar al YPP
-- Qué: secuenciar así — (1) ahora, Ko-fi/Patreon sin depender de ningún
+- Qué: secuenciar así - (1) ahora, Ko-fi/Patreon sin depender de ningún
   umbral; (2) en paralelo, outreach directo a 1-2 auspiciadores locales,
   alcanzable antes del YPP; (3) recién al cruzar 1.000 subs/4.000 h, activar
   Super Thanks y Membresías como ingreso adicional sobre lo ya construido.
 - Valor: Ko-fi/Patreon y auspicio directo no dependen de ningún umbral de
   YouTube, mientras Super Thanks/Membresías sí exigen la misma barrera que
-  AdSense — llegan "gratis" junto con esa meta, no antes. El caso del podcast
+  AdSense - llegan "gratis" junto con esa meta, no antes. El caso del podcast
   local respalda que el auspicio hiperlocal es más alcanzable temprano de lo
   que sugiere la intuición de "necesito muchas vistas primero".
 - Esfuerzo: bajo (fase 1) → medio (fase 2) → configuración (fase 3).
@@ -337,7 +337,7 @@ exacto de cumplimiento IA.
 
 ---
 
-# DIMENSIÓN 6: CUMPLIMIENTO — CONTENIDO GENERADO CON IA Y VOZ SINTÉTICA
+# DIMENSIÓN 6: CUMPLIMIENTO - CONTENIDO GENERADO CON IA Y VOZ SINTÉTICA
 
 ## Marcar "Contenido alterado: Sí" en cada video con voz clonada
 - Qué: en YouTube Studio → Detalles → "Altered content", seleccionar "Sí" en
@@ -345,7 +345,7 @@ exacto de cumplimiento IA.
 - Valor: confirmado por fetch propio a la página oficial (vía snippet
   verificado con múltiples búsquedas independientes): la divulgación aplica
   a contenido realista con cambios significativos que podría confundir al
-  espectador sobre lo que realmente ocurrió — el ejemplo textual de YouTube
+  espectador sobre lo que realmente ocurrió - el ejemplo textual de YouTube
   es "hacer que una persona real parezca decir algo que no dijo" o "generar
   sintéticamente la voz de una persona para decir algo que la persona no dijo
   realmente". Una narración con voz clonada real leyendo un guion cae
@@ -356,7 +356,7 @@ exacto de cumplimiento IA.
 ## No hace falta declarar asistencia de IA no realista
 - Qué: no marcar "Contenido alterado" por el uso de IA en investigación,
   guion o edición si el resultado final (tarjetas Remotion, texto) no
-  presenta una voz o imagen realista de una persona real — solo la voz
+  presenta una voz o imagen realista de una persona real - solo la voz
   clonada requiere la casilla.
 - Valor: la misma página oficial aclara que ediciones menores/estéticas y
   contenido no realista NO requieren divulgación; la obligación es
@@ -376,10 +376,10 @@ exacto de cumplimiento IA.
   YouTube terminó 16 canales (35M de suscriptores y 4.700M de vistas
   combinadas) que compartían el mismo patrón: formato sin rostro, voz
   sintética, guiones plantilla y volumen de subida imposible para producción
-  original — confirmado de forma consistente por múltiples medios
+  original - confirmado de forma consistente por múltiples medios
   especializados independientes (no una sola fuente).
 - Esfuerzo: medio (exige guion diferenciado por episodio, ya es el caso del
-  pipeline actual con noticias reales del día — mantenerlo así).
+  pipeline actual con noticias reales del día - mantenerlo así).
 - Fuente: https://thenextweb.com/news/youtube-ai-slop-crackdown-faceless-creators-collateral-damage ·
   https://support.google.com/youtube/answer/1311392
 
@@ -391,7 +391,7 @@ exacto de cumplimiento IA.
   autor" de contenido masivo sin input humano; ese registro es la evidencia a
   mostrar ante una eventual revisión o apelación del YPP (la re-postulación
   solo es posible ~30 días después de corregido el problema, según cobertura
-  de prensa — no confirmado en la página oficial de YPP por bloqueo de red).
+  de prensa - no confirmado en la página oficial de YPP por bloqueo de red).
 - Esfuerzo: bajo (documentación continua, sin cambio de pipeline).
 - Fuente: https://support.google.com/youtube/answer/1311392 (política
   general; el detalle del plazo de 30 días viene de prensa secundaria, sin
@@ -405,11 +405,11 @@ exacto de cumplimiento IA.
   de IA y detección automática vía Content Credentials (C2PA); no marcar
   manualmente arriesga que la plataforma lo detecte y etiquete de oficio, con
   posible reducción de alcance. Este punto no pudo confirmarse contra la
-  fuente primaria de Meta/TikTok en esta investigación (bloqueo de red) — se
+  fuente primaria de Meta/TikTok en esta investigación (bloqueo de red) - se
   reporta con menor confianza que los puntos anteriores, que sí vienen de
   support.google.com verificado.
 - Esfuerzo: bajo (activar el toggle nativo al subir cada clip).
-- Fuente: sin confirmación directa de fuente primaria — verificar
+- Fuente: sin confirmación directa de fuente primaria - verificar
   manualmente en newsroom.tiktok.com y about.fb.com antes de tratarlo como
   regla fija.
 
@@ -421,23 +421,23 @@ Priorizadas por impacto ÷ esfuerzo (excluye lo que ya está en
 `ideas/ejecutar.md` o en el informe anterior):
 
 1. **Marcar "Contenido alterado: Sí" en cada video con voz clonada, desde el
-   primer video con voz.** Cumplimiento — 5 minutos, protege la elegibilidad
+   primer video con voz.** Cumplimiento - 5 minutos, protege la elegibilidad
    completa del canal al YPP. Costo de omisión: existencial.
 2. **Activar Ko-fi o Patreon con el link en descripción y pantalla final.**
-   Monetización — no depende de ningún umbral de YouTube, se puede hacer hoy
+   Monetización - no depende de ningún umbral de YouTube, se puede hacer hoy
    mismo, cero producción adicional.
 3. **Crear el Canal de difusión de WhatsApp y publicar el link ahí cada
-   día.** Distribución — mismo contenido, mismo esfuerzo cero, llega al
+   día.** Distribución - mismo contenido, mismo esfuerzo cero, llega al
    canal informativo de mayor uso frecuente en Chile (68%).
 4. **Reescribir el título del informe diario poniendo la palabra/entidad más
-   importante al inicio, y renunciar a pelear "noticias chile hoy".** SEO —
+   importante al inicio, y renunciar a pelear "noticias chile hoy".** SEO -
    cambio de dónde se pone el esfuerzo de metadata, no trabajo extra.
 5. **Empezar a cortar 2-3 clips cortos por informe diario para TikTok/Reels/
-   Shorts.** Distribución — reutiliza contenido ya producido por el pipeline;
+   Shorts.** Distribución - reutiliza contenido ya producido por el pipeline;
    TikTok ya es fuente de noticias para el 43% de los chilenos.
 
 Mención especial: documentar desde hoy el aporte editorial humano de cada
-episodio (selección de noticias, edición del guion) en un registro simple —
+episodio (selección de noticias, edición del guion) en un registro simple -
 cuesta minutos por día y es la evidencia que protegerá al canal si alguna vez
 se revisa contra la política de contenido inauténtico.
 
@@ -455,13 +455,13 @@ se revisa contra la política de contenido inauténtico.
 3. No declarar cuando corresponde declarar arriesga que YouTube aplique de
    oficio una etiqueta "Altered or Synthetic" que el canal no puede quitar;
    la reincidencia puede derivar en sanciones. (https://support.google.com/youtube/answer/14328491)
-4. Mantener variación real de estructura y enfoque entre episodios —el
+4. Mantener variación real de estructura y enfoque entre episodios -el
    pipeline ya genera guion nuevo cada día con noticias reales, mantenerlo
    así explícitamente como salvaguarda, no reducirlo nunca a una plantilla
    fija con solo el titular cambiando. (https://support.google.com/youtube/answer/1311392)
 5. Documentar el aporte editorial humano por episodio (selección de
    noticias, edición del guion, verificación de fuentes, dirección de las
-   tarjetas) en un registro simple y sostenido en el tiempo — es la evidencia
+   tarjetas) en un registro simple y sostenido en el tiempo - es la evidencia
    ante una eventual revisión del YPP. (https://support.google.com/youtube/answer/1311392)
 6. Conservar consentimiento explícito y por escrito de la persona real cuya
    voz se clona, dado que YouTube trata la voz como parte de la identidad de
@@ -469,7 +469,7 @@ se revisa contra la política de contenido inauténtico.
    indebido de semejanza/voz). (https://support.google.com/youtube/answer/2801895)
 7. Al recortar clips con voz sintética para TikTok/Instagram/Facebook,
    activar también la etiqueta nativa de contenido con IA de cada plataforma
-   — pendiente de verificar contra fuente primaria de Meta/TikTok antes de
+   - pendiente de verificar contra fuente primaria de Meta/TikTok antes de
    tratarlo como regla fija (ver Dimensión 6, último punto).
 8. Antes de operar estas reglas de forma definitiva: abrir directamente
    `support.google.com/youtube/answer/14328491` y

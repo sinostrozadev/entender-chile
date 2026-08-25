@@ -122,7 +122,7 @@ export const TarjetaCita: React.FC<{ ev: Evento }> = ({ ev }) => {
         <div style={{ fontFamily: tema.serif, fontStyle: "italic", fontSize: 58, lineHeight: 1.3, color: tema.tinta }}>
           “{ev.texto}”
         </div>
-        <div style={{ fontFamily: tema.mono, fontSize: 28, color: tema.patina, marginTop: 40 }}>— {ev.autor}</div>
+        <div style={{ fontFamily: tema.mono, fontSize: 28, color: tema.patina, marginTop: 40 }}>- {ev.autor}</div>
       </div>
     </Marco>
   );
@@ -276,7 +276,7 @@ export const TarjetaMarcador: React.FC<{ ev: Evento }> = ({ ev }) => {
       <div style={{ ...st, display: "flex", alignItems: "baseline", gap: 48, flexWrap: "wrap" }}>
         <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 66, color: tema.tinta }}>{local.etiqueta}</div>
         <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 120, color: colorDeSeccion(ev.seccion) }}>
-          {local.raw}<span style={{ color: tema.gris, padding: "0 22px" }}>–</span>{visita.raw}
+          {local.raw}<span style={{ color: tema.gris, padding: "0 22px" }}>-</span>{visita.raw}
         </div>
         <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 66, color: tema.tinta }}>{visita.etiqueta}</div>
       </div>

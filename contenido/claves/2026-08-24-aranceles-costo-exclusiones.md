@@ -2,7 +2,7 @@
 
 **Slug:** `aranceles-costo-exclusiones`
 
-## La noticia que abrió esta pregunta — 24 de agosto de 2026
+## La noticia que abrió esta pregunta - 24 de agosto de 2026
 
 La edición del Resumen diario del 24 de agosto de 2026 informó que una delegación de la Oficina del Representante Comercial de Estados Unidos llegó a Chile para conversar durante el lunes 24 y el martes 25 sobre posibles exclusiones al arancel de 12,5% que Washington aplica a determinadas exportaciones chilenas. Según esa edición, entre los sectores expuestos estaban salmones, frutas, vinos y productos forestales, mientras el cobre había quedado fuera del gravamen. (Resumen diario, 24 ago 2026; BioBioChile, 21 y 23 ago 2026).
 
@@ -10,13 +10,13 @@ La noticia abre una duda que aparece una y otra vez cuando hay tensiones comerci
 
 ## La pregunta de fondo
 
-¿Qué ocurre económicamente desde que un país coloca un arancel a una importación hasta que ese costo llega —o no— al exportador, al importador, al comercio y al consumidor final?
+¿Qué ocurre económicamente desde que un país coloca un arancel a una importación hasta que ese costo llega -o no- al exportador, al importador, al comercio y al consumidor final?
 
 Entender esa cadena permite leer mejor noticias sobre guerras comerciales, tratados de libre comercio, represalias, exenciones y negociaciones bilaterales. También evita una simplificación muy común: pensar que un arancel es simplemente una multa que un gobierno extranjero le cobra directamente al país exportador.
 
 ## Qué es exactamente un arancel
 
-Un arancel es un derecho de aduana aplicado a una mercancía cuando entra a un país. Puede cobrarse como un porcentaje del valor del producto —un arancel ad valorem— o como una cantidad fija por unidad física, por ejemplo una suma determinada por cada kilogramo importado. La Organización Mundial del Comercio define los aranceles precisamente como derechos de aduana sobre mercancías importadas y señala que, además de generar ingresos fiscales, pueden dar una ventaja de precio a bienes producidos localmente frente a productos similares provenientes del extranjero. (OMC, Glosario de derechos arancelarios).
+Un arancel es un derecho de aduana aplicado a una mercancía cuando entra a un país. Puede cobrarse como un porcentaje del valor del producto -un arancel ad valorem- o como una cantidad fija por unidad física, por ejemplo una suma determinada por cada kilogramo importado. La Organización Mundial del Comercio define los aranceles precisamente como derechos de aduana sobre mercancías importadas y señala que, además de generar ingresos fiscales, pueden dar una ventaja de precio a bienes producidos localmente frente a productos similares provenientes del extranjero. (OMC, Glosario de derechos arancelarios).
 
 La primera distinción importante es entre quién entrega formalmente el dinero al Estado y quién termina soportando económicamente el costo. En una importación normal, el arancel se cobra en el país que recibe la mercancía. En términos simplificados, si una empresa estadounidense importa un producto chileno valorado en 100 dólares y ese producto enfrenta un arancel ad valorem de 12,5%, el gravamen en frontera sería de 12,50 dólares sobre ese valor de referencia.
 
@@ -88,13 +88,13 @@ Existe además el arancel de nación más favorecida, conocido por la sigla NMF 
 
 Los tratados de libre comercio agregan otra capa: permiten que dos o más países acuerden aranceles preferenciales, frecuentemente menores que la tarifa general y, en muchos productos, iguales a cero.
 
-Chile y Estados Unidos, por ejemplo, tienen un Tratado de Libre Comercio vigente desde el 1 de enero de 2004. El calendario de desgravación previsto por ese acuerdo terminó el 1 de enero de 2015 y, según la Subsecretaría de Relaciones Económicas Internacionales de Chile, desde entonces el comercio bilateral de mercancías cubierto por ese calendario quedó con arancel cero. (Subsecretaría de Relaciones Económicas Internacionales, Acuerdo Chile–Estados Unidos).
+Chile y Estados Unidos, por ejemplo, tienen un Tratado de Libre Comercio vigente desde el 1 de enero de 2004. El calendario de desgravación previsto por ese acuerdo terminó el 1 de enero de 2015 y, según la Subsecretaría de Relaciones Económicas Internacionales de Chile, desde entonces el comercio bilateral de mercancías cubierto por ese calendario quedó con arancel cero. (Subsecretaría de Relaciones Económicas Internacionales, Acuerdo Chile-Estados Unidos).
 
 Esto introduce una lección importante para leer noticias futuras: que exista un tratado de libre comercio no significa que nunca pueda aparecer ninguna medida comercial adicional. Los acuerdos conviven con reglas sobre defensa comercial, salvaguardias, medidas sanitarias, restricciones específicas y otras bases jurídicas nacionales e internacionales. Cuando aparece un nuevo gravamen pese a existir un tratado, la pregunta correcta no es simplemente «¿se acabó el TLC?», sino «¿qué tipo de medida es esta, bajo qué fundamento se adoptó y cómo interactúa con las obligaciones del acuerdo y otras reglas internacionales?».
 
 ## Qué significa realmente conseguir una exclusión
 
-Una exclusión significa que un determinado producto, categoría, empresa o supuesto —dependiendo del diseño concreto de la medida— queda fuera del gravamen que de otro modo le correspondería.
+Una exclusión significa que un determinado producto, categoría, empresa o supuesto -dependiendo del diseño concreto de la medida- queda fuera del gravamen que de otro modo le correspondería.
 
 Económicamente, su importancia no está solo en evitar pagar una tasa. También puede cambiar la posición relativa frente a competidores.
 
@@ -136,7 +136,7 @@ El tercero es asumir que «un arancel de 12,5% subirá el precio final exactamen
 
 El cuarto es creer que «si existe un TLC, ningún gravamen puede aparecer jamás». Los acuerdos reducen barreras y fijan obligaciones, pero el sistema comercial contiene instrumentos y excepciones distintas. Una medida nueva debe analizarse según su fundamento específico; no basta con mirar la existencia del tratado.
 
-## Aplicado al caso de hoy — 24 de agosto de 2026
+## Aplicado al caso de hoy - 24 de agosto de 2026
 
 Al 24 de agosto de 2026, el Resumen diario señalaba que Chile estaba negociando con una delegación estadounidense posibles exclusiones al arancel de 12,5% aplicado por Washington a determinadas exportaciones chilenas. La edición identificaba entre los sectores expuestos a salmones, frutas, vinos y productos forestales y señalaba que el cobre había quedado fuera de ese gravamen. (Resumen diario, 24 ago 2026; BioBioChile, 21 y 23 ago 2026).
 
@@ -156,15 +156,15 @@ Y el hecho de que, según el Resumen diario del 24 de agosto de 2026, el cobre e
 - Una exclusión puede ser valiosa no solo porque elimina un costo, sino porque cambia la posición competitiva frente a países que sí continúan sujetos al gravamen.
 - Para evaluar el impacto de un arancel hay que mirar siempre la tasa, los productos afectados, la dependencia del mercado, los competidores y la facilidad con que compradores y vendedores pueden buscar alternativas.
 
-## Qué observar en esta discusión — agosto de 2026
+## Qué observar en esta discusión - agosto de 2026
 
 En la negociación iniciada el 24 de agosto de 2026, la información relevante no será únicamente si Chile consigue o no «una excepción». Habrá que observar qué productos concretos quedan cubiertos, desde cuándo, bajo qué condiciones y cómo quedan comparados con sus principales competidores en el mercado estadounidense. Esos detalles determinarán mucho más el efecto económico que el anuncio general de una negociación.
 
 ## Fuentes
 
-- Resumen diario - ultimo.md — edición del 24 de agosto de 2026. Caso de entrada y aplicación coyuntural.
-- Organización Mundial del Comercio — “Derechos arancelarios, aranceles”, Glosario de términos. Definición y formas de los aranceles.
-- Organización Mundial del Comercio — “Tariff and Trade Data”. Aranceles aplicados, consolidados y trato NMF.
-- Subsecretaría de Relaciones Económicas Internacionales de Chile — “EE.UU.”, Acuerdo de Libre Comercio Chile–Estados Unidos. Vigencia del acuerdo y calendario de desgravación.
-- Reserva Federal de Estados Unidos — FEDS Notes, “Detecting Tariff Effects on Consumer Prices in Real Time – Part II”, 8 de abril de 2026. Evidencia sobre transmisión de aranceles a precios.
-- Fondo Monetario Internacional — Working Paper 2026/149, “Tariff Pass-Through and Import Reallocation”, julio de 2026. Evidencia sobre transmisión y reasignación de importaciones.
+- Resumen diario - ultimo.md - edición del 24 de agosto de 2026. Caso de entrada y aplicación coyuntural.
+- Organización Mundial del Comercio - “Derechos arancelarios, aranceles”, Glosario de términos. Definición y formas de los aranceles.
+- Organización Mundial del Comercio - “Tariff and Trade Data”. Aranceles aplicados, consolidados y trato NMF.
+- Subsecretaría de Relaciones Económicas Internacionales de Chile - “EE.UU.”, Acuerdo de Libre Comercio Chile-Estados Unidos. Vigencia del acuerdo y calendario de desgravación.
+- Reserva Federal de Estados Unidos - FEDS Notes, “Detecting Tariff Effects on Consumer Prices in Real Time - Part II”, 8 de abril de 2026. Evidencia sobre transmisión de aranceles a precios.
+- Fondo Monetario Internacional - Working Paper 2026/149, “Tariff Pass-Through and Import Reallocation”, julio de 2026. Evidencia sobre transmisión y reasignación de importaciones.

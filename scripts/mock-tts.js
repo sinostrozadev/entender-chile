@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * mock-tts.js — Simula la respuesta de alineación de ElevenLabs para poder
+ * mock-tts.js - Simula la respuesta de alineación de ElevenLabs para poder
  * probar el pipeline y el render SIN gastar créditos de voz.
  * Produce el mismo formato: { characters, character_start_times_seconds,
  * character_end_times_seconds } sobre el texto exacto de narracion.txt.

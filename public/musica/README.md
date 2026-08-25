@@ -16,5 +16,5 @@ Reglas para elegir pista (protegen la monetización):
   informe, tono más cálido/didáctico para la Clave.
 - La MISMA pista todos los días: es marca auditiva, como un podcast.
 - Guardar aquí (public/musica/) para que viaje al repo y al render en la
-  nube — public/*.mp3 de la raíz está gitignoreado (ahí van narraciones),
+  nube - public/*.mp3 de la raíz está gitignoreado (ahí van narraciones),
   esta subcarpeta NO.

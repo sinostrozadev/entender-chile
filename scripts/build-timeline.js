@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * build-timeline.js — Cruza parsed.json con alignment.json (real o simulado)
+ * build-timeline.js - Cruza parsed.json con alignment.json (real o simulado)
  * y produce el timeline.json que consume Remotion.
  *
  * Uso: node scripts/build-timeline.js out/parsed.json out/alignment.json out/timeline.json [narracion.mp3]

@@ -4,12 +4,12 @@ Descripción sugerida:
 Este video explica qué es un arancel, quién lo paga legalmente y quién termina soportando su costo económico. También muestra por qué el precio final no necesariamente sube en la misma proporción que el gravamen, cómo influyen las alternativas de compradores y vendedores y por qué una exclusión puede cambiar la posición competitiva de un país. La noticia entre Chile y Estados Unidos del veinticuatro de agosto de dos mil veintiséis sirve solo como puerta de entrada para entender un mecanismo permanente del comercio internacional.
 
 Fuentes de la entrega:
-- Resumen diario - ultimo.md — edición del 24 de agosto de 2026. Caso de entrada y aplicación coyuntural.
-- Organización Mundial del Comercio — “Derechos arancelarios, aranceles”, Glosario de términos. Definición y formas de los aranceles.
-- Organización Mundial del Comercio — “Tariff and Trade Data”. Aranceles aplicados, consolidados y trato NMF.
-- Subsecretaría de Relaciones Económicas Internacionales de Chile — “EE.UU.”, Acuerdo de Libre Comercio Chile–Estados Unidos. Vigencia del acuerdo y calendario de desgravación.
-- Reserva Federal de Estados Unidos — FEDS Notes, “Detecting Tariff Effects on Consumer Prices in Real Time – Part II”, 8 de abril de 2026. Evidencia sobre transmisión de aranceles a precios.
-- Fondo Monetario Internacional — Working Paper 2026/149, “Tariff Pass-Through and Import Reallocation”, julio de 2026. Evidencia sobre transmisión y reasignación de importaciones.
+- Resumen diario - ultimo.md - edición del 24 de agosto de 2026. Caso de entrada y aplicación coyuntural.
+- Organización Mundial del Comercio - “Derechos arancelarios, aranceles”, Glosario de términos. Definición y formas de los aranceles.
+- Organización Mundial del Comercio - “Tariff and Trade Data”. Aranceles aplicados, consolidados y trato NMF.
+- Subsecretaría de Relaciones Económicas Internacionales de Chile - “EE.UU.”, Acuerdo de Libre Comercio Chile-Estados Unidos. Vigencia del acuerdo y calendario de desgravación.
+- Reserva Federal de Estados Unidos - FEDS Notes, “Detecting Tariff Effects on Consumer Prices in Real Time - Part II”, 8 de abril de 2026. Evidencia sobre transmisión de aranceles a precios.
+- Fondo Monetario Internacional - Working Paper 2026/149, “Tariff Pass-Through and Import Reallocation”, julio de 2026. Evidencia sobre transmisión y reasignación de importaciones.
 
 Guion:
 
@@ -144,9 +144,9 @@ En la discusión iniciada el veinticuatro de agosto de dos mil veintiséis, eso 
 Con esa lógica, una noticia sobre aranceles deja de ser una cifra aislada y muestra una cadena económica.
 
 Fuentes:
-- Resumen diario - ultimo.md — edición del 24 de agosto de 2026. Caso de entrada y aplicación coyuntural.
-- Organización Mundial del Comercio — “Derechos arancelarios, aranceles”, Glosario de términos. Definición y formas de los aranceles.
-- Organización Mundial del Comercio — “Tariff and Trade Data”. Aranceles aplicados, consolidados y trato NMF.
-- Subsecretaría de Relaciones Económicas Internacionales de Chile — “EE.UU.”, Acuerdo de Libre Comercio Chile–Estados Unidos. Vigencia del acuerdo y calendario de desgravación.
-- Reserva Federal de Estados Unidos — FEDS Notes, “Detecting Tariff Effects on Consumer Prices in Real Time – Part II”, 8 de abril de 2026. Evidencia sobre transmisión de aranceles a precios.
-- Fondo Monetario Internacional — Working Paper 2026/149, “Tariff Pass-Through and Import Reallocation”, julio de 2026. Evidencia sobre transmisión y reasignación de importaciones.
+- Resumen diario - ultimo.md - edición del 24 de agosto de 2026. Caso de entrada y aplicación coyuntural.
+- Organización Mundial del Comercio - “Derechos arancelarios, aranceles”, Glosario de términos. Definición y formas de los aranceles.
+- Organización Mundial del Comercio - “Tariff and Trade Data”. Aranceles aplicados, consolidados y trato NMF.
+- Subsecretaría de Relaciones Económicas Internacionales de Chile - “EE.UU.”, Acuerdo de Libre Comercio Chile-Estados Unidos. Vigencia del acuerdo y calendario de desgravación.
+- Reserva Federal de Estados Unidos - FEDS Notes, “Detecting Tariff Effects on Consumer Prices in Real Time - Part II”, 8 de abril de 2026. Evidencia sobre transmisión de aranceles a precios.
+- Fondo Monetario Internacional - Working Paper 2026/149, “Tariff Pass-Through and Import Reallocation”, julio de 2026. Evidencia sobre transmisión y reasignación de importaciones.

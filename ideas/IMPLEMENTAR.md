@@ -1,4 +1,4 @@
-# Por implementar — revisar mañana 2026-08-25 ☀️
+# Por implementar - revisar mañana 2026-08-25 ☀️
 
 Lista priorizada tras la investigación del 25-08 (detalle y fuentes en
 investigacion-mejoras-2026-08-25.md). Revisar junto con: el release de la
@@ -9,13 +9,13 @@ crecimiento que la nube deja a las 07:00.
 - [ ] 1. Cold open: el DATO más fuerte del día 3-5 s ANTES del sello
       (reordenar timeline en Remotion; el sello pasa a 2º). Esfuerzo bajo.
 - [ ] 2. Regla de los 5-7 s: count-up en cifras, subrayados que se dibujan,
-      entradas con delay — ninguna tarjeta muerta >6 s. Esfuerzo bajo.
+      entradas con delay - ninguna tarjeta muerta >6 s. Esfuerzo bajo.
 - [ ] 3. Checklist de cumplimiento IA (30 min, costo de omisión existencial):
       divulgación de contenido sintético en cada subida + protocolo de
       valor humano documentado + variación estructural entre videos.
 
 ## Estratégico (decisión de Santiago)
-- [ ] ACELERAR LA VOZ CLONADA — los videos mudos rozan la definición de
+- [ ] ACELERAR LA VOZ CLONADA - los videos mudos rozan la definición de
       contenido NO monetizable de YouTube (política 15-jul-2025:
       "diapositivas con poca narración"). La voz es requisito, no estética.
 - [ ] Posicionamiento "el resumen sin gritos" (tagline, descripción, cierre).
@@ -45,7 +45,7 @@ crecimiento que la nube deja a las 07:00.
 
 ## Pendientes operativos
 - [ ] Cama de la Clave generada por GPT (prompt 2 de prompts/musica.md).
-- [ ] Probar la cama del informe (GPT) en PARLANTE DE TELÉFONO — 95% de su
+- [ ] Probar la cama del informe (GPT) en PARLANTE DE TELÉFONO - 95% de su
       energía está bajo 250 Hz y puede desaparecer en móviles.
 - [ ] Primera prueba real de las tareas programadas de GPT leyendo prompts
       del repo (madrugada del 25-08).

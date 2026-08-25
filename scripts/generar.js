@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * generar.js — Genera la edición del día llamando a la API de Claude y guarda
+ * generar.js - Genera la edición del día llamando a la API de Claude y guarda
  * todo en contenido/. Pensado para correr en GitHub Actions cada madrugada,
  * pero funciona igual en tu máquina.
  *
@@ -70,7 +70,7 @@ async function llamar({ mensaje, busquedas = 0, maxTokens = 8000 }) {
 // ---- salidas simuladas para probar el flujo sin API ----
 const SIM = {
   informe: `Informe de la jornada\n\n${fecha} | Edición simulada\n\nEn una mirada\n\nEdición de prueba del sistema automatizado.\n\nEl tiempo\n\nSantiago: mínima 8 °C, máxima 20 °C, sin lluvia. Recomendación: abrigo liviano. (DMC, ${fecha})\n\n[A] Noticia de prueba del pipeline\n\nEsta edición existe solo para verificar la cadena de generación. (Fuente de prueba, ${fecha})\n\nAgenda de hoy\n\n- Probar el pipeline completo.\n\nFuentes consultadas\n\nDMC, ${fecha}.`,
-  clave: `Título: Edición de prueba: cómo fluye el sistema\nSlug: edicion-de-prueba\n\nLa noticia que abrió esta pregunta — ${fecha}\n\nEsta entrega existe para probar la cadena.\n\nQué conviene recordar\n\nEl sistema funciona.\n\nBanco de temas\n- concepto de prueba | noticia de prueba | ${fecha}`,
+  clave: `Título: Edición de prueba: cómo fluye el sistema\nSlug: edicion-de-prueba\n\nLa noticia que abrió esta pregunta - ${fecha}\n\nEsta entrega existe para probar la cadena.\n\nQué conviene recordar\n\nEl sistema funciona.\n\nBanco de temas\n- concepto de prueba | noticia de prueba | ${fecha}`,
   guionInforme: `Título sugerido: Edición de prueba del sistema\n\nDescripción sugerida:\n\nEdición de prueba de la automatización.\n\nGuion:\n\n## Apertura\n\n[TESIS] El sistema automatizado genera la edición completa.\n\nEsta es una edición de prueba generada por la cadena automática del ${fecha.split("-").reverse().join(" del ")}.\n\n## Cierre\n\n[TESIS] La cadena quedó verificada de punta a punta.\n\nNos encontramos en la próxima.\n\nFuentes:\n\nDMC, ${fecha}`,
   guionClave: `Título sugerido: Cómo fluye el sistema de generación\n\nDescripción sugerida:\n\nPrueba del guion de Claves.\n\nGuion:\n\n## Gancho\n\n[TESIS] Probar también es entender.\n\nEsta es la prueba del guion de Claves.\n\n## Cierre\n\nHasta la próxima.\n\nFuentes:\n\nPrueba, ${fecha}`,
 };

@@ -24,7 +24,7 @@ export type Timeline = {
 
 // Sello de identidad: 2,8 s al inicio, corre BAJO la narración (nunca la
 // retrasa) y se desvanece revelando la primera tarjeta. Marca sin costo de
-// retención — jamás una intro larga.
+// retención - jamás una intro larga.
 const SELLO_SEG = 2.8;
 
 const Sello: React.FC<{ fecha?: string; serie?: string }> = ({ fecha, serie }) => {

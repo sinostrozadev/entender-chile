@@ -76,3 +76,7 @@ CONTROL ANTES DE ENTREGAR:
 CONTRATO DE ARCHIVOS: aplica el contrato de prompts/contrato-archivos.md del
 mismo repositorio. Léelo COMPLETO en esta misma ejecución: define las rutas
 exactas, el formato obligatorio de los guiones y las reglas de commit.
+ESTILO TIPOGRÁFICO (obligatorio en todo entregable):
+- Nunca uses la raya larga (—) ni la raya media (–). Donde caería una raya,
+  usa coma, dos puntos, punto o paréntesis.
+- Los rangos se escriben con guion corto (2026-2027, 8-10) o con "a" (8 a 10).

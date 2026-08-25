@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * tts-elevenlabs.js — Genera la voz con ElevenLabs y guarda audio + alineación.
+ * tts-elevenlabs.js - Genera la voz con ElevenLabs y guarda audio + alineación.
  *
  * Uso:
  *   ELEVENLABS_API_KEY=xxx VOICE_ID=yyy node scripts/tts-elevenlabs.js out/narracion.txt out/

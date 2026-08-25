@@ -36,31 +36,31 @@ Apertura con una pregunta o una escena concreta (máximo 60 segundos). Desarroll
 2. ARCOS
 ======================================================================
 
-ARCO 1. LOS MUNDOS ORIGINARIOS (c. 14.000 a.C. – 1536)
+ARCO 1. LOS MUNDOS ORIGINARIOS (c. 14.000 a.C. - 1536)
 Pregunta central: quiénes vivían en este territorio, cómo se organizaban y qué relaciones tenían entre sí antes de que existiera la idea de "Chile". Establece que la llegada europea fue un encuentro entre mundos ya complejos y no un punto cero. Capítulos 1 a 5.
 
-ARCO 2. CONQUISTA Y FRONTERA (1536 – 1700)
+ARCO 2. CONQUISTA Y FRONTERA (1536 - 1700)
 Pregunta central: por qué la conquista española triunfó en el centro y fracasó en el sur, y cómo el fracaso convirtió al Biobío en una frontera que definió la economía, la sociedad y el ejército de Chile durante tres siglos. Capítulos 6 a 10.
 
-ARCO 3. LA COLONIA (1600 – 1808)
+ARCO 3. LA COLONIA (1600 - 1808)
 Pregunta central: cómo una gobernación pobre y periférica produjo la hacienda, el inquilino, la elite criolla y la cultura que la república heredó sin haberlas inventado. Capítulos 11 a 16.
 
-ARCO 4. INDEPENDENCIA Y REPÚBLICA EN CONSTRUCCIÓN (1808 – 1861)
+ARCO 4. INDEPENDENCIA Y REPÚBLICA EN CONSTRUCCIÓN (1808 - 1861)
 Pregunta central: cómo una crisis de la monarquía se convirtió en una guerra de independencia, por qué los primeros ensayos republicanos fracasaron y cómo se impuso el orden centralista y presidencial que aún estructura al Estado chileno. Capítulos 17 a 25.
 
-ARCO 5. LA REPÚBLICA LIBERAL Y LA EXPANSIÓN (1861 – 1891)
+ARCO 5. LA REPÚBLICA LIBERAL Y LA EXPANSIÓN (1861 - 1891)
 Pregunta central: cómo Chile triplicó su territorio, conquistó la Araucanía, ganó la Guerra del Pacífico y se convirtió en un país de exportación de minerales, y qué costos humanos y qué tensiones institucionales dejó esa expansión. Capítulos 26 a 33.
 
-ARCO 6. PARLAMENTARISMO, CUESTIÓN SOCIAL Y ESTADO (1891 – 1938)
+ARCO 6. PARLAMENTARISMO, CUESTIÓN SOCIAL Y ESTADO (1891 - 1938)
 Pregunta central: por qué el auge del salitre convivió con la miseria obrera, cómo la "cuestión social" produjo partidos, matanzas y leyes, y cómo la crisis del régimen parlamentario dio origen al Estado moderno chileno. Capítulos 34 a 42.
 
-ARCO 7. DESARROLLO, REFORMA Y QUIEBRE (1938 – 1973)
+ARCO 7. DESARROLLO, REFORMA Y QUIEBRE (1938 - 1973)
 Pregunta central: cómo el Estado se convirtió en motor del desarrollo, por qué el cobre y la tierra fueron los grandes temas de la política, y cómo la competencia de tres proyectos de país terminó en polarización y en el golpe de 1973. Capítulos 43 a 52.
 
-ARCO 8. DICTADURA Y TRANSICIÓN (1973 – 1990)
+ARCO 8. DICTADURA Y TRANSICIÓN (1973 - 1990)
 Pregunta central: qué hizo la dictadura con el Estado, la economía, la sociedad y las personas, cómo se construyó la Constitución de 1980 y cómo una oposición derrotada logró recuperar la democracia por la vía que el propio régimen había diseñado. Capítulos 53 a 58.
 
-ARCO 9. CHILE EN DEMOCRACIA (1990 – presente)
+ARCO 9. CHILE EN DEMOCRACIA (1990 - presente)
 Pregunta central: qué se mantuvo, qué se reformó y qué quedó pendiente del orden heredado, y de dónde vienen las demandas y conflictos que marcan al Chile actual. Se trata con la distancia y la prudencia que exige la historia reciente: hechos establecidos, no evaluaciones cerradas. Capítulos 59 a 66.
 
 ======================================================================
@@ -72,7 +72,7 @@ ARCO 1. LOS MUNDOS ORIGINARIOS
 ----------------------------------------------------------------------
 
 1. Chile antes de Chile: los primeros habitantes del territorio
-Período: c. 14.000 a.C. – 1000 a.C.
+Período: c. 14.000 a.C. - 1000 a.C.
 Pregunta central: ¿Desde cuándo y cómo vivieron seres humanos en el actual territorio chileno?
 Contenidos:
 - Monte Verde (Región de Los Lagos) y su impacto en el debate sobre el poblamiento de América.
@@ -83,7 +83,7 @@ Contenidos:
 Conexión con el presente: La diversidad regional de Chile no es un accidente moderno; el territorio siempre exigió formas de vida distintas en cada zona.
 
 2. Los pueblos del norte: atacameños, aymaras, diaguitas y changos
-Período: c. 1000 a.C. – 1470
+Período: c. 1000 a.C. - 1470
 Pregunta central: ¿Cómo se organizaba la vida en el desierto y los valles del norte antes de los incas?
 Contenidos:
 - Agricultura de oasis, terrazas y canales en Atacama y el altiplano; pastoreo de camélidos.
@@ -95,7 +95,7 @@ Contenidos:
 Conexión con el presente: Las comunidades aymaras, quechuas, atacameñas, collas, diaguitas y changas de hoy tienen raíces en estas formas de organización, y muchas de sus demandas sobre agua y tierra vienen de aquí.
 
 3. El mundo mapuche antes de los españoles
-Período: c. 500 – 1536
+Período: c. 500 - 1536
 Pregunta central: ¿Quiénes eran los mapuche y cómo vivían y se organizaban sin un Estado?
 Contenidos:
 - Territorio, lengua y diversidad interna: picunche, mapuche del valle central, huilliche, lafkenche, pehuenche.
@@ -108,7 +108,7 @@ Conexión con el presente: La organización descentralizada mapuche explica tant
 Sensibilidad: Debate sobre el uso del término "mapuche" para toda la población previa a 1550 y sobre la escala de la población original.
 
 4. Canoeros y cazadores del extremo sur
-Período: c. 6000 a.C. – 1536
+Período: c. 6000 a.C. - 1536
 Pregunta central: ¿Cómo se vivía en los canales, la Patagonia y Tierra del Fuego?
 Contenidos:
 - Chonos, kawésqar y yaganes: nomadismo canoero, fuego a bordo, caza de lobos marinos.
@@ -119,7 +119,7 @@ Contenidos:
 Conexión con el presente: La fragilidad de estos pueblos en el siglo XX y el reconocimiento tardío de su historia explican por qué son el caso más citado de desaparición cultural en Chile.
 
 5. El Tawantinsuyu llega al sur
-Período: c. 1470 – 1536
+Período: c. 1470 - 1536
 Pregunta central: ¿Hasta dónde llegó el imperio inca y qué cambió en los pueblos que dominó?
 Contenidos:
 - La expansión bajo Túpac Yupanqui y Huayna Cápac; el Qhapaq Ñan hasta el Maule.
@@ -134,7 +134,7 @@ ARCO 2. CONQUISTA Y FRONTERA
 ----------------------------------------------------------------------
 
 6. Almagro, Valdivia y por qué España quiso Chile
-Período: 1536 – 1553
+Período: 1536 - 1553
 Pregunta central: ¿Qué buscaban los conquistadores y cómo se fundó Santiago?
 Contenidos:
 - La expedición de Almagro (1535-1537), el fracaso y la fama de "tierra pobre".
@@ -146,7 +146,7 @@ Contenidos:
 Conexión con el presente: La red de ciudades del valle central y la primacía de Santiago nacen de decisiones de esta década.
 
 7. Lautaro y la muerte de Valdivia: la guerra de Arauco comienza
-Período: 1553 – 1558
+Período: 1553 - 1558
 Pregunta central: ¿Cómo pudo un pueblo sin Estado derrotar a los conquistadores?
 Contenidos:
 - Batalla de Tucapel (1553) y la muerte de Valdivia.
@@ -158,7 +158,7 @@ Conexión con el presente: La imagen del mapuche como guerrero indomable, usada 
 Sensibilidad: Disputa sobre las cifras de población y muertos; contraste entre las fuentes españolas y la tradición oral mapuche.
 
 8. Curalaba y el nacimiento de la frontera del Biobío
-Período: 1598 – 1604
+Período: 1598 - 1604
 Pregunta central: ¿Por qué Chile quedó partido en dos durante casi tres siglos?
 Contenidos:
 - La batalla de Curalaba (1598), la muerte del gobernador Óñez de Loyola y el alzamiento general.
@@ -169,7 +169,7 @@ Contenidos:
 Conexión con el presente: El límite del Biobío, la presencia militar en el sur y la idea de la Araucanía como territorio "aparte" nacen aquí.
 
 9. Encomienda, oro y mestizaje: la sociedad del siglo XVI
-Período: 1541 – 1650
+Período: 1541 - 1650
 Pregunta central: ¿Quiénes trabajaban, quiénes mandaban y cómo nació la población mestiza?
 Contenidos:
 - El sistema de encomienda: tributo, trabajo forzado y sus abusos.
@@ -181,7 +181,7 @@ Contenidos:
 Conexión con el presente: La mayoría de la población chilena es mestiza y la desigualdad entre quien posee la tierra y quien la trabaja tiene aquí su primera forma.
 
 10. Parlamentos, misiones y comercio: la frontera como sistema
-Período: 1612 – 1700
+Período: 1612 - 1700
 Pregunta central: ¿Cómo pasó la frontera de guerra permanente a convivencia negociada?
 Contenidos:
 - La "guerra defensiva" del jesuita Luis de Valdivia (1612) y su fracaso.
@@ -198,7 +198,7 @@ ARCO 3. LA COLONIA
 ----------------------------------------------------------------------
 
 11. Una colonia pobre: sebo, cuero, trigo y el Perú
-Período: 1600 – 1750
+Período: 1600 - 1750
 Pregunta central: ¿De qué vivía Chile cuando no había oro ni salitre?
 Contenidos:
 - Chile como periferia del Virreinato del Perú: dependencia comercial de Lima y el Callao.
@@ -210,7 +210,7 @@ Contenidos:
 Conexión con el presente: La dependencia de un solo producto de exportación y de un solo mercado es un patrón que se repetirá con el salitre y el cobre.
 
 12. La hacienda y el inquilino: raíces del mundo rural chileno
-Período: siglos XVII – XVIII
+Período: siglos XVII - XVIII
 Pregunta central: ¿Cómo nació el sistema de tenencia de la tierra que dominó Chile hasta 1967?
 Contenidos:
 - De la encomienda y la merced de tierras a la hacienda.
@@ -221,7 +221,7 @@ Contenidos:
 Conexión con el presente: La reforma agraria de los sesenta, el conflicto campesino y buena parte de la cultura popular chilena solo se entienden desde la hacienda.
 
 13. Santiago colonial: mujeres, esclavos, castas y vida cotidiana
-Período: siglos XVII – XVIII
+Período: siglos XVII - XVIII
 Pregunta central: ¿Cómo vivía la gente común en una ciudad colonial?
 Contenidos:
 - La ciudad: plaza, cabildo, iglesias, acequias, chinganas y ramadas.
@@ -233,7 +233,7 @@ Contenidos:
 Conexión con el presente: La estructura de barrios, el peso de la Iglesia y las jerarquías de color y apellido dejaron huellas visibles en la ciudad y la sociedad actuales.
 
 14. Reformas borbónicas y el nacimiento de la elite criolla
-Período: 1750 – 1808
+Período: 1750 - 1808
 Pregunta central: ¿Qué cambió cuando la Corona decidió gobernar en serio a Chile?
 Contenidos:
 - Creación de intendencias, Casa de Moneda (1743), Real Universidad de San Felipe (1747), Real Audiencia fortalecida.
@@ -245,7 +245,7 @@ Contenidos:
 Conexión con el presente: Muchas de las familias, fortunas y apellidos que gobernaron Chile en el siglo XIX y aparecen todavía en la economía se consolidaron en estas décadas.
 
 15. Iglesia, saber y cultura en la colonia
-Período: 1600 – 1808
+Período: 1600 - 1808
 Pregunta central: ¿Quién pensaba, escribía y educaba en el Chile colonial?
 Contenidos:
 - Jesuitas: haciendas, colegios, la Calera de Tango, la expulsión de 1767 y sus consecuencias.
@@ -257,7 +257,7 @@ Contenidos:
 Conexión con el presente: El peso cultural de la Iglesia, la centralidad de la educación como proyecto de elite y la tradición jurídica chilena tienen aquí su origen.
 
 16. La frontera en el siglo XVIII: ganado, caballos y pehuenches
-Período: 1700 – 1808
+Período: 1700 - 1808
 Pregunta central: ¿Cómo se transformó la sociedad mapuche en su siglo de autonomía?
 Contenidos:
 - El caballo y el ganado: la nueva economía mapuche, la expansión a la pampa argentina (Puelmapu).
@@ -274,7 +274,7 @@ ARCO 4. INDEPENDENCIA Y REPÚBLICA EN CONSTRUCCIÓN
 ----------------------------------------------------------------------
 
 17. 1810: crisis de la monarquía, no revolución nacional
-Período: 1808 – 1810
+Período: 1808 - 1810
 Pregunta central: ¿Por qué se formó una junta de gobierno y qué querían realmente sus miembros?
 Contenidos:
 - La invasión napoleónica de España, la abdicación de Fernando VII y el vacío de legitimidad.
@@ -286,7 +286,7 @@ Conexión con el presente: El 18 de septiembre no celebra una independencia sino
 Sensibilidad: Disputa entre la lectura que ve en 1810 una revolución con ideas ilustradas y la que ve una reacción defensiva de la elite ante el vacío de poder.
 
 18. La Patria Vieja: de la autonomía a la ruptura
-Período: 1810 – 1814
+Período: 1810 - 1814
 Pregunta central: ¿Cómo un movimiento autonomista terminó en una guerra?
 Contenidos:
 - El primer Congreso Nacional (1811), la ley de libertad de vientres, la Aurora de Chile.
@@ -298,7 +298,7 @@ Contenidos:
 Conexión con el presente: La independencia fue también una guerra civil entre chilenos, y las disputas de liderazgo entre facciones patriotas son una constante de la política nacional.
 
 19. Reconquista, Ejército de los Andes y la independencia
-Período: 1814 – 1818
+Período: 1814 - 1818
 Pregunta central: ¿Qué hizo posible la victoria patriota y qué se declaró en 1818?
 Contenidos:
 - El régimen de Osorio y Marcó del Pont: represión, Juan Fernández, confiscaciones.
@@ -310,7 +310,7 @@ Contenidos:
 Conexión con el presente: La independencia fue un proyecto continental (Argentina-Chile-Perú) y no solo nacional; la relación con Argentina nace como alianza antes que como rivalidad.
 
 20. O'Higgins: por qué cayó el Director Supremo
-Período: 1817 – 1823
+Período: 1817 - 1823
 Pregunta central: ¿Qué intentó O'Higgins y por qué la elite lo forzó a abdicar?
 Contenidos:
 - La Escuadra Libertadora, Cochrane, la toma de Valdivia y la Expedición al Perú (1820).
@@ -322,7 +322,7 @@ Conexión con el presente: El conflicto entre un ejecutivo fuerte y una elite qu
 Sensibilidad: Disputa sobre la responsabilidad de O'Higgins en la muerte de Manuel Rodríguez y los Carrera.
 
 21. Los ensayos: federalismo, liberales y pipiolos
-Período: 1823 – 1830
+Período: 1823 - 1830
 Pregunta central: ¿Por qué fracasaron las primeras constituciones y qué proponían?
 Contenidos:
 - Constitución moralista de 1824 (Egaña), leyes federales de 1826 (Infante), Constitución liberal de 1828 (Mora).
@@ -334,7 +334,7 @@ Conexión con el presente: Chile sí tuvo una tradición federalista y liberal t
 Sensibilidad: Debate sobre si el período fue "anarquía" (lectura conservadora clásica) o un aprendizaje democrático interrumpido (lectura revisionista).
 
 22. Por qué Chile es tan centralista: el orden portaliano
-Período: 1830 – 1841
+Período: 1830 - 1841
 Pregunta central: ¿Qué es el "orden portaliano" y cuánto de él sigue vigente?
 Contenidos:
 - Diego Portales: comerciante, ministro, la carta a Cea y el "peso de la noche".
@@ -347,7 +347,7 @@ Conexión con el presente: El presidencialismo reforzado, el centralismo adminis
 Sensibilidad: Disputa entre la lectura de Alberto Edwards y Francisco Encina (Portales fundador del Estado "en forma") y las lecturas de Sergio Villalobos, Gabriel Salazar y otros (Portales como articulador de intereses mercantiles y de una elite excluyente). Presentar ambas.
 
 23. La guerra contra la Confederación Perú-Boliviana
-Período: 1836 – 1839
+Período: 1836 - 1839
 Pregunta central: ¿Por qué Chile fue a una guerra impopular y qué ganó con ella?
 Contenidos:
 - Santa Cruz y el proyecto de la Confederación; la rivalidad Valparaíso-Callao.
@@ -358,7 +358,7 @@ Contenidos:
 Conexión con el presente: La idea de Chile como potencia del Pacífico y la desconfianza hacia la unión peruano-boliviana anteceden en cuarenta años a la Guerra del Pacífico.
 
 24. Bulnes y Montt: cómo se construyó el Estado
-Período: 1841 – 1861
+Período: 1841 - 1861
 Pregunta central: ¿Con qué instituciones concretas se hizo el Estado chileno?
 Contenidos:
 - Universidad de Chile (1842), Escuela Normal (1842), Escuela de Artes y Oficios (1849), Código Civil (1855).
@@ -370,7 +370,7 @@ Contenidos:
 Conexión con el presente: La educación pública, el derecho civil y la ocupación del sur austral son obras de este período; el Estado docente nace aquí.
 
 25. Las revoluciones de 1851 y 1859 y la Generación de 1842
-Período: 1842 – 1861
+Período: 1842 - 1861
 Pregunta central: ¿Quiénes se opusieron al orden conservador y con qué ideas?
 Contenidos:
 - Lastarria, Bilbao, Sarmiento en Chile, la Sociedad Literaria de 1842 y la prensa de opinión.
@@ -385,7 +385,7 @@ ARCO 5. LA REPÚBLICA LIBERAL Y LA EXPANSIÓN
 ----------------------------------------------------------------------
 
 26. Plata, cobre, trigo y carbón: la economía del siglo XIX
-Período: 1830 – 1880
+Período: 1830 - 1880
 Pregunta central: ¿De dónde salió la riqueza que pagó el Estado y la guerra?
 Contenidos:
 - Chañarcillo (1832) y la plata; Tamaya y Chile como primer productor mundial de cobre (1860s).
@@ -397,7 +397,7 @@ Contenidos:
 Conexión con el presente: El patrón exportador de materias primas, la volatilidad de ciclos y el peso de las fortunas mineras son el molde de la economía chilena hasta hoy.
 
 27. Las reformas liberales y la cuestión religiosa
-Período: 1861 – 1884
+Período: 1861 - 1884
 Pregunta central: ¿Cómo se democratizó, parcialmente, el orden de 1833?
 Contenidos:
 - Pérez, Errázuriz Zañartu, Pinto, Santa María: la Fusión Liberal-Conservadora y luego el liberalismo.
@@ -408,7 +408,7 @@ Contenidos:
 Conexión con el presente: La separación entre Estado e Iglesia, completada en 1925, y la tradición laica de la educación pública nacen en estas reformas.
 
 28. La ocupación de la Araucanía
-Período: 1861 – 1883
+Período: 1861 - 1883
 Pregunta central: ¿Cómo y por qué el Estado chileno conquistó el territorio mapuche autónomo?
 Contenidos:
 - Contexto: colonización del sur, presión por tierras, el "rey de la Araucanía" Orélie-Antoine (1860).
@@ -422,7 +422,7 @@ Conexión con el presente: El conflicto en la Araucanía, la demanda de restituc
 Sensibilidad: ALTA. Presentar los términos "pacificación", "ocupación", "invasión" y "conquista" con quién los usa. Lecturas en disputa: la del Estado y la historiografía tradicional (incorporación de un territorio nacional), la de Bengoa, Pinto Rodríguez y la historiografía mapuche (despojo y violencia colonial) y la de quienes subrayan la negociación y participación de sectores mapuche. Cifras de tierras perdidas atribuidas a fuente.
 
 29. Guerra del Pacífico: las causas
-Período: 1866 – 1879
+Período: 1866 - 1879
 Pregunta central: ¿Por qué tres países vecinos llegaron a la guerra?
 Contenidos:
 - El salitre de Atacama y Tarapacá: capitales chilenos e ingleses en territorio boliviano y peruano.
@@ -435,7 +435,7 @@ Conexión con el presente: La relación con Perú y Bolivia y el reclamo bolivia
 Sensibilidad: ALTA. Las historiografías chilena, peruana y boliviana difieren sustancialmente. Presentar la tesis del "imperialismo chileno" y la del "expansionismo defensivo" con sus autores. Evitar lenguaje de heroísmo o de agravio.
 
 30. Guerra del Pacífico: la guerra y sus consecuencias
-Período: 1879 – 1884 (y 1904, 1929)
+Período: 1879 - 1884 (y 1904, 1929)
 Pregunta central: ¿Qué cambió para Chile y para sus vecinos con la victoria?
 Contenidos:
 - Campañas: marítima (Iquique, Angamos), Tarapacá, Tacna y Arica, Lima (1881), Sierra (Cáceres, 1881-1883).
@@ -448,7 +448,7 @@ Conexión con el presente: Los límites actuales del norte, el fallo de La Haya 
 Sensibilidad: ALTA. Ocupación de Lima, saqueo de bibliotecas, violencia contra civiles y la chilenización deben tratarse con fuentes de los tres países.
 
 31. Magallanes, Rapa Nui y el fin de la frontera con Argentina
-Período: 1843 – 1902
+Período: 1843 - 1902
 Pregunta central: ¿Cómo se fijaron los límites del sur y qué pasó con los pueblos que vivían allí?
 Contenidos:
 - Tratado de 1881 con Argentina: Patagonia por Magallanes; laudos de 1902.
@@ -461,7 +461,7 @@ Conexión con el presente: La relación de Rapa Nui con el Estado, el reconocimi
 Sensibilidad: ALTA. El uso del término genocidio para el caso selk'nam está respaldado por buena parte de la historiografía pero debe explicarse y atribuirse. En Rapa Nui, contrastar la versión estatal del acuerdo de 1888 con la lectura rapanui.
 
 32. Balmaceda y la guerra civil de 1891
-Período: 1886 – 1891
+Período: 1886 - 1891
 Pregunta central: ¿Fue 1891 un conflicto por el salitre, por el poder o por la Constitución?
 Contenidos:
 - Balmaceda: obras públicas, educación, el proyecto de "nacionalizar" el salitre y la disputa con North.
@@ -473,7 +473,7 @@ Conexión con el presente: El equilibrio entre presidente y Congreso y la cuesti
 Sensibilidad: Disputa entre la lectura nacionalista (Balmaceda víctima de la oligarquía y el capital inglés: Ramírez Necochea) y la institucionalista (Balmaceda autoritario que violó la Constitución: Encina, Edwards, revisiones recientes de Julio Heise y otros). Presentar ambas con la evidencia sobre el rol de North.
 
 33. Ciudad, prensa, mujeres y migrantes hacia 1890
-Período: 1870 – 1900
+Período: 1870 - 1900
 Pregunta central: ¿Cómo se vivía en un país que se creía rico?
 Contenidos:
 - Santiago de Vicuña Mackenna: Santa Lucía, alcantarillado, el "cinturón de hierro" y los arrabales.
@@ -489,7 +489,7 @@ ARCO 6. PARLAMENTARISMO, CUESTIÓN SOCIAL Y ESTADO
 ----------------------------------------------------------------------
 
 34. El régimen parlamentario: cómo funcionaba y por qué se agotó
-Período: 1891 – 1924
+Período: 1891 - 1924
 Pregunta central: ¿Chile fue realmente parlamentario y por qué esa palabra hoy suena a fracaso?
 Contenidos:
 - Mecanismos: interpelaciones, rotativa ministerial, comuna autónoma (1891), cohecho e intervención electoral.
@@ -501,7 +501,7 @@ Conexión con el presente: El desprestigio del parlamentarismo en Chile y la pre
 Sensibilidad: Disputa sobre si el régimen fue un fracaso o un período de estabilidad y modernización con una elite parasitaria; lecturas de Heise, Villalobos, Gonzalo Vial.
 
 35. El salitre: enclave, ficha y oficina
-Período: 1880 – 1930
+Período: 1880 - 1930
 Pregunta central: ¿Cómo se producía la riqueza que financiaba al Estado y quién se la quedaba?
 Contenidos:
 - La oficina salitrera: caliche, cachuchos, sistema Shanks y Guggenheim; Humberstone, Chacabuco, María Elena.
@@ -513,7 +513,7 @@ Contenidos:
 Conexión con el presente: Antofagasta y Tarapacá siguen siendo regiones de enclave exportador con población flotante; el debate sobre el royalty minero es heredero de la discusión salitrera.
 
 36. La cuestión social y el nacimiento del movimiento obrero
-Período: 1880 – 1920
+Período: 1880 - 1920
 Pregunta central: ¿Cómo y por qué los trabajadores chilenos se organizaron?
 Contenidos:
 - Sociedades mutuales, mancomunales, sociedades de resistencia, prensa obrera.
@@ -525,7 +525,7 @@ Contenidos:
 Conexión con el presente: La legislación laboral, el sindicalismo y la cultura de organización popular en Chile tienen su origen en estas décadas.
 
 37. Santa María de Iquique y las matanzas obreras
-Período: 1907 – 1925
+Período: 1907 - 1925
 Pregunta central: ¿Por qué el Estado respondió a las huelgas con masacres?
 Contenidos:
 - La huelga de Tarapacá de diciembre de 1907: demandas, marcha a Iquique, la escuela Santa María.
@@ -538,7 +538,7 @@ Conexión con el presente: La desconfianza histórica del mundo popular hacia la
 Sensibilidad: ALTA. Cifras de víctimas siempre con rango y fuente (Eduardo Devés, Sergio González Miranda, informes de época). Presentar la versión oficial de 1907 junto con la evidencia posterior.
 
 38. Alessandri, el ruido de sables y la Constitución de 1925
-Período: 1920 – 1925
+Período: 1920 - 1925
 Pregunta central: ¿Cómo terminó el parlamentarismo y quién decidió el nuevo régimen?
 Contenidos:
 - Elección de 1920: el "León de Tarapacá", la "querida chusma", el Tribunal de Honor.
@@ -550,7 +550,7 @@ Conexión con el presente: El presidencialismo que rigió hasta 1973 y el patró
 Sensibilidad: Debate sobre si 1924-1925 fue una intervención militar reformista o el inicio de la ruptura de la subordinación militar.
 
 39. Ibáñez y la construcción del Estado moderno
-Período: 1927 – 1931
+Período: 1927 - 1931
 Pregunta central: ¿Cuánto del Estado chileno actual fue creado por una dictadura?
 Contenidos:
 - Ascenso de Ibáñez, elección sin competencia (1927), persecución de opositores y relegaciones.
@@ -562,7 +562,7 @@ Conexión con el presente: Carabineros, la Contraloría y el aparato de supervis
 Sensibilidad: Debate sobre el carácter del gobierno (dictadura modernizadora, régimen populista temprano).
 
 40. De la crisis del 29 al Frente Popular: se rehace la política
-Período: 1931 – 1938
+Período: 1931 - 1938
 Pregunta central: ¿Cómo se reconstruyó el sistema político después del colapso económico?
 Contenidos:
 - Migración de la pampa a Santiago, ollas comunes, cesantía masiva.
@@ -574,8 +574,8 @@ Contenidos:
 Conexión con el presente: El sistema de tres tercios (derecha, centro, izquierda) que definiría la política chilena hasta 1973 se configura en estos años.
 Sensibilidad: La matanza del Seguro Obrero y Ranquil requieren cifras con fuente y lecturas contrastadas.
 
-41. Mujeres, ciudad y cultura, 1900 – 1938
-Período: 1900 – 1938
+41. Mujeres, ciudad y cultura, 1900 - 1938
+Período: 1900 - 1938
 Pregunta central: ¿Cómo cambió la vida cotidiana y quién producía la cultura chilena?
 Contenidos:
 - Ley de Instrucción Primaria Obligatoria (1920): la escuela llega al pueblo.
@@ -587,7 +587,7 @@ Contenidos:
 Conexión con el presente: El sufragio femenino, la escuela pública universal y la identidad cultural chilena reconocida internacionalmente son productos de estas décadas.
 
 42. Los mapuche después de la ocupación: reducciones y primeros líderes
-Período: 1884 – 1938
+Período: 1884 - 1938
 Pregunta central: ¿Qué pasó con el pueblo mapuche una vez vencido militarmente?
 Contenidos:
 - La radicación: títulos de merced (1884-1929), reducción de unas 10 millones de hectáreas a unas 500 mil.
@@ -604,7 +604,7 @@ ARCO 7. DESARROLLO, REFORMA Y QUIEBRE
 ----------------------------------------------------------------------
 
 43. Frente Popular y CORFO: el Estado como motor
-Período: 1938 – 1952
+Período: 1938 - 1952
 Pregunta central: ¿Cómo el Estado se convirtió en el principal empresario del país?
 Contenidos:
 - Aguirre Cerda ("gobernar es educar"), el terremoto de Chillán (1939) y la creación de CORFO.
@@ -617,7 +617,7 @@ Conexión con el presente: CODELCO, ENAP y el sistema de salud público tienen s
 Sensibilidad: La Ley Maldita y Pisagua requieren tratamiento con fuentes y contexto de guerra fría.
 
 44. El cobre: de la Gran Minería extranjera al "sueldo de Chile"
-Período: 1904 – 1971
+Período: 1904 - 1971
 Pregunta central: ¿Por qué el cobre es el centro de la economía chilena y quién lo controló?
 Contenidos:
 - Braden y El Teniente (1904), Anaconda y Chuquicamata (1915), Potrerillos: la Gran Minería norteamericana.
@@ -629,7 +629,7 @@ Contenidos:
 Conexión con el presente: La dependencia del cobre, la existencia de CODELCO y el debate sobre el royalty y la propiedad de los recursos naturales se explican con este capítulo.
 
 45. El campo antes de la reforma: inquilinos, migrantes y callampas
-Período: 1930 – 1964
+Período: 1930 - 1964
 Pregunta central: ¿Cómo vivía la mitad rural del país y por qué se fue a la ciudad?
 Contenidos:
 - Estructura de la propiedad: latifundio y minifundio según el censo de 1955 y el informe CIDA (1966).
@@ -641,7 +641,7 @@ Contenidos:
 Conexión con el presente: Los campamentos, la periferia de Santiago y el mundo de los pobladores nacen de esta migración.
 
 46. Ibáñez otra vez: inflación, populismo y la misión Klein-Saks
-Período: 1952 – 1958
+Período: 1952 - 1958
 Pregunta central: ¿Por qué Chile tenía inflación crónica y qué se intentó?
 Contenidos:
 - El "general de la esperanza": campaña de la escoba, rechazo a los partidos.
@@ -653,7 +653,7 @@ Contenidos:
 Conexión con el presente: El debate entre ajuste y gasto, y la idea de que la inflación es el enemigo central de la política económica, nacen de esta década.
 
 47. Alessandri Rodríguez y la reforma agraria "de macetero"
-Período: 1958 – 1964
+Período: 1958 - 1964
 Pregunta central: ¿Por qué un presidente de derecha inició la reforma agraria?
 Contenidos:
 - El programa liberal de Alessandri: gestión, obras públicas, apertura, el terremoto de 1960 y la reconstrucción.
@@ -665,7 +665,7 @@ Contenidos:
 Conexión con el presente: La influencia de la Guerra Fría en la política interna chilena es visible aquí antes de 1970.
 
 48. Frei Montalva y la "Revolución en Libertad"
-Período: 1964 – 1970
+Período: 1964 - 1970
 Pregunta central: ¿Qué reformas cambiaron la estructura social de Chile en seis años?
 Contenidos:
 - Reforma agraria (ley 16.640, 1967) y sindicalización campesina (1967): fin de la hacienda.
@@ -678,7 +678,7 @@ Conexión con el presente: La sindicalización campesina, la enseñanza básica 
 Sensibilidad: Disputa sobre si las reformas de Frei "abrieron la puerta" a la polarización o fueron una oportunidad perdida de reformismo estable.
 
 49. Los sesenta: universidad, Nueva Canción y cambio cultural
-Período: 1958 – 1973
+Período: 1958 - 1973
 Pregunta central: ¿Cómo cambiaron las ideas, la música y la vida de los jóvenes?
 Contenidos:
 - La Nueva Canción: Violeta Parra, Víctor Jara, Quilapayún, Inti-Illimani; la Peña de los Parra.
@@ -690,7 +690,7 @@ Contenidos:
 Conexión con el presente: El canon cultural chileno reconocido en el mundo y buena parte del imaginario político se formó en estos quince años.
 
 50. 1970: la elección de Allende y la "vía chilena"
-Período: 1969 – 1970
+Período: 1969 - 1970
 Pregunta central: ¿Cómo llegó un socialista a La Moneda por elección y qué prometía?
 Contenidos:
 - Tres candidatos, tres proyectos: Alessandri, Tomic, Allende; el 36,6 por ciento.
@@ -702,7 +702,7 @@ Conexión con el presente: La legitimidad electoral de Allende y la intervenció
 Sensibilidad: ALTA. Documentación desclasificada de EE.UU. (Iglesia Committee, 1975; archivos CIA) como fuente primaria.
 
 51. La Unidad Popular: economía, nacionalización y polarización
-Período: 1971 – 1972
+Período: 1971 - 1972
 Pregunta central: ¿Qué hizo el gobierno de Allende y por qué el país se dividió?
 Contenidos:
 - Nacionalización del cobre, área de propiedad social, aceleración de la reforma agraria, tomas de fundos y fábricas.
@@ -715,7 +715,7 @@ Conexión con el presente: Las lecturas de este período siguen dividiendo a la 
 Sensibilidad: ALTA. Presentar lecturas de derecha (caos, ilegalidad, "resquicios legales"), de izquierda (bloqueo, boicot, intervención extranjera) y las académicas (Arturo Valenzuela sobre el quiebre institucional; Peter Winn sobre los trabajadores; Joan Garcés desde el gobierno). Cifras económicas con fuente.
 
 52. 1973: del Tanquetazo al 11 de septiembre
-Período: enero – septiembre de 1973
+Período: enero - septiembre de 1973
 Pregunta central: ¿Cómo se llegó al golpe y quiénes lo decidieron?
 Contenidos:
 - Elección parlamentaria de marzo (44 por ciento UP): por qué no hubo acusación constitucional.
@@ -732,7 +732,7 @@ ARCO 8. DICTADURA Y TRANSICIÓN
 ----------------------------------------------------------------------
 
 53. Los primeros años: represión, DINA y la "guerra interna"
-Período: 1973 – 1977
+Período: 1973 - 1977
 Pregunta central: ¿Qué hizo el régimen con sus opositores y cómo se sabe?
 Contenidos:
 - Estadio Nacional, Estadio Chile, Isla Dawson, Pisagua, Chacabuco; los bandos militares.
@@ -745,7 +745,7 @@ Conexión con el presente: Los informes de verdad, las agrupaciones de familiare
 Sensibilidad: ALTA. Solo hechos establecidos por comisiones y tribunales. Presentar la justificación del régimen ("guerra interna") como discurso de época, no como hipótesis abierta. Sin imágenes explícitas.
 
 54. Los Chicago Boys y la refundación económica
-Período: 1975 – 1981
+Período: 1975 - 1981
 Pregunta central: ¿Qué es el "modelo" y cómo se instaló?
 Contenidos:
 - El Ladrillo, la Universidad Católica y Chicago; el shock de 1975 y sus costos sociales.
@@ -758,7 +758,7 @@ Conexión con el presente: Las AFP, las ISAPRE, la educación municipal y privad
 Sensibilidad: ALTA. Presentar la lectura que ve en el modelo la base del crecimiento posterior y la que ve la base de la desigualdad y la precariedad, ambas con autores y cifras.
 
 55. La Constitución de 1980
-Período: 1977 – 1981
+Período: 1977 - 1981
 Pregunta central: ¿Quién escribió la Constitución, qué contiene y cómo se aprobó?
 Contenidos:
 - Comisión Ortúzar, Jaime Guzmán y el Consejo de Estado; el discurso de Chacarillas (1977).
@@ -770,7 +770,7 @@ Conexión con el presente: El debate constitucional de 2019-2023 gira en torno a
 Sensibilidad: ALTA. Presentar la lectura de legitimidad (aprobada por plebiscito, reformada varias veces) y la de ilegitimidad (sin condiciones democráticas, diseñada para perpetuar un orden).
 
 56. Crisis de 1982 y las protestas nacionales
-Período: 1982 – 1986
+Período: 1982 - 1986
 Pregunta central: ¿Cómo el "milagro" se convirtió en la peor crisis desde 1929 y qué produjo en la calle?
 Contenidos:
 - Deuda privada, dólar fijo, quiebra de bancos, intervención estatal de 1983 y la "deuda subordinada".
@@ -783,7 +783,7 @@ Conexión con el presente: La deuda subordinada, la privatización de empresas p
 Sensibilidad: ALTA. Cifras de víctimas de las protestas con fuente; presentar la violencia política de la oposición armada como hecho documentado y con contexto.
 
 57. Vida cotidiana, exilio y cultura bajo la dictadura
-Período: 1973 – 1990
+Período: 1973 - 1990
 Pregunta central: ¿Cómo se vivía en Chile durante diecisiete años y qué pasó con los que se fueron?
 Contenidos:
 - Toque de queda, censura, "apagón cultural" y la cultura que sobrevivió: Canto Nuevo, Los Prisioneros, teatro ICTUS, Enrique Lihn.
@@ -796,7 +796,7 @@ Conexión con el presente: Buena parte de la música, el teatro y la narrativa c
 Sensibilidad: ALTA.
 
 58. El plebiscito de 1988 y el pacto de la transición
-Período: 1986 – 1990
+Período: 1986 - 1990
 Pregunta central: ¿Cómo una oposición derrotada ganó por la vía diseñada por el régimen?
 Contenidos:
 - Debate en la oposición: inscribirse o no; la Concertación por el No (1988).
@@ -813,7 +813,7 @@ ARCO 9. CHILE EN DEMOCRACIA
 ----------------------------------------------------------------------
 
 59. Aylwin, el Informe Rettig y la "justicia en la medida de lo posible"
-Período: 1990 – 1994
+Período: 1990 - 1994
 Pregunta central: ¿Cómo gobernó la nueva democracia con Pinochet al mando del Ejército?
 Contenidos:
 - Comisión Rettig (1991): mandato, cifras, reacción de las Fuerzas Armadas.
@@ -825,7 +825,7 @@ Conexión con el presente: La fórmula de verdad primero y justicia después, y 
 Sensibilidad: ALTA.
 
 60. El modelo en democracia: crecimiento, pobreza y desigualdad
-Período: 1990 – 2000
+Período: 1990 - 2000
 Pregunta central: ¿Qué logró y qué no logró la economía de los noventa?
 Contenidos:
 - Crecimiento promedio superior al 7 por ciento; pobreza de 38,6 a 20,6 por ciento (CASEN 1990-2000).
@@ -838,7 +838,7 @@ Conexión con el presente: La combinación de reducción de pobreza y desigualda
 Sensibilidad: Disputa sobre si los noventa fueron continuidad o corrección del modelo.
 
 61. Pinochet en Londres y las reformas de 2005
-Período: 1998 – 2006
+Período: 1998 - 2006
 Pregunta central: ¿Cómo se desmontaron los enclaves autoritarios y qué pasó con la justicia?
 Contenidos:
 - Detención de Pinochet en Londres (octubre de 1998), efectos en Chile, regreso y desafuero.
@@ -850,7 +850,7 @@ Conexión con el presente: El avance judicial contra violaciones de derechos hum
 Sensibilidad: ALTA.
 
 62. La revolución pingüina y el movimiento estudiantil
-Período: 2006 – 2011
+Período: 2006 - 2011
 Pregunta central: ¿Por qué la educación fue el primer gran conflicto de la democracia?
 Contenidos:
 - Bachelet I: reforma previsional (pensión básica solidaria), Transantiago, crisis financiera de 2008.
@@ -862,7 +862,7 @@ Contenidos:
 Conexión con el presente: La gratuidad universitaria, el fin del lucro y la desconfianza hacia los partidos se instalaron en estos años.
 
 63. El conflicto en la Araucanía desde 1990
-Período: 1990 – 2024
+Período: 1990 - 2024
 Pregunta central: ¿Qué es hoy el conflicto y de dónde viene cada uno de sus actores?
 Contenidos:
 - Expansión forestal (decreto 701), deuda de tierras de CONADI, comunidades y comunidad histórica.
@@ -875,7 +875,7 @@ Conexión con el presente: Ninguno de los actores de hoy (Estado, forestales, co
 Sensibilidad: ALTA. Presentar las lecturas de "conflicto étnico-político", "conflicto de tierras", "terrorismo" y "colonialismo" con quién las sostiene. Cifras de hechos violentos y de tierras entregadas con fuente oficial.
 
 64. Entre 2010 y 2019: reformas, malestar y fin del superciclo
-Período: 2010 – 2019
+Período: 2010 - 2019
 Pregunta central: ¿Por qué un país con indicadores en alza acumulaba descontento?
 Contenidos:
 - Bachelet II: reforma tributaria, educacional (gratuidad, inclusión), laboral, aborto en tres causales (2017), Acuerdo de Unión Civil (2015).
@@ -888,7 +888,7 @@ Conexión con el presente: Las demandas de 2019 (pensiones, salud, educación, a
 Sensibilidad: Historia reciente: hechos con fuente, sin evaluaciones de gobiernos.
 
 65. El estallido de 2019 y los procesos constituyentes
-Período: 2019 – 2023
+Período: 2019 - 2023
 Pregunta central: ¿Qué ocurrió entre octubre de 2019 y diciembre de 2023?
 Contenidos:
 - Alza del pasaje, evasión estudiantil, 18 de octubre, estado de emergencia, toque de queda, "no son 30 pesos".
@@ -902,7 +902,7 @@ Conexión con el presente: La Constitución de 1980 reformada sigue vigente; los
 Sensibilidad: ALTA. Solo hechos establecidos y cifras oficiales. Presentar las lecturas ("despertar social", "violencia y anomia", "crisis de representación") como lecturas en curso, sin cerrar ninguna. Actualizar el capítulo con nota de fecha.
 
 66. Cómo la historia explica el Chile de hoy: síntesis de la serie
-Período: 14.000 a.C. – presente
+Período: 14.000 a.C. - presente
 Pregunta central: ¿Qué rasgos del Chile actual se entienden solo viendo la historia completa?
 Contenidos:
 - Centralismo y presidencialismo: de Valdivia a Portales, de 1925 a 1980 (capítulos 6, 22, 38, 55).

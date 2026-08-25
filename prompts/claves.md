@@ -14,7 +14,7 @@ SELECCIÓN DEL TEMA:
 - Identifica las noticias del informe cuya comprensión requiera conocer mejor un concepto, institución, mecanismo, antecedente histórico, proceso político, indicador económico o regla jurídica. No fuerces explicaciones cuando una noticia se entiende por sí sola.
 - Produce UNA sola profundización por edición: la de mayor valor para un ciudadano general. Elige con esta pregunta guía: "¿Qué necesita entender una persona para interpretar correctamente esta noticia y futuras noticias sobre el mismo tema?".
 - Si otras noticias del día también justificaban una profundización, no las desarrolles: regístralas en la sección "Banco de temas" del índice, con el concepto y la fecha, para futuras entregas.
-- La serie es DIARIA: todos los días hay entrega. Cuando ninguna noticia del día justifica una profundización genuina, NO fabriques un gancho artificial: toma el mejor tema pendiente del Banco de temas (contenido/claves/banco-temas.md) y desarrolla ese como "Edición de biblioteca", indicándolo en una línea inmediatamente después del Slug. Elige del Banco el tema de mayor valor permanente para entender Chile. Solo si el Banco está vacío Y ninguna noticia da pie —caso excepcional— indica "Sin entrega de Claves para la edición de hoy".
+- La serie es DIARIA: todos los días hay entrega. Cuando ninguna noticia del día justifica una profundización genuina, NO fabriques un gancho artificial: toma el mejor tema pendiente del Banco de temas (contenido/claves/banco-temas.md) y desarrolla ese como "Edición de biblioteca", indicándolo en una línea inmediatamente después del Slug. Elige del Banco el tema de mayor valor permanente para entender Chile. Solo si el Banco está vacío Y ninguna noticia da pie -caso excepcional- indica "Sin entrega de Claves para la edición de hoy".
 - Consulta el índice antes de elegir: si el concepto ya fue explicado, solo corresponde una nueva entrega cuando puedas profundizar una dimensión distinta, explicar qué cambió o cuando un cambio material haga necesario actualizar la explicación. En ese caso, da por conocido lo anterior y enlázalo brevemente ("como vimos en la entrega sobre X"), sin repetir desde cero.
 
 TÍTULO:
@@ -25,17 +25,17 @@ TÍTULO:
 
 ESTRUCTURA DE CADA ENTREGA:
 
-1. "La noticia que abrió esta pregunta — [fecha de hoy]": explica muy brevemente qué hecho del Resumen diario motivó la profundización. En una Edición de biblioteca, esta sección se llama "Por qué esta clave — [fecha de hoy]" y explica en pocas líneas por qué el concepto ayuda a entender Chile, mencionando —si existe— la noticia que lo dejó en el Banco, con su fecha original. Todo dato susceptible de cambiar queda explícitamente fechado. Nunca escribas como verdad permanente algo coyuntural: en lugar de "el proyecto todavía no es ley", escribe "al [fecha], el proyecto aún no era ley". La meta es que cada frase siga siendo verdadera si se relee años después.
+1. "La noticia que abrió esta pregunta - [fecha de hoy]": explica muy brevemente qué hecho del Resumen diario motivó la profundización. En una Edición de biblioteca, esta sección se llama "Por qué esta clave - [fecha de hoy]" y explica en pocas líneas por qué el concepto ayuda a entender Chile, mencionando -si existe- la noticia que lo dejó en el Banco, con su fecha original. Todo dato susceptible de cambiar queda explícitamente fechado. Nunca escribas como verdad permanente algo coyuntural: en lugar de "el proyecto todavía no es ley", escribe "al [fecha], el proyecto aún no era ley". La meta es que cada frase siga siendo verdadera si se relee años después.
 
 2. "La pregunta de fondo": formula la pregunta conceptual que la noticia permite explorar y que seguirá siendo útil fuera de esta coyuntura.
 
 3. Explicación profunda y atemporal: la mayor parte del texto, idealmente 80 a 90% del contenido. Explica desde cero, en lenguaje claro pero no infantil: qué es el concepto, cómo funciona, por qué existe, quién decide, qué permite y qué no, qué reglas lo limitan, antecedentes históricos o institucionales relevantes, diferencias con conceptos parecidos, ejemplos, consecuencias prácticas y errores comunes de interpretación. Si el tema es económico, explica mecanismos y relaciones causales; si es jurídico o político, explica instituciones, facultades, límites y contrapesos; si es histórico, explica procesos y causas sin reducirlo a cronología. Escribe en prosa continua apta para ser adaptada después a narración de video; usa listas solo cuando realmente ordenen mejor la información, no como esqueleto permanente del texto.
 
-4. "Aplicado al caso de hoy — [fecha de hoy]": vuelve a la noticia y usa el conocimiento recién explicado para interpretarla correctamente. Esta sección puede ser coyuntural, pero toda afirmación cambiante va explícitamente fechada.
+4. "Aplicado al caso de hoy - [fecha de hoy]": vuelve a la noticia y usa el conocimiento recién explicado para interpretarla correctamente. Esta sección puede ser coyuntural, pero toda afirmación cambiante va explícitamente fechada.
 
 5. "Qué conviene recordar": 3 a 5 ideas permanentes que deberían seguir siendo útiles aunque el lector olvide por completo la noticia de origen.
 
-6. Opcional, solo cuando aporte: "Qué observar en esta discusión — [mes y año]", claramente fechada y distinguida del conocimiento permanente.
+6. Opcional, solo cuando aporte: "Qué observar en esta discusión - [mes y año]", claramente fechada y distinguida del conocimiento permanente.
 
 HECHOS, INTERPRETACIÓN Y FUENTES:
 - Distingue estrictamente hechos y contexto factual de cualquier interpretación propia. Si incluyes análisis, identifícalo explícitamente y susténtalo. No conviertas opiniones en hechos.
@@ -67,3 +67,7 @@ CONTROL ANTES DE ENTREGAR:
 CONTRATO DE ARCHIVOS: aplica el contrato de prompts/contrato-archivos.md del
 mismo repositorio. Léelo COMPLETO en esta misma ejecución: define las rutas
 exactas, el formato obligatorio de los guiones y las reglas de commit.
+ESTILO TIPOGRÁFICO (obligatorio en todo entregable):
+- Nunca uses la raya larga (—) ni la raya media (–). Donde caería una raya,
+  usa coma, dos puntos, punto o paréntesis.
+- Los rangos se escriben con guion corto (2026-2027, 8-10) o con "a" (8 a 10).

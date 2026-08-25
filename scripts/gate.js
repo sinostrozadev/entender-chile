@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * gate.js — control previo al render. Corre en el workflow ANTES de renderizar
+ * gate.js - control previo al render. Corre en el workflow ANTES de renderizar
  * para no gastar minutos de Actions en una edición inválida o rechazada.
  *
  * Falla (exit 1) cuando:
@@ -37,14 +37,14 @@ function chequearGuion(ruta, etiqueta) {
   const secciones = p.eventos.filter((ev) => ev.tipo === "seccion").length;
   const chars = fs.readFileSync(path.join(out, "narracion.txt"), "utf8").length;
   const min = chars / 16 / 60; // misma estimación que mock-tts
-  if (secciones < 3) errores.push(`${etiqueta}: solo ${secciones} secciones — YouTube exige ≥3 capítulos`);
-  if (chars < 1000) errores.push(`${etiqueta}: narración de ${chars} caracteres — demasiado corta, algo vino mal`);
-  if (min > 18) avisos.push(`${etiqueta}: duración estimada ${min.toFixed(1)} min — más largo de lo previsto`);
+  if (secciones < 3) errores.push(`${etiqueta}: solo ${secciones} secciones - YouTube exige ≥3 capítulos`);
+  if (chars < 1000) errores.push(`${etiqueta}: narración de ${chars} caracteres - demasiado corta, algo vino mal`);
+  if (min > 18) avisos.push(`${etiqueta}: duración estimada ${min.toFixed(1)} min - más largo de lo previsto`);
   console.log(`✓ ${etiqueta}: parsea · ${secciones} secciones · ~${min.toFixed(1)} min estimados`);
 }
 
 const gi = path.join("contenido", "guiones", "informe", `${fecha}.md`);
-if (!fs.existsSync(gi)) errores.push(`no existe ${gi} — no hay nada que renderizar`);
+if (!fs.existsSync(gi)) errores.push(`no existe ${gi} - no hay nada que renderizar`);
 else chequearGuion(gi, "informe");
 
 const dirGC = path.join("contenido", "guiones", "claves");
@@ -52,16 +52,16 @@ const gc = fs.existsSync(dirGC)
   ? fs.readdirSync(dirGC).find((f) => f.startsWith(fecha) && f.endsWith(".md"))
   : null;
 if (gc) chequearGuion(path.join(dirGC, gc), "clave");
-else console.log("— clave: hoy no hay guion (ok)");
+else console.log("- clave: hoy no hay guion (ok)");
 
 const rev = path.join("contenido", "revisiones", `${fecha}.md`);
 if (fs.existsSync(rev)) {
   const t = fs.readFileSync(rev, "utf8");
-  if (/^VEREDICTO:\s*RECHAZADA/im.test(t)) errores.push(`la revisión editorial RECHAZÓ la edición — ver ${rev}`);
+  if (/^VEREDICTO:\s*RECHAZADA/im.test(t)) errores.push(`la revisión editorial RECHAZÓ la edición - ver ${rev}`);
   else if (/^VEREDICTO:\s*APROBADA/im.test(t)) console.log("✓ revisión editorial: APROBADA");
   else avisos.push(`${rev} existe pero sin línea "VEREDICTO: APROBADA/RECHAZADA"`);
 } else {
-  console.log("— sin archivo de revisión de hoy (se renderiza igual; el gate humano es antes de PUBLICAR)");
+  console.log("- sin archivo de revisión de hoy (se renderiza igual; el gate humano es antes de PUBLICAR)");
 }
 
 for (const a of avisos) console.log(`AVISO: ${a}`);

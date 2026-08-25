@@ -2,7 +2,7 @@
 
 Slug: cotizacion-rentabilidad-protegida
 
-## La noticia que abrió esta pregunta — 25 de agosto de 2026
+## La noticia que abrió esta pregunta - 25 de agosto de 2026
 
 El Informe diario del 25 de agosto de 2026 señaló que, desde las remuneraciones de agosto de 2026, comenzó a regir la Cotización con Rentabilidad Protegida (CRP), inicialmente equivalente al 0,9% de la remuneración imponible y de cargo del empleador. El informe explicó además que esos aportes son administrados dentro del Fondo Autónomo de Protección Previsional (FAPP) y reconocidos a nombre de cada trabajador mediante un Bono de Seguridad Previsional. (Informe diario, 25 ago 2026).
 
@@ -42,7 +42,7 @@ Por un lado está el activo colectivo: los recursos que administra el FAPP y que
 
 Por otro está el derecho individual: la obligación reconocida a favor de cada afiliado mediante el bono.
 
-Una analogía útil —sin confundirla con la figura jurídica exacta— es pensar que el fondo recibe recursos hoy y, a cambio, reconoce formalmente una obligación futura con cada trabajador. El trabajador no posee una fracción identificable de cada inversión que realiza el FAPP, como ocurre con las cuotas de un fondo individual, pero sí posee un título previsional cuyo valor y pago están definidos por la ley.
+Una analogía útil -sin confundirla con la figura jurídica exacta- es pensar que el fondo recibe recursos hoy y, a cambio, reconoce formalmente una obligación futura con cada trabajador. El trabajador no posee una fracción identificable de cada inversión que realiza el FAPP, como ocurre con las cuotas de un fondo individual, pero sí posee un título previsional cuyo valor y pago están definidos por la ley.
 
 ## Qué es realmente el Bono de Seguridad Previsional
 
@@ -142,7 +142,7 @@ La pregunta más precisa para cualquier porcentaje de cotización es: ¿a qué f
 
 Esa forma de mirar el sistema evita discusiones construidas solo sobre etiquetas.
 
-## Aplicado al caso de hoy — 25 de agosto de 2026
+## Aplicado al caso de hoy - 25 de agosto de 2026
 
 Al 25 de agosto de 2026, el Informe diario registró el comienzo de la CRP con una tasa inicial de 0,9% de la remuneración imponible, de cargo del empleador. El informe también señaló que, dentro de la gradualidad vigente para agosto de 2026 a julio de 2027, el aumento de cotizaciones patronales considera 0,1% para la cuenta individual, 0,9% para rentabilidad protegida y 2,5% para el Seguro Social Previsional. (Informe diario, 25 ago 2026).
 
@@ -162,9 +162,9 @@ Y se entiende por qué comparar directamente este 0,9% con un 0,9% depositado en
 
 ## Fuentes
 
-- Informe diario — edición del 25 de agosto de 2026. Caso de entrada y datos coyunturales.
-- Biblioteca del Congreso Nacional — Ley 21.735, especialmente artículos 8 y 24 y disposiciones sobre la cotización adicional. Definición de la CRP, Bono de Seguridad Previsional, garantía estatal y Fondo Autónomo de Protección Previsional.
-- Superintendencia de Pensiones — Norma de Carácter General 361, 27 de marzo de 2026. Tasas de la CRP, emisión y registro del Bono de Seguridad Previsional y Bono Amortizable.
-- Superintendencia de Pensiones — Normas de Carácter General 360 a 366, 2026. Gobernanza, contabilidad e información de la CRP y del FAPP.
-- Instituto de Previsión Social / ChileAtiende — Cotización con Rentabilidad Protegida, actualización del 13 de mayo de 2026. Descripción operativa del mecanismo.
-- Subsecretaría de Previsión Social — Nota Técnica de la Reforma de Pensiones, Ley 21.735, 2025. Funcionamiento del bono, situaciones de invalidez, sobrevivencia y herencia.
+- Informe diario - edición del 25 de agosto de 2026. Caso de entrada y datos coyunturales.
+- Biblioteca del Congreso Nacional - Ley 21.735, especialmente artículos 8 y 24 y disposiciones sobre la cotización adicional. Definición de la CRP, Bono de Seguridad Previsional, garantía estatal y Fondo Autónomo de Protección Previsional.
+- Superintendencia de Pensiones - Norma de Carácter General 361, 27 de marzo de 2026. Tasas de la CRP, emisión y registro del Bono de Seguridad Previsional y Bono Amortizable.
+- Superintendencia de Pensiones - Normas de Carácter General 360 a 366, 2026. Gobernanza, contabilidad e información de la CRP y del FAPP.
+- Instituto de Previsión Social / ChileAtiende - Cotización con Rentabilidad Protegida, actualización del 13 de mayo de 2026. Descripción operativa del mecanismo.
+- Subsecretaría de Previsión Social - Nota Técnica de la Reforma de Pensiones, Ley 21.735, 2025. Funcionamiento del bono, situaciones de invalidez, sobrevivencia y herencia.

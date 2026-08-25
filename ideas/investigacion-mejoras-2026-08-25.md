@@ -28,7 +28,7 @@ verificable y canales reales observables.
   segunda línea con delay. Un lint del pipeline puede verificar ≥1 keyframe
   cada 6 s por composición.
 - Valor: consenso de industria (cambio visual cada 5-7 s en informativo).
-  Matiz: audiencias 35+ retienen PEOR con zooms/whooshes en cada frase — la
+  Matiz: audiencias 35+ retienen PEOR con zooms/whooshes en cada frase - la
   sobriedad es ventaja: micro-movimiento, no pirotecnia. Pattern interrupts
   grandes cada 30-60 s.
 - Esfuerzo: bajo (interpolaciones; el lint es medio).
@@ -115,7 +115,7 @@ verificable y canales reales observables.
   "dorado" aprobado para comparar cada tanda.
 - Valor: todo es documentación oficial de ElevenLabs. Los errores típicos
   en español (números anglicados, nombres propios) se resuelven en el guion
-  ANTES del TTS — o sea, en nuestro pipeline.
+  ANTES del TTS - o sea, en nuestro pipeline.
 - Esfuerzo: medio (plomería de pipeline, una vez).
 - Fuente: https://elevenlabs.io/docs/eleven-api/guides/how-to/text-to-speech/request-stitching ·
   https://elevenlabs.io/docs/overview/capabilities/text-to-speech/best-practices
@@ -137,7 +137,7 @@ verificable y canales reales observables.
 - Qué: en YouTube Chile las noticias dominan pero en vivo y opinión
   (Mega/T13/CHV/24H; Sin Filtros peak 40K concurrentes; El Líbero 194K y
   FPP 279K son opinión con cara). NO existe un resumen diario neutro,
-  tipográfico, de 8 min. Posicionarse como "el resumen sin gritos" — en
+  tipográfico, de 8 min. Posicionarse como "el resumen sin gritos" - en
   tagline, descripción y tarjetas de cierre.
 - Valor: hueco verificable en rankings; Digital News Report 2025: 26% de
   los chilenos ya se informa por YouTube y crece el video de creadores; la
@@ -188,7 +188,7 @@ verificable y canales reales observables.
 ## Pregunta del día: energía de opinión sin ser canal de opinión
 - Qué: cerrar cada diario con tarjeta fija de pregunta concreta y opinable
   sobre la historia principal + comentario fijado con la misma pregunta.
-  Responder los primeros 10-15 comentarios el primer día (30 min humanos —
+  Responder los primeros 10-15 comentarios el primer día (30 min humanos -
   que además documentan implicación humana, ver riesgos).
 - Valor: lo que hace comentar/volver a la audiencia chilena de noticias es
   la conversación; los canales chicos superan en engagement relativo a los
@@ -220,7 +220,7 @@ verificable y canales reales observables.
    mínimo: reordenar el timeline ataca donde se pierde a más gente. Sin
    espectadores en el minuto 1, lo demás es irrelevante.
 2. **Regla de los 5-7 s + count-ups** (visual). La mitigación de retención
-   más barata en nuestro stack — pura interpolación — y lo único con
+   más barata en nuestro stack - pura interpolación - y lo único con
    respaldo académico directo. Convierte la debilidad (tarjetas estáticas)
    en sistema.
 3. **Checklist de cumplimiento IA** (audiencia). 30 minutos: divulgación de
@@ -245,6 +245,6 @@ mezclado.
    del YPP). Marcar la casilla desde el primer video con voz.
 3. **La escala automatizada juega en contra si todo "sale de la misma
    plantilla".** Mitigación: variación estructural visible entre videos,
-   curaduría humana documentada y fuentes citadas — la evidencia debe
+   curaduría humana documentada y fuentes citadas - la evidencia debe
    existir ANTES de solicitar la monetización (la revisión del YPP mira el
    catálogo completo).

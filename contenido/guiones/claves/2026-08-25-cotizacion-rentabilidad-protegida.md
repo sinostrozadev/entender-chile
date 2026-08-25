@@ -132,6 +132,6 @@ Y quizá la idea más útil para futuras discusiones previsionales sea esta: cua
 Con esas tres preguntas, una reforma previsional deja de parecer una colección de porcentajes y empieza a mostrar cómo está construido realmente el sistema.
 
 Fuentes:
-- Informe diario — edición del 25 de agosto de 2026. Caso de entrada y datos coyunturales.
-- Biblioteca del Congreso Nacional — Ley 21.735, especialmente artículo 8. Garantía estatal del Bono de Seguridad Previsional.
-- Superintendencia de Pensiones — Norma de Carácter General 361, 27 de marzo de 2026. Tasas de la Cotización con Rentabilidad Protegida.
+- Informe diario - edición del 25 de agosto de 2026. Caso de entrada y datos coyunturales.
+- Biblioteca del Congreso Nacional - Ley 21.735, especialmente artículo 8. Garantía estatal del Bono de Seguridad Previsional.
+- Superintendencia de Pensiones - Norma de Carácter General 361, 27 de marzo de 2026. Tasas de la Cotización con Rentabilidad Protegida.
