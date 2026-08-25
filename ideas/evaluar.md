@@ -38,3 +38,42 @@
 
 (Paso revisor de calidad → evolucionó a "Revisión de calidad automática de
 madrugada" en ejecutar.md, 2026-08-24.)
+
+## Sello de identidad al inicio (no intro larga)
+- **Fecha:** 2026-08-24 · **Origen:** Santiago + Claude
+- **Qué:** mantener el cold open del guion y agregar tarjeta de identidad de
+  2–3 s (fecha + Entender Chile) bajo la voz, stinger opcional de 1.5 s tras
+  el gancho, y logo sonoro de 2 s.
+- **Valor:** marca sin costo de retención (las intros largas fugan audiencia
+  en los primeros 30 s).
+- **Esfuerzo:** bajo (componente Remotion + un asset de audio).
+
+## Fondos por sección (tinte + kicker)
+- **Fecha:** 2026-08-24 · **Origen:** Santiago + Claude
+- **Qué:** tinte sutil del papel por sección (2–4% saturación) + etiqueta
+  permanente en esquina (POLÍTICA, REGIONES…). Un solo acento verde se
+  mantiene. La Clave con mundo visual propio.
+- **Valor:** sentido de estructura y progreso → retención; identidad
+  reutilizable en Shorts.
+- **Esfuerzo:** medio-bajo (tema.ts + tarjetas).
+
+## Música de fondo (cama con licencia segura)
+- **Fecha:** 2026-08-24 · **Origen:** Santiago + Claude
+- **Qué:** cama musical de YouTube Audio Library (sin Content ID): un track
+  para el informe, otro para la Clave; ducking cuando llegue la voz.
+- **Valor:** CRÍTICO en la etapa muda (es lo único que suena); consistencia
+  = marca auditiva. Licencia segura protege la monetización.
+- **Esfuerzo:** bajo (pista de audio en Remotion + volumen).
+
+## Mini-gancho interno hacia el dato curioso
+- **Fecha:** 2026-08-24 · **Origen:** Claude
+- **Qué:** en la apertura, adelantar el dato curioso sin resolverlo → ancla
+  de retención hasta el tramo final. Se logra vía prompt del guion.
+- **Esfuerzo:** trivial (una línea en el prompt).
+
+## Playlists como series
+- **Fecha:** 2026-08-24 · **Origen:** Claude
+- **Qué:** playlists "El informe diario" y "Claves para entender las
+  noticias"; las Claves atemporales se prestan al binge.
+- **Valor:** el algoritmo premia sesiones largas encadenadas.
+- **Esfuerzo:** trivial (configuración en YouTube Studio).
