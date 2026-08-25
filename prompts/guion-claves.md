@@ -1,3 +1,5 @@
+Primero lee del repositorio (rama main, versión más reciente) la entrega de Claves de hoy: contenido/claves/AAAA-MM-DD-<slug>.md, con la fecha local de Chile. Ese archivo es "la entrega escrita" a la que se refiere el resto de este prompt; úsalo como FUENTE DE VERDAD, sin reconstruir por memoria. Si hoy no existe entrega en el repositorio, indícalo y termina sin generar guion.
+
 MISIÓN PRINCIPAL: transformar la entrega escrita de "Claves para entender las noticias" en un guion de voz para un video explicativo de YouTube dirigido a una audiencia general chilena. El video es EVERGREEN: debe seguir siendo útil y correcto si alguien lo ve dentro de dos años. La noticia del día es solo la puerta de entrada. Redacta además para maximizar la elegibilidad del contenido como original, auténtico y apto para monetización, sin poder garantizar la decisión de YouTube.
 
 FIDELIDAD A LA ENTREGA:
@@ -13,7 +15,7 @@ EXTENSIÓN:
 - Si la entrega escrita es más extensa, comprime ejemplos y enumeraciones conservando completo el concepto central. No agregues relleno para alargar.
 
 ESTRUCTURA DEL GUION:
-1. GANCHO (15 a 25 segundos): la noticia que abrió la pregunta, con su fecha dicha en voz, terminando en la pregunta de fondo formulada de manera directa.
+1. GANCHO (15 a 25 segundos): la noticia que abrió la pregunta, con su fecha dicha en voz, terminando en la pregunta de fondo formulada de manera directa. Si la entrega es una "Edición de biblioteca", el gancho parte de la pregunta o de una situación cotidiana donde el concepto aparece, sin inventar una noticia de hoy; si la entrega menciona la noticia de origen del Banco, puede citarse con su fecha.
 2. PROMESA (1 a 2 frases): qué va a entender el espectador al terminar el video.
 3. DESARROLLO DIDÁCTICO: de lo simple a lo complejo. Ejemplos concretos y comparaciones cotidianas de la entrega, desarrollados en voz. Señala los momentos de síntesis con frases de anclaje ("hasta acá, la idea es una sola..."). Anticipa y corrige los errores comunes de interpretación que la entrega identifica.
 4. APLICADO AL CASO, con fecha dicha en voz: usa el concepto recién explicado para leer correctamente la noticia.
@@ -51,7 +53,7 @@ Todo párrafo sin marca es narración normal. Sin URLs, emojis ni paréntesis fu
 
 FORMATO DE SALIDA:
 - Primera línea: "Título sugerido:" con el título de la entrega ajustado a máximo setenta caracteres, atemporal, sin fechas ni referencias coyunturales, formulado como pregunta o promesa de conocimiento, sin clickbait.
-- Segunda sección: "Descripción sugerida:" con dos a cuatro frases que resuman qué aprenderá el espectador, más la lista de fuentes al final de la descripción.
+- Segunda sección: "Descripción sugerida:" con dos a cuatro frases que resuman qué aprenderá el espectador. NO incluyas la lista de fuentes aquí: el sistema la agrega automáticamente al final de la descripción del video.
 - Después: "Guion:" con el texto narrable y sus marcas.
 - Al final: "Fuentes:" con una línea por fuente usada en marcas [DATO] y [CITA], tal como aparecen en la entrega.
 
@@ -64,3 +66,7 @@ CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 6. Análisis marcado como [INTERPRETACIÓN] y narrado como interpretación.
 7. Números en palabras en la narración y numerales en las marcas, sin groserías, sin fórmulas de clickbait, sin transiciones de noticiero repetidas.
 8. Solo después de superar estas comprobaciones entrega título, descripción, guion y fuentes.
+
+CONTRATO DE ARCHIVOS: aplica el contrato de prompts/contrato-archivos.md del
+mismo repositorio. Léelo COMPLETO en esta misma ejecución: define las rutas
+exactas, el formato obligatorio de los guiones y las reglas de commit.

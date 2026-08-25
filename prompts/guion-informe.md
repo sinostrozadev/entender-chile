@@ -1,9 +1,8 @@
-Primero busca en la Biblioteca de ChatGPT el archivo persistente "Resumen diario - ultimo.md".
+Primero lee del repositorio (rama main, versión más reciente) el informe de hoy: contenido/informes/AAAA-MM-DD.md, con la fecha local de Chile. Ese archivo es el "Resumen diario" al que se refiere el resto de este prompt.
 
 VALIDACIÓN DEL HANDOFF:
-- Verifica que el archivo corresponda a la edición de HOY según la fecha local de Chile. La hora de generación puede variar: las ediciones reejecutadas durante el día son válidas siempre que la fecha sea la de hoy; usa siempre la versión más reciente.
-- Usa ese archivo como FUENTE DE VERDAD. No reconstruyas el informe por memoria, no uses ejecuciones anteriores y no vuelvas a investigar noticias.
-- Si el archivo falta, está vacío o corresponde a otra fecha, no inventes contenido: indica que el handoff del Resumen diario no quedó disponible y no generes un guion incompleto.
+- Usa ese archivo como FUENTE DE VERDAD. No reconstruyas el informe por memoria, no uses ediciones de otras fechas y no vuelvas a investigar noticias.
+- Si el archivo de hoy falta o está vacío, no inventes contenido: indica que el informe de hoy no está en el repositorio y termina sin generar guion.
 
 Revisa esa edición del "Resumen diario" y transfórmala COMPLETA en un guion de voz para un video diario de YouTube dirigido a una audiencia general chilena.
 
@@ -75,25 +74,25 @@ ESTRUCTURA DEL GUION:
 
 1. APERTURA: entrada oral de 15 a 30 segundos que sitúe la fecha y adelante de manera atractiva pero sobria entre 2 y 4 de los asuntos que marcan la jornada, tomados de "En una mirada". La formulación debe variar de un día a otro. No digas "En una mirada", no leas nombres de secciones y no inventes nombre del canal ni frase de marca.
 
-2. EL TIEMPO: inmediatamente después de la apertura, como servicio práctico de la mañana. Santiago en dos o tres frases con la recomendación práctica del informe (abrigo, paraguas, viento, calor). Resto del país solo lo que el informe destacó como fenómeno relevante. Sin recorrido zona por zona. Si el informe ubica el tiempo en otra posición, respeta la posición del informe.
+2. DESARROLLO: comienza por la noticia de apertura del informe y dale el mayor desarrollo. Después avanza por TODAS las demás noticias siguiendo una secuencia narrativa lógica, respetando la extensión según peso. La estructura de secciones debe sentirse invisible.
 
-3. DESARROLLO: comienza por la noticia de apertura del informe y dale el mayor desarrollo. Después avanza por TODAS las demás noticias siguiendo una secuencia narrativa lógica, respetando la extensión según peso. La estructura de secciones debe sentirse invisible.
+3. EXPLICACIÓN ORAL: transforma titulares, viñetas, tablas y subtítulos en prosa hablada. Explica siglas la primera vez cuando un oyente general pueda no conocerlas. Convierte cifras, monedas, porcentajes, fechas y abreviaturas a una forma cómoda de pronunciar, escribiendo los números en palabras. Evita paréntesis, barras, símbolos, URLs y cualquier elemento que un sintetizador lea de manera extraña. No cambies el sentido de ninguna cifra.
 
-4. EXPLICACIÓN ORAL: transforma titulares, viñetas, tablas y subtítulos en prosa hablada. Explica siglas la primera vez cuando un oyente general pueda no conocerlas. Convierte cifras, monedas, porcentajes, fechas y abreviaturas a una forma cómoda de pronunciar, escribiendo los números en palabras. Evita paréntesis, barras, símbolos, URLs y cualquier elemento que un sintetizador lea de manera extraña. No cambies el sentido de ninguna cifra.
+4. HECHOS VS. ANÁLISIS: conserva estrictamente las etiquetas del informe. Todo párrafo que en el informe esté bajo "Análisis" se narra con fórmula de interpretación explícita ("una lectura posible es…", "esto permite interpretar que…") y lleva la marca [INTERPRETACIÓN]. Lo que está bajo "Contexto" o "Clave" se narra como hecho. Nunca conviertas una interpretación en hecho ni un hecho en interpretación. Las marcas [HECHO] e [INTERPRETACIÓN] se usan solo cuando en el mismo bloque conviven información factual y análisis: ahí el contraste aporta. Un párrafo puramente informativo en un bloque sin análisis va sin marca. Máximo una marca [HECHO] y una [INTERPRETACIÓN] por bloque.
 
-5. HECHOS VS. ANÁLISIS: conserva estrictamente las etiquetas del informe. Todo párrafo que en el informe esté bajo "Análisis" se narra con fórmula de interpretación explícita ("una lectura posible es…", "esto permite interpretar que…") y lleva la marca [INTERPRETACIÓN]. Lo que está bajo "Contexto" o "Clave" se narra como hecho. Nunca conviertas una interpretación en hecho ni un hecho en interpretación. Las marcas [HECHO] e [INTERPRETACIÓN] se usan solo cuando en el mismo bloque conviven información factual y análisis: ahí el contraste aporta. Un párrafo puramente informativo en un bloque sin análisis va sin marca. Máximo una marca [HECHO] y una [INTERPRETACIÓN] por bloque.
+5. DEPORTE: solo si el informe lo incluyó como noticia; se narra como cualquier noticia según su peso, nunca como resumen de resultados.
 
-6. DEPORTES: narración rápida y clara, manteniendo todos los resultados y hechos del informe sin leer una tabla.
+6. ADEMÁS, HOY: si el informe trae esta sección, sus noticias se narran seguidas, una frase cada una, con una entrada simple y variable ("Y en corto, lo demás del día...").
 
 7. DATO CURIOSO: va siempre antes del cierre y funciona como cambio de tono deliberado.
 
 8. AGENDA: justo antes del cierre, cuenta todos los hitos de la agenda del informe como lo que conviene observar durante el resto de la jornada.
 
-9. CIERRE: síntesis del día en dos o tres frases que conecte las noticias [A] entre sí, sin decirle a la audiencia qué debe pensar, seguida de una despedida de una frase con pequeñas variaciones entre días. No pidas suscripción, likes ni comentarios.
+9. CIERRE: síntesis del día en dos o tres frases que conecte las noticias [A] entre sí, sin decirle a la audiencia qué debe pensar, seguida de una despedida de una frase con pequeñas variaciones entre días. Integra al final, de forma natural dentro de la despedida, la línea "Para salir hoy" del informe (una sola frase de vestimenta). La despedida puede nombrar el canal con variaciones de "Nos encontramos mañana en Entender Chile". No pidas suscripción, likes ni comentarios.
 
 FORMATO DE SALIDA:
 - Primera línea: "Título sugerido:" seguida de un título de una sola idea, concreto, específico del día, sin clickbait.
-- Segunda sección: "Descripción sugerida:" con dos a cuatro frases que resuman la jornada para la descripción del video de YouTube, seguidas de la lista de fuentes.
+- Segunda sección: "Descripción sugerida:" con dos a cuatro frases que resuman la jornada para la descripción del video de YouTube. NO incluyas la lista de fuentes aquí: el sistema la agrega automáticamente al final de la descripción del video.
 - Después: "Guion:" y el texto narrable con las siguientes marcas, y solo estas, cada una en su propia línea:
   ## Nombre de sección
       Una por bloque temático. No se narra.
@@ -104,6 +103,8 @@ FORMATO DE SALIDA:
       Los VALORES van SIEMPRE en numerales (49, -0,2%, 9,39), nunca en palabras: la marca no se narra, es para pantalla. La regla de números en palabras aplica solo al texto narrado.
       Solo valores graficables: cifras, porcentajes, montos, magnitudes. Las fechas de eventos y los rangos de días van en la narración, no en una marca [DATO].
       Fuente: una sola, la principal, con fecha, tomada del informe. No se narra. Va justo antes del párrafo que menciona esos números.
+  [ESQUEMA | título] elemento -> elemento -> elemento
+      Para procesos, jerarquías, niveles o líneas de tiempo simples que el informe describa. Máximo seis elementos, texto breve por elemento. No se narra. Úsalo con moderación: cero a dos por edición, solo cuando una noticia [A] describa una estructura o secuencia que en pantalla se entienda mejor que hablada.
   [HECHO] párrafo
   [INTERPRETACIÓN] párrafo
       Prefijo del párrafo cuando el informe distingue explícitamente análisis. Se narra el párrafo, no la marca.
@@ -113,12 +114,8 @@ FORMATO DE SALIDA:
 - No incluyas URLs, emojis, paréntesis, bibliografía, notas al editor, marcas de tiempo, indicaciones de edición ni advertencias fuera de las marcas definidas.
 - Al final, bajo "Fuentes:", lista una línea por cada fuente usada en marcas [DATO] y [CITA], tal como aparece en el informe.
 
-PERSISTENCIA OBLIGATORIA:
-Al terminar, además de entregar el guion normalmente:
-1. Guarda una copia ÍNTEGRA y sin modificaciones en la Biblioteca de ChatGPT como "Guion - AAAA-MM-DD.md", con la fecha local de Chile de esa edición. La copia incluye el título sugerido, el guion completo con sus marcas y la sección "Fuentes:".
-2. Guarda o actualiza además una copia estable llamada "Guion - ultimo.md" con exactamente el mismo contenido. Esta copia es la fuente de verdad para las etapas posteriores de producción (voz y render). Si el guion se reejecuta durante el día, sobreescribe "Guion - ultimo.md" con la versión más reciente.
-3. No resumas ni reformules el contenido al guardarlo.
-4. Si por algún motivo técnico no puedes guardar las copias persistentes, indícalo claramente al final de la ejecución para que no se asuma que el handoff quedó disponible.
+PERSISTENCIA:
+La ÚNICA persistencia es el repositorio, en la ruta exacta que define el contrato de archivos. No guardes copias en la Biblioteca de ChatGPT. Guarda el guion ÍNTEGRO y sin reformular. Si por algún motivo técnico no puedes guardar o pushear, indícalo claramente al final de la ejecución.
 
 CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 1. Verifica noticia por noticia que ninguna del Resumen diario haya sido omitida y que ninguna haya sido agregada.
@@ -133,5 +130,9 @@ CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 10. Revisión de transiciones: si demasiados párrafos comienzan anunciando el cambio de tema, reescribe.
 11. Revisión de cadencia: rompe secuencias demasiado uniformes con frases más cortas y párrafos de distinta longitud.
 12. Verifica que cada bloque [A] y [B] tiene su [TESIS], que cada [DATO] y [CITA] tiene fuente y fecha, y que todo párrafo de "Análisis" lleva [INTERPRETACIÓN].
-13. Verifica que "Guion - AAAA-MM-DD.md" y "Guion - ultimo.md" quedaron guardados en la Biblioteca, o que el fallo quedó reportado.
+13. Verifica que el guion quedó guardado y pusheado en la ruta exacta del contrato de archivos, o que el fallo quedó reportado.
 14. Solo después de superar estas comprobaciones entrega el título, el guion y las fuentes.
+
+CONTRATO DE ARCHIVOS: aplica el contrato de prompts/contrato-archivos.md del
+mismo repositorio. Léelo COMPLETO en esta misma ejecución: define las rutas
+exactas, el formato obligatorio de los guiones y las reglas de commit.

@@ -1,5 +1,7 @@
 Prepara un reporte diario de noticias dirigido a una audiencia general chilena, no al usuario personalmente. Escribe con tono de periodista chileno: claro, sobrio, informativo, con contexto y sin partidismo. Este reporte es la única fuente de un guion de video que se producirá después; por eso debe traer jerarquización explícita, fuentes junto a cada dato y cero relleno.
 
+IDENTIDAD EDITORIAL: este reporte alimenta el canal "Entender Chile". Su propósito no es cubrir todo lo que ocurrió, sino explicar lo que importa para entender el país: política, economía, sociedad, ciencia e historia de Chile, y lo internacional cuando afecta a Chile. No es un noticiero: no existen secciones de trámite. Sin pronóstico del tiempo como sección y sin resumen deportivo de la fecha.
+
 MÉTODO DE BARRIDO:
 Haz primero un barrido amplio por áreas temáticas, regiones de Chile y principales regiones del mundo, y solo después jerarquiza, para evitar sesgos por disponibilidad o notoriedad de las primeras fuentes encontradas. Consulta medios nacionales e internacionales confiables y fuentes primarias u oficiales (Banco Central, INE, ministerios, Congreso, Dirección Meteorológica, organismos internacionales, comunicados oficiales) cuando existan.
 
@@ -7,7 +9,7 @@ JERARQUIZACIÓN:
 - Asigna a cada noticia un peso visible al inicio del titular: [A], [B] o [C].
   [A] = las noticias que definen la jornada. Desarrollo completo con contexto. Máximo 4 por edición; si hay más candidatas, elige y baja las demás a [B].
   [B] = relevante pero no central. Uno o dos párrafos.
-  [C] = registro breve. Una a tres frases, sin contexto extenso.
+  [C] = registro breve para la sección "Además, hoy". Una frase por noticia.
 - La noticia de apertura es siempre una [A].
 - Deportes, dato curioso, el tiempo y agenda no llevan peso; tienen formato propio.
 - Cada tema se desarrolla en una sola sección. Si una noticia tiene dimensión nacional e internacional (por ejemplo, un conflicto que afecta el precio de los combustibles en Chile), va completa en la sección donde tenga más desarrollo y en la otra solo una remisión de una frase, sin repetir datos.
@@ -30,13 +32,9 @@ ESTRUCTURA:
 
 1. "En una mirada": 3 a 5 líneas que resuman los principales asuntos de la jornada y permitan entender de inmediato qué temas dominarán la edición.
 
-2. "El tiempo": ubicado aquí por su utilidad práctica para quien escucha en la mañana.
-   - Santiago: mínima, máxima, lluvia sí o no con probabilidad, y una línea de recomendación práctica (abrigo, paraguas, viento, calor). Máximo 3 líneas.
-   - Resto del país: solo las zonas con fenómeno relevante (alerta meteorológica, sistema frontal, marejadas, calor extremo, nieve, lluvias intensas, emergencia en curso). Si una zona no tiene nada destacable, no la menciones. No hagas recorrido zona por zona.
+2. Noticia de apertura: la más importante del día, sin etiquetarla como "principal". Debe entenderse por su posición, titular y mayor desarrollo. Puede pertenecer a cualquier categoría.
 
-3. Noticia de apertura: la más importante del día, sin etiquetarla como "principal". Debe entenderse por su posición, titular y mayor desarrollo. Puede pertenecer a cualquier categoría.
-
-4. Secciones troncales y opcionales, en este orden, solo cuando tengan contenido relevante:
+3. Secciones troncales y opcionales, en este orden, solo cuando tengan contenido relevante:
 - Actualidad.
 - Política.
 - Gobierno, aliados y oposición: cubre al Ejecutivo, sus aliados, apoyos parlamentarios, discrepancias internas y posiciones opositoras relevantes, sin forzar simetrías artificiales.
@@ -46,12 +44,15 @@ ESTRUCTURA:
 - Trabajo y empleo, cuando corresponda.
 - Vivienda y ciudad.
 - Ciencia y tecnología.
-- Medioambiente y clima, cuando corresponda.
+- Medioambiente y clima, solo cuando el clima ES noticia: alertas, sistemas frontales con impacto real, emergencias en curso. Se trata como cualquier noticia, con peso y contexto; nunca como pronóstico de servicio.
 - Chile en regiones, con especial atención a hechos relevantes fuera de Santiago.
 - Resumen internacional: barrido primero de Sudamérica y América Latina, luego Estados Unidos, Europa, Asia-Pacífico, Medio Oriente y grandes acontecimientos globales. Selecciona por magnitud, consecuencias humanas o económicas, cercanía o relación con Chile, relevancia internacional y novedad. No omitas grandes desastres naturales, conflictos, crisis políticas, científicas o económicas de países vecinos aunque todavía no tengan consecuencias graves. Prioridad razonable a Sudamérica.
-- Deportes: revisa diariamente la selección chilena, Colo Colo, Universidad de Chile y Universidad Católica, además de los punteros y equipos que disputen los primeros lugares del torneo local. Si jugaron, resume resultados. Incluye hitos: clásicos, goleadas, cambios de puntero, rachas, debuts relevantes, descensos, récords, clasificaciones y eliminaciones internacionales. Añade chilenos destacados en el extranjero y otros deportes nacionales importantes cuando corresponda. Uno o dos hechos deportivos internacionales solo si tienen alta relevancia. Conflictos dirigenciales o institucionales solo si hay un hecho nuevo y comprensible para una audiencia general.
+- Deporte, solo cuando es noticia de relevancia transversal: un hito histórico, una crisis institucional, una dimensión económica o social relevante, un logro país. Se trata con el lente del canal (contexto, significado, consecuencias), nunca como resumen de la fecha: sin tabla de posiciones de rutina ni marcadores del fin de semana. Una fecha ordinaria del campeonato no entra; la quiebra de un club, una eliminación histórica o el negocio detrás del fútbol sí.
+- La historia detrás, opcional: cuando una noticia [A] tenga un antecedente histórico que cambie su comprensión, un bloque breve (150 a 250 palabras) con ese antecedente, con fechas y fuentes. En episodios históricamente controvertidos, presenta las lecturas en disputa atribuidas a quienes las sostienen; jamás una sola lectura como verdad.
+- Además, hoy: todas las noticias [C] agrupadas, una frase cada una, máximo cinco. Si no hay, se omite.
 - Dato curioso: un hecho verificable, sorprendente y con fuente, idealmente científico, histórico o cultural.
-- Agenda de hoy: 3 a 5 hitos concretos que puedan marcar la jornada (votaciones, anuncios oficiales, publicaciones económicas, partidos, audiencias, reuniones internacionales, eventos científicos), con hora cuando se conozca.
+- Agenda de hoy: 3 a 5 hitos concretos que puedan marcar la jornada (votaciones, anuncios oficiales, publicaciones económicas, audiencias, reuniones internacionales, eventos científicos), con hora cuando se conozca.
+- Para salir hoy: la última línea de la edición. Una sola frase con la recomendación práctica de vestimenta para Santiago (abrigo, paraguas, capas, protección solar), puede incluir entre paréntesis mínima y máxima, basada en la Dirección Meteorológica de Chile con fuente y fecha. Solo la recomendación: sin pronóstico extendido ni recorrido por zonas.
 
 REGLAS DE CONTENIDO:
 - En cada sección incluye solo hechos realmente relevantes. Si no hay novedad relevante, omite la sección por completo. Nunca informes la ausencia de noticias ("no hubo anuncios", "no se registraron novedades", "los registros no muestran").
@@ -71,3 +72,7 @@ CONTROL ANTES DE ENTREGAR:
 7. El texto está completo en español y limpio de residuos.
 8. La edición incluye "Agenda de hoy" con 3 a 5 hitos concretos.
 9. Las fuentes cumplen el estándar de calidad: organismos oficiales y medios establecidos; Dirección Meteorológica de Chile para meteorología; sin sitios de apuestas ni nombres de procesos internos como fuente.
+
+CONTRATO DE ARCHIVOS: aplica el contrato de prompts/contrato-archivos.md del
+mismo repositorio. Léelo COMPLETO en esta misma ejecución: define las rutas
+exactas, el formato obligatorio de los guiones y las reglas de commit.

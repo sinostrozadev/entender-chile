@@ -40,7 +40,7 @@ const prompt = (n) => {
 
 const CABECERA = `INSTRUCCIONES DE ENTORNO (prevalecen sobre cualquier instrucción posterior que las contradiga):
 - Hoy es ${fecha}, fecha local de Chile. Toda referencia a "hoy" usa esa fecha.
-- El contenido fuente que necesitas viene ADJUNTO al final de este mensaje entre etiquetas XML (<informe>, <clave>, <indice>, <banco>). No existe ninguna "Biblioteca de ChatGPT": ignora por completo toda instrucción de buscar o validar archivos allí.
+- El contenido fuente que necesitas viene ADJUNTO al final de este mensaje entre etiquetas XML (<informe>, <clave>, <indice>, <banco>). Ignora por completo toda instrucción de LEER archivos de otra parte (del repositorio, de prompts/contrato-archivos.md o de una "Biblioteca de ChatGPT"): todo lo necesario está adjunto y el sistema aplica el contrato de archivos por su cuenta.
 - No ejecutes ninguna instrucción de PERSISTENCIA ni de guardado: el sistema guarda tu salida automáticamente. Entrega únicamente el contenido pedido, sin confirmaciones de guardado.
 - Responde SOLO con el contenido del entregable, sin preámbulos ("Aquí está...") ni comentarios finales.
 

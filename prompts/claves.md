@@ -1,11 +1,10 @@
-Primero busca en la Biblioteca de ChatGPT el archivo persistente "Resumen diario - ultimo.md".
+Primero lee del repositorio (rama main, versión más reciente) el informe de hoy: contenido/informes/AAAA-MM-DD.md, con la fecha local de Chile. Ese archivo es el "Resumen diario" al que se refiere el resto de este prompt.
 
 VALIDACIÓN DEL HANDOFF:
-- Verifica que el archivo corresponda a la edición de HOY según la fecha local de Chile. La hora de generación puede variar: las ediciones reejecutadas durante el día son válidas siempre que la fecha sea la de hoy; usa siempre la versión más reciente.
-- Usa ese archivo como FUENTE DE VERDAD. No reconstruyas el informe por memoria, no uses ejecuciones anteriores y no vuelvas a investigar las noticias del día.
-- Si el archivo falta, está vacío o corresponde a otra fecha, no inventes contenido: indica que el handoff del Resumen diario no quedó disponible y termina la ejecución sin generar entrega.
+- Usa ese archivo como FUENTE DE VERDAD. No reconstruyas el informe por memoria, no uses ediciones de otras fechas y no vuelvas a investigar las noticias del día.
+- Si el archivo de hoy falta o está vacío, no inventes contenido: indica que el informe de hoy no está en el repositorio y termina la ejecución sin generar entrega.
 
-Segundo, busca en la Biblioteca el archivo "Claves - indice.md". Si existe, léelo completo antes de trabajar: es el catálogo de todos los conceptos ya explicados en entregas anteriores y de los temas pendientes. Si no existe, créalo al final de esta ejecución con el formato indicado más abajo.
+Segundo, lee del repositorio contenido/claves/indice.md y contenido/claves/banco-temas.md. Si existen, léelos completos antes de trabajar: son el catálogo de todos los conceptos ya explicados en entregas anteriores y de los temas pendientes. Si no existen, créalos en esta ejecución según el contrato de archivos.
 
 PROPÓSITO DE LA SERIE:
 La serie se llama "Claves para entender las noticias". El Resumen diario responde "qué pasó"; esta serie responde "qué tengo que entender para comprender de verdad lo que pasó y para interpretar mejor futuras noticias similares". Cada entrega nace de una noticia del día, pero su cuerpo principal debe ser conocimiento permanente, útil meses o años después. Piensa cada entrega como una pieza de una biblioteca acumulativa.
@@ -15,7 +14,7 @@ SELECCIÓN DEL TEMA:
 - Identifica las noticias del informe cuya comprensión requiera conocer mejor un concepto, institución, mecanismo, antecedente histórico, proceso político, indicador económico o regla jurídica. No fuerces explicaciones cuando una noticia se entiende por sí sola.
 - Produce UNA sola profundización por edición: la de mayor valor para un ciudadano general. Elige con esta pregunta guía: "¿Qué necesita entender una persona para interpretar correctamente esta noticia y futuras noticias sobre el mismo tema?".
 - Si otras noticias del día también justificaban una profundización, no las desarrolles: regístralas en la sección "Banco de temas" del índice, con el concepto y la fecha, para futuras entregas.
-- Si ninguna noticia del día justifica una profundización genuina, no generes entrega. Indica explícitamente: "Sin entrega de Claves para la edición de hoy: ninguna noticia requiere profundización conceptual", y si corresponde agrega temas al Banco. No fabriques una explicación para cumplir.
+- La serie es DIARIA: todos los días hay entrega. Cuando ninguna noticia del día justifica una profundización genuina, NO fabriques un gancho artificial: toma el mejor tema pendiente del Banco de temas (contenido/claves/banco-temas.md) y desarrolla ese como "Edición de biblioteca", indicándolo en una línea inmediatamente después del Slug. Elige del Banco el tema de mayor valor permanente para entender Chile. Solo si el Banco está vacío Y ninguna noticia da pie —caso excepcional— indica "Sin entrega de Claves para la edición de hoy".
 - Consulta el índice antes de elegir: si el concepto ya fue explicado, solo corresponde una nueva entrega cuando puedas profundizar una dimensión distinta, explicar qué cambió o cuando un cambio material haga necesario actualizar la explicación. En ese caso, da por conocido lo anterior y enlázalo brevemente ("como vimos en la entrega sobre X"), sin repetir desde cero.
 
 TÍTULO:
@@ -26,7 +25,7 @@ TÍTULO:
 
 ESTRUCTURA DE CADA ENTREGA:
 
-1. "La noticia que abrió esta pregunta — [fecha de hoy]": explica muy brevemente qué hecho del Resumen diario motivó la profundización. Todo dato susceptible de cambiar queda explícitamente fechado. Nunca escribas como verdad permanente algo coyuntural: en lugar de "el proyecto todavía no es ley", escribe "al [fecha], el proyecto aún no era ley". La meta es que cada frase siga siendo verdadera si se relee años después.
+1. "La noticia que abrió esta pregunta — [fecha de hoy]": explica muy brevemente qué hecho del Resumen diario motivó la profundización. En una Edición de biblioteca, esta sección se llama "Por qué esta clave — [fecha de hoy]" y explica en pocas líneas por qué el concepto ayuda a entender Chile, mencionando —si existe— la noticia que lo dejó en el Banco, con su fecha original. Todo dato susceptible de cambiar queda explícitamente fechado. Nunca escribas como verdad permanente algo coyuntural: en lugar de "el proyecto todavía no es ley", escribe "al [fecha], el proyecto aún no era ley". La meta es que cada frase siga siendo verdadera si se relee años después.
 
 2. "La pregunta de fondo": formula la pregunta conceptual que la noticia permite explorar y que seguirá siendo útil fuera de esta coyuntura.
 
@@ -48,13 +47,12 @@ LIMPIEZA:
 - Todo en español: nombres de países, instituciones y cargos incluidos.
 - Sin emojis, URLs en el cuerpo, tokens de herramienta, caracteres sueltos ni títulos duplicados.
 
-PERSISTENCIA OBLIGATORIA:
-Al terminar, además de entregar la entrega normalmente:
-1. Guarda una copia ÍNTEGRA en la Biblioteca como "Claves - AAAA-MM-DD - [slug].md", con la fecha local de Chile.
-2. Guarda o actualiza además una copia estable llamada "Claves - ultimo.md" con exactamente el mismo contenido. Esta copia es la fuente de verdad para el agente posterior que produce el guion del video. Si hoy no hubo entrega, no la modifiques.
-3. Crea o actualiza "Claves - indice.md" agregando una línea por esta entrega con: fecha, título completo, slug y lista breve de conceptos cubiertos. El índice mantiene además una sección final "Banco de temas" con los temas pendientes detectados (concepto, noticia de origen y fecha). No borres entradas anteriores del índice.
-4. Si no generaste entrega, actualiza solo el Banco de temas si corresponde.
-5. Si por algún motivo técnico no puedes guardar, indícalo claramente al final de la ejecución para que no se asuma que el handoff quedó disponible.
+PERSISTENCIA:
+La ÚNICA persistencia es el repositorio: la entrega, el índice y el banco de
+temas se guardan en las rutas exactas que define el contrato de archivos. No
+guardes copias en la Biblioteca de ChatGPT. Si no generaste entrega, actualiza
+solo el Banco de temas si corresponde. Si por algún motivo técnico no puedes
+guardar o pushear, indícalo claramente al final de la ejecución.
 
 CONTROL ANTES DE ENTREGAR:
 1. El caso de entrada está textualmente en el "Resumen diario - ultimo.md" de hoy.
@@ -64,4 +62,8 @@ CONTROL ANTES DE ENTREGAR:
 5. Las secciones fechadas están efectivamente fechadas y la explicación central es atemporal en al menos 80% del texto.
 6. Hechos e interpretación están separados; el análisis está identificado.
 7. Todas las fuentes están en texto plano y listadas al final; no quedan marcadores internos.
-8. Las copias persistentes y el índice quedaron guardados, o el fallo quedó reportado.
+8. La entrega, el índice y el banco de temas quedaron guardados y pusheados en el repositorio según el contrato de archivos, o el fallo quedó reportado.
+
+CONTRATO DE ARCHIVOS: aplica el contrato de prompts/contrato-archivos.md del
+mismo repositorio. Léelo COMPLETO en esta misma ejecución: define las rutas
+exactas, el formato obligatorio de los guiones y las reglas de commit.

@@ -41,6 +41,9 @@ jobs:
           git add contenido/
           git diff --cached --quiet || { git commit -m "edición $(TZ=America/Santiago date +%F) [bot]"; git push; }
 
+      - name: 2b · Gate previo al render (edición renderizable y no rechazada)
+        run: node scripts/gate.js
+
       - name: 3 · Producir video del informe (voz si hay secrets; si no, mudo)
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
