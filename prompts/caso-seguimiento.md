@@ -19,7 +19,7 @@ REGLAS DE RIGOR (idénticas a contenido/casos/README.md, obligatorias):
    medios establecidos.
 4. Sin relleno: cada línea nueva aporta un hecho, cifra, avance procesal o
    fuente. Nada especulativo.
-5. Fechas absolutas siempre.
+5. Fechas absolutas siempre. En la prosa (ficha, involucrados, cronología, fuentes) escríbelas como DD-MM-AAAA (27-05-2026). Solo las líneas "Dossier abierto", "Última actualización" y hitos.md mantienen AAAA-MM-DD, porque las lee el sistema.
 6. Nunca uses la raya larga (—) ni la raya media (–): usa coma, dos puntos,
    punto o paréntesis. Rangos con guion corto (2025-2026).
 

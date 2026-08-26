@@ -61,6 +61,15 @@ export function frases(texto: string): string[] {
     .map((f) => f.replace(/§/g, ".").trim()).filter((f) => f.length > 0);
 }
 
+// Fechas AAAA-MM-DD → DD-MM-AAAA en el texto visible. Las etiquetas HTML
+// (hrefs) y los textos que son URLs no se tocan.
+export const fechasHumanas = (html: string): string =>
+  html.split(/(<[^>]+>)/g).map((seg) =>
+    seg.startsWith("<") || seg.includes("://") ? seg
+      : seg.replace(/\b(\d{4})-(\d{2})-(\d{2})\b/g, "$3-$2-$1")
+  ).join("");
+export const fechaCortaNum = (f: string) => { const m = f.match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? `${m[3]}-${m[2]}-${m[1]}` : f; };
+
 function render(md: string): { html: string; secciones: Seccion[]; noticias: Noticia[] } {
   let html = marked.parse(md, { async: false, gfm: true }) as string;
   const secciones: Seccion[] = [];
@@ -85,6 +94,7 @@ function render(md: string): { html: string; secciones: Seccion[]; noticias: Not
   html = html.replace(/<strong>(Contexto|Clave|Análisis|Analisis):<\/strong>/g,
     (_m, e) => `<strong class="etq etq-${slugify(e)}">${e}</strong>`);
   html = html.replace(/<p><strong>Para salir hoy:<\/strong>/g, `<p class="salir"><strong>Para salir hoy</strong>`);
+  html = fechasHumanas(html);
   return { html, secciones, noticias };
 }
 
@@ -221,7 +231,7 @@ export function casos(): Caso[] {
       return {
         slug, nombre, estado, abierto, actualizado, proximoHito,
         cuestionado: num(d.cuestionado), recuperado: num(d.recuperado), retenido: num(d.retenido),
-        naturaleza: d.naturaleza || "?", notaCifra: d["nota-cifra"] || "",
+        naturaleza: d.naturaleza || "?", notaCifra: fechasHumanas(d["nota-cifra"] || ""),
         publicar: (d.publicar || "si").toLowerCase() !== "no",
         html, secciones,
       };

@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { url, canal } from "../lib/contenido";
+import { url, canal, fechaCortaNum } from "../lib/contenido";
 export interface Props { titulo?: string; descripcion?: string; actual?: string }
 const { titulo, descripcion, actual } = Astro.props;
 const t = titulo ? `${titulo} · Entender Chile` : "Entender Chile · El resumen sin gritos";
@@ -62,7 +62,7 @@ const hoy = new Date().toISOString().slice(0, 10);
     <footer>
       <div class="in">
         <span>Entender Chile · El resumen sin gritos. Hecho en Chile; cada cifra con su fuente.</span>
-        <span class="mono">Actualizado {hoy}</span>
+        <span class="mono">Actualizado {fechaCortaNum(hoy)}</span>
       </div>
     </footer>
   </body>

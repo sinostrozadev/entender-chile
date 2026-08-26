@@ -86,7 +86,9 @@ cuenta como recuperado.
    dos medios establecidos. El dossier no "descubre" nombres.
 4. **Sin relleno**: cada línea nueva debe aportar un hecho, una cifra, un
    avance procesal o una fuente. Las especulaciones no entran.
-5. **Fechas absolutas** siempre. Todo dato susceptible de cambiar queda
+5. **Fechas absolutas** siempre. En la prosa, DD-MM-AAAA (27-05-2026); las
+   líneas "Dossier abierto" / "Última actualización" y hitos.md mantienen
+   AAAA-MM-DD porque las lee el sistema. La web muestra todo como día-mes-año. Todo dato susceptible de cambiar queda
    fechado ("al 25-08-2026, no había formalizados").
 
 ## Investigación de casos nuevos (abrir un dossier)
