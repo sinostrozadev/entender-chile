@@ -1,0 +1,27 @@
+---
+import Base from "../../layouts/Base.astro";
+import { claves, fechaLarga, url } from "../../lib/contenido";
+export function getStaticPaths() {
+  const todas = claves();
+  return todas.map((c, k) => ({ params: { slug: c.slug }, props: { c, sig: todas[k - 1] ?? null, ant: todas[k + 1] ?? null } }));
+}
+const { c, sig, ant } = Astro.props;
+---
+<Base titulo={c.titulo} descripcion={c.pregunta.slice(0, 160)} actual="claves">
+  <article class="pieza">
+    <header class="cabecera">
+      <p class="kicker">Claves para entender las noticias</p>
+      <h1>{c.titulo}</h1>
+      <p class="fecha">{fechaLarga(c.fecha)}</p>
+      {c.video && <p class="acciones"><a class="boton" href={c.video}>Ver el video</a></p>}
+    </header>
+    {c.secciones.length > 2 && (
+      <ul class="toc">{c.secciones.map((s) => <li><a href={`#${s.id}`}>{s.texto}</a></li>)}</ul>
+    )}
+    <div class="cuerpo" set:html={c.html} />
+    <nav class="nav-dias">
+      <span>{ant && <a href={url(`claves/${ant.slug}/`)}><span class="kicker gris">← Clave anterior</span>{ant.titulo}</a>}</span>
+      <span style="text-align:right">{sig && <a href={url(`claves/${sig.slug}/`)}><span class="kicker gris">Clave siguiente →</span>{sig.titulo}</a>}</span>
+    </nav>
+  </article>
+</Base>

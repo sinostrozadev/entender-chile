@@ -86,9 +86,17 @@ ESTRUCTURA DEL GUION:
 
 7. DATO CURIOSO: va siempre antes del cierre y funciona como cambio de tono deliberado.
 
-8. AGENDA: justo antes del cierre, cuenta todos los hitos de la agenda del informe como lo que conviene observar durante el resto de la jornada.
+8. AGENDA: justo antes del cierre, cuenta los hitos de la agenda que le importan al ciudadano ocupado (máximo tres) como lo que conviene observar durante el resto de la jornada. Omite webinars, charlas y actos protocolares aunque el informe los liste.
 
-9. CIERRE: síntesis del día en dos o tres frases que conecte las noticias [A] entre sí, sin decirle a la audiencia qué debe pensar, seguida de una despedida de una frase con pequeñas variaciones entre días. Integra al final, de forma natural dentro de la despedida, la línea "Para salir hoy" del informe (una sola frase de vestimenta). La despedida puede nombrar el canal con variaciones de "Nos encontramos mañana en Entender Chile". No pidas suscripción, likes ni comentarios.
+9. CIERRE: síntesis del día en dos o tres frases que conecte las noticias [A] entre sí, sin decirle a la audiencia qué debe pensar, seguida de una despedida de una frase con pequeñas variaciones entre días. Integra al final, de forma natural dentro de la despedida, la línea "Para salir hoy" del informe (una sola frase de vestimenta). La despedida nombra el canal con variaciones de "Nos encontramos mañana en Entender Chile" y termina SIEMPRE con el tagline exacto como última frase hablada: "El resumen sin gritos." No pidas suscripción, likes ni comentarios.
+
+REGISTRO ORAL Y ANTI-PLANTILLA:
+- Prohibidos los conectores de ensayo escrito: "por tanto", "en consecuencia", "asimismo", "cabe señalar", "en este contexto", "de este modo", "por consiguiente". Permitidos con mesura los orales: "o sea", "es decir", "la cosa es que", "el punto es".
+- Ningún bloque termina con una síntesis abstracta ("marca algo más relevante que...", "la jornada deja...", "cambia la etapa política"). Cada bloque termina con un hecho, una consecuencia concreta para alguien, o una pregunta que el bloque siguiente responde.
+- El cierre del video tiene como máximo UNA frase de síntesis, y esa frase nombra hechos concretos, no abstracciones ("cambios de fondo", "mecanismos", "decisiones que se convierten en").
+- La construcción "no solo X, sino Y" como máximo una vez por guion.
+- Si el informe trae un ejemplo a escala humana ("para un sueldo de..."), nárralo: es el momento en que el oyente entiende.
+- Incisos con comas; nunca guiones ni rayas.
 
 FORMATO DE SALIDA:
 - Primera línea: "Título sugerido:" seguida de un título de una sola idea, concreto, específico del día, sin clickbait.
@@ -97,7 +105,7 @@ FORMATO DE SALIDA:
   ## Nombre de sección
       Una por bloque temático. No se narra.
   [TESIS] frase
-      La idea central del bloque, una por bloque, obligatoria en bloques con noticias [A] y [B]. Sí se narra.
+      La idea central del bloque, una por bloque, obligatoria en bloques con noticias [A] y [B]. Sí se narra. MÁXIMO 18 PALABRAS: es la tarjeta grande en pantalla; si necesita más, está mal formulada.
   [DATO tipo | fuente, fecha] etiqueta: valor ; etiqueta: valor
       tipo = cifra, barras, lineas, comparacion, marcador (exactamente dos series, local y visita, con el resultado como valor) o tabla (posiciones u ordenamientos).
       Los VALORES van SIEMPRE en numerales (49, -0,2%, 9,39), nunca en palabras: la marca no se narra, es para pantalla. La regla de números en palabras aplica solo al texto narrado.
@@ -131,7 +139,10 @@ CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 11. Revisión de cadencia: rompe secuencias demasiado uniformes con frases más cortas y párrafos de distinta longitud.
 12. Verifica que cada bloque [A] y [B] tiene su [TESIS], que cada [DATO] y [CITA] tiene fuente y fecha, y que todo párrafo de "Análisis" lleva [INTERPRETACIÓN].
 13. Verifica que el guion quedó guardado y pusheado en la ruta exacta del contrato de archivos, o que el fallo quedó reportado.
-14. Solo después de superar estas comprobaciones entrega el título, el guion y las fuentes.
+14. Cada [TESIS] tiene 18 palabras o menos.
+15. La línea "Para salir hoy" del informe quedó integrada en la despedida, y el tagline "El resumen sin gritos." cierra el video.
+16. Ningún bloque termina en síntesis abstracta y no quedan conectores de ensayo escrito.
+17. Solo después de superar estas comprobaciones entrega el título, el guion y las fuentes.
 
 CONTRATO DE ARCHIVOS: aplica el contrato de prompts/contrato-archivos.md del
 mismo repositorio. Léelo COMPLETO en esta misma ejecución: define las rutas

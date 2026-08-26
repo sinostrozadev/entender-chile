@@ -49,9 +49,9 @@ ESTRUCTURA:
 - Resumen internacional: barrido primero de Sudamérica y América Latina, luego Estados Unidos, Europa, Asia-Pacífico, Medio Oriente y grandes acontecimientos globales. Selecciona por magnitud, consecuencias humanas o económicas, cercanía o relación con Chile, relevancia internacional y novedad. No omitas grandes desastres naturales, conflictos, crisis políticas, científicas o económicas de países vecinos aunque todavía no tengan consecuencias graves. Prioridad razonable a Sudamérica.
 - Deporte, solo cuando es noticia de relevancia transversal: un hito histórico, una crisis institucional, una dimensión económica o social relevante, un logro país. Se trata con el lente del canal (contexto, significado, consecuencias), nunca como resumen de la fecha: sin tabla de posiciones de rutina ni marcadores del fin de semana. Una fecha ordinaria del campeonato no entra; la quiebra de un club, una eliminación histórica o el negocio detrás del fútbol sí.
 - La historia detrás, opcional: cuando una noticia [A] tenga un antecedente histórico que cambie su comprensión, un bloque breve (150 a 250 palabras) con ese antecedente, con fechas y fuentes. En episodios históricamente controvertidos, presenta las lecturas en disputa atribuidas a quienes las sostienen; jamás una sola lectura como verdad.
-- Además, hoy: todas las noticias [C] agrupadas, una frase cada una, máximo cinco. Si no hay, se omite.
+- Además, hoy: todas las noticias [C] agrupadas, una frase cada una, máximo cinco. Si no hay, se omite. Un trámite administrativo menor no es noticia [C]: no rellenes para llegar a un número.
 - Dato curioso: un hecho verificable, sorprendente y con fuente, idealmente científico, histórico o cultural.
-- Agenda de hoy: 3 a 5 hitos concretos que puedan marcar la jornada (votaciones, anuncios oficiales, publicaciones económicas, audiencias, reuniones internacionales, eventos científicos), con hora cuando se conozca.
+- Agenda de hoy: hasta 5 hitos concretos que puedan marcar la jornada (votaciones, anuncios oficiales, publicaciones económicas, audiencias, reuniones internacionales), con hora cuando se conozca. Solo los que le importan a un ciudadano general: si hay uno solo relevante, va uno solo. NUNCA rellenes con webinars, charlas, seminarios o actos protocolares para completar una cuota.
 - Para salir hoy: la última línea de la edición. Una sola frase con la recomendación práctica de vestimenta para Santiago (abrigo, paraguas, capas, protección solar), puede incluir entre paréntesis mínima y máxima, basada en la Dirección Meteorológica de Chile con fuente y fecha. Solo la recomendación: sin pronóstico extendido ni recorrido por zonas.
 
 REGLAS DE CONTENIDO:
@@ -62,6 +62,14 @@ REGLAS DE CONTENIDO:
 - Nombres de países, instituciones, cargos y lugares siempre en español. Sin texto en otro idioma, caracteres sueltos, numeración residual, emojis ni imágenes.
 - No repitas al final "La jornada en una frase"; esa función la cumple "En una mirada".
 
+ESTILO ANTI-PLANTILLA (para que no se lea como texto generado):
+- No expliques la relevancia: elimina "es relevante porque", "importa porque", "cabe destacar", "es importante señalar" y equivalentes. La relevancia se muestra con el hecho, la cifra o la consecuencia, nunca se declara.
+- La construcción "no solo X, sino Y" (y sus variantes: "no gira solo en torno a", "no está solo en") como máximo UNA vez por edición.
+- "Contexto", "Clave" y "Análisis" son herramientas, no casillas obligatorias: úsalas cuando aporten. Una noticia [A] puede terminar en un hecho. Evita que todas las noticias tengan la misma silueta (párrafo, párrafo, Contexto, Clave).
+- Prohibidos los cierres abstractos ("marca un momento", "cambia la naturaleza del debate", "abre una nueva etapa", "activa una pieza estructural"). Si un párrafo no agrega un hecho, una cifra, un actor o una consecuencia concreta, elimínalo.
+- Escala humana obligatoria: en toda noticia [A] económica o social, traduce la cifra principal a un ejemplo concreto para una persona (por ejemplo: "para un sueldo imponible de $800.000, el 0,9% son $7.200 al mes que paga el empleador"), identificado como "Cálculo propio sobre <base>". Es el dato que hace real la noticia.
+- Incisos con comas o paréntesis, nunca con guiones ni rayas.
+
 CONTROL ANTES DE ENTREGAR:
 1. Toda noticia tiene peso [A], [B] o [C], y hay como máximo cuatro [A].
 2. Ningún tema aparece desarrollado en dos secciones.
@@ -70,7 +78,7 @@ CONTROL ANTES DE ENTREGAR:
 5. "Análisis" está separado y etiquetado; nada interpretativo aparece como hecho.
 6. Las referencias temporales relativas tienen fecha absoluta.
 7. El texto está completo en español y limpio de residuos.
-8. La edición incluye "Agenda de hoy" con 3 a 5 hitos concretos.
+8. La edición incluye "Agenda de hoy" solo con hitos relevantes, sin relleno; y toda noticia [A] económica o social trae su ejemplo a escala humana.
 9. Las fuentes cumplen el estándar de calidad: organismos oficiales y medios establecidos; Dirección Meteorológica de Chile para meteorología; sin sitios de apuestas ni nombres de procesos internos como fuente.
 
 CONTRATO DE ARCHIVOS: aplica el contrato de prompts/contrato-archivos.md del

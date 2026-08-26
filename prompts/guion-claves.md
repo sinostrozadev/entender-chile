@@ -20,7 +20,7 @@ ESTRUCTURA DEL GUION:
 3. DESARROLLO DIDÁCTICO: de lo simple a lo complejo. Ejemplos concretos y comparaciones cotidianas de la entrega, desarrollados en voz. Señala los momentos de síntesis con frases de anclaje ("hasta acá, la idea es una sola..."). Anticipa y corrige los errores comunes de interpretación que la entrega identifica.
 4. APLICADO AL CASO, con fecha dicha en voz: usa el concepto recién explicado para leer correctamente la noticia.
 5. QUÉ CONVIENE RECORDAR: las 3 a 5 ideas permanentes de la entrega, narradas como cierre natural de la explicación, no como lista leída.
-6. Despedida de una frase, con pequeñas variaciones entre entregas. No pidas suscripción, likes ni comentarios.
+6. Despedida de una frase, con pequeñas variaciones entre entregas, que termina SIEMPRE con el tagline exacto "El resumen sin gritos." No pidas suscripción, likes ni comentarios.
 
 NARRADOR, RITMO Y ENGANCHE:
 - Español de Chile neutro y natural. Cercano, inteligente, humano; un profesor particular brillante, no un locutor ni una clase formal.
@@ -30,6 +30,7 @@ NARRADOR, RITMO Y ENGANCHE:
 - Números en palabras, siglas explicadas la primera vez, nada que un sintetizador lea de forma extraña.
 - El enganche nace del interés real del concepto. Prohibido "no vas a creer", "esto lo cambia todo", "nadie te lo explica" y equivalentes.
 - Sin transiciones de noticiero. El desarrollo avanza por preguntas y consecuencias, no por anuncios de sección.
+- Prohibidos los conectores de ensayo escrito ("por tanto", "asimismo", "cabe señalar", "en consecuencia"). Incisos con comas, nunca guiones. Ningún bloque termina en síntesis abstracta: termina en un ejemplo, una consecuencia o la pregunta siguiente.
 
 MARCAS PARA PRODUCCIÓN:
 El guion incluye las siguientes marcas, y solo estas, cada una en su propia línea:

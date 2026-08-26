@@ -1,0 +1,51 @@
+---
+import Base from "../layouts/Base.astro";
+import { informes, claves, fechaLarga, fechaCorta, url } from "../lib/contenido";
+const todos = informes();
+const ultimo = todos[0];
+const recientes = todos.slice(1, 8);
+const cl = claves().slice(0, 6);
+---
+<Base>
+  {ultimo ? (
+    <section class="portada">
+      <p class="kicker">El informe diario · {fechaLarga(ultimo.fecha)}</p>
+      <h1><a href={url(`informes/${ultimo.fecha}/`)}>{ultimo.titular}</a></h1>
+      <div class="lead" set:html={ultimo.resumenHtml} />
+      <p class="acciones">
+        <a class="boton" href={url(`informes/${ultimo.fecha}/`)}>Leer el informe completo</a>
+        {ultimo.video && <a class="boton sec" href={ultimo.video}>Ver el video</a>}
+      </p>
+    </section>
+  ) : (
+    <section class="portada"><p class="vacio">Todavía no hay informes publicados.</p></section>
+  )}
+  <section class="dos">
+    <div>
+      <h2 class="titulo-seccion">Ediciones anteriores</h2>
+      {recientes.length ? (
+        <ul class="lista-dias">
+          {recientes.map((i) => (
+            <li><a href={url(`informes/${i.fecha}/`)}><span class="mono">{fechaCorta(i.fecha)}</span><span>{i.titular}</span></a></li>
+          ))}
+        </ul>
+      ) : <p class="vacio">Esta es la primera edición.</p>}
+      <a class="mas" href={url("informes/")}>Todos los informes →</a>
+    </div>
+    <div>
+      <h2 class="titulo-seccion">Claves para entender las noticias</h2>
+      {cl.length ? (
+        <ul class="tarjetas">
+          {cl.map((c) => (
+            <li class="tarjeta"><a href={url(`claves/${c.slug}/`)}>
+              <span class="kicker">{fechaCorta(c.fecha)}</span>
+              <strong>{c.titulo}</strong>
+              {c.pregunta && <p>{c.pregunta}</p>}
+            </a></li>
+          ))}
+        </ul>
+      ) : <p class="vacio">Pronto.</p>}
+      <a class="mas" href={url("claves/")}>Toda la biblioteca →</a>
+    </div>
+  </section>
+</Base>

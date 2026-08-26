@@ -20,14 +20,6 @@
   decidir; considerar partir con voz solo en el informe.
 - **Esfuerzo:** medio (grabar dataset limpio + configurar secrets).
 
-## Web estática desde contenido/
-- **Fecha:** 2026-08-24 · **Origen:** README de contenido/ + Claude
-- **Qué:** publicar el archivo histórico (informes/ y claves/) como sitio
-  estático. El dominio entenderchile.cl está libre (verificado 2026-08-23).
-- **Valor:** SEO + newsletter = segunda pata de ingresos independiente de
-  YouTube. El contenido ya se acumula solo, commit a commit.
-- **Esfuerzo:** medio (generador estático simple + deploy).
-
 ## Franquicia por país 💰💰
 - **Fecha:** 2026-08-24 · **Origen:** Claude
 - **Qué:** replicar el pipeline validado con prompts por país: Entender Perú,

@@ -1,0 +1,29 @@
+---
+import Base from "../../layouts/Base.astro";
+import { informes, fechaLarga, fechaCorta, url } from "../../lib/contenido";
+export function getStaticPaths() {
+  const todos = informes();
+  return todos.map((i, k) => ({ params: { fecha: i.fecha }, props: { i, sig: todos[k - 1] ?? null, ant: todos[k + 1] ?? null } }));
+}
+const { i, sig, ant } = Astro.props;
+---
+<Base titulo={`${i.titular} · ${fechaCorta(i.fecha)}`} descripcion={i.resumenHtml.replace(/<[^>]+>/g, "").slice(0, 160)} actual="informes">
+  <article class="pieza">
+    <header class="cabecera">
+      <p class="kicker">El informe diario</p>
+      <h1>{i.titular}</h1>
+      <p class="fecha">{fechaLarga(i.fecha)}</p>
+      {i.video && <p class="acciones"><a class="boton" href={i.video}>Ver el video de esta edición</a></p>}
+    </header>
+    {i.resumenHtml && <div class="entradilla"><p class="kicker">En una mirada</p><div set:html={i.resumenHtml} /></div>}
+    {i.secciones.length > 2 && (
+      <ul class="toc">{i.secciones.map((s) => <li><a href={`#${s.id}`}>{s.texto}</a></li>)}</ul>
+    )}
+    <div class="cuerpo" set:html={i.html} />
+    {i.salir && <p class="salir"><strong>Para salir hoy</strong>{i.salir}</p>}
+    <nav class="nav-dias">
+      <span>{ant && <a href={url(`informes/${ant.fecha}/`)}><span class="kicker gris">← Edición anterior</span>{fechaLarga(ant.fecha)}</a>}</span>
+      <span style="text-align:right">{sig && <a href={url(`informes/${sig.fecha}/`)}><span class="kicker gris">Edición siguiente →</span>{fechaLarga(sig.fecha)}</a>}</span>
+    </nav>
+  </article>
+</Base>

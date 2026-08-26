@@ -1,0 +1,22 @@
+---
+import Base from "../../layouts/Base.astro";
+import { informes, fechaCorta, mesLargo, url } from "../../lib/contenido";
+const todos = informes();
+const meses = new Map<string, typeof todos>();
+for (const i of todos) { const k = i.fecha.slice(0, 7); if (!meses.has(k)) meses.set(k, []); meses.get(k)!.push(i); }
+---
+<Base titulo="Informes" actual="informes">
+  <p class="kicker">El informe diario</p>
+  <h1>Todas las ediciones</h1>
+  <p class="lead" style="max-width:46rem">Cada mañana, lo que de verdad importa para entender el país: jerarquizado, con las fuentes a la vista y los hechos separados de las interpretaciones.</p>
+  {[...meses.entries()].map(([k, lista]) => (
+    <section class="mes">
+      <h2 class="titulo-seccion">{mesLargo(`${k}-01`)}</h2>
+      <ul class="lista-dias">
+        {lista.map((i) => (
+          <li><a href={url(`informes/${i.fecha}/`)}><span class="mono">{fechaCorta(i.fecha)}</span><span>{i.titular}</span></a></li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</Base>

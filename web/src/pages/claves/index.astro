@@ -1,0 +1,23 @@
+---
+import Base from "../../layouts/Base.astro";
+import { claves, fechaCorta, url } from "../../lib/contenido";
+const todas = claves();
+---
+<Base titulo="Claves" actual="claves">
+  <p class="kicker">Claves para entender las noticias</p>
+  <h1>La biblioteca</h1>
+  <p class="lead" style="max-width:46rem">Cada entrega nace de una noticia, pero explica algo permanente: qué es, cómo funciona, quién decide. Sigue siendo útil dentro de dos años.</p>
+  <section class="mes">
+    {todas.length ? (
+      <ul class="tarjetas" style="grid-template-columns:repeat(auto-fill,minmax(20rem,1fr))">
+        {todas.map((c) => (
+          <li class="tarjeta"><a href={url(`claves/${c.slug}/`)}>
+            <span class="kicker">{fechaCorta(c.fecha)}</span>
+            <strong>{c.titulo}</strong>
+            {c.pregunta && <p>{c.pregunta}</p>}
+          </a></li>
+        ))}
+      </ul>
+    ) : <p class="vacio">Todavía no hay entregas.</p>}
+  </section>
+</Base>

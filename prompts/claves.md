@@ -46,6 +46,7 @@ HECHOS, INTERPRETACIÓN Y FUENTES:
 LIMPIEZA:
 - Todo en español: nombres de países, instituciones y cargos incluidos.
 - Sin emojis, URLs en el cuerpo, tokens de herramienta, caracteres sueltos ni títulos duplicados.
+- Incisos con comas o paréntesis, nunca con guiones ni rayas. Frases del tipo "Esta diferencia es central." o "Esto es clave." no aportan: reemplázalas por el porqué concreto.
 
 PERSISTENCIA:
 La ÚNICA persistencia es el repositorio: la entrega, el índice y el banco de

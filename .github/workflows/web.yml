@@ -1,0 +1,57 @@
+name: Web
+
+# Publica el sitio (web/, Astro) en el repo público entender-chile-web
+# (GitHub Pages). Se dispara solo cuando cambia el contenido publicable o
+# el sitio: la edición de las 4:00 actualiza la web en minutos.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "contenido/informes/**"
+      - "contenido/claves/**"
+      - "contenido/videos/**"
+      - "web/**"
+      - ".github/workflows/web.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: web
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Instalar
+        working-directory: web
+        run: npm ci
+
+      - name: Compilar
+        working-directory: web
+        env:
+          WEB_SITE: https://sinostrozadev.github.io
+          WEB_BASE: /entender-chile-web/
+        run: npm run build
+
+      - name: Publicar en entender-chile-web (gh-pages)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.WEB_DEPLOY_KEY }}
+          external_repository: sinostrozadev/entender-chile-web
+          publish_branch: gh-pages
+          publish_dir: web/dist
+          force_orphan: true
+          user_name: edicion-bot
+          user_email: bot@users.noreply.github.com
+          commit_message: "web: ${{ github.sha }}"
