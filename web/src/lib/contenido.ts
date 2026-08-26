@@ -117,6 +117,7 @@ export function informes(): Informe[] {
       // cuerpo: sin el H1 ni "En una mirada" (va como entradilla) ni la línea de salir (va como chip)
       let cuerpo = md.replace(/^#\s+.+\n/m, "");
       cuerpo = cuerpo.replace(/^##\s+En una mirada[\s\S]*?(?=^#{1,6}\s)/m, "");
+      cuerpo = cuerpo.replace(/^EN SEGUIMIENTO:.*$/gm, ""); // marca interna del observatorio
       cuerpo = cuerpo.replace(/^\*\*Para salir hoy:\*\*.*$/m, "");
       const { html, secciones, noticias } = render(cuerpo);
       const fuentes = seccionDe(md, /^##\s+Fuentes consultadas/i).split("\n").filter((l) => l.trim()).length;
@@ -152,4 +153,81 @@ export function claves(): Clave[] {
       const { html, secciones } = render(cuerpo);
       return { slug, fecha, titulo, pregunta, html, secciones, video: video(`${fecha}-clave`) };
     });
+}
+
+// ---------------- ¿En qué quedó? (observatorio de la plata pública) ----------------
+export type Caso = {
+  slug: string; nombre: string; estado: string; abierto: string; actualizado: string;
+  cuestionado: number | null; recuperado: number | null; retenido: number | null;
+  naturaleza: string; notaCifra: string; publicar: boolean;
+  html: string; secciones: Seccion[];
+};
+export type Contador = {
+  cuestionado: number; recuperado: number; retenido: number; porcentaje: number;
+  nDuros: number; aparte: Caso[]; nCasos: number; nAbiertos: number;
+};
+
+// Mismas reglas que scripts/casos.js: solo se suman cifras comparables.
+const DURAS = ["perjuicio-veredicto", "perjuicio-acusado", "observado-contraloria", "denunciado", "investigado"];
+export const esDura = (n: string) => DURAS.includes(n);
+export const NATURALEZA: Record<string, string> = {
+  "perjuicio-veredicto": "perjuicio según veredicto",
+  "perjuicio-acusado": "perjuicio según la acusación",
+  "observado-contraloria": "observado por Contraloría",
+  "denunciado": "denunciado por un organismo",
+  "investigado": "investigado por Fiscalía",
+  "transferido-auditado": "monto transferido, en auditoría",
+  "estimacion": "estimación",
+};
+export const naturalezaTexto = (n: string) => NATURALEZA[n] || n;
+
+export const pesos = (n: number | null): string => n == null ? "sin cifra" :
+  n === 0 ? "$0" :
+  n >= 1e9 ? `$${(n / 1e9).toLocaleString("es-CL", { maximumFractionDigits: 1 })} mil millones` :
+  n >= 1e6 ? `$${(n / 1e6).toLocaleString("es-CL", { maximumFractionDigits: 1 })} millones` :
+  `$${n.toLocaleString("es-CL")}`;
+
+export function casos(): Caso[] {
+  const dir = path.join(RAIZ, "casos");
+  if (!fs.existsSync(dir)) return [];
+  const excluidos = new Set(["README.md", "indice.md", "candidatos.md", "hitos.md", "por-abrir.md"]);
+  return fs.readdirSync(dir)
+    .filter((f) => f.endsWith(".md") && !excluidos.has(f))
+    .map((f) => {
+      const md = fs.readFileSync(path.join(dir, f), "utf8");
+      const slug = f.replace(/\.md$/, "");
+      const nombre = (md.match(/^# Caso:\s*(.+)$/m)?.[1] || slug).trim();
+      const estado = (md.match(/^Estado:\s*(\S+)/m)?.[1] || "ACTIVO").trim();
+      const abierto = md.match(/Dossier abierto:\s*(\d{4}-\d{2}-\d{2})/)?.[1] || "";
+      const actualizado = md.match(/Última actualización:\s*(\d{4}-\d{2}-\d{2})/)?.[1] || abierto;
+      const d: Record<string, string> = {};
+      const mD = md.match(/<!--\s*datos([\s\S]*?)-->/);
+      if (mD) for (const l of mD[1].split("\n")) { const i = l.indexOf(":"); if (i > 0) d[l.slice(0, i).trim()] = l.slice(i + 1).trim(); }
+      const num = (v?: string) => { if (v == null || v === "") return null; const n = Number(v.replace(/[^\d]/g, "")); return Number.isFinite(n) ? n : null; };
+      let cuerpo = md.replace(/^# Caso:.*\n/m, "").replace(/^Estado:.*\n/m, "").replace(/^Dossier abierto:.*\n/m, "")
+        .replace(/<!--\s*datos[\s\S]*?-->\s*/m, "");
+      const { html, secciones } = render(cuerpo);
+      return {
+        slug, nombre, estado, abierto, actualizado,
+        cuestionado: num(d.cuestionado), recuperado: num(d.recuperado), retenido: num(d.retenido),
+        naturaleza: d.naturaleza || "?", notaCifra: d["nota-cifra"] || "",
+        publicar: (d.publicar || "si").toLowerCase() !== "no",
+        html, secciones,
+      };
+    })
+    .filter((c) => c.publicar)
+    .sort((a, b) => (b.actualizado > a.actualizado ? 1 : b.actualizado < a.actualizado ? -1 : a.nombre.localeCompare(b.nombre)));
+}
+
+export function contador(lista: Caso[]): Contador {
+  const duros = lista.filter((c) => esDura(c.naturaleza));
+  const cuestionado = duros.reduce((a, c) => a + (c.cuestionado || 0), 0);
+  const recuperado = lista.reduce((a, c) => a + (c.recuperado || 0), 0);
+  const retenido = lista.reduce((a, c) => a + (c.retenido || 0), 0);
+  return {
+    cuestionado, recuperado, retenido,
+    porcentaje: cuestionado ? (recuperado / cuestionado) * 100 : 0,
+    nDuros: duros.length, aparte: lista.filter((c) => !esDura(c.naturaleza)),
+    nCasos: lista.length, nAbiertos: lista.filter((c) => c.estado !== "CERRADO").length,
+  };
 }

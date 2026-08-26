@@ -86,8 +86,8 @@ mismo repositorio. Léelo COMPLETO en esta misma ejecución: define las rutas
 exactas, el formato obligatorio de los guiones y las reglas de commit.
 SEGUIMIENTO DE LA PLATA PÚBLICA (sección "¿En qué quedó?"):
 - Si alguna noticia del día compromete FONDOS DEL ESTADO (fraude, malversación, contratos irregulares, subsidios mal pagados, dinero no rendido o no recuperado) Y tiene respaldo institucional (informe de Contraloría, denuncia o querella de un organismo, formalización, acusación o sentencia), desarróllala normalmente y agrega al final de esa sección una línea exacta: "EN SEGUIMIENTO: <nombre corto del caso>". El sistema abrirá su dossier a partir de esa marca.
-- Al final del reporte, ANTES de "Fuentes consultadas", incluye una sección "¿En qué quedó?" SOLO si el contenido adjunto entre <hitos> trae novedades con la fecha de hoy o de ayer. Escribe una entrada por hito, en una o dos frases, con el estado procesal exacto y la fuente. Si <hitos> viene vacío o sin novedades recientes, OMITE la sección por completo: que un caso siga igual no es noticia del día.
-- No inventes casos ni hitos: usa solo lo que aparezca en <hitos> o en las noticias que investigaste hoy.
+- Al final del reporte, ANTES de "Fuentes consultadas", incluye una sección "¿En qué quedó?" SOLO si contenido/casos/hitos.md del repositorio (léelo en esta misma ejecución; si el sistema te lo adjunta entre <hitos>, usa ese) trae novedades con la fecha de hoy o de ayer. Escribe una entrada por hito, en una o dos frases, con el estado procesal exacto y la fuente. Si el archivo no existe, está vacío o no trae novedades recientes, OMITE la sección por completo: que un caso siga igual no es noticia del día.
+- No inventes casos ni hitos: usa solo lo que aparezca en hitos.md o en las noticias que investigaste hoy.
 
 ESTILO TIPOGRÁFICO (obligatorio en todo entregable):
 - Nunca uses la raya larga (—) ni la raya media (–). Donde caería una raya,

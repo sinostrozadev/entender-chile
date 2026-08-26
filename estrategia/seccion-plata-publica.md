@@ -112,7 +112,21 @@ Listo:
   hitos en `hitos.md`.
 - Backlog de 12 casos candidatos en `contenido/casos/candidatos.md`.
 
+Hecho el 2026-08-26:
+- Alerta conectada: prompts/informe.md lee `contenido/casos/hitos.md` del
+  repo (ChatGPT no recibe adjuntos; el plan B por API sí lo inyecta como
+  <hitos>). prompts/guion-informe.md ignora las marcas "EN SEGUIMIENTO:".
+- Página web de la sección: /en-que-quedo/ (contador global + un caso por
+  página, con aviso de presunción de inocencia). Publicación AUTOMÁTICA de
+  todos los dossiers mientras se valida el flujo (decisión de Santiago,
+  2026-08-26); un dossier se excluye poniendo `publicar: no` en su bloque
+  `<!-- datos -->`. La web filtra las marcas "EN SEGUIMIENTO:" del informe.
+- Actualización nocturna movida a una rutina de Claude en la nube (03:00
+  Chile, modelo Opus, usa el plan de Santiago, sin API key): investiga cada
+  caso abierto, actualiza dossiers, registra hitos.md y regenera el índice
+  con `node scripts/casos.js`. scripts/casos.js por API queda como plan B.
+
 Pendiente:
-- Alerta conectada al prompt del informe diario (lee `hitos.md`).
-- Página web de la sección (depende de la web estática, en ideas/evaluar.md).
 - Plantilla del video de cierre en Remotion.
+- Gate humano antes de publicar cambios de dossier (por ahora sale
+  automático; revisar cómo fluye y activarlo antes del lanzamiento).

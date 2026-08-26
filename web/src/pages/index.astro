@@ -1,6 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
-import { informes, claves, fechaLarga, fechaCorta, url, canal, youtubeId } from "../lib/contenido";
+import { informes, claves, casos, contador, pesos, fechaLarga, fechaCorta, url, canal, youtubeId } from "../lib/contenido";
+const listaCasos = casos();
+const cnt = contador(listaCasos);
 const todos = informes();
 const ultimo = todos[0];
 const recientes = todos.slice(1, 8);
@@ -38,6 +40,20 @@ const cl = claves().slice(0, 6);
     </section>
   ) : (
     <section class="portada"><p class="vacio">Todavía no hay informes publicados.</p></section>
+  )}
+  {listaCasos.length > 0 && (
+    <section class="contador-franja">
+      <div>
+        <p class="kicker">¿En qué quedó? · seguimiento de la plata pública</p>
+        <p class="frase">Los medios cubren el destape y se van. Nosotros seguimos cada caso hasta saber si la plata volvió.</p>
+      </div>
+      <dl class="contador">
+        <div><dt>Cuestionado</dt><dd>{pesos(cnt.cuestionado)}</dd><dd class="nota">{cnt.nDuros} casos con cifra de tribunales, Contraloría o Fiscalía</dd></div>
+        <div><dt>Recuperado</dt><dd class="patina">{pesos(cnt.recuperado)}</dd><dd class="nota">{cnt.porcentaje.toLocaleString("es-CL", { maximumFractionDigits: 2 })}% de lo cuestionado</dd></div>
+        <div><dt>Retenido sin cobrar</dt><dd>{pesos(cnt.retenido)}</dd><dd class="nota">congelado, aún no vuelve al Fisco</dd></div>
+      </dl>
+      <a class="mas" href={url("en-que-quedo/")}>Ver los {cnt.nCasos} casos en seguimiento →</a>
+    </section>
   )}
   <section class="dos">
     <div>

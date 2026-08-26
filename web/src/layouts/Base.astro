@@ -29,6 +29,7 @@ const hoy = new Date().toISOString().slice(0, 10);
       <nav>
         <a href={url("informes/")} aria-current={actual === "informes" ? "page" : undefined}>Informes</a>
         <a href={url("claves/")} aria-current={actual === "claves" ? "page" : undefined}>Claves</a>
+        <a href={url("en-que-quedo/")} aria-current={actual === "casos" ? "page" : undefined}>¿En qué quedó?</a>
         <a href={url("acerca/")} aria-current={actual === "acerca" ? "page" : undefined}>Acerca</a>
         {canal.youtube && <a class="suscribe" href={canal.youtube} rel="noopener">Suscríbete</a>}
       </nav>

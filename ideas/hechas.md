@@ -33,3 +33,10 @@
 ## Rúbrica de calidad + iteración diaria de prompts (2026-08-26)
 - prompts/CALIDAD.md: rúbrica de 7 puntos y bitácora; primera evaluación
   (edición 25-08) y bloque ESTILO ANTI-PLANTILLA aplicado a los 4 prompts.
+
+## Sección web "¿En qué quedó?" (2026-08-26)
+- /en-que-quedo/: contador global (cuestionado, recuperado, retenido, con la
+  metodología a la vista) + tarjeta por caso con estado y cifras; página por
+  caso con contador propio, dossier completo y aviso de presunción de
+  inocencia. Franja del contador en la portada. Publicación automática.
+- Rutina nocturna en la nube (03:00) reemplaza a la actualización por API.

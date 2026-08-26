@@ -75,3 +75,14 @@ decidir el formato con material real. **Decidió**: Santiago.
 - **2026-08-25 - La voz clonada se trata como requisito de monetización**,
   no como mejora estética. (ideas/IMPLEMENTAR.md, política YouTube
   15-jul-2025)
+
+## 2026-08-26 - "¿En qué quedó?" se publica en la web, automático por ahora
+**Qué**: la sección tiene página propia (índice con el contador global y un
+dossier por caso) y los dossiers se publican sin gate humano previo mientras
+se valida el flujo; antes del lanzamiento se revisa si se activa el gate.
+La actualización nocturna pasa de la API (sin key cargada, no corría) a una
+rutina de Claude en la nube a las 03:00, antes del informe de las 04:00,
+para que los hitos alimenten la alerta del día. **Por qué**: ver funcionar
+el circuito completo con material real antes de sumarle fricción; la
+presunción de inocencia y el estado procesal fechado ya están en las
+reglas y en el aviso legal de cada página. **Decidió**: Santiago.

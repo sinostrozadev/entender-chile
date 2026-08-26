@@ -15,6 +15,7 @@ FIDELIDAD TOTAL AL INFORME:
 - Puedes eliminar únicamente redundancias de redacción, encabezados escritos, referencias técnicas o elementos incompatibles con el formato hablado.
 - Si detectas una inconsistencia evidente, no inventes la corrección: redacta de forma prudente sin introducir información que no esté en el informe.
 - Las fuentes que cites en las marcas provienen exclusivamente del informe. No hagas una segunda búsqueda.
+- Las líneas del informe que empiezan con "EN SEGUIMIENTO:" son marcas internas del sistema, no texto periodístico: no las narres, no las menciones ni las conviertas en frase. La sección "¿En qué quedó?", si el informe la trae, sí se narra, como noticias breves.
 
 EXTENSIÓN SEGÚN PESO:
 - La extensión de cada noticia sigue el peso asignado en el informe:

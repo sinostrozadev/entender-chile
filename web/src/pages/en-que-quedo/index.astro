@@ -1,0 +1,42 @@
+---
+import Base from "../../layouts/Base.astro";
+import { casos, contador, pesos, naturalezaTexto, fechaCorta, url } from "../../lib/contenido";
+const lista = casos();
+const cnt = contador(lista);
+const estadoTexto: Record<string, string> = { ACTIVO: "En investigación", JUDICIALIZADO: "En tribunales", CERRADO: "Cerrado" };
+---
+<Base titulo="¿En qué quedó?" descripcion="Seguimiento de casos de plata pública en Chile hasta saber si hubo sanción y si el dinero volvió." actual="casos">
+  <p class="kicker">Seguimiento de la plata pública</p>
+  <h1>¿En qué quedó?</h1>
+  <p class="lead" style="max-width:46rem">Cuando estalla un caso de plata pública, los medios cubren el destape y se van. Aquí seguimos cada caso hasta el final: si hubo sanción, si alguien devolvió el dinero, o si no pasó nada. La pregunta que ordena todo es una sola: <strong>¿cuánto se recuperó?</strong></p>
+
+  {lista.length ? (
+    <>
+      <dl class="contador grande">
+        <div><dt>Cuestionado</dt><dd>{pesos(cnt.cuestionado)}</dd><dd class="nota">{cnt.nDuros} casos con cifra de tribunales, Contraloría, Fiscalía o denuncia de un organismo</dd></div>
+        <div><dt>Recuperado y confirmado</dt><dd class="patina">{pesos(cnt.recuperado)}</dd><dd class="nota">{cnt.porcentaje.toLocaleString("es-CL", { maximumFractionDigits: 2 })}% de lo cuestionado</dd></div>
+        <div><dt>Retenido sin cobrar</dt><dd>{pesos(cnt.retenido)}</dd><dd class="nota">dinero congelado que todavía no vuelve al Fisco</dd></div>
+      </dl>
+      <p class="metodo">Cómo se cuenta: solo se suman cifras comparables (perjuicio con veredicto o acusación, montos observados por Contraloría, denunciados por un organismo o investigados por Fiscalía). Las estimaciones y los totales transferidos en auditoría se muestran aparte y no se suman. "Retenido" no es "recuperado". Cada cifra sale del dossier del caso, con su fuente.</p>
+
+      <section class="mes">
+        <h2 class="titulo-seccion">Los casos ({cnt.nCasos}, {cnt.nAbiertos} abiertos)</h2>
+        <ul class="casos">
+          {lista.map((c) => (
+            <li class="caso">
+              <a href={url(`en-que-quedo/${c.slug}/`)}>
+                <div class="caso-meta"><span class={`estado estado-${c.estado.toLowerCase()}`}>{estadoTexto[c.estado] || c.estado}</span><span class="mono">actualizado {fechaCorta(c.actualizado)}</span></div>
+                <strong>{c.nombre}</strong>
+                <div class="caso-cifras">
+                  <span><em>Cuestionado</em> {pesos(c.cuestionado)} <small>({naturalezaTexto(c.naturaleza)})</small></span>
+                  <span><em>Recuperado</em> {pesos(c.recuperado)}</span>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <p class="aviso-legal">Todas las personas mencionadas en estos casos gozan de presunción de inocencia. Se consigna su situación procesal exacta y fechada según las fuentes citadas en cada dossier; nada se afirma como delito sin sentencia. Si eres parte de un caso y tienes una respuesta o una corrección, se publica con fecha.</p>
+    </>
+  ) : <p class="vacio">Todavía no hay casos publicados.</p>}
+</Base>
