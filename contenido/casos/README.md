@@ -44,6 +44,17 @@ propio dossier. indice.md se regenera solo (scripts/casos.js).
 5. **Fechas absolutas** siempre. Todo dato susceptible de cambiar queda
    fechado ("al 25-08-2026, no había formalizados").
 
+## Investigación de casos nuevos (abrir un dossier)
+
+Un caso nuevo se investiga con un agente por caso, siempre con el modelo
+grande (Opus): son tareas de verificación donde una cifra alucinada o un
+estado procesal mal descrito es riesgo legal, no un detalle de estilo.
+
+REGLA OPERATIVA: máximo 3 agentes en paralelo. El 2026-08-25 se lanzaron 6
+a la vez y agotaron el límite de uso de la ventana de 5 horas: los seis
+murieron sin entregar nada y hubo que relanzarlos al día siguiente. En
+tandas de 3 el trabajo llega completo.
+
 ## Cómo se actualiza
 
 - `scripts/casos.js` corre en la madrugada (workflow) y revisa cada caso
