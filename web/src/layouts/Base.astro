@@ -1,10 +1,10 @@
 ---
 import "../styles/global.css";
-import { url } from "../lib/contenido";
+import { url, canal } from "../lib/contenido";
 export interface Props { titulo?: string; descripcion?: string; actual?: string }
 const { titulo, descripcion, actual } = Astro.props;
 const t = titulo ? `${titulo} · Entender Chile` : "Entender Chile · El resumen sin gritos";
-const d = descripcion ?? "Las noticias de Chile, explicadas en diez minutos y sin gritos. Cada mañana, un informe con lo que de verdad importa, con las fuentes a la vista.";
+const d = descripcion ?? "Las noticias de Chile explicadas cada mañana en diez minutos: qué pasó, por qué importa y de dónde sale cada dato.";
 const hoy = new Date().toISOString().slice(0, 10);
 ---
 <!doctype html>
@@ -30,6 +30,7 @@ const hoy = new Date().toISOString().slice(0, 10);
         <a href={url("informes/")} aria-current={actual === "informes" ? "page" : undefined}>Informes</a>
         <a href={url("claves/")} aria-current={actual === "claves" ? "page" : undefined}>Claves</a>
         <a href={url("acerca/")} aria-current={actual === "acerca" ? "page" : undefined}>Acerca</a>
+        {canal.youtube && <a class="suscribe" href={canal.youtube} rel="noopener">Suscríbete</a>}
       </nav>
     </header>
     <main><slot /></main>
@@ -45,10 +46,21 @@ const hoy = new Date().toISOString().slice(0, 10);
           els.forEach(function (el) { if (el.getAttribute("data-fecha") === f && h >= 5 && h < 13) el.hidden = false; });
         } catch (e) {}
       })();
+      // Señal de frescura: "Edición de hoy" / "de ayer" / "última edición".
+      (function () {
+        try {
+          var el = document.querySelector(".hoy[data-fecha]");
+          if (!el) return;
+          var f = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+          var dias = Math.round((Date.parse(f + "T12:00:00Z") - Date.parse(el.getAttribute("data-fecha") + "T12:00:00Z")) / 86400000);
+          el.textContent = dias <= 0 ? "Edición de hoy" : dias === 1 ? "Edición de ayer" : "Última edición";
+          el.hidden = false;
+        } catch (e) {}
+      })();
     </script>
     <footer>
       <div class="in">
-        <span>Entender Chile · El resumen sin gritos. Fuentes a la vista, hechos separados de las interpretaciones.</span>
+        <span>Entender Chile · El resumen sin gritos. Hecho en Chile; cada cifra con su fuente.</span>
         <span class="mono">Actualizado {hoy}</span>
       </div>
     </footer>

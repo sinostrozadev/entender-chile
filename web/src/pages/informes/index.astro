@@ -8,7 +8,7 @@ for (const i of todos) { const k = i.fecha.slice(0, 7); if (!meses.has(k)) meses
 <Base titulo="Informes" actual="informes">
   <p class="kicker">El informe diario</p>
   <h1>Todas las ediciones</h1>
-  <p class="lead" style="max-width:46rem">Cada mañana, lo que de verdad importa para entender el país: jerarquizado, con las fuentes a la vista y los hechos separados de las interpretaciones.</p>
+  <p class="lead" style="max-width:46rem">Un informe por día. Aquí queda el archivo completo, de la edición más nueva a la más antigua.</p>
   {[...meses.entries()].map(([k, lista]) => (
     <section class="mes">
       <h2 class="titulo-seccion">{mesLargo(`${k}-01`)}</h2>

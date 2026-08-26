@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { informes, claves, fechaLarga, fechaCorta, url } from "../lib/contenido";
+import { informes, claves, fechaLarga, fechaCorta, url, canal, youtubeId } from "../lib/contenido";
 const todos = informes();
 const ultimo = todos[0];
 const recientes = todos.slice(1, 8);
@@ -8,12 +8,12 @@ const cl = claves().slice(0, 6);
 ---
 <Base>
   <section class="intro">
-    <p>Cada mañana, lo que de verdad importa para entender Chile: <strong>jerarquizado</strong>, con las <strong>fuentes a la vista</strong> y los hechos separados de las interpretaciones. En diez minutos y sin gritos.</p>
-    <p class="mono">El informe diario · Claves para entender las noticias · <a href={url("acerca/")}>Cómo trabajamos</a></p>
+    <p>Un informe cada mañana con las noticias que hay que entender para seguir lo que pasa en Chile. Corto, con cada cifra y su fuente, y sin gritar.</p>
+    <p class="mono">El informe diario · Claves para entender las noticias · <a href={url("acerca/")}>Cómo se hace</a></p>
   </section>
   {ultimo ? (
     <section class="portada">
-      <p class="kicker">El informe diario · {fechaLarga(ultimo.fecha)} · {ultimo.stats.minutos} min de lectura</p>
+      <p class="kicker"><span class="hoy" data-fecha={ultimo.fecha} hidden></span> El informe diario · {fechaLarga(ultimo.fecha)} · {ultimo.stats.minutos} min de lectura</p>
       <h1><a href={url(`informes/${ultimo.fecha}/`)}>{ultimo.titular}</a></h1>
       {ultimo.mirada.length >= 3
         ? <ul class="mirada">{ultimo.mirada.map((f) => <li>{f}</li>)}</ul>
@@ -24,11 +24,17 @@ const cl = claves().slice(0, 6);
           <ol>{ultimo.noticias.filter((n) => n.peso === "a").map((n) => <li><a href={url(`informes/${ultimo.fecha}/#${n.id}`)}>{n.texto}</a></li>)}</ol>
         </div>
       )}
+      {youtubeId(ultimo.video) && (
+        <div class="video"><iframe src={`https://www.youtube-nocookie.com/embed/${youtubeId(ultimo.video)}`} title="Video de la edición" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      )}
       <p class="acciones">
         <a class="boton" href={url(`informes/${ultimo.fecha}/`)}>Leer el informe completo</a>
-        {ultimo.video && <a class="boton sec" href={ultimo.video}>Ver el video</a>}
+        {ultimo.video && !youtubeId(ultimo.video) && <a class="boton sec" href={ultimo.video}>Ver el video</a>}
       </p>
       {ultimo.salir && <p class="salir" data-fecha={ultimo.fecha} hidden><strong>Para salir hoy</strong><span>{ultimo.salir}</span></p>}
+      {canal.whatsapp && (
+        <p class="habito"><strong>Recíbelo cada mañana.</strong> El link del informe del día en un canal de WhatsApp, sin grupos ni spam. <a href={canal.whatsapp} rel="noopener">Unirme al canal →</a></p>
+      )}
     </section>
   ) : (
     <section class="portada"><p class="vacio">Todavía no hay informes publicados.</p></section>
@@ -36,19 +42,19 @@ const cl = claves().slice(0, 6);
   <section class="dos">
     <div>
       <h2 class="titulo-seccion">Ediciones anteriores</h2>
-      <p class="explica">Un informe por día, a la misma hora. El archivo completo queda aquí.</p>
+      <p class="explica">Uno por día, a la misma hora. Todo queda aquí.</p>
       {recientes.length ? (
         <ul class="lista-dias">
           {recientes.map((i) => (
             <li><a href={url(`informes/${i.fecha}/`)}><span class="mono">{fechaCorta(i.fecha)}</span><span>{i.titular}</span></a></li>
           ))}
         </ul>
-      ) : <p class="vacio">Esta es la primera edición.</p>}
+      ) : <p class="vacio">Esta es la primera.</p>}
       <a class="mas" href={url("informes/")}>Todos los informes →</a>
     </div>
     <div>
       <h2 class="titulo-seccion">Claves para entender las noticias</h2>
-      <p class="explica">Conceptos permanentes que nacen de una noticia y sirven para entender las próximas: qué es, cómo funciona, quién decide.</p>
+      <p class="explica">Lo que hay que saber para entender las noticias, no solo las de hoy.</p>
       {cl.length ? (
         <ul class="tarjetas">
           {cl.map((c) => (
@@ -59,7 +65,7 @@ const cl = claves().slice(0, 6);
             </a></li>
           ))}
         </ul>
-      ) : <p class="vacio">Pronto.</p>}
+      ) : <p class="vacio">La primera está en camino.</p>}
       <a class="mas" href={url("claves/")}>Toda la biblioteca →</a>
     </div>
   </section>

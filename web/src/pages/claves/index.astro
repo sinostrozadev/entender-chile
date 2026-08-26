@@ -6,7 +6,7 @@ const todas = claves();
 <Base titulo="Claves" actual="claves">
   <p class="kicker">Claves para entender las noticias</p>
   <h1>La biblioteca</h1>
-  <p class="lead" style="max-width:46rem">Cada entrega nace de una noticia, pero explica algo permanente: qué es, cómo funciona, quién decide. Sigue siendo útil dentro de dos años.</p>
+  <p class="lead" style="max-width:46rem">Cada Clave parte de una noticia y desarma el mecanismo que hay detrás: cómo funciona una institución, qué mide un indicador, quién decide qué. Sirve hoy y va a servir dentro de dos años.</p>
   <section class="mes">
     {todas.length ? (
       <ul class="tarjetas" style="grid-template-columns:repeat(auto-fill,minmax(20rem,1fr))">
@@ -18,6 +18,6 @@ const todas = claves();
           </a></li>
         ))}
       </ul>
-    ) : <p class="vacio">Todavía no hay entregas.</p>}
+    ) : <p class="vacio">La primera está en camino.</p>}
   </section>
 </Base>

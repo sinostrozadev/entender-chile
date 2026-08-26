@@ -8,6 +8,19 @@ import { marked } from "marked";
 
 const RAIZ = path.resolve(process.cwd(), "..", "contenido");
 
+// Links del canal (web/canal.json). Vacío = no se muestra.
+export const canal: { youtube: string; whatsapp: string } = (() => {
+  try { return JSON.parse(fs.readFileSync(path.resolve(process.cwd(), "canal.json"), "utf8")); }
+  catch { return { youtube: "", whatsapp: "" }; }
+})();
+
+// id de un video de YouTube a partir de su URL (watch, youtu.be, shorts, live)
+export const youtubeId = (u: string | null): string | null => {
+  if (!u) return null;
+  const m = u.match(/(?:v=|youtu\.be\/|\/shorts\/|\/live\/|\/embed\/)([A-Za-z0-9_-]{6,})/);
+  return m ? m[1] : null;
+};
+
 const BASE = (import.meta.env.BASE_URL || "/").replace(/\/?$/, "/");
 export const url = (p: string) => BASE + p.replace(/^\//, "");
 

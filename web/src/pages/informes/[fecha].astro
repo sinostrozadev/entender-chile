@@ -1,6 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { informes, fechaLarga, fechaCorta, url } from "../../lib/contenido";
+import { informes, fechaLarga, fechaCorta, url, youtubeId } from "../../lib/contenido";
 export function getStaticPaths() {
   const todos = informes();
   return todos.map((i, k) => ({ params: { fecha: i.fecha }, props: { i, sig: todos[k - 1] ?? null, ant: todos[k + 1] ?? null } }));
@@ -10,10 +10,12 @@ const { i, sig, ant } = Astro.props;
 <Base titulo={`${i.titular} · ${fechaCorta(i.fecha)}`} descripcion={i.resumenHtml.replace(/<[^>]+>/g, "").slice(0, 160)} actual="informes">
   <article class="pieza">
     <header class="cabecera">
-      <p class="kicker">El informe diario</p>
+      <p class="kicker"><span class="hoy" data-fecha={i.fecha} hidden></span> El informe diario</p>
       <h1>{i.titular}</h1>
       <p class="fecha">{fechaLarga(i.fecha)} · {i.stats.noticias} noticias · {i.stats.fuentes} fuentes · {i.stats.minutos} min de lectura</p>
-      {i.video && <p class="acciones"><a class="boton" href={i.video}>Ver el video de esta edición</a></p>}
+      {youtubeId(i.video)
+        ? <div class="video"><iframe src={`https://www.youtube-nocookie.com/embed/${youtubeId(i.video)}`} title="Video de la edición" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        : i.video && <p class="acciones"><a class="boton" href={i.video}>Ver el video de esta edición</a></p>}
       {i.salir && <p class="salir" data-fecha={i.fecha} hidden><strong>Para salir hoy</strong><span>{i.salir}</span></p>}
     </header>
     {i.resumenHtml && <div class="entradilla"><p class="kicker">En una mirada</p>
