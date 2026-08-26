@@ -81,16 +81,17 @@ article.pieza { max-width: var(--ancho); }
 .cuerpo th, .cuerpo td { border: 1px solid var(--linea); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
 .cuerpo blockquote { margin: 1rem 0; padding: 0.2rem 1rem; border-left: 3px solid var(--patina); color: #2b2e31; }
 .cuerpo hr { border: 0; border-top: 1px solid var(--linea); margin: 2rem 0; }
-.peso { display: inline-block; font-family: var(--mono); font-size: 0.7em; font-weight: 500; line-height: 1; padding: 0.3em 0.45em; border-radius: 3px; vertical-align: 0.25em; margin-right: 0.2em; letter-spacing: 0.05em; }
-.peso-a { background: var(--tinta); color: var(--papel); }
-.peso-b { background: var(--patina); color: var(--papel); }
-.peso-c { border: 1px solid var(--gris); color: var(--gris); }
+/* jerarquía editorial por tamaño, sin etiquetas visibles */
+.cuerpo h3.noticia.peso-a { font-size: 1.7rem; line-height: 1.15; margin: 2.4rem 0 0.9rem; padding-top: 1rem; border-top: 3px solid var(--tinta); }
+.cuerpo h3.noticia.peso-b { font-size: 1.25rem; margin: 2rem 0 0.6rem; padding-top: 0.8rem; border-top: 1px solid var(--linea); }
+.cuerpo h2 + h3.noticia { border-top: 0; padding-top: 0; margin-top: 1rem; }
 .etq { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; margin-right: 0.4rem; }
 .etq-contexto { color: var(--gris); }
 .etq-clave { color: var(--patina); }
 .etq-analisis { color: #8A6F3F; }
-.salir { margin-top: 2rem; padding: 0.9rem 1.1rem; border: 1px dashed var(--patina); border-radius: 6px; font-size: 0.95rem; }
-.salir strong { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--patina); display: block; margin-bottom: 0.3rem; }
+.salir { display: flex; gap: 0.9rem 1.4rem; flex-wrap: wrap; align-items: baseline; margin: 1.25rem 0 0; padding: 0.75rem 1.1rem; background: var(--papel-elevado); border: 1px solid var(--linea); border-left: 4px solid var(--patina); border-radius: 4px; font-size: 0.95rem; }
+.salir strong { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--patina); white-space: nowrap; }
+.portada .salir { max-width: var(--ancho); margin-top: 1.75rem; }
 .nav-dias { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.25rem; border-top: 2px solid var(--tinta); font-size: 0.95rem; }
 .nav-dias a { text-decoration: none; max-width: 48%; }
 .nav-dias a:hover { text-decoration: underline; }

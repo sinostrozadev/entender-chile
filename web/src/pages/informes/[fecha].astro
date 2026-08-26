@@ -14,13 +14,13 @@ const { i, sig, ant } = Astro.props;
       <h1>{i.titular}</h1>
       <p class="fecha">{fechaLarga(i.fecha)}</p>
       {i.video && <p class="acciones"><a class="boton" href={i.video}>Ver el video de esta edición</a></p>}
+      {i.salir && <p class="salir"><strong>Para salir hoy</strong><span>{i.salir}</span></p>}
     </header>
     {i.resumenHtml && <div class="entradilla"><p class="kicker">En una mirada</p><div set:html={i.resumenHtml} /></div>}
     {i.secciones.length > 2 && (
       <ul class="toc">{i.secciones.map((s) => <li><a href={`#${s.id}`}>{s.texto}</a></li>)}</ul>
     )}
     <div class="cuerpo" set:html={i.html} />
-    {i.salir && <p class="salir"><strong>Para salir hoy</strong>{i.salir}</p>}
     <nav class="nav-dias">
       <span>{ant && <a href={url(`informes/${ant.fecha}/`)}><span class="kicker gris">← Edición anterior</span>{fechaLarga(ant.fecha)}</a>}</span>
       <span style="text-align:right">{sig && <a href={url(`informes/${sig.fecha}/`)}><span class="kicker gris">Edición siguiente →</span>{fechaLarga(sig.fecha)}</a>}</span>

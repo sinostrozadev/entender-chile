@@ -16,6 +16,7 @@ const cl = claves().slice(0, 6);
         <a class="boton" href={url(`informes/${ultimo.fecha}/`)}>Leer el informe completo</a>
         {ultimo.video && <a class="boton sec" href={ultimo.video}>Ver el video</a>}
       </p>
+      {ultimo.salir && <p class="salir"><strong>Para salir hoy</strong><span>{ultimo.salir}</span></p>}
     </section>
   ) : (
     <section class="portada"><p class="vacio">Todavía no hay informes publicados.</p></section>

@@ -41,14 +41,20 @@ const video = (nombre: string) => {
 function render(md: string): { html: string; secciones: Seccion[] } {
   let html = marked.parse(md, { async: false, gfm: true }) as string;
   const secciones: Seccion[] = [];
-  html = html.replace(/<h([23])>([\s\S]*?)<\/h\1>/g, (_m, n, inner) => {
-    const limpio = inner.replace(/\[([ABC])\]\s*/g, "");
-    const id = slugify(limpio);
-    if (n === "2") secciones.push({ id, texto: limpio.replace(/<[^>]+>/g, "") });
-    return `<h${n} id="${id}">${inner}</h${n}>`;
+  // Titulares con peso editorial [A]/[B]: el peso NO se muestra como letra
+  // (jerga interna); se expresa con el tamaño del titular. Van como h3 con
+  // clase, cualquiera sea el nivel que traiga el markdown.
+  html = html.replace(/<h([1-4])>\s*\[([AB])\]\s*([\s\S]*?)<\/h\1>/g, (_m, _n, p, inner) =>
+    `<h3 class="noticia peso-${p.toLowerCase()}" id="${slugify(inner)}">${inner}</h3>`);
+  // Secciones (## sin peso) → índice y anclas
+  html = html.replace(/<h2>([\s\S]*?)<\/h2>/g, (_m, inner) => {
+    const id = slugify(inner);
+    secciones.push({ id, texto: inner.replace(/<[^>]+>/g, "") });
+    return `<h2 id="${id}">${inner}</h2>`;
   });
-  html = html.replace(/\[([ABC])\]\s*/g, (_m, p) =>
-    `<span class="peso peso-${p.toLowerCase()}" title="${p === "A" ? "Noticia que define la jornada" : p === "B" ? "Relevante" : "Registro breve"}">${p}</span> `);
+  html = html.replace(/<h1>([\s\S]*?)<\/h1>/g, (_m, inner) => `<h2 id="${slugify(inner)}">${inner}</h2>`);
+  // Cualquier marca de peso restante ([C] en listas, etc.) se elimina.
+  html = html.replace(/\[([ABC])\]\s*/g, "");
   html = html.replace(/<strong>(Contexto|Clave|Análisis|Analisis):<\/strong>/g,
     (_m, e) => `<strong class="etq etq-${slugify(e)}">${e}</strong>`);
   html = html.replace(/<p><strong>Para salir hoy:<\/strong>/g, `<p class="salir"><strong>Para salir hoy</strong>`);
