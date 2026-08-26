@@ -8,7 +8,7 @@ cuestionado: 20916000000
 naturaleza: observado-contraloria
 recuperado: 1700000000
 retenido: 0
-nota-cifra: Informe 223-2025. Lo efectivamente no recuperado por licencias rechazadas es $5.547 millones. Los $1.700 millones recuperados son cifra declarada por la propia JUNJI (10-02-2026).
+nota-cifra: Informe 223-2025. Lo efectivamente no recuperado por licencias rechazadas es $5.547 millones. Los $1.700 millones recuperados son una cifra declarada por la propia JUNJI (10-02-2026).
 -->
 
 ## Ficha

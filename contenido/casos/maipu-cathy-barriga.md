@@ -8,7 +8,7 @@ cuestionado: 32884247128
 naturaleza: perjuicio-acusado
 recuperado: 0
 retenido: 0
-nota-cifra: Cifra de la acusacion del Ministerio Publico, no establecida por sentencia. Hay embargo de ingresos de la acusada como medida precautoria.
+nota-cifra: Cifra de la acusación del Ministerio Público, no establecida por sentencia. Un tribunal embargó ingresos de la acusada como medida precautoria.
 -->
 
 ## Ficha

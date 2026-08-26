@@ -8,7 +8,7 @@ cuestionado: 458940213
 naturaleza: observado-contraloria
 recuperado: 0
 retenido: 0
-nota-cifra: Total pagado a Conectikids 2019-2025 segun Informe 281/2025. De ese total, Contraloria objeto la fundamentacion de tratos directos por $172.940.213.
+nota-cifra: Total pagado a Conectikids entre 2019 y 2025 según el Informe 281/2025. De ese total, Contraloría objetó la fundamentación de tratos directos por $172.940.213.
 -->
 
 ## Ficha

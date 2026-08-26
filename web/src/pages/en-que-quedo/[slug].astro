@@ -21,6 +21,7 @@ const pct = c.cuestionado ? ((c.recuperado || 0) / c.cuestionado) * 100 : null;
       {c.retenido ? <div><dt>Retenido</dt><dd>{pesos(c.retenido)}</dd><dd class="nota">congelado, no cobrado</dd></div> : null}
     </dl>
     {c.notaCifra && <p class="metodo">Sobre la cifra: {c.notaCifra}</p>}
+    {c.proximoHito && <p class="hito"><strong>Lo próximo.</strong> {c.proximoHito}</p>}
     {c.secciones.length > 2 && (
       <ul class="toc">{c.secciones.map((s) => <li><a href={`#${s.id}`}>{s.texto}</a></li>)}</ul>
     )}

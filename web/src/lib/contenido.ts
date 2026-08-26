@@ -159,7 +159,7 @@ export function claves(): Clave[] {
 export type Caso = {
   slug: string; nombre: string; estado: string; abierto: string; actualizado: string;
   cuestionado: number | null; recuperado: number | null; retenido: number | null;
-  naturaleza: string; notaCifra: string; publicar: boolean;
+  naturaleza: string; notaCifra: string; publicar: boolean; proximoHito: string;
   html: string; secciones: Seccion[];
 };
 export type Contador = {
@@ -206,9 +206,20 @@ export function casos(): Caso[] {
       const num = (v?: string) => { if (v == null || v === "") return null; const n = Number(v.replace(/[^\d]/g, "")); return Number.isFinite(n) ? n : null; };
       let cuerpo = md.replace(/^# Caso:.*\n/m, "").replace(/^Estado:.*\n/m, "").replace(/^Dossier abierto:.*\n/m, "")
         .replace(/<!--\s*datos[\s\S]*?-->\s*/m, "");
-      const { html, secciones } = render(cuerpo);
+      let { html, secciones } = render(cuerpo);
+      // El registro interno se presenta al lector como lo que es: la historia
+      // de cómo fue cambiando este seguimiento.
+      const REGISTRO = "Registro de actualizaciones del dossier";
+      const REGISTRO_PUB = "Cómo ha cambiado este seguimiento";
+      html = html.split(REGISTRO).join(REGISTRO_PUB);
+      secciones = secciones.map((x) => x.texto === REGISTRO ? { ...x, texto: REGISTRO_PUB } : x);
+      // primer "próximo hito": es lo que le dice al lector cuándo volver
+      const proximoHito = ((md.split(/^## Próximos hitos conocidos\s*$/m)[1] || "")
+        .split(/^## /m)[0].split("\n")
+        .map((l) => l.replace(/^[-*]\s*|^\d+\.\s*/, "").trim())
+        .filter((l) => l.length > 30)[0] || "").replace(/\*\*/g, "");
       return {
-        slug, nombre, estado, abierto, actualizado,
+        slug, nombre, estado, abierto, actualizado, proximoHito,
         cuestionado: num(d.cuestionado), recuperado: num(d.recuperado), retenido: num(d.retenido),
         naturaleza: d.naturaleza || "?", notaCifra: d["nota-cifra"] || "",
         publicar: (d.publicar || "si").toLowerCase() !== "no",

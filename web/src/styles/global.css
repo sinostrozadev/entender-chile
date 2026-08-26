@@ -161,3 +161,4 @@ body { overflow-x: hidden; }
 .estado-judicializado { border-color: var(--tinta); color: var(--tinta); }
 .estado-cerrado { background: var(--patina); border-color: var(--patina); color: var(--papel); }
 .aviso-legal { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--linea); font-size: 0.85rem; color: var(--gris); max-width: var(--ancho); }
+.hito { background: var(--papel-elevado); border-left: 4px solid var(--patina); padding: 0.8rem 1rem; font-size: 0.95rem; max-width: var(--ancho); margin: 0 0 1.5rem; }

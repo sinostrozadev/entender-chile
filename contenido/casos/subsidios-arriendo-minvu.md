@@ -8,7 +8,7 @@ cuestionado: 239315721
 naturaleza: observado-contraloria
 recuperado: 0
 retenido: 0
-nota-cifra: Suma de las cuatro observaciones del Informe 314/2026: fallecidos, familiares, conyuges y doble beneficio.
+nota-cifra: Suma de las cuatro observaciones del Informe 314/2026: beneficiarios fallecidos, familiares, cónyuges y doble beneficio.
 -->
 
 ## Ficha

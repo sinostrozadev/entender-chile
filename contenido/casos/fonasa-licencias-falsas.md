@@ -8,7 +8,7 @@ cuestionado: 25000000000
 naturaleza: perjuicio-veredicto
 recuperado: 0
 retenido: 0
-nota-cifra: Cifra del comunicado del Poder Judicial (23-06-2026) para la estructura principal. La prensa reporta $50.000 millones por las tres estructuras. Comiso pendiente.
+nota-cifra: Cifra del comunicado del Poder Judicial (23-06-2026) para la estructura principal. La prensa reporta $50.000 millones por las tres estructuras. El comiso de bienes está pendiente.
 -->
 
 ## Ficha

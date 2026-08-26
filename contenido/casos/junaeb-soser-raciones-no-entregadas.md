@@ -8,7 +8,7 @@ cuestionado: 14000000000
 naturaleza: denunciado
 recuperado: 0
 retenido: 0
-nota-cifra: Cifra de la denuncia de la propia JUNAEB ante Fiscalia (27-05-2026). Ni Contraloria ni Fiscalia han validado publicamente una cifra propia.
+nota-cifra: Cifra de la denuncia que la propia JUNAEB presentó ante la Fiscalía (27-05-2026). Ni Contraloría ni Fiscalía han validado públicamente una cifra propia.
 -->
 
 ## Ficha

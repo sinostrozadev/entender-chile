@@ -8,7 +8,7 @@ cuestionado: 21804000000
 naturaleza: transferido-auditado
 recuperado: 155500000
 retenido: 0
-nota-cifra: Es el total transferido y auditado, no un monto defraudado. Contraloria observo el 47% de lo rendido, unos $6.800 millones.
+nota-cifra: Es el total transferido y auditado, no un monto defraudado. Contraloría observó el 47% de lo rendido, unos $6.800 millones.
 -->
 
 ## Ficha

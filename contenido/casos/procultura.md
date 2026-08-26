@@ -8,7 +8,7 @@ cuestionado: 5866677378
 naturaleza: investigado
 recuperado: 0
 retenido: 0
-nota-cifra: 18 convenios en 8 regiones, cifra atribuida al Ministerio Publico. No hay total judicialmente acreditado y las cifras por arista varian entre medios.
+nota-cifra: 18 convenios en 8 regiones, cifra atribuida al Ministerio Público. No hay un total judicialmente acreditado y las cifras por arista varían entre medios.
 -->
 
 ## Ficha

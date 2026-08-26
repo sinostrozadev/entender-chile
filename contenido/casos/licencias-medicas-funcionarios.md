@@ -8,7 +8,7 @@ cuestionado: 36876000000
 naturaleza: estimacion
 recuperado: 0
 retenido: 0
-nota-cifra: Estimacion DIPRES de remuneraciones pagadas durante las ausencias, no perjuicio determinado ni deuda exigible. Contraloria ordeno reintegrar mas de $1.311 millones en SIL, sin cifra de cobro efectivo.
+nota-cifra: Estimación de DIPRES sobre las remuneraciones pagadas durante las ausencias: no es un perjuicio determinado ni una deuda exigible. Contraloría ordenó reintegrar más de $1.311 millones en subsidios, sin cifra pública de cobro efectivo.
 -->
 
 ## Ficha
