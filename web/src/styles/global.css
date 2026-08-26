@@ -144,11 +144,11 @@ body { overflow-x: hidden; }
 .contador dd { margin: 0.25rem 0 0; font-family: var(--serif); font-weight: 600; font-size: 1.5rem; line-height: 1.1; }
 .contador dd.patina { color: var(--patina); }
 .contador dd.nota { font-family: var(--sans); font-weight: 400; font-size: 0.8rem; color: var(--gris); line-height: 1.35; margin-top: 0.35rem; }
-.contador.grande dd { font-size: 2rem; }
+.contador.grande dd:not(.nota) { font-size: 2rem; }
 @media (max-width: 760px) { .contador { grid-template-columns: 1fr; } }
 .contador-franja { margin: 0 0 2.5rem; padding: 1.5rem 0 1.75rem; border-top: 3px solid var(--tinta); border-bottom: 1px solid var(--linea); }
 .contador-franja .frase { margin: 0; font-size: 1.05rem; max-width: var(--ancho); }
-.metodo { font-size: 0.88rem; color: var(--gris); max-width: var(--ancho); margin: 1rem 0 0; }
+.metodo { font-size: 0.88rem; color: var(--gris); max-width: var(--ancho); margin: 1rem 0 2.5rem; }
 .casos { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr)); }
 .caso a { display: block; background: var(--papel-elevado); border: 1px solid var(--linea); border-left: 4px solid var(--tinta); padding: 1rem 1.1rem; text-decoration: none; height: 100%; }
 .caso a:hover { border-color: var(--patina); }
