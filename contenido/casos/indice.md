@@ -10,6 +10,7 @@
 | JUNJI, app "Mi Jardín JUNJI" (pagos por aplicación de escaso uso) | ACTIVO | $458.940.213 | sin dato | 2026-08-25 | junji-app-mi-jardin.md |
 | JUNJI, licencias médicas sin recuperar (Contraloría 2026) | ACTIVO | $20.916 millones | $1.700 millones | 2026-08-25 | junji-licencias-medicas.md |
 | Municipalidad de Maipú (causa Cathy Barriga) | JUDICIALIZADO | $32.884.247.128 | sin dato | 2026-08-26 | maipu-cathy-barriga.md |
+| ProCultura (transferencias de GORE y servicios a la fundación) | JUDICIALIZADO | $5.866.677.378 | sin dato | 2026-08-26 | procultura.md |
 | Subsidios de arriendo (Minvu / Contraloría 314-2026) | ACTIVO | $110.884.553 | $0 | 2026-08-25 | subsidios-arriendo-minvu.md |
 
-7 caso(s) en seguimiento, 7 abierto(s). Última regeneración: 2026-08-26.
+8 caso(s) en seguimiento, 8 abierto(s). Última regeneración: 2026-08-26.
