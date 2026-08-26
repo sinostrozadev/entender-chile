@@ -25,13 +25,20 @@ const fecha = process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
 
 const leer = (p) => fs.readFileSync(p, "utf8");
 const campo = (t, re) => { const m = t.match(re); return m ? m[1].trim() : "?"; };
-// para el índice: solo la primera cifra en pesos de la línea (la ficha completa vive en el dossier)
-const cifra = (texto) => { const m = String(texto).match(/(?:USD\s*)?\$\s?[\d.,]+(?:\s*(?:millones|mil millones))?/); return m ? m[0] : String(texto).slice(0, 60); };
+// Para el índice: la cifra de la PRIMERA oración de la ficha (la ficha completa vive
+// en el dossier). Solo la primera oración: si el campo dice "Sin recuperación
+// confirmada" y más abajo menciona otro monto, ese monto NO es el del campo.
+const cifra = (texto) => {
+  const primera = String(texto).split(/(?<!\d)\.\s/)[0].trim(); // corta por fin de oración, no por puntos de miles ni paréntesis
+  if (/^(sin|no hay|ninguna)\b/i.test(primera)) return "sin dato";
+  const m = primera.match(/(?:USD\s*)?\$\s?[\d.,]+(?:\s*(?:millones|mil millones))?/);
+  return m ? m[0] : (primera.slice(0, 40) || "?");
+};
 
 function listarDossiers() {
   if (!fs.existsSync(DIR)) return [];
   return fs.readdirSync(DIR)
-    .filter((f) => f.endsWith(".md") && !["README.md", "indice.md"].includes(f))
+    .filter((f) => f.endsWith(".md") && !["README.md", "indice.md", "candidatos.md"].includes(f))
     .map((f) => path.join(DIR, f));
 }
 
