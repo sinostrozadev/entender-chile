@@ -3,6 +3,14 @@
 Estado: ACTIVO
 Dossier abierto: 2026-08-25 · Última actualización: 2026-08-25
 
+<!-- datos
+cuestionado: 14000000000
+naturaleza: denunciado
+recuperado: 0
+retenido: 0
+nota-cifra: Cifra de la denuncia de la propia JUNAEB ante Fiscalia (27-05-2026). Ni Contraloria ni Fiscalia han validado publicamente una cifra propia.
+-->
+
 ## Ficha
 - Institución afectada: JUNAEB (Junta Nacional de Auxilio Escolar y Becas), Programa de Alimentación Escolar (PAE), Región de O'Higgins (3 unidades territoriales).
 - Qué se investiga: pagos a la empresa proveedora SOSER S.A. por raciones y colaciones escolares presuntamente no entregadas a estudiantes, con modificaciones contractuales (2022-2023) que aumentaron cantidad y valor unitario de las raciones (colaciones de hasta $8.680) sin visación de Contraloría. La Fiscalía indaga además una presunta red de coimas para adjudicar licitaciones, entregar información reservada y remover fiscalizadores, que alcanza a dos senadores en ejercicio y a un exdiputado. Delitos investigados: fraude al fisco, cohecho, lavado de activos, fraude informático, falsificación, omisión de denuncia y responsabilidad penal de la persona jurídica.

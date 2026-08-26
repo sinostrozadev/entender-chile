@@ -3,6 +3,14 @@
 Estado: JUDICIALIZADO
 Dossier abierto: 2026-08-26 · Última actualización: 2026-08-26
 
+<!-- datos
+cuestionado: 5866677378
+naturaleza: investigado
+recuperado: 0
+retenido: 0
+nota-cifra: 18 convenios en 8 regiones, cifra atribuida al Ministerio Publico. No hay total judicialmente acreditado y las cifras por arista varian entre medios.
+-->
+
 ## Ficha
 - Institución afectada: Gobiernos regionales (Metropolitano, Biobío, Antofagasta, Valparaíso, Ñuble, Magallanes, entre otros) y servicios del Ejecutivo (Seremi de Vivienda y Serviu de Antofagasta, Minvu). Adicionalmente, un privado (Anglo American) figura como querellante por aportes propios, no públicos.
 - Qué se investiga: El Ministerio Público investiga convenios suscritos entre 2021 y 2023 por la Fundación ProCultura con gobiernos regionales y servicios públicos, por eventual fraude al fisco, apropiación indebida y distracción o malversación de fondos. La indagatoria apunta a fondos transferidos sin licitación, rendiciones incompletas y recursos no restituidos. Todos los imputados y formalizados son inocentes mientras no exista sentencia condenatoria firme.

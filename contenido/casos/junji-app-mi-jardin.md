@@ -3,6 +3,14 @@
 Estado: ACTIVO
 Dossier abierto: 2026-08-25 · Última actualización: 2026-08-25
 
+<!-- datos
+cuestionado: 458940213
+naturaleza: observado-contraloria
+recuperado: 0
+retenido: 0
+nota-cifra: Total pagado a Conectikids 2019-2025 segun Informe 281/2025. De ese total, Contraloria objeto la fundamentacion de tratos directos por $172.940.213.
+-->
+
 ## Ficha
 - Institución afectada: Junta Nacional de Jardines Infantiles (JUNJI).
 - Qué se investiga: Caso confirmado por al menos cuatro fuentes independientes (Fast Check CL, Diario El Centro, Diario VTV, Emol/Radio Agricultura). Se investigan los pagos que la JUNJI hizo entre 2019 y 2025 a la empresa Conectikids por la aplicación móvil "Mi Jardín JUNJI", que según la Contraloría General de la República (Informe Final N° 281 de 2025) registró un uso mínimo: 94% de las unidades educativas revisadas sin interacción entre educadoras y apoderados. La Contraloría objetó la fundamentación de tratos directos y una exención de garantía contractual, y ordenó a la JUNJI iniciar un proceso disciplinario para determinar responsabilidades (reportado por Diario VTV).

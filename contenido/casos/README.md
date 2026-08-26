@@ -13,11 +13,34 @@ tiempo: son documentos vivos, uno por caso, nombrados por slug (no por
 fecha). Cada edición queda anotada en el "Registro de actualizaciones" del
 propio dossier. indice.md se regenera solo (scripts/casos.js).
 
+## La sección que alimenta
+
+Estos dossiers son la materia prima de "¿En qué quedó?", la sección de
+seguimiento de la plata pública. Su especificación editorial completa
+(alcance, superficies, métrica y reglas) está en
+`estrategia/seccion-plata-publica.md`. La métrica que manda es una:
+cuánto se cuestionó frente a cuánto se recuperó.
+
+## Archivos que NO son dossiers
+
+- `indice.md` y `hitos.md`: los genera el script, no se editan a mano.
+- `candidatos.md`: backlog de casos detectados y aún no promovidos.
+- `por-abrir.md`: casos marcados en el informe del día que todavía no tienen
+  dossier. Al abrir el dossier, se borra la línea.
+
 ## Formato obligatorio de cada dossier
 
     # Caso: <nombre corto>
     Estado: ACTIVO | JUDICIALIZADO | CERRADO
     Dossier abierto: AAAA-MM-DD · Última actualización: AAAA-MM-DD
+
+    <!-- datos
+    cuestionado: 32884247128      (pesos, solo dígitos)
+    naturaleza: perjuicio-acusado
+    recuperado: 0
+    retenido: 0
+    nota-cifra: de dónde sale la cifra y qué NO significa
+    -->
     ## Ficha            (institución, qué se investiga, montos, origen)
     ## Involucrados     (tabla: nombre, cargo, institución/partido,
                          situación procesal con fecha)
@@ -25,6 +48,28 @@ propio dossier. indice.md se regenera solo (scripts/casos.js).
     ## Próximos hitos conocidos
     ## Fuentes
     ## Registro de actualizaciones del dossier
+
+### El bloque de datos manda
+
+Las cifras del contador salen SIEMPRE de ese bloque, nunca de la prosa de la
+ficha: parsear el texto ya produjo dos errores de cifra reales (un
+"recuperado" tomado de una mención ajena en el mismo párrafo).
+
+`naturaleza` usa vocabulario cerrado, y decide si la cifra entra o no al
+contador global:
+
+| naturaleza | qué es | ¿suma? |
+|---|---|---|
+| `perjuicio-veredicto` | perjuicio establecido en un veredicto o sentencia | sí |
+| `perjuicio-acusado` | perjuicio que sostiene una acusación fiscal | sí |
+| `observado-contraloria` | monto objetado en un informe de Contraloría | sí |
+| `denunciado` | monto de una denuncia institucional formal | sí |
+| `investigado` | monto que Fiscalía indaga, sin acusación aún | sí |
+| `transferido-auditado` | total transferido y auditado, NO defraudado | no |
+| `estimacion` | cálculo estimativo, no perjuicio determinado | no |
+
+`retenido` es dinero congelado que todavía NO volvió al Fisco. Nunca se
+cuenta como recuperado.
 
 ## Reglas de rigor (no negociables)
 

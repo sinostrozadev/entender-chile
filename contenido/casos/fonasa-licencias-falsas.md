@@ -3,6 +3,14 @@
 Estado: JUDICIALIZADO
 Dossier abierto: 2026-08-26 · Última actualización: 2026-08-26
 
+<!-- datos
+cuestionado: 25000000000
+naturaleza: perjuicio-veredicto
+recuperado: 0
+retenido: 0
+nota-cifra: Cifra del comunicado del Poder Judicial (23-06-2026) para la estructura principal. La prensa reporta $50.000 millones por las tres estructuras. Comiso pendiente.
+-->
+
 ## Ficha
 - Institución afectada: Fondo Nacional de Salud (FONASA), principal perjudicado por pago de subsidios de incapacidad laboral (SIL); también isapres, que se querellaron (reportado por El Mostrador, 11-12-2023, y Diario El Día, 07-12-2022).
 - Qué se investiga: Una red de médicos de nacionalidad colombiana que, mediante 16 sociedades médicas de fachada, emitió y vendió decenas de miles de licencias médicas ideológicamente falsas entre 2020 y 2022, cobrando por ellas y obteniendo fraudulentamente subsidios estatales. El 23-06-2026 el 7° Tribunal de Juicio Oral en lo Penal de Santiago declaró culpables a los 17 acusados por asociación ilícita, emisión/obtención/tramitación de licencias falsas, fraude de subvenciones y lavado de activos. La sentencia con las penas se leerá el 31-08-2026, por lo que aún no hay penas firmes.

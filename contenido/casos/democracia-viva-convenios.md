@@ -3,6 +3,14 @@
 Estado: JUDICIALIZADO
 Dossier abierto: 2026-08-26 · Última actualización: 2026-08-26
 
+<!-- datos
+cuestionado: 426000000
+naturaleza: perjuicio-acusado
+recuperado: 0
+retenido: 294957312
+nota-cifra: Acusacion del Ministerio Publico. Los $294.957.312 estan retenidos en una cuenta del tribunal desde 2023, no cobrados por el Fisco.
+-->
+
 Advertencia de rigor: todas las personas mencionadas como acusadas mantienen la presunción de inocencia. Hay acusación fiscal, no hay condena. Ninguna de ellas ha sido declarada culpable por un tribunal a la fecha de cierre de este dossier.
 
 ## Ficha

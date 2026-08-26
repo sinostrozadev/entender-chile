@@ -3,6 +3,14 @@
 Estado: ACTIVO
 Dossier abierto: 2026-08-25 · Última actualización: 2026-08-25
 
+<!-- datos
+cuestionado: 239315721
+naturaleza: observado-contraloria
+recuperado: 0
+retenido: 0
+nota-cifra: Suma de las cuatro observaciones del Informe 314/2026: fallecidos, familiares, conyuges y doble beneficio.
+-->
+
 ## Ficha
 - Institución afectada: Ministerio de Vivienda y Urbanismo (Minvu), a través de la Subsecretaría de Vivienda y Urbanismo y los Serviu regionales, en el Programa de Integración Urbana de Campamentos (programa con financiamiento parcial de un crédito del BID por USD 120 millones, proyecto CH-L1163).
 - Qué se investiga: Pagos irregulares de subsidios de arriendo detectados por la Contraloría General de la República (Informe Final N° 314 de 2026) en el período 2025-01-01 a 2026-03-29: subsidios asociados a 168 beneficiarios fallecidos, 172 contratos de arriendo con familiares cercanos, 19 contratos celebrados con cónyuges y 2 personas con doble beneficio habitacional. La Subsecretaría demoró hasta 1.133 días en regularizar contratos vinculados a beneficiarios fallecidos.

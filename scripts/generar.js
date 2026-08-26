@@ -104,8 +104,12 @@ async function main() {
   if (informe) console.log("1/4 Informe: ya existe, se reutiliza.");
   else {
     console.log("1/4 Informe (con búsqueda web)...");
+    // hitos recientes del observatorio: alimentan la sección "¿En qué quedó?"
+    const rutaHitos = path.join("contenido", "casos", "hitos.md");
+    const todosLosHitos = (leer(rutaHitos) || "").split("\n").filter((l) => l.startsWith("- "));
+    const recientes = todosLosHitos.slice(-15).join("\n") || "(sin novedades)";
     informe = SIMULAR ? SIM.informe : await llamar({
-      mensaje: CABECERA + prompt("informe.md"),
+      mensaje: CABECERA + prompt("informe.md") + `\n\n<hitos>\n${recientes}\n</hitos>`,
       busquedas: 15, maxTokens: 9000,
     });
     guardar(rutaInforme, informe);

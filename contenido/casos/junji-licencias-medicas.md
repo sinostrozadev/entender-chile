@@ -3,6 +3,14 @@
 Estado: ACTIVO
 Dossier abierto: 2026-08-25 · Última actualización: 2026-08-25
 
+<!-- datos
+cuestionado: 20916000000
+naturaleza: observado-contraloria
+recuperado: 1700000000
+retenido: 0
+nota-cifra: Informe 223-2025. Lo efectivamente no recuperado por licencias rechazadas es $5.547 millones. Los $1.700 millones recuperados son cifra declarada por la propia JUNJI (10-02-2026).
+-->
+
 ## Ficha
 - Institución afectada: Junta Nacional de Jardines Infantiles (JUNJI), en particular su Dirección Regional Metropolitana (auditada) y su Dirección Nacional (obligada al plan de acción). Instituciones fiscalizadoras: Contraloría General de la República (Contraloría Regional Metropolitana) y, por remisión de antecedentes, Consejo de Defensa del Estado (CDE).
 - Qué se investiga: El Informe Final N° 223-2025 de la Contraloría Regional Metropolitana constató gestión deficiente en la recuperación de subsidios por licencias médicas en la JUNJI Metropolitana (cobros manuales en planillas Excel, licencias rechazadas sin acciones de cobro, deudas antiguas sin castigo contable). La Contraloría describe mala gestión administrativa, no fraude, y remitió antecedentes al CDE para evaluar acciones judiciales de recuperación. Es un hecho distinto, aunque conexo, del caso nacional de 2025 sobre funcionarios que salieron del país estando con licencia médica (donde sí se investiga uso indebido individual y la JUNJI concentró el mayor número de casos, con sumarios en curso).

@@ -3,6 +3,14 @@
 Estado: ACTIVO
 Dossier abierto: 2026-08-26 · Última actualización: 2026-08-26
 
+<!-- datos
+cuestionado: 36876000000
+naturaleza: estimacion
+recuperado: 0
+retenido: 0
+nota-cifra: Estimacion DIPRES de remuneraciones pagadas durante las ausencias, no perjuicio determinado ni deuda exigible. Contraloria ordeno reintegrar mas de $1.311 millones en SIL, sin cifra de cobro efectivo.
+-->
+
 ## Ficha
 - Institución afectada: Administración del Estado de Chile en su conjunto (gobierno central, municipios, corporaciones municipales, servicios de salud, Poder Judicial y, en aristas separadas, afiliados a Dipreca y Capredena). Organismos fiscalizadores: Contraloría General de la República (CGR), Superintendencia de Seguridad Social (SUSESO) y COMPIN. Seguimiento de sumarios: Dirección de Presupuestos (DIPRES) a través del Comité Nacional de Ausentismo del Ministerio de Hacienda.
 - Qué se investiga: Funcionarios públicos que habrían incumplido el reposo prescrito en licencias médicas entre 2023 y 2024, saliendo del país, asistiendo a casinos de juego, prestando servicios remunerados en el sector privado o presentando licencias emitidas por médicos investigados por fraude. La responsabilidad es administrativa (sumario, con sanciones que van de censura a destitución), y en un subconjunto de casos también penal y civil. Al 26-08-2026 la enorme mayoría de los procesos sigue abierta y no existe sanción firme.

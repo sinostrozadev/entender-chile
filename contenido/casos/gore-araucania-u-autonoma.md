@@ -3,6 +3,14 @@
 Estado: ACTIVO
 Dossier abierto: 2026-08-26 · Última actualización: 2026-08-26
 
+<!-- datos
+cuestionado: 21804000000
+naturaleza: transferido-auditado
+recuperado: 155500000
+retenido: 0
+nota-cifra: Es el total transferido y auditado, no un monto defraudado. Contraloria observo el 47% de lo rendido, unos $6.800 millones.
+-->
+
 ## Ficha
 - Institución afectada: Gobierno Regional (GORE) de La Araucanía (recursos públicos transferidos a la Universidad Autónoma de Chile, sede Temuco).
 - Qué se investiga: El GORE de La Araucanía, encabezado por el gobernador René Saffirio, denunció ante el Ministerio Público la eventual comisión de fraude al fisco, negociación incompatible, estafa y lavado de activos en 10 convenios de transferencia suscritos con la Universidad Autónoma de Chile durante la administración del exgobernador Luciano Rivas. La denuncia se basa en el informe final de la Contraloría Regional de La Araucanía, que detectó conflictos de interés, fallas graves de control y gasto observado. Es una denuncia recién presentada: nadie ha sido formalizado en esta causa y rige la presunción de inocencia para todas las personas e instituciones mencionadas.

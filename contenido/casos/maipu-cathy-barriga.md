@@ -3,6 +3,14 @@
 Estado: JUDICIALIZADO
 Dossier abierto: 2026-08-26 · Última actualización: 2026-08-26
 
+<!-- datos
+cuestionado: 32884247128
+naturaleza: perjuicio-acusado
+recuperado: 0
+retenido: 0
+nota-cifra: Cifra de la acusacion del Ministerio Publico, no establecida por sentencia. Hay embargo de ingresos de la acusada como medida precautoria.
+-->
+
 ## Ficha
 - Institución afectada: Municipalidad de Maipú (Región Metropolitana, Chile).
 - Qué se investiga: La Fiscalía Regional Metropolitana Oriente (fiscal Constanza Encina) acusa a la exalcaldesa Cathy Barriga (gestión 2016-2021) de fraude al fisco, malversación de caudales públicos, falsificación de instrumento público y negociación incompatible, por lo que califica como una "gobernanza fraudulenta": manipulación sistemática de la contabilidad municipal, ocultamiento de deudas y gastos sin respaldo presupuestario. Barriga está acusada y no condenada: rige plenamente la presunción de inocencia. Seis excolaboradores sí tienen condena firme por juicios abreviados (dos el 01-04-2025 y cuatro el 17-06-2026).

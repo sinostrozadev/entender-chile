@@ -25,20 +25,37 @@ const fecha = process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
 
 const leer = (p) => fs.readFileSync(p, "utf8");
 const campo = (t, re) => { const m = t.match(re); return m ? m[1].trim() : "?"; };
-// Para el índice: la cifra de la PRIMERA oración de la ficha (la ficha completa vive
-// en el dossier). Solo la primera oración: si el campo dice "Sin recuperación
-// confirmada" y más abajo menciona otro monto, ese monto NO es el del campo.
-const cifra = (texto) => {
-  const primera = String(texto).split(/(?<!\d)\.\s/)[0].trim(); // corta por fin de oración, no por puntos de miles ni paréntesis
-  if (/^(sin|no hay|ninguna)\b/i.test(primera)) return "sin dato";
-  const m = primera.match(/(?:USD\s*)?\$\s?[\d.,]+(?:\s*(?:millones|mil millones))?/);
-  return m ? m[0] : (primera.slice(0, 40) || "?");
-};
+
+// Bloque <!-- datos ... --> de cada dossier: la unica fuente de las cifras del
+// contador. Se lee de ahi y NUNCA de la prosa de la ficha: parsear el texto ya
+// produjo dos errores de cifra (un "recuperado" tomado de una mencion ajena).
+function datos(texto) {
+  const m = texto.match(/<!--\s*datos([\s\S]*?)-->/);
+  const d = { cuestionado: null, recuperado: null, retenido: null, naturaleza: "?" };
+  if (!m) return d;
+  for (const linea of m[1].split("\n")) {
+    const i = linea.indexOf(":");
+    if (i < 0) continue;
+    const clave = linea.slice(0, i).trim();
+    const valor = linea.slice(i + 1).trim();
+    if (["cuestionado", "recuperado", "retenido"].includes(clave)) {
+      const n = Number(valor.replace(/[^\d]/g, ""));
+      d[clave] = Number.isFinite(n) ? n : null;
+    } else if (clave === "naturaleza") d.naturaleza = valor;
+  }
+  return d;
+}
+
+const pesos = (n) => n == null ? "?" :
+  n === 0 ? "$0" :
+  n >= 1e9 ? `$${(n / 1e9).toLocaleString("es-CL", { maximumFractionDigits: 1 })} mil millones` :
+  n >= 1e6 ? `$${(n / 1e6).toLocaleString("es-CL", { maximumFractionDigits: 1 })} millones` :
+  `$${n.toLocaleString("es-CL")}`;
 
 function listarDossiers() {
   if (!fs.existsSync(DIR)) return [];
   return fs.readdirSync(DIR)
-    .filter((f) => f.endsWith(".md") && !["README.md", "indice.md", "candidatos.md"].includes(f))
+    .filter((f) => f.endsWith(".md") && !["README.md", "indice.md", "candidatos.md", "hitos.md", "por-abrir.md"].includes(f))
     .map((f) => path.join(DIR, f));
 }
 
@@ -49,26 +66,69 @@ function regenerarIndice() {
       archivo: path.basename(p),
       caso: campo(t, /^# Caso:\s*(.+)$/m),
       estado: campo(t, /^Estado:\s*(\S+)/m),
-      confirmado: cifra(campo(t, /Monto CONFIRMADO[^:\n]*:\s*(.+)$/m)),
-      recuperado: cifra(campo(t, /Dinero recuperado[^:\n]*:\s*(.+)$/m)),
       actualizado: campo(t, /Última actualización:\s*([0-9]{4}-[0-9]{2}-[0-9]{2})/),
+      ...datos(t),
     };
   });
+
+  const suma = (clave, filtro = () => true) =>
+    filas.filter(filtro).reduce((a, f) => a + (f[clave] || 0), 0);
+
+  // El contador NO suma peras con manzanas: solo agrega lo que un tribunal o
+  // Contraloria cuantifico sobre hechos concretos. Las estimaciones y los
+  // totales transferidos se muestran aparte, con su etiqueta.
+  const DURAS = ["perjuicio-veredicto", "perjuicio-acusado", "observado-contraloria", "denunciado", "investigado"];
+  const esDura = (f) => DURAS.includes(f.naturaleza);
+  const cuestionadoDuro = suma("cuestionado", esDura);
+  const recuperado = suma("recuperado");
+  const retenido = suma("retenido");
+  const porcentaje = cuestionadoDuro ? (recuperado / cuestionadoDuro * 100) : 0;
+
+  const aparte = filas.filter((f) => !esDura(f));
+
   const lineas = [
-    "# Índice del observatorio",
+    "# Índice del observatorio de la plata pública",
     "",
-    "(Generado por scripts/casos.js; no editar a mano.)",
+    "(Generado por scripts/casos.js; no editar a mano. Las cifras salen del",
+    "bloque `<!-- datos -->` de cada dossier, no de la prosa.)",
     "",
-    "| Caso | Estado | Monto confirmado | Recuperado | Actualizado | Dossier |",
-    "|---|---|---|---|---|---|",
+    "## El contador",
+    "",
+    `- **Cuestionado** (cifras de tribunales, Contraloría, Fiscalía o denuncias institucionales, ${filas.filter(esDura).length} casos): **${pesos(cuestionadoDuro)}**`,
+    `- **Recuperado y confirmado**: **${pesos(recuperado)}** (${porcentaje.toFixed(2)}% de lo cuestionado)`,
+    `- **Retenido sin cobrar** (dinero congelado que no ha vuelto al Fisco): ${pesos(retenido)}`,
+    "",
+    ...(aparte.length ? [
+      "Fuera del contador, por no ser comparables (se listan igual, con su etiqueta):",
+      ...aparte.map((f) => `- ${f.caso}: ${pesos(f.cuestionado)} (${f.naturaleza})`),
+      "",
+    ] : []),
+    "## Casos",
+    "",
+    "| Caso | Estado | Cuestionado | Naturaleza | Recuperado | Actualizado | Dossier |",
+    "|---|---|---|---|---|---|---|",
     ...filas.map((f) =>
-      `| ${f.caso} | ${f.estado} | ${f.confirmado} | ${f.recuperado} | ${f.actualizado} | ${f.archivo} |`),
+      `| ${f.caso} | ${f.estado} | ${pesos(f.cuestionado)} | ${f.naturaleza} | ${pesos(f.recuperado)} | ${f.actualizado} | ${f.archivo} |`),
     "",
     `${filas.length} caso(s) en seguimiento, ${filas.filter((f) => f.estado !== "CERRADO").length} abierto(s). Última regeneración: ${fecha}.`,
     "",
   ];
   fs.writeFileSync(path.join(DIR, "indice.md"), lineas.join("\n"));
-  console.log(`indice.md regenerado (${filas.length} casos).`);
+  console.log(`indice.md regenerado (${filas.length} casos, ${pesos(recuperado)} recuperados de ${pesos(cuestionadoDuro)}).`);
+}
+
+// Cada cambio real en un dossier queda registrado en hitos.md: es lo que dispara
+// la alerta del informe diario y lo que Santiago revisa para decidir si un hito
+// merece video propio.
+function registrarHito(archivo, caso, resumen) {
+  const ruta = path.join(DIR, "hitos.md");
+  const cabecera = "# Hitos del observatorio\n\n" +
+    "Registro append-only de cada novedad detectada en un caso. Lo lee el\n" +
+    "generador del informe diario para la alerta, y Santiago para decidir\n" +
+    "qué hito merece video propio. No se edita a mano.\n\n";
+  if (!fs.existsSync(ruta)) fs.writeFileSync(ruta, cabecera);
+  fs.appendFileSync(ruta, `- ${fecha} | ${caso} | ${resumen} | ${archivo}\n`);
+  console.log("  hito registrado en hitos.md");
 }
 
 async function actualizar(ruta) {
@@ -102,9 +162,49 @@ async function actualizar(ruta) {
   }
   fs.writeFileSync(ruta, texto.endsWith("\n") ? texto : texto + "\n");
   console.log("  dossier actualizado.");
+  // la ultima linea del registro de actualizaciones describe que cambio
+  const registro = texto.split("## Registro de actualizaciones")[1] || "";
+  const ultimaLinea = registro.trim().split("\n").filter((l) => l.startsWith("-")).pop() || "";
+  registrarHito(path.basename(ruta), campo(texto, /^# Caso:\s*(.+)$/m),
+    ultimaLinea.replace(/^-\s*[0-9-]{10}:\s*/, "").replace(/\s*\(agente de investigación\)\s*$/, "").trim() || "actualización sin detalle");
+}
+
+// El informe del dia marca los casos nuevos con "EN SEGUIMIENTO: <nombre>".
+// Aca se detectan los que aun no tienen dossier y se dejan anotados en
+// por-abrir.md, ruidosamente, para que nadie se entere tres semanas despues.
+function detectarNuevos() {
+  const rutaInforme = path.join("contenido", "informes", `${fecha}.md`);
+  if (!fs.existsSync(rutaInforme)) return;
+  const marcas = [...leer(rutaInforme).matchAll(/^EN SEGUIMIENTO:\s*(.+)$/gm)]
+    .map((m) => m[1].trim()).filter(Boolean);
+  if (!marcas.length) return;
+
+  const normalizar = (t) => t.toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+  const existentes = listarDossiers().map((p) => normalizar(campo(leer(p), /^# Caso:\s*(.+)$/m) + " " + path.basename(p)));
+  const palabrasUtiles = (t) => normalizar(t).split(" ").filter((w) => w.length > 4);
+
+  const nuevos = marcas.filter((m) => {
+    const palabras = palabrasUtiles(m);
+    if (!palabras.length) return true;
+    // ya existe si algun dossier comparte la mayoria de las palabras largas
+    return !existentes.some((e) => palabras.filter((w) => e.includes(w)).length >= Math.ceil(palabras.length / 2));
+  });
+  if (!nuevos.length) { console.log(`Marcas EN SEGUIMIENTO del día: ${marcas.length}, todas con dossier abierto.`); return; }
+
+  const ruta = path.join(DIR, "por-abrir.md");
+  if (!fs.existsSync(ruta)) fs.writeFileSync(ruta,
+    "# Casos marcados en el informe y aún sin dossier\n\n" +
+    "Los agrega scripts/casos.js al leer las marcas EN SEGUIMIENTO del informe\n" +
+    "del día. Al abrir el dossier, borra la línea correspondiente.\n\n");
+  for (const n of nuevos) fs.appendFileSync(ruta, `- ${fecha} | ${n}\n`);
+  console.log(`\n*** ${nuevos.length} CASO(S) NUEVO(S) POR ABRIR (ver contenido/casos/por-abrir.md):`);
+  for (const n of nuevos) console.log(`      ${n}`);
+  console.log("");
 }
 
 async function main() {
+  detectarNuevos();
   const explicito = process.argv[2];
   const dossiers = explicito ? [explicito] : listarDossiers();
   if (!dossiers.length) { console.log("Sin dossiers en contenido/casos/. Nada que hacer."); return; }
