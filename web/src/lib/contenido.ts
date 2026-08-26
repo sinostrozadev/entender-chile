@@ -95,7 +95,7 @@ export function informes(): Informe[] {
       return {
         fecha, titular,
         resumenHtml: marked.parse(resumenMd, { async: false }) as string,
-        salir: mSalir ? mSalir[1].replace(/\s*\([^)]*\)\s*$/, "").trim() : null,
+        salir: mSalir ? (() => { const t = mSalir[1].replace(/\s*\([^)]*\)\.?\s*$/, "").trim(); return t.charAt(0).toUpperCase() + t.slice(1); })() : null,
         html, secciones, video: video(`${fecha}-informe`),
       };
     });
