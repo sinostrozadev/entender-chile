@@ -1,7 +1,8 @@
 # Identidad - qué es Entender Chile
 
 Estado: DECIDIDA (2026-08-25). Aprobada por Santiago con dos ajustes ya
-incorporados: sin jerga interna del pipeline y sin rayas largas. Tagline y
+incorporados: sin jerga interna del pipeline y sin rayas largas. Voz
+revisada el 2026-08-26 (sin negaciones en paralelo ni fórmulas repetidas). Tagline y
 público primario también decididos (ver decisiones.md).
 
 ## En una frase
@@ -53,21 +54,24 @@ compite por hacer entender mejor.
   crecimiento: captar búsqueda permanente (UF, AFP, TPM, cómo se elige al
   Presidente), traer suscriptores y seguir siendo útil en dos años.
 
-## Qué NO es
+## Dónde termina
 
-- No es un noticiero de cobertura total. No hay pronóstico del tiempo como
-  sección ni resumen deportivo de la fecha.
-- No es opinión ni trinchera. No tiene bandera: el acento verde pátina de
-  cobre es deliberadamente chileno y apolítico.
-- No es "IA que resume". La selección, verificación y dirección editorial
-  son humanas y quedan registradas (estrategia/decisiones.md +
-  contenido/revisiones/). La automatización produce; no decide.
+Entender Chile elige y explica; no cubre. Por eso el pronóstico del tiempo y
+el resumen deportivo de la fecha quedan fuera (el clima entra solo cuando es
+noticia: alertas, emergencias, sistemas frontales con impacto real).
+
+Tampoco toma partido. Las posiciones se atribuyen a quien las sostiene, y el
+acento verde pátina de cobre es deliberadamente chileno y apolítico.
+
+Y aunque la producción es automatizada, las decisiones son de personas: qué
+entra, cuánto pesa y cómo se cuenta. Todo queda registrado
+(estrategia/decisiones.md y contenido/revisiones/).
 
 ## Tono
 
-Profesor particular brillante: cercano, sobrio, inteligente, humano. Español
-de Chile neutro. Preguntas retóricas con mesura, cero grosería, cero
-locutor engolado.
+Alguien que te cuenta las cosas sin apuro: cercano, sobrio, humano. Español
+de Chile neutro. Preguntas retóricas con mesura, cero grosería, cero locutor
+engolado.
 
 ## Tagline - DECIDIDA (2026-08-25)
 
@@ -77,11 +81,11 @@ Va en: descripción del canal, cierre de cada video, banner y bio de redes.
 
 ## Descripción del canal (borrador para YouTube → Información)
 
-> Las noticias de Chile, explicadas en diez minutos y sin gritos. Cada
-> mañana, un informe con lo que de verdad importa: jerarquizado, con las
-> fuentes a la vista y los hechos separados de las interpretaciones. Y en
-> la serie Claves, los conceptos que necesitas para entender las próximas
-> noticias, no solo las de hoy. El resumen sin gritos.
+> Las noticias de Chile explicadas cada mañana en diez minutos. Un informe
+> con las tres o cuatro cosas que importan, cada cifra con su fuente, y los
+> hechos separados de las opiniones. Y en la serie Claves, lo que hay que
+> saber para entender las próximas noticias, no solo las de hoy. El resumen
+> sin gritos.
 
 [POR DEFINIR - Santiago] Validar este texto antes de pegarlo en YouTube
 Studio; al usarlo, mantenerlo idéntico en las bios de redes.
