@@ -12,9 +12,11 @@ const BASE = (import.meta.env.BASE_URL || "/").replace(/\/?$/, "/");
 export const url = (p: string) => BASE + p.replace(/^\//, "");
 
 export type Seccion = { id: string; texto: string };
+export type Noticia = { id: string; texto: string; peso: "a" | "b" };
+export type Stats = { noticias: number; fuentes: number; minutos: number };
 export type Informe = {
-  fecha: string; titular: string; resumenHtml: string; salir: string | null;
-  html: string; secciones: Seccion[]; video: string | null;
+  fecha: string; titular: string; resumenHtml: string; mirada: string[]; salir: string | null;
+  html: string; secciones: Seccion[]; noticias: Noticia[]; stats: Stats; video: string | null;
 };
 export type Clave = {
   slug: string; fecha: string; titulo: string; pregunta: string;
@@ -38,14 +40,26 @@ const video = (nombre: string) => {
 };
 
 // markdown → html con las transformaciones del canal
-function render(md: string): { html: string; secciones: Seccion[] } {
+// "En una mirada" en frases sueltas (para leer de un vistazo)
+export function frases(texto: string): string[] {
+  const protegido = texto.replace(/\s+/g, " ").trim()
+    .replace(/\b(EE|UU|Sr|Sra|Dr|Dra|Ud|N|art|arts|N°|Nº)\./g, "$1§");
+  return protegido.split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÑ¿¡"“(])/)
+    .map((f) => f.replace(/§/g, ".").trim()).filter((f) => f.length > 0);
+}
+
+function render(md: string): { html: string; secciones: Seccion[]; noticias: Noticia[] } {
   let html = marked.parse(md, { async: false, gfm: true }) as string;
   const secciones: Seccion[] = [];
+  const noticias: Noticia[] = [];
   // Titulares con peso editorial [A]/[B]: el peso NO se muestra como letra
   // (jerga interna); se expresa con el tamaño del titular. Van como h3 con
   // clase, cualquiera sea el nivel que traiga el markdown.
-  html = html.replace(/<h([1-4])>\s*\[([AB])\]\s*([\s\S]*?)<\/h\1>/g, (_m, _n, p, inner) =>
-    `<h3 class="noticia peso-${p.toLowerCase()}" id="${slugify(inner)}">${inner}</h3>`);
+  html = html.replace(/<h([1-4])>\s*\[([AB])\]\s*([\s\S]*?)<\/h\1>/g, (_m, _n, p, inner) => {
+    const id = slugify(inner);
+    noticias.push({ id, texto: inner.replace(/<[^>]+>/g, ""), peso: p.toLowerCase() as "a" | "b" });
+    return `<h3 class="noticia peso-${p.toLowerCase()}" id="${id}">${inner}</h3>`;
+  });
   // Secciones (## sin peso) → índice y anclas
   html = html.replace(/<h2>([\s\S]*?)<\/h2>/g, (_m, inner) => {
     const id = slugify(inner);
@@ -58,7 +72,7 @@ function render(md: string): { html: string; secciones: Seccion[] } {
   html = html.replace(/<strong>(Contexto|Clave|Análisis|Analisis):<\/strong>/g,
     (_m, e) => `<strong class="etq etq-${slugify(e)}">${e}</strong>`);
   html = html.replace(/<p><strong>Para salir hoy:<\/strong>/g, `<p class="salir"><strong>Para salir hoy</strong>`);
-  return { html, secciones };
+  return { html, secciones, noticias };
 }
 
 function seccionDe(md: string, titulo: RegExp): string {
@@ -91,10 +105,14 @@ export function informes(): Informe[] {
       let cuerpo = md.replace(/^#\s+.+\n/m, "");
       cuerpo = cuerpo.replace(/^##\s+En una mirada[\s\S]*?(?=^#{1,6}\s)/m, "");
       cuerpo = cuerpo.replace(/^\*\*Para salir hoy:\*\*.*$/m, "");
-      const { html, secciones } = render(cuerpo);
+      const { html, secciones, noticias } = render(cuerpo);
+      const fuentes = seccionDe(md, /^##\s+Fuentes consultadas/i).split("\n").filter((l) => l.trim()).length;
+      const palabras = md.split(/\s+/).length;
       return {
         fecha, titular,
         resumenHtml: marked.parse(resumenMd, { async: false }) as string,
+        mirada: frases(resumenMd.replace(/\*\*/g, "")),
+        noticias, stats: { noticias: noticias.length, fuentes, minutos: Math.max(1, Math.round(palabras / 220)) },
         salir: mSalir ? (() => { const t = mSalir[1].replace(/\s*\([^)]*\)\.?\s*$/, "").trim(); return t.charAt(0).toUpperCase() + t.slice(1); })() : null,
         html, secciones, video: video(`${fecha}-informe`),
       };

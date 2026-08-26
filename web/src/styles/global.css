@@ -106,3 +106,20 @@ h1, h2, h3, p, li, a, strong { overflow-wrap: break-word; }
 img, video, iframe { max-width: 100%; height: auto; }
 .cuerpo table { display: block; overflow-x: auto; }
 body { overflow-x: hidden; }
+
+/* orientación y escaneo */
+.intro { max-width: var(--ancho); padding: 0.75rem 0 0; }
+.intro p { margin: 0.4rem 0; font-size: 1.02rem; color: #2b2e31; }
+.intro .mono { font-size: 0.78rem; }
+.explica { margin: -0.4rem 0 1rem; font-size: 0.9rem; color: var(--gris); }
+.mirada { list-style: none; margin: 1.25rem 0 0; padding: 0; font-size: 1.1rem; line-height: 1.5; }
+.mirada li { position: relative; padding-left: 1.2rem; margin: 0.55rem 0; }
+.mirada li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--patina); }
+.entradilla .mirada { font-size: 1.02rem; margin-top: 0.6rem; }
+.importa { margin: 1.75rem 0 0; padding: 1rem 1.25rem 1.1rem; border-top: 3px solid var(--tinta); border-bottom: 1px solid var(--linea); }
+.importa ol { margin: 0.25rem 0 0; padding-left: 1.4rem; }
+.importa li { margin: 0.45rem 0; font-family: var(--serif); font-size: 1.15rem; line-height: 1.3; }
+.importa li.n-b { font-family: var(--sans); font-size: 0.95rem; color: #2b2e31; }
+.importa li a { text-decoration: none; }
+.importa li a:hover { text-decoration: underline; }
+.importa li::marker { font-family: var(--mono); font-size: 0.8rem; color: var(--patina); }

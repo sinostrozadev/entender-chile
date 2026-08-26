@@ -12,13 +12,18 @@ const { i, sig, ant } = Astro.props;
     <header class="cabecera">
       <p class="kicker">El informe diario</p>
       <h1>{i.titular}</h1>
-      <p class="fecha">{fechaLarga(i.fecha)}</p>
+      <p class="fecha">{fechaLarga(i.fecha)} · {i.stats.noticias} noticias · {i.stats.fuentes} fuentes · {i.stats.minutos} min de lectura</p>
       {i.video && <p class="acciones"><a class="boton" href={i.video}>Ver el video de esta edición</a></p>}
-      {i.salir && <p class="salir"><strong>Para salir hoy</strong><span>{i.salir}</span></p>}
+      {i.salir && <p class="salir" data-fecha={i.fecha} hidden><strong>Para salir hoy</strong><span>{i.salir}</span></p>}
     </header>
-    {i.resumenHtml && <div class="entradilla"><p class="kicker">En una mirada</p><div set:html={i.resumenHtml} /></div>}
-    {i.secciones.length > 2 && (
-      <ul class="toc">{i.secciones.map((s) => <li><a href={`#${s.id}`}>{s.texto}</a></li>)}</ul>
+    {i.resumenHtml && <div class="entradilla"><p class="kicker">En una mirada</p>
+      {i.mirada.length >= 3 ? <ul class="mirada">{i.mirada.map((f) => <li>{f}</li>)}</ul> : <div set:html={i.resumenHtml} />}
+    </div>}
+    {i.noticias.length > 1 && (
+      <div class="importa">
+        <p class="kicker">En esta edición</p>
+        <ol>{i.noticias.map((n) => <li class={`n-${n.peso}`}><a href={`#${n.id}`}>{n.texto}</a></li>)}</ol>
+      </div>
     )}
     <div class="cuerpo" set:html={i.html} />
     <nav class="nav-dias">
