@@ -111,3 +111,24 @@ madrugada" en ejecutar.md, 2026-08-24.)
 - **Valor:** retención (10-12 min es mejor que 14 para el formato) y la web
   gana profundidad sin costo extra.
 - **Esfuerzo:** bajo si es el camino 1; medio si es el 2.
+
+## Pasar el observatorio a GPT (o repartirlo)
+- **Fecha:** 2026-08-27 · **Origen:** Santiago
+- **Qué:** que la actualización diaria de los dossiers de plata pública la
+  haga una tarea de ChatGPT en vez de (o además de) la rutina de Claude en
+  la nube de las 03:00.
+- **A favor, y es un argumento fuerte:** ChatGPT ABRE las notas completas;
+  la nube de Anthropic solo ve extractos de buscador (bloquea La Tercera,
+  CNN y otros). El observatorio es justo donde leer el texto íntegro
+  importa: un estado procesal mal citado es una querella.
+- **En contra:** el observatorio es lo más delicado del canal (nombres,
+  situación procesal, presunción de inocencia) y hoy se publica automático
+  en la web. Meter una segunda inteligencia con criterios propios en los
+  mismos archivos multiplica el riesgo de que algo salga sin revisar.
+- **Camino intermedio (recomendado):** repartir por capacidad, no reemplazar.
+  Claude detecta (busca novedades y las anota en por-verificar.md, que ya
+  existe); GPT confirma abriendo las fuentes y solo entonces el dato entra
+  al dossier. Cada uno hace lo que el otro no puede.
+- **Requisito previo, cualquiera sea el camino:** decidir el gate humano
+  antes de publicar cambios de dossier (hoy pendiente).
+- **Esfuerzo:** bajo (es un prompt nuevo y una tarea programada).
