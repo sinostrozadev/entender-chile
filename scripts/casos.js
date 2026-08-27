@@ -55,7 +55,7 @@ const pesos = (n) => n == null ? "?" :
 function listarDossiers() {
   if (!fs.existsSync(DIR)) return [];
   return fs.readdirSync(DIR)
-    .filter((f) => f.endsWith(".md") && !["README.md", "indice.md", "candidatos.md", "hitos.md", "por-abrir.md"].includes(f))
+    .filter((f) => f.endsWith(".md") && !["README.md", "indice.md", "candidatos.md", "hitos.md", "por-abrir.md", "por-verificar.md"].includes(f))
     .map((f) => path.join(DIR, f));
 }
 

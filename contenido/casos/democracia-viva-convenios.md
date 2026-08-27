@@ -33,7 +33,7 @@ Advertencia de rigor: todas las personas mencionadas como acusadas mantienen la 
 | Kelly Betancourt Acosta | Presidenta y socia fundadora de Fundación TomArte | Sin militancia verificada | ACUSADA, no condenada. Acusada por fraude al fisco y lavado de activos por los convenios firmados con el exseremi Contreras en 2022 (arista TomArte, $456 millones). Pena solicitada y cautelares: sin confirmar en detalle |
 | Giorgio Jackson Drago | Exministro de Desarrollo Social | Ex RD | SIN CARGOS. Investigado como imputado desde 2023-10; declaró ante la Fiscalía en 2024-02 y 2024-04. El 2026-07-07 el fiscal Cristián Aguilar comunicó al Juzgado de Garantía de Antofagasta el cierre de la investigación y la decisión de no perseverar por no reunir antecedentes suficientes para formalizar. Audiencia fijada para el 2026-08-21. Queda como testigo en el juicio oral |
 | Miguel Crispi Serrano | Exjefe de asesores del Segundo Piso de La Moneda; exsubsecretario de Desarrollo Regional (Subdere) | Ex RD | SIN CARGOS. Mismo cierre y decisión de no perseverar comunicada el 2026-07-07; audiencia 2026-08-21. Queda como testigo. Tras el cierre acusó públicamente una "operación política" republicana (El Mostrador, 2026-07-21) |
-| Javiera Martínez Fariña | Directora de Presupuestos (Dipres); expresidenta del directorio de Fundación Rumbo Colectivo (2020-10 a 2022-03) | Ex RD | SIN CARGOS. Mismo cierre y decisión de no perseverar comunicada el 2026-07-07; audiencia 2026-08-21. Queda como testigo. CORRECCIÓN a la base del dossier: el nombre correcto es Javiera Martínez Fariña, no "Tatiana Martínez" |
+| Javiera Martínez Fariña | Directora de Presupuestos (Dipres); expresidenta del directorio de Fundación Rumbo Colectivo (2020-10 a 2022-03) | Ex RD | SIN CARGOS. Mismo cierre y decisión de no perseverar comunicada el 2026-07-07; audiencia 2026-08-21. Queda como testigo. |
 
 ## Cronología
 - 2022-07-01: se firma el convenio entre la Seremi de Vivienda de Antofagasta y la Fundación Superación de la Pobreza (Fusupo). Esta fecha y lugar son el hito que la Corte Suprema usó en 2026 para radicar toda la causa en Antofagasta. (Corte Suprema, vía El Periodista y Antofagasta.tv, 2026-08)
@@ -138,13 +138,18 @@ Advertencia de rigor: todas las personas mencionadas como acusadas mantienen la 
 - El Diario de Antofagasta, 2025-08: https://www.diarioantofagasta.cl/regional/antofagasta/212710/caso-convenios-fiscalia-de-antofagasta-cierra-investigacion-en-cuatro-aristas-y-alista-acusacion-contra-7-imputados/
 - Radio Angelina, 2026 (retención de fondos recuperados): https://www.radioangelina.cl/portal/views/noticia.php?codNoticia=MjI4MTg%3D
 
-Notas metodológicas y correcciones a la base del 2026-08-25:
+Nota sobre las fuentes: no se accedió al texto íntegro de las resoluciones judiciales ni al rol de la causa. Todo lo consignado proviene de notas de prensa y extractos con URL verificada, con al menos dos medios por cifra salvo donde se indica lo contrario. Los montos de $426 millones y $391.768.516 provienen de fuentes oficiales (acusación del Ministerio Público, resolución de la Seremi de Vivienda y acciones del CDE); los desgloses por convenio y la cifra agregada de $1.596 millones están reportados por prensa (La Tercera, Timeline.cl, El Diario de Antofagasta, 08-2025).
+
+## Registro de actualizaciones del dossier
+- 2026-08-26: dossier creado con investigación inicial. (agente de investigación)
+
+<!-- interno
+Correcciones al barrido de candidatos del 25-08-2026 (base interna, no publicada) y límites de acceso:
 1. "Tatiana Martínez" es un error de la base. La tercera persona de la arista cerrada es Javiera Martínez Fariña, directora de Presupuestos (Dipres). Verificado en La Tercera, Ex-Ante, Emol y Radio U. de Chile.
 2. "3,5 años para Contreras según Ex-Ante" es una lectura errónea. El titular y la URL de Ex-Ante consignan 35 años para el exseremi Carlos Contreras, cifra que corresponde a la suma de las penas pedidas en las cuatro aristas (Democracia Viva, Fibra, TomArte y Fusupo). Solo por la arista Democracia Viva la petición es de 10 años y 1 día. Corroborado por La Tercera, CNN Chile y G5noticias (2025-08).
 3. La ratificación de competencia por la Corte Suprema NO ocurrió en junio de 2026. El 2026-06-25 fue el 8º Juzgado de Garantía de Santiago el que se declaró incompetente y remitió la causa a Antofagasta, lo que abrió la contienda de competencia. La Segunda Sala de la Corte Suprema la resolvió en agosto de 2026. La fecha exacta del fallo queda sin confirmar.
 4. La arista contra Jackson, Crispi y Martínez se cerró en julio de 2026, no antes: cierre comunicado el 2026-07-07 con decisión de no perseverar, con audiencia fijada para el 2026-08-21. Los tres quedan citados como testigos.
 5. Los montos $426 millones y $391.768.516 provienen de fuentes oficiales (acusación del Ministerio Público, resolución de la Seremi de Vivienda y querella o demanda del CDE). Los desgloses por convenio y la cifra agregada de $1.596 millones están reportados por prensa (La Tercera, Timeline.cl, El Diario de Antofagasta, 2025-08).
 6. No se pudo acceder al texto íntegro de ninguna de las resoluciones judiciales ni al rol de la causa: el proxy de red bloquea el acceso directo a los dominios de Poder Judicial, Fiscalía, CDE, La Tercera, BioBioChile, Emol y otros. Todo lo consignado proviene de titulares y extractos de resultados de búsqueda con URL verificada, con un mínimo de dos medios por cifra salvo donde se indica lo contrario.
+-->
 
-## Registro de actualizaciones del dossier
-- 2026-08-26: dossier creado con investigación inicial. (agente de investigación)

@@ -200,7 +200,7 @@ export const pesos = (n: number | null): string => n == null ? "sin cifra" :
 export function casos(): Caso[] {
   const dir = path.join(RAIZ, "casos");
   if (!fs.existsSync(dir)) return [];
-  const excluidos = new Set(["README.md", "indice.md", "candidatos.md", "hitos.md", "por-abrir.md"]);
+  const excluidos = new Set(["README.md", "indice.md", "candidatos.md", "hitos.md", "por-abrir.md", "por-verificar.md"]);
   return fs.readdirSync(dir)
     .filter((f) => f.endsWith(".md") && !excluidos.has(f))
     .map((f) => {
@@ -215,7 +215,7 @@ export function casos(): Caso[] {
       if (mD) for (const l of mD[1].split("\n")) { const i = l.indexOf(":"); if (i > 0) d[l.slice(0, i).trim()] = l.slice(i + 1).trim(); }
       const num = (v?: string) => { if (v == null || v === "") return null; const n = Number(v.replace(/[^\d]/g, "")); return Number.isFinite(n) ? n : null; };
       let cuerpo = md.replace(/^# Caso:.*\n/m, "").replace(/^Estado:.*\n/m, "").replace(/^Dossier abierto:.*\n/m, "")
-        .replace(/<!--\s*datos[\s\S]*?-->\s*/m, "");
+        .replace(/<!--[\s\S]*?-->\s*/g, ""); // datos, interno y cualquier otro comentario: nunca se publican
       let { html, secciones } = render(cuerpo);
       // El registro interno se presenta al lector como lo que es: la historia
       // de cómo fue cambiando este seguimiento.

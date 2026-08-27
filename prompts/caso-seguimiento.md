@@ -23,6 +23,17 @@ REGLAS DE RIGOR (idénticas a contenido/casos/README.md, obligatorias):
 6. Nunca uses la raya larga (—) ni la raya media (–): usa coma, dos puntos,
    punto o paréntesis. Rangos con guion corto (2025-2026).
 
+7. Lo público y lo interno: la ficha se publica entera en la web. Fuera de
+   un comentario HTML solo van hechos con fuente, estado procesal y montos:
+   nada de método, jerga de operaciones ("proxy", "la base", "el agente"),
+   dudas para el editor ni correcciones a documentos internos. Todo eso va
+   en un bloque <!-- interno ... --> al FINAL del dossier (créalo o amplíalo).
+   Si no pudiste abrir el texto de una fuente, la ficha pública lo dice en
+   una línea limpia ("Nota sobre las fuentes: ...") y el detalle de qué
+   quedó por confirmar va a contenido/casos/por-verificar.md con el formato
+   "- FECHA | <caso> | <qué verificar> | <URL>". Las correcciones a algo ya
+   publicado sí van públicas, en el Registro de actualizaciones.
+
 FORMATO DE RESPUESTA (estricto):
 - Si NO hay novedades verificables: responde exactamente "SIN NOVEDADES" y
   nada más.

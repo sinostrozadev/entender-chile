@@ -27,6 +27,9 @@ cuánto se cuestionó frente a cuánto se recuperó.
 - `candidatos.md`: backlog de casos detectados y aún no promovidos.
 - `por-abrir.md`: casos marcados en el informe del día que todavía no tienen
   dossier. Al abrir el dossier, se borra la línea.
+- `por-verificar.md`: hechos detectados por búsqueda que el investigador no
+  pudo confirmar en el texto de la fuente (la nube no abre varios medios
+  chilenos). Se revisan en la rutina de la mañana y se borran al resolver.
 
 ## Formato obligatorio de cada dossier
 
@@ -48,6 +51,27 @@ cuánto se cuestionó frente a cuánto se recuperó.
     ## Próximos hitos conocidos
     ## Fuentes
     ## Registro de actualizaciones del dossier
+    <!-- interno ... -->   (opcional, SIEMPRE al final; no se publica)
+
+### Lo público y lo interno
+
+La ficha se publica entera en la web, tal cual, así que todo lo que está
+fuera de un comentario HTML es texto para un lector cualquiera: hechos con
+fuente, estado procesal, montos. Nada de método, jerga de operaciones
+("proxy", "la base", "el agente"), dudas para el editor ni correcciones a
+documentos internos.
+
+Todo eso va en un bloque `<!-- interno ... -->` al final del archivo, que
+la web no muestra: notas de método, límites de acceso a fuentes, datos por
+verificar, correcciones al barrido de candidatos. Si no se pudo leer el
+texto íntegro de una fuente, la ficha pública lo dice en una sola línea,
+limpia: "Nota sobre las fuentes: no se accedió al texto íntegro de las
+resoluciones; todo proviene de extractos con URL verificada y al menos dos
+medios por cifra".
+
+Las correcciones a algo YA PUBLICADO sí van públicas, en el "Registro de
+actualizaciones del dossier" (una línea: qué decía, qué dice ahora, fuente).
+Los errores se corrigen a la vista; las notas de cocina no se sirven.
 
 ### El bloque de datos manda
 

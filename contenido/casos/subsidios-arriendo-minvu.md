@@ -54,7 +54,11 @@ Sin personas individualizadas públicamente a la fecha (2026-08-25). Ninguna fue
 - Diario Estrategia, 2026-08 (agosto): https://www.diarioestrategia.cl/texto-diario/mostrar/5993156/cgr-detecta-pagos-subsidios-arriendo-fallecidos-personas-incumplian-requisitos-programa-minvu
 - Nuevo Poder, 2026-08 (agosto): https://www.nuevopoder.cl/subsidios-de-arriendo-beneficiarios-fallecidos-y-contratos-entre-familiares-revelo-contraloria/
 - BID, ficha del proyecto CH-L1163 (Programa de Integración Urbana de Campamentos): https://www.iadb.org/en/project/CH-L1163
-- Nota metodológica: el proxy de red bloqueó el acceso directo a los sitios de prensa y de Contraloría; los contenidos se verificaron mediante resultados de búsqueda con URL identificada, contrastando al menos dos medios por cada cifra.
+- Nota sobre las fuentes: no se accedió al texto íntegro de las notas de prensa ni de los informes oficiales; las cifras y citas provienen de extractos con URL verificada, contrastados en al menos dos medios cuando fue posible.
 
 ## Registro de actualizaciones del dossier
 - 2026-08-25: dossier creado con investigación inicial. (agente de investigación)
+
+<!-- interno
+Límite de acceso (26-08-2026): Nota metodológica: el proxy de red bloqueó el acceso directo a los sitios de prensa y de Contraloría; los contenidos se verificaron mediante resultados de búsqueda con URL identificada, contrastando al menos dos medios por cada cifra.
+-->

@@ -74,7 +74,11 @@ Nota de rigor: la denuncia del 2026-08-18 no acredita hecho ni participación al
 - La Tercera, 2021 (elección de Rivas, contexto): https://www.latercera.com/politica/noticia/luciano-rivas-vence-a-tuma-en-la-araucania-y-se-convierte-en-el-unico-triunfo-de-chile-vamos/BCEJIGL2TFFBREP6T4LRW4O37U/
 - Universidad Autónoma de Chile, sitio oficial (cargo de Emilio Guerra, vicerrector sede Temuco): https://www.uautonoma.cl/universidad/vicerrectoria-de-sede/
 
-Notas metodológicas: el proxy de red bloqueó el acceso directo a los artículos (WebFetch), por lo que las cifras y citas provienen de resultados de búsqueda con URL verificada, contrastados en al menos dos medios cuando fue posible. El número del informe final de Contraloría y su fecha exacta de emisión quedan como "sin confirmar" (solo consta el preinforme N°744 de la Contraloría Regional). Los montos por convenio individual no fueron publicados en las fuentes consultadas. Los nombres de los querellados por el CDE (2026-05-22) no aparecen individualizados en las fuentes disponibles.
+Nota sobre las fuentes: no se accedió al texto íntegro de las notas de prensa ni de los informes oficiales; las cifras y citas provienen de extractos con URL verificada, contrastados en al menos dos medios cuando fue posible.
 
 ## Registro de actualizaciones del dossier
 - 2026-08-26: dossier creado con investigación inicial. (agente de investigación)
+
+<!-- interno
+Límite de acceso (26-08-2026): Notas metodológicas: el proxy de red bloqueó el acceso directo a los artículos (WebFetch), por lo que las cifras y citas provienen de resultados de búsqueda con URL verificada, contrastados en al menos dos medios cuando fue posible. El número del informe final de Contraloría y su fecha exacta de emisión quedan como "sin confirmar" (solo consta el preinforme N°744 de la Contraloría Regional). Los montos por convenio individual no fueron publicados en las fuentes consultadas. Los nombres de los querellados por el CDE (2026-05-22) no aparecen individualizados en las fuentes disponibles.
+-->

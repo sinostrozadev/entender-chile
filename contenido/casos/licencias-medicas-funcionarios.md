@@ -146,4 +146,8 @@ Nota metodológica sobre la jurisprudencia: No existe un registro oficial ni un 
 
 ## Registro de actualizaciones del dossier
 - 2026-08-26: dossier creado con investigación inicial. (agente de investigación)
-- 2026-08-26: CORRECCIÓN a la base del barrido. La premisa de una "jurisprudencia adversa emergente" que estaría revocando destituciones no se sostiene: la Corte Suprema ha confirmado de forma reiterada las destituciones (seis fallos localizados entre diciembre de 2025 y mayo de 2026), y las revocaciones firmes se concentran en Cortes de Apelaciones por defectos de procedimiento o proporcionalidad, no por la licitud de la conducta. (agente de investigación)
+- 2026-08-26: Precisión sobre la jurisprudencia: no existe una tendencia a revocar destituciones; la Corte Suprema ha confirmado de forma reiterada las destituciones (seis fallos localizados entre diciembre de 2025 y mayo de 2026), y las revocaciones firmes se concentran en Cortes de Apelaciones por defectos de procedimiento o proporcionalidad, no por la licitud de la conducta. (agente de investigación)
+
+<!-- interno
+Corrección al barrido de candidatos del 25-08-2026 (base interna): La premisa de una "jurisprudencia adversa emergente" que estaría revocando destituciones no se sostiene: la Corte Suprema ha confirmado de forma reiterada las destituciones (seis fallos localizados entre diciembre de 2025 y mayo de 2026), y las revocaciones firmes se concentran en Cortes de Apelaciones por defectos de procedimiento o proporcionalidad, no por la licitud de la conducta. (agente de investigación)
+-->
