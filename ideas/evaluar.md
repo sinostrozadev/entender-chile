@@ -77,3 +77,16 @@ madrugada" en ejecutar.md, 2026-08-24.)
   la identidad apolítica del canal.
 - **Esfuerzo:** medio por pieza (el dato ya estará acumulado; el trabajo es
   guion y diseño).
+
+## Pipeline editorial por etapas (la olla explícita)
+- **Fecha:** 2026-08-26 · **Origen:** Santiago (idea) + Claude (estructura)
+- **Qué:** separar la generación del informe en etapas con artefactos
+  commiteados: catálogo de fuentes mantenido por un agente curador, barrido
+  que produce una preselección de 30-50 titulares (la traza de lo
+  descartado), y priorización con criterio de importancia operativo, público
+  objetivo y topes. Propuesta completa en
+  estrategia/propuesta-pipeline-editorial.md, con 5 decisiones abiertas.
+- **Valor:** por primera vez se puede evaluar la SELECCIÓN de noticias, no
+  solo la redacción; el catálogo de fuentes se vuelve auditable y mejorable.
+- **Esfuerzo:** medio (2-3 sesiones en fases); costo API diario estimado
+  $3-6 USD si generar.js pasa a ser el camino principal.
