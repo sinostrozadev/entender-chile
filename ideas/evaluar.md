@@ -182,3 +182,17 @@ madrugada" en ejecutar.md, 2026-08-24.)
   para las excepciones hay paleta propia ya validada en la especificación.
 - **Esfuerzo:** medio-alto. Lo caro no es dibujar: es mantener el dato al día,
   y de eso depende toda la promesa.
+
+## Formato del video: por qué alguien nos elegiría sobre un canal de periodista
+- **Fecha:** 2026-08-27 · **Origen:** Santiago (la pregunta) + Claude
+- **Qué:** ocho ideas de formato apoyadas en las tres ventajas estructurales
+  del canal frente a un programa conducido por una persona (no olvidamos, no
+  opinamos, la fuente va en pantalla). Documento completo en
+  ideas/formato-video.md, con 5 decisiones abiertas.
+- **La más fuerte:** "¿En qué quedó?" como sección diaria fija de 60 segundos.
+  Es la única que la competencia no puede copiar: exige un archivo que se
+  mantenga solo.
+- **La frase que ordena todo:** el canal que no te dice qué pensar, y que no
+  se olvida.
+- **Pendiente antes de decidir:** ver videos reales de El Shot y otros canales
+  chilenos y anotar qué hacen en los primeros 30 segundos.
