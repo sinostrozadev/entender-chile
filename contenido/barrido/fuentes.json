@@ -1,0 +1,182 @@
+{
+  "_nota": "Fuentes del barrido diario. Lo lee scripts/barrido.js; lo cura un agente (ver README.md de esta carpeta). Tres tipos: feed directo, consulta de Google News, e institucional sin feed (esas las revisa la tarea de GPT, no el script). Las consultas usan OR: Google News trata varias palabras sueltas como AND estricto y devuelve casi nada (verificado 27-08-2026: 'Chile empleo salario pensiones AFP' → 0 resultados; con OR → 37).",
+  "revisado": "2026-08-27",
+  "feeds": [
+    {
+      "id": "cooperativa",
+      "medio": "Cooperativa",
+      "url": "https://www.cooperativa.cl/noticias/site/tax/port/all/rss_4___1.xml"
+    },
+    {
+      "id": "latercera",
+      "medio": "La Tercera",
+      "url": "https://www.latercera.com/arcio/rss/"
+    },
+    {
+      "id": "radiouchile",
+      "medio": "Radio U. de Chile",
+      "url": "https://radio.uchile.cl/feed/"
+    },
+    {
+      "id": "ciper",
+      "medio": "CIPER",
+      "url": "https://www.ciperchile.cl/feed/"
+    },
+    {
+      "id": "exante",
+      "medio": "Ex-Ante",
+      "url": "https://www.ex-ante.cl/feed/"
+    },
+    {
+      "id": "interferencia",
+      "medio": "Interferencia",
+      "url": "https://interferencia.cl/rss.xml"
+    },
+    {
+      "id": "lanacion",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.cl/feed/"
+    },
+    {
+      "id": "gnews-portada",
+      "medio": "Google News Chile",
+      "url": "https://news.google.com/rss?hl=es-419&gl=CL&ceid=CL:es-419"
+    }
+  ],
+  "consultas": [
+    {
+      "id": "gobierno",
+      "area": "Política",
+      "q": "Chile (Gobierno OR Presidente OR ministro OR \"La Moneda\")"
+    },
+    {
+      "id": "congreso",
+      "area": "Política",
+      "q": "Chile (Congreso OR \"proyecto de ley\" OR Senado OR \"Cámara de Diputados\")"
+    },
+    {
+      "id": "economia",
+      "area": "Economía",
+      "q": "Chile (economía OR IPC OR dólar OR \"Banco Central\" OR inflación)"
+    },
+    {
+      "id": "trabajo",
+      "area": "Economía",
+      "q": "Chile (empleo OR salario OR pensiones OR AFP OR sindicato)"
+    },
+    {
+      "id": "seguridad",
+      "area": "Seguridad y Justicia",
+      "q": "Chile (fiscalía OR formalización OR \"crimen organizado\" OR homicidios OR Carabineros)"
+    },
+    {
+      "id": "plata-publica",
+      "area": "Plata pública",
+      "q": "Chile (Contraloría OR \"fraude al fisco\" OR \"fondos públicos\" OR sumario OR malversación)"
+    },
+    {
+      "id": "regiones",
+      "area": "Chile en regiones",
+      "q": "Chile (municipalidad OR gobernador OR \"región de\" OR alcalde)"
+    },
+    {
+      "id": "vivienda",
+      "area": "Vivienda y ciudad",
+      "q": "Chile (vivienda OR subsidio OR Minvu OR campamentos OR arriendo)"
+    },
+    {
+      "id": "ciencia",
+      "area": "Ciencia y tecnología",
+      "q": "Chile (ciencia OR tecnología OR investigación OR astronomía OR universidad)"
+    },
+    {
+      "id": "clima",
+      "area": "Medioambiente y clima",
+      "q": "Chile (Senapred OR alerta OR \"sistema frontal\" OR emergencia OR sequía)"
+    },
+    {
+      "id": "salud",
+      "area": "Sociedad",
+      "q": "Chile (Fonasa OR isapres OR hospital OR salud OR licencias médicas)"
+    },
+    {
+      "id": "educacion",
+      "area": "Sociedad",
+      "q": "Chile (educación OR colegios OR Mineduc OR profesores OR SLEP)"
+    },
+    {
+      "id": "internacional",
+      "area": "Internacional",
+      "q": "Chile (Cancillería OR \"relaciones exteriores\" OR frontera OR aranceles OR exportaciones)"
+    },
+    {
+      "id": "latam",
+      "area": "Internacional",
+      "q": "(Argentina OR Perú OR Bolivia OR Brasil) (crisis OR elecciones OR gobierno OR economía)"
+    }
+  ],
+  "institucionales_sin_feed": [
+    {
+      "medio": "Contraloría General de la República",
+      "url": "https://www.contraloria.cl/portalweb/web/cgr/noticias"
+    },
+    {
+      "medio": "Banco Central de Chile",
+      "url": "https://www.bcentral.cl/web/banco-central/sala-de-prensa"
+    },
+    {
+      "medio": "Cámara de Diputados",
+      "url": "https://www.camara.cl/cms/noticias/"
+    },
+    {
+      "medio": "Senado",
+      "url": "https://www.senado.cl/comunicaciones/noticias"
+    },
+    {
+      "medio": "Dirección Meteorológica de Chile",
+      "url": "https://www.meteochile.gob.cl/PortalDMC-web/index.xhtml"
+    },
+    {
+      "medio": "Ministerio Público",
+      "url": "http://www.fiscaliadechile.cl/Fiscalia/sala_prensa/noticias.jsp"
+    }
+  ],
+  "descartadas": [
+    {
+      "url": "https://www.biobiochile.cl/feed",
+      "motivo": "404 el 27-08-2026; BioBio no publica RSS. Se cubre vía Google News."
+    },
+    {
+      "url": "https://www.emol.com/rss/rss.asp?canal=nacional",
+      "motivo": "responde 200 pero sin XML válido (27-08-2026). Se cubre vía Google News."
+    },
+    {
+      "url": "https://www.t13.cl/rss",
+      "motivo": "404 el 27-08-2026. Se cubre vía Google News."
+    },
+    {
+      "url": "https://www.elmostrador.cl/feed/",
+      "motivo": "404 el 27-08-2026. Se cubre vía Google News."
+    },
+    {
+      "url": "https://www.cnnchile.com/feed/",
+      "motivo": "404 el 27-08-2026. Se cubre vía Google News."
+    },
+    {
+      "url": "https://www.df.cl/rss",
+      "motivo": "404 el 27-08-2026. Se cubre vía Google News."
+    },
+    {
+      "url": "https://www.adnradio.cl/feed/",
+      "motivo": "404 el 27-08-2026. Se cubre vía Google News."
+    },
+    {
+      "url": "https://www.24horas.cl/rss",
+      "motivo": "404 el 27-08-2026. Se cubre vía Google News."
+    },
+    {
+      "url": "https://www.meganoticias.cl/rss/nacional.xml",
+      "motivo": "404 el 27-08-2026. Se cubre vía Google News."
+    }
+  ]
+}

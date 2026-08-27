@@ -1,0 +1,38 @@
+name: Barrido
+
+# Junta lo que publicó la prensa chilena y lo deja en contenido/barrido/.
+# Corre ANTES que la generación de la edición (ChatGPT a las 03:45 Chile),
+# para que la preselección tenga material fresco.
+on:
+  schedule:
+    # 06:30 UTC = 02:30 Chile en invierno (UTC-4) / 03:30 en verano (UTC-3).
+    - cron: "30 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: barrido
+  cancel-in-progress: false
+
+jobs:
+  barrer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Barrer
+        run: node scripts/barrido.js
+
+      - name: Commit del barrido
+        run: |
+          FECHA=$(TZ=America/Santiago date +%F)
+          git config user.name "edicion-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add contenido/barrido/
+          git diff --cached --quiet || { git commit -m "barrido $FECHA [bot]"; git pull --rebase; git push; }
