@@ -4,3 +4,5 @@
 - extradición y cooperación penal internacional | Chile solicita a Estados Unidos extradición de integrantes del Tren de Aragua | 2026-08-25
 - elección del Secretario General de Naciones Unidas y votaciones informales del Consejo de Seguridad | La candidatura de Michelle Bachelet queda séptima en la segunda votación informal | 2026-08-26
 - entrada en vigencia de las leyes y postergación de su vigencia | Gobierno evalúa postergar hasta 2027 la entrada en vigencia de la Ley de Protección de Datos | 2026-08-26
+- control judicial de traslados penitenciarios y límites de la administración carcelaria | Operación Cancerbero concentra internos de alta peligrosidad en Talca y un tribunal ordena revertir cuatro traslados | 2026-08-27
+- contratos especiales de operación de litio y régimen jurídico de minerales no concesibles | Chile firma su primer CEOL exclusivamente con una empresa privada para recuperar litio desde residuos mineros | 2026-08-27
