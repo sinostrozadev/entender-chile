@@ -5,6 +5,9 @@ Fecha = fecha local de Chile (America/Santiago), formato AAAA-MM-DD.
 Slug = minúsculas, guiones, sin tildes ni ñ, solo [a-z0-9-].
 Codificación UTF-8, Markdown plano.
 
+0. Preselección del día (la olla):
+   contenido/preseleccion/AAAA-MM-DD.md
+
 1. Informe diario:
    contenido/informes/AAAA-MM-DD.md
 
@@ -34,8 +37,8 @@ FORMATO OBLIGATORIO de los dos guiones (el parser depende de esto):
 
 REGLAS DE COMMIT:
 - Cada tarea commitea y pushea SOLO sus propios archivos. Mensaje:
-  "edición AAAA-MM-DD: <pieza>" donde <pieza> es informe, claves,
-  guion informe o guion clave.
+  "edición AAAA-MM-DD: <pieza>" donde <pieza> es preselección, informe,
+  claves, guion informe o guion clave.
 - Jamás modificar archivos de fechas anteriores; re-ejecuciones del mismo
   día sí sobreescriben los archivos de ese día.
 - Si un día no hay Clave (excepcional), simplemente no crear sus archivos.

@@ -2,13 +2,16 @@ Prepara un reporte diario de noticias dirigido a una audiencia general chilena, 
 
 IDENTIDAD EDITORIAL: este reporte alimenta el canal "Entender Chile". Su propósito no es cubrir todo lo que ocurrió, sino explicar lo que importa para entender el país: política, economía, sociedad, ciencia e historia de Chile, y lo internacional cuando afecta a Chile. No es un noticiero: no existen secciones de trámite. Sin pronóstico del tiempo como sección y sin resumen deportivo de la fecha.
 
-MÉTODO DE BARRIDO:
-Haz primero un barrido amplio por áreas temáticas, regiones de Chile y principales regiones del mundo, y solo después jerarquiza, para evitar sesgos por disponibilidad o notoriedad de las primeras fuentes encontradas. Consulta medios nacionales e internacionales confiables y fuentes primarias u oficiales (Banco Central, INE, ministerios, Congreso, Dirección Meteorológica, organismos internacionales, comunicados oficiales) cuando existan.
+PUNTO DE PARTIDA: la olla del día.
+Lee en esta ejecución contenido/preseleccion/AAAA-MM-DD.md del repositorio (fecha local de Chile): es la lista de candidatas que produjo la etapa de selección, con el área y el porqué de cada una. Trabaja SOBRE esa lista.
+- Desarrolla solo noticias que estén en la olla. Si al verificar aparece un hecho grave que la olla no traía, puedes incluirlo, y en ese caso agrega al final del reporte una línea "FUERA DE LA OLLA: <titular>" por cada uno: sirve para corregir el barrido.
+- Si el archivo de preselección no existe (la etapa falló), haz tú el barrido amplio por áreas temáticas, regiones de Chile y principales regiones del mundo antes de jerarquizar, y anótalo al final.
+- La olla no está verificada: es material bruto. Toda cifra, cita y fecha que llegue al informe se verifica ahora, en fuentes primarias u oficiales cuando existan (Banco Central, INE, ministerios, Congreso, Contraloría, Dirección Meteorológica, organismos internacionales) y con dos fuentes coincidentes para las noticias [A].
 
 JERARQUIZACIÓN:
 - Asigna a cada noticia un peso visible al inicio del titular: [A], [B] o [C].
   [A] = las noticias que definen la jornada. Desarrollo completo con contexto. Máximo 4 por edición; si hay más candidatas, elige y baja las demás a [B].
-  [B] = relevante pero no central. Uno o dos párrafos.
+  [B] = relevante pero no central. Uno o dos párrafos. Máximo 6 por edición: si hay más candidatas, elige y baja las demás a [C] u omítelas. El tope existe porque sin él la edición se llena de noticias medianas en vez de decidir qué importa.
   [C] = registro breve para la sección "Además, hoy". Una frase por noticia.
 - La noticia de apertura es siempre una [A].
 - Deportes, dato curioso, el tiempo y agenda no llevan peso; tienen formato propio.
@@ -71,7 +74,7 @@ ESTILO ANTI-PLANTILLA (para que no se lea como texto generado):
 - Incisos con comas o paréntesis, nunca con guiones ni rayas.
 
 CONTROL ANTES DE ENTREGAR:
-1. Toda noticia tiene peso [A], [B] o [C], y hay como máximo cuatro [A].
+1. Toda noticia tiene peso [A], [B] o [C], con máximo cuatro [A] y máximo seis [B].
 2. Ningún tema aparece desarrollado en dos secciones.
 3. Toda cifra y cita tiene fuente y fecha.
 4. No hay secciones vacías ni frases que informen ausencia de noticias.
