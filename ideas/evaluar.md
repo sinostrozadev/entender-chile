@@ -196,3 +196,21 @@ madrugada" en ejecutar.md, 2026-08-24.)
   se olvida.
 - **Pendiente antes de decidir:** ver videos reales de El Shot y otros canales
   chilenos y anotar qué hacen en los primeros 30 segundos.
+
+## Voz e imágenes: investigación cerrada (27-08-2026)
+- **Voz** (ideas/voz-opciones.md): para probar, **Azure AI Speech capa F0**,
+  500k caracteres al mes gratis permanente, uso comercial permitido, y el
+  único proveedor con voces de español de CHILE (es-CL Catalina y Lorenzo).
+  Producción con voz clonada: ElevenLabs. Hallazgo que desbloquea: el
+  requisito de timestamps "por caracter" no es real, con alineación por
+  palabra e interpolación basta, lo que abre casi todo el mercado. Trampas
+  detectadas: XTTS y F5-TTS tienen pesos NO comerciales, el Free de
+  ElevenLabs tampoco, edge-tts viola términos de Microsoft, y PlayHT dejó de
+  existir en 2025.
+- **Imágenes** (ideas/imagenes-y-recursos.md): las miniaturas con IA NO
+  requieren divulgación (YouTube las llama asistencia de producción), pero el
+  ejemplo textual de la política de contenido inauténtico describe casi este
+  proyecto. Recomendación: cero fotos y cero imágenes generadas en el video,
+  miniatura tipográfica con remotion still. Chile no tiene fair use: las
+  fotos de prensa están fuera. La licencia de Remotion es gratis hasta 3
+  empleados. El 3D es mala inversión (con GPU rindió 3 veces más lento).
