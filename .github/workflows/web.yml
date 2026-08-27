@@ -9,6 +9,7 @@ on:
     paths:
       - "contenido/informes/**"
       - "contenido/claves/**"
+      - "contenido/casos/**"
       - "contenido/videos/**"
       - "web/**"
       - ".github/workflows/web.yml"

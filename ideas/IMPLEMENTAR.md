@@ -1,21 +1,21 @@
 # Por implementar
 
 ## MAÑANA PRIMERO (2026-08-26, pedido de Santiago: "esto hay que arreglarlo, no debe salir así")
-- [ ] Observatorio, ficha Democracia Viva: las "Notas metodológicas" salen
+- [x] Observatorio, ficha Democracia Viva: las "Notas metodológicas" salen
       públicas en la web tal cual. Dejar las correcciones (1-5) en versión
       pública limpia y reescribir el punto 6 sin jerga de operaciones
       ("proxy de red"): "No se accedió al texto íntegro de las resoluciones;
       todo proviene de extractos con URL verificada y al menos dos medios
       por cifra".
-- [ ] Definir la regla para TODOS los dossiers: qué va en la ficha pública y
+- [x] Definir la regla para TODOS los dossiers: qué va en la ficha pública y
       qué queda en un bloque interno que la web no renderice (por ejemplo
       un comentario <!-- interno ... --> que contenido.ts filtre), y
       pasársela al prompt caso-seguimiento.md y a la rutina nocturna.
-- [ ] contenido/casos/candidatos.md línea 18: sigue el error "la Corte
+- [x] contenido/casos/candidatos.md línea 18: sigue el error "la Corte
       Suprema ratificó (junio 2026)"; corregir con lo verificado en el
       dossier (8º Juzgado de Garantía se declaró incompetente el 25-06-2026;
       la Suprema resolvió en agosto).
-- [ ] Leer el log de la primera corrida de la rutina "Observatorio plata
+- [x] Leer el log de la primera corrida de la rutina "Observatorio plata
       pública" (03:05): ¿pudo abrir fuentes oficiales o el proxy de la nube
       la limitó a extractos de buscador? Si el bloqueo es sistemático,
       mover ese paso a un entorno con acceso (local) o cambiar la fuente.

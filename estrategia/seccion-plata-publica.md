@@ -126,6 +126,13 @@ Hecho el 2026-08-26:
   caso abierto, actualiza dossiers, registra hitos.md y regenera el índice
   con `node scripts/casos.js`. scripts/casos.js por API queda como plan B.
 
+Aprendido en la primera corrida (26-08-2026): la nube busca bien pero no
+puede abrir varios medios chilenos (La Tercera, CNN Chile, etc.). Regla
+resultante: lo que no se confirma en dos medios no entra a la ficha y se
+anota en `contenido/casos/por-verificar.md` para la revisión de la mañana
+(local, con acceso completo). Lo público y lo interno quedan separados por
+el bloque `<!-- interno -->` (ver README de casos).
+
 Pendiente:
 - Plantilla del video de cierre en Remotion.
 - Gate humano antes de publicar cambios de dossier (por ahora sale
