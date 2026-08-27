@@ -1,12 +1,12 @@
 {
  "fecha": "2026-08-26",
- "generado": "2026-08-27T03:54:17.142Z",
+ "generado": "2026-08-27T03:55:20.504Z",
  "fuentes_consultadas": 22,
  "fuentes_caidas": [],
- "total_bruto": 1098,
- "total_unico": 996,
+ "total_bruto": 1120,
+ "total_unico": 1010,
  "continuan_de_dias_previos": 0,
- "destacadas": 90,
+ "destacadas": 96,
  "ruido_probable": 16,
  "noticias": [
   {
@@ -96,6 +96,24 @@
    ],
    "repeticiones": 3,
    "visto_antes": null,
+   "motivo_destaque": "corroborada en 3 fuentes"
+  },
+  {
+   "clave": "agosto chile cierre cotizacion dolar hoy",
+   "titulo": "Dólar hoy en Chile: cotización de cierre del 26 de agosto",
+   "medio": "Infobae",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQT09KOXhpRWlUMjItT3NiTUxoeGJnOWJYX3BQTjluNjR1eFFWUjhmMzFSSjNRaC1ZQm9mVWRuZmFoYlp4bmo0U0RROXJrUVNRX0lNMDU5UHpmdHBGeFZfU2ZUVjFZSkZ6Mkt4TGp2TXZOQ2M4bVZGOFV0TUF2R0lUQXdjSnZWUUgwT29DQW9ZY1A4RW5TQ2tBcW93RkdPcUlqZVdUZ3BmQl9oNzBmelpCSG03UXoyWUFhaHp1OWdB0gG-AUFVX3lxTFBPT0o5eGlFaVQyMi1Pc2JNTGh4Ymc5YlhfcFBOOW42NHV4UVZSOGYzMVJKM1FoLVlCb2ZVZG5mYWhiWnhuajRTRFE5cmtRU1FfSU0wNTlQemZ0cEZ4Vl9TZlRWMVlKRnoyS3hManZNdk5DYzhtVkY4VXRNQXZHSVRBd2NKdlZRSDBPb0NBb1ljUDhFblNDa0Fxb3dGR09xSWplV1RncGZCX2g3MGZ6WkJIbTdRejJZQWFoenU5Z0E?oc=5",
+   "publicado": "Wed, 26 Aug 2026 18:53:53 GMT",
+   "areas": [
+    "Política",
+    "Economía"
+   ],
+   "medios": [
+    "Infobae"
+   ],
+   "repeticiones": 3,
+   "visto_antes": null,
+   "ruido_probable": true,
    "motivo_destaque": "corroborada en 3 fuentes"
   },
   {
@@ -321,17 +339,17 @@
    "motivo_destaque": "corroborada en 2 fuentes"
   },
   {
-   "clave": "ante bolsonaro brasil caminos dos entreguismo frente lula soberania",
-   "titulo": "Brasil ante dos caminos: la soberanía con Lula frente al entreguismo con Bolsonaro",
-   "medio": "teleSUR",
-   "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5ya1NSX2FrZG1kSkRkbS0tMU9XV0FTRGp1V0NLR2F6VGM4UDFmaTZkUEZ0WkdDWnBhN1RlSzdDbmhXaVoxS3htX2pUZ1FlT0VHa1dQX0xUSWpCejk3ZGpqVGU1dG05b0tTQ0NVQzF0Mko5YkdiQTBDM0Fn?oc=5",
-   "publicado": "Wed, 26 Aug 2026 21:11:39 GMT",
+   "clave": "aborda canciller chile comerciales inversiones japon mackenna nuevas oportunidades perez",
+   "titulo": "Canciller Pérez Mackenna aborda con Japón nuevas oportunidades comerciales e inversiones en Chile",
+   "medio": "Puranoticia.cl",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOZTcyYVA4Vi15MjFlQVdWUmFKYXJpWEhwRk5SVXFKUnpIOGZoMlg0UEM3VEFNRHFNMFhnR2Q0dlMwTS16ZDlQQzVjYXVTdFVxbU1VR2s1eDE2WUh0cHhGMGtVcW1pNHNmQ25FcVJma2VZbldpZnJqN0dDMTNyVHZzNTdZdTk1S3R4WDNNUWJSZkVIZE5wUTlsenYyVERIeHVpclJNTmhwdmVZd0xBbmhN?oc=5",
+   "publicado": "Wed, 26 Aug 2026 16:48:00 GMT",
    "areas": [
-    "Internacional"
+    "Política",
+    "Ciencia y tecnología"
    ],
    "medios": [
-    "teleSUR",
-    "Resumen Latinoamericano -"
+    "Puranoticia.cl"
    ],
    "repeticiones": 2,
    "visto_antes": null,
@@ -423,6 +441,23 @@
    "motivo_destaque": "corroborada en 2 fuentes"
   },
   {
+   "clave": "anuncia argentina chile estrecho magallanes reclamo",
+   "titulo": "Chile anuncia reclamo a Argentina por estrecho de Magallanes",
+   "medio": "DW.com",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOcGVUcUhNZ3hiVmh2cEh0c0NSS0NzU2dyWW84MGtZUGpwVWlYVlJXdDJfbDhFZG95M3FfR3NLM3g4R2p3NzdhTThRZW0wMU1WN3BDWlpWZk13RUhtSWVUa2tzQlpyeGFSU0tMSTZzSXpfS1pXN0JLdllpYS1TeHNSWXB4dzNpc25SQXFrVnplczhVbm1rVERtOdIBmAFBVV95cUxQVE8xVGllRW9iUUtpbGlfZ1VBcHIyeUZtYm5vb3hfM0wtalBGaTEtQUZnRTk5Q0xwalpkazdoZ1RLUXE0MnItWElmT2hLcWpCWlZfZ01NVDZLU3hubE9WSmRSdFgyNm5WNEpIclV4M20yakE2MlMwUmtlbzlZYklzM0RzczlzRWJ2T0ZROFpjNk55R2dnWHlOTQ?oc=5",
+   "publicado": "Wed, 26 Aug 2026 01:24:37 GMT",
+   "areas": [
+    "Política",
+    "Internacional"
+   ],
+   "medios": [
+    "DW.com"
+   ],
+   "repeticiones": 2,
+   "visto_antes": null,
+   "motivo_destaque": "corroborada en 2 fuentes"
+  },
+  {
    "clave": "alista ampliar arancel busca chile exportaciones negociacion nueva ronda",
    "titulo": "Chile busca ampliar exportaciones con arancel 0 a EE.UU. y alista nueva ronda de negociación",
    "medio": "Nuevo Poder",
@@ -434,6 +469,22 @@
    ],
    "medios": [
     "Nuevo Poder"
+   ],
+   "repeticiones": 2,
+   "visto_antes": null,
+   "motivo_destaque": "corroborada en 2 fuentes"
+  },
+  {
+   "clave": "autorizacion chile congreso debate estado excepcion meses ocho sin",
+   "titulo": "Chile debate un estado de excepción de hasta ocho meses sin autorización del Congreso",
+   "medio": "MercoPress",
+   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQY3J2UUxJVzBSQUNFZVRfNDJHel9HMXR4QzZRcFRuOFRrR2hCWlY3aWRxQndPUjBuMmZIejBINGx1RnJyc2tpck1PQS04aTI0NGNDN082ZjdfN2UyeU5MRDUybEF4bFd4NFFLVFBpRF84alMtX3pHZHpqNTZmbS12alExREJjSURKNkdVUUU2b180TXZfbDhVNk1FemhpU2N4SGtFdV9tQ2ZIdC1ORGlQUFVscF9FRUdUNkNLTm5QWQ?oc=5",
+   "publicado": "Wed, 26 Aug 2026 08:42:00 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "MercoPress"
    ],
    "repeticiones": 2,
    "visto_antes": null,
@@ -474,6 +525,23 @@
    "motivo_destaque": "corroborada en 2 fuentes"
   },
   {
+   "clave": "aranceles avances chile esperan estados este gremios martes negociaciones retoman unidos",
+   "titulo": "Chile y Estados Unidos retoman este martes negociaciones por aranceles: gremios esperan avances",
+   "medio": "ADN Radio",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQR21BSGRSazBJUGVIeTlwYmt2S1lxb2ZYUFdZYnowMHlWcEtGeUpKMHIzdndSRzlvVElPMkx0OUxzMlVrZ040R2xCX0xrZFFfcHYwLV8xNDVtV25McHYteUt6ODl4UVBLT19jRDd1SmpjcDhTbHVyWEZVRzhHR1NpYWIxM182anh5cXZGakNJLU0wYzF6eHU0cUZHcWxJSm9lUUw1cUkzTXhuNWpiVG1Md0tLdng4N2Z4X3VQRE5EX3FsODNyN3JJR0J30gHeAUFVX3lxTE5SYnN3OEV3TXpuZ2tWZ3pjc055STU3akJfemltbkYwM3Uta0VQN1RCdkFDZzVBQnJJTldXSjJfVGtIV3R3QW9UYXRBWk5XREltSkowdU5WYUttU1doZ2FQdHNwQ2JzXzBsTlFoOU5RdHBBQ0JFZWJNQnI3MXZwUXB4QzNMWlBqNU83c2xRRXRDNVJlSWhuT1Jfa3huWUNoM0RMd1FSOEJPcDhXU1FkTC1GMnNKSU8ydURZR1E1dUxWQktXamY0MmVnaXlBLXBPcGhaWXVmdjFydy14TExYdw?oc=5",
+   "publicado": "Tue, 25 Aug 2026 13:29:39 GMT",
+   "areas": [
+    "Política",
+    "Internacional"
+   ],
+   "medios": [
+    "ADN Radio"
+   ],
+   "repeticiones": 2,
+   "visto_antes": null,
+   "motivo_destaque": "corroborada en 2 fuentes"
+  },
+  {
    "clave": "buscan chile comerciales japon nuevas oportunidades",
    "titulo": "Chile y Japón buscan nuevas oportunidades comerciales",
    "medio": "Radio Pauta 100.5",
@@ -491,16 +559,17 @@
    "motivo_destaque": "corroborada en 2 fuentes"
   },
   {
-   "clave": "chile congreso constitucional gobierno kast quito reforma seguridad urgencia",
-   "titulo": "Chile: el gobierno de Kast le quitó la urgencia en el Congreso a su reforma constitucional de seguridad",
-   "medio": "Infobae",
-   "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPUFN3amF5ZmotTEM2UjJpMmNvQnNyTzBVYXlCbGZrcWhzMnQwTVh1ZlFlbGF4cEtfZlRlNUwtTllJeXVBTnZpZFpta2lRLVQwS2s5NHFaWEZYNGVhLTJDc2VnbndTUlN0TkgxekR5cEdsUkF3YmExUDN0N255ZzRHN2ttem5YQzdWa3p1cWZjVzM3Sk5JRWlVbVl6SzhhNTR5TW1MSGNpRUZXRXc5aF91Q0xSd0JlNTNvVVJsUTF6VFR6Qm9vQ3dwdDN5UWh0VUNqSG9PTnJfS0lNNWJ1cEEtRXNwVlRtZFhEMDd4RmlZWHdNNknSAY4CQVVfeXFMT0luWTZqV3NPSWFGTHRtem1lUWVjTHczUE9PYWxGWElmSFZtcHlQdzhCeTZxRWVjYjlnczZKdzd6NlpfYnNjbGpqY0RlcUswQldHRlNRVWVmMUJBby1BbVVlNjVUdHJ3eEF5Z3hqQ3FRSXowRDRLaktlOFBmV1VuOXVoa0VzSGJXREd3RzFlOFlqMzBDVEx3VUplaVZoS2NuVVY2dE1HU2daUGlnTGM2M0RTWkNfM3VzVHJiYzRmR19aSUVMZXkwelBCLTUxX0szencwNGZqdEVoU1llT0Z1VzhhSWh1OVZiUjBLUFpaSWlSX3NCSzZRWmR6bGN3NlQtVFZVVVUtR3FhX0VvdnhB?oc=5",
-   "publicado": "Tue, 25 Aug 2026 17:35:00 GMT",
+   "clave": "chile elevados encuesta gastos hogares medicamentos revela",
+   "titulo": "Chile: Encuesta revela elevados gastos de hogares en medicamentos",
+   "medio": "Crónica Digital",
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQN3pMOUJTTEZvemxnV3RRMG5GcWROZEhuTVZaOWY3SkhqWndVWXdwaUo3ajlCeEhLcW1lcC0tMzBtVHBTYXJLNzlyQ1JTOWtnNnRHUmVuQXRRUDlhbEpISUhvdUxZV2RqMDByNF80WkhKdlN2ODNnSWJvVmxMVXN2X0ZlSnJQZXZzc1gtNnY2a28zejZwN0E?oc=5",
+   "publicado": "Wed, 26 Aug 2026 10:15:26 GMT",
    "areas": [
-    "Política"
+    "Política",
+    "Sociedad"
    ],
    "medios": [
-    "Infobae"
+    "Crónica Digital"
    ],
    "repeticiones": 2,
    "visto_antes": null,
@@ -608,23 +677,6 @@
    "motivo_destaque": "corroborada en 2 fuentes"
   },
   {
-   "clave": "chillan consejera corte destitucion jardua lorena ratifica regional",
-   "titulo": "Corte de Chillán ratifica destitución de consejera regional Lorena Jardúa",
-   "medio": "Radio Contacto 90.7 FM",
-   "url": "https://news.google.com/rss/articles/CBMi1gJBVV95cUxQY09Qd2Z5cjBTYWxLeUw4N2cya1lJNlAtQk9GVUpuWXlmTXN5M25ReDNwWjdLcHhxWjA2eDNMWEdVZURGNlVqV1VfRzVzUXFXRDNMQUtsZWQ0LTRfZnd4U0NpQXp2VENxcU9yeXF3VGJpdGI3NTI3enZRTVhsMXVHUTdKNml3Zi02YU9PZ2NLN1U5Uk1wOEF2V1ZBLUVVS1VPSjc3SV9JTEMtNG9uV3MzXzNCalUxZWxyRUVfUXJmQk5rRGNSRGpVZzE5Sk9tLWxjMTlxTkx1Rk51dWFxUTgyb05Gd3B3emN1N2J2MEs1elVVX3RUWWJlTExmc2xjZHFFSVdwemdXNlFHMlZwbFNjRk5PcUVzTGRzSVJYclN0eXg1ODduLTdHbi1WNlBLOFNwNnR6b2paa1Z0MFZzYXFjWmNCUGtINjFNUGkwYm9mcmZ0Zzl0MkE?oc=5",
-   "publicado": "Tue, 25 Aug 2026 17:18:49 GMT",
-   "areas": [
-    "Plata pública",
-    "Sociedad"
-   ],
-   "medios": [
-    "Radio Contacto 90.7 FM"
-   ],
-   "repeticiones": 2,
-   "visto_antes": null,
-   "motivo_destaque": "corroborada en 2 fuentes"
-  },
-  {
    "clave": "alcanza chile costo cuando desempleo emocional estudiar",
    "titulo": "Cuando estudiar no alcanza: el costo emocional del desempleo en Chile",
    "medio": "elciudadano.com",
@@ -711,23 +763,6 @@
    "motivo_destaque": "corroborada en 2 fuentes"
   },
   {
-   "clave": "agosto chile cierre cotizacion dolar hoy",
-   "titulo": "Dólar hoy en Chile: cotización de cierre del 26 de agosto",
-   "medio": "Infobae",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOQXFqeHJJRmZIWDFDcTBRcW1sZWJvcndMb2cxSGJtWXpTUlB1bnhvQWE5blpKeGNXQXptYXplNWYzdjE2YWJvTklLZ1hiMHlXaFo1VG5WWUE2N0xMZzVxZHVvZjltaTV6U2w3S3ZmOXBKeFBzZjNCc3BobXR3UUtmcnlyaFE5TWk0d3R2Y0RERXMyOHRwZkVSMW4yZkFlNTdtbVVN0gG-AUFVX3lxTFBPT0o5eGlFaVQyMi1Pc2JNTGh4Ymc5YlhfcFBOOW42NHV4UVZSOGYzMVJKM1FoLVlCb2ZVZG5mYWhiWnhuajRTRFE5cmtRU1FfSU0wNTlQemZ0cEZ4Vl9TZlRWMVlKRnoyS3hManZNdk5DYzhtVkY4VXRNQXZHSVRBd2NKdlZRSDBPb0NBb1ljUDhFblNDa0Fxb3dGR09xSWplV1RncGZCX2g3MGZ6WkJIbTdRejJZQWFoenU5Z0E?oc=5",
-   "publicado": "Wed, 26 Aug 2026 18:58:20 GMT",
-   "areas": [
-    "Economía"
-   ],
-   "medios": [
-    "Infobae"
-   ],
-   "repeticiones": 2,
-   "visto_antes": null,
-   "ruido_probable": true,
-   "motivo_destaque": "corroborada en 2 fuentes"
-  },
-  {
    "clave": "asi chileno elogio estadio internacional ninguno recibe tenemos",
    "titulo": "El estadio chileno que recibe elogio internacional: “No tenemos ninguno así”",
    "medio": "RedGol",
@@ -739,23 +774,6 @@
    ],
    "medios": [
     "RedGol"
-   ],
-   "repeticiones": 2,
-   "visto_antes": null,
-   "motivo_destaque": "corroborada en 2 fuentes"
-  },
-  {
-   "clave": "busco chile conflicto desactivar diplomatico estrecho gobierno kast magallanes reconocio tratados",
-   "titulo": "El Gobierno reconoció los tratados con Chile sobre el Estrecho de Magallanes y buscó desactivar un conflicto diplomático con Kast",
-   "medio": "Infobae",
-   "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOV2NvbHRyMzhoN04yZnNVSzJxeC1zSjhrdU8xbXpyb2h3RlBLYVU4NVIxaEtfX1VScU0zQ1BiWWVpcXZObmFybE5rWEVlQUJsd0dabTNIbF9CQld5VW5DeFZRUWtlbWdGQUxfd2Z5bVBIT3l6NDFoejFEMC1JbU9mTFlQYWk5Ylc3dmFVeDZxMHF0MGxVaEZwNkNnQzIwZDJjVlRORmdCQkdpREJTbWJRa1hVQ1U2OU1Ic3BwMFQtT1NRX2lqX2NmdjczT0ppVjFucF9nTW9INXNhdWxpNDZSUTN2dEpkamZpc2Qwa0gyYmkzbERualdraVBYelJlWllvM1ZPb9IBnwJBVV95cUxPZk5LSjFFaTN6Y1J6cHNXWUlsWnNxOTVMcG5scUFJWG9ZeG82dVFzbnFkRDRJdjRFZUU0OUVpXzBNQzFrWXZ4OS1yUkpzNUpLZFdJS0FJX2ZubGQ2T2xHR1R3OGJZR1ZvTG02TnRVZ2d1Q1BGZmJhUllYRU9sQUljTW5sT3REVkJkUEswVnptNWJNT0VCQjZscWlCYUVyR0FWakdlOVFYUE1TYVdXc2ZVakJvOTEzQ3ZJME9mc1p2cGM1Zmw5dWxzeTQ0bVZCUVNxa2loUy1GWjhwOXpDM3dJTjdLZTBKMXAtSXUzYWRTc1JQNk42Mm5LbEtTVk1rYjgweS04TFl3NmhxT3JWNUpuR29BbkZtVG82dlQ2RHYtSQ?oc=5",
-   "publicado": "Tue, 25 Aug 2026 15:47:00 GMT",
-   "areas": [
-    "Política",
-    "Internacional"
-   ],
-   "medios": [
-    "Infobae"
    ],
    "repeticiones": 2,
    "visto_antes": null,
@@ -790,6 +808,23 @@
    ],
    "medios": [
     "La Jornada Zacatecas"
+   ],
+   "repeticiones": 2,
+   "visto_antes": null,
+   "motivo_destaque": "corroborada en 2 fuentes"
+  },
+  {
+   "clave": "chile como crisis debatiran expertos onu superarla",
+   "titulo": "Expertos debatirán en Chile sobre crisis de la ONU y cómo superarla",
+   "medio": "Crónica Digital",
+   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQNi1GZjAtdUZfTHNydUI4VVA2bmE3S05IQURKUkhMS01wZnlwU080UUVKdFdtczJyV0UwbV9TTFVqY0JESjJMU0I1dWx3VHZjOE4tQ0tVQ1g0eGhtSWdOSU4xdUU4bjAwc3NMMk5JZXNfcnQtNGVlNHE3WkZLWTBTZVF0Qkd3QlFjd2pENFlRMEdXRENmZnRuTmJR?oc=5",
+   "publicado": "Wed, 26 Aug 2026 10:28:40 GMT",
+   "areas": [
+    "Política",
+    "Ciencia y tecnología"
+   ],
+   "medios": [
+    "Crónica Digital"
    ],
    "repeticiones": 2,
    "visto_antes": null,
@@ -895,6 +930,23 @@
    "motivo_destaque": "corroborada en 2 fuentes"
   },
   {
+   "clave": "2026 anuncia arriendo chile discapacidad enfocado fechas gobierno mayores personas personas subsidio",
+   "titulo": "Gobierno de Chile anuncia fechas para el Subsidio de Arriendo 2026 enfocado en personas mayores y personas con discapacidad.",
+   "medio": "OvejeroNoticias",
+   "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxOZWJHTWFzY1dtTzlBcFJBUHUxV2lHVHROTXJKa0tpb3l1SW1vdmFBMms1UWdRSTRzQnNKdkpfZUFwdmJyMU1zTThkSXpkTThVNGhzM0RGRTN5RmFBSlZOUTNPX3VRSnhtQldQbXJaeDd1SndpNXJqckJEdFlpZUZMYzE5aFc2RzJ0QkY3ZXlDU1AtSnYzNVRqYmhsWkpTR2dsX3E3RzlMZnJKa3NRei1qVFQtR1k4QVVrME5ZV2ZDc1dOalFBRjFEZjJfSlpPd0ZJaHlIREhyWHNwN2hpY0pCb1Vzc2ZuTkk1TllGS3BHbHgwQnZjekE?oc=5",
+   "publicado": "Tue, 25 Aug 2026 18:22:26 GMT",
+   "areas": [
+    "Política",
+    "Vivienda y ciudad"
+   ],
+   "medios": [
+    "OvejeroNoticias"
+   ],
+   "repeticiones": 2,
+   "visto_antes": null,
+   "motivo_destaque": "corroborada en 2 fuentes"
+  },
+  {
    "clave": "acatara afirma aranceles convenga dialogando eeuu gobierno nada seguira",
    "titulo": "Gobierno seguirá dialogando con EEUU por aranceles y afirma que no acatará nada que no convenga",
    "medio": "BioBioChile",
@@ -923,38 +975,6 @@
    ],
    "medios": [
     "Santo Tomás en Línea"
-   ],
-   "repeticiones": 2,
-   "visto_antes": null,
-   "motivo_destaque": "corroborada en 2 fuentes"
-  },
-  {
-   "clave": "chile cuando dialogo eduardo generan inestabilidades juan lado lider masoneria quedando urrutia",
-   "titulo": "Juan Eduardo Urrutia, líder de la masonería en Chile: “Cuando el diálogo va quedando de lado, se generan inestabilidades”",
-   "medio": "La Tercera",
-   "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxOdXVFV1VrOVAxLTh0QmwzUmdXVUdmLUFOdWdYekEySUZrNWNWemZKcVJlbkFjZjNzTW84NGhvWTV1LTV0ZkttekxWWGhnMDlLblNKQ3ZwSnhfcnZOQ1FBZk1Bd3hneTJFVFRZbnJRYXlvQjh5STkzaXJVNkxxdFo3SVBqaURrZXMyRVZrWmpvT01iQ2hxQzJ4NDZLdnNDSXFlUGc3dFNKVjlqMl9uQklXcWY3SjhWTXdpVFhVdUtCTW1FRGtXVUxTem9JWEVrT1ZFeDNveDc3c21MaWlTMzRXanZVbFV1dFVlTVE5eEpMcmxHQdIBkwJBVV95cUxQejBEVV9nTTdENGdKZVhuYXFqUy1OOHV3bnlpVmdub3hOY0g5ZkpCOFh0ZHpzQVp2OWZyRURmT2xQR19hcnF0ZW5aTWFqbkhMOHhNOGN6bTk4STJ0Zlc5N01QQk11ZTdDVmhVRlJxWjczNmk0RWhtTmM3Ny1RMG1WNjN4dmZJR3djb1Z2NzJVa3FTcXVVYUIwMnBfQ0hvdHVRYWpCWDl3aE5qNkQ1SW4xVWdQR3FaMnBnSG5OTTNvNkt5alA0a20yQ1BEVzlST2tPNFJwOUdVSldOMVJVWEFVX3ZLZi1sX0FISTN3QVl4Y09rS1ZsQ2NhSVNFUGJ1MzFfWFdLUkw2VXRuTkN3VFA4X2RmRQ?oc=5",
-   "publicado": "Wed, 26 Aug 2026 20:00:00 GMT",
-   "areas": [
-    "Política"
-   ],
-   "medios": [
-    "La Tercera"
-   ],
-   "repeticiones": 2,
-   "visto_antes": null,
-   "motivo_destaque": "corroborada en 2 fuentes"
-  },
-  {
-   "clave": "alarma aliados anuncia enciende fuerte kast opositores reforma seguridad",
-   "titulo": "Kast anuncia una fuerte reforma de seguridad que enciende la alarma de aliados y opositores",
-   "medio": "CNN en Español",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNcXJRM2pwUDB0YWNKUUV6WWJzOEs0QnhaNGd1Mkk2eVF0enVXOFU4MV9ORURFbEtxb2RIQmdGR2dCTVlOWGVwZXo0QWY1Tk5oa1RVckpnYU1QU2ctZFNRWHdGOTRnT3BzMjN1TzRRUGVXYjI0Z3ZranE4VFhvVW1ya2VlMDBnM3ZPWUFxeENWVGlRWHAwdkl3?oc=5",
-   "publicado": "Tue, 25 Aug 2026 13:52:00 GMT",
-   "areas": [
-    "Política"
-   ],
-   "medios": [
-    "CNN en Español"
    ],
    "repeticiones": 2,
    "visto_antes": null,
@@ -1098,6 +1118,23 @@
    "motivo_destaque": "corroborada en 2 fuentes"
   },
   {
+   "clave": "argentino dichos general gobierno magallanes malestar valverde",
+   "titulo": "Malestar del gobierno argentino con el general Valverde por sus dichos sobre Magallanes",
+   "medio": "Canal 9 Bío Bío Televisión",
+   "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNU01GLUR5ZjZYVlZzd211MHJhUFI5a1Y2UE9LQnJfWXRkblgtZ2owSk40SnhDbE5PRVdwMzdNUkZDLWZmMTVPcGk4NWdzaDFKWVE2WnRqTGtLd08zV05ETDVYbklmTzdJNWV5b2JTc3hubEJCNGJKNl9OSDNPOGVPMWhobzlRUS04eWw3d1BiUG5LaW5nc0ozRTRNTTdwY1MtVS1FeWc4ZU1sOG5LbXF6OUZNWFp4d3B5NzVfcE5MX2h3cEMzT2VwTkIwaDAxVDEweDliZ1U4Ty1SSWtT?oc=5",
+   "publicado": "Wed, 26 Aug 2026 16:01:17 GMT",
+   "areas": [
+    "Política",
+    "Internacional"
+   ],
+   "medios": [
+    "Canal 9 Bío Bío Televisión"
+   ],
+   "repeticiones": 2,
+   "visto_antes": null,
+   "motivo_destaque": "corroborada en 2 fuentes"
+  },
+  {
    "clave": "ciencia colaboracion conocimiento destaca durante elt eso etapa innovacion ministra nueva paranal tecnologia visita",
    "titulo": "Ministra de Ciencia, Tecnología, Conocimiento e Innovación destaca nueva etapa de colaboración con ESO durante visita a Paranal y al ELT",
    "medio": "Desierto FM",
@@ -1126,6 +1163,23 @@
    ],
    "medios": [
     "Teletrece"
+   ],
+   "repeticiones": 2,
+   "visto_antes": null,
+   "motivo_destaque": "corroborada en 2 fuentes"
+  },
+  {
+   "clave": "chile economia industries inversion millones mineria ministro nueva obras planta superior tega visita",
+   "titulo": "Ministro de Economía y Minería visita obras de nueva planta de Tega Industries en Chile, con inversión superior a US$40 millones",
+   "medio": "Rumbo Minero",
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQTBxS3hVZVprOE9ib2ptNHFuRGJ6dWdxdGgwVXVQbG51dHlkaWJwb1hpc25wRDZHUmZMWXd2bzl1U1o1QVZHdXNXcm9WZm1xMGhQSUpxbUZxYUtheHl1Y3BYX1Vkc1dkZGdKVnV0QVg5bGxDV1lfQUw3Ml8yY0xDT0tublpTejc4dks2LXFFMGNVb3dlMnc?oc=5",
+   "publicado": "Wed, 26 Aug 2026 16:02:46 GMT",
+   "areas": [
+    "Política",
+    "Economía"
+   ],
+   "medios": [
+    "Rumbo Minero"
    ],
    "repeticiones": 2,
    "visto_antes": null,
@@ -1174,6 +1228,23 @@
    ],
    "medios": [
     "BioBioChile"
+   ],
+   "repeticiones": 2,
+   "visto_antes": null,
+   "motivo_destaque": "corroborada en 2 fuentes"
+  },
+  {
+   "clave": "aclarar autorizacion cancilleria carteles contra declaracion eeuu firmada hubo junto kast mulet oficia pide presidente",
+   "titulo": "Mulet oficia a cancillería y pide aclarar si hubo autorización del Presidente Kast en declaración contra carteles firmada junto a EEUU",
+   "medio": "Tierramarillano",
+   "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNeGhlZDFQclRYM0FvZDl4YjVELVhpRzdTWkFzWUdiRmRveHZYSC16eUI5dHpwQUU1Y0pqYjhlMURHaDltZTRqNlhJdElGa0dlN05Va1l4Zmd3ZHU2LWpRQzl4WVQ4dHlNVjRaYjBYVnNtblBTd3B4ck9XMkZjTnU4ejZISkNXV1E3eXk3Rzl6NWl5eXlBSk40Z1daSFRTLTJWS0daZk1qMGhvWDlGeEJtTlNKaktNRVNmWjlPUnFWRmlpRmEzeUdCb3lLMFJBQnEyU2JuLXpNZldqdnBlcnRGWXVpMHRQRkRCa2VaVkhjRV9uWjhvS0d5eElvZFN6eTl6b3I0?oc=5",
+   "publicado": "Wed, 26 Aug 2026 06:06:11 GMT",
+   "areas": [
+    "Política",
+    "Internacional"
+   ],
+   "medios": [
+    "Tierramarillano"
    ],
    "repeticiones": 2,
    "visto_antes": null,
@@ -1313,6 +1384,24 @@
    "motivo_destaque": "corroborada en 2 fuentes"
   },
   {
+   "clave": "agosto chile cierre cotizacion euro hoy precio",
+   "titulo": "Precio del euro hoy en Chile: cotización de cierre del 26 de agosto",
+   "medio": "Infobae",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPc3NNZ2IxZkN1RnAtWlBsQmNqZHhRUmh5MThlN0pLcXpzZjREQVhMWE5EWDZLeDVCYTllTnc5TXV6dUNOQlZNeG9YQkFFdWhSUGZGcTVkNEZ2bEJXUHFCcFlUc0YyTWZtSERqTExMZXpDOHFsMDJxMlU4cmxnUUlFMWlVdlNsTXJCeEFhYmp3TF94bjdxWk05MDhzRWlwS09JQ1JHQzl3RVk0MGVHcW91MNIBywFBVV95cUxQbVFCSFRJbmRPWk1kLURGWXJZc0tneldNY0ozWjdIUXNiZV9hOVY4VTQwZUxkMVJXbmZRN0ltclJHZ04yM3l3MUVzR0FTOUZvZ2l5SEhOeFVhRF9CMlFKaWs1dVRVRlBsYW9lQm9Bek8wMTd4OUpxeXczMVFYUzlsQ0RiZEJrVHhIckFVSTQtVnNVZUx2VTFtYXVEWDlzbWVmRmltNVhkendDc1dYdHpZMTVxT05xRjZnQ2E0WDJWdjBtMjEwLTRiQm0tbw?oc=5",
+   "publicado": "Wed, 26 Aug 2026 18:31:58 GMT",
+   "areas": [
+    "Política",
+    "Economía"
+   ],
+   "medios": [
+    "Infobae"
+   ],
+   "repeticiones": 2,
+   "visto_antes": null,
+   "ruido_probable": true,
+   "motivo_destaque": "corroborada en 2 fuentes"
+  },
+  {
    "clave": "2026 chile ciencia educiencias mejores premios profesores reconocera",
    "titulo": "Premios edUCiencias 2026 reconocerá a los mejores profesores de ciencia de Chile",
    "medio": "Cooperativa Ciencia",
@@ -1431,6 +1520,22 @@
    "motivo_destaque": "corroborada en 2 fuentes"
   },
   {
+   "clave": "2026 antonio bike carlo edicion gavardo jose kast mountain participa presidente republica rist",
+   "titulo": "S.E. el Presidente de la República, José Antonio Kast Rist, participa en la 12° edición 2026 del Mountain Bike Carlo de Gavardo",
+   "medio": "Prensa Presidencia",
+   "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5yblJSQ1E5bTdJNm9zV0tDaUxTTWUycHdHVGNaVEI5N0ZSVlZuOFRzOHBXZmgzdzV1SGdGRjZfNmlKSjdRbWkzMEhiRjlIclU0M0VMbXdSeTlFbmZCTWhnbVF1aw?oc=5",
+   "publicado": "Wed, 26 Aug 2026 21:23:03 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "Prensa Presidencia"
+   ],
+   "repeticiones": 2,
+   "visto_antes": null,
+   "motivo_destaque": "corroborada en 2 fuentes"
+  },
+  {
    "clave": "acuerda gobierno priorizar proyectos seguridad senado",
    "titulo": "Senado acuerda con Gobierno priorizar proyectos de seguridad",
    "medio": "Crónica Digital",
@@ -1492,6 +1597,22 @@
    "medios": [
     "Radio U. de Chile",
     "Universidad de Chile"
+   ],
+   "repeticiones": 2,
+   "visto_antes": null,
+   "motivo_destaque": "corroborada en 2 fuentes"
+  },
+  {
+   "clave": "constitucional duro gobierno golpe kast propina tribunal",
+   "titulo": "Tribunal Constitucional propina duro golpe a Gobierno de Kast",
+   "medio": "Crónica Digital",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPUG9kdE94OGtXNGlOSDUzTndZWlg3SW1zVDhCdFRlQVhTMmFULXI5WnhheS00c2p3N0JtdUdSWS1ObnhjY2xMb09GZGM1b0xPVDNPNVhENml1R0YxdGNVRjdVOVNBS2luVVdBLUx6ZnhiQWFoYnJnN2l1bk9XUTBELTZpNTl4bWw2c0ZMZ21PNDR0dw?oc=5",
+   "publicado": "Wed, 26 Aug 2026 10:50:34 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "Crónica Digital"
    ],
    "repeticiones": 2,
    "visto_antes": null,
@@ -2040,20 +2161,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "adios cyrus dice dolly dolor indescriptible miley parton",
-   "titulo": "“El dolor es indescriptible”, dice Miley Cyrus en su adiós a Dolly Parton",
-   "medio": "CNN en Español",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPaS04d0tYSUVMRVZGMTZIX1hMZGVzVGtHVjZ1MzFmLVNfcTlMUzNaWElfLVlrWmxzZlNzOVcyUmhPSWdsNHJQaFB5dU5UeHhsQlRGbEx5ODhDc0ctaklYZjhXN25scERXQTdQaXhMQjAyWWJCLVZtWnFXQWY0YTBoWkZUMUhtaXRxaTlZSmRLNG9CMVVPSmgzaA?oc=5",
-   "publicado": "Wed, 26 Aug 2026 19:33:00 GMT",
-   "areas": [],
-   "medios": [
-    "CNN en Español"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "argentina chilena ella genera gobierno ola patriota preguntan reacciones respuesta verdadera",
    "titulo": "“Ella es una verdadera patriota”: a chilena en Argentina le preguntan por su gobierno y respuesta genera ola de reacciones",
    "medio": "La Cuarta",
@@ -2177,22 +2284,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "elevan estrecho exembajador magallanes monckeberg podria politica senadores senal ser soberania tono",
-   "titulo": "\"Podría ser una señal política\": exembajador Monckeberg y senadores elevan tono por soberanía del Estrecho de Magallanes",
-   "medio": "Universidad de Chile",
-   "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNYlhvSm96azNjMU91c183SFM1OWNuVEhSTHBmSEVKeXZfSTNBVFZtamFCRTRRWk05bFU4elZONzJIb2NvNW1aRWdsSXFfdWNQMkM1bmdYbl9XeU9uVkcxOHdwenRVcnJFTnEwZEtjenBoS01YVFpFTmNEekQ2UHFMTDVHeXI5b2FFQWx5QVF2dGVqdE9GcTJIYXJ4TE0tVHJZUHk4Nm5ONm9kaVVOYjNYbVNZbnNxUWhrZXA2MU5wQlJOeThXZE9zZlFRLVdfeUFJbWszZnE0RE5fakc5ZVNqcEVvRURCc3Jp?oc=5",
-   "publicado": "Tue, 25 Aug 2026 22:12:02 GMT",
-   "areas": [
-    "Política"
-   ],
-   "medios": [
-    "Universidad de Chile"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "advertencia ante ante asistencia autoridades couso estamos fontaine foro gobierno idea iliberal kast madrid posible potencia",
    "titulo": "“Potencia la idea de que estamos ante un gobierno iliberal”: La advertencia de Fontaine y Couso ante posible asistencia de Kast con autoridades a Foro Madrid",
    "medio": "CNN Chile",
@@ -2225,6 +2316,20 @@
    "motivo_destaque": null
   },
   {
+   "clave": "angel cyrus dolly homenaje lado madrina miley parton rinde sentido",
+   "titulo": "\"Un ángel a mi lado\": Miley Cyrus rinde un sentido homenaje a su madrina Dolly Parton",
+   "medio": "BBC",
+   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE4yeXhqUlNadGJ4V21EZTFyN1AtR2RqWEZUMTZqUFZBb25LZUp4R2c0Y05OY3M2QkdrX2ZnVmFNNzlvWWI1aFZ2bzVTcEN6YVlzSTR6OGJwT0xlVkHSAWBBVV95cUxPYXVzS0Z4TFNnUXJpd0JJVjFNTFhhb2tCNXN2Ym5KTXEtb2VXWUhnSlJaakphN092SDRkMGRhU0dOTTFWNlFPSlJEWlB3dkJMMTlSbG5ka09qblpEb0dQQWg?oc=5",
+   "publicado": "Wed, 26 Aug 2026 22:38:59 GMT",
+   "areas": [],
+   "medios": [
+    "BBC"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
    "clave": "000 costa delicada expuso gobernador habitantes hospital medico personal salud situacion solo",
    "titulo": "“Un solo médico para 3.000 habitantes”: personal de salud expuso la delicada situación del hospital de Gobernador Costa",
    "medio": "EQSnotas",
@@ -2251,6 +2356,22 @@
    ],
    "medios": [
     "BioBioChile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "basicos cuestionan fallo gobierno oposicion papelon parlamentarios servicios verguenza",
+   "titulo": "“Una vergüenza” y “un papelón”: parlamentarios de oposición cuestionan al gobierno tras fallo del TC sobre servicios básicos",
+   "medio": "La Tercera",
+   "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxPVWM5Ymg1YkdoX2dzSEw0cHlxSHZ4bU9lSnFKSldvdlFrX1UwLVh1cUkyR21McjlhZnhFRUZ3Q2ZkeWV6Wi1GYmpVN2JhZVl3VHV4bDV2MTN0cUxIRUszazFMRmswMTJWdEh0dnVhc2ZlZlFPbWJ4TVBXWWZCc3FFa3Y1SEI3Qy1yMjVVejZCSTBBVldjZVc4Y3Fkd3B2VjB4c2hCSnQ3VFFoTTZTSDhBWFN0Vkota0Y1MUxMb2NTUUJvWUdXYjhPbjZuaW1FUmVJVTdIeno5OGVNY3poMy00SVBnY2ZfNndtR05BYl9aNzNnQlNFOXfSAZcCQVVfeXFMT0J1M0N4RUZROUhYNldsYjZ1bWV5eHB1c2k0a2NBVUR1ZWc3UUF4bGRoejJreVh0SHQ0aDJCY2Q2dXF0Mm51T29EZENZX2hvbzZlaVM3OVg3VjBMYW1MbWEwenU1aWNxOFU3UHRxNkFuR3o3STd4TzMtN0VlYXBhZnNMekdpWmg1WGNFNkxWaTZyV1ZWYTRnNFo4eGlrcUN2REtubDRlZk9JaW9FT0NIeUp2TXlrdVNJZlkxMDdUU0ZudExwYVV5RFZXQ0kwemVvUDJPUnRaNlhDMXpQRDlwOGpLYms0VThkUkxMbjE1Tm91WkZKc1FUaUloZV9laWdMUWIzQTN0S0hWX3JJeTA5NlV4V3ZCQ1hN?oc=5",
+   "publicado": "Tue, 25 Aug 2026 17:50:38 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "La Tercera"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -2531,6 +2652,22 @@
    ],
    "medios": [
     "Cactus24"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "abogada atletismo chile como deportes maria nombrada paz record rios subsecretaria",
+   "titulo": "Abogada y récord de Chile en el atletismo: María Paz Ríos es nombrada como subsecretaria de Deportes",
+   "medio": "ADN Radio",
+   "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQN0pPSVU1TnBQTjZTeTlydEM3TllheGVmVEtFWVZIOE9sZk5CZlhxT1NFUUFkV3ZncnJwSncyNnEwb3NVWThRWVFXVGdPY2NkUm9uUks0SnRoUURVV3h0Q3VUSVdGampfMkNfUGhyUFJ6TXdJU2RlNlVsZGRVdU5LaWdXNUl4T0pBeDE1V1oteXNpNVZMbjBtc2szcV9ERnd6ZGc4RmRNajVtalYyQTNUaFpRS1ZaN0FBN1k4ZzMzb1BCRVphSjhqLXlqSnRhcW45dTU5V0FWVjVLdEFFcjlZWW9QdlbSAeQBQVVfeXFMUDdKT0lVNU5wUE42U3k5cnRDN05ZYXhlZlRLRVlWSDhPbGZOQmZYcU9TRVFBZFd2Z3JycEp3MjZxMG9zVVk4UVlRV1RnT2NjZFJvblJLNEp0aFFEVVd4dEN1VElXRmpqXzJDX1BoclBSek13SVNkZTZVbGRkVXVOS2lnVzVJeE9KQXgxNVdaLXlzaTVWTG4wbXNrM3FfREZ3emRnOEZkTWo1bWpWMkEzVGhaUUtWWjdBQTdZOGczM29QQkVaYUo4ai15akp0YXFuOXU1OVdBVlY1S3RBRXI5WVlvUHZW?oc=5",
+   "publicado": "Wed, 26 Aug 2026 22:51:23 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "ADN Radio"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -3011,6 +3148,22 @@
    "motivo_destaque": null
   },
   {
+   "clave": "alerta anita calor cancelled chile extremo game muestra nos project sega super varias wviye5u7ba zonas",
+   "titulo": "Anita Nos Muestra: Alerta Por Calor Extremo En Varias Zonas De Chile Sega Cancelled Super Game Project (WvIYe5u7Ba)",
+   "medio": "Mshale",
+   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9LRTg4TkdMck9Dc3ZxVk1fQk5fU2NYcmlSZHg0OW43bk1wbHRKTEwzRG9CN21RTWV1WWVoSV9JdkR5djRxLVJsRE52a3lBUm9qR1M0VUFMbVZCejl2emFzeA?oc=5",
+   "publicado": "Wed, 26 Aug 2026 04:35:30 GMT",
+   "areas": [
+    "Medioambiente y clima"
+   ],
+   "medios": [
+    "Mshale"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
    "clave": "antamina campanas comunidades gratuitas huari inicia salud",
    "titulo": "Antamina inicia campañas de salud gratuitas en comunidades de Huari",
    "medio": "Rumbo Minero",
@@ -3453,7 +3606,7 @@
    "titulo": "Banda Sinfónica de la FACh realiza clínicas instrumentales en cinco colegios de Los Lagos",
    "medio": "SoyChile.cl",
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNSkN1ZW1DeHdfRVhKRkVySlJFMnk3N1VCWnNTamJGdXJzN1ZLWjFTMWVpUmFwbzJXNkRqVWEzS0JrYjFMaFlvWjVoUVJvb1p3SXZjX2VjX1ZSYVlrZklFTktCazZOSHYzcFZxYUpfZHB0Y1NmUDFNSzlhWmRHejRzdHN3d29JVXphblJzZnB1aEFtc21oM0E4emVwZlVwVEZwZWJjOXRHZVRSSDE5Nl9ZanB3?oc=5",
-   "publicado": "Wed, 26 Aug 2026 21:24:58 GMT",
+   "publicado": "Wed, 26 Aug 2026 21:14:14 GMT",
    "areas": [
     "Sociedad"
    ],
@@ -3491,22 +3644,6 @@
    ],
    "medios": [
     "El Desconcierto"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
-   "clave": "admite alvarado araya biministro cita claudio gobierno mejoras pedro reforma requiere seguridad senador",
-   "titulo": "Biministro Claudio Alvarado admite que reforma de seguridad del Gobierno requiere “mejoras” tras cita con senador Pedro Araya",
-   "medio": "Epicentro Chile",
-   "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxOTjdEdUM3RURYUDZ2YlRPRUVGcVBvLXRoTDVfc1RHTThyQTFRT205dU9yU2l5VDlmbUlua0lqNl9FMXgtWXd1OENpZ3BWZm02allybUpnT2dmSm1ITVdCUmlOdUR2VXQ2bU5ncXNualhCUkx6OFNzWEEzZ3FaY0ZCanZ3YmpMcnNiX1B6eG9WUFM3NjFyQ0o5b1Q5QTJiQkFIZlBLVjAzeFR6V0JVMUJhUXlWTHZYOGxCcHRmZXo4ckRlRzdKaU5tdGlUZWpwanFwUlhWbWp6N1JBbHN3UFU0UVBRV0lDRzBmenp0R0tRMGFZZHc5TTd0TlRR?oc=5",
-   "publicado": "Thu, 27 Aug 2026 03:34:05 GMT",
-   "areas": [
-    "Política"
-   ],
-   "medios": [
-    "Epicentro Chile"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -3577,22 +3714,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "alianza amazonicas bolivia climatica comunidades consolidan estrategica fortalecer koica pnud resiliencia",
-   "titulo": "Bolivia, KOICA y PNUD consolidan una alianza estratégica para fortalecer la resiliencia climática desde las comunidades amazónicas",
-   "medio": "United Nations Development Programme",
-   "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPSWtZTHluQkwwYVNKNXdicEpWOU12VG51d1NoTlMzXzRGbmdTV1JaWlF6T3pqeWxieEU1ZGNnX1ZPX1M2d3JPTVEwblgxQTdJY2R3eUZYZy13X2xtc2VaaEZLTXFnVlh3RG5nVFd6OTNIN0NRajFXZHNCMGlNYmFIXy1FX09kZ1N6cUprUHVvRFo1LWN5a1FQcTJkSHk3aUU1LUJlb3RIVzYxZFoxNE9qTG5NTU9OMGNqMU1WdXNRNUM2T1RGVlBqUkpqX2hfbmdhZHpXallScjR5dnEzdUc3UFhJZjhDSnlfeDZ3NnlfZ3NLUXdYX3lJY3ZJR1paclk?oc=5",
-   "publicado": "Thu, 27 Aug 2026 02:46:44 GMT",
-   "areas": [
-    "Internacional"
-   ],
-   "medios": [
-    "United Nations Development Programme"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "bolivia christian como economia finanzas ministro morales nombra paz publicas rodrigo",
    "titulo": "Bolivia: Rodrigo Paz nombra a Christian Morales como ministro de Economía y Finanzas Públicas",
    "medio": "Noticia Zavaleta",
@@ -3641,6 +3762,22 @@
    "motivo_destaque": null
   },
   {
+   "clave": "246 800 artesanal beneficiados biobio bono comunas costeras de10 entrega gobierno millones pesca region",
+   "titulo": "Bono Pesca Artesanal: Gobierno de la Región del Biobío a entrega $246 millones en 800 a beneficiados de10 comunas costeras",
+   "medio": "Hora12",
+   "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPMnlNZXJPY3RfMWdVRjJVX3lJOVc1UElON2Z0MUxQQkFQbl80MU1KelFSWWEyUm50dXV0VDY0cVRjOFBieDctVl9RRURWUWs0RzIzZlhnQXNlQ1REbTJaLThiM2dsdmhxSWdFZUExSTJRZjAtaF9qX0gydnM5VzNabXBZUkE4bkdRdFp5RHBGbF9xQWZRczZFQWI3YWxjbFlXZjVpVGhFemxvMHR6VUtmWHJjTUdRUEFVTDRfallJa29zdkhiQW96MUVpNGxLWF9KSFBQYUFnZmJFR294Z1BsMWM4ZEo?oc=5",
+   "publicado": "Wed, 26 Aug 2026 20:58:19 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "Hora12"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
    "clave": "470 bono cuarta cuota embarcaciones entrega pesca region valparaiso",
    "titulo": "Bono Pesca entrega cuarta cuota a 470 embarcaciones de la Región de Valparaíso",
    "medio": "SoyChile.cl",
@@ -3651,6 +3788,22 @@
    ],
    "medios": [
     "SoyChile.cl"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "ante bolsonaro brasil caminos dos entreguismo frente lula soberania",
+   "titulo": "Brasil ante dos caminos: la soberanía con Lula frente al entreguismo con Bolsonaro",
+   "medio": "teleSUR",
+   "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5ya1NSX2FrZG1kSkRkbS0tMU9XV0FTRGp1V0NLR2F6VGM4UDFmaTZkUEZ0WkdDWnBhN1RlSzdDbmhXaVoxS3htX2pUZ1FlT0VHa1dQX0xUSWpCejk3ZGpqVGU1dG05b0tTQ0NVQzF0Mko5YkdiQTBDM0Fn?oc=5",
+   "publicado": "Wed, 26 Aug 2026 21:11:39 GMT",
+   "areas": [
+    "Internacional"
+   ],
+   "medios": [
+    "teleSUR"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -3881,22 +4034,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "camara chile instituto minera minero propone tecnologico",
-   "titulo": "Cámara Minera de Chile propone instituto tecnológico minero",
-   "medio": "Chile País Minero",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQUXp6dlc5VHUwUEd2ZmdBZHdOMVQwRWhJRktCQmVyYzhpWE9xdnhoTU5DUXQwSGNZSnQ2ZnZBa2VyYTJiSE9GVEgtTWQ1ZHdVTThiRk80OUViM0syaEFzV2tRdjNwTS01WENGdXNJc1N3ajZzTXFhenRwZUxEb28zakdsSXJyRE1EVk5EWlV3WW83dw?oc=5",
-   "publicado": "Thu, 27 Aug 2026 01:55:04 GMT",
-   "areas": [
-    "Ciencia y tecnología"
-   ],
-   "medios": [
-    "Chile País Minero"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "calle camila claudia contraloria contratacion flores larga millones mix pago recurre",
    "titulo": "Camila Flores recurre a Contraloría por contratación de Claudia Mix en Calle Larga tras pago de $3,9 millones",
    "medio": "CNN Chile",
@@ -3967,22 +4104,6 @@
    ],
    "medios": [
     "El Diario - Bolivia"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
-   "clave": "aborda canciller chile comerciales inversiones japon mackenna nuevas oportunidades perez",
-   "titulo": "Canciller Pérez Mackenna aborda con Japón nuevas oportunidades comerciales e inversiones en Chile",
-   "medio": "Puranoticia.cl",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOZTcyYVA4Vi15MjFlQVdWUmFKYXJpWEhwRk5SVXFKUnpIOGZoMlg0UEM3VEFNRHFNMFhnR2Q0dlMwTS16ZDlQQzVjYXVTdFVxbU1VR2s1eDE2WUh0cHhGMGtVcW1pNHNmQ25FcVJma2VZbldpZnJqN0dDMTNyVHZzNTdZdTk1S3R4WDNNUWJSZkVIZE5wUTlsenYyVERIeHVpclJNTmhwdmVZd0xBbmhN?oc=5",
-   "publicado": "Wed, 26 Aug 2026 16:48:00 GMT",
-   "areas": [
-    "Ciencia y tecnología"
-   ],
-   "medios": [
-    "Puranoticia.cl"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -4291,6 +4412,22 @@
    "motivo_destaque": null
   },
   {
+   "clave": "100 anos casa chile comun exposicion nacionales parques recorre",
+   "titulo": "Casa común: la exposición que recorre los 100 años de parques nacionales en Chile",
+   "medio": "Universidad Austral de Chile",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOOG1scVdPLVJDdlgxbWs4QjF5SHlDTWhxd1VyT05QWUpWcU9SLUtTVktnOEhiTzVZX0d2WGdJZFp4cHdYWkw3akgxNTlzT0I2bVBxaUJmM0NSTC1hSzBhejlPdE1xdGx2ektPb3hHSTZEM0JVb25Qcm5MaUVhUURSaWprVGh5X0NaVTRFcFZKZGJLb0dOY2Z0cnFKV3NadXpiMDZ1ZDRiMA?oc=5",
+   "publicado": "Tue, 25 Aug 2026 22:41:07 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "Universidad Austral de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
    "clave": "800 alerta casi contraloria mil millones movimiento organismos perdida publicos recursos riesgo sin",
    "titulo": "Casi $800 mil millones sin movimiento: Contraloría alerta riesgo de pérdida de recursos en organismos públicos",
    "medio": "Meganoticias",
@@ -4311,7 +4448,7 @@
    "titulo": "Caso Maderas: Oviedo cuestiona a Fiscalía chilena",
    "medio": "Red PAT",
    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNSjNhNFZERGFaVjI5TFBMZ2FtX3ZqM0pFdm13aUE0dFZBdnBwMkxFQU5PeURLWnV6bkVHZkRzSndWMzRVX0QxRm9zWUgzYmxYd2ZVVmpvRjFickdDN2JDTzdBdTNXeUtfR1VITjFYS0xaUndNV292MVJ4cHhrZWNhM0VQQ3c?oc=5",
-   "publicado": "Wed, 26 Aug 2026 23:25:41 GMT",
+   "publicado": "Wed, 26 Aug 2026 22:39:10 GMT",
    "areas": [
     "Seguridad y Justicia"
    ],
@@ -4333,6 +4470,22 @@
    ],
    "medios": [
     "unitel.bo"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "catedra chile decadas escritura historia lectura suma tres uct unesco",
+   "titulo": "Cátedra UNESCO para la Lectura y Escritura en Chile suma a la UCT tras tres décadas de historia",
+   "medio": "Inicio > UCT",
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPdUoycjJnTE1ob1dyVWNxcHFnZnh3dzRJTXN3YkdCUUdYUGxXdHFWaTJPajI3Vi0wWlFJNGtyR2tmN1NoYktqQW9kdHFuQl9sQ2xsSTdnVzJxNzBYYUhnc1dfRGplQ0VHWF9BNGJEa2M5R0R2eUFpQ21iSXlsejNJVUZudWdhVm02WnpoOXJScW1TSGl4dGsxclZ3dTQweC1Bbmk4T3ByakRMb0w2LWQ2eDIwNkVWd0dYSjJEbDB6T3BNNnJ6VXV4RFJHMktsU0ZM?oc=5",
+   "publicado": "Tue, 25 Aug 2026 16:29:16 GMT",
+   "areas": [
+    "Ciencia y tecnología"
+   ],
+   "medios": [
+    "Inicio > UCT"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -4435,22 +4588,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "anuncia argentina chile estrecho magallanes reclamo",
-   "titulo": "Chile anuncia reclamo a Argentina por estrecho de Magallanes",
-   "medio": "DW.com",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOcGVUcUhNZ3hiVmh2cEh0c0NSS0NzU2dyWW84MGtZUGpwVWlYVlJXdDJfbDhFZG95M3FfR3NLM3g4R2p3NzdhTThRZW0wMU1WN3BDWlpWZk13RUhtSWVUa2tzQlpyeGFSU0tMSTZzSXpfS1pXN0JLdllpYS1TeHNSWXB4dzNpc25SQXFrVnplczhVbm1rVERtOdIBmAFBVV95cUxQVE8xVGllRW9iUUtpbGlfZ1VBcHIyeUZtYm5vb3hfM0wtalBGaTEtQUZnRTk5Q0xwalpkazdoZ1RLUXE0MnItWElmT2hLcWpCWlZfZ01NVDZLU3hubE9WSmRSdFgyNm5WNEpIclV4M20yakE2MlMwUmtlbzlZYklzM0RzczlzRWJ2T0ZROFpjNk55R2dnWHlOTQ?oc=5",
-   "publicado": "Wed, 26 Aug 2026 01:24:37 GMT",
-   "areas": [
-    "Internacional"
-   ],
-   "medios": [
-    "DW.com"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "aranceles bajar busca chile exportaciones",
    "titulo": "Chile busca bajar aranceles para sus exportaciones a EE.UU.",
    "medio": "estapasando.cl",
@@ -4499,16 +4636,16 @@
    "motivo_destaque": null
   },
   {
-   "clave": "autorizacion chile congreso debate estado excepcion meses ocho sin",
-   "titulo": "Chile debate un estado de excepción de hasta ocho meses sin autorización del Congreso",
-   "medio": "MercoPress",
-   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQY3J2UUxJVzBSQUNFZVRfNDJHel9HMXR4QzZRcFRuOFRrR2hCWlY3aWRxQndPUjBuMmZIejBINGx1RnJyc2tpck1PQS04aTI0NGNDN082ZjdfN2UyeU5MRDUybEF4bFd4NFFLVFBpRF84alMtX3pHZHpqNTZmbS12alExREJjSURKNkdVUUU2b180TXZfbDhVNk1FemhpU2N4SGtFdV9tQ2ZIdC1ORGlQUFVscF9FRUdUNkNLTm5QWQ?oc=5",
-   "publicado": "Wed, 26 Aug 2026 08:42:00 GMT",
+   "clave": "cartas chile define deshielo goya hangar oscar pais premios representaran rojo",
+   "titulo": "Chile define sus cartas para los premios Oscar y Goya: “El Deshielo” y “Hangar Rojo” representarán al país",
+   "medio": "ADN Radio",
+   "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPQXl6bVZ3cXRLSUo4dlRQSjByUmFGYUZDUnJlTWZzUlk0d1VOQnI4MlBZNzFSWTFxenAtNGpfOGdYQ2pnNEZzQ202RHRWQ2R1SUpDYXdJSTNEcnVyXzdrZVUxZ1VzMV91NUFuUXNqODFjRjdvQ3BxXzFDWEZ3TVNqSjRjQjF0bkVLRGl1Ql92Y3kycFU2MnNqak0ta242OUVGbGY1RFVmVVNYcDlUOTl5NWJYR3lncXF5QkxZYUlLbklrcU83RG91TzdXLWJ6RmNNNTBz?oc=5",
+   "publicado": "Wed, 26 Aug 2026 10:20:14 GMT",
    "areas": [
     "Política"
    ],
    "medios": [
-    "MercoPress"
+    "ADN Radio"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -5121,22 +5258,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "aranceles avances chile esperan estados este gremios martes negociaciones retoman unidos",
-   "titulo": "Chile y Estados Unidos retoman este martes negociaciones por aranceles: gremios esperan avances",
-   "medio": "ADN Radio",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQR21BSGRSazBJUGVIeTlwYmt2S1lxb2ZYUFdZYnowMHlWcEtGeUpKMHIzdndSRzlvVElPMkx0OUxzMlVrZ040R2xCX0xrZFFfcHYwLV8xNDVtV25McHYteUt6ODl4UVBLT19jRDd1SmpjcDhTbHVyWEZVRzhHR1NpYWIxM182anh5cXZGakNJLU0wYzF6eHU0cUZHcWxJSm9lUUw1cUkzTXhuNWpiVG1Md0tLdng4N2Z4X3VQRE5EX3FsODNyN3JJR0J30gHeAUFVX3lxTE5SYnN3OEV3TXpuZ2tWZ3pjc055STU3akJfemltbkYwM3Uta0VQN1RCdkFDZzVBQnJJTldXSjJfVGtIV3R3QW9UYXRBWk5XREltSkowdU5WYUttU1doZ2FQdHNwQ2JzXzBsTlFoOU5RdHBBQ0JFZWJNQnI3MXZwUXB4QzNMWlBqNU83c2xRRXRDNVJlSWhuT1Jfa3huWUNoM0RMd1FSOEJPcDhXU1FkTC1GMnNKSU8ydURZR1E1dUxWQktXamY0MmVnaXlBLXBPcGhaWXVmdjFydy14TExYdw?oc=5",
-   "publicado": "Tue, 25 Aug 2026 13:29:39 GMT",
-   "areas": [
-    "Internacional"
-   ],
-   "medios": [
-    "ADN Radio"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "agricultura avanzar chile compararan experiencias hacia mexico sostenible",
    "titulo": "Chile y México compararán experiencias para avanzar hacia una agricultura sostenible",
    "medio": "reporteagricola.cl",
@@ -5163,6 +5284,22 @@
    ],
    "medios": [
     "Vilas Radio"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "alianza bilateral britanico chile cita defensa embajador entre estrategica reafirman reino unido",
+   "titulo": "Chile y Reino Unido reafirman alianza estratégica tras cita bilateral entre Defensa y embajador británico",
+   "medio": "Puranoticia.cl",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPYUlWYjgtX2gzZGJfY2tXVTZHLTd1YVZwNlB5Nzd5MlJBNWwtVHZvaWVLY2dwemtaOHdWSS1DLWdsZXpoRGtyU2c3c2ppZ1RfZHBpUzY2RWx1NVRGZzc2c2JYN2xrSnlyS21TdkJJT3I2TTEyLVljeGJ6ZnRaSmZnVHhURGdiQlFrOFEzNnMtQURPSzdfcVdoXzZXajdCMDFCWEUyMzlSY2tmdksyZDgxTw?oc=5",
+   "publicado": "Wed, 26 Aug 2026 16:01:00 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "Puranoticia.cl"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -5201,16 +5338,16 @@
    "motivo_destaque": null
   },
   {
-   "clave": "chile elevados encuesta gastos hogares medicamentos revela",
-   "titulo": "Chile: Encuesta revela elevados gastos de hogares en medicamentos",
-   "medio": "Crónica Digital",
-   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQN3pMOUJTTEZvemxnV3RRMG5GcWROZEhuTVZaOWY3SkhqWndVWXdwaUo3ajlCeEhLcW1lcC0tMzBtVHBTYXJLNzlyQ1JTOWtnNnRHUmVuQXRRUDlhbEpISUhvdUxZV2RqMDByNF80WkhKdlN2ODNnSWJvVmxMVXN2X0ZlSnJQZXZzc1gtNnY2a28zejZwN0E?oc=5",
-   "publicado": "Wed, 26 Aug 2026 10:15:26 GMT",
+   "clave": "chile congreso constitucional gobierno kast quito reforma seguridad urgencia",
+   "titulo": "Chile: el gobierno de Kast le quitó la urgencia en el Congreso a su reforma constitucional de seguridad",
+   "medio": "Infobae",
+   "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPUFN3amF5ZmotTEM2UjJpMmNvQnNyTzBVYXlCbGZrcWhzMnQwTVh1ZlFlbGF4cEtfZlRlNUwtTllJeXVBTnZpZFpta2lRLVQwS2s5NHFaWEZYNGVhLTJDc2VnbndTUlN0TkgxekR5cEdsUkF3YmExUDN0N255ZzRHN2ttem5YQzdWa3p1cWZjVzM3Sk5JRWlVbVl6SzhhNTR5TW1MSGNpRUZXRXc5aF91Q0xSd0JlNTNvVVJsUTF6VFR6Qm9vQ3dwdDN5UWh0VUNqSG9PTnJfS0lNNWJ1cEEtRXNwVlRtZFhEMDd4RmlZWHdNNknSAY4CQVVfeXFMT0luWTZqV3NPSWFGTHRtem1lUWVjTHczUE9PYWxGWElmSFZtcHlQdzhCeTZxRWVjYjlnczZKdzd6NlpfYnNjbGpqY0RlcUswQldHRlNRVWVmMUJBby1BbVVlNjVUdHJ3eEF5Z3hqQ3FRSXowRDRLaktlOFBmV1VuOXVoa0VzSGJXREd3RzFlOFlqMzBDVEx3VUplaVZoS2NuVVY2dE1HU2daUGlnTGM2M0RTWkNfM3VzVHJiYzRmR19aSUVMZXkwelBCLTUxX0szencwNGZqdEVoU1llT0Z1VzhhSWh1OVZiUjBLUFpaSWlSX3NCSzZRWmR6bGN3NlQtVFZVVVUtR3FhX0VvdnhB?oc=5",
+   "publicado": "Tue, 25 Aug 2026 17:35:00 GMT",
    "areas": [
-    "Sociedad"
+    "Política"
    ],
    "medios": [
-    "Crónica Digital"
+    "Infobae"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -5979,16 +6116,16 @@
    "motivo_destaque": null
   },
   {
-   "clave": "basicos contundente gobierno impugnacion norma rechaza reves servicios",
-   "titulo": "Contundente revés para el Gobierno: TC rechaza por 9-1 impugnación a norma de servicios básicos",
-   "medio": "BioBioChile",
-   "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNQ2h3THdHMV9TODBlWU12SW9PRER0YmhvY0R3UGJXdjM0ZUNCRDZLQnRFazREYVE5NUYwUXhrZGQycVN5UmxLendxd0dDSEs1dlh2MzZaVFRJOGJiM2NaaThhbWdEWkN1ZU9BMGV4WDJsM19YZVhxUkdOcndOOVJiaXlhaFN0cDB6VEs1RVJwQV9USDBlczJTZWE3TTI2d29INXlhbkdFeks4MVJoVkxpQ3ZDZnVsbDhRUmF4Qk5tUEVNZ01tek1ZeTdiNkl3LUhYcmNsakdWUFg5MVl3S3lOUExxbFo3cDFOSzZSX3NFSFA3clFv?oc=5",
-   "publicado": "Tue, 25 Aug 2026 16:29:35 GMT",
+   "clave": "169 cambiar como convenio gobierno lafkenche ley puede relacionan",
+   "titulo": "Convenio 169 y Ley Lafkenche: qué son, cómo se relacionan y qué puede cambiar el Gobierno",
+   "medio": "Mala Espina",
+   "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNSWVvc3FTQmdETTQyQ2lfNDJIRXNyUmFjcTFSY05TVnNZcEt4OGhUY2JVRXZRU2lmX3dVTG1sQzV0MzNSdTdXYXY4SWd3eDVESmhOR1NzMWNMV3hqQUNPWVhlS2xiaGlOVVRmUWdTQzJHbW1pNjdjM3A4Z1lLSHlfSURodzhqM0RNTWcxcTVQVU1pMXgyWFRjZ0h3SEktWkFNa0RSMGlJRUt2S3JmVUtxa0RuZ2t5WjJvWjhna2lKMDFQUHJVSEVNZnNZeTcxNUZaUVVqZklBSkRpU1U?oc=5",
+   "publicado": "Wed, 26 Aug 2026 17:10:28 GMT",
    "areas": [
     "Política"
    ],
    "medios": [
-    "BioBioChile"
+    "Mala Espina"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -6049,6 +6186,22 @@
    "areas": [],
    "medios": [
     "Interferencia"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "chillan consejera corte destitucion jardua lorena ratifica regional",
+   "titulo": "Corte de Chillán ratifica destitución de consejera regional Lorena Jardúa",
+   "medio": "Radio Contacto 90.7 FM",
+   "url": "https://news.google.com/rss/articles/CBMi1gJBVV95cUxQY09Qd2Z5cjBTYWxLeUw4N2cya1lJNlAtQk9GVUpuWXlmTXN5M25ReDNwWjdLcHhxWjA2eDNMWEdVZURGNlVqV1VfRzVzUXFXRDNMQUtsZWQ0LTRfZnd4U0NpQXp2VENxcU9yeXF3VGJpdGI3NTI3enZRTVhsMXVHUTdKNml3Zi02YU9PZ2NLN1U5Uk1wOEF2V1ZBLUVVS1VPSjc3SV9JTEMtNG9uV3MzXzNCalUxZWxyRUVfUXJmQk5rRGNSRGpVZzE5Sk9tLWxjMTlxTkx1Rk51dWFxUTgyb05Gd3B3emN1N2J2MEs1elVVX3RUWWJlTExmc2xjZHFFSVdwemdXNlFHMlZwbFNjRk5PcUVzTGRzSVJYclN0eXg1ODduLTdHbi1WNlBLOFNwNnR6b2paa1Z0MFZzYXFjWmNCUGtINjFNUGkwYm9mcmZ0Zzl0MkE?oc=5",
+   "publicado": "Tue, 25 Aug 2026 17:18:49 GMT",
+   "areas": [
+    "Sociedad"
+   ],
+   "medios": [
+    "Radio Contacto 90.7 FM"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -6307,22 +6460,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "agosto chile eclipse este latinos lunar mexico paises podran ver",
-   "titulo": "De México a Chile: los países latinos que podrán ver el eclipse lunar este 28 de agosto",
-   "medio": "noticiasdebariloche.com.ar",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxORzgxOS1OX1dJY0lrT2VRei1OaGlmSzRiaWhMRDZENjJ0aXMwblAtMjNBdDA3Zm1Fbm9HRlE4aDdhMWx6RDV4SVNkYTZCcDh1a0NGOFRIRHdRa2dBcXZ0bW16MW1DLW1Uc3BOb0Rhb3pYZ1Y0T2hucDBCVzh3d0VybDdNWXZVWmpNaWd6WkJNSlo1aUNkMGFTUVJscUozVVBhVzR6aE5QQTB1QWRGZWtZMFNMSk05dHI2cHJsWnJkS205Vllh?oc=5",
-   "publicado": "Thu, 27 Aug 2026 00:45:54 GMT",
-   "areas": [
-    "Economía"
-   ],
-   "medios": [
-    "noticiasdebariloche.com.ar"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "asume chile como deportes gobierno maria nueva paz rios subsecretaria team",
    "titulo": "Del Team Chile al Gobierno: María Paz Ríos asume como nueva subsecretaria de Deportes",
    "medio": "Radio Agricultura",
@@ -6347,6 +6484,22 @@
    "areas": [],
    "medios": [
     "CIPER"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "andino ante antonio chile delegacion jose kast parlamento peruana presidente recibida",
+   "titulo": "Delegación peruana ante el Parlamento Andino es recibida por el presidente de Chile, José Antonio Kast",
+   "medio": "Congreso",
+   "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQd2dNc2dMWGk0bE5acXFTcWEtWXdzVmkzOExWcVdCalFCT1VIb2dBS2d0ZG5UQ1diNGtMa1lFWFUtRFBSOGR1am83WVBCQXdmNDBOY3lZajFKM0huY3hTWHpPZHJfQkhzNzh2YW5FdkNvWGRSLTI5b0otbVEyS1haVFJMWjFPOTFVNWhnb2xic1p2cDVqMU1UWllSY2FlemNpNnpBREVoTHJTTHZjaHphMDJidDVZRmNYWGRzWUpiV01nbVdldzc3SkpkV05ySTR6UF9QdERucC1xQnhBMkExcGZtX2cxdUdVSWc?oc=5",
+   "publicado": "Wed, 26 Aug 2026 15:47:17 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "Congreso"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -6496,7 +6649,7 @@
    "clave": "arresto chile contra dictan federacion inhabilitado orden presidente tenis",
    "titulo": "Dictan orden de arresto contra el inhabilitado presidente de la Federación de Tenis de Chile",
    "medio": "ADN Radio",
-   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOdTYtZEJLZGRDZWNhNGk4Rnk3VVNYMld4b3J4dHh3MGRWZS1mMmJWa3l5RTNhRW9jMTVoYzBQU2NUZ1R4MU1ibHBTTm1YUFg4WFczaDNjYTVCM1E1U3NFeWltYnVlMFRid0NTTWZCN0xDOEJ0bG5INnVrdUFVdTVEVU8wU1REQ0dVQ193MGYyVzZrOHEzRWFNUlZGdnZhd25pNXQ1ak1DbE5nMGEwak1IN1JXRks3TGZXOUR5dTJ2eTVQeEJ3Qm9v0gHbAUFVX3lxTE1UZlhXTXZmcGRwVXJseHRaRjJtMWljTGpfTEQxdVlTYXNscFJQMmZlY3VXNTlZSktoekZOOTZBTmdDeE43NHNnajVuc1VYbjFqRzEyc3pBSWUyLWRQQ0Q0QVdUMVVUXzRMRnhfa1Rvdzc3eWs0b0Yta0swNkRPcmNrZldEaU5uRF83dllDRGI3ZUFGWW1scmNfLS1UTV9tb3VkMUhiTmhBWDRvWE5hRzdhZEYwTmFweF92cEUyMEluQTA3Q01zZ192dGw2V2ktb2JnTkpveC12YnJzQQ?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNVGZYV012ZnBkcFVybHh0WkYybTFpY0xqX0xEMXVZU2FzbHBSUDJmZWN1VzU5WUpLaHpGTjk2QU5nQ3hONzRzZ2o1bnNVWG4xakcxMnN6QUllMi1kUENENEFXVDFVVF80TEZ4X2tUb3c3N3lrNG9GLWtLMDZET3Jja2ZXRGlObkRfN3ZZQ0RiN2VBRlltbHJjXy0tVE1fbW91ZDFIYk5oQVg0b1hOYUc3YWRGME5hcHhfdnBFMjBJbkEwN0NNc2dfdnRsNldpLW9iZ05Kb3gtdmJyc0HSAdsBQVVfeXFMTVRmWFdNdmZwZHBVcmx4dFpGMm0xaWNMal9MRDF1WVNhc2xwUlAyZmVjdVc1OVlKS2h6Rk45NkFOZ0N4Tjc0c2dqNW5zVVhuMWpHMTJzekFJZTItZFBDRDRBV1QxVVRfNExGeF9rVG93Nzd5azRvRi1rSzA2RE9yY2tmV0RpTm5EXzd2WUNEYjdlQUZZbWxyY18tLVRNX21vdWQxSGJOaEFYNG9YTmFHN2FkRjBOYXB4X3ZwRTIwSW5BMDdDTXNnX3Z0bDZXaS1vYmdOSm94LXZicnNB?oc=5",
    "publicado": "Wed, 26 Aug 2026 10:56:48 GMT",
    "areas": [
     "Política"
@@ -6517,6 +6670,22 @@
    "areas": [],
    "medios": [
     "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "acusa amenaza chile como defensa derechos diputada indigenas ministro nanco presentar",
+   "titulo": "Diputada Ñanco acusa al ministro de Defensa de presentar los derechos indígenas como una amenaza para Chile",
+   "medio": "Araucanía Diario",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQd28wT0hDNy02a0ZISkYyTlNZR1dpTVlWRjczWkZsdG5RRmt5elZyaVdZRmkyN0pmQU9ZVzR0bGk4cUlEdzdnd25hbExpSGpkcmlua0txTG9DX1k3Z3k2bEJ5S1VZMEFreFJsSHFDU0NZbFV2NW9GbXoxMGdid2ZZc09Uck8xQW9PU2F1cnU4VmRmUnFKNnI5Szk5UnRjRVR2bkNmeHl2ejBXaXg3RDQ0elQ4Z2VpVmFyaUtQUWg2QTLSAbgBQVVfeXFMT0NEZlBmWmRYZzI4YnZDZFFZT3FuOE5MYjgtaWxsZVVHRnVhRzlWbkJPZzQ4dDF2OUNsV1lpbFZNRnJuNWlHdk5yMG5oWVZvN0dmYk1JMXBrWDV2Y01FZTluSklzMHFPaGM5VWR5WkdzQnJXVm02LVNZXzdDY0lBT0VsZzl6S2o0bFJIVXFOcU5fYndiZWFaTFBmWlZnZmU4VnQxVkRRMUsxSXRpUy1pX05BOUc3ZmlGWQ?oc=5",
+   "publicado": "Tue, 25 Aug 2026 13:06:00 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "Araucanía Diario"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -6783,8 +6952,8 @@
    "clave": "915 chile dolar hoy inflacion presionar sube vuelve",
    "titulo": "Dólar hoy en Chile: sube tras inflación de EE.UU. y vuelve a presionar los $915",
    "medio": "XTB.com",
-   "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOTjU0dmVlR3hqQ1BHRUlLeEtrc0s4N2NOMld0UUtMMG5GWHVqUEtPX2VXaURRZFlBZUZvYjMxUjNCUUJoQ2tkNHlHclV3ako0Z3VPZHBkSW12aEtvLUt1OFI3Y3B3ZHhNSWQ1MEZkVWExSWFFQUFtYVpiT243dnNHdU5waXBfWWhLQnBvYlBNbk9GSGQ0UWY4SHJMV2RxNHdGLWduMlJwZTBoS2ttdy05NWxqQUlqdUxBR0VVQVRCeUdwb0xmcWJfMWN2cjhhQjFKMGF5VjRtYw?oc=5",
-   "publicado": "Wed, 26 Aug 2026 13:52:30 GMT",
+   "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOUVRGcXVBdkw4eUlUOU9ETi0zTGxwck8wZjV3ejBOZDZSMDc2UGVVNW8zaC1ZUkszWnhsdHZNNF9sRHFBV3Z2eVFrcWhlYUcwUEJqdHRnTVJ4MXpGSzV0b1lDSHNoN0Vod2VVdy01Q1lWenVGbGpvVFYxMktWV3cxRkNfdEphS1NrX1l2em0wRWEwX0sxU1NfMm5LWmRlYnlsVnBKdTVuTnVtZVlQd3BGUXB4dzRZbS1lNE9QLTgtYVVJLVMwU3hVcHlZdzZhT2VaNUxfbFdB?oc=5",
+   "publicado": "Wed, 26 Aug 2026 14:18:56 GMT",
    "areas": [
     "Economía"
    ],
@@ -6872,6 +7041,22 @@
    ],
    "medios": [
     "Ciencia en Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "articulo basicos contra duro empresas gobierno megarreforma rechaza reclamo reconexion reves servicios",
+   "titulo": "Duro revés para gobierno y empresas: TC rechaza reclamo en contra de artículo de reconexión de servicios básicos en megarreforma",
+   "medio": "La Tercera",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNDczUmgtZGNKYjVfWDFkU0dtaWNxY1hZZFZneTVIVW5WT2xGdDU4YmpCUHJqUU1qMmNGYVNDOVhtZ1RqckYyS0l3SndwcWFpdWlHcVpaWXBFNUhhLWI3b09PQTZlUWlmZnNoYlJWMHRVdk5Tc0pCUEpmN2pUWDFJeU16MndWM2I2T1RlUGxrTzIyV29FN1NVSUlnUEdoRkZRcndJZ0FVX0hqRnpTVGtXSm5TRWgtOTkxbXFv0gHcAUFVX3lxTE5WX2xrQm94SmE2b3VtOTdZYjUyd1lSWkx0Wkt4c1I5TmdEMzRvUGRRWDdpdnNQYVo4a3BfMEJfSFBObTl2QWJSdGpUZkdocFY3WU1GT2RGQ1B6VDlXZXFxOVdLY1BPRTE0U2laRktSQ3lTWGpDaFZvb1BzbVBfejFUc1IwU0dRUmlRanh1LWJHRHhMcE1fTkstMnNFY3BMUWpkYmZZMV9mNWtyM3BNbU1VNW5SenZ3bUhlM0h3RjNWdWJBa2o2S1Y3Y1JJUGlOUVl2MVoxaWQ5M2EyVDI?oc=5",
+   "publicado": "Tue, 25 Aug 2026 16:34:53 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "La Tercera"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -7078,22 +7263,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "chile costo desempleo emocional ilustrado",
-   "titulo": "El costo emocional del desempleo ilustrado en Chile",
-   "medio": "El Reporte Diario",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQdHVfRWtBSDNzTkQ2ckozcXAwSUFYOC01MlUwUkt1UUI3eklkZDNIN1NUaGpYbG1STEJ5a0hrWThrWTF6aWVNeGdCTHZILUMzWjBoSjVWWUxSb2JCZ2oyNmJVS0ZkZUd2ZkVRXzVhekVIWWRGeEdUcVpWV0hsQWIxS0hSZzVaVkQ2WnB2ekNTWmJYUQ?oc=5",
-   "publicado": "Thu, 27 Aug 2026 01:21:26 GMT",
-   "areas": [
-    "Economía"
-   ],
-   "medios": [
-    "El Reporte Diario"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "advirtio atacara cia director durante moscu otan rusia sorpresa viaje",
    "titulo": "El director de la CIA advirtió a Rusia que no atacara a la OTAN durante su viaje sorpresa a Moscú",
    "medio": "La Tercera",
@@ -7198,6 +7367,22 @@
    "motivo_destaque": null
   },
   {
+   "clave": "analiza ante caza chile conflicto gobierno latam lobos marinos mongabay permitir pescadores",
+   "titulo": "El gobierno de Chile analiza permitir la caza de lobos marinos ante el conflicto con los pescadores | Mongabay Latam",
+   "medio": "Aristegui Noticias",
+   "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQelUwSnB3dEdUSDFxSktfNmZ6R2txUkVFUFZPbjJJR3dPeWRlQjcyNTE1Q0Vub2ZBQjFRbkpzQ21jeXRsSks2a214RzM2RmMtZi1kQUZpV2R2c2JzMTVDd1owZ25nRWVLdGw5ZFFhYUZjM1BuR01iOW9aRnlpNlRYeHphMTI2TUlnVDNmZ3ZQZF9UOF9ZdXhGN18yeXZtUmQzWFJRbUhzaWQtN2RlbXZhMS1NUHRlb1Z1TXVnQnVrOGlETWpKMXZtUE45VnMxbGZkS0RGMmRtNzlTaW5XUUZDWDNKVFQzM1NzRmk0dEFVd3VxajA?oc=5",
+   "publicado": "Wed, 26 Aug 2026 19:18:00 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "Aristegui Noticias"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
    "clave": "creditos echa fondos gobierno hipotecarios mano milei pension promover",
    "titulo": "El Gobierno de Milei echa mano de los fondos de pensión para promover los créditos hipotecarios",
    "medio": "EL PAÍS",
@@ -7256,6 +7441,22 @@
    ],
    "medios": [
     "La Unión Digital"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "busco chile conflicto desactivar diplomatico estrecho gobierno kast magallanes reconocio tratados",
+   "titulo": "El Gobierno reconoció los tratados con Chile sobre el Estrecho de Magallanes y buscó desactivar un conflicto diplomático con Kast",
+   "medio": "Infobae",
+   "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOV2NvbHRyMzhoN04yZnNVSzJxeC1zSjhrdU8xbXpyb2h3RlBLYVU4NVIxaEtfX1VScU0zQ1BiWWVpcXZObmFybE5rWEVlQUJsd0dabTNIbF9CQld5VW5DeFZRUWtlbWdGQUxfd2Z5bVBIT3l6NDFoejFEMC1JbU9mTFlQYWk5Ylc3dmFVeDZxMHF0MGxVaEZwNkNnQzIwZDJjVlRORmdCQkdpREJTbWJRa1hVQ1U2OU1Ic3BwMFQtT1NRX2lqX2NmdjczT0ppVjFucF9nTW9INXNhdWxpNDZSUTN2dEpkamZpc2Qwa0gyYmkzbERualdraVBYelJlWllvM1ZPb9IBnwJBVV95cUxPZk5LSjFFaTN6Y1J6cHNXWUlsWnNxOTVMcG5scUFJWG9ZeG82dVFzbnFkRDRJdjRFZUU0OUVpXzBNQzFrWXZ4OS1yUkpzNUpLZFdJS0FJX2ZubGQ2T2xHR1R3OGJZR1ZvTG02TnRVZ2d1Q1BGZmJhUllYRU9sQUljTW5sT3REVkJkUEswVnptNWJNT0VCQjZscWlCYUVyR0FWakdlOVFYUE1TYVdXc2ZVakJvOTEzQ3ZJME9mc1p2cGM1Zmw5dWxzeTQ0bVZCUVNxa2loUy1GWjhwOXpDM3dJTjdLZTBKMXAtSXUzYWRTc1JQNk42Mm5LbEtTVk1rYjgweS04TFl3NmhxT3JWNUpuR29BbkZtVG82dlQ2RHYtSQ?oc=5",
+   "publicado": "Tue, 25 Aug 2026 15:47:00 GMT",
+   "areas": [
+    "Internacional"
+   ],
+   "medios": [
+    "Infobae"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -7518,6 +7719,22 @@
    ],
    "medios": [
     "Clarin.com"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "chile como deporte designo exlanzadora jabalina nueva presidente subsecretaria",
+   "titulo": "El Presidente de Chile designó a una exlanzadora de jabalina como nueva subsecretaria del Deporte",
+   "medio": "Doble Amarilla",
+   "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxOTmV0bk9ON0t0TjI1ZHB1d2diRGJGc2J3WlNZVklmcllzWE1zSFpYQ2haN1JjV1ZlVGd3THI0MHM0MERTcG1RYmZCQW5hRmVrRXIxY01jZWtVekJ6ZDQyaXd2OGZDbW1iTnVtM0VkRVpVUTNXMWtvTHYyZmdxWHpBX1hfN25BV1F2R05mVHNtSFFPbFF6R2k3R3dtNTRjeHdlUGF5WFlpMG4tRmZtSTJhTVE2c2lfSFJPZjJFc2tIWjJfd292TUMtR3M1NUVjZGlLSjl0MnlyZzU3WEFVajJ5bHdFdG9oZE1Za1BvNWk1N1drMTNHNk9HMHpHNlRlZ3FQcnpUdjFsd9IBlgJBVV95cUxOVmhfbUpWemd3VDZpUmJKNEZfTGRXRHJVaHdBNUs1VHdYRmM0cVFKYS1TcFpCWW05X1NIbmhYSURPeDB0cU8xQ21KQzR4M1lycmYxZmpXVVNxWnpIeVVrMEJHZzIxWjRJdV9qY21laER2cTBNZUl0STBxSVZSMHlEaGl5VnBvbllaNkx4eVlKVDVISWtIUzQwbjdTX1RpR2FYUy1PaUJxa3JVelhoTk5IVjJBZWlVRW9BSmtEaWdmUENPcXB1X1NvOFViSnFtUS1adDRhM2h2NVU2bTZ5R3ZQVHZQNzdsOTJoT0RNWTNZbG9pS1hLV3c3OU1iV0R4M2l5dlhZaHFiTFFpMEsweDZ2SWR4UkZCdw?oc=5",
+   "publicado": "Thu, 27 Aug 2026 01:12:00 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "Doble Amarilla"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -7806,6 +8023,22 @@
    "motivo_destaque": null
   },
   {
+   "clave": "aborto chile derecha derecho estudio pese refleja respaldan votar",
+   "titulo": "En Chile respaldan derecho al aborto pese a votar por la derecha, refleja estudio",
+   "medio": "Infobae",
+   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOUGppNldWLUVvbUpOaDctZXNwbEFOQ1lDcWNFcDlxS2RUdlVRYlplWk93RnlUYnpXVllSN093WjBWbi1iVzc0MnVNOE5pdFY0SGRYUU55OHhaaFlGdTl6NHM1Z1U5aW1tRUV6T2lQTzVKWXdLOXB6bTVjaTdTb3dBS0RrWl9OWE5XSmVCMlpvbmNsT1A2RUZCMXJDX2tRbGgyZXZhekVQRVZpUjM4U05WaDJuZlNRTzVVVDFHbk9LVWUyM3FFcXBDSGtCa2l4QdIB6AFBVV95cUxNcEc4YldoaS1NVW81TXk0LWg3aThYZWVFRzMxVFJrUGNndjZDekpKVFA1andJX0Z2THBESUhoV3I1ZGExREdvbDFoRlMxTHFJZDAzenVBVExPREtDTG9ZTmxoRV9fZ0ZwanY0XzJrRkhsWWdSbkY3TEk2UTN4ZHc5QnBPU3drUFFUTXQzUW5Hb3ViV0xCNnNjalh5a29wSzItVzFOR2tkNjFFUEtncU5VZVZkdENEc0ZZdWtEVU1CZFRQNWVUUTZwNDVmS1NNbjFlUUhhb3V6LUtkXy1OTU5sVjE4bS1HTVVS?oc=5",
+   "publicado": "Wed, 26 Aug 2026 19:41:18 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "Infobae"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
    "clave": "asumio bassaletti como diputado enrique mas meses millones pension recibido republicano solo",
    "titulo": "En solo 6 meses: Enrique Bassaletti ha recibido más de $33 millones en pensión desde que asumió como diputado republicano",
    "medio": "ContrapoderChile.cl",
@@ -8083,22 +8316,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "aguas americas chile competencia estudiante frias internacional natacion representa universidad",
-   "titulo": "Estudiante de Universidad de Las Américas representa a Chile en competencia internacional de natación en aguas frías",
-   "medio": "UDLA",
-   "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNd0J4emF3dEhYM1cwVksxbGZIaHFBQTEyZTVidF9TNW1ycVU3c1EyRkF5RjNPLUk4Yy1sc1IxamVGaFVKUVdnZThaTGFFaGl0U1ZsSmE1QmlnZUY4bVExTWppLVVtMEtQdTh5TTZfTWVYajNFajBOUjlyYjc0VHJaR2VzcUo5MjEtZF9OVWJjazRrSDdLcEFsXzVtUFlSb1ZfaU1GMjBwUDF3LUxfOFJ3dVJtR252WFJQY3dVNVZBRVdHcHh4Q0hMaFM4bGJrR21zM2s3S1A4X3BIckNpUGZZcVlURVQySkU?oc=5",
-   "publicado": "Tue, 25 Aug 2026 22:52:31 GMT",
-   "areas": [
-    "Ciencia y tecnología"
-   ],
-   "medios": [
-    "UDLA"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "bosques canada chile estudian estudiantes sur uach",
    "titulo": "Estudiantes de Canadá estudian bosques del sur de Chile con la UACh",
    "medio": "Diario El Ranco",
@@ -8141,22 +8358,6 @@
    ],
    "medios": [
     "Universidad Austral de Chile"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
-   "clave": "bosques british canada chile columbia curso estudiantes junto realizaron sur uach universidad",
-   "titulo": "Estudiantes de Universidad de British Columbia (Canadá) realizaron curso sobre bosques en el sur de Chile junto a la UACh",
-   "medio": "noticiaslosrios.cl",
-   "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQTU15MXRGUjdldUZFQlFaWkdLY3FOTlg4dXBBWm5qUGRFQmVQUTNkaTEtZkFQRjAxVFVsNjZDQnR2V1poMVlwZ0V3X1VGOWRSUFB4WEJQMXpobm5zaGlESlZMRkxiYnNITlE2VVFYTlZvYTV1MjY5alFjcGw1ZjdLaDlocEZnV2VNQ3hpUm1ESllqaVJlYmV6YTdTUVpVeUhCNnJnX1NBb2ZRNlMtMjFIN0lCYmppSEV4NERWbUtNSUdfbGk3TklCbDBpMU1JdEpkejNEa2JCR2tvVXdJMF82RHlmTEZmYlBkOWJXSWhMYXRSanJj?oc=5",
-   "publicado": "Wed, 26 Aug 2026 14:04:36 GMT",
-   "areas": [
-    "Ciencia y tecnología"
-   ],
-   "medios": [
-    "noticiaslosrios.cl"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -8384,22 +8585,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "chile como crisis debatiran expertos onu superarla",
-   "titulo": "Expertos debatirán en Chile sobre crisis de la ONU y cómo superarla",
-   "medio": "Crónica Digital",
-   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQNi1GZjAtdUZfTHNydUI4VVA2bmE3S05IQURKUkhMS01wZnlwU080UUVKdFdtczJyV0UwbV9TTFVqY0JESjJMU0I1dWx3VHZjOE4tQ0tVQ1g0eGhtSWdOSU4xdUU4bjAwc3NMMk5JZXNfcnQtNGVlNHE3WkZLWTBTZVF0Qkd3QlFjd2pENFlRMEdXRENmZnRuTmJR?oc=5",
-   "publicado": "Wed, 26 Aug 2026 10:28:40 GMT",
-   "areas": [
-    "Ciencia y tecnología"
-   ],
-   "medios": [
-    "Crónica Digital"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "callao chile como consolida especialista exportaciones interborders maritima ruta",
    "titulo": "Exportaciones Chile-Callao: Interborders se consolida como especialista en la ruta marítima",
    "medio": "Portal Agro Chile",
@@ -8616,6 +8801,22 @@
    "motivo_destaque": null
   },
   {
+   "clave": "chillan empresas feria laboral ofrecera vacantes",
+   "titulo": "Feria Laboral ofrecerá vacantes de 20 empresas en Chillán",
+   "medio": "La Discusión",
+   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQbEhaSmtXZS1jZ3ZJQVA4dkxneGdHZnY0YmRRWTZKdUxwNXl5b3djSGNQWlpyZmRNd1M0Mm1DaVBvR28xM0RhaFRsaDZVdkw2TDVMX0tlRFZjdUVJNnVvd0Z4X2ZRc2o2LU43cXp2NFJzaUs3RWlna0tDTVRWMElMQjdKOHpRc2VN?oc=5",
+   "publicado": "Wed, 26 Aug 2026 15:26:20 GMT",
+   "areas": [
+    "Economía"
+   ],
+   "medios": [
+    "La Discusión"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
    "clave": "500 calama cerca empleo empresas feria laboral ofrecio oportunidades participaron",
    "titulo": "Feria laboral ofreció cerca de 500 oportunidades de empleo en Calama: participaron 15 empresas",
    "medio": "SoyChile.cl",
@@ -8690,6 +8891,22 @@
    ],
    "medios": [
     "Diario Tropezon"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "argentinos carros colapinto fanaticos fia franco harta quejas sanciones",
+   "titulo": "FIA se harta de quejas de argentinos y para los carros a fanáticos tras sanciones a Franco Colapinto",
+   "medio": "BioBioChile",
+   "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNdnhOTjZueGZaZzN4M1A1eVcwaERNdHV6U05sZW12emVIa3Ryb2JOMldORDF5MG5MNGNmQTU3RDc4cUVVZllqOGR0Q0ZVZVVkbmVUdnl6Vy1od0lORTNyUnpmQmM3QmZnbkhXN0prYkp6SE02UVJqUFFLNXZHMHNhR2tLNmFxZUpoUDZMQnBiRVZtNlVuWXpnWDAtSko5ZjlvUUh6cGFoVVFBOXJEeElDWUswWE5RZDh0VlFqOFBvVWJqcUFsb080S3RMME5FY1NlbWJDU0hSc1NUci1sTmRmMnN4SlJTYXVJd1JyelRia1lseWtXWTJRMWlkMXV0Nll1OHc?oc=5",
+   "publicado": "Wed, 26 Aug 2026 20:57:48 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "BioBioChile"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -8873,7 +9090,7 @@
    "clave": "800 aprobo chile credito flexible fmi linea millones renovacion",
    "titulo": "FMI aprobó renovación de línea de crédito flexible de US$11.800 millones para Chile",
    "medio": "SoyChile.cl",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQSEZRWWdxNWNHN3lCNjhHR0ZBRUd6a3RkakVWaVE0eFBlclZOQVZ1cjF3TWxCYWtjZTBLakVqbElvMXBZWTZ5eWJ5TV9YbWc1ZzByTjlKdU1BQnFNS0FRVDVFNExBa3dtSXRYcXRaVVFmRUJwWm9TWXVXZmNSQjZ1VkU0dkMzRDRYdVBqd0EyS2lxS0JqYmZoZDBpbjVvdmttMVo3ZHFFSmU0RnNVRWlENjNZNzhNdE5OeGllcA?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNSVZWWXpaZnpDdmhBRU9pd3JQNFhqMFk2OXpmb21jdW00dGZGeU5uNmZBNGZURDZhb3U1NF9wZWh5TmZRVm5mWFAwdHJ6MFVxZkhGZ05pN3NTVWNsZ2xMRDRYRFpFWXc2dW9QeUtGUmtaWUQxTDBsZ2xpbmxqSWgyMFhFUTNyQWZuMFVJWG9aVVdlbFpiLVVDV1pCalRaWEFxWEtGSFBEVDE1SzdtTTR4SzVVaDdsVG1OR1V4OQ?oc=5",
    "publicado": "Thu, 27 Aug 2026 01:04:56 GMT",
    "areas": [
     "Economía"
@@ -9104,22 +9321,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "centro chile cultural exposicion galeria moneda paisaje puro territorio",
-   "titulo": "Galería de Exposición: Puro Chile. Paisaje y Territorio en el Centro Cultural La Moneda - 1",
-   "medio": "ArchDaily",
-   "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPV1Roc0ZvVmZxLWRQd3dZTXJnR2FzdG9sUlBrekJzdVplVTJMRmQzQzFvX3ZyZUVmVkFIVk9XWE9tNVpRRFRkNFNxaUlxWkExYkVSTUlqd1JTRldKYnVOc1gxbm1pN2U3Mm9TZzVXTnVRcUpzeUlhWHM2amxmZGM0NUF3OGVqSDE1b25oMmt1V2VuVjI5VVI2Y3pqNzdfVVR6MzUwRkhyNTB5UUUwcERqWVVsTHd4LTBzdGtYLWJDQ2UzMHExR01vaVFwLWJYSDFLdmd3Xw?oc=5",
-   "publicado": "Tue, 25 Aug 2026 15:57:55 GMT",
-   "areas": [
-    "Política"
-   ],
-   "medios": [
-    "ArchDaily"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "aysen chile concurso diseno galeria lugar patagonia primer social sustentable vivienda",
    "titulo": "Galería de Primer Lugar en concurso de diseño de vivienda social sustentable en la Patagonia / Aysén, Chile - 1",
    "medio": "ArchDaily",
@@ -9162,22 +9363,6 @@
    ],
    "medios": [
     "gorecoquimbo.cl"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
-   "clave": "analiza anos cambio chile futuro gobierno hora prepara propuesta proximos",
-   "titulo": "Gobierno analiza futuro del cambio de hora en Chile y prepara propuesta para los próximos años",
-   "medio": "latribuna.cl",
-   "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNTG11RmpJSndzVVloZ1R2NjU4Qm5DYzZkdWxDQkllVVR6dmFKV3R4RkpfNkc5aTFfM29VclhDMzdOVzdPMm51QkRDVWZvTmdiRlNYODhYUWVXaUxhRmtkeTdFcFl0cUdQdGJhdm9vTzhKMU1FaG9FUG9jbnlNckNSaUNBM1FvR0lwNkQ3c2g4YVozOXRMaTQ0NEZ4R2R2Mm5wUS1MM3cwNDZGNlZUcGdIMFU0N09JYi1RXzFWZzJNM3RYR2dBVkUzeGhQM3R4YjBMWWZ3b2xBYmNlNXNWWXU3YVlWbUjSAeQBQVVfeXFMTUxtdUZqSUp3c1VZaGdUdjY1OEJuQ2M2ZHVsQ0JJZVVUenZhSld0eEZKXzZHOWkxXzNvVXJYQzM3Tlc3TzJudUJEQ1Vmb05nYkZTWDg4WFFlV2lMYUZrZHk3RXBZdHFHUHRiYXZvb084SjFNRWhvRVBvY255TXJDUmlDQTNRb0dJcDZEN3NoOGFaMzl0TGk0NDRGeEdkdjJucFEtTDN3MDQ2RjZWVHBnSDBVNDdPSWItUV8xVmcyTTN0WEdnQVZFM3hoUDN0eGIwTFlmd29sQWJjZTVzVll1N2FZVm1I?oc=5",
-   "publicado": "Tue, 25 Aug 2026 20:00:00 GMT",
-   "areas": [
-    "Política"
-   ],
-   "medios": [
-    "latribuna.cl"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -9264,22 +9449,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "334 artesanal concreta cuarto cupon cupones fecha generado gobierno han pago pesca",
-   "titulo": "Gobierno concreta cuarto pago del Cupón Pesca Artesanal: se han generado 17.334 cupones hasta la fecha",
-   "medio": "BioBioChile",
-   "url": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPTEVVbEJudUdGMnlfRzZ6c3pkVmVkRUtYalNEWlUtSHdwV2pueVdNUkM0QWFfVHlTWG1Bb3FUZWtxT3FJSlhpSnJGVzdKNmlHaE1fbUMxbDRmSUFIR0w5bUo0cHhxQVdERUE2UHl1ODRNSlpNRmRnVlhZTi1oQTRNNWRTRTYyYllqcDloTVNKeDJVc2dEQklYUDdRVzF3VW44MHZCNS1lWms0ZGNzOTlnNTFTTXpYVG01Qy1OZGticGtONlVrekZLcUk2SHZkVVRpV0t4cUVpZ1M3MG9TVmNIdzNDN0hVSzFaa1BBdzNWb2lUWllnTWlyQVMyTFoyQQ?oc=5",
-   "publicado": "Tue, 25 Aug 2026 20:18:37 GMT",
-   "areas": [
-    "Política"
-   ],
-   "medios": [
-    "BioBioChile"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "bloqueos bolivia carreteras despliegue frenar gobierno militar nuevos ordena",
    "titulo": "Gobierno de Bolivia ordena despliegue militar para frenar nuevos bloqueos en carreteras",
    "medio": "Diario Las Américas",
@@ -9290,22 +9459,6 @@
    ],
    "medios": [
     "Diario Las Américas"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
-   "clave": "2026 anuncia arriendo chile discapacidad enfocado fechas gobierno mayores personas personas subsidio",
-   "titulo": "Gobierno de Chile anuncia fechas para el Subsidio de Arriendo 2026 enfocado en personas mayores y personas con discapacidad.",
-   "medio": "OvejeroNoticias",
-   "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxOZWJHTWFzY1dtTzlBcFJBUHUxV2lHVHROTXJKa0tpb3l1SW1vdmFBMms1UWdRSTRzQnNKdkpfZUFwdmJyMU1zTThkSXpkTThVNGhzM0RGRTN5RmFBSlZOUTNPX3VRSnhtQldQbXJaeDd1SndpNXJqckJEdFlpZUZMYzE5aFc2RzJ0QkY3ZXlDU1AtSnYzNVRqYmhsWkpTR2dsX3E3RzlMZnJKa3NRei1qVFQtR1k4QVVrME5ZV2ZDc1dOalFBRjFEZjJfSlpPd0ZJaHlIREhyWHNwN2hpY0pCb1Vzc2ZuTkk1TllGS3BHbHgwQnZjekE?oc=5",
-   "publicado": "Tue, 25 Aug 2026 18:22:26 GMT",
-   "areas": [
-    "Vivienda y ciudad"
-   ],
-   "medios": [
-    "OvejeroNoticias"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -9368,6 +9521,22 @@
    "areas": [],
    "medios": [
     "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "2027 especiales gobierno juegos lanza mundiales olimpiadas santiago",
+   "titulo": "Gobierno lanza Juegos Mundiales de Olimpiadas Especiales Santiago 2027",
+   "medio": "Radio Agricultura",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPeHo5cGpfbWNIc2NhWER0NkhoN0dNWFRFa2JzWVNBaFdKMWpwNE9rb1NkWU9lMVFERXpGUG5tcUlTMU1mc1BRLWxtb3JtUUVraE5SV0VjcmlOWFoxTGZ6Q2kyTFpJZ0xiQVI5b3BPNVh0cUlmalFsamctZDh6Nm1OYjY5ZjZJMFN1MEM4cXp1THNWX0VLY1lKZG5hRGltcF9Rd09IRG1sejBlcS16eFM3SnQ2TllsRnZZcVR0aFdn?oc=5",
+   "publicado": "Wed, 26 Aug 2026 13:07:36 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "Radio Agricultura"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -9531,8 +9700,8 @@
    "clave": "2026 8vos asi campeon chile copa final habra nuevo quedaron",
    "titulo": "Habrá nuevo campeón: así quedaron los 8vos de final de la Copa Chile 2026",
    "medio": "ADN Radio",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOaG9uczVwaUdsTzRvOW5vWEVzV0xSanM0TnlNTHVSeGlVeXI3RWcxVktxS08xcWwySm9TSHBuLW5aN3ZGYnFNS0hyNUxLZjBXNUpKR2s4RjJ4Wmt0OE9nRTN4aVlyVm1VVm1IWFdIRndwWkp3STM5b3Qzc3BJY3FUQjgyUnUtWnU0VEs2ME4waEI1ZmdHY3pJclNxSy0yRng2SFZHaV81Q2xrWXhz0gHAAUFVX3lxTE1xaTZaa2pMUlF6a0s0R0Z6Zjk1alpLdE1scEhIbnFrdnFPR3Vmd284WEZtRzVqTTZBa0xwaWtjMUtocVNvN0Q0WGxzQlpaV3NRaWRwaUxvRWRJZktuYTctc25pYm1YdXgtSjBTZ25OOVBrR0xBeHlEU0U4TVBHampnU19uUWNBN01xRDB2Zzkwdm9jVFN4SE1OemRaZlR1bWhGWS02cy13ZG9OTUxWQlZESkJqV2lna0NVVzdnbFZ1TA?oc=5",
-   "publicado": "Thu, 27 Aug 2026 02:38:49 GMT",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNcWk2WmtqTFJRemtLNEdGemY5NWpaS3RNbHBISG5xa3ZxT0d1ZndvOFhGbUc1ak02QWtMcGlrYzFLaHFTbzdENFhsc0JaWldzUWlkcGlMb0VkSWZLbmE3LXNuaWJtWHV4LUowU2duTjlQa0dMQXh5RFNFOE1QR2pqZ1NfblFjQTdNcUQwdmc5MHZvY1RTeEhNTnpkWmZUdW1oRlktNnMtd2RvTk1MVkJWREpCaldpZ2tDVVc3Z2xWdUzSAcABQVVfeXFMTXFpNlprakxSUXprSzRHRnpmOTVqWkt0TWxwSEhucWt2cU9HdWZ3bzhYRm1HNWpNNkFrTHBpa2MxS2hxU283RDRYbHNCWlpXc1FpZHBpTG9FZElmS25hNy1zbmlibVh1eC1KMFNnbk45UGtHTEF4eURTRThNUEdqamdTX25RY0E3TXFEMHZnOTB2b2NUU3hITU56ZFpmVHVtaEZZLTZzLXdkb05NTFZCVkRKQmpXaWdrQ1VXN2dsVnVM?oc=5",
+   "publicado": "Thu, 27 Aug 2026 02:39:45 GMT",
    "areas": [
     "Ciencia y tecnología"
    ],
@@ -9918,22 +10087,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "contra conveniente correa denuncia jaime javier pizarro responde siempre",
-   "titulo": "Jaime Pizarro le responde a la U tras denuncia contra Javier Correa: “Siempre es conveniente”",
-   "medio": "bolavip.com",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNaVRoVGhFZno3X1dHSHp5MEctSHY4R2hDWDJJWE93QWN2Vk5NNDAwRkJ6VjlUMWNPcDFZR3l2T1hKN3RQY2dFSDlwNkk0dzNVaUUwMDZvQ3dPdTR0VGZ4bU9zekxtY254dmI4MGxtWHh0NUdBYkNoNGRpWnhjUEFwM2pNMzljdWNOUE4zRkJYZHlGYzlfUjFTSUkxd2N6TW96UnAxMElCU0kyZjVqT1hJbFU4aXRkNG15QWJIMU51cEVYWW010gHEAUFVX3lxTE1pVGhUaEVmejdfV0dIenkwRy1IdjhHaENYMklYT3dBY3ZWTk00MDBGQnpWOVQxY09wMVlHeXZPWEo3dFBjZ0VIOXA2STR3M1VpRTAwNm9Dd091NHRUZnhtT3N6TG1jbnh2YjgwbG1YeHQ1R0FiQ2g0ZGlaeGNQQXAzak0zOWN1Y05QTjNGQlhkeUZjOV9SMVNJSTF3Y3pNb3pScDEwSUJTSTJmNWpPWElsVThpdGQ0bXlBYkgxTnVwRVhZbTU?oc=5",
-   "publicado": "Thu, 27 Aug 2026 01:05:14 GMT",
-   "areas": [
-    "Ciencia y tecnología"
-   ],
-   "medios": [
-    "bolavip.com"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "alto cambios chile fondecyt incorporar james mcphee nivel oportunidad perdida talento",
    "titulo": "James McPhee, de la U. de Chile, sobre cambios al Fondecyt: “Es una oportunidad perdida de incorporar talento de alto nivel”",
    "medio": "La Tercera",
@@ -10012,6 +10165,22 @@
    "motivo_destaque": null
   },
   {
+   "clave": "advierte correa enfermo herrera javier johnny ordinario pero picante",
+   "titulo": "Johnny Herrera advierte sobre Javier Correa: “Es enfermo, ordinario y picante, pero…”",
+   "medio": "bolavip.com",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOUnFsUnBTLW1idE1oNDJwMHBVWXMycjlBd3lnLTNXYzRzSnIzTmc2dXVPY01EeW9odnBIRDdRbUswMndrQU5zTjNfczV0RTg1Q0xCd190QUtleGtPTXpFS2lzVjZSZDlJMDVjSWxWZUdPVXdydGR1WUtSTGtyVkJieDBVYzRqbUVJWUoxRlViTnBkcklkeGFyaVNoMkFOd0E1TXo0czg3TFFLOHdoZVFJetIBtgFBVV95cUxOUUx1Qk5mSjBpajNtNkJDdF81WGIyanhYNGI1aGhPZG5ualdGaHkzdW9qTUFLaUlqdHZORWxfT3Z3ZEhqN2EwbGJQRkpTa1hqcUlYeEJnSmpZdXE4RkZFZU1ubVJVUlFoUUYtbGRpM1p0Q0Y2SDZNS0duMnhGY3FwN09QZXNpVzhETFplUF9IUEM5ZWxZMThJeF9yOElUN1QwZjlGVmlNLXltQWZhSWMzNFVYWHprZw?oc=5",
+   "publicado": "Wed, 26 Aug 2026 14:50:07 GMT",
+   "areas": [
+    "Ciencia y tecnología"
+   ],
+   "medios": [
+    "bolavip.com"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
    "clave": "buljubasich catolica despedida intensa jose maria queria seguir",
    "titulo": "José María Buljubasich y su intensa despedida en Católica: “Yo quería seguir”",
    "medio": "RedGol",
@@ -10022,6 +10191,22 @@
    ],
    "medios": [
     "RedGol"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "chile cuando dialogo eduardo generan inestabilidades juan lado lider masoneria quedando urrutia",
+   "titulo": "Juan Eduardo Urrutia, líder de la masonería en Chile: “Cuando el diálogo va quedando de lado, se generan inestabilidades”",
+   "medio": "La Tercera",
+   "url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxQejBEVV9nTTdENGdKZVhuYXFqUy1OOHV3bnlpVmdub3hOY0g5ZkpCOFh0ZHpzQVp2OWZyRURmT2xQR19hcnF0ZW5aTWFqbkhMOHhNOGN6bTk4STJ0Zlc5N01QQk11ZTdDVmhVRlJxWjczNmk0RWhtTmM3Ny1RMG1WNjN4dmZJR3djb1Z2NzJVa3FTcXVVYUIwMnBfQ0hvdHVRYWpCWDl3aE5qNkQ1SW4xVWdQR3FaMnBnSG5OTTNvNkt5alA0a20yQ1BEVzlST2tPNFJwOUdVSldOMVJVWEFVX3ZLZi1sX0FISTN3QVl4Y09rS1ZsQ2NhSVNFUGJ1MzFfWFdLUkw2VXRuTkN3VFA4X2RmRdIBkwJBVV95cUxQejBEVV9nTTdENGdKZVhuYXFqUy1OOHV3bnlpVmdub3hOY0g5ZkpCOFh0ZHpzQVp2OWZyRURmT2xQR19hcnF0ZW5aTWFqbkhMOHhNOGN6bTk4STJ0Zlc5N01QQk11ZTdDVmhVRlJxWjczNmk0RWhtTmM3Ny1RMG1WNjN4dmZJR3djb1Z2NzJVa3FTcXVVYUIwMnBfQ0hvdHVRYWpCWDl3aE5qNkQ1SW4xVWdQR3FaMnBnSG5OTTNvNkt5alA0a20yQ1BEVzlST2tPNFJwOUdVSldOMVJVWEFVX3ZLZi1sX0FISTN3QVl4Y09rS1ZsQ2NhSVNFUGJ1MzFfWFdLUkw2VXRuTkN3VFA4X2RmRQ?oc=5",
+   "publicado": "Wed, 26 Aug 2026 20:00:00 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "La Tercera"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -10070,6 +10255,38 @@
    ],
    "medios": [
     "Diario Financiero"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "alarma aliados anuncia enciende fuerte kast opositores reforma seguridad",
+   "titulo": "Kast anuncia una fuerte reforma de seguridad que enciende la alarma de aliados y opositores",
+   "medio": "CNN en Español",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNcXJRM2pwUDB0YWNKUUV6WWJzOEs0QnhaNGd1Mkk2eVF0enVXOFU4MV9ORURFbEtxb2RIQmdGR2dCTVlOWGVwZXo0QWY1Tk5oa1RVckpnYU1QU2ctZFNRWHdGOTRnT3BzMjN1TzRRUGVXYjI0Z3ZranE4VFhvVW1ya2VlMDBnM3ZPWUFxeENWVGlRWHAwdkl3?oc=5",
+   "publicado": "Tue, 25 Aug 2026 13:52:00 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "CNN en Español"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "apunta constitucional defiende falta kast polemica politico reforma respaldo seguridad",
+   "titulo": "Kast defiende polémica reforma constitucional de Seguridad y apunta a falta de respaldo político",
+   "medio": "BioBioChile",
+   "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxQbWlkbzZuZ2IyQ0VuQ2IxZTU3WWFhM2NxM0J6b0x6aHE3YU5oYnNyZE5Pek5sM3NKSlk5OWVxb3ZQTVpqd1g4c3VQMFBJT0lyYnpFanFqWi1EajhKQXBLM2FQYW5pVC13QWFuaDF0V3JEVXZNTUlLZHh2TDZXVHkxaUtoZHlWSDhQRU9XSlFkMzlRZjNRYWFqZlNDT19Xa3F5UVlfRkFHY2VhQy1MQ2N3c2NzalFCRVVKcExBREFKaktxc0wxb3JuVUxVOUQ3aUIyTFd5WkEzdHdPVlB6cTNzWGlILVU4T0lyZm1kVHdHWTZTdlI0UW9z?oc=5",
+   "publicado": "Tue, 25 Aug 2026 13:24:20 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "BioBioChile"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -10522,6 +10739,22 @@
    ],
    "medios": [
     "Psychology Today"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "buljubasich busca candidatos cuatro estos jose maria reemplazante",
+   "titulo": "La UC busca al reemplazante de José María Buljubasich: estos son los cuatro candidatos",
+   "medio": "bolavip.com",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPM2hleE5jLTBDWHQ3UU90Z1Y2T3I4MHlYenF0X19OVTZoalhDRmtMaVBmWFI2SkRBVHhPaGhkUi15bE1UM0p4eks2cDMta1ppSFhSZ0JhWjdaMVlpOXlBM1Buc1JtNEtrZjdHVjJfMGl0UDJuQ3g1VnA1a1I2REtWNEFGUE1FY3BRSU9QVlBaa3hoOWpSdkNqM0pwOFg1ZW5jVG5HbkJnU1IyNWIyS2hKQ1BnSmpCamlTS0HSAb8BQVVfeXFMTnVZdHplcEpsenNhSXFpSnhYN3RjWVV6OUltOUFVTzRIVXlqTmktM2FaalBMYzBwczhpMzJsVmY1Q24yVXJ3eHloZjVfUUV4cWp6eGVNdmRPU2VEaldEaGxEd25Bd3kzaTNBa2cwV2pFRkFrZlc3bktBVE92Vm84VHh1NVNqSjVNRWZOV2lzQmNOay1QSUkxTUExSWdETlVOU2Y1ejkzUDhHenp2TEdsbWFCZ0EtSXR3X3d0TFZPUkk?oc=5",
+   "publicado": "Wed, 26 Aug 2026 16:30:43 GMT",
+   "areas": [
+    "Ciencia y tecnología"
+   ],
+   "medios": [
+    "bolavip.com"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -11058,22 +11291,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "argentino dichos general gobierno magallanes malestar valverde",
-   "titulo": "Malestar del gobierno argentino con el general Valverde por sus dichos sobre Magallanes",
-   "medio": "Canal 9 Bío Bío Televisión",
-   "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNU01GLUR5ZjZYVlZzd211MHJhUFI5a1Y2UE9LQnJfWXRkblgtZ2owSk40SnhDbE5PRVdwMzdNUkZDLWZmMTVPcGk4NWdzaDFKWVE2WnRqTGtLd08zV05ETDVYbklmTzdJNWV5b2JTc3hubEJCNGJKNl9OSDNPOGVPMWhobzlRUS04eWw3d1BiUG5LaW5nc0ozRTRNTTdwY1MtVS1FeWc4ZU1sOG5LbXF6OUZNWFp4d3B5NzVfcE5MX2h3cEMzT2VwTkIwaDAxVDEweDliZ1U4Ty1SSWtT?oc=5",
-   "publicado": "Wed, 26 Aug 2026 16:01:17 GMT",
-   "areas": [
-    "Internacional"
-   ],
-   "medios": [
-    "Canal 9 Bío Bío Televisión"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "animal ante colegio denuncio estudiante expulso fiscalia florida maltrato municipio videos viralizacion",
    "titulo": "Maltrato animal en La Florida: Colegio expulsó a estudiante tras viralización de videos y municipio denunció ante Fiscalía",
    "medio": "CNN Chile",
@@ -11233,7 +11450,7 @@
    "clave": "cada correa depende educacion hinchas javier matias provocacion tenga todo uno zaldivia",
    "titulo": "Matías Zaldivia y la provocación de Javier Correa a los hinchas de la U: \"Todo depende de la educación que tenga cada uno\"",
    "medio": "Todofutbol.cl",
-   "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxOYkt5TVo2M1hXeDEtdnpyLXBjRDMwQ1AtZWQ1OGRlRjVDZzhlUDdSNTdUVFZmVkZFcWtxcnNpWWxPSG5kQ3h0Ny0xd1ZoanhheVNTOTRuRUZJdWFKbU5wdWRNdEpEVm92TlYxbTRJTEJkdnd3a0luQXpaak1DcUtyRkdSYWZUT24xTUhFNjlCMnQyUWpORVJyS1RpN1B6cTk1c19hTHZrdGVPc001WVo2elpqMVZlOGo5eXRhMzB1RDJPeHdkRXNDaTFiTmdROU1IQnZ2SGRuTjRqdXZyVUxqZGlCc1lJZ21WWXVlTkxNaWxvbUd5U1JsRnFWSC1Ya0dWS1ItUjhUU0ppRnZCTmNF?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxQdURBNHJhX3MwMzhJS2JVV004bmVjOURsRklUVFk1VnZWSUhYRlpFb09HaTBScHZpYk9qTjVjcmlSb0wzNFJhWUxURmVfTGRLT3FNWC10X0oxVElLMU05TkRHUk9MMHJYQ0VmQXQwN01OY2ZCazlIUW5YX2I5WndjV1lueHZwb0pLY0wzTnNUZ29wWDlZQV9mLUphbGV6ZFpCSnBXajJCSHY5OE8zQno4TlY5Sy1wUDQ3U2pma05aRGQ2ZFpnSlNXSklPT3p2X3QwUXJ5NWdFcVE2UG9vRFZ3ZkVyS0RsS0s0QXBpTjVjemZoVDR1R0ZkSWw0dlhmRmN2NDFqYUU5Z2F2LU0wLVJFNg?oc=5",
    "publicado": "Wed, 26 Aug 2026 16:12:05 GMT",
    "areas": [
     "Ciencia y tecnología"
@@ -11554,22 +11771,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "chile economia industries inversion millones mineria ministro nueva obras planta superior tega visita",
-   "titulo": "Ministro de Economía y Minería visita obras de nueva planta de Tega Industries en Chile, con inversión superior a US$40 millones",
-   "medio": "Rumbo Minero",
-   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQTBxS3hVZVprOE9ib2ptNHFuRGJ6dWdxdGgwVXVQbG51dHlkaWJwb1hpc25wRDZHUmZMWXd2bzl1U1o1QVZHdXNXcm9WZm1xMGhQSUpxbUZxYUtheHl1Y3BYX1Vkc1dkZGdKVnV0QVg5bGxDV1lfQUw3Ml8yY0xDT0tublpTejc4dks2LXFFMGNVb3dlMnc?oc=5",
-   "publicado": "Wed, 26 Aug 2026 16:02:46 GMT",
-   "areas": [
-    "Economía"
-   ],
-   "medios": [
-    "Rumbo Minero"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "chile denuncia droga entregar fiscalia madera ministro muestras nego supuestamente",
    "titulo": "Ministro denuncia que la Fiscalía de Chile se negó a entregar muestras de madera supuestamente con droga",
    "medio": "ANF Agencia de Noticias Fides Bolivia",
@@ -11726,6 +11927,22 @@
    "motivo_destaque": null
   },
   {
+   "clave": "brasil cree elecciones mercados morgan riesgo stanley subestiman",
+   "titulo": "Morgan Stanley cree que los mercados subestiman el riesgo de las elecciones de Brasil",
+   "medio": "Bloomberg Línea",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOSEYwOHlWZjJya2FYQi0wZGo4SU5GNnB2N2VENU5xSW5hWEt2bkpTNTdZS256M1pmU0VoSDE5VWV2a1ktYXNQRUFmUHNYdUl4ZnoxS2lPYVMzUnd0SFkwcmt5ak4xRzE3ZzA4bVlKNmN2NFdhOVRHYTU4U3NaT2lpbWdkQmptc1FfTklHbUh3ZExtWlNJaVdXNEVOdkdrWDVNYXc1RFlDYmZlNlphTVByaFpUV0V3dzZkSTRKeDZaVERWZURn0gHYAUFVX3lxTFAxWUtpSHlTaDQyRjNKVTBjZGx5OG53YjhDemxDa3VBNUtTYTVwZlhXZWp2RnFwazFPRUVEZ0NZMWxacWJCYV9US2Rnc1Jzb2dIMDZUWUhVU3BCYy04dVpxNkdJTEtxTEhLQ0podktWRkZzaXg0LVZjVHVtdjdSbVpiV0l4M3NvSDM0OENyNGx0SGV3Q1BicW5lMXc2WmZKcUJxY3JoaV9wQlk4dnpzb2FkVkpQM2stMnM1aUstUGtxRkVQVHNRbkVkSFZoWUpRQ2JjVW5EN3hsdA?oc=5",
+   "publicado": "Tue, 25 Aug 2026 17:14:45 GMT",
+   "areas": [
+    "Internacional"
+   ],
+   "medios": [
+    "Bloomberg Línea"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
    "clave": "ayudas chile continua coquimbo entrega movidos region",
    "titulo": "Movidos x Chile continúa la entrega de ayudas en la Región de Coquimbo",
    "medio": "Serena y Coquimbo",
@@ -11786,16 +12003,16 @@
    "motivo_destaque": null
   },
   {
-   "clave": "aclarar autorizacion cancilleria carteles contra declaracion eeuu firmada hubo junto kast mulet oficia pide presidente",
-   "titulo": "Mulet oficia a cancillería y pide aclarar si hubo autorización del Presidente Kast en declaración contra carteles firmada junto a EEUU",
-   "medio": "Tierramarillano",
-   "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNeGhlZDFQclRYM0FvZDl4YjVELVhpRzdTWkFzWUdiRmRveHZYSC16eUI5dHpwQUU1Y0pqYjhlMURHaDltZTRqNlhJdElGa0dlN05Va1l4Zmd3ZHU2LWpRQzl4WVQ4dHlNVjRaYjBYVnNtblBTd3B4ck9XMkZjTnU4ejZISkNXV1E3eXk3Rzl6NWl5eXlBSk40Z1daSFRTLTJWS0daZk1qMGhvWDlGeEJtTlNKaktNRVNmWjlPUnFWRmlpRmEzeUdCb3lLMFJBQnEyU2JuLXpNZldqdnBlcnRGWXVpMHRQRkRCa2VaVkhjRV9uWjhvS0d5eElvZFN6eTl6b3I0?oc=5",
-   "publicado": "Wed, 26 Aug 2026 06:06:11 GMT",
+   "clave": "adjudica aysen chile conectar localidades mundo proyecto rurales",
+   "titulo": "Mundo Chile se adjudica proyecto para conectar localidades rurales de Aysén",
+   "medio": "DPL News",
+   "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE95RTVCZWNfaE5icXJBTlQ2ZGp1OGdpbTdOZlN0emhQejNwV2JDVFZWbGZFSXgyUWxpQUtjZ1JWMjJyNGRrUFMzMi1lOFFoTmRnSW9TYklVMUtzYlVsaVF6NWtGVjRodUI0amZybkhJWV9RWmtWREZn?oc=5",
+   "publicado": "Wed, 26 Aug 2026 17:00:25 GMT",
    "areas": [
-    "Internacional"
+    "Política"
    ],
    "medios": [
-    "Tierramarillano"
+    "DPL News"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -11890,6 +12107,22 @@
    ],
    "medios": [
     "Diario 7 lagos"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "binacional chile comite fronterizos llevo neuquen pasos pavimentacion tres",
+   "titulo": "Neuquén llevó al Comité binacional con Chile la pavimentación de tres pasos fronterizos",
+   "medio": "alertadigital.ar",
+   "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQUmRPWEl1OHM0Z2RuckJsc2dsUy1JcVVjZE1XbHB3c2dfanhiQjVaN3A5T1REemd6VTRzdFEtNUNDNG43bFNUMXlSY2tzUUw5cHU4dWU5ZjhCTUp5VW5SVHE4OFhWZ0FtM2dreGJvSy0yZ2NYbmxvOVBBdEdRMmZqd2FjcjVLLTVTNks0V3lvbEdpVUE0dzRRRllma3hQcHg1aUVvUEdwc3ItRDVpd2MtcmhFY0lGa2RiRkJESkJZZGRJbjM3NVlBNWRwc0RWODZKMHFvanFHUGxwS2FBN25zMtIB4AFBVV95cUxQUmRPWEl1OHM0Z2RuckJsc2dsUy1JcVVjZE1XbHB3c2dfanhiQjVaN3A5T1REemd6VTRzdFEtNUNDNG43bFNUMXlSY2tzUUw5cHU4dWU5ZjhCTUp5VW5SVHE4OFhWZ0FtM2dreGJvSy0yZ2NYbmxvOVBBdEdRMmZqd2FjcjVLLTVTNks0V3lvbEdpVUE0dzRRRllma3hQcHg1aUVvUEdwc3ItRDVpd2MtcmhFY0lGa2RiRkJESkJZZGRJbjM3NVlBNWRwc0RWODZKMHFvanFHUGxwS2FBN25zMg?oc=5",
+   "publicado": "Thu, 27 Aug 2026 02:13:26 GMT",
+   "areas": [
+    "Medioambiente y clima"
+   ],
+   "medios": [
+    "alertadigital.ar"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -12192,6 +12425,22 @@
    "motivo_destaque": null
   },
   {
+   "clave": "cargamento chile droga fecha madera oviedo presencia probo",
+   "titulo": "Oviedo: Chile no probó a la fecha presencia de droga en cargamento de madera",
+   "medio": "La Razón Digital Bolivia",
+   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNdUM4a2o1Y080T1BnYTlnNy1obUlyc2tPWHZtTk54NUxySXpNUUxMakRveExibG84ZlRPdzlJTlVzV2hEeFU4cGc2bWc5X2FXTmJGMm1sUEpMOGpJWUo3RW9sSDJCOTlWTmV5SkprTDhpWGNYZnlNT2dUMGxOYzRNNmZ1MzhsOWc1RWNTS0JDNXRMeXpjTUhtMlBsR3ZrTHVV?oc=5",
+   "publicado": "Wed, 26 Aug 2026 18:53:41 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "La Razón Digital Bolivia"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
    "clave": "graves mientras oxigeno paciente pipa prendio quemaduras recibia sufrio",
    "titulo": "Paciente prendió pipa mientras recibía oxígeno y sufrió graves quemaduras",
    "medio": "Radio Carolina",
@@ -12280,6 +12529,22 @@
    ],
    "medios": [
     "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "argentino autorizado cerimedo dice estuvo gobierno jamas paz representar",
+   "titulo": "Paz dice que argentino Cerimedo “jamás” estuvo autorizado para representar a su Gobierno",
+   "medio": "El Comercio Perú",
+   "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxOelIzQU1wdTBwQmNqZHpYQS1UZkwtWjM3V0tMeDloQmZzQzNTR1JWMjgtZDl4c2RGRzVqb2JGNGhpUm1CVVV0Snd3WmV3dm04aGFGc1hnYS00SWptYmx3UF8zd1hhNkNkMkhpZW9rSHpDSVFFLW5xM2taRDB2aUhES2R5R3BWdlBrRkdPblNXU3R2b2FnNFJ2Z0pwc2dEVm05LVVoRkhJWkhnUTNHVVU1UHRnWkFBdFlJUlFBTFRtX0k2Z0ZhenZpZXllQndlWGZjcmxxdk80X3BxRUthOHV5emtIZ0RqQUc1V053VkhyZHR1Q2lvbjJTaTVJVXFjcTR5Q1lKQVRDRy1sQ0JEWlhaSg?oc=5",
+   "publicado": "Thu, 27 Aug 2026 00:33:55 GMT",
+   "areas": [
+    "Internacional"
+   ],
+   "medios": [
+    "El Comercio Perú"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -12534,23 +12799,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "agosto chile cierre cotizacion euro hoy precio",
-   "titulo": "Precio del euro hoy en Chile: cotización de cierre del 26 de agosto",
-   "medio": "Infobae",
-   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQbVFCSFRJbmRPWk1kLURGWXJZc0tneldNY0ozWjdIUXNiZV9hOVY4VTQwZUxkMVJXbmZRN0ltclJHZ04yM3l3MUVzR0FTOUZvZ2l5SEhOeFVhRF9CMlFKaWs1dVRVRlBsYW9lQm9Bek8wMTd4OUpxeXczMVFYUzlsQ0RiZEJrVHhIckFVSTQtVnNVZUx2VTFtYXVEWDlzbWVmRmltNVhkendDc1dYdHpZMTVxT05xRjZnQ2E0WDJWdjBtMjEwLTRiQm0tb9IBywFBVV95cUxQbVFCSFRJbmRPWk1kLURGWXJZc0tneldNY0ozWjdIUXNiZV9hOVY4VTQwZUxkMVJXbmZRN0ltclJHZ04yM3l3MUVzR0FTOUZvZ2l5SEhOeFVhRF9CMlFKaWs1dVRVRlBsYW9lQm9Bek8wMTd4OUpxeXczMVFYUzlsQ0RiZEJrVHhIckFVSTQtVnNVZUx2VTFtYXVEWDlzbWVmRmltNVhkendDc1dYdHpZMTVxT05xRjZnQ2E0WDJWdjBtMjEwLTRiQm0tbw?oc=5",
-   "publicado": "Wed, 26 Aug 2026 18:22:17 GMT",
-   "areas": [
-    "Economía"
-   ],
-   "medios": [
-    "Infobae"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "ruido_probable": true,
-   "motivo_destaque": null
-  },
-  {
    "clave": "cebolla chile disparan inegi mexico precios serrano",
    "titulo": "Precios del Chile Serrano y la Cebolla se Disparan en México: INEGI",
    "medio": "N+",
@@ -12795,22 +13043,6 @@
    "areas": [],
    "medios": [
     "La Tercera"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
-   "clave": "abogada atleta como deportes kast lama maria nombra nueva paz presidente rios subsecretaria",
-   "titulo": "Presidente Kast nombra a la abogada y atleta María Paz Ríos Lama como nueva subsecretaria de Deportes",
-   "medio": "CNN Chile",
-   "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxORmFleWtxV3BnODBpaU9fS2o3anNFTnVKYmlFQXd2cUtXRW5GRzVUQzh6MTI0TWdaZVEzZmw5MVUxT1hzSldoOTlXZmx2Z3gyd0JyaGRHcEdMTWtsY0h3TWF6b0ZLSmhzU0d4UkJtdEYwMzBNSVFmbVRFRVd0WURrWkplOWNhYTkyd2NpLXV0ZHMyanV5MXR1LXNrczRYUm01QVZZX3BlSlZ1clZybUp3OHpBSWkzZnlIcXZpMWNYSlU1WmNlME1EU056VXc?oc=5",
-   "publicado": "Wed, 26 Aug 2026 23:07:15 GMT",
-   "areas": [
-    "Política"
-   ],
-   "medios": [
-    "CNN Chile"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -13569,22 +13801,6 @@
    "motivo_destaque": null
   },
   {
-   "clave": "basicos ejecutivo gobierno megarreforma rechaza reposicion requerimiento reves servicios votos",
-   "titulo": "Revés para el Gobierno: TC rechaza requerimiento del Ejecutivo por “reposición de servicios básicos” en megarreforma por 9 votos a 1",
-   "medio": "CNN Chile",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQUE02cE80c2IxbUJsNENiTjQ4d2c1dk1zWjJfYkZxaWRJSjNSX3ktTDh6M3UzZzFzMUwtM1kwbTd5d3RNLUVrU1ZYRlYweU1TdlRYZ0poa3dHMm5pTFpDQzE0Vmk3RzU1SG9xSzJvS1dubmZIQk9ra1RiZ1Y2R05YZjczU2xBUWtCSFRQVWtZdlB6WWN6dWFvNmhwQVhwblEzRWNnSnBHLXVDQW9NNW1lOS1FaTZPZGoybk1xTkdQUWhHUEVyQjVQSw?oc=5",
-   "publicado": "Tue, 25 Aug 2026 16:27:05 GMT",
-   "areas": [
-    "Política"
-   ],
-   "medios": [
-    "CNN Chile"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
    "clave": "caro casi colo colo cuesta debut error revisa vozinha",
    "titulo": "Revisa el error de Vozinha en su debut que casi le cuesta caro a Colo Colo",
    "medio": "La Tercera",
@@ -13731,22 +13947,6 @@
    "areas": [],
    "medios": [
     "Cooperativa"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
-   "clave": "2026 antonio bike carlo edicion gavardo jose kast mountain participa presidente republica rist",
-   "titulo": "S.E. el Presidente de la República, José Antonio Kast Rist, participa en la 12° edición 2026 del Mountain Bike Carlo de Gavardo",
-   "medio": "Prensa Presidencia",
-   "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9qR3V1dmZXTzZhMVpLY0xsZHgtSGJVa2ZDTUx4N1lib1BiSE5YaEx1dkZvRGZXOU5IeUl1cUJ4d2xkR01IUWNab2U3cGJFN0t5bHRWZkpxcWNtS0poejE3NlR0UVF1ZTg?oc=5",
-   "publicado": "Wed, 26 Aug 2026 18:11:32 GMT",
-   "areas": [
-    "Política"
-   ],
-   "medios": [
-    "Prensa Presidencia"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -14407,6 +14607,22 @@
    "motivo_destaque": null
   },
   {
+   "clave": "abrio capital cesantes emprendan millones requisitos revisa semilla subsidio",
+   "titulo": "Subsidio de $3 millones para cesantes que emprendan: el Capital Semilla abrió, revisa los requisitos",
+   "medio": "centralnoticia.cl",
+   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOWW1CNmVIRFh2LWtUMVRTQnd1SkdNaDU2Tzl5cUFaZ1hBbUkzOTc5cm8xRk12TTYzaldDQ3YzaXpDNmtsSS0waUFtNU9nc0llOG5lODRCOVdaY0dITGNhTzVuTVhoak9OUFA4VjhZWEgyRnFkTFFjUGNGcFpHbm5aZ1BXaV9qWGR1ZmRCNFVqSdIBlwFBVV95cUxPRzU2dUZsWTlkaE5ta2k1VWtnbUVrd0RvQzc1U3VUdzVoUkN0TF9wWFlNQWF4aVhKUURrTVpsZXE3LW1QTDJTSjNrZS1ZbUxINEdlMUI4aXRGUnhqV0xMTEQ0NzMxZWd0NjVnLUktOFo4eklfeHRYTkpiVFRZNUdPOWMzOUhQdm1Qc2NVTWdwYTJDclVqS09F?oc=5",
+   "publicado": "Wed, 26 Aug 2026 19:45:40 GMT",
+   "areas": [
+    "Vivienda y ciudad"
+   ],
+   "medios": [
+    "centralnoticia.cl"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
    "clave": "2026 505 706 agosto empleo joven llega pago revisa subsidio",
    "titulo": "Subsidio Empleo Joven 2026: revisa el pago de hasta $706.505 que llega el 31 de agosto",
    "medio": "Revista Digital Minera REDIMIN",
@@ -14474,7 +14690,7 @@
    "clave": "2026 actualizada agosto campeonato chileno fecha futbol hoy nacional posiciones tabla",
    "titulo": "Tabla de posiciones Campeonato Nacional 2026 actualizada hoy, 26 de agosto: fecha 19, fútbol chileno",
    "medio": "AS Chile",
-   "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQQVBrN196dkNWNThoUDJLMDE1NllQc2czUl9mRG1KeHhnUDdOZWFEemhWNG9neUdpZExyNUNuT1ZLSzVKOWlGczBQcUtKVUw4MnMtMGlBRHNtaUVScWRBeF9CYU94UUIxZGdxdTBqV254ZmlDalFJdkxCX1ZFQVViTHZPQ25OUkl6UWkzU2N2SG1LY3hkSkU5M2ZGckRhOWduM0FGT1JqMWV2a0d2VFJFT0xiblRMeDBZX01TYTV2OXhJSHh4OW1KUUR1T1V0eUY5MUpJLU1aVUctcWZxM3dGWmd4eUtxUdIB5gFBVV95cUxQQVBrN196dkNWNThoUDJLMDE1NllQc2czUl9mRG1KeHhnUDdOZWFEemhWNG9neUdpZExyNUNuT1ZLSzVKOWlGczBQcUtKVUw4MnMtMGlBRHNtaUVScWRBeF9CYU94UUIxZGdxdTBqV254ZmlDalFJdkxCX1ZFQVViTHZPQ25OUkl6UWkzU2N2SG1LY3hkSkU5M2ZGckRhOWduM0FGT1JqMWV2a0d2VFJFT0xiblRMeDBZX01TYTV2OXhJSHh4OW1KUUR1T1V0eUY5MUpJLU1aVUctcWZxM3dGWmd4eUtxUQ?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOZmc4cTBmakp6WktzTXp4NjNMcjhVUElQYkxOa2RUSmtNN0c3RDgxdjlTeE83NFBKdzVQMnRFTmdUenRpNGFleWw0ejQ1blh2TlRxZ19zSmc0ZGJ0eTBMOUZXSzBjRnRMYVB1MWhrSGVQOHpPd251OWZWQUxrWHZIeDhPdVRYMjVRUm9QNFFWQnJ3MlFmdUdJUTNaek1mejVlNEY3OXI1UzZCQzk2UVUtV1RkaWxUdG5tVHhmcldBd2xlTkhnLXU4d2Uxb2o5aEludnfSAeYBQVVfeXFMUEFQazdfenZDVjU4aFAySzAxNTZZUHNnM1JfZkRtSnh4Z1A3TmVhRHpoVjRvZ3lHaWRMcjVDbk9WS0s1SjlpRnMwUHFLSlVMODJzLTBpQURzbWlFUnFkQXhfQmFPeFFCMWRncXUwaldueGZpQ2pRSXZMQl9WRUFVYkx2T0NuTlJJelFpM1NjdkhtS2N4ZEpFOTNmRnJEYTlnbjNBRk9SajFldmtHdlRSRU9MYm5UTHgwWV9NU2E1djl4SUh4eDltSlFEdU9VdHlGOTFKSS1NWlVHLXFmcTN3RlpneHlLcVE?oc=5",
    "publicado": "Thu, 27 Aug 2026 01:41:27 GMT",
    "areas": [
     "Ciencia y tecnología"
@@ -14705,6 +14921,22 @@
    "motivo_destaque": null
   },
   {
+   "clave": "120 arquitectura comision dias estado formular integrantes kast nueva propuesta quienes tienen",
+   "titulo": "Tienen 120 días para formular una propuesta: ¿Quiénes son los 12 integrantes de la Comisión de Nueva Arquitectura del Estado de Kast?",
+   "medio": "Teletrece",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQTS0welJ3ZEJCT1BnZ2VaS00yZ3BWR3VPTGYweGVtVHZjd0hFUVlQek5mRDVxWHFVaFJqRWlIZ3J4MF9qZHgxUHJuVTdLNjJXZW11YlJSdFNnSFYwNF9TUlc5RmxEZTRiNDFmWGtiRFdsR0tUWGptWGZaXzZJdTVJQlR5RVJSNXRWX3BlcmFzVTZvTkk0Tm1OQTBNVGcwUGtBNkpGVlFqREROYWhOWTFaMk9yVzF4eFhNOUUzUEhWYnRPNDg?oc=5",
+   "publicado": "Tue, 25 Aug 2026 21:36:00 GMT",
+   "areas": [
+    "Política"
+   ],
+   "medios": [
+    "Teletrece"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
    "clave": "contra disputa enfrenta manejo padre patrimonio stoessel tini",
    "titulo": "Tini Stoessel enfrenta disputa contra su padre por el manejo de su patrimonio",
    "medio": "Cooperativa",
@@ -14827,6 +15059,20 @@
    "motivo_destaque": null
   },
   {
+   "clave": "amiga contradicciones makarena relato tios tolosa transferencias",
+   "titulo": "Transferencias y contradicciones: El relato de la amiga de Makarena Tolosa sobre sus tíos",
+   "medio": "TVN",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSmhNbDFzZjdLTkp0ajJaTW9LVFc2aVFDdTlmemF3ZE9HVHMtbks0aGJmLXRCQXAyVEktYThJcEhjXzZINHNVc2dobGlKQjBmYXZManlBbEZEZXpSR1BvX1pFV2tWQmZOTE56eV90QXpUb2J0M0lXbm9XTlNxQURCSm5jRWlYUHg0R1pwdE9kbDN4Z0U2RzVoaDE2eHdKZGN1UDdaX0FkeWHSAa4BQVVfeXFMTXlQMGlNV2lXOC0yOVRXTFBxb0hubE1seHJndV9fSjZfRWNuUm9qU0pySFlIWnN6TmRzLVRyTW5vV3V3eUdreTFkOUlCdXFlQkNTakI5UGU0RExUbFB2QlZuRFFPeU9fa0FwcmN3eE80bG90T254OGFmaVlEU2pKUWRBOWx2SHRfb2J2bnFmcWoxaXdKVXNzNnhYckJqRUQ0NGJDMmUwMTlfWTdkTHhB?oc=5",
+   "publicado": "Tue, 25 Aug 2026 01:29:00 GMT",
+   "areas": [],
+   "medios": [
+    "TVN"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
    "clave": "argentina chile dichos general magallanes nota polemicos protesta responde soberania",
    "titulo": "Tras nota de protesta: Argentina responde a Chile por polémicos dichos de general sobre la soberanía en Magallanes",
    "medio": "Teletrece",
@@ -14869,38 +15115,6 @@
    ],
    "medios": [
     "The Clinic"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
-   "clave": "argentina chilena estrecho magallanes moneda reafirma reclamo soberania",
-   "titulo": "Tras reclamo de La Moneda: Argentina reafirma soberanía chilena del Estrecho de Magallanes",
-   "medio": "Cooperativa",
-   "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPQ21CYVNiMnotZ3p1eElOYW5nQ2JzMlBJS1VsRVdFNFk2TW5DMFRsV1d0YUJfZm9SX2UtRDhQbV9OMkRiSWhScGJVR3ZPX3NKbXI4b1FHb0I5OGZCMUxYZEx0Z2ZKX0VmZ2ZZbndSLVlKZDRSWlotUWo5OFk4NkdqZDhXcTQ5WFV6bTViX2c1N3lCQ3FWaHgxeEhCNndlX1hnOW5kNWNuSlFYeTBTdkF1UjZwYVBLbWtpMjVBbWdoQzlWSDh2eXRiem5faXdYNUZpaHhYcnRubWZJa21GV3Zxc05tYVMtNXB2cXFEbF9tUUwyQmc20gGMAUFVX3lxTE9BOEpjUERjSWRsamstcDVuYmN5WFI2SGRISFJJc3Zfb0g0V1RYQWZCMDdsaXlORHNHZnV5YXUtS2dJdzR3d1dRaTFBTFpQajlmU1FJbE1uR2x2Sm90a1RUZEdKQVlIOXdYQUh6U3V0OVJTVlFhVFVBbTdxdWQ2STJialFYMzRuWFRYYUhp?oc=5",
-   "publicado": "Tue, 25 Aug 2026 15:41:00 GMT",
-   "areas": [
-    "Política"
-   ],
-   "medios": [
-    "Cooperativa"
-   ],
-   "repeticiones": 1,
-   "visto_antes": null,
-   "motivo_destaque": null
-  },
-  {
-   "clave": "constitucional duro gobierno golpe kast propina tribunal",
-   "titulo": "Tribunal Constitucional propina duro golpe a Gobierno de Kast",
-   "medio": "Crónica Digital",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPUG9kdE94OGtXNGlOSDUzTndZWlg3SW1zVDhCdFRlQVhTMmFULXI5WnhheS00c2p3N0JtdUdSWS1ObnhjY2xMb09GZGM1b0xPVDNPNVhENml1R0YxdGNVRjdVOVNBS2luVVdBLUx6ZnhiQWFoYnJnN2l1bk9XUTBELTZpNTl4bWw2c0ZMZ21PNDR0dw?oc=5",
-   "publicado": "Wed, 26 Aug 2026 10:50:34 GMT",
-   "areas": [
-    "Política"
-   ],
-   "medios": [
-    "Crónica Digital"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -15139,16 +15353,16 @@
    "motivo_destaque": null
   },
   {
-   "clave": "boric chilena futbolista gabriel honor presidente recibe uruguay",
-   "titulo": "Una futbolista chilena recibe al ex Presidente Gabriel Boric en Uruguay: “Un honor”",
-   "medio": "AS Chile",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOYzh5TEdMTWRiaGpOUFJMTkJFMHlhRF9YUkc0bUlCeXlCR21SbGRMQUU0dTBidFBHYmtDdS0tRXBXVllFeHJYUmVJTXJmNDRCMTE1c2lJQVEtc19ueVRxNFg5WjBwS3ZxZ2toNE8yc25zT3FIZWkyNEx5S3dNQ1RxMHVLVlotNTNzMGpRNUcxWEVtTXYzNXY5UVVUQkdLSm5yb2RxcnUzcHlhSmtlVWNXR0FRTHpQckpIekZIMUVvT2JpUHVCREpEetIB3AFBVV95cUxNNzVhT3BVN0o0OXhqYklfUi1wZ1RmYTE2UkVYR0JYaENiLXBaVUloV0NhZ3RWZG4tVF9DZUxnVFBabDJONzlGeF84S0hSTzBwNWZ6dHZ6UnlNSDNESVFxTkNwV2tVUUZERjNfZWI5M1FiaFdjTEtWaUNvOTR6RUpXOGE1R0c3MUNsekdaMFI4cnpZUi1qWmJRdzVodFk2SlVTUXUyVDZnU1JXMzVpNDNCd2hQQnpVN2ZaNzRuMVlGdHlSNjJ0QkRPOTFacm9kX28xV2lzVXRlYXlGVElH?oc=5",
-   "publicado": "Tue, 25 Aug 2026 12:19:54 GMT",
+   "clave": "adolescente anos antes colegio confesar crimen dia madre martillo mata santiago siguiente",
+   "titulo": "Una adolescente de 14 años mata a su madre con un martillo en Santiago y va al colegio antes de confesar el crimen al día siguiente",
+   "medio": "EL PAÍS",
+   "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxQbVl4YlQyVVR4N0N4d2ZSd01DT3FTSEtHZlNncDdUbkxYeVJYZDlNdWdWN2dPcVc4ZGdna05pMWgyeGlDN1k0Y3p6NEwyUlVCY2xoMHZJSXc3bkxKbkl1dUFYbXBZQW9uTy1XNFlLdmR5cVJjbm80TWd3MDhyY21xUXZfSENrZmxYdTlEbkRyVWNBdXo3ZE01VDBEcGk1UFNsbzBrOXYwVFdnbklJWFV5TzNPNFI2V1h2M0JRYzJJWll2Z0xIdXhBSEgwY0pFNTJVOWFwT25zZld1TGtrRjVyTE1sUml1MTNqcmtFSXlENV9EbXBSeWdFanFpQllHdXpxR2fSAZYCQVVfeXFMTU1JLWZCaFVuUXBJcGVSTGtHdWVTdFBNdC14TE04RWtXdGRPZEtmUFlLRE1COS0wN1BGbXpTUWF5SjFqa1k2X3VGcnEtSTJ4OFNfNlpPTlJhNldoenhkcWVueHh0ZWh1dHpqUHlJVWpoOW92RUljaXlfb0pfVzVWYk1sS2hvQk1Scm1vMjlZVVJsMHBlRVNFWHUwYjJuSERUc3UtSGlFbGJjb0xLazFfdmMzOGZ1dDRLalE1d0FjYjliVkhLVzAya2RBbXVOR1FVdWFRb044dTdMS3dUemJnWFc3ZE1OeDdaOWw1bkdkdDRibXd1MWZaWVMtZDVULWdNc3BEanROVEFoeHlRS285dW9VQTN3V1E?oc=5",
+   "publicado": "Tue, 25 Aug 2026 17:56:59 GMT",
    "areas": [
-    "Política"
+    "Seguridad y Justicia"
    ],
    "medios": [
-    "AS Chile"
+    "EL PAÍS"
    ],
    "repeticiones": 1,
    "visto_antes": null,
@@ -15459,6 +15673,22 @@
    "areas": [],
    "medios": [
     "BioBioChile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "arquero asombro cabo chile colo colo debuta mundial verde vozinha",
+   "titulo": "Vozinha, el arquero que asombró con Cabo Verde en el Mundial, debuta con Colo Colo de Chile",
+   "medio": "The Morning Call",
+   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOdERkLTVZRFVPdmY4SzFwcUhpUEw0R1FxZUx3ZUZfVGswSy1RQ0pQQ0dqY0hwbUVrYUJwNUVSWmdCeS1SX1hCMTJGbUNNNXFfcnI1ZDNLWmhId0VXU2VRbDNXY0wtNUxwSEtfZ05Bc2pDblgxRFBaREJYeGw1c3d5V2pNQjlBOGhMZVNxZjBNTmE4RGFIM3dnSS1BaUwwLWUxdW90aURrWUlJQnEtWjdaMVBMVnR3TlBXLWxBYzRySQ?oc=5",
+   "publicado": "Thu, 27 Aug 2026 00:42:56 GMT",
+   "areas": [
+    "Ciencia y tecnología"
+   ],
+   "medios": [
+    "The Morning Call"
    ],
    "repeticiones": 1,
    "visto_antes": null,
