@@ -1,7 +1,7 @@
 # Caso: JUNAEB-SOSER, raciones no entregadas del Programa de Alimentación Escolar ("onces fantasma")
 
 Estado: ACTIVO
-Dossier abierto: 2026-08-25 · Última actualización: 2026-08-25
+Dossier abierto: 2026-08-25 · Última actualización: 2026-08-27
 
 <!-- datos
 cuestionado: 14000000000
@@ -43,12 +43,14 @@ Además, la denuncia de JUNAEB individualizó a 9 personas y 3 empresas (La Terc
 - 2026-08-20: operativo con más de 80 detectives de la PDI en varias ciudades: allanamientos a la Dirección Nacional de JUNAEB en Santiago, a oficinas de los senadores Gahona y Calisto en el Congreso Nacional en Valparaíso y a domicilios de la exdirectora Rubio, con incautación de teléfonos, computadores y documentación; una jueza de garantía autoriza además el alzamiento del secreto bancario de Gahona, Calisto y Gutiérrez desde 2018, por indicios de un "mecanismo sostenido en el tiempo" de intercambio de información reservada, intervención de actos administrativos, adjudicaciones irregulares y presiones para remover fiscalizadores a cambio de beneficios económicos y laborales. La causa la dirige la fiscal de Alta Complejidad Oriente Constanza Encina, asignada por la fiscal regional Oriente Lorena Parra. (Cooperativa, Meganoticias, BioBioChile, La Tercera, Radio U. de Chile, 2026-08-20)
 - 2026-08-20: Peña confirma que los senadores son indagados por "cohecho" y apunta a la exdirectora y a un exjefe jurídico: "Son hechos graves". (Emol, BioBioChile)
 - 2026-08-21: SOSER y los parlamentarios investigados insisten públicamente en su inocencia. (Radio U. de Chile)
+- 2026-08-25/26: la senadora Alejandra Sepúlveda y dirigentas de las manipuladoras de alimentos de SOSER se reúnen con el director nacional de JUNAEB, Fernando Peña. Según los tres medios que cubrieron el encuentro, Peña comprometió la continuidad del Programa de Alimentación Escolar, el pago de los sueldos de las manipuladoras y sus finiquitos al término del contrato con SOSER, que expira en febrero de 2027. SOSER sigue siendo el proveedor del programa en la Región de O'Higgins mientras la investigación penal está en curso. (G5noticias, Diario El Pulso, El Tipógrafo)
 
 ## Próximos hitos conocidos
 - Análisis por el Ministerio Público de la evidencia incautada el 2026-08-20 (dispositivos, correos institucionales, registros bancarios desde 2018), tras lo cual evaluará eventuales formalizaciones. (Meganoticias, 2026-08-20)
 - Eventual solicitud de desafuero de los senadores Gahona y Calisto ante la Corte de Apelaciones, no solicitada a la fecha. (Meganoticias, 2026-08-20)
 - Tramitación de la querella de SOSER contra Fernando Peña en el Cuarto Juzgado de Garantía de Santiago. (The Clinic, 2026-06-30)
 - Sumario administrativo abierto vinculado al caso, reportado por El Líbero (fecha de cierre sin confirmar); pronunciamientos pendientes de Contraloría y del CDE sobre los antecedentes recibidos el 2026-05-27.
+- Término del contrato de SOSER con JUNAEB en febrero de 2027 (día sin confirmar) y licitación posterior del Programa de Alimentación Escolar en la Región de O'Higgins. JUNAEB comprometió el 25/26-08-2026 la continuidad del servicio, los sueldos de las manipuladoras y el pago de sus finiquitos al término del contrato. (G5noticias, Diario El Pulso, El Tipógrafo)
 
 ## Fuentes
 - 2026-05-27: BioBioChile, "Gobierno denuncia ante Fiscalía irregularidades en Junaeb: $14 mil millones por raciones no entregadas", https://www.biobiochile.cl/noticias/nacional/chile/2026/05/27/gobierno-denuncia-ante-fiscalia-irregularidades-en-junaeb-14-mil-millones-por-raciones-no-entregadas.shtml
@@ -68,8 +70,19 @@ Además, la denuncia de JUNAEB individualizó a 9 personas y 3 empresas (La Terc
 - 2026-08-20: La Tercera, "Fiscalía allana oficinas de la Junaeb y el Congreso en investigación por presuntas irregularidades en licitaciones", https://www.latercera.com/nacional/noticia/fiscalia-allana-oficinas-de-la-junaeb-y-el-congreso-en-investigacion-por-presuntas-irregularidades-en-licitaciones/
 - 2026-08-21: Radio Universidad de Chile, "Impacto por caso Junaeb: Soser y parlamentarios investigados insisten en su inocencia", https://radio.uchile.cl/2026/08/21/impacto-por-caso-junaeb-soser-y-parlamentarios-investigados-insisten-en-su-inocencia/
 - 2026-08-21: BioBioChile, "Caso Junaeb: cómo una investigación por licitaciones de programa de alimentación llegó al Congreso", https://www.biobiochile.cl/noticias/nacional/chile/2026/08/21/caso-junaeb-como-una-investigacion-por-licitaciones-de-programa-de-alimentacion-llego-al-congreso.shtml
+- 2026-08-25: G5noticias, "Senadora Sepúlveda y manipuladoras de Alimentos de la Región de O'Higgins se reunieron con Director de JUNAEB por raciones fantasmas que involucran a empresa SOSER S.A.", https://g5noticias.cl/2026/08/25/senadora-sepulveda-y-manipuladoras-de-alimentos-de-la-region-de-ohiggins-se-reunieron-con-director-de-junaeb-por-raciones-fantasmas-que-involucran-a-empresa-soser-s-a/
+- 2026-08-26: Diario El Pulso, "CASO SOSER: Senadora Sepúlveda y Manipuladoras de Alimentos se reúnen con Director de JUNAEB por caso de raciones fantasmas", https://www.diarioelpulso.cl/2026/08/26/caso-soser-senadora-sepulveda-y-manipuladoras-de-alimentos-se-reunen-con-director-de-junaeb-por-caso-de-raciones-fantasmas/
+- 2026-08 (día sin confirmar): El Tipógrafo, "Caso SOSER: Junaeb asegura continuidad de alimentación, sueldos y finiquitos", https://eltipografo.cl/2026/08/caso-soser-junaeb-asegura-continuidad-de-alimentacion-sueldos-y-finiquitos
 - Sin fecha precisa: El Líbero, "$12,5 millones por ración de comida: el caso de Junaeb que mantiene un sumario abierto", https://ellibero.cl/actualidad/125-millones-por-racion-de-comida-el-caso-de-junaeb-que-mantiene-un-sumario-abierto/
 - Nota sobre otros casos recientes en estas instituciones: (1) JUNJI, licencias médicas: informe de Contraloría difundido entre el 2026-01-30 y el 2026-02-09 detectó que entre 2017 y 2024 hubo licencias por $20.916 millones con mal manejo, incluidas 9.964 licencias rechazadas por $5.548 millones no recuperados; JUNJI respondió el 2026-02-10 que ya recobró $1.700 millones (El Mostrador, https://www.elmostrador.cl/noticias/pais/2026/02/09/contraloria-detecta-mal-manejo-de-licencias-medicas-en-la-junji-por-casi-21-mil-millones/ ; The Clinic, https://www.theclinic.cl/2026/01/30/contraloria-detecta-graves-irregularidades-en-la-junji-mas-de-mil-funcionarios-se-han-tomado-mas-de-dos-anos-de-licencias-medicas/ ; Radio Paulina, https://radiopaulina.cl/2026/02/10/junji-responde-a-informe-de-contraloria-por-dineros-de-licencias-medicas-no-recuperados-y-asegura-que-ya-recobro-1-700-millones). Aunque su monto bruto es mayor, corresponde a subsidios de licencias no recuperados, no a un presunto fraude con fondos pagados sin contraprestación; el monto irregular no recuperado confirmado ($5.548 millones) es inferior al del caso JUNAEB. (2) JUNJI, aplicación "Mi Jardín JUNJI": $458 millones pagados 2019-2025 por una app con uso mínimo, con tratos directos cuestionados por $172 millones según Contraloría (Fast Check, 2025-09-07, https://www.fastcheck.cl/2025/09/07/junji-pago-mas-de-458-millones-en-aplicacion-movil-con-escaso-uso-contraloria-detecto-irregularidades/). Por magnitud del presunto fraude, investigación penal activa y coincidencia con la descripción del editor ("miles de millones desaparecidos", destapado recientemente), el caso elegido es JUNAEB-SOSER.
 
+Nota sobre las fuentes: no se accedió al texto íntegro de las notas de prensa; las citas y cifras provienen de extractos con URL verificada, con al menos dos medios por cada hecho consignado.
+
 ## Registro de actualizaciones del dossier
 - 2026-08-25: dossier creado con investigación inicial. (agente de investigación)
+- 2026-08-27: se agrega la reunión del 25/26-08-2026 entre la senadora Alejandra Sepúlveda, dirigentas de las manipuladoras de alimentos y el director nacional de JUNAEB, Fernando Peña, con el compromiso de continuidad del Programa de Alimentación Escolar, de los sueldos de las manipuladoras y de sus finiquitos, y el dato de que el contrato con SOSER expira en febrero de 2027. Sin cambios en las cifras del caso.
+
+<!-- interno
+Límite de acceso (27-08-2026): el proxy de red bloqueó el acceso directo al texto de diarioelpulso.cl, eltipografo.cl y g5noticias.cl (EGRESS_BLOCKED). El hecho se consigna porque tres medios coinciden en los extractos verificados con URL. Quedó anotado en por-verificar.md el día exacto del término del contrato con SOSER y la individualización del exdirector subrogante de JUNAEB reportada por Ex-Ante y su redifusión en T13 (28-05-2026), que necesita un segundo medio independiente antes de entrar a la ficha.
+-->
+
