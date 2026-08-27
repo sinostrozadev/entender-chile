@@ -163,3 +163,22 @@ madrugada" en ejecutar.md, 2026-08-24.)
   del video (idea relacionada, ya en este archivo) y quién aplica estas
   indicaciones: hoy el sitio transforma el mismo markdown y nadie las lee.
 - **Esfuerzo:** el documento ya está escrito; falta engancharlo al flujo.
+
+## Chile en cifras: indicadores del país en la web
+- **Fecha:** 2026-08-27 · **Origen:** Santiago
+- **Qué:** sección web con los indicadores que cuentan cómo le va al país
+  (IPC, desempleo, PIB per cápita, pobreza, homicidios, salario mínimo como
+  primera tanda), con serie larga, fecha del dato y próxima fecha de
+  publicación. Bandas de períodos presidenciales como contexto apagable, y
+  hitos no políticos con el mismo peso para no inducir lectura de trinchera.
+  Especificación completa, con 30 indicadores candidatos y sus cadencias, en
+  estrategia/indicadores-pais.md.
+- **Valor:** búsqueda permanente ("pobreza en Chile" se busca todos los meses,
+  para siempre), cada gráfico es tarjeta de video sin trabajo extra, y
+  convierte en sección la firma del canal: cada cifra con su fuente.
+- **Hallazgo técnico:** los colores de sección de src/tema.ts NO sirven para
+  gráficos de varias series (fallan la validación: se leen grises y dos son
+  indistinguibles). La mayoría de los indicadores es serie única en pátina, y
+  para las excepciones hay paleta propia ya validada en la especificación.
+- **Esfuerzo:** medio-alto. Lo caro no es dibujar: es mantener el dato al día,
+  y de eso depende toda la promesa.
