@@ -114,8 +114,15 @@ async function main() {
     const rutaHitos = path.join("contenido", "casos", "hitos.md");
     const todosLosHitos = (leer(rutaHitos) || "").split("\n").filter((l) => l.startsWith("- "));
     const recientes = todosLosHitos.slice(-15).join("\n") || "(sin novedades)";
+    // La olla del día, si la etapa de selección alcanzó a producirla; si no, el
+    // barrido crudo; si tampoco, el prompt manda barrer desde cero. Sin esto el
+    // plan B ignoraba la preselección por su propia cabecera anti-lectura.
+    const olla = leer(path.join("contenido", "preseleccion", `${fecha}.md`))
+      || leer(path.join("contenido", "barrido", `${fecha}.md`))
+      || "(no hubo preselección hoy: barre por tu cuenta y anótalo al final)";
     informe = SIMULAR ? SIM.informe : await llamar({
-      mensaje: CABECERA + prompt("informe.md") + `\n\n<hitos>\n${recientes}\n</hitos>`,
+      mensaje: CABECERA + prompt("informe.md") +
+        `\n\n<preseleccion>\n${olla}\n</preseleccion>\n\n<hitos>\n${recientes}\n</hitos>`,
       busquedas: 15, maxTokens: 9000,
     });
     guardar(rutaInforme, informe);
