@@ -63,6 +63,24 @@ noticia: alertas, emergencias, sistemas frontales con impacto real).
 Tampoco toma partido. Las posiciones se atribuyen a quien las sostiene, y el
 acento verde pátina de cobre es deliberadamente chileno y apolítico.
 
+### La jerarquía de lealtades
+
+Cuando dos intereses chocan, el orden es este y no se negocia:
+**primero el ciudadano, después el país, y nadie más.** No hay tercer lugar:
+ni partido, ni gobierno de turno, ni auspiciador, ni el propio canal. Si una
+nota le conviene al canal y perjudica a quien la mira, no va.
+
+De ahí sale la regla que ordena el trabajo: **mostrar lo que está pasando
+para que cada uno piense por sí mismo**. No se esconde que hay posiciones
+enfrentadas; se atribuyen con sus datos y el espectador decide. Lo que nunca
+aparece es qué debería concluir.
+
+En concreto: los hechos y las cifras son iguales gobierne quien gobierne; se
+cubre con el mismo rigor a quien uno preferiría no incomodar; ninguna sección
+se calla porque el implicado sea del sector propio o del ajeno (en el
+observatorio de plata pública esto es la prueba de fuego); sin adjetivos que
+juzguen y sin ironía, porque la ironía es opinión disfrazada.
+
 Y aunque la producción es automatizada, las decisiones son de personas: qué
 entra, cuánto pesa y cómo se cuenta. Todo queda registrado
 (estrategia/decisiones.md y contenido/revisiones/).
