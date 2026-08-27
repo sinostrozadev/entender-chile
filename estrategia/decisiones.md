@@ -54,6 +54,15 @@ mega-informe, contador) queda en evaluación en ideas/evaluar.md.
 grandes y calza con la identidad del canal; acumular primero permite
 decidir el formato con material real. **Decidió**: Santiago.
 
+## 2026-08-27 - Jerarquía de lealtades: el ciudadano, después el país, nadie más
+**Qué**: se explicita el orden cuando hay conflicto de intereses, y la regla
+que se desprende: mostrar lo que pasa para que cada uno piense por sí mismo,
+sin decir qué concluir. Sin adjetivos que juzguen y sin ironía (la ironía es
+opinión disfrazada). **Por qué**: la imparcialidad estaba implícita en el tono
+pero no como criterio de decisión; sin jerarquía escrita, el primer conflicto
+real se resuelve por instinto. Es además la mitad de la propuesta de valor
+del video frente a los canales de opinión. **Decidió**: Santiago.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 - **Firma epistémica del canal**: toda cifra con fuente visible en pantalla;
