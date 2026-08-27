@@ -40,3 +40,15 @@
   caso con contador propio, dossier completo y aviso de presunción de
   inocencia. Franja del contador en la portada. Publicación automática.
 - Rutina nocturna en la nube (03:00) reemplaza a la actualización por API.
+
+## Tres diseños de la web, elegibles por el visitante (2026-08-27)
+- Diseño 1 "Sobrio": el original, intacto.
+- Diseño 2 "Portada": cabecera en tinta, portada de diario a dos columnas
+  con riel numerado, secciones numeradas, letra capital, reglas en vez de
+  cajas.
+- Diseño 3 "Sala de datos": modo noche. Redefine los tokens de color, así
+  que el sistema entero se adapta; encima, tipografía mono como estructura,
+  paneles y las cifras del observatorio como protagonistas.
+- Selector en la cabecera, persistente en localStorage, aplicado antes de
+  pintar (sin parpadeo). Diseños 2 y 3 viven en hojas propias bajo
+  [data-diseno]: el 1 no se toca y volver es un clic.

@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import "../styles/diseno2.css";
+import "../styles/diseno3.css";
 import { url, canal, fechaCortaNum } from "../lib/contenido";
 export interface Props { titulo?: string; descripcion?: string; actual?: string }
 const { titulo, descripcion, actual } = Astro.props;
@@ -10,6 +12,16 @@ const hoy = new Date().toISOString().slice(0, 10);
 <!doctype html>
 <html lang="es">
   <head>
+    <script is:inline>
+      // Diseño elegido por el visitante (1 sobrio, 2 portada, 3 sala de datos).
+      // Se aplica antes de pintar para que no haya parpadeo.
+      (function () {
+        try {
+          var d = localStorage.getItem("ec-diseno");
+          if (d === "2" || d === "3") document.documentElement.setAttribute("data-diseno", d);
+        } catch (e) {}
+      })();
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{t}</title>
@@ -32,9 +44,36 @@ const hoy = new Date().toISOString().slice(0, 10);
         <a href={url("en-que-quedo/")} aria-current={actual === "casos" ? "page" : undefined}>¿En qué quedó?</a>
         <a href={url("acerca/")} aria-current={actual === "acerca" ? "page" : undefined}>Acerca</a>
         {canal.youtube && <a class="suscribe" href={canal.youtube} rel="noopener">Suscríbete</a>}
+        <span class="selector-diseno" role="group" aria-label="Elegir diseño">
+          <span>Diseño</span>
+          <button type="button" data-d="1" aria-pressed="true" title="Sobrio (actual)">1</button>
+          <button type="button" data-d="2" aria-pressed="false" title="Portada">2</button>
+          <button type="button" data-d="3" aria-pressed="false" title="Sala de datos">3</button>
+        </span>
       </nav>
     </header>
     <main><slot /></main>
+    <script is:inline>
+      // Selector de diseño: aplica, recuerda y marca el botón activo.
+      (function () {
+        var raiz = document.documentElement;
+        var botones = document.querySelectorAll(".selector-diseno button");
+        function pintar(d) {
+          botones.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.d === d)); });
+        }
+        var actual = raiz.getAttribute("data-diseno") || "1";
+        pintar(actual);
+        botones.forEach(function (b) {
+          b.addEventListener("click", function () {
+            var d = b.dataset.d;
+            if (d === "1") raiz.removeAttribute("data-diseno");
+            else raiz.setAttribute("data-diseno", d);
+            try { localStorage.setItem("ec-diseno", d); } catch (e) {}
+            pintar(d);
+          });
+        });
+      })();
+    </script>
     <script is:inline>
       // "Para salir hoy" solo tiene sentido la mañana del mismo día (hora de Chile).
       (function () {
