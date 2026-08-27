@@ -90,3 +90,24 @@ madrugada" en ejecutar.md, 2026-08-24.)
   solo la redacción; el catálogo de fuentes se vuelve auditable y mejorable.
 - **Esfuerzo:** medio (2-3 sesiones en fases); costo API diario estimado
   $3-6 USD si generar.js pasa a ser el camino principal.
+
+## Informe completo para la web, informe ajustado para el video
+- **Fecha:** 2026-08-27 · **Origen:** Santiago
+- **Qué:** que la web publique el informe completo (archivo, bueno para SEO
+  y para el lector que quiere todo) y el video trabaje sobre una versión
+  más acotada, para que dure 10-12 min en vez de 14.
+- **A evaluar antes de construir:** medir primero la edición del 27-08, que
+  ya trae el tope de 6 [B]. Puede que el problema esté resuelto. Si no, hay
+  tres caminos, de más barato a más caro:
+  1. Presupuesto de duración explícito en prompts/guion-informe.md. Hoy dice
+     "la duración es la que resulte de aplicar los pesos; no recortes para
+     acortar", que es justo lo que produce los 14 min. Cambiarlo por un
+     objetivo de 10-12 min y dejar que el guion decida qué comprime.
+  2. Marcar en el informe qué bloques son solo para la web (por ejemplo el
+     detalle fino de cifras y el contexto largo), que el guion salta.
+  3. Dos informes generados por separado. El más caro y el único que puede
+     divergir: dos documentos con las mismas noticias y distintas cifras es
+     un error esperando ocurrir. Último recurso.
+- **Valor:** retención (10-12 min es mejor que 14 para el formato) y la web
+  gana profundidad sin costo extra.
+- **Esfuerzo:** bajo si es el camino 1; medio si es el 2.
