@@ -84,9 +84,15 @@ async function main() {
     ? fs.readdirSync(path.join("contenido", "claves")).find((f) => f.startsWith(fecha) && f.endsWith(".md"))
     : null;
   const hayGuionClave = !!claveHoy && fs.existsSync(path.join("contenido", "guiones", "claves", claveHoy));
-  if (!FORZAR && hayInforme && hayGuionInf && (!claveHoy || hayGuionClave)) {
-    console.log(`Edición del ${fecha} completa en contenido/ (la subió el generador de madrugada). Nada que generar.`);
-    return;
+  if (!FORZAR && hayInforme && hayGuionInf) {
+    if (claveHoy && !hayGuionClave) {
+      console.log(`AVISO: la Clave del ${fecha} (${claveHoy}) no tiene guion; el video de Claves se omitirá hoy (el informe sigue).`);
+      if (KEY && !SIMULAR) console.log("Hay ANTHROPIC_API_KEY: se intentará generar solo el guion de la Clave.");
+      else { console.log(`Edición del ${fecha}: informe y guion presentes. Nada que generar.`); return; }
+    } else {
+      console.log(`Edición del ${fecha} completa en contenido/ (la subió el generador de madrugada). Nada que generar.`);
+      return;
+    }
   }
   if (!SIMULAR && !KEY) {
     const faltan = [

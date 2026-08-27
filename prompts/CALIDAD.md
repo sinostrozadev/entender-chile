@@ -43,3 +43,30 @@ humana obligatoria, incisos sin guiones), agenda y [C] sin relleno, TESIS
 de 18 palabras, registro oral sin conectores de ensayo, tagline al cierre
 y controles nuevos 14-16 en el guion. Mañana se mide contra esta misma
 rúbrica.
+
+### 2026-08-26 (primera edición con los prompts anti-plantilla)
+**Precisión** 3/3: revisión de las 4:40 APROBADA, hallazgos menores.
+**Jerarquía** 3/3: agenda con 2 hitos reales (sin webinars), "Además, hoy"
+con 2 noticias útiles (aguinaldo de pensionados). El relleno desapareció.
+**Escala humana** 2/3: EXCELENTE en la apertura ($800.000 → $28.000 y
+$7.200, "sin descontarse del sueldo líquido") y en subsidios (239 millones =
+2.988 subsidios de $80.000). Pero se sobreaplicó: "costo de reconexión para
+el usuario, $0" es trivial, y "US$400 millones sobre una base hipotética de
+100.000 empleos" inventa el denominador. Ajuste aplicado hoy: base real o
+no hay cálculo.
+**Silueta variable** 2/3: mejor; la [A] previsional cierra en Contexto, no en
+Clave, y aparece el primer [ESQUEMA] (escalones 1% → 3,5% → 8,5%). Todavía
+se nota la plantilla en las [B].
+**Tics** 3/3: cero "no solo/sino", cero "es relevante porque", cero "por
+tanto". Cierre en una frase concreta.
+**Oralidad** 3/3: "Llevémoslo a un sueldo concreto." TESIS de 12-18
+palabras. Un tic nuevo: el narrador dijo "el informe usa una comparación
+puramente ilustrativa" (habla del documento al aire). Ajuste aplicado hoy.
+**Marca** 3/3: "Para salir hoy" integrada y "El resumen sin gritos." cerrando.
+
+**Veredicto**: salto grande en un día. Lo que ayer delataba a la máquina
+(relleno, abstracción, ausencia de escala humana, cierre sin marca) se fue.
+Queda pulir la sobreaplicación de la escala humana y la silueta de las [B].
+**Incidencia**: GPT no entregó el guion de la Clave (tarea 4 no corrió) y
+generar.js frenó el render del informe por eso; corregido: el informe manda,
+la Clave se omite con aviso.

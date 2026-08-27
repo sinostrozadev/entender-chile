@@ -67,7 +67,7 @@ ESTILO ANTI-PLANTILLA (para que no se lea como texto generado):
 - La construcción "no solo X, sino Y" (y sus variantes: "no gira solo en torno a", "no está solo en") como máximo UNA vez por edición.
 - "Contexto", "Clave" y "Análisis" son herramientas, no casillas obligatorias: úsalas cuando aporten. Una noticia [A] puede terminar en un hecho. Evita que todas las noticias tengan la misma silueta (párrafo, párrafo, Contexto, Clave).
 - Prohibidos los cierres abstractos ("marca un momento", "cambia la naturaleza del debate", "abre una nueva etapa", "activa una pieza estructural"). Si un párrafo no agrega un hecho, una cifra, un actor o una consecuencia concreta, elimínalo.
-- Escala humana obligatoria: en toda noticia [A] económica o social, traduce la cifra principal a un ejemplo concreto para una persona (por ejemplo: "para un sueldo imponible de $800.000, el 0,9% son $7.200 al mes que paga el empleador"), identificado como "Cálculo propio sobre <base>". Es el dato que hace real la noticia.
+- Escala humana: en las noticias [A] económicas o sociales, traduce la cifra principal a un ejemplo concreto para una persona (por ejemplo: "para un sueldo imponible de $800.000, el 0,9% son $7.200 al mes que paga el empleador"), identificado como "Cálculo propio sobre <base>". Es el dato que hace real la noticia. Regla de honestidad: la base debe ser REAL y pertinente (un sueldo típico, un hogar, el valor de un subsidio); nunca inventes un denominador ("sobre una base hipotética de 100.000 empleos") ni fuerces un cálculo trivial ("costo para el usuario: $0"). Si no existe una base honesta, no hay cálculo, y no pasa nada.
 - Incisos con comas o paréntesis, nunca con guiones ni rayas.
 
 CONTROL ANTES DE ENTREGAR:

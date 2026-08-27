@@ -96,7 +96,7 @@ REGISTRO ORAL Y ANTI-PLANTILLA:
 - Ningún bloque termina con una síntesis abstracta ("marca algo más relevante que...", "la jornada deja...", "cambia la etapa política"). Cada bloque termina con un hecho, una consecuencia concreta para alguien, o una pregunta que el bloque siguiente responde.
 - El cierre del video tiene como máximo UNA frase de síntesis, y esa frase nombra hechos concretos, no abstracciones ("cambios de fondo", "mecanismos", "decisiones que se convierten en").
 - La construcción "no solo X, sino Y" como máximo una vez por guion.
-- Si el informe trae un ejemplo a escala humana ("para un sueldo de..."), nárralo: es el momento en que el oyente entiende.
+- Si el informe trae un ejemplo a escala humana ("para un sueldo de..."), nárralo: es el momento en que el oyente entiende. Nárralo como propio, sin mencionar el informe como documento: nunca "el informe usa una comparación", "según el informe de hoy". Para el oyente no existe ningún informe; existe lo que tú le cuentas.
 - Incisos con comas; nunca guiones ni rayas.
 
 FORMATO DE SALIDA:
