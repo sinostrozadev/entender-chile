@@ -162,3 +162,12 @@ body { overflow-x: hidden; }
 .estado-cerrado { background: var(--patina); border-color: var(--patina); color: var(--papel); }
 .aviso-legal { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--linea); font-size: 0.85rem; color: var(--gris); max-width: var(--ancho); }
 .hito { background: var(--papel-elevado); border-left: 4px solid var(--patina); padding: 0.8rem 1rem; font-size: 0.95rem; max-width: var(--ancho); margin: 0 0 1.5rem; }
+
+/* La cabecera debe poder envolverse: con el selector de diseño la barra ya no
+   cabe en pantallas angostas y empujaba el ancho del documento. */
+.cab nav { flex-wrap: wrap; row-gap: 0.45rem; justify-content: flex-end; }
+.selector-diseno { margin-left: auto; }
+@media (max-width: 620px) {
+  .selector-diseno span { display: none; }   /* la palabra "Diseño" sobra en móvil */
+  .cab nav { gap: 0.9rem; }
+}

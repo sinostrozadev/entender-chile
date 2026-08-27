@@ -320,7 +320,8 @@
 }
 .selector-diseno button:hover { color: var(--tinta); }
 .selector-diseno button[aria-pressed="true"] { background: var(--tinta); color: var(--papel); }
-[data-diseno="2"] .selector-diseno { border-color: rgba(242, 242, 239, 0.3); }
+[data-diseno="2"] .selector-diseno { border-color: rgba(242, 242, 239, 0.3); margin-left: 0.6rem; }
+[data-diseno="2"] .cab nav { justify-content: center; }
 [data-diseno="2"] .selector-diseno span,
 [data-diseno="2"] .selector-diseno button { color: rgba(242, 242, 239, 0.65); }
 [data-diseno="2"] .selector-diseno button:hover { color: var(--papel); }

@@ -233,3 +233,7 @@
 [data-diseno="3"] .selector-diseno button { color: var(--gris); }
 [data-diseno="3"] .selector-diseno button:hover { color: var(--patina); }
 [data-diseno="3"] .selector-diseno button[aria-pressed="true"] { background: var(--patina); color: #0f1114; }
+
+/* la barra de consola también envuelve en pantallas angostas */
+[data-diseno="3"] .cab { flex-wrap: wrap; row-gap: 0.5rem; }
+[data-diseno="3"] .cab nav { flex-wrap: wrap; row-gap: 0.4rem; }
