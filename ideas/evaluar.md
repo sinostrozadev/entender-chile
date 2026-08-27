@@ -132,3 +132,34 @@ madrugada" en ejecutar.md, 2026-08-24.)
 - **Requisito previo, cualquiera sea el camino:** decidir el gate humano
   antes de publicar cambios de dossier (hoy pendiente).
 - **Esfuerzo:** bajo (es un prompt nuevo y una tarea programada).
+
+## Palabra del día (web)
+- **Fecha:** 2026-08-27 · **Origen:** Santiago
+- **Qué:** una palabra por día en la web, explicada en dos líneas: qué
+  significa, cómo se usa y dónde la viste. Sale de una cola acumulada
+  (contenido/palabras/banco.md, 51 palabras ya cargadas) con prioridad a las
+  que aparecen en el informe del día. Formato y reglas en
+  contenido/palabras/README.md; el lugar que ocupa en el sitio, en
+  prompts/web.md.
+- **Valor:** media parte de no entender una noticia no es ignorar el tema,
+  es no saber qué significa la palabra que la resume. "Dictamen",
+  "vinculante" y "gravamen" salen en el informe de cualquier martes. Cuesta
+  casi cero producirla y refuerza justo lo que el canal promete.
+- **Pendiente de decidir:** quién la escribe (la misma tarea de GPT que hace
+  la edición, o una aparte), dónde se muestra en la web (portada, columna del
+  informe, página propia con archivo navegable), y si se convierte en Short
+  cuando haya voz.
+- **Esfuerzo:** bajo. El banco ya existe; falta el generador diario y el
+  renderizado en Astro.
+
+## Indicaciones propias para la web
+- **Fecha:** 2026-08-27 · **Origen:** Santiago
+- **Qué:** prompts/web.md, el equivalente de guion-informe.md pero para el
+  sitio: qué publica la web, qué se genera solo para ella, las diferencias de
+  forma respecto del guion hablado (cifras en números, sin muletillas de
+  locución, subtítulos escaneables, enlaces a la fuente), el criterio de
+  título y descripción, y lo que nunca debe llegar al lector.
+- **Pendiente:** decidir si el informe de la web debe ser más completo que el
+  del video (idea relacionada, ya en este archivo) y quién aplica estas
+  indicaciones: hoy el sitio transforma el mismo markdown y nadie las lee.
+- **Esfuerzo:** el documento ya está escrito; falta engancharlo al flujo.
