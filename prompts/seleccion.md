@@ -56,7 +56,7 @@ olvidarlo.
 
 TAMAÑO
 
-Objetivo: 45 noticias. Rango aceptable 35 a 55. Si un día hay menos
+Objetivo: 50 noticias. Rango aceptable 35 a 60. Si un día hay menos
 material real, entrega menos y dilo; no rellenes para llegar al número.
 
 VERIFICACIÓN EN ESTA ETAPA
