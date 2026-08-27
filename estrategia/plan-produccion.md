@@ -39,6 +39,13 @@ aparecen, cambiar de región.
 4. **Normalización previa**: el guion ya escribe cifras y siglas en palabras.
    Verificar que Azure las lea bien y, si no, usar `<phoneme>` de SSML para
    los nombres propios que salgan mal.
+5. **Pausa en cada cambio de sección**: `<break time="1200ms"/>` en el mismo
+   documento SSML, y que `build-timeline.js` emita el evento de sección donde
+   empieza la pausa, no donde termina la última palabra. Sin esto las cortinas
+   no se pueden encender: taparían voz. Ver `ideas/sonido-y-transiciones.md`.
+6. **Segunda voz para las citas**: la narración va en Lorenzo y cada `[CITA]`
+   la lee Catalina, en el mismo SSML. La frontera de la palabra ajena se oye
+   sola. Normalizar sonoridad entre ambas antes de concatenar.
 
 **Criterio de éxito**: un informe real, renderizado con voz chilena, con las
 tarjetas sincronizadas. Ahí recién se sabe si esto funciona.
@@ -48,9 +55,11 @@ tarjetas sincronizadas. Ahí recién se sabe si esto funciona.
 1. **Escuchar el video completo.** Es el paso que no se automatiza nunca.
 2. Juzgar: ¿la voz aguanta 10 minutos sin cansar? ¿pronuncia bien apellidos
    chilenos, cifras, siglas? ¿el ritmo calza con las tarjetas?
-3. **Música a puntuación**: silencio bajo la narración, música solo en el
-   sello de entrada, las transiciones de sección y el cierre. Reduce la señal
-   de "contenido inauténtico" y suena mejor.
+3. **Música a puntuación**: hecho y en el repo. `scripts/sonido.js` genera por
+   síntesis el sello, tres cortinas de sección y el cierre; `CortinaSeccion`
+   dibuja la tarjeta de 1,1 s. Falta solo escucharlos y encender `meta.cortinas`
+   una vez que exista la pausa del punto 5 de la Fase 1. `musica: null`: se
+   acabó la cama continua.
 4. Si la voz no convence, alternativa inmediata: `es-CL-CatalinaNeural`, o
    Google WaveNet (4M caracteres gratis al mes, sin acento chileno).
 

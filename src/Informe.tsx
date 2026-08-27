@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { tema, estiloEyebrow } from "./tema";
-import { Tarjeta, SeccionBanner, Evento } from "./tarjetas";
+import { Tarjeta, SeccionBanner, CortinaSeccion, Evento } from "./tarjetas";
 
 export type Timeline = {
   version: number;
@@ -12,6 +12,8 @@ export type Timeline = {
     serie?: string;              // "informe" | "clave"
     musica?: string | null;      // ruta en public/, ej. "musica/informe.mp3"
     logo?: string | null;        // logo sonoro del sello (2 s)
+    cortinas?: string[] | null;  // melodias de transicion, se van alternando
+    cierre?: string | null;      // melodia final
     fps: number;
     width: number;
     height: number;
@@ -26,6 +28,10 @@ export type Timeline = {
 // retrasa) y se desvanece revelando la primera tarjeta. Marca sin costo de
 // retención - jamás una intro larga.
 const SELLO_SEG = 2.8;
+
+// Presupuesto duro de la cortina de seccion. No aporta informacion: si alguna
+// vez hay que recortar el video, se recorta aqui primero.
+const CORTINA_SEG = 1.1;
 
 const Sello: React.FC<{ fecha?: string; serie?: string }> = ({ fecha, serie }) => {
   const frame = useCurrentFrame();
@@ -77,6 +83,24 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
         // logo sonoro: suena junto al sello de identidad
         <Sequence from={0} durationInFrames={Math.round(2.4 * fps)}>
           <Audio src={staticFile(tl.meta.logo)} volume={0.5} />
+        </Sequence>
+      ) : null}
+      {/* Cortinas de seccion: melodia corta + tarjeta a pantalla completa.
+          Solo se encienden cuando la narracion trae pausa en ese punto; si no,
+          taparian voz. La primera seccion no lleva porque ya esta el sello. */}
+      {tl.meta.cortinas && tl.meta.cortinas.length
+        ? overlays
+            .filter((ev) => ev.from > SELLO_SEG)
+            .map((ev, i) => (
+              <Sequence key={"cor" + i} from={f(ev.from)} durationInFrames={f(CORTINA_SEG)}>
+                <Audio src={staticFile(tl.meta.cortinas![i % tl.meta.cortinas!.length])} volume={0.85} />
+                <CortinaSeccion texto={ev.texto ?? ""} />
+              </Sequence>
+            ))
+        : null}
+      {tl.meta.cierre ? (
+        <Sequence from={Math.max(0, f(tl.meta.duracionSeg - 3.2))}>
+          <Audio src={staticFile(tl.meta.cierre)} volume={0.6} />
         </Sequence>
       ) : null}
       {tarjetas.map((ev, i) => (

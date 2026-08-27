@@ -155,3 +155,64 @@ no cae ahí por usar TTS.
 - **Si `with-timestamps` funciona con Flash v2.5.** Decide USD 99 contra 299.
 - Cómo interactúa la capa F0 de Azure con S0 al pasarse de los 500k.
 - Si Cartesia tiene voces chilenas y su precio oficial.
+
+## Usar Catalina y Lorenzo a la vez: sí, pero por rol, no por turno
+
+Técnicamente no cuesta nada. Azure permite varias voces en un mismo documento
+SSML (`<voice name="es-CL-CatalinaNeural">`), el presupuesto del plan F0 se mide
+en caracteres totales y no en voces, y los `WordBoundary` siguen llegando
+continuos si todo va en una sola petición. O sea: dos voces valen exactamente lo
+mismo que una, que es cero.
+
+Lo que sí cuesta es hacerlo mal.
+
+**Lo que no hay que hacer: alternar noticia por noticia.** Una rotación mecánica
+suena a sistema de anuncios de aeropuerto y, peor, es precisamente el patrón
+plantillado que la política de contenido no auténtico mira con lupa. Además el
+oyente aprende la regla en treinta segundos y deja de significar algo.
+
+**Lo que sí: que el cambio de voz signifique algo.** Dos usos donde la segunda
+voz resuelve un problema real en vez de decorar:
+
+1. **Las citas textuales.** Hoy un `[CITA]` leído por la misma voz se confunde
+   con la narración: el que escucha no sabe dónde empieza la palabra ajena. Si
+   la cita la lee la otra voz, la frontera se oye sola, sin tener que decir
+   "cita" ni "cierro comillas". Esto es funcional, no adorno, y es el uso más
+   fuerte de los dos.
+2. **Identidad por formato.** Una voz lleva el informe diario y la otra las
+   Claves. Cada serie con su timbre, reconocible desde el primer segundo.
+
+Una tercera opción, alternar **por sección** dentro del informe (no por
+noticia), es defendible y se puede probar después. Pero primero las citas: ahí
+el beneficio es medible.
+
+Detalle técnico a no olvidar: las dos voces no salen al mismo volumen ni al
+mismo ritmo por defecto. Hay que normalizar sonoridad antes de concatenar, o el
+salto se oye como un error de edición.
+
+## Entonces, ¿hace falta clonar mi voz?
+
+Respuesta corta: no, y conviene aparcarlo indefinidamente.
+
+**No ayuda en lo que creíamos que ayudaba.** El motivo original para clonar era
+en parte de cumplimiento, y ahí no compra nada: YouTube no evalúa el timbre,
+evalúa si hay aporte humano significativo. Una voz clonada sigue siendo voz
+sintética. La política que nos protege es el registro editorial en
+`estrategia/decisiones.md`, no de quién es la voz.
+
+**Cuesta plata y agrega dependencia.** Clonar es de pago en todos lados
+(ElevenLabs por suscripción, y la voz neuronal personalizada de Azure está
+restringida y es cara). Cambiaríamos algo que hoy vale cero por algo que hay que
+pagar todos los meses, para resolver un problema que no tenemos.
+
+**Y hay un argumento de posicionamiento que apunta al revés.** El canal se
+define como el que no te dice qué pensar. No es un canal de una persona: esa es
+justamente la diferencia con El Shot y con cualquier canal conducido. Una voz
+neutra, que claramente no está opinando, es más coherente con "primero el
+ciudadano" que la voz de un dueño. Competir en apego a una persona es competir
+donde el otro ya ganó.
+
+**Cuándo reabrirlo:** si aparece evidencia concreta. Comentarios preguntando
+quién habla, caída de retención en el segundo en que entra la voz, o que
+Santiago quiera aparecer en cámara y haga falta continuidad de timbre. Nada de
+eso existe hoy. Fuera del camino crítico.

@@ -354,3 +354,49 @@ export const Tarjeta: React.FC<{ ev: Evento }> = ({ ev }) => {
       return <TarjetaParrafo ev={ev} />;
   }
 };
+
+// Cortina de sección: 1,1 s a pantalla completa entre bloques, sincronizada con
+// la melodía corta. Es lo único del video que no aporta información, así que
+// tiene un presupuesto de tiempo duro: si crece, se corta. Sirve para dar aire
+// al oído entre temas, no para lucirse.
+//
+// Requiere que la narración calle ahí. Sin pausa en la voz, esta tarjeta tapa
+// contenido hablado y hay que dejarla apagada (ver meta.cortinas en Informe).
+export const CortinaSeccion: React.FC<{ texto: string }> = ({ texto }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const color = colorDeSeccion(texto);
+  const entrada = interpolate(frame, [0, 0.14 * fps], [0, 1], { extrapolateRight: "clamp" });
+  const salida = interpolate(frame, [0.85 * fps, 1.1 * fps], [1, 0], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp",
+  });
+  // La línea cruza la pantalla: la transición es el propio trazo, no un efecto.
+  const trazo = interpolate(frame, [0.06 * fps, 0.7 * fps], [0, 1], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp",
+  });
+  return (
+    <AbsoluteFill
+      style={{
+        backgroundColor: tema.papel,
+        opacity: Math.min(entrada, salida),
+        justifyContent: "center",
+        paddingLeft: tema.margen,
+        paddingRight: tema.margen,
+      }}
+    >
+      <div style={{ height: 6, width: `${trazo * 100}%`, backgroundColor: color, marginBottom: 44 }} />
+      <div
+        style={{
+          fontFamily: tema.serif,
+          fontSize: 108,
+          fontWeight: 600,
+          color: tema.tinta,
+          lineHeight: 1.02,
+          opacity: entrada,
+        }}
+      >
+        {texto}
+      </div>
+    </AbsoluteFill>
+  );
+};

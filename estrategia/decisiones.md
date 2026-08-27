@@ -83,6 +83,40 @@ patrón. La música fija era el tercero, y por eso también cambia.
 **Decidió**: Santiago. **Detalle**: ideas/voz-opciones.md,
 ideas/imagenes-y-recursos.md, plan en estrategia/plan-produccion.md.
 
+## 2026-08-27 - La música del canal se genera por código
+
+**Qué**: el sello, las cortinas de sección y el cierre se sintetizan con
+`scripts/sonido.js`, no se descargan de ningún banco. Un solo motivo de tres
+notas (re - la - re) con variaciones. Las cortinas visuales de sección son
+tipográficas, duran 1,1 s con presupuesto duro, y quedan apagadas hasta que la
+narración traiga la pausa que las hace posibles.
+**Por qué**: música que salió de nuestro código no la puede reclamar Content
+ID, y una reclamación bloquea la monetización del video entero aunque sean dos
+segundos. Además es coherente: el canal se produce por código, la música
+también. Las tres variantes de cortina existen para que la repetición no sea
+mecánica, que es la señal que estamos evitando.
+**Decidió**: Santiago pidió las melodías cortas entre secciones, apertura y
+cierre. **Detalle**: ideas/sonido-y-transiciones.md.
+
+## 2026-08-27 - Dos voces por rol, y la clonación queda aparcada
+
+**Qué**: se usan Catalina y Lorenzo en el mismo video, pero **no alternando
+noticia por noticia**: la narración va en una voz y las citas textuales en la
+otra, para que la frontera de la palabra ajena se oiga sola. Clonar la voz de
+Santiago sale del camino crítico.
+**Por qué**: dos voces cuestan lo mismo que una en el plan F0 (el presupuesto
+se mide en caracteres), y el cambio de voz solo vale si significa algo; una
+rotación mecánica suena a anuncio de aeropuerto y es justo el patrón
+plantillado que queremos evitar. Sobre la clonación: **corrige la decisión del
+2026-08-25** que la trataba como requisito de monetización. Es falso: YouTube
+evalúa aporte humano, no timbre; una voz clonada sigue siendo sintética. Costaría
+plata todos los meses para resolver un problema que no tenemos, y una voz neutra
+es más coherente con "no te decimos qué pensar" que la voz de un dueño.
+**Se reabre si**: hay evidencia concreta (comentarios preguntando quién habla,
+caída de retención al entrar la voz, o Santiago quiere aparecer en cámara).
+**Estado**: propuesto por Claude a partir de la pregunta de Santiago, pendiente
+de su confirmación. **Detalle**: ideas/voz-opciones.md.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 - **Firma epistémica del canal**: toda cifra con fuente visible en pantalla;
