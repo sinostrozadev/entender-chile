@@ -63,6 +63,26 @@ pero no como criterio de decisión; sin jerarquía escrita, el primer conflicto
 real se resuelve por instinto. Es además la mitad de la propuesta de valor
 del video frente a los canales de opinión. **Decidió**: Santiago.
 
+## 2026-08-27 - Voz, imágenes, datos y música
+**Qué**: (1) La voz de prueba es **Azure AI Speech capa F0**: gratis
+permanente, uso comercial permitido y el único proveedor con voces de español
+de Chile (es-CL Lorenzo y Catalina). ElevenLabs queda solo para clonar la voz
+de Santiago más adelante. (2) **Cero imágenes** en el video: ni fotos ni
+generadas; la miniatura es tipográfica, hecha con remotion still. (3) **Sí a
+los datos abiertos del Estado (CC0) y a los mapas vectoriales de la BCN**
+como material visual propio. (4) La **música pasa de cama a puntuación**
+cuando llegue la voz: silencio bajo la narración, música solo en el sello,
+las transiciones y el cierre.
+**Por qué**: Azure resuelve el bloqueo de la voz a costo cero y con acento
+chileno real. Sobre las imágenes, el hallazgo decisivo no fue la divulgación
+(las miniaturas con IA no la requieren) sino que el ejemplo textual de la
+política de contenido inauténtico describe casi este proyecto: "misma música
+de fondo e imágenes de IA repetidas, con cada video leyendo un guion de IA".
+Tenemos dos de los tres elementos; sumar imágenes generadas nos acercaría al
+patrón. La música fija era el tercero, y por eso también cambia.
+**Decidió**: Santiago. **Detalle**: ideas/voz-opciones.md,
+ideas/imagenes-y-recursos.md, plan en estrategia/plan-produccion.md.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 - **Firma epistémica del canal**: toda cifra con fuente visible en pantalla;
