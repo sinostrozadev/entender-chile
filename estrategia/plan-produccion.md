@@ -88,12 +88,21 @@ En este orden, porque así rinde:
 
 Lo que no se puede saltar:
 1. Escuchar el audio completo de cada edición.
-2. Marcar "contenido alterado" cuando la voz sea la clonada de Santiago.
-   (Con Catalina o Lorenzo probablemente no aplica, pero se marca igual.)
-3. Consentimiento escrito del uso de la voz, guardado.
+2. Marcar "contenido alterado" igual, aunque con Catalina y Lorenzo casi
+   seguro no aplica: la divulgación apunta a voces realistas de personas
+   reales.
+3. Consentimiento escrito del uso de la voz, guardado. En suspenso mientras la
+   clonación siga aparcada.
 4. Registro de aporte editorial humano al día (decisiones.md, revisiones/).
 5. Variación real entre ediciones: es la defensa de fondo contra la política
    de contenido inauténtico.
+
+**Lo que hay que decir claro**: nada de esto garantiza la monetización. Sacar
+la cama musical elimina uno de los tres elementos del ejemplo textual de la
+política, pero quedan los otros dos (voz sintética y plantilla visual). La
+defensa real no es técnica: es que el canal hace trabajo original que nadie
+más hace (el seguimiento de la plata pública) y que ese trabajo se vea en el
+video. Queda riesgo residual y no se puede reducir a cero por adelantado.
 
 ## El orden, en una línea
 
