@@ -20,6 +20,9 @@ const path = require("path");
 
 const DIR = path.join("contenido", "barrido");
 const DIAS_MEMORIA = 7;          // ventana para detectar temas que continúan
+// El barrido corre de madrugada y alimenta la edición de HOY: solo entra lo
+// publicado desde la medianoche de AYER en Chile. Sin esto, una noticia de
+// hace tres días vuelve a aparecer como si fuera nueva.
 const TIMEOUT_MS = 15000;
 const CONCURRENCIA = 6;
 const SIN_ESCRIBIR = process.argv.includes("--dry");
@@ -43,6 +46,16 @@ const clave = (titulo) => titulo.toLowerCase()
   .replace(/[^a-z0-9\s]/g, " ")
   .split(/\s+/).filter((p) => p.length > 2 && !VACIAS.has(p))
   .sort().join(" ");
+
+// Medianoche de ayer en Chile, como instante UTC. El desfase se calcula en
+// vivo para que el cambio de hora de septiembre no lo rompa.
+function desdeCuando(fechaHoy) {
+  const ahora = new Date();
+  const offsetMs = new Date(ahora.toLocaleString("en-US", { timeZone: "America/Santiago" }))
+                 - new Date(ahora.toLocaleString("en-US", { timeZone: "UTC" }));
+  const [Y, M, D] = fechaHoy.split("-").map(Number);
+  return Date.UTC(Y, M - 1, D) - offsetMs - 24 * 3600 * 1000;
+}
 
 async function bajar(url) {
   const ctrl = new AbortController();
@@ -96,7 +109,7 @@ async function main() {
     ...cfg.feeds.map((f) => ({ tipo: "feed", id: f.id, area: null, medio: f.medio, url: f.url })),
     ...cfg.consultas.map((c) => ({
       tipo: "consulta", id: c.id, area: c.area, medio: null,
-      url: `https://news.google.com/rss/search?q=${encodeURIComponent(c.q + " when:2d")}&hl=es-419&gl=CL&ceid=CL:es-419`,
+      url: `https://news.google.com/rss/search?q=${encodeURIComponent(c.q + " when:1d")}&hl=es-419&gl=CL&ceid=CL:es-419`,
     })),
   ];
 
@@ -116,10 +129,22 @@ async function main() {
     }
   });
 
+  // Ventana del día: fuera lo publicado antes de ayer. Lo que no trae fecha
+  // legible NO se descarta (varios feeds la omiten), pero queda marcado y solo
+  // llega al listado de trabajo si otra fuente lo corrobora.
+  const desde = desdeCuando(fecha);
+  let fueraDeVentana = 0, sinFecha = 0;
+  const enVentana = crudas.flat().filter((n) => {
+    const t = Date.parse(n.publicado || "");
+    if (!Number.isFinite(t)) { n.sin_fecha = true; sinFecha++; return true; }
+    if (t < desde) { fueraDeVentana++; return false; }
+    return true;
+  });
+
   // deduplicar dentro del día: se conserva la primera aparición y se anota
   // en cuántas fuentes salió (una noticia en 5 medios pesa distinto que en 1)
   const porClave = new Map();
-  for (const n of crudas.flat()) {
+  for (const n of enVentana) {
     const k = clave(n.titulo);
     if (!k) continue;
     const previa = porClave.get(k);
@@ -127,9 +152,11 @@ async function main() {
       previa.repeticiones++;
       if (n.area && !previa.areas.includes(n.area)) previa.areas.push(n.area);
       if (!previa.medios.includes(n.medio)) previa.medios.push(n.medio);
+      if (!previa.origenes.includes(n.origen)) previa.origenes.push(n.origen);
     } else {
       porClave.set(k, {
         clave: k, titulo: n.titulo, medio: n.medio, url: n.url, publicado: n.publicado,
+        origen: n.origen, origenes: [n.origen],
         areas: n.area ? [n.area] : [], medios: [n.medio], repeticiones: 1, visto_antes: null,
       });
     }
@@ -174,10 +201,13 @@ async function main() {
   for (const n of noticias) {
     n.motivo_destaque =
       n.repeticiones >= 2 ? `corroborada en ${n.repeticiones} fuentes`
-      : INVESTIGACION.has(n.origen) ? "exclusiva de medio de investigación"
+      : n.origenes.some((o) => INVESTIGACION.has(o)) ? "exclusiva de medio de investigación"
       : null;
   }
-  const destacadas = noticias.filter((n) => n.motivo_destaque && !n.ruido_probable).slice(0, TOPE);
+  const destacadas = noticias
+    .filter((n) => n.motivo_destaque && !n.ruido_probable)
+    .filter((n) => !n.sin_fecha || n.repeticiones >= 2)
+    .slice(0, TOPE);
 
   const salida = {
     fecha,
@@ -185,6 +215,9 @@ async function main() {
     fuentes_consultadas: objetivos.length,
     fuentes_caidas: fallas,
     total_bruto: crudas.flat().length,
+    ventana_desde: new Date(desde).toISOString(),
+    descartadas_por_antiguas: fueraDeVentana,
+    sin_fecha: sinFecha,
     total_unico: noticias.length,
     continuan_de_dias_previos: continuan,
     destacadas: destacadas.length,
@@ -192,7 +225,7 @@ async function main() {
     noticias,
   };
 
-  console.log(`\n  bruto ${salida.total_bruto} → únicos ${salida.total_unico} · ${destacadas.length} con señal · ${salida.ruido_probable} ruido · ${continuan} vienen de días previos · ${fallas.length} fuentes caídas`);
+  console.log(`\n  bruto ${salida.total_bruto} → ${enVentana.length} en ventana (${fueraDeVentana} antiguas fuera, ${sinFecha} sin fecha) → únicos ${salida.total_unico} · ${destacadas.length} con señal · ${salida.ruido_probable} ruido · ${continuan} vienen de días previos · ${fallas.length} fuentes caídas`);
 
   if (SIN_ESCRIBIR) { console.log("\n(--dry: no se escribió nada)"); return; }
 
