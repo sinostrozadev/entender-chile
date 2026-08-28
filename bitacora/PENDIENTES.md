@@ -99,6 +99,20 @@ pierde el nombre.
       lista de `ideas/formato-video.md` al lado, y anotar qué hace cada uno
       en los primeros 30 segundos.
 
+## Ideas para retomar (no son tareas todavía)
+
+- **"¿Lo cumplió?", seguimiento de promesas.** Idea de Santiago del 28-08.
+  Opinión y esbozo completo en `ideas/promesas-de-campana.md`. Resumen: es
+  la idea más fuerte que ha aparecido y la más peligrosa; no se construye
+  ahora, pero **congelar la línea base sí conviene temprano**, porque hacerlo
+  después nunca va a ser igual de creíble. Cuatro decisiones abiertas al
+  final de ese documento.
+- **Nota de arquitectura**: plata pública, historias abiertas y promesas son
+  el mismo mecanismo (una entidad con estado, evidencia fechada y una
+  pregunta que la cierra). Conviene construirlo una vez y usarlo tres veces.
+  Si se hace al revés quedan tres scripts que hacen casi lo mismo y ninguno
+  se mantiene.
+
 ## Diferido, con razón
 
 Palabra del día, indicadores del país, Shorts, canal de WhatsApp, Ko-fi.
