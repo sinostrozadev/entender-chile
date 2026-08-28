@@ -40,6 +40,21 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **Decidir la arquitectura de estado y categorías.** Propuesta completa
+      en `ideas/estado-de-las-noticias.md`. Cuatro decisiones abiertas al
+      final de ese documento antes de tocar un solo prompt. Los tres
+      arreglos que salen de ahí, en orden de impacto:
+      1. **Mudar el tope de 10 del informe al guion.** Hoy el informe
+         recorta por la duración del video, y la web no paga duración.
+         `prompts/informe.md` y `prompts/guion-informe.md`.
+      2. **Crear las secciones que faltan**: Plata pública y Educación no
+         existen en el informe, y finanzas ("Mercados y bolsillo") tiene un
+         candado que en cinco días no se abrió nunca. Alinear el listado de
+         áreas de `prompts/seleccion.md` con las secciones de
+         `prompts/informe.md`: hoy son dos listas distintas.
+      3. **Que el informe lea "Historias en curso sin novedad hoy"**, que la
+         preselección ya produce y nadie consume.
+
 - [ ] **Render por push, no por cron.** El 28 no corrieron ni el barrido ni
       la edición diaria: cero videos ese día. El cron de Actions llegó a
       atrasarse once horas. Lo disparado por `push` funcionó 30 de 30.
