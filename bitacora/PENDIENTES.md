@@ -67,7 +67,20 @@ pierde el nombre.
       3. **Que el informe lea "Historias en curso sin novedad hoy"**, que la
          preselección ya produce y nadie consume.
 
-- [ ] **Render por push, no por cron.** El 28 no corrieron ni el barrido ni
+- [ ] **Sacar el barrido del cron de GitHub. Es lo más urgente del pipeline.**
+      Investigado hoy: el barrido **nunca** ha estado disponible cuando se
+      escribió la edición de su día (26-08 llegó 20 h tarde, 27-08 10 h,
+      28-08 11 h). Las 22 fuentes, la deduplicación, la continuidad y el
+      criterio de exclusivas no los ha leído ninguna preselección: las cinco
+      ediciones corrieron por el camino de respaldo. La hora elegida (06:30
+      UTC) es correcta; falla quién aprieta el botón. El mecanismo confiable
+      ya existe y está medido: las rutinas de Claude en la nube llegaron a
+      las 08:41, 08:42, 08:42 y 08:43 UTC cuatro días seguidos. Cinco
+      opciones con sus costos en `bitacora/2026-08-28.md`.
+
+- [ ] **Render por push, no por cron.** (Problema distinto del anterior: el
+      push sirve para el render, que ocurre cuando ya existe el guion; no
+      sirve para el barrido, que necesita reloj.) El 28 no corrieron ni el barrido ni
       la edición diaria: cero videos ese día. El cron de Actions llegó a
       atrasarse once horas. Lo disparado por `push` funcionó 30 de 30.
       Disparar el render con `push` a `contenido/guiones/informe/**` y
