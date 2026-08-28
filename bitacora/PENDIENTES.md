@@ -80,6 +80,8 @@ pierde el nombre.
       medidos: **ChatGPT trece de trece sin una falla** (dispersión de 14
       minutos en el informe), Claude en la nube puntual al minuto, y el cron
       de GitHub el único que falla. Al elegir, copiarle a los que cumplen.
+      **Plan detallado del híbrido en `bitacora/2026-08-28-plan-barrido.md`**,
+      con el orden de ejecución, las guardas y la trampa del cambio de hora.
 
 - [ ] **Render por push, no por cron.** (Problema distinto del anterior: el
       push sirve para el render, que ocurre cuando ya existe el guion; no
