@@ -167,10 +167,13 @@ async function main() {
   // caben en un prompt. Entra lo que tiene señal, con el motivo explícito.
   const INVESTIGACION = new Set(["ciper", "exante", "interferencia"]);
   const TOPE = 250;
+  // La continuidad NO es pasaje de entrada: las consultas piden dos días, así
+  // que casi todo aparece "ayer" también (563 de 588 el 27-08, y el archivo de
+  // trabajo se fue a 48 KB). Entra lo corroborado y las exclusivas; que un tema
+  // venga de días previos se ANOTA sobre esas, como contexto para el editor.
   for (const n of noticias) {
     n.motivo_destaque =
-      n.visto_antes ? "continúa una historia de días previos"
-      : n.repeticiones >= 2 ? `corroborada en ${n.repeticiones} fuentes`
+      n.repeticiones >= 2 ? `corroborada en ${n.repeticiones} fuentes`
       : INVESTIGACION.has(n.origen) ? "exclusiva de medio de investigación"
       : null;
   }
