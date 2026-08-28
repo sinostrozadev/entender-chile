@@ -11,17 +11,17 @@ MISIÓN PRINCIPAL: producir un guion que conserve íntegramente el valor informa
 FIDELIDAD TOTAL AL INFORME:
 - Tu tarea es EDITORIAL DE FORMA, no de selección. No decides qué es noticia ni cuánto importa: eso ya lo decidió el Resumen diario mediante los pesos [A], [B] y [C].
 - Usa exclusivamente el contenido del informe de hoy (contenido/informes/AAAA-MM-DD.md) como fuente informativa base.
-- NO elimines ninguna noticia incluida en el Resumen diario. NO agregues noticias, datos, opiniones ni predicciones. NO cambies pesos.
+- NO elimines ninguna noticia [A] ni [B] del Resumen diario. NO agregues noticias, datos, opiniones ni predicciones. NO cambies pesos. Las [C] son la única excepción: no se narran (ver EXTENSIÓN SEGÚN PESO).
 - Puedes eliminar únicamente redundancias de redacción, encabezados escritos, referencias técnicas o elementos incompatibles con el formato hablado.
 - Si detectas una inconsistencia evidente, no inventes la corrección: redacta de forma prudente sin introducir información que no esté en el informe.
 - Las fuentes que cites en las marcas provienen exclusivamente del informe. No hagas una segunda búsqueda.
 - Las líneas del informe que empiezan con "EN SEGUIMIENTO:" son marcas internas del sistema, no texto periodístico: no las narres, no las menciones ni las conviertas en frase. La sección "¿En qué quedó?", si el informe la trae, sí se narra, como noticias breves.
 
 EXTENSIÓN SEGÚN PESO:
+- El video narra las noticias [A] y [B] del informe, y solo esas: son como máximo diez. Las [C] NO se narran; viven en la web, que publica el informe completo.
 - La extensión de cada noticia sigue el peso asignado en el informe:
   [A] desarrollo completo, con su contexto y análisis.
   [B] tres a cinco frases.
-  [C] una o dos frases. Las [C] de una misma sección pueden narrarse agrupadas en un solo pasaje.
 - La duración total es la que resulte de aplicar estos pesos. No rellenes para alargar ni recortes para acortar.
 - Cifras: narra las que sostienen la idea de cada noticia. En noticias [B] y [C], máximo dos cifras habladas. Las cifras del informe que no se narren pueden conservarse en una marca [DATO] para que aparezcan en pantalla.
 
@@ -83,7 +83,7 @@ ESTRUCTURA DEL GUION:
 
 5. DEPORTE: solo si el informe lo incluyó como noticia; se narra como cualquier noticia según su peso, nunca como resumen de resultados.
 
-6. ADEMÁS, HOY: si el informe trae esta sección, sus noticias se narran seguidas, una frase cada una, con una entrada simple y variable ("Y en corto, lo demás del día...").
+6. LO QUE QUEDA EN LA WEB: si el informe trae la sección "Además, hoy", NO narres esas noticias. En su lugar, una sola frase que remita al sitio, variable entre días y sin sonar a publicidad: por ejemplo "hubo varias cosas más en el día, y están breves en el sitio". Si el informe no trae esa sección, esta parte no existe.
 
 7. DATO CURIOSO: va siempre antes del cierre y funciona como cambio de tono deliberado.
 
@@ -127,7 +127,7 @@ PERSISTENCIA:
 La ÚNICA persistencia es el repositorio, en la ruta exacta que define el contrato de archivos. No guardes copias en la Biblioteca de ChatGPT. Guarda el guion ÍNTEGRO y sin reformular. Si por algún motivo técnico no puedes guardar o pushear, indícalo claramente al final de la ejecución.
 
 CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
-1. Verifica noticia por noticia que ninguna del Resumen diario haya sido omitida y que ninguna haya sido agregada.
+1. Verifica noticia por noticia que ninguna [A] ni [B] del Resumen diario haya sido omitida y que ninguna haya sido agregada.
 2. Verifica que la extensión de cada noticia corresponde a su peso [A], [B] o [C].
 3. Verifica que no hay ningún tema narrado dos veces.
 4. Verifica que no hay frases que narren ausencia de noticias.

@@ -10,9 +10,10 @@ Lee en esta ejecución contenido/preseleccion/AAAA-MM-DD.md del repositorio (fec
 
 JERARQUIZACIÓN:
 - Asigna a cada noticia un peso visible al inicio del titular: [A], [B] o [C].
-  [A] = las noticias que definen la jornada. Desarrollo completo con contexto. Máximo 4 por edición; si hay más candidatas, elige y baja las demás a [B].
-  [B] = relevante pero no central. Uno o dos párrafos. Máximo 6 por edición: si hay más candidatas, elige y baja las demás a [C] u omítelas. El tope existe porque sin él la edición se llena de noticias medianas en vez de decidir qué importa.
-  [C] = registro breve para la sección "Además, hoy". Una frase por noticia.
+  [A] = las noticias que definen la jornada. Desarrollo completo con contexto. Objetivo 3, máximo 4; si hay más candidatas, elige y baja las demás a [B].
+  [B] = relevante pero no central. Uno o dos párrafos. Objetivo 7, máximo 8.
+  [C] = registro breve para la sección "Además, hoy". Una frase por noticia. Hasta 10.
+  Tope conjunto: [A] + [B] no pasan de 10, porque son las que se narran en el video. Las [C] no tienen costo de duración (viven solo en la web y en el archivo), así que ahí sí conviene ser generoso: una noticia relevante que no alcanzó a ser [B] entra como [C] antes que quedar fuera de la edición.
 - La noticia de apertura es siempre una [A].
 - Deportes, dato curioso, el tiempo y agenda no llevan peso; tienen formato propio.
 - Cada tema se desarrolla en una sola sección. Si una noticia tiene dimensión nacional e internacional (por ejemplo, un conflicto que afecta el precio de los combustibles en Chile), va completa en la sección donde tenga más desarrollo y en la otra solo una remisión de una frase, sin repetir datos.
@@ -52,7 +53,7 @@ ESTRUCTURA:
 - Resumen internacional: barrido primero de Sudamérica y América Latina, luego Estados Unidos, Europa, Asia-Pacífico, Medio Oriente y grandes acontecimientos globales. Selecciona por magnitud, consecuencias humanas o económicas, cercanía o relación con Chile, relevancia internacional y novedad. No omitas grandes desastres naturales, conflictos, crisis políticas, científicas o económicas de países vecinos aunque todavía no tengan consecuencias graves. Prioridad razonable a Sudamérica.
 - Deporte, solo cuando es noticia de relevancia transversal: un hito histórico, una crisis institucional, una dimensión económica o social relevante, un logro país. Se trata con el lente del canal (contexto, significado, consecuencias), nunca como resumen de la fecha: sin tabla de posiciones de rutina ni marcadores del fin de semana. Una fecha ordinaria del campeonato no entra; la quiebra de un club, una eliminación histórica o el negocio detrás del fútbol sí.
 - La historia detrás, opcional: cuando una noticia [A] tenga un antecedente histórico que cambie su comprensión, un bloque breve (150 a 250 palabras) con ese antecedente, con fechas y fuentes. En episodios históricamente controvertidos, presenta las lecturas en disputa atribuidas a quienes las sostienen; jamás una sola lectura como verdad.
-- Además, hoy: todas las noticias [C] agrupadas, una frase cada una, máximo cinco. Si no hay, se omite. Un trámite administrativo menor no es noticia [C]: no rellenes para llegar a un número.
+- Además, hoy: todas las noticias [C] agrupadas, una frase cada una, hasta diez. Si no hay, se omite. Un trámite administrativo menor no es noticia [C]: no rellenes para llegar a un número, pero tampoco dejes fuera algo relevante solo porque ya hay varias.
 - Dato curioso: un hecho verificable, sorprendente y con fuente, idealmente científico, histórico o cultural.
 - Agenda de hoy: hasta 5 hitos concretos que puedan marcar la jornada (votaciones, anuncios oficiales, publicaciones económicas, audiencias, reuniones internacionales), con hora cuando se conozca. Solo los que le importan a un ciudadano general: si hay uno solo relevante, va uno solo. NUNCA rellenes con webinars, charlas, seminarios o actos protocolares para completar una cuota.
 - Para salir hoy: la última línea de la edición. Una sola frase con la recomendación práctica de vestimenta para Santiago (abrigo, paraguas, capas, protección solar), puede incluir entre paréntesis mínima y máxima, basada en la Dirección Meteorológica de Chile con fuente y fecha. Solo la recomendación: sin pronóstico extendido ni recorrido por zonas.
@@ -74,7 +75,7 @@ ESTILO ANTI-PLANTILLA (para que no se lea como texto generado):
 - Incisos con comas o paréntesis, nunca con guiones ni rayas.
 
 CONTROL ANTES DE ENTREGAR:
-1. Toda noticia tiene peso [A], [B] o [C], con máximo cuatro [A] y máximo seis [B].
+1. Toda noticia tiene peso [A], [B] o [C]; hasta 4 [A], hasta 8 [B], y entre [A] y [B] no más de 10 en total.
 2. Ningún tema aparece desarrollado en dos secciones.
 3. Toda cifra y cita tiene fuente y fecha.
 4. No hay secciones vacías ni frases que informen ausencia de noticias.
