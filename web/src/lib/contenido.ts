@@ -70,8 +70,15 @@ export const fechasHumanas = (html: string): string =>
   ).join("");
 export const fechaCortaNum = (f: string) => { const m = f.match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? `${m[3]}-${m[2]}-${m[1]}` : f; };
 
+// Marcas y notas dirigidas al operador, no al lector. Nunca se publican, en
+// ninguna pieza: el 27-08 una nota de plomería ("PRESELECCIÓN NO DISPONIBLE:
+// ...no existía al iniciar esta ejecución") salió al aire en el informe.
+const MARCAS_INTERNAS = /^\s*(EN SEGUIMIENTO|FUERA DE LA OLLA|PRESELECCI[ÓO]N NO DISPONIBLE|NOTA INTERNA|NOTA DEL SISTEMA|AVISO INTERNO)\b.*$/gim;
+export const quitarInterno = (md: string): string =>
+  md.replace(/<!--[\s\S]*?-->/g, "").replace(MARCAS_INTERNAS, "");
+
 function render(md: string): { html: string; secciones: Seccion[]; noticias: Noticia[] } {
-  let html = marked.parse(md, { async: false, gfm: true }) as string;
+  let html = marked.parse(quitarInterno(md), { async: false, gfm: true }) as string;
   const secciones: Seccion[] = [];
   const noticias: Noticia[] = [];
   // Titulares con peso editorial [A]/[B]: el peso NO se muestra como letra
@@ -127,7 +134,7 @@ export function informes(): Informe[] {
       // cuerpo: sin el H1 ni "En una mirada" (va como entradilla) ni la línea de salir (va como chip)
       let cuerpo = md.replace(/^#\s+.+\n/m, "");
       cuerpo = cuerpo.replace(/^##\s+En una mirada[\s\S]*?(?=^#{1,6}\s)/m, "");
-      cuerpo = cuerpo.replace(/^EN SEGUIMIENTO:.*$/gm, ""); // marca interna del observatorio
+      // las marcas internas las quita render() para todas las piezas
       cuerpo = cuerpo.replace(/^\*\*Para salir hoy:\*\*.*$/m, "");
       const { html, secciones, noticias } = render(cuerpo);
       const fuentes = seccionDe(md, /^##\s+Fuentes consultadas/i).split("\n").filter((l) => l.trim()).length;
