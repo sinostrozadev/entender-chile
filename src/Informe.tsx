@@ -85,6 +85,16 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
           <Audio src={staticFile(tl.meta.logo)} volume={0.5} />
         </Sequence>
       ) : null}
+      {tarjetas.map((ev, i) => (
+        <Sequence key={i} from={f(ev.from)} durationInFrames={Math.max(1, f(ev.to) - f(ev.from) + HOLD)}>
+          <Tarjeta ev={ev} />
+        </Sequence>
+      ))}
+      {overlays.map((ev, i) => (
+        <Sequence key={"ov" + i} from={f(ev.from)} durationInFrames={Math.max(1, f(ev.to) - f(ev.from))}>
+          <SeccionBanner texto={ev.texto ?? ""} />
+        </Sequence>
+      ))}
       {/* Cortinas de seccion: melodia corta + tarjeta a pantalla completa.
           Solo se encienden cuando la narracion trae pausa en ese punto; si no,
           taparian voz. La primera seccion no lleva porque ya esta el sello. */}
@@ -103,16 +113,6 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
           <Audio src={staticFile(tl.meta.cierre)} volume={0.6} />
         </Sequence>
       ) : null}
-      {tarjetas.map((ev, i) => (
-        <Sequence key={i} from={f(ev.from)} durationInFrames={Math.max(1, f(ev.to) - f(ev.from) + HOLD)}>
-          <Tarjeta ev={ev} />
-        </Sequence>
-      ))}
-      {overlays.map((ev, i) => (
-        <Sequence key={"ov" + i} from={f(ev.from)} durationInFrames={Math.max(1, f(ev.to) - f(ev.from))}>
-          <SeccionBanner texto={ev.texto ?? ""} />
-        </Sequence>
-      ))}
       <Sequence from={0} durationInFrames={Math.round(SELLO_SEG * fps)}>
         <Sello fecha={tl.meta.fecha} serie={tl.meta.serie} />
       </Sequence>
