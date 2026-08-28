@@ -6,3 +6,7 @@
 - entrada en vigencia de las leyes y postergación de su vigencia | Gobierno evalúa postergar hasta 2027 la entrada en vigencia de la Ley de Protección de Datos | 2026-08-26
 - control judicial de traslados penitenciarios y límites de la administración carcelaria | Operación Cancerbero concentra internos de alta peligrosidad en Talca y un tribunal ordena revertir cuatro traslados | 2026-08-27
 - contratos especiales de operación de litio y régimen jurídico de minerales no concesibles | Chile firma su primer CEOL exclusivamente con una empresa privada para recuperar litio desde residuos mineros | 2026-08-27
+- continuidad de medidas cautelares cuando una causa cambia de jurisdicción | Gobierno propone mantener sin interrupción las cautelares para víctimas de violencia contra las mujeres | 2026-08-28
+- Informe de Política Monetaria y cómo el Banco Central construye sus proyecciones | Banco Central presentará el IPoM de septiembre al Senado el 9 de septiembre | 2026-08-28
+- garantías, boletas y mecanismos de resguardo del Estado en contratos de telecomunicaciones | Senado pedirá sesión especial por incumplimientos de WOM en fibra óptica y 5G | 2026-08-28
+- estrecho de Ormuz como cuello de botella energético y su efecto sobre el precio del petróleo | Irán prepara condiciones para normalizar el tránsito por el estrecho de Ormuz | 2026-08-28
