@@ -76,7 +76,10 @@ pierde el nombre.
       UTC) es correcta; falla quién aprieta el botón. El mecanismo confiable
       ya existe y está medido: las rutinas de Claude en la nube llegaron a
       las 08:41, 08:42, 08:42 y 08:43 UTC cuatro días seguidos. Cinco
-      opciones con sus costos en `bitacora/2026-08-28.md`.
+      opciones con sus costos en `bitacora/2026-08-28.md`. Los tres relojes,
+      medidos: **ChatGPT trece de trece sin una falla** (dispersión de 14
+      minutos en el informe), Claude en la nube puntual al minuto, y el cron
+      de GitHub el único que falla. Al elegir, copiarle a los que cumplen.
 
 - [ ] **Render por push, no por cron.** (Problema distinto del anterior: el
       push sirve para el render, que ocurre cuando ya existe el guion; no
