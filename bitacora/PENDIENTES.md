@@ -81,7 +81,20 @@ pierde el nombre.
       minutos en el informe), Claude en la nube puntual al minuto, y el cron
       de GitHub el único que falla. Al elegir, copiarle a los que cumplen.
       **Plan detallado del híbrido en `bitacora/2026-08-28-plan-barrido.md`**,
-      con el orden de ejecución, las guardas y la trampa del cambio de hora.
+      con el orden de ejecución y las guardas, y la tabla de quién ejecuta
+      qué, hoy y en la propuesta, en `bitacora/2026-08-28-quien-ejecuta-que.md`.
+
+- [ ] **URGENTE, con fecha: el 6 de septiembre Chile pasa a horario de
+      verano y se rompen dos piezas más.** Las tareas de ChatGPT están en
+      hora de Chile y se mueven una hora antes en UTC; lo fijado en UTC no se
+      mueve. El barrido (06:30 UTC) pasaría a las 03:30 Chile, veinte minutos
+      **después** de la preselección, y el observatorio (07:00 UTC) a las
+      04:00, después del informe, con lo que la alerta de "¿En qué quedó?"
+      dejaría de aparecer. Las dos fallas serían silenciosas. Las rutinas de
+      Claude solo aceptan cron en UTC, así que la solución es elegir horas
+      UTC que sirvan en los dos regímenes: barrido a las 05:30 UTC y
+      observatorio a las 05:45 UTC. Así no hay que tocar nada en septiembre
+      ni en abril.
 
 - [ ] **Render por push, no por cron.** (Problema distinto del anterior: el
       push sirve para el render, que ocurre cuando ya existe el guion; no
