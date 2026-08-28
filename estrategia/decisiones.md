@@ -117,6 +117,25 @@ caída de retención al entrar la voz, o Santiago quiere aparecer en cámara).
 **Estado**: propuesto por Claude a partir de la pregunta de Santiago, pendiente
 de su confirmación. **Detalle**: ideas/voz-opciones.md.
 
+## 2026-08-28 - No se publica hasta cerrar cinco condiciones, y la sesión de día pasa a solo lectura
+
+**Qué**: (1) No se sube ningún video hasta resolver cinco cosas: el video no
+convence visualmente, no hay voz, el criterio de selección deja fuera
+noticias importantes, todavía se nota la IA en los informes y todavía hay
+errores en ellos. La lista vive en `bitacora/PENDIENTES.md`. (2) La sesión
+en la nube pasa a **solo lectura**: analiza, recomienda y escribe en
+`bitacora/`, pero no toca prompts, scripts, workflows ni `src/`. Todo cambio
+lo ejecuta la sesión local. (3) Se crea `bitacora/` y la skill del mismo
+nombre como puente entre ambas sesiones.
+**Por qué**: la auditoría de esa mañana recomendaba crear el canal y empezar
+a publicar ya, con el argumento de los 157 días que quedan hasta el
+1-feb-2027. Santiago decide que publicar un producto que todavía no le
+convence gasta el lanzamiento una sola vez y lo gasta mal. Se conserva una
+parte de la recomendación: reservar el handle no es publicar y no cuesta
+nada. Lo de solo lectura viene de que dos sesiones editando el mismo repo ya
+provocó trabajo duplicado el 26-08.
+**Decidió**: Santiago. **Detalle**: bitacora/README.md, bitacora/PENDIENTES.md.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 - **Firma epistémica del canal**: toda cifra con fuente visible en pantalla;
