@@ -40,6 +40,18 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **Extraer la línea base de "¿Lo cumplió?".** El criterio ya está
+      congelado y fechado en `estrategia/seccion-lo-cumplio.md`: umbral de
+      tres condiciones, tamaño 30 a 50, estados, y el protocolo de
+      extracción paso a paso con el formato de ficha. Falta solo lo que esta
+      sesión no puede hacer: **abrir el programa de gobierno**. La política
+      de egreso bloquea servel.cl y el resto, y solo llegan fragmentos de
+      búsqueda; armar promesas atribuidas a una persona real desde resúmenes
+      de terceros es justo el error que esta sección no puede permitirse.
+      Pasos: bajar el PDF del Servel y guardarlo en el repo, leerlo entero,
+      clasificar en admitidas y excluidas con motivo, elegir entre 30 y 50,
+      una ficha por promesa con su bloque de datos, y commit de congelación.
+
 - [ ] **Decidir la arquitectura de estado y categorías.** Propuesta completa
       en `ideas/estado-de-las-noticias.md`. Cuatro decisiones abiertas al
       final de ese documento antes de tocar un solo prompt. Los tres
