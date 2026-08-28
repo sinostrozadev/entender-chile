@@ -131,3 +131,37 @@ for (const c of CORTINAS) {
   nota(b, 0.86, NOTA.re4, 2.3, 0.55, 1.7);
   escribir("cierre.wav", terminar(b));
 }
+
+// --- muestra para escuchar ---------------------------------------------------
+// node scripts/sonido.js --muestra ruta.wav
+// Encadena los cinco sonidos con silencio en medio, para poder juzgarlos de
+// una sentada sin tener que renderizar un video entero.
+if (process.argv.includes("--muestra")) {
+  const destino = process.argv[process.argv.indexOf("--muestra") + 1] || "muestra-sonido.wav";
+  const orden = ["sello.wav", "cortina-a.wav", "cortina-b.wav", "cortina-c.wav", "cierre.wav"];
+  const trozos = orden.map((f) => {
+    const b = fs.readFileSync(path.join(SALIDA, f));
+    const n = (b.length - 44) / 2;
+    const x = new Float64Array(n);
+    for (let i = 0; i < n; i++) x[i] = b.readInt16LE(44 + i * 2) / 32767;
+    return x;
+  });
+  const hueco = Math.round(0.9 * SR);
+  const total = trozos.reduce((a, t) => a + t.length + hueco, 0);
+  const b = new Float64Array(total);
+  let cursor = 0;
+  for (const t of trozos) {
+    b.set(t, cursor);
+    cursor += t.length + hueco;
+  }
+  const datos = Buffer.alloc(b.length * 2);
+  for (let i = 0; i < b.length; i++) datos.writeInt16LE(Math.round(b[i] * 32767), i * 2);
+  const cab = Buffer.alloc(44);
+  cab.write("RIFF", 0); cab.writeUInt32LE(36 + datos.length, 4); cab.write("WAVE", 8);
+  cab.write("fmt ", 12); cab.writeUInt32LE(16, 16); cab.writeUInt16LE(1, 20);
+  cab.writeUInt16LE(1, 22); cab.writeUInt32LE(SR, 24); cab.writeUInt32LE(SR * 2, 28);
+  cab.writeUInt16LE(2, 32); cab.writeUInt16LE(16, 34);
+  cab.write("data", 36); cab.writeUInt32LE(datos.length, 40);
+  fs.writeFileSync(destino, Buffer.concat([cab, datos]));
+  console.log(`muestra: ${destino}  ${(b.length / SR).toFixed(1)} s`);
+}
