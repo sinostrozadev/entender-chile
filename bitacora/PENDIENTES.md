@@ -31,7 +31,7 @@ pierde el nombre.
 
 ## Bloquean todo y dependen de Santiago
 
-- [ ] **Cuenta de Azure** (EN CURSO 29-08): recurso de Speech en capa F0,
+- [ ] **Cuenta de Azure** (BLOQUEADA 29-08: la creación da error, Santiago reintenta el 30): recurso de Speech en capa F0,
       verificar voces es-CL en la región, cargar `AZURE_SPEECH_KEY` y
       `AZURE_SPEECH_REGION` como secrets del repo. El lado del código ya
       está listo (tts-azure.js + pausas de sección + selección de proveedor):
@@ -81,12 +81,11 @@ pierde el nombre.
       revés el 27), `prompts/README.md` ("los cuatro prompts que corre
       generar.js"), `README.md` raíz (generar.js como plan B),
       `contenido/README.md` (no menciona barrido, preseleccion ni casos).
-- [ ] **Escuchar los cinco sonidos** (`public/musica/*.wav`, o
-      `node scripts/sonido.js --muestra x.wav`) y decidir si sirven. Nadie
-      los ha escuchado todavía.
-- [ ] **Encender las cortinas** cuando exista la pausa del TTS: pide
-      `<break time="1200ms"/>` en cada `##` y que `build-timeline.js` emita
-      el evento de sección donde empieza la pausa.
+- [ ] **Escuchar los cinco sonidos y aprobarlos o pedir cambios**: quedaron
+      en Descargas/sonidos-entender-chile (mp3) junto a un render de muestra
+      de 44 s con sello y primera cortina en contexto. Las cortinas YA están
+      encendidas en el pipeline (video mudo no tapa voz; con voz, esperan
+      las pausas de tts-azure, que ya existe).
 
 ## Para la sesión de día (solo análisis)
 
