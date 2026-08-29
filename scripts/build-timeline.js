@@ -6,6 +6,7 @@
  * Uso: node scripts/build-timeline.js out/parsed.json out/alignment.json out/timeline.json [narracion.mp3]
  */
 const fs = require("fs");
+const path = require("path");
 
 const [, , parsedPath, alignPath, salida = "out/timeline.json", audioFile = null] = process.argv;
 if (!parsedPath || !alignPath) {
@@ -71,12 +72,19 @@ for (const [anchor, grupo] of grupos) {
     else eventos.push({ tipo: "esquema", titulo: ev.titulo, elementos: ev.elementos, ...base });
   });
 }
-// banners de sección: persisten hasta la sección siguiente
+// banners de sección: persisten hasta la sección siguiente. Si la voz trae
+// pausas de sección (pausas.json de tts-azure), el banner o la cortina
+// arranca donde EMPIEZA el silencio, no donde termina: así una cortina de
+// 1,1 s suena sobre la pausa de 1,2 s y no tapa voz.
+const rutaPausas = path.join(path.dirname(alignPath), "pausas.json");
+const pausas = fs.existsSync(rutaPausas) ? JSON.parse(fs.readFileSync(rutaPausas, "utf8")) : [];
 const banners = [];
 parsed.eventos.forEach((ev) => {
   if (ev.tipo !== "seccion" || ev.anchor == null) return;
   const ancla = porIndice.get(ev.anchor);
-  if (ancla) banners.push({ texto: ev.texto, from: Math.max(0, ancla.from - 0.1) });
+  if (!ancla) return;
+  const pausa = pausas.find((p) => Math.abs(p.from + p.dur - ancla.from) < 0.4);
+  banners.push({ texto: ev.texto, from: Math.max(0, pausa ? pausa.from + 0.05 : ancla.from - 0.1) });
 });
 banners.forEach((b, i) => {
   eventos.push({ tipo: "seccion", texto: b.texto, from: b.from, to: i + 1 < banners.length ? banners[i + 1].from : 9e9, overlay: true });

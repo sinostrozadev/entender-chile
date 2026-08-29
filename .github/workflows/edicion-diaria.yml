@@ -86,20 +86,24 @@ jobs:
 
       - name: 3 · Producir video del informe (voz si hay secrets; si no, mudo)
         env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           VOICE_ID: ${{ secrets.VOICE_ID }}
         if: env.YA_HECHO != '1'
         run: |
-          if [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; then VOZ="--voz"; else VOZ=""; echo "Sin secrets de voz: video mudo de prueba."; fi
+          if { [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; } || { [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; }; then VOZ="--voz"; else VOZ=""; echo "Sin secrets de voz: video mudo de prueba."; fi
           node scripts/dia.js $VOZ --render
 
       - name: 4 · Producir video de la Clave (si hubo)
         env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           VOICE_ID: ${{ secrets.VOICE_ID }}
         if: env.YA_HECHO != '1'
         run: |
-          if [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; then VOZ="--voz"; else VOZ=""; fi
+          if { [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; } || { [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; }; then VOZ="--voz"; else VOZ=""; fi
           node scripts/dia.js --clave --si-existe $VOZ --render
 
       - name: 5 · Commit de las descripciones

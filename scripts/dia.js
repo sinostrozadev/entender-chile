@@ -69,7 +69,18 @@ run("parse.js", [guion, OUT]);
 console.log("── 2/4 · Voz ─────────────────────────────────────");
 let audio = null;
 if (conVoz) {
-  run("tts-elevenlabs.js", [path.join(OUT, "narracion.txt"), OUT]);
+  // proveedor según qué secrets existan: Azure primero (gratis, voz chilena),
+  // ElevenLabs si algún día vuelve (clonación)
+  const proveedor =
+    process.env.AZURE_SPEECH_KEY && process.env.AZURE_SPEECH_REGION ? "tts-azure.js"
+    : process.env.ELEVENLABS_API_KEY && process.env.VOICE_ID ? "tts-elevenlabs.js"
+    : null;
+  if (!proveedor) {
+    console.error("--voz requiere AZURE_SPEECH_KEY + AZURE_SPEECH_REGION (o ELEVENLABS_API_KEY + VOICE_ID).");
+    process.exit(1);
+  }
+  console.log(`(proveedor de voz: ${proveedor})`);
+  run(proveedor, [path.join(OUT, "narracion.txt"), OUT]);
   audio = `${fecha}-${etiqueta}.mp3`;
   fs.mkdirSync("public", { recursive: true });
   fs.copyFileSync(path.join(OUT, "narracion.mp3"), path.join("public", audio));

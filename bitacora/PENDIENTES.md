@@ -31,10 +31,12 @@ pierde el nombre.
 
 ## Bloquean todo y dependen de Santiago
 
-- [ ] **Cuenta de Azure**: recurso de Speech en capa F0, verificar que la
-      región ofrezca voces es-CL, cargar `AZURE_SPEECH_KEY` y
-      `AZURE_SPEECH_REGION` como secrets del repo. Sin esto no hay voz, y
-      sin voz no hay video publicable ni cortinas de sección.
+- [ ] **Cuenta de Azure** (EN CURSO 29-08): recurso de Speech en capa F0,
+      verificar voces es-CL en la región, cargar `AZURE_SPEECH_KEY` y
+      `AZURE_SPEECH_REGION` como secrets del repo. El lado del código ya
+      está listo (tts-azure.js + pausas de sección + selección de proveedor):
+      con los secrets cargados, la siguiente madrugada sale CON VOZ, y la
+      primera escucha se puede hacer al tiro en local.
 - [ ] **Reservar el handle** (@entenderchile o variante) en YouTube,
       TikTok e Instagram. No implica publicar.
 
