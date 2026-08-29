@@ -1,10 +1,25 @@
 name: Edición diaria
 
+# EL TIMBRE, NO EL DESPERTADOR (29-08-2026): el render se dispara cuando
+# llega la revisión de calidad (~04:43 Chile), que es la última pieza antes
+# de renderizar. Así la cadena queda encadenada por artefactos y no por
+# relojes: informe → guion → revisión → render. El cron de GitHub demostró
+# atrasos de 10 horas y un día no corrió (28-08: cero videos con la edición
+# lista); queda solo de red de seguridad, y el gate ya tolera revisión
+# ausente. Lo disparado por push funciona 30 de 30.
 on:
+  push:
+    branches: [main]
+    paths:
+      - "contenido/revisiones/**"
   schedule:
-    # 09:00 UTC = 05:00 Chile en invierno (UTC-4) / 06:00 en verano (UTC-3).
+    # respaldo: 09:00 UTC = 05:00 Chile en invierno / 06:00 en verano.
     - cron: "0 9 * * *"
   workflow_dispatch:
+
+concurrency:
+  group: edicion-diaria
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -33,6 +48,18 @@ jobs:
           echo "FECHA_EDICION=$FECHA" >> "$GITHUB_ENV"
           echo "Edición del $FECHA"
 
+      # Si el timbre y el despertador suenan el mismo día, el segundo no debe
+      # repetir 40 minutos de render: si el release del día ya tiene el video
+      # del informe, no hay nada que hacer.
+      - name: 0 · ¿Ya hay video hoy?
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "edicion-$FECHA" --json assets -q '.assets[].name' 2>/dev/null | grep -q "informe.mp4"; then
+            echo "YA_HECHO=1" >> "$GITHUB_ENV"
+            echo "El release edicion-$FECHA ya tiene el video del informe; esta ejecución no hace nada."
+          fi
+
       # La edición la escribe ChatGPT de madrugada y la pushea al repo. NO hay
       # plan B: si a esta hora no llegó, el gate del paso 2b falla y la edición
       # del día no se renderiza. Ver revisar/README.md (generar.js retirado).
@@ -42,9 +69,11 @@ jobs:
       # rutina de Claude en la nube de las 03:00.
       - name: 1b · Observatorio de casos (índice y casos nuevos; no bloquea la edición)
         continue-on-error: true
+        if: env.YA_HECHO != '1'
         run: node scripts/casos.js
 
       - name: 2 · Commit de los textos (antes de renderizar, por si el render falla)
+        if: env.YA_HECHO != '1'
         run: |
           git config user.name "edicion-bot"
           git config user.email "bot@users.noreply.github.com"
@@ -52,12 +81,14 @@ jobs:
           git diff --cached --quiet || { git commit -m "edición $FECHA [bot]"; git push; }
 
       - name: 2b · Gate previo al render (edición renderizable y no rechazada)
+        if: env.YA_HECHO != '1'
         run: node scripts/gate.js
 
       - name: 3 · Producir video del informe (voz si hay secrets; si no, mudo)
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           VOICE_ID: ${{ secrets.VOICE_ID }}
+        if: env.YA_HECHO != '1'
         run: |
           if [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; then VOZ="--voz"; else VOZ=""; echo "Sin secrets de voz: video mudo de prueba."; fi
           node scripts/dia.js $VOZ --render
@@ -66,11 +97,13 @@ jobs:
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           VOICE_ID: ${{ secrets.VOICE_ID }}
+        if: env.YA_HECHO != '1'
         run: |
           if [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; then VOZ="--voz"; else VOZ=""; fi
           node scripts/dia.js --clave --si-existe $VOZ --render
 
       - name: 5 · Commit de las descripciones
+        if: env.YA_HECHO != '1'
         run: |
           git add contenido/descripciones/ || true
           git diff --cached --quiet || { git commit -m "descripciones $FECHA [bot]"; git pull --rebase; git push; }
@@ -78,6 +111,7 @@ jobs:
       - name: 6 · Publicar videos como release del día
         env:
           GH_TOKEN: ${{ github.token }}
+        if: env.YA_HECHO != '1'
         run: |
           TAG="edicion-$FECHA"
           NOTAS="contenido/descripciones/$FECHA-informe.txt"

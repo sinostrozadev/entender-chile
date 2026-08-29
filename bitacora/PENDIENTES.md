@@ -67,13 +67,6 @@ pierde el nombre.
       3. **Que el informe lea "Historias en curso sin novedad hoy"**, que la
          preselección ya produce y nadie consume.
 
-- [ ] **Render por push, no por cron.** (Problema distinto del anterior: el
-      push sirve para el render, que ocurre cuando ya existe el guion; no
-      sirve para el barrido, que necesita reloj.) El 28 no corrieron ni el barrido ni
-      la edición diaria: cero videos ese día. El cron de Actions llegó a
-      atrasarse once horas. Lo disparado por `push` funcionó 30 de 30.
-      Disparar el render con `push` a `contenido/guiones/informe/**` y
-      dejar el cron de respaldo. `.github/workflows/edicion-diaria.yml`.
 - [ ] **Dejar rastro del descarte en la preselección.** Hoy 49 titulares
       preseleccionados terminaron en 11 del informe y no hay registro de
       por qué salieron los otros. Sin rastro no se puede auditar ni afinar
