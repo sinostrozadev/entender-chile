@@ -63,6 +63,30 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **El aviso de emergencia: el guardián existe, el canal no sirve.**
+      Creado `trig_01TNcYi1Pe46NtnL7eXN6YAx` ("Guardián de la edición
+      diaria"), `0 10 * * *` UTC, sesión nueva por ejecución, con
+      `notifications: {push: true}`. Corre después del render y avisa solo si
+      falta el informe, el guion, el veredicto, el barrido o el video; si todo
+      está bien responde una línea y calla.
+      **Probado el 29-08 a las 13:39: la rutina terminó SUCCEEDED en 2m49s y
+      la notificación NO llegó al teléfono.**
+      El problema es que ese canal es opaco: la notificación se manda "cuando
+      la ejecución termina con algo que reportar", y esa valoración la hace el
+      servidor. No se puede ver si se intentó, ni por qué no llegó, ni forzarla.
+      **Una alerta que no se puede verificar no es una alerta.**
+      Arreglo propuesto, que además simplifica: que el guardián **mande la
+      alerta él mismo** con un `curl` a ntfy.sh al final, en vez de depender
+      de la notificación de cierre. Ventajas: la entrega es explícita (el curl
+      responde 200 o no, y el guardián lo dice), no depende de la
+      configuración de la app de Claude, es gratis y sin cuenta.
+      Santiago: instalar la app de ntfy y elegir un nombre de canal poco
+      adivinable, porque quien conoce el nombre puede leerlo. Los mensajes no
+      llevan nada sensible ("FALTA el guion del informe"), así que alcanza.
+      Antes de cambiar, una comprobación de veinte segundos: revisar que las
+      notificaciones de la app de Claude estén activadas en el teléfono. Si
+      era eso, el canal nativo sirve y no hace falta ntfy.
+
 - [ ] **Dos bloques nuevos en `prompts/contrato-archivos.md`**, redactados por
       Santiago el 29-08 a partir de los dos fallos del día. Van al final del
       archivo, después de REGLAS DE COMMIT. Texto listo para pegar:
