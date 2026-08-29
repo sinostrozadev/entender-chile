@@ -1,13 +1,29 @@
 name: Barrido
 
 # Junta lo que publicó la prensa chilena y lo deja en contenido/barrido/.
-# Corre ANTES que la generación de la edición (ChatGPT a las 03:45 Chile),
-# para que la preselección tenga material fresco.
+#
+# QUIÉN APRIETA EL BOTÓN (decidido 29-08-2026, ver bitacora/2026-08-28.md):
+# el cron de GitHub demostró atrasos de 11-12 horas y el barrido nunca llegó
+# a tiempo. El reloj ahora es una rutina de Claude en la nube (05:30 UTC,
+# puntual al minuto) que toca contenido/barrido/despertador.txt y pushea;
+# ese push dispara este workflow, y lo disparado por push funciona 30 de 30.
+# El cron de acá queda solo de red de seguridad, con --si-falta para no
+# pisar jamás un barrido ya escrito.
 on:
+  push:
+    branches: [main]
+    paths:
+      - "contenido/barrido/despertador.txt"
   schedule:
-    # 06:30 UTC = 02:30 Chile en invierno (UTC-4) / 03:30 en verano (UTC-3).
-    - cron: "30 6 * * *"
+    # respaldo tardío: 05:50 UTC sirve en invierno (01:50 Chile) y en verano
+    # (02:50), siempre antes de la preselección de las 03:10.
+    - cron: "50 5 * * *"
   workflow_dispatch:
+    inputs:
+      forzar:
+        description: "Regenerar aunque el barrido de hoy ya exista"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -27,7 +43,7 @@ jobs:
           node-version: "22"
 
       - name: Barrer
-        run: node scripts/barrido.js
+        run: node scripts/barrido.js ${{ inputs.forzar == true && ' ' || '--si-falta' }}
 
       - name: Commit del barrido
         run: |

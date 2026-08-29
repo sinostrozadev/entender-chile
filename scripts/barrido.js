@@ -26,6 +26,11 @@ const DIAS_MEMORIA = 7;          // ventana para detectar temas que continúan
 const TIMEOUT_MS = 15000;
 const CONCURRENCIA = 6;
 const SIN_ESCRIBIR = process.argv.includes("--dry");
+// --si-falta: no escribir si el barrido de hoy ya existe. Es la guarda contra
+// el cron atrasado de GitHub: sin ella, un disparo de la tarde pisaría el
+// barrido de la madrugada con material de otra ventana y ensuciaría la
+// continuidad de los días siguientes.
+const SOLO_SI_FALTA = process.argv.includes("--si-falta");
 
 const fecha = process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
   timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
@@ -103,6 +108,10 @@ async function enTandas(items, fn) {
 
 // ---------- barrido ----------
 async function main() {
+  if (SOLO_SI_FALTA && fs.existsSync(path.join(DIR, `${fecha}.md`))) {
+    console.log(`El barrido del ${fecha} ya existe; nada que hacer (--si-falta).`);
+    return;
+  }
   const cfg = JSON.parse(fs.readFileSync(path.join(DIR, "fuentes.json"), "utf8"));
 
   const objetivos = [
