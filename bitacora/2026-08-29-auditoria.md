@@ -68,9 +68,39 @@ ChatGPT desde que se mide: pasa de trece de trece a **catorce de quince**.
 Lo llamativo es que las otras tareas del día sí entregaron, incluido el guion
 de la Clave a las 08:17. Falló una sola.
 
-**Hipótesis con nombre**: ayer Santiago movió esa tarea de las 04:15 a las
-04:00, y la primera ejecución después del cambio no entregó. Lo primero es
-abrir la tarea y confirmar que quedó guardada y activa.
+### CORRECCIÓN (08:55): la hipótesis del horario era falsa
+
+Santiago mostró la conversación de ChatGPT. **La tarea sí corrió y sí generó
+el guion.** Lo que falló fue la escritura:
+
+> El guion del 29 de agosto fue generado siguiendo el prompt actual y el
+> informe de hoy, pero no pude completar la persistencia obligatoria en
+> GitHub: la escritura de contenido/guiones/informe/2026-08-29.md fue
+> bloqueada por el sistema al intentar crear el archivo.
+
+ChatGPT no conserva el mensaje técnico exacto y, correctamente, no quiso
+inventar la causa.
+
+Lo que el repo permite descartar:
+
+- **No es un problema de acceso.** El guion de la Clave se escribió sin
+  problema quince minutos después, a las 08:17.
+- **No es una carrera de escrituras.** Entre las 07:48:13 y las 08:17:05 no
+  hubo ni un solo commit en el repo: la tarea del guion corrió en un repo
+  quieto.
+- **No es el cambio de prompt.** `prompts/guion-informe.md` cambió a las
+  04:49 UTC, tres horas antes, pero es una sola línea sobre acreditar
+  fuentes: no toca la persistencia ni el tamaño.
+
+Queda sin causa identificada. Lo único que la va a revelar es reintentar y
+capturar el error exacto, que es lo que ChatGPT propone.
+
+**Y hay algo estructural que sí se puede arreglar**: el fallo fue mudo para
+el pipeline. ChatGPT lo dijo en su propio chat, donde nadie mira a las cuatro
+de la mañana, y en el repo no quedó rastro. La revisión sí lo detectó y dejó
+constancia, y el gate frenó el render, así que la **detección funcionó**. Lo
+que falta es el **aviso**: nadie se enteró hasta la auditoría, cuatro horas
+después.
 
 La cadena de consecuencias quedó toda a la vista, y eso es buena señal:
 
@@ -85,9 +115,16 @@ renderizar una edición incompleta. Lo que falló está aguas arriba.
 
 ## Lo que sigue igual
 
-**El canal no existe.** `web/canal.json` con YouTube vacío,
-`contenido/videos/` sin crear. Cero videos publicados, cero suscriptores,
-cero horas vistas. Sin cambio desde ayer.
+**El canal de YouTube ya existe** (Santiago, 29-08). Es el primer movimiento
+real hacia el objetivo en seis días: hasta ayer el punto más barato de la
+hoja de ruta llevaba cinco días sin ejecutarse.
+
+Falta el dato en el repo: `web/canal.json` sigue con YouTube vacío y
+`contenido/videos/` sin crear. Cero videos publicados, cero horas vistas.
+
+Ojo con llenar `canal.json` de inmediato: al hacerlo aparece el botón
+"Suscríbete" en la cabecera de la web, apuntando a un canal todavía sin
+videos. Es una decisión, no un trámite.
 
 **Azure bloqueado.** Ni prueba gratuita ni pago por uso. Reintento el 30. El
 lado del código ya está listo (`tts-azure.js` con pausas de sección y
@@ -116,8 +153,11 @@ del descarte.
 
 ## Lo que hay que hacer hoy
 
-1. **Revisar la tarea del guion del informe** en ChatGPT: que esté activa y
-   guardada a las 04:00. Es la causa de que hoy no haya video.
+1. **Reintentar la escritura del guion desde ChatGPT** y capturar el error
+   exacto si vuelve a fallar. Recuperar el video de hoy son dos pasos, no
+   uno: que el guion llegue al repo, y que algo vuelva a correr la revisión,
+   porque la de las 08:41 ya se ejecutó sin veredicto y el render se dispara
+   con su llegada.
 2. **Reintentar Azure**, empezando por otra tarjeta.
 3. Los tres documentos con deriva, que llevan dos auditorías seguidas
    apareciendo.
