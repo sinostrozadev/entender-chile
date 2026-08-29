@@ -92,8 +92,35 @@ Lo que el repo permite descartar:
   04:49 UTC, tres horas antes, pero es una sola línea sobre acreditar
   fuentes: no toca la persistencia ni el tamaño.
 
-Queda sin causa identificada. Lo único que la va a revelar es reintentar y
-capturar el error exacto, que es lo que ChatGPT propone.
+Al reintentar a las 13:04 funcionó (`d1e7c53`), así que el bloqueo fue
+puntual. Queda sin causa identificada.
+
+### Y en el reintento apareció algo peor que el bloqueo
+
+ChatGPT avisó: *"el prompt exige integrar Para salir hoy en el cierre, pero
+el informe de hoy no contiene esa línea. No la inventé."*
+
+**Es falso.** El informe de hoy trae esa línea en la 157, y la trae desde su
+commit original de las 07:30 (`d64f689`), que nunca se modificó:
+
+> Para salir hoy: abrigo liviano por la mañana y capas que puedas retirar
+> durante la tarde en Santiago (Dirección Meteorológica de Chile, 29 ago).
+
+Y sobre esa creencia equivocada actuó: **el guion de hoy cierra sin la
+recomendación.** El del 28 sí la traía ("si sales hoy en Santiago, lleva
+paraguas y una capa impermeable liviana"). El de hoy no.
+
+Es una regresión sobre una función de un día: la integración del cierre entró
+el 28 y hoy se perdió, no porque falte el dato, sino porque el modelo leyó mal
+su fuente y dedujo que faltaba.
+
+Lo rescatable: **hizo lo correcto con la premisa que creía cierta.** No
+inventó el pronóstico, avisó y siguió. El problema no es el criterio, es que
+afirmó un hecho verificable sin verificarlo.
+
+Esto le da a la revisión de hoy su primera prueba real: con la regla nueva de
+esta madrugada, "elemento obligatorio ausente" es hallazgo. Si se vuelve a
+correr, debería detectarlo.
 
 **Y hay algo estructural que sí se puede arreglar**: el fallo fue mudo para
 el pipeline. ChatGPT lo dijo en su propio chat, donde nadie mira a las cuatro

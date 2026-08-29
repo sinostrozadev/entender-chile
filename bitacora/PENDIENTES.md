@@ -63,6 +63,21 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **El aviso que falta cuando una pieza no llega.** Hoy el guion del
+      informe no se escribió (bloqueo puntual de GitHub, resuelto al
+      reintentar a las 13:04). La **detección funcionó**: la revisión dejó
+      constancia y el gate frenó el render en 26 segundos. El **aviso no**:
+      ChatGPT lo dijo solo en su propio chat y nadie se enteró hasta la
+      auditoría, cuatro horas después. Falta que la ausencia de una pieza
+      deje rastro visible en el repo o llegue a alguna parte.
+
+- [ ] **El guion de hoy perdió el cierre "Para salir hoy".** ChatGPT afirmó
+      que el informe no traía esa línea; sí la trae, en la 157, desde el
+      commit original de las 07:30. Actuó sobre esa premisa falsa y cerró sin
+      la recomendación. Es regresión de una función de un día. Ver si la
+      regla nueva de `prompts/CALIDAD.md` lo detecta como elemento
+      obligatorio ausente al volver a correr la revisión.
+
 - [ ] **Extraer la línea base de "¿Lo cumplió?".** El criterio ya está
       congelado y fechado en `estrategia/seccion-lo-cumplio.md`: umbral de
       tres condiciones, tamaño 30 a 50, estados, y el protocolo de
