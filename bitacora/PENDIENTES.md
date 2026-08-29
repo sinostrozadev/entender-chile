@@ -31,7 +31,20 @@ pierde el nombre.
 
 ## Bloquean todo y dependen de Santiago
 
-- [ ] **Azure: la cuenta YA ESTÁ (29-08). Falta crear el recurso.**
+- [ ] **Azure: recurso CREADO el 29-08 en F0, región `eastus`.** Falta solo
+      cargar los dos secrets en GitHub (KEY 1 desde portal.azure.com, recurso
+      `entender-chile`, menú Keys and Endpoint).
+
+- [ ] **Límite de F0 a vigilar en `scripts/tts-azure.js`:** el aviso del
+      propio Speech Studio dice que en la capa gratuita **cada archivo está
+      limitado a 3.000 caracteres**, con 500.000 al mes. El guion diario ronda
+      los 11.000, así que la síntesis hay que **partirla en trozos y
+      concatenarla**. Encaja bien con el diseño que ya existe: cortar por
+      sección, que es justo donde va la pausa de `<break time="1200ms"/>` y
+      la cortina. Por confirmar si ese tope de 3.000 aplica igual a la API o
+      solo a la herramienta de Creación de contenido de audio.
+
+- [ ] ~~**Azure: la cuenta YA ESTÁ (29-08). Falta crear el recurso.**~~ Hecho.
       Costó dos días y dos bloqueos distintos, pero quedó. Lo que sigue son
       cinco minutos con la cabeza despejada. **Hay un paso donde elegir mal
       cuesta plata**, así que conviene hacerlo despierto.
