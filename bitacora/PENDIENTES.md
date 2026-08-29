@@ -63,29 +63,27 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **El aviso de emergencia: el guardián existe, el canal no sirve.**
-      Creado `trig_01TNcYi1Pe46NtnL7eXN6YAx` ("Guardián de la edición
-      diaria"), `0 10 * * *` UTC, sesión nueva por ejecución, con
-      `notifications: {push: true}`. Corre después del render y avisa solo si
-      falta el informe, el guion, el veredicto, el barrido o el video; si todo
-      está bien responde una línea y calla.
-      **Probado el 29-08 a las 13:39: la rutina terminó SUCCEEDED en 2m49s y
-      la notificación NO llegó al teléfono.**
-      El problema es que ese canal es opaco: la notificación se manda "cuando
-      la ejecución termina con algo que reportar", y esa valoración la hace el
-      servidor. No se puede ver si se intentó, ni por qué no llegó, ni forzarla.
-      **Una alerta que no se puede verificar no es una alerta.**
-      Arreglo propuesto, que además simplifica: que el guardián **mande la
-      alerta él mismo** con un `curl` a ntfy.sh al final, en vez de depender
-      de la notificación de cierre. Ventajas: la entrega es explícita (el curl
-      responde 200 o no, y el guardián lo dice), no depende de la
-      configuración de la app de Claude, es gratis y sin cuenta.
-      Santiago: instalar la app de ntfy y elegir un nombre de canal poco
-      adivinable, porque quien conoce el nombre puede leerlo. Los mensajes no
-      llevan nada sensible ("FALTA el guion del informe"), así que alcanza.
-      Antes de cambiar, una comprobación de veinte segundos: revisar que las
-      notificaciones de la app de Claude estén activadas en el teléfono. Si
-      era eso, el canal nativo sirve y no hace falta ntfy.
+- [ ] **El aviso al teléfono: el canal funciona, falta decidir si debe
+      despertarte.** Corrección de lo que escribí antes: llegué a decir que el
+      canal nativo no servía, y era falso. Santiago mostró dos notificaciones
+      recibidas el 29-08: la del observatorio a la 01:53 y la de la revisión a
+      las 04:50, esta última con el texto exacto que hacía falta: *"falta el
+      guion del informe de hoy (2026-08-29), no se pudo emitir veredicto"*.
+      **La alerta que pedimos ya existía y ya llegaba.**
+      Por qué mi prueba de las 13:39 no llegó: se disparó mientras Santiago
+      estaba en conversación activa conmigo, y en ese caso la notificación se
+      omite por redundante. No era el canal, era el momento.
+      Queda creado igual `trig_01TNcYi1Pe46NtnL7eXN6YAx` ("Guardián de la
+      edición diaria", `0 10 * * *` UTC), y sigue teniendo sentido porque
+      **corre después del render**: la revisión avisa a las 04:50 si falta el
+      guion, pero no puede saber si el video se produjo. El guardián sí.
+      Lo único que queda por resolver es de teléfono, no de arquitectura:
+      **si quieres que estas alertas te despierten**, hay que permitir que las
+      notificaciones de la app de Claude se salten el modo silencio en
+      Android. Si no, llegan igual y las ves al despertar, que es lo mismo que
+      hace el correo.
+      Descartado por ahora: ntfy, Telegram y cualquier canal externo. No hacen
+      falta.
 
 - [ ] **Dos bloques nuevos en `prompts/contrato-archivos.md`**, redactados por
       Santiago el 29-08 a partir de los dos fallos del día. Van al final del
