@@ -7,11 +7,18 @@ name: Edición diaria
 # atrasos de 10 horas y un día no corrió (28-08: cero videos con la edición
 # lista); queda solo de red de seguridad, y el gate ya tolera revisión
 # ausente. Lo disparado por push funciona 30 de 30.
+#
+# El timbre lo toca la ÚLTIMA de las dos piezas que necesita el render: el
+# guion del informe y la revisión. Si llega una sin la otra, esa corrida
+# termina en verde sin hacer nada y la otra pieza vuelve a tocar (paso 0b).
+# 29-08: la revisión llegó 04:41 y el guion 09:04 → el gate falló en rojo
+# sin culpa y hubo que esperar al cron de respaldo (10:04).
 on:
   push:
     branches: [main]
     paths:
       - "contenido/revisiones/**"
+      - "contenido/guiones/informe/**"
   schedule:
     # respaldo: 09:00 UTC = 05:00 Chile en invierno / 06:00 en verano.
     - cron: "0 9 * * *"
@@ -56,9 +63,19 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           if gh release view "edicion-$FECHA" --json assets -q '.assets[].name' 2>/dev/null | grep -q "informe.mp4"; then
-            echo "YA_HECHO=1" >> "$GITHUB_ENV"
+            echo "SALTAR=1" >> "$GITHUB_ENV"
             echo "El release edicion-$FECHA ya tiene el video del informe; esta ejecución no hace nada."
           fi
+
+      # Solo cuando dispara un push: si falta el guion o la revisión, no es
+      # un error, es que todavía no llega la otra pieza. Con el cron o a mano
+      # no se espera a nadie: decide el gate del paso 2b.
+      - name: 0b · ¿Están las dos piezas? (solo por push)
+        if: github.event_name == 'push' && env.SALTAR != '1'
+        run: |
+          G="contenido/guiones/informe/$FECHA.md"; R="contenido/revisiones/$FECHA.md"
+          [ -f "$G" ] || { echo "SALTAR=1" >> "$GITHUB_ENV"; echo "Todavía no llega el guion del informe ($G): se espera a que su push toque el timbre."; }
+          [ -f "$R" ] || { echo "SALTAR=1" >> "$GITHUB_ENV"; echo "Todavía no llega la revisión ($R): se espera a su push (o al cron de respaldo, que no espera)."; }
 
       # La edición la escribe ChatGPT de madrugada y la pushea al repo. NO hay
       # plan B: si a esta hora no llegó, el gate del paso 2b falla y la edición
@@ -69,11 +86,11 @@ jobs:
       # rutina de Claude en la nube de las 03:00.
       - name: 1b · Observatorio de casos (índice y casos nuevos; no bloquea la edición)
         continue-on-error: true
-        if: env.YA_HECHO != '1'
+        if: env.SALTAR != '1'
         run: node scripts/casos.js
 
       - name: 2 · Commit de los textos (antes de renderizar, por si el render falla)
-        if: env.YA_HECHO != '1'
+        if: env.SALTAR != '1'
         run: |
           git config user.name "edicion-bot"
           git config user.email "bot@users.noreply.github.com"
@@ -81,7 +98,7 @@ jobs:
           git diff --cached --quiet || { git commit -m "edición $FECHA [bot]"; git push; }
 
       - name: 2b · Gate previo al render (edición renderizable y no rechazada)
-        if: env.YA_HECHO != '1'
+        if: env.SALTAR != '1'
         run: node scripts/gate.js
 
       - name: 3 · Producir video del informe (voz si hay secrets; si no, mudo)
@@ -90,7 +107,7 @@ jobs:
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           VOICE_ID: ${{ secrets.VOICE_ID }}
-        if: env.YA_HECHO != '1'
+        if: env.SALTAR != '1'
         run: |
           if { [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; } || { [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; }; then VOZ="--voz"; else VOZ=""; echo "Sin secrets de voz: video mudo de prueba."; fi
           node scripts/dia.js $VOZ --render
@@ -101,13 +118,13 @@ jobs:
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           VOICE_ID: ${{ secrets.VOICE_ID }}
-        if: env.YA_HECHO != '1'
+        if: env.SALTAR != '1'
         run: |
           if { [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; } || { [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; }; then VOZ="--voz"; else VOZ=""; fi
           node scripts/dia.js --clave --si-existe $VOZ --render
 
       - name: 5 · Commit de las descripciones
-        if: env.YA_HECHO != '1'
+        if: env.SALTAR != '1'
         run: |
           git add contenido/descripciones/ || true
           git diff --cached --quiet || { git commit -m "descripciones $FECHA [bot]"; git pull --rebase; git push; }
@@ -115,7 +132,7 @@ jobs:
       - name: 6 · Publicar videos como release del día
         env:
           GH_TOKEN: ${{ github.token }}
-        if: env.YA_HECHO != '1'
+        if: env.SALTAR != '1'
         run: |
           TAG="edicion-$FECHA"
           NOTAS="contenido/descripciones/$FECHA-informe.txt"
