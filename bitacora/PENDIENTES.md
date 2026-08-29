@@ -31,33 +31,44 @@ pierde el nombre.
 
 ## Bloquean todo y dependen de Santiago
 
-- [ ] **Cuenta de Azure** (BLOQUEADA 29-08: la creación da error, Santiago reintenta el 30): recurso de Speech en capa F0,
-      verificar voces es-CL en la región, cargar `AZURE_SPEECH_KEY` y
-      `AZURE_SPEECH_REGION` como secrets del repo. El lado del código ya
-      está listo (tts-azure.js + pausas de sección + selección de proveedor):
-      con los secrets cargados, la siguiente madrugada sale CON VOZ, y la
-      primera escucha se puede hacer al tiro en local.
-      **Para el reintento del 30**, en orden de probabilidad. El error fue
-      "No es apto para una suscripción de Azure", tanto en la prueba gratuita
-      como en pago por uso, con `santiagoinostroza@outlook.com`:
-      1. **Otra tarjeta.** Es la causa más frecuente: prepago y virtuales
-         están excluidas, y las de débito chilenas fallan seguido. Crédito
-         Visa o Mastercard.
-      2. **Coherencia**: país de la cuenta, dirección y país de emisión de la
-         tarjeta tienen que coincidir; teléfono en formato internacional.
-      3. **Mirar si ya existe algo** en portal.azure.com, sección
-         Suscripciones. Puede que no haya que crear nada.
-      4. **Cuenta Microsoft nueva y limpia.**
-      5. **Soporte de Azure**, que atiende registro sin suscripción. Pide el
-         SessionID que muestra la propia página del error; el del intento del
-         29-08 fue `88472e46-1015-40d9-9414-3e410a554f31`, 04:49:29 UTC.
-      Dos recordatorios que ahorran tiempo: **no hace falta la prueba
-      gratuita ni sus USD 200** (F0 es gratis sobre cualquier suscripción,
-      incluida la de pago por uso), y con pago por uso conviene crear un
-      **presupuesto con alerta en USD 1**, porque la tarjeta queda registrada.
-      Si Azure se cierra del todo, es decisión de fondo: es el único
-      proveedor con voces de español de Chile. Cambiar no es reemplazar, es
-      renunciar al acento.
+- [ ] **Azure: la cuenta YA ESTÁ (29-08). Falta crear el recurso.**
+      Costó dos días y dos bloqueos distintos, pero quedó. Lo que sigue son
+      cinco minutos con la cabeza despejada. **Hay un paso donde elegir mal
+      cuesta plata**, así que conviene hacerlo despierto.
+
+      **Los seis pasos, en orden:**
+
+      1. Entra a **portal.azure.com** y busca arriba: **Speech services**.
+      2. **Crear**. Grupo de recursos: si no hay ninguno, "Crear nuevo" y
+         llámalo `entender-chile`.
+      3. **Región**: elige **East US** o **Brazil South**. Anótala tal como
+         aparece en minúsculas y sin espacios (`eastus`, `brazilsouth`): es
+         uno de los dos secrets.
+      4. **Plan de tarifa: F0 (Gratis). ESTE ES EL PASO QUE IMPORTA.**
+         Si aparece S0 por defecto, cámbialo. S0 cobra por carácter y la
+         tarjeta ya está registrada. F0 son 500.000 caracteres al mes,
+         gratis para siempre, y el informe diario gasta unos 11.000: cabe
+         con margen de sobra.
+      5. **Revisar y crear**, esperar el minuto que tarda, y entrar al
+         recurso. En el menú de la izquierda: **Keys and Endpoint**
+         (Claves y punto de conexión). Copia **KEY 1** y la región.
+      6. En GitHub: repo `entender-chile` → **Settings** → **Secrets and
+         variables** → **Actions** → **New repository secret**. Dos secrets,
+         con estos nombres exactos:
+         `AZURE_SPEECH_KEY` = la clave
+         `AZURE_SPEECH_REGION` = la región
+
+      Nunca pegues la clave en un archivo del repo. Si se filtra, se
+      regenera desde esa misma página de Keys.
+
+      **Con esos dos secrets cargados, la madrugada siguiente el informe sale
+      con voz chilena**: el código ya está listo desde el 29 de madrugada
+      (`scripts/tts-azure.js` con pausas de sección y selección de proveedor).
+
+      Opcional, dos minutos de seguro: en la suscripción, crear un
+      **presupuesto con alerta en USD 1**. No bloquea el gasto pero avisa al
+      instante si algo empezó a cobrar.
+
 - [ ] **Reservar el handle** (@entenderchile o variante) en YouTube,
       TikTok e Instagram. No implica publicar.
 
