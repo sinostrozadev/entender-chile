@@ -70,3 +70,45 @@ Queda pulir la sobreaplicación de la escala humana y la silueta de las [B].
 **Incidencia**: GPT no entregó el guion de la Clave (tarea 4 no corrió) y
 generar.js frenó el render del informe por eso; corregido: el informe manda,
 la Clave se omite con aviso.
+
+### Regla de revisión, alineada (29-08-2026)
+
+Doce de los catorce hallazgos de las cuatro primeras revisiones eran el
+mismo: "el guion omite un dato que está en el informe". Esa regla quedó
+desalineada cuando se decidió (28-08) que el video narra solo las [A] y
+[B] y que las [C] viven en la web: desde entonces COMPRIMIR ES EL TRABAJO
+DEL GUION, y penalizarlo es penalizar lo correcto.
+
+Qué ES hallazgo desde hoy:
+1. Una noticia [A] o [B] omitida por completo, o una [C] narrada.
+2. Un dato alterado o inventado (cifra, fecha, nombre, cargo, cita).
+3. Una omisión que cambia el sentido o pierde precisión de hecho (decir
+   "esta semana" donde el informe da la fecha exacta; dar el rango nuevo
+   sin el de partida cuando la noticia ES el cambio de rango).
+4. Un elemento obligatorio ausente: formato, TESIS por bloque, "Para salir
+   hoy" integrada, tagline al cierre, fuentes de lo narrado en "Fuentes:".
+
+Qué NO es hallazgo: que una noticia narrada tenga menos detalle que el
+informe. Para eso existe el guion.
+
+### 2026-08-27 (primera edición del embudo con topes)
+**Precisión** 3/3: APROBADA; el informe cazó un error en comunicados
+oficiales (Ley 21.836 vs 21.748) verificando en la BCN. **Jerarquía** 3/3:
+agenda con un solo hito, sin relleno. **Escala humana** 3/3: la regla
+funcionó negándose ("no corresponde estimarlo" en Quiborax, sin base real).
+**Silueta** 2/3. **Tics** 3/3: cero "no solo", cero conectores de ensayo.
+**Oralidad** 3/3: TESIS máx 20 palabras. **Marca** 2/3: tagline sí, pero
+"Para salir hoy" NO se integró a la despedida. **19/21.** Duración: 9,7
+min, primera vez en rango. SOSER quedó archivado en "Chile en regiones"
+siendo plata pública nacional.
+
+### 2026-08-28 (primera edición con preselección; el barrido aún no llegaba)
+**Precisión** 3/3: APROBADA; dos de los cuatro hallazgos eran listas de
+"Fuentes:" incompletas, y ahí el desalineado era el prompt del guion
+(ordenaba listar solo las fuentes de las marcas): corregido hoy. El
+hallazgo del rango del PIB sin el rango de partida sí es legítimo (regla
+3). **Jerarquía** 2/3: [C] usadas de a dos cuando admiten diez.
+**Escala humana** 3/3. **Silueta** 2/3. **Tics** 3/3. **Oralidad** 3/3:
+13 TESIS, máx 18 palabras. **Marca** 3/3: tagline y "Para salir hoy"
+integrados. **19/21.** Duración: 11,9 min, sobre la promesa de 10; el
+tope conjunto de 10 narradas rige desde la edición del 29.

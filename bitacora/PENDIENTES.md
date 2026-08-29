@@ -71,12 +71,6 @@ pierde el nombre.
       preseleccionados terminaron en 11 del informe y no hay registro de
       por qué salieron los otros. Sin rastro no se puede auditar ni afinar
       el criterio. `prompts/informe.md`.
-- [ ] **Resolver la contradicción de la rúbrica.** 12 de 14 hallazgos de
-      las revisiones son el mismo: "el guion omite un dato que sí está en
-      el informe", cuatro días seguidos. O el guion debe llevarlos
-      (`prompts/guion-informe.md`) o comprimir es su trabajo y la rúbrica
-      está mal (`prompts/CALIDAD.md`). No puede seguir en el limbo.
-- [ ] **Retomar la bitácora de CALIDAD.md**, cortada desde el 26.
 - [ ] **Bajar el informe a diez minutos** o cambiar la promesa. El guion da
       11,9 min contra los 10 que prometen `identidad.md` y `publico.md`.
 - [ ] **Poner al día cuatro documentos que ya no dicen la verdad**:
