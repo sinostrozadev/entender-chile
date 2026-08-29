@@ -136,6 +136,23 @@ nada. Lo de solo lectura viene de que dos sesiones editando el mismo repo ya
 provocó trabajo duplicado el 26-08.
 **Decidió**: Santiago. **Detalle**: bitacora/README.md, bitacora/PENDIENTES.md.
 
+## 2026-08-29 - El informe crece, el guion resume y nombra todo
+
+**Qué**: (1) El informe web pierde el tope de cantidad y de largo: el
+recorte por duración se muda al guion, que es quien paga minutos. (2) Toda
+[A] responde una pauta de cinco preguntas (qué pasó, quién dice qué,
+antecedente, qué viene, escala humana), omitiendo en silencio las que no
+tienen respuesta verificable; en prueba. (3) Todo lo preseleccionado
+verificable entra al menos como línea de "Además, hoy", que queda sin tope:
+"espacio" y "menor" dejan de excluir del informe. (4) El guion suma el
+bloque "En titulares" antes del cierre: una frase por noticia no narrada,
+nada del informe queda sin sonar en el video. (5) La duración deja de ser
+promesa fija: objetivo ~10 minutos, tolerancia 12-13 en días cargados.
+**Por qué**: la [A] principal del 29-08 tenía 220 palabras y dejaba al
+lector a medias; 13 noticias verificables se botaron por espacio sin dejar
+línea; y el tope del informe existía por el video, que la web no paga.
+**Decidió**: Santiago. **Detalle**: bitacora/2026-08-29-propuesta-informe-largo.md.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 - **Firma epistémica del canal**: toda cifra con fuente visible en pantalla;

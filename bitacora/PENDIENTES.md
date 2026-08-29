@@ -87,6 +87,25 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **Aplicar la propuesta acordada del informe largo.** Texto exacto listo
+      para pegar en `bitacora/2026-08-29-propuesta-informe-largo.md`: el
+      informe pierde el tope (las [A] con pauta de cinco preguntas, "Además,
+      hoy" sin límite, todo lo preseleccionado verificable se nombra), el
+      guion hereda el recorte y suma el bloque "En titulares" antes del
+      cierre, y la regla de revisión se recalibra ([C] desarrollada es
+      hallazgo, [C] en titulares es obligatoria). Decidido por Santiago el
+      29-08. Toca `prompts/informe.md`, `prompts/guion-informe.md`, el
+      prompt de la rutina de revisión y `prompts/CALIDAD.md`.
+- [ ] **Investigar el tornado que no entró al embudo.** Una noticia de
+      tornado en Chile del 29-08 no aparece ni en el barrido ni en la
+      preselección ni en el informe. Es un hoyo de cobertura de fuentes,
+      anterior a las reglas de espacio. Ver qué medio la dio y por qué las
+      22 fuentes no la trajeron.
+- [ ] **Actualizar la promesa de duración.** Decidido: el video no siempre
+      será de 10 minutos; objetivo ~10, tolerancia 12-13 en días cargados.
+      Ajustar las dos menciones de "diez minutos" en `estrategia/identidad.md`
+      y `estrategia/publico.md` para que digan lo que ahora es verdad.
+
 - [ ] **El aviso al teléfono: el canal funciona, falta decidir si debe
       despertarte.** Corrección de lo que escribí antes: llegué a decir que el
       canal nativo no servía, y era falso. Santiago mostró dos notificaciones
