@@ -37,6 +37,27 @@ pierde el nombre.
       está listo (tts-azure.js + pausas de sección + selección de proveedor):
       con los secrets cargados, la siguiente madrugada sale CON VOZ, y la
       primera escucha se puede hacer al tiro en local.
+      **Para el reintento del 30**, en orden de probabilidad. El error fue
+      "No es apto para una suscripción de Azure", tanto en la prueba gratuita
+      como en pago por uso, con `santiagoinostroza@outlook.com`:
+      1. **Otra tarjeta.** Es la causa más frecuente: prepago y virtuales
+         están excluidas, y las de débito chilenas fallan seguido. Crédito
+         Visa o Mastercard.
+      2. **Coherencia**: país de la cuenta, dirección y país de emisión de la
+         tarjeta tienen que coincidir; teléfono en formato internacional.
+      3. **Mirar si ya existe algo** en portal.azure.com, sección
+         Suscripciones. Puede que no haya que crear nada.
+      4. **Cuenta Microsoft nueva y limpia.**
+      5. **Soporte de Azure**, que atiende registro sin suscripción. Pide el
+         SessionID que muestra la propia página del error; el del intento del
+         29-08 fue `88472e46-1015-40d9-9414-3e410a554f31`, 04:49:29 UTC.
+      Dos recordatorios que ahorran tiempo: **no hace falta la prueba
+      gratuita ni sus USD 200** (F0 es gratis sobre cualquier suscripción,
+      incluida la de pago por uso), y con pago por uso conviene crear un
+      **presupuesto con alerta en USD 1**, porque la tarjeta queda registrada.
+      Si Azure se cierra del todo, es decisión de fondo: es el único
+      proveedor con voces de español de Chile. Cambiar no es reemplazar, es
+      renunciar al acento.
 - [ ] **Reservar el handle** (@entenderchile o variante) en YouTube,
       TikTok e Instagram. No implica publicar.
 
