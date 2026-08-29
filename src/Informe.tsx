@@ -80,8 +80,9 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
         <Audio src={staticFile(tl.meta.musica)} volume={tl.audio ? 0.1 : 0.3} loop />
       ) : null}
       {tl.meta.logo ? (
-        // logo sonoro: suena junto al sello de identidad
-        <Sequence from={0} durationInFrames={Math.round(2.4 * fps)}>
+        // sello sonoro: suena junto al sello de identidad (dura 2,6 s; la
+        // ventana debe cubrirlo entero o se corta la cola)
+        <Sequence from={0} durationInFrames={Math.round((SELLO_SEG + 0.4) * fps)}>
           <Audio src={staticFile(tl.meta.logo)} volume={0.5} />
         </Sequence>
       ) : null}

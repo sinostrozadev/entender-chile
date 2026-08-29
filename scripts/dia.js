@@ -91,13 +91,18 @@ if (conVoz) {
 }
 
 console.log("── 3/4 · Timeline ────────────────────────────────");
-// serie, música de fondo y logo sonoro para la composición
+// Sonido del canal (decidido 27/29-08): NO hay cama musical continua; la
+// música puntúa. Sello en la apertura, cortinas en los cambios de sección,
+// cierre al final. Todo generado por scripts/sonido.js.
 process.env.SERIE = etiqueta;
-const musicaRel = `musica/${etiqueta}.mp3`;
-if (fs.existsSync(path.join("public", musicaRel))) process.env.MUSICA = musicaRel;
-else delete process.env.MUSICA;
-if (fs.existsSync(path.join("public", "musica", "logo.mp3"))) process.env.LOGO = "musica/logo.mp3";
-else delete process.env.LOGO;
+delete process.env.MUSICA; // la cama continua se retiró
+const son = (f) => fs.existsSync(path.join("public", "musica", f)) ? `musica/${f}` : null;
+const sello = son("sello.wav") || son("logo.mp3");
+if (sello) process.env.LOGO = sello; else delete process.env.LOGO;
+const cortinas = ["cortina-a.wav", "cortina-b.wav", "cortina-c.wav"].map(son).filter(Boolean);
+if (cortinas.length) process.env.CORTINAS = cortinas.join(","); else delete process.env.CORTINAS;
+const cierre = son("cierre.wav");
+if (cierre) process.env.CIERRE = cierre; else delete process.env.CIERRE;
 run("build-timeline.js", [
   path.join(OUT, "parsed.json"),
   path.join(OUT, "alignment.json"),

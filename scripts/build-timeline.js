@@ -104,8 +104,13 @@ const timeline = {
       timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
     }).format(new Date()),
     serie: process.env.SERIE || "informe",          // informe | clave (lo fija dia.js)
-    musica: process.env.MUSICA || null,             // ej. "musica/informe.mp3" en public/
-    logo: process.env.LOGO || null,                 // logo sonoro del sello (2 s)
+    musica: process.env.MUSICA || null,             // cama continua: retirada (null)
+    logo: process.env.LOGO || null,                 // sello sonoro de la apertura
+    // Cortinas de sección: solo cuando no pueden tapar voz, es decir, si el
+    // video es mudo o si la voz trae pausas de sección (pausas.json).
+    cortinas: process.env.CORTINAS && (!audioFile || pausas.length)
+      ? process.env.CORTINAS.split(",") : null,
+    cierre: process.env.CIERRE || null,             // melodía final
     fps: 30,
     width: 1920,
     height: 1080,
