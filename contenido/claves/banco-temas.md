@@ -10,3 +10,7 @@
 - Informe de Política Monetaria y cómo el Banco Central construye sus proyecciones | Banco Central presentará el IPoM de septiembre al Senado el 9 de septiembre | 2026-08-28
 - garantías, boletas y mecanismos de resguardo del Estado en contratos de telecomunicaciones | Senado pedirá sesión especial por incumplimientos de WOM en fibra óptica y 5G | 2026-08-28
 - estrecho de Ormuz como cuello de botella energético y su efecto sobre el precio del petróleo | Irán prepara condiciones para normalizar el tránsito por el estrecho de Ormuz | 2026-08-28
+- relación entre precio de materias primas, producción y utilidades de una empresa minera | Codelco multiplica su ganancia pese a una caída de 11% en la producción | 2026-08-29
+- negociación colectiva reglada, huelga legal y mediación obligatoria | Sindicato de Albemarle vota huelga legal para el 2 de septiembre | 2026-08-29
+- becas médicas financiadas por el Estado y obligación de devolución mediante trabajo asistencial | Contraloría detecta médicos becados que trabajaron menos de seis meses de seis años obligatorios | 2026-08-29
+- Sistema de Evaluación de Impacto Ambiental y qué significa que un proyecto ingrese a evaluación | Megaproyecto solar por US$593 millones ingresa a evaluación ambiental en Antofagasta | 2026-08-29
