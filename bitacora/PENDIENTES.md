@@ -3,7 +3,7 @@
 Lista viva. Se actualiza cada día al cerrar. Lo hecho se borra, no se
 tacha: para saber qué pasó está el archivo del día.
 
-Última actualización: 28-08-2026.
+Última actualización: 28-08-2026, al cerrar la sesión de día.
 
 ---
 
@@ -67,34 +67,34 @@ pierde el nombre.
       3. **Que el informe lea "Historias en curso sin novedad hoy"**, que la
          preselección ya produce y nadie consume.
 
-- [ ] **Sacar el barrido del cron de GitHub. Es lo más urgente del pipeline.**
-      Investigado hoy: el barrido **nunca** ha estado disponible cuando se
-      escribió la edición de su día (26-08 llegó 20 h tarde, 27-08 10 h,
-      28-08 11 h). Las 22 fuentes, la deduplicación, la continuidad y el
-      criterio de exclusivas no los ha leído ninguna preselección: las cinco
-      ediciones corrieron por el camino de respaldo. La hora elegida (06:30
-      UTC) es correcta; falla quién aprieta el botón. El mecanismo confiable
-      ya existe y está medido: las rutinas de Claude en la nube llegaron a
-      las 08:41, 08:42, 08:42 y 08:43 UTC cuatro días seguidos. Cinco
-      opciones con sus costos en `bitacora/2026-08-28.md`. Los tres relojes,
-      medidos: **ChatGPT trece de trece sin una falla** (dispersión de 14
-      minutos en el informe), Claude en la nube puntual al minuto, y el cron
-      de GitHub el único que falla. Al elegir, copiarle a los que cumplen.
-      **Plan detallado del híbrido en `bitacora/2026-08-28-plan-barrido.md`**,
-      con el orden de ejecución y las guardas, y la tabla de quién ejecuta
-      qué, hoy y en la propuesta, en `bitacora/2026-08-28-quien-ejecuta-que.md`.
-
-- [ ] **URGENTE, con fecha: el 6 de septiembre Chile pasa a horario de
-      verano y se rompen dos piezas más.** Las tareas de ChatGPT están en
-      hora de Chile y se mueven una hora antes en UTC; lo fijado en UTC no se
-      mueve. El barrido (06:30 UTC) pasaría a las 03:30 Chile, veinte minutos
-      **después** de la preselección, y el observatorio (07:00 UTC) a las
-      04:00, después del informe, con lo que la alerta de "¿En qué quedó?"
-      dejaría de aparecer. Las dos fallas serían silenciosas. Las rutinas de
-      Claude solo aceptan cron en UTC, así que la solución es elegir horas
-      UTC que sirvan en los dos regímenes: barrido a las 05:30 UTC y
-      observatorio a las 05:45 UTC. Así no hay que tocar nada en septiembre
-      ni en abril.
+- [ ] **Sacar el barrido del cron de GitHub. Es lo más urgente del pipeline,
+      y tiene fecha de vencimiento: el 5 de septiembre.**
+      El barrido **nunca** ha estado disponible cuando se escribió la edición
+      de su día (llegó 20, 10 y 11 horas tarde). Las cinco ediciones han
+      corrido por el camino de respaldo. La hora elegida es correcta; falla
+      quién aprieta el botón.
+      Propuesta final, en tres movimientos:
+      1. Guarda `--si-falta` en `scripts/barrido.js` (hoy escribe sin
+         comprobar nada, líneas 233 y 260).
+      2. El barrido entra como **primer paso de la rutina del observatorio**
+         que ya corre a diario (`trig_01MzKjYwnyH8PfJfCBrtJvv4`). No hace
+         falta una rutina nueva: son unos veinte segundos más.
+      3. Esa rutina se mueve de `0 7 * * *` a `0 5 * * *` UTC.
+      Las dos razones para mover la hora, y las dos son serias:
+      **hoy** el observatorio se disparó a las 07:21 y terminó a las 07:28:59,
+      con la tarea del informe empezando a las 07:30: 61 segundos de margen.
+      **Y el 5 de septiembre**, a la medianoche, Chile pasa a horario de verano
+      (Decreto N°98 del 2 de julio de 2026, rige hasta el primer sábado de
+      abril de 2027). Las tareas de ChatGPT están en hora de Chile y se
+      corren una hora antes en UTC; lo fijado en UTC no se mueve. Sin el
+      cambio, desde la edición del domingo 6 el barrido llegaría después de
+      la preselección y el observatorio después del informe, con lo que la
+      alerta de "¿En qué quedó?" dejaría de salir. Las dos fallas,
+      silenciosas. A las 05:00 UTC funciona en los dos regímenes y no hay que
+      tocar nada nunca más.
+      Detalle: `bitacora/2026-08-28-investigacion-cron.md`,
+      `bitacora/2026-08-28-plan-barrido.md`,
+      `bitacora/2026-08-28-quien-ejecuta-que.md`.
 
 - [ ] **Render por push, no por cron.** (Problema distinto del anterior: el
       push sirve para el render, que ocurre cuando ya existe el guion; no
