@@ -3,7 +3,7 @@
 Lista viva. Se actualiza cada día al cerrar. Lo hecho se borra, no se
 tacha: para saber qué pasó está el archivo del día.
 
-Última actualización: 28-08-2026, al cerrar la sesión de día.
+Última actualización: 29-08-2026, sesión de la noche (ejecutó la lista de la sesión de día).
 
 ---
 
@@ -14,7 +14,7 @@ que estén resueltas no se sube ningún video, aunque el pipeline funcione.
 
 1. **El video no le gusta todavía.** Hay que trabajarlo. Falta el cold open,
    la miniatura, la regla de los 5-7 segundos y los visuales propios.
-2. **No hay voz.** Bloqueado por la cuenta de Azure.
+2. ~~**No hay voz.**~~ Resuelto el 29-08: Azure activo, secrets cargados, primer video con voz en Descargas/entender-chile-primera-voz. Falta que Santiago lo escuche y diga si esa voz sirve.
 3. **El criterio de selección no convence.** Hoy quedaron fuera noticias
    importantes. Ver el análisis del 28-08 más abajo.
 4. **Todavía se nota la IA en los informes.** Falta identificar exactamente
@@ -31,220 +31,60 @@ pierde el nombre.
 
 ## Bloquean todo y dependen de Santiago
 
-- [ ] **Azure: recurso CREADO el 29-08 en F0, región `eastus`.** Falta solo
-      cargar los dos secrets en GitHub (KEY 1 desde portal.azure.com, recurso
-      `entender-chile`, menú Keys and Endpoint).
-
-- [ ] **Límite de F0 a vigilar en `scripts/tts-azure.js`:** el aviso del
-      propio Speech Studio dice que en la capa gratuita **cada archivo está
-      limitado a 3.000 caracteres**, con 500.000 al mes. El guion diario ronda
-      los 11.000, así que la síntesis hay que **partirla en trozos y
-      concatenarla**. Encaja bien con el diseño que ya existe: cortar por
-      sección, que es justo donde va la pausa de `<break time="1200ms"/>` y
-      la cortina. Por confirmar si ese tope de 3.000 aplica igual a la API o
-      solo a la herramienta de Creación de contenido de audio.
-
-- [ ] ~~**Azure: la cuenta YA ESTÁ (29-08). Falta crear el recurso.**~~ Hecho.
-      Costó dos días y dos bloqueos distintos, pero quedó. Lo que sigue son
-      cinco minutos con la cabeza despejada. **Hay un paso donde elegir mal
-      cuesta plata**, así que conviene hacerlo despierto.
-
-      **Los seis pasos, en orden:**
-
-      1. Entra a **portal.azure.com** y busca arriba: **Speech services**.
-      2. **Crear**. Grupo de recursos: si no hay ninguno, "Crear nuevo" y
-         llámalo `entender-chile`.
-      3. **Región**: elige **East US** o **Brazil South**. Anótala tal como
-         aparece en minúsculas y sin espacios (`eastus`, `brazilsouth`): es
-         uno de los dos secrets.
-      4. **Plan de tarifa: F0 (Gratis). ESTE ES EL PASO QUE IMPORTA.**
-         Si aparece S0 por defecto, cámbialo. S0 cobra por carácter y la
-         tarjeta ya está registrada. F0 son 500.000 caracteres al mes,
-         gratis para siempre, y el informe diario gasta unos 11.000: cabe
-         con margen de sobra.
-      5. **Revisar y crear**, esperar el minuto que tarda, y entrar al
-         recurso. En el menú de la izquierda: **Keys and Endpoint**
-         (Claves y punto de conexión). Copia **KEY 1** y la región.
-      6. En GitHub: repo `entender-chile` → **Settings** → **Secrets and
-         variables** → **Actions** → **New repository secret**. Dos secrets,
-         con estos nombres exactos:
-         `AZURE_SPEECH_KEY` = la clave
-         `AZURE_SPEECH_REGION` = la región
-
-      Nunca pegues la clave en un archivo del repo. Si se filtra, se
-      regenera desde esa misma página de Keys.
-
-      **Con esos dos secrets cargados, la madrugada siguiente el informe sale
-      con voz chilena**: el código ya está listo desde el 29 de madrugada
-      (`scripts/tts-azure.js` con pausas de sección y selección de proveedor).
-
-      Opcional, dos minutos de seguro: en la suscripción, crear un
-      **presupuesto con alerta en USD 1**. No bloquea el gasto pero avisa al
-      instante si algo empezó a cobrar.
+- [x] **Azure: LISTO (29-08, noche).** Secrets `AZURE_SPEECH_KEY` y
+      `AZURE_SPEECH_REGION` cargados en GitHub; copia local fuera del repo en
+      `~/.claude/projects/-home-santiago-projects-daily/secrets/azure.env`.
+      Probado: 9.100 caracteres → 8,6 min de voz es-CL en 40 s, 15 trozos, 14
+      pausas de sección. El límite de 3.000 caracteres es de la herramienta
+      del Speech Studio, no de la API: el corte por sección ya lo cubre.
+      **Primera edición con voz: la del 30-08** (validar que el workflow la
+      tomó: el log del paso 3 no debe decir "video mudo").
+- [ ] **Escuchar el primer video con voz** (Descargas/entender-chile-primera-voz:
+      mp4 de 8,6 min y el mp3 de la narración): ¿sirve LorenzoNeural o se
+      prueba otra voz es-CL? (`AZURE_VOICE` permite cambiarla sin tocar código).
 
 - [ ] **Reservar el handle** (@entenderchile o variante) en YouTube,
       TikTok e Instagram. No implica publicar.
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **Aplicar la propuesta acordada del informe largo.** Texto exacto listo
-      para pegar en `bitacora/2026-08-29-propuesta-informe-largo.md`: el
-      informe pierde el tope (las [A] con pauta de cinco preguntas, "Además,
-      hoy" sin límite, todo lo preseleccionado verificable se nombra), el
-      guion hereda el recorte y suma el bloque "En titulares" antes del
-      cierre, y la regla de revisión se recalibra ([C] desarrollada es
-      hallazgo, [C] en titulares es obligatoria). Decidido por Santiago el
-      29-08. Toca `prompts/informe.md`, `prompts/guion-informe.md`, el
-      prompt de la rutina de revisión y `prompts/CALIDAD.md`.
-- [ ] **Investigar el tornado que no entró al embudo.** Una noticia de
-      tornado en Chile del 29-08 no aparece ni en el barrido ni en la
-      preselección ni en el informe. Es un hoyo de cobertura de fuentes,
-      anterior a las reglas de espacio. Ver qué medio la dio y por qué las
-      22 fuentes no la trajeron.
-- [ ] **Actualizar la promesa de duración.** Decidido: el video no siempre
-      será de 10 minutos; objetivo ~10, tolerancia 12-13 en días cargados.
-      Ajustar las dos menciones de "diez minutos" en `estrategia/identidad.md`
-      y `estrategia/publico.md` para que digan lo que ahora es verdad.
+Hecho el 29-08 en la noche (detalle en `bitacora/2026-08-29.md`): propuesta
+del informe largo aplicada en los tres archivos + rutina de revisión
+recalibrada; contrato con ESCRITURA VERIFICADA y VERIFICAR ANTES DE AFIRMAR
+(con la regla de la ausencia); bloque interno al final absoluto; promesa de
+duración actualizada; tornado investigado y corregido en el barrido; los
+cuatro documentos con deriva puestos al día; render por push corregido
+(lo dispara la última pieza en llegar, sin rojo si falta la otra).
 
-- [ ] **El aviso al teléfono: el canal funciona, falta decidir si debe
-      despertarte.** Corrección de lo que escribí antes: llegué a decir que el
-      canal nativo no servía, y era falso. Santiago mostró dos notificaciones
-      recibidas el 29-08: la del observatorio a la 01:53 y la de la revisión a
-      las 04:50, esta última con el texto exacto que hacía falta: *"falta el
-      guion del informe de hoy (2026-08-29), no se pudo emitir veredicto"*.
-      **La alerta que pedimos ya existía y ya llegaba.**
-      Por qué mi prueba de las 13:39 no llegó: se disparó mientras Santiago
-      estaba en conversación activa conmigo, y en ese caso la notificación se
-      omite por redundante. No era el canal, era el momento.
-      Queda creado igual `trig_01TNcYi1Pe46NtnL7eXN6YAx` ("Guardián de la
-      edición diaria", `0 10 * * *` UTC), y sigue teniendo sentido porque
-      **corre después del render**: la revisión avisa a las 04:50 si falta el
-      guion, pero no puede saber si el video se produjo. El guardián sí.
-      Lo único que queda por resolver es de teléfono, no de arquitectura:
-      **si quieres que estas alertas te despierten**, hay que permitir que las
-      notificaciones de la app de Claude se salten el modo silencio en
-      Android. Si no, llegan igual y las ves al despertar, que es lo mismo que
-      hace el correo.
-      Descartado por ahora: ntfy, Telegram y cualquier canal externo. No hacen
-      falta.
-
-- [ ] **Dos bloques nuevos en `prompts/contrato-archivos.md`**, redactados por
-      Santiago el 29-08 a partir de los dos fallos del día. Van al final del
-      archivo, después de REGLAS DE COMMIT. Texto listo para pegar:
-
-```
-ESCRITURA VERIFICADA (obligatorio en toda tarea que escriba en el repo):
-- Escribe el archivo. Si la escritura falla, NO des por perdida la ejecución:
-  consulta de inmediato si el archivo quedó creado igual, porque un error de
-  respuesta no significa que la escritura no ocurrió.
-- Si no existe y el error parece transitorio, reintenta hasta 3 veces.
-- Después de escribir, vuelve a LEER el archivo desde main y verifica dos
-  cosas: que la ruta es la que manda este contrato y que el contenido está
-  completo. Una escritura no está hecha hasta que se leyó de vuelta.
-- Si aparece un conflicto porque el archivo fue creado entre intentos, lee su
-  SHA y actualízalo, pero SOLO si corresponde a la fecha de hoy. Nunca pises
-  un archivo de otra fecha.
-- Los errores permanentes (permisos, autorización, ruta inválida) NO entran en
-  bucle: se reportan al final de la ejecución, nombrando el archivo que no se
-  pudo escribir y el error exacto que devolvió GitHub.
-- Al terminar, di explícitamente qué archivos quedaron escritos y verificados.
-  Si alguno falta, dilo en la primera línea de tu respuesta, no al final.
-
-VERIFICAR ANTES DE AFIRMAR:
-Cuando vayas a afirmar algo sobre un archivo del repo (que falta, que no
-contiene tal línea, que está vacío, que no se pudo leer), ábrelo y
-compruébalo en esa misma ejecución antes de decirlo. Nunca deduzcas el estado
-de un archivo a partir de lo que recuerdes, de una lectura anterior o de lo
-que parezca razonable.
-
-Esto vale sobre todo cuando la conclusión te lleva a OMITIR algo: si crees que
-un elemento obligatorio no está en la fuente, vuelve a leer la fuente antes de
-dejarlo fuera. Omitir por una premisa falsa es peor que preguntar, porque no
-deja rastro y se descubre días después.
-
-Si después de comprobarlo el dato efectivamente no está, entonces sí: no lo
-inventes, sigue adelante y dilo, nombrando el archivo y la línea que buscaste.
-```
-
-      El primero responde al bloqueo de escritura de las 08:00, que resultó
-      puntual: al reintentar a las 13:04 funcionó. El segundo responde a que
-      ChatGPT afirmó que el informe no traía "Para salir hoy" cuando sí la
-      traía desde las 07:30, y por esa premisa falsa omitió el cierre.
-
-- [ ] **El aviso que falta cuando una pieza no llega.** Hoy el guion del
-      informe no se escribió (bloqueo puntual de GitHub, resuelto al
-      reintentar a las 13:04). La **detección funcionó**: la revisión dejó
-      constancia y el gate frenó el render en 26 segundos. El **aviso no**:
-      ChatGPT lo dijo solo en su propio chat y nadie se enteró hasta la
-      auditoría, cuatro horas después. Falta que la ausencia de una pieza
-      deje rastro visible en el repo o llegue a alguna parte.
-
-- [ ] **Mover el bloque `<!-- interno -->` al final absoluto del informe**,
-      después de la línea "Para salir hoy". Hoy el informe termina así:
-      bloque interno de las líneas 122 a 155, y la recomendación de cierre en
-      la 157, que es la última del archivo. **El único elemento obligatorio
-      del cierre está en la posición que cualquier truncamiento se come
-      primero**, detrás de 33 líneas que el lector nunca ve. Es arreglo de una
-      línea en `prompts/informe.md` y elimina la causa raíz, no el síntoma.
-
-- [ ] **Adoptar la regla de ChatGPT sobre la ausencia**, que es mejor que la
-      que redactamos: *una ausencia también es un hecho y debe verificarse*.
-      Si una ejecución va a decir "no existe X", "el archivo no contiene X",
-      "no se generó Y" o "no hubo Z", tiene que hacer una búsqueda explícita o
-      leer la sección completa antes de afirmarlo. **Si la lectura quedó
-      truncada, no puede inferir ausencia.** Va en el bloque VERIFICAR ANTES
-      DE AFIRMAR del contrato.
-
-- [ ] ~~**El guion de hoy perdió el cierre "Para salir hoy".**~~ Causa
-      entendida: no fue mala fe ni descuido, fue lectura truncada sobre un
-      archivo cuyo elemento obligatorio está en la última línea. Se resuelve
-      con los dos puntos de arriba. Original: ChatGPT afirmó
-      que el informe no traía esa línea; sí la trae, en la 157, desde el
-      commit original de las 07:30. Actuó sobre esa premisa falsa y cerró sin
-      la recomendación. Es regresión de una función de un día. Ver si la
-      regla nueva de `prompts/CALIDAD.md` lo detecta como elemento
-      obligatorio ausente al volver a correr la revisión.
-
+- [ ] **Mirar el 30-08 con lupa, primera edición con las reglas nuevas:**
+      (1) que las [A] respondan las cinco preguntas sin inflarse; (2) que
+      "Además, hoy" traiga todo lo verificable sin volverse basurero; (3) que
+      el guion tenga "## En titulares" con "Y en titulares:" y nada del
+      informe quede sin sonar; (4) duración real con voz y titulares; (5) que
+      el bloque interno esté después de "Para salir hoy"; (6) que el barrido
+      diga cuántas entraron por "mismo tema" y por "alarma".
 - [ ] **Extraer la línea base de "¿Lo cumplió?".** El criterio ya está
       congelado y fechado en `estrategia/seccion-lo-cumplio.md`: umbral de
       tres condiciones, tamaño 30 a 50, estados, y el protocolo de
-      extracción paso a paso con el formato de ficha. Falta solo lo que esta
-      sesión no puede hacer: **abrir el programa de gobierno**. La política
-      de egreso bloquea servel.cl y el resto, y solo llegan fragmentos de
-      búsqueda; armar promesas atribuidas a una persona real desde resúmenes
-      de terceros es justo el error que esta sección no puede permitirse.
-      Pasos: bajar el PDF del Servel y guardarlo en el repo, leerlo entero,
-      clasificar en admitidas y excluidas con motivo, elegir entre 30 y 50,
-      una ficha por promesa con su bloque de datos, y commit de congelación.
-
+      extracción paso a paso con el formato de ficha. Solo se puede hacer en
+      local (la nube no abre servel.cl): bajar el PDF del Servel y guardarlo
+      en el repo, leerlo entero, clasificar en admitidas y excluidas con
+      motivo, elegir entre 30 y 50, una ficha por promesa con su bloque de
+      datos, y commit de congelación.
 - [ ] **Decidir la arquitectura de estado y categorías.** Propuesta completa
-      en `ideas/estado-de-las-noticias.md`. Cuatro decisiones abiertas al
-      final de ese documento antes de tocar un solo prompt. Los tres
-      arreglos que salen de ahí, en orden de impacto:
-      1. **Mudar el tope de 10 del informe al guion.** Hoy el informe
-         recorta por la duración del video, y la web no paga duración.
-         `prompts/informe.md` y `prompts/guion-informe.md`.
-      2. **Crear las secciones que faltan**: Plata pública y Educación no
-         existen en el informe, y finanzas ("Mercados y bolsillo") tiene un
-         candado que en cinco días no se abrió nunca. Alinear el listado de
-         áreas de `prompts/seleccion.md` con las secciones de
-         `prompts/informe.md`: hoy son dos listas distintas.
-      3. **Que el informe lea "Historias en curso sin novedad hoy"**, que la
-         preselección ya produce y nadie consume.
-
-- [ ] **Bajar el informe a diez minutos** o cambiar la promesa. El guion da
-      11,9 min contra los 10 que prometen `identidad.md` y `publico.md`.
-- [ ] **Poner al día cuatro documentos que ya no dicen la verdad**:
-      `estrategia/hoja-de-ruta.md` (sigue pidiendo los secrets de
-      ElevenLabs y llamando "EXISTENCIAL" a la voz clonada, decidido al
-      revés el 27), `prompts/README.md` ("los cuatro prompts que corre
-      generar.js"), `README.md` raíz (generar.js como plan B),
-      `contenido/README.md` (no menciona barrido, preseleccion ni casos).
+      en `ideas/estado-de-las-noticias.md`, cuatro decisiones abiertas al
+      final. De los tres arreglos que salían de ahí, dos ya están (el tope se
+      mudó al guion; el informe lee "Historias en curso sin novedad hoy").
+      Falta el tercero: **crear las secciones Plata pública y Educación** en
+      el informe y alinear el listado de áreas de `prompts/seleccion.md` con
+      las secciones de `prompts/informe.md` (hoy son dos listas distintas).
 - [ ] **Escuchar los cinco sonidos y aprobarlos o pedir cambios**: quedaron
       en Descargas/sonidos-entender-chile (mp3) junto a un render de muestra
-      de 44 s con sello y primera cortina en contexto. Las cortinas YA están
-      encendidas en el pipeline (video mudo no tapa voz; con voz, esperan
-      las pausas de tts-azure, que ya existe).
+      de 44 s. Ya suenan en el video del 29 (sello, 14 cortinas, cierre).
+- [ ] **Si quieres que las alertas te despierten**: permitir que las
+      notificaciones de la app de Claude se salten el modo silencio en
+      Android. El canal funciona (revisión 04:50 + guardián 06:00); es solo
+      configuración del teléfono.
 
 ## Para la sesión de día (solo análisis)
 

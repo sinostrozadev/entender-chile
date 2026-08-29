@@ -21,9 +21,9 @@ edición manual.
 
 - **prompts/** es la única fuente de verdad de los prompts: se editan aquí, se
   commitean, y ChatGPT los lee desde aquí antes de ejecutar su tarea.
-- **scripts/generar.js** es el PLAN B: si la edición del día está completa no
-  hace nada; si falta algo y hay `ANTHROPIC_API_KEY`, la completa con la API
-  de Claude; si falta algo y no hay key, falla ruidosamente (workflow en rojo).
+- **No hay plan B de generación.** `scripts/generar.js` fue retirado a
+  `revisar/` el 28-08-2026: si una pieza no llega, el gate frena el render, la
+  revisión de la nube deja constancia y avisa, y el cron de respaldo reintenta.
 - **contenido/** es el archivo histórico del canal y se commitea siempre
   (ver `contenido/README.md`). Los videos van a `out/`, ignorado por git.
 - **ideas/** es el backlog del canal (evaluar → ejecutar → hechas/descartadas).
@@ -73,7 +73,9 @@ timeline → capítulos + descripción → (render). Salidas del día en
 - `scripts/chapters.js` - capítulos de YouTube desde el timeline (primero en
   00:00, fusiona secciones de <10 s).
 - `scripts/dia.js` - orquesta todo lo anterior en un comando.
-- `scripts/generar.js` - plan B de generación por API (ver arriba).
+- `scripts/barrido.js` - barrido de fuentes (RSS + Google News) que alimenta la
+  preselección; `scripts/tts-azure.js` - voz (Azure Speech, es-CL) con pausas
+  de sección; `scripts/gate.js` - gate previo al render.
 - `scripts/manana.sh` - rutina matinal local (pull + producir + Studio a hoy).
 
 ## Primer uso
@@ -95,11 +97,16 @@ Firma del canal: toda cifra muestra `FUENTE · …` en mono; chip HECHO sólido 
 tinta, chip INTERPRETACIÓN de contorno en pátina. Una animación de entrada por
 tarjeta y nada más.
 
-## Voz (pendiente de activar)
+## Voz (activa desde la edición del 30-08-2026)
 
-El pipeline ya soporta ElevenLabs (`tts-elevenlabs.js`). Cuando exista el clon
-profesional de la voz de Santiago: cargar `ELEVENLABS_API_KEY` y `VOICE_ID`
-como secrets del repo y el workflow pasa solo de mudo a con voz.
+Azure Speech (`scripts/tts-azure.js`, voz es-CL-LorenzoNeural, capa gratuita
+F0: 500.000 caracteres al mes, el informe gasta unos 9.000 al día). Secrets
+`AZURE_SPEECH_KEY` y `AZURE_SPEECH_REGION` cargados en el repo el 29-08; en
+local viven fuera del repo (`~/.claude/projects/-home-santiago-projects-daily/
+secrets/azure.env`). `dia.js --voz` elige Azure si existen; ElevenLabs
+(`tts-elevenlabs.js`) queda como alternativa. La voz corta por sección con una
+pausa de 1,2 s, y ahí suena la cortina (sello al inicio, cierre al final; no
+hay cama musical).
 
 ## Antes de subir un video real
 

@@ -7,7 +7,7 @@ público primario también decididos (ver decisiones.md).
 
 ## En una frase
 
-Entender Chile explica cada día, en unos diez minutos y sin gritos, lo que
+Entender Chile explica cada día, en unos diez minutos (doce o trece cuando el día viene cargado) y sin gritos, lo que
 de verdad importa para entender el país - con las fuentes a la vista y los
 hechos separados de las interpretaciones.
 
@@ -99,7 +99,7 @@ Va en: descripción del canal, cierre de cada video, banner y bio de redes.
 
 ## Descripción del canal (borrador para YouTube → Información)
 
-> Las noticias de Chile explicadas cada mañana en diez minutos. Un informe
+> Las noticias de Chile explicadas cada mañana en unos diez minutos. Un informe
 > con las tres o cuatro cosas que importan, cada cifra con su fuente, y los
 > hechos separados de las opiniones. Y en la serie Claves, lo que hay que
 > saber para entender las próximas noticias, no solo las de hoy. El resumen

@@ -10,7 +10,7 @@ fuentes de tráfico, retención por video).
 ## Perfil primario - DECIDIDO: "el ciudadano ocupado"
 
 Chileno/a de 25 a 55 años. Trabaja, le interesa la actualidad, pero
-desconfía de los matinales y las redes lo agotan. Quiere, en diez minutos y
+desconfía de los matinales y las redes lo agotan. Quiere, en unos diez minutos (los días cargados, doce o trece) y
 mientras desayuna o viaja, quedar informado Y entender - no solo enterarse.
 
 - **Momento de uso**: la mañana, 6:30-9:00 → por eso el horario fijo de

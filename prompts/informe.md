@@ -5,15 +5,26 @@ IDENTIDAD EDITORIAL: este reporte alimenta el canal "Entender Chile". Su propós
 PUNTO DE PARTIDA: la olla del día.
 Lee en esta ejecución contenido/preseleccion/AAAA-MM-DD.md del repositorio (fecha local de Chile): es la lista de candidatas que produjo la etapa de selección, con el área y el porqué de cada una. Trabaja SOBRE esa lista.
 - Desarrolla solo noticias que estén en la olla. Si al verificar aparece un hecho grave que la olla no traía, puedes incluirlo, y en ese caso agrega al final del reporte una línea "FUERA DE LA OLLA: <titular>" por cada uno: sirve para corregir el barrido.
+- La sección "Historias en curso sin novedad hoy" de la preselección es contexto, no candidatas: no la desarrolles ni la pongas en el rastro del descarte. Úsala para no presentar como novedad lo que no avanzó y, si una de esas historias tiene dossier en contenido/casos/, deja su marca EN SEGUIMIENTO según su regla.
 - Si el archivo de preselección no existe (la etapa falló), haz tú el barrido amplio por áreas temáticas, regiones de Chile y principales regiones del mundo antes de jerarquizar, y anótalo en el bloque interno (ver abajo).
 - La olla no está verificada: es material bruto. Toda cifra, cita y fecha que llegue al informe se verifica ahora, en fuentes primarias u oficiales cuando existan (Banco Central, INE, ministerios, Congreso, Contraloría, Dirección Meteorológica, organismos internacionales) y con dos fuentes coincidentes para las noticias [A].
 
 JERARQUIZACIÓN:
 - Asigna a cada noticia un peso visible al inicio del titular: [A], [B] o [C].
-  [A] = las noticias que definen la jornada. Desarrollo completo con contexto. Objetivo 3, máximo 4; si hay más candidatas, elige y baja las demás a [B].
-  [B] = relevante pero no central. Uno o dos párrafos. Objetivo 7, máximo 8.
-  [C] = registro breve para la sección "Además, hoy". Una frase por noticia. Hasta 10.
-  Tope conjunto: [A] + [B] no pasan de 10, porque son las que se narran en el video. Las [C] no tienen costo de duración (viven solo en la web y en el archivo), así que ahí sí conviene ser generoso: una noticia relevante que no alcanzó a ser [B] entra como [C] antes que quedar fuera de la edición.
+  [A] = las noticias que definen la jornada. Objetivo 3, máximo 4; si hay más candidatas, elige y baja las demás a [B].
+  [B] = relevante pero no central. Uno o dos párrafos.
+  [C] = registro en una línea para "Además, hoy".
+- El informe NO tiene tope de cantidad ni de largo: es la edición completa para la web. El recorte por duración lo hace el guion del video, no el informe. Aquí el criterio es la relevancia y la verificación, nunca el espacio.
+- Toda noticia preseleccionada que NO haya sido descartada por calidad (sin segunda fuente, duplicada, no verificable) entra al informe al menos como [C]. "Espacio" deja de ser motivo de exclusión: si estaba en la olla y es verificable, se nombra. El rastro del descarte del bloque interno queda solo para los descartes de calidad y de relevancia mínima.
+
+DESARROLLO OBLIGATORIO DE CADA [A] (pauta de cinco preguntas):
+Toda noticia [A] responde, en este orden natural y sin subtítulos:
+  1. Qué ocurrió, con sus cifras y fuentes.
+  2. Qué dicen los involucrados: la autoridad, el afectado, el que discrepa. Con nombre, cargo y fuente. Si nadie ha reaccionado aún, no se inventa ni se rellena: se omite.
+  3. Qué antecedente lo explica: desde cuándo, qué lo causó, cuándo fue la última vez que pasó algo así. Con fechas.
+  4. Qué viene ahora: la audiencia, la votación, el plazo, la próxima publicación del dato. Con fecha cuando exista.
+  5. La escala humana ya obligatoria (cálculo propio sobre base real).
+La regla de honestidad manda sobre la pauta: cada una de estas partes son HECHOS con fuente, nunca párrafos de contexto genérico. Si una pregunta no tiene respuesta verificable hoy, esa parte se omite sin anunciarlo. Alargar por alargar es peor que quedar corto.
 - La noticia de apertura es siempre una [A].
 - Deportes, dato curioso, el tiempo y agenda no llevan peso; tienen formato propio.
 - Cada tema se desarrolla en una sola sección. Si una noticia tiene dimensión nacional e internacional (por ejemplo, un conflicto que afecta el precio de los combustibles en Chile), va completa en la sección donde tenga más desarrollo y en la otra solo una remisión de una frase, sin repetir datos.
@@ -53,10 +64,10 @@ ESTRUCTURA:
 - Resumen internacional: barrido primero de Sudamérica y América Latina, luego Estados Unidos, Europa, Asia-Pacífico, Medio Oriente y grandes acontecimientos globales. Selecciona por magnitud, consecuencias humanas o económicas, cercanía o relación con Chile, relevancia internacional y novedad. No omitas grandes desastres naturales, conflictos, crisis políticas, científicas o económicas de países vecinos aunque todavía no tengan consecuencias graves. Prioridad razonable a Sudamérica.
 - Deporte, solo cuando es noticia de relevancia transversal: un hito histórico, una crisis institucional, una dimensión económica o social relevante, un logro país. Se trata con el lente del canal (contexto, significado, consecuencias), nunca como resumen de la fecha: sin tabla de posiciones de rutina ni marcadores del fin de semana. Una fecha ordinaria del campeonato no entra; la quiebra de un club, una eliminación histórica o el negocio detrás del fútbol sí.
 - La historia detrás, opcional: cuando una noticia [A] tenga un antecedente histórico que cambie su comprensión, un bloque breve (150 a 250 palabras) con ese antecedente, con fechas y fuentes. En episodios históricamente controvertidos, presenta las lecturas en disputa atribuidas a quienes las sostienen; jamás una sola lectura como verdad.
-- Además, hoy: todas las noticias [C] agrupadas, una frase cada una, hasta diez. Si no hay, se omite. Un trámite administrativo menor no es noticia [C]: no rellenes para llegar a un número, pero tampoco dejes fuera algo relevante solo porque ya hay varias.
+- Además, hoy: todas las noticias [C], una frase cada una, SIN TOPE de cantidad. Aquí aterriza todo lo preseleccionado verificable que no alcanzó desarrollo. Un trámite administrativo menor sigue sin ser noticia: el filtro es relevancia mínima y verificabilidad, no un número. Si no hay, se omite.
 - Dato curioso: un hecho verificable, sorprendente y con fuente, idealmente científico, histórico o cultural.
 - Agenda de hoy: hasta 5 hitos concretos que puedan marcar la jornada (votaciones, anuncios oficiales, publicaciones económicas, audiencias, reuniones internacionales), con hora cuando se conozca. Solo los que le importan a un ciudadano general: si hay uno solo relevante, va uno solo. NUNCA rellenes con webinars, charlas, seminarios o actos protocolares para completar una cuota.
-- Para salir hoy: la última línea de la edición. Una sola frase con la recomendación práctica de vestimenta para Santiago (abrigo, paraguas, capas, protección solar), puede incluir entre paréntesis mínima y máxima, basada en la Dirección Meteorológica de Chile con fuente y fecha. Solo la recomendación: sin pronóstico extendido ni recorrido por zonas.
+- Para salir hoy: la última línea PÚBLICA de la edición; después de ella solo puede venir el bloque interno. Una sola frase con la recomendación práctica de vestimenta para Santiago (abrigo, paraguas, capas, protección solar), puede incluir entre paréntesis mínima y máxima, basada en la Dirección Meteorológica de Chile con fuente y fecha. Solo la recomendación: sin pronóstico extendido ni recorrido por zonas.
 
 REGLAS DE CONTENIDO:
 - En cada sección incluye solo hechos realmente relevantes. Si no hay novedad relevante, omite la sección por completo. Nunca informes la ausencia de noticias ("no hubo anuncios", "no se registraron novedades", "los registros no muestran").
@@ -75,7 +86,7 @@ ESTILO ANTI-PLANTILLA (para que no se lea como texto generado):
 - Incisos con comas o paréntesis, nunca con guiones ni rayas.
 
 CONTROL ANTES DE ENTREGAR:
-1. Toda noticia tiene peso [A], [B] o [C]; hasta 4 [A], hasta 8 [B], y entre [A] y [B] no más de 10 en total.
+1. Toda noticia tiene peso [A], [B] o [C]; hasta 4 [A]. Sin tope de [B] ni de [C]. Toda [A] responde la pauta de cinco preguntas (u omite en silencio las que no tienen respuesta verificable). Toda preseleccionada verificable está en el informe, aunque sea como [C].
 2. Ningún tema aparece desarrollado en dos secciones.
 3. Toda cifra y cita tiene fuente y fecha.
 4. No hay secciones vacías ni frases que informen ausencia de noticias.
@@ -93,16 +104,15 @@ SEGUIMIENTO DE LA PLATA PÚBLICA (sección "¿En qué quedó?"):
 - Al final del reporte, ANTES de "Fuentes consultadas", incluye una sección "¿En qué quedó?" SOLO si contenido/casos/hitos.md del repositorio (léelo en esta misma ejecución; si el sistema te lo adjunta entre <hitos>, usa ese) trae novedades con la fecha de hoy o de ayer. Escribe una entrada por hito, en una o dos frases, con el estado procesal exacto y la fuente. Si el archivo no existe, está vacío o no trae novedades recientes, OMITE la sección por completo: que un caso siga igual no es noticia del día.
 - No inventes casos ni hitos: usa solo lo que aparezca en hitos.md o en las noticias que investigaste hoy.
 
-RASTRO DEL DESCARTE (obligatorio): al final del reporte, dentro del bloque interno, deja una línea por CADA noticia de la preselección que no desarrollaste, con su motivo en una palabra o dos. Vocabulario cerrado de motivos:
-- "espacio" (era buena, pero el tope de [A]+[B] o de [C] la dejó fuera)
+RASTRO DEL DESCARTE (obligatorio): al final del reporte, dentro del bloque interno, deja una línea por CADA noticia de la preselección que no entró al informe (ni siquiera como [C]), con su motivo en una palabra o dos. Vocabulario cerrado de motivos:
 - "sin segunda fuente" (no se pudo verificar con el estándar exigido)
 - "continúa sin novedad" (historia ya contada, hoy no avanzó)
-- "menor" (al mirarla de cerca, no daba el piso de relevancia)
+- "menor" (al mirarla de cerca no da ni el piso mínimo de relevancia: un trámite administrativo, un acto protocolar. Es un juicio de relevancia, nunca de espacio: el informe no tiene tope)
 - "duplicada" (mismo hecho que otra que sí entró)
 - "fuera de foco" (no calza con la identidad del canal)
 Formato: "- <titular corto de la preselección> | <motivo>". Las que entraron como [C] cuentan como desarrolladas y no van en esta lista. Sin este rastro, un tema ausente es inescrutable; con él, se distingue el descarte deliberado del punto ciego, que es lo único que permite afinar el criterio.
 
-LO PÚBLICO Y LO INTERNO: el informe se publica entero en la web, tal cual. Todo lo que escribas fuera de un comentario HTML lo lee un ciudadano cualquiera. Las notas para el sistema o para el editor (que faltó la preselección, que una fuente no abrió, dudas de método) NUNCA van en el cuerpo: van al final, dentro de un bloque
+LO PÚBLICO Y LO INTERNO: el informe se publica entero en la web, tal cual. Todo lo que escribas fuera de un comentario HTML lo lee un ciudadano cualquiera. Las notas para el sistema o para el editor (que faltó la preselección, que una fuente no abrió, dudas de método) NUNCA van en el cuerpo: van al FINAL ABSOLUTO del archivo, después de la línea "Para salir hoy" (la última línea pública, la que cualquier lectura truncada debe encontrar antes que las notas), dentro de un bloque
 
 <!-- interno
 ...

@@ -91,6 +91,34 @@ Qué ES hallazgo desde hoy:
 Qué NO es hallazgo: que una noticia narrada tenga menos detalle que el
 informe. Para eso existe el guion.
 
+### Recalibración por "En titulares" (30-08-2026)
+
+Desde la edición del 30-08 el informe no tiene tope (es la edición completa
+para la web) y el guion recorta: narra las [A] y las [B] más relevantes
+hasta 10, y todo lo demás suena como UNA frase en el bloque "En titulares",
+penúltima sección antes del cierre. Con eso, la regla 1 cambia:
+1. Una noticia [A] o [B] del informe omitida POR COMPLETO en el guion (ni
+   narrada ni en "En titulares"), o una [C] DESARROLLADA en la narración
+   (las [C] solo pueden aparecer como frase única en "En titulares").
+Y a la regla 4 (elemento obligatorio ausente) se suma: el bloque "En
+titulares" cuando el informe tiene más noticias que las narradas.
+Decidido por Santiago el 29-08 (estrategia/decisiones.md); detalle en
+bitacora/2026-08-29-propuesta-informe-largo.md. Lo que hay que vigilar los
+primeros días: que las [A] no se inflen con contexto genérico (la pauta pide
+hechos), la duración real con titulares (+45 s estimados por 8 frases) y que
+"Además, hoy" no se vuelva basurero.
+
+### 2026-08-29 (primera edición con el embudo completo; guion tardío)
+Sin puntaje: la revisión corrió sin guion (llegó a las 09:04 por un bloqueo
+de escritura de GitHub en ChatGPT, reintento manual) y no emitió veredicto.
+Lo verificable a mano: **Marca** 1/3, el guion cerró SIN "Para salir hoy"
+por una lectura truncada del informe (la línea estaba, en la 157, detrás de
+33 líneas de bloque interno; desde hoy el bloque interno va al final
+absoluto y el contrato exige verificar antes de afirmar una ausencia).
+**Jerarquía** 3/3: 3 [A] + 7 [B] + 8 [C], 40 de 40 preseleccionadas con
+rastro (22 descartes con motivo). Duración con voz real (Azure, primera
+vez): 8,6 min. Primer día en que el barrido alimentó la olla.
+
 ### 2026-08-27 (primera edición del embudo con topes)
 **Precisión** 3/3: APROBADA; el informe cazó un error en comunicados
 oficiales (Ley 21.836 vs 21.748) verificando en la BCN. **Jerarquía** 3/3:

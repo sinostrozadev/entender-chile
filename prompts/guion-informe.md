@@ -11,19 +11,19 @@ MISIÓN PRINCIPAL: producir un guion que conserve íntegramente el valor informa
 FIDELIDAD TOTAL AL INFORME:
 - Tu tarea es EDITORIAL DE FORMA, no de selección. No decides qué es noticia ni cuánto importa: eso ya lo decidió el Resumen diario mediante los pesos [A], [B] y [C].
 - Usa exclusivamente el contenido del informe de hoy (contenido/informes/AAAA-MM-DD.md) como fuente informativa base.
-- NO elimines ninguna noticia [A] ni [B] del Resumen diario. NO agregues noticias, datos, opiniones ni predicciones. NO cambies pesos. Las [C] son la única excepción: no se narran (ver EXTENSIÓN SEGÚN PESO).
+- NO elimines ninguna noticia [A] del Resumen diario. NO agregues noticias, datos, opiniones ni predicciones. NO cambies pesos. Las [B] que no entren al corte y todas las [C] no se narran, pero SUENAN como una frase en el bloque "En titulares" (ver QUÉ SE NARRA): nada del informe queda sin sonar en el video.
 - Puedes eliminar únicamente redundancias de redacción, encabezados escritos, referencias técnicas o elementos incompatibles con el formato hablado.
 - Si detectas una inconsistencia evidente, no inventes la corrección: redacta de forma prudente sin introducir información que no esté en el informe.
 - Las fuentes que cites en las marcas provienen exclusivamente del informe. No hagas una segunda búsqueda.
 - Las líneas del informe que empiezan con "EN SEGUIMIENTO:" son marcas internas del sistema, no texto periodístico: no las narres, no las menciones ni las conviertas en frase. La sección "¿En qué quedó?", si el informe la trae, sí se narra, como noticias breves.
 
 EXTENSIÓN SEGÚN PESO:
-- El video narra las noticias [A] y [B] del informe, y solo esas: son como máximo diez. Las [C] NO se narran; viven en la web, que publica el informe completo.
+- QUÉ SE NARRA: el guion narra completas las [A] (todas) y las [B] más relevantes, hasta un total combinado de 10 noticias narradas. El informe ya no trae tope: el recorte por duración es TRABAJO DEL GUION. Comprimir y elegir es la función de esta pieza. Lo que no se narra ([B] fuera del corte y todas las [C]) va, una frase por noticia, en "En titulares".
 - La extensión de cada noticia sigue el peso asignado en el informe:
   [A] desarrollo completo, con su contexto y análisis.
   [B] tres a cinco frases.
-- La duración total es la que resulte de aplicar estos pesos. No rellenes para alargar ni recortes para acortar.
-- Cifras: narra las que sostienen la idea de cada noticia. En noticias [B] y [C], máximo dos cifras habladas. Las cifras del informe que no se narren pueden conservarse en una marca [DATO] para que aparezcan en pantalla.
+- La duración objetivo es en torno a 10 minutos y puede llegar a 12 o 13 en días cargados. En días así, recorta desarrollo de las [B] antes que eliminar el bloque "En titulares". No rellenes para alargar.
+- Cifras: narra las que sostienen la idea de cada noticia. En noticias [B], máximo dos cifras habladas; en cada titular, una como mucho. Las cifras del informe que no se narren pueden conservarse en una marca [DATO] para que aparezcan en pantalla.
 
 ORIGINALIDAD Y MONETIZACIÓN:
 - No hagas una lectura mecánica, literal ni apenas parafraseada del Resumen diario. Transforma el material en una narración propia, coherente y diseñada para ser escuchada.
@@ -83,11 +83,11 @@ ESTRUCTURA DEL GUION:
 
 5. DEPORTE: solo si el informe lo incluyó como noticia; se narra como cualquier noticia según su peso, nunca como resumen de resultados.
 
-6. LO QUE QUEDA EN LA WEB: si el informe trae la sección "Además, hoy", NO narres esas noticias. En su lugar, una sola frase que remita al sitio, variable entre días y sin sonar a publicidad: por ejemplo "hubo varias cosas más en el día, y están breves en el sitio". Si el informe no trae esa sección, esta parte no existe.
+6. DATO CURIOSO: va después del último bloque de noticias narradas y funciona como cambio de tono deliberado.
 
-7. DATO CURIOSO: va siempre antes del cierre y funciona como cambio de tono deliberado.
+7. AGENDA: después del dato curioso, cuenta los hitos de la agenda que le importan al ciudadano ocupado (máximo tres) como lo que conviene observar durante el resto de la jornada. Omite webinars, charlas y actos protocolares aunque el informe los liste.
 
-8. AGENDA: justo antes del cierre, cuenta los hitos de la agenda que le importan al ciudadano ocupado (máximo tres) como lo que conviene observar durante el resto de la jornada. Omite webinars, charlas y actos protocolares aunque el informe los liste.
+8. EN TITULARES (obligatorio, penúltima sección del guion, justo antes del cierre): una sección "## En titulares" con UNA frase por cada noticia del informe que no se narró: las [B] que quedaron fuera del corte y todas las [C]. Cada frase: el hecho y, si cabe natural, la cifra. Sin desarrollo, sin fuente hablada (las fuentes van en la lista "Fuentes:"), sin opinión. Entrada fija del bloque, siempre la misma: "Y en titulares:". Es la señal para el que escucha de que viene el barrido rápido. Ninguna noticia del informe puede quedar sin narrar Y sin titular: todo lo que está en el informe suena en el video, aunque sea una frase. Si el informe no tiene noticias fuera del corte, el bloque no existe.
 
 9. CIERRE: síntesis del día en dos o tres frases que conecte las noticias [A] entre sí, sin decirle a la audiencia qué debe pensar, seguida de una despedida de una frase con pequeñas variaciones entre días. Integra al final, de forma natural dentro de la despedida, la línea "Para salir hoy" del informe (una sola frase de vestimenta). La despedida nombra el canal con variaciones de "Nos encontramos mañana en Entender Chile" y termina SIEMPRE con el tagline exacto como última frase hablada: "El resumen sin gritos." No pidas suscripción, likes ni comentarios.
 
@@ -127,7 +127,7 @@ PERSISTENCIA:
 La ÚNICA persistencia es el repositorio, en la ruta exacta que define el contrato de archivos. No guardes copias en la Biblioteca de ChatGPT. Guarda el guion ÍNTEGRO y sin reformular. Si por algún motivo técnico no puedes guardar o pushear, indícalo claramente al final de la ejecución.
 
 CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
-1. Verifica noticia por noticia que ninguna [A] ni [B] del Resumen diario haya sido omitida y que ninguna haya sido agregada.
+1. Verifica noticia por noticia: ninguna [A] omitida; cada [B] narrada o en "En titulares"; cada [C] en "En titulares"; ninguna agregada. Nada del informe queda sin sonar.
 2. Verifica que la extensión de cada noticia corresponde a su peso [A], [B] o [C].
 3. Verifica que no hay ningún tema narrado dos veces.
 4. Verifica que no hay frases que narren ausencia de noticias.

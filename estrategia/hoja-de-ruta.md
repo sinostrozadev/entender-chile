@@ -25,9 +25,12 @@ registrar la decisión en decisiones.md.
 
 ## Fase 1 - Bloqueantes de monetización (antes de publicar en serio)
 
-- [ ] Voz clonada operativa (secrets ELEVENLABS_API_KEY + VOICE_ID). El
-      resto del pipeline ya está listo. EXISTENCIAL.
-- [ ] Consentimiento escrito del uso de la voz, guardado.
+- [x] Voz operativa (29-08-2026): Azure Speech es-CL en capa gratuita F0,
+      secrets AZURE_SPEECH_KEY + AZURE_SPEECH_REGION cargados; primera
+      edición con voz, la del 30-08. La voz clonada dejó de ser requisito el
+      27-08 (decisiones.md).
+- [ ] ~~Consentimiento escrito del uso de la voz~~ No aplica: la voz es
+      sintética, no clonada.
 - [ ] Checklist de cumplimiento IA operativo por video (los 8 puntos de
       ideas/investigacion-crecimiento-2026-08-25.md), incl. verificar las 2
       páginas oficiales que el proxy bloqueó.

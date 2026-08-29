@@ -199,10 +199,49 @@ async function main() {
   const RUIDO = /\b(en vivo|minuto a minuto|horóscopo|farándula|streaming|dónde ver|a qué hora juega|formaciones|resultado del sorteo|loto|kino|dólar hoy|cotización de cierre)\b/i;
   for (const n of noticias) if (RUIDO.test(n.titulo)) n.ruido_probable = true;
 
+  // Corroboración POR TEMA: el mismo hecho contado con titulares distintos.
+  // El 29-08 un tornado en Ñuble salió en tres medios con tres titulares y
+  // ninguno pasó, porque la corroboración exigía el titular idéntico. Dos
+  // noticias de medios distintos que comparten TRES palabras poco comunes del
+  // día (cada una en 8 titulares o menos, con plural quitado) se cuentan como
+  // corroboradas entre sí. Calibrado el 29-08 sobre 777 titulares: con una
+  // sola palabra rara entraban 400-600 falsos (piloto/pilotos, trayectoria);
+  // con tres, +104 y casi todos reales. Se anota el motivo; la olla juzga.
+  const PARADAS = new Set(["chile","chileno","chilena","chilenos","gobierno","santiago","region","regional","nuevo","nueva","nuevos","nuevas","contra","despues","durante","sobre","entre","hasta","desde","segun","porque","cuando","donde","mientras","tambien","ministro","ministra","ministerio","presidente","diputado","diputada","diputados","senador","senadora","senado","camara","proyecto","personas","millones","pesos","anuncia","anuncian","podria","podrian","habria","tras","hacia","ahora","hoy","ayer","manana","semana","sigue","siguen","frente","parte","primer","primera","mayor","menor","gran","grande"]);
+  const norm = (t) => (t || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  const raiz = (w) => (w.length > 5 ? w.replace(/(es|s)$/, "") : w);
+  const tokens = (t) => new Set(norm(t).split(/[^a-z0-9ñ]+/).filter((w) => w.length >= 5 && !PARADAS.has(w)).map(raiz));
+  const df = new Map();
+  const toks = noticias.map((n) => { const s = tokens(n.titulo); for (const w of s) df.set(w, (df.get(w) || 0) + 1); return s; });
+  let porTema = 0;
+  for (let i = 0; i < noticias.length; i++) {
+    const a = noticias[i];
+    const r8 = new Set([...toks[i]].filter((w) => df.get(w) <= 8));
+    if (r8.size < 3) continue;
+    for (let j = i + 1; j < noticias.length; j++) {
+      const b = noticias[j];
+      if (a.medios.some((m) => b.medios.includes(m))) continue; // el mismo medio no se corrobora a sí mismo
+      let c8 = 0;
+      for (const w of toks[j]) if (r8.has(w)) c8++;
+      if (c8 >= 3) {
+        a.mismo_tema = (a.mismo_tema || 0) + 1; b.mismo_tema = (b.mismo_tema || 0) + 1;
+        (a.relacionadas ||= []).push(b.titulo); (b.relacionadas ||= []).push(a.titulo);
+        porTema++;
+      }
+    }
+  }
+
+  // Palabras de ALARMA: una emergencia o un hecho grave entra con señal aunque
+  // un solo medio lo haya dado todavía (el tornado del 29-08 a las 02:11 lo
+  // tenía un medio regional; a las 03:10 la olla ya había cerrado). Lista
+  // corta y literal: +18 sobre 777 titulares el 29-08, todos pertinentes.
+  const ALARMA = /\b(tornado|tromba marina|terremoto|sismo|tsunami|aluvi[oó]n|erupci[oó]n|incendio forestal|megaincendio|apag[oó]n|evacuaci[oó]n|evacuan|alerta roja|estado de cat[aá]strofe|estado de excepci[oó]n|toque de queda|derrumbe|explosi[oó]n|descarrilamiento|colapso|femicidio|masacre|balacera|secuestro|fallecidos|muertos|desaparecid[oa]s?|brote|intoxicaci[oó]n|derrame|paro nacional|huelga)\b/i;
+  for (const n of noticias) { const m = norm(n.titulo).match(ALARMA); if (m) n.alarma = m[1]; }
+
   // La vista para la preselección NO es el archivo completo: mil titulares no
   // caben en un prompt. Entra lo que tiene señal, con el motivo explícito.
   const INVESTIGACION = new Set(["ciper", "exante", "interferencia"]);
-  const TOPE = 250;
+  const TOPE = 300; // 29-08: con "mismo tema" y "alarma", 250 recortaba (252 con señal)
   // La continuidad NO es pasaje de entrada: las consultas piden dos días, así
   // que casi todo aparece "ayer" también (563 de 588 el 27-08, y el archivo de
   // trabajo se fue a 48 KB). Entra lo corroborado y las exclusivas; que un tema
@@ -211,12 +250,20 @@ async function main() {
     n.motivo_destaque =
       n.repeticiones >= 2 ? `corroborada en ${n.repeticiones} fuentes`
       : n.origenes.some((o) => INVESTIGACION.has(o)) ? "exclusiva de medio de investigación"
+      : n.mismo_tema ? `mismo tema en ${n.mismo_tema + 1} medios con titulares distintos`
+      : n.alarma ? `alarma: ${n.alarma} (un solo medio por ahora)`
       : null;
   }
-  const destacadas = noticias
+  const conSenal = noticias
     .filter((n) => n.motivo_destaque && !n.ruido_probable)
-    .filter((n) => !n.sin_fecha || n.repeticiones >= 2)
-    .slice(0, TOPE);
+    .filter((n) => !n.sin_fecha || n.repeticiones >= 2 || n.mismo_tema || n.alarma);
+  const destacadas = conSenal.slice(0, TOPE);
+  const cuenta = (pred) => destacadas.filter(pred).length;
+  console.log(`  señal: ${cuenta((n) => n.repeticiones >= 2)} corroboradas por titular · ` +
+    `${cuenta((n) => n.repeticiones < 2 && n.motivo_destaque.startsWith("exclusiva"))} exclusivas · ` +
+    `${cuenta((n) => n.motivo_destaque.startsWith("mismo tema"))} mismo tema · ` +
+    `${cuenta((n) => n.motivo_destaque.startsWith("alarma"))} alarma` +
+    (conSenal.length > TOPE ? ` · OJO: ${conSenal.length - TOPE} con señal quedaron fuera por el tope de ${TOPE}` : ""));
 
   const salida = {
     fecha,
@@ -259,7 +306,7 @@ async function main() {
   const md = [
     `# Barrido del ${dm(fecha)}`, "",
     `${destacadas.length} noticias con señal, de ${salida.total_unico} únicas recogidas en ${objetivos.length} fuentes (${salida.total_bruto} titulares brutos).`,
-    `Entra lo corroborado por dos o más fuentes y las exclusivas de medios de investigación; venir de días previos se anota como contexto. El resto queda en el JSON del día.`,
+    `Entra lo corroborado por dos o más fuentes (titular idéntico o tres palabras poco comunes en común entre medios distintos), las exclusivas de medios de investigación y las alarmas (emergencias y hechos graves, aunque las dé un solo medio); venir de días previos se anota como contexto. El resto queda en el JSON del día.`,
     `${continuan} vienen de días previos. ${salida.ruido_probable} descartadas como ruido (deportes en vivo, sorteos, cotización rutinaria).`,
     fallas.length ? `Fuentes caídas: ${fallas.map((f) => f.id).join(", ")}.` : "Ninguna fuente cayó.",
     "", "Material bruto para la preselección: no es contenido publicable ni está verificado.", "",
