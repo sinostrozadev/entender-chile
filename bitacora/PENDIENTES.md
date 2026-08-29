@@ -63,6 +63,49 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **Dos bloques nuevos en `prompts/contrato-archivos.md`**, redactados por
+      Santiago el 29-08 a partir de los dos fallos del día. Van al final del
+      archivo, después de REGLAS DE COMMIT. Texto listo para pegar:
+
+```
+ESCRITURA VERIFICADA (obligatorio en toda tarea que escriba en el repo):
+- Escribe el archivo. Si la escritura falla, NO des por perdida la ejecución:
+  consulta de inmediato si el archivo quedó creado igual, porque un error de
+  respuesta no significa que la escritura no ocurrió.
+- Si no existe y el error parece transitorio, reintenta hasta 3 veces.
+- Después de escribir, vuelve a LEER el archivo desde main y verifica dos
+  cosas: que la ruta es la que manda este contrato y que el contenido está
+  completo. Una escritura no está hecha hasta que se leyó de vuelta.
+- Si aparece un conflicto porque el archivo fue creado entre intentos, lee su
+  SHA y actualízalo, pero SOLO si corresponde a la fecha de hoy. Nunca pises
+  un archivo de otra fecha.
+- Los errores permanentes (permisos, autorización, ruta inválida) NO entran en
+  bucle: se reportan al final de la ejecución, nombrando el archivo que no se
+  pudo escribir y el error exacto que devolvió GitHub.
+- Al terminar, di explícitamente qué archivos quedaron escritos y verificados.
+  Si alguno falta, dilo en la primera línea de tu respuesta, no al final.
+
+VERIFICAR ANTES DE AFIRMAR:
+Cuando vayas a afirmar algo sobre un archivo del repo (que falta, que no
+contiene tal línea, que está vacío, que no se pudo leer), ábrelo y
+compruébalo en esa misma ejecución antes de decirlo. Nunca deduzcas el estado
+de un archivo a partir de lo que recuerdes, de una lectura anterior o de lo
+que parezca razonable.
+
+Esto vale sobre todo cuando la conclusión te lleva a OMITIR algo: si crees que
+un elemento obligatorio no está en la fuente, vuelve a leer la fuente antes de
+dejarlo fuera. Omitir por una premisa falsa es peor que preguntar, porque no
+deja rastro y se descubre días después.
+
+Si después de comprobarlo el dato efectivamente no está, entonces sí: no lo
+inventes, sigue adelante y dilo, nombrando el archivo y la línea que buscaste.
+```
+
+      El primero responde al bloqueo de escritura de las 08:00, que resultó
+      puntual: al reintentar a las 13:04 funcionó. El segundo responde a que
+      ChatGPT afirmó que el informe no traía "Para salir hoy" cuando sí la
+      traía desde las 07:30, y por esa premisa falsa omitió el cierre.
+
 - [ ] **El aviso que falta cuando una pieza no llega.** Hoy el guion del
       informe no se escribió (bloqueo puntual de GitHub, resuelto al
       reintentar a las 13:04). La **detección funcionó**: la revisión dejó
