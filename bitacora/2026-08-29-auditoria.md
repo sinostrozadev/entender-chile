@@ -114,9 +114,42 @@ Es una regresión sobre una función de un día: la integración del cierre entr
 el 28 y hoy se perdió, no porque falte el dato, sino porque el modelo leyó mal
 su fuente y dedujo que faltaba.
 
-Lo rescatable: **hizo lo correcto con la premisa que creía cierta.** No
-inventó el pronóstico, avisó y siguió. El problema no es el criterio, es que
-afirmó un hecho verificable sin verificarlo.
+### Segunda corrección (09:30): por qué los dos teníamos razón
+
+ChatGPT insistió en que la línea no está. Al mirar la estructura del archivo
+se entiende todo:
+
+    línea 122   <!-- interno
+    línea 155   -->
+    línea 157   Para salir hoy: abrigo liviano por la mañana...
+
+El informe tiene 156 líneas. **La recomendación de cierre es la última línea
+del archivo**, después de un bloque interno de 33 líneas. Es pública y está
+ahí, así que mi verificación era correcta. Y la lectura de ChatGPT quedó
+truncada antes de llegar al final, así que su fragmento tampoco mentía.
+
+Él mismo lo reconoció con precisión: *"no debía afirmar su ausencia
+basándome en un fragmento truncado. Esa parte sí fue un error
+metodológico."*
+
+**Su regla propuesta es mejor que la mía y hay que adoptarla tal cual**: una
+ausencia también es un hecho y debe verificarse. Si una ejecución va a decir
+"no existe X" o "el archivo no contiene X", tiene que buscar explícitamente o
+leer la sección completa antes de afirmarlo, y **si la lectura quedó
+truncada, no puede inferir ausencia**.
+
+### Y el hallazgo que estaba debajo
+
+El problema de fondo no es de método, es de orden: **el único elemento
+obligatorio del cierre está en la posición más frágil del archivo**, la
+última línea, detrás de treinta y tres líneas de notas internas que el lector
+nunca ve.
+
+Cualquier truncamiento se lo come primero, todos los días. Y hoy pasó.
+
+El arreglo es de una línea de prompt: que el bloque `<!-- interno -->` vaya
+**después** de "Para salir hoy", al final absoluto. Lo que hay que narrar deja
+de ser lo primero que se pierde, y lo que nadie lee pasa a ser lo sacrificable.
 
 Esto le da a la revisión de hoy su primera prueba real: con la regla nueva de
 esta madrugada, "elemento obligatorio ausente" es hallazgo. Si se vuelve a

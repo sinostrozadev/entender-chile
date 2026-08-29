@@ -114,7 +114,26 @@ inventes, sigue adelante y dilo, nombrando el archivo y la línea que buscaste.
       auditoría, cuatro horas después. Falta que la ausencia de una pieza
       deje rastro visible en el repo o llegue a alguna parte.
 
-- [ ] **El guion de hoy perdió el cierre "Para salir hoy".** ChatGPT afirmó
+- [ ] **Mover el bloque `<!-- interno -->` al final absoluto del informe**,
+      después de la línea "Para salir hoy". Hoy el informe termina así:
+      bloque interno de las líneas 122 a 155, y la recomendación de cierre en
+      la 157, que es la última del archivo. **El único elemento obligatorio
+      del cierre está en la posición que cualquier truncamiento se come
+      primero**, detrás de 33 líneas que el lector nunca ve. Es arreglo de una
+      línea en `prompts/informe.md` y elimina la causa raíz, no el síntoma.
+
+- [ ] **Adoptar la regla de ChatGPT sobre la ausencia**, que es mejor que la
+      que redactamos: *una ausencia también es un hecho y debe verificarse*.
+      Si una ejecución va a decir "no existe X", "el archivo no contiene X",
+      "no se generó Y" o "no hubo Z", tiene que hacer una búsqueda explícita o
+      leer la sección completa antes de afirmarlo. **Si la lectura quedó
+      truncada, no puede inferir ausencia.** Va en el bloque VERIFICAR ANTES
+      DE AFIRMAR del contrato.
+
+- [ ] ~~**El guion de hoy perdió el cierre "Para salir hoy".**~~ Causa
+      entendida: no fue mala fe ni descuido, fue lectura truncada sobre un
+      archivo cuyo elemento obligatorio está en la última línea. Se resuelve
+      con los dos puntos de arriba. Original: ChatGPT afirmó
       que el informe no traía esa línea; sí la trae, en la 157, desde el
       commit original de las 07:30. Actuó sobre esa premisa falsa y cerró sin
       la recomendación. Es regresión de una función de un día. Ver si la
