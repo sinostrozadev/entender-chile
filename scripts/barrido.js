@@ -259,7 +259,7 @@ async function main() {
   const md = [
     `# Barrido del ${dm(fecha)}`, "",
     `${destacadas.length} noticias con señal, de ${salida.total_unico} únicas recogidas en ${objetivos.length} fuentes (${salida.total_bruto} titulares brutos).`,
-    `Entra al listado lo que continúa una historia previa, lo corroborado por dos o más fuentes, y las exclusivas de medios de investigación. El resto queda en el JSON del día.`,
+    `Entra lo corroborado por dos o más fuentes y las exclusivas de medios de investigación; venir de días previos se anota como contexto. El resto queda en el JSON del día.`,
     `${continuan} vienen de días previos. ${salida.ruido_probable} descartadas como ruido (deportes en vivo, sorteos, cotización rutinaria).`,
     fallas.length ? `Fuentes caídas: ${fallas.map((f) => f.id).join(", ")}.` : "Ninguna fuente cayó.",
     "", "Material bruto para la preselección: no es contenido publicable ni está verificado.", "",
