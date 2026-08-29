@@ -69,10 +69,6 @@ pierde el nombre.
       3. **Que el informe lea "Historias en curso sin novedad hoy"**, que la
          preselección ya produce y nadie consume.
 
-- [ ] **Dejar rastro del descarte en la preselección.** Hoy 49 titulares
-      preseleccionados terminaron en 11 del informe y no hay registro de
-      por qué salieron los otros. Sin rastro no se puede auditar ni afinar
-      el criterio. `prompts/informe.md`.
 - [ ] **Bajar el informe a diez minutos** o cambiar la promesa. El guion da
       11,9 min contra los 10 que prometen `identidad.md` y `publico.md`.
 - [ ] **Poner al día cuatro documentos que ya no dicen la verdad**:

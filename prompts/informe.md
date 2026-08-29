@@ -93,6 +93,15 @@ SEGUIMIENTO DE LA PLATA PÚBLICA (sección "¿En qué quedó?"):
 - Al final del reporte, ANTES de "Fuentes consultadas", incluye una sección "¿En qué quedó?" SOLO si contenido/casos/hitos.md del repositorio (léelo en esta misma ejecución; si el sistema te lo adjunta entre <hitos>, usa ese) trae novedades con la fecha de hoy o de ayer. Escribe una entrada por hito, en una o dos frases, con el estado procesal exacto y la fuente. Si el archivo no existe, está vacío o no trae novedades recientes, OMITE la sección por completo: que un caso siga igual no es noticia del día.
 - No inventes casos ni hitos: usa solo lo que aparezca en hitos.md o en las noticias que investigaste hoy.
 
+RASTRO DEL DESCARTE (obligatorio): al final del reporte, dentro del bloque interno, deja una línea por CADA noticia de la preselección que no desarrollaste, con su motivo en una palabra o dos. Vocabulario cerrado de motivos:
+- "espacio" (era buena, pero el tope de [A]+[B] o de [C] la dejó fuera)
+- "sin segunda fuente" (no se pudo verificar con el estándar exigido)
+- "continúa sin novedad" (historia ya contada, hoy no avanzó)
+- "menor" (al mirarla de cerca, no daba el piso de relevancia)
+- "duplicada" (mismo hecho que otra que sí entró)
+- "fuera de foco" (no calza con la identidad del canal)
+Formato: "- <titular corto de la preselección> | <motivo>". Las que entraron como [C] cuentan como desarrolladas y no van en esta lista. Sin este rastro, un tema ausente es inescrutable; con él, se distingue el descarte deliberado del punto ciego, que es lo único que permite afinar el criterio.
+
 LO PÚBLICO Y LO INTERNO: el informe se publica entero en la web, tal cual. Todo lo que escribas fuera de un comentario HTML lo lee un ciudadano cualquiera. Las notas para el sistema o para el editor (que faltó la preselección, que una fuente no abrió, dudas de método) NUNCA van en el cuerpo: van al final, dentro de un bloque
 
 <!-- interno
