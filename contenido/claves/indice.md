@@ -3,3 +3,4 @@
 2026-08-26 | control-constitucional-proyectos-ley | Tribunal Constitucional y formación de la ley: qué revisa antes de la promulgación y por qué puede frenar una norma aprobada por el Congreso
 2026-08-27 | fogaes-garantia-estatal-hipotecaria | FOGAES y crédito hipotecario: qué garantiza el Estado, qué riesgo conserva el banco y por qué puede reducir el pie
 2026-08-28 | mineria-transfronteriza-chile-argentina | Minería transfronteriza entre Chile y Argentina: cómo un tratado permite operar un yacimiento a ambos lados de la frontera
+2026-08-29 | como-leer-tasa-desempleo | Cómo leer la tasa de desempleo: fuerza de trabajo, participación y ajuste estacional
