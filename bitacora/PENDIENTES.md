@@ -55,6 +55,24 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **Hora de publicación por pieza, no una para todo.** Hoy el paso 7 de
+      `edicion-diaria.yml` sube las cuatro piezas con la misma configuración
+      (`YT_PUBLICAR_HORA` aplica igual a informe, Clave y los dos Shorts).
+      Para que el espaciado decidido en el lanzamiento sea automático
+      (informe en la mañana, Clave a mediodía, Shorts en la tarde), el paso 7
+      debe pasar `--programar` distinto por pieza. Sugerencia: informe 07:00,
+      Short del informe 12:00, Clave 14:00, Short de la Clave 18:00, y las
+      horas como variables del repo para ajustarlas sin tocar el workflow.
+      **Solo tendrá efecto cuando Google apruebe la auditoría de la API**:
+      hasta entonces YouTube ignora publishAt y deja todo privado, y el clic
+      es de Santiago en Studio (que hoy es además el gate humano).
+- [ ] **Verificar el estado de la auditoría de la API de YouTube** en Google
+      Cloud Console (proyecto del cliente OAuth, pantalla de consentimiento /
+      verificación). Mientras esté pendiente, la publicación programada por
+      API no funciona. Anotar aquí cuándo se aprueba, porque ese día la
+      variable de hora pasa a mandar de verdad y conviene revisar que las
+      horas por pieza ya estén puestas.
+
 Hecho el 29-08 en la noche (detalle en `bitacora/2026-08-29.md`): propuesta
 del informe largo aplicada en los tres archivos + rutina de revisión
 recalibrada; contrato con ESCRITURA VERIFICADA y VERIFICAR ANTES DE AFIRMAR
