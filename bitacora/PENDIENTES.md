@@ -77,13 +77,15 @@ cuatro documentos con deriva puestos al día; render por push corregido
       un video, poner su id en `contenido/videos/FECHA-informe.txt` para que
       la web lo embeba; (3) borrar de Studio los dos videos de prueba del 29
       si no se van a publicar.
-- [ ] **Miniatura automática: lista, falta el teléfono.** `dia.js` genera
-      `out/FECHA/miniatura.png` (cifra principal + título) y `youtube-subir.js`
-      la pone al subir; YouTube la rechazó en la prueba ("no tiene permiso
-      para miniaturas personalizadas") porque el canal no tiene el teléfono
-      verificado: Studio → Settings → Channel → Feature eligibility →
-      Intermediate → Verify phone. Después, la sesión de la noche la pone en
-      el video de prueba jsr27ZICuQ4.
+- [x] **Miniatura automática: lista y probada** (teléfono verificado el 30-08;
+      la del video de prueba jsr27ZICuQ4 ya está puesta). Desde el 30-08 va
+      sola con cada edición.
+- [ ] **Funciones avanzadas de YouTube** (Santiago): Settings → Channel →
+      Feature eligibility → 3. Advanced → Access features → verificar con
+      cédula o con video. Desbloquea enlaces externos en las descripciones
+      (el link al sitio), más subidas por día, pruebas A/B de miniaturas y
+      la postulación a monetización. Sin esto, cuando llegue el umbral no se
+      puede postular.
 - [ ] **Cambio de hora del 6 de septiembre (Chile pasa a UTC-3):** correr una
       hora antes en UTC las rutinas de la nube (reloj del barrido 05:30 →
       04:30, observatorio 05:45 → 04:45, revisión 08:40 → 07:40, guardián
