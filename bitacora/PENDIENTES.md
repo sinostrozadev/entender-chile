@@ -177,15 +177,10 @@ cuatro documentos con deriva puestos al día; render por push corregido
       interna** con la serie completa (opciones: artifact privado de Claude
       actualizado a diario, o /interno en la web con URL no listada; decidir
       con Santiago qué más quiere ahí: embudo, costos, cuotas).
-- [ ] **Podcast (Spotify y compañía), lado de Santiago:** (1) crear el PAT
-      `AUDIO_TOKEN` (github.com → Settings → Developer settings → Fine-grained
-      tokens → repo entender-chile-web, permiso Contents: Read and write) y
-      cargarlo como secret del repo entender-chile para que el episodio se
-      suba solo cada día; (2) en creators.spotify.com: crear el programa
-      eligiendo "Tengo un feed RSS" con
-      https://sinostrozadev.github.io/entender-chile-web/podcast.xml
-      (la verificación llega al correo entenderchile@gmail.com). El mismo
-      feed sirve para Apple Podcasts y Amazon Music si se quiere.
+- [x] **Podcast: COMPLETO (30-08).** Feed RSS vivo, show en Spotify
+      (open.spotify.com/show/2Ay5U3wUiQ0RaDbeakqGVp), informe Y Clave como
+      episodios diarios automáticos (AUDIO_TOKEN cargado y verificado). El
+      mismo feed sirve para Apple Podcasts y Amazon si se quiere después.
 - [ ] **Facebook**: plan por etapas en `ideas/facebook.md` (página + Reels
       manuales dos semanas + medir antes de automatizar).
 - [ ] **Mirar el 30-08 con lupa, primera edición con las reglas nuevas:**
