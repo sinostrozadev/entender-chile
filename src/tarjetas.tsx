@@ -16,7 +16,7 @@ export type Evento = {
   overlay?: boolean;
   autor?: string;
   fuente?: string;
-  grafico?: "barras" | "cifra" | "comparacion" | "lineas" | "marcador" | "tabla";
+  grafico?: "barras" | "cifra" | "comparacion" | "lineas" | "marcador" | "tabla" | "cambio";
   seccion?: string;
   series?: Serie[];
   titulo?: string;
@@ -264,6 +264,31 @@ export const TarjetaDatoCifra: React.FC<{ ev: Evento }> = ({ ev }) => {
   );
 };
 
+// Antes → después: "17 → 7 buques por día" con la flecha del sentido. Para
+// una variación es más claro que barras o comparación (pedido de Santiago, 29-08).
+export const TarjetaDatoCambio: React.FC<{ ev: Evento }> = ({ ev }) => {
+  const st = useEntrada();
+  const s = ev.series ?? [];
+  const antes = s[0], despues = s[1];
+  if (!antes || !despues) return <TarjetaDatoCifra ev={ev} />;
+  const base = Math.max(antes.raw.length, despues.raw.length) > 8 ? 120 : 190;
+  return (
+    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuente ?? ev.fuenteSeccion} caption={ev.caption} />}>
+      <div style={{ ...st }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 40, flexWrap: "wrap" }}>
+          <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: base, lineHeight: 1.05, color: tema.gris }}>{antes.raw}</div>
+          <svg viewBox="0 0 100 100" style={{ width: base * 0.5, height: base * 0.5, flexShrink: 0 }}>
+            <path d="M10 50 L70 50 M52 30 L72 50 L52 70" fill="none" stroke={tema.gris} strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: base, lineHeight: 1.05, color: tema.tinta }}>{despues.raw}</div>
+          <Indicador t={despues.tendencia} size={base * 0.55} />
+        </div>
+        <div style={{ fontFamily: tema.sans, fontSize: 40, color: tema.gris, marginTop: 26 }}>{antes.etiqueta}</div>
+      </div>
+    </Marco>
+  );
+};
+
 export const TarjetaEsquema: React.FC<{ ev: Evento }> = ({ ev }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -391,6 +416,8 @@ export const TarjetaDato: React.FC<{ ev: Evento }> = ({ ev }) => {
       return <TarjetaTabla ev={ev} />;
     case "barras":
       return <TarjetaDatoBarras ev={ev} />;
+    case "cambio":
+      return <TarjetaDatoCambio ev={ev} />;
     case "comparacion":
     case "lineas": // v1: las líneas caen a comparación; componente propio en v2
       return <TarjetaDatoComparacion ev={ev} />;

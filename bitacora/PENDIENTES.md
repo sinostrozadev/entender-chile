@@ -69,6 +69,17 @@ cuatro documentos con deriva puestos al día; render por push corregido
       recomendación en `ideas/tagline-alternativas.md`. Decide él.
 - [ ] **Noticias que faltaron el 29** según Santiago: pendiente que las nombre
       para ver en qué etapa se perdieron (barrido, olla o informe).
+- [ ] **YouTube, lado de Santiago** (guía paso a paso en `docs/youtube.md`):
+      personalizar el canal (avatar y banner en Descargas/entender-chile-marca,
+      descripción de identidad.md, teléfono verificado), crear el proyecto de
+      Google Cloud + cliente OAuth, correr `node scripts/youtube-auth.js` y
+      cargar los tres secrets YT_*. Con eso el workflow sube cada edición en
+      privado. Después: pedir la auditoría de la API para poder programar
+      publicaciones.
+- [ ] **Miniatura automática por edición**: `dia.js` renderiza
+      `out/FECHA/miniatura.png` con `src/marca.tsx` (cifra = primer [DATO] del
+      guion, titular = "Título sugerido"), la sube al release y
+      `youtube-subir.js` ya la toma si existe.
 - [ ] **Mirar el 30-08 con lupa, primera edición con las reglas nuevas:**
       (1) que las [A] respondan las cinco preguntas sin inflarse; (2) que
       "Además, hoy" traiga todo lo verificable sin volverse basurero; (3) que
@@ -78,7 +89,9 @@ cuatro documentos con deriva puestos al día; render por push corregido
       diga cuántas entraron por "mismo tema" y por "alarma"; (7) que el guion
       traiga [FUENTE] bajo cada sección y algún indicador "(sube mal)" bien
       usado; (8) que la voz entre después del sello y las cifras automáticas
-      no muestren nada raro.
+      no muestren nada raro; (9) criterio de las cifras: que cada [DATO] sea
+      una cifra que cambia algo para alguien, con etiqueta con contexto, tipo
+      `cambio` para las variaciones y fuente legible (sin números de informe).
 - [ ] **Extraer la línea base de "¿Lo cumplió?".** El criterio ya está
       congelado y fechado en `estrategia/seccion-lo-cumplio.md`: umbral de
       tres condiciones, tamaño 30 a 50, estados, y el protocolo de

@@ -141,3 +141,15 @@ jobs:
             || echo "release ya existía, subiendo archivos"
           gh release upload "$TAG" out/$FECHA/*.mp4 --clobber
           if ls out/$FECHA/*.mp3 >/dev/null 2>&1; then gh release upload "$TAG" out/$FECHA/*.mp3 --clobber; fi
+
+      # Sube el informe a YouTube como PRIVADO si existen los tres secrets
+      # (docs/youtube.md). Sin secrets no hace nada y no falla. Publicar sigue
+      # siendo un clic humano en YouTube Studio.
+      - name: 7 · Subir a YouTube (privado; solo si hay secrets)
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        if: env.SALTAR != '1'
+        continue-on-error: true
+        run: node scripts/youtube-subir.js --fecha "$FECHA"

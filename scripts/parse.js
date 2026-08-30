@@ -49,6 +49,10 @@ const MESES = /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|oc
 const FUNCION = new Set(["en", "de", "del", "a", "al", "para", "por", "el", "la", "los", "las", "que", "y", "o", "con", "sin", "sobre", "entre", "hasta", "desde", "más", "menos", "este", "esta", "esa", "ese", "su", "sus", "un", "una", "como", "según", "durante", "tras", "pero", "aunque", "cuando", "donde", "mientras"]);
 const VERBOS = /^(equivale|alcanz|lleg|subi|baj|cay|creci|pas|fue|es|son|era|eran|tiene|tienen|representa|supera|marca|deja|suma|significa|implica|muestra|registr|anot|cerr|abri|qued|sigue|mantiene|frente|contra|respecto|será|serán|habrá|hubo|hay|está|están|estaba|estaban|se|lo|le|les|ya|no|también|solo|apenas|casi|más|menos|tras|desde|hasta|durante|dijo|afirm|señal|explic|sostuvo|declar)/i;
 const MAGNITUD = /^(millones|millón|millon|mil)$/i;
+// Unidades que hacen que una cifra suelta valga una tarjeta sin que el guion la
+// haya elegido. Lo demás (gramos, km/h, buques, toneladas) lo decide el guion:
+// "500 gramos" en pantalla fue el error del 29-08.
+const UNIDAD_FUERTE = /^(personas|trabajadores|trabajadoras|empleos|hogares|familias|estudiantes|alumnos|muertos|fallecidos|heridos|detenidos|casos|viviendas|votos|pesos|dólares|dolares|millones|millón|mil)$/i;
 const UNIDAD = /^(de\s+(dólares|pesos|barriles|toneladas|personas|hogares|viviendas|cupos|hectáreas|litros|kilos|casos))?/i;
 function cifraPrincipal(textoPantalla) {
   const re = /(?:US\$|\$)?[+-]?\d{1,3}(?:\.\d{3})+(?:,\d+)?%?|(?:US\$|\$)?[+-]?\d+(?:,\d+)?%?/g;
@@ -88,7 +92,10 @@ function cifraPrincipal(textoPantalla) {
       while (palabras.length && FUNCION.has(palabras[palabras.length - 1].toLowerCase())) palabras.pop();
       etiqueta = palabras.join(" ");
     }
-    return { raw: formatoCifra(raw), etiqueta: etiqueta.length > 60 ? "" : etiqueta };
+    if (etiqueta.length > 60) etiqueta = "";
+    const fuerte = /[%$]/.test(valor) || conMagnitud || UNIDAD_FUERTE.test(primera);
+    if (!fuerte || !etiqueta) continue; // sin señal fuerte o sin contexto, no hay tarjeta automática
+    return { raw: formatoCifra(raw), etiqueta };
   }
   return null;
 }
@@ -138,13 +145,22 @@ function parseGuion(md) {
     }
     if ((m = linea.match(/^\[DATO\s+(\w+)\s*\|\s*([^\]]+)\]\s*(.*)$/i))) {
       flush();
-      const series = m[3].split(";").map(par => {
+      const grafico = m[1].toLowerCase();
+      let series = m[3].split(";").map(par => {
         const i = par.indexOf(":");
         const etiqueta = i >= 0 ? par.slice(0, i).trim() : par.trim();
         const valor = i >= 0 ? par.slice(i + 1).trim() : "";
         return { etiqueta, ...parseNumero(valor) };
       }).filter(s => s.etiqueta);
-      eventos.push({ tipo: "dato", grafico: m[1].toLowerCase(), fuente: m[2].trim(), series });
+      // "cambio": etiqueta: antes -> después (indicador). Dos series, la segunda con la tendencia.
+      if (grafico === "cambio" && series.length && /->|→/.test(series[0].raw)) {
+        const [antes, despues] = series[0].raw.split(/->|→/).map((v) => v.trim());
+        const t = series[0].tendencia;
+        const a = parseNumero(antes), d = parseNumero(despues);
+        const dir = t?.dir || (a.num != null && d.num != null ? (d.num > a.num ? "sube" : d.num < a.num ? "baja" : "igual") : null);
+        series = [{ etiqueta: series[0].etiqueta, ...a }, { etiqueta: "", ...d, tendencia: { dir, sentido: t?.sentido || null } }];
+      }
+      eventos.push({ tipo: "dato", grafico, fuente: m[2].trim(), series });
       continue;
     }
     if ((m = linea.match(/^\[ESQUEMA\s*\|\s*([^\]]+)\]\s*(.*)$/i))) {
