@@ -69,13 +69,14 @@ cuatro documentos con deriva puestos al día; render por push corregido
       recomendación en `ideas/tagline-alternativas.md`. Decide él.
 - [ ] **Noticias que faltaron el 29** según Santiago: pendiente que las nombre
       para ver en qué etapa se perdieron (barrido, olla o informe).
-- [ ] **YouTube, lado de Santiago** (guía paso a paso en `docs/youtube.md`):
-      personalizar el canal (avatar y banner en Descargas/entender-chile-marca,
-      descripción de identidad.md, teléfono verificado), crear el proyecto de
-      Google Cloud + cliente OAuth, correr `node scripts/youtube-auth.js` y
-      cargar los tres secrets YT_*. Con eso el workflow sube cada edición en
-      privado. Después: pedir la auditoría de la API para poder programar
-      publicaciones.
+- [x] **YouTube conectado (29-08, noche).** Canal, OAuth y secrets listos;
+      prueba en privado OK. Quedan: (1) **pedir la auditoría de la API** para
+      poder publicar/programar desde el workflow (formulario en
+      support.google.com/youtube/contact/yt_api_form; hasta entonces cada
+      video llega privado y Santiago lo publica con un clic); (2) al publicar
+      un video, poner su id en `contenido/videos/FECHA-informe.txt` para que
+      la web lo embeba; (3) borrar de Studio los dos videos de prueba del 29
+      si no se van a publicar.
 - [ ] **Shorts (informe y Clave), en el workflow desde el 30-08** (pasos 3b y
       4b; fondo marino por defecto; cierre "El informe completo de hoy está
       en el canal Entender Chile"). Faltan: (1) fondo propio para el Short de
