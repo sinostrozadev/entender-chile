@@ -104,3 +104,29 @@ sube el mp4 como privado con título, descripción, capítulos y miniatura.
 - **Publicar un video**: al ponerlo público, copiar su id (lo que va después
   de `youtu.be/`) a `contenido/videos/FECHA-informe.txt` y commitear: la web lo
   embebe sola.
+
+## Anexo (30-08): idioma, dónde está cada cosa, y monetización
+
+- **Studio en español**: arriba a la derecha, el avatar "EC" → *Language* →
+  Español (Latinoamérica). Es por cuenta, se cambia una vez.
+- **Personalización** = menú izquierdo **Customization / Personalización** →
+  pestaña **Profile / Perfil** (banner, foto, nombre, handle, descripción,
+  enlaces, correo de contacto) y **Home tab / Página principal** (tráiler,
+  secciones). Los cambios se guardan con **Publish / Publicar**.
+- **Settings → Channel**: *Basic info*: palabras clave "Chile, noticias,
+  resumen de noticias, actualidad, Entender Chile". *Advanced settings*:
+  audiencia → "No, set this channel as Not made for kids". *Feature
+  eligibility*: verificar teléfono (funciones intermedias: miniaturas
+  personalizadas, videos > 15 min); las avanzadas piden cédula o historial.
+- **Settings → Upload defaults**: visibilidad Private; en *Advanced settings*
+  categoría News & Politics, idioma Spanish.
+- **Monetización (Earn)**: el canal es elegible por país y cuenta, pero el
+  Programa de Partners exige **1.000 suscriptores + 4.000 horas públicas en
+  12 meses** (o 10 M de vistas de Shorts en 90 días), **verificación en dos
+  pasos** en la cuenta de Google, cero strikes, y una cuenta AdSense que se
+  crea al postular. El escalón previo (500 suscriptores + 3.000 horas) abre
+  membresías y "Gracias", no anuncios. Política que más nos toca: la de
+  **contenido inauténtico** (julio 2025): lo producido en masa o repetitivo
+  sin aporte humano no monetiza; por eso existe estrategia/decisiones.md
+  (registro de decisiones editoriales humanas) y el checklist de IA. El
+  botón "Notify me when I'm eligible" avisa al llegar al umbral.
