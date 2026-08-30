@@ -8,7 +8,8 @@
 //
 // Mismo sistema visual que las tarjetas (tema.ts): papel, tinta, una pátina.
 import React from "react";
-import { AbsoluteFill, Composition, registerRoot } from "remotion";
+import { AbsoluteFill, Composition, Img, registerRoot, staticFile } from "remotion";
+import fs from "fs";
 import { tema, estiloEyebrow, colorDeSeccion } from "./tema";
 
 const Avatar: React.FC = () => (
@@ -20,18 +21,28 @@ const Avatar: React.FC = () => (
   </AbsoluteFill>
 );
 
-// Banner de YouTube: 2048x1152; lo que se ve en todos los dispositivos es el
-// rectángulo central de 1235x338, así que todo el contenido va ahí.
-const Banner: React.FC = () => (
-  <AbsoluteFill style={{ backgroundColor: tema.papel, alignItems: "center", justifyContent: "center" }}>
-    <div style={{ width: 1235, height: 338, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-      <div style={{ ...estiloEyebrow, fontSize: 22, marginBottom: 22 }}>Las noticias de Chile, cada mañana</div>
-      <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 120, lineHeight: 1, color: tema.tinta }}>Entender Chile</div>
-      <div style={{ width: 96, height: 5, backgroundColor: tema.patina, margin: "28px 0 22px" }} />
-      <div style={{ fontFamily: tema.mono, fontSize: 26, letterSpacing: "0.08em", color: tema.gris }}>El resumen sin gritos</div>
-    </div>
-  </AbsoluteFill>
-);
+// Banner de YouTube: 2560x1440 (lo recomendado). Lo que se ve en TODOS los
+// dispositivos es solo el rectángulo central de 1546x423, así que el texto va
+// ahí. Si existe public/fondos/banner-fondo.png (arte pedido a Gemini, ver
+// ideas/fondos-prompts.md) se usa de fondo con la piel marina; si no, papel.
+const CON_FONDO_BANNER = fs.existsSync("public/fondos/banner-fondo.png");
+const Banner: React.FC = () => {
+  const oscuro = CON_FONDO_BANNER;
+  const tinta = oscuro ? "#EDE6DA" : tema.tinta;
+  const gris = oscuro ? "#B9B2A6" : tema.gris;
+  const acento = oscuro ? "#D08A5B" : tema.patina;
+  return (
+    <AbsoluteFill style={{ backgroundColor: oscuro ? "#0F1A2B" : tema.papel, alignItems: "center", justifyContent: "center" }}>
+      {oscuro ? <Img src={staticFile("fondos/banner-fondo.png")} style={{ position: "absolute", width: "100%", height: "100%", objectFit: "cover" }} /> : null}
+      <div style={{ width: 1546, height: 423, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative" }}>
+        <div style={{ ...estiloEyebrow, fontSize: 26, color: acento, marginBottom: 26 }}>Las noticias de Chile, cada mañana</div>
+        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 150, lineHeight: 1, color: tinta }}>Entender Chile</div>
+        <div style={{ width: 110, height: 6, backgroundColor: acento, margin: "32px 0 26px" }} />
+        <div style={{ fontFamily: tema.mono, fontSize: 30, letterSpacing: "0.08em", color: gris }}>El resumen sin gritos</div>
+      </div>
+    </AbsoluteFill>
+  );
+};
 
 type MiniaturaProps = { titulo: string; cifra?: string; etiqueta?: string; fecha?: string; seccion?: string };
 // Miniatura 1280x720: se ve a 200 px de ancho en el celular, así que hay dos
@@ -58,7 +69,7 @@ const Miniatura: React.FC<MiniaturaProps> = ({ titulo, cifra, etiqueta, fecha, s
 const RootMarca: React.FC = () => (
   <>
     <Composition id="Avatar" component={Avatar} width={800} height={800} fps={1} durationInFrames={1} />
-    <Composition id="Banner" component={Banner} width={2048} height={1152} fps={1} durationInFrames={1} />
+    <Composition id="Banner" component={Banner} width={2560} height={1440} fps={1} durationInFrames={1} />
     <Composition
       id="Miniatura"
       component={Miniatura}
