@@ -115,9 +115,10 @@ const md = [
   esClave
     ? `Título sugerido: Clave: ${tituloClave || "para entender las noticias"} #Shorts`
     : `Título sugerido: Cinco cosas que hay que saber hoy, ${fechaLarga} #Shorts`,
+  "Descripción sugerida:",
   esClave
-    ? `Descripción sugerida: Una clave para entender las noticias, en un minuto. La Clave completa, en el canal Entender Chile. #Shorts #Chile #noticias`
-    : `Descripción sugerida: Las cinco noticias del día en un minuto. El informe completo, en el canal Entender Chile. #Shorts #Chile #noticias`,
+    ? "Una clave para entender las noticias, en un minuto. La Clave completa, en el canal Entender Chile. #Shorts #Chile #noticias"
+    : "Las cinco noticias del día en un minuto. El informe completo, en el canal Entender Chile. #Shorts #Chile #noticias",
   "Guion:",
   "## Apertura",
   `[TESIS] ${apertura}`,
