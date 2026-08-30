@@ -121,6 +121,30 @@ fs.mkdirSync(path.dirname(rutaDesc), { recursive: true });
 fs.writeFileSync(rutaDesc, descripcion);
 console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
 
+// Miniatura (1280x720, src/marca.tsx): la cifra principal del día + el título.
+// Cifra = el primer [DATO] que eligió el guion (no los automáticos). No bloquea.
+{
+  let seccion = "", dato = null;
+  for (const e of parsed.eventos) {
+    if (e.tipo === "seccion") seccion = e.texto;
+    if (!dato && e.tipo === "dato" && !e.automatico && e.series?.length && e.series[0].raw) dato = { ...e, seccion };
+  }
+  const props = {
+    titulo: parsed.titulo || "",
+    fecha: fecha.split("-").reverse().join("-"),
+    cifra: dato ? dato.series[0].raw : "",
+    etiqueta: dato ? dato.series[0].etiqueta : "",
+    seccion: dato ? dato.seccion : "",
+  };
+  const mini = path.join(OUT, esClave ? "miniatura-clave.png" : "miniatura.png");
+  try {
+    execFileSync("npx", ["remotion", "still", "src/marca.tsx", "Miniatura", mini, `--props=${JSON.stringify(props)}`], { stdio: "ignore" });
+    console.log(`Miniatura: ${mini}${dato ? ` (${props.cifra} · ${props.etiqueta})` : " (sin cifra)"}`);
+  } catch (e) {
+    console.log(`(miniatura no generada: ${e.message.split("\n")[0]})`);
+  }
+}
+
 const video = path.join(OUT, `${fecha}-${etiqueta}.mp4`);
 if (conRender) {
   console.log("── Render ────────────────────────────────────────");

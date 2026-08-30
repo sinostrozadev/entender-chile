@@ -171,6 +171,9 @@ jobs:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          # Variable del repo (Settings → Variables), ej. "07:30": publica solo a esa
+          # hora de Chile. Solo sirve tras la auditoría de la API; vacía = privado.
+          YT_PUBLICAR_HORA: ${{ vars.YT_PUBLICAR_HORA }}
         if: env.SALTAR != '1'
         continue-on-error: true
         run: |
