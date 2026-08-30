@@ -4,3 +4,4 @@
 2026-08-27 | fogaes-garantia-estatal-hipotecaria | FOGAES y crédito hipotecario: qué garantiza el Estado, qué riesgo conserva el banco y por qué puede reducir el pie
 2026-08-28 | mineria-transfronteriza-chile-argentina | Minería transfronteriza entre Chile y Argentina: cómo un tratado permite operar un yacimiento a ambos lados de la frontera
 2026-08-29 | como-leer-tasa-desempleo | Cómo leer la tasa de desempleo: fuerza de trabajo, participación y ajuste estacional
+2026-08-30 | imsi-catcher-vigilancia-celular | IMSI Catcher y vigilancia celular: cómo funciona una antena falsa y por qué necesita límites judiciales
