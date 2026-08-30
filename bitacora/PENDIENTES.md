@@ -76,12 +76,14 @@ cuatro documentos con deriva puestos al día; render por push corregido
       cargar los tres secrets YT_*. Con eso el workflow sube cada edición en
       privado. Después: pedir la auditoría de la API para poder programar
       publicaciones.
-- [ ] **Short diario, ya construido** (`scripts/short.js`, `src/Short.tsx`;
-      prueba del 29 en Descargas, con y sin fondo). Faltan: (1) decisión de
-      Santiago sobre el fondo marino; (2) meterlo al workflow después del
-      informe (`node scripts/short.js --voz --render`, subir al release y
-      `youtube-subir.js --short`); (3) música, cuando Santiago elija una en
-      la Biblioteca de audio de YouTube (mientras: voz + cortinas).
+- [ ] **Shorts (informe y Clave), en el workflow desde el 30-08** (pasos 3b y
+      4b; fondo marino por defecto; cierre "El informe completo de hoy está
+      en el canal Entender Chile"). Faltan: (1) fondo propio para el Short de
+      la Clave: prompt listo en `ideas/fondos-prompts.md`, guardar como
+      `public/fondos/fondo-clave-vertical.png`; (2) música, cuando Santiago
+      elija una en la Biblioteca de audio de YouTube; (3) hora de publicación
+      y tácticas: `ideas/viralizacion.md` (Short del informe 07:30, Clave
+      13:00 o 20:30; medir retención y swipe-away antes de opinar).
 - [ ] **Miniatura automática por edición**: `dia.js` renderiza
       `out/FECHA/miniatura.png` con `src/marca.tsx` (cifra = primer [DATO] del
       guion, titular = "Título sugerido"), la sube al release y

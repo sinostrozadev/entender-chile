@@ -45,7 +45,7 @@ const Pie: React.FC<{ piel: Piel; handle?: string; fuente?: string }> = ({ piel,
   </div>
 );
 
-const Sello: React.FC<{ piel: Piel; fecha?: string }> = ({ piel, fecha }) => {
+const Sello: React.FC<{ piel: Piel; fecha?: string; eyebrow?: string }> = ({ piel, fecha, eyebrow }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const salida = interpolate(frame, [(SELLO_SEG - 0.6) * fps, SELLO_SEG * fps], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
@@ -53,7 +53,7 @@ const Sello: React.FC<{ piel: Piel; fecha?: string }> = ({ piel, fecha }) => {
   return (
     <AbsoluteFill style={{ backgroundColor: piel.fondo, opacity: salida, alignItems: "center", justifyContent: "center" }}>
       <div style={{ opacity: entrada, textAlign: "center", padding: `0 ${M}px` }}>
-        <div style={{ fontFamily: tema.mono, fontSize: 26, letterSpacing: "0.26em", textTransform: "uppercase", color: piel.acento, marginBottom: 34 }}>Cinco cosas que hay que saber</div>
+        <div style={{ fontFamily: tema.mono, fontSize: 26, letterSpacing: "0.26em", textTransform: "uppercase", color: piel.acento, marginBottom: 34 }}>{eyebrow ?? "Cinco cosas que hay que saber"}</div>
         <div style={{ fontFamily: tema.serif, fontSize: 118, fontWeight: 600, color: piel.tinta, lineHeight: 1.02 }}>Entender Chile</div>
         <div style={{ width: 96, height: 5, backgroundColor: piel.acento, margin: "40px auto" }} />
         <div style={{ fontFamily: tema.mono, fontSize: 32, letterSpacing: "0.1em", color: piel.gris }}><Fecha iso={fecha} /></div>
@@ -113,7 +113,7 @@ export const ShortVideo: React.FC<Timeline> = (tl) => {
   const { fps } = useVideoConfig();
   const f = (s: number) => Math.round(s * fps);
   const HOLD = Math.round(fps * 0.3);
-  const meta = tl.meta as Timeline["meta"] & { fondo?: string | null; handle?: string };
+  const meta = tl.meta as Timeline["meta"] & { fondo?: string | null; handle?: string; eyebrow?: string };
   const piel = meta.fondo ? MARINO : PAPEL;
 
   const tesis = tl.eventos.filter((e) => e.tipo === "tesis");
@@ -166,7 +166,7 @@ export const ShortVideo: React.FC<Timeline> = (tl) => {
       <Cabecera piel={piel} fecha={meta.fecha} handle={meta.handle} />
       <Pie piel={piel} handle={meta.handle ?? "@entenderchile"} />
       <Sequence from={0} durationInFrames={Math.round(SELLO_SEG * fps)}>
-        <Sello piel={piel} fecha={meta.fecha} />
+        <Sello piel={piel} fecha={meta.fecha} eyebrow={meta.eyebrow} />
       </Sequence>
     </AbsoluteFill>
   );

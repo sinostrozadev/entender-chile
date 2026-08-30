@@ -27,10 +27,10 @@ const fecha = opt("--fecha") || new Intl.DateTimeFormat("en-CA", { timeZone: "Am
 const clave = args.includes("--clave");
 const short = args.includes("--short");
 const privacidad = opt("--privacidad", "private");
-const etiqueta = short ? "short" : clave ? "clave" : "informe";
+const etiqueta = short ? (clave ? "short-clave" : "short") : clave ? "clave" : "informe";
 const OUT = path.join("out", fecha);
 // el Short tiene su propia carpeta de trabajo (parsed.json con título y descripción)
-const DIR_PARSED = short ? path.join(OUT, "short") : OUT;
+const DIR_PARSED = short ? path.join(OUT, etiqueta) : OUT;
 
 const { YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN } = process.env;
 if (!YT_CLIENT_ID || !YT_CLIENT_SECRET || !YT_REFRESH_TOKEN) {
