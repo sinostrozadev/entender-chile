@@ -10,6 +10,7 @@ export type Timeline = {
     descripcion?: string;
     fecha?: string;              // AAAA-MM-DD (Chile), para el sello de inicio
     serie?: string;              // "informe" | "clave"
+    inicioNarracion?: number;    // segundos: la voz arranca después del sello
     musica?: string | null;      // ruta en public/, ej. "musica/informe.mp3"
     logo?: string | null;        // logo sonoro del sello (2 s)
     cortinas?: string[] | null;  // melodias de transicion, se van alternando
@@ -74,7 +75,12 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
 
   return (
     <AbsoluteFill style={{ backgroundColor: tema.papel }}>
-      {tl.audio ? <Audio src={staticFile(tl.audio)} /> : null}
+      {tl.audio ? (
+        // la voz entra cuando el sello ya se fue (build-timeline corrió los tiempos)
+        <Sequence from={f(tl.meta.inicioNarracion ?? 0)}>
+          <Audio src={staticFile(tl.audio)} />
+        </Sequence>
+      ) : null}
       {tl.meta.musica ? (
         // cama musical: baja bajo la voz, protagonista mientras el video es mudo
         <Audio src={staticFile(tl.meta.musica)} volume={tl.audio ? 0.1 : 0.3} loop />
@@ -101,7 +107,7 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
           taparian voz. La primera seccion no lleva porque ya esta el sello. */}
       {tl.meta.cortinas && tl.meta.cortinas.length
         ? overlays
-            .filter((ev) => ev.from > SELLO_SEG)
+            .filter((ev, i) => i > 0 && ev.from > SELLO_SEG)
             .map((ev, i) => (
               <Sequence key={"cor" + i} from={f(ev.from)} durationInFrames={f(CORTINA_SEG)}>
                 <Audio src={staticFile(tl.meta.cortinas![i % tl.meta.cortinas!.length])} volume={0.85} />

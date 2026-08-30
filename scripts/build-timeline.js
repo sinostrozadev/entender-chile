@@ -18,6 +18,10 @@ const al = JSON.parse(fs.readFileSync(alignPath, "utf8"));
 const starts = al.character_start_times_seconds;
 const ends = al.character_end_times_seconds;
 const chars = al.characters;
+// La narración arranca cuando TERMINA el sello (2,8 s), no debajo de él:
+// pedido de Santiago al escuchar el primer video con voz (29-08). Todo lo que
+// viene de la alineación se corre este offset; el sello queda solo con su logo.
+const INICIO = Number(process.env.INICIO_NARRACION || 3.0);
 
 if (chars.length !== parsed.cleanText.length) {
   console.warn(`AVISO: la alineación tiene ${chars.length} caracteres y la narración ${parsed.cleanText.length}. ` +
@@ -30,7 +34,7 @@ function rangoTiempo(charStart, charEnd) {
   while (i <= j && esBlanco(chars[i])) i++;
   while (j >= i && esBlanco(chars[j])) j--;
   if (i > j) return null;
-  return { from: starts[i], to: ends[j] };
+  return { from: starts[i] + INICIO, to: ends[j] + INICIO };
 }
 
 const eventos = [];
@@ -77,7 +81,8 @@ for (const [anchor, grupo] of grupos) {
 // arranca donde EMPIEZA el silencio, no donde termina: así una cortina de
 // 1,1 s suena sobre la pausa de 1,2 s y no tapa voz.
 const rutaPausas = path.join(path.dirname(alignPath), "pausas.json");
-const pausas = fs.existsSync(rutaPausas) ? JSON.parse(fs.readFileSync(rutaPausas, "utf8")) : [];
+const pausas = (fs.existsSync(rutaPausas) ? JSON.parse(fs.readFileSync(rutaPausas, "utf8")) : [])
+  .map((p) => ({ ...p, from: p.from + INICIO }));
 const banners = [];
 parsed.eventos.forEach((ev) => {
   if (ev.tipo !== "seccion" || ev.anchor == null) return;
@@ -104,6 +109,7 @@ const timeline = {
       timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
     }).format(new Date()),
     serie: process.env.SERIE || "informe",          // informe | clave (lo fija dia.js)
+    inicioNarracion: audioFile ? INICIO : 0,        // la voz entra después del sello
     musica: process.env.MUSICA || null,             // cama continua: retirada (null)
     logo: process.env.LOGO || null,                 // sello sonoro de la apertura
     // Cortinas de sección: solo cuando no pueden tapar voz, es decir, si el

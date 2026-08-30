@@ -98,6 +98,8 @@ REGISTRO ORAL Y ANTI-PLANTILLA:
 - La construcción "no solo X, sino Y" como máximo una vez por guion.
 - Si el informe trae un ejemplo a escala humana ("para un sueldo de..."), nárralo: es el momento en que el oyente entiende. Nárralo como propio, sin mencionar el informe como documento: nunca "el informe usa una comparación", "según el informe de hoy". Para el oyente no existe ningún informe; existe lo que tú le cuentas.
 - Incisos con comas; nunca guiones ni rayas.
+- Nombres propios que suenan a persona o a cargo pero no lo son van con su categoría, siempre: "la división Ministro Hales de Codelco" (es una mina), "la comuna de Presidente Ibáñez", "el programa Chile Crece Contigo". Un oyente que no conoce el nombre debe entender qué es al oírlo.
+- Si el guion nombra el sitio del canal, lo nombra por su dominio y como se dice: "entenderchile punto cl". Nunca "el sitio" a secas.
 
 FORMATO DE SALIDA:
 - Primera línea: "Título sugerido:" seguida de un título de una sola idea, concreto, específico del día, sin clickbait.
@@ -105,6 +107,8 @@ FORMATO DE SALIDA:
 - Después: "Guion:" y el texto narrable con las siguientes marcas, y solo estas, cada una en su propia línea:
   ## Nombre de sección
       Una por bloque temático. No se narra.
+  [FUENTE medio, fecha]
+      En la línea siguiente a cada "## sección": la fuente principal del bloque (una, o dos separadas por punto y coma), tomada del informe. No se narra: va al pie de TODAS las tarjetas de ese bloque en pantalla. Cada bloque de noticia la lleva; Apertura, Dato curioso, Agenda, En titulares y Cierre no.
   [TESIS] frase
       La idea central del bloque, una por bloque, obligatoria en bloques con noticias [A] y [B]. Sí se narra. MÁXIMO 18 PALABRAS: es la tarjeta grande en pantalla; si necesita más, está mal formulada.
   [DATO tipo | fuente, fecha] etiqueta: valor ; etiqueta: valor
@@ -112,6 +116,8 @@ FORMATO DE SALIDA:
       Los VALORES van SIEMPRE en numerales (49, -0,2%, 9,39), nunca en palabras: la marca no se narra, es para pantalla. La regla de números en palabras aplica solo al texto narrado.
       Solo valores graficables: cifras, porcentajes, montos, magnitudes. Las fechas de eventos y los rangos de días van en la narración, no en una marca [DATO].
       Fuente: una sola, la principal, con fecha, tomada del informe. No se narra. Va justo antes del párrafo que menciona esos números.
+      CIFRA PRINCIPAL Y DE ACOMPAÑAMIENTO: cada párrafo narrado que se sostiene en una cifra lleva su [DATO] con ESA cifra (la principal, una); las de acompañamiento quedan solo en el texto. Si un párrafo con cifra no trae [DATO], el sistema pondrá en pantalla la primera que encuentre, elegida sin criterio: por eso conviene elegirla tú.
+      INDICADOR (opcional, entre paréntesis después del valor): "(sube)", "(baja)", "(igual)", "(bien)", "(mal)", o combinados "(sube mal)", "(baja bien)". En pantalla se dibuja una flecha o un visto de color: subir se pinta verde y bajar rojo, salvo que digas lo contrario (el desempleo que sube es "(sube mal)"; la inflación que baja es "(baja bien)"). Un valor puede ser SOLO el indicador cuando no hay cifra pero sí una dirección clara: "empleo formal: (baja mal)" muestra la etiqueta grande con la flecha roja. Úsalo cuando la dirección sea parte de la noticia, no como adorno.
   [ESQUEMA | título] elemento -> elemento -> elemento
       Para procesos, jerarquías, niveles o líneas de tiempo simples que el informe describa. Máximo seis elementos, texto breve por elemento. No se narra. Úsalo con moderación: cero a dos por edición, solo cuando una noticia [A] describa una estructura o secuencia que en pantalla se entienda mejor que hablada.
   [HECHO] párrafo
@@ -133,7 +139,8 @@ CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 4. Verifica que no hay frases que narren ausencia de noticias.
 5. Comprueba que no parezca lectura automática ni formato de producción masiva.
 6. Comprueba que exista valor narrativo y editorial propio en la transformación a voz.
-7. Revisa contra riesgos de monetización: lenguaje inapropiado, violencia o tragedia tratadas de forma gráfica o sensacionalista, sexualidad explícita, drogas, armas, discurso de odio, degradación, engaño.
+7. Cada bloque de noticia trae su [FUENTE] y cada párrafo que se sostiene en una cifra trae su [DATO] con la cifra principal.
+8. Revisa contra riesgos de monetización: lenguaje inapropiado, violencia o tragedia tratadas de forma gráfica o sensacionalista, sexualidad explícita, drogas, armas, discurso de odio, degradación, engaño.
 8. Comprueba que título y apertura sean seguros para anunciantes y no dependan de impacto artificial.
 9. Comprueba que cifras, nombres y siglas puedan pronunciarse naturalmente y que los números estén en palabras.
 10. Revisión de transiciones: si demasiados párrafos comienzan anunciando el cambio de tema, reescribe.

@@ -3,10 +3,14 @@ import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } fr
 import { tema, estiloEyebrow, estiloFuente, colorDeSeccion } from "./tema";
 
 // ---------- tipos ----------
-export type Serie = { etiqueta: string; num: number | null; unidad: string; raw: string };
+export type Tendencia = { dir: "sube" | "baja" | "igual" | null; sentido: "bien" | "mal" | null };
+export type Serie = { etiqueta: string; num: number | null; unidad: string; raw: string; tendencia?: Tendencia };
 export type Evento = {
   tipo: "tesis" | "narracion" | "cita" | "dato" | "esquema" | "seccion";
   texto?: string;
+  textoPantalla?: string;      // el texto con los números en numerales (la voz lee `texto`)
+  fuenteSeccion?: string;      // fuente principal del bloque: va al pie de todas sus tarjetas
+  automatico?: boolean;        // cifra que el sistema sacó del párrafo (no la eligió el guion)
   etiqueta?: "hecho" | "interpretacion" | null;
   soporte?: boolean;
   overlay?: boolean;
@@ -87,15 +91,56 @@ const PieFuente: React.FC<{ fuente?: string; caption?: string }> = ({ fuente, ca
   </div>
 );
 
+// Indicador junto a una cifra: flecha arriba/abajo, igual, visto o alerta.
+// Dibujado en SVG (sin depender de que la fuente traiga el glifo). Verde =
+// bien, rojo = mal; por defecto subir es bien y bajar es mal, salvo que el
+// guion diga lo contrario ("(baja bien)": bajó el desempleo).
+const ROJO = "#B3402F";
+export const Indicador: React.FC<{ t?: Tendencia; size?: number }> = ({ t, size = 96 }) => {
+  if (!t || (!t.dir && !t.sentido)) return null;
+  const sentido = t.sentido ?? (t.dir === "sube" ? "bien" : t.dir === "baja" ? "mal" : null);
+  const color = sentido === "bien" ? tema.patina : sentido === "mal" ? ROJO : tema.gris;
+  const st = { width: size, height: size, flexShrink: 0 } as React.CSSProperties;
+  if (t.dir === "sube" || t.dir === "baja") {
+    return (
+      <svg viewBox="0 0 100 100" style={{ ...st, transform: t.dir === "baja" ? "rotate(180deg)" : undefined }}>
+        <path d="M50 12 L84 50 L64 50 L64 88 L36 88 L36 50 L16 50 Z" fill={color} />
+      </svg>
+    );
+  }
+  if (t.dir === "igual") {
+    return (
+      <svg viewBox="0 0 100 100" style={st}>
+        <rect x="16" y="42" width="68" height="16" rx="4" fill={color} />
+      </svg>
+    );
+  }
+  if (sentido === "bien") {
+    return (
+      <svg viewBox="0 0 100 100" style={st}>
+        <circle cx="50" cy="50" r="44" fill="none" stroke={color} strokeWidth="8" />
+        <path d="M28 52 L44 68 L74 34" fill="none" stroke={color} strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 100 100" style={st}>
+      <path d="M50 10 L92 86 L8 86 Z" fill="none" stroke={color} strokeWidth="8" strokeLinejoin="round" />
+      <rect x="45" y="38" width="10" height="26" rx="3" fill={color} />
+      <circle cx="50" cy="74" r="6" fill={color} />
+    </svg>
+  );
+};
+
 // ---------- tarjetas ----------
 export const TarjetaTesis: React.FC<{ ev: Evento }> = ({ ev }) => {
   const st = useEntrada();
   return (
-    <Marco seccion={ev.seccion}>
+    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuenteSeccion} />}>
       <div style={{ ...st }}>
         <div style={{ ...estiloEyebrow, marginBottom: 30 }}>La idea</div>
         <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 76, lineHeight: 1.14, color: tema.tinta }}>
-          {ev.texto}
+          {ev.textoPantalla ?? ev.texto}
         </div>
       </div>
     </Marco>
@@ -105,10 +150,10 @@ export const TarjetaTesis: React.FC<{ ev: Evento }> = ({ ev }) => {
 export const TarjetaParrafo: React.FC<{ ev: Evento }> = ({ ev }) => {
   const st = useEntrada();
   return (
-    <Marco seccion={ev.seccion}>
+    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuenteSeccion} />}>
       <div style={{ ...st }}>
         {ev.etiqueta ? <div><Chip etiqueta={ev.etiqueta} /></div> : null}
-        <div style={{ fontFamily: tema.sans, fontSize: 42, lineHeight: 1.5, color: tema.tinta }}>{ev.texto}</div>
+        <div style={{ fontFamily: tema.sans, fontSize: 42, lineHeight: 1.5, color: tema.tinta }}>{ev.textoPantalla ?? ev.texto}</div>
       </div>
     </Marco>
   );
@@ -120,7 +165,7 @@ export const TarjetaCita: React.FC<{ ev: Evento }> = ({ ev }) => {
     <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuente} />}>
       <div style={{ ...st }}>
         <div style={{ fontFamily: tema.serif, fontStyle: "italic", fontSize: 58, lineHeight: 1.3, color: tema.tinta }}>
-          “{ev.texto}”
+          “{ev.textoPantalla ?? ev.texto}”
         </div>
         <div style={{ fontFamily: tema.mono, fontSize: 28, color: tema.patina, marginTop: 40 }}>- {ev.autor}</div>
       </div>
@@ -143,7 +188,7 @@ export const TarjetaDatoBarras: React.FC<{ ev: Evento }> = ({ ev }) => {
   if (series.some((s) => s.num == null)) return <TarjetaDatoComparacion ev={ev} />; // valores no numéricos: no hay barra posible
   const max = Math.max(...series.map((s) => Math.abs(s.num ?? 0)), 1);
   return (
-    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuente} caption={ev.caption} />}>
+    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuente ?? ev.fuenteSeccion} caption={ev.caption} />}>
       <div style={{ display: "flex", flexDirection: "column", gap: 44 }}>
         {series.map((s, i) => {
           const e = spring({ frame: frame - i * 6, fps, config: { damping: 200 } });
@@ -171,14 +216,17 @@ export const TarjetaDatoComparacion: React.FC<{ ev: Evento }> = ({ ev }) => {
   const { fps } = useVideoConfig();
   const series = ev.series ?? [];
   return (
-    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuente} caption={ev.caption} />}>
+    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuente ?? ev.fuenteSeccion} caption={ev.caption} />}>
       <div style={{ display: "flex", gap: 90, alignItems: "flex-end" }}>
         {series.map((s, i) => {
           const e = spring({ frame: frame - i * 7, fps, config: { damping: 200 } });
           return (
             <div key={i} style={{ opacity: e, transform: `translateY(${interpolate(e, [0, 1], [24, 0])}px)` }}>
-              <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: tamanoValor(s.raw, 132), lineHeight: 1.05, color: (s.num ?? 0) < 0 ? tema.tinta : tema.patina, maxWidth: 480 }}>
-                {s.raw}
+              <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+                <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: tamanoValor(s.raw, 132), lineHeight: 1.05, color: (s.num ?? 0) < 0 ? tema.tinta : tema.patina, maxWidth: 480 }}>
+                  {s.raw}
+                </div>
+                <Indicador t={s.tendencia} size={72} />
               </div>
               <div style={{ fontFamily: tema.sans, fontSize: 32, color: tema.gris, marginTop: 18, maxWidth: 420 }}>{s.etiqueta}</div>
             </div>
@@ -193,11 +241,24 @@ export const TarjetaDatoCifra: React.FC<{ ev: Evento }> = ({ ev }) => {
   const st = useEntrada();
   const s = (ev.series ?? [])[0];
   if (!s) return null;
+  const soloSenal = !s.raw; // "Empleo formal: (baja mal)" -> la etiqueta grande con la flecha
   return (
-    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuente} caption={ev.caption} />}>
+    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuente ?? ev.fuenteSeccion} caption={ev.caption} />}>
       <div style={{ ...st }}>
-        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: tamanoValor(s.raw, 210), lineHeight: 1.05, color: tema.tinta }}>{s.raw}</div>
-        <div style={{ fontFamily: tema.sans, fontSize: 40, color: tema.gris, marginTop: 26 }}>{s.etiqueta}</div>
+        {soloSenal ? (
+          <div style={{ display: "flex", alignItems: "center", gap: 40 }}>
+            <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 120, lineHeight: 1.05, color: tema.tinta, maxWidth: 1100 }}>{s.etiqueta}</div>
+            <Indicador t={s.tendencia} size={150} />
+          </div>
+        ) : (
+          <>
+            <div style={{ display: "flex", alignItems: "center", gap: 34 }}>
+              <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: tamanoValor(s.raw, 210), lineHeight: 1.05, color: tema.tinta }}>{s.raw}</div>
+              <Indicador t={s.tendencia} size={110} />
+            </div>
+            {s.etiqueta ? <div style={{ fontFamily: tema.sans, fontSize: 40, color: tema.gris, marginTop: 26 }}>{s.etiqueta}</div> : null}
+          </>
+        )}
       </div>
     </Marco>
   );
@@ -208,7 +269,7 @@ export const TarjetaEsquema: React.FC<{ ev: Evento }> = ({ ev }) => {
   const { fps } = useVideoConfig();
   const elems = ev.elementos ?? [];
   return (
-    <Marco seccion={ev.seccion} abajo={<PieFuente caption={ev.caption} />}>
+    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuenteSeccion} caption={ev.caption} />}>
       <div style={{ ...estiloEyebrow, marginBottom: 44 }}>{ev.titulo}</div>
       <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 26 }}>
         {elems.map((el, i) => {
@@ -272,7 +333,7 @@ export const TarjetaMarcador: React.FC<{ ev: Evento }> = ({ ev }) => {
   const local = s[0], visita = s[1];
   if (!local || !visita) return <TarjetaDatoCifra ev={ev} />;
   return (
-    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuente} caption={ev.caption} />}>
+    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuente ?? ev.fuenteSeccion} caption={ev.caption} />}>
       <div style={{ ...st, display: "flex", alignItems: "baseline", gap: 48, flexWrap: "wrap" }}>
         <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 66, color: tema.tinta }}>{local.etiqueta}</div>
         <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 120, color: colorDeSeccion(ev.seccion) }}>
@@ -289,7 +350,7 @@ export const TarjetaTabla: React.FC<{ ev: Evento }> = ({ ev }) => {
   const { fps } = useVideoConfig();
   const series = ev.series ?? [];
   return (
-    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuente} caption={ev.caption} />}>
+    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuente ?? ev.fuenteSeccion} caption={ev.caption} />}>
       <div style={{ display: "flex", flexDirection: "column", gap: 0, maxWidth: 1000 }}>
         {series.map((s, i) => {
           const e = spring({ frame: frame - i * 6, fps, config: { damping: 200 } });

@@ -13,17 +13,84 @@
  *   [ESQUEMA | título] A -> B -> C
  *   [HECHO] párrafo        [INTERPRETACIÓN] párrafo
  *   [CITA | quién | fuente] texto
+ *   [FUENTE medio, fecha]  fuente principal del bloque: va al pie de todas sus tarjetas
+ *
+ * Indicadores en los valores de [DATO]: "9,5% (sube)", "-11% (baja)", "(baja mal)",
+ * "(bien)", "(mal)", "(igual)". Un valor puede ser solo el indicador: la
+ * tarjeta muestra la etiqueta grande con la flecha ("Empleo formal (baja)").
  */
 const fs = require("fs");
 const path = require("path");
+const { aNumerales, formatoCifra } = require("./numerales");
 
+const DIRS = { sube: "sube", baja: "baja", igual: "igual" };
+const SENTIDOS = { bien: "bien", mal: "mal" };
 function parseNumero(raw) {
-  // "-0,2%" -> {num:-0.2, unidad:"%"} ; "6.000" -> 6000 ; "49" -> 49
-  const m = String(raw).trim().match(/[+-]?\d{1,3}(?:\.\d{3})+(?:,\d+)?|[+-]?\d+(?:,\d+)?/);
-  if (!m) return { num: null, unidad: String(raw).trim(), raw: String(raw).trim() };
-  const num = parseFloat(m[0].replace(/\./g, "").replace(",", "."));
-  const unidad = String(raw).replace(m[0], "").trim();
-  return { num, unidad, raw: String(raw).trim() };
+  // "-0,2%" -> {num:-0.2, unidad:"%"} ; "6.000" -> 6000 ; "49" -> 49 ; "9,5% (sube mal)" -> tendencia
+  let texto = String(raw).trim();
+  let tendencia = null;
+  const t = texto.match(/\(\s*(sube|baja|igual|bien|mal)(?:\s+(bien|mal))?\s*\)\s*$/i);
+  if (t) {
+    const a = t[1].toLowerCase(), b = (t[2] || "").toLowerCase();
+    tendencia = { dir: DIRS[a] || null, sentido: SENTIDOS[b] || SENTIDOS[a] || null };
+    texto = texto.slice(0, t.index).trim();
+  }
+  texto = formatoCifra(texto); // 25000 -> 25.000 ; US$1970 millones -> US$1.970 millones
+  const m = texto.match(/[+-]?\d{1,3}(?:\.\d{3})+(?:,\d+)?|[+-]?\d+(?:,\d+)?/);
+  const base = m
+    ? { num: parseFloat(m[0].replace(/\./g, "").replace(",", ".")), unidad: texto.replace(m[0], "").trim(), raw: texto }
+    : { num: null, unidad: texto, raw: texto };
+  return tendencia ? { ...base, tendencia } : base;
+}
+
+// Cifra principal de un párrafo sin [DATO]: la primera que no sea fecha, hora
+// ni año, con una etiqueta corta sacada de las palabras que la siguen.
+const MESES = /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)$/i;
+const FUNCION = new Set(["en", "de", "del", "a", "al", "para", "por", "el", "la", "los", "las", "que", "y", "o", "con", "sin", "sobre", "entre", "hasta", "desde", "más", "menos", "este", "esta", "esa", "ese", "su", "sus", "un", "una", "como", "según", "durante", "tras", "pero", "aunque", "cuando", "donde", "mientras"]);
+const VERBOS = /^(equivale|alcanz|lleg|subi|baj|cay|creci|pas|fue|es|son|era|eran|tiene|tienen|representa|supera|marca|deja|suma|significa|implica|muestra|registr|anot|cerr|abri|qued|sigue|mantiene|frente|contra|respecto|será|serán|habrá|hubo|hay|está|están|estaba|estaban|se|lo|le|les|ya|no|también|solo|apenas|casi|más|menos|tras|desde|hasta|durante|dijo|afirm|señal|explic|sostuvo|declar)/i;
+const MAGNITUD = /^(millones|millón|millon|mil)$/i;
+const UNIDAD = /^(de\s+(dólares|pesos|barriles|toneladas|personas|hogares|viviendas|cupos|hectáreas|litros|kilos|casos))?/i;
+function cifraPrincipal(textoPantalla) {
+  const re = /(?:US\$|\$)?[+-]?\d{1,3}(?:\.\d{3})+(?:,\d+)?%?|(?:US\$|\$)?[+-]?\d+(?:,\d+)?%?/g;
+  let m;
+  while ((m = re.exec(textoPantalla))) {
+    const valor = m[0];
+    const antes = textoPantalla.slice(Math.max(0, m.index - 12), m.index).toLowerCase();
+    const despues = textoPantalla.slice(m.index + valor.length);
+    const sig = despues.trim().split(/\s+/);
+    const n = Number(valor.replace(/[^\d,.-]/g, "").replace(/\./g, "").replace(",", "."));
+    const conMagnitud = MAGNITUD.test((sig[0] || "").replace(/[.,;:]+$/, ""));
+    if (Number.isInteger(n) && n >= 1900 && n <= 2099 && !/[$%]/.test(valor) && !conMagnitud) continue;          // año
+    if (sig[0] && (MESES.test(sig[0]) || (sig[0] === "de" && sig[1] && MESES.test(sig[1])))) continue;          // fecha
+    if (/a las\s*$|las\s*$/.test(antes) || /^(horas?|hrs)\b/i.test(sig[0] || "")) continue;                     // hora
+    if (/^(meses|años|día|días|semanas|minutos|jornadas|veces)\b/i.test(sig[0] || "")) continue;                    // un plazo no es una cifra
+    if (Math.abs(n) < 10 && !/[$%]/.test(valor) && !conMagnitud) continue;                                        // "4 países": no es una cifra grande
+    if (sig.slice(0, 4).some((w, k) => k > 0 && /^\d/.test(w))) continue;                                       // rango o dos cifras seguidas: que lo elija el guion
+    // valor: cifra + magnitud + unidad ("2.000 millones de pesos", "540.000 toneladas")
+    let raw = valor, resto = sig;
+    if (conMagnitud) {
+      raw += " " + sig[0].replace(/[.,;:]+$/, ""); resto = sig.slice(1);
+      const u = resto.slice(0, 2).join(" ").match(UNIDAD);
+      if (u && u[0]) { raw += " " + u[0]; resto = resto.slice(2); }
+    }
+    // etiqueta: solo si lo que sigue es un sustantivo claro; si empieza con verbo o
+    // nexo, mejor sin etiqueta (el párrafo va abajo como pie) que con una mala.
+    const primera = (resto[0] || "").replace(/[.,;:!?)]+$/g, "");
+    let etiqueta = "";
+    if (primera && !FUNCION.has(primera.toLowerCase()) && !VERBOS.test(primera) && !/^\d/.test(primera)) {
+      const palabras = [];
+      for (const w of resto) {
+        const limpia = w.replace(/[.,;:!?)]+$/g, "");
+        if (VERBOS.test(limpia) && palabras.length) break;
+        palabras.push(limpia);
+        if (/[.,;:!?)]$/.test(w) || palabras.length >= 5) break;
+      }
+      while (palabras.length && FUNCION.has(palabras[palabras.length - 1].toLowerCase())) palabras.pop();
+      etiqueta = palabras.join(" ");
+    }
+    return { raw: formatoCifra(raw), etiqueta: etiqueta.length > 60 ? "" : etiqueta };
+  }
+  return null;
 }
 
 function parseGuion(md) {
@@ -32,10 +99,11 @@ function parseGuion(md) {
   let zona = "pre"; // pre | descripcion | guion | fuentes
   const eventos = [];
   let buffer = null; // párrafo narrado en construcción
+  let seccionNombre = "";
 
   const flush = () => {
     if (buffer && buffer.lineas.length) {
-      eventos.push({ ...buffer, texto: buffer.lineas.join(" ").replace(/\s+/g, " ").trim() });
+      eventos.push({ ...buffer, texto: buffer.lineas.join(" ").replace(/\s+/g, " ").trim(), _seccionNombre: seccionNombre });
     }
     buffer = null;
   };
@@ -58,6 +126,7 @@ function parseGuion(md) {
     if (linea.startsWith("## ")) {
       flush();
       eventos.push({ tipo: "seccion", texto: linea.slice(3).trim() });
+      seccionNombre = linea.slice(3).trim();
       continue;
     }
 
@@ -93,6 +162,11 @@ function parseGuion(md) {
       buffer = { tipo: "narracion", etiqueta: "interpretacion", lineas: [m[1]] };
       continue;
     }
+    if ((m = linea.match(/^\[FUENTE\s*\|?\s*([^\]]+)\]\s*$/i))) {
+      flush();
+      eventos.push({ tipo: "fuente", texto: m[1].trim() });
+      continue;
+    }
     if ((m = linea.match(/^\[CITA\s*\|\s*([^|]+)\|\s*([^\]]+)\]\s*(.*)$/i))) {
       flush();
       buffer = { tipo: "cita", autor: m[1].trim(), fuente: m[2].trim(), lineas: [m[3]] };
@@ -103,6 +177,40 @@ function parseGuion(md) {
     buffer.lineas.push(linea);
   }
   flush();
+
+  // Texto para PANTALLA: los números en palabras pasan a numerales. La
+  // narración (cleanText) sigue en palabras, que es lo que la voz lee bien.
+  for (const ev of eventos) if (ev.texto && ["tesis", "narracion", "cita"].includes(ev.tipo)) ev.textoPantalla = aNumerales(ev.texto);
+
+  // Fuente del bloque: la marca [FUENTE] si existe; si no, la primera fuente de
+  // un [DATO] o [CITA] del bloque. Va al pie de todas las tarjetas del bloque.
+  {
+    let inicio = 0;
+    const cerrar = (fin) => {
+      const bloque = eventos.slice(inicio, fin);
+      const marca = bloque.find((e) => e.tipo === "fuente");
+      const fuente = marca ? marca.texto : (bloque.find((e) => (e.tipo === "dato" || e.tipo === "cita") && e.fuente) || {}).fuente;
+      if (fuente) for (const e of bloque) if (e.tipo !== "seccion" && e.tipo !== "fuente" && !e.fuente) e.fuenteSeccion = fuente;
+    };
+    eventos.forEach((e, i) => { if (e.tipo === "seccion" && i > inicio) { cerrar(i); inicio = i; } });
+    cerrar(eventos.length);
+    for (let i = eventos.length - 1; i >= 0; i--) if (eventos[i].tipo === "fuente") eventos.splice(i, 1);
+  }
+
+  // Cifras automáticas: un párrafo narrado que trae una cifra y no tiene [DATO]
+  // igual la muestra grande (pedido de Santiago, 29-08: "en cada diapositiva
+  // que tenga cifras, el número grande y el texto abajo"). Se marcan como
+  // automáticas para poder distinguirlas de las que eligió el guion.
+  for (let i = eventos.length - 1; i >= 0; i--) {
+    const ev = eventos[i];
+    if (ev.tipo !== "narracion" || !ev.textoPantalla) continue;
+    const previo = eventos[i - 1];
+    if (previo && (previo.tipo === "dato" || previo.tipo === "esquema")) continue; // ya tiene su tarjeta
+    if (/^(en titulares|agenda|cierre|apertura)$/i.test(ev._seccionNombre || "")) continue;
+    const c = cifraPrincipal(ev.textoPantalla);
+    if (!c) continue;
+    eventos.splice(i, 0, { tipo: "dato", grafico: "cifra", automatico: true, fuente: ev.fuenteSeccion || null, fuenteSeccion: ev.fuenteSeccion, series: [{ etiqueta: c.etiqueta, ...parseNumero(c.raw) }] });
+  }
 
   // Texto limpio + offsets, y anclaje de eventos no narrados
   let cleanText = "";
@@ -127,7 +235,7 @@ function parseGuion(md) {
       ev.anchor = j < eventos.length ? j : null;
       if ((ev.tipo === "dato" || ev.tipo === "esquema") && ev.anchor != null) {
         eventos[ev.anchor].soporte = true; // ese párrafo se muestra como pie del gráfico
-        ev.caption = eventos[ev.anchor].texto;
+        ev.caption = eventos[ev.anchor].textoPantalla || eventos[ev.anchor].texto;
       }
     }
   }

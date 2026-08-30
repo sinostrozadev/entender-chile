@@ -56,13 +56,29 @@ duración actualizada; tornado investigado y corregido en el barrido; los
 cuatro documentos con deriva puestos al día; render por push corregido
 (lo dispara la última pieza en llegar, sin rojo si falta la otra).
 
+- [ ] **Validar las fuentes de verdad, no solo citarlas.** Santiago (29-08):
+      la fuente al pie de cada diapositiva gana confianza solo si llega
+      validada. Hoy la valida el modelo que escribe el informe (regla de dos
+      fuentes) y la revisión NO abre las fuentes (la nube no alcanza los
+      medios chilenos). Propuesta: que el informe deje en su bloque interno
+      la URL de cada fuente citada, y un script local de la mañana
+      (`scripts/verificar-fuentes.js`) las abra y busque en ellas la cifra
+      principal de cada noticia; lo que no calce va a la bitácora. Es trabajo
+      de una noche.
+- [ ] **Tagline**: Santiago duda de "El resumen sin gritos". Alternativas y
+      recomendación en `ideas/tagline-alternativas.md`. Decide él.
+- [ ] **Noticias que faltaron el 29** según Santiago: pendiente que las nombre
+      para ver en qué etapa se perdieron (barrido, olla o informe).
 - [ ] **Mirar el 30-08 con lupa, primera edición con las reglas nuevas:**
       (1) que las [A] respondan las cinco preguntas sin inflarse; (2) que
       "Además, hoy" traiga todo lo verificable sin volverse basurero; (3) que
       el guion tenga "## En titulares" con "Y en titulares:" y nada del
       informe quede sin sonar; (4) duración real con voz y titulares; (5) que
       el bloque interno esté después de "Para salir hoy"; (6) que el barrido
-      diga cuántas entraron por "mismo tema" y por "alarma".
+      diga cuántas entraron por "mismo tema" y por "alarma"; (7) que el guion
+      traiga [FUENTE] bajo cada sección y algún indicador "(sube mal)" bien
+      usado; (8) que la voz entre después del sello y las cifras automáticas
+      no muestren nada raro.
 - [ ] **Extraer la línea base de "¿Lo cumplió?".** El criterio ya está
       congelado y fechado en `estrategia/seccion-lo-cumplio.md`: umbral de
       tres condiciones, tamaño 30 a 50, estados, y el protocolo de
