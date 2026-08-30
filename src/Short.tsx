@@ -74,7 +74,8 @@ const Tarjeta: React.FC<{ piel: Piel; tesis: Evento; dato?: Evento; esquema?: Ev
   const esCambio = dato?.grafico === "cambio" && s && s2;
   return (
     <AbsoluteFill>
-      <div style={{ position: "absolute", left: M, right: M, top: ARRIBA, bottom: ABAJO + 120, display: "flex", flexDirection: "column", justifyContent: "center", gap: 40, opacity: e, transform: `translateY(${interpolate(e, [0, 1], [30, 0])}px)` }}>
+      {/* margen derecho mayor: el mapa del fondo vive en el tercio derecho y el texto no debe pisarlo */}
+      <div style={{ position: "absolute", left: M, right: M + 90, top: ARRIBA, bottom: ABAJO + 120, display: "flex", flexDirection: "column", justifyContent: "center", gap: 40, opacity: e, transform: `translateY(${interpolate(e, [0, 1], [30, 0])}px)` }}>
         <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
           <div style={{ width: 54, height: 6, backgroundColor: color }} />
           <div style={{ fontFamily: tema.mono, fontSize: 26, letterSpacing: "0.22em", textTransform: "uppercase", color: color }}>
