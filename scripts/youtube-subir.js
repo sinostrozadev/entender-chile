@@ -112,6 +112,14 @@ function horaChileISO(dia, hhmm) {
   });
   const id = res.data.id;
   fs.writeFileSync(path.join(OUT, `youtube-id-${etiqueta}.txt`), id + "\n");
+  // a su playlist (informe y clave; los Shorts no): ids en contenido/youtube.json
+  if (!short) {
+    try {
+      const cfg = JSON.parse(fs.readFileSync(path.join("contenido", "youtube.json"), "utf8"));
+      const pl = cfg.playlists?.[clave ? "clave" : "informe"];
+      if (pl) { await yt.playlistItems.insert({ part: ["snippet"], requestBody: { snippet: { playlistId: pl, resourceId: { kind: "youtube#video", videoId: id } } } }); console.log("agregado a su playlist ✓"); }
+    } catch (e) { console.log(`(playlist no: ${e.message.split("\n")[0]})`); }
+  }
   console.log(`Subido: https://youtu.be/${id} (${programar ? `programado para las ${programar} de Chile` : privacidad})`);
 
   if (fs.existsSync(miniatura)) {
