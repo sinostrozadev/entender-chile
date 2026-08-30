@@ -139,11 +139,11 @@ export const ShortVideo: React.FC<Timeline> = (tl) => {
     <AbsoluteFill style={{ backgroundColor: piel.fondo }}>
       {meta.fondo ? (
         <>
-          {/* un 12% más grande y anclada arriba: recorta el borde inferior (ahí la imagen trae una marca de agua) */}
-          <Img src={staticFile(meta.fondo)} style={{ position: "absolute", width: "112%", height: "112%", left: "-6%", top: 0, objectFit: "cover", objectPosition: "center top" }} />
-          {/* velo: oscuro donde va el texto (izquierda y abajo), más abierto sobre el mapa */}
-          <AbsoluteFill style={{ background: "linear-gradient(90deg, rgba(15,26,43,0.88) 0%, rgba(15,26,43,0.72) 55%, rgba(15,26,43,0.38) 100%)" }} />
-          <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(15,26,43,0.35) 0%, rgba(15,26,43,0) 30%, rgba(15,26,43,0) 70%, rgba(15,26,43,0.75) 100%)" }} />
+          {/* los fondos v2 (30-08) vienen limpios a la izquierda y sin marca de agua:
+              recorte mínimo y un velo suave, solo para asegurar el contraste del texto */}
+          <Img src={staticFile(meta.fondo)} style={{ position: "absolute", width: "104%", height: "104%", left: "-2%", top: 0, objectFit: "cover", objectPosition: "center top" }} />
+          <AbsoluteFill style={{ background: "linear-gradient(90deg, rgba(10,18,30,0.55) 0%, rgba(10,18,30,0.40) 55%, rgba(10,18,30,0.10) 100%)" }} />
+          <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(10,18,30,0.25) 0%, rgba(10,18,30,0) 25%, rgba(10,18,30,0) 75%, rgba(10,18,30,0.45) 100%)" }} />
         </>
       ) : null}
       {tl.audio ? (
