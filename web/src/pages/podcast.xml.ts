@@ -21,6 +21,7 @@ export const GET: APIRoute = () => {
     <guid isPermaLink="false">entender-chile-${e.tipo || "informe"}-${e.fecha}</guid>
     <pubDate>${new Date(e.fecha + (e.tipo === "clave" ? "T16:00:00Z" : "T10:30:00Z")).toUTCString()}</pubDate>
     <itunes:duration>${Math.round(e.durSeg)}</itunes:duration>
+    <itunes:image href="${sitio}/podcast-portada-${e.tipo === "clave" ? "clave" : "informe"}.jpg"/>
     <itunes:explicit>false</itunes:explicit>
   </item>`).join("");
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

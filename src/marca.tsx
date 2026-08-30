@@ -95,10 +95,33 @@ const Miniatura: React.FC<MiniaturaProps> = ({ titulo, cifra, etiqueta, fecha, s
   );
 };
 
+// Portada cuadrada del podcast por serie (Spotify/Apple piden 1400-3000 px).
+// Mismo fondo que las carátulas de YouTube: mapa marino = informe, líneas
+// verdes = Claves. Fijas, no cambian por episodio (decisión 30-08).
+const PortadaPodcast: React.FC<{ serie?: "informe" | "clave" }> = ({ serie = "informe" }) => {
+  const esClave = serie === "clave";
+  const fondo = esClave ? "fondos/fondo-clave-vertical.png" : "fondos/fondo-chile-vertical.png";
+  const velo = esClave ? "20,40,35" : "10,16,26";
+  return (
+    <AbsoluteFill style={{ backgroundColor: esClave ? "#14332C" : "#0F1A2B" }}>
+      <Img src={staticFile(fondo)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "right center" }} />
+      <AbsoluteFill style={{ background: `linear-gradient(180deg, rgba(${velo},0.30) 0%, rgba(${velo},0.55) 55%, rgba(${velo},0.92) 100%)` }} />
+      <div style={{ position: "absolute", left: 140, right: 140, bottom: 150 }}>
+        <div style={{ fontFamily: tema.mono, fontSize: 56, letterSpacing: "0.3em", textTransform: "uppercase", color: "#D08A5B", marginBottom: 54 }}>Entender Chile</div>
+        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: esClave ? 170 : 210, lineHeight: 1.05, color: "#EDE6DA", letterSpacing: "-0.01em" }}>
+          {esClave ? "Claves para entender las noticias" : "El informe diario"}
+        </div>
+        <div style={{ width: 220, height: 14, backgroundColor: "#D08A5B", marginTop: 64 }} />
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 const RootMarca: React.FC = () => (
   <>
     <Composition id="Avatar" component={Avatar} width={800} height={800} fps={1} durationInFrames={1} />
     <Composition id="Banner" component={Banner} width={2560} height={1440} fps={1} durationInFrames={1} defaultProps={{ fondo: "" }} />
+    <Composition id="PortadaPodcast" component={PortadaPodcast} width={2048} height={2048} fps={1} durationInFrames={1} defaultProps={{ serie: "informe" as const }} />
     <Composition
       id="Miniatura"
       component={Miniatura}
