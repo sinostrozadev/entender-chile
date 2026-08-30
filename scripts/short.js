@@ -12,9 +12,10 @@
  * Uso:
  *   node scripts/short.js [--fecha AAAA-MM-DD] [--voz] [--fondo] [--render]
  *
- *   --voz     usa Azure si hay AZURE_SPEECH_KEY/REGION (si no, voz simulada)
- *   --fondo   pone public/fondos/fondo-chile-vertical.png detrás (prueba)
- *   --render  produce out/FECHA/FECHA-short.mp4 (o -short-fondo.mp4)
+ *   --voz        usa Azure si hay AZURE_SPEECH_KEY/REGION (si no, voz simulada)
+ *   --sin-fondo  piel papel; por defecto va el fondo marino con el mapa
+ *                (public/fondos/fondo-chile-vertical.png), decidido el 30-08
+ *   --render     produce out/FECHA/FECHA-short.mp4 (o -short-papel.mp4)
  *
  * Requiere que dia.js ya haya corrido ese día (existe out/FECHA/parsed.json).
  */
@@ -28,7 +29,7 @@ const fecha = opt("--fecha") || process.env.FECHA_EDICION || new Intl.DateTimeFo
   timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
 }).format(new Date());
 const conVoz = args.includes("--voz");
-const conFondo = args.includes("--fondo");
+const conFondo = !args.includes("--sin-fondo");
 const conRender = args.includes("--render");
 const HANDLE = process.env.HANDLE || "@entenderchile";
 const FONDO = "fondos/fondo-chile-vertical.png";
@@ -133,7 +134,7 @@ tl.meta.fondo = conFondo && fs.existsSync(path.join("public", FONDO)) ? FONDO : 
 fs.writeFileSync(path.join(OUT, "timeline.json"), JSON.stringify(tl, null, 2));
 console.log(`OK: Short de ${(tl.meta.duracionSeg / 60).toFixed(1)} min (${tl.meta.duracionSeg}s)${tl.meta.fondo ? " con fondo" : ""} → ${path.join(OUT, "timeline.json")}`);
 
-const video = path.join(OUT_DIA, `${fecha}-short${conFondo ? "-fondo" : ""}.mp4`);
+const video = path.join(OUT_DIA, `${fecha}-short${conFondo ? "" : "-papel"}.mp4`);
 if (conRender) {
   execFileSync("npx", ["remotion", "render", "src/short-entry.tsx", "Short", video, `--props=./${path.join(OUT, "timeline.json")}`], { stdio: "inherit" });
   console.log(`\nListo: ${video}`);

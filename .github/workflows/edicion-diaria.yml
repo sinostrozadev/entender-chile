@@ -123,6 +123,17 @@ jobs:
           if { [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; } || { [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; }; then VOZ="--voz"; else VOZ=""; fi
           node scripts/dia.js --clave --si-existe $VOZ --render
 
+      # El Short diario: cinco tesis del guion en vertical (scripts/short.js).
+      # Sale del parsed.json del informe, así que va después del paso 3.
+      # Render corto (~2 min). Si falla, la edición sigue: no bloquea.
+      - name: 4b · Producir el Short (cinco cosas que hay que saber)
+        env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+        if: env.SALTAR != '1'
+        continue-on-error: true
+        run: node scripts/short.js --fecha "$FECHA" --voz --render
+
       - name: 5 · Commit de las descripciones
         if: env.SALTAR != '1'
         run: |
@@ -152,4 +163,6 @@ jobs:
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
         if: env.SALTAR != '1'
         continue-on-error: true
-        run: node scripts/youtube-subir.js --fecha "$FECHA"
+        run: |
+          node scripts/youtube-subir.js --fecha "$FECHA"
+          if [ -f "out/$FECHA/$FECHA-short.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --short; fi

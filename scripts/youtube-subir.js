@@ -3,7 +3,7 @@
  * youtube-subir.js - Sube el video de una edición a YouTube como PRIVADO.
  *
  * Uso:
- *   node scripts/youtube-subir.js --fecha 2026-08-30 [--clave] [--privacidad private|unlisted|public]
+ *   node scripts/youtube-subir.js --fecha 2026-08-30 [--clave | --short] [--privacidad private|unlisted|public]
  *
  * Toma: el mp4 de out/FECHA/, el título de out/FECHA/parsed.json ("Título
  * sugerido"), la descripción de contenido/descripciones/FECHA-*.txt y, si
@@ -25,9 +25,12 @@ const args = process.argv.slice(2);
 const opt = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
 const fecha = opt("--fecha") || new Intl.DateTimeFormat("en-CA", { timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
 const clave = args.includes("--clave");
+const short = args.includes("--short");
 const privacidad = opt("--privacidad", "private");
-const etiqueta = clave ? "clave" : "informe";
+const etiqueta = short ? "short" : clave ? "clave" : "informe";
 const OUT = path.join("out", fecha);
+// el Short tiene su propia carpeta de trabajo (parsed.json con título y descripción)
+const DIR_PARSED = short ? path.join(OUT, "short") : OUT;
 
 const { YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN } = process.env;
 if (!YT_CLIENT_ID || !YT_CLIENT_SECRET || !YT_REFRESH_TOKEN) {
@@ -37,10 +40,10 @@ if (!YT_CLIENT_ID || !YT_CLIENT_SECRET || !YT_REFRESH_TOKEN) {
 
 const video = path.join(OUT, `${fecha}-${etiqueta}.mp4`);
 if (!fs.existsSync(video)) { console.error(`No existe ${video}`); process.exit(1); }
-const parsed = fs.existsSync(path.join(OUT, "parsed.json")) ? JSON.parse(fs.readFileSync(path.join(OUT, "parsed.json"), "utf8")) : {};
+const parsed = fs.existsSync(path.join(DIR_PARSED, "parsed.json")) ? JSON.parse(fs.readFileSync(path.join(DIR_PARSED, "parsed.json"), "utf8")) : {};
 const titulo = (parsed.titulo || `Entender Chile · ${fecha}`).slice(0, 100);
 const rutaDesc = path.join("contenido", "descripciones", `${fecha}-${etiqueta}.txt`);
-const descripcion = (fs.existsSync(rutaDesc) ? fs.readFileSync(rutaDesc, "utf8") : "").slice(0, 4900);
+const descripcion = (short ? (parsed.descripcion || "") : (fs.existsSync(rutaDesc) ? fs.readFileSync(rutaDesc, "utf8") : "")).slice(0, 4900);
 const miniatura = path.join(OUT, clave ? "miniatura-clave.png" : "miniatura.png");
 
 (async () => {
