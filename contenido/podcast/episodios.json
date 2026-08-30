@@ -6,5 +6,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-08-30-informe.mp3",
     "bytes": 18309888,
     "durSeg": 763
+  },
+  {
+    "fecha": "2026-08-30",
+    "tipo": "clave",
+    "titulo": "Clave · ¿Cómo puede una antena falsa identificar tu celular?",
+    "descripcion": "Un IMSI Catcher puede hacerse pasar por infraestructura de una red móvil para identificar o localizar dispositivos cercanos. Este video explica cómo funciona, por qué no equivale a intervenir el contenido de un teléfono y por qué el control judicial importa especialmente cuando también pueden quedar involucrados celulares de terceros.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-08-30-clave.mp3",
+    "bytes": 18233280,
+    "durSeg": 760
   }
 ]

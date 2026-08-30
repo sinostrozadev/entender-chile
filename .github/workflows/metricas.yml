@@ -1,0 +1,36 @@
+name: Métricas
+
+# Cada mañana (09:00 Chile invierno) baja las cifras del canal al repo:
+# bitacora/metricas/FECHA.md (+json para los deltas). El análisis lo hace la
+# sesión de la mañana con Santiago; esto solo garantiza que los números estén.
+on:
+  schedule:
+    - cron: "0 13 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  metricas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Instalar solo googleapis (npm ci entero tarda y no hace falta)
+        run: npm install --no-save googleapis
+      - name: Bajar métricas
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: node scripts/metricas.js
+      - name: Commit
+        run: |
+          git config user.name "metricas-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add bitacora/metricas/
+          git diff --cached --quiet || { git commit -m "métricas $(TZ=America/Santiago date +%F) [bot]"; git pull --rebase; git push; }

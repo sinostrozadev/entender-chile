@@ -6,7 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { APIRoute } from "astro";
 
-type Episodio = { fecha: string; titulo: string; descripcion?: string; url: string; bytes: number; durSeg: number };
+type Episodio = { fecha: string; tipo?: string; titulo: string; descripcion?: string; url: string; bytes: number; durSeg: number };
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 export const GET: APIRoute = () => {
@@ -18,8 +18,8 @@ export const GET: APIRoute = () => {
     <title>${esc(e.titulo)}</title>
     <description>${esc(e.descripcion || "")}</description>
     <enclosure url="${e.url}" length="${e.bytes}" type="audio/mpeg"/>
-    <guid isPermaLink="false">entender-chile-${e.fecha}</guid>
-    <pubDate>${new Date(e.fecha + "T10:30:00Z").toUTCString()}</pubDate>
+    <guid isPermaLink="false">entender-chile-${e.tipo || "informe"}-${e.fecha}</guid>
+    <pubDate>${new Date(e.fecha + (e.tipo === "clave" ? "T16:00:00Z" : "T10:30:00Z")).toUTCString()}</pubDate>
     <itunes:duration>${Math.round(e.durSeg)}</itunes:duration>
     <itunes:explicit>false</itunes:explicit>
   </item>`).join("");
