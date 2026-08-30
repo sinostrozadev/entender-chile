@@ -47,6 +47,8 @@ parsed.eventos.forEach((ev, idx) => {
     const r = rangoTiempo(ev.charStart, ev.charEnd);
     if (r) {
       const out = { tipo: ev.tipo, texto: ev.texto, from: r.from, to: r.to };
+      if (ev.textoPantalla) out.textoPantalla = ev.textoPantalla; // numerales en pantalla
+      if (ev.fuenteSeccion) out.fuenteSeccion = ev.fuenteSeccion; // fuente al pie del bloque
       if (ev._seccion) out.seccion = ev._seccion;
       if (ev.etiqueta) out.etiqueta = ev.etiqueta;
       if (ev.soporte) out.soporte = true;
@@ -72,6 +74,8 @@ for (const [anchor, grupo] of grupos) {
     const from = ancla.from + paso * k;
     const to = k === grupo.length - 1 ? ancla.to : ancla.from + paso * (k + 1);
     const base = { seccion: ev._seccion, caption: ev.caption, from: Number(from.toFixed(3)), to: Number(to.toFixed(3)) };
+    if (ev.fuenteSeccion) base.fuenteSeccion = ev.fuenteSeccion;
+    if (ev.automatico) base.automatico = true;
     if (ev.tipo === "dato") eventos.push({ tipo: "dato", grafico: ev.grafico, fuente: ev.fuente, series: ev.series, ...base });
     else eventos.push({ tipo: "esquema", titulo: ev.titulo, elementos: ev.elementos, ...base });
   });
