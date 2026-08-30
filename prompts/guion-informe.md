@@ -130,7 +130,7 @@ FORMATO DE SALIDA:
       Solo citas textuales presentes en el informe. Se narra el texto.
 - Todo párrafo sin marca es narración normal.
 - No incluyas URLs, emojis, paréntesis, bibliografía, notas al editor, marcas de tiempo, indicaciones de edición ni advertencias fuera de las marcas definidas.
-- Al final, bajo "Fuentes:", lista una línea por cada fuente de las marcas [DATO] y [CITA] Y por cada fuente del informe cuyas noticias narraste, tal como aparecen en el informe. Esa lista alimenta la descripción del video en YouTube: la transparencia de fuentes es marca del canal, y una fuente cuyo contenido se narró no puede quedar sin crédito.
+- Al final, bajo "Fuentes:", lista una línea por cada fuente de las marcas [DATO] y [CITA] Y por cada fuente del informe cuyas noticias narraste, tal como aparecen en el informe. NUNCA listes archivos internos del sistema (rutas como contenido/..., hitos.md, preselección): si un dato viene de ahí, cita la fuente PÚBLICA original del hecho (el tribunal, el organismo, el medio). La lista se publica en YouTube tal cual (30-08: se coló "contenido/casos/hitos.md" y hubo que borrarlo a mano). Esa lista alimenta la descripción del video en YouTube: la transparencia de fuentes es marca del canal, y una fuente cuyo contenido se narró no puede quedar sin crédito.
 
 PERSISTENCIA:
 La ÚNICA persistencia es el repositorio, en la ruta exacta que define el contrato de archivos. No guardes copias en la Biblioteca de ChatGPT. Guarda el guion ÍNTEGRO y sin reformular. Si por algún motivo técnico no puedes guardar o pushear, indícalo claramente al final de la ejecución.
