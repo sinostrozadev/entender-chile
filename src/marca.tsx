@@ -3,13 +3,12 @@
 // no mezclarlas con el Root del video:
 //
 //   npx remotion still src/marca.tsx Avatar    out/marca/avatar.png
-//   npx remotion still src/marca.tsx Banner    out/marca/banner.png
+//   npx remotion still src/marca.tsx Banner    out/marca/banner.png   [--props='{"fondo":"fondos/banner-fondo.png"}']
 //   npx remotion still src/marca.tsx Miniatura out/FECHA/miniatura.png --props='{"titulo":"...","cifra":"9,5%","etiqueta":"de desempleo","fecha":"29-08-2026"}'
 //
 // Mismo sistema visual que las tarjetas (tema.ts): papel, tinta, una pátina.
 import React from "react";
 import { AbsoluteFill, Composition, Img, registerRoot, staticFile } from "remotion";
-import fs from "fs";
 import { tema, estiloEyebrow, colorDeSeccion } from "./tema";
 
 const Avatar: React.FC = () => (
@@ -23,17 +22,17 @@ const Avatar: React.FC = () => (
 
 // Banner de YouTube: 2560x1440 (lo recomendado). Lo que se ve en TODOS los
 // dispositivos es solo el rectángulo central de 1546x423, así que el texto va
-// ahí. Si existe public/fondos/banner-fondo.png (arte pedido a Gemini, ver
-// ideas/fondos-prompts.md) se usa de fondo con la piel marina; si no, papel.
-const CON_FONDO_BANNER = fs.existsSync("public/fondos/banner-fondo.png");
-const Banner: React.FC = () => {
-  const oscuro = CON_FONDO_BANNER;
+// ahí. Con --props='{"fondo":"fondos/banner-fondo.png"}' (arte pedido a
+// Gemini, ver ideas/fondos-prompts.md) va sobre esa imagen con la piel
+// marina; sin props, papel. (Esto corre en el navegador: no hay fs.)
+const Banner: React.FC<{ fondo?: string }> = ({ fondo }) => {
+  const oscuro = Boolean(fondo);
   const tinta = oscuro ? "#EDE6DA" : tema.tinta;
   const gris = oscuro ? "#B9B2A6" : tema.gris;
   const acento = oscuro ? "#D08A5B" : tema.patina;
   return (
     <AbsoluteFill style={{ backgroundColor: oscuro ? "#0F1A2B" : tema.papel, alignItems: "center", justifyContent: "center" }}>
-      {oscuro ? <Img src={staticFile("fondos/banner-fondo.png")} style={{ position: "absolute", width: "100%", height: "100%", objectFit: "cover" }} /> : null}
+      {fondo ? <Img src={staticFile(fondo)} style={{ position: "absolute", width: "100%", height: "100%", objectFit: "cover" }} /> : null}
       <div style={{ width: 1546, height: 423, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative" }}>
         <div style={{ ...estiloEyebrow, fontSize: 26, color: acento, marginBottom: 26 }}>Las noticias de Chile, cada mañana</div>
         <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 150, lineHeight: 1, color: tinta }}>Entender Chile</div>
@@ -69,7 +68,7 @@ const Miniatura: React.FC<MiniaturaProps> = ({ titulo, cifra, etiqueta, fecha, s
 const RootMarca: React.FC = () => (
   <>
     <Composition id="Avatar" component={Avatar} width={800} height={800} fps={1} durationInFrames={1} />
-    <Composition id="Banner" component={Banner} width={2560} height={1440} fps={1} durationInFrames={1} />
+    <Composition id="Banner" component={Banner} width={2560} height={1440} fps={1} durationInFrames={1} defaultProps={{ fondo: "" }} />
     <Composition
       id="Miniatura"
       component={Miniatura}

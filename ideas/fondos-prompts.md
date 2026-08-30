@@ -50,7 +50,7 @@ franja central de 1546x423; el escritorio muestra una franja de 2560x423 y la
 TV la imagen completa. Por eso el motivo va a los extremos y el centro queda
 limpio para "Entender Chile". Al recibirlo, guardar como
 `public/fondos/banner-fondo.png` y regenerar con
-`npx remotion still src/marca.tsx Banner out/marca/banner.png`.
+`npx remotion still src/marca.tsx Banner out/marca/banner.png --props='{"fondo":"fondos/banner-fondo.png"}'`.
 
 > Imagen horizontal 16:9 de 2560x1440 para el banner de un canal de noticias,
 > estilo ilustración vectorial plana y elegante. Fondo azul marino profundo
