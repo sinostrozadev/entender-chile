@@ -76,6 +76,10 @@ cuatro documentos con deriva puestos al día; render por push corregido
       cargar los tres secrets YT_*. Con eso el workflow sube cada edición en
       privado. Después: pedir la auditoría de la API para poder programar
       publicaciones.
+- [ ] **Short diario** (idea de Santiago, propuesta en `ideas/shorts-diarios.md`):
+      5 tesis del guion en vertical, 45-55 s, voz + música de la Biblioteca
+      de audio de YouTube. Se arma solo desde parsed.json; faltan 3
+      decisiones de Santiago (voz o solo música, pistas, hora de publicación).
 - [ ] **Miniatura automática por edición**: `dia.js` renderiza
       `out/FECHA/miniatura.png` con `src/marca.tsx` (cifra = primer [DATO] del
       guion, titular = "Título sugerido"), la sube al release y
