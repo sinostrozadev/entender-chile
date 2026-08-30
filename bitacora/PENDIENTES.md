@@ -7,7 +7,14 @@ tacha: para saber qué pasó está el archivo del día.
 
 ---
 
-## La puerta de salida: nada se publica hasta resolver esto
+## La puerta de salida: ABIERTA el 30-08-2026
+
+Santiago dio por resueltas las cinco condiciones y decidió lanzar: 2 videos
+y 2 Shorts al día, subidos en privado, con el clic de publicación como gate
+humano. Registrado en estrategia/decisiones.md. Se conserva la lista
+original como referencia de lo que se exigió:
+
+## Lo que la puerta exigía (cerrado el 30-08)
 
 Decidido por Santiago el 28-08-2026. Cinco condiciones, todas suyas. Hasta
 que estén resueltas no se sube ningún video, aunque el pipeline funcione.

@@ -153,6 +153,40 @@ lector a medias; 13 noticias verificables se botaron por espacio sin dejar
 línea; y el tope del informe existía por el video, que la web no paga.
 **Decidió**: Santiago. **Detalle**: bitacora/2026-08-29-propuesta-informe-largo.md.
 
+## 2026-08-30 - LANZAMIENTO: se abre la puerta de salida
+
+**Qué**: el canal empieza a publicar. Ritmo inicial: 2 videos (informe y
+Clave) y 2 Shorts al día, espaciados a lo largo del día, no juntos: informe
+en la mañana (06:30-07:00, el horario declarado), Clave a mediodía, Shorts
+en la tarde. Toda pieza se sube marcando la divulgación de contenido
+sintético, y el título del Short nombra la noticia que recorta, no la
+edición. Publicar sigue pasando por el gate humano: las piezas suben en
+privado y el clic final es de Santiago.
+
+**Qué cierra**: la decisión del 28-08 ("no se publica hasta resolver cinco
+condiciones") queda cerrada por el propio Santiago, que las dio por
+resueltas tras el trabajo del 29 y la madrugada del 30: voz chilena de Azure
+operativa (el Short del 29 salió con es-CL y cortinas), canal de YouTube
+creado y conectado por OAuth con prueba real de subida privada
+(youtu.be/jsr27ZICuQ4 y youtu.be/y-EyhOlc_sU), miniatura automática,
+fondos nuevos, criterio de selección con rastro de descarte auditable, y
+las reglas del informe largo acordadas el 29.
+
+**Sobre el volumen**: 2+2 diarios no es spam. La política de spam de YouTube
+castiga engaño (metadatos y miniaturas que mienten), no cantidad; los
+canales de noticias suben decenas de piezas al día. El riesgo real sigue
+siendo la política de contenido no auténtico, y esa se mitiga con lo que ya
+está construido: variación diaria real, música propia por puntuación,
+registro editorial (este archivo), revisión diaria y el trabajo original del
+observatorio. Subir cuatro piezas variadas deja mejor parado que subir una
+plantillada.
+
+**Contexto del objetivo**: quedan 155 días para el 1-feb-2027, cuando el
+umbral del YPP se duplica. El contador de horas vistas parte hoy desde cero.
+
+**Decidió**: Santiago. **Detalle**: bitacora/2026-08-29.md (partes quinta y
+sexta), bitacora/PENDIENTES.md.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 - **Firma epistémica del canal**: toda cifra con fuente visible en pantalla;
