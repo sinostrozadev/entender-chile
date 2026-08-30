@@ -130,3 +130,49 @@ sube el mp4 como privado con título, descripción, capítulos y miniatura.
   sin aporte humano no monetiza; por eso existe estrategia/decisiones.md
   (registro de decisiones editoriales humanas) y el checklist de IA. El
   botón "Notify me when I'm eligible" avisa al llegar al umbral.
+
+## Anexo (30-08): respuestas para el formulario de auditoría, sección por sección
+
+Formulario: support.google.com/youtube/contact/yt_api_form, con la cuenta
+entenderchile@gmail.com. Datos fijos: Project number **456975949202** ·
+Project ID **entender-chile** · Cliente OAuth **workflow-entender-chile**
+(tipo Desktop) · Client ID `456975949202-8ai3tdjm9fbpv3b3gc0atdptgsggehdl.apps.googleusercontent.com`.
+
+1. **Tipo de solicitud**: la primera opción (auditoría de cumplimiento). No
+   pedimos más cuota: en el campo de cuota se declara que 10.000 basta.
+2. **Contacto y organización**: nombre Santiago Inostroza; correo
+   entenderchile@gmail.com; organización "Entender Chile" (creador
+   individual / individual developer); país Chile; sitio
+   https://sinostrozadev.github.io/entender-chile-web/.
+3. **Modelo de negocio y contactos de Google**: "Independent news channel;
+   revenue model is future YouTube Partner Program monetization of our own
+   channel. No Google contacts." (Sin contactos en Google: No.)
+4. **Descripción del cliente y acceso**: pegar:
+   "Internal automated publishing tool for our own news channel (Entender
+   Chile). Once a day it uploads our own produced videos to our own channel
+   (title, description, chapters, thumbnail, playlist) as private, so the
+   owner can review and schedule publication. Single authorized user: the
+   channel owner's account. Scopes: youtube.upload and youtube. It does not
+   access, collect, store or share any data from other YouTube users; the
+   only data stored are the IDs of our own uploaded videos, in our private
+   repository. API used: YouTube Data API v3."
+5. **Casos de uso y cuota**: "Daily usage ~6,700 units (4 video uploads,
+   thumbnails, playlist inserts, one metrics read). The default 10,000
+   units/day is sufficient; we are NOT requesting a quota extension. We
+   request the compliance audit so our own uploads via videos.insert can be
+   published/scheduled instead of being locked private."
+6. **Pruebas y documentación**: capturas de (a) YouTube Studio con los
+   videos subidos en privado por la API, (b) el log del workflow en GitHub
+   Actions mostrando la subida, (c) la página de privacidad
+   https://sinostrozadev.github.io/entender-chile-web/privacidad/.
+7. **Certificaciones**: marcar el cumplimiento de las políticas y Enviar.
+   Responden al correo del desarrollador; si repreguntan, pasarle la
+   pregunta a Claude para armar la respuesta.
+
+## Anexo: carátula del podcast por episodio
+
+Spotify y Apple muestran la PORTADA del programa (el monograma EC, ya en el
+feed) en cada episodio salvo que el feed traiga arte cuadrado por episodio
+(itunes:image por item, 1400-3000 px). Decisión 30-08: por ahora solo la
+portada del programa; arte por episodio queda como mejora futura (variante
+cuadrada de la miniatura + subirla al release + referenciarla en el feed).
