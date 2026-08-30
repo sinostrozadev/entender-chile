@@ -119,6 +119,7 @@ const descripcion = [parsed.descripcion || "", "", "Capítulos:", capitulos.trim
 const rutaDesc = path.join("contenido", "descripciones", `${fecha}-${etiqueta}.txt`);
 fs.mkdirSync(path.dirname(rutaDesc), { recursive: true });
 fs.writeFileSync(rutaDesc, descripcion);
+fs.copyFileSync(path.join(OUT, "parsed.json"), path.join(OUT, `parsed-${etiqueta}.json`)); // la Clave pisa parsed.json: copia por pieza (el 30-08 el informe subió con el título de la Clave)
 console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
 
 // Miniatura (1280x720, src/marca.tsx): la cifra principal del día + el título.

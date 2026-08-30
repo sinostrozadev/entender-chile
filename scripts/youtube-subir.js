@@ -37,6 +37,9 @@ const etiqueta = short ? (clave ? "short-clave" : "short") : clave ? "clave" : "
 const OUT = path.join("out", fecha);
 // el Short tiene su propia carpeta de trabajo (parsed.json con título y descripción)
 const DIR_PARSED = short ? path.join(OUT, etiqueta) : OUT;
+const RUTA_PARSED = short ? path.join(DIR_PARSED, "parsed.json")
+  : fs.existsSync(path.join(OUT, `parsed-${etiqueta}.json`)) ? path.join(OUT, `parsed-${etiqueta}.json`)
+  : path.join(OUT, "parsed.json"); // el compartido queda de respaldo
 
 const { YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN } = process.env;
 if (!YT_CLIENT_ID || !YT_CLIENT_SECRET || !YT_REFRESH_TOKEN) {
@@ -46,7 +49,7 @@ if (!YT_CLIENT_ID || !YT_CLIENT_SECRET || !YT_REFRESH_TOKEN) {
 
 const video = path.join(OUT, `${fecha}-${etiqueta}.mp4`);
 if (!fs.existsSync(video)) { console.error(`No existe ${video}`); process.exit(1); }
-const parsed = fs.existsSync(path.join(DIR_PARSED, "parsed.json")) ? JSON.parse(fs.readFileSync(path.join(DIR_PARSED, "parsed.json"), "utf8")) : {};
+const parsed = fs.existsSync(RUTA_PARSED) ? JSON.parse(fs.readFileSync(RUTA_PARSED, "utf8")) : {};
 const titulo = (parsed.titulo || `Entender Chile · ${fecha}`).slice(0, 100);
 const rutaDesc = path.join("contenido", "descripciones", `${fecha}-${etiqueta}.txt`);
 const descripcion = (short ? (parsed.descripcion || "") : (fs.existsSync(rutaDesc) ? fs.readFileSync(rutaDesc, "utf8") : "")).slice(0, 4900);

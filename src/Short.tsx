@@ -18,6 +18,7 @@ const CORTINA_SEG = 1.1;
 type Piel = { fondo: string; tinta: string; gris: string; acento: string; linea: string };
 const PAPEL: Piel = { fondo: tema.papel, tinta: tema.tinta, gris: tema.gris, acento: tema.patina, linea: tema.linea };
 const MARINO: Piel = { fondo: "#0F1A2B", tinta: "#EDE6DA", gris: "#B9B2A6", acento: "#D08A5B", linea: "#2A3648" };
+const VERDE: Piel = { fondo: "#14332C", tinta: "#EDE6DA", gris: "#B3BDB2", acento: "#D08A5B", linea: "#2A4A40" };
 
 // Zona segura de Shorts: la interfaz de YouTube tapa ~300 px abajo y ~150 px a
 // la derecha; arriba hay ~200 px con el título. Todo el contenido va dentro.
@@ -51,7 +52,10 @@ const Sello: React.FC<{ piel: Piel; fecha?: string; eyebrow?: string }> = ({ pie
   const salida = interpolate(frame, [(SELLO_SEG - 0.6) * fps, SELLO_SEG * fps], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const entrada = interpolate(frame, [0, 0.35 * fps], [0, 1], { extrapolateRight: "clamp" });
   return (
-    <AbsoluteFill style={{ backgroundColor: piel.fondo, opacity: salida, alignItems: "center", justifyContent: "center" }}>
+    // Sobre imagen de fondo el sello NO tapa con un color sólido: se ve la piel
+    // de la serie desde el primer cuadro (el 30-08 el de la Clave abría marino
+    // y recién después mostraba el verde). Solo un velo para leer el texto.
+    <AbsoluteFill style={{ backgroundColor: piel === PAPEL ? piel.fondo : "rgba(10,16,14,0.45)", opacity: salida, alignItems: "center", justifyContent: "center" }}>
       <div style={{ opacity: entrada, textAlign: "center", padding: `0 ${M}px` }}>
         <div style={{ fontFamily: tema.mono, fontSize: 26, letterSpacing: "0.26em", textTransform: "uppercase", color: piel.acento, marginBottom: 34 }}>{eyebrow ?? "Cinco cosas que hay que saber"}</div>
         <div style={{ fontFamily: tema.serif, fontSize: 118, fontWeight: 600, color: piel.tinta, lineHeight: 1.02 }}>Entender Chile</div>
@@ -128,7 +132,7 @@ export const ShortVideo: React.FC<Timeline> = (tl) => {
   const f = (s: number) => Math.round(s * fps);
   const HOLD = Math.round(fps * 0.3);
   const meta = tl.meta as Timeline["meta"] & { fondo?: string | null; handle?: string; eyebrow?: string; numerar?: boolean };
-  const piel = meta.fondo ? MARINO : PAPEL;
+  const piel = meta.fondo ? (meta.fondo.includes("clave") ? VERDE : MARINO) : PAPEL;
 
   const tesis = tl.eventos.filter((e) => e.tipo === "tesis");
   const datos = tl.eventos.filter((e) => e.tipo === "dato");
