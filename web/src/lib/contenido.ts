@@ -9,9 +9,9 @@ import { marked } from "marked";
 const RAIZ = path.resolve(process.cwd(), "..", "contenido");
 
 // Links del canal (web/canal.json). Vacío = no se muestra.
-export const canal: { youtube: string; whatsapp: string } = (() => {
+export const canal: { youtube: string; whatsapp: string; spotify: string } = (() => {
   try { return JSON.parse(fs.readFileSync(path.resolve(process.cwd(), "canal.json"), "utf8")); }
-  catch { return { youtube: "", whatsapp: "" }; }
+  catch { return { youtube: "", whatsapp: "", spotify: "" }; }
 })();
 
 // id de un video de YouTube a partir de su URL (watch, youtu.be, shorts, live)

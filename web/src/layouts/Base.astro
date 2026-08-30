@@ -44,6 +44,7 @@ const hoy = new Date().toISOString().slice(0, 10);
         <a href={url("en-que-quedo/")} aria-current={actual === "casos" ? "page" : undefined}>¿En qué quedó?</a>
         <a href={url("acerca/")} aria-current={actual === "acerca" ? "page" : undefined}>Acerca</a>
         {canal.youtube && <a class="suscribe" href={canal.youtube} rel="noopener">Suscríbete</a>}
+        {canal.spotify && <a class="suscribe" href={canal.spotify} rel="noopener">Podcast</a>}
         <span class="selector-diseno" role="group" aria-label="Elegir diseño">
           <span>Diseño</span>
           <button type="button" data-d="1" aria-pressed="true" title="Sobrio (actual)">1</button>
