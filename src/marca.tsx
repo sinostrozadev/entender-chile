@@ -87,7 +87,7 @@ const RootMarca: React.FC = () => (
       height={720}
       fps={1}
       durationInFrames={1}
-      defaultProps={{ titulo: "Desempleo llega a 9,5% y el Gobierno activa subsidios", cifra: "9,5%", etiqueta: "de desempleo, mayo-julio", fecha: "29-08-2026", seccion: "Empleo" }}
+      defaultProps={{ titulo: "", cifra: "", etiqueta: "", fecha: "", seccion: "", estilo: "marino" as const }}
     />
   </>
 );
