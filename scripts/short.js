@@ -80,7 +80,10 @@ const lineaDato = (d) => {
   // Un cambio, o una comparación de dos valores (antes y después), se muestra
   // como "antes -> después": mostrar solo el primero engaña (Codelco 29-08:
   // salía la ganancia de 2025 como si fuera la noticia).
-  if ((d.grafico === "cambio" || d.grafico === "comparacion" || d.grafico === "lineas") && s.length === 2) {
+  // Solo si las dos series miden lo mismo (misma unidad): "9,5%" y "0,8 pp" no
+  // son un antes y un después, son dos medidas (Clave del 29-08).
+  const mismaUnidad = s.length === 2 && s[0].num != null && s[1].num != null && (s[0].unidad || "") === (s[1].unidad || "");
+  if (d.grafico === "cambio" ? s.length === 2 : ((d.grafico === "comparacion" || d.grafico === "lineas") && mismaUnidad)) {
     const t = s[1].tendencia || (s[0].num != null && s[1].num != null ? { dir: s[1].num > s[0].num ? "sube" : s[1].num < s[0].num ? "baja" : "igual", sentido: null } : null);
     const ind = t && (t.dir || t.sentido) ? ` (${[t.dir, t.sentido].filter(Boolean).join(" ")})` : "";
     const etiqueta = d.grafico === "cambio" ? s[0].etiqueta : s[0].etiqueta.replace(/\s*\b(19|20)\d\d\b\s*$/, "").trim() || s[0].etiqueta;
@@ -94,8 +97,9 @@ const lineaDato = (d) => {
 // 30-08): en pantalla va el handle grande, en la voz "Entender Chile".
 const tituloClave = (parsed.titulo || "").replace(/\s*#\w+/g, "").trim();
 const tituloCorto = tituloClave ? tituloClave.charAt(0).toLowerCase() + tituloClave.slice(1) : "una clave de hoy";
+// Si el título de la Clave es una pregunta, se lee tal cual después de un punto.
 const apertura = esClave
-  ? `Una clave para entender las noticias: ${tituloCorto}.`
+  ? (/[?!]$/.test(tituloClave) ? `Una clave para entender las noticias. ${tituloClave}` : `Una clave para entender las noticias: ${tituloCorto}.`)
   : `Cinco cosas que hay que saber hoy, ${fechaLarga}.`;
 const cierreTexto = esClave
   ? "La Clave completa está en el canal Entender Chile."
