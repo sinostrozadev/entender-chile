@@ -26,6 +26,9 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 const KEY = process.env.AZURE_SPEECH_KEY;
 const REGION = process.env.AZURE_SPEECH_REGION;
 const VOICE = process.env.AZURE_VOICE || "es-CL-LorenzoNeural";
+// Velocidad de habla. Santiago (30-08): la lectura normal "es como si leyera
+// corriendo"; al 90% se aprecia mucho más. Se ajusta con AZURE_RATE (-8%, -12%...).
+const RATE = process.env.AZURE_RATE || "-10%";
 const PAUSA_SECCION_MS = 1200;
 const LIMITE = 5000; // caracteres por request; Azure corta el audio en 10 min por solicitud
 
@@ -80,8 +83,8 @@ function sintetizar(chunk) {
 
     const { esc, mapa } = escaparConMapa(chunk.texto);
     const brk = chunk.pausa ? `<break time="${PAUSA_SECCION_MS}ms"/>` : "";
-    const prefijo = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="es-CL"><voice name="${VOICE}">${brk}`;
-    const ssml = `${prefijo}${esc}</voice></speak>`;
+    const prefijo = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="es-CL"><voice name="${VOICE}"><prosody rate="${RATE}">${brk}`;
+    const ssml = `${prefijo}${esc}</prosody></voice></speak>`;
 
     const palabras = [];
     synth.wordBoundary = (_s, e) => {
