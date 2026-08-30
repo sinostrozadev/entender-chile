@@ -98,6 +98,7 @@ REGISTRO ORAL Y ANTI-PLANTILLA:
 - La construcción "no solo X, sino Y" como máximo una vez por guion.
 - Si el informe trae un ejemplo a escala humana ("para un sueldo de..."), nárralo: es el momento en que el oyente entiende. Nárralo como propio, sin mencionar el informe como documento: nunca "el informe usa una comparación", "según el informe de hoy". Para el oyente no existe ningún informe; existe lo que tú le cuentas.
 - Incisos con comas; nunca guiones ni rayas.
+- La FECHA EXACTA manda: si el informe da la fecha de un hecho, nunca la reemplaces por "esta semana", "hace unos días" o "recientemente", y menos en la frase que abre el bloque (hallazgo de la revisión del 30-08).
 - Nombres propios que suenan a persona o a cargo pero no lo son van con su categoría, siempre: "la división Ministro Hales de Codelco" (es una mina), "la comuna de Presidente Ibáñez", "el programa Chile Crece Contigo". Un oyente que no conoce el nombre debe entender qué es al oírlo.
 - Si el guion nombra el sitio del canal, lo nombra por su dominio y como se dice: "entenderchile punto cl". Nunca "el sitio" a secas.
 
