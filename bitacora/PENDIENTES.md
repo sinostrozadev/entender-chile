@@ -77,6 +77,19 @@ cuatro documentos con deriva puestos al día; render por push corregido
       un video, poner su id en `contenido/videos/FECHA-informe.txt` para que
       la web lo embeba; (3) borrar de Studio los dos videos de prueba del 29
       si no se van a publicar.
+- [ ] **Miniatura automática: lista, falta el teléfono.** `dia.js` genera
+      `out/FECHA/miniatura.png` (cifra principal + título) y `youtube-subir.js`
+      la pone al subir; YouTube la rechazó en la prueba ("no tiene permiso
+      para miniaturas personalizadas") porque el canal no tiene el teléfono
+      verificado: Studio → Settings → Channel → Feature eligibility →
+      Intermediate → Verify phone. Después, la sesión de la noche la pone en
+      el video de prueba jsr27ZICuQ4.
+- [ ] **Cambio de hora del 6 de septiembre (Chile pasa a UTC-3):** correr una
+      hora antes en UTC las rutinas de la nube (reloj del barrido 05:30 →
+      04:30, observatorio 05:45 → 04:45, revisión 08:40 → 07:40, guardián
+      10:00 → 09:00) y los crons de GitHub (barrido 05:50 → 04:50, respaldo
+      09:00 → 08:00). Las tareas de ChatGPT van en hora de Chile y no cambian.
+      Hacerlo la noche del 5-09.
 - [ ] **Shorts (informe y Clave), en el workflow desde el 30-08** (pasos 3b y
       4b; fondo marino por defecto; cierre "El informe completo de hoy está
       en el canal Entender Chile"). Faltan: (1) fondo propio para el Short de
