@@ -1,0 +1,142 @@
+#!/usr/bin/env node
+/**
+ * short.js - El Short diario: cinco cosas que hay que saber, en vertical.
+ *
+ * No necesita texto nuevo: toma las [TESIS] de los cinco primeros bloques de
+ * noticia del guion del día (ya parseado en out/FECHA/parsed.json) y la cifra
+ * principal de cada bloque, arma un guion corto con el MISMO formato de marcas
+ * y lo pasa por el pipeline de siempre: parse → voz (con pausa por sección,
+ * donde suena la cortina) → timeline → render con la composición Short
+ * (1080x1920, src/short-entry.tsx).
+ *
+ * Uso:
+ *   node scripts/short.js [--fecha AAAA-MM-DD] [--voz] [--fondo] [--render]
+ *
+ *   --voz     usa Azure si hay AZURE_SPEECH_KEY/REGION (si no, voz simulada)
+ *   --fondo   pone public/fondos/fondo-chile-vertical.png detrás (prueba)
+ *   --render  produce out/FECHA/FECHA-short.mp4 (o -short-fondo.mp4)
+ *
+ * Requiere que dia.js ya haya corrido ese día (existe out/FECHA/parsed.json).
+ */
+const fs = require("fs");
+const path = require("path");
+const { execFileSync } = require("child_process");
+
+const args = process.argv.slice(2);
+const opt = (n) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : null; };
+const fecha = opt("--fecha") || process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
+  timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
+}).format(new Date());
+const conVoz = args.includes("--voz");
+const conFondo = args.includes("--fondo");
+const conRender = args.includes("--render");
+const HANDLE = process.env.HANDLE || "@entenderchile";
+const FONDO = "fondos/fondo-chile-vertical.png";
+const CUANTAS = 5;
+
+const OUT_DIA = path.join("out", fecha);
+const OUT = path.join(OUT_DIA, "short");
+const rutaParsed = path.join(OUT_DIA, "parsed.json");
+if (!fs.existsSync(rutaParsed)) {
+  console.error(`No existe ${rutaParsed}: corre primero node scripts/dia.js (la edición del ${fecha}).`);
+  process.exit(1);
+}
+fs.mkdirSync(OUT, { recursive: true });
+const run = (script, extra, env = {}) =>
+  execFileSync("node", [path.join(__dirname, script), ...extra], { stdio: "inherit", env: { ...process.env, ...env } });
+
+// 1) Elegir los bloques: los cinco primeros de noticia (Apertura, Agenda,
+//    Dato curioso, En titulares y Cierre no cuentan) con su tesis y su cifra.
+const parsed = JSON.parse(fs.readFileSync(rutaParsed, "utf8"));
+const NO_NOTICIA = /apertura|cierre|agenda|dato curioso|en titulares|lo que queda|el tiempo/i;
+const bloques = [];
+let actual = null;
+for (const ev of parsed.eventos) {
+  if (ev.tipo === "seccion") { actual = { nombre: ev.texto, tesis: null, dato: null, fuente: null }; bloques.push(actual); continue; }
+  if (!actual) continue;
+  if (ev.tipo === "tesis" && !actual.tesis) { actual.tesis = ev; if (ev.fuenteSeccion) actual.fuente = ev.fuenteSeccion; }
+  if (ev.tipo === "dato" && !ev.automatico && !actual.dato && ev.series?.length) { actual.dato = ev; if (!actual.fuente) actual.fuente = ev.fuente; }
+}
+const elegidos = bloques.filter((b) => b.tesis && !NO_NOTICIA.test(b.nombre)).slice(0, CUANTAS);
+if (elegidos.length < 3) { console.error(`Solo ${elegidos.length} bloques con tesis: no da para un Short.`); process.exit(1); }
+
+// 2) Guion corto con las mismas marcas que el informe.
+const fechaLarga = (() => {
+  const t = new Intl.DateTimeFormat("es-CL", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" })
+    .format(new Date(`${fecha}T12:00:00Z`));
+  return t.charAt(0).toUpperCase() + t.slice(1);
+})();
+const lineaDato = (d) => {
+  const s = d.series;
+  // Un cambio, o una comparación de dos valores (antes y después), se muestra
+  // como "antes -> después": mostrar solo el primero engaña (Codelco 29-08:
+  // salía la ganancia de 2025 como si fuera la noticia).
+  if ((d.grafico === "cambio" || d.grafico === "comparacion" || d.grafico === "lineas") && s.length === 2) {
+    const t = s[1].tendencia || (s[0].num != null && s[1].num != null ? { dir: s[1].num > s[0].num ? "sube" : s[1].num < s[0].num ? "baja" : "igual", sentido: null } : null);
+    const ind = t && (t.dir || t.sentido) ? ` (${[t.dir, t.sentido].filter(Boolean).join(" ")})` : "";
+    const etiqueta = d.grafico === "cambio" ? s[0].etiqueta : s[0].etiqueta.replace(/\s*\b(19|20)\d\d\b\s*$/, "").trim() || s[0].etiqueta;
+    return `[DATO cambio | ${d.fuente}] ${etiqueta}: ${s[0].raw} -> ${s[1].raw}${ind}`;
+  }
+  const t = s[0].tendencia;
+  const ind = t && (t.dir || t.sentido) ? ` (${[t.dir, t.sentido].filter(Boolean).join(" ")})` : "";
+  return `[DATO cifra | ${d.fuente}] ${s[0].etiqueta}: ${s[0].raw}${ind}`;
+};
+const md = [
+  `Título sugerido: Cinco cosas que hay que saber hoy, ${fechaLarga} #Shorts`,
+  `Descripción sugerida: Las cinco noticias del día en un minuto. El informe completo, en el canal. #Shorts #Chile #noticias`,
+  "Guion:",
+  "## Apertura",
+  `[TESIS] Cinco cosas que hay que saber hoy, ${fechaLarga}.`,
+  ...elegidos.flatMap((b) => [
+    `## ${b.nombre}`,
+    ...(b.fuente ? [`[FUENTE ${b.fuente}]`] : []),
+    ...(b.dato ? [lineaDato(b.dato)] : []),
+    `[TESIS] ${b.tesis.texto}`,
+  ]),
+  "## Cierre",
+  "[TESIS] El informe completo está en el canal. Entender Chile.",
+  "Fuentes:",
+  ...(parsed.fuentes || []),
+  "",
+].join("\n");
+fs.writeFileSync(path.join(OUT, "guion.md"), md);
+console.log(`── Short del ${fecha}: ${elegidos.length} noticias ──`);
+elegidos.forEach((b, i) => console.log(`  ${i + 1}. [${b.nombre}] ${b.tesis.texto}${b.dato ? `  ·  ${b.dato.series[0].raw}` : ""}`));
+
+// 3) Pipeline de siempre.
+run("parse.js", [path.join(OUT, "guion.md"), OUT + "/"]);
+const azure = process.env.AZURE_SPEECH_KEY && process.env.AZURE_SPEECH_REGION;
+if (conVoz && azure) run("tts-azure.js", [path.join(OUT, "narracion.txt"), OUT + "/"]);
+else {
+  if (conVoz) console.log("(sin AZURE_SPEECH_KEY/REGION: voz simulada)");
+  run("mock-tts.js", [path.join(OUT, "narracion.txt"), path.join(OUT, "alignment.json")]);
+}
+let audio = null;
+if (fs.existsSync(path.join(OUT, "narracion.mp3"))) {
+  audio = `${fecha}-short.mp3`;
+  fs.mkdirSync("public", { recursive: true });
+  fs.copyFileSync(path.join(OUT, "narracion.mp3"), path.join("public", audio));
+}
+const son = (f) => (fs.existsSync(path.join("public", "musica", f)) ? `musica/${f}` : null);
+const env = { FECHA_EDICION: fecha, SERIE: "short" };
+const sello = son("sello.wav"); if (sello) env.LOGO = sello;
+const cortinas = ["cortina-a.wav", "cortina-b.wav", "cortina-c.wav"].map(son).filter(Boolean);
+if (cortinas.length) env.CORTINAS = cortinas.join(",");
+const cierre = son("cierre.wav"); if (cierre) env.CIERRE = cierre;
+run("build-timeline.js", [path.join(OUT, "parsed.json"), path.join(OUT, "alignment.json"), path.join(OUT, "timeline.json"), ...(audio ? [audio] : [])], env);
+
+// 4) Lo propio del Short en el timeline: formato vertical, handle y fondo.
+const tl = JSON.parse(fs.readFileSync(path.join(OUT, "timeline.json"), "utf8"));
+tl.meta.width = 1080; tl.meta.height = 1920;
+tl.meta.handle = HANDLE;
+tl.meta.fondo = conFondo && fs.existsSync(path.join("public", FONDO)) ? FONDO : null;
+fs.writeFileSync(path.join(OUT, "timeline.json"), JSON.stringify(tl, null, 2));
+console.log(`OK: Short de ${(tl.meta.duracionSeg / 60).toFixed(1)} min (${tl.meta.duracionSeg}s)${tl.meta.fondo ? " con fondo" : ""} → ${path.join(OUT, "timeline.json")}`);
+
+const video = path.join(OUT_DIA, `${fecha}-short${conFondo ? "-fondo" : ""}.mp4`);
+if (conRender) {
+  execFileSync("npx", ["remotion", "render", "src/short-entry.tsx", "Short", video, `--props=./${path.join(OUT, "timeline.json")}`], { stdio: "inherit" });
+  console.log(`\nListo: ${video}`);
+} else {
+  console.log(`\nPara verlo: npx remotion render src/short-entry.tsx Short ${video} --props=./${path.join(OUT, "timeline.json")}`);
+}
