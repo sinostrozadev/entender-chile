@@ -166,6 +166,10 @@ cuatro documentos con deriva puestos al día; render por push corregido
       `out/FECHA/miniatura.png` con `src/marca.tsx` (cifra = primer [DATO] del
       guion, titular = "Título sugerido"), la sube al release y
       `youtube-subir.js` ya la toma si existe.
+- [ ] **Panel interno: regenerarlo cada mañana** (sesión de la noche/mañana):
+      artifact privado con métricas, circuito, pendientes y documentos.
+      URL en la memoria del proyecto. Fase siguiente: gráfico de serie cuando
+      haya 5+ días de métricas.
 - [ ] **Informe diario de métricas para Santiago (pedido 30-08).** Cada
       mañana, junto con la revisión del embudo, entregarle métricas y
       análisis: vistas, me gusta, suscriptores, y en cuanto haya datos,
