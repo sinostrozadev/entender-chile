@@ -125,9 +125,14 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
 // Miniatura (1280x720, src/marca.tsx): la cifra principal del día + el título.
 // Cifra = el primer [DATO] que eligió el guion (no los automáticos). No bloquea.
 {
-  let seccion = "", dato = null;
+  // La cifra debe ser LA DE LA PORTADA (el primer bloque de noticia), no la
+  // primera del guion: el 30-08 salió "114 votos" junto al titular del Andalién.
+  let seccion = "", dato = null, bloquePortada = null;
   for (const e of parsed.eventos) {
-    if (e.tipo === "seccion") seccion = e.texto;
+    if (e.tipo === "seccion") { seccion = e.texto; continue; }
+    if (/apertura/i.test(seccion)) continue;
+    if (bloquePortada && seccion !== bloquePortada) break;
+    if (e.tipo === "tesis") bloquePortada = seccion;
     if (!dato && e.tipo === "dato" && !e.automatico && e.series?.length && e.series[0].raw) dato = { ...e, seccion };
   }
   const props = {

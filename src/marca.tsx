@@ -43,25 +43,35 @@ const Banner: React.FC<{ fondo?: string }> = ({ fondo }) => {
   );
 };
 
-type MiniaturaProps = { titulo: string; cifra?: string; etiqueta?: string; fecha?: string; seccion?: string };
+type MiniaturaProps = { titulo: string; cifra?: string; etiqueta?: string; fecha?: string; seccion?: string; estilo?: "papel" | "marino" };
 // Miniatura 1280x720: se ve a 200 px de ancho en el celular, así que hay dos
 // cosas y nada más: la cifra del día muy grande y el titular en una línea o dos.
-const Miniatura: React.FC<MiniaturaProps> = ({ titulo, cifra, etiqueta, fecha, seccion }) => {
-  const color = colorDeSeccion(seccion);
+const Miniatura: React.FC<MiniaturaProps> = ({ titulo, cifra, etiqueta, fecha, seccion, estilo = "marino" }) => {
+  const oscuro = estilo === "marino";
+  const color = oscuro ? "#D08A5B" : colorDeSeccion(seccion);
+  const tinta = oscuro ? "#EDE6DA" : tema.tinta;
+  const gris = oscuro ? "#C7BFB2" : tema.gris;
   return (
-    <AbsoluteFill style={{ backgroundColor: tema.papel, padding: 64, justifyContent: "space-between" }}>
-      <div style={{ position: "absolute", left: 32, top: 90, bottom: 90, width: 10, borderRadius: 5, backgroundColor: color }} />
-      <div style={{ ...estiloEyebrow, fontSize: 26, letterSpacing: "0.26em", color: tema.tinta }}>
+    <AbsoluteFill style={{ backgroundColor: oscuro ? "#0F1A2B" : tema.papel, padding: 64, justifyContent: "space-between" }}>
+      {oscuro ? (
+        <>
+          <Img src={staticFile("fondos/banner-fondo.png")} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+          <AbsoluteFill style={{ background: "linear-gradient(90deg, rgba(10,16,26,0.72) 0%, rgba(10,16,26,0.55) 60%, rgba(10,16,26,0.15) 100%)" }} />
+        </>
+      ) : (
+        <div style={{ position: "absolute", left: 32, top: 90, bottom: 90, width: 10, borderRadius: 5, backgroundColor: color }} />
+      )}
+      <div style={{ ...estiloEyebrow, fontSize: 28, letterSpacing: "0.26em", color: oscuro ? color : tema.tinta, position: "relative" }}>
         Entender Chile{fecha ? ` · ${fecha}` : ""}
       </div>
       {cifra ? (
-        <div>
-          <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: cifra.length > 6 ? 200 : 300, lineHeight: 0.95, color: tema.tinta, letterSpacing: "-0.02em" }}>{cifra}</div>
-          {etiqueta ? <div style={{ fontFamily: tema.sans, fontSize: 46, color: tema.gris, marginTop: 14 }}>{etiqueta}</div> : null}
+        <div style={{ position: "relative" }}>
+          <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: cifra.length > 6 ? 200 : 300, lineHeight: 0.95, color: tinta, letterSpacing: "-0.02em" }}>{cifra}</div>
+          {etiqueta ? <div style={{ fontFamily: tema.sans, fontSize: 48, color: gris, marginTop: 14 }}>{etiqueta}</div> : null}
         </div>
       ) : null}
-      {/* títulos largos bajan de cuerpo para no pasar de dos líneas */}
-      <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: cifra ? (titulo.length > 58 ? 54 : 64) : titulo.length > 58 ? 80 : 96, lineHeight: 1.12, color: tema.tinta, maxWidth: 1120 }}>{titulo}</div>
+      {/* títulos largos bajan de cuerpo; sin cifra, el título es el protagonista */}
+      <div style={{ position: "relative", fontFamily: tema.serif, fontWeight: 600, fontSize: cifra ? (titulo.length > 58 ? 54 : 64) : titulo.length > 58 ? 84 : 104, lineHeight: 1.1, color: tinta, maxWidth: 1050 }}>{titulo}</div>
     </AbsoluteFill>
   );
 };
