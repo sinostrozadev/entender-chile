@@ -1,0 +1,208 @@
+<title>Panel Entender Chile</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --fondo:#F2F2EF; --tarjeta:#FCFCFA; --tinta:#17191C; --gris:#6B6E6A;
+    --linea:#DFDFD8; --acento:#2F7263; --acento-suave:#E4EEEA; --cobre:#B5642F;
+    --barra:#2F7263; --barra-apagada:#C9CFC9;
+  }
+  :root:not([data-theme="light"]){}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --fondo:#0F1A2B; --tarjeta:#16233A; --tinta:#EDE6DA; --gris:#ADB3AC;
+      --linea:#26344C; --acento:#D08A5B; --acento-suave:#243247; --cobre:#D08A5B;
+      --barra:#D08A5B; --barra-apagada:#3A4A63;
+    }
+  }
+  :root[data-theme="dark"]{
+    --fondo:#0F1A2B; --tarjeta:#16233A; --tinta:#EDE6DA; --gris:#ADB3AC;
+    --linea:#26344C; --acento:#D08A5B; --acento-suave:#243247; --cobre:#D08A5B;
+    --barra:#D08A5B; --barra-apagada:#3A4A63;
+  }
+  body{background:var(--fondo);color:var(--tinta);font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+    font-size:15px;line-height:1.5;margin:0;padding:28px 20px 60px}
+  .marco{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+  .cab{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;
+    border-bottom:2px solid var(--tinta);padding-bottom:14px}
+  h1{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:30px;margin:0;letter-spacing:-.01em}
+  .fecha{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gris);letter-spacing:.06em}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--acento);margin:0 0 12px}
+  .fila{display:grid;gap:14px}
+  @media(min-width:760px){.f4{grid-template-columns:repeat(4,1fr)}.f2{grid-template-columns:1.25fr 1fr}.f3{grid-template-columns:repeat(3,1fr)}}
+  .tarjeta{background:var(--tarjeta);border:1px solid var(--linea);border-radius:10px;padding:18px 20px}
+  .tile .n{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:40px;line-height:1;
+    font-variant-numeric:tabular-nums}
+  .tile .d{font-size:13px;color:var(--gris);margin-top:6px}
+  .tile .delta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--acento)}
+  table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+  th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gris);text-align:left;font-weight:500;padding:6px 10px 8px;border-bottom:1px solid var(--linea)}
+  td{padding:8px 10px;border-bottom:1px solid var(--linea);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td.num,th.num{text-align:right}
+  .pill{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:2px 9px;border-radius:999px}
+  .pub{background:var(--acento-suave);color:var(--acento)}
+  .priv{background:transparent;color:var(--gris);border:1px solid var(--linea)}
+  .barra-fila{display:grid;grid-template-columns:minmax(150px,220px) 1fr 42px;gap:12px;align-items:center;padding:6px 0}
+  .barra-nombre{font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .barra-pista{background:none;height:18px;position:relative}
+  .barra-valor{height:18px;border-radius:0 4px 4px 0;background:var(--barra);min-width:2px}
+  .barra-valor.apagada{background:var(--barra-apagada)}
+  .barra-num{font-family:'IBM Plex Mono',monospace;font-size:13px;text-align:right;color:var(--tinta)}
+  ul{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+  li{padding-left:16px;position:relative}
+  li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:2px;background:var(--acento)}
+  li.suyo::before{background:var(--cobre)}
+  li small{color:var(--gris)}
+  a{color:var(--acento);text-decoration:none;border-bottom:1px solid transparent}
+  a:hover,a:focus-visible{border-bottom-color:var(--acento)}
+  a:focus-visible{outline:2px solid var(--acento);outline-offset:2px;border-radius:2px}
+  .enlaces{display:flex;flex-wrap:wrap;gap:8px}
+  .enlaces a{font-family:'IBM Plex Mono',monospace;font-size:12.5px;border:1px solid var(--linea);
+    border-radius:999px;padding:5px 14px;color:var(--tinta)}
+  .enlaces a:hover{border-color:var(--acento);color:var(--acento)}
+  .circuito{display:flex;flex-wrap:wrap;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:12px;align-items:center}
+  .paso{border:1px solid var(--linea);border-radius:6px;padding:4px 10px;background:var(--tarjeta)}
+  .paso b{color:var(--acento);font-weight:500}
+  .flecha{color:var(--gris)}
+  .nota{font-size:12.5px;color:var(--gris)}
+  .docs td:first-child{font-weight:500;white-space:nowrap}
+  @media(max-width:600px){.barra-fila{grid-template-columns:minmax(110px,150px) 1fr 40px}}
+</style>
+
+<div class="marco">
+  <div class="cab">
+    <h1>Panel Entender Chile</h1>
+    <div class="fecha">30-08-2026 · día 1 del canal en público</div>
+  </div>
+
+  <section>
+    <p class="eyebrow">Hoy</p>
+    <div class="fila f4">
+      <div class="tarjeta tile"><div class="n">2</div><div class="d">suscriptores <span class="delta">línea base</span></div></div>
+      <div class="tarjeta tile"><div class="n">22</div><div class="d">vistas en videos públicos</div></div>
+      <div class="tarjeta tile"><div class="n">4</div><div class="d">videos públicos (informe, Clave y 2 Shorts)</div></div>
+      <div class="tarjeta tile"><div class="n">155</div><div class="d">días para la meta YPP (1-feb-2027)</div></div>
+    </div>
+  </section>
+
+  <div class="fila f2">
+    <section class="tarjeta">
+      <p class="eyebrow">Vistas por video · 30-08</p>
+      <div class="barra-fila"><div class="barra-nombre">Short · Cinco cosas (30 ago)</div><div class="barra-pista"><div class="barra-valor" style="width:100%"></div></div><div class="barra-num">12</div></div>
+      <div class="barra-fila"><div class="barra-nombre">Short · Clave antena falsa</div><div class="barra-pista"><div class="barra-valor" style="width:42%"></div></div><div class="barra-num">5</div></div>
+      <div class="barra-fila"><div class="barra-nombre">Informe · Alerta Roja Andalién</div><div class="barra-pista"><div class="barra-valor" style="width:33%"></div></div><div class="barra-num">4</div></div>
+      <div class="barra-fila"><div class="barra-nombre">Clave · ¿Antena falsa?</div><div class="barra-pista"><div class="barra-valor" style="width:8%"></div></div><div class="barra-num">1</div></div>
+      <div class="barra-fila"><div class="barra-nombre">Pruebas del 29 (privados)</div><div class="barra-pista"><div class="barra-valor apagada" style="width:8%"></div></div><div class="barra-num">1</div></div>
+      <p class="nota">La lectura del día 1: el Short triplica al video largo, tal como el plan. Me gusta: 2 el informe, 2 el Short, 1 la Clave larga. Los números se actualizan cada mañana a las 09:00 (workflow Métricas) y este panel con la revisión de la mañana.</p>
+    </section>
+
+    <section class="tarjeta">
+      <p class="eyebrow">El circuito de cada madrugada</p>
+      <div class="circuito">
+        <span class="paso"><b>01:30</b> barrido</span><span class="flecha">→</span>
+        <span class="paso"><b>03:10</b> olla</span><span class="flecha">→</span>
+        <span class="paso"><b>03:30</b> informe</span><span class="flecha">→</span>
+        <span class="paso"><b>04:00</b> guiones</span><span class="flecha">→</span>
+        <span class="paso"><b>04:40</b> revisión</span><span class="flecha">→</span>
+        <span class="paso"><b>05:05</b> videos 1440p</span><span class="flecha">→</span>
+        <span class="paso">YouTube privado + podcast + web</span>
+      </div>
+      <p class="nota" style="margin-top:12px">Hoy: todo verde, revisión APROBADA (1 hallazgo menor, ya es regla del prompt). El tornado que ayer se escapó del embudo hoy abrió como [A]: la corroboración por alarma debutó bien.</p>
+      <p class="nota">Tu parte diaria: revisar en Studio → publicar o programar → vincular cada Short a su video. 3-5 minutos.</p>
+    </section>
+  </div>
+
+  <section class="tarjeta">
+    <p class="eyebrow">La lista de la madrugada · corrida del 30-08</p>
+    <div style="overflow-x:auto">
+    <table>
+      <tr><th>Hora</th><th>Paso</th><th>¿Cumplió?</th><th>Motivo y solución cuando no</th></tr>
+      <tr><td>01:30</td><td>Reloj del barrido (rutina en la nube toca el timbre)</td><td>✅</td><td></td></tr>
+      <tr><td>01:31</td><td>Barrido de 22 fuentes → archivo con señal</td><td>✅</td><td></td></tr>
+      <tr><td>01:45</td><td>Observatorio de plata pública (dossiers + hitos)</td><td>✅</td><td>trajo la novedad de Cathy Barriga/Lavín que salió en ¿En qué quedó?</td></tr>
+      <tr><td>03:10</td><td>Preselección (la olla, ~40 candidatas)</td><td>✅</td><td></td></tr>
+      <tr><td>03:30</td><td>Informe completo (4A+13B+8C, 24 descartes con motivo)</td><td>✅</td><td></td></tr>
+      <tr><td>03:45</td><td>Clave del día</td><td>✅</td><td></td></tr>
+      <tr><td>04:00</td><td>Guion del informe (a la hora, con [FUENTE] y En titulares)</td><td>✅</td><td>los indicadores (sube/baja) aún sin usar: se vigila mañana</td></tr>
+      <tr><td>04:15</td><td>Guion de la Clave</td><td>✅</td><td></td></tr>
+      <tr><td>04:40</td><td>Revisión editorial → VEREDICTO</td><td>✅</td><td>APROBADA, 1 hallazgo menor ("esta semana" vs fecha exacta) → ya es regla del prompt</td></tr>
+      <tr><td>04:41</td><td>Render del informe con voz (timbre por push)</td><td>✅</td><td></td></tr>
+      <tr><td>~05:10</td><td>Short del informe</td><td>✅</td><td></td></tr>
+      <tr><td>~05:35</td><td>Clave en video + su Short</td><td>⚠️</td><td>el Short de la Clave abrió con fondo marino en vez del verde → corregido (piel verde desde el sello)</td></tr>
+      <tr><td>~05:40</td><td>Release del día (4 mp4 + 2 mp3)</td><td>⚠️</td><td>el mp3 de la Clave pisó al del informe (mismo nombre) → corregido (nombre por pieza)</td></tr>
+      <tr><td>~05:40</td><td>Subida a YouTube en privado (4 videos, títulos, playlists)</td><td>⚠️</td><td>el informe subió con el título de la Clave (archivo compartido) → corregido en vivo y en el código; carátulas no entraron (el teléfono se verificó a mediodía) → desde mañana automáticas; Shorts sin descripción (línea inline) → corregido</td></tr>
+      <tr><td>~05:45</td><td>Episodios del podcast (informe y Clave)</td><td>⚠️</td><td>no existía aún el AUDIO_TOKEN → se subieron a mano; token cargado y verificado, desde mañana automático</td></tr>
+      <tr><td>~05:45</td><td>Web republicada con la edición</td><td>✅</td><td></td></tr>
+      <tr><td>09:00</td><td>Métricas del canal al repo</td><td>✅</td><td>hoy corrió a mano (workflow recién creado); mañana en su horario</td></tr>
+    </table>
+    </div>
+    <p class="nota" style="margin-top:12px">Los ⚠️ del día 1 fueron todos de estreno y todos quedaron corregidos el mismo día: mañana esta lista debería salir completa en verde. Se actualiza cada mañana con la revisión.</p>
+  </section>
+
+  <section class="tarjeta">
+    <p class="eyebrow">Consumo y cuotas</p>
+    <div style="overflow-x:auto">
+    <table>
+      <tr><th>Servicio</th><th class="num">Hoy</th><th class="num">Proyección al mes</th><th class="num">Cupo</th><th>Estado</th><th class="num">Costo</th></tr>
+      <tr><td>Voz Azure (F0 gratis)</td><td class="num">~29.000 caracteres</td><td class="num">~870.000</td><td class="num">500.000/mes</td><td><span class="pill" style="background:transparent;color:var(--cobre);border:1px solid var(--cobre)">decisión</span></td><td class="num">$0</td></tr>
+      <tr><td>GitHub Actions (privado)</td><td class="num">~62 min</td><td class="num">~1.860 min</td><td class="num">2.000/mes</td><td><span class="pill" style="background:transparent;color:var(--cobre);border:1px solid var(--cobre)">al 93%</span></td><td class="num">$0</td></tr>
+      <tr><td>API de YouTube</td><td class="num">~6.700 unidades</td><td class="num">—</td><td class="num">10.000/día</td><td><span class="pill pub">ok</span></td><td class="num">$0</td></tr>
+      <tr><td>GitHub releases (videos y mp3)</td><td class="num">~150 MB</td><td class="num">~4,5 GB</td><td class="num">sin cobro hoy</td><td><span class="pill pub">ok</span></td><td class="num">$0</td></tr>
+      <tr><td>GitHub Pages (web + feed)</td><td class="num">mínimo</td><td class="num">—</td><td class="num">100 GB/mes</td><td><span class="pill pub">ok</span></td><td class="num">$0</td></tr>
+      <tr><td>Spotify (podcast por RSS)</td><td class="num">—</td><td class="num">—</td><td class="num">sin límite</td><td><span class="pill pub">ok</span></td><td class="num">$0</td></tr>
+    </table>
+    </div>
+    <p class="nota" style="margin-top:12px"><b>Las dos decisiones que esto deja sobre la mesa:</b> (1) con la Clave diaria con voz, el cupo gratis de Azure dura ~17 días del mes: pasar a plan S0 costaría ~US$14/mes por TODA la voz, o se puede dejar la Clave sin audio algunos días; (2) GitHub Actions va al 93% del cupo: si un mes se pasa, son ~US$0,008 por minuto extra (unos US$2-5). Todo lo demás: $0. Aparte corren tus suscripciones existentes de ChatGPT y Claude, y el dominio entenderchile.cl cuando lo compres (~$10.000 CLP/año en NIC).</p>
+  </section>
+
+  <div class="fila f2">
+    <section class="tarjeta">
+      <p class="eyebrow">Pendientes tuyos <span style="color:var(--cobre)">■</span></p>
+      <ul>
+        <li class="suyo"><b>Auditoría de la API de YouTube</b> — el formulario que permite publicar/programar automático. <small>15 min, guía en la conversación y en docs/youtube.md</small></li>
+        <li class="suyo"><b>Facebook</b> — crear la página y partir con Reels manuales. <small>plan en ideas/facebook.md</small></li>
+        <li class="suyo"><b>Tagline</b> — "El resumen sin gritos" en duda. <small>alternativas en ideas/tagline-alternativas.md</small></li>
+        <li class="suyo"><b>Noticias que faltaron el 29</b> según tu ojo — nómbralas para rastrear en qué etapa se perdieron.</li>
+      </ul>
+    </section>
+    <section class="tarjeta">
+      <p class="eyebrow">Pendientes del sistema <span style="color:var(--acento)">■</span></p>
+      <ul>
+        <li><b>Métricas fase 2</b>: retención y swipe-away (reautorizar con el scope de Analytics, 5 min juntos).</li>
+        <li><b>Verificador de fuentes</b>: abrir las URLs citadas y comprobar las cifras (una noche).</li>
+        <li><b>Cold open</b>: la cifra del día antes del sello (una noche).</li>
+        <li><b>Cambio de hora del 6-09</b>: correr los relojes UTC la noche del 5.</li>
+        <li><b>Secciones Plata pública y Educación</b> + ¿Lo cumplió? (línea base Servel).</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="tarjeta">
+    <p class="eyebrow">Documentos del proyecto</p>
+    <table class="docs">
+      <tr><td><a href="https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md">bitácora / PENDIENTES</a></td><td class="nota">La lista viva completa, con el detalle de cada punto de arriba.</td></tr>
+      <tr><td><a href="https://github.com/sinostrozadev/entender-chile/tree/main/bitacora/metricas">bitácora / métricas</a></td><td class="nota">Un archivo por día con deltas; los analizamos cada mañana.</td></tr>
+      <tr><td><a href="https://github.com/sinostrozadev/entender-chile/tree/main/estrategia">estrategia/</a></td><td class="nota">Identidad, público, hoja de ruta, modelo de negocio, decisiones (el registro de aporte humano que pide YouTube).</td></tr>
+      <tr><td><a href="https://github.com/sinostrozadev/entender-chile/tree/main/prompts">prompts/</a></td><td class="nota">La única fuente de verdad de los prompts + CALIDAD.md (rúbrica y bitácora de calidad).</td></tr>
+      <tr><td><a href="https://github.com/sinostrozadev/entender-chile/tree/main/ideas">ideas/</a></td><td class="nota">Backlog: viralización, Shorts, promesas de campaña, fondos, Facebook y más.</td></tr>
+      <tr><td><a href="https://github.com/sinostrozadev/entender-chile/blob/main/docs/youtube.md">docs / youtube.md</a></td><td class="nota">Todo lo operativo de YouTube: canal, API, auditoría, monetización.</td></tr>
+    </table>
+    <p class="nota">Los enlaces abren el repo privado: solo tú los ves (sesión de GitHub iniciada).</p>
+  </section>
+
+  <section class="tarjeta">
+    <p class="eyebrow">Distribución</p>
+    <div class="enlaces">
+      <a href="https://www.youtube.com/@entenderchile">YouTube @entenderchile</a>
+      <a href="https://studio.youtube.com">Studio</a>
+      <a href="https://open.spotify.com/show/2Ay5U3wUiQ0RaDbeakqGVp">Spotify (podcast)</a>
+      <a href="https://sinostrozadev.github.io/entender-chile-web/">La web</a>
+      <a href="https://sinostrozadev.github.io/entender-chile-web/podcast.xml">Feed RSS</a>
+      <a href="https://github.com/sinostrozadev/entender-chile/releases">Releases (videos y mp3)</a>
+    </div>
+  </section>
+
+  <p class="nota">Panel interno · se regenera cada mañana junto con la revisión del embudo · última actualización 30-08-2026 por la tarde (checklist de la madrugada + consumo y cuotas).</p>
+</div>
