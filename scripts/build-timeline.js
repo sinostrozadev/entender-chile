@@ -58,6 +58,16 @@ parsed.eventos.forEach((ev, idx) => {
     }
   }
 });
+// tarjetas de titulares: toman el intervalo completo de sus frases, con el
+// tiempo de cada una para destacar la activa
+for (const ev of parsed.eventos) {
+  if (ev.tipo !== "titulares" || !ev.itemsIdx) continue;
+  const items = ev.itemsIdx.map((i) => porIndice.get(i)).filter(Boolean)
+    .map((e) => ({ texto: e.textoPantalla || e.texto, from: e.from, to: e.to }));
+  if (!items.length) continue;
+  eventos.push({ tipo: "titulares", items, seccion: "En titulares", from: Number((items[0].from - 0.1).toFixed(3)), to: items[items.length - 1].to });
+}
+
 // agrupar dato/esquema por ancla para repartirse el intervalo del párrafo
 const grupos = new Map();
 parsed.eventos.forEach((ev) => {

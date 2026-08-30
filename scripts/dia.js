@@ -135,12 +135,24 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
     if (e.tipo === "tesis") bloquePortada = seccion;
     if (!dato && e.tipo === "dato" && !e.automatico && e.series?.length && e.series[0].raw) dato = { ...e, seccion };
   }
+  // extractos: las tesis de los dos bloques siguientes, como textura desvanecida
+  const tesis = [];
+  {
+    let sec = "", vistos = new Set();
+    for (const e of parsed.eventos) {
+      if (e.tipo === "seccion") { sec = e.texto; continue; }
+      if (/apertura|cierre|agenda|dato curioso|en titulares/i.test(sec)) continue;
+      if (e.tipo === "tesis" && !vistos.has(sec)) { vistos.add(sec); tesis.push(e.texto); }
+    }
+  }
   const props = {
     titulo: parsed.titulo || "",
     fecha: fecha.split("-").reverse().join("-"),
     cifra: dato ? dato.series[0].raw : "",
     etiqueta: dato ? dato.series[0].etiqueta : "",
     seccion: dato ? dato.seccion : "",
+    estilo: esClave ? "verde" : "marino",
+    extractos: esClave ? [] : tesis.slice(1, 3),
   };
   const mini = path.join(OUT, esClave ? "miniatura-clave.png" : "miniatura.png");
   try {

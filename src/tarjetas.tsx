@@ -6,7 +6,8 @@ import { tema, estiloEyebrow, estiloFuente, colorDeSeccion } from "./tema";
 export type Tendencia = { dir: "sube" | "baja" | "igual" | null; sentido: "bien" | "mal" | null };
 export type Serie = { etiqueta: string; num: number | null; unidad: string; raw: string; tendencia?: Tendencia };
 export type Evento = {
-  tipo: "tesis" | "narracion" | "cita" | "dato" | "esquema" | "seccion";
+  tipo: "tesis" | "narracion" | "cita" | "dato" | "esquema" | "seccion" | "titulares";
+  items?: { texto: string; from: number; to: number }[];
   texto?: string;
   textoPantalla?: string;      // el texto con los números en numerales (la voz lee `texto`)
   fuenteSeccion?: string;      // fuente principal del bloque: va al pie de todas sus tarjetas
@@ -328,6 +329,31 @@ export const TarjetaEsquema: React.FC<{ ev: Evento }> = ({ ev }) => {
   );
 };
 
+// "Y en titulares": hasta 4 frases por tarjeta; la que la voz está leyendo va
+// encendida y las demás atenuadas. El barrido se VE avanzar sin cambiar de
+// tarjeta a cada frase (16 tarjetas seguidas eran una cola de 2 minutos).
+export const TarjetaTitulares: React.FC<{ ev: Evento }> = ({ ev }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const t = ev.from + frame / fps;
+  const items = ev.items ?? [];
+  return (
+    <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuenteSeccion} />}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 44 }}>
+        {items.map((it, i) => {
+          const activa = t >= it.from - 0.15 && t < (items[i + 1]?.from ?? 9e9);
+          return (
+            <div key={i} style={{ display: "flex", gap: 30, alignItems: "flex-start", opacity: activa ? 1 : 0.38, transition: "opacity 120ms" }}>
+              <div style={{ width: 10, alignSelf: "stretch", borderRadius: 5, backgroundColor: activa ? tema.patina : tema.linea, flexShrink: 0 }} />
+              <div style={{ fontFamily: tema.sans, fontSize: 38, lineHeight: 1.35, color: tema.tinta, maxWidth: 1280 }}>{it.texto}</div>
+            </div>
+          );
+        })}
+      </div>
+    </Marco>
+  );
+};
+
 export const SeccionBanner: React.FC<{ texto: string }> = ({ texto }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -437,6 +463,8 @@ export const Tarjeta: React.FC<{ ev: Evento }> = ({ ev }) => {
       return <TarjetaDato ev={ev} />;
     case "esquema":
       return <TarjetaEsquema ev={ev} />;
+    case "titulares":
+      return <TarjetaTitulares ev={ev} />;
     case "narracion":
     default:
       return <TarjetaParrafo ev={ev} />;

@@ -43,26 +43,45 @@ const Banner: React.FC<{ fondo?: string }> = ({ fondo }) => {
   );
 };
 
-type MiniaturaProps = { titulo: string; cifra?: string; etiqueta?: string; fecha?: string; seccion?: string; estilo?: "papel" | "marino" };
+type MiniaturaProps = { titulo: string; cifra?: string; etiqueta?: string; fecha?: string; seccion?: string; estilo?: "papel" | "marino" | "verde"; extractos?: string[] };
 // Miniatura 1280x720: se ve a 200 px de ancho en el celular, así que hay dos
 // cosas y nada más: la cifra del día muy grande y el titular en una línea o dos.
-const Miniatura: React.FC<MiniaturaProps> = ({ titulo, cifra, etiqueta, fecha, seccion, estilo = "marino" }) => {
-  const oscuro = estilo === "marino";
+// hash simple y estable de la fecha: cada día los extractos caen distinto,
+// pero la misma edición siempre genera la misma carátula.
+const semilla = (txt: string) => { let h = 0; for (const c of txt) h = (h * 31 + c.charCodeAt(0)) % 9973; return h; };
+const Miniatura: React.FC<MiniaturaProps> = ({ titulo, cifra, etiqueta, fecha, seccion, estilo = "marino", extractos = [] }) => {
+  const oscuro = estilo !== "papel";
+  const fondoImg = estilo === "verde" ? "fondos/fondo-clave-vertical.png" : "fondos/banner-fondo.png";
+  const base = estilo === "verde" ? "#14332C" : "#0F1A2B";
+  const velo = estilo === "verde" ? "20,40,35" : "10,16,26";
   const color = oscuro ? "#D08A5B" : colorDeSeccion(seccion);
   const tinta = oscuro ? "#EDE6DA" : tema.tinta;
   const gris = oscuro ? "#C7BFB2" : tema.gris;
+  const h = semilla(fecha || titulo);
   return (
-    <AbsoluteFill style={{ backgroundColor: oscuro ? "#0F1A2B" : tema.papel, padding: 64, justifyContent: "space-between" }}>
+    <AbsoluteFill style={{ backgroundColor: oscuro ? base : tema.papel, padding: 64, justifyContent: "space-between" }}>
       {oscuro ? (
         <>
-          <Img src={staticFile("fondos/banner-fondo.png")} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-          <AbsoluteFill style={{ background: "linear-gradient(90deg, rgba(10,16,26,0.72) 0%, rgba(10,16,26,0.55) 60%, rgba(10,16,26,0.15) 100%)" }} />
+          <Img src={staticFile(fondoImg)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+          <AbsoluteFill style={{ background: `linear-gradient(90deg, rgba(${velo},0.72) 0%, rgba(${velo},0.55) 60%, rgba(${velo},0.15) 100%)` }} />
         </>
       ) : (
         <div style={{ position: "absolute", left: 32, top: 90, bottom: 90, width: 10, borderRadius: 5, backgroundColor: color }} />
       )}
-      <div style={{ ...estiloEyebrow, fontSize: 28, letterSpacing: "0.26em", color: oscuro ? color : tema.tinta, position: "relative" }}>
-        Entender Chile{fecha ? ` · ${fecha}` : ""}
+      {/* extractos desvanecidos: textura de "hay más adentro", nunca compiten con el titular */}
+      {oscuro && extractos.slice(0, 2).map((ex, i) => {
+        const ang = ((h >> (i * 3)) % 7) - 3;                       // -3°..3°
+        const top = i === 0 ? 70 + (h % 40) : 300 + (h % 60);
+        const left = i === 0 ? 620 + (h % 90) : 700 + ((h >> 2) % 80);
+        return (
+          <div key={i} style={{ position: "absolute", top, left, width: 480, transform: `rotate(${ang}deg)`, opacity: 0.30, WebkitMaskImage: "linear-gradient(90deg, transparent, black 18%, black 82%, transparent)", maskImage: "linear-gradient(90deg, transparent, black 18%, black 82%, transparent)" }}>
+            <div style={{ fontFamily: tema.serif, fontSize: 30, lineHeight: 1.35, color: tinta, maxHeight: 120, overflow: "hidden" }}>{ex}</div>
+          </div>
+        );
+      })}
+      <div style={{ position: "relative", display: "flex", alignItems: "baseline", gap: 26 }}>
+        <div style={{ ...estiloEyebrow, fontSize: 28, letterSpacing: "0.26em", color: oscuro ? color : tema.tinta }}>Entender Chile</div>
+        {fecha ? <div style={{ fontFamily: tema.mono, fontSize: 40, letterSpacing: "0.06em", color: tinta }}>{fecha}</div> : null}
       </div>
       {cifra ? (
         <div style={{ position: "relative" }}>

@@ -228,6 +228,31 @@ function parseGuion(md) {
     eventos.splice(i, 0, { tipo: "dato", grafico: "cifra", automatico: true, fuente: ev.fuenteSeccion || null, fuenteSeccion: ev.fuenteSeccion, series: [{ etiqueta: c.etiqueta, ...parseNumero(c.raw) }] });
   }
 
+  // "En titulares" agrupado (decidido el 30-08): la voz lee frase a frase, pero
+  // en pantalla van tarjetas de a 4 con la frase activa destacada. 16 tarjetas
+  // de una frase hacían de la cola un desfile de 2 minutos.
+  {
+    const iSec = eventos.findIndex((e) => e.tipo === "seccion" && /^en titulares$/i.test(e.texto));
+    if (iSec >= 0) {
+      let fin = eventos.findIndex((e, i) => i > iSec && e.tipo === "seccion");
+      if (fin < 0) fin = eventos.length;
+      const frases = [];
+      for (let i = iSec + 1; i < fin; i++) if (eventos[i].tipo === "narracion") frases.push(i);
+      if (frases.length > 2) {
+        const grupos = [];
+        for (let i = 0; i < frases.length; i += 4) grupos.push(frases.slice(i, i + 4));
+        if (grupos.length > 1 && grupos[grupos.length - 1].length < 3) {
+          grupos[grupos.length - 2].push(...grupos.pop());
+        }
+        // se insertan al final; build-timeline los ordena por tiempo
+        for (const g of grupos) {
+          for (const i of g) eventos[i].soporte = true;
+          eventos.push({ tipo: "titulares", itemsIdx: g });
+        }
+      }
+    }
+  }
+
   // Texto limpio + offsets, y anclaje de eventos no narrados
   let cleanText = "";
   const SEP = "\n\n";
