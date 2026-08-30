@@ -14,3 +14,6 @@
 - negociación colectiva reglada, huelga legal y mediación obligatoria | Sindicato de Albemarle vota huelga legal para el 2 de septiembre | 2026-08-29
 - becas médicas financiadas por el Estado y obligación de devolución mediante trabajo asistencial | Contraloría detecta médicos becados que trabajaron menos de seis meses de seis años obligatorios | 2026-08-29
 - Sistema de Evaluación de Impacto Ambiental y qué significa que un proyecto ingrese a evaluación | Megaproyecto solar por US$593 millones ingresa a evaluación ambiental en Antofagasta | 2026-08-29
+- legítima defensa privilegiada y uso de la fuerza por policías y militares fuera de servicio | Proyecto para ampliar la legítima defensa privilegiada de policías y militares de franco llega al Senado | 2026-08-30
+- alertas de Senapred, umbrales hidrométricos y mensajes SAE | Concepción entra en Alerta Roja por el aumento del río Andalién | 2026-08-30
+- funciones, límites y responsabilidad política de los embajadores como representantes del Estado | Comunidad Palestina emplaza al Presidente Kast y el embajador Zaliasnik lamenta sus declaraciones | 2026-08-30
