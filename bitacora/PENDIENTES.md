@@ -166,6 +166,28 @@ cuatro documentos con deriva puestos al día; render por push corregido
       `out/FECHA/miniatura.png` con `src/marca.tsx` (cifra = primer [DATO] del
       guion, titular = "Título sugerido"), la sube al release y
       `youtube-subir.js` ya la toma si existe.
+- [ ] **Informe diario de métricas para Santiago (pedido 30-08).** Cada
+      mañana, junto con la revisión del embudo, entregarle métricas y
+      análisis: vistas, me gusta, suscriptores, y en cuanto haya datos,
+      retención por video y swipe-away de Shorts. Fase 1 (ya posible): la
+      sesión de la mañana los saca con la Data API (el token ya sirve) y los
+      deja en bitacora/metricas/FECHA.md + resumen en conversación. Fase 2:
+      retención e impresiones piden el scope yt-analytics.readonly → re-correr
+      youtube-auth.js una vez con ese scope agregado. Fase 3: **página
+      interna** con la serie completa (opciones: artifact privado de Claude
+      actualizado a diario, o /interno en la web con URL no listada; decidir
+      con Santiago qué más quiere ahí: embudo, costos, cuotas).
+- [ ] **Podcast (Spotify y compañía), lado de Santiago:** (1) crear el PAT
+      `AUDIO_TOKEN` (github.com → Settings → Developer settings → Fine-grained
+      tokens → repo entender-chile-web, permiso Contents: Read and write) y
+      cargarlo como secret del repo entender-chile para que el episodio se
+      suba solo cada día; (2) en creators.spotify.com: crear el programa
+      eligiendo "Tengo un feed RSS" con
+      https://sinostrozadev.github.io/entender-chile-web/podcast.xml
+      (la verificación llega al correo entenderchile@gmail.com). El mismo
+      feed sirve para Apple Podcasts y Amazon Music si se quiere.
+- [ ] **Facebook**: plan por etapas en `ideas/facebook.md` (página + Reels
+      manuales dos semanas + medir antes de automatizar).
 - [ ] **Mirar el 30-08 con lupa, primera edición con las reglas nuevas:**
       (1) que las [A] respondan las cinco preguntas sin inflarse; (2) que
       "Además, hoy" traiga todo lo verificable sin volverse basurero; (3) que

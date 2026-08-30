@@ -11,6 +11,7 @@ on:
       - "contenido/claves/**"
       - "contenido/casos/**"
       - "contenido/videos/**"
+      - "contenido/podcast/**"
       - "web/**"
       - ".github/workflows/web.yml"
   workflow_dispatch:

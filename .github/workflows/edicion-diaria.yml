@@ -161,7 +161,7 @@ jobs:
           gh release create "$TAG" --title "Edición $FECHA" --notes-file "$NOTAS" \
             || echo "release ya existía, subiendo archivos"
           gh release upload "$TAG" out/$FECHA/*.mp4 --clobber
-          if ls out/$FECHA/*.mp3 >/dev/null 2>&1; then gh release upload "$TAG" out/$FECHA/*.mp3 --clobber; fi
+          if ls public/$FECHA-*.mp3 >/dev/null 2>&1; then gh release upload "$TAG" public/$FECHA-*.mp3 --clobber; fi
 
       # Sube el informe a YouTube como PRIVADO si existen los tres secrets
       # (docs/youtube.md). Sin secrets no hace nada y no falla. Publicar sigue
@@ -181,3 +181,17 @@ jobs:
           if [ -f "out/$FECHA/$FECHA-short.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --short; fi
           if [ -f "out/$FECHA/$FECHA-clave.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --clave; fi
           if [ -f "out/$FECHA/$FECHA-short-clave.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --short --clave; fi
+
+      # El informe como episodio de podcast (Spotify y compañía leen el RSS solos).
+      # Necesita el secret AUDIO_TOKEN (PAT fino con contents:write sobre
+      # entender-chile-web); sin él, avisa y sigue.
+      - name: 7b · Episodio del podcast (si hay AUDIO_TOKEN)
+        env:
+          GH_TOKEN: ${{ secrets.AUDIO_TOKEN }}
+        if: env.SALTAR != '1'
+        continue-on-error: true
+        run: |
+          if [ -z "$GH_TOKEN" ]; then echo "Sin AUDIO_TOKEN: no hay episodio de podcast."; exit 0; fi
+          node scripts/podcast-subir.js --fecha "$FECHA"
+          git config user.name "edicion-bot"; git config user.email "bot@users.noreply.github.com"
+          git add contenido/podcast/ && { git diff --cached --quiet || { git commit -m "podcast $FECHA [bot]"; git pull --rebase; git push; }; }
