@@ -147,7 +147,7 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
   }
   const props = {
     titulo: parsed.titulo || "",
-    fecha: fecha.split("-").reverse().join("-"),
+    fecha: esClave ? "" : fecha.split("-").reverse().join("-"), // la Clave es atemporal: sin fecha (Santiago, 30-08)
     cifra: dato ? dato.series[0].raw : "",
     etiqueta: dato ? dato.series[0].etiqueta : "",
     seccion: dato ? dato.seccion : "",
