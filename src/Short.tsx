@@ -125,8 +125,8 @@ export const ShortVideo: React.FC<Timeline> = (tl) => {
     <AbsoluteFill style={{ backgroundColor: piel.fondo }}>
       {meta.fondo ? (
         <>
-          {/* un 6% más grande y anclada arriba: recorta el borde inferior de la imagen */}
-          <Img src={staticFile(meta.fondo)} style={{ position: "absolute", width: "106%", height: "106%", left: "-3%", top: 0, objectFit: "cover", objectPosition: "center top" }} />
+          {/* un 12% más grande y anclada arriba: recorta el borde inferior (ahí la imagen trae una marca de agua) */}
+          <Img src={staticFile(meta.fondo)} style={{ position: "absolute", width: "112%", height: "112%", left: "-6%", top: 0, objectFit: "cover", objectPosition: "center top" }} />
           {/* velo: oscuro donde va el texto (izquierda y abajo), más abierto sobre el mapa */}
           <AbsoluteFill style={{ background: "linear-gradient(90deg, rgba(15,26,43,0.88) 0%, rgba(15,26,43,0.72) 55%, rgba(15,26,43,0.38) 100%)" }} />
           <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(15,26,43,0.35) 0%, rgba(15,26,43,0) 30%, rgba(15,26,43,0) 70%, rgba(15,26,43,0.75) 100%)" }} />
