@@ -60,7 +60,8 @@ const Miniatura: React.FC<MiniaturaProps> = ({ titulo, cifra, etiqueta, fecha, s
           {etiqueta ? <div style={{ fontFamily: tema.sans, fontSize: 46, color: tema.gris, marginTop: 14 }}>{etiqueta}</div> : null}
         </div>
       ) : null}
-      <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: cifra ? 64 : 96, lineHeight: 1.12, color: tema.tinta, maxWidth: 1100 }}>{titulo}</div>
+      {/* títulos largos bajan de cuerpo para no pasar de dos líneas */}
+      <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: cifra ? (titulo.length > 58 ? 54 : 64) : titulo.length > 58 ? 80 : 96, lineHeight: 1.12, color: tema.tinta, maxWidth: 1120 }}>{titulo}</div>
     </AbsoluteFill>
   );
 };
