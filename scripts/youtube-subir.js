@@ -24,6 +24,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const { execFileSync } = require("child_process");
 const { google } = require("googleapis");
 
 const args = process.argv.slice(2);
@@ -47,8 +48,27 @@ if (!YT_CLIENT_ID || !YT_CLIENT_SECRET || !YT_REFRESH_TOKEN) {
   process.exit(0);
 }
 
-const video = path.join(OUT, `${fecha}-${etiqueta}.mp4`);
+let video = path.join(OUT, `${fecha}-${etiqueta}.mp4`);
 if (!fs.existsSync(video)) { console.error(`No existe ${video}`); process.exit(1); }
+
+// YouTube recomprime fuerte el 1080p y el texto queda borroso; a 1440p asigna
+// un códec mejor (VP9) y el texto se mantiene nítido. Se reescala ANTES de
+// subir (lanczos, CRF 17). --sin-hd lo salta. (Diagnóstico del 30-08.)
+if (!args.includes("--sin-hd")) {
+  const ff = path.join("node_modules", "@remotion", "compositor-linux-x64-gnu", "ffmpeg");
+  if (fs.existsSync(ff)) {
+    const hd = path.join(OUT, `subida-${etiqueta}.mp4`);
+    const escala = short ? "1440:2560" : "2560:1440";
+    try {
+      console.log(`Reescalando a ${escala} para que YouTube no muela el texto...`);
+      execFileSync(ff, ["-v", "error", "-y", "-i", video, "-vf", `scale=${escala}:flags=lanczos`,
+        "-c:v", "libx264", "-crf", "17", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-c:a", "copy", hd], { stdio: "inherit" });
+      video = hd;
+    } catch (e) {
+      console.log(`(no se pudo reescalar, se sube el original: ${e.message.split("\n")[0]})`);
+    }
+  }
+}
 const parsed = fs.existsSync(RUTA_PARSED) ? JSON.parse(fs.readFileSync(RUTA_PARSED, "utf8")) : {};
 const titulo = (parsed.titulo || `Entender Chile · ${fecha}`).slice(0, 100);
 const rutaDesc = path.join("contenido", "descripciones", `${fecha}-${etiqueta}.txt`);
