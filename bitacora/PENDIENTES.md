@@ -55,6 +55,43 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **BUG del primer día publicado: el video del informe subió con el
+      título de la Clave.** Causa exacta, confirmada en el código: informe y
+      Clave escriben en la MISMA carpeta `out/FECHA/` y ambos generan
+      `parsed.json` (`dia.js` línea 58: `OUT = out/fecha`, sin subcarpeta
+      por pieza). El workflow renderiza informe (paso 3), después la Clave
+      (paso 4) que SOBRESCRIBE `parsed.json`, y el paso 7 sube todo al
+      final: cuando sube el informe, lee el título de la Clave
+      (`youtube-subir.js` línea 39: `DIR_PARSED = OUT` para los no-Short).
+      Arreglo: carpeta por pieza (`out/FECHA/informe/`, `out/FECHA/clave/`)
+      o guardar `parsed-<etiqueta>.json` y que youtube-subir lea el suyo.
+      Los Shorts no sufren el bug porque ya tienen subcarpeta propia.
+
+- [ ] **Miniatura: la cifra es de otra noticia que el titular.** La de hoy
+      dice "114 votos a favor en la Cámara" sobre el título "Concepción en
+      Alerta Roja": la cifra sale del primer [DATO] del guion (`dia.js`
+      líneas 124-135) y el titular de la apertura, y no tienen por qué
+      coincidir. Regla: la cifra solo va si pertenece a la MISMA historia
+      del titular (mismo bloque de sección); si no, miniatura sin cifra.
+
+- [ ] **Rediseño de miniaturas (a Santiago no le gustan).** Las actuales se
+      ven lavadas: papel claro sobre la interfaz blanca de YouTube hace que
+      la carátula desaparezca, y el texto queda chico al tamaño real de
+      feed (~120 px de ancho en el teléfono). Direcciones para probar,
+      manteniendo la decisión de solo tipografía:
+      1. **Invertir el lienzo**: tinta (fondo oscuro) con la cifra o palabra
+         gancho en papel y el acento cobre. Contraste real en el feed.
+      2. **Menos palabras, más grandes**: máximo 4 palabras de titular, no
+         el titular completo. "ALERTA ROJA EN CONCEPCIÓN" y nada más.
+      3. **El mapa de cobre como fondo** (ya existe para el Short vertical):
+         identidad reconocible entre pieza y pieza.
+      Probar legibilidad reduciendo la imagen a 120 px antes de aprobar.
+
+- [ ] **Short de la Clave: abre con el fondo del informe y después salta al
+      suyo.** El arranque (sello) usa el fondo marino por defecto y recién
+      después entra el fondo propio de la Clave. Revisar `src/Short.tsx`:
+      el fondo debe llegar por props también al bloque inicial.
+
 - [ ] **Hora de publicación por pieza, no una para todo.** Hoy el paso 7 de
       `edicion-diaria.yml` sube las cuatro piezas con la misma configuración
       (`YT_PUBLICAR_HORA` aplica igual a informe, Clave y los dos Shorts).
