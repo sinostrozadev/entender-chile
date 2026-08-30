@@ -1,7 +1,7 @@
 # Caso: Municipalidad de Maipú (causa Cathy Barriga)
 
 Estado: JUDICIALIZADO
-Dossier abierto: 2026-08-26 · Última actualización: 2026-08-26
+Dossier abierto: 2026-08-26 · Última actualización: 2026-08-30
 
 <!-- datos
 cuestionado: 32884247128
@@ -29,7 +29,7 @@ nota-cifra: Cifra de la acusación del Ministerio Público, no establecida por s
 | Juan Carlos Quezada | Exdirector de Administración y Finanzas | Municipalidad de Maipú | Condenado (juicio abreviado, 17-06-2026): 4 años, libertad vigilada intensiva; inhabilitación de 4 años y 1 día (Pauta, BioBioChile) |
 | Matías Silva | Exsecretario comunal de Planificación (Secpla) | Municipalidad de Maipú | Condenado (juicio abreviado, 17-06-2026): 4 años, libertad vigilada intensiva; inhabilitación de 4 años y 1 día (Pauta, BioBioChile) |
 | Andrea Díaz | Exdirectora de la Secpla y exadministradora municipal | Municipalidad de Maipú | Condenada (juicio abreviado, 17-06-2026): 800 días de presidio menor en grado medio, con pena sustitutiva; inhabilitación de 4 años y 1 día (Pauta, BioBioChile) |
-| Joaquín Lavín León | Exdiputado, esposo de Barriga | UDI hasta su renuncia el 30-10-2024 (T13, Cooperativa) | Investigado en arista relacionada por facturas presuntamente falsas por unos $17 millones; el fiscal evaluó pedir su desafuero (La Tercera). Situación procesal exacta al 26-08-2026: sin confirmar. No condenado, presunción de inocencia |
+| Joaquín Lavín León | Exdiputado, esposo de Barriga | UDI hasta su renuncia el 30-10-2024 (T13, Cooperativa) | NO condenado, presunción de inocencia. En una causa distinta de la de Maipú, seguida ante el 7° Juzgado de Garantía de Santiago: la Corte Suprema confirmó su desafuero el 23-02-2026, lo que habilitó su formalización (Emol, T13, El Dínamo y Radio U. de Chile, 23-02-2026). Fue formalizado el 04-05-2026 por fraude al fisco, tráfico de influencias y falsificación y uso malicioso de instrumento privado mercantil (Radio U. de Chile, 04-05-2026; La Tercera, 05-2026). El 08-05-2026 el tribunal decretó su prisión preventiva y quedó recluido en el anexo Capitán Yáber (Poder Judicial, 08-05-2026; La Tercera; Diario El Día, 08-05-2026). El 03-08-2026 el mismo tribunal rechazó rebajar la cautelar (El Mostrador y Puranoticia, 03-08-2026) y el 06-08-2026 la Corte de Apelaciones de Santiago revocó la prisión preventiva y decretó arresto domiciliario total (Emol y El Mostrador, 06-08-2026). Cautelar vigente al 30-08-2026: arresto domiciliario total, sin cambios reportados. En la causa de Maipú figura además como investigado en una arista de facturas presuntamente falsas, sin cifra única confirmada |
 
 Nota de rigor: los seis excolaboradores condenados aceptaron los hechos en procedimientos abreviados y cumplen penas en libertad (penas sustitutivas). Barriga y Lavín León no tienen condena.
 
@@ -53,7 +53,12 @@ Nota de rigor: los seis excolaboradores condenados aceptaron los hechos en proce
 - 2026-02-03: Tribunal acoge petición de la defensa y posterga la audiencia de preparación de juicio oral (fijada originalmente para el 02-02-2026) al 04-08-2026. (Pauta, Emol, BioBioChile, Radio U. de Chile)
 - 2026-04-07: Tras la renuncia de su abogado penalista, Barriga pasa a ser representada por la Defensoría Penal Pública. (Emol, La Cuarta)
 - 2026-06-03: El 9° Juzgado de Garantía de Santiago posterga por segunda vez la audiencia de preparación: del 04-08-2026 al 07-10-2026 a las 10:00. La defensa pedía aplazarla a marzo de 2027 (rechazado); la Fiscalía calificó las postergaciones de "dilaciones abusivas" y advirtió que no aceptará nuevas prórrogas. La carpeta investigativa supera las 120.000 páginas. (Emol, BioBioChile, 24 Horas, EnEstrado)
+- 2026-02-23: la Corte Suprema confirma el desafuero del diputado Joaquín Lavín León, esposo de Barriga, lo que habilita su formalización. La causa es distinta de la de Maipú. (Emol, 23-02-2026; T13, 23-02-2026; El Dínamo, 23-02-2026; Radio U. de Chile, 23-02-2026)
+- 2026-05-04: Lavín León es formalizado ante el 7° Juzgado de Garantía de Santiago por fraude al fisco, tráfico de influencias y falsificación y uso malicioso de instrumento privado mercantil. La Tercera reporta un perjuicio imputado por la Fiscalía de $240 millones. (Radio U. de Chile, 04-05-2026; La Tercera, 05-2026)
+- 2026-05-08: el 7° Juzgado de Garantía de Santiago decreta la prisión preventiva de Lavín León, que queda recluido en el anexo Capitán Yáber. (Poder Judicial, 08-05-2026; La Tercera; Diario El Día, 08-05-2026)
 - 2026-06-17: Segundo grupo de condenas en juicio abreviado: Ana María Cortés, Juan Carlos Quezada y Matías Silva (4 años cada uno) y Andrea Díaz (800 días), todos con penas sustitutivas e inhabilitación de 4 años y 1 día. (Pauta, BioBioChile, La Tercera, 24 Horas)
+- 2026-08-03: el 7° Juzgado de Garantía de Santiago rechaza rebajar la cautelar de Lavín León y mantiene su prisión preventiva. (El Mostrador, 03-08-2026; Puranoticia, 03-08-2026)
+- 2026-08-06: la Corte de Apelaciones de Santiago revoca la prisión preventiva de Lavín León y decreta arresto domiciliario total. (Emol, 06-08-2026; El Mostrador, 06-08-2026; 24 Horas, 08-2026)
 
 Sobre la audiencia del 04-08-2026 (punto clave del seguimiento): NO se realizó. Fue reprogramada el 03-06-2026 para el 07-10-2026. Al 26-08-2026 no hay fecha de juicio oral fijada; la prensa lo proyecta para 2027 si la preparación avanza (estimación, sin confirmar).
 
@@ -63,7 +68,7 @@ Situación pública actual de Barriga: alejada de cargos públicos y de partidos
 - 2026-10-07, 10:00: audiencia de preparación de juicio oral ante el 9° Juzgado de Garantía de Santiago (Centro de Justicia). La Fiscalía anunció que se opondrá a nuevas postergaciones.
 - Sin fecha: juicio oral ante Tribunal Oral en lo Penal, proyectado por la prensa hacia 2027 (sin confirmar).
 - Sin fecha: tramitación de las demandas civiles del CDE y del municipio, ligadas al resultado penal.
-- Sin fecha: definiciones sobre la arista de Joaquín Lavín León (estado al 26-08-2026 sin confirmar).
+- Sin fecha: cierre de la investigación y eventual acusación en la causa del exdiputado Joaquín Lavín León ante el 7° Juzgado de Garantía de Santiago. Al 30-08-2026 cumple arresto domiciliario total, decretado por la Corte de Apelaciones de Santiago el 06-08-2026. El plazo de investigación fijado en la formalización del 04-05-2026 no está confirmado.
 
 ## Fuentes
 - Cooperativa, 30-12-2025: https://www.cooperativa.cl/noticias/pais/judicial/ministerio-publico/fiscalia-acuso-a-cathy-barriga-por-cuatro-delitos-y-pide-mas-de-23-anos/2025-12-30/145728.html
@@ -101,6 +106,40 @@ Situación pública actual de Barriga: alejada de cargos públicos y de partidos
 - BioBioChile, 25-01-2024: https://www.biobiochile.cl/especial/bbcl-investiga/noticias/de-pasillo/2024/01/25/como-barriga-llego-a-ser-alcaldesa-de-maipu-las-responsabilidades-politicas-que-nadie-asume-en-la-udi.shtml
 - CNN Chile, 02-10-2018: https://www.cnnchile.com/pais/contraloria-investiga-a-cathy-barriga-por-compra-fragmentada-para-eludir-licitaciones-para-maipeluza_20181002/
 - El Mostrador, 06-10-2022: https://www.elmostrador.cl/noticias/2022/10/06/contraloria-detecto-872-millones-que-no-se-ajustaron-a-la-ley-durante-administracion-de-cathy-barriga-en-maipu/
+- Emol, 23-02-2026 (Corte Suprema ratifica el desafuero de Lavín León): https://www.emol.com/noticias/Nacional/2026/02/23/1192401/joaquin-lavin-leon-desafuero-corte.html
+- T13, 23-02-2026: https://www.t13.cl/noticia/nacional/corte-confirma-desafuero-del-diputado-joaquin-lavin-podra-ser-formalizado-23-2-2026
+- El Dínamo, 23-02-2026: https://www.eldinamo.cl/pais/2026/02/23/corte-suprema-ratifica-desafuero-de-diputado-joaquin-lavin-y-sera-formalizado-por-fraude-al-fisco-y-otros-delitos/
+- Radio Universidad de Chile, 23-02-2026: https://radio.uchile.cl/2026/02/23/corte-suprema-confirma-desafuero-del-diputado-joaquin-lavin/
+- Emol, 27-03-2026 (se fija la audiencia de formalización para el 04-05-2026): https://www.emol.com/noticias/Nacional/2026/03/27/1195623/joaquin-lavin-fiscalia-fraude-fisco.html
+- Radio Universidad de Chile, 04-05-2026 (formalización): https://radio.uchile.cl/2026/05/04/joaquin-lavin-es-formalizado-por-fraude-al-fisco-fiscalia-apunta-a-tres-mecanismos-clave/
+- La Tercera, 05-2026 (prisión preventiva y perjuicio de $240 millones): https://www.latercera.com/nacional/noticia/exdiputado-lavin-queda-en-prision-preventiva-tras-ser-formalizado-por-fraude-al-fisco-por-240-millones/
+- Poder Judicial (fuente oficial), 08-05-2026 (prisión preventiva): https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/144849
+- Diario El Día, 08-05-2026: https://www.diarioeldia.cl/noticias/2026/05/08/137019-joaquin-lavin-leon-queda-en-prision-preventiva-por-fraude-al-fisco-y-trafico-de-influencias
+- El Mostrador, 03-08-2026 (se mantiene la prisión preventiva): https://www.elmostrador.cl/noticias/pais/2026/08/03/justicia-mantiene-a-joaquin-lavin-leon-en-prision-preventiva-en-capitan-yaber/
+- Puranoticia, 03-08-2026: https://puranoticia.pnt.cl/nacional/tribunal-rechaza-rebajar-medida-cautelar-y-mantiene-prision-preventiva-para
+- El Mostrador, 06-08-2026 (revocación de la prisión preventiva): https://www.elmostrador.cl/noticias/pais/2026/08/06/corte-revoca-prision-preventiva-de-joaquin-lavin-leon-y-ordena-arresto-domiciliario-total/
+- Emol, 06-08-2026: https://www.emol.com/noticias/Nacional/2026/08/06/1207763/joaquin-lavin-leon-carcel-cautelar.html
+- 24 Horas, 08-2026: https://www.24horas.cl/actualidad/nacional/corte-revoca-prision-preventiva-de-joaquin-lavin-leon
+
+Nota sobre las fuentes: no se accedió al texto íntegro de las resoluciones judiciales ni de varias de las notas citadas. Lo consignado proviene de extractos con URL verificada, con al menos dos medios establecidos por hecho, salvo donde se indica el medio único.
 
 ## Registro de actualizaciones del dossier
 - 2026-08-26: dossier creado con investigación inicial. (agente de investigación)
+- 2026-08-30: se completa la situación procesal de Joaquín Lavín León, que el dossier consignaba como "sin confirmar". Donde antes decía que el fiscal evaluaba pedir su desafuero, ahora se consigna que la Corte Suprema lo confirmó el 23-02-2026, que fue formalizado el 04-05-2026 ante el 7° Juzgado de Garantía de Santiago por fraude al fisco, tráfico de influencias y falsificación y uso malicioso de instrumento privado mercantil, que estuvo en prisión preventiva desde el 08-05-2026 y que el 06-08-2026 la Corte de Apelaciones de Santiago se la revocó y decretó arresto domiciliario total. Se añaden cinco líneas a la cronología y las fuentes correspondientes. Fuentes: Emol, T13, El Dínamo, Radio U. de Chile, La Tercera, El Mostrador, Puranoticia, Diario El Día y Poder Judicial.
+
+<!-- interno
+Límites de acceso en la actualización del 30-08-2026: el proxy de red bloqueó
+pjud.cl, elmostrador.cl, radio.uchile.cl y lavozdemaipu.cl. Toda la
+actualización sobre Joaquín Lavín León se apoya en titulares y extractos de
+resultados de búsqueda con URL verificada, con dos o más medios establecidos
+por hecho.
+
+Quedó fuera de la ficha por falta de confirmación y está anotado en
+por-verificar.md: los nombres de los otros tres formalizados el 04-05-2026
+junto a Lavín (un solo medio); el detalle de 34 facturas ideológicamente
+falsas por $104 millones a través de dos sociedades (un solo medio), que
+discrepa de los "$17 millones" que este dossier consignaba antes; y las
+condiciones accesorias de la cautelar del 06-08-2026 (arraigo nacional y
+prohibición de comunicarse con los demás imputados), que solo aparecen en un
+resumen de buscador.
+-->
