@@ -1,0 +1,19 @@
+Un IMSI Catcher puede hacerse pasar por infraestructura de una red móvil para identificar o localizar dispositivos cercanos. Este video explica cómo funciona, por qué no equivale a intervenir el contenido de un teléfono y por qué el control judicial importa especialmente cuando también pueden quedar involucrados celulares de terceros.
+
+Capítulos:
+00:00 Gancho
+01:02 El teléfono antes de las aplicaciones
+02:20 Una antena falsa no es intervenir el teléfono
+03:56 El problema de los teléfonos que están al lado
+05:24 Por qué aparece un juez
+06:39 Qué tiene que limitar una autorización
+07:44 Crimen organizado, tecnología y proporcionalidad
+09:12 Aplicado al caso del treinta de agosto
+10:17 Qué conviene recordar
+
+Fuentes de esta edición:
+Biblioteca del Congreso Nacional, Código Procesal Penal, Ley 19.696, artículos 222 y 226 A y siguientes.
+Biblioteca del Congreso Nacional, Ley 21.577, 15 de junio de 2023.
+Biblioteca del Congreso Nacional, Ley General de Telecomunicaciones, Ley 18.168, artículo 36 B.
+Instituto Nacional de Estándares y Tecnología de Estados Unidos, evaluación sobre amenazas de IMSI Catcher, 2018.
+Departamento de Justicia de Estados Unidos, política sobre simuladores de estaciones base celulares, 3 de septiembre de 2015, actualización 5 de febrero de 2025.
