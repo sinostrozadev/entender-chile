@@ -42,3 +42,25 @@ Al recibirlo: guardar como `public/fondos/fondo-clave-vertical.png`;
 `scripts/short.js --clave` lo toma solo si existe (si no, usa el del mapa).
 Si Gemini entrega 768 px de ancho, pedir "en la máxima resolución" o
 exportar a 2K: a 1080 se escala 1,4x y se nota poco, pero mejor nativo.
+
+## Banner del canal (arte de fondo, sin texto; el texto lo pone src/marca.tsx)
+
+YouTube pide 2560x1440. Lo que se ve en TODOS los dispositivos es solo la
+franja central de 1546x423; el escritorio muestra una franja de 2560x423 y la
+TV la imagen completa. Por eso el motivo va a los extremos y el centro queda
+limpio para "Entender Chile". Al recibirlo, guardar como
+`public/fondos/banner-fondo.png` y regenerar con
+`npx remotion still src/marca.tsx Banner out/marca/banner.png`.
+
+> Imagen horizontal 16:9 de 2560x1440 para el banner de un canal de noticias,
+> estilo ilustración vectorial plana y elegante. Fondo azul marino profundo
+> (#0F1A2B) con líneas topográficas muy sutiles, casi imperceptibles. En el
+> borde DERECHO, la silueta larga del mapa de Chile de norte a sur, rellena
+> con texturas de cobre (#B5642F, #D08A5B) y algunas franjas crema (#EDE6DA),
+> acabado metálico suave, ocupando como máximo el 15% del ancho. En el borde
+> IZQUIERDO, un detalle abstracto pequeño de líneas de cobre, discreto. La
+> franja horizontal CENTRAL de la imagen (el 60% del ancho y el 30% del alto,
+> centrada) completamente despejada y oscura, sin ningún elemento, porque ahí
+> irá el nombre del canal. Sin texto, sin letras, sin logos, sin marcas de
+> agua, sin personas, sin fotografías. Composición limpia y simétrica en
+> peso, mucho espacio negativo, iluminación uniforme.

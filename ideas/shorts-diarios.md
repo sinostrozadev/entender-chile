@@ -35,3 +35,16 @@ noticias muy resumidas, ~10 s cada una, con música de impacto en vez de voz
    Cinematográfica; Estado de ánimo: Dramática) y avisar.
 3. ¿Se publica el mismo día que el informe (mañana) o al mediodía, como
    recordatorio?
+
+## Decidido el 30-08 (Santiago): el Short de la Clave es gancho + preguntas
+
+Idea de Santiago: armar el de la Clave con las preguntas, dejando la
+respuesta a medio camino para invitar al video. Evaluación: si el Short no
+paga nada, la gente lo siente como anzuelo (y pelea con "sin gritos"); si lo
+paga todo, no hay motivo para ver la Clave. Híbrido implementado en
+`scripts/short.js --clave`: apertura con el título, el **gancho con su
+respuesta completa** (la sorpresa del día, con su cifra), una tarjeta con las
+**tres preguntas que la Clave responde** (los nombres de sus bloques, en
+lista con "?"), y cierre "Las respuestas, en la Clave de hoy, en el canal
+Entender Chile". Dura ~28 s. Alternativa descartada por ahora: cuatro tesis
+seguidas (regalaba la Clave entera).

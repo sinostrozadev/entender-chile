@@ -66,8 +66,15 @@ for (const ev of parsed.eventos) {
   if (ev.tipo === "tesis" && !actual.tesis) { actual.tesis = ev; if (ev.fuenteSeccion) actual.fuente = ev.fuenteSeccion; }
   if (ev.tipo === "dato" && !ev.automatico && !actual.dato && ev.series?.length) { actual.dato = ev; if (!actual.fuente) actual.fuente = ev.fuente; }
 }
-const elegidos = bloques.filter((b) => b.tesis && !NO_NOTICIA.test(b.nombre)).slice(0, CUANTAS);
-if (elegidos.length < 3) { console.error(`Solo ${elegidos.length} bloques con tesis: no da para un Short.`); process.exit(1); }
+const candidatos = bloques.filter((b) => b.tesis && !NO_NOTICIA.test(b.nombre));
+// Clave (decidido el 30-08, idea de Santiago): el gancho con su respuesta
+// completa, y después las preguntas que la Clave responde, sin responderlas.
+// Informe: las cinco tesis.
+const elegidos = esClave ? candidatos.slice(0, 1) : candidatos.slice(0, CUANTAS);
+const preguntas = esClave ? candidatos.slice(1, 4).map((b) => b.nombre) : [];
+if (elegidos.length < (esClave ? 1 : 3) || (esClave && preguntas.length < 2)) {
+  console.error(`Solo ${candidatos.length} bloques con tesis: no da para un Short.`); process.exit(1);
+}
 
 // 2) Guion corto con las mismas marcas que el informe.
 const fechaLarga = (() => {
@@ -102,7 +109,7 @@ const apertura = esClave
   ? (/[?!]$/.test(tituloClave) ? `Una clave para entender las noticias. ${tituloClave}` : `Una clave para entender las noticias: ${tituloCorto}.`)
   : `Cinco cosas que hay que saber hoy, ${fechaLarga}.`;
 const cierreTexto = esClave
-  ? "La Clave completa está en el canal Entender Chile."
+  ? "Las respuestas, en la Clave de hoy, en el canal Entender Chile."
   : "El informe completo de hoy está en el canal Entender Chile.";
 const md = [
   esClave
@@ -120,6 +127,11 @@ const md = [
     ...(b.dato ? [lineaDato(b.dato)] : []),
     `[TESIS] ${b.tesis.texto}`,
   ]),
+  ...(esClave ? [
+    "## Lo que explica la Clave",
+    `[ESQUEMA | Lo que explica la Clave de hoy] ${preguntas.join(" -> ")}`,
+    `[TESIS] ${preguntas.map((q, i) => (i === 0 ? q : q.charAt(0).toLowerCase() + q.slice(1))).join(preguntas.length === 2 ? " y " : ", ").replace(/, ([^,]+)$/, " y $1")}.`,
+  ] : []),
   "## Cierre",
   `[TESIS] ${cierreTexto}`,
   "Fuentes:",
@@ -129,6 +141,7 @@ const md = [
 fs.writeFileSync(path.join(OUT, "guion.md"), md);
 console.log(`── Short ${esClave ? "de la Clave" : "del informe"} del ${fecha}: ${elegidos.length} bloques ──`);
 elegidos.forEach((b, i) => console.log(`  ${i + 1}. [${b.nombre}] ${b.tesis.texto}${b.dato ? `  ·  ${b.dato.series[0].raw}` : ""}`));
+preguntas.forEach((q) => console.log(`     ? ${q}`));
 
 // 3) Pipeline de siempre.
 run("parse.js", [path.join(OUT, "guion.md"), OUT + "/"]);
@@ -157,6 +170,7 @@ const tl = JSON.parse(fs.readFileSync(path.join(OUT, "timeline.json"), "utf8"));
 tl.meta.width = 1080; tl.meta.height = 1920;
 tl.meta.handle = HANDLE;
 tl.meta.eyebrow = esClave ? "Claves para entender las noticias" : "Cinco cosas que hay que saber";
+tl.meta.numerar = !esClave; // "1 de 5" solo tiene sentido en el informe
 tl.meta.fondo = conFondo && fs.existsSync(path.join("public", FONDO)) ? FONDO : null;
 fs.writeFileSync(path.join(OUT, "timeline.json"), JSON.stringify(tl, null, 2));
 console.log(`OK: Short de ${(tl.meta.duracionSeg / 60).toFixed(1)} min (${tl.meta.duracionSeg}s)${tl.meta.fondo ? " con fondo" : ""} → ${path.join(OUT, "timeline.json")}`);

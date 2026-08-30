@@ -64,7 +64,7 @@ const Sello: React.FC<{ piel: Piel; fecha?: string; eyebrow?: string }> = ({ pie
 
 const tamano = (raw: string, base: number) => (raw.length <= 5 ? base : raw.length <= 9 ? Math.round(base * 0.68) : raw.length <= 16 ? Math.round(base * 0.46) : Math.round(base * 0.34));
 
-const Tarjeta: React.FC<{ piel: Piel; tesis: Evento; dato?: Evento; n: number; total: number }> = ({ piel, tesis, dato, n, total }) => {
+const Tarjeta: React.FC<{ piel: Piel; tesis: Evento; dato?: Evento; esquema?: Evento; n: number; total: number }> = ({ piel, tesis, dato, esquema, n, total }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const e = spring({ frame, fps, config: { damping: 200 } });
@@ -78,10 +78,21 @@ const Tarjeta: React.FC<{ piel: Piel; tesis: Evento; dato?: Evento; n: number; t
         <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
           <div style={{ width: 54, height: 6, backgroundColor: color }} />
           <div style={{ fontFamily: tema.mono, fontSize: 26, letterSpacing: "0.22em", textTransform: "uppercase", color: color }}>
-            {n > 0 ? `${n} de ${total} · ` : ""}{tesis.seccion}
+            {n > 0 ? `${n} de ${total} · ` : ""}{esquema?.titulo ?? tesis.seccion}
           </div>
         </div>
-        {s ? (
+        {esquema ? (
+          // Las preguntas que la Clave responde: lista, no flujo con flechas.
+          <div style={{ display: "flex", flexDirection: "column", gap: 34 }}>
+            {(esquema.elementos ?? []).map((el, i) => (
+              <div key={i} style={{ display: "flex", gap: 26, alignItems: "flex-start" }}>
+                <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 60, lineHeight: 1.1, color: piel.acento, flexShrink: 0 }}>?</div>
+                <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 60, lineHeight: 1.12, color: piel.tinta }}>{el}</div>
+              </div>
+            ))}
+          </div>
+        ) : null}
+        {s && !esquema ? (
           <div>
             {esCambio ? (
               <div style={{ display: "flex", alignItems: "center", gap: 26, flexWrap: "wrap" }}>
@@ -101,9 +112,11 @@ const Tarjeta: React.FC<{ piel: Piel; tesis: Evento; dato?: Evento; n: number; t
             {s.etiqueta ? <div style={{ fontFamily: tema.sans, fontSize: 40, lineHeight: 1.25, color: piel.gris, marginTop: 14 }}>{s.etiqueta}</div> : null}
           </div>
         ) : null}
-        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: s ? 66 : 84, lineHeight: 1.12, color: piel.tinta }}>
-          {tesis.textoPantalla ?? tesis.texto}
-        </div>
+        {esquema ? null : (
+          <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: s ? 66 : 84, lineHeight: 1.12, color: piel.tinta }}>
+            {tesis.textoPantalla ?? tesis.texto}
+          </div>
+        )}
       </div>
     </AbsoluteFill>
   );
@@ -113,11 +126,12 @@ export const ShortVideo: React.FC<Timeline> = (tl) => {
   const { fps } = useVideoConfig();
   const f = (s: number) => Math.round(s * fps);
   const HOLD = Math.round(fps * 0.3);
-  const meta = tl.meta as Timeline["meta"] & { fondo?: string | null; handle?: string; eyebrow?: string };
+  const meta = tl.meta as Timeline["meta"] & { fondo?: string | null; handle?: string; eyebrow?: string; numerar?: boolean };
   const piel = meta.fondo ? MARINO : PAPEL;
 
   const tesis = tl.eventos.filter((e) => e.tipo === "tesis");
   const datos = tl.eventos.filter((e) => e.tipo === "dato");
+  const esquemas = tl.eventos.filter((e) => e.tipo === "esquema");
   const banners = tl.eventos.filter((e) => e.overlay);
   const noticias = tesis.filter((t) => t.seccion && !/apertura|cierre/i.test(t.seccion));
 
@@ -144,10 +158,11 @@ export const ShortVideo: React.FC<Timeline> = (tl) => {
       ) : null}
       {tesis.map((t, i) => {
         const dato = datos.find((d) => Math.abs(d.from - t.from) < 0.08);
-        const n = noticias.indexOf(t) + 1;
+        const esquema = esquemas.find((d) => Math.abs(d.from - t.from) < 0.08);
+        const n = meta.numerar === false ? 0 : noticias.indexOf(t) + 1;
         return (
           <Sequence key={i} from={f(t.from)} durationInFrames={Math.max(1, f(t.to) - f(t.from) + HOLD)}>
-            <Tarjeta piel={piel} tesis={t} dato={dato} n={n} total={noticias.length} />
+            <Tarjeta piel={piel} tesis={t} dato={dato} esquema={esquema} n={n} total={noticias.length} />
           </Sequence>
         );
       })}
