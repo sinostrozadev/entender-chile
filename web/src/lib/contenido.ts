@@ -18,7 +18,9 @@ export const canal: { youtube: string; whatsapp: string; spotify: string } = (()
 export const youtubeId = (u: string | null): string | null => {
   if (!u) return null;
   const m = u.match(/(?:v=|youtu\.be\/|\/shorts\/|\/live\/|\/embed\/)([A-Za-z0-9_-]{6,})/);
-  return m ? m[1] : null;
+  if (m) return m[1];
+  // también un id pelado (11 caracteres), por si el archivo trae solo el id
+  return /^[A-Za-z0-9_-]{11}$/.test(u.trim()) ? u.trim() : null;
 };
 
 const BASE = (import.meta.env.BASE_URL || "/").replace(/\/?$/, "/");
