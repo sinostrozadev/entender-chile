@@ -1,4 +1,9 @@
-# Auditoría de la API de YouTube: enviada el 30-08-2026 (noche)
+# Auditoría de la API de YouTube: ENVIADA con confirmación el 30-08-2026 (~23:20)
+
+Confirmación en pantalla: "Se envió el correo electrónico · Gracias por
+enviar el Formulario de servicios de la API de YouTube". El primer intento
+quedó colgado y no creó caso; el segundo (ventana limpia) entró. Si
+aparecieran dos correos, responder a uno indicando que es duplicado.
 
 Formulario: support.google.com/youtube/contact/yt_api_form, con la cuenta
 entenderchile@gmail.com. Respuestas completas, sección por sección, en
