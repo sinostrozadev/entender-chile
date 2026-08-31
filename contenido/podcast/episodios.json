@@ -15,5 +15,23 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-08-30-clave.mp3",
     "bytes": 18233280,
     "durSeg": 760
+  },
+  {
+    "fecha": "2026-08-31",
+    "tipo": "informe",
+    "titulo": "31-08-2026 · Milei llega a Chile tras el impasse por el Estrecho de Magallanes",
+    "descripcion": "Javier Milei viajará a Santiago el jueves para reunirse con José Antonio Kast después de la controversia por el Estrecho de Magallanes. La jornada también está marcada por un operativo nacional contra venta de drogas en redes sociales, una futura reforma al mercado de capitales con foco hipotecario y la catástrofe en Nepal y China. Revisamos además empleo, combustibles, clima y los titulares que completan el día.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-08-31-informe.mp3",
+    "bytes": 20148480,
+    "durSeg": 840
+  },
+  {
+    "fecha": "2026-08-31",
+    "tipo": "clave",
+    "titulo": "Clave · ¿Por qué el mercado de capitales influye en tu hipotecario?",
+    "descripcion": "Una hipoteca no empieza cuando una familia entra al banco. En este video explicamos de dónde salen los recursos que permiten prestar a veinte o treinta años, qué factores forman la tasa hipotecaria y por qué la liquidez, los inversionistas y el mercado de capitales pueden terminar influyendo en el dividendo.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-08-31-clave.mp3",
+    "bytes": 18893952,
+    "durSeg": 787
   }
 ]
