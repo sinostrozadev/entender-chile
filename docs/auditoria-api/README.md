@@ -4,6 +4,10 @@ Confirmación en pantalla: "Se envió el correo electrónico · Gracias por
 enviar el Formulario de servicios de la API de YouTube". El primer intento
 quedó colgado y no creó caso; el segundo (ventana limpia) entró. Si
 aparecieran dos correos, responder a uno indicando que es duplicado.
+Correo de confirmación recibido el 30-08 a las 23:38 desde
+youtube-disputes+3f9gqpjq9ly6p1n@google.com ("We will follow up with a
+response once the application has been reviewed"): un solo caso, sin
+duplicados. El seguimiento se responde a ese mismo hilo.
 
 Formulario: support.google.com/youtube/contact/yt_api_form, con la cuenta
 entenderchile@gmail.com. Respuestas completas, sección por sección, en
