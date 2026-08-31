@@ -68,6 +68,12 @@ pierde el nombre.
       AUDIO_TOKEN hacia el repo web) o que despache web.yml explícitamente
       tras registrar el episodio.
 
+- [ ] **Aplicar la regla nueva de relojes a metricas.yml** (decisión de
+      Santiago del 31-08, en decisiones.md: el cron de GitHub no se usa como
+      reloj principal, solo como red). Receta ya probada del barrido: rutina
+      despertador que pushea un archivo + trigger por push en el workflow +
+      cron de respaldo. Es el único proceso que sigue colgando del cron.
+
 - [ ] **El workflow de métricas no ha corrido nunca.** Cero ejecuciones desde
       su creación (30-08 18:44). Su primera cita era hoy a las 13:00 UTC y a
       las 13:35 no había disparado: el cron de GitHub otra vez, la misma

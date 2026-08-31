@@ -187,6 +187,40 @@ umbral del YPP se duplica. El contador de horas vistas parte hoy desde cero.
 **Decidió**: Santiago. **Detalle**: bitacora/2026-08-29.md (partes quinta y
 sexta), bitacora/PENDIENTES.md.
 
+## 2026-08-31 - Regla de infraestructura: el cron de GitHub no se usa como reloj principal
+
+**Qué**: ningún proceso del canal depende del cron de GitHub Actions como
+mecanismo principal de disparo. Para todo lo que necesita hora fija se usan
+las alternativas ya verificadas en este proyecto; el cron de GitHub queda
+permitido solo como red de respaldo de algo que ya tiene otro disparador.
+
+**La evidencia, medida aquí y no en teoría**:
+- Cron de GitHub: atrasos de 24 a 36 minutos en días buenos; 10 a 12 horas
+  el 27 y 28 de agosto; un día no corrió nunca (edición del 28); y el
+  workflow de métricas, creado el 30-08 con cron de las 13:00 UTC, lleva
+  **cero ejecuciones en su vida**.
+- Alternativas verificadas: disparo por **push** (54 de 54 en el workflow de
+  la web; es también como funciona el render, con la revisión de timbre);
+  **rutinas de Claude en la nube** (revisión puntual al minuto durante
+  cuatro días seguidos; el patrón "despertador" que salvó al barrido: la
+  rutina pushea un archivo y el push dispara el workflow); y las **tareas
+  programadas de ChatGPT** (quince entregas, una sola falla, y fue de
+  escritura, no de reloj).
+
+**La receta que ya funciona**, para cualquier proceso nuevo con hora: rutina
+de Claude a la hora deseada (en UTC que sirva en los dos regímenes horarios
+de Chile) que pushea un archivo despertador; el workflow escucha ese push y
+además conserva su cron como red. Si el proceso no necesita hora sino orden,
+disparo por push del artefacto anterior, que es como quedó encadenada la
+edición entera.
+
+**Pendiente de aplicar en**: metricas.yml, el único proceso que hoy sigue
+colgando del cron de GitHub como reloj principal.
+
+**Decidió**: Santiago, 31-08-2026, tras el hallazgo de que métricas nunca
+corrió. **Detalle**: bitacora/2026-08-28-investigacion-cron.md (la medición
+original de los tres relojes) y bitacora/PENDIENTES.md.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 - **Firma epistémica del canal**: toda cifra con fuente visible en pantalla;
