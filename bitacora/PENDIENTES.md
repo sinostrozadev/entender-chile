@@ -166,6 +166,12 @@ cuatro documentos con deriva puestos al día; render por push corregido
       `out/FECHA/miniatura.png` con `src/marca.tsx` (cifra = primer [DATO] del
       guion, titular = "Título sugerido"), la sube al release y
       `youtube-subir.js` ya la toma si existe.
+- [ ] **Auditoría de la API: ENVIADA el 30-08 en la noche.** Esperar la
+      respuesta en entenderchile@gmail.com (1 a 3 semanas; revisar spam los
+      primeros días). Si repreguntan, las seis pruebas están en
+      docs/auditoria-api/ y las respuestas en docs/youtube.md. Al aprobarse:
+      cargar la variable YT_PUBLICAR_HORA (ej. 07:30) y la publicación queda
+      programada sola.
 - [ ] **Panel interno: regenerarlo cada mañana** (sesión de la noche/mañana):
       artifact privado con métricas, circuito, pendientes y documentos.
       URL en la memoria del proyecto. Fase siguiente: gráfico de serie cuando
