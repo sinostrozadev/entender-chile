@@ -17,3 +17,6 @@
 - legítima defensa privilegiada y uso de la fuerza por policías y militares fuera de servicio | Proyecto para ampliar la legítima defensa privilegiada de policías y militares de franco llega al Senado | 2026-08-30
 - alertas de Senapred, umbrales hidrométricos y mensajes SAE | Concepción entra en Alerta Roja por el aumento del río Andalién | 2026-08-30
 - funciones, límites y responsabilidad política de los embajadores como representantes del Estado | Comunidad Palestina emplaza al Presidente Kast y el embajador Zaliasnik lamenta sus declaraciones | 2026-08-30
+- tratados limítrofes, soberanía y régimen jurídico del Estrecho de Magallanes | Milei viajará a Chile y se reunirá con Kast tras el impasse por el Estrecho de Magallanes | 2026-08-31
+- Mepco y mecanismos de estabilización del precio de los combustibles | El diésel acumula presión después del alza de agosto | 2026-08-31
+- infraestructura energética transfronteriza y contratos de exportación de gas | Neuquén ofrece ampliar ventas de gas a Chile usando infraestructura ociosa | 2026-08-31
