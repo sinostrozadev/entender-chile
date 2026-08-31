@@ -55,6 +55,28 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **El feed del podcast no se regenera cuando el bot registra episodios.**
+      Causa exacta, confirmada hoy: el paso 7b commitea
+      `contenido/podcast/episodios.json` con el GITHUB_TOKEN del workflow, y
+      GitHub NO dispara workflows desde pushes hechos con ese token (regla
+      anti-recursión). `web.yml` escucha `contenido/podcast/**` pero nunca ve
+      ese push: hoy los episodios del 31 quedaron registrados a las 10:07 UTC
+      y no hubo ejecución de Web después (la última fue 07:46). El RSS
+      `/podcast.xml` quedó viejo y Spotify no ve episodios nuevos. Ayer no se
+      notó porque pushes manuales posteriores reconstruyeron la web de
+      rebote. Arreglo: que el paso 7b pushee con un PAT (como ya hace con
+      AUDIO_TOKEN hacia el repo web) o que despache web.yml explícitamente
+      tras registrar el episodio.
+
+- [ ] **El workflow de métricas no ha corrido nunca.** Cero ejecuciones desde
+      su creación (30-08 18:44). Su primera cita era hoy a las 13:00 UTC y a
+      las 13:35 no había disparado: el cron de GitHub otra vez, la misma
+      enfermedad medida del 27-08. Los archivos del 30 los commiteó la sesión
+      local a mano, no el workflow. Arreglo con evidencia a favor: darle el
+      mismo reloj que ya salvó al barrido (rutina despertador o despacho
+      desde una rutina de Claude), o aceptar el atraso si las métricas de
+      media mañana bastan.
+
 - [ ] **BUG del primer día publicado: el video del informe subió con el
       título de la Clave.** Causa exacta, confirmada en el código: informe y
       Clave escriben en la MISMA carpeta `out/FECHA/` y ambos generan
