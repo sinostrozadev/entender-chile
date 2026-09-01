@@ -74,7 +74,7 @@
 <div class="marco">
   <div class="cab">
     <h1>Panel Entender Chile</h1>
-    <div class="fecha">31-08-2026 · día 2 del canal en público</div>
+    <div class="fecha">01-09-2026 · día 3 del canal en público</div>
   </div>
 
   <section>
@@ -96,7 +96,7 @@
       <div class="barra-fila"><div class="barra-nombre">Short · Cinco cosas (31 ago)</div><div class="barra-pista"><div class="barra-valor" style="width:9%"></div></div><div class="barra-num">7</div></div>
       <div class="barra-fila"><div class="barra-nombre">Informe · Milei llega a Chile</div><div class="barra-pista"><div class="barra-valor" style="width:7%"></div></div><div class="barra-num">5</div></div>
       <div class="barra-fila"><div class="barra-nombre">Claves (larga + Short, 31 ago)</div><div class="barra-pista"><div class="barra-valor" style="width:11%"></div></div><div class="barra-num">8</div></div>
-      <p class="nota">Lectura del día 2: el feed de Shorts despegó — el Short del 30 pasó de 12 a 76 vistas y trajo el primer comentario y el tercer suscriptor. El embudo Short → canal funciona; el video largo crece más lento (12), como se esperaba. Métricas 09:00 (ahora con reloj propio en la nube).</p>
+      <p class="nota">Lectura del día 2: el feed de Shorts despegó: el Short del 30 pasó de 12 a 76 vistas y trajo el primer comentario y el tercer suscriptor. El embudo Short → canal funciona; el video largo crece más lento (12), como se esperaba. Métricas 09:00 (ahora con reloj propio en la nube).</p>
     </section>
 
     <section class="tarjeta">
@@ -183,12 +183,66 @@
     <div style="overflow-x:auto">
     <table>
       <tr><th>Meta YPP</th><th class="num">Hoy</th><th class="num">Ritmo actual</th><th class="num">Al ritmo actual llegas</th><th class="num">Ritmo que exige el 1-feb-2027</th></tr>
-      <tr><td>1.000 suscriptores <span class="nota">(hito de los 100 en el camino)</span></td><td class="num">3</td><td class="num">+1/día</td><td class="num">~feb 2029 <span class="nota">(los 100: ~dic 2026)</span></td><td class="num">+6,5/día</td></tr>
-      <tr><td>4.000 horas vistas en videos largos <span class="nota">(las de Shorts NO cuentan)</span></td><td class="num">~2,5 h</td><td class="num">~1,1 h/día</td><td class="num">~2036 (lineal)</td><td class="num">~26 h/día (≈400 vistas largas/día)</td></tr>
-      <tr><td>Vía alternativa: 10 M de vistas de Shorts en 90 días</td><td class="num">~130</td><td class="num">~100/día</td><td class="num">no por esta vía al ritmo actual</td><td class="num">~111.000/día</td></tr>
+      <tr><td>1.000 suscriptores <span class="nota">(hito de los 100 en el camino)</span></td><td class="num">4</td><td class="num">+1/día</td><td class="num">~2029 <span class="nota">(los 100: ~dic 2026)</span></td><td class="num">+6,5/día</td></tr>
+      <tr><td>4.000 horas vistas en videos largos <span class="nota">(las de Shorts NO cuentan)</span></td><td class="num">4,3 h</td><td class="num">~2 h/día</td><td class="num">~2032 (lineal)</td><td class="num">~26 h/día (≈400 vistas largas/día)</td></tr>
+      <tr><td>Vía alternativa: 10 M de vistas de Shorts en 90 días</td><td class="num">322</td><td class="num">~190/día</td><td class="num">no por esta vía al ritmo actual</td><td class="num">~111.000/día</td></tr>
     </table>
     </div>
     <p class="nota" style="margin-top:12px"><b>Cómo leer esto sin deprimirse ni engañarse:</b> ningún canal llega a la meta a ritmo lineal; se llega por interés compuesto del algoritmo, y ese ya asomó (las vistas crecieron 4× del día 1 al día 2). Si el crecimiento semanal sostenido es de <b>25%</b>, las 4.000 horas caen ~<b>febrero-marzo 2027</b> (la meta); con <b>15%</b>, ~mayo 2027; sin crecimiento, nunca. Lo que mueve ese porcentaje: retención de los largos (por eso el cold open pendiente), constancia diaria y que cada Short empuje al canal. Proyección recalculada cada mañana con la serie real; con 14 días de datos empieza a ser confiable.</p>
+  </section>
+
+  <section class="tarjeta">
+    <p class="eyebrow">Qué corre cada día, en orden <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· horas de Chile en invierno (UTC-4). Con el horario de verano del 6-09 todo se corre una hora, salvo que se muevan los cron (todos están en UTC)</span></p>
+    <div style="overflow-x:auto">
+    <table>
+      <tr><th>Chile</th><th>UTC</th><th>Qué pasa</th><th>Quién aprieta el botón</th><th>Corrida del 01-09</th></tr>
+      <tr><td>01:30</td><td>05:30</td><td>Reloj del barrido: toca <code>contenido/barrido/despertador.txt</code></td><td>Rutina Claude (Haiku) <span class="nota">trig_01W5KE</span></td><td><span class="pill pub">01:32</span></td></tr>
+      <tr><td>~01:32</td><td>~05:32</td><td><b>Barrido</b>: 22 fuentes de prensa chilena a <code>contenido/barrido/</code></td><td>Workflow, disparado por ese push</td><td><span class="pill pub">ok</span></td></tr>
+      <tr><td>01:45</td><td>05:45</td><td><b>Observatorio de plata pública</b>: novedades de cada caso, dossiers e hitos</td><td>Rutina Claude (Opus) <span class="nota">trig_01MzKj</span></td><td><span class="pill pub">01:46</span> sentencia FONASA</td></tr>
+      <tr><td>01:50</td><td>05:50</td><td>Barrido, red de respaldo (<code>--si-falta</code>: jamás pisa uno ya escrito)</td><td>cron de GitHub</td><td><span class="pill priv">red</span></td></tr>
+      <tr><td>03:10</td><td>07:10</td><td>Preselección de noticias del barrido</td><td>Programación de ChatGPT</td><td><span class="pill pub">ok</span></td></tr>
+      <tr><td>03:30</td><td>07:30</td><td>Informe del día (la edición completa, sin tope)</td><td>Programación de ChatGPT</td><td><span class="pill pub">ok</span></td></tr>
+      <tr><td>03:45</td><td>07:45</td><td>La Clave del día</td><td>Programación de ChatGPT</td><td><span class="pill pub">ok</span></td></tr>
+      <tr><td>04:00</td><td>08:00</td><td>Guion del informe (comprime: narra y manda el resto a "En titulares")</td><td>Programación de ChatGPT</td><td><span class="pill pub">ok</span></td></tr>
+      <tr><td>04:15</td><td>08:15</td><td>Guion de la Clave</td><td>Programación de ChatGPT</td><td><span class="pill pub">ok</span></td></tr>
+      <tr><td>04:40</td><td>08:40</td><td><b>Revisión editorial</b>: hallazgos y línea VEREDICTO</td><td>Rutina Claude (Sonnet) <span class="nota">trig_019cch</span></td><td><span class="pill pub">04:40</span></td></tr>
+      <tr><td>~04:45</td><td>~08:45</td><td><b>Edición diaria</b>: render 1440p, voz, 4 videos, miniaturas, release, subida privada a YouTube, episodios de podcast, reconstrucción de la web</td><td>El timbre: el push de la revisión (o el del guion, el que llegue último)</td><td><span class="pill pub">ok</span></td></tr>
+      <tr><td>05:00</td><td>09:00</td><td>Edición diaria, red de respaldo</td><td>cron de GitHub</td><td><span class="pill priv">red</span></td></tr>
+      <tr><td>06:07</td><td>10:07</td><td><b>Guardián</b>: comprueba que la edición esté completa y avisa al teléfono si no</td><td>Rutina Claude <span class="nota">trig_01TNcY</span></td><td><span class="pill" style="background:transparent;color:var(--cobre);border:1px solid var(--cobre)">no pudo correr</span></td></tr>
+      <tr><td>08:45</td><td>12:45</td><td>Reloj de métricas: toca <code>bitacora/metricas/despertador.txt</code></td><td>Rutina Claude (Haiku) <span class="nota">trig_01Mxz</span></td><td><span class="pill pub">08:57</span></td></tr>
+      <tr><td>~08:47</td><td>~12:47</td><td><b>Métricas</b> del canal a <code>bitacora/metricas/</code> y refresco de los gráficos de este panel</td><td>Workflow, disparado por ese push</td><td><span class="pill pub">ok</span> tras el arreglo del commit</td></tr>
+      <tr><td>11:00</td><td>15:00</td><td>Métricas, red de respaldo</td><td>cron de GitHub</td><td><span class="pill priv">red</span></td></tr>
+    </table>
+    </div>
+    <p class="nota" style="margin-top:12px"><b>Tres cosas para decidir mirando esta tabla.</b> (1) <b>Holgura de las rutinas:</b> no llegan al minuto exacto, llegan con 0 a 12 minutos de atraso (medido el 01-09: revisión +0, observatorio +1, barrido +2, métricas +12, guardián +12). Es holgura sana, no falla; solo importa no dejar dos piezas a menos de 15 minutos una de otra. (2) <b>El colchón más flaco</b> es barrido a 01:32 contra preselección a 03:10: 1h38 de margen, suficiente. El más ajustado en el otro sentido es revisión 04:40 contra el respaldo de las 05:00. (3) <b>Los cron de GitHub están todos en modo red</b>, nunca de reloj principal (regla del 31-08): los tres despertadores son rutinas de Claude, que sí cumplen.</p>
+  </section>
+
+  <section class="tarjeta">
+    <p class="eyebrow">El guardián <span style="letter-spacing:normal;text-transform:none;color:var(--cobre)">· roto desde que existe: la rutina no tiene el repositorio montado</span></p>
+    <p style="margin:0 0 14px">El 01-09 a las 06:14 llegó al teléfono: <i>"El guardián de Entender Chile no pudo ejecutarse hoy: sin acceso al repositorio."</i> No es un problema de hora ni de permisos de GitHub. Las otras cuatro rutinas se crearon con el repo declarado como fuente; el guardián se creó por otra vía y quedó <b>sin ninguna fuente</b>, así que cada mañana despierta en una carpeta vacía. La hora es correcta y el aviso al teléfono funciona (esa notificación es la prueba). Lo que nunca ha funcionado es la comprobación. <b>Arreglo: recrearlo con el repo como fuente</b> (no se puede parchar, el campo de fuentes no es editable). Anotado en PENDIENTES como lo primero de la noche.</p>
+    <div class="fila f2">
+      <div>
+        <p class="eyebrow" style="margin-bottom:8px">Lo que vigila (cuando pueda)</p>
+        <ul>
+          <li>Informe del día</li>
+          <li>Guion del informe</li>
+          <li>Revisión, y que su primera línea traiga VEREDICTO</li>
+          <li>Barrido del día</li>
+          <li>Que el barrido llegue <b>antes</b> que la preselección <span class="nota">(el error que se comió las ediciones hasta el 29-08)</span></li>
+          <li>Descripción del informe, o sea: que hubo video</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:8px">Clientes que le faltan <span style="color:var(--cobre)">■</span></p>
+        <ul>
+          <li class="suyo"><b>Que existan las métricas del día.</b> Choca con la hora: el guardián corre 06:07 y las métricas llegan 08:47. O se parte en dos avisos, o el guardián se mueve a las 09:15.</li>
+          <li class="suyo"><b>Que el feed del podcast se haya refrescado</b> (el fallo del 31-08: episodios registrados, feed viejo).</li>
+          <li class="suyo"><b>Que las cuatro piezas estén subidas a YouTube</b> y no solo renderizadas.</li>
+          <li class="suyo"><b>Que los cuatro títulos sean distintos entre sí</b>, que es como se detecta la contaminación de <code>parsed.json</code> sin leer el código.</li>
+          <li class="suyo"><b>Que el barrido no venga flaco</b> (menos de N fuentes o menos de N noticias es una falla silenciosa).</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section class="tarjeta">
@@ -227,17 +281,19 @@
     <section class="tarjeta">
       <p class="eyebrow">Pendientes tuyos <span style="color:var(--cobre)">■</span></p>
       <ul>
-        <li class="suyo"><b>Auditoría de la API: ✅ enviada el 30-08</b> — en manos de Google (1-3 semanas; la respuesta llega a entenderchile@gmail.com).</li>
-        <li class="suyo"><b>Facebook: página CREADA (1-09)</b> — queda subir el primer Reel (el Short del día está en Descargas) y luego uno diario por dos semanas, midiendo. <small>plan en ideas/facebook.md</small></li>
+        <li class="suyo"><b>Auditoría de la API: ✅ enviada el 30-08</b>: en manos de Google (1-3 semanas; la respuesta llega a entenderchile@gmail.com).</li>
+        <li class="suyo"><b>Facebook: página CREADA (1-09)</b>: queda subir el primer Reel (el Short del día está en Descargas) y luego uno diario por dos semanas, midiendo. <small>plan en ideas/facebook.md</small></li>
         <li class="suyo"><b>Voz de respaldo (cuando toque, ~día 17):</b> crear en portal.azure.com un segundo recurso Speech en plan <b>S0</b> y cargar los secrets AZURE_SPEECH_KEY2/REGION2; el sistema cae solo al respaldo cuando el gratis se agote. Costo real: ~US$5-7/mes solo por el exceso.</li>
         <li class="suyo"><b>Responder el primer comentario</b> del Short del 30. 🎉</li>
-        <li class="suyo"><b>Tagline</b> — "El resumen sin gritos" en duda. <small>alternativas en ideas/tagline-alternativas.md</small></li>
-        <li class="suyo"><b>Noticias que faltaron el 29</b> según tu ojo — nómbralas para rastrear en qué etapa se perdieron.</li>
+        <li class="suyo"><b>Tagline</b>: "El resumen sin gritos" en duda. <small>alternativas en ideas/tagline-alternativas.md</small></li>
+        <li class="suyo"><b>Noticias que faltaron el 29</b> según tu ojo: nómbralas para rastrear en qué etapa se perdieron.</li>
       </ul>
     </section>
     <section class="tarjeta">
       <p class="eyebrow">Pendientes del sistema <span style="color:var(--acento)">■</span></p>
       <ul>
+        <li><b>Guardián sin repositorio</b>: recrear la rutina con el repo como fuente; hoy despierta en una carpeta vacía y nunca ha comprobado nada. <small>lo primero de la noche</small></li>
+        <li><b>Unificar el patrón de commit</b> en los tres workflows (barrido, edición, métricas): <code>git add</code> de todo lo que el script toca, <code>autoStash</code> y reintento. Hoy solo métricas lo tiene. <small>PENDIENTES, arreglo 2</small></li>
         <li><b>Métricas fase 2</b>: retención y swipe-away (reautorizar con el scope de Analytics, 5 min juntos).</li>
         <li><b>Verificador de fuentes</b>: abrir las URLs citadas y comprobar las cifras (una noche).</li>
         <li><b>Cold open</b>: la cifra del día antes del sello (una noche).</li>
@@ -281,5 +337,5 @@
     </div>
   </section>
 
-  <p class="nota">Panel interno · se regenera cada mañana junto con la revisión del embudo · última actualización 01-09-2026: tercer gráfico (Shorts), históricos por sección y Realizados.</p>
+  <p class="nota">Panel interno · se regenera cada mañana junto con la revisión del embudo · última actualización 01-09-2026 (tarde): qué corre cada día con sus horas, y el guardián con lo que vigila, lo que no y por qué no pudo correr.</p>
 </div>

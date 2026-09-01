@@ -55,6 +55,71 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **ARREGLO 0, lo primero: el guardián nunca ha comprobado nada. La rutina
+      no tiene el repositorio montado.** Hallazgo del 01-09 (tarde), a partir
+      del aviso que llegó al teléfono a las 06:14: *"El guardián de Entender
+      Chile no pudo ejecutarse hoy: sin acceso al repositorio."*
+      Comparando las cinco rutinas con `list_triggers`, la diferencia es
+      exacta y única: barrido, observatorio, revisión y métricas traen
+      `session_context.sources = [{git_repository: .../entender-chile}]`; el
+      guardián `trig_01TNcYi1Pe46NtnL7eXN6YAx` **no trae `sources` en
+      absoluto** (tampoco `model`). Cada mañana despierta en una carpeta
+      vacía, no encuentra el repo y avisa que no pudo. Las otras cuatro se
+      crearon `via http_api`; el guardián `via meta_mcp`, que no permite
+      declarar fuentes.
+      Lo que SÍ está bien y no hay que tocar: la hora (cron `0 10 * * *`,
+      dispara 10:07-10:12 UTC = 06:07 Chile) y el canal de aviso
+      (`notifications: {push:true}`), que funciona: esa notificación es la
+      prueba de que la alerta de emergencia llega al teléfono.
+      **Arreglo: recrearlo con el repo como fuente.** No se puede parchar:
+      `update_trigger` solo cambia nombre, cron, enabled, modelo y prompt, no
+      las fuentes. Hay que borrarlo y crearlo de nuevo por la misma vía que
+      los otros cuatro, conservando el prompt tal cual (está bien escrito) y
+      `push:true`. Aprovechar de fijarle modelo (los otros lo declaran; este
+      no) y de sumarle los clientes del ARREGLO 2b.
+      **Consecuencia para leer el historial:** ninguna de las mañanas desde
+      el 29-08 tuvo guardián de verdad. Los días que la edición salió bien no
+      fue porque el guardián lo confirmara.
+
+- [ ] **ARREGLO 2b: unificar el patrón de commit en los tres workflows.**
+      Pedido de Santiago el 01-09. Hoy solo `metricas.yml` tiene el patrón
+      completo; `barrido.yml` y `edicion-diaria.yml` arrastran el mismo
+      riesgo latente que se comió dos mediciones. El patrón a dejar igual en
+      los tres:
+
+          git add <TODO lo que el script realmente escribe, no solo su carpeta>
+          git diff --cached --quiet || {
+            git commit -m "..."
+            git -c rebase.autoStash=true pull --rebase origin main
+            git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
+          }
+
+      Cuatro diferencias con lo que hay hoy, y por qué cada una:
+      1. **`autoStash`**: guarda solo lo que quedó sin preparar, rebasea, y lo
+         devuelve. Es lo único que habría evitado el `cannot pull with rebase:
+         You have unstaged changes` de hoy. Barato y sin efectos: si no hay
+         nada suelto, no hace nada.
+      2. **`origin main` explícito**: sin eso, `git pull --rebase` a secas
+         depende del upstream configurado del checkout, que en un runner es
+         una suposición. Los cinco prompts de las rutinas ya lo nombran; los
+         workflows no.
+      3. **Reintento**: `barrido.yml` y el paso 2 de `edicion-diaria.yml` no
+         tienen ninguno. Corregir de paso la afirmación imprecisa que quedó
+         en el commit de hoy: el reintento vive en los *prompts de las
+         rutinas*, no en los workflows.
+      4. **Auditar qué escribe cada script fuera de su carpeta**, que es la
+         causa raíz. Revisar con `grep -n "writeFileSync\|appendFileSync"` en
+         `scripts/barrido.js`, `scripts/dia.js`, `scripts/casos.js`,
+         `scripts/short.js`, `scripts/podcast-subir.js`. El paso 2 de la
+         edición hace `git add contenido/` y `casos.js` escribe dentro de
+         `contenido/casos/`, así que hoy zafa; el día que un script toque
+         `bitacora/`, `public/` o `out/` fuera de esa raíz, se repite el
+         mismo fallo silencioso.
+      Y la regla de fondo, que vale más que los tres arreglos: **un paso de
+      commit no puede fallar en silencio**. Cuando falla, la pieza del día se
+      pierde y nadie se entera hasta que alguien mira. Por eso el ARREGLO 0
+      va primero.
+
 - [ ] **REVISAR EL ARREGLO 1, que ya se aplicó de día (01-09, a pedido de
       Santiago, levantando la regla de solo lectura para este caso).** Lo que
       se cambió en el paso Commit de `.github/workflows/metricas.yml`:
