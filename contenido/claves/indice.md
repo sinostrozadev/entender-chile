@@ -6,3 +6,4 @@
 2026-08-29 | como-leer-tasa-desempleo | Cómo leer la tasa de desempleo: fuerza de trabajo, participación y ajuste estacional
 2026-08-30 | imsi-catcher-vigilancia-celular | IMSI Catcher y vigilancia celular: cómo funciona una antena falsa y por qué necesita límites judiciales
 2026-08-31 | mercado-capitales-credito-hipotecario | Mercado de capitales y crédito hipotecario: por qué el costo de financiar a los bancos termina influyendo en la tasa de una vivienda
+2026-09-01 | como-leer-imacec | Cómo leer el Imacec: qué mide, por qué no es el PIB mensual y cómo separar tendencia de ruido
