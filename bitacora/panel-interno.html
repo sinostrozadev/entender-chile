@@ -116,6 +116,64 @@
   </div>
 
   <section class="tarjeta">
+    <p class="eyebrow">La curva hacia la meta (se actualiza cada mañana; histórico en bitacora/metricas/proyeccion.json)</p>
+    <div class="fila f2" style="align-items:start">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gris);margin-bottom:6px">SUSCRIPTORES → 1.000</div>
+        <svg id="g-subs" viewBox="0 0 560 250" style="width:100%;height:auto"></svg>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gris);margin-bottom:6px">HORAS VISTAS EN LARGOS (estimadas) → 4.000</div>
+        <svg id="g-horas" viewBox="0 0 560 250" style="width:100%;height:auto"></svg>
+      </div>
+    </div>
+    <div style="display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--gris);margin-top:8px">
+      <span><span style="display:inline-block;width:22px;height:3px;background:var(--acento);vertical-align:middle"></span> real</span>
+      <span><span style="display:inline-block;width:22px;height:0;border-top:3px dashed var(--gris);vertical-align:middle"></span> trayectoria exigida (1-feb-2027)</span>
+      <span><span style="display:inline-block;width:22px;height:0;border-top:3px dashed var(--cobre);vertical-align:middle"></span> compuesto 25%/semana</span>
+      <span><span style="display:inline-block;width:22px;height:0;border-top:2px dotted var(--cobre);vertical-align:middle"></span> compuesto 15%/semana</span>
+    </div>
+    <p class="nota" style="margin-top:10px">Horas estimadas = vistas de largos × duración × 40% de retención supuesta, hasta tener el dato real de Analytics. La curva real es la línea que importa: si se despega hacia la cobre, la meta es alcanzable; si se pega al piso, hay que mover retención o volumen.</p>
+    <script>
+    /*SERIE-INICIO*/ const SERIE = [{"fecha":"2026-08-30","subs":2,"vistasTotales":0,"vistasLargos":5,"vistasShorts":17,"horasEst":0.38},{"fecha":"2026-08-31","subs":3,"vistasTotales":107,"vistasLargos":23,"vistasShorts":129,"horasEst":1.88},{"fecha":"2026-09-01","subs":4,"vistasTotales":107,"vistasLargos":30,"vistasShorts":224,"horasEst":2.5}]; /*SERIE-FIN*/
+    (function(){
+      const INICIO=new Date("2026-08-30"), META=new Date("2027-02-01"), DIAS=(META-INICIO)/864e5;
+      const dia=(f)=>(new Date(f)-INICIO)/864e5;
+      function dibujar(id, serie, campo, meta){
+        const W=560,H=250,ML=46,MR=8,MT=10,MB=24, w=W-ML-MR, h=H-MT-MB;
+        const x=(d)=>ML+ (d/DIAS)*w, y=(v)=>MT+h-(Math.min(v,meta)/meta)*h;
+        const ultimo=serie[serie.length-1]||{fecha:"2026-08-30"};
+        const v0=ultimo[campo]||0, d0=dia(ultimo.fecha);
+        const nDias=Math.max(serie.length,2);
+        const tasa=(serie.length>1?(v0-serie[0][campo])/(dia(ultimo.fecha)-dia(serie[0].fecha)||1):v0)||0.5;
+        function escenario(crec){ // tasa diaria que crece `crec` por semana, acumulando
+          const pts=[[d0,v0]]; let acc=v0, r=tasa;
+          for(let d=d0+7; d<=DIAS+7; d+=7){ r*=crec; acc+=r*7; pts.push([Math.min(d,DIAS),Math.min(acc,meta*1.02)]); if(acc>=meta)break; }
+          return pts;
+        }
+        const linea=(pts,estilo)=>'<polyline fill="none" points="'+pts.map(p=>x(p[0]).toFixed(1)+","+y(p[1]).toFixed(1)).join(" ")+'" '+estilo+'/>';
+        let svg="";
+        for(const g of [0.25,0.5,0.75]) svg+='<line x1="'+ML+'" y1="'+(MT+h*g)+'" x2="'+(W-MR)+'" y2="'+(MT+h*g)+'" style="stroke:var(--linea);stroke-width:1"/>';
+        svg+='<line x1="'+ML+'" y1="'+(MT+h)+'" x2="'+(W-MR)+'" y2="'+(MT+h)+'" style="stroke:var(--gris);stroke-width:1"/>';
+        svg+='<text x="'+(ML-6)+'" y="'+(MT+8)+'" text-anchor="end" style="font:11px monospace;fill:var(--gris)">'+meta.toLocaleString("es-CL")+'</text>';
+        svg+='<text x="'+(ML-6)+'" y="'+(MT+h)+'" text-anchor="end" style="font:11px monospace;fill:var(--gris)">0</text>';
+        svg+='<text x="'+ML+'" y="'+(H-6)+'" style="font:11px monospace;fill:var(--gris)">30 ago</text>';
+        svg+='<text x="'+(W-MR)+'" y="'+(H-6)+'" text-anchor="end" style="font:11px monospace;fill:var(--gris)">1 feb 27</text>';
+        svg+=linea([[0,serie[0]?serie[0][campo]:0],[DIAS,meta]],'style="stroke:var(--gris);stroke-width:2;stroke-dasharray:7 5"');
+        svg+=linea(escenario(1.25),'style="stroke:var(--cobre);stroke-width:2;stroke-dasharray:7 5"');
+        svg+=linea(escenario(1.15),'style="stroke:var(--cobre);stroke-width:1.6;stroke-dasharray:2 4"');
+        svg+=linea(serie.map(e=>[dia(e.fecha),e[campo]]),'style="stroke:var(--acento);stroke-width:3"');
+        for(const e of serie) svg+='<circle cx="'+x(dia(e.fecha)).toFixed(1)+'" cy="'+y(e[campo]).toFixed(1)+'" r="4.5" style="fill:var(--acento)"><title>'+e.fecha+": "+e[campo]+'</title></circle>';
+        svg+='<text x="'+(x(d0)+8)+'" y="'+(y(v0)-8)+'" style="font:12px monospace;fill:var(--acento)">'+v0+'</text>';
+        document.getElementById(id).innerHTML=svg;
+      }
+      dibujar("g-subs",SERIE,"subs",1000);
+      dibujar("g-horas",SERIE,"horasEst",4000);
+    })();
+    </script>
+  </section>
+
+  <section class="tarjeta">
     <p class="eyebrow">Proyección a la monetización (metas del Programa de Partners)</p>
     <div style="overflow-x:auto">
     <table>

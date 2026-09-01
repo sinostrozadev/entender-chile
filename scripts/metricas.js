@@ -32,11 +32,16 @@ if (!YT_CLIENT_ID || !YT_CLIENT_SECRET || !YT_REFRESH_TOKEN) { console.log("Sin 
   const subidos = (await yt.playlistItems.list({ playlistId: ch.contentDetails.relatedPlaylists.uploads, part: ["contentDetails"], maxResults: 50 })).data.items.map((i) => i.contentDetails.videoId);
   const videos = {};
   for (let i = 0; i < subidos.length; i += 50) {
-    const r = await yt.videos.list({ id: subidos.slice(i, i + 50), part: ["snippet", "statistics", "status"] });
-    for (const v of r.data.items) videos[v.id] = {
-      titulo: v.snippet.title.slice(0, 60), publicado: v.snippet.publishedAt.slice(0, 10), estado: v.status.privacyStatus,
-      vistas: +(v.statistics.viewCount || 0), meGusta: +(v.statistics.likeCount || 0), comentarios: +(v.statistics.commentCount || 0),
-    };
+    const r = await yt.videos.list({ id: subidos.slice(i, i + 50), part: ["snippet", "statistics", "status", "contentDetails"] });
+    for (const v of r.data.items) {
+      const m = (v.contentDetails?.duration || "").match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+      const durSeg = m ? (+(m[1] || 0)) * 3600 + (+(m[2] || 0)) * 60 + (+(m[3] || 0)) : 0;
+      videos[v.id] = {
+        titulo: v.snippet.title.slice(0, 60), publicado: v.snippet.publishedAt.slice(0, 10), estado: v.status.privacyStatus,
+        vistas: +(v.statistics.viewCount || 0), meGusta: +(v.statistics.likeCount || 0), comentarios: +(v.statistics.commentCount || 0),
+        durSeg,
+      };
+    }
   }
 
   // deltas contra el json anterior más reciente
@@ -63,5 +68,34 @@ if (!YT_CLIENT_ID || !YT_CLIENT_SECRET || !YT_REFRESH_TOKEN) { console.log("Sin 
   lineas.push("", "Retención e impresiones: pendiente el scope de Analytics (fase 2).", "");
   fs.writeFileSync(path.join(DIR, `${fecha}.md`), lineas.join("\n"));
   fs.writeFileSync(path.join(DIR, `${fecha}.json`), JSON.stringify({ fecha, canal, videos }, null, 2) + "\n");
+
+  // ---- Histórico de proyección (pedido de Santiago, 1-09): una fila por día,
+  // para el gráfico del panel y para comparar proyecciones en el tiempo.
+  // Horas de largos ESTIMADAS: vistas × duración × 40% de retención supuesta
+  // (cuando llegue el scope de Analytics, se reemplaza por el dato real).
+  const esShort = (v) => v.durSeg > 0 && v.durSeg <= 75;
+  let vistasLargos = 0, vistasShorts = 0, horasEst = 0;
+  for (const v of Object.values(videos)) {
+    if (v.estado !== "public") continue;
+    if (esShort(v)) vistasShorts += v.vistas;
+    else { vistasLargos += v.vistas; horasEst += (v.vistas * v.durSeg * 0.4) / 3600; }
+  }
+  const rutaProy = path.join(DIR, "proyeccion.json");
+  const proy = fs.existsSync(rutaProy) ? JSON.parse(fs.readFileSync(rutaProy, "utf8")) : [];
+  const sinHoy = proy.filter((e) => e.fecha !== fecha);
+  sinHoy.push({ fecha, subs: canal.suscriptores, vistasTotales: canal.vistas, vistasLargos, vistasShorts, horasEst: Number(horasEst.toFixed(2)) });
+  sinHoy.sort((a, b) => (a.fecha < b.fecha ? -1 : 1));
+  fs.writeFileSync(rutaProy, JSON.stringify(sinHoy, null, 2) + "\n");
+
+  // ---- Refrescar los datos del gráfico dentro del panel (entre marcadores).
+  const rutaPanel = path.join("bitacora", "panel-interno.html");
+  if (fs.existsSync(rutaPanel)) {
+    const html = fs.readFileSync(rutaPanel, "utf8");
+    const re = /\/\*SERIE-INICIO\*\/[\s\S]*?\/\*SERIE-FIN\*\//;
+    if (re.test(html)) {
+      fs.writeFileSync(rutaPanel, html.replace(re, `/*SERIE-INICIO*/ const SERIE = ${JSON.stringify(sinHoy)}; /*SERIE-FIN*/`));
+      console.log("datos del gráfico del panel refrescados");
+    }
+  }
   console.log(`métricas del ${fecha}: ${canal.suscriptores} subs, ${Object.keys(videos).length} videos → ${DIR}/${fecha}.md`);
 })().catch((e) => { console.error("error:", e.response?.data?.error?.message || e.message); process.exit(1); });

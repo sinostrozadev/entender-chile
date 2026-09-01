@@ -1,0 +1,26 @@
+[
+  {
+    "fecha": "2026-08-30",
+    "subs": 2,
+    "vistasTotales": 0,
+    "vistasLargos": 5,
+    "vistasShorts": 17,
+    "horasEst": 0.38
+  },
+  {
+    "fecha": "2026-08-31",
+    "subs": 3,
+    "vistasTotales": 107,
+    "vistasLargos": 23,
+    "vistasShorts": 129,
+    "horasEst": 1.88
+  },
+  {
+    "fecha": "2026-09-01",
+    "subs": 4,
+    "vistasTotales": 107,
+    "vistasLargos": 30,
+    "vistasShorts": 224,
+    "horasEst": 2.5
+  }
+]
