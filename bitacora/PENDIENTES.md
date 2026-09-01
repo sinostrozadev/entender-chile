@@ -55,7 +55,18 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **ARREGLO 1: el commit de `metricas.yml` falla y pierde la medición del
+- [ ] **REVISAR EL ARREGLO 1, que ya se aplicó de día (01-09, a pedido de
+      Santiago, levantando la regla de solo lectura para este caso).** Lo que
+      se cambió en el paso Commit de `.github/workflows/metricas.yml`:
+      `git add` ahora incluye `bitacora/panel-interno.html`, el `pull` lleva
+      `-c rebase.autoStash=true` y nombra `origin main`, y se agregó un
+      reintento. Revisar con calma que el patrón es el que se quiere para
+      todo el proyecto: **los demás workflows (barrido, edición) tienen el
+      mismo riesgo latente** si algún día su script toca algo fuera de la
+      carpeta que preparan, y ninguno tiene reintento ni autoStash. Vale la
+      pena decidir si se unifica el patrón en los tres.
+
+- [ ] ~~**ARREGLO 1 original: el commit de `metricas.yml` falla y pierde la medición del
       día. Causa exacta, del log del run 33510580263 (01-09, 12:58):**
 
           [main 8a549d8] métricas 2026-09-01 [bot]

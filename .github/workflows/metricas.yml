@@ -40,5 +40,13 @@ jobs:
         run: |
           git config user.name "metricas-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add bitacora/metricas/
-          git diff --cached --quiet || { git commit -m "métricas $(TZ=America/Santiago date +%F) [bot]"; git pull --rebase; git push; }
+          # metricas.js escribe en bitacora/metricas/ Y refresca el gráfico dentro
+          # de bitacora/panel-interno.html. Si el panel queda sin preparar, el
+          # rebase aborta con "cannot pull with rebase: You have unstaged changes"
+          # y la medición del día se pierde (pasó dos veces el 01-09).
+          git add bitacora/metricas/ bitacora/panel-interno.html
+          git diff --cached --quiet || {
+            git commit -m "métricas $(TZ=America/Santiago date +%F) [bot]"
+            git -c rebase.autoStash=true pull --rebase origin main
+            git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
+          }
