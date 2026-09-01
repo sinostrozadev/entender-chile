@@ -55,6 +55,38 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **ARREGLO 1: el commit de `metricas.yml` falla y pierde la medición del
+      día. Causa exacta, del log del run 33510580263 (01-09, 12:58):**
+
+          [main 8a549d8] métricas 2026-09-01 [bot]
+           3 files changed, 162 insertions(+), 4 deletions(-)
+          error: cannot pull with rebase: You have unstaged changes.
+          error: Please commit or stash them.
+
+      No es una carrera de push: el commit se hizo bien y el `pull --rebase`
+      se negó a correr porque quedaron **cambios sin preparar en el árbol**.
+      El paso hace `git add bitacora/metricas/` (solo esa carpeta), pero
+      `metricas.js` también escribe fuera de ella: el log dice "datos del
+      gráfico del panel refrescados", o sea toca el panel. Ese archivo queda
+      modificado y sin `add`, y por eso el rebase aborta.
+      Arreglo, cualquiera de los tres: incluir en el `git add` lo que el
+      script realmente toca (o `git add -A`), o usar `git stash` antes del
+      pull, o `git -c rebase.autoStash=true pull --rebase`. Y de paso
+      **sumar el reintento** que todos los demás workflows del proyecto ya
+      tienen y a este se le olvidó ("reintenta una vez con pull --rebase").
+      Nota: el 04:10 no falló porque en ese momento el panel ya estaba al
+      día y no quedó nada sin preparar. Es intermitente por diseño.
+
+- [ ] **ARREGLO 2: el guardián no mira las métricas.** El paso falló a las
+      12:58 y nadie se enteró: los números se bajaron de YouTube y nunca
+      llegaron al repo. Sumar a `trig_01TNcYi1Pe46NtnL7eXN6YAx` (guardián de
+      las 10:00 UTC) la comprobación de que existe
+      `bitacora/metricas/FECHA.md` del día, y contarlo como alerta si falta.
+      Ojo con el orden: hoy el despertador de métricas corre 12:57 UTC y el
+      guardián a las 10:00, así que el guardián pasaría antes. O se adelanta
+      el despertador, o el guardián se atrasa, o la comprobación mira el día
+      anterior.
+
 - [x] (CORREGIDO 1-09: paso 8 despacha la web) **El feed del podcast no se regenera cuando el bot registra episodios.**
       Causa exacta, confirmada hoy: el paso 7b commitea
       `contenido/podcast/episodios.json` con el GITHUB_TOKEN del workflow, y
