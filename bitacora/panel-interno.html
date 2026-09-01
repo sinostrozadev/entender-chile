@@ -89,7 +89,7 @@
 
   <div class="fila f2">
     <section class="tarjeta">
-      <p class="eyebrow">Vistas por video · al cierre del 31-08</p>
+      <p class="eyebrow">Vistas por video · al cierre del 31-08 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· histórico diario en bitacora/metricas/*.json</span></p>
       <div class="barra-fila"><div class="barra-nombre">Short · Cinco cosas (30 ago)</div><div class="barra-pista"><div class="barra-valor" style="width:100%"></div></div><div class="barra-num">76</div></div>
       <div class="barra-fila"><div class="barra-nombre">Short · Clave antena falsa</div><div class="barra-pista"><div class="barra-valor" style="width:54%"></div></div><div class="barra-num">41</div></div>
       <div class="barra-fila"><div class="barra-nombre">Informe · Alerta Roja Andalién</div><div class="barra-pista"><div class="barra-valor" style="width:16%"></div></div><div class="barra-num">12</div></div>
@@ -125,6 +125,10 @@
       <div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gris);margin-bottom:6px">HORAS VISTAS EN LARGOS (estimadas) → 4.000</div>
         <svg id="g-horas" viewBox="0 0 560 250" style="width:100%;height:auto"></svg>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gris);margin-bottom:6px">VISTAS DE SHORTS (90 días) → 10.000.000</div>
+        <svg id="g-shorts" viewBox="0 0 560 250" style="width:100%;height:auto"></svg>
       </div>
     </div>
     <div style="display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--gris);margin-top:8px">
@@ -169,6 +173,7 @@
       }
       dibujar("g-subs",SERIE,"subs",1000);
       dibujar("g-horas",SERIE,"horasEst",4000);
+      dibujar("g-shorts",SERIE,"vistasShorts",10000000);
     })();
     </script>
   </section>
@@ -187,7 +192,7 @@
   </section>
 
   <section class="tarjeta">
-    <p class="eyebrow">La lista de la madrugada · corrida del 31-08</p>
+    <p class="eyebrow">La lista de la madrugada · corrida del 31-08 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· histórico en bitacora/panel/madrugadas.json</span></p>
     <div style="overflow-x:auto">
     <table>
       <tr><th>Hora</th><th>Paso</th><th>¿Cumplió?</th><th>Motivo y solución cuando no</th></tr>
@@ -203,7 +208,7 @@
   </section>
 
   <section class="tarjeta">
-    <p class="eyebrow">Consumo y cuotas</p>
+    <p class="eyebrow">Consumo y cuotas <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· histórico en bitacora/panel/consumo.json</span></p>
     <div style="overflow-x:auto">
     <table>
       <tr><th>Servicio</th><th class="num">Hoy</th><th class="num">Proyección al mes</th><th class="num">Cupo</th><th>Estado</th><th class="num">Costo</th></tr>
@@ -243,6 +248,15 @@
   </div>
 
   <section class="tarjeta">
+    <p class="eyebrow">Realizados <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· registro completo en bitacora/REALIZADOS.md</span></p>
+    <ul>
+      <li><b>01-09</b>: gráficos de la curva a la meta con histórico · voz con respaldo S0 · feed del podcast y métricas con sus relojes arreglados · fuentes de Claves corregidas.</li>
+      <li><b>30-08</b>: canal público (primer video, Shorts, playlists, carátulas, 1440p) · podcast en Spotify automático · auditoría de la API enviada · panel interno.</li>
+      <li><b>29-08</b>: voz chilena operativa y pausada · informe sin tope + "En titulares" · cifras con criterio y fuente en cada tarjeta · barrido con alarmas (el tornado).</li>
+    </ul>
+  </section>
+
+  <section class="tarjeta">
     <p class="eyebrow">Documentos del proyecto</p>
     <table class="docs">
       <tr><td><a href="https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md">bitácora / PENDIENTES</a></td><td class="nota">La lista viva completa, con el detalle de cada punto de arriba.</td></tr>
@@ -267,5 +281,5 @@
     </div>
   </section>
 
-  <p class="nota">Panel interno · se regenera cada mañana junto con la revisión del embudo · última actualización 01-09-2026, con la revisión del 31 y la voz con respaldo.</p>
+  <p class="nota">Panel interno · se regenera cada mañana junto con la revisión del embudo · última actualización 01-09-2026: tercer gráfico (Shorts), históricos por sección y Realizados.</p>
 </div>

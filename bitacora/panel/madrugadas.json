@@ -1,0 +1,11 @@
+[
+  {"fecha":"2026-08-30","verde":14,"alertas":4,"detalle":[
+    {"paso":"Short de la Clave abrió con fondo marino","solucion":"piel verde desde el sello"},
+    {"paso":"mp3 de la Clave pisó al del informe en el release","solucion":"nombre por pieza"},
+    {"paso":"título cruzado, carátulas ausentes y Shorts sin descripción al subir","solucion":"parsed por pieza; teléfono verificado; descripción en línea aparte"},
+    {"paso":"podcast subido a mano","solucion":"AUDIO_TOKEN cargado"}]},
+  {"fecha":"2026-08-31","verde":15,"alertas":3,"detalle":[
+    {"paso":"guion de Claves acreditó 2 de 7 fuentes (GRAVE)","solucion":"regla en el prompt + fuentes agregadas por API"},
+    {"paso":"feed del podcast no se refrescó (push del bot no dispara workflows)","solucion":"paso 8 despacha la web"},
+    {"paso":"métricas nunca corrió por el cron de GitHub","solucion":"rutina Reloj de métricas 08:45 + trigger por push"}]}
+]
