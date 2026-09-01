@@ -55,6 +55,42 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **VISUAL 3: el árbol de decisión de tarjetas y, sobre todo, su
+      validación.** Propuesta completa en
+      `ideas/tarjetas-cuando-usar-cada-una.md`, y el catálogo visual de las
+      once tarjetas con datos de ejemplo está en el panel interno.
+      El diagnóstico: el prompt ofrece once tipos, los describe bien y **no
+      dice cuándo usar cada uno**. Con esa libertad el modelo se va siempre
+      al más fácil (11 de 14 marcas del 01-09 fueron `cifra`). La corrección
+      no es pedir "más variedad", que es gusto y no se verifica, sino dar una
+      regla mecánica sobre la FORMA DEL DATO: cuántos valores hay y qué
+      relación tienen. Eso es decidible y por lo tanto auditable.
+      **Tres piezas, en este orden:**
+      1. **El árbol al prompt** (`prompts/guion-informe.md`): once filas, se
+         recorre en orden, gana la primera que calza. Ver el documento.
+      2. **Las cuotas de variedad como capa aparte**, que NO manda sobre el
+         árbol: máximo dos `cifra` seguidas, nunca dos del mismo tipo
+         seguidas en un bloque, con 8 o más noticias al menos un `esquema` y
+         una de `barras`/`tabla`/`comparacion`.
+         **Y la regla que las protege, que hay que escribir con todas sus
+         letras en el prompt: la variedad nunca justifica un dato que no está
+         en el informe ni una tarjeta forzada.** Ese es el riesgo real de
+         este cambio: a un modelo al que se le pide variedad, se le empieza a
+         ocurrir con qué llenarla.
+      3. **El contador mecánico, que es lo que Santiago pidió de verdad al
+         decir "súper validar".** Una regla en un prompt es una intención, no
+         una garantía: hoy el prompt YA ofrece los once tipos y salieron
+         cuatro. Un script que lea el guion del día, cuente marcas por tipo y
+         avise cuando se rompa una cuota. No depende de que ningún modelo se
+         porte bien. Media hora de trabajo y es la capa que más rinde.
+         Después, si funciona, sumarlo como hallazgo `[MENOR]` de la revisión
+         editorial (con cuidado: ese prompt ya tuvo el problema de marcar
+         doce veces la misma no falla y está calibrado contra eso).
+      **Antes de aplicar nada, la prueba:** tomar los guiones del 29, 30, 31
+      y 01, aplicar el árbol a mano marca por marca, y ver si el resultado es
+      mejor que lo que salió. Si el árbol no mejora esos cuatro días, el
+      árbol está mal y hay que arreglarlo antes de tocar el prompt.
+
 - [ ] **VISUAL 1: el esquema. Barato, hoy mismo, cero código.**
       `TarjetaEsquema` está construida y funcionando, y el prompt ya la
       ofrece (`prompts/guion-informe.md` línea 124:

@@ -314,6 +314,293 @@
   </section>
 
   <section class="tarjeta">
+    <p class="eyebrow">Catálogo de tarjetas <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· las once formas que el motor sabe dibujar, a escala 16:9 con los estilos reales de src/tarjetas.tsx</span></p>
+    <p style="margin:0 0 18px;max-width:70ch">Cada recuadro reproduce las proporciones, tipografías y colores del video: papel, tinta, el acento pátina y la barra de color de sección. Los datos son de la edición del 01-09 donde existen; los de <b>cita</b>, <b>marcador</b>, <b>tabla</b> y <b>líneas</b> están inventados para mostrar la forma y van marcados como ejemplo.</p>
+
+    <style>
+      .tv-grid{display:grid;gap:26px}
+      @media(min-width:820px){.tv-grid{grid-template-columns:1fr 1fr}}
+      .tv-item{display:flex;flex-direction:column;gap:10px}
+      .tv-cab{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+      .tv-nom{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta);font-weight:500}
+      .tv-est{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;padding:2px 9px;border-radius:999px;white-space:nowrap}
+      .tv-uso{background:var(--acento-suave);color:var(--acento)}
+      .tv-nuevo{background:transparent;color:var(--cobre);border:1px solid var(--cobre)}
+      .tv-falta{background:transparent;color:var(--gris);border:1px dashed var(--gris)}
+      /* El lienzo NO sigue el tema del panel: es el video, y el video es papel claro siempre. */
+      .tv-lienzo{container-type:inline-size;aspect-ratio:16/9;background:#F2F2EF;color:#17191C;
+        position:relative;overflow:hidden;border:1px solid var(--linea);border-radius:6px}
+      .tv-rail{position:absolute;left:2.917cqw;top:7.8cqw;bottom:7.8cqw;width:.417cqw;border-radius:.21cqw;background:#2F7263;opacity:.85}
+      .tv-cuerpo{position:absolute;inset:0;padding:6.667cqw;display:flex;flex-direction:column;justify-content:center}
+      .tv-caja{max-width:69.8cqw}
+      .tv-src{position:absolute;left:6.667cqw;right:6.667cqw;bottom:4.375cqw;
+        font-family:'IBM Plex Mono',monospace;font-size:1.25cqw;letter-spacing:.06em;color:#6B6E6A}
+      .tv-eye{font-family:'IBM Plex Mono',monospace;font-size:1.25cqw;letter-spacing:.22em;text-transform:uppercase;color:#2F7263}
+      .tv-serif{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.1}
+      .tv-sans{font-family:'IBM Plex Sans',Arial,sans-serif}
+      .tv-mono{font-family:'IBM Plex Mono',monospace}
+      .tv-gris{color:#6B6E6A}
+      .tv-chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:1.25cqw;letter-spacing:.18em;
+        padding:.52cqw 1.15cqw;border-radius:999px;border:.1cqw solid #17191C;background:#17191C;color:#F2F2EF}
+      .tv-chip.contorno{background:transparent;color:#2F7263;border-color:#2F7263}
+      .tv-fila{display:flex;align-items:center;gap:1.9cqw}
+      .tv-barra{height:2.4cqw;background:#DDDDD5;border-radius:.42cqw;overflow:hidden;flex:1}
+      .tv-barra i{display:block;height:100%;border-radius:.42cqw;background:#17191C}
+      .tv-barra i.on{background:#2F7263}
+      .tv-nodo{background:#FCFCFA;border:.104cqw solid #17191C;border-radius:.63cqw;padding:1.35cqw 1.77cqw;
+        font-family:'IBM Plex Sans',Arial,sans-serif;font-size:1.667cqw;line-height:1.25}
+      .tv-meta{font-size:12.5px;color:var(--gris);line-height:1.5}
+      .tv-meta code{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--tinta);
+        background:var(--fondo);border:1px solid var(--linea);border-radius:4px;padding:1px 5px;
+        display:inline-block;margin-bottom:6px;word-break:break-word}
+      .tv-meta b{color:var(--tinta)}
+    </style>
+
+    <div class="tv-grid">
+
+      <article class="tv-item">
+        <div class="tv-cab"><span class="tv-nom">Tesis</span><span class="tv-est tv-uso">10 usos el 01-09</span></div>
+        <div class="tv-lienzo">
+          <div class="tv-rail" style="background:#8A6F3F"></div>
+          <div class="tv-cuerpo"><div class="tv-caja">
+            <div class="tv-eye" style="margin-bottom:1.56cqw">La idea</div>
+            <div class="tv-serif" style="font-size:3.96cqw">La industria cayó 5,1% y hoy el Imacec mostrará si la debilidad fue más amplia.</div>
+          </div></div>
+          <div class="tv-src">FUENTE · INE, 31 ago; Banco Central, 1 sep</div>
+        </div>
+        <div class="tv-meta"><code>[TESIS] frase de máximo 18 palabras</code><br>
+          <b>Cuándo:</b> una por bloque, obligatoria en las [A] y [B]. Es lo que alguien recordaría del bloque si solo viera una pantalla.</div>
+      </article>
+
+      <article class="tv-item">
+        <div class="tv-cab"><span class="tv-nom">Narración</span><span class="tv-est tv-uso">84 usos el 01-09</span></div>
+        <div class="tv-lienzo">
+          <div class="tv-rail" style="background:#8A6F3F"></div>
+          <div class="tv-cuerpo"><div class="tv-caja">
+            <div class="tv-chip contorno" style="margin-bottom:1.77cqw">INTERPRETACIÓN</div>
+            <div class="tv-sans" style="font-size:2.19cqw;line-height:1.5">Más que comparar mecánicamente el Imacec con ese 5,1%, conviene mirar de qué actividades viene el resultado que publique hoy el Banco Central.</div>
+          </div></div>
+          <div class="tv-src">FUENTE · Banco Central, 1 sep</div>
+        </div>
+        <div class="tv-meta"><code>el párrafo narrado, sin marca</code><br>
+          <b>Cuándo:</b> por defecto. Es el 78% del video, y ahí está el problema: cada párrafo sin marca es una pantalla de texto.</div>
+      </article>
+
+      <article class="tv-item">
+        <div class="tv-cab"><span class="tv-nom">Cifra</span><span class="tv-est tv-uso">11 usos el 01-09</span></div>
+        <div class="tv-lienzo">
+          <div class="tv-rail" style="background:#8A6F3F"></div>
+          <div class="tv-cuerpo"><div class="tv-caja">
+            <div class="tv-fila" style="gap:1.77cqw">
+              <div class="tv-serif" style="font-size:10.94cqw">-5,1%</div>
+              <svg viewBox="0 0 100 100" style="width:5.73cqw;height:5.73cqw;transform:rotate(180deg)" aria-hidden="true"><path d="M50 12 L84 50 L64 50 L64 88 L36 88 L36 50 L16 50 Z" fill="#B3402F"/></svg>
+            </div>
+            <div class="tv-sans tv-gris" style="font-size:2.08cqw;margin-top:1.35cqw">producción industrial en doce meses</div>
+          </div></div>
+          <div class="tv-src">FUENTE · INE, 31 ago</div>
+        </div>
+        <div class="tv-meta"><code>[DATO cifra | INE, 31 ago] producción industrial en doce meses: -5,1% (baja mal)</code><br>
+          <b>Cuándo:</b> un solo valor. Es la más usada y la que hay que racionar: máximo dos seguidas.</div>
+      </article>
+
+      <article class="tv-item">
+        <div class="tv-cab"><span class="tv-nom">Cifra · modo señal</span><span class="tv-est tv-uso">disponible</span></div>
+        <div class="tv-lienzo">
+          <div class="tv-rail" style="background:#8A6F3F"></div>
+          <div class="tv-cuerpo"><div class="tv-caja">
+            <div class="tv-fila" style="gap:2.08cqw">
+              <div class="tv-serif" style="font-size:6.25cqw">Empleo formal</div>
+              <svg viewBox="0 0 100 100" style="width:7.8cqw;height:7.8cqw;transform:rotate(180deg)" aria-hidden="true"><path d="M50 12 L84 50 L64 50 L64 88 L36 88 L36 50 L16 50 Z" fill="#B3402F"/></svg>
+            </div>
+          </div></div>
+          <div class="tv-src">FUENTE · INE, 31 ago</div>
+        </div>
+        <div class="tv-meta"><code>[DATO cifra | INE, 31 ago] empleo formal: (baja mal)</code><br>
+          <b>Cuándo:</b> hay dirección clara pero no hay número que valga la pena. Evita inventar una cifra para llenar la tarjeta.</div>
+      </article>
+
+      <article class="tv-item">
+        <div class="tv-cab"><span class="tv-nom">Cambio</span><span class="tv-est tv-uso">2 usos el 01-09</span></div>
+        <div class="tv-lienzo">
+          <div class="tv-rail" style="background:#8A6F3F"></div>
+          <div class="tv-cuerpo"><div class="tv-caja">
+            <div class="tv-fila" style="gap:2.08cqw;flex-wrap:wrap">
+              <div class="tv-serif tv-gris" style="font-size:6.25cqw">$231.732</div>
+              <svg viewBox="0 0 100 100" style="width:3.13cqw;height:3.13cqw" aria-hidden="true"><path d="M10 50 L70 50 M52 30 L72 50 L52 70" fill="none" stroke="#6B6E6A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="tv-serif" style="font-size:6.25cqw">$250.275</div>
+              <svg viewBox="0 0 100 100" style="width:3.44cqw;height:3.44cqw" aria-hidden="true"><path d="M50 12 L84 50 L64 50 L64 88 L36 88 L36 50 L16 50 Z" fill="#2F7263"/></svg>
+            </div>
+            <div class="tv-sans tv-gris" style="font-size:2.08cqw;margin-top:1.35cqw">PGU máxima para el nuevo tramo</div>
+          </div></div>
+          <div class="tv-src">FUENTE · Subsecretaría Previsión Social, 31 ago</div>
+        </div>
+        <div class="tv-meta"><code>[DATO cambio | ...] PGU máxima: 231.732 -&gt; 250.275 (sube bien)</code><br>
+          <b>Cuándo:</b> el MISMO indicador en dos momentos. Si la noticia es la variación, esta gana siempre a barras y a comparación.</div>
+      </article>
+
+      <article class="tv-item">
+        <div class="tv-cab"><span class="tv-nom">Barras</span><span class="tv-est tv-uso">1 uso el 01-09</span></div>
+        <div class="tv-lienzo">
+          <div class="tv-rail" style="background:#8A6F3F"></div>
+          <div class="tv-cuerpo"><div style="display:flex;flex-direction:column;gap:2.3cqw">
+            <div class="tv-fila"><div class="tv-sans" style="width:24.5cqw;font-size:1.67cqw;text-align:right">minería</div><div class="tv-barra"><i class="on" style="width:100%"></i></div><div class="tv-mono" style="font-size:1.88cqw">-7,2%</div></div>
+            <div class="tv-fila"><div class="tv-sans" style="width:24.5cqw;font-size:1.67cqw;text-align:right">producción industrial</div><div class="tv-barra"><i style="width:71%"></i></div><div class="tv-mono" style="font-size:1.88cqw">-5,1%</div></div>
+            <div class="tv-fila"><div class="tv-sans" style="width:24.5cqw;font-size:1.67cqw;text-align:right">manufactura</div><div class="tv-barra"><i style="width:68%"></i></div><div class="tv-mono" style="font-size:1.88cqw">-4,9%</div></div>
+          </div></div>
+          <div class="tv-src">FUENTE · INE, 31 ago</div>
+        </div>
+        <div class="tv-meta"><code>[DATO barras | INE, 31 ago] minería: -7,2% ; producción industrial: -5,1% ; manufactura: -4,9%</code><br>
+          <b>Cuándo:</b> 3 a 6 valores de la misma familia y misma unidad, donde importa el tamaño relativo. La primera va en pátina.</div>
+      </article>
+
+      <article class="tv-item">
+        <div class="tv-cab"><span class="tv-nom">Comparación</span><span class="tv-est tv-nuevo">sin estrenar</span></div>
+        <div class="tv-lienzo">
+          <div class="tv-rail" style="background:#7A5560"></div>
+          <div class="tv-cuerpo"><div style="display:flex;gap:4.7cqw;align-items:flex-end">
+            <div><div class="tv-serif" style="font-size:6.9cqw;color:#2F7263">17</div><div class="tv-sans tv-gris" style="font-size:1.67cqw;margin-top:.94cqw;max-width:21.9cqw">condenados a cárcel efectiva</div></div>
+            <div><div class="tv-serif" style="font-size:6.9cqw;color:#2F7263">21</div><div class="tv-sans tv-gris" style="font-size:1.67cqw;margin-top:.94cqw;max-width:21.9cqw">años y un día, la pena más alta</div></div>
+          </div></div>
+          <div class="tv-src">FUENTE · Poder Judicial, 31 ago</div>
+        </div>
+        <div class="tv-meta"><code>[DATO comparacion | ...] condenados: 17 ; pena más alta en años: 21</code><br>
+          <b>Cuándo:</b> 2 o 3 valores de cosas distintas pero comparables. Si son el mismo indicador en dos momentos, no es esta: es <b>cambio</b>.</div>
+      </article>
+
+      <article class="tv-item">
+        <div class="tv-cab"><span class="tv-nom">Esquema</span><span class="tv-est tv-nuevo">sin estrenar · VISUAL 1</span></div>
+        <div class="tv-lienzo">
+          <div class="tv-rail" style="background:#7A5560"></div>
+          <div class="tv-cuerpo">
+            <div class="tv-eye" style="margin-bottom:2.3cqw">Dónde está la reforma de seguridad</div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:1.35cqw">
+              <div class="tv-nodo">Indicación del Gobierno</div>
+              <div class="tv-mono" style="font-size:2.3cqw;color:#2F7263">→</div>
+              <div class="tv-nodo">Comisión de Constitución</div>
+              <div class="tv-mono" style="font-size:2.3cqw;color:#2F7263">→</div>
+              <div class="tv-nodo">Sala del Senado</div>
+              <div class="tv-mono" style="font-size:2.3cqw;color:#2F7263">→</div>
+              <div class="tv-nodo">Cámara de Diputados</div>
+            </div>
+          </div>
+          <div class="tv-src">FUENTE · ejemplo, la forma del trámite</div>
+        </div>
+        <div class="tv-meta"><code>[ESQUEMA | Dónde está la reforma] Indicación del Gobierno -&gt; Comisión -&gt; Sala del Senado -&gt; Cámara</code><br>
+          <b>Cuándo:</b> la noticia es un ORDEN, no una cifra: etapas, actores que se pasan algo. Señales: "pasa a", "debe ser aprobado por", "queda en manos de". <b>Es la ventaja del formato sobre un conductor con cámara, y va cero veces.</b></div>
+      </article>
+
+      <article class="tv-item">
+        <div class="tv-cab"><span class="tv-nom">Tabla</span><span class="tv-est tv-nuevo">sin estrenar · ejemplo inventado</span></div>
+        <div class="tv-lienzo">
+          <div class="tv-rail" style="background:#7A5560"></div>
+          <div class="tv-cuerpo"><div style="max-width:52cqw">
+            <div class="tv-fila" style="gap:2.08cqw;padding:1.35cqw .52cqw;border-bottom:.104cqw solid #DDDDD5"><div class="tv-mono tv-gris" style="font-size:1.56cqw;width:2.9cqw">1</div><div class="tv-sans" style="font-size:2.08cqw;font-weight:600;flex:1">Santiago</div><div class="tv-mono" style="font-size:2.08cqw;color:#7A5560">4.812</div></div>
+            <div class="tv-fila" style="gap:2.08cqw;padding:1.35cqw .52cqw;border-bottom:.104cqw solid #DDDDD5"><div class="tv-mono tv-gris" style="font-size:1.56cqw;width:2.9cqw">2</div><div class="tv-sans" style="font-size:2.08cqw;flex:1">Valparaíso</div><div class="tv-mono" style="font-size:2.08cqw">3.106</div></div>
+            <div class="tv-fila" style="gap:2.08cqw;padding:1.35cqw .52cqw"><div class="tv-mono tv-gris" style="font-size:1.56cqw;width:2.9cqw">3</div><div class="tv-sans" style="font-size:2.08cqw;flex:1">Concepción</div><div class="tv-mono" style="font-size:2.08cqw">2.945</div></div>
+          </div></div>
+          <div class="tv-src">FUENTE · ejemplo, datos inventados</div>
+        </div>
+        <div class="tv-meta"><code>[DATO tabla | ...] Santiago: 4.812 ; Valparaíso: 3.106 ; Concepción: 2.945</code><br>
+          <b>Cuándo:</b> 3 o más valores ORDENADOS por posición: un ranking. Si el orden no significa nada, es <b>barras</b>.</div>
+      </article>
+
+      <article class="tv-item">
+        <div class="tv-cab"><span class="tv-nom">Cita</span><span class="tv-est tv-nuevo">sin estrenar · texto de ejemplo</span></div>
+        <div class="tv-lienzo">
+          <div class="tv-rail" style="background:#7A5560"></div>
+          <div class="tv-cuerpo"><div class="tv-caja">
+            <div class="tv-serif" style="font-size:3.02cqw;font-style:italic;font-weight:400;line-height:1.3">“Aquí va la frase textual, entre comillas, tal como la dijo quien la dijo.”</div>
+            <div class="tv-mono" style="font-size:1.46cqw;color:#2F7263;margin-top:2.08cqw">- [nombre y cargo de quien la dijo]</div>
+          </div></div>
+          <div class="tv-src">FUENTE · medio y fecha de la cita</div>
+        </div>
+        <div class="tv-meta"><code>[CITA | autor] la frase textual</code><br>
+          <b>Cuándo:</b> lo que importa es quién lo dijo y cómo lo dijo, con autor identificado. Nunca para parafrasear: si no es textual, es un párrafo.</div>
+      </article>
+
+      <article class="tv-item">
+        <div class="tv-cab"><span class="tv-nom">Marcador</span><span class="tv-est tv-nuevo">sin estrenar · resultado inventado</span></div>
+        <div class="tv-lienzo">
+          <div class="tv-rail" style="background:#44546A"></div>
+          <div class="tv-cuerpo"><div class="tv-fila" style="align-items:baseline;gap:2.5cqw;flex-wrap:wrap">
+            <div class="tv-serif" style="font-size:3.44cqw">Chile</div>
+            <div class="tv-serif" style="font-size:6.25cqw;color:#44546A">2<span style="color:#6B6E6A;padding:0 1.15cqw">-</span>1</div>
+            <div class="tv-serif" style="font-size:3.44cqw">Perú</div>
+          </div></div>
+          <div class="tv-src">FUENTE · ejemplo, resultado inventado</div>
+        </div>
+        <div class="tv-meta"><code>[DATO marcador | ...] Chile: 2 ; Perú: 1</code><br>
+          <b>Cuándo:</b> solo deporte, y solo si el informe lo trajo como noticia. Es el tipo que menos se va a usar, y está bien así.</div>
+      </article>
+
+      <article class="tv-item">
+        <div class="tv-cab"><span class="tv-nom">Titulares</span><span class="tv-est tv-uso">en uso</span></div>
+        <div class="tv-lienzo">
+          <div class="tv-rail"></div>
+          <div class="tv-cuerpo"><div style="display:flex;flex-direction:column;gap:2.3cqw">
+            <div class="tv-fila" style="gap:1.56cqw;align-items:stretch;opacity:.38"><div style="width:.52cqw;border-radius:.26cqw;background:#DDDDD5;flex-shrink:0"></div><div class="tv-sans" style="font-size:1.98cqw;line-height:1.35">La Fiscalía Oriente fijó nueva audiencia en el caso Monsalve.</div></div>
+            <div class="tv-fila" style="gap:1.56cqw;align-items:stretch"><div style="width:.52cqw;border-radius:.26cqw;background:#2F7263;flex-shrink:0"></div><div class="tv-sans" style="font-size:1.98cqw;line-height:1.35">Hacienda publicó las cuentas fiscales del segundo trimestre.</div></div>
+            <div class="tv-fila" style="gap:1.56cqw;align-items:stretch;opacity:.38"><div style="width:.52cqw;border-radius:.26cqw;background:#DDDDD5;flex-shrink:0"></div><div class="tv-sans" style="font-size:1.98cqw;line-height:1.35">Se abre un nuevo llamado del subsidio de arriendo.</div></div>
+            <div class="tv-fila" style="gap:1.56cqw;align-items:stretch;opacity:.38"><div style="width:.52cqw;border-radius:.26cqw;background:#DDDDD5;flex-shrink:0"></div><div class="tv-sans" style="font-size:1.98cqw;line-height:1.35">Avanza la extensión de la Línea 6 del Metro.</div></div>
+          </div></div>
+          <div class="tv-src">FUENTE · las del bloque</div>
+        </div>
+        <div class="tv-meta"><code>sección "## En titulares", una frase por noticia</code><br>
+          <b>Cuándo:</b> automática. Hasta 4 frases por tarjeta, encendida la que la voz está leyendo. Ocupa 2 min 56 del video del 01-09: es la sección a revisar.</div>
+      </article>
+
+      <article class="tv-item">
+        <div class="tv-cab"><span class="tv-nom">Líneas · la serie histórica</span><span class="tv-est tv-falta">NO construida · VISUAL 2</span></div>
+        <div class="tv-lienzo" style="border-style:dashed">
+          <div class="tv-rail" style="background:#8A6F3F"></div>
+          <div class="tv-cuerpo">
+            <div class="tv-eye" style="margin-bottom:1.56cqw">Producción industrial, variación en doce meses</div>
+            <svg viewBox="0 0 1000 300" style="width:100%;height:auto;max-width:74cqw" aria-hidden="true">
+              <line x1="60" y1="150" x2="980" y2="150" stroke="#DDDDD5" stroke-width="3"/>
+              <line x1="60" y1="40" x2="980" y2="40" stroke="#DDDDD5" stroke-width="2"/>
+              <line x1="60" y1="260" x2="980" y2="260" stroke="#DDDDD5" stroke-width="2"/>
+              <polyline fill="none" stroke="#2F7263" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"
+                points="60,120 137,104 214,131 291,96 368,143 445,118 522,166 599,140 676,181 753,158 830,203 907,186 980,246"/>
+              <circle cx="980" cy="246" r="13" fill="#B3402F"/>
+              <text x="60" y="292" fill="#6B6E6A" font-family="'IBM Plex Mono',monospace" font-size="22">sep 2024</text>
+              <text x="980" y="292" fill="#6B6E6A" font-family="'IBM Plex Mono',monospace" font-size="22" text-anchor="end">jul 2026</text>
+              <text x="46" y="48" fill="#6B6E6A" font-family="'IBM Plex Mono',monospace" font-size="22" text-anchor="end">+4%</text>
+              <text x="46" y="158" fill="#6B6E6A" font-family="'IBM Plex Mono',monospace" font-size="22" text-anchor="end">0</text>
+              <text x="46" y="268" fill="#6B6E6A" font-family="'IBM Plex Mono',monospace" font-size="22" text-anchor="end">-8%</text>
+            </svg>
+          </div>
+          <div class="tv-src">FUENTE · maqueta, serie inventada. Hoy esta marca dibuja una tarjeta de comparación.</div>
+        </div>
+        <div class="tv-meta"><code>[DATO lineas | INE, 31 ago] el mismo indicador en 4 o más momentos</code><br>
+          <b>Cuándo:</b> un indicador a lo largo del tiempo. Es la tarjeta que convierte "la industria cayó 5,1%" en algo que significa algo. <b>Faltan dos cosas:</b> el componente <code>TarjetaDatoLineas</code> (hoy <code>tarjetas.tsx:448</code> la manda a comparación) y una fuente de datos de la serie, porque el guion solo lleva los valores que él mismo escribe.</div>
+      </article>
+
+    </div>
+
+    <div style="margin-top:24px;padding-top:18px;border-top:1px solid var(--linea)">
+      <p class="eyebrow" style="margin-bottom:10px">El árbol de decisión propuesto <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· se recorre en orden, gana la primera que calza · detalle en ideas/tarjetas-cuando-usar-cada-una.md</span></p>
+      <div style="overflow-x:auto">
+      <table>
+        <tr><th class="num">#</th><th>Si el dato es...</th><th>Tipo</th></tr>
+        <tr><td class="num">1</td><td>Un indicador en <b>4 o más</b> momentos del tiempo</td><td><code>lineas</code></td></tr>
+        <tr><td class="num">2</td><td>El <b>mismo</b> indicador en <b>dos</b> momentos, antes y después</td><td><code>cambio</code></td></tr>
+        <tr><td class="num">3</td><td>Dos lados con un <b>resultado</b> entre ellos</td><td><code>marcador</code></td></tr>
+        <tr><td class="num">4</td><td><b>3 a 6</b> valores de la misma familia y unidad, importa el tamaño relativo</td><td><code>barras</code></td></tr>
+        <tr><td class="num">5</td><td><b>3 o más</b> valores <b>ordenados por posición</b></td><td><code>tabla</code></td></tr>
+        <tr><td class="num">6</td><td><b>2 o 3</b> valores de cosas distintas pero comparables</td><td><code>comparacion</code></td></tr>
+        <tr><td class="num">7</td><td><b>Un</b> valor</td><td><code>cifra</code></td></tr>
+        <tr><td class="num">8</td><td>Una <b>dirección sin número</b></td><td><code>cifra</code> señal</td></tr>
+        <tr><td class="num">9</td><td>No es cifra: es un <b>orden</b> de etapas o actores</td><td><code>esquema</code></td></tr>
+        <tr><td class="num">10</td><td>No es cifra: importa <b>quién lo dijo, textual</b></td><td><code>cita</code></td></tr>
+        <tr><td class="num">11</td><td>Nada de lo anterior</td><td>solo tesis y párrafo</td></tr>
+      </table>
+      </div>
+      <p class="nota" style="margin-top:12px"><b>Encima del árbol van las cuotas de variedad</b>, que son otra capa y no mandan: máximo dos <code>cifra</code> seguidas; nunca dos del mismo tipo seguidas en un bloque; con 8 o más noticias, al menos un <code>esquema</code> y una de <code>barras</code>/<code>tabla</code>/<code>comparacion</code>. Y la regla que las protege: <b>la variedad nunca justifica un dato que no está en el informe.</b> Si el día no da para un esquema, no hay esquema.</p>
+      <p class="nota"><b>Y la parte que de verdad importa:</b> una regla en un prompt es una intención, no una garantía. Hoy el prompt ya ofrece los once tipos y salieron cuatro. Hay que <b>medir la salida</b>: un contador mecánico que lea el guion del día y avise cuando se rompa una cuota, sin depender de que ningún modelo se porte bien. Es la misma lección de los workflows que fallaban en silencio.</p>
+    </div>
+  </section>
+
+  <section class="tarjeta">
     <p class="eyebrow">Documentos del proyecto</p>
     <table class="docs">
       <tr><td><a href="https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md">bitácora / PENDIENTES</a></td><td class="nota">La lista viva completa, con el detalle de cada punto de arriba.</td></tr>
@@ -338,5 +625,5 @@
     </div>
   </section>
 
-  <p class="nota">Panel interno · se regenera cada mañana junto con la revisión del embudo · última actualización 01-09-2026 (tarde): qué corre cada día con sus horas, y el guardián con lo que vigila, lo que no y por qué no pudo correr.</p>
+  <p class="nota">Panel interno · se regenera cada mañana junto con la revisión del embudo · última actualización 01-09-2026 (tarde): qué corre cada día con sus horas, el guardián con lo que vigila y por qué no pudo correr, y el catálogo de las once tarjetas con el árbol de decisión.</p>
 </div>
