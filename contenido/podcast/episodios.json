@@ -33,5 +33,23 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-08-31-clave.mp3",
     "bytes": 18893952,
     "durSeg": 787
+  },
+  {
+    "fecha": "2026-09-01",
+    "tipo": "informe",
+    "titulo": "01-09-2026 · La industria cae 5,1% antes del Imacec de julio",
+    "descripcion": "Septiembre comienza con una señal débil desde la industria, mientras el Banco Central publica hoy el Imacec de julio. Más de 500 mil pensionados de 75 a 81 años pasan al nuevo máximo de la PGU y el Gobierno abre más tiempo para negociar su reforma constitucional de seguridad. Además, revisamos la sentencia por la megafraude de licencias médicas, vivienda, Metro y otras noticias de la jornada.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-01-informe.mp3",
+    "bytes": 19657728,
+    "durSeg": 819
+  },
+  {
+    "fecha": "2026-09-01",
+    "tipo": "clave",
+    "titulo": "Clave · ¿Cómo leer el Imacec sin confundir señal con ruido?",
+    "descripcion": "El Imacec permite seguir mes a mes la actividad económica chilena, pero leer una sola cifra puede llevar a conclusiones equivocadas. En este video aprenderás qué mide, por qué no es un PIB mensual definitivo y cómo combinar variación interanual, ajuste estacional, sectores e incidencia para interpretar mejor sus resultados.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-01-clave.mp3",
+    "bytes": 17303040,
+    "durSeg": 721
   }
 ]
