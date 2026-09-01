@@ -199,6 +199,10 @@ El guion de hoy pidió cuatro:
 | `[DATO barras]` | 1 |
 | **cita, comparación, esquema, marcador, tabla, líneas** | **0** |
 
+De esos seis sin usar, **cinco están construidos y listos**. `lineas` es la
+excepción: hoy cae a la tarjeta de comparación y el componente propio no
+existe.
+
 Y el relleno: **84 párrafos narrados**, o sea 84 tarjetas de texto. Contra 24
 tarjetas con forma. **Más o menos el 78% del video es una tarjeta de texto**,
 y de las 24 que no lo son, 21 son la misma pareja de formas: un número
@@ -238,9 +242,14 @@ episodio (el IPC de este mes), la serie da los últimos veinte años. Una
 noticia sin serie es una anécdota."* Hoy "la industria cayó 5,1%" es un
 número solo en pantalla. Con la serie de los últimos 24 meses se convierte en
 una imagen que además significa algo. Los datos son públicos y gratis (INE,
-Banco Central) y el tipo de tarjeta ya está construido y sin usar.
+Banco Central), pero **ojo: el componente NO está construido**.
+`src/tarjetas.tsx` línea 448 dice `case "lineas": // v1: las líneas caen a
+comparación; componente propio en v2`. El tipo está ofrecido en el prompt y
+aceptado por el parser, pero hoy dibuja una tarjeta de comparación. Son dos
+trabajos: el componente, y la fuente de datos de la serie, que el guion no
+puede cargar solo (ver VISUAL 2 en PENDIENTES).
 
-**3. El esquema.** `ideas/formato-video.md` lo dice: *"un esquema animado es
+**3. El esquema. Este sí está construido y sin estrenar.** `ideas/formato-video.md` lo dice: *"un esquema animado es
 superior a una persona explicándolo con las manos"*. Es la ventaja del
 formato sobre un conductor, y hoy se usó cero veces. Cada noticia de trámite
 legislativo, de proceso judicial o de "quién decide qué" es un esquema.
