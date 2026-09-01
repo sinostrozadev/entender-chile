@@ -96,8 +96,8 @@
       <div class="barra-fila"><div class="barra-nombre">Informe · Alerta Roja Andalién</div><div class="barra-pista"><div class="barra-valor" style="width:8%"></div></div><div class="barra-num">14</div></div>
       <div class="barra-fila"><div class="barra-nombre">Short · Cinco cosas (31 ago)</div><div class="barra-pista"><div class="barra-valor" style="width:6%"></div></div><div class="barra-num">11</div></div>
       <div class="barra-fila"><div class="barra-nombre">Clave · Mercado de capitales</div><div class="barra-pista"><div class="barra-valor" style="width:3%"></div></div><div class="barra-num">6</div></div>
-      <p class="nota">Lectura del día 3: los Shorts se llevan <b>316 de las 372 vistas</b> (85%, sumando video por video) y siguen acelerando (el del 30 ago sumó +100 en un día). El problema es que <b>las vistas de Shorts no cuentan</b> para las 4.000 horas del YPP: el largo más visto va en 26. El embudo Short a canal trae suscriptores, no horas.</p>
-      <p class="nota"><b>Descuadre por revisar:</b> el contador de canal marca 135 vistas totales y la suma video por video da 372. Los dos números salen de la misma corrida de <code>metricas.js</code>. Hasta saber cuál mide qué, el número que se usa acá es la suma por video.</p>
+      <p class="nota">Lectura del día 3: los Shorts se llevan <b>322 de las 371 vistas públicas</b> (87%) y siguen acelerando (el del 30 ago sumó +100 en un día). El problema es que <b>las vistas de Shorts no cuentan</b> para las 4.000 horas del YPP: el largo más visto va en 26. El embudo Short a canal trae suscriptores, no horas.</p>
+      <p class="nota"><b>Descuadre por revisar:</b> el contador de canal marca 135 vistas totales y la suma video por video da 372 (371 públicas + 1 de un privado). El desglose Shorts/largos del JSON sí cuadra: el campo malo es solo <code>vistasTotales</code>, y es el que alimenta los gráficos de la curva. Anotado como ARREGLO 3.</p>
 </section>
 
     <section class="tarjeta">

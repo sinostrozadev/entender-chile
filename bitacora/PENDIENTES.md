@@ -55,6 +55,34 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **ARREGLO 3: `vistasTotales` no cuadra con la suma de los videos.**
+      En `bitacora/metricas/2026-09-01.md` la cabecera dice **135 vistas
+      totales** y la tabla suma **372**. Mismo archivo, misma corrida de
+      `scripts/metricas.js`.
+      **Ya se descartaron dos falsas alarmas, no perder tiempo en ellas:**
+      - "10 videos" contra 14 en la tabla: correcto. Son 14 subidos y 10
+        públicos. Falta una palabra en la etiqueta, nada más.
+      - `vistasLargos: 49` y `vistasShorts: 322` del JSON: **ambos están
+        bien**. Sumando solo los públicos y clasificando bien (el Short
+        "Clave: ¿Por qué el mercado de capitales...?" es Short, aunque el
+        título salga cortado a 60 caracteres y se pierda el #), da
+        exactamente 322 + 49 = 371 públicas, más 1 vista de un video en
+        privado = 372.
+      **El único campo malo es `vistasTotales`.** Marca 135 y debería marcar
+      371. No es 49 (solo largos) ni 371 ni 372: no corresponde a ningún
+      subconjunto obvio, así que hay que ir a leer de dónde sale. Hipótesis a
+      comprobar en el código, no a suponer: que venga de
+      `channels.list(statistics).viewCount`, que en canales con Shorts
+      arrastra inconsistencias conocidas, mientras la tabla suma
+      `videos.list(statistics).viewCount` video por video.
+      **Por qué importa y no es cosmético:** el JSON de la serie guarda
+      `vistasTotales`, y de ahí salen los gráficos del panel. Si ese es el
+      número flojo, la curva de la meta está mal dibujada desde el día uno.
+      Arreglo probable: usar la suma por video como `vistasTotales`, y si se
+      quiere conservar el dato del canal, guardarlo aparte con otro nombre.
+      Mientras tanto el panel usa la suma por video y deja el descuadre
+      anotado a la vista.
+
 - [ ] **ARREGLO 0, lo primero: el guardián nunca ha comprobado nada. La rutina
       no tiene el repositorio montado.** Hallazgo del 01-09 (tarde), a partir
       del aviso que llegó al teléfono a las 06:14: *"El guardián de Entender
