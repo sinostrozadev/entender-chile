@@ -30,6 +30,7 @@ concurrency:
 
 permissions:
   contents: write
+  actions: write   # para despachar el workflow Web al final
 
 jobs:
   edicion:
@@ -196,3 +197,13 @@ jobs:
           if [ -f "public/$FECHA-clave.mp3" ]; then node scripts/podcast-subir.js --fecha "$FECHA" --clave; fi
           git config user.name "edicion-bot"; git config user.email "bot@users.noreply.github.com"
           git add contenido/podcast/ && { git diff --cached --quiet || { git commit -m "podcast $FECHA [bot]"; git pull --rebase; git push; }; }
+
+      # Los pushes hechos con el token del workflow NO disparan otros workflows
+      # (regla anti-recursión de GitHub): el feed del podcast quedaba viejo
+      # (hallazgo de la sesión de día, 31-08). Se despacha la web a mano.
+      - name: 8 · Reconstruir la web (los pushes del bot no disparan workflows)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        if: env.SALTAR != '1'
+        continue-on-error: true
+        run: gh workflow run web.yml --ref main

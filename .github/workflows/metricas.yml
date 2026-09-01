@@ -1,11 +1,19 @@
 name: Métricas
 
-# Cada mañana (09:00 Chile invierno) baja las cifras del canal al repo:
-# bitacora/metricas/FECHA.md (+json para los deltas). El análisis lo hace la
-# sesión de la mañana con Santiago; esto solo garantiza que los números estén.
+# Cada mañana baja las cifras del canal al repo: bitacora/metricas/FECHA.md
+# (+json para los deltas). El análisis lo hace la sesión de la mañana.
+#
+# RELOJ (regla del 31-08: el cron de GitHub no es reloj principal — nunca
+# corrió solo): lo despierta la rutina "Reloj de métricas" de Claude en la
+# nube (12:45 UTC = 08:45/09:45 Chile) pusheando el despertador; el cron
+# queda solo de red de respaldo.
 on:
+  push:
+    branches: [main]
+    paths:
+      - "bitacora/metricas/despertador.txt"
   schedule:
-    - cron: "0 13 * * *"
+    - cron: "0 15 * * *"
   workflow_dispatch:
 
 permissions:

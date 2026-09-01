@@ -56,7 +56,7 @@ FORMATO DE SALIDA:
 - Primera línea: "Título sugerido:" con el título de la entrega ajustado a máximo setenta caracteres, atemporal, sin fechas ni referencias coyunturales, formulado como pregunta o promesa de conocimiento, sin clickbait.
 - Segunda sección: "Descripción sugerida:" con dos a cuatro frases que resuman qué aprenderá el espectador. NO incluyas la lista de fuentes aquí: el sistema la agrega automáticamente al final de la descripción del video.
 - Después: "Guion:" con el texto narrable y sus marcas.
-- Al final: "Fuentes:" con una línea por fuente usada en marcas [DATO] y [CITA], tal como aparecen en la entrega.
+- Al final: "Fuentes:" con una línea por cada fuente de las marcas [DATO] y [CITA] Y por cada fuente de la entrega cuyo contenido narraste, tal como aparecen en la entrega. Una fuente cuyo contenido se narró no puede quedar sin crédito: la lista alimenta la descripción del video y la transparencia de fuentes es marca del canal (hallazgo GRAVE de la revisión del 31-08: quedaron 5 de 7 sin acreditar). NUNCA listes archivos internos del sistema; cita la fuente pública original.
 
 CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 1. Ningún dato, ejemplo con cifras o fuente fue agregado fuera de la entrega.
