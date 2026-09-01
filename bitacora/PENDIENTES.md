@@ -55,7 +55,7 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **El feed del podcast no se regenera cuando el bot registra episodios.**
+- [x] (CORREGIDO 1-09: paso 8 despacha la web) **El feed del podcast no se regenera cuando el bot registra episodios.**
       Causa exacta, confirmada hoy: el paso 7b commitea
       `contenido/podcast/episodios.json` con el GITHUB_TOKEN del workflow, y
       GitHub NO dispara workflows desde pushes hechos con ese token (regla
@@ -68,13 +68,13 @@ pierde el nombre.
       AUDIO_TOKEN hacia el repo web) o que despache web.yml explícitamente
       tras registrar el episodio.
 
-- [ ] **Aplicar la regla nueva de relojes a metricas.yml** (decisión de
+- [x] (HECHO 1-09) **Aplicar la regla nueva de relojes a metricas.yml** (decisión de
       Santiago del 31-08, en decisiones.md: el cron de GitHub no se usa como
       reloj principal, solo como red). Receta ya probada del barrido: rutina
       despertador que pushea un archivo + trigger por push en el workflow +
       cron de respaldo. Es el único proceso que sigue colgando del cron.
 
-- [ ] **El workflow de métricas no ha corrido nunca.** Cero ejecuciones desde
+- [x] (CORREGIDO 1-09: rutina Reloj de métricas 12:45 UTC + trigger por push; cron de red a las 15:00 UTC) **El workflow de métricas no ha corrido nunca.** Cero ejecuciones desde
       su creación (30-08 18:44). Su primera cita era hoy a las 13:00 UTC y a
       las 13:35 no había disparado: el cron de GitHub otra vez, la misma
       enfermedad medida del 27-08. Los archivos del 30 los commiteó la sesión
