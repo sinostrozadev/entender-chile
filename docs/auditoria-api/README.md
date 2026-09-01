@@ -26,3 +26,10 @@ global; videos.insert declarado en 8.000/día, 1.600/min). Endpoints
 declarados: videos.insert/update/list/delete, thumbnails.set,
 playlists.insert, playlistItems.insert/list, channels.list, captions.*.
 Plazo típico de respuesta: 1 a 3 semanas.
+
+## Seguimiento
+
+- 31-08 21:53 · Segundo correo del equipo: revisión EN PROCESO, recibieron
+  Project Key y el adjunto; cualquier requerimiento llegará por el mismo
+  hilo. Se respondió confirmando entenderchile@gmail.com como contacto y
+  ofreciendo las pruebas adicionales (OAuth, términos, portada, diagrama).
