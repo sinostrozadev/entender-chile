@@ -62,6 +62,7 @@
   .enlaces a{font-family:'IBM Plex Mono',monospace;font-size:12.5px;border:1px solid var(--linea);
     border-radius:999px;padding:5px 14px;color:var(--tinta)}
   .enlaces a:hover{border-color:var(--acento);color:var(--acento)}
+  .enlaces a.activo{border-color:var(--acento);background:var(--acento-suave);color:var(--acento)}
   .circuito{display:flex;flex-wrap:wrap;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:12px;align-items:center}
   .paso{border:1px solid var(--linea);border-radius:6px;padding:4px 10px;background:var(--tarjeta)}
   .paso b{color:var(--acento);font-weight:500}
@@ -80,24 +81,36 @@
   <section>
     <p class="eyebrow">Hoy</p>
     <div class="fila f4">
-      <div class="tarjeta tile"><div class="n">4</div><div class="d">suscriptores <span class="delta">+1 hoy</span></div></div>
-      <div class="tarjeta tile"><div class="n">372</div><div class="d">vistas sumadas video por video <span class="delta">+218 hoy</span></div></div>
-      <div class="tarjeta tile"><div class="n">10</div><div class="d">videos públicos (14 subidos, 4 en privado)</div></div>
+      <div class="tarjeta tile"><div class="n">5</div><div class="d">suscriptores <span class="delta">+2 hoy</span></div></div>
+      <div class="tarjeta tile"><div class="n">427</div><div class="d">vistas sumadas video por video <span class="delta">+275 hoy</span></div></div>
+      <div class="tarjeta tile"><div class="n">12</div><div class="d">videos públicos (14 subidos, 2 en privado)</div></div>
       <div class="tarjeta tile"><div class="n">153</div><div class="d">días para la meta YPP (1-feb-2027)</div></div>
     </div>
+  </section>
+
+  <section class="tarjeta">
+    <p class="eyebrow">Actualizar los datos</p>
+    <div class="enlaces" style="margin-bottom:12px">
+      <a href="https://github.com/sinostrozadev/entender-chile/actions/workflows/metricas.yml" target="_blank" rel="noopener" class="boton">Métricas del canal</a>
+      <a href="https://github.com/sinostrozadev/entender-chile/actions/workflows/barrido.yml" target="_blank" rel="noopener" class="boton">Barrido de prensa</a>
+      <a href="https://github.com/sinostrozadev/entender-chile/actions/workflows/edicion-diaria.yml" target="_blank" rel="noopener" class="boton">Edición diaria</a>
+      <a href="https://github.com/sinostrozadev/entender-chile/actions/workflows/web.yml" target="_blank" rel="noopener" class="boton">Web y feed del podcast</a>
+    </div>
+    <p class="nota">Cada enlace abre su workflow en GitHub: ahí el botón <b>Run workflow</b> lo dispara al tiro. Son dos clics y no un botón directo por una razón concreta: <b>esta página es pública para quien tenga el enlace, y un botón de un clic tendría que llevar un token de GitHub escrito adentro.</b> Un token en una página publicada es un token regalado. Los dos clics cuestan tres segundos; el token cuesta el repositorio.</p>
+    <p class="nota">Casi nunca hace falta apretarlos: las métricas ya se actualizan solas a las 08:45 con su propio reloj en la nube, y las demás piezas corren en la madrugada (ver el cuadro de horas más abajo). Estos enlaces son para cuando algo falló y quieres reintentar sin esperar al día siguiente.</p>
   </section>
 
   <div class="fila f2">
     <section class="tarjeta">
       <p class="eyebrow">Vistas por video · medición del 01-09 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· histórico diario en bitacora/metricas/*.json</span></p>
-      <div class="barra-fila"><div class="barra-nombre">Short · Cinco cosas (30 ago)</div><div class="barra-pista"><div class="barra-valor" style="width:100%"></div></div><div class="barra-num">176</div></div>
+      <div class="barra-fila"><div class="barra-nombre">Short · Cinco cosas (30 ago)</div><div class="barra-pista"><div class="barra-valor" style="width:100%"></div></div><div class="barra-num">177</div></div>
       <div class="barra-fila"><div class="barra-nombre">Short · Clave antena falsa</div><div class="barra-pista"><div class="barra-valor" style="width:71%"></div></div><div class="barra-num">125</div></div>
-      <div class="barra-fila"><div class="barra-nombre">Informe · Milei llega a Chile</div><div class="barra-pista"><div class="barra-valor" style="width:15%"></div></div><div class="barra-num">26</div></div>
+      <div class="barra-fila"><div class="barra-nombre">Informe · Milei llega a Chile</div><div class="barra-pista"><div class="barra-valor" style="width:31%"></div></div><div class="barra-num">55</div></div>
       <div class="barra-fila"><div class="barra-nombre">Informe · Alerta Roja Andalién</div><div class="barra-pista"><div class="barra-valor" style="width:8%"></div></div><div class="barra-num">14</div></div>
+      <div class="barra-fila"><div class="barra-nombre">Short · Cinco cosas (1 sep)</div><div class="barra-pista"><div class="barra-valor" style="width:14%"></div></div><div class="barra-num">24</div></div>
       <div class="barra-fila"><div class="barra-nombre">Short · Cinco cosas (31 ago)</div><div class="barra-pista"><div class="barra-valor" style="width:6%"></div></div><div class="barra-num">11</div></div>
-      <div class="barra-fila"><div class="barra-nombre">Clave · Mercado de capitales</div><div class="barra-pista"><div class="barra-valor" style="width:3%"></div></div><div class="barra-num">6</div></div>
-      <p class="nota">Lectura del día 3: los Shorts se llevan <b>322 de las 371 vistas públicas</b> (87%) y siguen acelerando (el del 30 ago sumó +100 en un día). El problema es que <b>las vistas de Shorts no cuentan</b> para las 4.000 horas del YPP: el largo más visto va en 26. El embudo Short a canal trae suscriptores, no horas.</p>
-      <p class="nota"><b>Descuadre por revisar:</b> el contador de canal marca 135 vistas totales y la suma video por video da 372 (371 públicas + 1 de un privado). El desglose Shorts/largos del JSON sí cuadra: el campo malo es solo <code>vistasTotales</code>, y es el que alimenta los gráficos de la curva. Anotado como ARREGLO 3.</p>
+      <p class="nota">Lectura del día 3: los Shorts se llevan <b>343 de las 427 vistas</b> (80%) y siguen acelerando (el del 30 ago sumó +100 en un día). El problema es que <b>las vistas de Shorts no cuentan</b> para las 4.000 horas del YPP: el largo más visto va en 26. El embudo Short a canal trae suscriptores, no horas.</p>
+      <p class="nota"><b>Descuadre por revisar:</b> el contador de canal marca 135 vistas totales y la suma video por video da 427. El desglose Shorts/largos del JSON sí cuadra: el campo malo es solo <code>vistasTotales</code>, y es el que alimenta los gráficos de la curva. Anotado como ARREGLO 3.</p>
 </section>
 
     <section class="tarjeta">
@@ -160,7 +173,8 @@
         let svg="";
         for(const g of [0.25,0.5,0.75]) svg+='<line x1="'+ML+'" y1="'+(MT+h*g)+'" x2="'+(W-MR)+'" y2="'+(MT+h*g)+'" style="stroke:var(--linea);stroke-width:1"/>';
         svg+='<line x1="'+ML+'" y1="'+(MT+h)+'" x2="'+(W-MR)+'" y2="'+(MT+h)+'" style="stroke:var(--gris);stroke-width:1"/>';
-        svg+='<text x="'+(ML-6)+'" y="'+(MT+8)+'" text-anchor="end" style="font:11px monospace;fill:var(--gris)">'+meta.toLocaleString("es-CL")+'</text>';
+        const rotulo = meta >= 1e6 ? (meta/1e6)+" M" : meta.toLocaleString("es-CL");
+        svg+='<text x="'+(ML-6)+'" y="'+(MT+8)+'" text-anchor="end" style="font:11px monospace;fill:var(--gris)">'+rotulo+'</text>';
         svg+='<text x="'+(ML-6)+'" y="'+(MT+h)+'" text-anchor="end" style="font:11px monospace;fill:var(--gris)">0</text>';
         svg+='<text x="'+ML+'" y="'+(H-6)+'" style="font:11px monospace;fill:var(--gris)">30 ago</text>';
         svg+='<text x="'+(W-MR)+'" y="'+(H-6)+'" text-anchor="end" style="font:11px monospace;fill:var(--gris)">1 feb 27</text>';
@@ -184,9 +198,9 @@
     <div style="overflow-x:auto">
     <table>
       <tr><th>Meta YPP</th><th class="num">Hoy</th><th class="num">Ritmo actual</th><th class="num">Al ritmo actual llegas</th><th class="num">Ritmo que exige el 1-feb-2027</th></tr>
-      <tr><td>1.000 suscriptores <span class="nota">(hito de los 100 en el camino)</span></td><td class="num">4</td><td class="num">+1/día</td><td class="num">~2029 <span class="nota">(los 100: ~dic 2026)</span></td><td class="num">+6,5/día</td></tr>
-      <tr><td>4.000 horas vistas en videos largos <span class="nota">(las de Shorts NO cuentan)</span></td><td class="num">4,3 h</td><td class="num">~2 h/día</td><td class="num">~2032 (lineal)</td><td class="num">~26 h/día (≈400 vistas largas/día)</td></tr>
-      <tr><td>Vía alternativa: 10 M de vistas de Shorts en 90 días</td><td class="num">322</td><td class="num">~190/día</td><td class="num">no por esta vía al ritmo actual</td><td class="num">~111.000/día</td></tr>
+      <tr><td>1.000 suscriptores <span class="nota">(hito de los 100 en el camino)</span></td><td class="num">5</td><td class="num">+1,5/día</td><td class="num">~2028 <span class="nota">(los 100: ~nov 2026)</span></td><td class="num">+6,5/día</td></tr>
+      <tr><td>4.000 horas vistas en videos largos <span class="nota">(las de Shorts NO cuentan)</span></td><td class="num">7,5 h</td><td class="num">~3,6 h/día</td><td class="num">~2029 (lineal)</td><td class="num">~26 h/día (≈400 vistas largas/día)</td></tr>
+      <tr><td>Vía alternativa: 10 M de vistas de Shorts en 90 días</td><td class="num">343</td><td class="num">~163/día</td><td class="num">no por esta vía al ritmo actual</td><td class="num">~111.000/día</td></tr>
     </table>
     </div>
     <p class="nota" style="margin-top:12px"><b>Cómo leer esto sin deprimirse ni engañarse:</b> ningún canal llega a la meta a ritmo lineal; se llega por interés compuesto del algoritmo, y ese ya asomó (las vistas crecieron 4× del día 1 al día 2). Si el crecimiento semanal sostenido es de <b>25%</b>, las 4.000 horas caen ~<b>febrero-marzo 2027</b> (la meta); con <b>15%</b>, ~mayo 2027; sin crecimiento, nunca. Lo que mueve ese porcentaje: retención de los largos (por eso el cold open pendiente), constancia diaria y que cada Short empuje al canal. Proyección recalculada cada mañana con la serie real; con 14 días de datos empieza a ser confiable.</p>
@@ -244,6 +258,68 @@
         </ul>
       </div>
     </div>
+  </section>
+
+    <section class="tarjeta">
+    <p class="eyebrow">Histórico día por día <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· cada medición queda guardada en bitacora/metricas/FECHA.json</span></p>
+    <div id="h-dias" class="enlaces" style="margin-bottom:16px"></div>
+    <div id="h-tiles" class="fila f4" style="margin-bottom:16px"></div>
+    <div style="overflow-x:auto"><table id="h-tabla"></table></div>
+    <p class="nota" id="h-pie" style="margin-top:12px"></p>
+    <p class="nota">La duración de cada video se conoce desde el 01-09. Como una duración no cambia, para el 30 y el 31 se lleva hacia atrás la duración real de cada video por su id: no es una estimación, es el mismo dato. Reproduce exactamente los números que la sesión de la noche había reconstruido a mano en proyeccion.json.</p>
+    <script>
+    /*HIST-INICIO*/ const HIST = [{"fecha":"2026-08-30","canal":{"suscriptores":2,"vistas":0,"videos":4},"videos":[{"id":"HnWm9lwFw8w","t":"¿Cómo puede una antena falsa identificar tu celular?","e":"public","v":1,"l":1,"c":0,"d":688,"p":"2026-08-30"},{"id":"xCeMIDevwsE","t":"Clave: ¿Cómo puede una antena falsa identificar tu celular? ","e":"public","v":5,"l":0,"c":0,"d":36,"p":"2026-08-30"},{"id":"MRG9fw8e5P8","t":"Concepción en Alerta Roja por el aumento del río Andalién","e":"public","v":4,"l":2,"c":0,"d":692,"p":"2026-08-30"},{"id":"9SxSCiC8ZTs","t":"Cinco cosas que hay que saber hoy, Domingo, 30 de agosto #Sh","e":"public","v":12,"l":2,"c":0,"d":48,"p":"2026-08-30"},{"id":"y-EyhOlc_sU","t":"Cinco cosas que hay que saber hoy, Sábado, 29 de agosto #Sho","e":"private","v":1,"l":0,"c":0,"d":48,"p":"2026-08-30"},{"id":"jsr27ZICuQ4","t":"Desempleo llega a 9,5% y el Gobierno activa apoyo a nuevas c","e":"private","v":0,"l":0,"c":0,"d":522,"p":"2026-08-30"}]},{"fecha":"2026-08-31","canal":{"suscriptores":3,"vistas":107,"videos":8},"videos":[{"id":"urU9RKHTg1g","t":"Clave: ¿Por qué el mercado de capitales influye en tu hipote","e":"public","v":5,"l":0,"c":0,"d":34,"p":"2026-08-31"},{"id":"TeKnIIGAMUw","t":"¿Por qué el mercado de capitales influye en tu hipotecario?","e":"public","v":3,"l":0,"c":0,"d":791,"p":"2026-08-31"},{"id":"2uHk1abTVRA","t":"Cinco cosas que hay que saber hoy, Lunes, 31 de agosto #Shor","e":"public","v":7,"l":1,"c":0,"d":49,"p":"2026-08-31"},{"id":"UyW1kuLY37E","t":"Milei llega a Chile tras el impasse por el Estrecho de Magal","e":"public","v":5,"l":0,"c":0,"d":843,"p":"2026-08-31"},{"id":"HnWm9lwFw8w","t":"¿Cómo puede una antena falsa identificar tu celular?","e":"public","v":3,"l":1,"c":0,"d":688,"p":"2026-08-30"},{"id":"xCeMIDevwsE","t":"Clave: ¿Cómo puede una antena falsa identificar tu celular? ","e":"public","v":41,"l":2,"c":0,"d":36,"p":"2026-08-30"},{"id":"MRG9fw8e5P8","t":"Concepción en Alerta Roja por el aumento del río Andalién","e":"public","v":12,"l":2,"c":0,"d":692,"p":"2026-08-30"},{"id":"9SxSCiC8ZTs","t":"Cinco cosas que hay que saber hoy, Domingo, 30 de agosto #Sh","e":"public","v":76,"l":3,"c":1,"d":48,"p":"2026-08-30"},{"id":"y-EyhOlc_sU","t":"Cinco cosas que hay que saber hoy, Sábado, 29 de agosto #Sho","e":"private","v":0,"l":0,"c":0,"d":48,"p":"2026-08-30"},{"id":"jsr27ZICuQ4","t":"Desempleo llega a 9,5% y el Gobierno activa apoyo a nuevas c","e":"private","v":0,"l":0,"c":0,"d":522,"p":"2026-08-30"}]},{"fecha":"2026-09-01","canal":{"suscriptores":5,"vistas":135,"videos":12},"videos":[{"id":"6sMtPM7Mzsw","t":"Clave: ¿Cómo leer el Imacec sin confundir señal con ruido? #","e":"public","v":0,"l":0,"c":0,"d":34,"p":"2026-09-01"},{"id":"XVIxe4EJZbM","t":"¿Cómo leer el Imacec sin confundir señal con ruido?","e":"public","v":4,"l":0,"c":0,"d":724,"p":"2026-09-01"},{"id":"Wd9_JFdie-k","t":"Cinco cosas que hay que saber hoy, Martes, 1 de septiembre #","e":"public","v":24,"l":1,"c":0,"d":55,"p":"2026-09-01"},{"id":"OttZ12KyBSk","t":"La industria cae 5,1% antes del Imacec de julio","e":"public","v":3,"l":0,"c":0,"d":822,"p":"2026-09-01"},{"id":"urU9RKHTg1g","t":"Clave: ¿Por qué el mercado de capitales influye en tu hipote","e":"public","v":6,"l":0,"c":0,"d":34,"p":"2026-08-31"},{"id":"TeKnIIGAMUw","t":"¿Por qué el mercado de capitales influye en tu hipotecario?","e":"public","v":5,"l":0,"c":0,"d":791,"p":"2026-08-31"},{"id":"2uHk1abTVRA","t":"Cinco cosas que hay que saber hoy, Lunes, 31 de agosto #Shor","e":"public","v":11,"l":1,"c":0,"d":49,"p":"2026-08-31"},{"id":"UyW1kuLY37E","t":"Milei llega a Chile tras el impasse por el Estrecho de Magal","e":"public","v":55,"l":1,"c":0,"d":843,"p":"2026-08-31"},{"id":"HnWm9lwFw8w","t":"¿Cómo puede una antena falsa identificar tu celular?","e":"public","v":3,"l":1,"c":0,"d":688,"p":"2026-08-30"},{"id":"xCeMIDevwsE","t":"Clave: ¿Cómo puede una antena falsa identificar tu celular? ","e":"public","v":125,"l":2,"c":0,"d":36,"p":"2026-08-30"},{"id":"MRG9fw8e5P8","t":"Concepción en Alerta Roja por el aumento del río Andalién","e":"public","v":14,"l":3,"c":0,"d":692,"p":"2026-08-30"},{"id":"9SxSCiC8ZTs","t":"Cinco cosas que hay que saber hoy, Domingo, 30 de agosto #Sh","e":"public","v":177,"l":3,"c":1,"d":48,"p":"2026-08-30"},{"id":"y-EyhOlc_sU","t":"Cinco cosas que hay que saber hoy, Sábado, 29 de agosto #Sho","e":"private","v":0,"l":0,"c":0,"d":48,"p":"2026-08-30"},{"id":"jsr27ZICuQ4","t":"Desempleo llega a 9,5% y el Gobierno activa apoyo a nuevas c","e":"private","v":0,"l":0,"c":0,"d":522,"p":"2026-08-30"}]}]; /*HIST-FIN*/
+    (function(){
+      const dias = HIST.slice().sort((a,b)=>a.fecha<b.fecha?-1:1);
+      const corto = f => f.slice(8,10)+"-"+f.slice(5,7);
+      const esShort = v => v.d>0 && v.d<=75;
+      const num = n => n.toLocaleString("es-CL");
+      const delta = (a,b) => b==null ? "" : (a-b>0 ? "+"+(a-b) : a-b<0 ? ""+(a-b) : "sin cambio");
+      function totales(dia){
+        const pub = dia.videos.filter(v=>v.e==="public");
+        const sh = pub.filter(esShort), lg = pub.filter(v=>!esShort(v));
+        return { subs: dia.canal.suscriptores, canal: dia.canal.vistas,
+          publicos: pub.length, subidos: dia.videos.length,
+          suma: dia.videos.reduce((a,v)=>a+v.v,0),
+          shorts: sh.reduce((a,v)=>a+v.v,0),
+          largos: lg.reduce((a,v)=>a+v.v,0),
+          horas: lg.reduce((a,v)=>a+(v.v*v.d*0.4)/3600,0) };
+      }
+      function pintar(i){
+        const dia = dias[i], ant = i>0 ? dias[i-1] : null;
+        const t = totales(dia), ta = ant ? totales(ant) : null;
+        document.getElementById("h-dias").innerHTML = dias.map((d,k)=>
+          '<a href="#" data-i="'+k+'"'+(k===i?' class="activo" aria-current="true"':'')+'>'+corto(d.fecha)+'</a>').join("");
+        const tile = (n,d,extra)=>'<div class="tarjeta tile"><div class="n">'+n+'</div><div class="d">'+d+
+          (extra?' <span class="delta">'+extra+'</span>':'')+'</div></div>';
+        document.getElementById("h-tiles").innerHTML =
+          tile(t.subs,"suscriptores", ta?delta(t.subs,ta.subs):"") +
+          tile(num(t.suma),"vistas sumadas video por video", ta?delta(t.suma,ta.suma):"") +
+          tile(num(t.shorts),"de esas, en Shorts (no cuentan para el YPP)", ta?delta(t.shorts,ta.shorts):"") +
+          tile(t.horas.toFixed(1)+" h","horas estimadas en largos", ta?delta(+t.horas.toFixed(1),+ta.horas.toFixed(1)):"");
+        const prev = {}; if (ant) ant.videos.forEach(v=>prev[v.id]=v);
+        const filas = dia.videos.slice().sort((a,b)=>b.v-a.v).map(v=>{
+          const p = prev[v.id];
+          return '<tr><td>'+v.t+'</td>'+
+            '<td><span class="pill '+(v.e==="public"?"pub":"priv")+'">'+(v.e==="public"?"público":v.e)+'</span></td>'+
+            '<td>'+(esShort(v)?"Short":"largo")+'</td>'+
+            '<td class="num">'+num(v.v)+' <span class="delta">'+(p?delta(v.v,p.v):"nuevo")+'</span></td>'+
+            '<td class="num">'+v.l+'</td><td class="num">'+v.c+'</td></tr>';
+        }).join("");
+        document.getElementById("h-tabla").innerHTML =
+          '<tr><th>Video</th><th>Estado</th><th>Formato</th><th class="num">Vistas</th><th class="num">Me gusta</th><th class="num">Coment.</th></tr>'+filas;
+        document.getElementById("h-pie").innerHTML =
+          '<b>'+t.subidos+' videos subidos, '+t.publicos+' públicos.</b> El contador de canal de YouTube marcaba <b>'+num(t.canal)+
+          '</b> vistas ese día y la suma video por video da <b>'+num(t.suma)+'</b>: es el descuadre del ARREGLO 3, y por eso acá manda la suma. '+
+          (ant ? 'Los deltas son contra el '+corto(ant.fecha)+'.' : 'Primer día medido: no hay contra qué comparar.');
+      }
+      document.getElementById("h-dias").addEventListener("click", e=>{
+        const a = e.target.closest("a[data-i]"); if(!a) return;
+        e.preventDefault(); pintar(+a.dataset.i);
+      });
+      pintar(dias.length-1);
+    })();
+    </script>
   </section>
 
   <section class="tarjeta">
@@ -625,5 +701,5 @@
     </div>
   </section>
 
-  <p class="nota">Panel interno · se regenera cada mañana junto con la revisión del embudo · última actualización 01-09-2026 (tarde): qué corre cada día con sus horas, el guardián con lo que vigila y por qué no pudo correr, y el catálogo de las once tarjetas con el árbol de decisión.</p>
+  <p class="nota">Panel interno · se regenera cada mañana junto con la revisión del embudo · última actualización 01-09-2026 (tarde): qué corre cada día con sus horas, el guardián con lo que vigila y por qué no pudo correr, y el catálogo de las once tarjetas con el árbol de decisión, los enlaces para reejecutar cada workflow y el histórico día por día.</p>
 </div>

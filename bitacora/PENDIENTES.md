@@ -55,6 +55,43 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **PANEL 1: que `metricas.js` refresque también el histórico, o se
+      congela en el 01-09.** El panel ya trae un **histórico día por día con
+      selector de fecha**: se elige un día y muestra los totales de ese día
+      con su delta contra el anterior, y la tabla de cada video con lo que
+      sumó. Los datos viven en el panel entre marcadores
+      `/*HIST-INICIO*/ ... /*HIST-FIN*/`, igual que la serie del gráfico.
+      **Hoy nadie los actualiza.** `scripts/metricas.js` ya refresca
+      `/*SERIE-INICIO*/` con un `String.replace`; falta el mismo bloque de
+      cinco líneas para HIST, leyendo todos los `bitacora/metricas/*.json` y
+      volcándolos con la forma compacta que el panel espera:
+      `{fecha, canal, videos:[{id, t, e, v, l, c, d, p}]}`.
+      **Y un detalle que hay que conservar:** `durSeg` solo existe desde el
+      01-09. Como una duración no cambia, la generación lleva la duración
+      real hacia atrás por id desde el día más nuevo que la tenga. No es una
+      estimación y reproduce exactamente los números que la noche había
+      reconstruido a mano en `proyeccion.json` (30-08: 17 Shorts / 5 largos;
+      31-08: 129 / 23). Si el refresco automático no hace ese arrastre, los
+      dos primeros días vuelven a mostrar 0 Shorts.
+      Ojo también con el tamaño: hoy son 4,4 KB con 3 días. A un año son
+      ~500 KB dentro del HTML. Cuando pase de ~30 días, recortar a los
+      últimos 30 más un resumen mensual.
+
+- [ ] **PANEL 2: decidir si el botón de actualizar llega a ser de un clic.**
+      Hoy el panel tiene cuatro enlaces (métricas, barrido, edición, web) que
+      abren su workflow en GitHub, donde el botón "Run workflow" lo dispara.
+      **Son dos clics a propósito**: el panel es una página publicada, y un
+      botón de un clic tendría que llevar un token de GitHub escrito adentro.
+      Un token en una página publicada es un token regalado, así que eso no
+      se hace.
+      Si algún día molesta de verdad, la única salida limpia es un
+      intermediario que guarde el token fuera de la página (una función
+      pequeña con un secreto compartido, o una GitHub App). Es más superficie
+      que mantener y más cosas que se pueden filtrar, por muy poco: los dos
+      clics cuestan tres segundos y casi nunca hacen falta, porque las
+      métricas ya se actualizan solas a las 08:45. **Recomendación: dejarlo
+      como está** y revisar solo si la operación diaria lo pide.
+
 - [ ] **VISUAL 3: el árbol de decisión de tarjetas y, sobre todo, su
       validación.** Propuesta completa en
       `ideas/tarjetas-cuando-usar-cada-una.md`, y el catálogo visual de las
