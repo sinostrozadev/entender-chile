@@ -23,6 +23,22 @@ Shorts se deciden por **retención** (% que llega al final) y **swipe-away**
   pase la auditoría de la API (subida en privado), la hora la pone Santiago
   con un clic; después, `publishAt` automático.
 
+## 1b. La rutina de publicación diaria (consolidada, 1-09)
+
+| Hora (Chile) | Qué | Dónde |
+|---|---|---|
+| ~07:00 | Revisar los 4 videos en Studio (5 min) | YouTube |
+| 07:30 | Publicar Short del informe + el informe | YouTube |
+| 07:35 | El MISMO Short como Reel (desde el celular) | Facebook |
+| 13:00 | Publicar la Clave y su Short | YouTube |
+| 13:05 | (opcional) Short de la Clave como Reel | Facebook |
+| — | Vincular cada Short a su video largo; responder comentarios | YouTube |
+
+El archivo del Short queda cada madrugada en el release:
+https://github.com/sinostrozadev/entender-chile/releases/latest
+(descargable desde cualquier dispositivo; la sesión de la mañana además lo
+deja en Descargas cuando está activa). Fines de semana: todo a las 10:00.
+
 ## 2. Los primeros 2 segundos (lo que más pesa)
 
 - **Cold open**: la cifra más fuerte del día ANTES del sello, sin saludo.
@@ -65,6 +81,15 @@ Shorts se deciden por **retención** (% que llega al final) y **swipe-away**
 - El mismo mp4 vertical sirve para **TikTok e Instagram Reels** (reservar
   @entenderchile en ambos, ya en PENDIENTES). Subir a mano al principio;
   automatizar después si rinde.
+- Facebook, alcance del plan (1-09): fase 1 = SOLO Reels diarios. Por qué:
+  es el único formato de FB que empuja a desconocidos; los posts con link
+  externo pierden alcance; y el informe largo debe verse en YouTube, que es
+  donde las horas cuentan. Si en 2 semanas hay tracción, fase 2 = sumar un
+  post de TEXTO nativo diario (las frases de "En titulares"), que al público
+  35-60 de FB le acomoda. Monetización de FB: existe (anuncios en Reels e
+  in-stream, bonos por invitación) pero exige ~5.000 seguidores y decenas de
+  miles de minutos vistos; se evalúa cuando los seguidores se acerquen —
+  hoy FB es embudo y marca, la plata primero es YouTube.
 - WhatsApp: el Short se comparte bien en grupos familiares (público del
   canal: 35-60 años). Un canal de WhatsApp del proyecto ya está diferido en
   ideas/; el Short puede ser lo que lo reactive.
