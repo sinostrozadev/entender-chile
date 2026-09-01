@@ -1,31 +1,33 @@
 # Caso: FONASA, megafraude de licencias médicas falsas
 
 Estado: JUDICIALIZADO
-Dossier abierto: 2026-08-26 · Última actualización: 2026-08-26
+Dossier abierto: 2026-08-26 · Última actualización: 2026-09-01
 
 <!-- datos
-cuestionado: 25000000000
+cuestionado: 31571798643
 naturaleza: perjuicio-veredicto
 recuperado: 0
 retenido: 0
-nota-cifra: Cifra del comunicado del Poder Judicial (23-06-2026) para la estructura principal. La prensa reporta $50.000 millones por las tres estructuras. El comiso de bienes está pendiente.
+nota-cifra: Perjuicio al sistema público de salud fijado en la sentencia del 7° Tribunal de Juicio Oral en lo Penal de Santiago leída el 31-08-2026, cifrado por la Fiscalía Metropolitana Oriente en $31.571.798.643. Sustituye la cifra anterior de $25.000 millones, que era la del comunicado del Poder Judicial del 23-06-2026 y cubría solo la estructura principal. La prensa había reportado $50.000 millones al conocerse el veredicto. Nada está recuperado: la sentencia ordenó comisos y hay bienes incautados, pero no consta devolución al Fisco y la sentencia no está firme.
 -->
 
 ## Ficha
 - Institución afectada: Fondo Nacional de Salud (FONASA), principal perjudicado por pago de subsidios de incapacidad laboral (SIL); también isapres, que se querellaron (reportado por El Mostrador, 11-12-2023, y Diario El Día, 07-12-2022).
-- Qué se investiga: Una red de médicos de nacionalidad colombiana que, mediante 16 sociedades médicas de fachada, emitió y vendió decenas de miles de licencias médicas ideológicamente falsas entre 2020 y 2022, cobrando por ellas y obteniendo fraudulentamente subsidios estatales. El 23-06-2026 el 7° Tribunal de Juicio Oral en lo Penal de Santiago declaró culpables a los 17 acusados por asociación ilícita, emisión/obtención/tramitación de licencias falsas, fraude de subvenciones y lavado de activos. La sentencia con las penas se leerá el 31-08-2026, por lo que aún no hay penas firmes.
-- Monto CONFIRMADO por fuente oficial: El Poder Judicial (comunicado del 7° TOP de Santiago, pjud.cl, 23-06-2026) acreditó que la estructura principal emitió más de 60.000 licencias fraudulentas, de las cuales más de 50.000 fueron pagadas por FONASA, con perjuicio superior a $25.000 millones atribuido a esa estructura; el veredicto abarca tres estructuras criminales que operaron entre 2020 y 2022.
+- Qué se investiga: Una red de médicos de nacionalidad colombiana que, mediante 16 sociedades médicas de fachada, emitió y vendió decenas de miles de licencias médicas ideológicamente falsas entre 2020 y 2022, cobrando por ellas y obteniendo fraudulentamente subsidios estatales. El 23-06-2026 el 7° Tribunal de Juicio Oral en lo Penal de Santiago declaró culpables a los 17 acusados por asociación ilícita, emisión/obtención/tramitación de licencias falsas, fraude de subvenciones y lavado de activos, y el 31-08-2026 leyó la sentencia con las penas. La sentencia es de primera instancia y no está firme mientras corra el plazo para recurrir de nulidad.
+- Monto CONFIRMADO por fuente oficial: La sentencia leída el 31-08-2026 fijó el perjuicio al sistema público de salud en $31.571.798.643, cifra de la Fiscalía Metropolitana Oriente (BioBioChile, CNN Chile, La Tercera y Radio Paulina, todos del 31-08-2026, con el monto al peso). Antes, el comunicado del Poder Judicial del 23-06-2026 acreditaba que la estructura principal emitió más de 60.000 licencias fraudulentas, de las cuales más de 50.000 fueron pagadas por FONASA, con perjuicio superior a $25.000 millones atribuido a esa estructura, sobre un veredicto que abarca tres estructuras criminales que operaron entre 2020 y 2022.
+- Penas impuestas el 31-08-2026: los 17 acusados fueron condenados. Al líder de la red, Samir Rivaldo Hernández, el tribunal le impuso 10 años y un día por fraude de subvenciones, 5 años por emisión de licencias falsas, 3 años por asociación ilícita y 3 años por lavado de activos, es decir 21 años y un día de presidio efectivo en total, más una multa de $2.566 millones por el fraude de subvenciones reiterado (La Tercera, 31-08-2026; Emol, 31-08-2026). Las penas de Rivaldo y de su pareja, Yesica Donado Alvis, suman más de 37 años de cárcel (BioBioChile, 31-08-2026). Nueve de los condenados son médicos y recibieron penas de presidio; los compradores de licencias fueron sancionados con libertad vigilada intensiva (Emol, 31-08-2026). La Fiscalía había pedido 28 años para cada uno de los dos líderes.
+- Comiso y bienes: el tribunal ordenó comisos sobre bienes y recursos asociados a los condenados por lavado de activos, entre ellos vehículos, propiedades y más de $1.000 millones incautados en cuentas corrientes (La Tercera, 31-08-2026). Al 01-09-2026 no consta que ese dinero haya vuelto al Fisco.
 - Monto reportado por prensa (si difiere): Perjuicio total de $50.000 millones a FONASA según el veredicto (Cooperativa, 23-06-2026; Emol, 23-06-2026). La Fiscalía estimaba inicialmente $31.000 millones (T13, 24-06-2026) y unos $30.000 millones al inicio del juicio (BioBioChile, 15-07-2025). Número de licencias con cifras dispares: ~70.000 (Emol y Cooperativa, 23-06-2026), más de 72.000 (La Tribuna, 23-06-2026), más de 80.000 (Chilevisión e Infobae, 16-07-2025). T13 tituló "27 acusados" (23-06-2026), cifra que discrepa del total de 17 informado por el Poder Judicial y el resto de la prensa (probable error del titular, sin confirmar).
-- Dinero recuperado a la fecha: Sin recuperación confirmada. Tras el veredicto se abre la etapa de comiso: la Fiscalía informó que se discutirán los bienes objeto de comiso, con cooperación internacional con Colombia, y que hay bienes sujetos a medidas cautelares reales (declaraciones de Fiscalía recogidas por prensa, 23/24-06-2026). Prensa reportó remesas millonarias a Colombia y compra de propiedades en Barranquilla, autos y bienes de lujo con dinero del fraude (T13, 24-06-2026). El CDE ha presentado querellas por fraude de licencias que en conjunto (todas las causas del fenómeno) suman unos $55.000 millones (Diario Financiero, fecha exacta sin confirmar).
+- Dinero recuperado a la fecha: Sin recuperación confirmada al 01-09-2026, pese a la sentencia del 31-08-2026: lo que hay son comisos ordenados y bienes incautados, no dinero devuelto al Fisco. Tras el veredicto se abrió la etapa de comiso: la Fiscalía informó que se discutirán los bienes objeto de comiso, con cooperación internacional con Colombia, y que hay bienes sujetos a medidas cautelares reales (declaraciones de Fiscalía recogidas por prensa, 23/24-06-2026). Prensa reportó remesas millonarias a Colombia y compra de propiedades en Barranquilla, autos y bienes de lujo con dinero del fraude (T13, 24-06-2026). El CDE ha presentado querellas por fraude de licencias que en conjunto (todas las causas del fenómeno) suman unos $55.000 millones (Diario Financiero, fecha exacta sin confirmar).
 - Origen del caso: FONASA e isapres denunciaron a médicos "grandes emisores" (se detectó incluso emisión de una licencia cada dos minutos); en junio de 2022 (día no precisado) la Fiscalía Nacional encargó la investigación a la fiscal regional Lorena Parra (Fiscalía Oriente). Tras unos cinco a seis meses de indagatoria de la Fiscalía Oriente y la Brigada de Delitos Económicos (Bridec) de la PDI, el 06/07-12-2022 se ejecutó la operación "Licenciados para defraudar", con allanamiento de 32 propiedades y dos centros médicos y 29 detenidos (CHV Noticias, 06-12-2022; BioBioChile y Diario El Día, 07-12-2022).
 
 ## Involucrados
 | Nombre | Cargo | Institución/Partido | Situación procesal (fecha) |
 |---|---|---|---|
-| Samir Enrique Rivaldo Hernández | Médico cirujano, líder de la estructura principal; emitió 16.039 licencias en dos años según la acusación | Red de sociedades médicas de fachada (privado) | Declarado culpable de asociación ilícita, emisión de licencias falsas, fraude de subvenciones y lavado de activos (23-06-2026); Fiscalía pidió 28 años de presidio; pena se conocerá el 31-08-2026 (PJUD 23-06-2026; La Tercera; Infobae 16-07-2025) |
-| Yesica María Donado Alvis | Médica, pareja de Rivaldo y colíder de la red; emitió 9.812 licencias entre abril de 2021 y junio de 2022 según la acusación | Red de sociedades médicas de fachada (privado) | Declarada culpable por los mismos delitos (23-06-2026); Fiscalía pidió 28 años de presidio; pena se conocerá el 31-08-2026 (PJUD 23-06-2026; Infobae 16-07-2025; T13 24-06-2026) |
-| Otros 7 médicos (nacionalidad colombiana) | Médicos emisores de licencias en las sociedades de fachada | Red de 16 sociedades de fachada (privado) | Declarados culpables (23-06-2026); nombres individuales no publicados por fuentes oficiales ni por dos medios establecidos, sin confirmar |
-| 8 captadores y facilitadores (chilenos, según prensa) | Captación de "clientes" compradores de licencias, a comisión | Red (privado) | Declarados culpables (23-06-2026); identidades individuales sin confirmar |
+| Samir Enrique Rivaldo Hernández | Médico cirujano, líder de la estructura principal; emitió 16.039 licencias en dos años según la acusación | Red de sociedades médicas de fachada (privado) | Condenado el 31-08-2026 a 21 años y un día de presidio efectivo (10 años y un día por fraude de subvenciones, 5 años por emisión de licencias falsas, 3 años por asociación ilícita y 3 años por lavado de activos) y a una multa de $2.566 millones; sentencia de primera instancia, no firme (La Tercera 31-08-2026; Emol 31-08-2026; BioBioChile 31-08-2026) |
+| Yesica María Donado Alvis | Médica, pareja de Rivaldo y colíder de la red; emitió 9.812 licencias entre abril de 2021 y junio de 2022 según la acusación | Red de sociedades médicas de fachada (privado) | Condenada el 31-08-2026 a presidio efectivo; su pena y la de Rivaldo suman más de 37 años (BioBioChile 31-08-2026). La duración exacta de su condena difiere entre medios y no se consigna aquí hasta contar con la cifra oficial; sentencia de primera instancia, no firme |
+| Otros 7 médicos (nacionalidad colombiana) | Médicos emisores de licencias en las sociedades de fachada | Red de 16 sociedades de fachada (privado) | Condenados el 31-08-2026 a penas de presidio efectivo dentro del rango de 10 a 21 años informado por la prensa; nombres individuales aún no publicados por fuentes oficiales ni por dos medios establecidos, sin confirmar |
+| 8 captadores, facilitadores y compradores | Captación de "clientes" compradores de licencias, a comisión, y compra de licencias | Red (privado) | Condenados el 31-08-2026; los compradores recibieron libertad vigilada intensiva (Emol 31-08-2026); identidades individuales sin confirmar |
 
 ## Cronología
 - 2020 (fecha exacta no precisada): inicio de la emisión fraudulenta de licencias según la acusación y el veredicto. (PJUD 23-06-2026; Cooperativa 23-06-2026)
@@ -39,18 +41,26 @@ nota-cifra: Cifra del comunicado del Poder Judicial (23-06-2026) para la estruct
 - 2026-06-19: el 7° TOP de Santiago rechaza el incidente de nulidad planteado por las defensas. (BioBioChile 19-06-2026)
 - 2026-06-23: veredicto: los 17 acusados son declarados culpables de asociación ilícita, emisión/obtención/tramitación de licencias médicas falsas, fraude de subvenciones y lavado de activos; prensa reporta perjuicio de $50.000 millones; se fija lectura de sentencia para el 31-08-2026 a las 10:00. (PJUD 23-06-2026; Cooperativa 23-06-2026; Emol 23-06-2026; La Tribuna 23-06-2026)
 - 2026-06-24: Fiscalía y querellantes detallan destino de los fondos (remesas a Colombia, propiedades en Barranquilla, autos y lujos) y anuncian etapa de discusión del comiso con cooperación internacional. (T13 24-06-2026; G5noticias 24-06-2026)
+- 2026-08-31: el 7° Tribunal de Juicio Oral en lo Penal de Santiago lee la sentencia y condena a los 17 acusados. Fija el perjuicio al sistema público de salud en $31.571.798.643 según la Fiscalía Metropolitana Oriente. Samir Rivaldo Hernández recibe 21 años y un día de presidio efectivo y una multa de $2.566 millones; las penas de Rivaldo y Yesica Donado Alvis suman más de 37 años; nueve médicos son condenados a presidio y los compradores de licencias a libertad vigilada intensiva. El tribunal ordena comisos sobre bienes de los condenados por lavado de activos, entre ellos vehículos, propiedades y más de $1.000 millones incautados en cuentas corrientes. (La Tercera 31-08-2026; BioBioChile 31-08-2026; Emol 31-08-2026; CNN Chile 31-08-2026; Radio Paulina 31-08-2026)
 
 Contexto del modus operandi (acreditado en juicio según prensa): las licencias se ofrecían por redes sociales y la venta se cerraba por WhatsApp, con captadores a comisión; precios reportados: afiliados FONASA pagaban $35.000 por licencias de 1 a 11 días y $75.000 por 22 a 30 días; afiliados a isapres desde $75.000 hasta $95.000 según los días de reposo. (Infobae 16-07-2025; El Tiempo; T13)
 
 Contexto de reformas: la Ley 21.746 (publicada el 24-05-2025) reforzó las facultades fiscalizadoras de SUSESO y COMPIN, estableció la licencia electrónica como regla general, restringió la emisión a profesionales inscritos en el Registro Nacional de Prestadores y con EUNACOM aprobado (titulados desde 2009), y creó sanciones administrativas y penales, con multas de hasta 600 UTM y cancelación de registro (Diario Constitucional; SUSESO). SUSESO informó la fiscalización de 131.496 licencias entre 2025 y enero de 2026 (SUSESO, fuente oficial). Prensa reportó además que el caso expuso que médicos colombianos podían ejercer sin EUNACOM por convenio bilateral (BioBioChile, 07-12-2022, y prensa posterior). Una baja de 22% en licencias emitidas en 2026 fue reportada por un solo medio (G5noticias, 07-08-2026): sin confirmar.
 
 ## Próximos hitos conocidos
-- 2026-08-31, 10:00: lectura de sentencia en el 7° Tribunal de Juicio Oral en lo Penal de Santiago; se conocerán las penas (Fiscalía pidió hasta 28 años para los dos líderes y rangos menores para el resto; nada es firme hasta la lectura). (Cooperativa 23-06-2026; La Tribuna 23-06-2026)
-- Tras la sentencia: etapa de determinación de bienes objeto de comiso, con cooperación internacional entre la Fiscalía Nacional y su par colombiana; bienes ya sujetos a medidas cautelares reales. (Fiscalía vía Cooperativa/T13, 23/24-06-2026)
-- Probable recurso de nulidad de las defensas ante la Corte de Apelaciones o la Corte Suprema tras la lectura de sentencia, dado que ya alegaron vulneración del debido proceso por la jueza inhabilitada y el incidente fue rechazado el 19-06-2026; presentación efectiva sin confirmar. (BioBioChile 19-06-2026; La Tercera)
+- Plazo de recurso de nulidad de las defensas ante la Corte de Apelaciones o la Corte Suprema contra la sentencia leída el 31-08-2026: la sentencia no queda firme hasta que ese plazo venza o los recursos se resuelvan. Las defensas ya alegaron vulneración del debido proceso por la jueza inhabilitada y el incidente fue rechazado el 19-06-2026; presentación efectiva de recursos sin confirmar al 01-09-2026. (BioBioChile 19-06-2026; La Tercera)
+- Materialización del comiso ordenado en la sentencia: cuánto de los bienes y de los más de $1.000 millones incautados en cuentas corrientes ingresa efectivamente al Fisco, y qué ocurre con los inmuebles en Barranquilla, que requieren cooperación internacional con Colombia. Es el dato que decide si este caso pasa de perjuicio a recuperación. (La Tercera 31-08-2026; Fiscalía vía Cooperativa/T13, 23/24-06-2026)
+- Cobro efectivo de las multas impuestas, entre ellas la de $2.566 millones a Samir Rivaldo Hernández. (La Tercera 31-08-2026)
 - Causas conexas en curso: 29 compradores de licencias investigados (La Tercera, jun. 2026); nuevas detenciones de médicos por una segunda red de licencias falsas en diciembre de 2025 y enero de 2026 (BioBioChile 30-12-2025; Infobae 01-01-2026); 41 médicos indagados que salieron de Chile (BioBioChile 28-05-2025).
 
+Nota sobre las fuentes: no se accedió al texto íntegro de la sentencia del 31-08-2026 ni de las notas de prensa citadas para ella; los datos provienen de extractos con URL verificada y con al menos dos medios establecidos por cada cifra y por cada pena consignada.
+
 ## Fuentes
+- La Tercera, 31-08-2026 (penas y multas de la sentencia, comiso): https://www.latercera.com/nacional/noticia/tribunal-fija-penas-de-carcel-y-multas-de-miles-de-millones-a-medicos-colombianos-condenados-por-red-de-licencias-falsas/
+- BioBioChile, 31-08-2026 (condena de los 17, penas de Rivaldo y Donado): https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2026/08/31/condenan-a-17-acusados-por-megafraude-a-fonasa-penas-de-lider-y-pareja-suman-mas-de-37-anos-de-carcel.shtml
+- Emol, 31-08-2026 (nueve médicos condenados, hasta 21 años; compradores con libertad vigilada intensiva): https://www.emol.com/noticias/Nacional/2026/08/31/1210078/condenan-medicos-extranjeros-fraude-fonasa.html
+- CNN Chile, 31-08-2026 (condena de los 17 implicados): https://www.cnnchile.com/pais/fraude-por-licencias-medicas-justicia-condena-a-17-implicados-venta-y-emision-de-licencias-fraudulentas/
+- Radio Paulina, 31-08-2026 (perjuicio de más de $31 mil millones): https://radiopaulina.cl/2026/08/31/fraude-a-fonasa-condenan-a-17-personas-por-defraudacion-de-mas-de-31-mil-millones
 - Poder Judicial (comunicado oficial, 7° TOP de Santiago), 23-06-2026: https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/146208
 - Cooperativa, 23-06-2026: https://www.cooperativa.cl/noticias/pais/salud/licencias-medicas/venta-de-licencias-17-personas-declaradas-culpables-por-perjuicio-de/2026-06-23/135523.html
 - Emol, 23-06-2026: https://www.emol.com/noticias/Nacional/2026/06/23/1203668/fraude-fonasa-50-mil-millones.html
@@ -83,3 +93,30 @@ Contexto de reformas: la Ley 21.746 (publicada el 24-05-2025) reforzó las facul
 
 ## Registro de actualizaciones del dossier
 - 2026-08-26: dossier creado con investigación inicial. (agente de investigación)
+- 2026-09-01: se incorpora la sentencia leída el 31-08-2026 por el 7° Tribunal de Juicio Oral en lo Penal de Santiago: condena de los 17 acusados, penas (21 años y un día y multa de $2.566 millones para Samir Rivaldo Hernández; más de 37 años sumadas las de Rivaldo y Yesica Donado Alvis; libertad vigilada intensiva para los compradores) y comiso ordenado sobre vehículos, propiedades y más de $1.000 millones incautados en cuentas corrientes. Corrección de cifra: el bloque de datos decía $25.000 millones, tomados del comunicado del Poder Judicial del 23-06-2026 y referidos solo a la estructura principal; ahora dice $31.571.798.643, el perjuicio fijado en la sentencia según la Fiscalía Metropolitana Oriente (La Tercera, BioBioChile, CNN Chile y Radio Paulina, 31-08-2026). Se mantiene recuperado en 0: hay comisos ordenados y bienes incautados, pero no consta devolución al Fisco y la sentencia no está firme.
+
+<!-- interno
+2026-09-01: no se pudo abrir el texto de ninguna fuente de la sentencia del
+31-08-2026 (pjud.cl, Emol, BioBioChile, CNN Chile, La Tercera, Radio Paulina,
+G5noticias y Prensa Latina devolvieron EGRESS_BLOCKED). Todo lo incorporado se
+apoya en extractos de buscador contrastados entre al menos dos medios
+establecidos por dato.
+
+Quedaron fuera de la ficha, por fuente insuficiente, y anotados en
+por-verificar.md:
+- La pena individual exacta de Yesica Donado Alvis: los extractos dan 21, 16,
+  "casi 17" y 10 años segun el medio. La unica cifra concordante es la suma de
+  mas de 37 anos junto a Rivaldo (BioBioChile).
+- Los nombres y penas de los otros siete medicos condenados (Lizney de La Hoz,
+  Jose Gnecco Cervantes, Ana Toncel Pena, Karen Mejia, Obed Urrea, Yainer
+  Olivero Alvarez, Jorge Gonzalez Guerrero, con penas de 12 a 16 anos segun el
+  extracto): aparecen en Emol y en redifusiones suyas, no en dos medios
+  independientes.
+- El monto exacto del comiso y de lo incautado en cuentas corrientes. Por eso
+  retenido sigue en 0 pese a los "mas de $1.000 millones" que reporta La
+  Tercera: la regla del README impide mover esa cifra con una nota de prensa.
+
+El numero de causa del juicio es RIT 122-2025 del 7° TOP de Santiago, segun el
+comunicado del Poder Judicial del 23-06-2026; no se incorporo a la ficha porque
+no se verifico en el texto.
+-->
