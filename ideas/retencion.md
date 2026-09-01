@@ -174,3 +174,98 @@ más rápido que tenemos y hoy no lo estamos usando.
 
 Las cinco están abiertas desde el 27-08 en `ideas/formato-video.md`. Ninguna
 necesita código para responderse.
+
+---
+
+# Anexo: ¿el video es monótono? La medición
+
+Pregunta de Santiago el 01-09: "no crees que sea muy monótono... quizás la
+gente prefiere tener algún material visual, ¿más gráficos, indicadores,
+alguna imagen?".
+
+## Lo que se ve en el informe del 01-09, contado
+
+El sistema **sabe dibujar once tipos de tarjeta** (`src/tarjetas.tsx`):
+tesis, párrafo, cita, cifra, cambio, barras, líneas, comparación, esquema,
+marcador, tabla, más el banner y la cortina de sección.
+
+El guion de hoy pidió cuatro:
+
+| Marca pedida | Veces |
+|---|---|
+| `[DATO cifra]` (un número grande) | 11 |
+| `[TESIS]` (una frase grande) | 10 |
+| `[DATO cambio]` (X → Y) | 2 |
+| `[DATO barras]` | 1 |
+| **cita, comparación, esquema, marcador, tabla, líneas** | **0** |
+
+Y el relleno: **84 párrafos narrados**, o sea 84 tarjetas de texto. Contra 24
+tarjetas con forma. **Más o menos el 78% del video es una tarjeta de texto**,
+y de las 24 que no lo son, 21 son la misma pareja de formas: un número
+grande o una frase grande.
+
+**Conclusión: la monotonía no es un problema de render, es un problema de
+guion.** El motor puede dibujar once formas; hoy le pidieron cuatro, y el
+88% de los pedidos fueron dos.
+
+## Lo que NO hay que hacer: llenarlo de imágenes
+
+`ideas/imagenes-y-recursos.md` (27-08) ya dejó esto investigado y es la razón
+de peso para no salir a buscar imágenes. La política de contenido no
+auténtico de YouTube (julio 2025) da como ejemplo de canal no monetizable:
+
+> "Channels that use the exact same background music and repetitive AI
+> generated imagery across many videos, with each video reading out an
+> AI-generated script"
+
+Música idéntica + imágenes de IA repetidas + guion leído por IA. Tenemos dos
+de los tres. Llenar el video de imágenes generadas completa la descripción
+exacta de lo que YouTube desmonetiza. La austeridad tipográfica no es una
+carencia: es lo que nos deja del lado seguro sin esfuerzo.
+
+La respuesta no es **más imágenes**. Es **más formas de información**.
+
+## Lo que sí, en orden de impacto sobre esfuerzo
+
+**1. Que el guion pida los tipos que ya existen.** Cero código, una regla en
+`prompts/guion-informe.md`: nunca más de dos `cifra` seguidas, y al menos un
+`esquema` y una `comparacion` o `tabla` por edición. Hoy el prompt ofrece los
+once tipos pero no obliga a variar, y el modelo se va siempre al más fácil.
+
+**2. `lineas`: la serie histórica.** Es el más grande de todos y ya está
+justificado en `estrategia/indicadores-pais.md`: *"el informe cuenta el
+episodio (el IPC de este mes), la serie da los últimos veinte años. Una
+noticia sin serie es una anécdota."* Hoy "la industria cayó 5,1%" es un
+número solo en pantalla. Con la serie de los últimos 24 meses se convierte en
+una imagen que además significa algo. Los datos son públicos y gratis (INE,
+Banco Central) y el tipo de tarjeta ya está construido y sin usar.
+
+**3. El esquema.** `ideas/formato-video.md` lo dice: *"un esquema animado es
+superior a una persona explicándolo con las manos"*. Es la ventaja del
+formato sobre un conductor, y hoy se usó cero veces. Cada noticia de trámite
+legislativo, de proceso judicial o de "quién decide qué" es un esquema.
+
+**4. Movimiento, no ilustración.** La regla de los 5 a 7 segundos que está
+pendiente desde el 25-08: count-up en las cifras, subrayados que se dibujan,
+entradas con retardo. Una tarjeta tipográfica que se anima no se siente
+monótona; una que aparece entera y se queda quieta seis segundos, sí.
+
+**5. Mapa de Chile como pictograma.** Hoy hubo Alerta Roja en Antofagasta y
+Extensión de la Línea 6: dos noticias donde el "dónde" es parte de la
+información y no se mostró. Un mapa esquemático propio no es imagen generada,
+es un gráfico.
+
+**6. Documento oficial en pantalla.** Un gráfico del Banco Central, un
+extracto de una resolución de Contraloría. Rompe la uniformidad visual y
+refuerza la identidad de "la fuente en pantalla, siempre", que es una de las
+tres ventajas estructurales del canal.
+
+## La observación de Santiago que hay que tomar en serio
+
+"Para mí no es monótono, pero es porque a mí me interesan esos temas."
+
+Eso es exactamente el problema, y describe a casi todo el que hace un
+producto: el contenido lo sostiene a él. Para alguien que llega sin ese
+interés previo, el ritmo visual tiene que hacer el trabajo que hoy hace la
+curiosidad de Santiago. Las once formas ya están construidas; solo falta
+pedirlas.
