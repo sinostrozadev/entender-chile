@@ -1,3 +1,12 @@
 [
-  {"fecha":"2026-09-01","vozCharsDia":29000,"vozAcumMes":29000,"actionsMinDia":62,"actionsProyMes":1860,"apiUnidadesDia":6700,"nota":"arranque de mes: cupos frescos (Azure 500k, Actions 2000 min)"}
+  {
+    "fecha": "2026-09-01",
+    "vozCharsDia": 0,
+    "vozAcumMes": 0,
+    "actionsMinDia": 5,
+    "actionsAcumMes": 5,
+    "apiUnidadesDia": 30,
+    "releasesMB": 450,
+    "nota": "mes nuevo: cupos frescos; la edición del 1-09 corre en la madrugada"
+  }
 ]
