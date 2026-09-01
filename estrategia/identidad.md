@@ -107,3 +107,11 @@ Va en: descripción del canal, cierre de cada video, banner y bio de redes.
 
 [POR DEFINIR - Santiago] Validar este texto antes de pegarlo en YouTube
 Studio; al usarlo, mantenerlo idéntico en las bios de redes.
+
+## Comentarios (regla del 1-09-2026)
+
+Se responde siempre, corto, cálido y sin pedir nada (ni suscripción ni
+compartir): el canal convence por lo que entrega. Corazón de creador a los
+comentarios de buena fe; fijar los que abran conversación. Las respuestas
+las escribe Santiago (voz humana real); si algún día se automatizan, se
+declara primero en la API y se decide de nuevo.
