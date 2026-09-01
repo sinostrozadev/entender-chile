@@ -55,6 +55,54 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **VISUAL 1: el esquema. Barato, hoy mismo, cero código.**
+      `TarjetaEsquema` está construida y funcionando, y el prompt ya la
+      ofrece (`prompts/guion-informe.md` línea 124:
+      `[ESQUEMA | título] elemento -> elemento -> elemento`). El informe del
+      01-09 la usó **cero veces**, igual que `cita`, `comparacion`,
+      `marcador` y `tabla`.
+      No falta motor, falta que el guion la pida. Agregar a
+      `prompts/guion-informe.md` una regla de variedad obligatoria, del tipo:
+      nunca más de dos `[DATO cifra]` seguidas, y al menos un `[ESQUEMA]` por
+      edición cuando el día tenga una noticia de proceso (trámite
+      legislativo, etapa judicial, quién decide qué y en qué orden), que es
+      casi todos los días.
+      Por qué este primero: `ideas/formato-video.md` lo tiene identificado
+      como la ventaja del formato sobre un conductor con cámara ("un esquema
+      animado es superior a una persona explicándolo con las manos"). Es lo
+      más barato con más efecto de toda la lista visual.
+      Riesgo a vigilar: que el modelo empiece a meter esquemas forzados. La
+      regla debe ser condicional ("cuando la noticia sea un proceso"), no una
+      cuota fija.
+
+- [ ] **VISUAL 2: la serie histórica (`lineas`). NO está construida: son dos
+      trabajos, no uno.** Ojo, esto se creía hecho y no lo está.
+      `src/tarjetas.tsx` línea 448 dice textual:
+      `case "lineas": // v1: las líneas caen a comparación; componente propio en v2`
+      O sea que hoy pedir `[DATO lineas]` dibuja una tarjeta de comparación.
+      El tipo está ofrecido en el prompt (línea 116) y aceptado por el
+      parser, pero el componente propio no existe.
+      **Parte A, el componente:** escribir `TarjetaDatoLineas` en
+      `src/tarjetas.tsx` y despacharlo desde `TarjetaDato`. Una serie de
+      tiempo con eje, el último punto marcado, y la animación de trazado
+      (encaja con la regla de los 5 a 7 segundos: una línea que se dibuja no
+      es una tarjeta muerta).
+      **Parte B, y es la de verdad: de dónde salen los datos.** Hoy el guion
+      solo lleva los valores que él mismo escribe en la marca, así que una
+      serie de 24 meses no puede venir del guion: necesita una fuente. Es lo
+      que `estrategia/indicadores-pais.md` ya diseñó (IPC, desempleo, UF,
+      Imacec, con su cadencia de actualización). Decidir si se baja una vez
+      al día a un JSON del repo y el guion solo nombra el indicador, o si se
+      resuelve de otra forma.
+      **Por qué vale el trabajo:** es la identidad del canal convertida en
+      imagen. La frase ya está escrita en indicadores-pais.md y es la mejor
+      del proyecto: *"el informe cuenta el episodio, la serie da los últimos
+      veinte años. Una noticia sin serie es una anécdota."* Hoy "la industria
+      cayó 5,1%" es un número solo en pantalla.
+      **Orden sugerido:** primero VISUAL 1 (una regla en un prompt, esta
+      noche), y VISUAL 2 como proyecto aparte con sus dos partes, después de
+      los ARREGLOS 0 a 3.
+
 - [ ] **ARREGLO 3: `vistasTotales` no cuadra con la suma de los videos.**
       En `bitacora/metricas/2026-09-01.md` la cabecera dice **135 vistas
       totales** y la tabla suma **372**. Mismo archivo, misma corrida de
