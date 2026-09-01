@@ -4,6 +4,7 @@ Registro append-only de lo completado, con fecha. La sesión de la mañana
 agrega aquí lo que sale de PENDIENTES; también es evidencia del aporte
 editorial y técnico humano del proyecto.
 
+- 01-09 · Página de Facebook creada (Entender Chile, avatar + portada + bio)
 - 01-09 · Gráficos de la curva a la meta (subs, horas, Shorts) con histórico diario en proyeccion.json
 - 01-09 · Voz con respaldo S0 automático: el canal no se queda mudo al agotarse el cupo gratis
 - 01-09 · Feed del podcast: paso 8 despacha la web (pushes del bot no disparan workflows)
