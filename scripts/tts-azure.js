@@ -23,8 +23,14 @@ const fs = require("fs");
 const path = require("path");
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 
-const KEY = process.env.AZURE_SPEECH_KEY;
-const REGION = process.env.AZURE_SPEECH_REGION;
+let KEY = process.env.AZURE_SPEECH_KEY;
+let REGION = process.env.AZURE_SPEECH_REGION;
+// Respaldo pagado: cuando el F0 gratis agota sus 500.000 caracteres del mes,
+// se cae al recurso S0 (AZURE_SPEECH_KEY2/REGION2) y se paga SOLO el exceso
+// (~US$16 por millón). Así el canal no se queda mudo ni un día.
+const KEY2 = process.env.AZURE_SPEECH_KEY2;
+const REGION2 = process.env.AZURE_SPEECH_REGION2 || process.env.AZURE_SPEECH_REGION;
+let usandoRespaldo = false;
 const VOICE = process.env.AZURE_VOICE || "es-CL-LorenzoNeural";
 // Velocidad de habla. Santiago (30-08): la lectura normal "es como si leyera
 // corriendo"; al 90% se aprecia mucho más. Se ajusta con AZURE_RATE (-8%, -12%...).
@@ -108,6 +114,22 @@ function sintetizar(chunk) {
   });
 }
 
+// Reintenta con el recurso de respaldo si el error huele a cuota agotada.
+async function sintetizarConRespaldo(chunk) {
+  try {
+    return await sintetizar(chunk);
+  } catch (e) {
+    const esCuota = /quota|exceeded|429|403|forbidden/i.test(e.message);
+    if (esCuota && KEY2 && !usandoRespaldo) {
+      console.warn("  cupo del F0 agotado: cambiando al recurso de respaldo (S0) para lo que queda del mes...");
+      KEY = KEY2; REGION = REGION2; usandoRespaldo = true;
+      return await sintetizar(chunk);
+    }
+    if (esCuota && !KEY2) console.error("  cupo gratis de Azure agotado y SIN AZURE_SPEECH_KEY2 de respaldo (ver PENDIENTES).");
+    throw e;
+  }
+}
+
 async function main() {
   const [, , entrada, salidaDir = "out/"] = process.argv;
   if (!KEY || !REGION || !entrada) {
@@ -140,7 +162,7 @@ async function main() {
 
   for (let i = 0; i < chunks.length; i++) {
     const ch = chunks[i];
-    const r = await sintetizar(ch);
+    const r = await sintetizarConRespaldo(ch);
     if (ch.pausa) pausas.push({ from: Number(offset.toFixed(3)), dur: PAUSA_SECCION_MS / 1000, charIndex: base });
     for (const w of r.palabras) {
       const ini = base + w.desde;

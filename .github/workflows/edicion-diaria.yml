@@ -106,6 +106,8 @@ jobs:
         env:
           AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+          AZURE_SPEECH_KEY2: ${{ secrets.AZURE_SPEECH_KEY2 }}
+          AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           VOICE_ID: ${{ secrets.VOICE_ID }}
         if: env.SALTAR != '1'
@@ -121,6 +123,8 @@ jobs:
         env:
           AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+          AZURE_SPEECH_KEY2: ${{ secrets.AZURE_SPEECH_KEY2 }}
+          AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
         if: env.SALTAR != '1'
         continue-on-error: true
         run: node scripts/short.js --fecha "$FECHA" --voz --render
@@ -129,6 +133,8 @@ jobs:
         env:
           AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+          AZURE_SPEECH_KEY2: ${{ secrets.AZURE_SPEECH_KEY2 }}
+          AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           VOICE_ID: ${{ secrets.VOICE_ID }}
         if: env.SALTAR != '1'
@@ -140,6 +146,8 @@ jobs:
         env:
           AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+          AZURE_SPEECH_KEY2: ${{ secrets.AZURE_SPEECH_KEY2 }}
+          AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
         if: env.SALTAR != '1'
         continue-on-error: true
         run: |

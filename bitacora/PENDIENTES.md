@@ -221,6 +221,14 @@ cuatro documentos con deriva puestos al día; render por push corregido
       mismo feed sirve para Apple Podcasts y Amazon si se quiere después.
 - [ ] **Facebook**: plan por etapas en `ideas/facebook.md` (página + Reels
       manuales dos semanas + medir antes de automatizar).
+- [ ] **Voz: recurso de respaldo S0 (Santiago, cuando el F0 se acerque al
+      tope, ~día 17 del mes).** El código ya cae solo al respaldo: portal
+      .azure.com → crear un SEGUNDO recurso Speech, mismo grupo, plan **S0**
+      → copiar su KEY y región → secrets `AZURE_SPEECH_KEY2` y
+      `AZURE_SPEECH_REGION2` en GitHub. Se paga SOLO el exceso sobre el medio
+      millón gratis: ~US$5-7/mes con el ritmo actual. Decisión de fondo
+      (1-09): NO se recorta el fin de semana por costo; la promesa del canal
+      es diaria y el ahorro serían ~US$6.
 - [ ] **Mirar el 30-08 con lupa, primera edición con las reglas nuevas:**
       (1) que las [A] respondan las cinco preguntas sin inflarse; (2) que
       "Además, hoy" traiga todo lo verificable sin volverse basurero; (3) que
