@@ -20,3 +20,6 @@
 - tratados limítrofes, soberanía y régimen jurídico del Estrecho de Magallanes | Milei viajará a Chile y se reunirá con Kast tras el impasse por el Estrecho de Magallanes | 2026-08-31
 - Mepco y mecanismos de estabilización del precio de los combustibles | El diésel acumula presión después del alza de agosto | 2026-08-31
 - infraestructura energética transfronteriza y contratos de exportación de gas | Neuquén ofrece ampliar ventas de gas a Chile usando infraestructura ociosa | 2026-08-31
+- gradualidad de la Pensión Garantizada Universal y diferencia entre beneficio universal y focalización previsional | Más de 500 mil personas de 75 a 81 años pasan al monto máximo de la PGU | 2026-09-01
+- comisión mixta y resolución de discrepancias entre Cámara y Senado | Comisión Mixta destraba el proyecto sobre gobernabilidad y representatividad | 2026-09-01
+- comiso penal, indemnización y recuperación efectiva de recursos públicos | Megafraude de licencias médicas: 17 condenados y perjuicio fijado en $31.571 millones | 2026-09-01
