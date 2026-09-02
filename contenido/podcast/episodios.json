@@ -51,5 +51,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-01-clave.mp3",
     "bytes": 17303040,
     "durSeg": 721
+  },
+  {
+    "fecha": "2026-09-02",
+    "tipo": "informe",
+    "titulo": "02-09-2026 · La economía cae 1,5% y Hacienda prepara una nueva proyección para 2026",
+    "descripcion": "",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-02-informe.mp3",
+    "bytes": 19497024,
+    "durSeg": 812
   }
 ]
