@@ -55,6 +55,13 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+**El orden para ejecutar está en `bitacora/2026-09-01.md`, con el archivo y
+qué hacer en cada punto.** Resumen: ARREGLO 0 (guardián) → ARREGLO 3 + PANEL 1
+(los dos en metricas.js) → ARREGLO 2b (patrón de commit) → VISUAL 1 (esquema,
+10 minutos) → EDITORIAL 1 (el dato que no se entrega) → VISUAL 3 (árbol de
+tarjetas) → VISUAL 2 (líneas, proyecto aparte) → PANEL 2 (decisión).
+Acá abajo está el detalle largo de cada uno.
+
 - [ ] **EDITORIAL 1: la edición del día anuncia un dato que sale después del
       cierre, y nunca lo entrega. Detectado por Santiago el 01-09.**
       Él leyó "caída del Imacec de 5,1%" cuando el Imacec cayó 1,5%.
