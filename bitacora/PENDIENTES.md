@@ -55,164 +55,56 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
-**El orden para ejecutar está en `bitacora/2026-09-01.md`, con el archivo y
-qué hacer en cada punto.** Resumen: ARREGLO 0 (guardián) → ARREGLO 3 + PANEL 1
-(los dos en metricas.js) → ARREGLO 2b (patrón de commit) → VISUAL 1 (esquema,
-10 minutos) → EDITORIAL 1 (el dato que no se entrega) → VISUAL 3 (árbol de
-tarjetas) → VISUAL 2 (líneas, proyecto aparte) → PANEL 2 (decisión).
-Acá abajo está el detalle largo de cada uno.
+**La noche del 01-09 ejecutó la lista completa** (detalle en la bitácora del
+día y en cada punto de abajo). Queda abierto: VISUAL 2 (líneas, proyecto
+aparte), VISUAL 3 capas b y c, y EDITORIAL 1b (verificar que la edición del
+02-09 cierre el Imacec).
 
-- [ ] **EDITORIAL 1: la edición del día anuncia un dato que sale después del
-      cierre, y nunca lo entrega. Detectado por Santiago el 01-09.**
-      Él leyó "caída del Imacec de 5,1%" cuando el Imacec cayó 1,5%.
-      **Revisado el informe: no hay error factual.** El -5,1% es el Índice de
-      Producción Industrial del INE, y las cuatro piezas lo dicen bien. El
-      informe incluso advierte: *"El indicador industrial no equivale al
-      Imacec"* y *"la magnitud y composición del Imacec serán más
-      informativas que una comparación mecánica con el 5,1% industrial"*.
-      **El problema es que el resultado en pantalla produce exactamente la
-      confusión que el texto advertía.** Los tres lugares donde la palabra
-      Imacec y el número 5,1% quedan pegados:
-      - Título del video: "La industria cae 5,1% antes del Imacec de julio".
-      - Tarjeta de tesis: "La industria cayó 5,1% y hoy el Imacec mostrará si
-        la debilidad fue más amplia."
-      - La Clave del día se llama "¿Cómo leer el Imacec sin confundir señal
-        con ruido?" y su ÚNICA tarjeta de datos es `-5,1%` industrial.
-      O sea: una pieza cuya tesis es "no confundas el índice industrial con
-      el Imacec" es la que hace confundirlos, porque el único número que pone
-      en pantalla es el del índice industrial. Si Santiago, que conoce el
-      material, se quedó con "Imacec 5,1%", cualquiera se queda con eso.
-      **La causa raíz es de horario, no de redacción.** El informe se escribe
-      a las 03:30 y el Imacec se publicó esa misma mañana, horas después. La
-      edición anuncia el dato, explica cómo leerlo, y no lo entrega nunca.
-      **Y el dato real daba vuelta la historia:** el Imacec de julio cayó
-      1,5%, la mayor caída desde marzo de 2023, arrastrado por minería
-      (-9,3%, que restó 1,3 puntos), mientras el Imacec no minero cayó solo
-      0,3%. La pregunta que el informe planteó tenía una respuesta buena y
-      noticiosa, y se la quedó otro.
-      **Y no hay nada que lo resuelva mañana.** La marca `EN SEGUIMIENTO`
-      existe solo para casos de plata pública (`prompts/informe.md` línea
-      103). Una [A] montada sobre "hoy se publica X" no genera ninguna
-      obligación de cerrarse en la edición siguiente.
-      **Cuatro reglas propuestas, en orden de urgencia:**
-      1. **Regla del dato que todavía no existe.** Si la [A] candidata es un
-         dato que se publica ese mismo día DESPUÉS del cierre de la edición,
-         no puede ser [A] montada en la anticipación. O abre otra noticia y
-         el dato queda en Agenda, o la [A] es el dato ya publicado (el
-         industrial) con la cita como una línea, sin colgar el titular del
-         que falta.
-      2. **Deuda del día siguiente.** Toda pieza montada sobre "hoy se
-         publica X" genera una obligación de cerrar con el número real en la
-         edición siguiente, y como [A] si el dato fue noticia. Mecanismo
-         simple, igual al que ya existe para casos: una marca
-         `PENDIENTE DE CIERRE: <qué dato> | <día en que sale>` que la
-         preselección del día siguiente lea como candidata obligatoria. Esto
-         es literalmente la promesa del canal ("no olvidamos") y hoy no está
-         implementada para nada que no sea plata pública.
-      3. **Regla de pantalla.** En un bloque donde conviven dos indicadores,
-         la tarjeta grande no puede llevar la cifra de uno mientras la tesis
-         nombra al otro. O la tesis nombra el mismo indicador que la cifra, o
-         el nombre del indicador va pegado al número en la tesis.
-      4. **Las Claves de "cómo leer un indicador" van el día DESPUÉS de que
-         el indicador salga**, nunca el día antes. Con el dato en la mano el
-         ejercicio es real; sin él es teoría, y encima obliga a poner en
-         pantalla el número equivocado por ser el único que hay.
-      **Verificar antes de aplicar:** revisar si la edición del 02-09 cerró
-      el Imacec por su cuenta. Si lo hizo, fue por suerte (era noticia del
-      día anterior), no por una regla, y la regla 2 sigue haciendo falta.
+- [x] **EDITORIAL 1 — HECHO (noche 01-09).** Las cuatro reglas aplicadas:
+      (1) regla del dato que todavía no existe, en `prompts/informe.md`;
+      (2) marca `PENDIENTE DE CIERRE: <dato> | <fecha>` creada en informe.md,
+      leída como candidata OBLIGATORIA por `prompts/seleccion.md`, filtrada de
+      la web (`web/src/lib/contenido.ts` + prompts/web.md) y muda en el guion;
+      (3) regla de pantalla con dos indicadores, en `prompts/guion-informe.md`;
+      (4) las Claves de "cómo leer un indicador" van el día DESPUÉS, en
+      `prompts/claves.md`.
 
-- [ ] **PANEL 1: que `metricas.js` refresque también el histórico, o se
-      congela en el 01-09.** El panel ya trae un **histórico día por día con
-      selector de fecha**: se elige un día y muestra los totales de ese día
-      con su delta contra el anterior, y la tabla de cada video con lo que
-      sumó. Los datos viven en el panel entre marcadores
-      `/*HIST-INICIO*/ ... /*HIST-FIN*/`, igual que la serie del gráfico.
-      **Hoy nadie los actualiza.** `scripts/metricas.js` ya refresca
-      `/*SERIE-INICIO*/` con un `String.replace`; falta el mismo bloque de
-      cinco líneas para HIST, leyendo todos los `bitacora/metricas/*.json` y
-      volcándolos con la forma compacta que el panel espera:
-      `{fecha, canal, videos:[{id, t, e, v, l, c, d, p}]}`.
-      **Y un detalle que hay que conservar:** `durSeg` solo existe desde el
-      01-09. Como una duración no cambia, la generación lleva la duración
-      real hacia atrás por id desde el día más nuevo que la tenga. No es una
-      estimación y reproduce exactamente los números que la noche había
-      reconstruido a mano en `proyeccion.json` (30-08: 17 Shorts / 5 largos;
-      31-08: 129 / 23). Si el refresco automático no hace ese arrastre, los
-      dos primeros días vuelven a mostrar 0 Shorts.
-      Ojo también con el tamaño: hoy son 4,4 KB con 3 días. A un año son
-      ~500 KB dentro del HTML. Cuando pase de ~30 días, recortar a los
-      últimos 30 más un resumen mensual.
+- [ ] **EDITORIAL 1b, para la mañana: verificar si la edición del 02-09 cerró
+      el Imacec (cayó 1,5%) por su cuenta.** Si lo hizo, fue por ser noticia
+      de ayer, no por regla; la regla 2 ya quedó escrita igual.
 
-- [ ] **PANEL 2: decidir si el botón de actualizar llega a ser de un clic.**
-      Hoy el panel tiene cuatro enlaces (métricas, barrido, edición, web) que
-      abren su workflow en GitHub, donde el botón "Run workflow" lo dispara.
-      **Son dos clics a propósito**: el panel es una página publicada, y un
-      botón de un clic tendría que llevar un token de GitHub escrito adentro.
-      Un token en una página publicada es un token regalado, así que eso no
-      se hace.
-      Si algún día molesta de verdad, la única salida limpia es un
-      intermediario que guarde el token fuera de la página (una función
-      pequeña con un secreto compartido, o una GitHub App). Es más superficie
-      que mantener y más cosas que se pueden filtrar, por muy poco: los dos
-      clics cuestan tres segundos y casi nunca hacen falta, porque las
-      métricas ya se actualizan solas a las 08:45. **Recomendación: dejarlo
-      como está** y revisar solo si la operación diaria lo pide.
+- [x] **PANEL 1 — HECHO (noche 01-09).** `metricas.js` ahora reconstruye
+      ENTEROS `proyeccion.json` y los bloques SERIE e HIST del panel desde
+      todos los `bitacora/metricas/*.json`, con el arrastre de durSeg hacia
+      atrás por id (reproduce exactamente lo reconstruido a mano: 5/17/0.38 ·
+      23/129/1.88 · 105/360/9.37) y tope de 30 días en HIST. Modo
+      `--solo-panel` para refrescar sin tocar YouTube.
 
-- [ ] **VISUAL 3: el árbol de decisión de tarjetas y, sobre todo, su
-      validación.** Propuesta completa en
-      `ideas/tarjetas-cuando-usar-cada-una.md`, y el catálogo visual de las
-      once tarjetas con datos de ejemplo está en el panel interno.
-      El diagnóstico: el prompt ofrece once tipos, los describe bien y **no
-      dice cuándo usar cada uno**. Con esa libertad el modelo se va siempre
-      al más fácil (11 de 14 marcas del 01-09 fueron `cifra`). La corrección
-      no es pedir "más variedad", que es gusto y no se verifica, sino dar una
-      regla mecánica sobre la FORMA DEL DATO: cuántos valores hay y qué
-      relación tienen. Eso es decidible y por lo tanto auditable.
-      **Tres piezas, en este orden:**
-      1. **El árbol al prompt** (`prompts/guion-informe.md`): once filas, se
-         recorre en orden, gana la primera que calza. Ver el documento.
-      2. **Las cuotas de variedad como capa aparte**, que NO manda sobre el
-         árbol: máximo dos `cifra` seguidas, nunca dos del mismo tipo
-         seguidas en un bloque, con 8 o más noticias al menos un `esquema` y
-         una de `barras`/`tabla`/`comparacion`.
-         **Y la regla que las protege, que hay que escribir con todas sus
-         letras en el prompt: la variedad nunca justifica un dato que no está
-         en el informe ni una tarjeta forzada.** Ese es el riesgo real de
-         este cambio: a un modelo al que se le pide variedad, se le empieza a
-         ocurrir con qué llenarla.
-      3. **El contador mecánico, que es lo que Santiago pidió de verdad al
-         decir "súper validar".** Una regla en un prompt es una intención, no
-         una garantía: hoy el prompt YA ofrece los once tipos y salieron
-         cuatro. Un script que lea el guion del día, cuente marcas por tipo y
-         avise cuando se rompa una cuota. No depende de que ningún modelo se
-         porte bien. Media hora de trabajo y es la capa que más rinde.
-         Después, si funciona, sumarlo como hallazgo `[MENOR]` de la revisión
-         editorial (con cuidado: ese prompt ya tuvo el problema de marcar
-         doce veces la misma no falla y está calibrado contra eso).
-      **Antes de aplicar nada, la prueba:** tomar los guiones del 29, 30, 31
-      y 01, aplicar el árbol a mano marca por marca, y ver si el resultado es
-      mejor que lo que salió. Si el árbol no mejora esos cuatro días, el
-      árbol está mal y hay que arreglarlo antes de tocar el prompt.
+- [x] **PANEL 2 — DECIDIDO (noche 01-09): se queda en dos clics.** Un botón
+      de un clic exigiría un token de GitHub dentro de una página publicada, y
+      eso no se hace. Se revisa solo si la operación diaria lo pide.
 
-- [ ] **VISUAL 1: el esquema. Barato, hoy mismo, cero código.**
-      `TarjetaEsquema` está construida y funcionando, y el prompt ya la
-      ofrece (`prompts/guion-informe.md` línea 124:
-      `[ESQUEMA | título] elemento -> elemento -> elemento`). El informe del
-      01-09 la usó **cero veces**, igual que `cita`, `comparacion`,
-      `marcador` y `tabla`.
-      No falta motor, falta que el guion la pida. Agregar a
-      `prompts/guion-informe.md` una regla de variedad obligatoria, del tipo:
-      nunca más de dos `[DATO cifra]` seguidas, y al menos un `[ESQUEMA]` por
-      edición cuando el día tenga una noticia de proceso (trámite
-      legislativo, etapa judicial, quién decide qué y en qué orden), que es
-      casi todos los días.
-      Por qué este primero: `ideas/formato-video.md` lo tiene identificado
-      como la ventaja del formato sobre un conductor con cámara ("un esquema
-      animado es superior a una persona explicándolo con las manos"). Es lo
-      más barato con más efecto de toda la lista visual.
-      Riesgo a vigilar: que el modelo empiece a meter esquemas forzados. La
-      regla debe ser condicional ("cuando la noticia sea un proceso"), no una
-      cuota fija.
+- [x] **VISUAL 3 (capa a) — HECHO (noche 01-09), con la prueba previa
+      hecha.** Árbol aplicado a mano a las 31 marcas del 29 al 01: nunca
+      empeora y mejora 4 (la ganancia 2025→2026 era `cambio`; dos `cifra`
+      traían 2-3 valores de unidades distintas, tarjeta malformada; el viento
+      100/90 era `comparacion`). La monotonía del 30 y del 01 la corrigen las
+      cuotas, no el árbol. Aplicado: árbol + cuotas + regla protectora en
+      `prompts/guion-informe.md`, y el contador mecánico
+      `scripts/validar-tarjetas.js` como paso 2c de la edición (avisa en el
+      log, no bloquea). Probado contra los 4 guiones reales: caza las 3
+      marcas malformadas del 29, la monotonía del 30 (6/6 cifra) y las 11
+      cifras del 01.
+
+- [ ] **VISUAL 3 (capas b y c), después:** categoría `[MENOR]` "monotonía
+      visual" en la revisión editorial (con cuidado: ese prompt está
+      calibrado contra repetir hallazgos) y el histórico de tipos por edición
+      en el panel, cuando haya dos semanas de datos que mirar.
+
+- [x] **VISUAL 1 — HECHO (noche 01-09).** `[ESQUEMA]` pasó de "úsalo con
+      moderación" a obligatorio-condicional (al menos uno cuando el día tenga
+      una noticia de proceso, sin forzar), máximo dos `[DATO cifra]` seguidas,
+      y el punto 17 nuevo del control interno del guion.
 
 - [ ] **VISUAL 2: la serie histórica (`lineas`). NO está construida: son dos
       trabajos, no uno.** Ojo, esto se creía hecho y no lo está.
@@ -242,109 +134,31 @@ Acá abajo está el detalle largo de cada uno.
       noche), y VISUAL 2 como proyecto aparte con sus dos partes, después de
       los ARREGLOS 0 a 3.
 
-- [ ] **ARREGLO 3: `vistasTotales` no cuadra con la suma de los videos.**
-      En `bitacora/metricas/2026-09-01.md` la cabecera dice **135 vistas
-      totales** y la tabla suma **372**. Mismo archivo, misma corrida de
-      `scripts/metricas.js`.
-      **Ya se descartaron dos falsas alarmas, no perder tiempo en ellas:**
-      - "10 videos" contra 14 en la tabla: correcto. Son 14 subidos y 10
-        públicos. Falta una palabra en la etiqueta, nada más.
-      - `vistasLargos: 49` y `vistasShorts: 322` del JSON: **ambos están
-        bien**. Sumando solo los públicos y clasificando bien (el Short
-        "Clave: ¿Por qué el mercado de capitales...?" es Short, aunque el
-        título salga cortado a 60 caracteres y se pierda el #), da
-        exactamente 322 + 49 = 371 públicas, más 1 vista de un video en
-        privado = 372.
-      **El único campo malo es `vistasTotales`.** Marca 135 y debería marcar
-      371. No es 49 (solo largos) ni 371 ni 372: no corresponde a ningún
-      subconjunto obvio, así que hay que ir a leer de dónde sale. Hipótesis a
-      comprobar en el código, no a suponer: que venga de
-      `channels.list(statistics).viewCount`, que en canales con Shorts
-      arrastra inconsistencias conocidas, mientras la tabla suma
-      `videos.list(statistics).viewCount` video por video.
-      **Por qué importa y no es cosmético:** el JSON de la serie guarda
-      `vistasTotales`, y de ahí salen los gráficos del panel. Si ese es el
-      número flojo, la curva de la meta está mal dibujada desde el día uno.
-      Arreglo probable: usar la suma por video como `vistasTotales`, y si se
-      quiere conservar el dato del canal, guardarlo aparte con otro nombre.
-      Mientras tanto el panel usa la suma por video y deja el descuadre
-      anotado a la vista.
+- [x] **ARREGLO 3 — HECHO (noche 01-09).** Hipótesis confirmada en el
+      código: venía de `channels.list.statistics.viewCount` (rezagado en
+      canales con Shorts). Ahora `vistasTotales` = suma video por video,
+      también hacia atrás (23 · 152 · 465), y el contador del canal queda
+      aparte como `vistasCanal`. La cabecera del md muestra ambos y dice
+      "N subidos, M públicos".
 
-- [ ] **ARREGLO 0, lo primero: el guardián nunca ha comprobado nada. La rutina
-      no tiene el repositorio montado.** Hallazgo del 01-09 (tarde), a partir
-      del aviso que llegó al teléfono a las 06:14: *"El guardián de Entender
-      Chile no pudo ejecutarse hoy: sin acceso al repositorio."*
-      Comparando las cinco rutinas con `list_triggers`, la diferencia es
-      exacta y única: barrido, observatorio, revisión y métricas traen
-      `session_context.sources = [{git_repository: .../entender-chile}]`; el
-      guardián `trig_01TNcYi1Pe46NtnL7eXN6YAx` **no trae `sources` en
-      absoluto** (tampoco `model`). Cada mañana despierta en una carpeta
-      vacía, no encuentra el repo y avisa que no pudo. Las otras cuatro se
-      crearon `via http_api`; el guardián `via meta_mcp`, que no permite
-      declarar fuentes.
-      Lo que SÍ está bien y no hay que tocar: la hora (cron `0 10 * * *`,
-      dispara 10:07-10:12 UTC = 06:07 Chile) y el canal de aviso
-      (`notifications: {push:true}`), que funciona: esa notificación es la
-      prueba de que la alerta de emergencia llega al teléfono.
-      **Arreglo: recrearlo con el repo como fuente.** No se puede parchar:
-      `update_trigger` solo cambia nombre, cron, enabled, modelo y prompt, no
-      las fuentes. Hay que borrarlo y crearlo de nuevo por la misma vía que
-      los otros cuatro, conservando el prompt tal cual (está bien escrito) y
-      `push:true`. Aprovechar de fijarle modelo (los otros lo declaran; este
-      no) y de sumarle los clientes del ARREGLO 2b.
-      **Consecuencia para leer el historial:** ninguna de las mañanas desde
-      el 29-08 tuvo guardián de verdad. Los días que la edición salió bien no
-      fue porque el guardián lo confirmara.
+- [x] **ARREGLO 0 — HECHO (noche 01-09).** Guardián nuevo
+      `trig_01Dk4PXRmGEMPHzrvs6amTgf` creado por http_api con el repo como
+      fuente y modelo declarado (sonnet), mismo prompt + la comprobación de
+      métricas de AYER (ARREGLO 2), cron `0 10 * * *` y push al teléfono.
+      Corrida de prueba REAL: montó el repo y respondió exactamente
+      "Edición 2026-09-01 completa." en 19 segundos. El viejo quedó
+      deshabilitado y renombrado "(ROTO, reemplazado 01-09)"; borrarlo desde
+      claude.ai cuando se pueda (la API no expone delete).
 
-- [ ] **ARREGLO 2b: unificar el patrón de commit en los tres workflows.**
-      Pedido de Santiago el 01-09. Hoy solo `metricas.yml` tiene el patrón
-      completo; `barrido.yml` y `edicion-diaria.yml` arrastran el mismo
-      riesgo latente que se comió dos mediciones. El patrón a dejar igual en
-      los tres:
+- [x] **ARREGLO 2b — HECHO (noche 01-09).** Patrón completo (add exacto,
+      autoStash, origin main explícito, reintento de push) unificado en
+      barrido.yml y en los pasos 2, 5 y 7b de edicion-diaria.yml. Auditoría
+      de escrituras hecha: cada script escribe dentro de la carpeta que su
+      paso agrega; out/ y public/*.mp3 están gitignoreados.
 
-          git add <TODO lo que el script realmente escribe, no solo su carpeta>
-          git diff --cached --quiet || {
-            git commit -m "..."
-            git -c rebase.autoStash=true pull --rebase origin main
-            git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
-          }
-
-      Cuatro diferencias con lo que hay hoy, y por qué cada una:
-      1. **`autoStash`**: guarda solo lo que quedó sin preparar, rebasea, y lo
-         devuelve. Es lo único que habría evitado el `cannot pull with rebase:
-         You have unstaged changes` de hoy. Barato y sin efectos: si no hay
-         nada suelto, no hace nada.
-      2. **`origin main` explícito**: sin eso, `git pull --rebase` a secas
-         depende del upstream configurado del checkout, que en un runner es
-         una suposición. Los cinco prompts de las rutinas ya lo nombran; los
-         workflows no.
-      3. **Reintento**: `barrido.yml` y el paso 2 de `edicion-diaria.yml` no
-         tienen ninguno. Corregir de paso la afirmación imprecisa que quedó
-         en el commit de hoy: el reintento vive en los *prompts de las
-         rutinas*, no en los workflows.
-      4. **Auditar qué escribe cada script fuera de su carpeta**, que es la
-         causa raíz. Revisar con `grep -n "writeFileSync\|appendFileSync"` en
-         `scripts/barrido.js`, `scripts/dia.js`, `scripts/casos.js`,
-         `scripts/short.js`, `scripts/podcast-subir.js`. El paso 2 de la
-         edición hace `git add contenido/` y `casos.js` escribe dentro de
-         `contenido/casos/`, así que hoy zafa; el día que un script toque
-         `bitacora/`, `public/` o `out/` fuera de esa raíz, se repite el
-         mismo fallo silencioso.
-      Y la regla de fondo, que vale más que los tres arreglos: **un paso de
-      commit no puede fallar en silencio**. Cuando falla, la pieza del día se
-      pierde y nadie se entera hasta que alguien mira. Por eso el ARREGLO 0
-      va primero.
-
-- [ ] **REVISAR EL ARREGLO 1, que ya se aplicó de día (01-09, a pedido de
-      Santiago, levantando la regla de solo lectura para este caso).** Lo que
-      se cambió en el paso Commit de `.github/workflows/metricas.yml`:
-      `git add` ahora incluye `bitacora/panel-interno.html`, el `pull` lleva
-      `-c rebase.autoStash=true` y nombra `origin main`, y se agregó un
-      reintento. Revisar con calma que el patrón es el que se quiere para
-      todo el proyecto: **los demás workflows (barrido, edición) tienen el
-      mismo riesgo latente** si algún día su script toca algo fuera de la
-      carpeta que preparan, y ninguno tiene reintento ni autoStash. Vale la
-      pena decidir si se unifica el patrón en los tres.
+- [x] **REVISAR ARREGLO 1 — HECHO (noche 01-09):** el patrón que la sesión
+      de día dejó en metricas.yml es el correcto y quedó unificado en los
+      tres workflows (ver ARREGLO 2b).
 
 - [ ] ~~**ARREGLO 1 original: el commit de `metricas.yml` falla y pierde la medición del
       día. Causa exacta, del log del run 33510580263 (01-09, 12:58):**
@@ -368,15 +182,10 @@ Acá abajo está el detalle largo de cada uno.
       Nota: el 04:10 no falló porque en ese momento el panel ya estaba al
       día y no quedó nada sin preparar. Es intermitente por diseño.
 
-- [ ] **ARREGLO 2: el guardián no mira las métricas.** El paso falló a las
-      12:58 y nadie se enteró: los números se bajaron de YouTube y nunca
-      llegaron al repo. Sumar a `trig_01TNcYi1Pe46NtnL7eXN6YAx` (guardián de
-      las 10:00 UTC) la comprobación de que existe
-      `bitacora/metricas/FECHA.md` del día, y contarlo como alerta si falta.
-      Ojo con el orden: hoy el despertador de métricas corre 12:57 UTC y el
-      guardián a las 10:00, así que el guardián pasaría antes. O se adelanta
-      el despertador, o el guardián se atrasa, o la comprobación mira el día
-      anterior.
+- [x] **ARREGLO 2 — HECHO (noche 01-09):** el guardián nuevo comprueba
+      `bitacora/metricas/AYER.md` (mira el día ANTERIOR, por el orden de los
+      relojes: él corre 10:07 UTC y las métricas bajan 12:57 UTC) y lo cuenta
+      como alerta.
 
 - [x] (CORREGIDO 1-09: paso 8 despacha la web) **El feed del podcast no se regenera cuando el bot registra episodios.**
       Causa exacta, confirmada hoy: el paso 7b commitea

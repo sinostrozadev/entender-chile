@@ -2,7 +2,8 @@
   {
     "fecha": "2026-08-30",
     "subs": 2,
-    "vistasTotales": 0,
+    "vistasTotales": 23,
+    "vistasCanal": 0,
     "vistasLargos": 5,
     "vistasShorts": 17,
     "horasEst": 0.38
@@ -10,7 +11,8 @@
   {
     "fecha": "2026-08-31",
     "subs": 3,
-    "vistasTotales": 107,
+    "vistasTotales": 152,
+    "vistasCanal": 107,
     "vistasLargos": 23,
     "vistasShorts": 129,
     "horasEst": 1.88
@@ -18,7 +20,8 @@
   {
     "fecha": "2026-09-01",
     "subs": 5,
-    "vistasTotales": 135,
+    "vistasTotales": 465,
+    "vistasCanal": 135,
     "vistasLargos": 105,
     "vistasShorts": 360,
     "horasEst": 9.37

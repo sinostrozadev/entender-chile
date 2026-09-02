@@ -5,8 +5,17 @@ para que nos entregue lo que queremos, para que sepa cuál usar en cada caso,
 quizás un algoritmo en el que evalúe de alguna forma cuál es mejor para cada
 caso"*.
 
-Este documento es la propuesta. **No está aplicado**: los prompts no se
-tocan desde la sesión de día.
+**APLICADO (noche 01-09), tras pasar la prueba del punto 3 de abajo:** el
+árbol se probó a mano contra las 31 marcas de los guiones del 29, 30, 31 y
+01: nunca empeora y mejora 4 (una ganancia 2025→2026 marcada `comparacion`
+que era `cambio`; dos `cifra` con 2-3 valores de unidades distintas, tarjeta
+malformada que el árbol reduce a su valor principal; un viento 100/90 km/h
+que era `comparacion`). La monotonía del 30 (6/6 cifra) y del 01 (11/14) no
+la corrige el árbol sino la capa de cuotas. Quedaron en
+`prompts/guion-informe.md` el árbol y las cuotas con su regla protectora, y
+la capa (a) de validación es `scripts/validar-tarjetas.js` (paso 2c de la
+edición: avisa, no bloquea). Pendientes las capas (b) revisión editorial y
+(c) histórico en el panel, en el orden que este documento fija.
 
 ## El principio: la forma de la tarjeta la decide la forma del dato
 

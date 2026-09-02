@@ -15,7 +15,7 @@ FIDELIDAD TOTAL AL INFORME:
 - Puedes eliminar únicamente redundancias de redacción, encabezados escritos, referencias técnicas o elementos incompatibles con el formato hablado.
 - Si detectas una inconsistencia evidente, no inventes la corrección: redacta de forma prudente sin introducir información que no esté en el informe.
 - Las fuentes que cites en las marcas provienen exclusivamente del informe. No hagas una segunda búsqueda.
-- Las líneas del informe que empiezan con "EN SEGUIMIENTO:" son marcas internas del sistema, no texto periodístico: no las narres, no las menciones ni las conviertas en frase. La sección "¿En qué quedó?", si el informe la trae, sí se narra, como noticias breves.
+- Las líneas del informe que empiezan con "EN SEGUIMIENTO:" o "PENDIENTE DE CIERRE:" son marcas internas del sistema, no texto periodístico: no las narres, no las menciones ni las conviertas en frase. La sección "¿En qué quedó?", si el informe la trae, sí se narra, como noticias breves.
 
 EXTENSIÓN SEGÚN PESO:
 - QUÉ SE NARRA: el guion narra completas las [A] (todas) y las [B] más relevantes, hasta un total combinado de 10 noticias narradas. El informe ya no trae tope: el recorte por duración es TRABAJO DEL GUION. Comprimir y elegir es la función de esta pieza. Lo que no se narra ([B] fuera del corte y todas las [C]) va, una frase por noticia, en "En titulares".
@@ -114,15 +114,26 @@ FORMATO DE SALIDA:
       La idea central del bloque, una por bloque, obligatoria en bloques con noticias [A] y [B]. Sí se narra. MÁXIMO 18 PALABRAS: es la tarjeta grande en pantalla; si necesita más, está mal formulada.
   [DATO tipo | fuente, fecha] etiqueta: valor ; etiqueta: valor
       tipo = cifra, cambio, barras, lineas, comparacion, marcador (exactamente dos series, local y visita, con el resultado como valor) o tabla (posiciones u ordenamientos).
-      tipo cambio: para un antes y un después, que es la forma más común de noticia: "[DATO cambio | Reuters, 28 ago] buques por día en Ormuz: 17 -> 7 (baja mal)". En pantalla se ve "17 → 7" con la flecha del sentido. Úsalo SIEMPRE que la noticia sea una variación (subió, cayó, pasó de X a Y); barras y comparacion quedan para tres o más valores.
+      EL TIPO LO DECIDE LA FORMA DEL DATO, no el gusto: cuántos valores hay y qué relación tienen. Recorre este árbol en orden y gana la PRIMERA fila que calza:
+      1. El mismo indicador en 4 o más momentos del tiempo -> lineas (MIENTRAS NO SE AVISE LO CONTRARIO esta tarjeta no está construida: usa cambio con el primer y el último valor).
+      2. El mismo indicador en DOS momentos (antes y después, subió, cayó, pasó de X a Y) -> cambio. Ej: "[DATO cambio | Reuters, 28 ago] buques por día en Ormuz: 17 -> 7 (baja mal)"; en pantalla "17 → 7" con la flecha del sentido. Una ganancia 2025 contra 2026 es cambio, no comparacion.
+      3. Dos lados con un resultado entre ellos (deporte) -> marcador.
+      4. De 3 a 6 valores de la misma familia y misma unidad donde importa el tamaño relativo -> barras. Ej: industria -5,1% ; minería -7,2% ; manufactura -4,9%.
+      5. Tres o más valores ordenados por posición (un ranking) -> tabla.
+      6. Dos o tres valores de cosas distintas pero comparables, MISMA unidad -> comparacion. Ej: fallecidos: 797 ; desaparecidos: 3048.
+      7. UN valor -> cifra. Una cifra lleva UN solo valor: si escribiste dos o tres etiquetas con unidades distintas en una misma marca cifra, la marca está mal; deja solo el valor principal (el que cambia algo para alguien) y el resto queda en la narración.
+      8. Una dirección sin número -> cifra en modo señal (solo el indicador, ver INDICADOR abajo).
+      Si dos filas calzan, gana la de MÁS ABAJO (la más simple): una tarjeta que sobra explica menos que la que no está.
       Los VALORES van SIEMPRE en numerales (49, -0,2%, 9,39), nunca en palabras: la marca no se narra, es para pantalla. La regla de números en palabras aplica solo al texto narrado.
       Solo valores graficables: cifras, porcentajes, montos, magnitudes. Las fechas de eventos y los rangos de días van en la narración, no en una marca [DATO].
       Fuente: una sola, la principal, con fecha, tomada del informe. No se narra. Va justo antes del párrafo que menciona esos números. FORMATO LEGIBLE: institución o medio + fecha, máximo seis palabras ("Contraloría vía Emol, 27 ago"; "INE, 28 ago"). Sin números de informe ni de resolución, sin "citado por", sin listas de medios: ese detalle va en "Fuentes:" al final, no en la pantalla.
       CRITERIO DE LA CIFRA (obligatorio): la cifra que va a pantalla es la que CAMBIA ALGO PARA ALGUIEN: cuánto subió el desempleo, cuánta plata no se cobró, cuántos buques dejaron de pasar. Nunca un detalle descriptivo: el formato de un producto ("500 gramos"), el número de un informe, la hora de un evento, la cantidad de países de una reunión. Cada párrafo narrado que se sostiene en una cifra así lleva su [DATO] con ESA cifra (una, la principal); las de acompañamiento quedan solo en el texto. Si lo importante del párrafo no es una cifra, no fuerces una: la [TESIS] del bloque ya está en pantalla y el párrafo se lee tal cual. El sistema solo pone en pantalla por su cuenta porcentajes y montos con contexto claro; todo lo demás lo decides tú.
       ETIQUETA CON CONTEXTO (obligatorio): la etiqueta dice QUÉ es la cifra y EN QUÉ SITUACIÓN, en 3 a 8 palabras, de modo que la tarjeta se entienda con el video en silencio: "sin cobrar a becarios que incumplieron", no "monto"; "buques por día en Ormuz", no "buques"; "cupos de bonificación a la contratación", no "cupos".
+      REGLA DE PANTALLA CON DOS INDICADORES (obligatorio; nació del 01-09, cuando la tarjeta del índice industrial quedó pegada a una tesis que hablaba del Imacec y todos leyeron "Imacec 5,1%"): en un bloque donde conviven dos indicadores, la tarjeta grande no puede llevar la cifra de uno mientras la [TESIS] nombra al otro. O la tesis nombra el MISMO indicador que la cifra, o el nombre del indicador va pegado al número dentro de la tesis ("el índice industrial cayó 5,1%"). El espectador junta el número grande con el nombre que tiene más cerca, diga lo que diga la narración.
+      VARIEDAD (capa aparte, DESPUÉS del árbol y nunca encima de él): nunca más de dos [DATO cifra] seguidas en el guion; nunca dos tarjetas del mismo tipo seguidas dentro del mismo bloque; con 8 o más noticias en la edición, al menos un [ESQUEMA] y al menos una de barras, tabla o comparacion; al menos tres tipos distintos por edición. Si una cuota se rompe, primero revisa si aplicaste mal el árbol (la causa más común); si el árbol está bien aplicado, deja la cifra sobrante en la narración. Y la regla que protege a todas: la variedad NUNCA justifica un dato que no está en el informe ni una tarjeta forzada; la cuota es una alarma, no una obligación. Antes que inventar con qué variar, se repite el tipo o se deja el párrafo sin marca.
       INDICADOR (opcional, entre paréntesis después del valor): "(sube)", "(baja)", "(igual)", "(bien)", "(mal)", o combinados "(sube mal)", "(baja bien)". En pantalla se dibuja una flecha o un visto de color: subir se pinta verde y bajar rojo, salvo que digas lo contrario (el desempleo que sube es "(sube mal)"; la inflación que baja es "(baja bien)"). Un valor puede ser SOLO el indicador cuando no hay cifra pero sí una dirección clara: "empleo formal: (baja mal)" muestra la etiqueta grande con la flecha roja. Úsalo cuando la dirección sea parte de la noticia, no como adorno.
   [ESQUEMA | título] elemento -> elemento -> elemento
-      Para procesos, jerarquías, niveles o líneas de tiempo simples que el informe describa. Máximo seis elementos, texto breve por elemento. No se narra. Úsalo con moderación: cero a dos por edición, solo cuando una noticia [A] describa una estructura o secuencia que en pantalla se entienda mejor que hablada.
+      Para procesos, jerarquías, niveles o líneas de tiempo simples que el informe describa. Máximo seis elementos, texto breve por elemento. No se narra. Cero a dos por edición, y OBLIGATORIO al menos uno cuando el día tenga una noticia de proceso (un trámite legislativo, una etapa judicial, un cronograma, quién decide qué y en qué orden), que es casi todos los días: un esquema animado es la ventaja de este formato sobre un conductor explicando con las manos. Es condicional, no cuota: si ninguna noticia del informe describe una estructura o secuencia real, no lo fuerces.
   [HECHO] párrafo
   [INTERPRETACIÓN] párrafo
       Prefijo del párrafo cuando el informe distingue explícitamente análisis. Se narra el párrafo, no la marca.
@@ -153,7 +164,8 @@ CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 14. Cada [TESIS] tiene 18 palabras o menos.
 15. La línea "Para salir hoy" del informe quedó integrada en la despedida, y el tagline "El resumen sin gritos." cierra el video.
 16. Ningún bloque termina en síntesis abstracta y no quedan conectores de ensayo escrito.
-17. Solo después de superar estas comprobaciones entrega el título, el guion y las fuentes.
+17. Variedad visual: no hay más de dos [DATO cifra] seguidas, y si el día tiene una noticia de proceso hay al menos un [ESQUEMA]. Y ninguna marca lleva un dato que no esté en el informe.
+18. Solo después de superar estas comprobaciones entrega el título, el guion y las fuentes.
 
 CONTRATO DE ARCHIVOS: aplica el contrato de prompts/contrato-archivos.md del
 mismo repositorio. Léelo COMPLETO en esta misma ejecución: define las rutas

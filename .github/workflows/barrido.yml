@@ -51,4 +51,8 @@ jobs:
           git config user.name "edicion-bot"
           git config user.email "bot@users.noreply.github.com"
           git add contenido/barrido/
-          git diff --cached --quiet || { git commit -m "barrido $FECHA [bot]"; git pull --rebase; git push; }
+          git diff --cached --quiet || {
+            git commit -m "barrido $FECHA [bot]"
+            git -c rebase.autoStash=true pull --rebase origin main
+            git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
+          }

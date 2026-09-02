@@ -4,6 +4,11 @@ Registro append-only de lo completado, con fecha. La sesión de la mañana
 agrega aquí lo que sale de PENDIENTES; también es evidencia del aporte
 editorial y técnico humano del proyecto.
 
+- 01-09 · Guardián recreado con el repo montado: primera verificación real de la historia ("Edición completa" en 19 s) y ahora también vigila las métricas
+- 01-09 · vistasTotales corregido a suma por video (el contador del canal va con rezago) y el histórico del panel se actualiza solo
+- 01-09 · Patrón de commit unificado en los tres workflows (autoStash + origin main + reintento)
+- 01-09 · Árbol de decisión de tarjetas validado contra 4 ediciones reales y aplicado al prompt + contador mecánico de variedad en la edición
+- 01-09 · Cuatro reglas editoriales del caso Imacec: dato que aún no existe, deuda PENDIENTE DE CIERRE, pantalla con dos indicadores, Claves de indicador al día siguiente
 - 01-09 · Página de Facebook creada (Entender Chile, avatar + portada + bio)
 - 01-09 · Gráficos de la curva a la meta (subs, horas, Shorts) con histórico diario en proyeccion.json
 - 01-09 · Voz con respaldo S0 automático: el canal no se queda mudo al agotarse el cupo gratis

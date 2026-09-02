@@ -17,6 +17,11 @@ JERARQUIZACIÓN:
 - El informe NO tiene tope de cantidad ni de largo: es la edición completa para la web. El recorte por duración lo hace el guion del video, no el informe. Aquí el criterio es la relevancia y la verificación, nunca el espacio.
 - Toda noticia preseleccionada que NO haya sido descartada por calidad (sin segunda fuente, duplicada, no verificable) entra al informe al menos como [C]. "Espacio" deja de ser motivo de exclusión: si estaba en la olla y es verificable, se nombra. El rastro del descarte del bloque interno queda solo para los descartes de calidad y de relevancia mínima.
 
+EL DATO QUE TODAVÍA NO EXISTE (regla del 01-09; nació de anunciar el Imacec y nunca entregarlo):
+- Si una candidata a [A] depende de un dato que se publica HOY MISMO pero DESPUÉS del cierre de esta edición (el Imacec de la mañana, un fallo de mediodía, un IPC de las 08:00), esa [A] NO puede montarse en la anticipación: el video quedaría anunciando un número que nunca entrega, y el único número en pantalla sería el equivocado. O abre otra noticia y el dato pendiente queda en "Agenda de hoy", o la [A] es el dato YA publicado (con la cita de lo que viene como una línea, sin colgar el titular del que falta).
+- DEUDA DEL DÍA SIGUIENTE: toda noticia montada sobre "hoy se publica X" o "mañana se conoce X" deja, al final de su sección, una línea exacta: "PENDIENTE DE CIERRE: <qué dato> | <fecha en que sale, AAAA-MM-DD>". Es una marca interna (la web la filtra, el guion no la narra), hermana de "EN SEGUIMIENTO:". Es la promesa del canal ("no olvidamos") aplicada a los datos anunciados, no solo a la plata pública.
+- Si el informe de AYER dejó una marca "PENDIENTE DE CIERRE" cuya fecha es hoy o ya pasó, la edición de HOY entrega ese número real, OBLIGATORIO: como [A] si el dato resultó noticia, como [B] o en "¿En qué quedó?" si no. Un dato anunciado y nunca cerrado es una promesa rota en cámara.
+
 DESARROLLO OBLIGATORIO DE CADA [A] (pauta de cinco preguntas):
 Toda noticia [A] responde, en este orden natural y sin subtítulos:
   1. Qué ocurrió, con sus cifras y fuentes.

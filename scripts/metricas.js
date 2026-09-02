@@ -18,11 +18,18 @@ const fecha = process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
   timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
 }).format(new Date());
 const DIR = path.join("bitacora", "metricas");
+// --solo-panel: no toca YouTube ni la medición del día; solo reconstruye
+// proyeccion.json y los bloques SERIE/HIST del panel desde los json ya medidos.
+const soloPanel = process.argv.includes("--solo-panel");
 
 const { YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN } = process.env;
-if (!YT_CLIENT_ID || !YT_CLIENT_SECRET || !YT_REFRESH_TOKEN) { console.log("Sin secrets de YouTube: sin métricas."); process.exit(0); }
+if (!soloPanel && (!YT_CLIENT_ID || !YT_CLIENT_SECRET || !YT_REFRESH_TOKEN)) { console.log("Sin secrets de YouTube: sin métricas."); process.exit(0); }
+
+// suma de vistas video por video de una medición (todos los subidos)
+const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s, v) => s + v.vistas, 0);
 
 (async () => {
+  if (soloPanel) { reconstruirHistorico(); return; }
   const o = new google.auth.OAuth2(YT_CLIENT_ID, YT_CLIENT_SECRET);
   o.setCredentials({ refresh_token: YT_REFRESH_TOKEN });
   const yt = google.youtube({ version: "v3", auth: o });
@@ -50,11 +57,18 @@ if (!YT_CLIENT_ID || !YT_CLIENT_SECRET || !YT_REFRESH_TOKEN) { console.log("Sin 
   const prev = previos.length ? JSON.parse(fs.readFileSync(path.join(DIR, previos[previos.length - 1]), "utf8")) : null;
   const d = (ahora, antes) => (antes == null ? "" : (ahora - antes >= 0 ? ` (+${ahora - antes})` : ` (${ahora - antes})`));
 
+  // ARREGLO 3 (01-09): las "vistas totales" son la SUMA por video, no el
+  // contador del canal (channels.list.viewCount), que en canales con Shorts
+  // va con rezago y descuadra (marcaba 135 cuando la tabla sumaba 372).
+  // El contador del canal se conserva aparte, como referencia.
+  const vistasTotales = Object.values(videos).reduce((s, v) => s + v.vistas, 0);
+  const publicos = Object.values(videos).filter((v) => v.estado === "public").length;
   const lineas = [
     `# Métricas · ${fecha.split("-").reverse().join("-")}`,
     "",
     `Canal: **${canal.suscriptores} suscriptores**${d(canal.suscriptores, prev?.canal?.suscriptores)} · ` +
-    `**${canal.vistas} vistas totales**${d(canal.vistas, prev?.canal?.vistas)} · ${canal.videos} videos.` +
+    `**${vistasTotales} vistas totales**${d(vistasTotales, prev ? sumaVistas(prev) : null)} (suma por video; el contador del canal marca ${canal.vistas}, va con rezago) · ` +
+    `${canal.videos} subidos, ${publicos} públicos.` +
     (prev ? ` (vs ${previos[previos.length - 1].replace(".json", "")})` : " (línea base, sin comparación)"),
     "",
     "| Video | Estado | Vistas | Me gusta | Coment. |",
@@ -69,33 +83,58 @@ if (!YT_CLIENT_ID || !YT_CLIENT_SECRET || !YT_REFRESH_TOKEN) { console.log("Sin 
   fs.writeFileSync(path.join(DIR, `${fecha}.md`), lineas.join("\n"));
   fs.writeFileSync(path.join(DIR, `${fecha}.json`), JSON.stringify({ fecha, canal, videos }, null, 2) + "\n");
 
-  // ---- Histórico de proyección (pedido de Santiago, 1-09): una fila por día,
-  // para el gráfico del panel y para comparar proyecciones en el tiempo.
-  // Horas de largos ESTIMADAS: vistas × duración × 40% de retención supuesta
-  // (cuando llegue el scope de Analytics, se reemplaza por el dato real).
-  const esShort = (v) => v.durSeg > 0 && v.durSeg <= 75;
-  let vistasLargos = 0, vistasShorts = 0, horasEst = 0;
-  for (const v of Object.values(videos)) {
-    if (v.estado !== "public") continue;
-    if (esShort(v)) vistasShorts += v.vistas;
-    else { vistasLargos += v.vistas; horasEst += (v.vistas * v.durSeg * 0.4) / 3600; }
-  }
-  const rutaProy = path.join(DIR, "proyeccion.json");
-  const proy = fs.existsSync(rutaProy) ? JSON.parse(fs.readFileSync(rutaProy, "utf8")) : [];
-  const sinHoy = proy.filter((e) => e.fecha !== fecha);
-  sinHoy.push({ fecha, subs: canal.suscriptores, vistasTotales: canal.vistas, vistasLargos, vistasShorts, horasEst: Number(horasEst.toFixed(2)) });
-  sinHoy.sort((a, b) => (a.fecha < b.fecha ? -1 : 1));
-  fs.writeFileSync(rutaProy, JSON.stringify(sinHoy, null, 2) + "\n");
-
-  // ---- Refrescar los datos del gráfico dentro del panel (entre marcadores).
-  const rutaPanel = path.join("bitacora", "panel-interno.html");
-  if (fs.existsSync(rutaPanel)) {
-    const html = fs.readFileSync(rutaPanel, "utf8");
-    const re = /\/\*SERIE-INICIO\*\/[\s\S]*?\/\*SERIE-FIN\*\//;
-    if (re.test(html)) {
-      fs.writeFileSync(rutaPanel, html.replace(re, `/*SERIE-INICIO*/ const SERIE = ${JSON.stringify(sinHoy)}; /*SERIE-FIN*/`));
-      console.log("datos del gráfico del panel refrescados");
-    }
-  }
+  reconstruirHistorico();
   console.log(`métricas del ${fecha}: ${canal.suscriptores} subs, ${Object.keys(videos).length} videos → ${DIR}/${fecha}.md`);
 })().catch((e) => { console.error("error:", e.response?.data?.error?.message || e.message); process.exit(1); });
+
+// ---- Proyección + panel, reconstruidos ENTEROS desde los json diarios (una
+// sola verdad; así el arreglo de un campo corrige también los días viejos).
+// Horas de largos ESTIMADAS: vistas × duración × 40% de retención supuesta
+// (cuando llegue el scope de Analytics, se reemplaza por el dato real).
+function reconstruirHistorico() {
+  const archivos = fs.readdirSync(DIR).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort();
+  const dias = archivos.map((f) => JSON.parse(fs.readFileSync(path.join(DIR, f), "utf8")));
+
+  // durSeg existe solo desde el 01-09; como una duración no cambia, se
+  // arrastra hacia atrás por id desde el día más nuevo que la tenga.
+  const durPorId = {};
+  for (const dia of [...dias].reverse())
+    for (const [id, v] of Object.entries(dia.videos)) if (v.durSeg > 0 && !durPorId[id]) durPorId[id] = v.durSeg;
+  const dur = (id, v) => (v.durSeg > 0 ? v.durSeg : durPorId[id] || 0);
+  const esShort = (seg) => seg > 0 && seg <= 75;
+
+  // proyeccion.json: una fila por día. vistasTotales = suma por video
+  // (ARREGLO 3); el contador del canal queda aparte como vistasCanal.
+  const serie = dias.map((dia) => {
+    let vistasLargos = 0, vistasShorts = 0, horasEst = 0;
+    for (const [id, v] of Object.entries(dia.videos)) {
+      if (v.estado !== "public") continue;
+      const seg = dur(id, v);
+      if (esShort(seg)) vistasShorts += v.vistas;
+      else { vistasLargos += v.vistas; horasEst += (v.vistas * seg * 0.4) / 3600; }
+    }
+    return { fecha: dia.fecha, subs: dia.canal.suscriptores, vistasTotales: sumaVistas(dia), vistasCanal: dia.canal.vistas, vistasLargos, vistasShorts, horasEst: Number(horasEst.toFixed(2)) };
+  });
+  fs.writeFileSync(path.join(DIR, "proyeccion.json"), JSON.stringify(serie, null, 2) + "\n");
+
+  // El panel: SERIE (gráficos) e HIST (selector día por día), entre marcadores.
+  // HIST al tope de 30 días para que el HTML no crezca sin fin: los json
+  // diarios guardan todo; si algún día se necesita más atrás, resumen mensual.
+  const hist = dias.slice(-30).map((dia) => ({
+    fecha: dia.fecha,
+    canal: dia.canal,
+    videos: Object.entries(dia.videos)
+      .sort((a, b) => (a[1].publicado < b[1].publicado ? 1 : -1))
+      .map(([id, v]) => ({ id, t: v.titulo, e: v.estado, v: v.vistas, l: v.meGusta, c: v.comentarios, d: dur(id, v), p: v.publicado })),
+  }));
+  const rutaPanel = path.join("bitacora", "panel-interno.html");
+  if (fs.existsSync(rutaPanel)) {
+    let html = fs.readFileSync(rutaPanel, "utf8");
+    const reSerie = /\/\*SERIE-INICIO\*\/[\s\S]*?\/\*SERIE-FIN\*\//;
+    const reHist = /\/\*HIST-INICIO\*\/[\s\S]*?\/\*HIST-FIN\*\//;
+    if (reSerie.test(html)) html = html.replace(reSerie, `/*SERIE-INICIO*/ const SERIE = ${JSON.stringify(serie)}; /*SERIE-FIN*/`);
+    if (reHist.test(html)) html = html.replace(reHist, `/*HIST-INICIO*/ const HIST = ${JSON.stringify(hist)}; /*HIST-FIN*/`);
+    fs.writeFileSync(rutaPanel, html);
+    console.log(`panel refrescado: serie ${serie.length} días, histórico ${hist.length} días`);
+  }
+}

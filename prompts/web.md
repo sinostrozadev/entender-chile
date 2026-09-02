@@ -71,7 +71,7 @@ no entrar porque el tema no le interesa, la descripción hizo bien su trabajo.
 ## Lo que NO va a la web
 
 - Marcas internas de producción: [TESIS], [DATO], [HECHO], [A]/[B]/[C],
-  "EN SEGUIMIENTO:", "FUERA DE LA OLLA:". Son instrucciones para el pipeline
+  "EN SEGUIMIENTO:", "FUERA DE LA OLLA:", "PENDIENTE DE CIERRE:". Son instrucciones para el pipeline
   y el sitio las filtra; si aparecen a la vista, es un error.
 - El barrido y la preselección. Son material de trabajo sin verificar
   (contenido/barrido/, contenido/preseleccion/): no se publican ni se citan.

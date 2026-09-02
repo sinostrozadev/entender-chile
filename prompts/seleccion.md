@@ -15,7 +15,11 @@ MATERIAL DE ENTRADA (léelo en esta ejecución, del repositorio, rama main):
    informes, resoluciones y alertas que la prensa recoge un día después, y
    son la fuente primaria del canal.
 3. El informe de AYER (contenido/informes/AAAA-MM-DD.md de la fecha
-   anterior), para saber qué historias vienen en curso.
+   anterior), para saber qué historias vienen en curso. Y en él, las líneas
+   "PENDIENTE DE CIERRE: <qué dato> | <fecha>": cada una cuya fecha sea HOY
+   o ya haya pasado es candidata OBLIGATORIA de la preselección; inclúyela
+   marcada como "(cierre pendiente del DD-MM)" para que el informe la
+   resuelva con el número real. La edición prometió ese dato en cámara.
 
 QUÉ ENTRA A LA OLLA
 

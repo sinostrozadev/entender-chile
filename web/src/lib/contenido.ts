@@ -75,7 +75,7 @@ export const fechaCortaNum = (f: string) => { const m = f.match(/^(\d{4})-(\d{2}
 // Marcas y notas dirigidas al operador, no al lector. Nunca se publican, en
 // ninguna pieza: el 27-08 una nota de plomería ("PRESELECCIÓN NO DISPONIBLE:
 // ...no existía al iniciar esta ejecución") salió al aire en el informe.
-const MARCAS_INTERNAS = /^\s*(EN SEGUIMIENTO|FUERA DE LA OLLA|PRESELECCI[ÓO]N NO DISPONIBLE|NOTA INTERNA|NOTA DEL SISTEMA|AVISO INTERNO)\b.*$/gim;
+const MARCAS_INTERNAS = /^\s*(EN SEGUIMIENTO|FUERA DE LA OLLA|PENDIENTE DE CIERRE|PRESELECCI[ÓO]N NO DISPONIBLE|NOTA INTERNA|NOTA DEL SISTEMA|AVISO INTERNO)\b.*$/gim;
 export const quitarInterno = (md: string): string =>
   md.replace(/<!--[\s\S]*?-->/g, "").replace(MARCAS_INTERNAS, "");
 
