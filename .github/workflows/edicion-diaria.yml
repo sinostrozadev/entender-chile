@@ -31,6 +31,10 @@ on:
         description: "Edición a producir (AAAA-MM-DD). Vacío = hoy en Chile."
         required: false
         default: ""
+      forzar:
+        description: "Rehacer piezas que YA están en el release (para corregir un defecto). Vacío = no."
+        required: false
+        default: ""
 
 concurrency:
   group: edicion-diaria
@@ -77,6 +81,15 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           ASSETS=$(gh release view "edicion-$FECHA" --json assets -q '.assets[].name' 2>/dev/null || true)
+          # forzar: se rehacen todas las piezas aunque ya estén en el release.
+          # Se usa para reemplazar una pieza publicada con un defecto (02-09:
+          # el texto desbordado del BUG 1). Las subidas a YouTube crean videos
+          # NUEVOS: los viejos hay que borrarlos a mano en Studio.
+          FORZAR="${{ github.event.inputs.forzar }}"
+          if [ -n "$FORZAR" ]; then
+            echo "FORZAR=1: se rehacen todas las piezas del $FECHA aunque estén en el release."
+            ASSETS=""
+          fi
           tiene() { echo "$ASSETS" | grep -qxF "$FECHA-$1.mp4"; }
           tiene informe     && echo "HAY_INFORME=1"     >> "$GITHUB_ENV"
           tiene short       && echo "HAY_SHORT=1"       >> "$GITHUB_ENV"

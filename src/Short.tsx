@@ -66,6 +66,18 @@ const Sello: React.FC<{ piel: Piel; fecha?: string; eyebrow?: string }> = ({ pie
   );
 };
 
+// Prosa: encoge para que una tesis larga no se salga del cuadro. Es la red
+// del BUG 1 (02-09): aunque el parser vuelva a entregar un texto de más, el
+// video no se rompe. Los cortes salen de probar 1080x1920 con la serif a 84.
+export const tamanoProsa = (t: string, base: number) => {
+  const n = (t || "").length;
+  if (n <= 90) return base;
+  if (n <= 140) return Math.round(base * 0.82);
+  if (n <= 200) return Math.round(base * 0.66);
+  if (n <= 300) return Math.round(base * 0.52);
+  return Math.round(base * 0.42);
+};
+
 const tamano = (raw: string, base: number) => (raw.length <= 5 ? base : raw.length <= 9 ? Math.round(base * 0.68) : raw.length <= 16 ? Math.round(base * 0.46) : Math.round(base * 0.34));
 
 const Tarjeta: React.FC<{ piel: Piel; tesis: Evento; dato?: Evento; esquema?: Evento; n: number; total: number }> = ({ piel, tesis, dato, esquema, n, total }) => {
@@ -118,7 +130,7 @@ const Tarjeta: React.FC<{ piel: Piel; tesis: Evento; dato?: Evento; esquema?: Ev
           </div>
         ) : null}
         {esquema ? null : (
-          <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: s ? 66 : 84, lineHeight: 1.12, color: piel.tinta }}>
+          <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: tamanoProsa(tesis.textoPantalla ?? tesis.texto ?? "", s ? 66 : 84), lineHeight: 1.12, color: piel.tinta }}>
             {tesis.textoPantalla ?? tesis.texto}
           </div>
         )}

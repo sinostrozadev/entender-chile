@@ -172,6 +172,8 @@ CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 CONTRATO DE ARCHIVOS: aplica el contrato de prompts/contrato-archivos.md del
 mismo repositorio. Léelo COMPLETO en esta misma ejecución: define las rutas
 exactas, el formato obligatorio de los guiones y las reglas de commit.
+FORMATO, REGLA DURA: después de CADA línea "[TESIS] ..." va una LÍNEA EN BLANCO antes del párrafo narrado. La tesis es una línea y nada más. Sin esa línea en blanco el sistema mete el párrafo dentro de la tarjeta de la tesis y el texto se sale del video (pasó el 01-09 y el 02-09, con piezas ya publicadas).
+
 ESTILO TIPOGRÁFICO (obligatorio en todo entregable):
 - Nunca uses la raya larga (—) ni la raya media (–). Donde caería una raya,
   usa coma, dos puntos, punto o paréntesis.

@@ -140,7 +140,7 @@ export const TarjetaTesis: React.FC<{ ev: Evento }> = ({ ev }) => {
     <Marco seccion={ev.seccion} abajo={<PieFuente fuente={ev.fuenteSeccion} />}>
       <div style={{ ...st }}>
         <div style={{ ...estiloEyebrow, marginBottom: 30 }}>La idea</div>
-        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 76, lineHeight: 1.14, color: tema.tinta }}>
+        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: tamanoProsa(ev.textoPantalla ?? ev.texto ?? "", 76), lineHeight: 1.14, color: tema.tinta }}>
           {ev.textoPantalla ?? ev.texto}
         </div>
       </div>
@@ -172,6 +172,17 @@ export const TarjetaCita: React.FC<{ ev: Evento }> = ({ ev }) => {
       </div>
     </Marco>
   );
+};
+
+// Prosa: encoge para que una tesis larga no se salga del cuadro (red del
+// BUG 1, 02-09). Mismos cortes que en Short.tsx, calibrados a 1920x1080.
+export const tamanoProsa = (t: string, base: number): number => {
+  const n = (t || "").length;
+  if (n <= 90) return base;
+  if (n <= 140) return Math.round(base * 0.82);
+  if (n <= 200) return Math.round(base * 0.66);
+  if (n <= 300) return Math.round(base * 0.52);
+  return Math.round(base * 0.42);
 };
 
 const tamanoValor = (raw: string, base: number): number => {

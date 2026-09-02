@@ -138,9 +138,14 @@ function parseGuion(md) {
     }
 
     let m;
+    // La TESIS es de UNA línea por definición (el prompt le pone tope de 18
+    // palabras) y se emite cerrada: si abriera buffer, el párrafo narrado que
+    // venga en la línea siguiente sin línea en blanco de por medio quedaría
+    // dentro de ella. Pasó el 01-09 (1 tesis) y el 02-09 (3), y el texto se
+    // desbordó del video: la tarjeta de San Bernardo llegó a 578 caracteres.
     if ((m = linea.match(/^\[TESIS\]\s*(.*)$/i))) {
       flush();
-      buffer = { tipo: "tesis", lineas: [m[1]] };
+      eventos.push({ tipo: "tesis", texto: m[1].trim(), _seccionNombre: seccionNombre });
       continue;
     }
     if ((m = linea.match(/^\[DATO\s+(\w+)\s*\|\s*([^\]]+)\]\s*(.*)$/i))) {
