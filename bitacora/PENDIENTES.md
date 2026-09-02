@@ -116,19 +116,42 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
-**La noche del 01-09 ejecutó la lista completa** (detalle en la bitácora del
-día y en cada punto de abajo). Queda abierto: VISUAL 2 (líneas, proyecto
-aparte), VISUAL 3 capas b y c, y EDITORIAL 1b (verificar que la edición del
-02-09 cierre el Imacec).
+**Auditoría del 02-09: la noche del 01-09 ejecutó los ocho puntos.** Todo lo
+que sigue de aquellos (ARREGLO 0, 2b, 3, PANEL 1, VISUAL 1 y 3, EDITORIAL 1)
+está verificado en el repo y se saca de esta lista. El detalle está en
+`bitacora/2026-09-02-auditoria.md`. Lo nuevo de hoy va primero.
 
-- [x] **EDITORIAL 1 — HECHO (noche 01-09).** Las cuatro reglas aplicadas:
-      (1) regla del dato que todavía no existe, en `prompts/informe.md`;
-      (2) marca `PENDIENTE DE CIERRE: <dato> | <fecha>` creada en informe.md,
-      leída como candidata OBLIGATORIA por `prompts/seleccion.md`, filtrada de
-      la web (`web/src/lib/contenido.ts` + prompts/web.md) y muda en el guion;
-      (3) regla de pantalla con dos indicadores, en `prompts/guion-informe.md`;
-      (4) las Claves de "cómo leer un indicador" van el día DESPUÉS, en
-      `prompts/claves.md`.
+- [ ] **HOY 1: el vigía existe pero no lo dispara nadie.** `prompts/vigia.md`
+      está escrito y bien pensado, para las 09:20 de Chile. En
+      `list_triggers` hay cinco rutinas (barrido, observatorio, revisión,
+      guardián, métricas) y ninguna es el vigía. Un prompt sin reloj es un
+      documento. **Crearlo por la misma vía que las otras cuatro que sí
+      funcionan** (`via http_api`, con `sources` apuntando al repo, que es
+      justo lo que le faltaba al guardián viejo), cron `20 13 * * *` UTC =
+      09:20 de Chile en invierno. Ojo con el cambio de hora del 6-09.
+      De paso, corregir una línea del prompt: dice que nació porque "el
+      informe de esa mañana [02-09] anunció el Imacec", y fue el del 01-09.
+
+- [ ] **HOY 2: la Clave quedó a medio hacer y el guardián no avisó.** Hoy
+      existe `contenido/claves/2026-09-02-fondos-generacionales-ciclo-de-vida.md`
+      (03:48) pero **no su guion**, así que no hubo video ni Short de la
+      Clave: 1 pieza y 1 Short en vez de 2 y 2, el primer día así desde el
+      lanzamiento. Se cayó la tarea de ChatGPT de las 04:15.
+      **Dos cosas que arreglar, y la segunda es la que importa:**
+      1. Ver por qué no corrió esa programación (hubo tres commits seguidos
+         de "claves" a las 03:48 y 03:49, que huelen a reintento).
+      2. **El guardián tiene la regla equivocada.** Dice textual: *"si no hay
+         Clave ese día es normal y NO es alerta"*. Se escribió cuando la
+         Clave era opcional; **desde el 30-08 la serie es diaria**. Y el caso
+         de hoy no es "no hay Clave": es una Clave escrita sin guion, que es
+         peor, porque el trabajo se hizo y se perdió. Distinguir los dos
+         casos en el prompt: entrega sin guion = ALERTA siempre; ausencia
+         total de Clave = alerta también, ahora que la serie es diaria.
+
+- [ ] **HOY 3: borrar la rutina vieja del guardián.**
+      `trig_01TNcYi1Pe46NtnL7eXN6YAx`, ya deshabilitada y renombrada. Falta
+      borrarla. Su nombre nuevo trae una raya larga, que el proyecto prohíbe
+      en todos sus textos; al borrarla se va sola.
 
 - [ ] **EDITORIAL 1b, para la mañana: verificar si la edición del 02-09 cerró
       el Imacec (cayó 1,5%) por su cuenta.** Si lo hizo, fue por ser noticia
