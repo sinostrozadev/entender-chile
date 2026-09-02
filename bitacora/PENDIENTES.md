@@ -131,6 +131,15 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **ORDEN 1: ejecutar la propuesta de orden del repositorio, por
+      noches.** Todo en `bitacora/2026-09-02-orden-del-repo.md`: seis
+      conceptos, mapa archivo por archivo (queda / fundir / mover /
+      archivar), y el orden de ejecución en cuatro pasos. Noche 1 es sin
+      riesgo: `archivo/`, limpiar los 16 hechos de este archivo, reordenar
+      decisiones.md y sumarle las ocho decisiones huérfanas. Nada se borra.
+      Las diez contradicciones de `REGLAS-DURAS.md` las cierra Santiago, no
+      la noche.
+
 - [ ] **IMAGEN 0: encender lo que ya está construido (02-09, tarde).** Hecho
       y commiteado, todo APAGADO por defecto para no tocar producción sin
       verlo: `src/fondos.tsx` (las cuatro familias, papel tintado, azar
