@@ -217,6 +217,43 @@ está verificado en el repo y se saca de esta lista. El detalle está en
       atrasa el guion corre sobre nada. Vale evaluar un reintento único a los
       20 minutos cuando la primera pasada no encuentra entrega.
 
+- [ ] **HOY 4: el workflow es todo o nada, y por eso una pieza atrasada no
+      se puede rescatar. Hacerlo reentrante.**
+      Contexto: Santiago va a relanzar la tarea del guion de Claves. Cuando
+      ese push llegue, **no va a pasar nada**, por dos bloqueos independientes:
+      1. `edicion-diaria.yml` escucha `contenido/revisiones/**` y
+         `contenido/guiones/informe/**`. **No escucha
+         `contenido/guiones/claves/**`**, así que el push no toca ningún
+         timbre.
+      2. Y aunque se dispare a mano, el **paso 0** pregunta si el release
+         `edicion-FECHA` ya tiene `informe.mp4`. Lo tiene, así que pone
+         `SALTAR=1` y la corrida termina sin hacer nada. `workflow_dispatch`
+         tampoco lo esquiva: el paso 0 no tiene condición de evento.
+      **La causa de fondo:** el workflow produce la edición completa en una
+      pasada y su única pregunta de idempotencia es "¿ya hay video del
+      informe?". No existe el camino "produce solo la pieza que falta".
+      **Tres cambios chicos en `.github/workflows/edicion-diaria.yml`:**
+      a. Sumar `contenido/guiones/claves/**` a los `paths` del push, para que
+         un guion de Clave atrasado toque su propio timbre.
+      b. **Partir el paso 0 en cuatro preguntas en vez de una**: por cada
+         pieza (informe, Short del informe, Clave, Short de la Clave), mirar
+         si su `.mp4` ya está en el release y saltarse solo esa; cada paso de
+         producción con su propio `if`. Así queda reentrante: se relanza
+         cuando sea y produce solo lo que falta.
+         **Lo bueno es que las subidas ya están a salvo** y no hay que
+         tocarlas: los pasos de YouTube y de podcast preguntan
+         `if [ -f out/$FECHA/... ]`, y en un runner nuevo `out/` está vacío
+         salvo lo que esa corrida acabe de renderizar. No hay riesgo de subir
+         dos veces.
+      c. **Agregar un input `fecha` a `workflow_dispatch`.** Hoy `FECHA` es
+         siempre hoy (`TZ=America/Santiago date +%F`). Sin ese input, una
+         pieza atrasada solo se puede rescatar el mismo día antes de
+         medianoche: al día siguiente el workflow buscaría la Clave de la
+         fecha nueva.
+      **Para hoy, en concreto:** si la noche alcanza a aplicar (a) y (b)
+      antes de las 00:00 de Chile, la Clave del 02-09 se rescata disparando
+      el workflow. Después de medianoche hace falta también (c).
+
 - [ ] **HOY 3: borrar la rutina vieja del guardián.**
       `trig_01TNcYi1Pe46NtnL7eXN6YAx`, ya deshabilitada y renombrada. Falta
       borrarla. Su nombre nuevo trae una raya larga, que el proyecto prohíbe
