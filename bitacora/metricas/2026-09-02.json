@@ -3,28 +3,37 @@
   "canal": {
     "suscriptores": 7,
     "vistas": 318,
-    "videos": 13
+    "videos": 16
   },
   "videos": {
-    "814rdrOmAz0": {
+    "JpWGFsV-mMc": {
       "titulo": "Clave: ¿Cómo funcionan los fondos generacionales y qué riesg",
       "publicado": "2026-09-02",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 37
     },
-    "8X_lOUPmLbE": {
+    "hCObnchAo2U": {
+      "titulo": "Cinco cosas que hay que saber hoy, Miércoles, 2 de septiembr",
+      "publicado": "2026-09-02",
+      "estado": "public",
+      "vistas": 1,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 54
+    },
+    "qzn2RJefxic": {
       "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
       "publicado": "2026-09-02",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
+      "estado": "public",
+      "vistas": 1,
+      "meGusta": 1,
       "comentarios": 0,
       "durSeg": 682
     },
-    "SMaB5r8qyvg": {
+    "rWOxj_0Iris": {
       "titulo": "La economía cae 1,5% y Hacienda prepara una nueva proyección",
       "publicado": "2026-09-02",
       "estado": "public",
@@ -33,20 +42,47 @@
       "comentarios": 0,
       "durSeg": 816
     },
+    "8X_lOUPmLbE": {
+      "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
+      "publicado": "2026-09-02",
+      "estado": "private",
+      "vistas": 1,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 682
+    },
     "w8Is33iSAF4": {
       "titulo": "Cinco cosas que hay que saber hoy, Miércoles, 2 de septiembr",
       "publicado": "2026-09-02",
       "estado": "private",
-      "vistas": 0,
+      "vistas": 4,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 106
+    },
+    "814rdrOmAz0": {
+      "titulo": "Clave: ¿Cómo funcionan los fondos generacionales y qué riesg",
+      "publicado": "2026-09-02",
+      "estado": "private",
+      "vistas": 4,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 37
+    },
+    "SMaB5r8qyvg": {
+      "titulo": "La economía cae 1,5% y Hacienda prepara una nueva proyección",
+      "publicado": "2026-09-02",
+      "estado": "private",
+      "vistas": 2,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 816
     },
     "6sMtPM7Mzsw": {
       "titulo": "Clave: ¿Cómo leer el Imacec sin confundir señal con ruido? #",
       "publicado": "2026-09-01",
       "estado": "public",
-      "vistas": 14,
+      "vistas": 16,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 34
@@ -64,7 +100,7 @@
       "titulo": "Cinco cosas que hay que saber hoy, Martes, 1 de septiembre #",
       "publicado": "2026-09-01",
       "estado": "public",
-      "vistas": 53,
+      "vistas": 55,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 55
@@ -73,7 +109,7 @@
       "titulo": "La industria cae 5,1% antes del Imacec de julio",
       "publicado": "2026-09-01",
       "estado": "public",
-      "vistas": 41,
+      "vistas": 42,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 822
@@ -109,7 +145,7 @@
       "titulo": "Milei llega a Chile tras el impasse por el Estrecho de Magal",
       "publicado": "2026-08-31",
       "estado": "public",
-      "vistas": 142,
+      "vistas": 158,
       "meGusta": 1,
       "comentarios": 1,
       "durSeg": 843
