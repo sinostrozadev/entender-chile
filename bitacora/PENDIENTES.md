@@ -18,21 +18,53 @@ tacha: para saber qué pasó está el archivo del día.
       opcional de 60-90 s. Al script se le pega el fuente completo de
       `scripts/youtube-subir.js`.
 
-## Vigía de datos anunciados (decidido con Santiago, 02-09)
+## EL AGENTE DE ÚLTIMA HORA — conversarlo mañana (02-09, Santiago se fue a
+## acostar pidiendo dejarlo anotado para discutirlo mejor)
 
 Origen: el Imacec del 01-09 salió a las 08:30 con mejor historia que la
-anunciada y nadie lo capturó en el día. Se eligió la opción 2 (vigilar lo
-ANUNCIADO), no el barrido horario (caro, ruidoso, salta los controles).
+anunciada y nadie lo capturó en el día.
 
-- [ ] **Santiago: programar la tarea diaria en ChatGPT (09:20 Chile)** con
-      el prompt de `prompts/vigia.md`: lee las marcas `PENDIENTE DE CIERRE`
-      y la Agenda del informe de hoy, verifica en la fuente primaria si el
-      dato ya salió, escribe `contenido/urgente/FECHA-<slug>.md` y notifica
-      con el número real. En silencio si no hay nada.
+**La preferencia de Santiago (dicha textual antes de dormir):** un agente
+**cada 2 o 3 horas** consultando, y si encuentra algo con categoría de
+**"muy importante"** (sea lo que sea, no solo datos anunciados), tener la
+noticia fresca y **"lanzarla de una"**.
+
+**Lo que la noche había propuesto (registrado, no decidido):** solo vigilar
+lo ANUNCIADO (marcas PENDIENTE DE CIERRE + Agenda) una vez al día a las
+09:20; el prompt quedó escrito en `prompts/vigia.md` y sirve tal cual como
+subconjunto o pieza del agente mayor. El argumento en contra del barrido
+frecuente era costo, ruido y controles de calidad; Santiago lo leyó y aun
+así prefiere la vigilancia cada 2-3 horas: esa preferencia manda la
+conversación de mañana.
+
+**Lo que hay que resolver juntos mañana (para que la conversación sea corta):**
+1. **El criterio de "muy importante"**: tiene que ser mecánico y auditable
+   (como el árbol de tarjetas), no un juicio libre del modelo, o va a
+   disparar falsos positivos o callarse ante lo grande. Candidato: la lista
+   de palabras de ALARMA del barrido + datos macro publicados + hechos con
+   declaración oficial de emergencia + umbral de "está en 3+ portadas".
+2. **Qué significa "lanzarla de una" HOY**: mientras la auditoría de la API
+   no pase, toda subida llega PRIVADA y publicar es un clic de Santiago. Y
+   un Short necesita guion + voz + render: sin el workflow "Short exprés"
+   (fase 2, abajo) el agente solo puede avisar con el material listo. O sea:
+   el agente de 2-3 horas y el Short exprés son UN proyecto, no dos.
+3. **Frecuencia y ventana**: cada 2 h entre 08:00 y 22:00 son 8 corridas/día.
+   ¿Barrido liviano (portadas + fuentes primarias) o el barrido completo?
+   Costo en tareas de GPT o rutinas de Claude, y en cuota de Actions si cada
+   corrida puede disparar render.
+4. **Controles**: el circuito nocturno tiene verificación de dos fuentes y
+   revisión editorial. La pieza de mediodía necesita su versión exprés de
+   eso (mínimo: solo fuentes primarias u oficiales, y el gate humano del
+   clic de publicar se mantiene).
+5. **División del trabajo**: detección y guion = ¿GPT (editorial, como
+   quiere Santiago) o rutina Claude (puede notificar al teléfono y ya tiene
+   el repo montado)? Render y subida = workflow, eso sí está claro.
+
 - [ ] **Sistema, fase 2 — "Short exprés"**: workflow que convierta
       `contenido/urgente/*.md` en un Short con voz en ~10 minutos (subida
-      privada; Santiago publica). Se construye cuando el vigía cace su
-      primer dato y el flujo pruebe que sirve.
+      privada; Santiago publica). Con la preferencia de Santiago pasa de
+      "cuando se pruebe el flujo" a pieza NECESARIA del agente de última
+      hora: sin él no existe el "lanzarla de una".
 
 ---
 
