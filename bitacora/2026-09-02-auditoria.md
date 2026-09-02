@@ -215,3 +215,36 @@ la pena subrayar una cosa: **el validador de tarjetas que la noche construyó
 ayer habría cazado esto el 01-09**, cuando afectaba a una sola tesis, si
 hubiera tenido un tope de largo. Es exactamente el argumento de medir la
 salida en vez de confiar en la instrucción.
+
+## Añadido a las 11:00: BUG 1 corregido y las cuatro piezas rehechas
+
+Santiago levantó la regla de solo lectura para corregir el desbordamiento de
+texto. Las tres capas quedaron aplicadas y el run 25 (`workflow_dispatch` con
+`forzar`) rehizo la edición completa del 02-09 en 71 minutos, los 20 pasos en
+verde:
+
+| Pieza | Render | YouTube (privado) |
+|---|---|---|
+| Informe | 09:44 a 10:12 | `rWOxj_0Iris` |
+| Short del informe | 10:12 a 10:15 | `hCObnchAo2U` |
+| Clave | 10:15 a 10:38 | `qzn2RJefxic` |
+| Short de la Clave | 10:38 a 10:40 | `JpWGFsV-mMc` |
+
+Los cuatro con miniatura y en su playlist. Release actualizado con los cuatro
+mp4, los dos episodios de podcast subidos de nuevo y la web despachada.
+
+**Los cuatro videos viejos hay que borrarlos a mano en Studio**: YouTube no
+permite reemplazar el archivo de un video, así que la subida crea IDs nuevos.
+Los que sobran son los dos de la mañana más `8X_lOUPmLbE` (Clave) y
+`814rdrOmAz0` (Short de la Clave), que se subieron a las 08:28.
+
+**Dato para el cuadro de horas:** el informe tarda **28 minutos** en
+renderizar y la Clave **23**. La edición completa son ~71 minutos, no los 47
+que tomó la corrida de la mañana (que ya traía cachés tibios). El respaldo de
+las 05:00 no alcanza si el timbre suena tarde.
+
+**Lo que la corrida dejó demostrado, y no era obvio:** sin la guarda que le
+puse al paso 7, `youtube-subir.js` habría abortado el bloque al no encontrar
+el informe en la corrida anterior. Y el paso 0 con `forzar` es lo único que
+permite rehacer una pieza ya publicada: sin él, la corrida termina en 29
+segundos como el run 24.
