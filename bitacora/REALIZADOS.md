@@ -4,6 +4,11 @@ Registro append-only de lo completado, con fecha. La sesión de la mañana
 agrega aquí lo que sale de PENDIENTES; también es evidencia del aporte
 editorial y técnico humano del proyecto.
 
+- 02-09 · Taller: el sistema interno como página propia, con navegador de archivos, editor con diff antes de aplicar, borradores y Claude con el contexto de los 84 archivos de criterio
+- 02-09 · Texto desbordado de las tarjetas cerrado en cuatro capas: parser, render, validador y prompts (578 caracteres en una tarjeta de 107)
+- 02-09 · Edición diaria reentrante por pieza: una Clave que llega tarde se produce sola, sin rehacer el informe
+- 02-09 · Contrato de archivos al inicio de los cinco prompts y regla de evidencia antes de declarar que un archivo no existe
+- 02-09 · Panel interno dibujado desde los datos: metricas.js ahora refresca la página entera, no solo el marcador
 - 01-09 · Guardián recreado con el repo montado: primera verificación real de la historia ("Edición completa" en 19 s) y ahora también vigila las métricas
 - 01-09 · vistasTotales corregido a suma por video (el contador del canal va con rezago) y el histórico del panel se actualiza solo
 - 01-09 · Patrón de commit unificado en los tres workflows (autoStash + origin main + reintento)

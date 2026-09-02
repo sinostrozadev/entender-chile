@@ -131,6 +131,24 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **TALLER 1: traer el panel de métricas como cuarto módulo.** El Taller
+      quedó publicado el 02-09 con tres módulos (Archivos, Borradores, Cómo
+      funciona) más el muelle de Claude:
+      https://claude.ai/code/artifact/48d0192b-0b54-4d8c-9c72-4e628c520d0f
+      No mudé el panel de métricas el mismo día a propósito: funciona y se
+      actualiza solo desde `metricas.js`, y romperlo el día que se estrena el
+      Taller habría dejado a Santiago sin las dos cosas. Cuando el Taller
+      lleve unos días de uso, el panel entra como cuarto módulo y se termina
+      de una vez el problema de PANEL 3 (dos copias del mismo tablero).
+
+- [ ] **TALLER 2: barrer las 38 rayas largas del repo.** La regla del
+      proyecto prohíbe `—` y `–`, y hay 38 repartidas en `src/tarjetas.tsx`,
+      los tres workflows, `README.md`, una docena de scripts y
+      `ejemplos/guion-2026-08-23.md`. Son previas a la regla, no las
+      introdujo nadie hoy. Es exactamente el trabajo para el que sirve el
+      Taller: abrir el archivo, pedirle el reemplazo a Claude, mirar el diff
+      y guardar el borrador.
+
 - [ ] **PANEL 3: el artifact publicado no se actualiza solo, y hay que decidir
       qué hacer con eso.** Santiago pidió las métricas de hoy y el panel
       publicado seguía mostrando las de ayer.
