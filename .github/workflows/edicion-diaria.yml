@@ -19,10 +19,18 @@ on:
     paths:
       - "contenido/revisiones/**"
       - "contenido/guiones/informe/**"
+      # Un guion de Clave que llega tarde toca su propio timbre (02-09-2026:
+      # la Clave quedó escrita a las 07:22 y no había forma de producirla).
+      - "contenido/guiones/claves/**"
   schedule:
     # respaldo: 09:00 UTC = 05:00 Chile en invierno / 06:00 en verano.
     - cron: "0 9 * * *"
   workflow_dispatch:
+    inputs:
+      fecha:
+        description: "Edición a producir (AAAA-MM-DD). Vacío = hoy en Chile."
+        required: false
+        default: ""
 
 concurrency:
   group: edicion-diaria
@@ -51,21 +59,42 @@ jobs:
       # los pasos y scripts siguen hablando de la misma edición.
       - name: Fijar fecha de la edición
         run: |
-          FECHA=$(TZ=America/Santiago date +%F)
+          FECHA="${{ github.event.inputs.fecha }}"
+          [ -n "$FECHA" ] || FECHA=$(TZ=America/Santiago date +%F)
           echo "FECHA=$FECHA" >> "$GITHUB_ENV"
           echo "FECHA_EDICION=$FECHA" >> "$GITHUB_ENV"
           echo "Edición del $FECHA"
 
-      # Si el timbre y el despertador suenan el mismo día, el segundo no debe
-      # repetir 40 minutos de render: si el release del día ya tiene el video
-      # del informe, no hay nada que hacer.
-      - name: 0 · ¿Ya hay video hoy?
+      # REENTRANTE POR PIEZA (02-09-2026): el release del día es la memoria de
+      # qué ya se produjo. Cada pieza (informe, Short, Clave, Short de la Clave)
+      # se salta solo si su .mp4 ya está ahí, así el workflow se puede relanzar
+      # cuando sea y produce únicamente lo que falta. Antes preguntaba solo por
+      # el informe y saltaba todo: una Clave atrasada no tenía cómo rescatarse.
+      # Las subidas (7, 7b) ya eran seguras: solo suben lo que esta corrida
+      # dejó en out/ y public/.
+      - name: 0 · ¿Qué piezas ya están en el release? (reentrante, por pieza)
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if gh release view "edicion-$FECHA" --json assets -q '.assets[].name' 2>/dev/null | grep -q "informe.mp4"; then
+          ASSETS=$(gh release view "edicion-$FECHA" --json assets -q '.assets[].name' 2>/dev/null || true)
+          tiene() { echo "$ASSETS" | grep -qxF "$FECHA-$1.mp4"; }
+          tiene informe     && echo "HAY_INFORME=1"     >> "$GITHUB_ENV"
+          tiene short       && echo "HAY_SHORT=1"       >> "$GITHUB_ENV"
+          tiene clave       && echo "HAY_CLAVE=1"       >> "$GITHUB_ENV"
+          tiene short-clave && echo "HAY_SHORT_CLAVE=1" >> "$GITHUB_ENV"
+          FALTA=""
+          tiene informe || FALTA="$FALTA informe"
+          tiene short   || FALTA="$FALTA short"
+          # La Clave solo cuenta como pendiente si hoy existe su guion.
+          if ls contenido/guiones/claves/$FECHA-*.md >/dev/null 2>&1; then
+            tiene clave       || FALTA="$FALTA clave"
+            tiene short-clave || FALTA="$FALTA short-clave"
+          fi
+          if [ -z "$FALTA" ]; then
             echo "SALTAR=1" >> "$GITHUB_ENV"
-            echo "El release edicion-$FECHA ya tiene el video del informe; esta ejecución no hace nada."
+            echo "El release edicion-$FECHA ya tiene todas las piezas posibles; esta ejecución no hace nada."
+          else
+            echo "Piezas por producir:$FALTA"
           fi
 
       # Solo cuando dispara un push: si falta el guion o la revisión, no es
@@ -120,7 +149,7 @@ jobs:
           AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           VOICE_ID: ${{ secrets.VOICE_ID }}
-        if: env.SALTAR != '1'
+        if: env.SALTAR != '1' && env.HAY_INFORME != '1'
         run: |
           if { [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; } || { [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; }; then VOZ="--voz"; else VOZ=""; echo "Sin secrets de voz: video mudo de prueba."; fi
           node scripts/dia.js $VOZ --render
@@ -135,7 +164,8 @@ jobs:
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           AZURE_SPEECH_KEY2: ${{ secrets.AZURE_SPEECH_KEY2 }}
           AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
-        if: env.SALTAR != '1'
+        # Necesita el parsed.json que deja el paso 3 en la misma corrida.
+        if: env.SALTAR != '1' && env.HAY_INFORME != '1' && env.HAY_SHORT != '1'
         continue-on-error: true
         run: node scripts/short.js --fecha "$FECHA" --voz --render
 
@@ -147,7 +177,7 @@ jobs:
           AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           VOICE_ID: ${{ secrets.VOICE_ID }}
-        if: env.SALTAR != '1'
+        if: env.SALTAR != '1' && env.HAY_CLAVE != '1'
         run: |
           if { [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; } || { [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; }; then VOZ="--voz"; else VOZ=""; fi
           node scripts/dia.js --clave --si-existe $VOZ --render
@@ -200,7 +230,10 @@ jobs:
         if: env.SALTAR != '1'
         continue-on-error: true
         run: |
-          node scripts/youtube-subir.js --fecha "$FECHA"
+          # youtube-subir.js sale con 1 si falta el archivo, y eso abortaría el
+          # bloque antes de llegar a la Clave: cada pieza sube solo si esta
+          # corrida la renderizó.
+          if [ -f "out/$FECHA/$FECHA-informe.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA"; fi
           if [ -f "out/$FECHA/$FECHA-short.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --short; fi
           if [ -f "out/$FECHA/$FECHA-clave.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --clave; fi
           if [ -f "out/$FECHA/$FECHA-short-clave.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --short --clave; fi
