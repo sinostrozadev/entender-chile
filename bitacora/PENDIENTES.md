@@ -55,6 +55,65 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **EDITORIAL 1: la edición del día anuncia un dato que sale después del
+      cierre, y nunca lo entrega. Detectado por Santiago el 01-09.**
+      Él leyó "caída del Imacec de 5,1%" cuando el Imacec cayó 1,5%.
+      **Revisado el informe: no hay error factual.** El -5,1% es el Índice de
+      Producción Industrial del INE, y las cuatro piezas lo dicen bien. El
+      informe incluso advierte: *"El indicador industrial no equivale al
+      Imacec"* y *"la magnitud y composición del Imacec serán más
+      informativas que una comparación mecánica con el 5,1% industrial"*.
+      **El problema es que el resultado en pantalla produce exactamente la
+      confusión que el texto advertía.** Los tres lugares donde la palabra
+      Imacec y el número 5,1% quedan pegados:
+      - Título del video: "La industria cae 5,1% antes del Imacec de julio".
+      - Tarjeta de tesis: "La industria cayó 5,1% y hoy el Imacec mostrará si
+        la debilidad fue más amplia."
+      - La Clave del día se llama "¿Cómo leer el Imacec sin confundir señal
+        con ruido?" y su ÚNICA tarjeta de datos es `-5,1%` industrial.
+      O sea: una pieza cuya tesis es "no confundas el índice industrial con
+      el Imacec" es la que hace confundirlos, porque el único número que pone
+      en pantalla es el del índice industrial. Si Santiago, que conoce el
+      material, se quedó con "Imacec 5,1%", cualquiera se queda con eso.
+      **La causa raíz es de horario, no de redacción.** El informe se escribe
+      a las 03:30 y el Imacec se publicó esa misma mañana, horas después. La
+      edición anuncia el dato, explica cómo leerlo, y no lo entrega nunca.
+      **Y el dato real daba vuelta la historia:** el Imacec de julio cayó
+      1,5%, la mayor caída desde marzo de 2023, arrastrado por minería
+      (-9,3%, que restó 1,3 puntos), mientras el Imacec no minero cayó solo
+      0,3%. La pregunta que el informe planteó tenía una respuesta buena y
+      noticiosa, y se la quedó otro.
+      **Y no hay nada que lo resuelva mañana.** La marca `EN SEGUIMIENTO`
+      existe solo para casos de plata pública (`prompts/informe.md` línea
+      103). Una [A] montada sobre "hoy se publica X" no genera ninguna
+      obligación de cerrarse en la edición siguiente.
+      **Cuatro reglas propuestas, en orden de urgencia:**
+      1. **Regla del dato que todavía no existe.** Si la [A] candidata es un
+         dato que se publica ese mismo día DESPUÉS del cierre de la edición,
+         no puede ser [A] montada en la anticipación. O abre otra noticia y
+         el dato queda en Agenda, o la [A] es el dato ya publicado (el
+         industrial) con la cita como una línea, sin colgar el titular del
+         que falta.
+      2. **Deuda del día siguiente.** Toda pieza montada sobre "hoy se
+         publica X" genera una obligación de cerrar con el número real en la
+         edición siguiente, y como [A] si el dato fue noticia. Mecanismo
+         simple, igual al que ya existe para casos: una marca
+         `PENDIENTE DE CIERRE: <qué dato> | <día en que sale>` que la
+         preselección del día siguiente lea como candidata obligatoria. Esto
+         es literalmente la promesa del canal ("no olvidamos") y hoy no está
+         implementada para nada que no sea plata pública.
+      3. **Regla de pantalla.** En un bloque donde conviven dos indicadores,
+         la tarjeta grande no puede llevar la cifra de uno mientras la tesis
+         nombra al otro. O la tesis nombra el mismo indicador que la cifra, o
+         el nombre del indicador va pegado al número en la tesis.
+      4. **Las Claves de "cómo leer un indicador" van el día DESPUÉS de que
+         el indicador salga**, nunca el día antes. Con el dato en la mano el
+         ejercicio es real; sin él es teoría, y encima obliga a poner en
+         pantalla el número equivocado por ser el único que hay.
+      **Verificar antes de aplicar:** revisar si la edición del 02-09 cerró
+      el Imacec por su cuenta. Si lo hizo, fue por suerte (era noticia del
+      día anterior), no por una regla, y la regla 2 sigue haciendo falta.
+
 - [ ] **PANEL 1: que `metricas.js` refresque también el histórico, o se
       congela en el 01-09.** El panel ya trae un **histórico día por día con
       selector de fecha**: se elige un día y muestra los totales de ese día
