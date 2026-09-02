@@ -11,10 +11,29 @@
 import { loadFont as loadFraunces } from "@remotion/google-fonts/Fraunces";
 import { loadFont as loadPlexSans } from "@remotion/google-fonts/IBMPlexSans";
 import { loadFont as loadPlexMono } from "@remotion/google-fonts/IBMPlexMono";
+import { continueRender, delayRender, staticFile } from "remotion";
 
-loadFraunces();
-loadPlexSans();
-loadPlexMono();
+// Con REMOTION_FUENTES_LOCALES=1 las fuentes salen de public/fuentes (bajadas
+// de Google Fonts el 02-09-2026, licencia OFL) y el render no depende de la
+// red. Sin la variable, Google Fonts como siempre. delayRender hace que un
+// fallo sea ruidoso en vez de un video con Arial.
+if (process.env.REMOTION_FUENTES_LOCALES === "1" && typeof document !== "undefined") {
+  const espera = delayRender("fuentes locales");
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = staticFile("fuentes/fuentes.css");
+  link.onload = () => {
+    Promise.all([
+      "600 32px Fraunces", "400 32px 'IBM Plex Sans'", "500 32px 'IBM Plex Sans'", "600 32px 'IBM Plex Sans'",
+      "400 32px 'IBM Plex Mono'", "500 32px 'IBM Plex Mono'",
+    ].map((f) => document.fonts.load(f))).then(() => continueRender(espera));
+  };
+  document.head.appendChild(link);
+} else {
+  loadFraunces();
+  loadPlexSans();
+  loadPlexMono();
+}
 
 export const tema = {
   // color

@@ -131,6 +131,19 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **IMAGEN 0: encender lo que ya está construido (02-09, tarde).** Hecho
+      y commiteado, todo APAGADO por defecto para no tocar producción sin
+      verlo: `src/fondos.tsx` (las cuatro familias, papel tintado, azar
+      sembrado, máscara que despeja la zona del texto), `Marco` y
+      `CortinaSeccion` lo usan solo si el timeline trae `meta.fondos: true`;
+      la cortina nace opaca en ese modo; `meta.selloEn` corre el sello para
+      la apertura en frío; `REMOTION_FUENTES_LOCALES=1` sirve las fuentes
+      desde `public/fuentes` sin red. Video de ejemplo con el guion real del
+      02-09: `node ejemplos/demo-cambios-02-09.js`. Para encenderlo en
+      producción: `build-timeline.js` pone `fondos: true` y `selloEn` = fin
+      de la primera pausa, y el workflow exporta la variable de fuentes.
+      Antes de encender, mirar el video de ejemplo con Santiago.
+
 - [ ] **IMAGEN 1: fondos por sección, empezando por la cortina.** Todo el
       análisis está en `ideas/imagen-y-retencion.md` (02-09). Lo primero es
       `CortinaSeccion` en `src/tarjetas.tsx:492`: es el fotograma que YouTube

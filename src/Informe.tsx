@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { tema, estiloEyebrow } from "./tema";
 import { Tarjeta, SeccionBanner, CortinaSeccion, Evento } from "./tarjetas";
+import { FondosContext } from "./fondos";
 
 export type Timeline = {
   version: number;
@@ -15,6 +16,8 @@ export type Timeline = {
     logo?: string | null;        // logo sonoro del sello (2 s)
     cortinas?: string[] | null;  // melodias de transicion, se van alternando
     cierre?: string | null;      // melodia final
+    fondos?: boolean;            // texturas por sección (src/fondos.tsx); apagado = video de siempre
+    selloEn?: number;            // segundos en que entra el sello; 0 = al inicio (apertura en frío: después de la noticia)
     fps: number;
     width: number;
     height: number;
@@ -72,8 +75,12 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
 
   const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte);
   const overlays = tl.eventos.filter((e) => e.overlay);
+  const selloEn = tl.meta.selloEn ?? 0;
+  // la tesis de cada sección, como texto difuminado en su cortina
+  const tesisDe = (nombre: string) => tl.eventos.find((e) => e.tipo === "tesis" && e.seccion === nombre)?.texto;
 
   return (
+    <FondosContext.Provider value={{ activo: !!tl.meta.fondos, fecha: tl.meta.fecha ?? "" }}>
     <AbsoluteFill style={{ backgroundColor: tema.papel }}>
       {tl.audio ? (
         // la voz entra cuando el sello ya se fue (build-timeline corrió los tiempos)
@@ -88,7 +95,7 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
       {tl.meta.logo ? (
         // sello sonoro: suena junto al sello de identidad (dura 2,6 s; la
         // ventana debe cubrirlo entero o se corta la cola)
-        <Sequence from={0} durationInFrames={Math.round((SELLO_SEG + 0.4) * fps)}>
+        <Sequence from={f(selloEn)} durationInFrames={Math.round((SELLO_SEG + 0.4) * fps)}>
           <Audio src={staticFile(tl.meta.logo)} volume={0.5} />
         </Sequence>
       ) : null}
@@ -107,11 +114,11 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
           taparian voz. La primera seccion no lleva porque ya esta el sello. */}
       {tl.meta.cortinas && tl.meta.cortinas.length
         ? overlays
-            .filter((ev, i) => i > 0 && ev.from > SELLO_SEG)
+            .filter((ev, i) => i > 0 && (ev.from < selloEn - 0.5 || ev.from > selloEn + SELLO_SEG + 0.5))
             .map((ev, i) => (
               <Sequence key={"cor" + i} from={f(ev.from)} durationInFrames={f(CORTINA_SEG)}>
                 <Audio src={staticFile(tl.meta.cortinas![i % tl.meta.cortinas!.length])} volume={0.85} />
-                <CortinaSeccion texto={ev.texto ?? ""} />
+                <CortinaSeccion texto={ev.texto ?? ""} extracto={tesisDe(ev.texto ?? "")} />
               </Sequence>
             ))
         : null}
@@ -120,9 +127,10 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
           <Audio src={staticFile(tl.meta.cierre)} volume={0.6} />
         </Sequence>
       ) : null}
-      <Sequence from={0} durationInFrames={Math.round(SELLO_SEG * fps)}>
+      <Sequence from={f(selloEn)} durationInFrames={Math.round(SELLO_SEG * fps)}>
         <Sello fecha={tl.meta.fecha} serie={tl.meta.serie} />
       </Sequence>
     </AbsoluteFill>
+    </FondosContext.Provider>
   );
 };

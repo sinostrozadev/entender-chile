@@ -1,6 +1,7 @@
 import React from "react";
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { tema, estiloEyebrow, estiloFuente, colorDeSeccion } from "./tema";
+import { Fondo, useFondos } from "./fondos";
 
 // ---------- tipos ----------
 export type Tendencia = { dir: "sube" | "baja" | "igual" | null; sentido: "bien" | "mal" | null };
@@ -38,8 +39,11 @@ const useEntrada = () => {
   };
 };
 
-const Marco: React.FC<{ children: React.ReactNode; abajo?: React.ReactNode; seccion?: string }> = ({ children, abajo, seccion }) => (
+const Marco: React.FC<{ children: React.ReactNode; abajo?: React.ReactNode; seccion?: string }> = ({ children, abajo, seccion }) => {
+  const fondos = useFondos();
+  return (
   <AbsoluteFill style={{ backgroundColor: tema.papel, padding: tema.margen, justifyContent: "center" }}>
+    {fondos.activo ? <Fondo seccion={seccion} fuerza={0.7} /> : null}
     <div
       style={{
         position: "absolute",
@@ -52,12 +56,13 @@ const Marco: React.FC<{ children: React.ReactNode; abajo?: React.ReactNode; secc
         opacity: 0.85,
       }}
     />
-    <div style={{ maxWidth: tema.anchoTexto }}>{children}</div>
+    <div style={{ maxWidth: tema.anchoTexto, position: "relative" }}>{children}</div>
     {abajo ? (
       <div style={{ position: "absolute", left: tema.margen, right: tema.margen, bottom: 84 }}>{abajo}</div>
     ) : null}
   </AbsoluteFill>
-);
+  );
+};
 
 const Chip: React.FC<{ etiqueta: "hecho" | "interpretacion" }> = ({ etiqueta }) => {
   const solido = etiqueta === "hecho";
@@ -489,11 +494,15 @@ export const Tarjeta: React.FC<{ ev: Evento }> = ({ ev }) => {
 //
 // Requiere que la narración calle ahí. Sin pausa en la voz, esta tarjeta tapa
 // contenido hablado y hay que dejarla apagada (ver meta.cortinas en Informe).
-export const CortinaSeccion: React.FC<{ texto: string }> = ({ texto }) => {
+export const CortinaSeccion: React.FC<{ texto: string; extracto?: string }> = ({ texto, extracto }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const fondos = useFondos();
   const color = colorDeSeccion(texto);
-  const entrada = interpolate(frame, [0, 0.14 * fps], [0, 1], { extrapolateRight: "clamp" });
+  // Con fondos, la cortina nace opaca: el fotograma exacto del inicio del
+  // capítulo es el que YouTube muestra en la tira, y un fundido de 0,14 s lo
+  // dejaba transparente (revisión del 02-09). Nadie percibe ese fundido.
+  const entrada = fondos.activo ? 1 : interpolate(frame, [0, 0.14 * fps], [0, 1], { extrapolateRight: "clamp" });
   const salida = interpolate(frame, [0.85 * fps, 1.1 * fps], [1, 0], {
     extrapolateLeft: "clamp", extrapolateRight: "clamp",
   });
@@ -511,7 +520,8 @@ export const CortinaSeccion: React.FC<{ texto: string }> = ({ texto }) => {
         paddingRight: tema.margen,
       }}
     >
-      <div style={{ height: 6, width: `${trazo * 100}%`, backgroundColor: color, marginBottom: 44 }} />
+      {fondos.activo ? <Fondo seccion={texto} fuerza={1.6} extractos={extracto ? [extracto] : []} /> : null}
+      <div style={{ height: 6, width: `${trazo * 100}%`, backgroundColor: color, marginBottom: 44, position: "relative" }} />
       <div
         style={{
           fontFamily: tema.serif,
@@ -520,6 +530,7 @@ export const CortinaSeccion: React.FC<{ texto: string }> = ({ texto }) => {
           color: tema.tinta,
           lineHeight: 1.02,
           opacity: entrada,
+          position: "relative",
         }}
       >
         {texto}
