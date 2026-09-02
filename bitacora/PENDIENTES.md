@@ -135,26 +135,33 @@ pierde el nombre.
       análisis está en `ideas/imagen-y-retencion.md` (02-09). Lo primero es
       `CortinaSeccion` en `src/tarjetas.tsx:492`: es el fotograma que YouTube
       toma para CADA capítulo, así que un solo componente define catorce
-      miniaturas de la tira. Textura procedural dibujada en código (cuatro
+      miniaturas de la tira. Ojo: hoy entra en fundido de 0,14 s, así que en
+      el fotograma exacto del inicio es transparente; debe nacer opaca (una
+      línea) o los capítulos correrse medio segundo en `chapters.js`. Textura procedural dibujada en código (cuatro
       familias: topográfica, pauta de gráfico, trama de diario, rayado), papel
       tintado 2 a 4% con el color que ya da `colorDeSeccion()`, y azar sembrado
       con `fecha + sección` para que la misma edición se rinda siempre igual.
       Nada de fondos fotográficos y nada sobre 0,10 de opacidad: la firma del
       canal es que la cifra se lee.
 
-- [ ] **IMAGEN 2: tope y criterio en "En titulares".** Medido en el 02-09: el
-      bloque va de 09:59 a 13:04, tres minutos cinco segundos, el 23% del
-      video, 19 noticias en fila al final. Propuesta: tope de 8, unos 90
-      segundos, ordenadas por alcance + consecuencia + proximidad, y el bloque
-      se mueve ANTES del dato curioso para que la edición no termine en una
-      lista. **Necesita el sí de Santiago**: rompe la regla de que ninguna
-      noticia del informe queda sin sonar (`prompts/guion-informe.md:92`); las
-      que no entren siguen en la web y pasan a la descripción.
+- [ ] **IMAGEN 2: "En titulares" a 90 segundos.** Medido en el 02-09: el
+      bloque va de 09:59 a 13:04, tres minutos cinco segundos, el 23% de una
+      edición de 13:32, 18 noticias en fila al final a 10 s cada una.
+      **Primero la opción B, que no rompe nada**: tope de 12 palabras por
+      titular (hoy miden unas 30), con lo que los 18 caben en 80 a 90 s y
+      todo sigue sonando. Medir en la siguiente edición; solo si un día de 25
+      vuelve a pasar de dos minutos, tope de cantidad (12) con criterio de
+      alcance + consecuencia + proximidad, que sí rompe la regla de
+      `prompts/guion-informe.md:92` y la decide Santiago. En los dos casos el
+      bloque se mueve ANTES del dato curioso para que la edición no termine
+      en una lista.
 
 - [ ] **IMAGEN 3: la recomendación del tiempo, casual y con dos localidades.**
       Nunca nombrar lo que no va a pasar ("salga sin paraguas" se prohíbe),
       máximo 12 palabras por localidad, y Santiago más una capital regional
-      sorteada con la fecha sobre una lista fija de 16. Toca
+      que rota por día del año (módulo 15) sobre la lista fija de las 15
+      capitales fuera de Santiago: rotación, no sorteo, para que no se repita
+      en 15 días. Toca
       `prompts/informe.md:77` y `prompts/guion-informe.md:94`.
 
 - [ ] **IMAGEN 4: apertura en frío.** Hoy la primera noticia concreta llega en
@@ -168,10 +175,12 @@ pierde el nombre.
       la primera que encuentra `scripts/dia.js:128` y la noticia de apertura es
       "una [A]" cualquiera: tres decisiones sueltas en tres archivos. Propuesta:
       el informe declara la NOTICIA DE PORTADA con un puntaje de 0 a 10
-      (alcance, consecuencia, conflicto identificable, proximidad, novedad) y
-      las tres piezas la leen de ahí. Calibrado contra lo medido: el video de
-      Milei tiene 142 vistas, 3,5 veces el segundo, y es el único cuyo título
-      nombra protagonista, conflicto y territorio. **Anotar el puntaje de cada
+      (alcance, consecuencia, nombre propio buscable, proximidad, novedad) y
+      las tres piezas la leen de ahí. Lo medido: el video de Milei tiene 158
+      vistas, casi 4 veces el segundo, e hizo 5, 62 y 158 en sus tres días:
+      no lo empujaron los suscriptores, lo empujó YouTube por búsqueda del
+      nombre. Por eso el criterio es "nombre propio buscable" y no
+      "conflicto". **Anotar el puntaje de cada
       edición en la bitácora y revisar en dos semanas si predice vistas.**
 
 - [ ] **TALLER 1: traer el panel de métricas como cuarto módulo.** El Taller

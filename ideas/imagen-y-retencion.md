@@ -29,6 +29,16 @@ blanco + una línea de color + el nombre en serif. Es decir: el lugar de
 mayor palanca visual de todo el proyecto es un componente de 35 líneas que
 nadie ha mirado, porque define catorce miniaturas de la tira de capítulos.
 
+**Corrección de la revisión (02-09, tarde).** La cortina entra en fundido:
+`entrada` va de 0 a 1 en 0,14 s (`tarjetas.tsx:496`), así que en el
+fotograma EXACTO del inicio del capítulo la cortina es transparente y lo
+que se ve es la última tarjeta de la sección anterior. Si YouTube muestrea
+el primer fotograma, la tira mostraría tarjetas viejas; si muestrea medio
+segundo después, la cortina. No sabemos cuál de las dos hace. Las dos son
+nuestras de arreglar: la cortina debe nacer opaca (sin fundido de entrada,
+que además nadie percibe en 0,14 s) o `chapters.js` debe correr cada
+capítulo medio segundo hacia adelante. Lo primero es una línea.
+
 Cualquier trabajo de fondos empieza ahí.
 
 ---
@@ -89,34 +99,49 @@ Aparte de esto quedan los fondos por TIPO de informe, que ya existen
 **Lo medido, edición del 02-09** (de `contenido/descripciones/`):
 
 - El bloque va de **09:59 a 13:04**: **3 minutos 5 segundos**.
-- El video dura 13:20. El bloque es el **23% de la edición**.
-- Son **19 noticias** leídas seguidas, sin desarrollo, en el tramo final.
-- Últimas cuatro ediciones: 16, 26, 20 y 19 titulares. No es un día raro.
+- El audio de la edición dura **13:32** (`contenido/podcast/episodios.json`,
+  `durSeg`); el video suma el sello, unos 3 s más. El bloque es el **23%
+  de la edición**. (La primera versión de este documento decía "13:20":
+  era un número puesto sin medir. El porcentaje se sostiene igual.)
+- Son **18 noticias** leídas seguidas, sin desarrollo, en el tramo final,
+  a unos 10 segundos cada una.
+- Últimas cuatro ediciones: 15, 25, 19 y 18 titulares. No es un día raro.
+  (La primera versión decía 16, 26, 20 y 19: contaba la línea de entrada
+  "Y en titulares:" como si fuera una noticia.)
 
 Tres minutos de lista plana al final es exactamente donde una audiencia se
 va, y encima se lleva puesto el cierre, que es lo único que pide volver
 mañana. Tienes razón: hay que ponerle tope.
 
-**Propuesta.**
+**Dos formas de bajar los tres minutos a uno y medio.** La primera
+versión de este documento proponía solo la A. La revisión encontró la B, y
+es mejor porque no rompe nada.
 
-- **Tope duro: 8 titulares, alrededor de 90 segundos.**
-- **Criterio de selección** (puntaje 0 a 6, se ordena y entran los ocho
-  primeros): alcance (0-2, a cuánta gente le cambia algo) + consecuencia
-  (0-2, si cambia algo concreto: plata, un derecho, un servicio, una
-  fecha) + proximidad (0-2, si le pasa a Chile o a un lugar nombrable).
-  Empate: gana el de más consecuencia.
-- **Mover el bloque antes del Dato curioso.** Hoy el orden es dato curioso,
-  agenda, titulares, cierre: la edición termina con una lista. Con el
-  bloque antes, los últimos dos minutos son el dato curioso, la agenda y
-  el cierre, que es un final mucho mejor.
+- **A. Tope de cantidad**: 8 titulares, ordenados por alcance +
+  consecuencia + proximidad (0-2 cada uno). Rompe la regla de
+  `prompts/guion-informe.md:92` (ninguna noticia del informe queda sin
+  sonar): entre 7 y 17 noticias por día dejarían de leerse, y pasarían a la
+  descripción del video con una línea "y otras once noticias del día, en la
+  descripción". **Esta la decide Santiago**, porque la promesa de que todo
+  lo del informe suena fue una decisión suya de diseño.
+- **B. Tope de largo, no de cantidad**: cada titular de **12 palabras como
+  máximo**. Hoy miden unas 30 (medido en el 02-09: 185 s entre 18 son 10 s
+  por titular, que a la velocidad de la voz son 28 a 32 palabras). A 12
+  palabras son 4 a 5 s cada uno: los 18 del 02-09 caben en **80 a 90
+  segundos** y todo sigue sonando. La regla del formato: el hecho y, si es
+  imprescindible, una cifra; sin quién dijo, sin contexto, sin segunda
+  cláusula. "Contraloría detectó hongos y humedad en obras del Hospital
+  Las Higueras" son 11 palabras; la versión actual tiene 19.
 
-**Esto rompe una promesa vigente y la decisión es de Santiago.** La regla
-actual (`prompts/guion-informe.md:92`) dice que ninguna noticia del informe
-queda sin sonar en el video. Con tope de 8, entre 8 y 18 noticias por día
-dejan de sonar. La compensación: siguen íntegras en el informe publicado en
-la web y pasan a la descripción del video, y el guion cierra el bloque con
-una línea del tipo "y otras once noticias del día, en la descripción". El
-trabajo periodístico no se pierde, deja de leerse en voz alta.
+**Recomendación: B primero.** Se aplica en el prompt, se mide en la
+siguiente edición (el bloque debe bajar de 100 s), y solo si un día de 25
+titulares vuelve a pasar de dos minutos se agrega la A con tope de 12. Así
+la promesa se mantiene mientras se pueda mantener.
+
+**En los dos casos, mover el bloque antes del Dato curioso.** Hoy el orden
+es dato curioso, agenda, titulares, cierre: la edición termina con una
+lista. Con el bloque antes, los últimos dos minutos son el dato curioso,
+la agenda y el cierre, que es un final mucho mejor.
 
 ---
 
@@ -132,12 +157,16 @@ Tres cambios:
 2. **Muy corta y casual**: máximo 12 palabras por localidad, en tono de
    quien avisa de paso, no de servicio meteorológico. Sin mínima y máxima
    entre paréntesis, sin fuente hablada.
-3. **Dos localidades: Santiago y una que rota**, distinta cada día,
-   sorteada con la fecha como semilla sobre una lista fija de capitales
-   regionales (Arica, Iquique, Antofagasta, Copiapó, La Serena, Valparaíso,
-   Rancagua, Talca, Chillán, Concepción, Temuco, Valdivia, Osorno, Puerto
-   Montt, Coyhaique, Punta Arenas). Determinista, así que la edición es
-   reproducible, y no se repite en dos semanas.
+3. **Dos localidades: Santiago y una que rota**, distinta cada día, sobre
+   la lista fija de las **15 capitales regionales** fuera de Santiago:
+   Arica, Iquique, Antofagasta, Copiapó, La Serena, Valparaíso, Rancagua,
+   Talca, Chillán, Concepción, Temuco, Valdivia, Puerto Montt, Coyhaique,
+   Punta Arenas. (La primera versión ponía Osorno, que no es capital
+   regional, y decía 16.) **Rotación por día del año, no sorteo**: el
+   número de día módulo 15 elige la ciudad. Un sorteo con la fecha como
+   semilla puede repetir la misma ciudad dos días seguidos; la rotación
+   garantiza 15 días sin repetir y sigue siendo determinista, así que la
+   edición se reproduce igual.
 
 Efecto secundario que no es menor: nombrar una región distinta cada día es
 la única parte de la edición que le habla directo a alguien fuera de
@@ -166,9 +195,14 @@ formato.
    resto igual.
 
 Técnicamente es mover el `<Sequence>` del `Sello` en `src/Informe.tsx:123`
-y agregar una sección "La noticia del día" al comienzo del guion. El
-capítulo 1 pasa a llamarse por la noticia, no "Apertura", que además mejora
-la tira de capítulos.
+(y con él el del logo sonoro, `Informe.tsx:91`, que hoy suena en 0:00) y
+agregar una sección "La noticia del día" al comienzo del guion. El detalle
+que lo hace posible sin tapar voz: si esa apertura es una sección propia
+del guion, el TTS ya le inserta una pausa de 1.200 ms al terminar
+(`tts-azure.js:17`), y el sello con su logo caben en esa pausa, igual que
+hoy caben las cortinas. `inicioNarracion` pasa a 0 y el sello se coloca en
+la primera pausa de `pausas.json`. El capítulo 1 pasa a llamarse por la
+noticia, no "Apertura", que además mejora la tira de capítulos.
 
 ---
 
@@ -180,27 +214,44 @@ la tira de capítulos.
   inventa libre, con la única regla de "una sola idea, concreto, sin
   clickbait" (`guion-informe.md:108`).
 - La **cifra de la miniatura** es el primer `[DATO]` no automático del
-  primer bloque de noticia (`scripts/dia.js:128`).
+  primer bloque de noticia (`scripts/dia.js:128`). La miniatura no elige
+  la noticia: hereda la de apertura y le busca un número. Ya tiene un modo
+  sin cifra, con el título grande (`marca.tsx:93`), así que un día de
+  conflicto sin número no la deja vacía.
 - La **noticia de apertura** es "siempre una [A]" (`informe.md:35`), sin
   decir cuál de las tres o cuatro.
 
 O sea: hoy no hay criterio. Hay tres decisiones tomadas por separado, en
-tres archivos distintos, y la miniatura además arrastra hacia lo económico
-porque toma la primera cifra que encuentra.
+tres archivos distintos, y ninguna sabe de las otras. (La primera versión
+decía que la miniatura "arrastra hacia lo económico": no es exacto, la
+miniatura hereda lo que el informe abrió. El sesgo, si lo hay, está en el
+informe.)
 
 **Lo medido** (métricas del 02-09, videos largos):
 
-| Video largo | Vistas |
+| Video largo | Vistas (medición de las 15:50) |
 |---|---|
-| Milei llega a Chile tras el impasse por el Estrecho de Magallanes | **142** (+80 en un día) |
+| Milei llega a Chile tras el impasse por el Estrecho de Magallanes | **158** (+96 en un día) |
 | La industria cae 5,1% antes del Imacec de julio | 41 |
 | Concepción en Alerta Roja por el aumento del río Andalién | 15 |
 
-El de Milei tiene **3,5 veces** las vistas del segundo y sigue siendo el
+El de Milei tiene casi **4 veces** las vistas del segundo y sigue siendo el
 que más crece. La diferencia entre esos títulos no es sutil: el primero
 nombra un protagonista, un conflicto y un territorio; el segundo es la
 lectura de un indicador. El tercero nombra un lugar y una emergencia, y
-quedó tercero porque es local.
+quedó tercero.
+
+**Lo que la revisión agregó: CÓMO creció.** Día a día, el de Milei hizo
+5 vistas el día que salió, 62 al día siguiente y 158 al tercero. El primer
+día no pasó nada: no fueron los suscriptores (son 7) ni el título en la
+grilla del canal. Despegó al segundo día y aceleró al tercero, que es la
+firma de YouTube empujándolo por búsqueda o sugeridos. "Milei" y "Chile"
+son términos que la gente busca; "industria" e "Imacec" no. Así que el
+mecanismo más probable no es "un título con conflicto atrae clics", sino
+**un nombre propio con demanda de búsqueda hace que YouTube lo muestre**.
+Las dos cosas son compatibles, pero la segunda es más precisa y cambia el
+criterio: lo que hay que puntuar es si la noticia tiene un nombre propio
+que alguien vaya a escribir en el buscador hoy.
 
 **Propuesta: un solo puntaje que decide las tres cosas.** El informe elige
 la NOTICIA DE PORTADA entre sus [A] y la declara en una línea; el guion, la
@@ -213,24 +264,32 @@ PUNTAJE DE PORTADA, 0 a 10, cinco criterios de 0 a 2:
   miles.
 - **Consecuencia**: si cambia algo concreto y ya decidido. 2 = tiene efecto
   con fecha.
-- **Conflicto identificable**: partes con nombre en desacuerdo público.
-  2 = dos actores nombrados, enfrentados, hoy.
+- **Nombre propio buscable**: un actor, lugar o entidad que alguien
+  escribiría hoy en el buscador. 2 = un nombre con demanda de búsqueda
+  real (un presidente extranjero, una ciudad en emergencia, una empresa
+  conocida) en disputa pública; 1 = nombre conocido sin disputa; 0 = solo
+  instituciones o indicadores. (La primera versión lo llamaba "conflicto
+  identificable"; el conflicto ayuda, pero lo que YouTube mueve es la
+  búsqueda del nombre.)
 - **Proximidad**: si le pasa a Chile, a los chilenos o a un lugar
   nombrable. 2 = territorio, soberanía o una ciudad.
 - **Novedad**: 2 = ocurrió en las últimas 24 horas y no se sabía.
 
-Empate: gana el de más conflicto; después, el de más consecuencia.
+Empate: gana el de mayor nombre propio buscable; después, el de más
+consecuencia.
 
 Prohibido subir el puntaje con indignación, morbo, daño a personas o
 sospecha sin fallo. Eso es clickbait, y además rompe la revisión de
 monetización que el propio prompt exige (`guion-informe.md:11`).
 
 **Contra los datos reales**: Milei da 1+1+2+2+2 = **8**. La industria da
-2+1+0+1+1 = **5**. Concepción da 1+2+0+2+2 = **7**. El orden que predice
-(8, 7, 5) es el orden observado (142, 15, 41) en dos de tres, y falla en
-Concepción, que quedó último con el segundo puntaje. Con cuatro videos
-largos y 620 vistas de canal esto es una hipótesis calibrada con muy poco,
-no una ley. **La forma de saber si sirve**: anotar el puntaje de portada de
+2+1+0+1+1 = **5**. Concepción da 1+2+1+2+2 = **8** (la ciudad en emergencia
+puntúa en nombre buscable). El puntaje predice Milei y Concepción
+empatados arriba y la industria abajo; lo observado es 158, 41 y 15: acierta
+el primero y falla el orden de los otros dos. Dicho con precisión: de las
+tres comparaciones de a pares, acierta dos. Con tres videos largos
+públicos esto es una hipótesis que se puede formular, no una que se pueda
+sostener. **La forma de saber si sirve**: anotar el puntaje de portada de
 cada edición en la bitácora y mirar dentro de dos semanas si los de puntaje
 alto tienen más vistas que los de puntaje bajo.
 
