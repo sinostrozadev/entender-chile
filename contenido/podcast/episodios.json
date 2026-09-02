@@ -60,5 +60,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-02-informe.mp3",
     "bytes": 19497024,
     "durSeg": 812
+  },
+  {
+    "fecha": "2026-09-02",
+    "tipo": "clave",
+    "titulo": "Clave · ¿Cómo funcionan los fondos generacionales y qué riesgo asumen?",
+    "descripcion": "Los fondos generacionales cambian la forma en que se administra el riesgo del ahorro previsional a lo largo de la vida. Este video explica por qué el horizonte hasta la jubilación importa, cómo funciona una trayectoria de inversión, qué cambia frente a los multifondos y por qué una cartera más conservadora tampoco está libre de pérdidas.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-02-clave.mp3",
+    "bytes": 16285824,
+    "durSeg": 679
   }
 ]
