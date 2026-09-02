@@ -3,7 +3,36 @@
 Lista viva. Se actualiza cada día al cerrar. Lo hecho se borra, no se
 tacha: para saber qué pasó está el archivo del día.
 
-Última actualización: 29-08-2026, sesión de la noche (ejecutó la lista de la sesión de día).
+Última actualización: 02-09-2026, sesión de la noche.
+
+---
+
+## URGENTE — con plazo
+
+- [ ] **Responder a Google la revisión de la API (plazo: 7 días hábiles
+      desde el 01-09 ≈ 10-09).** Pidieron *"the script / screencast of how
+      you are uploading videos along with the end-results"*. TODO listo en
+      `docs/auditoria-api/respuesta-revision-2026-09-02.md`: borrador del
+      correo en inglés para pegar (Reply EN EL MISMO HILO desde
+      entenderchile@gmail.com), checklist de 3 capturas y el screencast
+      opcional de 60-90 s. Al script se le pega el fuente completo de
+      `scripts/youtube-subir.js`.
+
+## Vigía de datos anunciados (decidido con Santiago, 02-09)
+
+Origen: el Imacec del 01-09 salió a las 08:30 con mejor historia que la
+anunciada y nadie lo capturó en el día. Se eligió la opción 2 (vigilar lo
+ANUNCIADO), no el barrido horario (caro, ruidoso, salta los controles).
+
+- [ ] **Santiago: programar la tarea diaria en ChatGPT (09:20 Chile)** con
+      el prompt de `prompts/vigia.md`: lee las marcas `PENDIENTE DE CIERRE`
+      y la Agenda del informe de hoy, verifica en la fuente primaria si el
+      dato ya salió, escribe `contenido/urgente/FECHA-<slug>.md` y notifica
+      con el número real. En silencio si no hay nada.
+- [ ] **Sistema, fase 2 — "Short exprés"**: workflow que convierta
+      `contenido/urgente/*.md` en un Short con voz en ~10 minutos (subida
+      privada; Santiago publica). Se construye cuando el vigía cace su
+      primer dato y el flujo pruebe que sirve.
 
 ---
 
