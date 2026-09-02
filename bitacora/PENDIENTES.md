@@ -132,21 +132,90 @@ está verificado en el repo y se saca de esta lista. El detalle está en
       De paso, corregir una línea del prompt: dice que nació porque "el
       informe de esa mañana [02-09] anunció el Imacec", y fue el del 01-09.
 
-- [ ] **HOY 2: la Clave quedó a medio hacer y el guardián no avisó.** Hoy
-      existe `contenido/claves/2026-09-02-fondos-generacionales-ciclo-de-vida.md`
-      (03:48) pero **no su guion**, así que no hubo video ni Short de la
-      Clave: 1 pieza y 1 Short en vez de 2 y 2, el primer día así desde el
-      lanzamiento. Se cayó la tarea de ChatGPT de las 04:15.
-      **Dos cosas que arreglar, y la segunda es la que importa:**
-      1. Ver por qué no corrió esa programación (hubo tres commits seguidos
-         de "claves" a las 03:48 y 03:49, que huelen a reintento).
-      2. **El guardián tiene la regla equivocada.** Dice textual: *"si no hay
-         Clave ese día es normal y NO es alerta"*. Se escribió cuando la
-         Clave era opcional; **desde el 30-08 la serie es diaria**. Y el caso
-         de hoy no es "no hay Clave": es una Clave escrita sin guion, que es
-         peor, porque el trabajo se hizo y se perdió. Distinguir los dos
-         casos en el prompt: entrega sin guion = ALERTA siempre; ausencia
-         total de Clave = alerta también, ahora que la serie es diaria.
+- [ ] **HOY 2: la Clave quedó a medio hacer. El agente se autodiagnosticó y
+      la regla que rompió YA ESTABA ESCRITA.**
+      Lo que reportó el agente del guion de Claves, verificado contra el repo:
+      - La entrega existía desde las 03:49 y el índice la registra
+        (`contenido/claves/indice.md`, última línea:
+        `2026-09-02 | fondos-generacionales-ciclo-de-vida | ...`). **Correcto.**
+      - El guion sigue faltando en `contenido/guiones/claves/`. **Correcto.**
+      - "Hubo un falso negativo al localizar el archivo. No debí interpretar
+        que no estaba simplemente porque la búsqueda usada no lo encontró."
+        **Correcto, y es la categoría exacta del fallo.**
+      - La programación está a las 04:15 y no a las 04:30, y eso no explica
+        el fallo. **Correcto**: la Clave llevaba 26 minutos en GitHub.
+
+      **Donde su diagnóstico se queda corto:** propone leer `indice.md` como
+      fuente determinista, pero **`indice.md` lo escribe la MISMA tarea que
+      escribe la Clave** (`prompts/claves.md` línea 7 y el contrato). No es
+      una fuente independiente: si falta uno falta el otro, llegan en el
+      mismo commit. La mejora es real pero más chica de lo que cree: cambia
+      una búsqueda difusa por una ruta exacta, que es justo el paso que
+      falló. Sirve, pero no es "la" corrección.
+
+      **La corrección de verdad, y es incómoda: la regla ya estaba escrita, y
+      la escribió Santiago.** `prompts/contrato-archivos.md`, sección
+      "VERIFICAR ANTES DE AFIRMAR", dice literalmente:
+      *"Una ausencia también es un hecho y debe verificarse (...) Esto vale
+      sobre todo cuando la conclusión te lleva a OMITIR algo (...) Omitir por
+      una premisa falsa es peor que preguntar, porque no deja rastro y se
+      descubre días después."*
+      Es la descripción exacta de lo que pasó, palabra por palabra.
+
+      **Por qué no la aplicó: el orden del prompt.** En
+      `prompts/guion-claves.md` la puerta de salida está en la **línea 1**
+      ("Si hoy no existe entrega en el repositorio, indícalo y termina sin
+      generar guion") y la referencia al contrato está en la **línea 71 de
+      77**. El agente lee el permiso para irse mucho antes de llegar a la
+      obligación de verificar. Es la misma forma del problema de "Para salir
+      hoy": la regla existe y está al final.
+      **Y no es solo este prompt**: en los tres (`claves.md`,
+      `guion-informe.md`, `guion-claves.md`) la línea "CONTRATO DE ARCHIVOS:
+      aplica el contrato..." es de las últimas del archivo.
+
+      **Cambios a aplicar en `prompts/guion-claves.md`:**
+      1. **Subir la referencia al contrato al principio**, antes de cualquier
+         instrucción que permita omitir o terminar. Hacer lo mismo en
+         `guion-informe.md`, `informe.md` y `seleccion.md`.
+      2. **Localización en dos rutas, y las dos tienen que fallar**: resolver
+         el slug desde la última línea de `contenido/claves/indice.md` cuya
+         fecha sea FECHA y abrir `contenido/claves/FECHA-<slug>.md`; si eso
+         falla, listar `contenido/claves/` y buscar `FECHA-*.md`.
+      3. **Hacer cara la declaración de ausencia**: antes de terminar por
+         "no hay entrega", la respuesta DEBE incluir el listado del
+         directorio que vio y la última línea de `indice.md`. Una ausencia
+         sin esa evidencia no vale.
+      4. **Prohibir el final silencioso**: si de verdad no hay entrega,
+         escribir y pushear `contenido/guiones/claves/FECHA-SIN-ENTREGA.md`
+         con el motivo y la evidencia. Hoy el fallo no dejó ningún rastro en
+         el repo, que es exactamente lo que el contrato advierte.
+
+      **Cambio en `prompts/contrato-archivos.md`**, una línea a la sección
+      VERIFICAR ANTES DE AFIRMAR: *"Una búsqueda que no encuentra no es una
+      ausencia: es una búsqueda que no encontró. Antes de declarar que un
+      archivo no existe, lista su carpeta y cita en tu respuesta lo que
+      viste."*
+
+      **Cambios en el guardián (`trig_01Dk4PXRmGEMPHzrvs6amTgf`):**
+      1. Sacar la regla obsoleta *"si no hay Clave ese día es normal y NO es
+         alerta"*. Se escribió cuando la Clave era opcional; **desde el 30-08
+         la serie es diaria**.
+      2. Distinguir tres casos, que hoy son uno solo:
+         - entrega en `contenido/claves/FECHA-*.md` **sin** guion en
+           `contenido/guiones/claves/FECHA-*.md` → **ALERTA**, y nombrar la
+           pieza perdida. Es el peor de los tres, porque el trabajo se hizo.
+         - ni entrega ni guion → ALERTA, ahora que la serie es diaria.
+         - entrega y guion pero sin `contenido/descripciones/FECHA-clave.txt`
+           → ALERTA: se escribió y no se renderizó.
+      3. **Sumarle al guardián la regla de verificar antes de afirmar.**
+         Es el agente que más expuesto está: declarar ausencias es
+         literalmente su trabajo. Antes de decir que algo falta, tiene que
+         listar la carpeta.
+
+      **Y una para mirar, no urgente:** entre la Clave (03:49) y su guion
+      (04:15) hay 26 minutos. Cumple la regla de los 15, pero si la Clave se
+      atrasa el guion corre sobre nada. Vale evaluar un reintento único a los
+      20 minutos cuando la primera pasada no encuentra entrega.
 
 - [ ] **HOY 3: borrar la rutina vieja del guardián.**
       `trig_01TNcYi1Pe46NtnL7eXN6YAx`, ya deshabilitada y renombrada. Falta
