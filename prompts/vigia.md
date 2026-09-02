@@ -2,7 +2,7 @@
 
 Tarea diaria de las 09:20 de Chile (después de los horarios típicos de
 publicación: IPC 08:00, Imacec 08:30, INE ~09:00). Nació el 02-09-2026: el
-informe de esa mañana anunció el Imacec, el dato salió a las 08:30 con una
+informe del 01-09 anunció el Imacec, el dato salió a las 08:30 con una
 historia mejor que la anunciada (cayó 1,5%, la mayor caída desde marzo de
 2023), y nadie lo capturó durante el día. La detección no falló: el informe
 SABÍA que el dato venía. Faltaba quien actuara sobre ese conocimiento.
