@@ -121,143 +121,30 @@ que sigue de aquellos (ARREGLO 0, 2b, 3, PANEL 1, VISUAL 1 y 3, EDITORIAL 1)
 está verificado en el repo y se saca de esta lista. El detalle está en
 `bitacora/2026-09-02-auditoria.md`. Lo nuevo de hoy va primero.
 
-- [ ] **HOY 1: el vigía existe pero no lo dispara nadie.** `prompts/vigia.md`
-      está escrito y bien pensado, para las 09:20 de Chile. En
-      `list_triggers` hay cinco rutinas (barrido, observatorio, revisión,
-      guardián, métricas) y ninguna es el vigía. Un prompt sin reloj es un
-      documento. **Crearlo por la misma vía que las otras cuatro que sí
-      funcionan** (`via http_api`, con `sources` apuntando al repo, que es
-      justo lo que le faltaba al guardián viejo), cron `20 13 * * *` UTC =
-      09:20 de Chile en invierno. Ojo con el cambio de hora del 6-09.
-      De paso, corregir una línea del prompt: dice que nació porque "el
-      informe de esa mañana [02-09] anunció el Imacec", y fue el del 01-09.
-
-- [ ] **HOY 2: la Clave quedó a medio hacer. El agente se autodiagnosticó y
-      la regla que rompió YA ESTABA ESCRITA.**
-      Lo que reportó el agente del guion de Claves, verificado contra el repo:
-      - La entrega existía desde las 03:49 y el índice la registra
-        (`contenido/claves/indice.md`, última línea:
-        `2026-09-02 | fondos-generacionales-ciclo-de-vida | ...`). **Correcto.**
-      - El guion sigue faltando en `contenido/guiones/claves/`. **Correcto.**
-      - "Hubo un falso negativo al localizar el archivo. No debí interpretar
-        que no estaba simplemente porque la búsqueda usada no lo encontró."
-        **Correcto, y es la categoría exacta del fallo.**
-      - La programación está a las 04:15 y no a las 04:30, y eso no explica
-        el fallo. **Correcto**: la Clave llevaba 26 minutos en GitHub.
-
-      **Donde su diagnóstico se queda corto:** propone leer `indice.md` como
-      fuente determinista, pero **`indice.md` lo escribe la MISMA tarea que
-      escribe la Clave** (`prompts/claves.md` línea 7 y el contrato). No es
-      una fuente independiente: si falta uno falta el otro, llegan en el
-      mismo commit. La mejora es real pero más chica de lo que cree: cambia
-      una búsqueda difusa por una ruta exacta, que es justo el paso que
-      falló. Sirve, pero no es "la" corrección.
-
-      **La corrección de verdad, y es incómoda: la regla ya estaba escrita, y
-      la escribió Santiago.** `prompts/contrato-archivos.md`, sección
-      "VERIFICAR ANTES DE AFIRMAR", dice literalmente:
-      *"Una ausencia también es un hecho y debe verificarse (...) Esto vale
-      sobre todo cuando la conclusión te lleva a OMITIR algo (...) Omitir por
-      una premisa falsa es peor que preguntar, porque no deja rastro y se
-      descubre días después."*
-      Es la descripción exacta de lo que pasó, palabra por palabra.
-
-      **Por qué no la aplicó: el orden del prompt.** En
-      `prompts/guion-claves.md` la puerta de salida está en la **línea 1**
-      ("Si hoy no existe entrega en el repositorio, indícalo y termina sin
-      generar guion") y la referencia al contrato está en la **línea 71 de
-      77**. El agente lee el permiso para irse mucho antes de llegar a la
-      obligación de verificar. Es la misma forma del problema de "Para salir
-      hoy": la regla existe y está al final.
-      **Y no es solo este prompt**: en los tres (`claves.md`,
-      `guion-informe.md`, `guion-claves.md`) la línea "CONTRATO DE ARCHIVOS:
-      aplica el contrato..." es de las últimas del archivo.
-
-      **Cambios a aplicar en `prompts/guion-claves.md`:**
-      1. **Subir la referencia al contrato al principio**, antes de cualquier
-         instrucción que permita omitir o terminar. Hacer lo mismo en
-         `guion-informe.md`, `informe.md` y `seleccion.md`.
-      2. **Localización en dos rutas, y las dos tienen que fallar**: resolver
-         el slug desde la última línea de `contenido/claves/indice.md` cuya
-         fecha sea FECHA y abrir `contenido/claves/FECHA-<slug>.md`; si eso
-         falla, listar `contenido/claves/` y buscar `FECHA-*.md`.
-      3. **Hacer cara la declaración de ausencia**: antes de terminar por
-         "no hay entrega", la respuesta DEBE incluir el listado del
-         directorio que vio y la última línea de `indice.md`. Una ausencia
-         sin esa evidencia no vale.
-      4. **Prohibir el final silencioso**: si de verdad no hay entrega,
-         escribir y pushear `contenido/guiones/claves/FECHA-SIN-ENTREGA.md`
-         con el motivo y la evidencia. Hoy el fallo no dejó ningún rastro en
-         el repo, que es exactamente lo que el contrato advierte.
-
-      **Cambio en `prompts/contrato-archivos.md`**, una línea a la sección
-      VERIFICAR ANTES DE AFIRMAR: *"Una búsqueda que no encuentra no es una
-      ausencia: es una búsqueda que no encontró. Antes de declarar que un
-      archivo no existe, lista su carpeta y cita en tu respuesta lo que
-      viste."*
-
-      **Cambios en el guardián (`trig_01Dk4PXRmGEMPHzrvs6amTgf`):**
-      1. Sacar la regla obsoleta *"si no hay Clave ese día es normal y NO es
-         alerta"*. Se escribió cuando la Clave era opcional; **desde el 30-08
-         la serie es diaria**.
-      2. Distinguir tres casos, que hoy son uno solo:
-         - entrega en `contenido/claves/FECHA-*.md` **sin** guion en
-           `contenido/guiones/claves/FECHA-*.md` → **ALERTA**, y nombrar la
-           pieza perdida. Es el peor de los tres, porque el trabajo se hizo.
-         - ni entrega ni guion → ALERTA, ahora que la serie es diaria.
-         - entrega y guion pero sin `contenido/descripciones/FECHA-clave.txt`
-           → ALERTA: se escribió y no se renderizó.
-      3. **Sumarle al guardián la regla de verificar antes de afirmar.**
-         Es el agente que más expuesto está: declarar ausencias es
-         literalmente su trabajo. Antes de decir que algo falta, tiene que
-         listar la carpeta.
-
-      **Y una para mirar, no urgente:** entre la Clave (03:49) y su guion
-      (04:15) hay 26 minutos. Cumple la regla de los 15, pero si la Clave se
-      atrasa el guion corre sobre nada. Vale evaluar un reintento único a los
-      20 minutos cuando la primera pasada no encuentra entrega.
-
-- [ ] **HOY 4: el workflow es todo o nada, y por eso una pieza atrasada no
-      se puede rescatar. Hacerlo reentrante.**
-      Contexto: Santiago va a relanzar la tarea del guion de Claves. Cuando
-      ese push llegue, **no va a pasar nada**, por dos bloqueos independientes:
-      1. `edicion-diaria.yml` escucha `contenido/revisiones/**` y
-         `contenido/guiones/informe/**`. **No escucha
-         `contenido/guiones/claves/**`**, así que el push no toca ningún
-         timbre.
-      2. Y aunque se dispare a mano, el **paso 0** pregunta si el release
-         `edicion-FECHA` ya tiene `informe.mp4`. Lo tiene, así que pone
-         `SALTAR=1` y la corrida termina sin hacer nada. `workflow_dispatch`
-         tampoco lo esquiva: el paso 0 no tiene condición de evento.
-      **La causa de fondo:** el workflow produce la edición completa en una
-      pasada y su única pregunta de idempotencia es "¿ya hay video del
-      informe?". No existe el camino "produce solo la pieza que falta".
-      **Tres cambios chicos en `.github/workflows/edicion-diaria.yml`:**
-      a. Sumar `contenido/guiones/claves/**` a los `paths` del push, para que
-         un guion de Clave atrasado toque su propio timbre.
-      b. **Partir el paso 0 en cuatro preguntas en vez de una**: por cada
-         pieza (informe, Short del informe, Clave, Short de la Clave), mirar
-         si su `.mp4` ya está en el release y saltarse solo esa; cada paso de
-         producción con su propio `if`. Así queda reentrante: se relanza
-         cuando sea y produce solo lo que falta.
-         **Lo bueno es que las subidas ya están a salvo** y no hay que
-         tocarlas: los pasos de YouTube y de podcast preguntan
-         `if [ -f out/$FECHA/... ]`, y en un runner nuevo `out/` está vacío
-         salvo lo que esa corrida acabe de renderizar. No hay riesgo de subir
-         dos veces.
-      c. **Agregar un input `fecha` a `workflow_dispatch`.** Hoy `FECHA` es
-         siempre hoy (`TZ=America/Santiago date +%F`). Sin ese input, una
-         pieza atrasada solo se puede rescatar el mismo día antes de
-         medianoche: al día siguiente el workflow buscaría la Clave de la
-         fecha nueva.
-      **Para hoy, en concreto:** si la noche alcanza a aplicar (a) y (b)
-      antes de las 00:00 de Chile, la Clave del 02-09 se rescata disparando
-      el workflow. Después de medianoche hace falta también (c).
-
-- [ ] **HOY 3: borrar la rutina vieja del guardián.**
-      `trig_01TNcYi1Pe46NtnL7eXN6YAx`, ya deshabilitada y renombrada. Falta
-      borrarla. Su nombre nuevo trae una raya larga, que el proyecto prohíbe
-      en todos sus textos; al borrarla se va sola.
+- [ ] **ESTADO 02-09, 07:50: Santiago levantó la regla de solo lectura para
+      HOY 1 a 4. Qué quedó aplicado y qué no, verificado:**
+      - **HOY 4, APLICADO** (`221b15d`): edición diaria reentrante por pieza,
+        path de `guiones/claves/**`, input `fecha`, paso 7 protegido.
+        **Pero el disparo desde aquí rebotó**: `actions_run_trigger` devuelve
+        `403 Resource not accessible by integration`, el mismo 403 de la
+        integración que se anotó el 31-08. El workflow se dispara desde el
+        botón "Run workflow" en GitHub con `fecha = 2026-09-02` (el enlace
+        está en el panel), o con cualquier push a `contenido/guiones/claves/`.
+      - **HOY 2, APLICADO en los prompts** (`127d49f`): contrato al inicio de
+        los cinco prompts, localización por dos rutas, ausencia con evidencia,
+        `FECHA-SIN-ENTREGA.md`, y la frase en el contrato. Rige desde la tarea
+        de las 04:15 de mañana, porque ChatGPT lee los prompts del repo.
+        **Pero el guardián NO**: `update_trigger` rebotó con "Agents can only
+        update routines they created" (la rutina se creó por la API). El
+        prompt nuevo quedó versionado en **`prompts/guardian.md`**, listo
+        para pegar en `trig_01Dk4PXRmGEMPHzrvs6amTgf` desde la interfaz o
+        para que la sesión local lo recree por su vía. Hasta que se pegue, el
+        guardián sigue sin vigilar la Clave.
+      - **HOY 3, HECHO**: la rutina vieja `trig_01TNcYi1Pe46NtnL7eXN6YAx` fue
+        borrada.
+      - **HOY 1 corregido**: el vigía es un prompt para ChatGPT, no una
+        rutina de Claude. Santiago lo programa a las 09:20. La línea de
+        origen ya está corregida (`d35cb1b`).
 
 - [ ] **EDITORIAL 1b, para la mañana: verificar si la edición del 02-09 cerró
       el Imacec (cayó 1,5%) por su cuenta.** Si lo hizo, fue por ser noticia
