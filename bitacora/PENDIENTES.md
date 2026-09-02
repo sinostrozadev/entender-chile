@@ -131,6 +131,49 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **IMAGEN 1: fondos por sección, empezando por la cortina.** Todo el
+      análisis está en `ideas/imagen-y-retencion.md` (02-09). Lo primero es
+      `CortinaSeccion` en `src/tarjetas.tsx:492`: es el fotograma que YouTube
+      toma para CADA capítulo, así que un solo componente define catorce
+      miniaturas de la tira. Textura procedural dibujada en código (cuatro
+      familias: topográfica, pauta de gráfico, trama de diario, rayado), papel
+      tintado 2 a 4% con el color que ya da `colorDeSeccion()`, y azar sembrado
+      con `fecha + sección` para que la misma edición se rinda siempre igual.
+      Nada de fondos fotográficos y nada sobre 0,10 de opacidad: la firma del
+      canal es que la cifra se lee.
+
+- [ ] **IMAGEN 2: tope y criterio en "En titulares".** Medido en el 02-09: el
+      bloque va de 09:59 a 13:04, tres minutos cinco segundos, el 23% del
+      video, 19 noticias en fila al final. Propuesta: tope de 8, unos 90
+      segundos, ordenadas por alcance + consecuencia + proximidad, y el bloque
+      se mueve ANTES del dato curioso para que la edición no termine en una
+      lista. **Necesita el sí de Santiago**: rompe la regla de que ninguna
+      noticia del informe queda sin sonar (`prompts/guion-informe.md:92`); las
+      que no entren siguen en la web y pasan a la descripción.
+
+- [ ] **IMAGEN 3: la recomendación del tiempo, casual y con dos localidades.**
+      Nunca nombrar lo que no va a pasar ("salga sin paraguas" se prohíbe),
+      máximo 12 palabras por localidad, y Santiago más una capital regional
+      sorteada con la fecha sobre una lista fija de 16. Toca
+      `prompts/informe.md:77` y `prompts/guion-informe.md:94`.
+
+- [ ] **IMAGEN 4: apertura en frío.** Hoy la primera noticia concreta llega en
+      el segundo 31 (medido). Propuesta: 0:00 a 0:12 la noticia de portada
+      entera, después el sello (mover el `<Sequence>` de `src/Informe.tsx:123`),
+      después la apertura acortada a 15 segundos. El capítulo 1 pasa a llamarse
+      por la noticia.
+
+- [ ] **IMAGEN 5: puntaje de portada, una decisión para las tres.** Hoy el
+      título lo inventa libre el agente del guion, la cifra de la miniatura es
+      la primera que encuentra `scripts/dia.js:128` y la noticia de apertura es
+      "una [A]" cualquiera: tres decisiones sueltas en tres archivos. Propuesta:
+      el informe declara la NOTICIA DE PORTADA con un puntaje de 0 a 10
+      (alcance, consecuencia, conflicto identificable, proximidad, novedad) y
+      las tres piezas la leen de ahí. Calibrado contra lo medido: el video de
+      Milei tiene 142 vistas, 3,5 veces el segundo, y es el único cuyo título
+      nombra protagonista, conflicto y territorio. **Anotar el puntaje de cada
+      edición en la bitácora y revisar en dos semanas si predice vistas.**
+
 - [ ] **TALLER 1: traer el panel de métricas como cuarto módulo.** El Taller
       quedó publicado el 02-09 con tres módulos (Archivos, Borradores, Cómo
       funciona) más el muelle de Claude:
