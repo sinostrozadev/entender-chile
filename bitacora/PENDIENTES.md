@@ -99,6 +99,13 @@ pierde el nombre.
 
 ## Bloquean todo y dependen de Santiago
 
+- [ ] **Programar la auditoría matinal a las 09:30 de Chile**, apuntando a
+      `prompts/auditoria-matinal.md` (pedida el 02-09). Corre después de la
+      última ejecución del día, evalúa cómo salió todo, propone arreglos y
+      **clasifica cada uno en HOY / AGUANTA / MIRAR**. No la creo yo: una
+      rutina creada por un agente nace sin el repo montado, que fue
+      exactamente el bug del guardián.
+
 - [ ] **Pegar `prompts/guardian.md` en la rutina del guardián**
       (`trig_01Dk4PXRmGEMPHzrvs6amTgf`): un agente no puede editarla. Hasta
       entonces, el guardián no vigila la Clave.
