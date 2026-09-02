@@ -75,17 +75,12 @@
 <div class="marco">
   <div class="cab">
     <h1>Panel Entender Chile</h1>
-    <div class="fecha">01-09-2026 · día 3 del canal en público</div>
+    <div class="fecha" id="cab-fecha"></div>
   </div>
 
   <section>
     <p class="eyebrow">Hoy</p>
-    <div class="fila f4">
-      <div class="tarjeta tile"><div class="n">5</div><div class="d">suscriptores <span class="delta">+2 hoy</span></div></div>
-      <div class="tarjeta tile"><div class="n">465</div><div class="d">vistas sumadas video por video <span class="delta">+313 hoy</span></div></div>
-      <div class="tarjeta tile"><div class="n">12</div><div class="d">videos públicos (14 subidos, 2 en privado)</div></div>
-      <div class="tarjeta tile"><div class="n">153</div><div class="d">días para la meta YPP (1-feb-2027)</div></div>
-    </div>
+    <div class="fila f4" id="hoy-tiles"></div>
   </section>
 
   <section class="tarjeta">
@@ -102,16 +97,10 @@
 
   <div class="fila f2">
     <section class="tarjeta">
-      <p class="eyebrow">Vistas por video · medición del 01-09 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· histórico diario en bitacora/metricas/*.json</span></p>
-      <div class="barra-fila"><div class="barra-nombre">Short · Cinco cosas (30 ago)</div><div class="barra-pista"><div class="barra-valor" style="width:100%"></div></div><div class="barra-num">177</div></div>
-      <div class="barra-fila"><div class="barra-nombre">Short · Clave antena falsa</div><div class="barra-pista"><div class="barra-valor" style="width:71%"></div></div><div class="barra-num">125</div></div>
-      <div class="barra-fila"><div class="barra-nombre">Informe · Milei llega a Chile</div><div class="barra-pista"><div class="barra-valor" style="width:31%"></div></div><div class="barra-num">55</div></div>
-      <div class="barra-fila"><div class="barra-nombre">Informe · Alerta Roja Andalién</div><div class="barra-pista"><div class="barra-valor" style="width:8%"></div></div><div class="barra-num">14</div></div>
-      <div class="barra-fila"><div class="barra-nombre">Short · Cinco cosas (1 sep)</div><div class="barra-pista"><div class="barra-valor" style="width:14%"></div></div><div class="barra-num">24</div></div>
-      <div class="barra-fila"><div class="barra-nombre">Short · Cinco cosas (31 ago)</div><div class="barra-pista"><div class="barra-valor" style="width:6%"></div></div><div class="barra-num">11</div></div>
-      <p class="nota">Lectura del día 3 (medición de la tarde): los Shorts se llevan <b>360 de las 465 vistas</b> (77%) y siguen acelerando (el del 30 ago cerró en 177). El problema es que <b>las vistas de Shorts no cuentan</b> para las 4.000 horas del YPP: el largo más visto va en 62. El embudo Short a canal trae suscriptores, no horas.</p>
-      <p class="nota"><b>Descuadre resuelto (ARREGLO 3, noche 01-09):</b> venía del contador del canal de YouTube (<code>channels.list.viewCount</code>), que va con rezago en canales con Shorts. Desde hoy <code>vistasTotales</code> es la suma video por video, también hacia atrás, y el contador del canal queda aparte como <code>vistasCanal</code>, solo de referencia.</p>
-</section>
+      <p class="eyebrow">Vistas por video · <span id="hoy-fecha-barras"></span> <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· histórico diario en bitacora/metricas/*.json</span></p>
+      <div id="hoy-barras"></div>
+      <p class="nota" id="hoy-lectura"></p>
+    </section>
 
     <section class="tarjeta">
       <p class="eyebrow">El circuito de cada madrugada</p>
@@ -198,9 +187,9 @@
     <div style="overflow-x:auto">
     <table>
       <tr><th>Meta YPP</th><th class="num">Hoy</th><th class="num">Ritmo actual</th><th class="num">Al ritmo actual llegas</th><th class="num">Ritmo que exige el 1-feb-2027</th></tr>
-      <tr><td>1.000 suscriptores <span class="nota">(hito de los 100 en el camino)</span></td><td class="num">5</td><td class="num">+1,5/día</td><td class="num">~2028 <span class="nota">(los 100: ~nov 2026)</span></td><td class="num">+6,5/día</td></tr>
-      <tr><td>4.000 horas vistas en videos largos <span class="nota">(las de Shorts NO cuentan)</span></td><td class="num">7,5 h</td><td class="num">~3,6 h/día</td><td class="num">~2029 (lineal)</td><td class="num">~26 h/día (≈400 vistas largas/día)</td></tr>
-      <tr><td>Vía alternativa: 10 M de vistas de Shorts en 90 días</td><td class="num">343</td><td class="num">~163/día</td><td class="num">no por esta vía al ritmo actual</td><td class="num">~111.000/día</td></tr>
+      <tr><td>1.000 suscriptores <span class="nota">(hito de los 100 en el camino)</span></td><td class="num" id="pr-subs"></td><td class="num" id="pr-subs-r"></td><td class="num" id="pr-subs-l"></td><td class="num">+6,5/día</td></tr>
+      <tr><td>4.000 horas vistas en videos largos <span class="nota">(las de Shorts NO cuentan)</span></td><td class="num" id="pr-horas"></td><td class="num" id="pr-horas-r"></td><td class="num" id="pr-horas-l"></td><td class="num">~26 h/día (≈400 vistas largas/día)</td></tr>
+      <tr><td>Vía alternativa: 10 M de vistas de Shorts en 90 días</td><td class="num" id="pr-shorts"></td><td class="num" id="pr-shorts-r"></td><td class="num">no por esta vía al ritmo actual</td><td class="num">~111.000/día</td></tr>
     </table>
     </div>
     <p class="nota" style="margin-top:12px"><b>Cómo leer esto sin deprimirse ni engañarse:</b> ningún canal llega a la meta a ritmo lineal; se llega por interés compuesto del algoritmo, y ese ya asomó (las vistas crecieron 4× del día 1 al día 2). Si el crecimiento semanal sostenido es de <b>25%</b>, las 4.000 horas caen ~<b>febrero-marzo 2027</b> (la meta); con <b>15%</b>, ~mayo 2027; sin crecimiento, nunca. Lo que mueve ese porcentaje: retención de los largos (por eso el cold open pendiente), constancia diaria y que cada Short empuje al canal. Proyección recalculada cada mañana con la serie real; con 14 días de datos empieza a ser confiable.</p>
@@ -318,6 +307,59 @@
         e.preventDefault(); pintar(+a.dataset.i);
       });
       pintar(dias.length-1);
+
+      // TODO lo de arriba se dibuja desde HIST, no a mano: así una medición
+      // nueva actualiza la página entera y no solo los gráficos. Antes las
+      // tarjetas, las barras y la proyección estaban escritas en el HTML y
+      // quedaban viejas cada día (02-09).
+      const hoy = dias[dias.length - 1], ayer = dias[dias.length - 2];
+      const T = totales(hoy), A = ayer ? totales(ayer) : null;
+      const DIA1 = totales(dias[0]);
+      const lapso = Math.max(1, (new Date(hoy.fecha) - new Date(dias[0].fecha)) / 864e5);
+      const META = new Date("2027-02-01");
+      const restan = Math.round((META - new Date(hoy.fecha)) / 864e5);
+      const dia = Math.round((new Date(hoy.fecha) - new Date("2026-08-30")) / 864e5) + 1;
+      const fmt = (f) => f.slice(8,10) + "-" + f.slice(5,7) + "-" + f.slice(0,4);
+      const llega = (falta, porDia) => {
+        if (porDia <= 0) return "no por esta vía al ritmo actual";
+        const d = new Date(hoy.fecha); d.setDate(d.getDate() + Math.ceil(falta / porDia));
+        return d.getFullYear() > 2035 ? "no antes de 2035 (lineal)" : "~" + (d.getMonth() < 6 ? "" : "") + d.toLocaleDateString("es-CL", { year: "numeric", month: "short" });
+      };
+      const tile = (n, d, extra) => '<div class="tarjeta tile"><div class="n">' + n + '</div><div class="d">' + d +
+        (extra ? ' <span class="delta">' + extra + '</span>' : '') + '</div></div>';
+      document.getElementById("cab-fecha").textContent = fmt(hoy.fecha) + " · día " + dia + " del canal en público";
+      document.getElementById("hoy-tiles").innerHTML =
+        tile(T.subs, "suscriptores", A ? delta(T.subs, A.subs) + " hoy" : "") +
+        tile(num(T.suma), "vistas sumadas video por video", A ? delta(T.suma, A.suma) + " hoy" : "") +
+        tile(T.publicos, "videos públicos (" + T.subidos + " subidos)") +
+        tile(restan, "días para la meta YPP (1-feb-2027)");
+
+      // barras: las seis piezas más vistas del día
+      const top = hoy.videos.slice().sort((a, b) => b.v - a.v).slice(0, 6);
+      const tope = Math.max(1, top[0] ? top[0].v : 1);
+      const prev = {}; if (ayer) ayer.videos.forEach(v => prev[v.id] = v);
+      const corto2 = (t) => (esShort(t) ? "Short · " : "") + t.t.replace(/^Clave: /, "Clave ").replace(/ #.*$/, "").slice(0, 38);
+      document.getElementById("hoy-fecha-barras").textContent = "medición del " + fmt(hoy.fecha);
+      document.getElementById("hoy-barras").innerHTML = top.map((v) =>
+        '<div class="barra-fila"><div class="barra-nombre" title="' + v.t.replace(/"/g, "&quot;") + '">' + corto2(v) +
+        '</div><div class="barra-pista"><div class="barra-valor' + (esShort(v) ? "" : " apagada") + '" style="width:' +
+        Math.max(2, Math.round(v.v / tope * 100)) + '%"></div></div><div class="barra-num">' + num(v.v) + '</div></div>').join("");
+
+      const pctShorts = T.suma ? Math.round(T.shorts / T.suma * 100) : 0;
+      const mejorLargo = hoy.videos.filter((v) => !esShort(v) && v.e === "public").sort((a, b) => (b.v - (prev[b.id] ? prev[b.id].v : 0)) - (a.v - (prev[a.id] ? prev[a.id].v : 0)))[0];
+      const subeLargo = mejorLargo && prev[mejorLargo.id] ? mejorLargo.v - prev[mejorLargo.id].v : 0;
+      document.getElementById("hoy-lectura").innerHTML =
+        "Los Shorts son <b>" + num(T.shorts) + " de las " + num(T.suma) + " vistas</b> (" + pctShorts + "%), y esas <b>no cuentan</b> para las 4.000 horas del YPP. " +
+        (subeLargo > 0 ? "El largo que más subió hoy es <b>" + mejorLargo.t.slice(0, 44) + "</b>, con +" + subeLargo + ": esa es la única serie que mueve el contador." : "Ningún video largo sumó hoy, que es la serie que mueve el contador.");
+
+      // proyección: ritmo medido sobre la serie real
+      const rSubs = (T.subs - DIA1.subs) / lapso, rHoras = (T.horas - DIA1.horas) / lapso, rShorts = (T.shorts - DIA1.shorts) / lapso;
+      const set = (id, v) => { const el = document.getElementById(id); if (el) el.innerHTML = v; };
+      set("pr-subs", T.subs); set("pr-subs-r", "+" + rSubs.toFixed(1) + "/día");
+      set("pr-subs-l", llega(1000 - T.subs, rSubs) + ' <span class="nota">(los 100: ' + llega(100 - T.subs, rSubs) + ")</span>");
+      set("pr-horas", T.horas.toFixed(1) + " h"); set("pr-horas-r", "~" + rHoras.toFixed(1) + " h/día");
+      set("pr-horas-l", llega(4000 - T.horas, rHoras) + " (lineal)");
+      set("pr-shorts", num(T.shorts)); set("pr-shorts-r", "~" + Math.round(rShorts) + "/día");
     })();
     </script>
   </section>

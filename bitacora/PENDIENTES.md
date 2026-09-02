@@ -124,6 +124,34 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **PANEL 3: el artifact publicado no se actualiza solo, y hay que decidir
+      qué hacer con eso.** Santiago pidió las métricas de hoy y el panel
+      publicado seguía mostrando las de ayer.
+      **Dos causas, las dos mías, la primera ya corregida:**
+      1. *(ARREGLADO hoy)* Las tarjetas de "Hoy", las barras por video, la
+         lectura del día y la columna "Hoy" de la proyección estaban escritas
+         a mano en el HTML. `metricas.js` solo refresca los bloques entre
+         marcadores (SERIE y HIST), así que esos números quedaban viejos cada
+         día por diseño. Ahora **todo se dibuja desde HIST**: una medición
+         nueva actualiza la página entera, incluida la fecha del encabezado y
+         el ritmo de la proyección, que antes calculaba yo a mano.
+      2. *(ABIERTO)* El **artifact publicado es una copia**, no el archivo del
+         repo. `metricas.js` escribe el archivo; republicar el artifact
+         necesita credenciales que un workflow no tiene. Hoy solo se actualiza
+         cuando yo lo republico desde una sesión, o sea que **entre sesiones
+         el panel publicado siempre va un día atrás**.
+      **Tres salidas, de menos a más trabajo:**
+      a. Dejarlo así y republicar en cada sesión de la mañana, sumándolo a la
+         rutina de la auditoría. Cero código, pero depende de acordarse.
+      b. Que la web pública del canal (`entender-chile-web`, que ya se
+         reconstruye sola en el paso 8) sirva el panel en una ruta no
+         enlazada. Deja de haber copia: una sola fuente, actualizada por el
+         mismo pipeline. Es la que yo haría.
+      c. Darle al artifact la capacidad `sample` o `db` para que lea datos en
+         vivo. Descartado por ahora: los conectores de Santiago son Gmail,
+         Calendar y Drive, no hay GitHub, así que la página no puede leer el
+         repo sola.
+
 - [ ] **BUG 1, VISIBLE EN PANTALLA Y YA PUBLICADO: la tarjeta de tesis se
       traga el párrafo siguiente y el texto se desborda del video.**
       Lo vio Santiago el 02-09 en el Short del día (captura), dice que en ese
