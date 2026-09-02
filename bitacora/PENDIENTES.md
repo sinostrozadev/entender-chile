@@ -124,6 +124,66 @@ pierde el nombre.
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **BUG 1, VISIBLE EN PANTALLA Y YA PUBLICADO: la tarjeta de tesis se
+      traga el párrafo siguiente y el texto se desborda del video.**
+      Lo vio Santiago el 02-09 en el Short del día (captura), dice que en ese
+      Short pasó dos veces y que también lo vio en un video largo. Confirmado
+      y medido, no es impresión.
+
+      **Causa exacta, en `scripts/parse.js`.** Al leer `[TESIS]` el parser
+      abre un buffer (`buffer = { tipo: "tesis", lineas: [m[1]] }`, línea
+      ~141) y solo lo cierra con `flush()`, que ocurre en una línea en
+      blanco, un `## `, o una marca `[...]`. Si el guion escribe la tesis y
+      **en la línea siguiente, sin línea en blanco de por medio**, empieza el
+      párrafo narrado, la cola del bucle hace `buffer.lineas.push(linea)`
+      (línea ~192) y el párrafo entero queda dentro de la tesis.
+
+      **Ejemplo de hoy, verificado en el archivo:** el bloque "Seguridad en
+      San Bernardo" tiene la tesis (109 caracteres) pegada al párrafo, y el
+      evento que llega al render mide **578 caracteres**. Eso es lo que se ve
+      desbordado en la captura, encima del sello y de la fecha.
+
+      **Alcance medido** (`[TESIS]` sin línea en blanco después):
+      - `2026-09-01.md`: 1 de 10 tesis
+      - `2026-09-02.md`: **3 de 10 tesis**
+      Los días anteriores, ninguna. O sea que apareció el 01-09 y empeoró
+      hoy: es una regresión reciente, no un defecto de siempre.
+
+      **Por qué se ve peor en el Short:** `scripts/short.js` toma
+      `b.tesis.texto` para su tarjeta, así que hereda el blob completo, y
+      `src/Short.tsx:121` lo pinta con `fontSize: 84` fijo (66 si hay dato),
+      sin ajuste por largo. En el video largo pasa lo mismo con
+      `TarjetaTesis` de `src/tarjetas.tsx`.
+
+      **Tres arreglos, y hay que hacer los tres:**
+      1. **La causa, en `parse.js`:** una `[TESIS]` es de una línea por
+         definición (el prompt le pone tope de 18 palabras). Debe emitirse
+         como evento cerrado en el acto, no abrir buffer:
+         `flush(); eventos.push({ tipo: "tesis", texto: m[1], _seccionNombre: seccionNombre }); continue;`
+         Ojo al hacerlo: hay que conservar `textoPantalla`, que se calcula
+         después recorriendo `eventos` (línea ~199), así que basta con que el
+         evento lleve `texto`.
+      2. **La defensa, en el render:** ninguna tarjeta debería poder
+         desbordar el cuadro pase lo que pase. Escalar el tamaño según el
+         largo, como ya hace `tamano()` en `Short.tsx:69` para las cifras y
+         `tamanoValor()` en `tarjetas.tsx:177`. Aplicarlo a la tesis en los
+         dos componentes.
+      3. **La alarma, en `scripts/validar-tarjetas.js`:** avisar cuando una
+         tesis supere ~180 caracteres. El prompt pide 18 palabras; cualquier
+         cosa sobre eso es señal de que el parser se comió algo, y lo habría
+         cazado el 01-09 antes de que llegara a publicarse.
+
+      **Y una regla para el prompt** (`guion-informe.md` y `guion-claves.md`),
+      que es lo que evita que vuelva: exigir **una línea en blanco después de
+      cada `[TESIS]`**, dicho explícitamente en el formato. Hoy el prompt no
+      lo pide, así que el modelo lo hace o no según el día, que es justo lo
+      que se ve en la serie de arriba.
+
+      **Piezas ya publicadas con el defecto:** el Short y el informe del
+      02-09 (3 tesis), y algo del 01-09 (1 tesis). Decidir si se re-renderizan
+      y se reemplazan en YouTube o se dejan. Con el workflow ya reentrante,
+      re-hacer una pieza suelta cuesta poco.
+
 **Auditoría del 02-09: la noche del 01-09 ejecutó los ocho puntos.** Todo lo
 que sigue de aquellos (ARREGLO 0, 2b, 3, PANEL 1, VISUAL 1 y 3, EDITORIAL 1)
 está verificado en el repo y se saca de esta lista. El detalle está en

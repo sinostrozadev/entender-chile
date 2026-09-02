@@ -190,3 +190,28 @@ las ocho piezas (video y mp3 de informe, Short, Clave y Short de la Clave).
 Lo que sigue tuyo: publicar las dos piezas nuevas desde Studio, pegar
 `prompts/guardian.md` en la rutina del guardián, y programar el vigía en
 ChatGPT a las 09:20.
+
+## Añadido a las 09:00: el texto se desborda de las tarjetas (BUG 1)
+
+Santiago mandó una captura del Short de hoy con el texto saliéndose del
+cuadro, encima del sello y de la fecha. Dice que en ese Short pasó dos veces
+y que también lo vio en un video largo.
+
+**No es un problema de diseño, es el parser.** En `scripts/parse.js`, la
+marca `[TESIS]` abre un buffer que solo se cierra con una línea en blanco,
+un `##` o una marca. Cuando el guion pega el párrafo narrado en la línea
+inmediatamente siguiente, la cola del bucle lo empuja dentro de la tesis. El
+bloque "Seguridad en San Bernardo" de hoy llega al render con **578
+caracteres** en una tarjeta pensada para 18 palabras, pintada a tamaño fijo
+sin ajuste por largo.
+
+Alcance medido sobre todos los guiones: ninguna tesis afectada hasta el
+31-08, **1 de 10 el 01-09 y 3 de 10 hoy**. Es una regresión reciente que
+empeoró, no un defecto de siempre.
+
+Queda como BUG 1 en PENDIENTES con los tres arreglos (el parser, la defensa
+en el render y la alarma en el validador) más la regla para el prompt. Vale
+la pena subrayar una cosa: **el validador de tarjetas que la noche construyó
+ayer habría cazado esto el 01-09**, cuando afectaba a una sola tesis, si
+hubiera tenido un tope de largo. Es exactamente el argumento de medir la
+salida en vez de confiar en la instrucción.
