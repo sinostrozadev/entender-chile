@@ -26,8 +26,14 @@
     <main class="visor">
       <div class="barra">
         <div class="ruta" id="ruta"><b>Ningún archivo abierto</b></div>
+        <div class="cambios" id="cambios" hidden>
+          <button id="b-prev" aria-label="Cambio anterior" title="Cambio anterior">&#8249;</button>
+          <span id="cuenta-cambios"></span>
+          <button id="b-next" aria-label="Cambio siguiente" title="Cambio siguiente">&#8250;</button>
+        </div>
         <button class="btn" id="b-editar" disabled>Editar</button>
-        <button class="btn" id="b-diff" disabled hidden>Ver cambios</button>
+        <button class="btn" id="b-comparar" disabled hidden>Comparar</button>
+        <button class="btn" id="b-vista" hidden title="Cambiar entre dos columnas y una sola">Unificado</button>
         <button class="btn fuerte" id="b-guardar" disabled hidden>Guardar borrador</button>
         <button class="btn" id="b-cancelar" hidden>Salir</button>
         <button class="btn" id="b-ctx" disabled title="Sumar este archivo al contexto de Claude">+ contexto</button>
@@ -53,15 +59,19 @@
       <h2 style="font-family:'Fraunces',Georgia,serif;font-weight:600;margin:6px 0 16px">El circuito de una mejora</h2>
       <div class="bor">
         <h4>1 · Mirar</h4>
-        <div class="meta">El árbol de la izquierda trae los 83 archivos que contienen criterio: prompts, estrategia, ideas, bitácora, docs y los dossiers de casos. No están las ediciones diarias (informes, guiones, barridos): eso es producto, no criterio.</div>
+        <div class="meta">El árbol de la izquierda trae los <b class="n-arch"></b> archivos que contienen criterio: prompts, estrategia, ideas, bitácora, docs y los dossiers de casos. No están las ediciones diarias (informes, guiones, barridos): eso es producto, no criterio.</div>
       </div>
       <div class="bor">
         <h4>2 · Preguntar</h4>
-        <div class="meta">El panel de abajo es Claude, y es global: cambias de archivo y la conversación sigue. Siempre ve el índice completo de los 83 archivos y el que tengas abierto. Con <b>+ contexto</b> sumas otros archivos enteros cuando quieras comparar dos.</div>
+        <div class="meta">El panel de abajo es Claude, y es global: cambias de archivo y la conversación sigue. Siempre ve el índice completo de los <b class="n-arch"></b> archivos y el que tengas abierto. Con <b>+ contexto</b> sumas otros archivos enteros cuando quieras comparar dos.</div>
       </div>
       <div class="bor">
         <h4>3 · Proponer</h4>
-        <div class="meta">Si le pides un cambio concreto, Claude responde con el archivo completo reescrito. Aparece un botón <b>Ver el cambio</b> que abre el diff contra el original: nada se aplica sin que lo mires línea por línea.</div>
+        <div class="meta">Si le pides un cambio concreto, Claude responde con el archivo completo reescrito. Aparece un botón <b>Ver el cambio</b> que lo abre directo en el comparador: nada se aplica sin que lo mires línea por línea.</div>
+      </div>
+      <div class="bor">
+        <h4>3b · Comparar</h4>
+        <div class="meta">Al entrar a <b>Editar</b> ves el archivo solo, con su numeración, y el margen se va marcando en caliente mientras escribes: verde la línea nueva, naranja la que reemplaza a otra, una raya punteada donde borraste. Las flechas <b>&#8249; &#8250;</b> saltan de un cambio al siguiente. <b>Comparar</b> abre las dos versiones enfrentadas, alineadas línea por línea, con una sola barra de desplazamiento para las dos: bajar por un lado es bajar por los dos. En pantalla angosta se pliega a una sola columna, y el botón de vista te deja forzar cualquiera de las dos.</div>
       </div>
       <div class="bor">
         <h4>4 · Guardar</h4>

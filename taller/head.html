@@ -84,32 +84,90 @@
   .btn.fuerte:hover{opacity:.9;color:#fff}
   .btn[disabled]{opacity:.4;cursor:not-allowed}
   .btn.icono{padding:6px 9px}
-  .lienzo{flex:1;overflow:auto;min-height:0;-webkit-overflow-scrolling:touch}
+  .lienzo{flex:1;min-height:0;min-width:0;display:flex;flex-direction:column;overflow:auto;-webkit-overflow-scrolling:touch}
   .texto{white-space:pre-wrap;overflow-wrap:anywhere;font-family:'IBM Plex Mono',monospace;
     font-size:13px;line-height:1.65;padding:18px 20px;margin:0;tab-size:2}
   .vacio{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;
     gap:10px;color:var(--gris);text-align:center;padding:30px}
   .vacio b{font-family:'Fraunces',Georgia,serif;font-size:19px;color:var(--tinta);font-weight:600}
 
-  /* ---- editor y diff ---- */
-  .dividido{display:grid;grid-template-columns:1fr 1fr;height:100%;min-height:0}
-  .lado{display:flex;flex-direction:column;min-width:0;min-height:0;border-right:1px solid var(--linea)}
-  .lado:last-child{border-right:none}
-  .lado h3{margin:0;padding:7px 14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
-    letter-spacing:.16em;text-transform:uppercase;color:var(--gris);border-bottom:1px solid var(--linea);
-    background:var(--tarjeta);flex-shrink:0}
-  .lado .lienzo{padding:0}
-  textarea.edit{width:100%;height:100%;border:none;resize:none;padding:18px 20px;
-    font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.65;background:var(--fondo);
-    color:var(--tinta);tab-size:2}
-  textarea.edit:focus{outline:none}
-  .dif{font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.6;padding:0 0 20px}
+  /* ═══════════ editor: capa espejo + textarea transparente ═══════════
+     Las dos capas comparten fuente, interlineado, sangría y ancho, así que el
+     texto se corta en el mismo punto y las marcas del margen quedan pegadas a
+     su línea aunque el párrafo se envuelva. El textarea NO tiene barra propia:
+     crece hasta su contenido y quien se desplaza es .cod, que es también quien
+     lleva la capa. Un solo scroll, cero sincronización. */
+  .cod{position:relative;flex:1;min-height:0;overflow:auto;background:var(--fondo);
+    -webkit-overflow-scrolling:touch}
+  .cod .capa,.cod textarea.edit{font-family:'IBM Plex Mono','Courier New',monospace;
+    font-size:13px;line-height:1.7;letter-spacing:0;tab-size:2;white-space:pre-wrap;
+    overflow-wrap:anywhere;word-break:normal;margin:0;border:0}
+  .cod .capa{position:absolute;top:0;left:0;width:100%;padding:14px 0 0;color:transparent;
+    pointer-events:none;user-select:none}
+  .cod textarea.edit{position:relative;display:block;width:100%;padding:14px 16px 40px 62px;
+    background:transparent;color:var(--tinta);resize:none;overflow:hidden;caret-color:var(--acento)}
+  .cod textarea.edit:focus{outline:none}
+  .cod textarea.edit[readonly]{caret-color:transparent}
+  .capa .ln{position:relative;padding:0 16px 0 62px;min-height:1.7em}
+  .capa .num{position:absolute;left:0;width:46px;text-align:right;color:var(--gris);
+    font-size:11px;opacity:.55;user-select:none}
+  .capa .ln.add{background:var(--mas);box-shadow:inset 3px 0 0 var(--mas-borde)}
+  .capa .ln.mod{background:var(--mas);box-shadow:inset 3px 0 0 var(--cobre)}
+  .capa .ln.add .num,.capa .ln.mod .num{color:var(--tinta);opacity:.85}
+  /* La marca de borrado va FUERA DEL FLUJO. Con border-top le sumaba 2px a la
+     capa y todo lo que venía abajo quedaba corrido esos 2px respecto del
+     textarea, que no tiene ese borde: al cabo de tres borrados el margen ya no
+     apuntaba a su línea. */
+  .capa .ln.borr::before{content:'';position:absolute;left:0;right:0;top:0;
+    border-top:2px dotted var(--menos-borde)}
+  .capa .ln.borr::after{content:attr(data-borr);position:absolute;right:6px;top:-.75em;
+    font-size:9.5px;letter-spacing:.06em;color:var(--menos-borde);background:var(--fondo);
+    padding:0 5px;border-radius:3px;white-space:nowrap;line-height:1.5}
+  .capa .ln.aqui{outline:1px solid var(--acento);outline-offset:-1px}
+
+  /* ═══════════ comparación lado a lado (Meld) ═══════════
+     Una sola rejilla dentro de un solo contenedor con barra: las filas alinean
+     los dos lados por construcción y bajar es bajar en los dos. El hueco rayado
+     ocupa el lugar del lado que no tiene línea. */
+  .scroll{flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;background:var(--fondo)}
+  .meld{display:grid;grid-template-columns:1fr 1fr;font-family:'IBM Plex Mono','Courier New',monospace;
+    font-size:12.5px;line-height:1.7;padding-bottom:30px}
+  .meld .cab{position:sticky;top:0;z-index:2;background:var(--tarjeta);color:var(--gris);
+    font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:7px 14px;
+    border-bottom:1px solid var(--linea)}
+  .meld .cab.izq{border-right:1px solid var(--linea)}
+  .meld .c{position:relative;padding:0 10px 0 44px;white-space:pre-wrap;overflow-wrap:anywhere;min-height:1.7em}
+  .meld .c.izq{border-right:1px solid var(--linea)}
+  .meld .num{position:absolute;left:0;width:30px;text-align:right;color:var(--gris);
+    font-size:10.5px;opacity:.55;user-select:none}
+  .meld .c.menos{background:var(--menos);box-shadow:inset 3px 0 0 var(--menos-borde)}
+  .meld .c.mas{background:var(--mas);box-shadow:inset 3px 0 0 var(--mas-borde)}
+  .meld .c.hueco{background:repeating-linear-gradient(135deg,transparent,transparent 5px,
+    var(--linea) 5px,var(--linea) 6px);opacity:.5}
+  .meld .salto{grid-column:1/-1;color:var(--gris);background:var(--tarjeta);
+    border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);
+    font-size:11px;letter-spacing:.1em;padding:5px 14px;margin:6px 0;text-align:center}
+  .meld .c.aqui{outline:1px solid var(--acento);outline-offset:-1px}
+
+  /* ---- diff unificado (pantalla angosta, o a mano) ---- */
+  .dif{font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.6;padding:0 0 30px}
   .dif div{padding:1px 14px 1px 10px;white-space:pre-wrap;overflow-wrap:anywhere;border-left:3px solid transparent}
   .dif .a{background:var(--mas);border-left-color:var(--mas-borde)}
   .dif .b{background:var(--menos);border-left-color:var(--menos-borde);text-decoration:line-through;opacity:.75}
   .dif .salto{color:var(--gris);background:var(--tarjeta);border-top:1px solid var(--linea);
     border-bottom:1px solid var(--linea);font-size:11px;letter-spacing:.1em;padding:5px 14px;margin:6px 0}
   .dif .ctx{color:var(--gris)}
+  .dif .aqui{outline:1px solid var(--acento);outline-offset:-1px}
+
+  /* ---- navegador de cambios ---- */
+  .cambios{display:flex;align-items:center;gap:2px;border:1px solid var(--linea);border-radius:7px;
+    background:var(--fondo);flex-shrink:0}
+  .cambios button{padding:4px 9px;font-size:15px;line-height:1;color:var(--gris)}
+  .cambios button:hover{color:var(--acento)}
+  .cambios span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gris);
+    min-width:34px;text-align:center}
+  .mas{color:var(--acento);font-weight:500}
+  .menos{color:var(--cobre);font-weight:500}
 
   /* ---- dock de Claude ---- */
   /* Cerrado = solo la cabecera. Se ocultan los hijos en vez de mover el bloque
@@ -161,9 +219,6 @@
   .velo{display:none;position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:8}
   .velo.on{display:block}
   @media(max-width:860px){
-    .dividido{grid-template-columns:1fr;grid-template-rows:1fr 1fr}
-    .lado{border-right:none;border-bottom:1px solid var(--linea)}
-    .lado:last-child{border-bottom:none}
     .arbol{position:absolute;left:0;top:0;bottom:0;z-index:9;width:min(84vw,320px);box-shadow:var(--sombra)}
     .arbol.oculto{display:none}
     .marca small{display:none}
@@ -175,5 +230,13 @@
     .barra{padding:8px 10px;gap:6px}
     .btn{padding:6px 10px;font-size:11.5px}
     .texto,.dif{font-size:12.5px}
+    /* el margen del editor se angosta: en 390px cada píxel de texto cuenta */
+    .cod .capa,.cod textarea.edit{font-size:12.5px}
+    .cod textarea.edit{padding-left:44px;padding-right:12px}
+    .capa .ln{padding-left:44px;padding-right:12px}
+    .capa .num{width:32px;font-size:10px}
+    .meld{font-size:11.5px}
+    .meld .c{padding-left:32px;padding-right:6px}
+    .meld .num{width:24px;font-size:9.5px}
   }
 </style>

@@ -22,8 +22,10 @@
 
   const st = {
     abierto: null,      // ruta
-    modo: "ver",        // ver | editar | diff
+    modo: "ver",        // ver | editar | comparar
     edicion: "",        // texto en el editor
+    lado: window.innerWidth > 760,  // comparar: lado a lado (true) o unificado (false)
+    cambio: -1,         // índice del bloque de cambio en el que está parado
     abiertas: new Set(carpetas.slice(0, 3)),
     filtro: "",
     borradores: new Map(),  // ruta -> {texto, ts}
@@ -65,22 +67,31 @@
     return salida;
   }
 
-  function pintarDiff(A, B) {
+  /**
+   * Traduce el diff a marcas POR LÍNEA DEL TEXTO EDITADO, que es lo que el
+   * editor necesita para pintar el margen en caliente mientras se escribe:
+   *   marcas[i]  ''   sin tocar
+   *              add  línea nueva
+   *              mod  línea que reemplaza a otra
+   *   borrados   línea del editor -> cuántas líneas se borraron justo antes
+   *   bloques    primera línea de cada cambio (para el "cambio siguiente")
+   */
+  function analizar(A, B) {
     const d = diffLineas(A, B);
-    const cambios = d.filter((x) => x[0] !== "=").length;
-    if (!cambios) return '<div class="vacio"><b>Sin cambios</b><div>El texto es idéntico al original.</div></div>';
-    // muestra 3 líneas de contexto alrededor de cada cambio
-    const cerca = new Set();
-    d.forEach((x, k) => { if (x[0] !== "=") for (let o = -3; o <= 3; o++) cerca.add(k + o); });
-    let html = "", hueco = false;
-    d.forEach((x, k) => {
-      if (!cerca.has(k)) { hueco = true; return; }
-      if (hueco) { html += '<div class="salto">···</div>'; hueco = false; }
-      const cls = x[0] === "+" ? "a" : x[0] === "-" ? "b" : "ctx";
-      const marca = x[0] === "+" ? "+ " : x[0] === "-" ? "- " : "  ";
-      html += '<div class="' + cls + '">' + esc(marca + x[1]) + "</div>";
-    });
-    return '<div class="dif">' + html + "</div>";
+    const marcas = new Array(B.split("\n").length).fill("");
+    const borrados = new Map();
+    const bloques = [];
+    let j = 0, k = 0, mas = 0, menos = 0;
+    while (k < d.length) {
+      if (d[k][0] === "=") { j++; k++; continue; }
+      const inicio = j;
+      let del = 0, add = 0;
+      while (k < d.length && d[k][0] === "-") { del++; menos++; k++; }
+      while (k < d.length && d[k][0] === "+") { marcas[j] = del ? "mod" : "add"; add++; mas++; j++; k++; }
+      if (del && !add) borrados.set(inicio, (borrados.get(inicio) || 0) + del);
+      bloques.push(inicio);
+    }
+    return { marcas, borrados, bloques, mas, menos, d };
   }
 
   // ═══════════ árbol ═══════════
@@ -112,39 +123,194 @@
   function texto(r) { return st.borradores.has(r) ? st.borradores.get(r).texto : porRuta.get(r).t; }
   function original(r) { return porRuta.get(r).t; }
 
-  function pintarVisor() {
-    const b = $("#b-editar"), d = $("#b-diff"), g = $("#b-guardar"), x = $("#b-cancelar"), c = $("#b-ctx");
+  /**
+   * El editor es un textarea transparente montado sobre una capa espejo que
+   * repite el texto línea por línea. La capa es la que pinta los números y el
+   * color del margen; el textarea solo aporta el cursor y las letras. Las dos
+   * comparten tipografía, interlineado, ancho y sangrías, así que el corte de
+   * línea cae en el mismo punto y las marcas quedan pegadas a su línea aunque
+   * el párrafo se envuelva en tres.
+   */
+  function capaHTML(txt, an) {
+    const lineas = txt.split("\n");
+    const inicios = new Set(an.bloques);
+    let h = "";
+    for (let i = 0; i < lineas.length; i++) {
+      const m = an.marcas[i];
+      const borr = an.borrados.get(i);
+      const cls = "ln" + (m ? " " + m : "") + (borr ? " borr" : "") + (inicios.has(i) ? " inicio" : "");
+      h += '<div class="' + cls + '"' + (inicios.has(i) ? ' data-cambio="1"' : "") +
+        (borr ? ' data-borr="' + borr + " línea" + (borr > 1 ? "s" : "") + ' borrada' + (borr > 1 ? "s" : "") + '"' : "") +
+        '><span class="num">' + (i + 1) + "</span>" + (esc(lineas[i]) || " ") + "</div>";
+    }
+    // marca de borrado al final del archivo, que no cuelga de ninguna línea
+    const cola = an.borrados.get(lineas.length);
+    if (cola) h += '<div class="ln borr cola" data-cambio="1" data-borr="' + cola + ' al final"><span class="num"></span> </div>';
+    return h;
+  }
+
+  function pintarCodigo(txt, an, editable) {
+    return '<div class="cod" id="cod"><div class="capa" id="capa">' + capaHTML(txt, an) + "</div>" +
+      '<textarea class="edit" id="ta" spellcheck="false"' + (editable ? "" : " readonly") + "></textarea></div>";
+  }
+
+  // Recalcula las marcas sin volver a montar el textarea: el cursor no se mueve
+  // y la escritura no parpadea.
+  let temporizador = null;
+  function refrescarMarcas() {
+    const capa = $("#capa"); if (!capa || !st.abierto) return;
+    const an = analizar(original(st.abierto), st.edicion);
+    capa.innerHTML = capaHTML(st.edicion, an);
+    pintarCuenta(an);
+  }
+
+  function pintarCuenta(an) {
+    const n = an.bloques.length;
+    const c = $("#cambios");
+    c.hidden = !n;
+    $("#cuenta-cambios").textContent = n ? (st.cambio >= 0 ? st.cambio + 1 : "-") + "/" + n : "";
+    const r = st.abierto;
+    $("#ruta").innerHTML = '<b>' + esc(hoja(r)) + "</b> · " + esc(carpeta(r)) +
+      (st.borradores.has(r) ? ' · <span style="color:var(--cobre)">con borrador</span>' : "") +
+      (n ? ' · <span class="mas">+' + an.mas + '</span> <span class="menos">-' + an.menos + "</span>" : "");
+  }
+
+  // ═══════════ comparación lado a lado, al modo de Meld ═══════════
+  /**
+   * Las dos columnas viven en UNA sola rejilla dentro de UN solo contenedor con
+   * barra: bajar es bajar en los dos lados por construcción, sin escuchar el
+   * scroll de uno para empujar el del otro (que siempre termina temblando). El
+   * relleno rayado ocupa el hueco del lado que no tiene línea, así que las
+   * líneas iguales quedan siempre frente a frente.
+   */
+  function filasMeld(A, B) {
+    const d = diffLineas(A, B);
+    const filas = [];
+    let na = 0, nb = 0, i = 0;
+    while (i < d.length) {
+      if (d[i][0] === "=") { na++; nb++; filas.push(["=", d[i][1], d[i][1], na, nb]); i++; continue; }
+      const menos = [], mas = [];
+      while (i < d.length && d[i][0] === "-") menos.push(d[i++][1]);
+      while (i < d.length && d[i][0] === "+") mas.push(d[i++][1]);
+      const n = Math.max(menos.length, mas.length);
+      for (let k = 0; k < n; k++) {
+        const izq = k < menos.length ? menos[k] : null, der = k < mas.length ? mas[k] : null;
+        filas.push([k === 0 ? "x0" : "x", izq, der, izq !== null ? ++na : null, der !== null ? ++nb : null]);
+      }
+    }
+    return filas;
+  }
+
+  function pintarMeld(A, B) {
+    const filas = filasMeld(A, B);
+    if (!filas.some((f) => f[0] !== "=")) return '<div class="vacio"><b>Sin cambios</b><div>El texto es idéntico al del repositorio.</div></div>';
+    const cerca = new Set();
+    filas.forEach((f, k) => { if (f[0] !== "=") for (let o = -3; o <= 3; o++) cerca.add(k + o); });
+    let h = '<div class="meld"><div class="cab izq">Original en el repositorio</div><div class="cab der">Tu versión</div>';
+    let hueco = false;
+    filas.forEach((f, k) => {
+      if (!cerca.has(k)) { hueco = true; return; }
+      if (hueco) { h += '<div class="salto">···</div>'; hueco = false; }
+      const cam = f[0] !== "=";
+      const marca = f[0] === "x0" ? ' data-cambio="1"' : "";
+      const celda = (lado, txt, num, quitado) =>
+        '<div class="c ' + lado + (txt === null ? " hueco" : cam ? (quitado ? " menos" : " mas") : "") + '"' + (lado === "izq" ? marca : "") + ">" +
+        '<span class="num">' + (num || "") + "</span>" + (txt === null ? "" : esc(txt) || " ") + "</div>";
+      h += celda("izq", f[1], f[3], true) + celda("der", f[2], f[4], false);
+    });
+    return h + "</div>";
+  }
+
+  function pintarUnificado(A, B) {
+    const d = diffLineas(A, B);
+    const cambios = d.filter((x) => x[0] !== "=").length;
+    if (!cambios) return '<div class="vacio"><b>Sin cambios</b><div>El texto es idéntico al del repositorio.</div></div>';
+    const cerca = new Set();
+    d.forEach((x, k) => { if (x[0] !== "=") for (let o = -3; o <= 3; o++) cerca.add(k + o); });
+    let html = "", hueco = false, previo = "=";
+    d.forEach((x, k) => {
+      if (!cerca.has(k)) { hueco = true; return; }
+      if (hueco) { html += '<div class="salto">···</div>'; hueco = false; }
+      const cls = x[0] === "+" ? "a" : x[0] === "-" ? "b" : "ctx";
+      const marca = x[0] === "+" ? "+ " : x[0] === "-" ? "- " : "  ";
+      const nuevo = x[0] !== "=" && previo === "=";
+      html += '<div class="' + cls + '"' + (nuevo ? ' data-cambio="1"' : "") + ">" + esc(marca + x[1]) + "</div>";
+      previo = x[0];
+    });
+    return '<div class="dif">' + html + "</div>";
+  }
+
+  // conservar=true mantiene la posición de lectura al pasar de ver a editar y
+  // al revés: es el mismo archivo en la misma disposición, saltar al principio
+  // (o peor, al final, donde deja el cursor el focus) hace perder el punto.
+  function pintarVisor(conservar) {
+    const previo = $("#cod"), pos = previo ? previo.scrollTop : 0;
+    const b = $("#b-editar"), cp = $("#b-comparar"), v = $("#b-vista"),
+      g = $("#b-guardar"), x = $("#b-cancelar"), c = $("#b-ctx");
     if (!st.abierto) {
-      [b, d, g, c].forEach((e) => (e.disabled = true));
-      [d, g].forEach((e) => (e.hidden = true)); x.hidden = true;
+      [b, cp, g, c].forEach((e) => (e.disabled = true));
+      [cp, v, g].forEach((e) => (e.hidden = true));
+      x.hidden = true; $("#cambios").hidden = true;
       return;
     }
-    const r = st.abierto, tieneBor = st.borradores.has(r);
-    $("#ruta").innerHTML = '<b>' + esc(hoja(r)) + "</b> · " + esc(carpeta(r)) +
-      (tieneBor ? ' · <span style="color:var(--cobre)">con borrador</span>' : "");
+    const r = st.abierto;
+    const an = analizar(original(r), st.edicion);
     c.disabled = false;
-    if (st.modo === "ver") {
-      b.disabled = false; b.hidden = false; b.textContent = "Editar";
-      d.hidden = true; g.hidden = true; x.hidden = true;
-      $("#lienzo").innerHTML = '<pre class="texto">' + esc(texto(r)) + "</pre>";
-    } else if (st.modo === "editar") {
-      b.hidden = true; d.hidden = false; d.disabled = false; g.hidden = false; g.disabled = false; x.hidden = false;
-      $("#lienzo").innerHTML =
-        '<div class="dividido"><div class="lado"><h3>Original en el repositorio</h3>' +
-        '<div class="lienzo"><pre class="texto">' + esc(original(r)) + '</pre></div></div>' +
-        '<div class="lado"><h3>Tu versión</h3><div class="lienzo"><textarea class="edit" id="ta" spellcheck="false"></textarea></div></div></div>';
-      const ta = $("#ta"); ta.value = st.edicion; ta.addEventListener("input", () => { st.edicion = ta.value; });
+    st.cambio = -1;
+
+    if (st.modo === "comparar") {
+      b.hidden = true; cp.hidden = false; cp.disabled = false; cp.textContent = "Volver al editor";
+      v.hidden = false; v.textContent = st.lado ? "Unificado" : "Lado a lado";
+      g.hidden = false; g.disabled = false; x.hidden = false;
+      $("#lienzo").innerHTML = '<div class="scroll" id="scroll">' +
+        (st.lado ? pintarMeld(original(r), st.edicion) : pintarUnificado(original(r), st.edicion)) + "</div>";
     } else {
-      b.hidden = true; d.hidden = false; d.textContent = "Seguir editando"; g.hidden = false; g.disabled = false; x.hidden = false;
-      $("#lienzo").innerHTML = '<div class="lienzo">' + pintarDiff(original(r), st.edicion) + "</div>";
+      const editando = st.modo === "editar";
+      b.hidden = editando; b.disabled = false; b.textContent = "Editar";
+      cp.hidden = !editando; cp.disabled = false; cp.textContent = "Comparar";
+      v.hidden = true;
+      g.hidden = !editando; g.disabled = !editando;
+      x.hidden = !editando;
+      $("#lienzo").innerHTML = pintarCodigo(st.edicion, an, editando);
+      const ta = $("#ta");
+      ta.value = st.edicion;
+      ajustarAlto(ta);
+      if (editando) {
+        ta.addEventListener("input", () => {
+          st.edicion = ta.value;
+          ajustarAlto(ta);
+          clearTimeout(temporizador);
+          temporizador = setTimeout(refrescarMarcas, 140);
+        });
+        ta.setSelectionRange(0, 0);
+        ta.focus({ preventScroll: true });   // sin esto el foco arrastra al final
+      }
+      if (conservar && previo) $("#cod").scrollTop = pos;
     }
+    pintarCuenta(an);
+  }
+
+  // El textarea no lleva barra propia: crece hasta su contenido y el que baja
+  // es el contenedor, que es el mismo que baja la capa de las marcas.
+  function ajustarAlto(ta) { ta.style.height = "auto"; ta.style.height = ta.scrollHeight + "px"; }
+
+  function irACambio(paso) {
+    const cont = $("#cod") || $("#scroll"); if (!cont) return;
+    const nodos = [...cont.querySelectorAll("[data-cambio]")];
+    if (!nodos.length) return;
+    st.cambio = st.cambio < 0 ? (paso > 0 ? 0 : nodos.length - 1) : (st.cambio + paso + nodos.length) % nodos.length;
+    const n = nodos[st.cambio];
+    cont.scrollTop = n.offsetTop - cont.clientHeight / 3;
+    nodos.forEach((e) => e.classList.remove("aqui"));
+    n.classList.add("aqui");
+    $("#cuenta-cambios").textContent = (st.cambio + 1) + "/" + nodos.length;
   }
 
   function abrir(r) {
     st.abierto = r; st.modo = "ver"; st.edicion = texto(r);
     pintarArbol(); pintarVisor(); chip();
     if (window.innerWidth <= 860) cerrarArbol();
-    $("#lienzo").scrollTop = 0;
+    const c = $("#cod"); if (c) c.scrollTop = 0;
   }
 
   // ═══════════ Claude ═══════════
@@ -268,12 +434,11 @@
       n + " cambio" + (n > 1 ? "s" : "") + " esperando</h2>" +
       '<p style="color:var(--gris);font-size:13.5px;margin:0 0 18px;max-width:70ch">Nada de esto tocó el repositorio todavía. En la sesión de la noche los leo, los reviso y los commiteo. Si te arrepientes, descártalo acá.</p>';
     for (const [r, b] of st.borradores) {
-      const d = diffLineas(original(r), b.texto);
-      const mas = d.filter((x) => x[0] === "+").length, menos = d.filter((x) => x[0] === "-").length;
+      const a = analizar(original(r), b.texto);
       h += '<div class="bor"><h4>' + esc(r) + "</h4>" +
-        '<div class="meta"><span style="color:var(--acento)">+' + mas + '</span> · <span style="color:var(--cobre)">-' + menos + "</span> líneas · guardado " +
+        '<div class="meta"><span class="mas">+' + a.mas + '</span> · <span class="menos">-' + a.menos + "</span> líneas · guardado " +
         new Date(b.ts).toLocaleString("es-CL", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) + "</div>" +
-        '<div class="acciones"><button class="btn" data-abrir-bor="' + esc(r) + '">Abrir y revisar</button>' +
+        '<div class="acciones"><button class="btn" data-abrir-bor="' + esc(r) + '">Abrir y comparar</button>' +
         '<button class="btn" data-tirar="' + esc(r) + '">Descartar</button></div></div>';
     }
     $("#p-borradores").innerHTML = h;
@@ -296,10 +461,13 @@
   });
   $("#q").addEventListener("input", (e) => { st.filtro = e.target.value.trim(); pintarArbol(); });
 
-  $("#b-editar").onclick = () => { st.edicion = texto(st.abierto); st.modo = "editar"; pintarVisor(); };
-  $("#b-diff").onclick = () => { st.modo = st.modo === "diff" ? "editar" : "diff"; $("#b-diff").textContent = st.modo === "diff" ? "Seguir editando" : "Ver cambios"; pintarVisor(); };
+  $("#b-editar").onclick = () => { st.modo = "editar"; pintarVisor(true); };
+  $("#b-comparar").onclick = () => { st.modo = st.modo === "comparar" ? "editar" : "comparar"; pintarVisor(); };
+  $("#b-vista").onclick = () => { st.lado = !st.lado; pintarVisor(); };
+  $("#b-prev").onclick = () => irACambio(-1);
+  $("#b-next").onclick = () => irACambio(1);
   $("#b-guardar").onclick = guardar;
-  $("#b-cancelar").onclick = () => { st.modo = "ver"; st.edicion = texto(st.abierto); $("#b-diff").textContent = "Ver cambios"; pintarVisor(); };
+  $("#b-cancelar").onclick = () => { st.modo = "ver"; st.edicion = texto(st.abierto); pintarVisor(true); };
   $("#b-ctx").onclick = () => { if (st.abierto) { st.adjuntos.add(st.abierto); chip(); } };
   $("#adjuntos").addEventListener("click", (e) => { const b = e.target.closest("[data-quitar]"); if (b) { st.adjuntos.delete(b.dataset.quitar); chip(); } });
 
@@ -314,14 +482,14 @@
     const t = st.turnos[+v.dataset.ver];
     if (!t || !t.propuesta) return;
     if (st.abierto !== t.propuesta.ruta) abrir(t.propuesta.ruta);
-    st.edicion = t.propuesta.texto; st.modo = "diff"; pintarVisor();
+    st.edicion = t.propuesta.texto; st.modo = "comparar"; pintarVisor();
     $("#dock").classList.add("cerrado");
     mod("archivos");
   });
 
   $("#p-borradores").addEventListener("click", (e) => {
     const a = e.target.closest("[data-abrir-bor]");
-    if (a) { mod("archivos"); abrir(a.dataset.abrirBor); st.modo = "diff"; pintarVisor(); return; }
+    if (a) { mod("archivos"); abrir(a.dataset.abrirBor); st.modo = "comparar"; pintarVisor(); return; }
     const t = e.target.closest("[data-tirar]");
     if (t) {
       const r = t.dataset.tirar;
@@ -340,16 +508,17 @@
 
   // ═══════════ arranque ═══════════
   $("#sello").textContent = SELLO;
+  document.querySelectorAll(".n-arch").forEach((e) => (e.textContent = ARCHIVOS.length));
   pintarArbol(); pintarBorradores(); chip();
   if (window.innerWidth <= 860) $("#arbol").classList.add("oculto");
 
   claude.use("sample").then((s) => {
     st.sample = s;
     if (!s) {
-      $("#charla").innerHTML = '<div class="aviso"><b>Claude no está disponible en esta vista.</b> El árbol, el visor, el editor y el diff funcionan igual. Para conversar, abre el taller desde claude.ai.</div>';
+      $("#charla").innerHTML = '<div class="aviso"><b>Claude no está disponible en esta vista.</b> El árbol, el visor, el editor y el comparador funcionan igual. Para conversar, abre el taller desde claude.ai.</div>';
     } else if (!st.turnos.length) {
       $("#charla").innerHTML = '<div class="aviso">Claude ve el índice de los <b>' + ARCHIVOS.length +
-        " archivos</b> y el que tengas abierto. Pídele un cambio concreto y te devuelve el archivo entero reescrito, con su diff antes de guardar nada.</div>";
+        " archivos</b> y el que tengas abierto. Pídele un cambio concreto y te devuelve el archivo entero reescrito, con su comparación antes de guardar nada.</div>";
     }
   });
 
