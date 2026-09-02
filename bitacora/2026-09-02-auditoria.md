@@ -152,3 +152,41 @@ La máquina está mejor que ayer en todo lo que se puede medir. Lo que decide
 si el objetivo se cumple sigue sin estar en la máquina: que los videos largos
 se vean. Ayer el mejor movimiento fue el informe de Milei pasando de 26 a 55
 vistas, y esa es la única serie que importa para el contador.
+
+## Añadido a las 08:30: la Clave se rescató con el workflow reentrante
+
+Santiago levantó la regla de solo lectura para HOY 1 a 4. El workflow
+reentrante (`221b15d`) se disparó a mano a las 07:52 (run 22,
+`workflow_dispatch`, con `fecha` vacía, que cae a hoy) y produjo solo lo que
+faltaba. Verificado paso por paso en el job, en el release y en el repo:
+
+| Paso | Resultado | Hora Chile |
+|---|---|---|
+| 0 · piezas en el release | `HAY_INFORME=1`, `HAY_SHORT=1` | 07:52 |
+| 3 y 3b · informe y su Short | **saltados**, ya estaban | |
+| 4 · video de la Clave | ok, **25 minutos** de render | 07:53 a 08:18 |
+| 4b · Short de la Clave | ok | 08:18 a 08:21 |
+| 5 · descripciones | `2026-09-02-clave.txt` commiteado | 08:21 |
+| 6 · release | 4 assets nuevos, `--clobber` no pisó nada | 08:21 |
+| 7 · YouTube | Clave `8X_lOUPmLbE` y Short `814rdrOmAz0`, privados, con miniatura | 08:21 a 08:28 |
+| 7b · podcast | informe: "sin episodio" y siguió (exit 0, como se predijo); Clave: mp3 subido y episodio 8 anotado | 08:28 |
+| 8 · web | despachada (run 33630110998) | 08:28 |
+
+Dos cosas que la corrida demostró y no eran obvias de antemano:
+
+- **La guarda del paso 7 era necesaria.** Sin ella, `youtube-subir.js`
+  habría salido con 1 al no encontrar el informe y el bloque se habría
+  cortado antes de subir la Clave. Con la guarda, la primera línea se saltó y
+  las dos subidas de la Clave corrieron.
+- **La Clave sola tarda 25 minutos en renderizar**, no 10. La edición
+  completa de la mañana tomó 47 (08:44 a 09:31 UTC). Vale para el cuadro de
+  horas del panel: el respaldo de las 05:00 no alcanza si el timbre suena
+  tarde.
+
+Título subido: "¿Cómo funcionan los fondos generacionales y qué riesgo
+asumen?", 65 caracteres, distinto del informe. El release del día quedó con
+las ocho piezas (video y mp3 de informe, Short, Clave y Short de la Clave).
+
+Lo que sigue tuyo: publicar las dos piezas nuevas desde Studio, pegar
+`prompts/guardian.md` en la rutina del guardián, y programar el vigía en
+ChatGPT a las 09:20.

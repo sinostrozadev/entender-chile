@@ -99,6 +99,14 @@ pierde el nombre.
 
 ## Bloquean todo y dependen de Santiago
 
+- [ ] **Pegar `prompts/guardian.md` en la rutina del guardián**
+      (`trig_01Dk4PXRmGEMPHzrvs6amTgf`): un agente no puede editarla. Hasta
+      entonces, el guardián no vigila la Clave.
+- [ ] **Programar el vigía en ChatGPT a las 09:20** apuntando a
+      `prompts/vigia.md`, como las otras cinco tareas.
+- [ ] **Publicar desde Studio la Clave y el Short de la Clave del 02-09**,
+      que subieron privados a las 08:28.
+
 - [x] **Azure: LISTO (29-08, noche).** Secrets `AZURE_SPEECH_KEY` y
       `AZURE_SPEECH_REGION` cargados en GitHub; copia local fuera del repo en
       `~/.claude/projects/-home-santiago-projects-daily/secrets/azure.env`.
@@ -123,13 +131,15 @@ está verificado en el repo y se saca de esta lista. El detalle está en
 
 - [ ] **ESTADO 02-09, 07:50: Santiago levantó la regla de solo lectura para
       HOY 1 a 4. Qué quedó aplicado y qué no, verificado:**
-      - **HOY 4, APLICADO** (`221b15d`): edición diaria reentrante por pieza,
-        path de `guiones/claves/**`, input `fecha`, paso 7 protegido.
-        **Pero el disparo desde aquí rebotó**: `actions_run_trigger` devuelve
-        `403 Resource not accessible by integration`, el mismo 403 de la
-        integración que se anotó el 31-08. El workflow se dispara desde el
-        botón "Run workflow" en GitHub con `fecha = 2026-09-02` (el enlace
-        está en el panel), o con cualquier push a `contenido/guiones/claves/`.
+      - **HOY 4, HECHO Y PROBADO** (`221b15d`, run 22 a las 07:52): edición
+        diaria reentrante por pieza, path de `guiones/claves/**`, input
+        `fecha`, paso 7 protegido. Santiago lo disparó desde "Run workflow"
+        (el disparo desde la integración da 403, como el 31-08). Saltó el
+        informe y su Short, produjo la Clave y su Short, los subió privados
+        (`8X_lOUPmLbE`, `814rdrOmAz0`), completó el release, el podcast y la
+        web. La guarda del paso 7 resultó necesaria. Detalle en la auditoría.
+        **Dato nuevo para el cuadro de horas:** la Clave sola tarda 25
+        minutos en renderizar.
       - **HOY 2, APLICADO en los prompts** (`127d49f`): contrato al inicio de
         los cinco prompts, localización por dos rutas, ausencia con evidencia,
         `FECHA-SIN-ENTREGA.md`, y la frase en el contrato. Rige desde la tarea
