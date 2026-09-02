@@ -68,6 +68,9 @@ antes de decirlo: una búsqueda explícita o la lectura de la sección completa.
 Nunca deduzcas el estado de un archivo a partir de lo que recuerdes, de una
 lectura anterior o de lo que parezca razonable. Si la lectura quedó truncada,
 NO puedes inferir ausencia: vuelve a leer desde el final.
+Una búsqueda que no encuentra no es una ausencia: es una búsqueda que no
+encontró. Antes de declarar que un archivo no existe, lista su carpeta y cita
+en tu respuesta lo que viste.
 
 Esto vale sobre todo cuando la conclusión te lleva a OMITIR algo: si crees que
 un elemento obligatorio no está en la fuente, vuelve a leer la fuente antes de
