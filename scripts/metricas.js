@@ -68,7 +68,7 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
     "",
     `Canal: **${canal.suscriptores} suscriptores**${d(canal.suscriptores, prev?.canal?.suscriptores)} · ` +
     `**${vistasTotales} vistas totales**${d(vistasTotales, prev ? sumaVistas(prev) : null)} (suma por video; el contador del canal marca ${canal.vistas}, va con rezago) · ` +
-    `${canal.videos} subidos, ${publicos} públicos.` +
+    `${Object.keys(videos).length} subidos, ${publicos} públicos.` +
     (prev ? ` (vs ${previos[previos.length - 1].replace(".json", "")})` : " (línea base, sin comparación)"),
     "",
     "| Video | Estado | Vistas | Me gusta | Coment. |",
