@@ -295,3 +295,49 @@ alto tienen más vistas que los de puntaje bajo.
 
 Lo que sí es seguro sin esperar dos semanas: hoy la decisión no la toma
 nadie, y eso es peor que un criterio imperfecto escrito.
+
+---
+
+## 7. Datos, citas y gráficos: qué mejorar (02-09, tarde)
+
+Leídos los once componentes de `src/tarjetas.tsx` contra la medición del
+01-09 (78% del video es tarjeta de texto). En orden de rendimiento:
+
+1. **La tarjeta de párrafo es el problema principal.** Pone en pantalla las
+   60 palabras que la voz está leyendo, a 42 px: leer y escuchar lo mismo.
+   Propuesta: el guion marca en cada párrafo UNA frase clave de hasta 20
+   palabras y solo esa va a pantalla, grande, como bajada de televisión. La
+   voz dice el párrafo, la pantalla dice la frase. Cambio de prompt +
+   parser; baja el texto en pantalla a un tercio.
+2. **La cifra necesita referencia.** "-1,5%" solo no significa nada. Abajo,
+   en pequeño: el valor anterior o el del mismo mes del año pasado. Ese dato
+   no lo tiene el guion; lo tiene la base de series (punto 8).
+3. **Movimiento**: count-up en la cifra, flecha que se dibuja. Regla de los
+   5 a 7 segundos pendiente desde el 25-08.
+4. **La cita está desnuda**: cursiva y un guion con el nombre. Falta el
+   cargo, el contexto de dónde lo dijo, una comilla grande como pieza
+   gráfica. Y el nombre lleva un guion corto (`tarjetas.tsx`, TarjetaCita).
+5. **`lineas` sigue sin existir** y cae a comparación. Depende de la base.
+
+## 8. La base de series: una sola para validar y para dibujar
+
+Respuesta a "¿creamos la base contra la que se validará el informe para el
+gráfico?": sí, y conviene que sea LA MISMA base para las dos cosas. El 5,1
+contra 1,5 del 01-09 es exactamente el error que una base detecta sola.
+
+- **Forma**: `datos/series/<indicador>.json`, uno por indicador: fuente,
+  unidad, periodicidad, alias (las palabras con que el guion lo nombra) y
+  la lista de períodos con su valor. Doce para empezar: Imacec, IPC mensual
+  y anual, desempleo, TPM, dólar observado, cobre, UF, PIB trimestral,
+  producción industrial, y los que más aparezcan en los informes.
+- **Quién la alimenta**: el vigía. Ya entra cada mañana a ver si el dato
+  anunciado se publicó; si además escribe el valor en la serie, la base se
+  mantiene sola. El histórico inicial se carga una vez desde los CSV
+  públicos del Banco Central y del INE.
+- **Cómo valida**: `validar-tarjetas.js` ya lee todas las marcas `[DATO]`.
+  Si la etiqueta calza con un alias y el valor no coincide con el publicado
+  para ese período, avisa. Una línea más en el paso 2c.
+- **Cómo dibuja**: `build-timeline.js` adjunta los últimos 24 valores a la
+  marca cuando el tipo es `lineas`, y el componente que falta los pinta.
+
+Tres piezas, ninguna grande, las tres de la sesión de la noche.

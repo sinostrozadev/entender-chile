@@ -144,6 +144,22 @@ pierde el nombre.
       de la primera pausa, y el workflow exporta la variable de fuentes.
       Antes de encender, mirar el video de ejemplo con Santiago.
 
+- [ ] **DATOS 1: la base de series, una para validar y para dibujar.**
+      `datos/series/<indicador>.json` (fuente, unidad, periodicidad, alias,
+      valores por período), alimentada por el vigía, histórico inicial de los
+      CSV del Banco Central y del INE. `validar-tarjetas.js` avisa cuando un
+      [DATO] no calza con el valor publicado (el 5,1 contra 1,5 del 01-09);
+      `build-timeline.js` adjunta los últimos 24 valores a las marcas
+      `lineas`; y se construye por fin `TarjetaDatoLineas`. Detalle en
+      `ideas/imagen-y-retencion.md` punto 8. Cierra VISUAL 2.
+
+- [ ] **DATOS 2: tarjetas.** (1) Párrafo → frase clave de hasta 20 palabras
+      marcada en el guion, solo esa va a pantalla. (2) Cifra con referencia
+      abajo (valor anterior o mismo mes del año pasado, desde la base).
+      (3) Count-up y flecha que se dibuja. (4) Cita con cargo, contexto y
+      comilla grande; quitar el guion corto del nombre en TarjetaCita.
+      Detalle en `ideas/imagen-y-retencion.md` punto 7.
+
 - [ ] **IMAGEN 1: fondos por sección, empezando por la cortina.** Todo el
       análisis está en `ideas/imagen-y-retencion.md` (02-09). Lo primero es
       `CortinaSeccion` en `src/tarjetas.tsx:492`: es el fotograma que YouTube
