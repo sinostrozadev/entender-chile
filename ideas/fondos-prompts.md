@@ -90,11 +90,11 @@ aprox) que identifique la sección: [PICTOGRAMA]. Motivo de fondo:
 | Seguridad y justicia | una balanza de la justicia minimalista | rayado diagonal fino tipo aguafuerte, más denso hacia la esquina superior derecha |
 | Política y Congreso | el frontis del ex Congreso: cuatro columnas y frontón, en cinco trazos | trama de puntos de rotativa de diario, desvaneciéndose hacia el centro |
 | Chile en regiones | el contorno alargado de Chile en un solo trazo | curvas de nivel topográficas de una cordillera, concentradas a la derecha |
-| Clima y emergencias | una nube con tres gotas, línea simple | isobaras curvas de mapa meteorológico, muy tenues, con un frente que cruza arriba |
+| Clima y emergencias | una nube con tres gotas, nada más (sin fuego ni rayos) | isobaras muy tenues SOLO en el tercio derecho; el centro completamente vacío (v2 del 03-09: la v1 puso una nube al centro, donde va el texto) |
 | Salud | una cruz de línea fina dentro de un círculo | trama de líneas de electrocardiograma casi planas que cruzan el tercio inferior |
-| Educación y ciencia | un libro abierto de cuatro trazos | renglones de cuaderno universitario muy tenues con una molécula de líneas en la esquina superior derecha |
+| Educación y ciencia | un libro abierto con un átomo encima | renglones tenues + libro abierto SOLO, apoyado, estrictamente sin manos ni cuerpo humano (v2 del 03-09: la v1 trajo una mano) |
 | Internacional | un globo con meridianos, tres trazos | meridianos y paralelos de un mapamundi en proyección suave, desvanecidos hacia el centro |
-| Plata pública | una lupa sobre una moneda, línea simple | columnas de un libro de contabilidad antiguo, muy tenues, a la derecha |
+| Plata pública | una lupa sobre una moneda LISA | libro contable tenue a la derecha + lupa sobre moneda lisa: círculo con borde acanalado, SIN rostro, números ni inscripciones (v2 del 03-09: la v1 trajo cara y texto inventado) |
 | Dato curioso | un signo de interrogación dentro de un rombo | constelación de puntos unidos por líneas finas, esquina superior derecha |
 
 Regla al recibirlos: reducir a 200 px de ancho y comprobar que NO compiten
