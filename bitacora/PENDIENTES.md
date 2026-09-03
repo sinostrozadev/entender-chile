@@ -133,6 +133,17 @@ el Short exprés.** Hoy hubo el primer caso real y sirve de entrada de prueba:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **TIEMPOS 1: acortar la madrugada dos horas y que los agentes
+      dependientes escuchen** (pedido de Santiago, 03-09). Propuesta completa
+      en `bitacora/2026-09-03-propuesta-tiempos.md`: medido, la cadena tarda
+      4 h 10 y trabaja 1 h 45. Tres movimientos: las rutinas de Claude nacen
+      esperando su archivo de entrada con el bucle del guardia (revisión de
+      dos vueltas, guardián a las 04:00); las tareas de ChatGPT a la hora
+      medida con cláusula de espera corta en el contrato; y dos cadenas en
+      paralelo con el workflow reentrante (el informe se rinde sin esperar a
+      la Clave). Video listo ~03:35 en vez de 05:42, con tres horas de colchón
+      para reintentar. Programar ya con las horas de verano del 06-09.
+
 - [x] **WEB 1 — EN PRODUCCIÓN (03-09, madrugada)**, con el boceto aprobado
       por Santiago: 8 categorías con chips en toda la web y páginas
       /categorias/<id>/ (archivo día por día con anclas al informe); informe
