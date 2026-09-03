@@ -26,3 +26,6 @@
 - Línea de Crédito Flexible del FMI y diferencia entre seguro financiero precautorio y deuda efectivamente girada | Chile mantiene un seguro financiero externo de US$11.800 millones con el FMI | 2026-09-02
 - cuadernos de remoción y régimen disciplinario de jueces en Chile | La Corte Suprema comienza a revisar la eventual remoción de 57 jueces por licencias médicas | 2026-09-02
 - bloqueo por DNS, rol de los proveedores de internet y límites de una orden judicial sobre sitios web | Subtel ordena bloquear 42 sitios de apuestas en línea | 2026-09-02
+- comisiones especiales investigadoras de la Cámara, facultades, límites y relación con investigaciones penales | La Cámara aprueba investigar el caso Cerimedo después de que la propuesta fracasara un día antes | 2026-09-03
+- pensión de sobrevivencia, causales de exclusión y efectos previsionales de una condena penal | Nueva ley impide que condenados por delitos graves de violencia intrafamiliar cobren la pensión de sobrevivencia de sus víctimas | 2026-09-03
+- Registro Social de Hogares, focalización y diseño de beneficios extraordinarios | Congreso despacha bono extraordinario de $30.000 por niño para hogares del 80% más vulnerable | 2026-09-03
