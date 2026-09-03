@@ -21,7 +21,12 @@ const chars = al.characters;
 // La narración arranca cuando TERMINA el sello (2,8 s), no debajo de él:
 // pedido de Santiago al escuchar el primer video con voz (29-08). Todo lo que
 // viene de la alineación se corre este offset; el sello queda solo con su logo.
-const INICIO = Number(process.env.INICIO_NARRACION || 3.0);
+// APERTURA EN FRÍO (activada por Santiago el 02-09): si el guion abre con la
+// sección "La noticia del día", la voz parte en 0 con la noticia de portada y
+// el sello entra en la pausa que cierra esa sección (meta.selloEn); su cola
+// corre bajo el arranque de la Apertura, nunca retrasa voz.
+const enFrio = /la noticia del d[ií]a/i.test((parsed.eventos.find((e) => e.tipo === "seccion") || {}).texto || "");
+const INICIO = enFrio ? 0 : Number(process.env.INICIO_NARRACION || 3.0);
 
 if (chars.length !== parsed.cleanText.length) {
   console.warn(`AVISO: la alineación tiene ${chars.length} caracteres y la narración ${parsed.cleanText.length}. ` +
@@ -124,6 +129,9 @@ const timeline = {
     }).format(new Date()),
     serie: process.env.SERIE || "informe",          // informe | clave (lo fija dia.js)
     inicioNarracion: audioFile ? INICIO : 0,        // la voz entra después del sello
+    // apertura en frío: el sello suena en la pausa que cierra la primera
+    // sección (banners[1].from ya apunta al inicio de ese silencio)
+    selloEn: enFrio && banners[1] ? Number(Math.max(0, banners[1].from - 0.05).toFixed(2)) : 0,
     musica: process.env.MUSICA || null,             // cama continua: retirada (null)
     logo: process.env.LOGO || null,                 // sello sonoro de la apertura
     // Cortinas de sección: solo cuando no pueden tapar voz, es decir, si el
