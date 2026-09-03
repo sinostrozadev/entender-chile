@@ -3,6 +3,7 @@ import "../styles/global.css";
 import "../styles/diseno2.css";
 import "../styles/diseno3.css";
 import { url, canal, fechaCortaNum } from "../lib/contenido";
+import { CATEGORIAS } from "../lib/categorias";
 export interface Props { titulo?: string; descripcion?: string; actual?: string }
 const { titulo, descripcion, actual } = Astro.props;
 const t = titulo ? `${titulo} · Entender Chile` : "Entender Chile · El resumen sin gritos";
@@ -53,6 +54,11 @@ const hoy = new Date().toISOString().slice(0, 10);
         </span>
       </nav>
     </header>
+    <nav class="nav-cat" aria-label="Categorías">
+      {CATEGORIAS.map((c) => (
+        <a href={url(`categorias/${c.id}/`)} style={`--cat:${c.color}`}>{c.nombre}</a>
+      ))}
+    </nav>
     <main><slot /></main>
     <script is:inline>
       // Selector de diseño: aplica, recuerda y marca el botón activo.

@@ -1,10 +1,15 @@
 ---
 import Base from "../layouts/Base.astro";
-import { informes, claves, casos, contador, pesos, fechaLarga, fechaCorta, url, canal, youtubeId } from "../lib/contenido";
+import { informes, claves, casos, contador, pesos, fechaLarga, fechaCorta, url, canal, youtubeId, trocear } from "../lib/contenido";
+import { categoriaDe } from "../lib/categorias";
 const listaCasos = casos();
 const cnt = contador(listaCasos);
 const todos = informes();
 const ultimo = todos[0];
+const heroCat = ultimo ? (() => {
+  for (const t of trocear(ultimo.html).trozos) { const c = categoriaDe(t.titulo); if (c) return c; }
+  return null;
+})() : null;
 const recientes = todos.slice(1, 8);
 const cl = claves().slice(0, 6);
 ---
@@ -15,8 +20,15 @@ const cl = claves().slice(0, 6);
   </section>
   {ultimo ? (
     <section class="portada">
-      <p class="kicker"><span class="hoy" data-fecha={ultimo.fecha} hidden></span> El informe diario · {fechaLarga(ultimo.fecha)} · {ultimo.stats.minutos} min de lectura</p>
-      <h1><a href={url(`informes/${ultimo.fecha}/`)}>{ultimo.titular}</a></h1>
+      <div class="hero-informe franja">
+        {heroCat && <img src={url(`img/secciones/${heroCat.imagen}.jpg`)} alt="" />}
+        <div class="velo"></div>
+        <div class="hero-contenido">
+          <p class="kicker" style={heroCat ? `color:${heroCat.color}` : undefined}><span class="hoy" data-fecha={ultimo.fecha} hidden></span> {heroCat ? `${heroCat.nombre} · ` : ""}La noticia del día · {fechaLarga(ultimo.fecha)}</p>
+          <h1><a href={url(`informes/${ultimo.fecha}/`)}>{ultimo.portada ?? ultimo.titular}</a></h1>
+          {ultimo.mirada.length > 0 && <p class="hero-bajada">{ultimo.mirada[0]}</p>}
+        </div>
+      </div>
       {ultimo.mirada.length >= 3
         ? <ul class="mirada">{ultimo.mirada.map((f) => <li>{f}</li>)}</ul>
         : <div class="lead" set:html={ultimo.resumenHtml} />}

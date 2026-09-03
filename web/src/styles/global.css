@@ -171,3 +171,53 @@ body { overflow-x: hidden; }
   .selector-diseno span { display: none; }   /* la palabra "Diseño" sobra en móvil */
   .cab nav { gap: 0.9rem; }
 }
+
+/* ---- categorías y franjas ilustradas (WEB 1, 03-09) ---- */
+.nav-cat { max-width: var(--ancho-amplio); margin: 0 auto; padding: 0.7rem 1.25rem 0.2rem; width: 100%;
+  display: flex; gap: 0.45rem; flex-wrap: wrap; }
+.nav-cat a { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  border: 1px solid var(--linea); border-radius: 999px; padding: 0.28rem 0.75rem; text-decoration: none; color: var(--gris); }
+.nav-cat a:hover, .nav-cat a:focus-visible { border-color: var(--cat, var(--patina)); color: var(--cat, var(--patina)); }
+.nav-cat a:focus-visible { outline: 2px solid var(--patina); outline-offset: 2px; }
+
+.franja { position: relative; overflow: hidden; border: 1px solid var(--linea); border-radius: 10px; background: var(--papel-elevado); }
+.franja > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: right center; }
+.franja .velo { position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(242,242,239,0.97) 0%, rgba(242,242,239,0.88) 45%, rgba(242,242,239,0.30) 100%); }
+
+article.pieza-cat { max-width: var(--ancho-amplio); }
+article.pieza-cat .cuerpo, article.pieza-cat .entradilla, article.pieza-cat .importa,
+article.pieza-cat .video, article.pieza-cat .salir, article.pieza-cat .nav-dias { max-width: var(--ancho); }
+.hero-informe { margin: 1rem 0 1.6rem; }
+.hero-contenido { position: relative; padding: 2.4rem 2.2rem; max-width: 40rem; }
+.hero-contenido h1 { text-wrap: balance; }
+.hero-bajada { font-size: 1.08rem; margin: 0.9rem 0 0; max-width: 54ch; }
+.hero-contenido .fecha { font-family: var(--mono); font-size: 0.8rem; color: var(--gris); margin: 1rem 0 0; }
+.hero-contenido .acciones { margin-top: 1.2rem; }
+@media (max-width: 600px) { .hero-contenido { padding: 1.6rem 1.2rem; } }
+
+.bloque-cat { margin: 2.4rem 0; }
+.franja-cab { min-height: 4.6rem; display: flex; align-items: center; border-radius: 10px 10px 0 0; }
+.rotcat { position: relative; display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem 1.5rem; flex-wrap: wrap; width: 100%; }
+.barra-cat { width: 2.3rem; height: 0.42rem; border-radius: 3px; background: var(--cat, var(--patina)); flex: 0 0 auto; }
+.nombre-cat { font-family: var(--serif); font-weight: 600; font-size: 1.35rem; }
+.ver-cat { margin-left: auto; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gris); text-decoration: none; }
+.ver-cat:hover { color: var(--cat, var(--patina)); }
+.cuerpo-cat { border: 1px solid var(--linea); border-top: 0; border-radius: 0 0 10px 10px;
+  background: var(--papel-elevado); padding: 0.2rem 1.5rem 1.3rem; max-width: none !important; }
+.cuerpo-cat > h2:first-child { border-top: 0; margin-top: 1rem; padding-top: 0; }
+.bloque-cat .cuerpo-cat h2 { font-size: 1.3rem; }
+
+.cat-pagina { max-width: var(--ancho-amplio); }
+.cat-hero { min-height: 10rem; display: flex; align-items: flex-end; margin-top: 1rem; }
+.cat-hero .rotcat { padding: 1.2rem 1.8rem; align-items: baseline; gap: 1rem; }
+.cat-hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); border-left: 0.45rem solid var(--cat, var(--patina)); padding-left: 1rem; }
+.cat-desc { font-size: 0.9rem; color: var(--gris); }
+.dias-cat { border: 1px solid var(--linea); border-top: 0; border-radius: 0 0 10px 10px; background: var(--papel-elevado); }
+.dia-cat { display: flex; gap: 1.4rem; padding: 0.95rem 1.7rem; border-bottom: 1px solid var(--linea); flex-wrap: wrap; }
+.dia-cat:last-child { border-bottom: 0; }
+.dia-cat > .mono { flex: 0 0 3.2rem; padding-top: 0.2rem; }
+.dia-cat ul { list-style: none; margin: 0; padding: 0; flex: 1 1 260px; display: flex; flex-direction: column; gap: 0.35rem; }
+.dia-cat a { text-decoration: none; }
+.dia-cat a:hover { color: var(--patina); text-decoration: underline; text-decoration-color: var(--patina); }

@@ -1,33 +1,83 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { informes, fechaLarga, fechaCorta, url, youtubeId } from "../../lib/contenido";
+import { informes, trocear, fechaLarga, fechaCorta, url, youtubeId } from "../../lib/contenido";
+import { categoriaDe, type Cat } from "../../lib/categorias";
 export function getStaticPaths() {
   const todos = informes();
   return todos.map((i, k) => ({ params: { fecha: i.fecha }, props: { i, sig: todos[k - 1] ?? null, ant: todos[k + 1] ?? null } }));
 }
 const { i, sig, ant } = Astro.props;
+
+// El cuerpo, por bloques: los trozos con categoría llevan franja ilustrada;
+// los consecutivos de la misma categoría comparten una. El resto (agenda,
+// titulares, dato curioso, fuentes...) fluye plano, en su orden.
+const { preambulo, trozos } = trocear(i.html);
+type Bloque = { cat: Cat | null; html: string; titulos: string[] };
+const bloques: Bloque[] = [];
+for (const t of trozos) {
+  const cat = categoriaDe(t.titulo);
+  const ult = bloques[bloques.length - 1];
+  if (ult && cat && ult.cat && ult.cat.id === cat.id) { ult.html += t.html; ult.titulos.push(t.titulo); }
+  else if (ult && !cat && !ult.cat) { ult.html += t.html; ult.titulos.push(t.titulo); }
+  else bloques.push({ cat, html: t.html, titulos: [t.titulo] });
+}
+const heroCat = bloques.find((b) => b.cat)?.cat ?? null;
+const heroTitular = i.portada ?? i.titular;
+const vid = youtubeId(i.video);
 ---
 <Base titulo={`${i.titular} · ${fechaCorta(i.fecha)}`} descripcion={i.resumenHtml.replace(/<[^>]+>/g, "").slice(0, 160)} actual="informes">
-  <article class="pieza">
-    <header class="cabecera">
-      <p class="kicker"><span class="hoy" data-fecha={i.fecha} hidden></span> El informe diario</p>
-      <h1>{i.titular}</h1>
-      <p class="fecha">{fechaLarga(i.fecha)} · {i.stats.noticias} noticias · {i.stats.fuentes} fuentes · {i.stats.minutos} min de lectura</p>
-      {youtubeId(i.video)
-        ? <div class="video"><iframe src={`https://www.youtube-nocookie.com/embed/${youtubeId(i.video)}`} title="Video de la edición" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-        : i.video && <p class="acciones"><a class="boton" href={i.video}>Ver el video de esta edición</a></p>}
-      {i.salir && <p class="salir" data-fecha={i.fecha} hidden><strong>Para salir hoy</strong><span>{i.salir}</span></p>}
+  <article class="pieza-cat">
+    <header class="hero-informe franja">
+      {heroCat && <img src={url(`img/secciones/${heroCat.imagen}.jpg`)} alt="" />}
+      <div class="velo"></div>
+      <div class="hero-contenido">
+        <p class="kicker" style={heroCat ? `color:${heroCat.color}` : undefined}>
+          <span class="hoy" data-fecha={i.fecha} hidden></span>
+          {heroCat ? `${heroCat.nombre} · ` : ""}La noticia del día
+        </p>
+        <h1>{heroTitular}</h1>
+        {i.mirada.length > 0 && <p class="hero-bajada">{i.mirada[0]}</p>}
+        <p class="fecha">{fechaLarga(i.fecha)} · {i.stats.noticias} noticias · {i.stats.fuentes} fuentes · {i.stats.minutos} min de lectura</p>
+        <p class="acciones">
+          {vid ? <a class="boton" href="#video">▶&nbsp; Ver el informe en video</a>
+            : i.video && <a class="boton" href={i.video}>▶&nbsp; Ver el informe en video</a>}
+        </p>
+      </div>
     </header>
+
+    {i.salir && <p class="salir" data-fecha={i.fecha} hidden><strong>Para salir hoy</strong><span>{i.salir}</span></p>}
+
     {i.resumenHtml && <div class="entradilla"><p class="kicker">En una mirada</p>
       {i.mirada.length >= 3 ? <ul class="mirada">{i.mirada.map((f) => <li>{f}</li>)}</ul> : <div set:html={i.resumenHtml} />}
     </div>}
+
+    {vid && (
+      <div class="video" id="video"><iframe src={`https://www.youtube-nocookie.com/embed/${vid}`} title="Video de la edición" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+    )}
+
     {i.noticias.length > 1 && (
       <div class="importa">
         <p class="kicker">En esta edición</p>
         <ol>{i.noticias.map((n) => <li class={`n-${n.peso}`}><a href={`#${n.id}`}>{n.texto}</a></li>)}</ol>
       </div>
     )}
-    <div class="cuerpo" set:html={i.html} />
+
+    {preambulo.trim() && <div class="cuerpo" set:html={preambulo} />}
+
+    {bloques.map((b) => b.cat ? (
+      <section class="bloque-cat" style={`--cat:${b.cat.color}`}>
+        <div class="franja franja-cab">
+          <img src={url(`img/secciones/${b.cat.imagen}.jpg`)} alt="" />
+          <div class="velo"></div>
+          <div class="rotcat"><span class="barra-cat"></span><span class="nombre-cat">{b.cat.nombre}</span>
+            <a class="ver-cat" href={url(`categorias/${b.cat.id}/`)}>ver la categoría →</a></div>
+        </div>
+        <div class="cuerpo cuerpo-cat" set:html={b.html} />
+      </section>
+    ) : (
+      <div class="cuerpo" set:html={b.html} />
+    ))}
+
     <nav class="nav-dias">
       <span>{ant && <a href={url(`informes/${ant.fecha}/`)}><span class="kicker gris">← Edición anterior</span>{fechaLarga(ant.fecha)}</a>}</span>
       <span style="text-align:right">{sig && <a href={url(`informes/${sig.fecha}/`)}><span class="kicker gris">Edición siguiente →</span>{fechaLarga(sig.fecha)}</a>}</span>

@@ -30,8 +30,31 @@ export type Seccion = { id: string; texto: string };
 export type Noticia = { id: string; texto: string; peso: "a" | "b" };
 export type Stats = { noticias: number; fuentes: number; minutos: number };
 export type Informe = {
-  fecha: string; titular: string; resumenHtml: string; mirada: string[]; salir: string | null;
+  fecha: string; titular: string; portada: string | null; resumenHtml: string; mirada: string[]; salir: string | null;
   html: string; secciones: Seccion[]; noticias: Noticia[]; stats: Stats; video: string | null;
+};
+
+// El html rendereado, partido por sección (h2): para pintar cada bloque con
+// su categoría (WEB 1). El preámbulo es lo que va antes de la primera h2.
+export type Trozo = { id: string; titulo: string; html: string };
+export function trocear(html: string): { preambulo: string; trozos: Trozo[] } {
+  const partes = html.split(/(?=<h2 id=")/);
+  const trozos: Trozo[] = [];
+  let preambulo = "";
+  for (const p of partes) {
+    const m = p.match(/^<h2 id="([^"]+)">([\s\S]*?)<\/h2>/);
+    if (!m) { preambulo += p; continue; }
+    trozos.push({ id: m[1], titulo: m[2].replace(/<[^>]+>/g, ""), html: p });
+  }
+  return { preambulo, trozos };
+}
+// Titulares con peso dentro de un trozo (para las páginas de categoría).
+export const noticiasDe = (html: string): { id: string; texto: string }[] => {
+  const out: { id: string; texto: string }[] = [];
+  const re = /<h3 class="noticia[^"]*" id="([^"]+)">([\s\S]*?)<\/h3>/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(html))) out.push({ id: m[1], texto: m[2].replace(/<[^>]+>/g, "") });
+  return out;
 };
 export type Clave = {
   slug: string; fecha: string; titulo: string; pregunta: string;
@@ -131,6 +154,9 @@ export function informes(): Informe[] {
       const mA = md.match(/^#{1,3}\s+\[A\]\s+(.+)$/m);
       const mH1 = md.match(/^#\s+(.+)$/m);
       const titular = (mA?.[1] || mH1?.[1] || `Informe del ${fecha}`).trim();
+      // La marca interna NOTICIA DE PORTADA (desde el 03-09): el titular que
+      // manda en el hero. Se extrae ANTES de que quitarInterno la borre.
+      const portada = md.match(/^NOTICIA DE PORTADA:\s*([^|\n]+)/m)?.[1]?.trim() ?? null;
       const resumenMd = seccionDe(md, /^##\s+En una mirada/i);
       const mSalir = md.match(/^\*\*Para salir hoy:\*\*\s*(.+)$/m);
       // cuerpo: sin el H1 ni "En una mirada" (va como entradilla) ni la línea de salir (va como chip)
@@ -142,7 +168,7 @@ export function informes(): Informe[] {
       const fuentes = seccionDe(md, /^##\s+Fuentes consultadas/i).split("\n").filter((l) => l.trim()).length;
       const palabras = md.split(/\s+/).length;
       return {
-        fecha, titular,
+        fecha, titular, portada,
         resumenHtml: marked.parse(resumenMd, { async: false }) as string,
         mirada: frases(resumenMd.replace(/\*\*/g, "")),
         noticias, stats: { noticias: noticias.length, fuentes, minutos: Math.max(1, Math.round(palabras / 220)) },

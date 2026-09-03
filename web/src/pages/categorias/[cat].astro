@@ -1,0 +1,62 @@
+---
+import Base from "../../layouts/Base.astro";
+import { informes, trocear, noticiasDe, fechaCortaNum, url } from "../../lib/contenido";
+import { CATEGORIAS, categoriaDe, type Cat } from "../../lib/categorias";
+
+export function getStaticPaths() {
+  const todos = informes();
+  return CATEGORIAS.map((cat) => {
+    // por día: los trozos de esta categoría, con sus titulares (o el título
+    // de la sección si el bloque no trae titulares con peso)
+    const dias = todos.map((i) => {
+      const { trozos } = trocear(i.html);
+      const enlaces: { id: string; texto: string }[] = [];
+      for (const t of trozos) {
+        if (categoriaDe(t.titulo)?.id !== cat.id) continue;
+        const ns = noticiasDe(t.html);
+        if (ns.length) enlaces.push(...ns);
+        else enlaces.push({ id: t.id, texto: t.titulo });
+      }
+      return { fecha: i.fecha, enlaces };
+    }).filter((d) => d.enlaces.length > 0);
+    return { params: { cat: cat.id }, props: { cat, dias } };
+  });
+}
+const { cat, dias } = Astro.props as { cat: Cat; dias: { fecha: string; enlaces: { id: string; texto: string }[] }[] };
+const DESCRIPCION: Record<string, string> = {
+  economia: "precios, sueldos, pensiones y las cifras que mueven el bolsillo, día por día",
+  seguridad: "delitos, tribunales y el trabajo de las policías, con su estado procesal",
+  politica: "el Congreso, el Gobierno y las reglas que cambian, sin la pelea chica",
+  regiones: "todo lo que el informe contó fuera de Santiago, día por día",
+  salud: "el sistema de salud y lo que te toca como paciente",
+  educacion: "escuelas, universidades y ciencia hecha en Chile",
+  internacional: "el mundo, cuando afecta a Chile",
+  "plata-publica": "el seguimiento de los fondos de todos: qué se cuestiona y qué vuelve",
+};
+---
+<Base titulo={cat.nombre} descripcion={`${cat.nombre} en Entender Chile: ${DESCRIPCION[cat.id]}.`}>
+  <section class="cat-pagina" style={`--cat:${cat.color}`}>
+    <div class="franja cat-hero">
+      <img src={url(`img/secciones/${cat.imagen}.jpg`)} alt="" />
+      <div class="velo"></div>
+      <div class="rotcat">
+        <h1>{cat.nombre}</h1>
+        <span class="cat-desc">{DESCRIPCION[cat.id]}</span>
+      </div>
+    </div>
+    {dias.length ? (
+      <div class="dias-cat">
+        {dias.map((d) => (
+          <div class="dia-cat">
+            <span class="mono">{fechaCortaNum(d.fecha).slice(0, 5)}</span>
+            <ul>{d.enlaces.map((e) => (
+              <li><a href={url(`informes/${d.fecha}/#${e.id}`)}>{e.texto}</a></li>
+            ))}</ul>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <p class="vacio" style="margin-top:1.5rem">Todavía no hay noticias de esta categoría. El informe de cada mañana la va llenando sola.</p>
+    )}
+  </section>
+</Base>
