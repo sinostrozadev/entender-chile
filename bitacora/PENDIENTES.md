@@ -71,11 +71,20 @@ con sync inicial y bucle de espera literal). Primera guardia real: 03-09
       y la sesión de día la LEE y profundiza, ya no la reescribe. Primera
       corrida: mañana 03-09.
 
-- [ ] **Disputa 1 (imágenes generadas), la única abierta**: Santiago decide
-      cuando vea los fondos por sección en video. Las otras nueve quedaron
-      cerradas el 02-09 en la noche (entrada en decisiones.md). Precisar
-      además qué "tiempo" quiere ajustar de la Clave (¿la hora de la tarea o
-      la de publicación?).
+- [ ] **Disputa 1 (imágenes generadas), la única abierta — y con el marco
+      de monetización que preguntó Santiago (03-09)**: la política de
+      contenido inauténtico de YouTube pone como ejemplo "mismas imágenes de
+      IA repetidas + guion de IA + voz sintética", y el canal ya tiene dos de
+      los tres elementos. Riesgo real si las imágenes fijas se vuelven EL
+      contenido visual. Mitigación propuesta para cerrar la disputa: (a) uso
+      ACOTADO: cortinas de sección (1,1 s), pieles de Shorts y carátulas —
+      identificadores de serie, como el set de un noticiero, nunca el
+      contenido; (b) VARIACIÓN DIARIA POR CÓDIGO encima de cada imagen
+      (encuadre, desplazamiento y tinte sembrados con la fecha: dos días
+      nunca se ven iguales, y es verificable); (c) el contenido del video
+      sigue siendo tarjetas tipográficas construidas con los datos del día;
+      (d) el registro de decisiones/aporte humano al día. La Clave del
+      tiempo ya se aclaró: era la DURACIÓN (hecha, 6-9 min).
 
 - [ ] **Fondos: elegir intensidad en las láminas de Descargas**
       (`entender-chile-demo-imagen/`): 4 familias x 3 fuerzas por modo
@@ -104,6 +113,25 @@ con sync inicial y bucle de espera literal). Primera guardia real: 03-09
       despierten.
 
 ## Para la sesión de la noche (código y prompts)
+
+- [ ] **WEB 1 (pedido de Santiago, 03-09): categorías en la web pública +
+      vuelta al diseño del informe.**
+      1. **Categorías**: derivar la categoría de cada bloque del informe
+         desde sus "## secciones" (el mapeo ya existe en `familiaDe()` de
+         src/fondos.tsx: economía, seguridad, política, regiones, clima,
+         salud, educación, internacional, plata pública); páginas
+         `/categorias/<cat>/` con los bloques de esa categoría día por día,
+         y un menú de categorías en la navegación.
+      2. **Identidad visual**: las 10 imágenes de sección como cabecera de
+         cada página de categoría (recortadas a franja panorámica; en la web
+         no hay riesgo de monetización). Si se quiere una portada hero para
+         la home, pedirla aparte con el estilo de la casa.
+      3. **Rediseño de la página del informe**: bloques separados por
+         categoría con su color e ícono, la NOTICIA DE PORTADA destacada
+         arriba, tipografía de la casa (Fraunces/Plex), y el video embebido
+         donde corresponde. Antes de reescribir plantillas: boceto en un
+         artifact para el visto bueno de Santiago.
+
 
 - [ ] **ORDEN, noches 2 y 3** (`bitacora/2026-09-02-orden-del-repo.md`; la
       noche 1 se ejecutó el 02-09: archivo/, PENDIENTES limpio, decisiones

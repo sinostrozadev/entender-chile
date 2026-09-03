@@ -21,7 +21,20 @@ comportamiento.
 
 ## Modo `auditoria`
 
-Escribe `bitacora/AAAA-MM-DD-auditoria.md`.
+**Desde el 03-09 la auditoría base la escribe la RUTINA de las 09:30**
+(`prompts/auditoria-matinal.md`, disputa 7 cerrada por Santiago el 02-09):
+esta sesión ya NO la reescribe.
+
+1. Lee `bitacora/AAAA-MM-DD-auditoria.md`, que la rutina dejó a las ~09:35.
+2. Verifica su triage (HOY / AGUANTA / MIRAR) contra el repo: si algo no
+   calza, se corrige el juicio, con evidencia.
+3. PROFUNDIZA solo lo que la rutina no alcanza (calidad editorial fina,
+   estrategia, tendencias de varios días) y agrégalo AL MISMO archivo como
+   sección nueva: `## Profundización de la sesión de día`. Nunca pisar lo
+   que la rutina escribió.
+4. SOLO si el archivo no existe a las 10:00 (la rutina falló), escríbelo tú
+   entero como respaldo, con el método de siempre de abajo, y anota que la
+   rutina no corrió.
 
 No estimar nada que se pueda medir. Todo lo que sigue sale del repo, de
 GitHub Actions y de los releases.
