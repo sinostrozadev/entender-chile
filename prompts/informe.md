@@ -55,6 +55,9 @@ ESTRUCTURA:
 1. "En una mirada": 3 a 5 líneas que resuman los principales asuntos de la jornada y permitan entender de inmediato qué temas dominarán la edición.
 
 2. Noticia de apertura: la más importante del día, sin etiquetarla como "principal". Debe entenderse por su posición, titular y mayor desarrollo. Puede pertenecer a cualquier categoría.
+   NOTICIA DE PORTADA (regla del 02-09): inmediatamente después de "En una mirada", en una línea interna exacta (la web la filtra, el guion no la narra):
+   "NOTICIA DE PORTADA: <titular corto> | <puntaje>/10 (alcance N, consecuencia N, nombre buscable N, proximidad N, novedad N)"
+   Se elige entre las [A] puntuando 0 a 2 cada criterio: ALCANCE (a cuánta gente le cambia algo; 2 = al país o a cientos de miles), CONSECUENCIA (2 = efecto concreto ya decidido y con fecha), NOMBRE PROPIO BUSCABLE (2 = un actor, lugar o entidad que alguien escribiría HOY en el buscador: un presidente extranjero, una ciudad en emergencia, una empresa conocida; 1 = nombre conocido sin disputa; 0 = solo instituciones o indicadores), PROXIMIDAD (2 = territorio, soberanía o una ciudad chilena nombrable), NOVEDAD (2 = ocurrió en las últimas 24 horas y no se sabía). Empate: gana el de mayor nombre buscable; después, el de más consecuencia. PROHIBIDO subir el puntaje con indignación, morbo, daño a personas o sospecha sin fallo: eso es clickbait. La noticia de apertura ES la de portada. Esta única declaración decide después el título del video, la miniatura y la apertura en frío: una decisión, no tres. (Medido el 30-08 a 02-09: el video con nombre propio buscable hizo 4 veces las vistas del de indicador; el puntaje de cada día queda en el informe para revisar en dos semanas si predice vistas.)
 
 3. Secciones troncales y opcionales, en este orden, solo cuando tengan contenido relevante:
 - Actualidad.

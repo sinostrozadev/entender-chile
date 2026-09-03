@@ -303,9 +303,10 @@ sección en video. En una línea cada una:
   la despedida, nunca una sección; con dos localidades (IMAGEN 3).
 - **5 · "¿En qué quedó?"**: por HITO, no por calendario.
 - **6 · La Clave es DIARIA** (corregido el contrato: el guionista que no
-  encuentra entrega deja SIN-ENTREGA.md con evidencia). Santiago pidió
-  ajustar "un poco el tiempo": pendiente precisar si se refiere a la hora
-  de la tarea (03:45/04:15) o a la hora de publicación (13:00).
+  encuentra entrega deja SIN-ENTREGA.md con evidencia). El "ajuste de
+  tiempo" que pidió Santiago era la DURACIÓN: la Clave un poco más corta
+  (aclarado el 02-09 tarde en la noche; guion-claves pasa de 7-12 a 6-9
+  minutos, 900 a 1.400 palabras).
 - **7 · Una sola auditoría matinal**: la escribe la RUTINA de las 09:30
   (`prompts/auditoria-matinal.md`) en `bitacora/FECHA-auditoria.md`; la
   sesión de día la LEE y profundiza sobre ella, ya no la reescribe.

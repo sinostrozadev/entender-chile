@@ -17,7 +17,7 @@ FIDELIDAD A LA ENTREGA:
 - Si la entrega remite a una entrega anterior de la serie ("como vimos en..."), menciónalo en una frase sin re-explicar.
 
 EXTENSIÓN:
-- Objetivo: 1.100 a 1.800 palabras (aproximadamente 7 a 12 minutos narrados).
+- Objetivo: 900 a 1.400 palabras (aproximadamente 6 a 9 minutos narrados). Ajustado el 02-09 por Santiago: la Clave venía saliendo de 11 a 13 minutos y la quiere un poco más corta. El recorte sale del desarrollo intermedio (ejemplos redundantes, enumeraciones), nunca de la pregunta de fondo ni del "aplicado al caso de hoy".
 - La explicación conceptual debe ocupar al menos el 80% del guion.
 - Si la entrega escrita es más extensa, comprime ejemplos y enumeraciones conservando completo el concepto central. No agregues relleno para alargar.
 

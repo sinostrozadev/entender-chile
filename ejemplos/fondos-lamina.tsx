@@ -15,14 +15,14 @@ const SECCIONES: Array<[string, string]> = [
   ["Chile en regiones", "topográfica"],
 ];
 
-const Celda: React.FC<{ seccion: string; etiqueta: string; fuerza: number; modo: string }> = ({ seccion, etiqueta, fuerza, modo }) => (
+const Celda: React.FC<{ seccion: string; etiqueta: string; fuerza: number; modo: string; tono?: "seccion" | "oscuro" | "tinta" }> = ({ seccion, etiqueta, fuerza, modo, tono = "seccion" }) => (
   <div style={{ position: "relative", width: 1920, height: 1080, transform: "scale(0.5)", transformOrigin: "top left", overflow: "hidden" }}>
-    <Fondo seccion={seccion} fuerza={fuerza} extractos={modo === "cortina" ? ["El Banco Central atribuyó la caída a la minería y al clima."] : []} />
+    <Fondo seccion={seccion} fuerza={fuerza} tono={tono} extractos={modo === "cortina" ? ["El Banco Central atribuyó la caída a la minería y al clima."] : []} />
     {modo === "cortina" ? (
       <AbsoluteFill style={{ alignItems: "flex-start", justifyContent: "center", padding: 120 }}>
         <div style={{ width: 120, height: 10, background: colorDeSeccion(seccion), marginBottom: 28 }} />
         <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 92, color: tema.tinta }}>{seccion}</div>
-        <div style={{ fontFamily: tema.mono, fontSize: 26, color: tema.gris, marginTop: 18, letterSpacing: "0.2em", textTransform: "uppercase" }}>{etiqueta} · fuerza {fuerza}</div>
+        <div style={{ fontFamily: tema.mono, fontSize: 26, color: tema.gris, marginTop: 18, letterSpacing: "0.2em", textTransform: "uppercase" }}>{etiqueta} · fuerza {fuerza}{" · tono "}{tono}</div>
       </AbsoluteFill>
     ) : (
       <AbsoluteFill style={{ justifyContent: "center", padding: 128 }}>
@@ -36,12 +36,12 @@ const Celda: React.FC<{ seccion: string; etiqueta: string; fuerza: number; modo:
   </div>
 );
 
-const Lamina: React.FC<{ fuerza: number; modo: string }> = ({ fuerza, modo }) => (
+const Lamina: React.FC<{ fuerza: number; modo: string; tono?: "seccion" | "oscuro" | "tinta" }> = ({ fuerza, modo, tono = "seccion" }) => (
   <FondosContext.Provider value={{ activo: true, fecha: "2026-09-02" }}>
     <AbsoluteFill style={{ background: "#111", display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap: 4 }}>
       {SECCIONES.map(([s, e]) => (
         <div key={s} style={{ position: "relative", overflow: "hidden" }}>
-          <Celda seccion={s} etiqueta={e} fuerza={fuerza} modo={modo} />
+          <Celda seccion={s} etiqueta={e} fuerza={fuerza} modo={modo} tono={tono} />
         </div>
       ))}
     </AbsoluteFill>
@@ -50,6 +50,6 @@ const Lamina: React.FC<{ fuerza: number; modo: string }> = ({ fuerza, modo }) =>
 
 const RootLaminas: React.FC = () => (
   <Composition id="Lamina" component={Lamina} width={1920} height={1080} fps={1} durationInFrames={1}
-    defaultProps={{ fuerza: 1.6, modo: "cortina" }} />
+    defaultProps={{ fuerza: 1.6, modo: "cortina", tono: "seccion" as const }} />
 );
 registerRoot(RootLaminas);

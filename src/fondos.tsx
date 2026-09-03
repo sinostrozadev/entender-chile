@@ -128,11 +128,17 @@ const Rayado: React.FC<{ r: () => number; color: string; fuerza: number }> = ({ 
 };
 
 // ---- el fondo completo ----
-export const Fondo: React.FC<{ seccion?: string; fuerza?: number; extractos?: string[] }> = ({ seccion, fuerza = 1, extractos = [] }) => {
+// tono (iteración con Santiago, 02-09): "seccion" = el color de la sección
+// (el original); "oscuro" = ese color mezclado con tinta, más presente;
+// "tinta" = grabado gris, sin color.
+export type Tono = "seccion" | "oscuro" | "tinta";
+export const Fondo: React.FC<{ seccion?: string; fuerza?: number; extractos?: string[]; tono?: Tono }> = ({ seccion, fuerza = 1, extractos = [], tono = "seccion" }) => {
   const { fecha } = useFondos();
   const familia = familiaDe(seccion, fecha);
   const r = azar(semilla(fecha + "|" + (seccion ?? "")));
-  const color = colorDeSeccion(seccion);
+  const color = tono === "tinta" ? mezcla(tema.tinta, tema.papel, 0.35)
+    : tono === "oscuro" ? mezcla(colorDeSeccion(seccion), tema.tinta, 0.45)
+    : colorDeSeccion(seccion);
   // Máscara: la textura es densa lejos del texto (que vive a la izquierda y al
   // centro) y se desvanece hacia él. La dirección varía con la semilla.
   const dir = r();

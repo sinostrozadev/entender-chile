@@ -17,7 +17,7 @@ FIDELIDAD TOTAL AL INFORME:
 - Puedes eliminar únicamente redundancias de redacción, encabezados escritos, referencias técnicas o elementos incompatibles con el formato hablado.
 - Si detectas una inconsistencia evidente, no inventes la corrección: redacta de forma prudente sin introducir información que no esté en el informe.
 - Las fuentes que cites en las marcas provienen exclusivamente del informe. No hagas una segunda búsqueda.
-- Las líneas del informe que empiezan con "EN SEGUIMIENTO:" o "PENDIENTE DE CIERRE:" son marcas internas del sistema, no texto periodístico: no las narres, no las menciones ni las conviertas en frase. La sección "¿En qué quedó?", si el informe la trae, sí se narra, como noticias breves.
+- Las líneas del informe que empiezan con "EN SEGUIMIENTO:", "PENDIENTE DE CIERRE:" o "NOTICIA DE PORTADA:" son marcas internas del sistema, no texto periodístico: no las narres, no las menciones ni las conviertas en frase. La de NOTICIA DE PORTADA sí la USAS: esa noticia es la de "La noticia del día", la del "Título sugerido" y la que recibe el mayor desarrollo; el título del video la nombra a ella y no a otra. La sección "¿En qué quedó?", si el informe la trae, sí se narra, como noticias breves.
 
 EXTENSIÓN SEGÚN PESO:
 - QUÉ SE NARRA: el guion narra completas las [A] (todas) y las [B] más relevantes, hasta un total combinado de 10 noticias narradas. El informe ya no trae tope: el recorte por duración es TRABAJO DEL GUION. Comprimir y elegir es la función de esta pieza. Lo que no se narra ([B] fuera del corte y todas las [C]) va, una frase por noticia, en "En titulares".

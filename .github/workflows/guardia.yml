@@ -1,0 +1,54 @@
+name: Guardia
+
+# El agente de guardia (diseño aprobado 02-09): barrido LIVIANO de última
+# hora, cada 2 horas entre las 08:00 y las 22:00 de Chile. El reloj es una
+# rutina de Claude que toca contenido/urgente/despertador.txt (regla del
+# 31-08: el cron de GitHub no es reloj principal; acá ni siquiera hay cron
+# de respaldo, porque perder una pasada del guardia no pierde nada que la
+# siguiente no recupere con su ventana de 3 horas).
+#
+# Si scripts/guardia.js caza algo (2 señales de: ALARMA, 3+ portadas,
+# ANUNCIADO por el informe), escribe contenido/urgente/FECHA-HHMM-<slug>.md
+# y este workflow lo commitea. La rutina de guardia ve aparecer el archivo
+# y avisa al teléfono. Fase 2 (Short exprés) se construye aparte.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "contenido/urgente/despertador.txt"
+  workflow_dispatch:
+    inputs:
+      ventana:
+        description: "Horas hacia atrás a revisar (defecto 3)"
+        default: "3"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: guardia
+  cancel-in-progress: false
+
+jobs:
+  vigilar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Barrido liviano de última hora
+        run: node scripts/guardia.js --ventana "${{ inputs.ventana || '3' }}"
+
+      - name: Commit de los hallazgos (si hubo)
+        run: |
+          git config user.name "guardia-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add contenido/urgente/
+          git diff --cached --quiet || {
+            git commit -m "guardia $(TZ=America/Santiago date +'%F %H:%M') [bot]"
+            git -c rebase.autoStash=true pull --rebase origin main
+            git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
+          }

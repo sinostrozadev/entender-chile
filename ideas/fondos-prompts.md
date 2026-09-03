@@ -64,3 +64,39 @@ limpio para "Entender Chile". Al recibirlo, guardar como
 > irá el nombre del canal. Sin texto, sin letras, sin logos, sin marcas de
 > agua, sin personas, sin fotografías. Composición limpia y simétrica en
 > peso, mucho espacio negativo, iluminación uniforme.
+
+## Fondos por sección (pedidos por Santiago, 02-09 en la noche)
+
+Uno por sección recurrente, para TENER en reserva (la decisión de usarlos
+dentro del video es la disputa 1, aún abierta; mientras, el plan A son las
+texturas por código de src/fondos.tsx). Guardarlos como
+`public/fondos/seccion-<nombre>.png`. Todos comparten el estilo de la casa;
+lo único que cambia es el motivo y el pictograma de la esquina.
+
+PLANTILLA COMÚN (pegar antes de cada motivo):
+"Imagen horizontal 16:9. Fondo de papel frío gris verdoso muy claro (#F2F2EF)
+con una ilustración lineal MUY tenue estilo grabado editorial, en tinta gris
+oscura (#17191C) al 8% de opacidad, con un único acento verde pátina de cobre
+(#2F7263) usado con muchísima moderación. Sobrio, elegante, sin texto, sin
+personas reconocibles, sin logos de marcas. El tercio izquierdo y el centro
+quedan casi vacíos (ahí irá texto superpuesto). En la esquina inferior
+derecha, un pictograma pequeño de una sola línea en verde pátina (60 px
+aprox) que identifique la sección: [PICTOGRAMA]. Motivo de fondo:
+[MOTIVO]."
+
+| Sección | [PICTOGRAMA] | [MOTIVO] |
+|---|---|---|
+| Economía | una línea de gráfico que sube y baja con una flecha fina | pauta de papel milimetrado muy tenue con una curva de serie económica que cruza el tercio derecho |
+| Seguridad y justicia | una balanza de la justicia minimalista | rayado diagonal fino tipo aguafuerte, más denso hacia la esquina superior derecha |
+| Política y Congreso | el frontis del ex Congreso: cuatro columnas y frontón, en cinco trazos | trama de puntos de rotativa de diario, desvaneciéndose hacia el centro |
+| Chile en regiones | el contorno alargado de Chile en un solo trazo | curvas de nivel topográficas de una cordillera, concentradas a la derecha |
+| Clima y emergencias | una nube con tres gotas, línea simple | isobaras curvas de mapa meteorológico, muy tenues, con un frente que cruza arriba |
+| Salud | una cruz de línea fina dentro de un círculo | trama de líneas de electrocardiograma casi planas que cruzan el tercio inferior |
+| Educación y ciencia | un libro abierto de cuatro trazos | renglones de cuaderno universitario muy tenues con una molécula de líneas en la esquina superior derecha |
+| Internacional | un globo con meridianos, tres trazos | meridianos y paralelos de un mapamundi en proyección suave, desvanecidos hacia el centro |
+| Plata pública | una lupa sobre una moneda, línea simple | columnas de un libro de contabilidad antiguo, muy tenues, a la derecha |
+| Dato curioso | un signo de interrogación dentro de un rombo | constelación de puntos unidos por líneas finas, esquina superior derecha |
+
+Regla al recibirlos: reducir a 200 px de ancho y comprobar que NO compiten
+con texto encima; si un fondo se nota más que el titular, se descarta o se
+baja su opacidad en edición.
