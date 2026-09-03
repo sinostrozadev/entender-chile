@@ -141,15 +141,11 @@ con sync inicial y bucle de espera literal). Primera guardia real: 03-09
       (3) Count-up y flecha que se dibuja. (4) Cita con cargo, contexto y
       comilla grande; quitar el guion corto del nombre en TarjetaCita.
       Detalle: `ideas/imagen-y-retencion.md` punto 7.
-- [ ] **IMAGEN 1 (con la disputa 1 cerrada): las cortinas de sección pasan
-      a usar LAS IMÁGENES** (public/fondos/seccion-*.jpg, mapeadas por
-      `familiaDe()`-como-categoría), nacen OPACAS (son el fotograma de cada
-      capítulo en la tira), con el velo medido en el video de prueba (0,22
-      en cortina) y VARIACIÓN DIARIA sembrada con la fecha (encuadre,
-      desplazamiento, tinte): es la condición de la regla 29. En tarjetas,
-      el fondo va tras velo 0,82 y NUNCA tras una cifra grande. Las
-      texturas procedurales de src/fondos.tsx quedan de respaldo para
-      secciones sin imagen.
+- [x] **IMAGEN 1 — EN PRODUCCIÓN (03-09, mañana)**: las cortinas y tarjetas
+      usan las imágenes de sección con variación diaria sembrada (regla 29),
+      velo 0,24/0,84, cortina opaca. Verificado en el video renderizado del
+      03-09 (re-corrida de las 06:32, los 4 nuevos privados ~07:57).
+
 - [ ] **IMAGEN 2: "En titulares" a 90 segundos.** Primero la opción B (tope
       de 12 palabras por titular; hoy miden ~30 y el bloque es el 23% del
       video) y mover el bloque ANTES del dato curioso. Medir en la edición
