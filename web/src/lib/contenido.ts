@@ -157,13 +157,20 @@ export function informes(): Informe[] {
       // La marca interna NOTICIA DE PORTADA (desde el 03-09): el titular que
       // manda en el hero. Se extrae ANTES de que quitarInterno la borre.
       const portada = md.match(/^NOTICIA DE PORTADA:\s*([^|\n]+)/m)?.[1]?.trim() ?? null;
-      const resumenMd = seccionDe(md, /^##\s+En una mirada/i);
+      // OJO: la entradilla se extrae del md crudo, así que las marcas internas
+      // se filtran AQUÍ también (el 03-09 la NOTICIA DE PORTADA salió como
+      // viñeta de "En una mirada" por saltarse este paso).
+      const resumenMd = quitarInterno(seccionDe(md, /^##\s+En una mirada/i)).trim();
+      // "Para salir hoy": como línea en negrita (el formato del contrato) o
+      // como sección propia (variante que apareció el 03-09).
       const mSalir = md.match(/^\*\*Para salir hoy:\*\*\s*(.+)$/m);
-      // cuerpo: sin el H1 ni "En una mirada" (va como entradilla) ni la línea de salir (va como chip)
+      const salirSeccion = seccionDe(md, /^##\s+Para salir hoy\s*$/im).split("\n")[0]?.trim() || null;
+      // cuerpo: sin el H1 ni "En una mirada" (va como entradilla) ni salir (va como chip)
       let cuerpo = md.replace(/^#\s+.+\n/m, "");
       cuerpo = cuerpo.replace(/^##\s+En una mirada[\s\S]*?(?=^#{1,6}\s)/m, "");
       // las marcas internas las quita render() para todas las piezas
       cuerpo = cuerpo.replace(/^\*\*Para salir hoy:\*\*.*$/m, "");
+      cuerpo = cuerpo.replace(/^##\s+Para salir hoy\s*$[\s\S]*?(?=^#{1,6}\s|(?![\s\S]))/im, "");
       const { html, secciones, noticias } = render(cuerpo);
       const fuentes = seccionDe(md, /^##\s+Fuentes consultadas/i).split("\n").filter((l) => l.trim()).length;
       const palabras = md.split(/\s+/).length;
@@ -172,7 +179,9 @@ export function informes(): Informe[] {
         resumenHtml: marked.parse(resumenMd, { async: false }) as string,
         mirada: frases(resumenMd.replace(/\*\*/g, "")),
         noticias, stats: { noticias: noticias.length, fuentes, minutos: Math.max(1, Math.round(palabras / 220)) },
-        salir: mSalir ? (() => { const t = mSalir[1].replace(/\s*\([^)]*\)\.?\s*$/, "").trim(); return t.charAt(0).toUpperCase() + t.slice(1); })() : null,
+        salir: (() => { const bruto = mSalir?.[1] ?? salirSeccion; if (!bruto) return null;
+          const t = bruto.replace(/^\*\*Para salir hoy:?\*\*\s*/i, "").replace(/\s*\([^)]*\)\.?\s*$/, "").trim();
+          return t ? t.charAt(0).toUpperCase() + t.slice(1) : null; })(),
         html, secciones, video: video(`${fecha}-informe`),
       };
     });

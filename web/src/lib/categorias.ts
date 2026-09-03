@@ -30,7 +30,7 @@ const REGLAS: Array<[RegExp, string]> = [
   [/region|clima|tiempo|meteoro|incendio|lluvia|alerta|rio |volcan|sismo|terremoto|tornado|emergencia|desastre|concepcion|valparaiso|nuble|antofagasta|araucania|magallanes|aysen|atacama|coquimbo|biobio|los lagos|los rios|maule|o'higgins|tarapaca|arica/, "regiones"],
   [/salud|hospital|isapre|fonasa|medicament|vacuna|virus|pandemia/, "salud"],
   [/educacion|universidad|colegio|escuela|ciencia|investigacion|gratuidad|profesor|\bcae\b/, "educacion"],
-  [/econom|imacec|mercado|bolsillo|empleo|desempleo|trabajo|pension|\bpgu\b|subsidio|inflacion|\bipc\b|sueldo|salario|cobre|miner|banco|dolar|tasa|impuesto|hacienda|presupuesto|comercio|litio|energia|fondos generacionales|hipotec/, "economia"],
+  [/econom|imacec|mercado|bolsillo|empleo|desempleo|trabajo|pension|\bpgu\b|subsidio|inflacion|\bipc\b|sueldo|salario|cobre|miner|banco|dolar|tasa|impuesto|hacienda|presupuesto|comercio|litio|energia|fondos generacionales|hipotec|vivienda|arriendo|inmobiliari|urban/, "economia"],
   [/seguridad|polic|fiscal|justicia|corte|tribunal|delito|crimen|homicid|narco|carabinero|\bpdi\b|carcel|secuestro|megafraude|balacera|condena|sentencia/, "seguridad"],
   [/congreso|senado|camara|gobierno|reforma|\bley\b|constituc|eleccion|presiden|minist|politic|diputad|servel|municip/, "politica"],
 ];
