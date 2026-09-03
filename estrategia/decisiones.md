@@ -288,6 +288,38 @@ usados y la cifra bajó de 11 a 3.
 **Decidió**: Santiago (el pedido); el árbol y la validación, la sesión de
 la noche del 01-09. **Detalle**: ideas/tarjetas-cuando-usar-cada-una.md.
 
+## 2026-09-02 (noche) - Nueve de las diez disputas de REGLAS-DURAS, cerradas
+
+**Qué**: Santiago cerró las disputas 2 a 10 adoptando la recomendación
+presentada; la 1 (imágenes generadas) queda abierta hasta ver los fondos por
+sección en video. En una línea cada una:
+- **2 · Voz clonada**: NO es requisito de monetización; se reabre solo con
+  evidencia (comentarios preguntando quién habla, caída de retención, o
+  Santiago quiere aparecer). Cierra la decisión 13 del 27-08.
+- **3 · Titulares**: tope de LARGO (12 palabras por titular), no de
+  cantidad; "todo lo del informe suena" se mantiene. La opción A (tope de 8)
+  solo si la B no baja el bloque de dos minutos.
+- **4 · El clima**: excepción declarada a la identidad: UNA frase casual en
+  la despedida, nunca una sección; con dos localidades (IMAGEN 3).
+- **5 · "¿En qué quedó?"**: por HITO, no por calendario.
+- **6 · La Clave es DIARIA** (corregido el contrato: el guionista que no
+  encuentra entrega deja SIN-ENTREGA.md con evidencia). Santiago pidió
+  ajustar "un poco el tiempo": pendiente precisar si se refiere a la hora
+  de la tarea (03:45/04:15) o a la hora de publicación (13:00).
+- **7 · Una sola auditoría matinal**: la escribe la RUTINA de las 09:30
+  (`prompts/auditoria-matinal.md`) en `bitacora/FECHA-auditoria.md`; la
+  sesión de día la LEE y profundiza sobre ella, ya no la reescribe.
+- **8 · Hora de publicación**: una sola tabla, la de `ideas/viralizacion.md`
+  (07:30 informe y su Short, 13:00 la Clave y el suyo, 10:00 los fines de
+  semana); los demás archivos la citan.
+- **9 · La base de series la alimenta el agente de guardia** (el sucesor
+  del vigía), que ya revisa los datos publicados.
+- **10 · La cortina**: no era disputa sino redacción: dura 1,1 s Y ese
+  segundo define la tira de capítulos; las dos cosas se escriben juntas.
+**Decidió**: Santiago, 02-09-2026 en la noche. **Detalle**: REGLAS-DURAS.md
+(sección final); la limpieza de las versiones perdedoras es parte de las
+noches 2 y 3 del orden del repo.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 Nota (02-09): estas entradas son previas al 26-08 y se reconstruyeron

@@ -23,69 +23,59 @@ vive en decisiones.md, entradas del 28-08 y 30-08).
       hoy usa una sola para las cuatro; sugerido informe 07:00, Short 12:00,
       Clave 14:00, Short de la Clave 18:00, como variables del repo).
 
-## EL AGENTE DE ÚLTIMA HORA — conversarlo (Santiago lo pidió el 02-09)
+## EL AGENTE DE GUARDIA — LUZ VERDE (02-09 noche, con la condición resuelta)
 
-Origen: el Imacec del 01-09 salió a las 08:30 con mejor historia que la
-anunciada y nadie lo capturó en el día.
+Santiago aprobó la corrida cada 2-3 horas con una condición: que el hecho de
+que GPT navega y Claude no, no complique. **Resuelto por arquitectura**: quien
+entra a las páginas es un SCRIPT en GitHub Actions (como el barrido de cada
+madrugada), no el modelo; la rutina de Claude es el reloj y el redactor
+trabaja SOLO con el material que el script ya trajo al repo.
 
-**La preferencia de Santiago (textual):** un agente **cada 2 o 3 horas**
-consultando, y si encuentra algo con categoría de **"muy importante"** (sea
-lo que sea, no solo datos anunciados), tener la noticia fresca y **"lanzarla
-de una"**.
-
-**Lo que la noche había propuesto (registrado, no decidido):** solo vigilar
-lo ANUNCIADO (marcas PENDIENTE DE CIERRE + Agenda) una vez al día a las
-09:20; el prompt está en `prompts/vigia.md` y sirve tal cual como pieza del
-agente mayor. El argumento en contra del barrido frecuente era costo, ruido
-y controles; Santiago lo leyó y aun así prefiere cada 2-3 horas: esa
-preferencia manda la conversación.
-
-**Las cinco decisiones para que la conversación sea corta:**
-1. **El criterio de "muy importante"**: mecánico y auditable (como el árbol
-   de tarjetas). Candidato: palabras de ALARMA del barrido + dato macro
-   publicado + declaración oficial de emergencia + "está en 3+ portadas".
-2. **Qué significa "lanzarla de una" HOY**: sin auditoría aprobada toda
-   subida llega PRIVADA y el clic es de Santiago; y sin el workflow "Short
-   exprés" el agente solo puede avisar con el material listo. El agente y el
-   Short exprés son UN proyecto.
-3. **Frecuencia y ventana**: cada 2 h entre 08:00 y 22:00 son 8 corridas al
-   día. ¿Barrido liviano (portadas + fuentes primarias) o completo? Costo en
-   tareas y en Actions si cada corrida puede disparar render.
-4. **Controles**: la versión exprés de la verificación (solo fuentes
-   primarias u oficiales) y el gate humano del clic se mantienen.
-5. **División**: detección y guion (¿GPT o rutina Claude?); render y subida
-   = workflow, eso está claro.
-
-- [ ] **Sistema — "Short exprés"**: workflow que convierta
-      `contenido/urgente/*.md` en un Short con voz en ~10 minutos (subida
-      privada; Santiago publica). Pieza NECESARIA del agente de última hora.
+**El diseño aprobado, para construir (sesión de la noche):**
+1. `scripts/guardia.js`: barrido liviano (portadas RSS de 6-8 medios +
+   fuentes primarias BC/INE/Senapred/Fiscalía + lo anunciado en PENDIENTE DE
+   CIERRE y Agenda). Criterio "muy importante" MECÁNICO, 2 de 4: palabra de
+   ALARMA · dato macro publicado hoy · declaración oficial de emergencia ·
+   está en 3+ portadas. Lo anunciado se reporta siempre.
+2. `guardia.yml`: se dispara con el push del despertador; si el script caza
+   algo, escribe `contenido/urgente/FECHA-HHMM-<slug>.md` con el material
+   (titulares, cifras, fuentes) y notifica.
+3. Rutina Claude despertador **cada 2 h, 08:00-22:00 Chile** (absorbe al
+   vigía de las 09:20: ya no se programa en GPT).
+4. **Workflow "Short exprés"**: convierte el urgente en guion corto → voz →
+   render vertical → sube PRIVADO con miniatura (~10 min) → push al teléfono
+   "URGENTE: X, el Short está en Studio". El clic de Santiago sigue siendo
+   el gate; con la auditoría de Google aprobada podrá salir programado.
+5. Control exprés: cifras solo de fuente primaria u oficial; si solo hay
+   prensa, el Short lo atribuye y la notificación lo advierte. Silencio
+   total si no hay nada.
+6. El guardia también ALIMENTA `datos/series/` (disputa 9): cada dato macro
+   que ve publicado lo anota en la serie.
 
 ---
 
 ## Dependen de Santiago
 
-- [ ] **Publicar desde Studio la Clave y el Short de la Clave del 02-09**
-      (`qzn2RJefxic`, `JpWGFsV-mMc`) **y borrar los cuatro videos viejos**
-      de la corrida con el texto desbordado: los dos de la mañana del
-      informe, más `8X_lOUPmLbE` y `814rdrOmAz0`.
-- [ ] **Programar el vigía en ChatGPT a las 09:20** apuntando a
-      `prompts/vigia.md`, como las otras tareas. (O se absorbe en la
-      conversación del agente de última hora: es la misma familia.)
-- [ ] **Auditoría matinal de las 09:30** (`prompts/auditoria-matinal.md`):
-      antes de programarla hay que cerrar la **disputa 7** de
-      REGLAS-DURAS (la skill de la sesión de día y esta tarea escribirían
-      LAS DOS `bitacora/FECHA-auditoria.md`). Nota de la noche: la rutina
-      la puedo crear yo por API con el repo montado (igual que el guardián);
-      lo que falta es la decisión de quién escribe ese archivo, no la
-      técnica.
-- [ ] **Las diez disputas de `REGLAS-DURAS.md`** (sección final): cada una
-      es una línea en decisiones.md y se borra la versión perdedora. Las
-      dos más pesadas: imágenes generadas (la 1, ya descrita en la decisión
-      de hecho del 30-08) y voz clonada (la 2).
-- [ ] **Ver el video de ejemplo de IMAGEN 0** (`node
-      ejemplos/demo-cambios-02-09.js`): fondos por sección, apertura en
-      frío y fuentes locales están construidos y APAGADOS por bandera;
-      sin tu visto bueno no se encienden en producción.
+
+
+- [x] **Auditoría matinal: RUTINA CREADA (noche 02-09)**, con la disputa 7
+      cerrada por Santiago: la rutina de las 09:30
+      (`trig_01GDbvJ1Wjzy25bnVRCXgygZ`) escribe `bitacora/FECHA-auditoria.md`
+      y la sesión de día la LEE y profundiza, ya no la reescribe. Primera
+      corrida: mañana 03-09.
+
+- [ ] **Disputa 1 (imágenes generadas), la única abierta**: Santiago decide
+      cuando vea los fondos por sección en video. Las otras nueve quedaron
+      cerradas el 02-09 en la noche (entrada en decisiones.md). Precisar
+      además qué "tiempo" quiere ajustar de la Clave (¿la hora de la tarea o
+      la de publicación?).
+
+- [ ] **Fondos: elegir intensidad en las láminas de Descargas**
+      (`entender-chile-demo-imagen/`): 4 familias x 3 fuerzas por modo
+      (cortina y tarjeta). A la fuerza original eran invisibles; se itera
+      con Santiago hasta conseguirlo. La apertura en frío ya quedó ACTIVADA
+      aparte (debuta el 03-09).
+
 - [ ] **Reservar el handle** @entenderchile en TikTok e Instagram (no
       implica publicar).
 - [ ] **Funciones avanzadas de YouTube**: Settings → Channel → Feature
@@ -192,9 +182,15 @@ preferencia manda la conversación.
 - [ ] **Cambio de hora del 6-09 (Chile pasa a UTC-3), hacerlo la noche del
       5-09**: rutinas de la nube una hora antes en UTC (reloj barrido 05:30
       → 04:30, observatorio 05:45 → 04:45, revisión 08:40 → 07:40, guardián
-      10:00 → 09:00, reloj métricas 12:45 → 11:45) y los crons de GitHub
+      10:00 → 09:00, reloj métricas 12:45 → 11:45, auditoría matinal
+      13:30 → 12:30) y los crons de GitHub
       (barrido 05:50 → 04:50, edición 09:00 → 08:00, métricas 15:00 →
       14:00). Las tareas de ChatGPT van en hora de Chile y no cambian.
+- [ ] **Vigilancia de la apertura en frío (mañana 03-09)**: el guion debe
+      abrir con "## La noticia del día" (2 frases, 25-35 palabras, una
+      tarjeta), la voz partir en 0 y el sello sonar al cierre de esa
+      sección; el capítulo 1 de YouTube mostrará esa sección. Si el guion no
+      trae la sección, todo cae al comportamiento de siempre (sin riesgo).
 - [ ] **Vigilancia del BUG 1 (mañana 03-09)**: el guion nuevo debe traer la
       línea en blanco tras cada [TESIS] y el paso 2c no debe avisar nada.
       Si avisa, la regla del prompt no se aplicó.

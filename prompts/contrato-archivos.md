@@ -41,7 +41,12 @@ REGLAS DE COMMIT:
   claves, guion informe o guion clave.
 - Jamás modificar archivos de fechas anteriores; re-ejecuciones del mismo
   día sí sobreescriben los archivos de ese día.
-- Si un día no hay Clave (excepcional), simplemente no crear sus archivos.
+- La Clave es DIARIA (decisión del 02-09, disputa 6 cerrada): todos los días
+  hay entrega y guion. Si el guionista no encuentra la entrega del día, NO
+  inventa: crea contenido/guiones/claves/AAAA-MM-DD-SIN-ENTREGA.md con la
+  evidencia (el listado que vio), y eso es el reporte de la falla. "Sin
+  entrega de Claves" queda solo para el caso excepcional que claves.md
+  define (banco vacío Y ninguna noticia da pie).
 
 ESCRITURA VERIFICADA (obligatorio en toda tarea que escriba en el repo):
 - Escribe el archivo. Si la escritura falla, NO des por perdida la ejecución:
