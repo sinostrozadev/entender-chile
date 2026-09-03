@@ -59,6 +59,35 @@ con sync inicial y bucle de espera literal). Primera guardia real: 03-09
 6. El guardia también ALIMENTA `datos/series/` (disputa 9): cada dato macro
    que ve publicado lo anota en la serie.
 
+**PROYECTO DE LA NOCHE (pedido de Santiago, 03-09 16:30): construir la fase 2,
+el Short exprés.** Hoy hubo el primer caso real y sirve de entrada de prueba:
+
+- El guardia corrió a las 00:12, 10:09, 12:08, 14:08 y 16:07 (la de las 08:14
+  falló por cupo agotado, junto con barrido 01:32, observatorio 01:45 y
+  reloj de métricas 08:45). A las **10:09 cazó la Encuesta de Operadores
+  Financieros**, señal ANUNCIADO, cruzada con la marca PENDIENTE DE CIERRE
+  que el informe dejó a las 03:30: es el circuito del caso Imacec cerrando
+  solo por primera vez. Archivo:
+  `contenido/urgente/2026-09-03-1009-tasa-interes-permanecera-nivel.md`.
+- Ahí se detuvo, porque no existe quien lo convierta en pieza. Santiago lo
+  notó como "no tengo ningún Short en privado": el guardia produce un
+  archivo, no un video.
+- Lo que el caso enseña para el diseño de la fase 2: (a) la captura es un
+  titular de un medio (La Tercera) sin cifra ni fuente primaria, así que el
+  Short exprés tiene que ir PRIMERO a la fuente oficial (acá, la EOF en
+  bcentral.cl) y solo después escribir; si la primaria no abre, atribuye a
+  prensa y la notificación lo advierte (punto 5). (b) Debe leer el
+  `PENDIENTE DE CIERRE` del informe para saber qué se esperaba y cerrarlo
+  con el valor real. (c) Un solo Short por hallazgo, aunque el guardia lo
+  vea en cinco corridas: `.visto.json` ya deduplica el archivo; el
+  workflow debe deduplicar el video con la misma firma.
+- Por verificar con Santiago: si la notificación de las 10:09 llegó al
+  teléfono. La rutina terminó bien y el archivo apareció dentro de su
+  ventana de espera, pero el push no se puede comprobar desde el repo.
+- Aclaración que salió hoy: el vigía de las 09:20 ya no se programa en GPT
+  (punto 3, absorbido por el guardia); por eso no hay archivo del vigía y
+  no es una falla.
+
 ---
 
 ## Dependen de Santiago
