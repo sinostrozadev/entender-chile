@@ -3,14 +3,32 @@
   "canal": {
     "suscriptores": 7,
     "vistas": 328,
-    "videos": 18
+    "videos": 20
   },
   "videos": {
+    "Ii7mKdrkNgs": {
+      "titulo": "Clave: ¿Cómo conviven soberanía y libre navegación en un est",
+      "publicado": "2026-09-03",
+      "estado": "public",
+      "vistas": 8,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 37
+    },
+    "j3KKFH9yaUc": {
+      "titulo": "¿Cómo conviven soberanía y libre navegación en un estrecho?",
+      "publicado": "2026-09-03",
+      "estado": "public",
+      "vistas": 2,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 551
+    },
     "G3zhNQ15u_w": {
       "titulo": "Cinco cosas que hay que saber hoy, Jueves, 3 de septiembre #",
       "publicado": "2026-09-03",
       "estado": "public",
-      "vistas": 0,
+      "vistas": 13,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 52
@@ -19,34 +37,16 @@
       "titulo": "Kast recibe a Milei con el Estrecho de Magallanes en disputa",
       "publicado": "2026-09-03",
       "estado": "public",
-      "vistas": 1,
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 718
-    },
-    "Ii7mKdrkNgs": {
-      "titulo": "Clave: ¿Cómo conviven soberanía y libre navegación en un est",
-      "publicado": "2026-09-03",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 37
-    },
-    "j3KKFH9yaUc": {
-      "titulo": "¿Cómo conviven soberanía y libre navegación en un estrecho?",
-      "publicado": "2026-09-03",
-      "estado": "private",
-      "vistas": 1,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 551
     },
     "JpWGFsV-mMc": {
       "titulo": "Clave: ¿Cómo funcionan los fondos generacionales y qué riesg",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 8,
+      "vistas": 11,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 37
@@ -55,8 +55,8 @@
       "titulo": "Cinco cosas que hay que saber hoy, Miércoles, 2 de septiembr",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 72,
-      "meGusta": 4,
+      "vistas": 137,
+      "meGusta": 5,
       "comentarios": 0,
       "durSeg": 54
     },
@@ -73,7 +73,7 @@
       "titulo": "La economía cae 1,5% y Hacienda prepara una nueva proyección",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 16,
+      "vistas": 18,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 816
@@ -100,7 +100,7 @@
       "titulo": "Cinco cosas que hay que saber hoy, Martes, 1 de septiembre #",
       "publicado": "2026-09-01",
       "estado": "public",
-      "vistas": 91,
+      "vistas": 94,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 55
@@ -145,7 +145,7 @@
       "titulo": "Milei llega a Chile tras el impasse por el Estrecho de Magal",
       "publicado": "2026-08-31",
       "estado": "public",
-      "vistas": 206,
+      "vistas": 208,
       "meGusta": 1,
       "comentarios": 1,
       "durSeg": 843
@@ -172,7 +172,7 @@
       "titulo": "Concepción en Alerta Roja por el aumento del río Andalién",
       "publicado": "2026-08-30",
       "estado": "public",
-      "vistas": 15,
+      "vistas": 16,
       "meGusta": 3,
       "comentarios": 0,
       "durSeg": 692
