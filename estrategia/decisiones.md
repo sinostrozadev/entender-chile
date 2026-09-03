@@ -54,6 +54,17 @@ mega-informe, contador) queda en evaluación en ideas/evaluar.md.
 grandes y calza con la identidad del canal; acumular primero permite
 decidir el formato con material real. **Decidió**: Santiago.
 
+## 2026-08-26 - "¿En qué quedó?" se publica en la web, automático por ahora
+**Qué**: la sección tiene página propia (índice con el contador global y un
+dossier por caso) y los dossiers se publican sin gate humano previo mientras
+se valida el flujo; antes del lanzamiento se revisa si se activa el gate.
+La actualización nocturna pasa de la API (sin key cargada, no corría) a una
+rutina de Claude en la nube a las 03:00, antes del informe de las 04:00,
+para que los hitos alimenten la alerta del día. **Por qué**: ver funcionar
+el circuito completo con material real antes de sumarle fricción; la
+presunción de inocencia y el estado procesal fechado ya están en las
+reglas y en el aviso legal de cada página. **Decidió**: Santiago.
+
 ## 2026-08-27 - Jerarquía de lealtades: el ciudadano, después el país, nadie más
 **Qué**: se explicita el orden cuando hay conflicto de intereses, y la regla
 que se desprende: mostrar lo que pasa para que cada uno piense por sí mismo,
@@ -115,7 +126,8 @@ es más coherente con "no te decimos qué pensar" que la voz de un dueño.
 **Se reabre si**: hay evidencia concreta (comentarios preguntando quién habla,
 caída de retención al entrar la voz, o Santiago quiere aparecer en cámara).
 **Estado**: propuesto por Claude a partir de la pregunta de Santiago, pendiente
-de su confirmación. **Detalle**: ideas/voz-opciones.md.
+de su confirmación. Es la disputa 2 de `REGLAS-DURAS.md`: la cierra Santiago
+y esta entrada se actualiza. **Detalle**: ideas/voz-opciones.md.
 
 ## 2026-08-28 - No se publica hasta cerrar cinco condiciones, y la sesión de día pasa a solo lectura
 
@@ -135,6 +147,17 @@ parte de la recomendación: reservar el handle no es publicar y no cuesta
 nada. Lo de solo lectura viene de que dos sesiones editando el mismo repo ya
 provocó trabajo duplicado el 26-08.
 **Decidió**: Santiago. **Detalle**: bitacora/README.md, bitacora/PENDIENTES.md.
+
+## 2026-08-28 - "¿Lo cumplió?": el criterio se congela ANTES de ver las promesas
+
+**Qué**: el criterio de la sección de seguimiento de promesas de campaña
+(umbral de tres condiciones, tamaño 30 a 50, estados, protocolo de
+extracción) queda congelado y fechado antes de leer la lista real del
+Servel; la línea base se extrae después, con ese criterio y no otro.
+**Por qué**: si el criterio se define mirando las promesas, la selección es
+acusable de sesgo desde el primer día; congelarlo primero es lo que hace la
+sección defendible. **Decidió**: Santiago. **Evidencia**:
+estrategia/seccion-lo-cumplio.md ("criterio congelado el 28-08-2026").
 
 ## 2026-08-29 - El informe crece, el guion resume y nombra todo
 
@@ -187,6 +210,24 @@ umbral del YPP se duplica. El contador de horas vistas parte hoy desde cero.
 **Decidió**: Santiago. **Detalle**: bitacora/2026-08-29.md (partes quinta y
 sexta), bitacora/PENDIENTES.md.
 
+## 2026-08-30 - La voz del canal queda operativa y aprobada; fondos generados en las carátulas (decisión de hecho)
+
+**Qué**: (1) La voz de producción es **Azure es-CL-LorenzoNeural**, en el
+aire desde la edición del 30-08. Santiago la aprobó al escucharla ("la voz
+quedó genial") con dos ajustes suyos: la narración entra DESPUÉS del sello,
+y desde el 31-08 va 10% más pausada (`AZURE_RATE=-10%`). El 01-09 decidió
+además que la promesa diaria no se recorta por costo: existe el respaldo S0
+automático (~US$6/mes de exceso) en vez de grabar solo lunes a viernes.
+(2) **Fondos generados con Gemini** (mapa marino, líneas verdes, banner)
+entraron ese día a miniaturas, banner, portadas del podcast y fondos de los
+Shorts, generados por Santiago. Es una decisión DE HECHO que exceptúa
+parcialmente el "cero imágenes generadas" del 27-08 y quedó sin registrar:
+formalizar la excepción (solo carátulas y fondos verticales, nunca dentro de
+las tarjetas del video) o volver atrás es la **disputa 1 de
+`REGLAS-DURAS.md`** y la cierra Santiago.
+**Decidió**: Santiago (voz, en conversación del 29-08 al 01-09; fondos, al
+generarlos y aprobar su uso el 30-08).
+
 ## 2026-08-31 - Regla de infraestructura: el cron de GitHub no se usa como reloj principal
 
 **Qué**: ningún proceso del canal depende del cron de GitHub Actions como
@@ -221,7 +262,37 @@ colgando del cron de GitHub como reloj principal.
 corrió. **Detalle**: bitacora/2026-08-28-investigacion-cron.md (la medición
 original de los tres relojes) y bitacora/PENDIENTES.md.
 
+## 2026-09-01 - Comentarios: se responde siempre, cálido y sin pedir nada
+
+**Qué**: todo comentario del canal se responde el mismo día, con calidez y
+sin pedir nada a cambio (ni suscripción, ni like, ni "comparte"). El primer
+comentario real ("hola" en el Short del 30-08) se respondió así.
+**Por qué**: la interacción temprana es la señal más barata para el
+algoritmo y la más honesta con la audiencia; pedir cosas en la respuesta es
+exactamente el tono de "gritos" del que el canal se diferencia.
+**Decidió**: Santiago, 01-09-2026.
+
+## 2026-09-01 - El tipo de tarjeta lo decide la forma del dato (árbol aplicado)
+
+**Qué**: el guion elige el tipo de cada tarjeta con un árbol mecánico
+(cuántos valores hay y qué relación tienen), con cuotas de variedad como
+alarma que nunca justifica inventar un dato, y un contador
+(`scripts/validar-tarjetas.js`, paso 2c de la edición) que audita la salida
+de cada guion. Antes de aplicarlo se probó a mano contra las 31 marcas de
+las ediciones del 29-08 al 01-09: nunca empeoraba y mejoraba 4.
+**Por qué**: pedido de Santiago del 01-09 ("hay que súper validar las
+reglas... quizás un algoritmo"): con once tipos ofrecidos y libertad, el
+modelo usaba `cifra` en 11 de 14 marcas. Una regla mecánica es auditable;
+"más variedad" es gusto. Resultado del primer día (02-09): de 4 a 6 tipos
+usados y la cifra bajó de 11 a 3.
+**Decidió**: Santiago (el pedido); el árbol y la validación, la sesión de
+la noche del 01-09. **Detalle**: ideas/tarjetas-cuando-usar-cada-una.md.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
+
+Nota (02-09): estas entradas son previas al 26-08 y se reconstruyeron
+después desde el repo; dos traen su fecha propia y el resto quedó sin fecha
+exacta, y así se conserva (inventarles fecha sería falsear el registro).
 
 - **Firma epistémica del canal**: toda cifra con fuente visible en pantalla;
   chips HECHO (sólido) / INTERPRETACIÓN (contorno). (prompts/, src/tema.ts)
@@ -240,16 +311,6 @@ original de los tres relojes) y bitacora/PENDIENTES.md.
 - **2026-08-24 - Shorts y miniaturas automáticas aprobados** por Santiago.
   (ideas/ejecutar.md)
 - **2026-08-25 - La voz clonada se trata como requisito de monetización**,
-  no como mejora estética. (ideas/IMPLEMENTAR.md, política YouTube
-  15-jul-2025)
-
-## 2026-08-26 - "¿En qué quedó?" se publica en la web, automático por ahora
-**Qué**: la sección tiene página propia (índice con el contador global y un
-dossier por caso) y los dossiers se publican sin gate humano previo mientras
-se valida el flujo; antes del lanzamiento se revisa si se activa el gate.
-La actualización nocturna pasa de la API (sin key cargada, no corría) a una
-rutina de Claude en la nube a las 03:00, antes del informe de las 04:00,
-para que los hitos alimenten la alerta del día. **Por qué**: ver funcionar
-el circuito completo con material real antes de sumarle fricción; la
-presunción de inocencia y el estado procesal fechado ya están en las
-reglas y en el aviso legal de cada página. **Decidió**: Santiago.
+  no como mejora estética. (archivo/IMPLEMENTAR.md, política YouTube
+  15-jul-2025; corregida por la decisión del 27-08 de dos voces, y hoy es
+  la disputa 2 de REGLAS-DURAS.md)

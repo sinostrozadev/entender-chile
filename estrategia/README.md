@@ -13,12 +13,26 @@ Relación con las otras carpetas:
     ideas/       backlog táctico (features del pipeline, mejoras puntuales)
     contenido/   el producto
 
+Por encima de esta carpeta está **`REGLAS-DURAS.md`** (en la raíz): las 40
+reglas vigentes destiladas de todo el proyecto, con su origen, y las
+disputas abiertas. Cuando quede duda entre un archivo de acá y ese, manda
+ese, y la contradicción se anota como disputa.
+
 Archivos:
 - `identidad.md` - qué es, propósito, propuesta de valor, qué NO es, tono
 - `publico.md` - para quién (hipótesis a validar con analítica real)
 - `modelo-de-negocio.md` - cómo se financia, hitos, plazos y riesgos
-- `hoja-de-ruta.md` - la lista maestra de lo que falta resolver, por fases
-- `decisiones.md` - registro de decisiones: fecha, qué, por qué, evidencia
+  (ojo: arrastra la voz clonada como requisito; es la disputa 2)
+- `hoja-de-ruta.md` - fases del proyecto (las cumplidas, por marcar)
+- `decisiones.md` - registro de decisiones: fecha, qué, por qué, evidencia.
+  El archivo más importante del repo: memoria y evidencia YPP.
+- `seccion-plata-publica.md` y `seccion-lo-cumplio.md` - criterio de las
+  secciones de seguimiento (se fundirán en un solo documento, noche 3 del
+  orden del repo)
+- `indicadores-pais.md` - diseño de la base de series (pasa a ideas/ y se
+  funde con DATOS 1)
+
+Retirado a `archivo/`: `plan-produccion.md` (fases cumplidas al 30-08).
 
 Reglas:
 - Cada documento declara su estado: BORRADOR / HIPÓTESIS / DECIDIDO.

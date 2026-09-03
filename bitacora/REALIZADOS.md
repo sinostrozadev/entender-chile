@@ -4,6 +4,8 @@ Registro append-only de lo completado, con fecha. La sesión de la mañana
 agrega aquí lo que sale de PENDIENTES; también es evidencia del aporte
 editorial y técnico humano del proyecto.
 
+- 02-09 · Guardián con el prompt nuevo cargado por API y verificado en vivo: regla de evidencia + los tres eslabones de la Clave (una entrega a medio hacer ya no pasa en silencio)
+- 02-09 · ORDEN noche 1: archivo/ con seis retirados, PENDIENTES limpio, decisiones.md en cronología con seis huérfanas registradas, README raíz y de estrategia al día
 - 02-09 · Taller: el sistema interno como página propia, con navegador de archivos, editor con diff antes de aplicar, borradores y Claude con el contexto de los 84 archivos de criterio
 - 02-09 · Texto desbordado de las tarjetas cerrado en cuatro capas: parser, render, validador y prompts (578 caracteres en una tarjeta de 107)
 - 02-09 · Edición diaria reentrante por pieza: una Clave que llega tarde se produce sola, sin rehacer el informe

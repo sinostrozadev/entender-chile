@@ -1,120 +1,100 @@
 # Entender Chile - pipeline del canal
 
-Canal diario de noticias chilenas en YouTube, producido por código. El guion
-marcado se convierte en un video 1920×1080 renderizado con Remotion. Sin
-edición manual.
+Canal diario de noticias chilenas en YouTube (@entenderchile), producido por
+código y publicado con gate humano. Cada madrugada salen **cuatro piezas**:
+el informe en video (1440p, ~15 min), su Short vertical, la Clave del día y
+su Short; más el episodio de podcast de cada serie (Spotify, por RSS) y la
+web pública. Voz Azure es-CL, sonido sintetizado propio, sin edición manual.
 
-## Cómo funciona de verdad (la madrugada)
+Las reglas que mandan sobre todo lo demás están en **`REGLAS-DURAS.md`**
+(40 reglas con su origen y las disputas abiertas). Si algo de este README
+contradice ese archivo, gana ese archivo.
+
+## La madrugada, de verdad
+
+El cuadro de horarios completo y verificado vive en
+`bitacora/2026-08-28-quien-ejecuta-que.md` y, con la corrida de cada día al
+lado, en el panel interno. En corto (hora de Chile, invierno):
 
 ```
-04:00  ChatGPT genera la edición con los prompts de prompts/ y la PUSHEA:
-       contenido/informes/AAAA-MM-DD.md          (informe fuente)
-       contenido/guiones/informe/AAAA-MM-DD.md   (guion del video diario)
-       contenido/claves/AAAA-MM-DD-<slug>.md     (Clave, si corresponde)
-       contenido/guiones/claves/AAAA-MM-DD-….md  (guion de la Clave)
-05:00  GitHub Actions ("Edición diaria", 09:00 UTC) hace checkout, verifica
-       que la edición esté completa, renderiza los MP4 (mudos mientras no haya
-       secrets de voz) y publica el release "edicion-AAAA-MM-DD" con los videos
-       y la descripción lista para YouTube.
-06:00  Santiago revisa el video en el release y la revisión de calidad.
+01:30  reloj de Claude toca el despertador → workflow del BARRIDO (22 fuentes)
+01:45  observatorio de plata pública (rutina de Claude)
+03:10  preselección → 03:30 informe → 03:45 Clave → 04:00/04:15 guiones
+       (tareas programadas de ChatGPT; leen prompts/ del repo y pushean)
+04:40  revisión editorial (rutina de Claude) → su push TIMBRA la edición
+~04:45 workflow EDICIÓN DIARIA: render 1440p con voz, 4 piezas, miniaturas,
+       release, subida PRIVADA a YouTube, podcast, web (~71 min en frío)
+06:07  guardián (rutina de Claude): verifica las piezas y avisa al teléfono
+08:45  reloj de métricas → workflow de MÉTRICAS (Data API → bitacora/ y panel)
 ```
 
-- **prompts/** es la única fuente de verdad de los prompts: se editan aquí, se
-  commitean, y ChatGPT los lee desde aquí antes de ejecutar su tarea.
-- **No hay plan B de generación.** `scripts/generar.js` fue retirado a
-  `revisar/` el 28-08-2026: si una pieza no llega, el gate frena el render, la
-  revisión de la nube deja constancia y avisa, y el cron de respaldo reintenta.
-- **contenido/** es el archivo histórico del canal y se commitea siempre
-  (ver `contenido/README.md`). Los videos van a `out/`, ignorado por git.
-- **ideas/** es el backlog del canal (evaluar → ejecutar → hechas/descartadas).
-- **estrategia/** son las bases del canal: identidad, público, modelo de
-  negocio, hoja de ruta y registro de decisiones (la fuente de verdad
-  fundacional; ver su README).
+Reglas de infraestructura ya pagadas con errores: el cron de GitHub NUNCA es
+reloj principal (solo red de respaldo; decisión del 31-08); la edición es
+**reentrante por pieza** (una Clave atrasada se produce sola con
+`workflow_dispatch`, sin rehacer el informe); y los pushes de bots no
+disparan workflows, por eso el paso 8 despacha la web explícitamente.
 
-## La mañana (local, para iterar con Claude)
+## Carpetas
+
+- **`prompts/`** - la única fuente de verdad de los prompts; ChatGPT y las
+  rutinas los leen del repo. `contrato-archivos.md` manda sobre todos.
+- **`contenido/`** - el producto y su archivo histórico (informes, guiones,
+  claves, casos, descripciones, podcast). Se commitea siempre.
+- **`estrategia/`** - fundamentos: identidad, público, modelo de negocio,
+  decisiones (ver su README).
+- **`ideas/`** - backlog táctico y análisis de forma/distribución.
+- **`bitacora/`** - operación diaria: `PENDIENTES.md` (la lista viva),
+  `REALIZADOS.md`, un archivo por día, métricas y el panel interno.
+- **`docs/`** - operativa técnica (YouTube, auditoría de la API).
+- **`archivo/`** - lo que ya cumplió su función; nada se borra.
+- **`taller/`** - el sistema interno (navegador de archivos, editor con
+  diff, borradores) publicado como artifact.
+- **`src/` + `scripts/`** - Remotion y el pipeline (abajo).
+
+## Uso local (la mañana)
 
 ```bash
-bash scripts/manana.sh     # pull + produce informe y clave (mudos)
-                           # + apunta el Studio al timeline de HOY
+bash scripts/manana.sh     # pull + produce informe y clave (voz simulada)
 npx remotion studio        # previsualizar en http://localhost:3000
 ```
 
 `manana.sh` reapunta `src/Root.tsx` a `out/AAAA-MM-DD/timeline.json` como
-cambio LOCAL - ese archivo modificado no se commitea (la versión del repo
-importa el ejemplo, que es lo que la nube necesita para el build).
+cambio LOCAL que no se commitea. Producción a mano:
+`node scripts/dia.js [--clave] [--voz] [--render]`.
 
-## Flujo diario a mano (lo que hace por dentro)
+## Scripts principales
 
-```bash
-node scripts/dia.js                       # informe de hoy, voz simulada (gratis)
-node scripts/dia.js --clave --si-existe   # video de Claves si hoy hubo
-node scripts/dia.js --voz --render        # voz real ElevenLabs + MP4
-```
+- `parse.js` - marcas del guion (`##`, `[TESIS]`, `[DATO tipo | fuente]`,
+  `[ESQUEMA]`, `[FUENTE]`, `[CITA]`, `[HECHO]`/`[INTERPRETACIÓN]`,
+  titulares agrupados) → eventos + texto de voz con offsets.
+- `tts-azure.js` - voz es-CL (Lorenzo, -10%), pausas de sección, respaldo
+  S0 automático; `mock-tts.js` para probar gratis.
+- `build-timeline.js` / `chapters.js` - tiempos, capítulos y descripción.
+- `dia.js` - orquesta una pieza completa; `short.js` - los Shorts.
+- `validar-tarjetas.js` - cuenta tarjetas por tipo y avisa cuotas rotas y
+  marcas malformadas (paso 2c de la edición; avisa, no bloquea).
+- `youtube-subir.js` - reescala a 1440p/2560, sube privado con miniatura y
+  playlist; `podcast-subir.js` - episodios al feed.
+- `barrido.js`, `casos.js`, `sonido.js`, `gate.js`, `metricas.js`.
 
-`dia.js` hace git pull solo, y encadena: parse → voz (real o simulada) →
-timeline → capítulos + descripción → (render). Salidas del día en
-`out/AAAA-MM-DD/`; la descripción lista para pegar en YouTube queda en
-`contenido/descripciones/`.
+## Sistema visual y sonoro
 
-## Qué hace cada script
+Papel frío `#F2F2EF`, tinta `#17191C`, acento verde pátina `#2F7263`
+(`src/tema.ts`). Fraunces para tesis, IBM Plex Sans para texto, IBM Plex
+Mono para datos. Firma: toda cifra lleva `FUENTE · …`; chips HECHO /
+INTERPRETACIÓN. Música: cero bancos, todo sintetizado por `sonido.js`
+(sello, cortinas, cierre); sin cama bajo la voz.
 
-- `scripts/parse.js` - parsea las marcas (`##`, `[TESIS]`, `[DATO tipo | fuente]`,
-  `[ESQUEMA | título]`, `[HECHO]`, `[INTERPRETACIÓN]`, `[CITA | quién | fuente]`),
-  separa lo narrado de lo visual, y produce el texto limpio para la voz con los
-  offsets de caracteres de cada evento.
-- `scripts/tts-elevenlabs.js` - voz con timestamps por caracter. Trocea por
-  párrafos (~4.000 caracteres) y desplaza los tiempos para que la alineación
-  final corresponda exactamente a `narracion.txt`.
-- `scripts/mock-tts.js` - misma salida, simulada (~16 caracteres/seg), para
-  probar render y diseño sin gastar créditos.
-- `scripts/build-timeline.js` - cruza eventos con tiempos. Los `[DATO]` y
-  `[ESQUEMA]` toman el intervalo del párrafo que los sigue (ese párrafo pasa a
-  ser el pie del gráfico). Las secciones son banners superpuestos de 2,6 s.
-- `scripts/chapters.js` - capítulos de YouTube desde el timeline (primero en
-  00:00, fusiona secciones de <10 s).
-- `scripts/dia.js` - orquesta todo lo anterior en un comando.
-- `scripts/barrido.js` - barrido de fuentes (RSS + Google News) que alimenta la
-  preselección; `scripts/tts-azure.js` - voz (Azure Speech, es-CL) con pausas
-  de sección; `scripts/gate.js` - gate previo al render.
-- `scripts/manana.sh` - rutina matinal local (pull + producir + Studio a hoy).
-
-## Primer uso
-
-```bash
-npm install
-npx remotion studio        # previsualiza con ejemplos/timeline.ejemplo.json
-```
-
-En el primer `studio`/`render`, Remotion descarga un Chrome headless y las
-tipografías de Google (Fraunces, IBM Plex Sans, IBM Plex Mono): necesita red.
-Sin red, comenta los `loadFont()` en `src/tema.ts` (hay stacks de respaldo).
-
-## Sistema visual (src/tema.ts)
-
-Papel frío `#F2F2EF`, tinta `#17191C`, un solo acento: verde pátina de cobre
-`#2F7263`. Fraunces (tesis), IBM Plex Sans (texto), IBM Plex Mono (datos).
-Firma del canal: toda cifra muestra `FUENTE · …` en mono; chip HECHO sólido en
-tinta, chip INTERPRETACIÓN de contorno en pátina. Una animación de entrada por
-tarjeta y nada más.
-
-## Voz (activa desde la edición del 30-08-2026)
-
-Azure Speech (`scripts/tts-azure.js`, voz es-CL-LorenzoNeural, capa gratuita
-F0: 500.000 caracteres al mes, el informe gasta unos 9.000 al día). Secrets
-`AZURE_SPEECH_KEY` y `AZURE_SPEECH_REGION` cargados en el repo el 29-08; en
-local viven fuera del repo (`~/.claude/projects/-home-santiago-projects-daily/
-secrets/azure.env`). `dia.js --voz` elige Azure si existen; ElevenLabs
-(`tts-elevenlabs.js`) queda como alternativa. La voz corta por sección con una
-pausa de 1,2 s, y ahí suena la cortina (sello al inicio, cierre al final; no
-hay cama musical).
-
-## Antes de subir un video real
+## Antes de publicar (el gate humano)
 
 1. Escuchar el audio completo SIEMPRE. Ese paso no se automatiza.
 2. Revisar el guion contra el informe (cifras, fechas, coherencia).
-3. Marcar el disclosure de contenido alterado/sintético en YouTube Studio.
+3. La divulgación de contenido sintético va marcada en cada pieza.
+
+Las subidas llegan privadas (auditoría de la API de Google en curso); el
+clic de publicar es de Santiago, a las horas de `ideas/viralizacion.md`.
 
 ## Qué sigue
 
-El backlog vivo está en `ideas/` - próximos en cola: shorts automáticos 9:16,
-miniaturas automáticas, subtítulos .srt desde `alignment.json`.
+La lista viva es `bitacora/PENDIENTES.md`. El objetivo que manda el
+calendario: los umbrales del Programa de Partners antes del 1-feb-2027.
