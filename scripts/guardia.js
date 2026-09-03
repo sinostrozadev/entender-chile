@@ -48,7 +48,7 @@ const desescapar = (s) => s
 const VACIAS = new Set(["el","la","los","las","un","una","de","del","al","y","o","en","a","por","para","con","que","se","su","sus","es","son","tras","sobre","desde","hasta"]);
 const norm = (t) => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 const palabras = (t) => norm(t).replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter((p) => p.length > 3 && !VACIAS.has(p));
-const ALARMA = /\b(tornado|tromba marina|terremoto|sismo|tsunami|aluvi[oó]n|erupci[oó]n|incendio forestal|megaincendio|apag[oó]n|evacuaci[oó]n|evacuan|alerta roja|estado de cat[aá]strofe|estado de excepci[oó]n|toque de queda|derrumbe|explosi[oó]n|descarrilamiento|colapso|femicidio|masacre|balacera|secuestro|fallecidos|muertos|desaparecid[oa]s?|brote|intoxicaci[oó]n|derrame|paro nacional|huelga|renuncia del ministro|renunci[oó]|muere|muri[oó]|asesinat[oa]|homicidio)\b/i;
+const ALARMA = /\b(tornado|tromba marina|terremoto|sismo|tsunami|aluvi[oó]n|erupci[oó]n|incendio forestal|megaincendio|apag[oó]n|evacuaci[oó]n|evacuan|alerta roja|estado de cat[aá]strofe|estado de excepci[oó]n|toque de queda|derrumbe|explosi[oó]n|descarrilamiento|colapso|femicidio|masacre|balacera|secuestro|fallecidos|muertos|desaparecid[oa]s?|brote|intoxicaci[oó]n|derrame|paro nacional|huelga|renuncia del ministro|renunci[oó]|muere|muri[oó]|asesinat[oa]|homicidio|cat[aá]strofe|accidente|choque|colisi[oó]n|emergencia|atentado|bomba|tiroteo|reh[eé]n|fuga masiva|mot[ií]n|socav[oó]n|marejada|inundaci[oó]n|desborde)\b/i;
 
 async function bajar(url) {
   const ctrl = new AbortController();

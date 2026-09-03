@@ -8,3 +8,6 @@ web/node_modules/
 web/dist/
 web/.astro/
 bitacora/taller.html
+
+# fondos por sección generados (Gemini): locales hasta cerrar la disputa 1
+public/fondos/seccion-*.jpg
