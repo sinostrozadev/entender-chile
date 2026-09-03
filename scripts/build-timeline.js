@@ -129,6 +129,9 @@ const timeline = {
     }).format(new Date()),
     serie: process.env.SERIE || "informe",          // informe | clave (lo fija dia.js)
     inicioNarracion: audioFile ? INICIO : 0,        // la voz entra después del sello
+    // Fondos por sección ENCENDIDOS (03-09, disputa 1 cerrada): imágenes
+    // como identificadores con variación diaria por código (src/fondos.tsx).
+    fondos: true,
     // apertura en frío: el sello suena en la pausa que cierra la primera
     // sección (banners[1].from ya apunta al inicio de ese silencio)
     selloEn: enFrio && banners[1] ? Number(Math.max(0, banners[1].from - 0.05).toFixed(2)) : 0,

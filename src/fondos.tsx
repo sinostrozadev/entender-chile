@@ -10,7 +10,7 @@
 // Se enciende con meta.fondos en el timeline; sin eso, el video es el de
 // siempre (decisión del 02-09: nada cambia en producción hasta verlo).
 import React, { createContext, useContext } from "react";
-import { AbsoluteFill } from "remotion";
+import { AbsoluteFill, Img, staticFile } from "remotion";
 import { tema, colorDeSeccion } from "./tema";
 
 export type Familia = "topografica" | "grafico" | "trama" | "rayado";
@@ -41,6 +41,28 @@ const familias: Array<[RegExp, Familia]> = [
   [/regi|clima|tiempo|medioambiente|incendio|lluvia|alerta|río|rio|volc|sismo|terremoto|comuna|ciudad|vivienda|territor|bolivia|argentina|perú|peru|internacional|mundo|curioso/i, "topografica"],
   [/congreso|senado|cámara|camara|gobierno|reforma|ley|constitu|elecci|presiden|minist|contralor|licencia|derechos|agenda|apertura|cierre|titulares/i, "trama"],
 ];
+// Imagen de sección (disputa 1 cerrada el 03-09): una de las diez láminas de
+// public/fondos/seccion-*.jpg, elegida por el tema de la sección. Si ninguna
+// calza, se cae a la textura procedural. El orden importa.
+const IMAGENES: Array<[RegExp, string]> = [
+  [/cerimedo/, "congreso"],
+  [/licencias? m[eé]dicas|contralor|plata p[uú]blica|malversa|fraude/, "plata-publica"],
+  [/internacional|mundo|argentin|milei|bolivia|per[uú]\b|ir[aá]n|ormuz|eeuu|ucrania|gaza|china|alemania|estrecho/, "internacional"],
+  [/dato curioso/, "dato-curioso"],
+  [/salud|hospital|isapre|fonasa|medicament/, "salud"],
+  [/educaci|ciencia|universidad|escuela|inteligencia artificial/, "educacion"],
+  [/seguridad|polic|fiscal|justicia|corte|delito|carabinero|crimen|homicid|narco|robo|secuestro|c[aá]rcel|condena|\bcaso\b/, "seguridad"],
+  [/econom|mercado|bolsillo|empleo|imacec|hipotec|pensi|subsidio|inflaci|\bipc\b|cobre|miner|banc|tasa|d[oó]lar|bono|sueldo|fondos|vivienda|arriendo/, "economia"],
+  [/clima|tiempo|aire|alerta|incendio|lluvia|sismo|terremoto|volc[aá]n|medioambiente|tornado/, "clima"],
+  [/regi[oó]n|antofagasta|araucan|magallanes|concepci|valpara|[ñn]uble|ays[eé]n|atacama|coquimbo|biob/, "regiones"],
+  [/congreso|senado|c[aá]mara|gobierno|reforma|\bley\b|elecci|presiden|minist|feriado|pol[ií]tic/, "congreso"],
+];
+export const imagenDe = (seccion?: string): string | null => {
+  const s = (seccion ?? "").toLowerCase();
+  for (const [re, f] of IMAGENES) if (re.test(s)) return f;
+  return null;
+};
+
 export const familiaDe = (seccion: string | undefined, fecha: string): Familia => {
   const s = seccion ?? "";
   for (const [re, f] of familias) if (re.test(s)) return f;
@@ -136,6 +158,28 @@ export const Fondo: React.FC<{ seccion?: string; fuerza?: number; extractos?: st
   const { fecha } = useFondos();
   const familia = familiaDe(seccion, fecha);
   const r = azar(semilla(fecha + "|" + (seccion ?? "")));
+  // Rama de IMAGEN (regla 29): la lámina de la sección con VARIACIÓN DIARIA
+  // sembrada (encuadre y desplazamiento cambian cada día; dos ediciones
+  // nunca se ven iguales, por construcción). Velo de papel encima: la
+  // cortina deja respirar la imagen (0,24, el valor aprobado en el video de
+  // prueba) y la tarjeta la aplana (0,84) para que el texto gane siempre.
+  const img = imagenDe(seccion);
+  if (img) {
+    const esc = 1.06 + r() * 0.06;
+    const margen = (esc - 1) * 40;                    // % desplazable sin mostrar borde
+    const dx = (r() - 0.5) * 2 * margen, dy = (r() - 0.5) * 2 * margen;
+    const velo = fuerza >= 1 ? 0.24 : 0.84;
+    return (
+      <AbsoluteFill style={{ backgroundColor: papelDe(seccion) }}>
+        <Img src={staticFile(`fondos/seccion-${img}.jpg`)} style={{
+          position: "absolute", inset: 0, width: "100%", height: "100%",
+          objectFit: "cover", objectPosition: "right center",
+          transform: `scale(${esc.toFixed(3)}) translate(${dx.toFixed(2)}%, ${dy.toFixed(2)}%)`,
+        }} />
+        <AbsoluteFill style={{ backgroundColor: papelDe(seccion), opacity: velo }} />
+      </AbsoluteFill>
+    );
+  }
   const color = tono === "tinta" ? mezcla(tema.tinta, tema.papel, 0.35)
     : tono === "oscuro" ? mezcla(colorDeSeccion(seccion), tema.tinta, 0.45)
     : colorDeSeccion(seccion);
