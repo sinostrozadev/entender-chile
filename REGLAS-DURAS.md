@@ -129,11 +129,19 @@ archivos de criterio del repositorio.
 28. **Sobriedad radical.** Sin alarma, sin relleno, sin pirotecnia; nada de
     zooms ni efectos. En notas de duelo o violencia, frases más cortas y
     cero música. (identidad; formato-video)
-29. **Nada de fotos ajenas ni de imágenes generadas realistas dentro del
-    video.** Chile no tiene fair use; un reclamo de Content ID bloquea la
-    monetización del video entero. El material visual propio son datos
-    abiertos del Estado, mapas vectoriales y texturas dibujadas en código.
-    (decisión 27-08; imagenes-y-recursos). Ver disputa 1 abajo.
+29. **Imágenes: nada ajeno, nada realista, y lo generado solo como
+    identificador.** Fotos ajenas jamás (Chile no tiene fair use; un
+    reclamo de Content ID bloquea la monetización del video entero). Las
+    imágenes GENERADAS propias (estilo grabado lineal, paleta de la casa)
+    se permiten SOLO como identificadores de serie y de sección: cortinas
+    de 1,1 s, pieles de los Shorts, carátulas, cabeceras de la web. Nunca
+    son el contenido: las tarjetas de datos siguen siendo tipográficas y
+    ninguna cifra grande lleva textura detrás. Y llevan VARIACIÓN DIARIA
+    POR CÓDIGO (encuadre, desplazamiento y tinte sembrados con la fecha),
+    porque el ejemplo textual de la política de contenido inauténtico es
+    "mismas imágenes de IA repetidas" y eso se evita por construcción, no
+    por promesa. (decisión 03-09, cierra la disputa 1; corrige parcialmente
+    la del 27-08)
 30. **La música se genera por código y es puntuación, no cama.** Silencio
     bajo la narración; sello, cortinas de 1,1 segundos y cierre, nada más.
     Nada descargado de ningún banco. (decisión 27-08)
@@ -185,12 +193,11 @@ distintos. Cada una necesita una decisión de Santiago, anotada en
 `estrategia/decisiones.md`, y después se borra la versión perdedora. Están
 ordenadas por lo que más pesa.
 
-1. **Imágenes generadas.** La decisión del 27-08 dice "cero imágenes, ni
-   fotos ni generadas; miniatura tipográfica". Desde el 30-08 hay cuatro
-   fondos generados con Gemini en `public/fondos/`, la miniatura los usa, y
-   el lanzamiento los cita como logro sin registrar el cambio. O se
-   registra la excepción (fondos de Short, Clave, banner y miniatura, con
-   el riesgo asumido) o se vuelve atrás.
+1. ~~**Imágenes generadas.**~~ **CERRADA el 03-09 por Santiago**, tras ver
+   las 11 imágenes y el marco de monetización: se formaliza la excepción
+   como regla 29 nueva (identificadores de serie y sección, con variación
+   diaria por código; la tipografía sigue mandando en los datos). Entrada
+   en decisiones.md.
 2. **Voz clonada.** `modelo-de-negocio.md` e `ideas/IMPLEMENTAR.md` la
    mantienen como "requisito no negociable"; la decisión del 27-08 la
    aparca indefinidamente y sigue "pendiente de confirmación" ocho días

@@ -321,6 +321,27 @@ sección en video. En una línea cada una:
 (sección final); la limpieza de las versiones perdedoras es parte de las
 noches 2 y 3 del orden del repo.
 
+## 2026-09-03 - Disputa 1 cerrada: las imágenes generadas entran, como identificadores y con variación diaria
+
+**Qué**: se formaliza la excepción a la decisión del 27-08 ("cero
+imágenes"). Las imágenes generadas propias (estilo grabado lineal, paleta de
+la casa, hoy 11: diez de sección + la piel del Short urgente) se usan SOLO
+como identificadores de serie y de sección: cortinas de 1,1 s, pieles de los
+Shorts, carátulas y cabeceras de la web. Nunca son el contenido: las
+tarjetas de datos siguen siendo tipográficas y ninguna cifra grande lleva
+textura detrás. Al entrar a producción llevan VARIACIÓN DIARIA POR CÓDIGO
+(encuadre, desplazamiento y tinte sembrados con la fecha).
+**Por qué**: el ejemplo textual de la política de contenido inauténtico de
+YouTube es "mismas imágenes de IA repetidas + guion de IA + voz sintética",
+y el canal ya tiene dos de los tres elementos; el riesgo se maneja usando
+las imágenes como el SET de un noticiero (identidad, no contenido) y
+haciendo la variación verificable por construcción. Estéticamente, el
+formato puramente tipográfico ya había mostrado su límite: quince capítulos
+idénticos en la tira y monotonía visual medida (análisis del 02-09).
+**Decidió**: Santiago, 03-09-2026, tras ver las once imágenes, el video de
+prueba de fondos y el demo del Short urgente. **Regla resultante**: la 29 de
+REGLAS-DURAS.md, reescrita.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 Nota (02-09): estas entradas son previas al 26-08 y se reconstruyeron

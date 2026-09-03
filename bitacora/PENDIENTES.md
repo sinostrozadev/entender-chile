@@ -71,20 +71,10 @@ con sync inicial y bucle de espera literal). Primera guardia real: 03-09
       y la sesión de día la LEE y profundiza, ya no la reescribe. Primera
       corrida: mañana 03-09.
 
-- [ ] **Disputa 1 (imágenes generadas), la única abierta — y con el marco
-      de monetización que preguntó Santiago (03-09)**: la política de
-      contenido inauténtico de YouTube pone como ejemplo "mismas imágenes de
-      IA repetidas + guion de IA + voz sintética", y el canal ya tiene dos de
-      los tres elementos. Riesgo real si las imágenes fijas se vuelven EL
-      contenido visual. Mitigación propuesta para cerrar la disputa: (a) uso
-      ACOTADO: cortinas de sección (1,1 s), pieles de Shorts y carátulas —
-      identificadores de serie, como el set de un noticiero, nunca el
-      contenido; (b) VARIACIÓN DIARIA POR CÓDIGO encima de cada imagen
-      (encuadre, desplazamiento y tinte sembrados con la fecha: dos días
-      nunca se ven iguales, y es verificable); (c) el contenido del video
-      sigue siendo tarjetas tipográficas construidas con los datos del día;
-      (d) el registro de decisiones/aporte humano al día. La Clave del
-      tiempo ya se aclaró: era la DURACIÓN (hecha, 6-9 min).
+- [x] **Disputa 1 CERRADA (03-09)**: las imágenes generadas entran como
+      identificadores de serie y sección, con variación diaria por código y
+      la tipografía mandando en los datos (regla 29 nueva de REGLAS-DURAS;
+      entrada en decisiones.md). Las 10 de sección ya están commiteadas.
 
 - [ ] **Fondos: elegir intensidad en las láminas de Descargas**
       (`entender-chile-demo-imagen/`): 4 familias x 3 fuerzas por modo
@@ -159,14 +149,15 @@ con sync inicial y bucle de espera literal). Primera guardia real: 03-09
       (3) Count-up y flecha que se dibuja. (4) Cita con cargo, contexto y
       comilla grande; quitar el guion corto del nombre en TarjetaCita.
       Detalle: `ideas/imagen-y-retencion.md` punto 7.
-- [ ] **IMAGEN 1: fondos por sección, empezando por la cortina**
-      (`CortinaSeccion`, `src/tarjetas.tsx:492`): es el fotograma que
-      YouTube toma para CADA capítulo. Debe nacer opaca (hoy entra en
-      fundido de 0,14 s y en el fotograma exacto es transparente) o los
-      capítulos correrse medio segundo en `chapters.js`. Cuatro familias
-      procedurales + papel tintado 2-4% + azar sembrado con fecha+sección;
-      nada sobre 0,10 de opacidad. La construcción base ya existe en
-      `src/fondos.tsx` (IMAGEN 0, bajo bandera `meta.fondos`).
+- [ ] **IMAGEN 1 (con la disputa 1 cerrada): las cortinas de sección pasan
+      a usar LAS IMÁGENES** (public/fondos/seccion-*.jpg, mapeadas por
+      `familiaDe()`-como-categoría), nacen OPACAS (son el fotograma de cada
+      capítulo en la tira), con el velo medido en el video de prueba (0,22
+      en cortina) y VARIACIÓN DIARIA sembrada con la fecha (encuadre,
+      desplazamiento, tinte): es la condición de la regla 29. En tarjetas,
+      el fondo va tras velo 0,82 y NUNCA tras una cifra grande. Las
+      texturas procedurales de src/fondos.tsx quedan de respaldo para
+      secciones sin imagen.
 - [ ] **IMAGEN 2: "En titulares" a 90 segundos.** Primero la opción B (tope
       de 12 palabras por titular; hoy miden ~30 y el bloque es el 23% del
       video) y mover el bloque ANTES del dato curioso. Medir en la edición

@@ -73,7 +73,7 @@ lista su carpeta y cita lo que viste.
    - **Comparación con ayer**: qué mejoró, qué sigue igual, qué es nuevo. Sin
      esto es un informe suelto y no una serie.
 
-7. Publica: `git add bitacora/FECHA-auditoria.md && git commit -m "auditoría matinal FECHA [claude]" && git -c rebase.autoStash=true pull --rebase origin main && git push origin main` (reintenta una vez). No toques ningún otro archivo.
+7. Tras escribir el archivo, ejecuta `node scripts/panel-auditoria.js`: inyecta el ESTADO y el informe en el panel interno (agregado 03-09, para que Santiago la vea ahí). Publica: `git add bitacora/FECHA-auditoria.md bitacora/panel-interno.html && git commit -m "auditoría matinal FECHA [claude]" && git -c rebase.autoStash=true pull --rebase origin main && git push origin main` (reintenta una vez). Fuera de tu auditoría y del panel (que lo toca el script), no toques ningún otro archivo.
 
 8. **Notifica en pocas líneas**: la línea de ESTADO, y si hay algo `HOY`, qué
    es y por qué no aguanta. Si el estado es TODO EN ORDEN, una sola línea. Un
