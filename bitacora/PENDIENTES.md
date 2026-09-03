@@ -119,8 +119,13 @@ con sync inicial y bucle de espera literal). Primera guardia real: 03-09
       3. **Rediseño de la página del informe**: bloques separados por
          categoría con su color e ícono, la NOTICIA DE PORTADA destacada
          arriba, tipografía de la casa (Fraunces/Plex), y el video embebido
-         donde corresponde. Antes de reescribir plantillas: boceto en un
-         artifact para el visto bueno de Santiago.
+         donde corresponde.
+      **BOCETO PUBLICADO (03-09, madrugada), esperando el visto bueno:**
+      https://claude.ai/code/artifact/134689ce-439a-4ec0-9ed5-e5e26b066bda
+      (portada con la noticia del día y su cifra, bloques por categoría con
+      las imágenes de sección, En titulares, la Clave con su piel verde, y
+      la muestra de /categorias/regiones). Con el OK se implementa en Astro
+      en el repo entender-chile-web.
 
 
 - [ ] **ORDEN, noches 2 y 3** (`bitacora/2026-09-02-orden-del-repo.md`; la
