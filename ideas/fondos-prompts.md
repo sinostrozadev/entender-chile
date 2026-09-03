@@ -43,6 +43,34 @@ Al recibirlo: guardar como `public/fondos/fondo-clave-vertical.png`;
 Si Gemini entrega 768 px de ancho, pedir "en la máxima resolución" o
 exportar a 2K: a 1080 se escala 1,4x y se nota poco, pero mejor nativo.
 
+## Fondo del Short URGENTE (agente de guardia, pedido 03-09)
+
+El Short exprés necesita distinguirse de un vistazo de los otros dos: marino
+= informe, verde = Clave, y para el urgente el color característico es el
+**rojo vino muy oscuro** (alerta sin grito). El motivo debe englobar
+CUALQUIER noticia de última hora: ondas de señal que emanan de un punto (el
+epicentro de algo que acaba de ocurrir), que sirven igual para un sismo, una
+renuncia o un dato recién publicado.
+
+> Fondo vertical 9:16 (1080x1920) para videos de noticias de última hora,
+> estilo ilustración vectorial plana y elegante. Fondo rojo vino MUY oscuro,
+> casi negro (#2E1218), con una textura de grano de papel apenas
+> perceptible. En el tercio SUPERIOR DERECHO, un motivo de ondas
+> concéntricas finas de cobre (#B5642F, #D08A5B) que emanan de un punto
+> pequeño de origen en rojo teja apagado (#B3402F), como una señal que se
+> propaga o el epicentro de algo que acaba de ocurrir; las ondas se van
+> desvaneciendo hacia abajo y hacia la izquierda, con dos o tres acentos
+> mínimos en crema (#EDE6DA). El 60% CENTRAL e IZQUIERDO completamente
+> despejado y oscuro, sin ningún elemento, porque ahí irá texto grande
+> superpuesto. Sobrio y serio, nada de estética de "breaking news" gritona:
+> sin destellos, sin rayos, sin exclamaciones. Sin texto, sin letras, sin
+> logos, sin marcas de agua, sin personas, sin fotografías. Composición
+> limpia, mucho espacio negativo. En la máxima resolución.
+
+Al recibirlo: guardar como `public/fondos/fondo-urgente-vertical.png`; el
+workflow del Short exprés lo tomará como piel de la serie (y su miniatura
+heredará el mismo fondo, como hacen las otras dos series).
+
 ## Banner del canal (arte de fondo, sin texto; el texto lo pone src/marca.tsx)
 
 YouTube pide 2560x1440. Lo que se ve en TODOS los dispositivos es solo la
