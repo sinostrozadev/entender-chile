@@ -31,7 +31,14 @@ entra a las páginas es un SCRIPT en GitHub Actions (como el barrido de cada
 madrugada), no el modelo; la rutina de Claude es el reloj y el redactor
 trabaja SOLO con el material que el script ya trajo al repo.
 
-**El diseño aprobado, para construir (sesión de la noche):**
+**ESTADO (madrugada del 03-09): FASE 1 EN MARCHA Y PROBADA.** Existen
+`scripts/guardia.js` (probado en vivo: ruta negativa a las 00:05 y positiva
+con ventana de 24 h, que cazó la muerte en el Metro con ALARMA+3 portadas),
+`guardia.yml` (corrida verde en Actions: el runner SÍ alcanza los medios) y
+la rutina `trig_01HLSWkJ8VpVFPuxQ51YiG4d` cada 2 h (prueba completa del
+circuito: despertador → workflow → "sin novedades" sin notificar; endurecida
+con sync inicial y bucle de espera literal). Primera guardia real: 03-09
+08:04. FALTA la fase 2 (Short exprés), esta noche. El diseño:
 1. `scripts/guardia.js`: barrido liviano (portadas RSS de 6-8 medios +
    fuentes primarias BC/INE/Senapred/Fiscalía + lo anunciado en PENDIENTE DE
    CIERRE y Agenda). Criterio "muy importante" MECÁNICO, 2 de 4: palabra de
