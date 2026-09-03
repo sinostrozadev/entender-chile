@@ -119,9 +119,17 @@ ese colchón era cero.
    4 h 16 tarde. Sigue sin servir de red (regla del 31-08). La red real
    del barrido es que la preselección barra sola, que ya pasó.
 3. **Los minutos de Actions**: el render en dos corridas no gasta más
-   minutos (son los mismos 59), pero un reintento sí. El cupo va al 93%.
-   Si el colchón se usa para reintentar seguido, hay que pagar el excedente
-   (US$2 a 5 al mes) o bajar el render a 1080p.
+   minutos (son los mismos 59), pero un reintento sí. Corrección del
+   03-09 por la tarde: el "93%" que dije en el chat era una proyección
+   sin medir, y estaba mal. Medido con la API de corridas: agosto cerró
+   en ~460 min de los 2.000 gratis (23%); septiembre lleva ~395 min en
+   tres días. El dato que sí preocupa es el ritmo: el 02 y el 03 gastaron
+   150 a 160 min cada uno por los re-renders (informe, Clave y repeticiones),
+   y a ese paso el cupo se agota cerca del día 13. Un día sin repetir vale
+   ~60 a 80 min. Si el colchón se usa para reintentar seguido, hay que pagar
+   el excedente (US$0,008 por minuto, unos US$2 a 5 al mes) o bajar el
+   render a 1080p. Ojo: el cupo se reinicia en la fecha del ciclo de
+   facturación de la cuenta, no el día 1.
 4. **El cambio de hora del sábado 06-09**: todos los crones están en UTC.
    Si se reprograma la madrugada, hacerlo ya con las horas de verano
    (UTC-3), para no tocarlo dos veces en una semana.

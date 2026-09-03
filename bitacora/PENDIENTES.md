@@ -143,6 +143,12 @@ el Short exprés.** Hoy hubo el primer caso real y sirve de entrada de prueba:
       paralelo con el workflow reentrante (el informe se rinde sin esperar a
       la Clave). Video listo ~03:35 en vez de 05:42, con tres horas de colchón
       para reintentar. Programar ya con las horas de verano del 06-09.
+      Santiago la aprobó el 03-09 por la tarde para empezar esta noche y va
+      a contrastar las propuestas con GPT antes; lo que GPT aporte se suma
+      al archivo de la propuesta, no lo reemplaza. Corrección hecha en la
+      propuesta: los minutos de Actions no iban al 93%; agosto cerró en 23%
+      y septiembre lleva ~395 min en tres días, pero el ritmo de 150 min
+      diarios por re-renders agotaría los 2.000 cerca del día 13.
 
 - [x] **WEB 1 — EN PRODUCCIÓN (03-09, madrugada)**, con el boceto aprobado
       por Santiago: 8 categorías con chips en toda la web y páginas
