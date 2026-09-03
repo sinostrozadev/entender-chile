@@ -69,5 +69,23 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-02-clave.mp3",
     "bytes": 16285824,
     "durSeg": 679
+  },
+  {
+    "fecha": "2026-09-03",
+    "tipo": "informe",
+    "titulo": "03-09-2026 · Kast recibe a Milei con el Estrecho de Magallanes en disputa",
+    "descripcion": "José Antonio Kast recibe a Javier Milei en La Moneda mientras sigue pendiente la controversia por el decreto argentino sobre el Estrecho de Magallanes. La Cámara aprobó investigar eventuales vínculos de Fernando Cerimedo y el uso de bots, y una nueva ley cambia quién puede cobrar una pensión de sobrevivencia tras delitos graves de violencia intrafamiliar. También revisamos el aumento de robos de cobre en Antofagasta, el bono extraordinario por niño y el resto de la jornada.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-03-informe.mp3",
+    "bytes": 17219520,
+    "durSeg": 717
+  },
+  {
+    "fecha": "2026-09-03",
+    "tipo": "clave",
+    "titulo": "Clave · ¿Cómo conviven soberanía y libre navegación en un estrecho?",
+    "descripcion": "El Estrecho de Magallanes permite entender una distinción fundamental del derecho internacional: soberanía territorial y libertad de navegación no son lo mismo. Este video explica qué establecieron Chile y Argentina, cómo funcionan las obligaciones creadas por tratados y por qué permitir el tránsito internacional no convierte un territorio en soberanía compartida.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-03-clave.mp3",
+    "bytes": 13140864,
+    "durSeg": 548
   }
 ]
