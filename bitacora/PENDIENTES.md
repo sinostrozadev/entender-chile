@@ -104,29 +104,16 @@ con sync inicial y bucle de espera literal). Primera guardia real: 03-09
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **WEB 1 (pedido de Santiago, 03-09): categorías en la web pública +
-      vuelta al diseño del informe.**
-      1. **Categorías**: derivar la categoría de cada bloque del informe
-         desde sus "## secciones" (el mapeo ya existe en `familiaDe()` de
-         src/fondos.tsx: economía, seguridad, política, regiones, clima,
-         salud, educación, internacional, plata pública); páginas
-         `/categorias/<cat>/` con los bloques de esa categoría día por día,
-         y un menú de categorías en la navegación.
-      2. **Identidad visual**: las 10 imágenes de sección como cabecera de
-         cada página de categoría (recortadas a franja panorámica; en la web
-         no hay riesgo de monetización). Si se quiere una portada hero para
-         la home, pedirla aparte con el estilo de la casa.
-      3. **Rediseño de la página del informe**: bloques separados por
-         categoría con su color e ícono, la NOTICIA DE PORTADA destacada
-         arriba, tipografía de la casa (Fraunces/Plex), y el video embebido
-         donde corresponde.
-      **BOCETO PUBLICADO (03-09, madrugada), esperando el visto bueno:**
-      https://claude.ai/code/artifact/134689ce-439a-4ec0-9ed5-e5e26b066bda
-      (portada con la noticia del día y su cifra, bloques por categoría con
-      las imágenes de sección, En titulares, la Clave con su piel verde, y
-      la muestra de /categorias/regiones). Con el OK se implementa en Astro
-      en el repo entender-chile-web.
-
+- [x] **WEB 1 — EN PRODUCCIÓN (03-09, madrugada)**, con el boceto aprobado
+      por Santiago: 8 categorías con chips en toda la web y páginas
+      /categorias/<id>/ (archivo día por día con anclas al informe); informe
+      rediseñado con hero de franja ilustrada, bloques por categoría y el
+      video anclado; portada del sitio con el mismo hero; imágenes de
+      sección optimizadas (276 KB las 8); web.yml despliega también con
+      cambios de web/**. Verificado en vivo. AFINAR CON USO: la
+      clasificación sección→categoría es por reglas (web/src/lib/
+      categorias.ts): si un bloque cae en la categoría equivocada, se
+      agrega la palabra a la regla.
 
 - [ ] **ORDEN, noches 2 y 3** (`bitacora/2026-09-02-orden-del-repo.md`; la
       noche 1 se ejecutó el 02-09: archivo/, PENDIENTES limpio, decisiones
