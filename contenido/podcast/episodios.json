@@ -87,5 +87,23 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-03-clave.mp3",
     "bytes": 13140864,
     "durSeg": 548
+  },
+  {
+    "fecha": "2026-09-04",
+    "tipo": "informe",
+    "titulo": "04-09-2026 · Chile y Argentina ratifican la soberanía chilena sobre el Estrecho de Magallanes",
+    "descripcion": "Chile y Argentina cerraron la controversia inmediata por el Estrecho de Magallanes al reafirmar la soberanía chilena sobre la totalidad del paso. La jornada también trae una investigación de Fiscalía por el caso Cerimedo, un reparo de Contraloría por vacunas vencidas y nuevas señales sobre tasas, inflación y clima. Cerramos con titulares, seguimiento de casos y lo que conviene observar durante el día.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-04-informe.mp3",
+    "bytes": 15715584,
+    "durSeg": 655
+  },
+  {
+    "fecha": "2026-09-04",
+    "tipo": "clave",
+    "titulo": "Clave · ¿Qué ocurre cuando Contraloría detecta un perjuicio fiscal?",
+    "descripcion": "Una fiscalización puede detectar dinero público perdido, pero eso no significa que exista una condena ni que los recursos ya hayan sido recuperados. Este video explica qué es un reparo, cómo funciona el juicio de cuentas y por qué la responsabilidad patrimonial, administrativa y penal son caminos distintos.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-04-clave.mp3",
+    "bytes": 13487616,
+    "durSeg": 562
   }
 ]
