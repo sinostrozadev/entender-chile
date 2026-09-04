@@ -29,3 +29,6 @@
 - comisiones especiales investigadoras de la Cámara, facultades, límites y relación con investigaciones penales | La Cámara aprueba investigar el caso Cerimedo después de que la propuesta fracasara un día antes | 2026-09-03
 - pensión de sobrevivencia, causales de exclusión y efectos previsionales de una condena penal | Nueva ley impide que condenados por delitos graves de violencia intrafamiliar cobren la pensión de sobrevivencia de sus víctimas | 2026-09-03
 - Registro Social de Hogares, focalización y diseño de beneficios extraordinarios | Congreso despacha bono extraordinario de $30.000 por niño para hogares del 80% más vulnerable | 2026-09-03
+- encuestas de opinión pública, muestras, margen de error y comparación entre mediciones sucesivas | La aprobación presidencial cae a 34% y la desaprobación llega a 61% en Cadem | 2026-09-04
+- investigación penal y comisión investigadora parlamentaria, diferencias de objeto, facultades y consecuencias | Fiscalía investiga eventuales delitos informáticos vinculados al caso Cerimedo mientras la Cámara desarrolla una comisión investigadora | 2026-09-04
+- alertas alimentarias, retiro de productos y diferencia entre presencia de un patógeno y enfermedad confirmada | Minsal ordena no consumir pasta de jamón por presencia de Listeria monocytogenes | 2026-09-04
