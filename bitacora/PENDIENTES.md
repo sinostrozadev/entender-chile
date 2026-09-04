@@ -69,8 +69,19 @@ original, para referencia:
 6. El guardia también ALIMENTA `datos/series/` (disputa 9): cada dato macro
    que ve publicado lo anota en la serie.
 
-**PROYECTO DE LA NOCHE (pedido de Santiago, 03-09 16:30): construir la fase 2,
-el Short exprés.** Hoy hubo el primer caso real y sirve de entrada de prueba:
+**✅ PROYECTO DE LA NOCHE — HECHO (noche del 03→04-09): la fase 2 está
+construida y probada end-to-end con el caso real de la tasa.** Piezas:
+`scripts/short-urgente.js` + workflow `short-expres.yml` (guion → voz →
+render vertical piel VINO → subida privada, ~5 min de Actions) + modo
+`--urgente` del subidor (deja `SUBIDO-<slug>.txt` con el id: un hallazgo =
+un Short) + rutina de guardia **v3** (redacta el guion con reglas duras,
+espera el id, notifica el link listo; copia en `prompts/guardia-reloj.md`).
+La primera corrida real cazó un bug (el vertical se reescalaba a horizontal
+antes de subir); corregido y re-subido en la segunda. **Le queda a
+Santiago: borrar el video deformado `AZpTnPoPg2I` (privado) en Studio.**
+Pendiente fase 2.1 (no esta noche): ir PRIMERO a la fuente primaria y
+alimentar `datos/series/` (disputa 9). El caso que motivó todo, para
+referencia:
 
 - El guardia corrió a las 00:12, 10:09, 12:08, 14:08 y 16:07 (la de las 08:14
   falló por cupo agotado, junto con barrido 01:32, observatorio 01:45 y
