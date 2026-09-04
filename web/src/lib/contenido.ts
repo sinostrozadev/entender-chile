@@ -44,7 +44,7 @@ export function trocear(html: string): { preambulo: string; trozos: Trozo[] } {
   for (const p of partes) {
     const m = p.match(/^<h2 id="([^"]+)">([\s\S]*?)<\/h2>/);
     if (!m) { preambulo += p; continue; }
-    trozos.push({ id: m[1], titulo: m[2].replace(/<[^>]+>/g, ""), html: p });
+    trozos.push({ id: m[1], titulo: textoLlano(m[2]), html: p });
   }
   return { preambulo, trozos };
 }
@@ -53,13 +53,20 @@ export const noticiasDe = (html: string): { id: string; texto: string; peso: "a"
   const out: { id: string; texto: string; peso: "a" | "b" }[] = [];
   const re = /<h3 class="noticia peso-([ab])" id="([^"]+)">([\s\S]*?)<\/h3>/g;
   let m: RegExpExecArray | null;
-  while ((m = re.exec(html))) out.push({ id: m[2], texto: m[3].replace(/<[^>]+>/g, ""), peso: m[1] as "a" | "b" });
+  while ((m = re.exec(html))) out.push({ id: m[2], texto: textoLlano(m[3]), peso: m[1] as "a" | "b" });
   return out;
 };
 export type Clave = {
   slug: string; fecha: string; titulo: string; pregunta: string;
   html: string; secciones: Seccion[]; video: string | null;
 };
+
+// marked deja las comillas y ampersands como entidades dentro de los títulos;
+// para índices, listas y anclas hace falta el texto llano (el 30-08 el
+// titular de "R15" salió como &quot;R15&quot; en la categoría y en el índice).
+export const desentidar = (s: string) =>
+  s.replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+const textoLlano = (html: string) => desentidar(html.replace(/<[^>]+>/g, ""));
 
 export const slugify = (s: string) =>
   s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
@@ -110,14 +117,14 @@ function render(md: string): { html: string; secciones: Seccion[]; noticias: Not
   // (jerga interna); se expresa con el tamaño del titular. Van como h3 con
   // clase, cualquiera sea el nivel que traiga el markdown.
   html = html.replace(/<h([1-4])>\s*\[([AB])\]\s*([\s\S]*?)<\/h\1>/g, (_m, _n, p, inner) => {
-    const id = slugify(inner);
-    noticias.push({ id, texto: inner.replace(/<[^>]+>/g, ""), peso: p.toLowerCase() as "a" | "b" });
+    const id = slugify(textoLlano(inner));
+    noticias.push({ id, texto: textoLlano(inner), peso: p.toLowerCase() as "a" | "b" });
     return `<h3 class="noticia peso-${p.toLowerCase()}" id="${id}">${inner}</h3>`;
   });
   // Secciones (## sin peso) → índice y anclas
   html = html.replace(/<h2>([\s\S]*?)<\/h2>/g, (_m, inner) => {
-    const id = slugify(inner);
-    secciones.push({ id, texto: inner.replace(/<[^>]+>/g, "") });
+    const id = slugify(textoLlano(inner));
+    secciones.push({ id, texto: textoLlano(inner) });
     return `<h2 id="${id}">${inner}</h2>`;
   });
   html = html.replace(/<h1>([\s\S]*?)<\/h1>/g, (_m, inner) => `<h2 id="${slugify(inner)}">${inner}</h2>`);
