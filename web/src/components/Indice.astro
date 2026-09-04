@@ -1,0 +1,25 @@
+---
+// Índice lateral de una pieza larga (informe, clave, caso). En escritorio va
+// pegado a un costado y sigue el scroll (el script de Base.astro marca la
+// sección visible); en móvil es una barra pegada arriba que muestra dónde
+// estás y se despliega al tocarla. Sin JS: lista abierta, siempre.
+export interface Props { entradas: { id: string; texto: string; hijos?: { id: string; texto: string }[] }[]; titulo?: string }
+const { entradas, titulo = "En esta edición" } = Astro.props;
+---
+<aside class="indice" aria-label="Índice">
+  <details open>
+    <summary><span class="indice-titulo">{titulo}</span><span class="indice-actual" aria-live="polite"></span></summary>
+    <nav>
+      <ol>
+        {entradas.map((e) => (
+          <li>
+            <a href={`#${e.id}`}>{e.texto}</a>
+            {e.hijos && e.hijos.length > 0 && (
+              <ol>{e.hijos.map((h) => <li><a href={`#${h.id}`}>{h.texto}</a></li>)}</ol>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  </details>
+</aside>

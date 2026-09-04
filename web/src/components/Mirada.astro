@@ -1,0 +1,22 @@
+---
+// "En una mirada" como una sola frase a la vez, a todo el ancho, que cambia
+// cada pocos segundos (el script está en Base.astro). Sin JS, o con una sola
+// frase, se ve la lista completa de siempre.
+export interface Props { frases: string[]; ms?: number; kicker?: string | null }
+const { frases, ms = 7000, kicker = "En una mirada" } = Astro.props;
+---
+{frases.length > 0 && (
+  <div class="mirada-rot" data-ms={ms} style={`--ms:${ms}ms`}>
+    {kicker && <p class="kicker">{kicker}</p>}
+    <ul class="mirada">{frases.map((f, k) => <li aria-current={k === 0 ? "true" : undefined}>{f}</li>)}</ul>
+    {frases.length > 1 && (
+      <div class="mirada-ctl">
+        <button type="button" class="mirada-prev" aria-label="Frase anterior">‹</button>
+        <span class="mirada-puntos" role="group" aria-label="Frases"></span>
+        <button type="button" class="mirada-next" aria-label="Frase siguiente">›</button>
+        <span class="mirada-cuenta mono"></span>
+        <span class="mirada-barra" aria-hidden="true"></span>
+      </div>
+    )}
+  </div>
+)}

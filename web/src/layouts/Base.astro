@@ -1,25 +1,28 @@
 ---
 import "../styles/global.css";
 import "../styles/diseno2.css";
-import "../styles/diseno3.css";
-import { url, canal, fechaCortaNum } from "../lib/contenido";
+import { url, canal, fechaCortaNum, fechaLarga } from "../lib/contenido";
 import { CATEGORIAS } from "../lib/categorias";
 export interface Props { titulo?: string; descripcion?: string; actual?: string }
 const { titulo, descripcion, actual } = Astro.props;
 const t = titulo ? `${titulo} · Entender Chile` : "Entender Chile · El resumen sin gritos";
 const d = descripcion ?? "Las noticias de Chile explicadas cada mañana en diez minutos: qué pasó, por qué importa y de dónde sale cada dato.";
-const hoy = new Date().toISOString().slice(0, 10);
+// Fecha de Chile (el build corre en UTC y de noche ya es "mañana" en UTC).
+const hoy = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
 ---
 <!doctype html>
 <html lang="es">
   <head>
     <script is:inline>
-      // Diseño elegido por el visitante (1 sobrio, 2 portada, 3 sala de datos).
-      // Se aplica antes de pintar para que no haya parpadeo.
+      // Diseño elegido por el visitante (1 revista, 2 diario). Se aplica antes
+      // de pintar para que no haya parpadeo. ?diseno=2 en la URL lo fija (sirve
+      // para compartir un enlace "míralo en el diseño 2").
       (function () {
         try {
-          var d = localStorage.getItem("ec-diseno");
-          if (d === "2" || d === "3") document.documentElement.setAttribute("data-diseno", d);
+          var q = (location.search.match(/[?&]diseno=([12])/) || [])[1];
+          if (q) localStorage.setItem("ec-diseno", q);
+          var d = q || localStorage.getItem("ec-diseno");
+          if (d === "2") document.documentElement.setAttribute("data-diseno", "2");
         } catch (e) {}
       })();
     </script>
@@ -33,12 +36,13 @@ const hoy = new Date().toISOString().slice(0, 10);
     <link rel="icon" href={url("favicon.svg")} type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
   <body>
     <header class="cab">
       <a class="marca" href={url("/")}>Entender Chile</a>
       <span class="tagline">El resumen sin gritos</span>
+      <span class="cab-fecha">Santiago de Chile · {fechaLarga(hoy)}</span>
       <nav>
         <a href={url("informes/")} aria-current={actual === "informes" ? "page" : undefined}>Informes</a>
         <a href={url("claves/")} aria-current={actual === "claves" ? "page" : undefined}>Claves</a>
@@ -48,9 +52,8 @@ const hoy = new Date().toISOString().slice(0, 10);
         {canal.spotify && <a class="suscribe" href={canal.spotify} rel="noopener">Podcast</a>}
         <span class="selector-diseno" role="group" aria-label="Elegir diseño">
           <span>Diseño</span>
-          <button type="button" data-d="1" aria-pressed="true" title="Sobrio (actual)">1</button>
-          <button type="button" data-d="2" aria-pressed="false" title="Portada">2</button>
-          <button type="button" data-d="3" aria-pressed="false" title="Sala de datos">3</button>
+          <button type="button" data-d="1" aria-pressed="true" title="Revista">1</button>
+          <button type="button" data-d="2" aria-pressed="false" title="Diario">2</button>
         </span>
       </nav>
     </header>
@@ -103,6 +106,87 @@ const hoy = new Date().toISOString().slice(0, 10);
           el.textContent = dias <= 0 ? "Edición de hoy" : dias === 1 ? "Edición de ayer" : "Última edición";
           el.hidden = false;
         } catch (e) {}
+      })();
+    </script>
+    <script is:inline>
+      // Índice lateral: marca la sección visible mientras se baja y, en móvil,
+      // muestra su nombre en la barra pegada arriba.
+      (function () {
+        var ind = document.querySelector(".indice");
+        if (!ind) return;
+        var det = ind.querySelector("details");
+        var etiqueta = ind.querySelector(".indice-actual");
+        var movil = window.matchMedia("(max-width: 959px)");
+        function modo() { if (det) det.open = !movil.matches; }
+        modo(); movil.addEventListener ? movil.addEventListener("change", modo) : movil.addListener(modo);
+        var metas = [];
+        ind.querySelectorAll("a[href^='#']").forEach(function (a) {
+          var el = document.getElementById(decodeURIComponent(a.getAttribute("href").slice(1)));
+          if (el) metas.push({ a: a, el: el });
+        });
+        var actual = null, pedido = false;
+        function medir() {
+          pedido = false;
+          var y = window.scrollY + (movil.matches ? 120 : 140), m = null;
+          for (var i = 0; i < metas.length; i++) {
+            if (metas[i].el.getBoundingClientRect().top + window.scrollY <= y) m = metas[i]; else break;
+          }
+          if (m === actual) return;
+          actual = m;
+          metas.forEach(function (x) { x.a.removeAttribute("aria-current"); });
+          if (m) {
+            m.a.setAttribute("aria-current", "true");
+            if (etiqueta) etiqueta.textContent = m.a.textContent;
+            if (!movil.matches) {
+              var r = m.a.getBoundingClientRect(), c = ind.getBoundingClientRect();
+              if (r.top < c.top || r.bottom > c.bottom) ind.scrollTop += r.top - c.top - c.height / 2;
+            }
+          } else if (etiqueta) etiqueta.textContent = "";
+        }
+        window.addEventListener("scroll", function () { if (!pedido) { pedido = true; requestAnimationFrame(medir); } }, { passive: true });
+        window.addEventListener("resize", medir);
+        ind.addEventListener("click", function (e) { if (e.target.closest("a") && movil.matches && det) det.open = false; });
+        medir();
+      })();
+      // "En una mirada": una frase a la vez, que cambia sola cada pocos segundos.
+      // Se detiene al pasar el mouse o al enfocar; respeta "reducir movimiento".
+      (function () {
+        var quieto = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        document.querySelectorAll(".mirada-rot").forEach(function (rot) {
+          var items = [].slice.call(rot.querySelectorAll(".mirada > li"));
+          if (items.length < 2) return;
+          rot.classList.add("activo");
+          var ms = parseInt(rot.getAttribute("data-ms") || "7000", 10), k = 0, timer = null;
+          var puntos = rot.querySelector(".mirada-puntos"), cuenta = rot.querySelector(".mirada-cuenta");
+          var botones = items.map(function (_, i) {
+            var b = document.createElement("button"); b.type = "button";
+            b.setAttribute("aria-label", "Frase " + (i + 1) + " de " + items.length);
+            b.addEventListener("click", function () { ir(i); reiniciar(); });
+            if (puntos) puntos.appendChild(b);
+            return b;
+          });
+          function ir(n) {
+            k = (n + items.length) % items.length;
+            items.forEach(function (li, i) {
+              if (i === k) { li.setAttribute("aria-current", "true"); li.removeAttribute("aria-hidden"); }
+              else { li.removeAttribute("aria-current"); li.setAttribute("aria-hidden", "true"); }
+            });
+            botones.forEach(function (b, i) { b.setAttribute("aria-pressed", String(i === k)); });
+            if (cuenta) cuenta.textContent = (k + 1) + " / " + items.length;
+            var barra = rot.querySelector(".mirada-barra");
+            if (barra) barra.replaceWith(barra.cloneNode(true));
+          }
+          function parar() { clearInterval(timer); timer = null; rot.classList.add("pausa"); }
+          function reiniciar() { clearInterval(timer); rot.classList.remove("pausa"); if (!quieto && !document.hidden) timer = setInterval(function () { ir(k + 1); }, ms); }
+          var prev = rot.querySelector(".mirada-prev"), next = rot.querySelector(".mirada-next");
+          if (prev) prev.addEventListener("click", function () { ir(k - 1); reiniciar(); });
+          if (next) next.addEventListener("click", function () { ir(k + 1); reiniciar(); });
+          rot.addEventListener("mouseenter", parar); rot.addEventListener("mouseleave", reiniciar);
+          rot.addEventListener("focusin", parar); rot.addEventListener("focusout", reiniciar);
+          document.addEventListener("visibilitychange", function () { document.hidden ? parar() : reiniciar(); });
+          if (quieto) rot.classList.add("quieto");
+          ir(0); reiniciar();
+        });
       })();
     </script>
     <footer>

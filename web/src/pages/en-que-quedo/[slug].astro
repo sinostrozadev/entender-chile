@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Indice from "../../components/Indice.astro";
 import { casos, pesos, naturalezaTexto, fechaLarga, url } from "../../lib/contenido";
 export function getStaticPaths() {
   return casos().map((c) => ({ params: { slug: c.slug }, props: { c } }));
@@ -22,11 +23,13 @@ const pct = c.cuestionado ? ((c.recuperado || 0) / c.cuestionado) * 100 : null;
     </dl>
     {c.notaCifra && <p class="metodo">Sobre la cifra: {c.notaCifra}</p>}
     {c.proximoHito && <p class="hito"><strong>Lo próximo.</strong> {c.proximoHito}</p>}
-    {c.secciones.length > 2 && (
-      <ul class="toc">{c.secciones.map((s) => <li><a href={`#${s.id}`}>{s.texto}</a></li>)}</ul>
-    )}
+    <div class={c.secciones.length > 2 ? "con-indice" : undefined}>
+    {c.secciones.length > 2 && <Indice entradas={c.secciones} titulo="En este caso" />}
+    <div class="col-cuerpo">
     <div class="cuerpo" set:html={c.html} />
     <p class="aviso-legal">Las personas mencionadas gozan de presunción de inocencia. Su situación procesal es la que consta en las fuentes citadas, con fecha; nada se afirma como delito sin sentencia. Las respuestas y correcciones de los aludidos se publican con fecha.</p>
     <nav class="nav-dias"><span><a href={url("en-que-quedo/")}><span class="kicker gris">← Todos los casos</span>¿En qué quedó?</a></span><span></span></nav>
+    </div>
+    </div>
   </article>
 </Base>

@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Indice from "../../components/Indice.astro";
 import { claves, fechaLarga, url } from "../../lib/contenido";
 export function getStaticPaths() {
   const todas = claves();
@@ -15,13 +16,15 @@ const { c, sig, ant } = Astro.props;
       <p class="fecha">{fechaLarga(c.fecha)}</p>
       {c.video && <p class="acciones"><a class="boton" href={c.video}>Ver el video</a></p>}
     </header>
-    {c.secciones.length > 2 && (
-      <ul class="toc">{c.secciones.map((s) => <li><a href={`#${s.id}`}>{s.texto}</a></li>)}</ul>
-    )}
+    <div class={c.secciones.length > 2 ? "con-indice" : undefined}>
+    {c.secciones.length > 2 && <Indice entradas={c.secciones} titulo="En esta clave" />}
+    <div class="col-cuerpo">
     <div class="cuerpo" set:html={c.html} />
     <nav class="nav-dias">
       <span>{ant && <a href={url(`claves/${ant.slug}/`)}><span class="kicker gris">← Clave anterior</span>{ant.titulo}</a>}</span>
       <span style="text-align:right">{sig && <a href={url(`claves/${sig.slug}/`)}><span class="kicker gris">Clave siguiente →</span>{sig.titulo}</a>}</span>
     </nav>
+    </div>
+    </div>
   </article>
 </Base>

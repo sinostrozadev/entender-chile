@@ -1,6 +1,8 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { informes, trocear, fechaLarga, fechaCorta, url, youtubeId } from "../../lib/contenido";
+import Indice from "../../components/Indice.astro";
+import Mirada from "../../components/Mirada.astro";
+import { informes, trocear, noticiasDe, fechaLarga, fechaCorta, url, youtubeId } from "../../lib/contenido";
 import { categoriaDe, type Cat } from "../../lib/categorias";
 export function getStaticPaths() {
   const todos = informes();
@@ -22,6 +24,8 @@ for (const t of trozos) {
   else bloques.push({ cat, html: t.html, titulos: [t.titulo] });
 }
 const heroCat = bloques.find((b) => b.cat)?.cat ?? null;
+// Índice lateral: cada sección con sus noticias principales debajo.
+const entradas = trozos.map((t) => ({ id: t.id, texto: t.titulo, hijos: noticiasDe(t.html).filter((n) => n.peso === "a") }));
 const heroTitular = i.portada ?? i.titular;
 const vid = youtubeId(i.video);
 ---
@@ -47,10 +51,13 @@ const vid = youtubeId(i.video);
 
     {i.salir && <p class="salir" data-fecha={i.fecha} hidden><strong>Para salir hoy</strong><span>{i.salir}</span></p>}
 
-    {i.resumenHtml && <div class="entradilla"><p class="kicker">En una mirada</p>
-      {i.mirada.length >= 3 ? <ul class="mirada">{i.mirada.map((f) => <li>{f}</li>)}</ul> : <div set:html={i.resumenHtml} />}
-    </div>}
+    {i.resumenHtml && (i.mirada.length >= 3
+      ? <Mirada frases={i.mirada.slice(1)} />
+      : <div class="entradilla"><p class="kicker">En una mirada</p><div set:html={i.resumenHtml} /></div>)}
 
+    <div class="con-indice">
+    <Indice entradas={entradas} />
+    <div class="col-cuerpo">
     {vid && (
       <div class="video" id="video"><iframe src={`https://www.youtube-nocookie.com/embed/${vid}`} title="Video de la edición" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
     )}
@@ -82,5 +89,7 @@ const vid = youtubeId(i.video);
       <span>{ant && <a href={url(`informes/${ant.fecha}/`)}><span class="kicker gris">← Edición anterior</span>{fechaLarga(ant.fecha)}</a>}</span>
       <span style="text-align:right">{sig && <a href={url(`informes/${sig.fecha}/`)}><span class="kicker gris">Edición siguiente →</span>{fechaLarga(sig.fecha)}</a>}</span>
     </nav>
+    </div>
+    </div>
   </article>
 </Base>

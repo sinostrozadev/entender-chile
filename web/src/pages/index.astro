@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Mirada from "../components/Mirada.astro";
 import { informes, claves, casos, contador, pesos, fechaLarga, fechaCorta, url, canal, youtubeId, trocear } from "../lib/contenido";
 import { categoriaDe } from "../lib/categorias";
 const listaCasos = casos();
@@ -29,8 +30,9 @@ const cl = claves().slice(0, 6);
           {ultimo.mirada.length > 0 && <p class="hero-bajada">{ultimo.mirada[0]}</p>}
         </div>
       </div>
+      {/* la primera frase ya va como bajada del hero; rotan las demás */}
       {ultimo.mirada.length >= 3
-        ? <ul class="mirada">{ultimo.mirada.map((f) => <li>{f}</li>)}</ul>
+        ? <Mirada frases={ultimo.mirada.slice(1)} />
         : <div class="lead" set:html={ultimo.resumenHtml} />}
       {ultimo.noticias.filter((n) => n.peso === "a").length > 1 && (
         <div class="importa">

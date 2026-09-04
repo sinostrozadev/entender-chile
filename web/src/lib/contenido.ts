@@ -49,11 +49,11 @@ export function trocear(html: string): { preambulo: string; trozos: Trozo[] } {
   return { preambulo, trozos };
 }
 // Titulares con peso dentro de un trozo (para las páginas de categoría).
-export const noticiasDe = (html: string): { id: string; texto: string }[] => {
-  const out: { id: string; texto: string }[] = [];
-  const re = /<h3 class="noticia[^"]*" id="([^"]+)">([\s\S]*?)<\/h3>/g;
+export const noticiasDe = (html: string): { id: string; texto: string; peso: "a" | "b" }[] => {
+  const out: { id: string; texto: string; peso: "a" | "b" }[] = [];
+  const re = /<h3 class="noticia peso-([ab])" id="([^"]+)">([\s\S]*?)<\/h3>/g;
   let m: RegExpExecArray | null;
-  while ((m = re.exec(html))) out.push({ id: m[1], texto: m[2].replace(/<[^>]+>/g, "") });
+  while ((m = re.exec(html))) out.push({ id: m[2], texto: m[3].replace(/<[^>]+>/g, ""), peso: m[1] as "a" | "b" });
   return out;
 };
 export type Clave = {
