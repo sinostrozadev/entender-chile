@@ -22,7 +22,12 @@ primer evento real sale con el barrido de esta madrugada (~01:35).
 **Lado de Santiago: HECHO (04-09 ~00:50):** la tarea de ChatGPT ya escucha
 el PR. **PRUEBA ESTA NOCHE**: evento ~01:35 → GPT debería dejar la
 preselección temprano. Si sale bien, se migra toda la cadena a esta forma.
-**Red de seguridad creada** (pedido de Santiago): rutina
+**✅ PRUEBA SUPERADA (01:03):** evento emitido 05:01:16Z → GPT pusheó
+`edición 2026-09-04: preselección` a las 05:03:23Z (2 min 7 s), citando el
+commit exacto del barrido, con el pendiente EOF bien tratado y commit según
+contrato. Queda migrar el resto de la cadena a eventos (proyecto de mañana).
+**Red de seguridad creada y luego DESACTIVADA a pedido de Santiago** (la
+prueba funcionó): rutina
 `trig_01CVyy1m21cpCGHk9sKfVY9r` a las **02:30 Chile** (`30 6 * * *`; entra
 en la lista del cambio de hora del 6-09) — si no hay
 `contenido/preseleccion/FECHA.md` en main, la hace Claude leyendo AHORA

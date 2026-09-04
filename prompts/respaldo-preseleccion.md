@@ -1,4 +1,9 @@
-# Respaldo de la preselección (rutina de Claude, 02:30 Chile)
+# Respaldo de la preselección — DESACTIVADA (04-09, a pedido de Santiago)
+
+> La rutina `trig_01CVyy1m21cpCGHk9sKfVY9r` quedó `enabled=false` la misma
+> noche en que se creó: la prueba del disparo por PR funcionó (GPT entregó
+> la preselección 2 min después del evento) y Santiago pidió borrarla. El
+> prompt queda acá por si algún día se reactiva por API.
 
 **ESTE ARCHIVO ES EL PROMPT VIVO** de la rutina de respaldo de la
 preselección `trig_01CVyy1m21cpCGHk9sKfVY9r` (patrón prompt-en-el-repo, 04-09). La rutina solo sincroniza el
