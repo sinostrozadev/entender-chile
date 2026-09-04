@@ -11,7 +11,7 @@ pueda decir "esto lo escribió una máquina" - por estilo, no por datos.
 3. **Escala humana**: al menos un ejemplo concreto para una persona por [A] económica/social.
 4. **Silueta variable**: las noticias no repiten la misma estructura ni los mismos cierres.
 5. **Cero tics de generación**: sin "es relevante porque", sin "no solo X sino Y" repetido, sin cierres abstractos, sin conectores de ensayo en lo hablado.
-6. **Oralidad (guiones)**: suena a persona que cuenta, no a texto leído; TESIS cortas; agenda sin trámites.
+6. **Oralidad (guiones)**: suena a persona que cuenta, no a texto leído; TESIS cortas; agenda sin trámites; cifras grandes redondeadas en voz (tres cifras significativas, "más de..."; el número exacto va en la tarjeta), regla del 04-09.
 7. **Marca**: tagline al cierre; "Para salir hoy" integrada.
 
 ## Bitácora
