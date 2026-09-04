@@ -10,3 +10,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-09-02 | Hospital Las Higueras
 - 2026-09-02 | Hospital Las Higueras
 - 2026-09-02 | Hospital Las Higueras
+- 2026-09-04 | vacunas influenza 2024
