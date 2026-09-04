@@ -25,7 +25,19 @@ preselección temprano. Si sale bien, se migra toda la cadena a esta forma.
 **✅ PRUEBA SUPERADA (01:03):** evento emitido 05:01:16Z → GPT pusheó
 `edición 2026-09-04: preselección` a las 05:03:23Z (2 min 7 s), citando el
 commit exacto del barrido, con el pendiente EOF bien tratado y commit según
-contrato. Queda migrar el resto de la cadena a eventos (proyecto de mañana).
+contrato. **PROYECTO DE MAÑANA (acordado con Santiago 04-09 ~01:20) — reparto por
+utilidad real:** GPT queda solo donde su navegación vale (preselección ya
+por evento ✓; migrar informe y claves a escucha de evento); Claude toma los
+2 guiones (puras transformaciones del repo, sin web) como rutinas
+disparadas por WEBHOOK de GitHub (push del informe → guion informe; push de
+la entrega → guion clave; create_webhook_trigger de la API), con prompt
+vivo en prompts/. Además, NUEVA CONVENCIÓN para las tareas de GPT: el texto
+en ChatGPT es solo el arranque de 3 líneas y las indicaciones viven en
+prompts/ (la del evento ya está: prompts/preseleccion-evento.md; Santiago
+debe acortar el texto de la tarea en ChatGPT para apuntarle). Límite real
+de Claude: no es el número de rutinas, es la cuota compartida (five_hour) —
+los guiones van en Sonnet, por evento (sin relojes) y fuera de la ventana
+crítica 01:30-01:45.
 **Red de seguridad creada y luego DESACTIVADA a pedido de Santiago** (la
 prueba funcionó): rutina
 `trig_01CVyy1m21cpCGHk9sKfVY9r` a las **02:30 Chile** (`30 6 * * *`; entra
