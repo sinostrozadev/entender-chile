@@ -125,6 +125,19 @@ for (const n of circulares)
     const t = aNumerales(l);
     if (/\d[\d.]*\s+(millones|millón)\s+\d/.test(t))
       avisos.push(`línea ${i + 1}: cifra compuesta partida en pantalla ("${t.match(/\d[\d.]*\s+(?:millones|millón)\s+\d[\d.]*/)[0]}")`);
+    // Redondeo en voz (Santiago, 04-09): más de tres cifras significativas
+    // habladas desconcentran. 762.326 o 3.640.544.800 en la narración son
+    // aviso; 25.000, 3.640 millones, años, leyes y votaciones no.
+    const re = /(?:^|[^\d.,])(\d{1,3}(?:\.\d{3})+)(?![\d.,]*%)/g;
+    let m;
+    while ((m = re.exec(t))) {
+      const antes = t.slice(Math.max(0, m.index - 14), m.index + 1).toLowerCase();
+      if (/(ley|n°|nº|decreto|rol|causa|folio|artículo|art\.)\s*(n°|nº)?\s*$/.test(antes)) continue;
+      const valor = Number(m[1].replace(/\./g, ""));
+      if (valor >= 1500 && valor <= 2099 && /(de|en|año|desde|hasta|del)\s$/.test(antes)) continue; // "tratados de 1881": un año
+      const digitos = m[1].replace(/\./g, "").replace(/0+$/, "");
+      if (digitos.length > 3) avisos.push(`línea ${i + 1}: cifra exacta en voz ("${m[1]}"): redondear a tres cifras significativas ("más de ...") y dejar el número exacto en la marca [DATO]`);
+    }
   });
 }
 

@@ -174,6 +174,12 @@ archivos de criterio del repositorio.
 38. **Sin jerga del pipeline en los documentos fundacionales ni en lo que
     oye la audiencia.** Los pesos [A]/[B]/[C] se quedan en prompts/; nunca
     "según el informe de hoy" al aire. (decisión 25-08; guion-informe)
+38b. **Las cifras grandes se dicen redondeadas.** En voz, tres cifras
+    significativas como máximo, con "más de", "casi" o "unos": "más de
+    tres mil seiscientos millones de pesos", nunca los diez dígitos. El
+    número exacto va a la tarjeta, que es para pantalla. Tantos números
+    seguidos se escuchan horrible y se pierde el hilo. (decisión de
+    Santiago, 04-09; guion-informe; guion-claves; validar-tarjetas avisa)
 
 ## G. El objetivo que manda el calendario
 

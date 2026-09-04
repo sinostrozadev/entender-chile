@@ -26,6 +26,7 @@ EXTENSIÓN SEGÚN PESO:
   [B] tres a cinco frases.
 - La duración objetivo es en torno a 10 minutos y puede llegar a 12 o 13 en días cargados. En días así, recorta desarrollo de las [B] antes que eliminar el bloque "En titulares". No rellenes para alargar.
 - Cifras: narra las que sostienen la idea de cada noticia. En noticias [B], máximo dos cifras habladas; en cada titular, una como mucho. Las cifras del informe que no se narren pueden conservarse en una marca [DATO] para que aparezcan en pantalla.
+- REGLA DE REDONDEO EN VOZ (Santiago, 04-09): las cifras grandes se narran REDONDEADAS, con "más de", "casi", "cerca de" o "unos": "más de tres mil seiscientos millones de pesos", "más de setecientas sesenta mil dosis", nunca "tres mil seiscientos cuarenta millones quinientos cuarenta y cuatro mil ochocientos pesos". Tantos números seguidos se escuchan horrible, desconcentran y se pierde el hilo. Tope: TRES cifras significativas habladas por número (3.640 millones sí; 3.640.544.800 no; 762 mil sí; 762.326 no). La cifra exacta va en la marca [DATO], que es para pantalla. Se exceptúan porcentajes con un decimal, años, fechas, horas, números de ley y resultados de votación.
 
 ORIGINALIDAD Y MONETIZACIÓN:
 - No hagas una lectura mecánica, literal ni apenas parafraseada del Resumen diario. Transforma el material en una narración propia, coherente y diseñada para ser escuchada.

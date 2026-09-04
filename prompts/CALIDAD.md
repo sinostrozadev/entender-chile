@@ -156,3 +156,11 @@ avisa por fuente circular y por cifra compuesta partida, y revisa también el
 guion de la Clave; (4) `guion-claves.md`: la fuente de una marca es la
 primaria y el [DATO] va antes del párrafo.
 
+### 2026-09-04 (regla de redondeo en voz)
+Santiago, tras oír el gancho de la Clave: las cifras grandes se narran
+redondeadas ("más de tres mil seiscientos millones de pesos"), nunca los
+diez dígitos; tantos números seguidos desconcentran y se pierde el hilo.
+Tope de tres cifras significativas habladas; el número exacto va a la
+tarjeta. Está en `guion-informe.md`, `guion-claves.md`, REGLAS-DURAS (38b) y
+`validar-tarjetas.js` avisa por cada cifra exacta larga en la narración.
+
