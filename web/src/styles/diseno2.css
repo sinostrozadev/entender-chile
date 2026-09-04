@@ -132,10 +132,10 @@
   grid-template-columns: minmax(0, 2fr) minmax(16rem, 1fr);
   grid-template-areas:
     "hero      importa"
-    "mirada    mirada"
     "acciones  video"
-    "salir     video"
-    "habito    video";
+    "mirada    mirada"
+    "salir     salir"
+    "habito    habito";
   gap: 0 2.5rem;
   padding: 0.5rem 0 2rem;
   border-bottom: 3px double var(--filete);
@@ -169,7 +169,7 @@
 [data-diseno="2"] .hero-contenido .fecha { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.04em; }
 
 /* "En una mirada": sumario del día entre filetes, en cursiva de diario */
-[data-diseno="2"] .mirada-rot { border-top: 1px solid var(--filete); border-bottom: 1px solid var(--linea); padding: 0.9rem 0 0.2rem; margin-top: 1.5rem; }
+[data-diseno="2"] .mirada-rot { border-top: 1px solid var(--linea); border-bottom: 0; padding: 0.9rem 0 0.2rem; margin-top: 1.75rem; }
 [data-diseno="2"] .mirada-rot.activo .mirada li { font-weight: 400; font-style: italic; font-size: clamp(1.2rem, 2vw, 1.6rem); line-height: 1.35; }
 [data-diseno="2"] .mirada-ctl > button { border-radius: 0; background: transparent; }
 [data-diseno="2"] .mirada-puntos button { border-radius: 0; width: 0.5rem; height: 0.5rem; border-color: var(--tinta); }
@@ -185,7 +185,7 @@
   border-left: 1px solid var(--linea);
   height: 100%;
 }
-[data-diseno="2"] .importa .kicker { border-bottom: 1px solid var(--filete); padding-bottom: 0.4rem; margin-bottom: 0.4rem; }
+[data-diseno="2"] .importa .kicker { border-bottom: 1px solid var(--linea); padding-bottom: 0.4rem; margin-bottom: 0.4rem; }
 [data-diseno="2"] .importa ol { counter-reset: idx; list-style: none; padding: 0; margin: 0; }
 [data-diseno="2"] .importa li {
   counter-increment: idx;
@@ -203,17 +203,18 @@
 [data-diseno="2"] .importa li.n-b { font-family: var(--texto); font-weight: 400; font-size: 0.95rem; color: var(--tinta); }
 [data-diseno="2"] .importa li:last-child { border-bottom: 0; }
 
-[data-diseno="2"] .video { margin: 1rem 0 0 1.75rem; border-radius: 0; }
+[data-diseno="2"] .video { margin: 1.25rem 0 0 1.75rem; border-radius: 0; }
+[data-diseno="2"] .portada > .acciones { margin-top: 1.25rem; }
 [data-diseno="2"] .boton { border-radius: 0; font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.6rem 1rem; }
 [data-diseno="2"] .salir { border-radius: 0; background: transparent; border: 0; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); padding: 0.6rem 0; }
 [data-diseno="2"] .salir strong { font-family: var(--sans); color: var(--tinta); }
 [data-diseno="2"] .habito { background: transparent; border: 1px solid var(--filete); border-radius: 0; }
 
 /* cuadro de cifras: el observatorio como tabla de un diario económico */
-[data-diseno="2"] .contador-franja { border-top: 1px solid var(--filete); border-bottom: 1px solid var(--filete); padding: 1.1rem 0 1.25rem; margin-bottom: 2.25rem; }
+[data-diseno="2"] .contador-franja { border-top: 0; border-bottom: 1px solid var(--linea); padding: 0.5rem 0 1.25rem; margin-bottom: 2.25rem; }
 [data-diseno="2"] .contador-franja .kicker { color: var(--tinta); }
 [data-diseno="2"] .contador-franja .frase { font-style: italic; font-size: 1.05rem; }
-[data-diseno="2"] .contador { gap: 0; margin-top: 1rem; border-top: 3px double var(--filete); }
+[data-diseno="2"] .contador { gap: 0; margin-top: 1rem; border-top: 1px solid var(--filete); }
 [data-diseno="2"] .contador > div { background: transparent; border: 0; border-radius: 0; padding: 0.7rem 1.25rem 0.5rem; }
 [data-diseno="2"] .contador > div + div { border-left: 1px solid var(--linea); }
 [data-diseno="2"] .contador > div:first-child { padding-left: 0; }
@@ -405,3 +406,9 @@
 @media (max-width: 900px) {
   [data-diseno="2"] .portada > .importa { border-left: 0; padding-left: 0; margin-top: 1.5rem; }
 }
+
+/* secundarias lado a lado: filete de columna, titular compacto */
+[data-diseno="2"] .fila-b { border-top: 1px solid var(--linea); }
+[data-diseno="2"] .fila-b h3.noticia.peso-b { font-size: 1.2rem; line-height: 1.15; }
+[data-diseno="2"] .fila-b p { font-size: 1rem; }
+[data-diseno="2"] .fila-b h3.noticia.peso-b { border-top: 0; padding-top: 0; margin-top: 0; }

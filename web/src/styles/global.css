@@ -339,3 +339,13 @@ article.pieza-cat .video, article.pieza-cat .salir, article.pieza-cat .nav-dias 
 .contador > div { background: transparent; border: 0; border-top: 2px solid var(--tinta); border-radius: 0; padding: 0.7rem 0 0; }
 .contador { gap: 0 2rem; }
 .contador-franja .mas { font-weight: 500; }
+
+/* ---- noticias [B] seguidas, lado a lado (04-09) ---- */
+.fila-b { display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); gap: 1rem 0; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--linea); overflow: hidden; }
+.nota-b { padding: 0 1.5rem; box-shadow: -1px 0 0 var(--linea); }
+.nota-b:first-child { padding-left: 0; }
+.nota-b:last-child { padding-right: 0; }
+.fila-b h3.noticia.peso-b { border-top: 0; padding-top: 0; margin-top: 0; font-size: 1.15rem; }
+.fila-b p { font-size: 0.97rem; line-height: 1.55; }
+.fila-b p:last-child { margin-bottom: 0; }
+.cuerpo .fila-b + h3.noticia.peso-b, .cuerpo .fila-b + .fila-b { margin-top: 1.75rem; }

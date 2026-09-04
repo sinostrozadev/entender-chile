@@ -127,7 +127,26 @@ function render(md: string): { html: string; secciones: Seccion[]; noticias: Not
     (_m, e) => `<strong class="etq etq-${slugify(e)}">${e}</strong>`);
   html = html.replace(/<p><strong>Para salir hoy:<\/strong>/g, `<p class="salir"><strong>Para salir hoy</strong>`);
   html = fechasHumanas(html);
+  html = agruparSecundarias(html);
   return { html, secciones, noticias };
+}
+
+// Dos o más noticias [B] seguidas van lado a lado, como las secundarias de
+// un diario (04-09). Cada segmento empieza en un encabezado; los h2 quedan al
+// nivel superior, así que trocear() y noticiasDe() no cambian.
+export function agruparSecundarias(html: string): string {
+  const seg = html.split(/(?=<h[23][\s>])/);
+  const esB = (x: string) => /^<h3 class="noticia peso-b"/.test(x);
+  const out: string[] = [];
+  for (let i = 0; i < seg.length; ) {
+    if (!esB(seg[i])) { out.push(seg[i]); i++; continue; }
+    let j = i;
+    while (j < seg.length && esB(seg[j])) j++;
+    if (j - i >= 2) out.push(`<div class="fila-b">` + seg.slice(i, j).map((x) => `<div class="nota-b">${x}</div>`).join("") + `</div>\n`);
+    else out.push(seg[i]);
+    i = j;
+  }
+  return out.join("");
 }
 
 function seccionDe(md: string, titulo: RegExp): string {
