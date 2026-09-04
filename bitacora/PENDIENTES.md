@@ -89,6 +89,12 @@ cifras reales de la EOF (TPM 4,5%, sin cambios a 24 meses, inflación esperada
 3,3%) y se re-produjo como ejemplar del formato. **Le queda a Santiago: borrar
 en Studio los DOS videos viejos de la prueba: `AZpTnPoPg2I` (deformado) y
 `GMSTAx1-62o` (formato corto sin contexto).**
+Patrón nuevo (04-09, pedido de Santiago): **el prompt vivo de la guardia ES
+`prompts/guardia-reloj.md`** — la rutina solo sincroniza y lee el archivo en
+cada corrida; editarlo es cambiar la guardia sin tocar la API. Pendiente:
+aplicar el mismo patrón prompt-vivo a las demás rutinas (barrido,
+observatorio, revisión, guardián, métricas, auditoría) cuando toque
+editarlas.
 Pendiente fase 2.1 (no esta noche): que guardia.js (Actions, que SÍ alcanza
 la web) capture también el cuerpo de la fuente primaria en el archivo del
 hallazgo — la rutina redactora no navega, hoy escribe con el material + el
