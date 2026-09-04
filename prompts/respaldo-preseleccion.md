@@ -1,7 +1,7 @@
 # Respaldo de la preselección (rutina de Claude, 02:30 Chile)
 
 **ESTE ARCHIVO ES EL PROMPT VIVO** de la rutina de respaldo de la
-preselección (patrón prompt-en-el-repo, 04-09). La rutina solo sincroniza el
+preselección `trig_01CVyy1m21cpCGHk9sKfVY9r` (patrón prompt-en-el-repo, 04-09). La rutina solo sincroniza el
 repo, lee este archivo y ejecuta lo que está después del `---`. Editar este
 archivo ES cambiar el respaldo; rige desde la corrida siguiente.
 

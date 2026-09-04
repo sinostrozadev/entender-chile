@@ -19,11 +19,17 @@ estado=listo, completado_utc) y pushea: ese commit nuevo en el PR es el
 evento que despierta la tarea de ChatGPT. UNA emisión por día (dedup por
 fecha_chile); si el paso falla, la corrida siguiente lo repara solo. El
 primer evento real sale con el barrido de esta madrugada (~01:35).
-**Lado de Santiago (pendiente):** configurar la tarea de ChatGPT con el
-disparador "cuando haya una actualización de commits en el PR etiquetado
-barrido-listo de sinostrozadev/entender-chile" — con eso la preselección
-deja de depender de una hora fija y TIEMPOS 1 mejora: el eslabón GPT más
-crítico pasa a ser por evento.
+**Lado de Santiago: HECHO (04-09 ~00:50):** la tarea de ChatGPT ya escucha
+el PR. **PRUEBA ESTA NOCHE**: evento ~01:35 → GPT debería dejar la
+preselección temprano. Si sale bien, se migra toda la cadena a esta forma.
+**Red de seguridad creada** (pedido de Santiago): rutina
+`trig_01CVyy1m21cpCGHk9sKfVY9r` a las **02:30 Chile** (`30 6 * * *`; entra
+en la lista del cambio de hora del 6-09) — si no hay
+`contenido/preseleccion/FECHA.md` en main, la hace Claude leyendo AHORA
+`prompts/seleccion.md` + contrato (prompt vivo:
+`prompts/respaldo-preseleccion.md`); si tampoco hay barrido, lo despierta y
+espera; sin material NO inventa: avisa. Notifica SOLO si intervino o no
+pudo; silencio cuando GPT cumplió.
 
 ## URGENTE — con plazo
 
