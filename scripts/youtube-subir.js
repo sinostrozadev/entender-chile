@@ -62,7 +62,7 @@ if (!args.includes("--sin-hd")) {
   const ff = path.join("node_modules", "@remotion", "compositor-linux-x64-gnu", "ffmpeg");
   if (fs.existsSync(ff)) {
     const hd = path.join(OUT, `subida-${etiqueta}.mp4`);
-    const escala = short ? "1440:2560" : "2560:1440";
+    const escala = (short || urgente) ? "1440:2560" : "2560:1440"; // el urgente también es vertical
     try {
       console.log(`Reescalando a ${escala} para que YouTube no muela el texto...`);
       execFileSync(ff, ["-v", "error", "-y", "-i", video, "-vf", `scale=${escala}:flags=lanczos`,
