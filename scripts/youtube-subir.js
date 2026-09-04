@@ -116,6 +116,10 @@ function horaChileISO(dia, hhmm) {
   });
   const id = res.data.id;
   fs.writeFileSync(path.join(OUT, `youtube-id-${etiqueta}.txt`), id + "\n");
+  // Short exprés: la marca SUBIDO vive en contenido/ (el workflow la commitea);
+  // es la deduplicación (un hallazgo = un Short) y lo que la rutina de guardia
+  // espera para avisar al teléfono con el link.
+  if (urgente) fs.writeFileSync(path.join("contenido", "urgente", `SUBIDO-${urgente}.txt`), id + "\n");
   // a su playlist (informe y clave; los Shorts no): ids en contenido/youtube.json
   if (!short) {
     try {

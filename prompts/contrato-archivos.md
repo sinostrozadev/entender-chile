@@ -84,3 +84,14 @@ deja rastro y se descubre días después.
 
 Si después de comprobarlo el dato efectivamente no está, entonces sí: no lo
 inventes, sigue adelante y dilo, nombrando el archivo y la línea que buscaste.
+
+## Espera corta antes del respaldo (TIEMPOS 1, 03-09)
+
+Si tu archivo de ENTRADA de hoy no existe al empezar, no actives el respaldo
+de inmediato: espera 2 minutos y vuelve a mirar, hasta 4 veces (8 minutos en
+total). Si sigue sin existir, recién entonces aplica tu respaldo declarándolo
+en tu bloque interno (la preselección barre sola; el informe trabaja con la
+preselección disponible más reciente y lo dice). Esto vale para todas las
+tareas de la cadena: convierte en regla lo que la preselección del 03-09
+hizo bien por instinto, y permite acercar los horarios sin que un atraso de
+minutos dispare respaldos en falso.

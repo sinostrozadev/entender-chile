@@ -38,7 +38,17 @@ con ventana de 24 h, que cazó la muerte en el Metro con ALARMA+3 portadas),
 la rutina `trig_01HLSWkJ8VpVFPuxQ51YiG4d` cada 2 h (prueba completa del
 circuito: despertador → workflow → "sin novedades" sin notificar; endurecida
 con sync inicial y bucle de espera literal). Primera guardia real: 03-09
-08:04. FALTA la fase 2 (Short exprés), esta noche. El diseño:
+08:04 (cayó por cupo; la de las 10:09 cazó la EOF).
+**FASE 2 CONSTRUIDA (noche del 03-09):** piel VINO en Short.tsx,
+`scripts/short-urgente.js` (pipeline completo, probado en local con el caso
+real de la tasa: render verificado cuadro a cuadro), modo `--urgente` del
+subidor con marca de deduplicación `SUBIDO-<slug>.txt` (un hallazgo = un
+Short), workflow `short-expres.yml` (voz + render + subida privada), y la
+rutina de guardia en **v3**: ahora REDACTA el guion (Sonnet, reglas duras:
+~55 palabras, cifras solo de fuente primaria, atribución a prensa cuando
+corresponde), espera el id y avisa al teléfono con el link del video listo.
+Primera corrida real end-to-end disparada esta noche con la tasa. El diseño
+original, para referencia:
 1. `scripts/guardia.js`: barrido liviano (portadas RSS de 6-8 medios +
    fuentes primarias BC/INE/Senapred/Fiscalía + lo anunciado en PENDIENTE DE
    CIERRE y Agenda). Criterio "muy importante" MECÁNICO, 2 de 4: palabra de
