@@ -215,6 +215,14 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **REVISIÓN 1: cargar el prompt nuevo en la rutina "Revisión editorial"**
+      (04-09). El prompt con la categoría e (redondeo en voz) y la fuente
+      circular como categoría b está en `prompts/revision-editorial.md`. La
+      rutina (trig_019cchTdDCVeVzVh8HjrZrYG) se creó por API desde la sesión
+      local y solo esa sesión puede actualizarla: la sesión remota lo intentó
+      y fue rechazada. Hasta que se cargue, la revisión sigue con las cuatro
+      categorías de antes; el validador ya avisa igual.
+
 - [ ] **TIEMPOS 1: acortar la madrugada dos horas y que los agentes
       dependientes escuchen** (pedido de Santiago, 03-09). Propuesta completa
       en `bitacora/2026-09-03-propuesta-tiempos.md`: medido, la cadena tarda
