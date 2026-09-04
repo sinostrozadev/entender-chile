@@ -121,214 +121,134 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 03-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 09:30; archivo completo en bitacora/2026-09-03-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS (dos puntos HOY: duración del guion muy sobre la promesa, y métricas del día sin generar por la misma cuota que ya tumbó el barrido)</div>
+    <p class="eyebrow">Auditoría de la mañana · 04-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 09:30; archivo completo en bitacora/2026-09-04-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:#8A6F3F;margin-bottom:10px">ESTADO: CON OBSERVACIONES</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON FALLAS (dos puntos HOY: duración del guion muy sobre la promesa, y métricas del día sin generar por la misma cuota que ya tumbó el barrido)
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON OBSERVACIONES
 
-Medido el 03-09-2026 a las 09:34 de Chile, por la rutina de las 09:30
-(`trig_01GDbvJ1Wjzy25bnVRCXgygZ`), primera corrida de esta rutina.
+Medido el 04-09-2026 a las 09:31 de Chile, por la rutina de las 09:30
+(`trig_01GDbvJ1Wjzy25bnVRCXgygZ`).
+
+**Nota de contrato**: el prompt guardado en este disparador difiere del
+`prompts/auditoria-matinal.md` actual. La versión vigente del archivo (commit
+`b1185d9`, hoy 02:42) reemplazó la estimación de duración por palabras (150
+ppm) por la lectura real de `contenido/podcast/episodios.json` (campo
+`durSeg`), y agregó "guardia" a la lista de workflows del punto 3. El prompt
+guardado en el trigger sigue con la instrucción vieja. Esta auditoría siguió
+el archivo actual (más correcto), no la copia guardada. Ver propuesta 1.
 
 ## Qué salió y a qué hora
 
-| Pieza | Archivo | Hora Chile |
+| Pieza | Hora (Chile) | Estado |
 |---|---|---|
-| Preselección | `contenido/preseleccion/2026-09-03.md` | 03:10 |
-| Informe | `contenido/informes/2026-09-03.md` | 03:30 |
-| Clave, entrega | `contenido/claves/2026-09-03-estrecho-magallanes-soberania-navegacion.md` | 03:44 |
-| Guion del informe | `contenido/guiones/informe/2026-09-03.md` | 04:01 |
-| Guion de la Clave | `contenido/guiones/claves/2026-09-03-estrecho-magallanes-soberania-navegacion.md` | 04:18 |
-| Revisión (VEREDICTO: APROBADA) | `contenido/revisiones/2026-09-03.md` | 04:43 |
-| Descripciones (= hubo video, informe y Clave) | `contenido/descripciones/2026-09-03-informe.txt` y `-clave.txt` | 05:32 |
-| Barrido real del día | `contenido/barrido/2026-09-03.md` | 06:06 (4 h tarde; ver abajo) |
-| `indice.md` / `banco-temas.md` de Claves | actualizados | 03:44 (índice) |
-| Métricas del día | `bitacora/metricas/2026-09-03.md` | **no existe a esta hora** |
+| Barrido | 01:01 | ok, vía evento nuevo (ver abajo) |
+| Preselección | 01:03 | ok, 2 min tras el barrido |
+| Observatorio plata pública | 01:46 | ok |
+| Informe | 03:30 | ok |
+| Clave (entrega) | 03:47 | ok (3 commits en 1 min, el último quedó firme) |
+| Guion del informe | 04:00 | ok |
+| Guion de la Clave | 04:17 | ok |
+| Revisión editorial | 04:43 | VEREDICTO: APROBADA, sin hallazgos |
+| Edición diaria (render, 4 videos) | ~04:50-05:48 | ok, descripciones y podcast generados |
+| Guardián de la edición | 06:09 | ok (cron 06:00, +2 min) |
+| Reloj de métricas | 08:45 | ok |
+| Métricas del día | 08:46 | ok |
 
-Los tres eslabones de la Clave (entrega, guion, video) están completos: no
-hay caso de "trabajo hecho y perdido" como el del 02-09.
+Los tres eslabones de la Clave están completos: entrega
+(`contenido/claves/2026-09-04-contraloria-reparo-juicio-cuentas.md`), guion
+(`contenido/guiones/claves/2026-09-04-contraloria-reparo-juicio-cuentas.md`)
+y video (episodio en `contenido/podcast/episodios.json`, 562 s, público en
+métricas). `indice.md` y `banco-temas.md` quedaron actualizados (última línea
+de cada uno corresponde a hoy).
 
-## Cómo corrió la máquina
-
-Cruzando `list_triggers` (rutinas de Claude, hora UTC) con Actions:
-
-| Reloj | Disparo | Resultado |
-|---|---|---|
-| Reloj del barrido | 05:32:59 UTC (01:32 Chile) | **FALLÓ**: `session limit` de cuenta (five_hour), murió en 9 s sin pushear |
-| Cron de respaldo del barrido | 05:50 UTC esperado | Llegó a las 10:06 UTC, **4 h 16 min tarde** |
-| Observatorio plata pública | 05:45:48 UTC (01:45 Chile) | **FALLÓ**: mismo `session limit` |
-| Revisión editorial | 08:40:55 UTC (04:40 Chile) | Correcta, terminó 08:43:36 UTC |
-| Guardián de la edición diaria | 10:09:05 UTC (06:09 Chile) | Correcta |
-| Guardia (cada 2 h, primera pasada del día) | 12:14:05 UTC (08:14 Chile) | **FALLÓ**: mismo `session limit` |
-| Reloj de métricas | 12:45:55 UTC (08:45 Chile) | **FALLÓ**: mismo `session limit` |
-| Cron de respaldo de métricas | 15:00 UTC (11:00 Chile) | Pendiente, aún no llega |
-| Auditoría matinal (esta rutina) | 13:32:52 UTC (09:32 Chile) | A tiempo |
-
-La preselección de las 03:10 no se atrasó porque, según el propio commit
-`fb0741b` de esta madrugada, usó "su propio barrido de emergencia" al no
-tener todavía el barrido real: cubrió las tres [A] pero dejó fuera dos [B]
-(caso maderas Bolivia y un inicio de obras).
-
-## Calidad de lo que salió
-
-**`node scripts/validar-tarjetas.js --fecha 2026-09-03`**: `esquema: 3 ·
-cifra: 3 · barras: 3 · comparacion: 1` — `variedad OK: ninguna cuota rota,
-ninguna marca malformada.` Sin avisos.
-
-**Revisión de hoy** (`contenido/revisiones/2026-09-03.md`): VEREDICTO
-APROBADA, un solo hallazgo [MENOR] categoría (d): el bloque `Fuentes:` del
-guion de la Clave (líneas 101-105) no incluye "Informe diario" pese a
-citarlo dos veces en prosa ("el Informe diario señalaba...", "según el
-Informe diario de esa fecha"); la entrega sí lo lista. Ese mismo defecto ya
-está en la descripción pública `contenido/descripciones/2026-09-03-clave.txt`
-("Fuentes de esta edición:" sin "Informe diario").
-
-Comparado con los tres días previos, la categoría (d) —fuentes citadas en
-prosa que no figuran en el bloque `Fuentes:`— aparece en 3 de las últimas 4
-revisiones: 08-31 ([GRAVE], guion de Claves), 09-01 ([MENOR], guion del
-informe) y hoy ([MENOR], guion de Claves). El 09-02 tuvo un hallazgo distinto
-(categoría b). El ciclo la detecta cada vez y no corrige la plantilla.
-
-**PENDIENTE DE CIERRE**: una sola marca, generada hoy mismo (Encuesta de
-Operadores Financieros, línea 85 y 191), no vencida: nació en esta edición
-porque el dato anunciado ayer para hoy aún no se publicaba al cierre (03:30).
-
-**Duración del guion contra la promesa** (`estrategia/identidad.md:10` y
-`estrategia/publico.md:13`: "unos diez minutos, doce o trece cuando el día
-viene cargado"):
-
-| Fecha | Palabras | Minutos estimados (150 ppm) |
-|---|---|---|
-| 30-08 | 2410 | 16,0 |
-| 31-08 | 2579 | 17,1 |
-| 01-09 | 2709 | 18,0 |
-| 02-09 | 2599 | 17,3 |
-| 03-09 | 2356 | **15,7** |
-
-Guion de la Clave hoy: 1552 palabras, 10,3 min (la Clave no promete una
-duración fija en estrategia/, pero PENDIENTES.md la anota como objetivo
-"6-9 min").
-
-## Los números
-
-`bitacora/metricas/2026-09-03.md` no existe: el reloj de métricas falló (ver
-arriba) y su respaldo (cron 15:00 UTC) aún no corre. La comparación queda
-con los datos de ayer nada más, sin delta de hoy:
-
-Al cierre del 02-09: 7 suscriptores (+2), 655 vistas totales sumadas por
-video (+190), 22 subidos, 16 públicos. El movimiento en video largo que
-importa: "La industria cae 5,1%..." pasó a 42 vistas (+31) y "Milei llega a
-Chile..." a 158 (+96); los Shorts (182, 126, 55 vistas) siguen siendo el
-grueso pero no cuentan para las 4.000 horas.
+**Cambio de arquitectura probado esta madrugada**: el barrido ahora emite un
+evento (push a un PR permanente, `contenido/barrido/ultimo-evento.txt`) que
+despierta a ChatGPT en vez de esperar el horario fijo de las 03:10. Prueba
+superada: evento a las 01:01:16, preselección entregada a las 01:03:23 (2 min
+7 s). Decisión y prueba documentadas en `bitacora/PENDIENTES.md` líneas 23-32
+y acordadas con Santiago. No es un hallazgo, es la explicación de por qué
+barrido y preselección salieron 2 horas antes de lo que marca el cuadro
+vigente del panel.
 
 ## Qué falló
 
-1. **`bitacora/metricas/2026-09-03.md` no existe a las 09:34 Chile.**
-   Evidencia: reloj de métricas con `session limit` a las 08:45 Chile
-   (sesión `session_019VEDXLYCSTxdKJrYiWp4Z1`); `bitacora/metricas/despertador.txt`
-   sigue con la marca de ayer (`2026-09-02T12:46:53Z`); único respaldo es el
-   cron `0 15 * * *` de `.github/workflows/metricas.yml`, que según el
-   propio historial del workflow (run #1, commit `ac17cdec`) ha tenido
-   atrasos de 10-12 horas y un día sin correr en absoluto.
+Sin fallas que bloqueen nada. Dos observaciones menores:
 
-2. **El guion del informe lleva cinco días seguidos entre 50% y 80% sobre
-   el techo prometido** (13 min en día cargado; hoy 15,7, el mejor de los
-   cinco pero igual 21% sobre el techo). Es la cuarta auditoría consecutiva
-   que lo señala (la del 02-09 ya decía "tercera auditoría seguida") y
-   `contenido/revisiones/` nunca lo objeta porque no compara duración.
-
-3. **Cuota de cuenta (`five_hour`) tumbó cuatro relojes distintos hoy**, no
-   solo el barrido ya reconocido esta madrugada: observatorio (01:45),
-   guardia (08:14) y métricas (08:45), además del barrido (01:32). Barrido
-   ya recibió un segundo cron de respaldo (`.github/workflows/barrido.yml`,
-   líneas del bloque `schedule:`); observatorio, guardia y métricas siguen
-   con un solo camino de recuperación cada uno (o ninguno, en el caso de
-   observatorio).
-
-4. **Hallazgo recurrente sin corregir**: bloque `Fuentes:` de los guiones no
-   acredita todo lo citado en prosa (categoría d), 3 de las últimas 4
-   revisiones. Detalle arriba.
-
-5. **Observatorio de la plata pública sin novedades desde el 09-02**:
-   ningún archivo de `contenido/casos/` cambió su contenido hoy (verificado
-   con `git log` por archivo); la rutina que trae novedades falló por la
-   misma cuota. `casos.js` corrió igual dentro de `edicion-diaria.yml` y
-   regeneró `indice.md`, pero sin material nuevo que indexar.
+1. El prompt guardado en el trigger de esta rutina está una versión atrás
+   del archivo del repo (ver nota de contrato arriba).
+2. `node scripts/validar-tarjetas.js --fecha 2026-09-04` dio un aviso:
+   `línea 80: tercera [DATO cifra] seguida (cuota: máximo dos)` en
+   `contenido/guiones/informe/2026-09-04.md` (TPM línea 64, Orionx línea 71,
+   Viento Puelche línea 80: tres tarjetas de cifra seguidas sin otro tipo de
+   tarjeta entre medio).
 
 ## Propuestas
 
-1. Para el archivo 1: si a las 11:10 Chile `bitacora/metricas/2026-09-03.md`
-   sigue sin existir, disparar a mano `workflow_dispatch` de
-   `.github/workflows/metricas.yml`. De fondo, agregar una segunda entrada
-   `cron:` en ese workflow (mismo patrón que ya se aplicó en
-   `.github/workflows/barrido.yml`), por ejemplo `cron: "30 16 * * *"`
-   junto a la existente `cron: "0 15 * * *"`.
-
-2. Para el archivo 2: en `prompts/guion-informe.md`, aplicar el recorte que
-   ya está anotado y sin ejecutar en `bitacora/PENDIENTES.md` bajo "IMAGEN
-   2" (tope de 12 palabras por titular en el bloque "En titulares", hoy
-   mide ~30 y es el 23% del video). Además, agregar a
-   `scripts/validar-tarjetas.js` un aviso cuando el conteo de palabras del
-   guion supere 1950 (13 min a 150 ppm), para que el techo deje de ser
-   invisible al ciclo de revisión.
-
-3. Para el archivo 3: agregar un segundo `cron:` también a
-   `.github/workflows/metricas.yml` (ver propuesta 1). Para `guardia.yml` no
-   hace falta: su diseño ya tolera una pasada perdida con la ventana de 3
-   horas de la siguiente. Para observatorio (corre dentro de
-   `.github/workflows/web.yml` vía push, sin cron propio) no hay pérdida de
-   datos, solo de cadencia; no amerita cron de respaldo mientras sea
-   investigación de fondo y no parte del render diario.
-
-4. Para el archivo 4: en `prompts/guion-claves.md` y `prompts/guion-informe.md`,
-   agregar la instrucción explícita de que toda mención en prosa a "el
-   Informe diario" (o a cualquier fuente citada narrativamente) debe listarse
-   también en el bloque `Fuentes:` final, no solo las marcas `[DATO]`.
-
-5. Para el archivo 5: sin acción de código; queda cubierto por la propuesta 3
-   (el reloj de observatorio no necesita respaldo si el diseño acepta que
-   una pasada perdida se recupera al día siguiente).
+1. En el trigger `trig_01GDbvJ1Wjzy25bnVRCXgygZ`, actualizar el prompt
+   guardado para que coincida con `prompts/auditoria-matinal.md` (punto 4:
+   leer `durSeg` de `contenido/podcast/episodios.json` en vez de estimar por
+   palabras; punto 3: agregar "guardia" a la lista de workflows a revisar).
+2. En `contenido/guiones/informe/2026-09-04.md`, entre las líneas 71 y 80,
+   cambiar el tipo de una de las dos tarjetas [DATO cifra] (Orionx o Viento
+   Puelche) a un tipo distinto (comparación, cambio o esquema) para respetar
+   la cuota de máximo dos [DATO cifra] seguidas. Si el patrón se repite
+   mañana, revisar el prompt que arma las tarjetas (`prompts/guion-informe.md`
+   o el que corresponda) en vez de corregir a mano cada día.
 
 ## Triage
 
-- **HOY**: propuesta 1 (métricas del día sin generar, con respaldo de
-  historial poco confiable) y propuesta 2 (duración del guion, cuarta
-  auditoría seguida sin corrección, ya publicado así).
-- **AGUANTA**: propuesta 3 (segundo cron para métricas, más allá del check
-  manual de hoy) y propuesta 4 (plantilla de `Fuentes:`).
-- **MIRAR**: el patrón de fondo detrás de los cuatro relojes caídos hoy —no
-  es un bug de un script, es la cuota de cinco horas de la cuenta
-  repartiéndose entre cada vez más rutinas de Claude (barrido, observatorio,
-  revisión, guardián, guardia, métricas, auditoría). Si se suma otro reloj
-  (el "Short exprés" que sigue pendiente en `bitacora/PENDIENTES.md`) sin
-  mirar la carga total, esto va a repetirse con más piezas expuestas cada
-  vez.
+- **HOY**: ninguna. Nada rompe la edición de mañana, no hay pérdida de datos
+  ni defecto visible ya publicado.
+- **AGUANTA**: propuesta 1 (el prompt guardado desactualizado no afecta la
+  producción, solo el criterio de esta misma auditoría; conviene corregirlo
+  antes de que la próxima corrida repita el criterio viejo).
+- **MIRAR**: propuesta 2 (aviso nuevo del validador de tarjetas; no se había
+  visto en los tres días anteriores, vigilar si vuelve a aparecer mañana).
+
+## Los números
+
+Canal: 7 suscriptores (+0) · 1263 vistas totales (+252) vs 1011 (+356) ayer.
+
+**Videos largos** (los que suman a las 4.000 horas; excluye "Cinco cosas..."):
+el mayor movimiento fue "Clave: ¿Cómo conviven soberanía y libre navegación
+en un estrecho?" (Clave del 03-09), +86 vistas. Le siguen "Clave: fondos
+generacionales" +12, "La economía cae 1,5%..." +11, "Milei llega a Chile"
++7, y los dos videos largos del 03-09 recién publicados ese día ("Kast recibe
+a Milei", "¿Cómo conviven soberanía...") +5 cada uno. Los dos videos largos
+de HOY (informe "Chile y Argentina ratifican..." y Clave "¿Qué ocurre cuando
+Contraloría...") están recién publicados, 0 vistas todavía, normal a esta
+hora.
+
+**Shorts** (se anotan, no se celebran): "Cinco cosas... jueves 3 de
+septiembre" +35 vistas, el mayor movimiento del día en esa serie.
 
 ## Comparación con ayer
 
-**Mejoró**: la Clave de hoy tiene sus tres eslabones completos (entrega,
-guion, video), a diferencia del 02-09 donde el guion se perdió y nadie lo
-notó de inmediato. La apertura en frío ("## La noticia del día") se aplicó
-correctamente, vigilancia que pedía justamente la auditoría de ayer para
-hoy. El BUG 1 (tesis desbordada) sigue sin reaparecer: `validar-tarjetas.js`
-no avisó nada, igual que ayer.
+**Mejoró**:
+- El hallazgo recurrente de `contenido/revisiones/` (falta "Informe diario"
+  en el bloque "Fuentes:" del guion de Claves; apareció 08-31, 09-01 y 09-03)
+  desapareció hoy. Se verificó en el guion de hoy: "Informe diario de
+  Entender Chile, 4 de septiembre de 2026" figura en Fuentes y está citado
+  en el cuerpo (líneas 11, 13, 88, 106). El fix llegó con el commit `b1185d9`
+  de esta madrugada ("crédito total de fuentes en prosa").
+- La duración de los guiones quedó dentro de la promesa: informe 655 s
+  (10,9 min), Clave 562 s (9,4 min), leídos de `episodios.json`. Ayer
+  (09-03) la auditoría había marcado HOY "duración del guion muy sobre la
+  promesa"; el mismo commit de hoy recalibró el techo de palabras a 138 ppm
+  (audio real) y el problema no volvió a aparecer.
+- Las métricas del día se generaron sin problema. Ayer el HOY era
+  justamente que no se habían generado por una cuota agotada.
+- Preselección pasó de horario fijo (03:10) a evento (01:03): casi 2 horas
+  y media de colchón adicional antes del informe, probado y documentado.
 
-**Sigue igual**: la duración del guion sobre la promesa (cuarta vez
-seguida, sin que nadie la haya tocado); el hallazgo de `Fuentes:`
-incompletas sigue repitiéndose.
+**Sigue igual**: ninguna rutina se atrasó más de 20 minutos; todos los
+workflows de GitHub Actions terminaron en éxito; VEREDICTO: APROBADA se
+mantiene.
 
-**Nuevo**: ayer la falla de reloj fue solo el barrido, ya visto y con un
-parche aplicado esta madrugada (segundo cron). Hoy el mismo tipo de falla
-(cuota de cuenta) se repitió en otros tres relojes que ayer no habían
-fallado (observatorio, guardia, métricas), y por primera vez desde que
-existe esta auditoría, el archivo de métricas del día no está disponible a
-la hora de escribirla.
-
-## Profundización de la sesión de día
-
-(Sección para la sesión de día del proyecto, si decide profundizar algo que
-esta rutina no alcanza: calidad editorial fina, estrategia, tendencias de
-varios días. No completada por esta rutina.)
+**Nuevo**: el aviso del validador de tarjetas sobre tres [DATO cifra]
+seguidas (no estaba en los tres días anteriores); la desactualización del
+prompt guardado en este mismo trigger.
 </pre>
     </details>
     <!--AUDITORIA-FIN-->
