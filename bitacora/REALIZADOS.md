@@ -8,6 +8,7 @@ editorial y técnico humano del proyecto.
 - 03-09 · Rutina de guardia v3: ya no solo avisa, REDACTA el guion (Sonnet, reglas duras: ~55 palabras, cifras solo de fuente primaria, atribución a prensa), espera el id y manda el link del video listo al teléfono
 - 03-09 · Bug cazado EN la prueba real: el Short urgente se reescalaba a horizontal antes de subir (quedaba deformado y no contaba como Short); corregido y re-subido
 - 03-09 · Cláusula de espera corta en el contrato (TIEMPOS 1): un atraso de minutos ya no dispara respaldos en falso
+- 04-09 · Web, segunda vuelta con Santiago: cabecera en una línea, "Lo que importa hoy" como tira, cifras sin caja, noticias [B] seguidas lado a lado en columnas y menos filetes negros en los dos diseños
 - 03-09 · Web: índice lateral que sigue el scroll (barra pegada arriba en móvil), "En una mirada" como una frase a la vez que rota a todo el ancho, móvil adaptado (categorías deslizables, cabecera compacta) y solo dos diseños: 1 revista, 2 diario nuevo al estilo de portada clásica (mancheta con filetes, barra de secciones, columnas con filete, serif de lectura, sin cajas ni fotos); ?diseno=2 en la URL lo fija
 - 03-09 · Fondos por sección EN el video (imágenes aprobadas + variación diaria por código) y apertura en frío al aire: capítulo 1 "La noticia del día" en 00:00
 - 03-09 · Web con categorías en producción: 8 categorías navegables, informe rediseñado con franjas ilustradas, marca de portada filtrada de la entradilla

@@ -349,3 +349,9 @@ article.pieza-cat .video, article.pieza-cat .salir, article.pieza-cat .nav-dias 
 .fila-b p { font-size: 0.97rem; line-height: 1.55; }
 .fila-b p:last-child { margin-bottom: 0; }
 .cuerpo .fila-b + h3.noticia.peso-b, .cuerpo .fila-b + .fila-b { margin-top: 1.75rem; }
+
+/* ---- menos filetes negros también en el diseño 1 (04-09) ---- */
+.contador-franja { border-top: 1px solid var(--linea); }
+.contador > div { border-top: 1px solid var(--tinta); }
+.cuerpo h3.noticia.peso-a { border-top-width: 2px; }
+.nav-dias { border-top-width: 1px; }
