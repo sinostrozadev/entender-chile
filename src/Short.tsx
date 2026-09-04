@@ -19,6 +19,8 @@ type Piel = { fondo: string; tinta: string; gris: string; acento: string; linea:
 const PAPEL: Piel = { fondo: tema.papel, tinta: tema.tinta, gris: tema.gris, acento: tema.patina, linea: tema.linea };
 const MARINO: Piel = { fondo: "#0F1A2B", tinta: "#EDE6DA", gris: "#B9B2A6", acento: "#D08A5B", linea: "#2A3648" };
 const VERDE: Piel = { fondo: "#14332C", tinta: "#EDE6DA", gris: "#B3BDB2", acento: "#D08A5B", linea: "#2A4A40" };
+// La piel del Short URGENTE (03-09): rojo vino, alerta sin grito.
+const VINO: Piel = { fondo: "#2E1218", tinta: "#EDE6DA", gris: "#C4B3B0", acento: "#D08A5B", linea: "#4A2830" };
 
 // Zona segura de Shorts: la interfaz de YouTube tapa ~300 px abajo y ~150 px a
 // la derecha; arriba hay ~200 px con el título. Todo el contenido va dentro.
@@ -144,7 +146,7 @@ export const ShortVideo: React.FC<Timeline> = (tl) => {
   const f = (s: number) => Math.round(s * fps);
   const HOLD = Math.round(fps * 0.3);
   const meta = tl.meta as Timeline["meta"] & { fondo?: string | null; handle?: string; eyebrow?: string; numerar?: boolean };
-  const piel = meta.fondo ? (meta.fondo.includes("clave") ? VERDE : MARINO) : PAPEL;
+  const piel = meta.fondo ? (meta.fondo.includes("urgente") ? VINO : meta.fondo.includes("clave") ? VERDE : MARINO) : PAPEL;
 
   const tesis = tl.eventos.filter((e) => e.tipo === "tesis");
   const datos = tl.eventos.filter((e) => e.tipo === "dato");

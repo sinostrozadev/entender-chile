@@ -1,0 +1,77 @@
+name: Short exprés
+
+# Fase 2 del agente de guardia (03-09). La rutina de guardia redacta
+# contenido/urgente/GUION-<slug>.md a partir del material capturado; ese
+# push dispara este workflow, que produce el Short vertical con la piel
+# VINO (voz, render, subida PRIVADA a YouTube) y deja la marca
+# contenido/urgente/SUBIDO-<slug>.txt con el id. La rutina, que quedó
+# esperando esa marca, avisa al teléfono con el link. Un hallazgo = un
+# Short: la marca SUBIDO deduplica aunque el guion se pushee dos veces.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "contenido/urgente/GUION-*.md"
+  workflow_dispatch:
+    inputs:
+      guion:
+        description: "Ruta del GUION-*.md a producir (vacío = el más nuevo sin subir)"
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: short-expres
+  cancel-in-progress: false
+
+jobs:
+  producir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Elegir el guion (el más nuevo sin marca SUBIDO)
+        id: elegir
+        run: |
+          G="${{ inputs.guion }}"
+          if [ -z "$G" ]; then
+            for f in $(ls -t contenido/urgente/GUION-*.md 2>/dev/null); do
+              slug=$(basename "$f" .md); slug="${slug#GUION-}"
+              [ -f "contenido/urgente/SUBIDO-$slug.txt" ] || { G="$f"; break; }
+            done
+          fi
+          if [ -z "$G" ]; then echo "Nada que producir."; echo "guion=" >> "$GITHUB_OUTPUT"; exit 0; fi
+          echo "Guion elegido: $G"
+          echo "guion=$G" >> "$GITHUB_OUTPUT"
+
+      - name: Producir y subir el Short urgente
+        if: steps.elegir.outputs.guion != ''
+        env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+          AZURE_SPEECH_KEY2: ${{ secrets.AZURE_SPEECH_KEY2 }}
+          AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
+          AZURE_RATE: "-10%"
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: node scripts/short-urgente.js "${{ steps.elegir.outputs.guion }}" --voz --render --subir
+
+      - name: Commit de la marca SUBIDO
+        if: steps.elegir.outputs.guion != ''
+        run: |
+          git config user.name "guardia-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add contenido/urgente/
+          git diff --cached --quiet || {
+            git commit -m "short exprés subido $(TZ=America/Santiago date +'%F %H:%M') [bot]"
+            git -c rebase.autoStash=true pull --rebase origin main
+            git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
+          }

@@ -32,13 +32,17 @@ const opt = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] :
 const fecha = opt("--fecha") || new Intl.DateTimeFormat("en-CA", { timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
 const clave = args.includes("--clave");
 const short = args.includes("--short");
+// --urgente <slug>: el Short exprés del agente de guardia (03-09). Vive en
+// out/urgente/<slug>/, no lleva playlist ni miniatura, y deja la marca
+// contenido/urgente/SUBIDO-<slug>.txt para que un hallazgo = un solo Short.
+const urgente = opt("--urgente");
 const privacidad = opt("--privacidad", "private");
 const programar = opt("--programar") || process.env.YT_PUBLICAR_HORA || null; // ej. 07:30 (hora de Chile)
-const etiqueta = short ? (clave ? "short-clave" : "short") : clave ? "clave" : "informe";
-const OUT = path.join("out", fecha);
+const etiqueta = urgente ? `urgente-${urgente}` : short ? (clave ? "short-clave" : "short") : clave ? "clave" : "informe";
+const OUT = urgente ? path.join("out", "urgente") : path.join("out", fecha);
 // el Short tiene su propia carpeta de trabajo (parsed.json con título y descripción)
-const DIR_PARSED = short ? path.join(OUT, etiqueta) : OUT;
-const RUTA_PARSED = short ? path.join(DIR_PARSED, "parsed.json")
+const RUTA_PARSED = urgente ? path.join(OUT, urgente, "parsed.json")
+  : short ? path.join(OUT, etiqueta, "parsed.json")
   : fs.existsSync(path.join(OUT, `parsed-${etiqueta}.json`)) ? path.join(OUT, `parsed-${etiqueta}.json`)
   : path.join(OUT, "parsed.json"); // el compartido queda de respaldo
 
@@ -48,7 +52,7 @@ if (!YT_CLIENT_ID || !YT_CLIENT_SECRET || !YT_REFRESH_TOKEN) {
   process.exit(0);
 }
 
-let video = path.join(OUT, `${fecha}-${etiqueta}.mp4`);
+let video = urgente ? path.join(OUT, `${urgente}.mp4`) : path.join(OUT, `${fecha}-${etiqueta}.mp4`);
 if (!fs.existsSync(video)) { console.error(`No existe ${video}`); process.exit(1); }
 
 // YouTube recomprime fuerte el 1080p y el texto queda borroso; a 1440p asigna
