@@ -9,6 +9,22 @@ vive en decisiones.md, entradas del 28-08 y 30-08).
 
 ---
 
+## CANAL DE AVISOS BARRIDO→CHATGPT — CONSTRUIDO (04-09, diseño de Santiago)
+
+**PR permanente #2** (rama `automatizacion/barrido-listo` → main, etiqueta
+`barrido-listo`, NO se fusiona). Al final del workflow Barrido, cuando el
+barrido del día quedó en main, un paso resetea la rama a main + el archivo
+`contenido/barrido/ultimo-evento.txt` (fecha_chile, barrido_commit,
+estado=listo, completado_utc) y pushea: ese commit nuevo en el PR es el
+evento que despierta la tarea de ChatGPT. UNA emisión por día (dedup por
+fecha_chile); si el paso falla, la corrida siguiente lo repara solo. El
+primer evento real sale con el barrido de esta madrugada (~01:35).
+**Lado de Santiago (pendiente):** configurar la tarea de ChatGPT con el
+disparador "cuando haya una actualización de commits en el PR etiquetado
+barrido-listo de sinostrozadev/entender-chile" — con eso la preselección
+deja de depender de una hora fija y TIEMPOS 1 mejora: el eslabón GPT más
+crítico pasa a ser por evento.
+
 ## URGENTE — con plazo
 
 - [ ] **Responder a Google la revisión de la API (plazo: 7 días hábiles
