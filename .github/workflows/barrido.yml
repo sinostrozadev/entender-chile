@@ -31,6 +31,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: barrido
@@ -60,3 +61,40 @@ jobs:
             git -c rebase.autoStash=true pull --rebase origin main
             git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
           }
+
+      # Canal de avisos hacia ChatGPT (diseño de Santiago, 04-09): un PR
+      # permanente (rama automatizacion/barrido-listo → main, etiqueta
+      # barrido-listo, NUNCA se fusiona). Cuando el barrido de hoy quedó
+      # publicado en main, este paso resetea la rama a main + un solo
+      # archivo (contenido/barrido/ultimo-evento.txt) y pushea; ese commit
+      # nuevo en el PR es el evento que despierta la tarea de ChatGPT.
+      # Se emite UNA vez por día (dedup por fecha_chile dentro del archivo),
+      # y si un día el paso falla, la corrida siguiente lo repara solo.
+      - name: Evento barrido listo (PR canal de avisos)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          FECHA=$(TZ=America/Santiago date +%F)
+          git fetch origin main
+          git cat-file -e "origin/main:contenido/barrido/$FECHA.md" 2>/dev/null \
+            || { echo "El barrido de hoy no está en main: sin evento."; exit 0; }
+          if git fetch origin automatizacion/barrido-listo 2>/dev/null; then
+            git show FETCH_HEAD:contenido/barrido/ultimo-evento.txt 2>/dev/null \
+              | grep -q "fecha_chile=$FECHA" && { echo "Evento de hoy ya emitido."; exit 0; }
+          fi
+          SHA=$(git log -1 --format=%h "origin/main" -- "contenido/barrido/$FECHA.md")
+          git checkout -B automatizacion/barrido-listo origin/main
+          {
+            echo "fecha_chile=$FECHA"
+            echo "barrido_commit=$SHA"
+            echo "estado=listo"
+            echo "completado_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } > contenido/barrido/ultimo-evento.txt
+          git add contenido/barrido/ultimo-evento.txt
+          git commit -m "evento $FECHA: barrido listo"
+          git push -f origin automatizacion/barrido-listo
+          gh pr list --head automatizacion/barrido-listo --state open --json number -q '.[0].number' | grep -q . \
+            || gh pr create --base main --head automatizacion/barrido-listo \
+                 --title "🔔 Canal de avisos: barrido listo (no fusionar)" \
+                 --label barrido-listo \
+                 --body "PR permanente. No se fusiona: cada commit nuevo aquí anuncia que el barrido del día quedó publicado en main (ver contenido/barrido/ultimo-evento.txt). Es el evento que despierta la preselección de ChatGPT."
