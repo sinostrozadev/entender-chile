@@ -77,10 +77,25 @@ render vertical piel VINO → subida privada, ~5 min de Actions) + modo
 un Short) + rutina de guardia **v3** (redacta el guion con reglas duras,
 espera el id, notifica el link listo; copia en `prompts/guardia-reloj.md`).
 La primera corrida real cazó un bug (el vertical se reescalaba a horizontal
-antes de subir); corregido y re-subido en la segunda. **Le queda a
-Santiago: borrar el video deformado `AZpTnPoPg2I` (privado) en Studio.**
-Pendiente fase 2.1 (no esta noche): ir PRIMERO a la fuente primaria y
-alimentar `datos/series/` (disputa 9). El caso que motivó todo, para
+antes de subir); corregido y re-subido en la segunda. **Feedback de Santiago (04-09, tras ver el primer Short): "ni siquiera sé de
+qué está hablando, no tiene contexto... que sea una noticia wow y que se
+entienda, tienes 50 seg".** → **Formato v2 aplicado la misma noche**: plantilla
+gancho + contexto + qué significa (90-120 palabras, ~45-50 s), la PRUEBA DEL
+ÁNGULO ("¿por qué le importa a una persona común?" — sin ángulo no se fuerza
+el Short, se notifica para decisión humana), y la regla de cifras afinada (una
+publicación oficial citada por la prensa SÍ habilita la cifra nombrando a la
+institución). Rutina v4 cargada; el Short de la tasa se reescribió con las
+cifras reales de la EOF (TPM 4,5%, sin cambios a 24 meses, inflación esperada
+3,3%) y se re-produjo como ejemplar del formato. **Le queda a Santiago: borrar
+en Studio los DOS videos viejos de la prueba: `AZpTnPoPg2I` (deformado) y
+`GMSTAx1-62o` (formato corto sin contexto).**
+Pendiente fase 2.1 (no esta noche): que guardia.js (Actions, que SÍ alcanza
+la web) capture también el cuerpo de la fuente primaria en el archivo del
+hallazgo — la rutina redactora no navega, hoy escribe con el material + el
+informe. Y alimentar `datos/series/` (disputa 9). Otro cabo: al PUBLICAR un
+video nadie escribe `contenido/videos/` (por eso la web estuvo sin embeds
+30-08→03-09; esta noche se rellenaron a mano los 10 ids) — el reloj de
+métricas podría detectar el paso a público y escribir el archivo solo. El caso que motivó todo, para
 referencia:
 
 - El guardia corrió a las 00:12, 10:09, 12:08, 14:08 y 16:07 (la de las 08:14
