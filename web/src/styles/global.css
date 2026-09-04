@@ -312,3 +312,30 @@ article.pieza-cat .video, article.pieza-cat .salir, article.pieza-cat .nav-dias 
   .video { border-radius: 4px; }
   .franja { border-radius: 6px; }
 }
+
+/* ---- ajustes del 04-09 al diseño 1 (revista) ---- */
+/* cabecera en orden: marca y lema apilados a la izquierda, navegación en una
+   sola línea a la derecha, categorías debajo */
+@media (min-width: 900px) {
+  .cab { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "marca nav" "tag nav"; align-items: center; gap: 0.1rem 2rem; padding: 1rem 1.25rem 0.9rem; }
+  .cab .marca { grid-area: marca; line-height: 1.1; }
+  .cab .tagline { grid-area: tag; }
+  .cab nav { grid-area: nav; flex-wrap: nowrap; justify-content: flex-end; align-items: center; gap: 1.1rem; margin: 0; white-space: nowrap; }
+  .cab nav .suscribe { padding: 0.3rem 0.7rem; font-size: 0.88rem; }
+  .cab nav .suscribe + .suscribe { margin-left: -0.4rem; }
+  .selector-diseno { margin-left: 0.4rem; }
+}
+/* "Lo que importa hoy" en la portada: una tira de titulares numerados, sans y
+   pequeña, para que no compita con la frase grande de "En una mirada" */
+.portada > .importa { max-width: none; margin-top: 1.5rem; padding: 0.9rem 0 0.2rem; border-top: 1px solid var(--linea); border-bottom: 0; }
+.portada > .importa .kicker { color: var(--gris); }
+.portada > .importa ol { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem 2rem; counter-reset: imp; }
+.portada > .importa li { counter-increment: imp; display: grid; grid-template-columns: 1.4rem 1fr; gap: 0.35rem; font-family: var(--sans); font-size: 0.95rem; line-height: 1.35; margin: 0; }
+.portada > .importa li::before { content: counter(imp); font-family: var(--mono); font-size: 0.75rem; color: var(--patina); padding-top: 0.2em; }
+.portada > .importa li a { text-decoration: none; }
+.portada > .importa li a:hover { color: var(--patina); text-decoration: underline; }
+@media (max-width: 760px) { .portada > .importa ol { grid-template-columns: 1fr; } }
+/* cifras del observatorio: números sobre el papel, no cajas que parecen botones */
+.contador > div { background: transparent; border: 0; border-top: 2px solid var(--tinta); border-radius: 0; padding: 0.7rem 0 0; }
+.contador { gap: 0 2rem; }
+.contador-franja .mas { font-weight: 500; }

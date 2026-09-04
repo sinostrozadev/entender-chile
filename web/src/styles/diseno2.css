@@ -393,3 +393,15 @@
 }
 .selector-diseno button:hover { color: var(--tinta); }
 .selector-diseno button[aria-pressed="true"] { background: var(--tinta); color: var(--papel); }
+
+/* la tira de "Lo que importa hoy" del diseño 1 no aplica aquí: en el diario
+   sigue siendo la columna derecha, en lista vertical */
+[data-diseno="2"] .portada > .importa { margin: 0; padding: 0.5rem 0 0 1.75rem; border-top: 0; border-left: 1px solid var(--linea); max-width: none; }
+[data-diseno="2"] .portada > .importa .kicker { color: var(--tinta); }
+[data-diseno="2"] .portada > .importa ol { display: block; }
+[data-diseno="2"] .portada > .importa li { grid-template-columns: 1.6rem 1fr; gap: 0.4rem; font-family: var(--texto); font-size: 1.02rem; line-height: 1.25; font-weight: 600; padding: 0.6rem 0; border-bottom: 1px solid var(--linea); }
+[data-diseno="2"] .portada > .importa li::before { content: counter(idx); font-family: var(--sans); color: var(--gris); }
+[data-diseno="2"] .portada > .importa li:last-child { border-bottom: 0; }
+@media (max-width: 900px) {
+  [data-diseno="2"] .portada > .importa { border-left: 0; padding-left: 0; margin-top: 1.5rem; }
+}
