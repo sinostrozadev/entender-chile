@@ -3,44 +3,44 @@
   "canal": {
     "suscriptores": 7,
     "vistas": 328,
-    "videos": 22
+    "videos": 24
   },
   "videos": {
-    "xYaG4nx-IkI": {
-      "titulo": "Chile y Argentina ratifican la soberanía chilena sobre el Es",
-      "publicado": "2026-09-04",
-      "estado": "public",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 655
-    },
     "bO42vVDt5vg": {
       "titulo": "Clave: ¿Qué ocurre cuando Contraloría detecta un perjuicio f",
       "publicado": "2026-09-04",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 6,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 35
+    },
+    "94UI6QLnUao": {
+      "titulo": "Cinco cosas que hay que saber hoy, Viernes, 4 de septiembre ",
+      "publicado": "2026-09-04",
+      "estado": "public",
+      "vistas": 2,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 50
     },
     "NaMLfrB4nzU": {
       "titulo": "¿Qué ocurre cuando Contraloría detecta un perjuicio fiscal?",
       "publicado": "2026-09-04",
       "estado": "public",
-      "vistas": 0,
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 565
     },
-    "94UI6QLnUao": {
-      "titulo": "Cinco cosas que hay que saber hoy, Viernes, 4 de septiembre ",
+    "xYaG4nx-IkI": {
+      "titulo": "Chile y Argentina ratifican la soberanía chilena sobre el Es",
       "publicado": "2026-09-04",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
-      "durSeg": 50
+      "durSeg": 655
     },
     "YFYczQZWjnQ": {
       "titulo": "¿Esperabas que bajaran las tasas? El mercado dice que no por",
@@ -64,7 +64,7 @@
       "titulo": "¿Cómo conviven soberanía y libre navegación en un estrecho?",
       "publicado": "2026-09-03",
       "estado": "public",
-      "vistas": 7,
+      "vistas": 8,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 551
@@ -73,7 +73,7 @@
       "titulo": "Cinco cosas que hay que saber hoy, Jueves, 3 de septiembre #",
       "publicado": "2026-09-03",
       "estado": "public",
-      "vistas": 48,
+      "vistas": 58,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 52
@@ -100,7 +100,7 @@
       "titulo": "Cinco cosas que hay que saber hoy, Miércoles, 2 de septiembr",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 221,
+      "vistas": 229,
       "meGusta": 5,
       "comentarios": 0,
       "durSeg": 54
@@ -109,7 +109,7 @@
       "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 11,
+      "vistas": 12,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 682
@@ -118,7 +118,7 @@
       "titulo": "La economía cae 1,5% y Hacienda prepara una nueva proyección",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 29,
+      "vistas": 33,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 816
@@ -172,7 +172,7 @@
       "titulo": "¿Por qué el mercado de capitales influye en tu hipotecario?",
       "publicado": "2026-08-31",
       "estado": "public",
-      "vistas": 12,
+      "vistas": 11,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 791
@@ -190,7 +190,7 @@
       "titulo": "Milei llega a Chile tras el impasse por el Estrecho de Magal",
       "publicado": "2026-08-31",
       "estado": "public",
-      "vistas": 215,
+      "vistas": 216,
       "meGusta": 1,
       "comentarios": 1,
       "durSeg": 843
