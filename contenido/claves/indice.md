@@ -9,3 +9,4 @@
 2026-09-01 | como-leer-imacec | Cómo leer el Imacec: qué mide, por qué no es el PIB mensual y cómo separar tendencia de ruido
 2026-09-02 | fondos-generacionales-ciclo-de-vida | Fondos generacionales: cómo el ciclo de vida cambia el riesgo de los ahorros previsionales
 2026-09-03 | estrecho-magallanes-soberania-navegacion | Estrecho de Magallanes: cómo conviven soberanía chilena, libre navegación y obligaciones con Argentina
+2026-09-04 | contraloria-reparo-juicio-cuentas | Contraloría, reparos y juicios de cuentas: cómo se busca recuperar dinero público cuando una fiscalización detecta un perjuicio
