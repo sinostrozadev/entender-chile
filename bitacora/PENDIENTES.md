@@ -33,8 +33,9 @@ disparadas por WEBHOOK de GitHub (push del informe → guion informe; push de
 la entrega → guion clave; create_webhook_trigger de la API), con prompt
 vivo en prompts/. Además, NUEVA CONVENCIÓN para las tareas de GPT: el texto
 en ChatGPT es solo el arranque de 3 líneas y las indicaciones viven en
-prompts/ (la del evento ya está: prompts/preseleccion-evento.md; Santiago
-debe acortar el texto de la tarea en ChatGPT para apuntarle). Límite real
+prompts/ (las validaciones del evento viven como PASO CERO dentro de
+prompts/seleccion.md — un archivo por tarea, corrección de Santiago; su
+tarea corta de ChatGPT apunta a seleccion.md como siempre). Límite real
 de Claude: no es el número de rutinas, es la cuota compartida (five_hour) —
 los guiones van en Sonnet, por evento (sin relojes) y fuera de la ventana
 crítica 01:30-01:45.
