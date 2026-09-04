@@ -52,6 +52,13 @@ for (let i = 0; i < lineas.length; i++) {
 }
 
 const avisos = [];
+// Techo de duración (auditoría 03-09): palabras NARRADAS, o sea antes del
+// bloque "Fuentes:" y sin marcas ni encabezados. Calibrado con audio real
+// del 03-09: 1.590 narradas = 11,9 min → ~135 ppm; 13 min ≈ 1.760.
+const corteFuentes = lineas.findIndex((l) => /^Fuentes:/.test(l.trim()));
+const narrables = (corteFuentes >= 0 ? lineas.slice(0, corteFuentes) : lineas);
+const narradas = narrables.filter((l) => l.trim() && !/^(\[|## |#|Título sugerido:|Descripción sugerida:|Guion:)/.test(l.trim()))
+  .join(" ").split(/\s+/).filter(Boolean).length;
 const conteo = {};
 for (const t of tarjetas) conteo[t.tipo] = (conteo[t.tipo] || 0) + 1;
 
@@ -97,6 +104,9 @@ if (fuentes >= 8) {
 }
 if (tarjetas.length >= 3 && Object.keys(conteo).length < 3)
   avisos.push(`solo ${Object.keys(conteo).length} tipo(s) de tarjeta en ${tarjetas.length} marcas (cuota: al menos tres tipos)`);
+
+if (narradas > 1760)
+  avisos.push(`guion de ${narradas} palabras narradas (~${(narradas / 135).toFixed(1)} min a 135 ppm reales): sobre el techo de 13 min de la promesa (1.760)`);
 
 const resumen = Object.entries(conteo).sort((a, b) => b[1] - a[1]).map(([t, n]) => `${t}: ${n}`).join(" · ") || "sin tarjetas";
 console.log(`tarjetas de ${path.basename(ruta)} (${fuentes} bloques con fuente): ${resumen}`);

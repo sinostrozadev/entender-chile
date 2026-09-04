@@ -44,7 +44,12 @@ lista su carpeta y cita lo que viste.
      los tres días anteriores: **un hallazgo que se repite tres días sin que
      cambie nada significa que el ciclo revisa y no aprende**, y eso es el
      hallazgo, no el hallazgo original.
-   - Largo del guion contra los diez minutos que promete estrategia/.
+   - Duración REAL contra la promesa ("~10 min, 12-13 en día cargado"): léela
+     de `contenido/podcast/episodios.json` (campo `durSeg` de los episodios de
+     HOY, informe y clave). NO la estimes por palabras: el 03-09 la estimación
+     a 150 ppm dio 15,7 min cuando el audio real duraba 11,9 (la voz rinde
+     ~135 ppm con pausas y los titulares se leen rápido). Si el episodio de
+     hoy aún no está en el json, dilo y no inventes el número.
    - Si el informe dejó marcas `PENDIENTE DE CIERRE` vencidas sin cerrar.
 
 5. **Los números.** Lee `bitacora/metricas/FECHA.md` y el de AYER. Qué se

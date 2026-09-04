@@ -75,6 +75,9 @@ CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 7. Números en palabras en la narración y numerales en las marcas, sin groserías, sin fórmulas de clickbait, sin transiciones de noticiero repetidas.
 8. Solo después de superar estas comprobaciones entrega título, descripción, guion y fuentes.
 
+
+- REGLA DE CRÉDITO TOTAL (03-09, hallazgo repetido en 3 de 4 revisiones): toda fuente mencionada en la prosa del guion ("el Informe diario señalaba", "según X") va TAMBIÉN en el bloque Fuentes: final, incluida la propia entrega y el Informe diario cuando se citan.
+
 CONTRATO DE ARCHIVOS: aplica el contrato de prompts/contrato-archivos.md del
 mismo repositorio. Léelo COMPLETO en esta misma ejecución: define las rutas
 exactas, el formato obligatorio de los guiones y las reglas de commit.

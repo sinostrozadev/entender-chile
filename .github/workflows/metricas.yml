@@ -13,7 +13,10 @@ on:
     paths:
       - "bitacora/metricas/despertador.txt"
   schedule:
+    # dos entradas: el 03-09 el reloj de Claude murió por cuota y el cron
+    # único es poco confiable (patrón ya aplicado en barrido.yml)
     - cron: "0 15 * * *"
+    - cron: "30 16 * * *"
   workflow_dispatch:
 
 permissions:
