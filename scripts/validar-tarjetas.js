@@ -28,6 +28,7 @@ let bloque = "(sin sección)";
 let fuentes = 0;
 const tarjetas = []; // { tipo, bloque, linea, valores }
 const tesis = []; // { largo, bloque, linea, pegada }
+const circulares = []; // líneas de [DATO]/[CITA] con el Informe diario como fuente
 for (let i = 0; i < lineas.length; i++) {
   const l = lineas[i].trim();
   if (l.startsWith("## ")) { bloque = l.slice(3).trim(); continue; }
@@ -41,6 +42,11 @@ for (let i = 0; i < lineas.length; i++) {
     continue;
   }
   let m;
+  // Fuente circular: un [DATO]/[CITA] que cita al propio Informe diario como
+  // fuente de una cifra (04-09, gancho de la Clave). La fuente de una marca
+  // es la primaria; el informe se puede nombrar en la prosa, no en la marca.
+  if (/^\[(DATO|CITA)\b[^\]]*\|[^\]]*(entender chile|informe diario)/i.test(l))
+    circulares.push(i + 1);
   if ((m = l.match(/^\[DATO\s+(\S+)\s*\|[^\]]*\]\s*(.*)$/))) {
     const valores = m[2].split(";").map((s) => s.trim()).filter(Boolean);
     tarjetas.push({ tipo: m[1].toLowerCase(), bloque, linea: i + 1, valores });
@@ -104,6 +110,23 @@ if (fuentes >= 8) {
 }
 if (tarjetas.length >= 3 && Object.keys(conteo).length < 3)
   avisos.push(`solo ${Object.keys(conteo).length} tipo(s) de tarjeta en ${tarjetas.length} marcas (cuota: al menos tres tipos)`);
+
+for (const n of circulares)
+  avisos.push(`línea ${n}: la marca cita "Informe diario de Entender Chile" como fuente; va la fuente primaria (el informe solo se nombra en la prosa)`);
+
+// Números compuestos en la prosa ("tres mil seiscientos cuarenta millones
+// quinientos cuarenta y cuatro mil ochocientos pesos"): el conversor ya los
+// junta, pero si la pantalla igual mostrara "3.640 millones 544.800" es que
+// algo se rompió. Se mide la salida real del conversor, no la intención.
+{
+  const { aNumerales } = require("./numerales");
+  narrables.forEach((l, i) => {
+    if (!l.trim() || /^(\[|## |#)/.test(l.trim())) return;
+    const t = aNumerales(l);
+    if (/\d[\d.]*\s+(millones|millón)\s+\d/.test(t))
+      avisos.push(`línea ${i + 1}: cifra compuesta partida en pantalla ("${t.match(/\d[\d.]*\s+(?:millones|millón)\s+\d[\d.]*/)[0]}")`);
+  });
+}
 
 if (narradas > 1760)
   avisos.push(`guion de ${narradas} palabras narradas (~${(narradas / 135).toFixed(1)} min a 135 ppm reales): sobre el techo de 13 min de la promesa (1.760)`);

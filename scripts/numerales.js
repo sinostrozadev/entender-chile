@@ -50,6 +50,34 @@ function conMiles(n) {
   return (n < 0 ? "-" : "") + conPuntos;
 }
 
+// Lee una secuencia de palabras-número desde `start`: número (y número)* (mil)?
+// Devuelve las palabras y la posición siguiente. Compartida por el número
+// principal y por la parte que sigue a "millones" en los compuestos.
+function leerSecuencia(tokens, start, tomar) {
+  const seq = []; let j = start; let ultimoTipo = null;
+    while (j < tokens.length) {
+    const tok = tokens[j];
+    if (/^\s+$/.test(tok)) { j++; continue; }
+    const s = tomar(j);
+    const cola = tokens[j].slice(s.length); // puntuación pegada, ej. "cinco,"
+    if (s === "y") {
+      const prev = seq[seq.length - 1], next = j + 2 < tokens.length ? tomar(j + 2) : "";
+      if (prev in DECENAS && next in UNIDADES && UNIDADES[next] >= 1 && UNIDADES[next] <= 9) { seq.push("y"); j++; continue; }
+      break;
+    }
+    if (s === "mil") { if (ultimoTipo === "mil") break; seq.push("mil"); ultimoTipo = "mil"; j++; if (cola) break; continue; }
+    if (esNumero(s)) {
+      // un número después de "mil" ya cerrado o dos unidades seguidas ("cinco tres") no se juntan
+      if (ultimoTipo === "unidad" && (s in UNIDADES || s in DECENAS) && !(seq[seq.length - 1] in DECENAS)) break;
+      seq.push(s); ultimoTipo = s in CENTENAS ? "centena" : s in DECENAS ? "decena" : "unidad"; j++;
+      if (cola) break;
+      continue;
+    }
+    break;
+  }
+  return { seq, j };
+}
+
 function aNumerales(texto) {
   if (!texto) return texto;
   const tokens = texto.split(/(\s+)/); // conserva los espacios
@@ -61,28 +89,9 @@ function aNumerales(texto) {
     if (!esNumero(w) && w !== "mil") { out.push(t); i++; continue; }
 
     // juntar la secuencia numérica: número (y número)* (mil)? ...
-    const seq = []; let j = i; let ultimoTipo = null;
     const tomar = (k) => { const s = bajo(tokens[k]); return s.replace(/[.,;:()"“”]+$/g, ""); };
-    while (j < tokens.length) {
-      const tok = tokens[j];
-      if (/^\s+$/.test(tok)) { j++; continue; }
-      const s = tomar(j);
-      const cola = tokens[j].slice(s.length); // puntuación pegada, ej. "cinco,"
-      if (s === "y") {
-        const prev = seq[seq.length - 1], next = j + 2 < tokens.length ? tomar(j + 2) : "";
-        if (prev in DECENAS && next in UNIDADES && UNIDADES[next] >= 1 && UNIDADES[next] <= 9) { seq.push("y"); j++; continue; }
-        break;
-      }
-      if (s === "mil") { if (ultimoTipo === "mil") break; seq.push("mil"); ultimoTipo = "mil"; j++; if (cola) break; continue; }
-      if (esNumero(s)) {
-        // un número después de "mil" ya cerrado o dos unidades seguidas ("cinco tres") no se juntan
-        if (ultimoTipo === "unidad" && (s in UNIDADES || s in DECENAS) && !(seq[seq.length - 1] in DECENAS)) break;
-        seq.push(s); ultimoTipo = s in CENTENAS ? "centena" : s in DECENAS ? "decena" : "unidad"; j++;
-        if (cola) break;
-        continue;
-      }
-      break;
-    }
+    const { seq, j: jSeq } = leerSecuencia(tokens, i, tomar);
+    let j = jSeq;
     const soloArticulo = seq.length === 1 && ARTICULOS.has(seq[0]);
     const siguiente = (() => { let k = j; while (k < tokens.length && /^\s+$/.test(tokens[k])) k++; return k < tokens.length ? bajo(tokens[k]).replace(/[.,;:]+$/g, "") : ""; })();
     const sigueMillon = /^millon(es)?$|^millón$/.test(siguiente);
@@ -92,8 +101,27 @@ function aNumerales(texto) {
     let numero = valorDe(seq);
     let textoNum = conMiles(numero);
 
-    // decimales: "nueve coma cinco" / "cero coma ocho" / "doce coma veinticinco"
+    // compuestos con "millones": "tres mil seiscientos cuarenta millones
+    // quinientos cuarenta y cuatro mil ochocientos pesos" es UN número
+    // (3.640.544.800), no "3.640 millones" y luego "544.800". El 04-09 la
+    // tarjeta automática del gancho mostró "544.800 pesos" por esto.
     let k = j; while (k < tokens.length && /^\s+$/.test(tokens[k])) k++;
+    if (k < tokens.length && sigueMillon && !/[.,;:]$/.test(tokens[k])) {
+      let m = k + 1; while (m < tokens.length && /^\s+$/.test(tokens[m])) m++;
+      if (m < tokens.length) {
+        const s2 = tomar(m);
+        if (esNumero(s2) || s2 === "mil") {
+          const r2 = leerSecuencia(tokens, m, tomar);
+          if (r2.seq.length && !(r2.seq.length === 1 && ARTICULOS.has(r2.seq[0]))) {
+            numero = numero * 1e6 + valorDe(r2.seq);
+            textoNum = conMiles(numero);
+            j = r2.j;
+          }
+        }
+      }
+    }
+    // decimales: "nueve coma cinco" / "cero coma ocho" / "doce coma veinticinco"
+    k = j; while (k < tokens.length && /^\s+$/.test(tokens[k])) k++;
     if (k < tokens.length && bajo(tokens[k]) === "coma") {
       let m = k + 1; while (m < tokens.length && /^\s+$/.test(tokens[m])) m++;
       const dec = [];
@@ -169,6 +197,11 @@ if (require.main === module) {
     ["siete buques el jueves, diecisiete el día anterior", "7 buques el jueves, 17 el día anterior"],
     ["Uno de cada tres hogares", "Uno de cada 3 hogares"],
     ["treinta y dos coma cuatro por ciento", "32,4%"],
+    // compuestos con millones (04-09: la tarjeta del gancho mostró "544.800 pesos")
+    ["un perjuicio fiscal de tres mil seiscientos cuarenta millones quinientos cuarenta y cuatro mil ochocientos pesos y formuló", "un perjuicio fiscal de 3.640.544.800 pesos y formuló"],
+    ["mil quinientos millones trescientos mil pesos", "1.500.300.000 pesos"],
+    ["un millón doscientas mil personas", "1.200.000 personas"],
+    ["dos millones de dólares y tres mil pesos", "2 millones de dólares y 3.000 pesos"],
   ];
   let mal = 0;
   for (const [entrada, esperado] of casos) {

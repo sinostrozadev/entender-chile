@@ -152,7 +152,10 @@ jobs:
       # hay una marca malformada. Solo informa en el log: no bloquea el video.
       - name: 2c · Variedad de tarjetas (contador; avisa, no bloquea)
         if: env.SALTAR != '1'
-        run: node scripts/validar-tarjetas.js --fecha "$FECHA" || true
+        run: |
+          node scripts/numerales.js   # autoprueba del conversor de cifras: si falla, la pantalla mentiría
+          node scripts/validar-tarjetas.js --fecha "$FECHA" || true
+          for g in contenido/guiones/claves/"$FECHA"-*.md; do [ -f "$g" ] && node scripts/validar-tarjetas.js "$g" || true; done
 
       - name: 3 · Producir video del informe (voz si hay secrets; si no, mudo)
         env:

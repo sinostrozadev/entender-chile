@@ -49,7 +49,14 @@ El guion incluye las siguientes marcas, y solo estas, cada una en su propia lín
       tipo = cifra, barras, lineas, comparacion, marcador (exactamente dos series, local y visita, con el resultado como valor) o tabla (posiciones u ordenamientos).
       Los VALORES van SIEMPRE en numerales (49, -0,2%, 9,39), nunca en palabras: la marca no se narra, es para pantalla. La regla de números en palabras aplica solo al texto narrado.
       Solo valores graficables: cifras, porcentajes, montos, magnitudes. Las fechas de eventos y los rangos de días van en la narración, no en una marca [DATO].
-      Fuente: una sola, la principal, con fecha. No se narra.
+      Fuente: una sola, la principal, con fecha. No se narra. Es la fuente
+      PRIMARIA del dato tal como aparece en la entrega (Contraloría, INE,
+      Banco Central, el medio); NUNCA "Informe diario de Entender Chile":
+      el informe es nuestro, citarlo como fuente de una cifra es circular
+      (04-09: la tarjeta del gancho salió con esa fuente en pantalla). En la
+      prosa sí puedes decir "el Informe diario señaló".
+      Posición: la línea [DATO] va INMEDIATAMENTE ANTES del párrafo que la
+      narra, nunca después (el sistema la ancla al párrafo siguiente).
   [ESQUEMA | título] elemento -> elemento -> elemento
       Para procesos, jerarquías, niveles o líneas de tiempo simples. Máximo seis elementos, texto breve por elemento. No se narra. Úsalo entre una y tres veces por guion, en los momentos donde la entrega describe una estructura.
   [HECHO] párrafo

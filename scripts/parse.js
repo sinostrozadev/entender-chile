@@ -67,6 +67,7 @@ function cifraPrincipal(textoPantalla) {
     if (Number.isInteger(n) && n >= 1900 && n <= 2099 && !/[$%]/.test(valor) && !conMagnitud) continue;          // año
     if (sig[0] && (MESES.test(sig[0]) || (sig[0] === "de" && sig[1] && MESES.test(sig[1])))) continue;          // fecha
     if (/a las\s*$|las\s*$/.test(antes) || /^(horas?|hrs)\b/i.test(sig[0] || "")) continue;                     // hora
+    if (/(millones|millón|millon|mil)\s*$/.test(antes)) continue;                                                // cola de un número compuesto ("3.640 millones 544.800"): nunca es cifra propia
     if (/^(meses|años|día|días|semanas|minutos|jornadas|veces)\b/i.test(sig[0] || "")) continue;                    // un plazo no es una cifra
     if (Math.abs(n) < 10 && !/[$%]/.test(valor) && !conMagnitud) continue;                                        // "4 países": no es una cifra grande
     if (sig.slice(0, 4).some((w, k) => k > 0 && /^\d/.test(w))) continue;                                       // rango o dos cifras seguidas: que lo elija el guion
@@ -86,6 +87,7 @@ function cifraPrincipal(textoPantalla) {
       for (const w of resto) {
         const limpia = w.replace(/[.,;:!?)]+$/g, "");
         if (VERBOS.test(limpia) && palabras.length) break;
+        if (/^(y|e|o|u|pero|ni)$/i.test(limpia) && palabras.length) break; // "pesos y formuló un reparo" no es etiqueta
         palabras.push(limpia);
         if (/[.,;:!?)]$/.test(w) || palabras.length >= 5) break;
       }
@@ -225,8 +227,12 @@ function parseGuion(md) {
   for (let i = eventos.length - 1; i >= 0; i--) {
     const ev = eventos[i];
     if (ev.tipo !== "narracion" || !ev.textoPantalla) continue;
-    const previo = eventos[i - 1];
+    const previo = eventos[i - 1], siguiente = eventos[i + 1];
     if (previo && (previo.tipo === "dato" || previo.tipo === "esquema")) continue; // ya tiene su tarjeta
+    // Un [DATO] escrito DESPUÉS del párrafo (el guion eligió su tarjeta, solo la
+    // puso en la línea siguiente): no se le suma una automática con el mismo
+    // número partido (gancho del 04-09).
+    if (siguiente && (siguiente.tipo === "dato" || siguiente.tipo === "esquema")) continue;
     if (/^(en titulares|agenda|cierre|apertura)$/i.test(ev._seccionNombre || "")) continue;
     const c = cifraPrincipal(ev.textoPantalla);
     if (!c) continue;

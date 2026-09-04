@@ -140,3 +140,19 @@ hallazgo del rango del PIB sin el rango de partida sí es legítimo (regla
 13 TESIS, máx 18 palabras. **Marca** 3/3: tagline y "Para salir hoy"
 integrados. **19/21.** Duración: 11,9 min, sobre la promesa de 10; el
 tope conjunto de 10 narradas rige desde la edición del 29.
+
+### 2026-09-04 (tarjeta del gancho de la Clave: "544.800 pesos")
+La tarjeta automática del gancho mostró "544.800" con la etiqueta "pesos y
+formuló un reparo": el conversor pasó "tres mil seiscientos cuarenta
+millones quinientos cuarenta y cuatro mil ochocientos" a "3.640 millones
+544.800" y el extractor tomó la cola como cifra propia. Además la marca
+[DATO] citaba "Informe diario de Entender Chile" como fuente (circular) y
+estaba escrita después del párrafo, no antes. Cuatro capas cerradas hoy:
+(1) `numerales.js` junta los compuestos con millones y lo prueba en su
+autoprueba, que ahora corre en el workflow antes del render; (2) `parse.js`
+no crea cifra automática si el número viene detrás de "millones" ni si el
+párrafo tiene un [DATO] al lado (antes o después); (3) `validar-tarjetas.js`
+avisa por fuente circular y por cifra compuesta partida, y revisa también el
+guion de la Clave; (4) `guion-claves.md`: la fuente de una marca es la
+primaria y el [DATO] va antes del párrafo.
+
