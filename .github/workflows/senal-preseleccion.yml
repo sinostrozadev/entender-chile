@@ -1,0 +1,64 @@
+name: Señal preselección lista
+
+# Segundo canal de avisos (diseño de Santiago, 05-09), gemelo del PR #2 del
+# barrido: cuando la preselección del día queda publicada en main (la pushea
+# la tarea de GPT), este workflow resetea la rama automatizacion/
+# preseleccion-lista a main + un solo archivo (contenido/preseleccion/
+# ultimo-evento.txt) y pushea; ese commit nuevo en el PR permanente es el
+# evento que despierta la tarea del INFORME de ChatGPT. UNA emisión por día
+# (dedup por fecha_chile) y auto-reparación en la corrida siguiente si el
+# paso falla. Nota: se emite por Actions y no desde la propia tarea de GPT
+# porque el reseteo limpio de la rama exige force-push, que la tarea no
+# puede hacer; el resultado para el que escucha es idéntico.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "contenido/preseleccion/*.md"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: senal-preseleccion
+  cancel-in-progress: false
+
+jobs:
+  emitir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Evento preselección lista (PR canal de avisos)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          FECHA=$(TZ=America/Santiago date +%F)
+          git config user.name "edicion-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git fetch origin main
+          git cat-file -e "origin/main:contenido/preseleccion/$FECHA.md" 2>/dev/null \
+            || { echo "La preselección de hoy no está en main: sin evento."; exit 0; }
+          if git fetch origin automatizacion/preseleccion-lista 2>/dev/null; then
+            git show FETCH_HEAD:contenido/preseleccion/ultimo-evento.txt 2>/dev/null \
+              | grep -q "fecha_chile=$FECHA" && { echo "Evento de hoy ya emitido."; exit 0; }
+          fi
+          SHA=$(git log -1 --format=%h "origin/main" -- "contenido/preseleccion/$FECHA.md")
+          git checkout -B automatizacion/preseleccion-lista origin/main
+          mkdir -p contenido/preseleccion
+          {
+            echo "fecha_chile=$FECHA"
+            echo "preseleccion_commit=$SHA"
+            echo "estado=listo"
+            echo "completado_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } > contenido/preseleccion/ultimo-evento.txt
+          git add contenido/preseleccion/ultimo-evento.txt
+          git commit -m "evento $FECHA: preselección lista"
+          git push -f origin automatizacion/preseleccion-lista
+          gh pr list --head automatizacion/preseleccion-lista --state open --json number -q '.[0].number' | grep -q . \
+            || gh pr create --base main --head automatizacion/preseleccion-lista \
+                 --title "🔔 Preselección lista — disparador del informe (no fusionar)" \
+                 --label preseleccion-lista \
+                 --body "PR permanente. No se fusiona: cada commit nuevo aquí anuncia que la preselección del día quedó publicada en main (ver contenido/preseleccion/ultimo-evento.txt). Es el evento que despierta la tarea del informe de ChatGPT."
