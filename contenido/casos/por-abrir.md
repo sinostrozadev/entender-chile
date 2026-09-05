@@ -11,3 +11,5 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-09-02 | Hospital Las Higueras
 - 2026-09-02 | Hospital Las Higueras
 - 2026-09-04 | vacunas influenza 2024
+- 2026-09-05 | exabogado Servicio de Salud Antofagasta
+- 2026-09-05 | Municipalidad de Curacautín contrataciones vinculadas
