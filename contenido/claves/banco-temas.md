@@ -32,3 +32,6 @@
 - encuestas de opinión pública, muestras, margen de error y comparación entre mediciones sucesivas | La aprobación presidencial cae a 34% y la desaprobación llega a 61% en Cadem | 2026-09-04
 - investigación penal y comisión investigadora parlamentaria, diferencias de objeto, facultades y consecuencias | Fiscalía investiga eventuales delitos informáticos vinculados al caso Cerimedo mientras la Cámara desarrolla una comisión investigadora | 2026-09-04
 - alertas alimentarias, retiro de productos y diferencia entre presencia de un patógeno y enfermedad confirmada | Minsal ordena no consumir pasta de jamón por presencia de Listeria monocytogenes | 2026-09-04
+- Fondo de Cesantía Solidario, giros adicionales y estabilizadores automáticos frente al desempleo | Alto desempleo activa dos pagos adicionales del Fondo de Cesantía Solidario | 2026-09-05
+- diplomacia parlamentaria y su relación con la política exterior del Ejecutivo | Chile y Bolivia retoman intercambio parlamentario de alto nivel tras 18 años | 2026-09-05
+- alertas técnicas volcánicas, vigilancia instrumental y diferencia con las alertas de protección civil | Volcán Villarrica vuelve a alerta técnica amarilla por aumento de actividad | 2026-09-05
