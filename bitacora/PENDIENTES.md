@@ -51,6 +51,20 @@ pudo; silencio cuando GPT cumplió.
 
 ## URGENTE — con plazo
 
+- [ ] **Suscripción de Claude vencida = todas las rutinas caen (04-09).**
+      Desde las 16:06 del 04-09 la guardia falló en cada corrida (cuatro
+      seguidas) y no hubo vigilancia de urgentes hasta las 08:00 del 05-09.
+      El síntoma exacto, en la sesión de la rutina: "Your organization has
+      disabled Claude subscription access for Claude Code · Use an Anthropic
+      API key instead, or ask your admin to enable access". NO es cuota
+      (five_hour) ni un cambio de la organización: es el plan vencido, y se
+      arregla renovando (Santiago lo renovó la noche del 04-09). Para el
+      guardián y la auditoría: si aparece ese texto, la causa es esa y la
+      única acción útil es avisar a Santiago; no buscar otra falla. Queda
+      por decidir si el guardián revisa el estado del plan antes de la
+      madrugada (una corrida de prueba a las 23:00) para que el barrido de
+      la 01:30 no sea el primero en enterarse.
+
 - [ ] **Responder a Google la revisión de la API (plazo: 7 días hábiles
       desde el 01-09 ≈ 10-09).** Pidieron *"the script / screencast of how
       you are uploading videos along with the end-results"*. TODO listo en
