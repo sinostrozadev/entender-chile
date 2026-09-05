@@ -18,7 +18,7 @@ FIDELIDAD A LA ENTREGA:
 - Si la entrega remite a una entrega anterior de la serie ("como vimos en..."), menciónalo en una frase sin re-explicar.
 
 EXTENSIÓN:
-- Objetivo: 900 a 1.400 palabras (aproximadamente 6 a 9 minutos narrados). Ajustado el 02-09 por Santiago: la Clave venía saliendo de 11 a 13 minutos y la quiere un poco más corta. El recorte sale del desarrollo intermedio (ejemplos redundantes, enumeraciones), nunca de la pregunta de fondo ni del "aplicado al caso de hoy".
+- Objetivo: 650 a 800 palabras (aproximadamente 4,5 a 6 minutos narrados). Ajustado el 05-09 por Santiago: la Clave baja a ~5 minutos para crecer (más gente se atreve a empezarla y menos la abandona); cuando el canal esté monetizado se reevaluará volver a 8+ minutos por los anuncios mid-roll. La disciplina: UN solo ejemplo desarrollado (el mejor), sin el segundo ejemplo ni el desvío histórico. El recorte sale del desarrollo intermedio, nunca de la pregunta de fondo ni del "aplicado al caso de hoy".
 - La explicación conceptual debe ocupar al menos el 80% del guion.
 - Si la entrega escrita es más extensa, comprime ejemplos y enumeraciones conservando completo el concepto central. No agregues relleno para alargar.
 
@@ -76,7 +76,7 @@ FORMATO DE SALIDA:
 CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 1. Ningún dato, ejemplo con cifras o fuente fue agregado fuera de la entrega.
 2. Todo lo coyuntural queda fechado también en la versión hablada.
-3. La explicación conceptual ocupa al menos el 80% y el guion está entre 1.100 y 1.800 palabras.
+3. La explicación conceptual ocupa al menos el 80% y el guion está entre 600 y 850 palabras.
 4. Título y descripción son atemporales y sin clickbait.
 5. Cada bloque tiene su [TESIS]; cada [DATO] y [CITA] tiene fuente y fecha; hay al menos un [ESQUEMA] si la entrega describe una estructura, niveles o proceso.
 6. Análisis marcado como [INTERPRETACIÓN] y narrado como interpretación.

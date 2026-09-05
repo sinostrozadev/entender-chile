@@ -117,11 +117,50 @@ const PortadaPodcast: React.FC<{ serie?: "informe" | "clave" }> = ({ serie = "in
   );
 };
 
+// MiniaturaV2 (bocetos 05-09, iteración con Santiago): la carátula deja de
+// repetir el título del video. Fondo = la imagen de la sección de la portada
+// (variedad diaria, identidad por área) + un GANCHO de 3-5 palabras que dice
+// lo que el título no dice (la consecuencia, el conflicto), y cifra grande
+// solo cuando se entiende en un segundo sin contexto.
+type MiniaturaV2Props = { gancho: string; imagen: string; cifra?: string; fecha?: string };
+const MiniaturaV2: React.FC<MiniaturaV2Props> = ({ gancho, imagen, cifra, fecha }) => {
+  const tinta = "#EDE6DA", cobre = "#D08A5B";
+  const largo = gancho.length;
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#10151E" }}>
+      <Img src={staticFile(imagen)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "right center" }} />
+      {/* velo: oscuro abajo-izquierda donde vive el texto; la imagen respira a la derecha */}
+      <AbsoluteFill style={{ background: "linear-gradient(105deg, rgba(10,13,19,0.88) 0%, rgba(10,13,19,0.72) 45%, rgba(10,13,19,0.18) 100%)" }} />
+      <AbsoluteFill style={{ background: "linear-gradient(0deg, rgba(10,13,19,0.65) 0%, rgba(10,13,19,0) 45%)" }} />
+      <div style={{ position: "absolute", left: 64, top: 52, display: "flex", alignItems: "baseline", gap: 24 }}>
+        <div style={{ ...estiloEyebrow, fontSize: 30, letterSpacing: "0.26em", color: cobre }}>Entender Chile</div>
+        {fecha ? <div style={{ fontFamily: tema.mono, fontSize: 34, letterSpacing: "0.06em", color: "#C7BFB2" }}>{fecha}</div> : null}
+      </div>
+      <div style={{ position: "absolute", left: 64, right: 260, bottom: 64 }}>
+        {cifra ? (
+          <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: cifra.length > 6 ? 230 : 300, lineHeight: 0.92, color: tinta, letterSpacing: "-0.02em", textShadow: "0 4px 30px rgba(0,0,0,0.55)" }}>{cifra}</div>
+        ) : null}
+        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: cifra ? 92 : largo > 26 ? 128 : 156, lineHeight: 1.04, color: tinta, letterSpacing: "-0.01em", marginTop: cifra ? 18 : 0, textShadow: "0 4px 30px rgba(0,0,0,0.55)" }}>{gancho}</div>
+        <div style={{ width: 150, height: 10, backgroundColor: cobre, marginTop: 34 }} />
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 const RootMarca: React.FC = () => (
   <>
     <Composition id="Avatar" component={Avatar} width={800} height={800} fps={1} durationInFrames={1} />
     <Composition id="Banner" component={Banner} width={2560} height={1440} fps={1} durationInFrames={1} defaultProps={{ fondo: "" }} />
     <Composition id="PortadaPodcast" component={PortadaPodcast} width={2048} height={2048} fps={1} durationInFrames={1} defaultProps={{ serie: "informe" as const }} />
+    <Composition
+      id="MiniaturaV2"
+      component={MiniaturaV2}
+      width={1280}
+      height={720}
+      fps={1}
+      durationInFrames={1}
+      defaultProps={{ gancho: "", imagen: "fondos/seccion-economia.jpg", cifra: "", fecha: "" }}
+    />
     <Composition
       id="Miniatura"
       component={Miniatura}
