@@ -105,5 +105,23 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-04-clave.mp3",
     "bytes": 13487616,
     "durSeg": 562
+  },
+  {
+    "fecha": "2026-09-05",
+    "tipo": "informe",
+    "titulo": "05-09-2026 · Muere Camilo Escalona, histórico dirigente socialista y expresidente del Senado",
+    "descripcion": "Chile despide a Camilo Escalona, histórico dirigente del Partido Socialista y expresidente del Senado. Además, revisamos los parámetros que guiarán el Presupuesto 2027, los pagos extraordinarios del Fondo de Cesantía Solidario y el aumento de actividad del volcán Villarrica. Cerramos con titulares, seguimiento de casos y la agenda del sábado.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-05-informe.mp3",
+    "bytes": 16478208,
+    "durSeg": 687
+  },
+  {
+    "fecha": "2026-09-05",
+    "tipo": "clave",
+    "titulo": "Clave · ¿Cómo funciona la regla fiscal y el balance estructural?",
+    "descripcion": "Chile no construye su Presupuesto suponiendo que todos los ingresos del momento durarán para siempre. Este video explica cómo el balance estructural separa ingresos transitorios y persistentes, para qué sirven el PIB no minero tendencial y el precio de referencia del cobre, y qué papel cumplen los expertos, el Gobierno y el Congreso.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-05-clave.mp3",
+    "bytes": 14269248,
+    "durSeg": 595
   }
 ]
