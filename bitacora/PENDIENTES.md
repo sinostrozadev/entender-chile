@@ -54,6 +54,18 @@ tarea corta de ChatGPT apunta a seleccion.md como siempre). Límite real
 de Claude: no es el número de rutinas, es la cuota compartida (five_hour) —
 los guiones van en Sonnet, por evento (sin relojes) y fuera de la ventana
 crítica 01:30-01:45.
+**CADENA POR EVENTOS COMPLETA (noche del 05-09):** tres PR permanentes:
+#2 barrido-listo → preselección GPT (probado ✓), #3 preseleccion-lista →
+informe GPT (primer evento ~01:40 del 06-09), #4 informe-listo → Clave GPT.
+PASO CERO en seleccion.md, informe.md y claves.md; workflows emisores
+senal-preseleccion.yml y senal-informe.yml (dedup diaria + auto-reparación;
+emite Actions porque el reseteo limpio exige force-push). Los guionistas
+Claude cierran la cadena (webhook + relojes 03:35/03:50). Santiago
+configura los disparadores de informe y Clave en ChatGPT con textos cortos
+que apuntan a los prompts; las tareas fijas quedan de respaldo con la
+guarda "si ya existe la pieza de hoy, no la rehagas" hasta que la prueba
+esté verde. CARÁTULAS: cambio masivo aplicado (14/14) con OK de Santiago
+sobre el tablero; criterio amarrado en prompts + generador + validador.
 **Red de seguridad creada y luego DESACTIVADA a pedido de Santiago** (la
 prueba funcionó): rutina
 `trig_01CVyy1m21cpCGHk9sKfVY9r` a las **02:30 Chile** (`30 6 * * *`; entra
