@@ -110,6 +110,7 @@ REGISTRO ORAL Y ANTI-PLANTILLA:
 FORMATO DE SALIDA:
 - Primera línea: "Título sugerido:" seguida de un título de una sola idea, concreto, específico del día, sin clickbait.
 - Segunda sección: "Descripción sugerida:" con dos a cuatro frases que resuman la jornada para la descripción del video de YouTube. NO incluyas la lista de fuentes aquí: el sistema la agrega automáticamente al final de la descripción del video.
+- Tercera línea: "Carátula sugerida:" con el GANCHO de la miniatura (regla de Santiago, 05-09): 3 a 5 palabras sobre la noticia de portada que digan lo que el título NO dice — la consecuencia o el conflicto, no el hecho ("El Estrecho es chileno", no "Chile y Argentina ratifican tratados"). PRUEBA DEL GANCHO: si un desconocido necesita preguntarte "¿qué?" o "¿de quién?", no es gancho (falló "¿quién le pone freno al gasto?" porque no decía QUÉ gasto). Puede llevar una cifra solo si se entiende en un segundo sin contexto (762.326 dosis sí; 2,6% del PIB tendencial no). No se narra; es solo para la carátula, que se genera sola.
 - Después: "Guion:" y el texto narrable con las siguientes marcas, y solo estas, cada una en su propia línea:
   ## Nombre de sección
       Una por bloque temático. No se narra.

@@ -111,10 +111,17 @@ const apertura = esClave
 const cierreTexto = esClave
   ? "Las respuestas, en la Clave de hoy, en el canal Entender Chile."
   : "El informe completo de hoy está en el canal Entender Chile.";
+// Título fórmula A (Santiago, 05-09): el gancho del día adelante, la serie
+// atrás — "El Estrecho es chileno — y otras 4 cosas de hoy". En lista cada
+// día se ve distinto y buscable; la serie se reconoce por la cola. El gancho
+// sale de la "Carátula sugerida" del guion; sin ella, de la primera tesis
+// recortada en palabra completa.
+const ganchoDia = (parsed.caratula || "").trim() ||
+  (() => { const t = elegidos[0].tesis.texto.replace(/\.$/, ""); return t.length <= 48 ? t : t.slice(0, 48).replace(/\s+\S*$/, "") + "…"; })();
 const md = [
   esClave
     ? `Título sugerido: Clave: ${tituloClave || "para entender las noticias"} #Shorts`
-    : `Título sugerido: Cinco cosas que hay que saber hoy, ${fechaLarga} #Shorts`,
+    : `Título sugerido: ${ganchoDia}, y otras ${CUANTAS - 1} cosas de hoy #Shorts`,
   "Descripción sugerida:",
   esClave
     ? "Una clave para entender las noticias, en un minuto. La Clave completa, en el canal Entender Chile. #Shorts #Chile #noticias"

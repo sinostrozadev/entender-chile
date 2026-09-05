@@ -145,19 +145,35 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
       if (e.tipo === "tesis" && !vistos.has(sec)) { vistos.add(sec); tesis.push(e.texto); }
     }
   }
+  // Carátula v2 (05-09, iterada con Santiago): gancho del guionista
+  // ("Carátula sugerida:"), imagen de la sección de la portada, velo del color
+  // de la sección para el informe (con fecha), verde de serie para la Clave.
+  // Si el gancho parte con una cifra ("762.326 vacunas botadas"), la cifra va
+  // gigante y el resto abajo. Sin línea de carátula, cae al título (y sirve
+  // igual: nunca queda una miniatura vacía).
+  const { imagenDe } = require("./imagenes-secciones");
+  const gcru = (parsed.caratula || "").trim();
+  const recortar = (t) => (t.length <= 64 ? t : t.slice(0, 64).replace(/\s+\S*$/, "") + "…");
+  let gancho = gcru || recortar(parsed.titulo || "");
+  let cifraMini = "";
+  const mg = gcru.match(/^([$]?[\d][\d.,]*%?)\s+(.{6,})$/);
+  if (mg) { cifraMini = mg[1]; gancho = mg[2]; }
+  // La Clave va SIEMPRE con su fondo verde de serie: es colección, no sección
+  // (y el matcheo por palabras se equivoca fácil: "regla fiscal" → fiscalía).
+  const img = esClave ? null : imagenDe(`${bloquePortada || ""} ${parsed.titulo || ""}`);
   const props = {
-    titulo: parsed.titulo || "",
+    gancho,
+    cifra: cifraMini,
     fecha: esClave ? "" : fecha.split("-").reverse().join("-"), // la Clave es atemporal: sin fecha (Santiago, 30-08)
-    cifra: dato ? dato.series[0].raw : "",
-    etiqueta: dato ? dato.series[0].etiqueta : "",
-    seccion: dato ? dato.seccion : "",
-    estilo: esClave ? "verde" : "marino",
-    extractos: esClave ? [] : tesis.slice(1, 3),
+    imagen: img ? `fondos/seccion-${img}.jpg` : esClave ? "fondos/fondo-clave-vertical.png" : "fondos/banner-fondo.png",
+    modo: "velo-seccion",
+    seccion: bloquePortada || "",
+    serie: esClave ? "clave" : "informe",
   };
   const mini = path.join(OUT, esClave ? "miniatura-clave.png" : "miniatura.png");
   try {
-    execFileSync("npx", ["remotion", "still", "src/marca.tsx", "Miniatura", mini, `--props=${JSON.stringify(props)}`], { stdio: "ignore" });
-    console.log(`Miniatura: ${mini}${dato ? ` (${props.cifra} · ${props.etiqueta})` : " (sin cifra)"}`);
+    execFileSync("npx", ["remotion", "still", "src/marca.tsx", "MiniaturaV2", mini, `--props=${JSON.stringify(props)}`], { stdio: "ignore" });
+    console.log(`Miniatura: ${mini} (gancho: "${gancho}"${cifraMini ? ` · cifra ${cifraMini}` : ""}${gcru ? "" : " — SIN línea de carátula, usé el título"})`);
   } catch (e) {
     console.log(`(miniatura no generada: ${e.message.split("\n")[0]})`);
   }

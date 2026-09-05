@@ -44,6 +44,8 @@ const familias: Array<[RegExp, Familia]> = [
 // Imagen de sección (disputa 1 cerrada el 03-09): una de las diez láminas de
 // public/fondos/seccion-*.jpg, elegida por el tema de la sección. Si ninguna
 // calza, se cae a la textura procedural. El orden importa.
+// ESPEJO: scripts/imagenes-secciones.js tiene esta misma lista para el lado
+// Node (carátulas). Si cambias una, cambia la otra igual.
 const IMAGENES: Array<[RegExp, string]> = [
   [/cerimedo/, "congreso"],
   [/licencias? m[eé]dicas|contralor|plata p[uú]blica|malversa|fraude/, "plata-publica"],

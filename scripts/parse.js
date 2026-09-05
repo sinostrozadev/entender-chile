@@ -104,7 +104,7 @@ function cifraPrincipal(textoPantalla) {
 
 function parseGuion(md) {
   const lineas = md.replace(/\r\n/g, "\n").split("\n");
-  let titulo = null, descripcion = [], fuentes = [];
+  let titulo = null, caratula = null, descripcion = [], fuentes = [];
   let zona = "pre"; // pre | descripcion | guion | fuentes
   const eventos = [];
   let buffer = null; // párrafo narrado en construcción
@@ -122,6 +122,9 @@ function parseGuion(md) {
     const sinNegrita = linea.replace(/\*\*/g, "");
 
     if (/^t[íi]tulo sugerido:/i.test(sinNegrita)) { titulo = sinNegrita.replace(/^t[íi]tulo sugerido:/i, "").trim(); continue; }
+    // Carátula sugerida (05-09): el gancho de 3-5 palabras para la miniatura,
+    // escrito por el guionista. Dice lo que el título no dice; nunca se narra.
+    if (/^car[áa]tula sugerida:/i.test(sinNegrita)) { caratula = sinNegrita.replace(/^car[áa]tula sugerida:/i, "").trim(); continue; }
     if (/^descripci[óo]n sugerida:/i.test(sinNegrita)) { zona = "descripcion"; continue; }
     if (/^guion:/i.test(sinNegrita)) { flush(); zona = "guion"; continue; }
     if (/^fuentes:/i.test(sinNegrita)) { flush(); zona = "fuentes"; continue; }
@@ -292,7 +295,7 @@ function parseGuion(md) {
     }
   }
 
-  return { titulo, descripcion: descripcion.join(" "), fuentes, eventos, cleanText };
+  return { titulo, caratula, descripcion: descripcion.join(" "), fuentes, eventos, cleanText };
 }
 
 // ---- CLI ----

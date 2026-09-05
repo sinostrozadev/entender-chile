@@ -122,26 +122,57 @@ const PortadaPodcast: React.FC<{ serie?: "informe" | "clave" }> = ({ serie = "in
 // (variedad diaria, identidad por área) + un GANCHO de 3-5 palabras que dice
 // lo que el título no dice (la consecuencia, el conflicto), y cifra grande
 // solo cuando se entiende en un segundo sin contexto.
-type MiniaturaV2Props = { gancho: string; imagen: string; cifra?: string; fecha?: string };
-const MiniaturaV2: React.FC<MiniaturaV2Props> = ({ gancho, imagen, cifra, fecha }) => {
-  const tinta = "#EDE6DA", cobre = "#D08A5B";
+type MiniaturaV2Props = { gancho: string; imagen: string; cifra?: string; fecha?: string; modo?: "oscuro" | "velo-seccion" | "papel"; seccion?: string; serie?: "informe" | "clave" };
+// mezclar un hex con negro (para el velo teñido del color de la sección)
+const oscurecer = (hex: string, f: number) => {
+  const n = parseInt(hex.slice(1), 16);
+  const c = (x: number) => Math.round(x * f);
+  return `${c((n >> 16) & 255)},${c((n >> 8) & 255)},${c(n & 255)}`;
+};
+const MiniaturaV2: React.FC<MiniaturaV2Props> = ({ gancho, imagen, cifra, fecha, modo = "oscuro", seccion, serie }) => {
+  const cobre = "#D08A5B";
   const largo = gancho.length;
+  // Diferenciación por tipo (Santiago, 05-09): el informe varía por sección y
+  // lleva fecha; la Clave es serie: SIEMPRE su verde, con etiqueta LA CLAVE.
+  const esClave = serie === "clave";
+  if (modo === "papel") {
+    // claro: mitad papel con tinta, imagen a la derecha sin velo — destaca
+    // entre parrillas oscuras justamente por no ser oscura.
+    return (
+      <AbsoluteFill style={{ backgroundColor: tema.papel }}>
+        <Img src={staticFile(imagen)} style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "46%", height: "100%", objectFit: "cover" }} />
+        <div style={{ position: "absolute", left: "50%", right: "46%", top: 0, bottom: 0, background: `linear-gradient(90deg, ${tema.papel} 0%, rgba(240,235,224,0) 100%)`, transform: "translateX(-4%)", width: "12%" }} />
+        <div style={{ position: "absolute", left: 64, top: 52, display: "flex", alignItems: "baseline", gap: 24 }}>
+          <div style={{ ...estiloEyebrow, fontSize: 30, letterSpacing: "0.26em", color: colorDeSeccion(seccion) }}>Entender Chile</div>
+          {fecha ? <div style={{ fontFamily: tema.mono, fontSize: 34, letterSpacing: "0.06em", color: tema.gris }}>{fecha}</div> : null}
+        </div>
+        <div style={{ position: "absolute", left: 64, width: 640, bottom: 64 }}>
+          {cifra ? <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: cifra.length > 6 ? 200 : 260, lineHeight: 0.92, color: tema.tinta, letterSpacing: "-0.02em" }}>{cifra}</div> : null}
+          <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: cifra ? 84 : largo > 26 ? 118 : 146, lineHeight: 1.04, color: tema.tinta, marginTop: cifra ? 18 : 0 }}>{gancho}</div>
+          <div style={{ width: 150, height: 10, backgroundColor: colorDeSeccion(seccion), marginTop: 34 }} />
+        </div>
+      </AbsoluteFill>
+    );
+  }
+  const base = esClave ? "16,36,30" : modo === "velo-seccion" ? oscurecer(colorDeSeccion(seccion), 0.30) : "10,13,19";
+  const acento = esClave ? cobre : modo === "velo-seccion" ? colorDeSeccion(seccion) : cobre;
+  const tinta = "#EDE6DA";
   return (
-    <AbsoluteFill style={{ backgroundColor: "#10151E" }}>
+    <AbsoluteFill style={{ backgroundColor: `rgb(${base})` }}>
       <Img src={staticFile(imagen)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "right center" }} />
       {/* velo: oscuro abajo-izquierda donde vive el texto; la imagen respira a la derecha */}
-      <AbsoluteFill style={{ background: "linear-gradient(105deg, rgba(10,13,19,0.88) 0%, rgba(10,13,19,0.72) 45%, rgba(10,13,19,0.18) 100%)" }} />
-      <AbsoluteFill style={{ background: "linear-gradient(0deg, rgba(10,13,19,0.65) 0%, rgba(10,13,19,0) 45%)" }} />
+      <AbsoluteFill style={{ background: `linear-gradient(105deg, rgba(${base},0.90) 0%, rgba(${base},0.72) 45%, rgba(${base},0.16) 100%)` }} />
+      <AbsoluteFill style={{ background: `linear-gradient(0deg, rgba(${base},0.65) 0%, rgba(${base},0) 45%)` }} />
       <div style={{ position: "absolute", left: 64, top: 52, display: "flex", alignItems: "baseline", gap: 24 }}>
-        <div style={{ ...estiloEyebrow, fontSize: 30, letterSpacing: "0.26em", color: cobre }}>Entender Chile</div>
+        <div style={{ ...estiloEyebrow, fontSize: 30, letterSpacing: "0.26em", color: acento }}>Entender Chile{esClave ? " · La Clave" : ""}</div>
         {fecha ? <div style={{ fontFamily: tema.mono, fontSize: 34, letterSpacing: "0.06em", color: "#C7BFB2" }}>{fecha}</div> : null}
       </div>
       <div style={{ position: "absolute", left: 64, right: 260, bottom: 64 }}>
         {cifra ? (
           <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: cifra.length > 6 ? 230 : 300, lineHeight: 0.92, color: tinta, letterSpacing: "-0.02em", textShadow: "0 4px 30px rgba(0,0,0,0.55)" }}>{cifra}</div>
         ) : null}
-        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: cifra ? 92 : largo > 26 ? 128 : 156, lineHeight: 1.04, color: tinta, letterSpacing: "-0.01em", marginTop: cifra ? 18 : 0, textShadow: "0 4px 30px rgba(0,0,0,0.55)" }}>{gancho}</div>
-        <div style={{ width: 150, height: 10, backgroundColor: cobre, marginTop: 34 }} />
+        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: cifra ? 92 : largo > 60 ? 84 : largo > 40 ? 104 : largo > 26 ? 128 : 156, lineHeight: 1.06, color: tinta, letterSpacing: "-0.01em", marginTop: cifra ? 18 : 0, textShadow: "0 4px 30px rgba(0,0,0,0.55)", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>{gancho}</div>
+        <div style={{ width: 150, height: 10, backgroundColor: acento, marginTop: 34 }} />
       </div>
     </AbsoluteFill>
   );
