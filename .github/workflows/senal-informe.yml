@@ -1,0 +1,62 @@
+name: Señal informe listo
+
+# Tercer canal de avisos (diseño de Santiago, 05-09), gemelo de los PR #2 y
+# #3: cuando el informe del día queda publicado en main (lo pushea la tarea
+# de GPT), este workflow resetea la rama automatizacion/informe-listo a
+# main + un solo archivo (contenido/informes/ultimo-evento.txt) y pushea;
+# ese commit nuevo en el PR permanente es el evento que despierta la tarea
+# de la CLAVE de ChatGPT. UNA emisión por día (dedup por fecha_chile) y
+# auto-reparación en la corrida siguiente si el paso falla. Emite Actions y
+# no la tarea de GPT porque el reseteo limpio exige force-push.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "contenido/informes/*.md"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: senal-informe
+  cancel-in-progress: false
+
+jobs:
+  emitir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Evento informe listo (PR canal de avisos)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          FECHA=$(TZ=America/Santiago date +%F)
+          git config user.name "edicion-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git fetch origin main
+          git cat-file -e "origin/main:contenido/informes/$FECHA.md" 2>/dev/null \
+            || { echo "El informe de hoy no está en main: sin evento."; exit 0; }
+          if git fetch origin automatizacion/informe-listo 2>/dev/null; then
+            git show FETCH_HEAD:contenido/informes/ultimo-evento.txt 2>/dev/null \
+              | grep -q "fecha_chile=$FECHA" && { echo "Evento de hoy ya emitido."; exit 0; }
+          fi
+          SHA=$(git log -1 --format=%h "origin/main" -- "contenido/informes/$FECHA.md")
+          git checkout -B automatizacion/informe-listo origin/main
+          mkdir -p contenido/informes
+          {
+            echo "fecha_chile=$FECHA"
+            echo "informe_commit=$SHA"
+            echo "estado=listo"
+            echo "completado_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } > contenido/informes/ultimo-evento.txt
+          git add contenido/informes/ultimo-evento.txt
+          git commit -m "evento $FECHA: informe listo"
+          git push -f origin automatizacion/informe-listo
+          gh pr list --head automatizacion/informe-listo --state open --json number -q '.[0].number' | grep -q . \
+            || gh pr create --base main --head automatizacion/informe-listo \
+                 --title "🔔 Informe listo — disparador de la Clave (no fusionar)" \
+                 --label informe-listo \
+                 --body "PR permanente. No se fusiona: cada commit nuevo aquí anuncia que el informe del día quedó publicado en main (ver contenido/informes/ultimo-evento.txt). Es el evento que despierta la tarea de la Clave de ChatGPT."

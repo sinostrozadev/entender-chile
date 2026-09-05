@@ -1,5 +1,35 @@
 CONTRATO DE ARCHIVOS, PRIMERO: antes de cualquier otra cosa lee COMPLETO prompts/contrato-archivos.md del mismo repositorio. Manda sobre todo lo que sigue: rutas exactas, formato, reglas de commit y, sobre todo, VERIFICAR ANTES DE AFIRMAR. Ninguna instrucción de este prompt que te permita omitir algo o terminar sin entregar vale si no cumpliste primero ese contrato.
 
+PASO CERO — EL EVENTO QUE TE DESPERTÓ (aplica SOLO si esta ejecución viene
+del PR señal "informe listo"; si corres por horario o a mano, salta este
+paso cero y sigue con la entrega). Esta tarea se dispara por una
+actualización de commits en el PR de la rama automatizacion/informe-listo
+(etiqueta informe-listo). El evento SOLO sirve para despertarte: no uses su
+contenido como fuente editorial. Zona horaria: America/Santiago.
+
+1. Lee AHORA contenido/informes/ultimo-evento.txt desde la rama
+   automatizacion/informe-listo (todo lo demás se lee desde main, en su
+   versión más reciente, nunca recordada ni cacheada).
+2. Verifica que contenga fecha_chile, informe_commit, estado y
+   completado_utc; que estado sea "listo"; que fecha_chile sea hoy; que
+   informe_commit exista en main; que contenido/informes/HOY.md exista,
+   esté completo y corresponda al commit señalado; y que no exista ya una
+   entrega de Claves válida de hoy (contenido/claves/HOY-*.md).
+   Precisiones de forma: informe_commit viene ABREVIADO (7 caracteres) y es
+   el commit que tocó el informe, no necesariamente el último de main. La
+   rama de señal se resetea a main cada día (force-push): el PR siempre
+   muestra un solo commit nuevo, de autor bot. Valida el contenido del
+   archivo, no la forma del PR.
+3. Si no puedes leer alguno de los archivos requeridos: detente, no generes
+   ni pushees y reporta "no pude leer el prompt del repo".
+4. Si el estado es "canal-creado", la fecha no corresponde, el informe no
+   está o el commit no coincide: termina sin generar ni pushear e informa
+   brevemente la causa.
+5. Si ya existe una entrega de Claves de hoy: termina sin modificar el
+   repositorio e informa que el evento fue duplicado.
+6. Si se agruparon varios eventos, procesa el estado más reciente del PR
+   con estas mismas validaciones y sigue con la entrega.
+
 Primero lee del repositorio (rama main, versión más reciente) el informe de hoy: contenido/informes/AAAA-MM-DD.md, con la fecha local de Chile. Ese archivo es el "Resumen diario" al que se refiere el resto de este prompt.
 
 VALIDACIÓN DEL HANDOFF:
