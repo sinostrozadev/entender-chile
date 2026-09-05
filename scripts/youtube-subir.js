@@ -77,7 +77,11 @@ const parsed = fs.existsSync(RUTA_PARSED) ? JSON.parse(fs.readFileSync(RUTA_PARS
 const titulo = (parsed.titulo || `Entender Chile · ${fecha}`).slice(0, 100);
 const rutaDesc = path.join("contenido", "descripciones", `${fecha}-${etiqueta}.txt`);
 const descripcion = (short ? (parsed.descripcion || "") : (fs.existsSync(rutaDesc) ? fs.readFileSync(rutaDesc, "utf8") : "")).slice(0, 4900);
-const miniatura = path.join(OUT, clave ? "miniatura-clave.png" : "miniatura.png");
+// Los Shorts NO llevan carátula-archivo: su portada es el primer cuadro del
+// video (desde el 05-09 es contenido real, sin pantalla muerta). Antes este
+// path les colgaba por accidente la miniatura HORIZONTAL del largo del día.
+const miniatura = (short || urgente) ? path.join(OUT, "no-existe.png")
+  : path.join(OUT, clave ? "miniatura-clave.png" : "miniatura.png");
 
 // "2026-08-30" + "07:30" → instante ISO (UTC) de esa hora en Chile, con o sin horario de verano.
 function horaChileISO(dia, hhmm) {

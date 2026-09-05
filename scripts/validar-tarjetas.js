@@ -58,6 +58,12 @@ for (let i = 0; i < lineas.length; i++) {
 }
 
 const avisos = [];
+// Carátula sugerida (regla 05-09): el gancho de la miniatura lo escribe el
+// guionista; sin la línea, dia.js cae al título recortado (funciona, pero
+// pierde el gancho pensado). Avisar para que el ciclo aprenda.
+if (!lineas.some((l) => /^car[áa]tula sugerida:/i.test(l.trim().replace(/\*\*/g, "")))) {
+  avisos.push('sin línea "Carátula sugerida:": la miniatura usará el título recortado en vez de un gancho pensado (prompts/guion-informe.md y guion-claves.md la exigen desde el 05-09)');
+}
 // Techo de duración (auditoría 03-09): palabras NARRADAS, o sea antes del
 // bloque "Fuentes:" y sin marcas ni encabezados. Calibrado con audio real
 // del 03-09: 1.590 narradas = 11,9 min → ~135 ppm; 13 min ≈ 1.760.
