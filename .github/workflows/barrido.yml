@@ -20,8 +20,8 @@ on:
     # DOS entradas porque el 03-09 fallaron las dos redes a la vez: el reloj
     # de Claude murió por cuota (five_hour) y este cron llegó 4 horas tarde;
     # una segunda cita sube la probabilidad de que alguna dispare a tiempo.
-    - cron: "50 5 * * *"
-    - cron: "20 6 * * *"
+    - cron: "50 4 * * *"
+    - cron: "20 5 * * *"
   workflow_dispatch:
     inputs:
       forzar:

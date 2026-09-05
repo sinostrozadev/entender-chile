@@ -24,7 +24,7 @@ on:
       - "contenido/guiones/claves/**"
   schedule:
     # respaldo: 09:00 UTC = 05:00 Chile en invierno / 06:00 en verano.
-    - cron: "0 9 * * *"
+    - cron: "0 8 * * *"
   workflow_dispatch:
     inputs:
       fecha:

@@ -25,8 +25,23 @@ preselección temprano. Si sale bien, se migra toda la cadena a esta forma.
 **✅ PRUEBA SUPERADA (01:03):** evento emitido 05:01:16Z → GPT pusheó
 `edición 2026-09-04: preselección` a las 05:03:23Z (2 min 7 s), citando el
 commit exacto del barrido, con el pendiente EOF bien tratado y commit según
-contrato. **PROYECTO DE MAÑANA (acordado con Santiago 04-09 ~01:20) — reparto por
-utilidad real:** GPT queda solo donde su navegación vale (preselección ya
+contrato. **✅ EJECUTADO (noche del 05-09):** cambio de hora COMPLETO (7 rutinas por
+API + 5 crons de GitHub, todos −1 h UTC; horas de Chile intactas tras pasar
+a UTC-3) y MIGRACIÓN de los 2 guiones a Claude: rutinas
+`trig_01HUjC4MjKGmmpDMApn8gtJm` (guionista informe, esperadora 03:35 Chile
++ webhook de GitHub con guardas) y `trig_017nkjJWR5Voud4dYgPhvwF7`
+(guionista Clave, esperadora 03:50). Ambas leen AHORA los mismos
+prompts/guion-*.md + contrato (los prompts son agnósticos del modelo),
+dedup silencioso, escritura verificada, push solo en fallo.
+**LIMITACIÓN DESCUBIERTA del webhook (create_webhook_trigger): dispara con
+CUALQUIER push del repo — la API no acepta filtro por rutas ni ramas.** Se
+neutralizó con guardas de salida-en-segundos (dedup + ventana horaria
+03:20-04:25) y la Clave quedó sin webhook (esperadora pura). Además no hay
+API para BORRAR un webhook ya creado: si mete ruido, el remedio es
+desactivar la rutina o pedir el filtro. **LADO DE SANTIAGO: APAGAR las 2
+tareas de GPT de guiones (04:00 y 04:15)** — si corren igual, solo
+duplican (pisan el guion de Claude con uno equivalente), no rompen.
+El plan original, para referencia: GPT queda solo donde su navegación vale (preselección ya
 por evento ✓; migrar informe y claves a escucha de evento); Claude toma los
 2 guiones (puras transformaciones del repo, sin web) como rutinas
 disparadas por WEBHOOK de GitHub (push del informe → guion informe; push de
@@ -149,6 +164,11 @@ cada corrida; editarlo es cambiar la guardia sin tocar la API. Pendiente:
 aplicar el mismo patrón prompt-vivo a las demás rutinas (barrido,
 observatorio, revisión, guardián, métricas, auditoría) cuando toque
 editarlas.
+Cola corta pendiente (quedó de la tarde del 05-09): retención de Analytics
+cableada a metricas.js (token listo en secrets/youtube-analytics.token +
+falta subirlo como secret de GitHub y el query en el script); capítulos de
+YouTube automáticos en la descripción; link directo Short→video largo;
+vuelta 3 de carátulas según feedback de los bocetos.
 Pendiente fase 2.1 (no esta noche): que guardia.js (Actions, que SÍ alcanza
 la web) capture también el cuerpo de la fuente primaria en el archivo del
 hallazgo — la rutina redactora no navega, hoy escribe con el material + el

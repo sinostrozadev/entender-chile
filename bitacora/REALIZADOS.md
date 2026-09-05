@@ -4,6 +4,12 @@ Registro append-only de lo completado, con fecha. La sesión de la mañana
 agrega aquí lo que sale de PENDIENTES; también es evidencia del aporte
 editorial y técnico humano del proyecto.
 
+- 05-09 · Cambio de hora ejecutado completo (7 rutinas + 5 crons GitHub, −1 h UTC) la víspera del salto a UTC-3
+- 05-09 · Guiones migrados de GPT a Claude: 2 rutinas esperadoras (03:35/03:50) que leen los MISMOS prompts del repo; GPT queda solo donde navega (preselección por evento, informe, claves)
+- 05-09 · Primeros datos reales de retención (scope Analytics habilitado): Claves retienen 54-72%, informes largos 23-30%, Shorts 76-103% — el problema de las Claves es descubrimiento, no calidad
+- 05-09 · Carátulas v2 en producción: gancho del guionista (línea "Carátula sugerida"), imagen por sección + fecha en el informe, verde de serie "La Clave"; iteradas 2 vueltas con bocetos
+- 05-09 · Shorts parten directo (fuera 3 s de pantalla muerta que quedaban de portada) y el 5-cosas estrena título fórmula A: gancho del día + "y otras 4 cosas de hoy"
+- 05-09 · Claves recortadas a ~5 min (650-800 palabras) con checklist alineado
 - 03-09 · SHORT EXPRÉS (fase 2 del guardia) construido y probado end-to-end con el caso real de la tasa: guion urgente → voz → render vertical piel VINO → subida privada, todo en ~5 min de Actions
 - 03-09 · Rutina de guardia v3: ya no solo avisa, REDACTA el guion (Sonnet, reglas duras: ~55 palabras, cifras solo de fuente primaria, atribución a prensa), espera el id y manda el link del video listo al teléfono
 - 03-09 · Bug cazado EN la prueba real: el Short urgente se reescalaba a horizontal antes de subir (quedaba deformado y no contaba como Short); corregido y re-subido
