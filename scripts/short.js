@@ -159,7 +159,7 @@ if (fs.existsSync(path.join(OUT, "narracion.mp3"))) {
   fs.copyFileSync(path.join(OUT, "narracion.mp3"), path.join("public", audio));
 }
 const son = (f) => (fs.existsSync(path.join("public", "musica", f)) ? `musica/${f}` : null);
-const env = { FECHA_EDICION: fecha, SERIE };
+const env = { FECHA_EDICION: fecha, SERIE, EN_FRIO: "1" }; // el Short parte directo, sin pantalla muerta
 const sello = son("sello.wav"); if (sello) env.LOGO = sello;
 const cortinas = ["cortina-a.wav", "cortina-b.wav", "cortina-c.wav"].map(son).filter(Boolean);
 if (cortinas.length) env.CORTINAS = cortinas.join(",");

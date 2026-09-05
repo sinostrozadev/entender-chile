@@ -58,7 +58,7 @@ if (fs.existsSync(path.join(OUT, "narracion.mp3"))) {
   fs.copyFileSync(path.join(OUT, "narracion.mp3"), path.join("public", audio));
 }
 const son = (f) => (fs.existsSync(path.join("public", "musica", f)) ? `musica/${f}` : null);
-const env = { FECHA_EDICION: fecha, SERIE: "urgente" };
+const env = { FECHA_EDICION: fecha, SERIE: "urgente", EN_FRIO: "1" }; // parte directo, sin pantalla muerta
 const sello = son("sello.wav"); if (sello) env.LOGO = sello;
 const cierre = son("cierre.wav"); if (cierre) env.CIERRE = cierre;
 run("build-timeline.js", [path.join(OUT, "parsed.json"), path.join(OUT, "alignment.json"), path.join(OUT, "timeline.json"), ...(audio ? [audio] : [])], env);

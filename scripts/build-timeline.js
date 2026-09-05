@@ -25,7 +25,11 @@ const chars = al.characters;
 // sección "La noticia del día", la voz parte en 0 con la noticia de portada y
 // el sello entra en la pausa que cierra esa sección (meta.selloEn); su cola
 // corre bajo el arranque de la Apertura, nunca retrasa voz.
-const enFrio = /la noticia del d[ií]a/i.test((parsed.eventos.find((e) => e.tipo === "seccion") || {}).texto || "");
+// EN_FRIO=1 fuerza la apertura en frío desde afuera: los Shorts (05-09,
+// pedido de Santiago) parten directo en el contenido, sin los 3 s de
+// pantalla muerta que además quedaban de portada del Short en YouTube.
+const enFrio = process.env.EN_FRIO === "1" ||
+  /la noticia del d[ií]a/i.test((parsed.eventos.find((e) => e.tipo === "seccion") || {}).texto || "");
 const INICIO = enFrio ? 0 : Number(process.env.INICIO_NARRACION || 3.0);
 
 if (chars.length !== parsed.cleanText.length) {
