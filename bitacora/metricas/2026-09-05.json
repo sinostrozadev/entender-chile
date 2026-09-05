@@ -1,17 +1,53 @@
 {
   "fecha": "2026-09-05",
   "canal": {
-    "suscriptores": 7,
-    "vistas": 328,
-    "videos": 25
+    "suscriptores": 8,
+    "vistas": 334,
+    "videos": 29
   },
   "videos": {
+    "5GV3sHJxsQM": {
+      "titulo": "Clave: ¿Cómo funciona la regla fiscal y el balance estructur",
+      "publicado": "2026-09-05",
+      "estado": "public",
+      "vistas": 4,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 39
+    },
+    "Zrfm2a7Fxj4": {
+      "titulo": "Cinco cosas que hay que saber hoy, Sábado, 5 de septiembre #",
+      "publicado": "2026-09-05",
+      "estado": "public",
+      "vistas": 2,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 54
+    },
+    "GJMefzqOaqk": {
+      "titulo": "¿Cómo funciona la regla fiscal y el balance estructural?",
+      "publicado": "2026-09-05",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 598
+    },
+    "Yoli64YxjuM": {
+      "titulo": "Muere Camilo Escalona, histórico dirigente socialista y expr",
+      "publicado": "2026-09-05",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 687
+    },
     "YFYczQZWjnQ": {
       "titulo": "¿Esperabas que bajaran las tasas? El mercado dice que no por",
       "publicado": "2026-09-04",
       "estado": "public",
-      "vistas": 40,
-      "meGusta": 1,
+      "vistas": 67,
+      "meGusta": 0,
       "comentarios": 0,
       "durSeg": 51
     },
@@ -19,8 +55,8 @@
       "titulo": "Clave: ¿Qué ocurre cuando Contraloría detecta un perjuicio f",
       "publicado": "2026-09-04",
       "estado": "public",
-      "vistas": 35,
-      "meGusta": 0,
+      "vistas": 75,
+      "meGusta": 1,
       "comentarios": 0,
       "durSeg": 35
     },
@@ -28,8 +64,8 @@
       "titulo": "Cinco cosas que hay que saber hoy, Viernes, 4 de septiembre ",
       "publicado": "2026-09-04",
       "estado": "public",
-      "vistas": 135,
-      "meGusta": 4,
+      "vistas": 287,
+      "meGusta": 5,
       "comentarios": 0,
       "durSeg": 50
     },
@@ -37,7 +73,7 @@
       "titulo": "¿Qué ocurre cuando Contraloría detecta un perjuicio fiscal?",
       "publicado": "2026-09-04",
       "estado": "public",
-      "vistas": 1,
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 565
@@ -46,7 +82,7 @@
       "titulo": "Chile y Argentina ratifican la soberanía chilena sobre el Es",
       "publicado": "2026-09-04",
       "estado": "public",
-      "vistas": 8,
+      "vistas": 23,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 655
@@ -73,7 +109,7 @@
       "titulo": "Cinco cosas que hay que saber hoy, Jueves, 3 de septiembre #",
       "publicado": "2026-09-03",
       "estado": "public",
-      "vistas": 159,
+      "vistas": 176,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 52
@@ -109,7 +145,7 @@
       "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 18,
+      "vistas": 19,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 682
@@ -208,7 +244,7 @@
       "titulo": "Clave: ¿Cómo puede una antena falsa identificar tu celular? ",
       "publicado": "2026-08-30",
       "estado": "public",
-      "vistas": 126,
+      "vistas": 125,
       "meGusta": 3,
       "comentarios": 0,
       "durSeg": 36
