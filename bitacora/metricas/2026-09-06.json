@@ -1,11 +1,20 @@
 {
   "fecha": "2026-09-06",
   "canal": {
-    "suscriptores": 8,
+    "suscriptores": 9,
     "vistas": 333,
-    "videos": 32
+    "videos": 33
   },
   "videos": {
+    "k_im76N_Is4": {
+      "titulo": "Clave: ¿Por qué un senador necesita permiso judicial para se",
+      "publicado": "2026-09-06",
+      "estado": "public",
+      "vistas": 4,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 35
+    },
     "xDofJVmO0rk": {
       "titulo": "¿Por qué un senador necesita permiso judicial para ser juzga",
       "publicado": "2026-09-06",
@@ -19,8 +28,8 @@
       "titulo": "Su rival lo llamó valiente, y otras 4 cosas de hoy #Shorts",
       "publicado": "2026-09-06",
       "estado": "public",
-      "vistas": 1,
-      "meGusta": 0,
+      "vistas": 20,
+      "meGusta": 2,
       "comentarios": 0,
       "durSeg": 49
     },
@@ -32,15 +41,6 @@
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 659
-    },
-    "k_im76N_Is4": {
-      "titulo": "Clave: ¿Por qué un senador necesita permiso judicial para se",
-      "publicado": "2026-09-06",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 35
     },
     "5GV3sHJxsQM": {
       "titulo": "Clave: ¿Cómo funciona la regla fiscal y el balance estructur",
