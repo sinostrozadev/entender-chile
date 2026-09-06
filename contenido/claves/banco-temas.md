@@ -35,3 +35,7 @@
 - Fondo de Cesantía Solidario, giros adicionales y estabilizadores automáticos frente al desempleo | Alto desempleo activa dos pagos adicionales del Fondo de Cesantía Solidario | 2026-09-05
 - diplomacia parlamentaria y su relación con la política exterior del Ejecutivo | Chile y Bolivia retoman intercambio parlamentario de alto nivel tras 18 años | 2026-09-05
 - alertas técnicas volcánicas, vigilancia instrumental y diferencia con las alertas de protección civil | Volcán Villarrica vuelve a alerta técnica amarilla por aumento de actividad | 2026-09-05
+- duelo oficial, quién lo decreta y qué efectos protocolares produce | Chile despide a Camilo Escalona con duelo oficial y homenajes transversales | 2026-09-06
+- formación del currículo escolar y quién decide qué contenidos se incorporan | UDI propone incorporar los dos procesos constitucionales recientes a las clases de Historia | 2026-09-06
+- concesiones de obras públicas, distribución de riesgos, tarifas y obligaciones del concesionario | Concesión vial de 110 kilómetros contempla inversión cercana a 800 millones de euros | 2026-09-06
+- transición desde educación municipal a Servicios Locales de Educación Pública y gobernanza del sistema | Comisión del Senado revisará extensión de implementación de los SLEP hasta 2040 | 2026-09-06

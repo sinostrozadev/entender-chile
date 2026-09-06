@@ -11,3 +11,4 @@
 2026-09-03 | estrecho-magallanes-soberania-navegacion | Estrecho de Magallanes: cómo conviven soberanía chilena, libre navegación y obligaciones con Argentina
 2026-09-04 | contraloria-reparo-juicio-cuentas | Contraloría, reparos y juicios de cuentas: cómo se busca recuperar dinero público cuando una fiscalización detecta un perjuicio
 2026-09-05 | balance-estructural-regla-fiscal | Balance estructural y regla fiscal: por qué Chile no arma el Presupuesto con los ingresos del año tal como vienen
+2026-09-06 | desafuero-parlamentario-chile | Desafuero parlamentario en Chile: qué protege el fuero, quién puede levantarlo y qué ocurre después
