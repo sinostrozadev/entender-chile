@@ -123,5 +123,23 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-05-clave.mp3",
     "bytes": 14269248,
     "durSeg": 595
+  },
+  {
+    "fecha": "2026-09-06",
+    "tipo": "informe",
+    "titulo": "06-09-2026 · Chile cierra el duelo oficial por Camilo Escalona",
+    "descripcion": "Chile cerró este domingo el duelo oficial por Camilo Escalona, con homenajes que cruzaron las fronteras políticas. Repasamos además la alerta por el viento Puelche en el centro-sur, la explosión en un cuartel militar boliviano y la alerta sanitaria por Listeria en una pasta de jamón. Cerramos con una semana clave para el Banco Central, titulares, la agenda y el dato curioso del día.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-06-informe.mp3",
+    "bytes": 15819840,
+    "durSeg": 659
+  },
+  {
+    "fecha": "2026-09-06",
+    "tipo": "clave",
+    "titulo": "Clave · ¿Por qué un senador necesita permiso judicial para ser juzgado?",
+    "descripcion": "",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-06-clave.mp3",
+    "bytes": 7405632,
+    "durSeg": 309
   }
 ]
