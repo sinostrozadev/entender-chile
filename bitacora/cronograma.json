@@ -1,31 +1,111 @@
 {
   "_regla": "FUENTE DE VERDAD del cronograma del panel. Quien cambie una tarea (rutina, workflow, tarea GPT, horario o disparador) ACTUALIZA este archivo en el mismo commit; scripts/panel-cronograma.js lo inyecta al panel y el reloj de métricas lo refresca a diario.",
-  "actualizado": "2026-09-05",
+  "actualizado": "2026-09-06",
   "fases": [
     {
       "nombre": "La madrugada — cadena editorial (cada pieza despierta a la siguiente)",
       "items": [
-        { "hora": "01:30", "quien": "Reloj del barrido", "tipo": "claude", "que": "Aprieta el botón: toca el despertador y pushea. Existe porque el cron de GitHub llega tarde y el reloj de Claude es puntual al minuto." },
-        { "hora": "01:31", "quien": "Barrido", "tipo": "actions", "que": "Recorre los feeds de ~22 medios, marca las noticias con señal y publica el material bruto del día. Al terminar emite el evento al PR #2. Respaldos: crons 01:50 y 02:20 (solo si falta)." },
-        { "hora": "~01:38", "quien": "Preselección", "tipo": "gpt", "que": "Despierta con el evento del PR #2. Arma la olla: ~50 candidatas por área con el porqué, visitando además las instituciones sin feed. Su push emite el evento al PR #3." },
-        { "hora": "01:45", "quien": "Observatorio plata pública", "tipo": "claude", "que": "En paralelo: busca novedades verificables de cada caso en seguimiento (querellas, cifras oficiales, sentencias) y actualiza los dossiers de ¿En qué quedó? que publica la web." },
-        { "hora": "~02:00", "quien": "Informe", "tipo": "gpt", "que": "Despierta con el evento del PR #3. Verifica cada candidata leyendo las fuentes completas, jerarquiza A/B/C, elige portada con puntaje y escribe la edición completa. Su push emite el evento al PR #4, reconstruye la web y despierta al guionista. Respaldo fijo 03:30 con guarda (se apaga al validar la prueba)." },
-        { "hora": "~02:10", "quien": "Guionista del informe", "tipo": "claude", "que": "Despierta con el webhook del push del informe (reloj 03:35 de respaldo). Convierte el informe en guion narrable: qué se narra completo y qué va a En titulares, marcas de tarjetas, techo de duración y la línea Carátula sugerida." },
-        { "hora": "~02:30", "quien": "Clave (entrega)", "tipo": "gpt", "que": "Despierta con el evento del PR #4. La entrega educativa diaria: un concepto detrás de una noticia, banco de temas e índice de la colección. Respaldo fijo 03:45 con guarda." },
-        { "hora": "03:50", "quien": "Guionista de la Clave", "tipo": "claude", "que": "Entrega → guion de ~5 minutos. Va con reloj por la limitación del webhook (dispara con cualquier push); pendiente fusionar los dos guionistas en una rutina reactiva." },
-        { "hora": "04:40", "quien": "Revisión editorial", "tipo": "claude", "que": "Control de calidad: compara los guiones contra el informe buscando 4 tipos de falla (omisión, dato alterado, sentido cambiado, formato) y emite el VEREDICTO." },
-        { "hora": "~04:45", "quien": "Edición diaria", "tipo": "actions", "que": "La fábrica, con compuerta (exige guion + veredicto): voz Azure → renders de los 4 videos → carátulas automáticas → sube todo PRIVADO → descripciones → podcast. Cron de respaldo 05:00." },
-        { "hora": "06:00", "quien": "Guardián", "tipo": "claude", "que": "Pasa lista a todas las piezas. Todo en orden: una línea y silencio. Falta algo: push al teléfono diciendo qué y qué bloquea." }
+        {
+          "hora": "01:30",
+          "quien": "Reloj del barrido",
+          "tipo": "claude",
+          "que": "Aprieta el botón: toca el despertador y pushea. Existe porque el cron de GitHub llega tarde y el reloj de Claude es puntual al minuto."
+        },
+        {
+          "hora": "01:31",
+          "quien": "Barrido",
+          "tipo": "actions",
+          "que": "Recorre los feeds de ~22 medios, marca las noticias con señal y publica el material bruto del día. Al terminar emite el evento al PR #2. Respaldos: crons 01:50 y 02:20 (solo si falta)."
+        },
+        {
+          "hora": "~01:38",
+          "quien": "Preselección",
+          "tipo": "gpt",
+          "que": "Despierta con el evento del PR #2. Arma la olla: ~50 candidatas por área con el porqué, visitando además las instituciones sin feed. Su push emite el evento al PR #3."
+        },
+        {
+          "hora": "01:45",
+          "quien": "Observatorio plata pública",
+          "tipo": "claude",
+          "que": "En paralelo: busca novedades verificables de cada caso en seguimiento (querellas, cifras oficiales, sentencias) y actualiza los dossiers de ¿En qué quedó? que publica la web."
+        },
+        {
+          "hora": "~02:00",
+          "quien": "Informe",
+          "tipo": "gpt",
+          "que": "Despierta con el evento del PR #3. Verifica cada candidata leyendo las fuentes completas, jerarquiza A/B/C, elige portada con puntaje y escribe la edición completa. Su push emite el evento al PR #4, reconstruye la web y despierta al guionista. Respaldo fijo 03:30 con guarda (se apaga al validar la prueba)."
+        },
+        {
+          "hora": "~02:10",
+          "quien": "Guionista del informe",
+          "tipo": "claude",
+          "que": "Despierta con el webhook del push del informe (reloj 03:35 de respaldo). Convierte el informe en guion narrable: qué se narra completo y qué va a En titulares, marcas de tarjetas, techo de duración y la línea Carátula sugerida."
+        },
+        {
+          "hora": "~02:30",
+          "quien": "Clave (entrega)",
+          "tipo": "gpt",
+          "que": "Despierta con el evento del PR #4. La entrega educativa diaria: un concepto detrás de una noticia, banco de temas e índice de la colección. Respaldo fijo 03:45 con guarda."
+        },
+        {
+          "hora": "03:50",
+          "quien": "Guionista de la Clave",
+          "tipo": "claude",
+          "que": "Entrega → guion de ~5 minutos. Va con reloj por la limitación del webhook (dispara con cualquier push); pendiente fusionar los dos guionistas en una rutina reactiva."
+        },
+        {
+          "hora": "04:40",
+          "quien": "Revisión editorial",
+          "tipo": "claude",
+          "que": "Control de calidad: compara los guiones contra el informe buscando 4 tipos de falla (omisión, dato alterado, sentido cambiado, formato) y emite el VEREDICTO."
+        },
+        {
+          "hora": "~04:45",
+          "quien": "Edición diaria",
+          "tipo": "actions",
+          "que": "La fábrica, con compuerta (exige guion + veredicto): voz Azure → renders de los 4 videos → carátulas automáticas → sube todo PRIVADO → descripciones → podcast. Cron de respaldo 05:00."
+        },
+        {
+          "hora": "05:00",
+          "quien": "Reloj de métricas → Métricas",
+          "tipo": "actions",
+          "que": "Baja los números del canal video por video (con retención de Analytics) y redibuja el panel — ahora ANTES del informe de la mañana, para que llegue con números frescos. Respaldos 06:30 y 08:00."
+        },
+        {
+          "hora": "05:30",
+          "quien": "Auditoría matinal",
+          "tipo": "claude",
+          "que": "Audita la máquina: horas reales vs esperadas, hallazgos del validador y la revisión, triage HOY/AGUANTA/MIRAR. Escribe su archivo y lo inyecta al panel. Desde el 06-09 lee su prompt vivo del repo (prompts/auditoria-matinal.md): nunca más una versión atrás."
+        },
+        {
+          "hora": "06:00",
+          "quien": "Informe de la mañana (Opus)",
+          "tipo": "claude",
+          "que": "El guardián v2: verifica pieza por pieza la edición, y arma EL INFORME DIARIO para el teléfono de Santiago — la edición, lo editorial (portada, Clave, carátula), los números con deltas, el estado de la máquina y su lista de acciones. Prompt vivo: prompts/guardian.md."
+        }
       ]
     },
     {
       "nombre": "El día — vigilancia y medición",
       "items": [
-        { "hora": "08–22 c/2h", "quien": "Guardia + Short exprés", "tipo": "claude", "que": "Barrido liviano de urgentes con criterio mecánico (2 de 4 señales, o algo anunciado que se publicó). Si caza: redacta el guion exprés, Actions produce el Short vertical vino, lo sube privado y llega el link al teléfono. Silencio si no hay nada. También a pedido: \"prepara un video exprés de X\" → ~10 min." },
-        { "hora": "08:45", "quien": "Reloj de métricas → Métricas", "tipo": "actions", "que": "Baja los números del canal video por video (con retención de Analytics) y redibuja el panel. Respaldos 11:00 y 12:30." },
-        { "hora": "09:30", "quien": "Auditoría matinal", "tipo": "claude", "que": "Audita la máquina: horas reales vs esperadas, hallazgos del validador y la revisión, los números, y el triage HOY/AGUANTA/MIRAR. Push corto al teléfono; informe completo en este panel." },
-        { "hora": "continuo", "quien": "Señales (PR #2 · #3 · #4)", "tipo": "senal", "que": "Tres PR permanentes que jamás se fusionan: el timbre entre eslabones. Cada workflow emisor deduplica por día y se auto-repara en la corrida siguiente." },
-        { "hora": "continuo", "quien": "Web", "tipo": "actions", "que": "Cada push de contenido re-publica la web pública con el informe por categorías, los casos y los videos embebidos." }
+        {
+          "hora": "08–22 c/2h",
+          "quien": "Guardia + Short exprés",
+          "tipo": "claude",
+          "que": "Barrido liviano de urgentes con criterio mecánico (2 de 4 señales, o algo anunciado que se publicó). Si caza: redacta el guion exprés, Actions produce el Short vertical vino, lo sube privado y llega el link al teléfono. Silencio si no hay nada. También a pedido: \"prepara un video exprés de X\" → ~10 min."
+        },
+        {
+          "hora": "continuo",
+          "quien": "Señales (PR #2 · #3 · #4)",
+          "tipo": "senal",
+          "que": "Tres PR permanentes que jamás se fusionan: el timbre entre eslabones. Cada workflow emisor deduplica por día y se auto-repara en la corrida siguiente."
+        },
+        {
+          "hora": "continuo",
+          "quien": "Web",
+          "tipo": "actions",
+          "que": "Cada push de contenido re-publica la web pública con el informe por categorías, los casos y los videos embebidos."
+        }
       ]
     }
   ]

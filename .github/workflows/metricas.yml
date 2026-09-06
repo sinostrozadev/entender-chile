@@ -15,8 +15,8 @@ on:
   schedule:
     # dos entradas: el 03-09 el reloj de Claude murió por cuota y el cron
     # único es poco confiable (patrón ya aplicado en barrido.yml)
-    - cron: "0 14 * * *"
-    - cron: "30 15 * * *"
+    - cron: "30 9 * * *"
+    - cron: "0 11 * * *"
   workflow_dispatch:
 
 permissions:
