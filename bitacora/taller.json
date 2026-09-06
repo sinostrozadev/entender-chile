@@ -1,0 +1,8 @@
+{
+  "_regla": "Índice del taller: los tableros y bocetos de diseño que se iteran con Santiago, con su estado de decisión. Quien abra o cierre un taller actualiza este archivo.",
+  "items": [
+    { "fecha": "2026-09-05", "titulo": "Tablero de carátulas: hoy vs propuesta (14 videos)", "url": "https://claude.ai/code/artifact/67d551fc-4b23-416e-b92c-863b3a8445c2", "estado": "APROBADO Y APLICADO", "nota": "14/14 carátulas cambiadas en YouTube; respaldo de las anteriores en out/caratulas-respaldo-2026-09-05/." },
+    { "fecha": "2026-09-05", "titulo": "Bocetos de carátula, vuelta 2: direcciones de color (oscuro · velo de sección · papel)", "url": "", "estado": "PENDIENTE DE DECISIÓN", "nota": "Santiago debe elegir la dirección; imágenes enviadas al teléfono y en out/bocetos/. En producción quedó velo-de-sección para informes y verde de serie para Claves." },
+    { "fecha": "2026-09-03", "titulo": "Fondos por sección en los videos (imágenes Gemini)", "url": "", "estado": "CERRADO", "nota": "Regla 29: en producción con variación diaria." }
+  ]
+}
