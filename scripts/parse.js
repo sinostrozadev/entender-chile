@@ -125,7 +125,16 @@ function parseGuion(md) {
     // Carátula sugerida (05-09): el gancho de 3-5 palabras para la miniatura,
     // escrito por el guionista. Dice lo que el título no dice; nunca se narra.
     if (/^car[áa]tula sugerida:/i.test(sinNegrita)) { caratula = sinNegrita.replace(/^car[áa]tula sugerida:/i, "").trim(); continue; }
-    if (/^descripci[óo]n sugerida:/i.test(sinNegrita)) { zona = "descripcion"; continue; }
+    // El texto puede venir en la MISMA línea que la etiqueta o en las
+    // siguientes: los dos guionistas alternan. Si se descarta la línea entera,
+    // la descripción del video queda vacía (pasó con la Clave del 06-09, lo
+    // cazó el Informe de la mañana).
+    if (/^descripci[óo]n sugerida:/i.test(sinNegrita)) {
+      zona = "descripcion";
+      const resto = sinNegrita.replace(/^descripci[óo]n sugerida:/i, "").trim();
+      if (resto) descripcion.push(resto);
+      continue;
+    }
     if (/^guion:/i.test(sinNegrita)) { flush(); zona = "guion"; continue; }
     if (/^fuentes:/i.test(sinNegrita)) { flush(); zona = "fuentes"; continue; }
 
