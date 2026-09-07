@@ -294,6 +294,22 @@ referencia:
       02 al 04-09 (BUG 1, apertura en frío, Short exprés) movió ese anclaje.
       Verlo en la sesión local, no en la remota.
 
+- [ ] **TARJETA 1: "7 de cada 10" sale como "10"** (Santiago, 05-09 noche,
+      informe del 06-09 "La disputa por el Estrecho golpea la imagen de...",
+      sección "El Estrecho y la respuesta del Gobierno", minuto 2:04; captura
+      en `bitacora/capturas-2026-09-06-tarjeta-7-de-cada-10.jpg`). El párrafo
+      dice "7 de cada 10 personas consultadas cree que existe una pretensión
+      argentina sobre el paso" y la tarjeta automática muestra el número
+      grande "10" con la etiqueta "personas consultadas cree que existe". Es
+      el extractor automático de `parse.js` (cifraPrincipal): descarta el 7
+      por ser menor que 10 y toma el 10 porque lo sigue "personas". Una
+      proporción "N de cada M" es UNA cifra y debe mostrarse entera ("7 de
+      cada 10") o no mostrarse; y la etiqueta cortada en "cree que existe"
+      es el mismo problema de etiquetas que no terminan en sustantivo. Misma
+      familia que el "544.800" del 04-09: cada cifra automática nueva que
+      falla suma un argumento para que el guion marque sus [DATO] y el
+      automático quede solo como red. Verlo en la sesión local.
+
 - [ ] **REVISIÓN 1: cargar el prompt nuevo en la rutina "Revisión editorial"**
       (04-09). El prompt con la categoría e (redondeo en voz) y la fuente
       circular como categoría b está en `prompts/revision-editorial.md`. La
