@@ -62,6 +62,31 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
   // va con rezago y descuadra (marcaba 135 cuando la tabla sumaba 372).
   // El contador del canal se conserva aparte, como referencia.
   const vistasTotales = Object.values(videos).reduce((s, v) => s + v.vistas, 0);
+
+  // RETENCIÓN (06-09): YouTube Analytics, scope yt-analytics.readonly, token
+  // aparte (YT_ANALYTICS_REFRESH_TOKEN). Es la serie que de verdad decide si
+  // las 4.000 horas son alcanzables: vistas × duración × retención. Si el token
+  // no está, el reporte sale igual y lo dice; nunca bloquea las métricas.
+  let retencion = null;
+  if (process.env.YT_ANALYTICS_REFRESH_TOKEN) {
+    try {
+      const oa = new google.auth.OAuth2(YT_CLIENT_ID, YT_CLIENT_SECRET);
+      oa.setCredentials({ refresh_token: process.env.YT_ANALYTICS_REFRESH_TOKEN });
+      const an = google.youtubeAnalytics({ version: "v2", auth: oa });
+      const desde = new Date(Date.now() - 30 * 864e5).toISOString().slice(0, 10);
+      const r = await an.reports.query({
+        ids: "channel==MINE", startDate: desde, endDate: fecha,
+        metrics: "views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage",
+        dimensions: "video", sort: "-estimatedMinutesWatched", maxResults: 200,
+      });
+      retencion = {};
+      for (const [id, v, min, seg, pct] of r.data.rows || []) {
+        retencion[id] = { vistas: v, minutos: min, segProm: seg, pct: Number(pct.toFixed(1)) };
+      }
+    } catch (e) {
+      console.log(`(retención no disponible: ${e.message.split("\n")[0]})`);
+    }
+  }
   const publicos = Object.values(videos).filter((v) => v.estado === "public").length;
   const lineas = [
     `# Métricas · ${fecha.split("-").reverse().join("-")}`,
@@ -71,17 +96,34 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
     `${Object.keys(videos).length} subidos, ${publicos} públicos.` +
     (prev ? ` (vs ${previos[previos.length - 1].replace(".json", "")})` : " (línea base, sin comparación)"),
     "",
-    "| Video | Estado | Vistas | Me gusta | Coment. |",
-    "|---|---|---|---|---|",
+    retencion ? "| Video | Estado | Vistas | Min. vistos | % visto | Me gusta |"
+              : "| Video | Estado | Vistas | Me gusta | Coment. |",
+    retencion ? "|---|---|---|---|---|---|" : "|---|---|---|---|---|",
   ];
   const orden = Object.entries(videos).sort((a, b) => (a[1].publicado < b[1].publicado ? 1 : -1));
   for (const [id, v] of orden) {
     const pv = prev?.videos?.[id];
-    lineas.push(`| ${v.titulo} | ${v.estado} | ${v.vistas}${d(v.vistas, pv?.vistas)} | ${v.meGusta}${d(v.meGusta, pv?.meGusta)} | ${v.comentarios}${d(v.comentarios, pv?.comentarios)} |`);
+    const re = retencion?.[id];
+    lineas.push(retencion
+      ? `| ${v.titulo} | ${v.estado} | ${v.vistas}${d(v.vistas, pv?.vistas)} | ${re ? re.minutos : "-"} | ${re ? re.pct + "%" : "-"} | ${v.meGusta}${d(v.meGusta, pv?.meGusta)} |`
+      : `| ${v.titulo} | ${v.estado} | ${v.vistas}${d(v.vistas, pv?.vistas)} | ${v.meGusta}${d(v.meGusta, pv?.meGusta)} | ${v.comentarios}${d(v.comentarios, pv?.comentarios)} |`);
   }
-  lineas.push("", "Retención e impresiones: pendiente el scope de Analytics (fase 2).", "");
+  if (retencion) {
+    const esShort = (id) => (videos[id]?.durSeg ?? 0) > 0 && (videos[id]?.durSeg ?? 0) <= 75;
+    let minLargos = 0, pesoPct = 0, pesoVistas = 0;
+    for (const [id, r] of Object.entries(retencion)) {
+      if (esShort(id)) continue;
+      minLargos += r.minutos; pesoPct += r.pct * r.vistas; pesoVistas += r.vistas;
+    }
+    lineas.push("",
+      `**Retención real (Analytics, últimos 30 días):** ${(minLargos / 60).toFixed(1)} horas vistas en videos LARGOS ` +
+      `(las que cuentan para el YPP) · retención media ponderada de los largos: ${pesoVistas ? (pesoPct / pesoVistas).toFixed(1) : "-"}%.`,
+      "Las horas de esta línea son medidas, no estimadas: sustituyen al cálculo de vistas × duración × 40%.", "");
+  } else {
+    lineas.push("", "Retención: sin YT_ANALYTICS_REFRESH_TOKEN en el entorno (la métrica queda fuera, el resto no se afecta).", "");
+  }
   fs.writeFileSync(path.join(DIR, `${fecha}.md`), lineas.join("\n"));
-  fs.writeFileSync(path.join(DIR, `${fecha}.json`), JSON.stringify({ fecha, canal, videos }, null, 2) + "\n");
+  fs.writeFileSync(path.join(DIR, `${fecha}.json`), JSON.stringify({ fecha, canal, videos, ...(retencion ? { retencion } : {}) }, null, 2) + "\n");
 
   reconstruirHistorico();
   console.log(`métricas del ${fecha}: ${canal.suscriptores} subs, ${Object.keys(videos).length} videos → ${DIR}/${fecha}.md`);

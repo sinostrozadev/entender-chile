@@ -1,7 +1,7 @@
 {
   "fecha": "2026-09-06",
   "canal": {
-    "suscriptores": 9,
+    "suscriptores": 10,
     "vistas": 333,
     "videos": 33
   },
@@ -10,8 +10,8 @@
       "titulo": "Clave: ¿Por qué un senador necesita permiso judicial para se",
       "publicado": "2026-09-06",
       "estado": "public",
-      "vistas": 4,
-      "meGusta": 0,
+      "vistas": 99,
+      "meGusta": 2,
       "comentarios": 0,
       "durSeg": 35
     },
@@ -19,7 +19,7 @@
       "titulo": "¿Por qué un senador necesita permiso judicial para ser juzga",
       "publicado": "2026-09-06",
       "estado": "public",
-      "vistas": 0,
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 312
@@ -28,7 +28,7 @@
       "titulo": "Su rival lo llamó valiente, y otras 4 cosas de hoy #Shorts",
       "publicado": "2026-09-06",
       "estado": "public",
-      "vistas": 20,
+      "vistas": 141,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 49
@@ -37,7 +37,7 @@
       "titulo": "Chile cierra el duelo oficial por Camilo Escalona",
       "publicado": "2026-09-06",
       "estado": "public",
-      "vistas": 0,
+      "vistas": 4,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 659
@@ -46,7 +46,7 @@
       "titulo": "Clave: ¿Cómo funciona la regla fiscal y el balance estructur",
       "publicado": "2026-09-05",
       "estado": "public",
-      "vistas": 19,
+      "vistas": 51,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 39
@@ -55,8 +55,8 @@
       "titulo": "Cinco cosas que hay que saber hoy, Sábado, 5 de septiembre #",
       "publicado": "2026-09-05",
       "estado": "public",
-      "vistas": 32,
-      "meGusta": 0,
+      "vistas": 68,
+      "meGusta": 1,
       "comentarios": 0,
       "durSeg": 54
     },
@@ -64,7 +64,7 @@
       "titulo": "¿Cómo funciona la regla fiscal y el balance estructural?",
       "publicado": "2026-09-05",
       "estado": "public",
-      "vistas": 2,
+      "vistas": 7,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 598
@@ -73,7 +73,7 @@
       "titulo": "Muere Camilo Escalona, histórico dirigente socialista y expr",
       "publicado": "2026-09-05",
       "estado": "public",
-      "vistas": 5,
+      "vistas": 6,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 687
@@ -82,7 +82,7 @@
       "titulo": "¿Esperabas que bajaran las tasas? El mercado dice que no por",
       "publicado": "2026-09-04",
       "estado": "public",
-      "vistas": 80,
+      "vistas": 99,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 51
@@ -91,7 +91,7 @@
       "titulo": "Clave: ¿Qué ocurre cuando Contraloría detecta un perjuicio f",
       "publicado": "2026-09-04",
       "estado": "public",
-      "vistas": 96,
+      "vistas": 100,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 35
@@ -100,7 +100,7 @@
       "titulo": "Cinco cosas que hay que saber hoy, Viernes, 4 de septiembre ",
       "publicado": "2026-09-04",
       "estado": "public",
-      "vistas": 375,
+      "vistas": 392,
       "meGusta": 6,
       "comentarios": 0,
       "durSeg": 50
@@ -118,7 +118,7 @@
       "titulo": "Chile y Argentina ratifican la soberanía chilena sobre el Es",
       "publicado": "2026-09-04",
       "estado": "public",
-      "vistas": 40,
+      "vistas": 50,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 655
@@ -127,7 +127,7 @@
       "titulo": "Clave: ¿Cómo conviven soberanía y libre navegación en un est",
       "publicado": "2026-09-03",
       "estado": "public",
-      "vistas": 94,
+      "vistas": 95,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 37
@@ -136,7 +136,7 @@
       "titulo": "¿Cómo conviven soberanía y libre navegación en un estrecho?",
       "publicado": "2026-09-03",
       "estado": "public",
-      "vistas": 8,
+      "vistas": 9,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 551
@@ -181,7 +181,7 @@
       "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 29,
+      "vistas": 31,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 682
@@ -199,7 +199,7 @@
       "titulo": "Clave: ¿Cómo leer el Imacec sin confundir señal con ruido? #",
       "publicado": "2026-09-01",
       "estado": "public",
-      "vistas": 81,
+      "vistas": 80,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 34
@@ -217,7 +217,7 @@
       "titulo": "Cinco cosas que hay que saber hoy, Martes, 1 de septiembre #",
       "publicado": "2026-09-01",
       "estado": "public",
-      "vistas": 96,
+      "vistas": 94,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 55
@@ -244,7 +244,7 @@
       "titulo": "¿Por qué el mercado de capitales influye en tu hipotecario?",
       "publicado": "2026-08-31",
       "estado": "public",
-      "vistas": 11,
+      "vistas": 12,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 791
@@ -262,7 +262,7 @@
       "titulo": "Milei llega a Chile tras el impasse por el Estrecho de Magal",
       "publicado": "2026-08-31",
       "estado": "public",
-      "vistas": 216,
+      "vistas": 220,
       "meGusta": 1,
       "comentarios": 1,
       "durSeg": 843
@@ -320,6 +320,164 @@
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 522
+    }
+  },
+  "retencion": {
+    "UyW1kuLY37E": {
+      "vistas": 217,
+      "minutos": 162,
+      "segProm": 246,
+      "pct": 29.3
+    },
+    "OttZ12KyBSk": {
+      "vistas": 46,
+      "minutos": 110,
+      "segProm": 245,
+      "pct": 29.9
+    },
+    "MRG9fw8e5P8": {
+      "vistas": 18,
+      "minutos": 86,
+      "segProm": 432,
+      "pct": 62.5
+    },
+    "TeKnIIGAMUw": {
+      "vistas": 11,
+      "minutos": 71,
+      "segProm": 427,
+      "pct": 54.1
+    },
+    "XVIxe4EJZbM": {
+      "vistas": 14,
+      "minutos": 62,
+      "segProm": 415,
+      "pct": 57.4
+    },
+    "rWOxj_0Iris": {
+      "vistas": 38,
+      "minutos": 58,
+      "segProm": 165,
+      "pct": 20.3
+    },
+    "hCObnchAo2U": {
+      "vistas": 245,
+      "minutos": 54,
+      "segProm": 41,
+      "pct": 76.2
+    },
+    "qzn2RJefxic": {
+      "vistas": 18,
+      "minutos": 49,
+      "segProm": 493,
+      "pct": 72.3
+    },
+    "xYaG4nx-IkI": {
+      "vistas": 20,
+      "minutos": 49,
+      "segProm": 209,
+      "pct": 32
+    },
+    "HnWm9lwFw8w": {
+      "vistas": 7,
+      "minutos": 47,
+      "segProm": 470,
+      "pct": 68.4
+    },
+    "XRzll3-Hbyw": {
+      "vistas": 10,
+      "minutos": 43,
+      "segProm": 288,
+      "pct": 40.1
+    },
+    "94UI6QLnUao": {
+      "vistas": 182,
+      "minutos": 41,
+      "segProm": 42,
+      "pct": 85.2
+    },
+    "j3KKFH9yaUc": {
+      "vistas": 8,
+      "minutos": 37,
+      "segProm": 320,
+      "pct": 58.1
+    },
+    "Wd9_JFdie-k": {
+      "vistas": 98,
+      "minutos": 31,
+      "segProm": 56,
+      "pct": 103.4
+    },
+    "G3zhNQ15u_w": {
+      "vistas": 177,
+      "minutos": 29,
+      "segProm": 37,
+      "pct": 72.5
+    },
+    "9SxSCiC8ZTs": {
+      "vistas": 191,
+      "minutos": 23,
+      "segProm": 34,
+      "pct": 72.1
+    },
+    "NaMLfrB4nzU": {
+      "vistas": 2,
+      "minutos": 9,
+      "segProm": 598,
+      "pct": 105.9
+    },
+    "xCeMIDevwsE": {
+      "vistas": 130,
+      "minutos": 6,
+      "segProm": 21,
+      "pct": 58.8
+    },
+    "YFYczQZWjnQ": {
+      "vistas": 54,
+      "minutos": 6,
+      "segProm": 24,
+      "pct": 48.4
+    },
+    "Ii7mKdrkNgs": {
+      "vistas": 101,
+      "minutos": 5,
+      "segProm": 27,
+      "pct": 74
+    },
+    "bO42vVDt5vg": {
+      "vistas": 59,
+      "minutos": 4,
+      "segProm": 19,
+      "pct": 55
+    },
+    "6sMtPM7Mzsw": {
+      "vistas": 86,
+      "minutos": 4,
+      "segProm": 16,
+      "pct": 49.7
+    },
+    "2uHk1abTVRA": {
+      "vistas": 16,
+      "minutos": 2,
+      "segProm": 28,
+      "pct": 59.1
+    },
+    "JpWGFsV-mMc": {
+      "vistas": 24,
+      "minutos": 1,
+      "segProm": 10,
+      "pct": 29
+    },
+    "urU9RKHTg1g": {
+      "vistas": 11,
+      "minutos": 0,
+      "segProm": 25,
+      "pct": 75.5
+    },
+    "y-EyhOlc_sU": {
+      "vistas": 4,
+      "minutos": 0,
+      "segProm": 5,
+      "pct": 12.3
     }
   }
 }

@@ -199,7 +199,16 @@ async function main() {
   // el otro sigue vigente, la ronda de dos horas después lo toma.
   if (hallazgos.length > 1) {
     hallazgos.sort((a, b) => (b.senales.length - a.senales.length) || (new Set(b.g.items.map((i) => i.medio)).size - new Set(a.g.items.map((i) => i.medio)).size));
-    for (const h of hallazgos.slice(1)) console.log(`  (queda para la ronda siguiente: ${h.principal.titulo.slice(0, 60)})`);
+    // El elegido NO se lleva la ronda entera: nombra a los demás en su propio
+    // archivo (pedido de Santiago, 06-09), para que el redactor sepa que el día
+    // trae más de un tema fuerte y Santiago vea lo que quedó esperando.
+    hallazgos[0].otros = hallazgos.slice(1).map((h) => ({
+      titulo: h.principal.titulo,
+      medios: new Set(h.g.items.map((i) => i.medio)).size,
+      senales: h.senales,
+      url: h.principal.url,
+    }));
+    for (const o of hallazgos[0].otros) console.log(`  (también cumplió, queda para la ronda siguiente: ${o.titulo.slice(0, 60)})`);
     hallazgos.length = 1;
   }
 
@@ -216,6 +225,15 @@ async function main() {
       "## Titulares del tema (material bruto, sin verificar)",
       ...h.g.items.slice(0, 8).map((i) => `- ${i.titulo} | ${i.medio} | ${i.url}`),
       "",
+      ...(h.otros && h.otros.length ? [
+        "## También cumplieron en esta ronda (uno por ronda: estos esperan)",
+        ...h.otros.map((o) => `- ${o.titulo} | ${o.medios} medios | ${o.senales.join(" · ")} | ${o.url}`),
+        "",
+        "Se redacta el Short de ESTE hallazgo, no de los de arriba. Si alguno de",
+        "ellos es claramente más importante, dilo en la notificación para que",
+        "Santiago decida; la ronda siguiente los vuelve a mirar igual.",
+        "",
+      ] : []),
       "REGLA: toda cifra que se publique a partir de esto debe venir de fuente",
       "primaria u oficial; si solo hay prensa, se atribuye al medio.",
       "",
