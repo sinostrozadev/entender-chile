@@ -122,186 +122,183 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 06-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 09:30; archivo completo en bitacora/2026-09-06-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS — HOY: bitacora/metricas/2026-09-06.md no existe (el Reloj de métricas reportó éxito pero no empujó el despertador); en menos de una hora corre el Informe de la mañana (06:00) y puede salir sin números ni estado de videos.</div>
+    <p class="eyebrow">Auditoría de la mañana · 07-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 09:30; archivo completo en bitacora/2026-09-07-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:#8A6F3F;margin-bottom:10px">ESTADO: CON OBSERVACIONES — nada roto ni perdido, pero una guarda de dedup falló (se autocorrigió sola) y dos archivos siguen mostrando el horario viejo de esta misma rutina.</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON FALLAS — HOY: bitacora/metricas/2026-09-06.md no existe (el Reloj de métricas reportó éxito pero no empujó el despertador); en menos de una hora corre el Informe de la mañana (06:00) y puede salir sin números ni estado de videos.
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON OBSERVACIONES — nada roto ni perdido, pero una guarda de dedup falló (se autocorrigió sola) y dos archivos siguen mostrando el horario viejo de esta misma rutina.
 
-Auditada el 06-09-2026 a las 05:31 de Chile (ya en horario de verano, UTC-3 desde esta madrugada), por `trig_01GDbvJ1Wjzy25bnVRCXgygZ`, que corre a las 05:30 desde el rediseño de anoche (commit `40784fc`, "mañana rediseñada... métricas 05:00, auditoría 05:30"). **Nota de contrato**: la propia rutina llegó a tiempo y correcta; el desfase lo tiene el contenido de `prompts/auditoria-matinal.md` (ver propuesta 3): sigue describiendo el horario viejo (09:30, guardián a las 06:07, métricas ~08:47), que ya no existe. Esta auditoría siguió al pie de la letra lo que el archivo pide, pero usó el horario real (bitacora/cronograma.json) para juzgar los atrasos, no el que describe el propio archivo.
+Auditada el 07-09-2026 a las 05:39 de Chile, con el checkout sincronizado contra `origin/main` (`f733b99`). Horas esperadas tomadas de `bitacora/cronograma.json` (actualizado 2026-09-06), no del texto de este mismo prompt (ver Qué falló 2).
 
 ## Qué salió y a qué hora
 
-| Pieza | Hora esperada (cronograma) | Hora real (Chile) | Estado |
+| Pieza | Hora esperada | Hora real (Chile) | Estado |
 |---|---|---|---|
-| Reloj del barrido | 01:30 | 01:32 | ok |
 | Barrido | 01:31 | 01:33 | ok |
 | Preselección | ~01:38 | 01:36 | ok |
-| Informe | ~02:00 | 01:40 | ok (20 min antes) |
-| Guion del informe | ~02:10 | 01:47 | ok |
-| Observatorio plata pública | ~01:45 | 01:52 | ok, 7 min |
-| Clave (entrega) | ~02:30 | **03:45** | ver Qué falló 2 |
-| Guionista de la Clave | 03:50 | 03:54 | ok |
-| Revisión editorial | 04:40 | 04:43 | ok, VEREDICTO: APROBADA |
-| Edición diaria (arranque) | ~04:45 | 04:44 | ok, **aún corriendo** (ver Qué falló 3) |
-| Reloj de métricas | 05:00 | 05:04 | reportó éxito, **no empujó el despertador** |
-| bitacora/metricas/2026-09-06.md | — | — | **no existe** |
-| Auditoría matinal (esta) | 05:30 | 05:30 | ok |
+| Informe | ~02:00 | 01:39 | ok (21 min antes) |
+| Guion del informe | ~02:10 | 01:49 | ok — **ver incidente en Qué falló 1** |
+| Clave (entrega) | ~02:30 | 01:43 | ok — reaccionó al evento en 4 min (ayer tardó 2h05 y cayó al respaldo) |
+| indice.md / banco-temas.md | — | 01:43 | ok, junto con la entrega |
+| Guionista de la Clave | 03:50 | 03:58 | ok (+8 min, rutina de reloj fijo, normal) |
+| Revisión editorial | 04:40 | 04:43 | ok, VEREDICTO: APROBADA (+3 min) |
+| Edición diaria (arranque) | ~04:45 | 04:43 | ok, arrancó puntual |
+| Edición diaria (estado al cierre de esta auditoría) | — | 05:39, en curso | produciendo el video de la Clave (paso 4 de 9 restantes); informe (video+short) ya renderizado a las 05:24. Ayer el mismo tramo completo tardó ~70 min (04:44→06:15); a este ritmo terminaría antes de las 06:00. No es falla. |
+| Reloj de métricas → Métricas | 05:00 | 05:11 | ok (+11 min) |
+| Auditoría matinal (esta) | 05:30 | 05:39 | ok |
 
-Los tres eslabones de la Clave: entrega
-(`contenido/claves/2026-09-06-desafuero-parlamentario-chile.md`) y guion
-(`contenido/guiones/claves/2026-09-06-desafuero-parlamentario-chile.md`)
-están. El tercero, el video, todavía no existe porque la Edición diaria
-sigue corriendo (ver punto 3); a esta hora eso es normal, no una falla.
-`indice.md` y `banco-temas.md` quedaron con línea de hoy.
+Los tres eslabones de la Clave: entrega y guion están, ambos a tiempo. El video
+todavía no existe porque la Edición diaria sigue corriendo — a esta hora es
+normal, no un caso de "entrega sin guion" (que sí sería grave).
+
+Descripciones del informe y de la Clave: `contenido/descripciones/2026-09-07-informe.txt`
+y `-clave.txt` **no existen todavía** (confirmado con `ls contenido/descripciones/`,
+el último archivo es del 06-09). Es el paso 5 de la Edición diaria, que va
+después del video de la Clave (paso 4, en curso): normal a esta hora, no falla.
 
 ## Qué falló
 
-1. **`bitacora/metricas/2026-09-06.md` no existe** (confirmado con `ls
-   bitacora/metricas/`: el último archivo es `2026-09-05.md`/`.json`).
-   El Reloj de métricas (`trig_01MxzGdh2P489TmgkUi9spWd`) se disparó a las
-   08:04:43 UTC (05:04 Chile) y su sesión (`cse_01FcCgqW8HjDuG4EmuRgeGPN`)
-   devolvió `SUCCEEDED` en 36 segundos, pero `bitacora/metricas/despertador.txt`
-   sigue con la marca `2026-09-05T04:37:27Z` (última escritura de ayer,
-   `git log` no tiene ningún commit de hoy sobre ese archivo) y el workflow
-   "Métricas" no tiene ninguna corrida hoy (`list_workflow_runs`: la última
-   es la de ayer, `2026-09-05T18:30:12Z`). El propio prompt de la rutina
-   (guardado en el trigger) dice: "Si `bitacora/metricas/$FECHA.md` YA
-   existe, termina" — y ese archivo NO existe, así que debió escribir el
-   despertador y no lo hizo. Es un fallo silencioso: la rutina se reporta
-   sana y no lo está. Los respaldos de `metricas.yml` (crons `30 9` y `0 11`
-   UTC = 06:30 y 08:00 Chile) van a cubrirlo, pero ambos caen DESPUÉS de las
-   06:00, hora en que corre "Informe de la mañana" y necesita
-   `bitacora/metricas/FECHA.md` para su sección "Los números".
+1. **Guarda de dedup omitida: el guion del informe se reescribió por segunda vez y tuvo que revertirse solo.**
+   `contenido/guiones/informe/2026-09-07.md` quedó completo y correcto a las
+   01:49:49 (commit `a55784d`). A las 04:05:58 —inmediatamente después de que
+   el guion de la Clave pusheara a las 03:58:12— una segunda ejecución de la
+   misma rutina lo **reescribió con contenido distinto** (commit `1e1b98e`,
+   mismo mensaje "edición 2026-09-07: guion informe", 159 líneas insertadas y
+   135 eliminadas: no fue un no-op, generó un guion diferente). 26 segundos
+   después, a las 04:06:24, el propio sistema lo revirtió (commit `0449173`,
+   "revertir sobreescritura accidental del guion informe (guarda de dedup
+   omitida)"). Verificado: `git diff a55784d..HEAD -- contenido/guiones/informe/2026-09-07.md`
+   no muestra diferencias, el archivo quedó exactamente como a las 01:49; no
+   se perdió contenido. Pero la causa de fondo sigue sin cerrarse: revisé
+   completo `prompts/guion-informe.md` (184 líneas) y en ninguna hay una
+   instrucción que le diga a la rutina que compruebe si
+   `contenido/guiones/informe/AAAA-MM-DD.md` ya existe en main antes de
+   generar. Es la primera vez que aparece este tipo de incidente (`git log
+   --oneline --all | grep -i "revertir\|sobreescritura"` solo devuelve el
+   commit de hoy).
 
-2. **"Clave (entrega)" no reaccionó al evento del informe.** El informe se
-   publicó a la 01:40 Chile (evento al PR #4); ayer, el mismo paso
-   reaccionó en 13 minutos (informe 03:32 → Clave entrega 03:45, ver
-   `bitacora/2026-09-05-auditoria.md`). Hoy la entrega recién aparece a las
-   **03:45:32** Chile — 2 horas 5 minutos después del informe, y coincide
-   al segundo con el "Respaldo fijo 03:45 con guarda" que documenta
-   `bitacora/cronograma.json` línea 48. Todo indica que el evento principal
-   se perdió o falló y fue el respaldo el que sacó el trabajo adelante. No
-   se perdió nada (guion y revisión llegaron a tiempo), pero nadie lo habría
-   notado sin comparar contra el patrón de ayer.
+2. **El propio prompt de esta auditoría sigue describiendo el horario viejo, segundo día seguido.**
+   Líneas 3-4 de `prompts/auditoria-matinal.md`: "Tarea diaria de las **09:30
+   de Chile**... (las métricas llegan ~08:47)". El horario real, vigente
+   desde el 06-09 según `bitacora/cronograma.json`, es 05:00 métricas → 05:30
+   esta auditoría. La auditoría de ayer (`bitacora/2026-09-06-auditoria.md`,
+   propuesta 3) ya pidió este cambio; sigue sin aplicarse. No afectó el
+   trabajo de hoy (usé `cronograma.json` como manda el punto 3 del prompt),
+   pero es una inconsistencia visible en un archivo que se lee fresco cada
+   mañana.
 
-3. **La Edición diaria sigue corriendo a la hora de esta auditoría** (run
-   `34019943054`, arrancó 04:44 Chile). A las 05:31 Chile va en el paso 4 de
-   9 restantes (video de la Clave); descripciones, subida a YouTube,
-   podcast y reconstrucción de la web todavía están pendientes. Ayer este
-   mismo proceso tardó ~91 minutos completo (04:44→06:15 Chile); si hoy
-   tarda lo mismo o más, terminaría cerca de las 06:15-06:30, es decir
-   DESPUÉS de que corra "Informe de la mañana" (06:00), que en su punto 6
-   promete a Santiago "los 4 videos privados por publicar en Studio con sus
-   títulos". Esto no es una falla todavía (a esta hora es el comportamiento
-   normal del pipeline), pero combinado con el punto 1 deja al informe de
-   las 06:00 con dos secciones probablemente incompletas el mismo día en
-   que se estrena.
+3. **El mismo texto fijo "09:30" también está en el script que llena el panel — hallazgo nuevo, misma causa que el punto 2.**
+   `scripts/panel-auditoria.js` línea 28 escribe al HTML del panel interno:
+   "la escribe sola la rutina de las 09:30" (también en el comentario de la
+   línea 5). Ese texto se inyecta cada mañana en `bitacora/panel-interno.html`,
+   que es justamente lo que ve Santiago: hoy seguirá mostrando "09:30" aunque
+   la rutina corrió a las 05:39. No se había detectado ayer porque la
+   auditoría de ayer revisó solo el prompt, no el script.
 
-4. **Tercer día seguido en que la revisión editorial no aplica su propia
-   categoría (e) "redondeo en voz".** `node scripts/validar-tarjetas.js
-   --fecha 2026-09-06` avisó: línea 118, cifra exacta en voz ("1.482").
-   Verificado en `contenido/guiones/informe/2026-09-06.md` línea 118: "Prisión
-   preventiva por mil cuatrocientas ochenta y dos licencias médicas falsas"
-   narra 1.482 con 4 cifras significativas (regla: máximo 3, `REGLAS-DURAS
-   38b`). `contenido/revisiones/2026-09-06.md` (VEREDICTO: APROBADA) no lo
-   marcó — su único hallazgo es de categoría b (ver punto 5). Se comprobó la
-   causa: el prompt CARGADO en `trig_019cchTdDCVeVzVh8HjrZrYG` solo tiene
-   cuatro categorías (a-d); la categoría (e) existe en el repo
-   (`prompts/revision-editorial.md` líneas 7 y 29, agregada el 04-09) pero
-   nunca se recargó en la rutina. Es exactamente lo que predijo la auditoría
-   de ayer (propuesta 3, "si se repite un tercer día... el checklist está
-   roto, no que fue una pasada de más"): hoy es el tercer día (04-09, 05-09,
-   06-09).
+4. **Pendiente sin marcar: la categoría (e) "redondeo en voz" del trigger de revisión editorial.**
+   `bitacora/PENDIENTES.md` línea 297 ("REVISIÓN 1: cargar el prompt nuevo en
+   la rutina 'Revisión editorial'") sigue con el checkbox sin marcar. No lo
+   verifiqué dígito por dígito hoy (no alcanza el tiempo de esta auditoría
+   para releer cada cifra narrada), pero sí corrí `node
+   scripts/validar-tarjetas.js --fecha 2026-09-07`, que chequea lo mismo por
+   regla determinística: **hoy no encontró ningún aviso de "cifra exacta en
+   voz"**, cortando una racha de al menos tres días (04-09: 6 avisos así,
+   05-09: 2, 06-09: 1 — ver Comparación con ayer). Eso no confirma que el
+   trigger ya tenga la categoría cargada; puede que el guion de hoy
+   simplemente no haya necesitado redondear ninguna cifra grande. El pendiente
+   sigue abierto y sin marcar.
 
-5. **[MENOR] dato mal etiquetado en el guion del informe.**
-   `contenido/revisiones/2026-09-06.md` sí cazó esto: en
-   `contenido/guiones/informe/2026-09-06.md` (sección "Viento Puelche en el
-   centro-sur"), la marca "[DATO comparacion | Dirección Meteorológica, 3
-   sep] ráfagas en el valle: 60 km/h" llama "ráfaga" a lo que el informe
-   describe como viento de base (40-60 km/h, con ráfagas de 70 km/h). La
-   tarjeta en pantalla mostraría un valor de ráfaga distinto al real.
-
-Sin más fallas: preselección, informe, guion del informe, observatorio y la
-revisión (en su veredicto) corrieron a tiempo y sin atrasos mayores a 20
-minutos frente al patrón de ayer.
+Sin más fallas: barrido, preselección, informe, observatorio, revisión (en su
+veredicto), edición diaria (arranque) y métricas corrieron sin atrasos
+mayores a 20 minutos.
 
 ## Propuestas
 
-1. **HOY** — Investigar por qué la sesión `cse_01FcCgqW8HjDuG4EmuRgeGPN`
-   (Reloj de métricas) devolvió éxito sin escribir
-   `bitacora/metricas/despertador.txt`. Mientras se investiga la causa, si
-   alguien puede disparar manualmente el workflow "Métricas" (workflow_dispatch)
-   o empujar el despertador antes de las 06:00, el Informe de la mañana de
-   hoy saldría con números. Esta auditoría no lo hace: no le corresponde
-   tocar archivos fuera de `bitacora/`.
+1. En `prompts/guion-informe.md`, entre la línea 1 (el contrato de archivos)
+   y la línea 3 ("Primero lee del repositorio..."), agregar: "GUARDA DE
+   DEDUP: antes de generar nada, verifica si
+   `contenido/guiones/informe/AAAA-MM-DD.md` (fecha de hoy, Chile) ya existe
+   en main con contenido completo. Si existe, no lo regeneres ni lo
+   sobreescribas: termina sin escribir." Cierra el hueco que causó la
+   sobreescritura de hoy.
 
-2. En `prompts/revision-editorial.md`, recargar el prompt del trigger
-   `trig_019cchTdDCVeVzVh8HjrZrYG` con el texto vigente del archivo (incluye
-   la categoría e, líneas 7 y 29). Requiere sesión local, según quedó
-   registrado en `bitacora/PENDIENTES.md` ("REVISIÓN 1"). De paso, conviene
-   convertir ese archivo en "prompt vivo" (arranque mínimo que lea el
-   archivo del repo en cada corrida), igual que ya se hizo con
-   `prompts/auditoria-matinal.md` y `prompts/guardian.md`, para que una
-   categoría nueva no vuelva a quedar sin cargar.
+2. En `prompts/auditoria-matinal.md`, líneas 3-4, cambiar "Tarea diaria de
+   las **09:30 de Chile**, después de la última ejecución del día (las
+   métricas llegan ~08:47)" por "Tarea diaria de las **05:30 de Chile**,
+   después de la última ejecución del día (las métricas llegan ~05:00)". La
+   línea 10-11 ("No confundir con el guardián (06:07)... corre tres horas
+   después") también necesita revisión de horario, pero requiere confirmar
+   primero contra qué rutina se compara ("guardián" del Informe de la mañana,
+   06:00, vs. "Guardia" de urgentes cada 2 horas) antes de reescribirla.
 
-3. En `prompts/auditoria-matinal.md`, líneas 3-14: actualizar "Tarea diaria
-   de las 09:30 de Chile... las métricas llegan ~08:47" por "05:30... las
-   métricas llegan ~05:00", y la frase "No confundir con el guardián
-   (06:07)... esta auditoría corre tres horas después" por la secuencia real
-   (métricas 05:00 → esta auditoría 05:30 → Informe de la mañana 06:00, que
-   ahora corre DESPUÉS y no antes). `bitacora/cronograma.json` línea 78 ya
-   asume que este archivo se lee siempre fresco ("nunca más una versión
-   atrás"), pero su propio contenido quedó una versión atrás del rediseño
-   que se hizo horas antes de esa misma frase.
+3. En `scripts/panel-auditoria.js`, línea 28 (y el comentario de la línea 5),
+   cambiar el texto fijo "la rutina de las 09:30" por "05:30".
 
-4. En `contenido/guiones/informe/2026-09-06.md` línea 118, cambiar "mil
-   cuatrocientas ochenta y dos licencias médicas falsas" por "más de mil
-   cuatrocientas licencias médicas falsas" (el número exacto ya está en la
-   marca [DATO] de esa sección).
-
-5. En `contenido/guiones/informe/2026-09-06.md`, sección "Viento Puelche en
-   el centro-sur", cambiar el valor de "ráfagas en el valle" de 60 a 70
-   km/h en la marca [DATO comparacion], o su etiqueta de "ráfagas" a "viento
-   sostenido", para que coincida con lo que reporta el informe.
+4. Sin propuesta nueva para el punto 4: ya está registrada en
+   `bitacora/PENDIENTES.md` ("REVISIÓN 1"); falta que alguien con sesión
+   local la ejecute.
 
 ## Triage
 
-- **HOY**: propuesta 1 (métricas de hoy no se generaron; riesgo directo
-  sobre el Informe de la mañana de las 06:00).
+- **HOY**: ninguna.
 - **AGUANTA**:
-  - propuesta 2 (revisión editorial sin categoría e cargada, tercer día
-    confirmado; no bloquea producción pero ya está identificada la causa
-    exacta).
-  - propuesta 3 (prompt vivo de esta misma auditoría, desactualizado).
-  - propuesta 4 y 5 (correcciones puntuales de guion, [MENOR] por
-    definición).
+  - Propuesta 1 (guarda de dedup del guion informe): se autocorrigió sola
+    hoy y no perdió datos, pero el hueco que lo permitió sigue abierto y
+    puede repetirse cualquier día que el guion de la Clave empuje justo
+    después.
+  - Propuestas 2 y 3 (horario viejo en el prompt y en el script del panel):
+    cosmético, no afecta la producción, pero es el segundo día que
+    `auditoria-matinal.md` queda sin corregirse y ahora se sumó un segundo
+    archivo con el mismo error.
+  - Punto 4 (categoría e del trigger de revisión editorial): sigue sin
+    marcarse en PENDIENTES.md, aunque hoy no se manifestó.
 - **MIRAR**:
-  - punto 2 de Qué falló (Clave entrega no reaccionó al evento y cayó al
-    respaldo de las 03:45; una vez no es tendencia, pero si se repite
-    conviene revisar la entrega del evento del PR #4).
-  - punto 3 (duración de la Edición diaria vs. la hora de arranque del
-    Informe de la mañana; hoy es el primer día de esa carrera y puede
-    resolverse sola si el render tarda menos de 75 minutos).
+  - El guion de hoy narra 1.931 palabras (~14,3 min estimados a 135 ppm,
+    aviso de `validar-tarjetas.js`), sobre el techo prometido de 13 min. Es
+    una estimación por palabras, no la duración real: el episodio de hoy
+    todavía no está en `contenido/podcast/episodios.json` (los últimos
+    registros son del 06-09). Revisar el dato real (`durSeg`) cuando se
+    publique el podcast, recordando que el 03-09 esta misma estimación dio
+    15,7 min para un audio real de 11,9.
+  - La Edición diaria seguía corriendo al cierre de esta auditoría
+    (05:39); si el tramo que falta (Clave, shorts, subida a YouTube, podcast,
+    web) se alarga más que los ~70 minutos de ayer, podría terminar después
+    de las 06:00, cuando corre el Informe de la mañana.
 
 ## Comparación con ayer
 
-**Mejoró**: nada que ayer no tuviera ya resuelto.
+**Mejoró**:
+- `bitacora/metricas/2026-09-07.md` sí se generó (05:11), resolviendo la
+  falla HOY de ayer (el Reloj de métricas de ayer reportó éxito sin escribir
+  el archivo).
+- "Clave (entrega)" reaccionó al evento del informe en 4 minutos (01:39→01:43)
+  en vez de caer al respaldo fijo de las 2+ horas después, como ayer
+  (01:40→03:45). El punto MIRAR de ayer sobre esto no se repitió.
+- `validar-tarjetas.js` no encontró ningún aviso de "cifra exacta en voz"
+  hoy, cortando una racha de al menos tres días (04-09: 6 avisos, 05-09: 2,
+  06-09: 1).
+- El aviso "sin línea Carátula sugerida:" (presente el 04-09 y el 05-09)
+  tampoco reapareció hoy ni ayer.
 
-**Sigue igual**: el patrón de "una versión atrás" que ayer se marcó AGUANTA
-sobre el prompt cargado en el trigger de esta auditoría (propuesta 1 de
-ayer) está resuelto de raíz —el trigger ahora solo apunta al archivo del
-repo—, pero reaparece en una forma nueva: el archivo apuntado es el que
-quedó desactualizado (propuesta 3 de hoy). El hallazgo de la revisión
-editorial y su categoría (e) pasó de MIRAR (día 2) a confirmado con causa
-raíz identificada (día 3), tal como anticipó la auditoría de ayer.
+**Sigue igual**:
+- `prompts/auditoria-matinal.md` sigue sin actualizar su horario (propuesta 3
+  de ayer, hoy segundo día sin corregir).
+- La categoría (e) del trigger de revisión editorial sigue sin recargarse
+  según PENDIENTES.md, aunque hoy no produjo un hallazgo real.
+- La revisión editorial volvió a cerrar con un solo hallazgo [MENOR] (como
+  ayer), pero de categoría distinta (c hoy: precisión de una cifra narrada;
+  b ayer: etiqueta de ráfaga) — no es un hallazgo repetido, son dos casos
+  aislados en días distintos.
 
-**Nuevo**: el rediseño de la madrugada (métricas 05:00 → auditoría 05:30 →
-Informe de la mañana 06:00) se estrenó hoy y tuvo dos fallas en su primer
-día: el Reloj de métricas no empujó el despertador pese a reportar éxito, y
-"Clave (entrega)" no reaccionó al evento del informe y cayó al respaldo
-fijo. Ninguna auditoría anterior (28-08 a 05-09) había registrado un fallo
-silencioso de una rutina que se reporta exitosa sin haber hecho su tarea.
+**Nuevo**:
+- La sobreescritura accidental del guion informe por guarda de dedup omitida:
+  primera vez que aparece este tipo de incidente en el historial del repo, y
+  se autocorrigió en 26 segundos.
+- El mismo texto de horario desactualizado ("09:30") apareció también en
+  `scripts/panel-auditoria.js`, ampliando a un segundo archivo un problema
+  que ayer parecía limitado al prompt.
+- Aviso nuevo de `validar-tarjetas.js` sobre el techo de duración del guion
+  de hoy (sin precedente en los tres días anteriores revisados).
 </pre>
     </details>
     <!--AUDITORIA-FIN-->
