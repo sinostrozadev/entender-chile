@@ -1,0 +1,29 @@
+GitHub Actions — workflow "Edición diaria", run 34019943054, job 101450543377
+Repository: sinostrozadev/entender-chile (private)
+Step: "7 · Subir a YouTube (privado; solo si hay secrets)"
+Date: 2026-09-06 (UTC timestamps below)
+
+This is the unmodified log of the step that calls youtube-subir.js once per
+piece. Each upload returns a video ID and is left as PRIVATE for manual
+review by the channel owner.
+
+2026-09-06T07:45:31.2657346Z Miniatura: out/2026-09-06/miniatura.png (gancho: "Su rival lo llamó valiente")
+2026-09-06T08:23:45.5850657Z Miniatura: out/2026-09-06/miniatura-clave.png (gancho: "¿Puede ir preso un senador?")
+2026-09-06T08:43:51.9030597Z Reescalando a 2560:1440 para que YouTube no muela el texto...
+2026-09-06T08:50:25.9983983Z Subiendo out/2026-09-06/subida-informe.mp4 como private: "Chile cierra el duelo oficial por Camilo Escalona"
+2026-09-06T08:50:29.2760144Z agregado a su playlist ✓
+2026-09-06T08:50:29.2761400Z Subido: https://youtu.be/j5gOE3EYaQs (private)
+2026-09-06T08:50:32.7305256Z Miniatura puesta.
+2026-09-06T08:50:33.5767445Z Reescalando a 1440:2560 para que YouTube no muela el texto...
+2026-09-06T08:51:04.8173586Z Subiendo out/2026-09-06/subida-short.mp4 como private: "Su rival lo llamó valiente, y otras 4 cosas de hoy #Shorts"
+2026-09-06T08:51:06.7921321Z Subido: https://youtu.be/o91xeQhkSv4 (private)
+2026-09-06T08:51:07.6394721Z Reescalando a 2560:1440 para que YouTube no muela el texto...
+2026-09-06T08:54:14.6877103Z Subiendo out/2026-09-06/subida-clave.mp4 como private: "¿Por qué un senador necesita permiso judicial para ser juzgado?"
+2026-09-06T08:54:17.4230829Z agregado a su playlist ✓
+2026-09-06T08:54:17.4231904Z Subido: https://youtu.be/xDofJVmO0rk (private)
+2026-09-06T08:54:19.8812756Z Miniatura puesta.
+2026-09-06T08:54:20.7194517Z Reescalando a 1440:2560 para que YouTube no muela el texto...
+2026-09-06T08:54:42.7945667Z Subiendo out/2026-09-06/subida-short-clave.mp4 como private: "Clave: ¿Por qué un senador necesita permiso judicial para ser juzgado? #Shorts"
+2026-09-06T08:54:44.6098549Z Subido: https://youtu.be/k_im76N_Is4 (private)
+2026-09-06T08:54:46.6524997Z mp3 subido: https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-06-informe.mp3 (15.8 MB, ~11 min)
+2026-09-06T08:54:48.4029360Z mp3 subido: https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-06-clave.mp3 (7.4 MB, ~5 min)
