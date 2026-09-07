@@ -294,6 +294,23 @@ referencia:
       02 al 04-09 (BUG 1, apertura en frío, Short exprés) movió ese anclaje.
       Verlo en la sesión local, no en la remota.
 
+- [ ] **TARJETA 2: "En titulares" salió como UN párrafo de 30 frases en una
+      sola tarjeta, con el rótulo "EN TITULARES" tapado por el texto** (Santiago,
+      06-09 20:09, informe del 06-09 "La disputa por el Estrecho golpea la
+      imagen de...", captura en
+      `bitacora/capturas-2026-09-06-titulares-en-un-parrafo.jpg`). Lo que se
+      comprobó desde la sesión remota: el guion (commit da52866, 04:47) trae
+      los 30 titulares uno por línea, bien; `parse.js` de HOY los agrupa en 7
+      tarjetas de 4 a 6 frases (probado sobre ese guion); el 05-09 también
+      agrupaba (4 tarjetas). Aun así el video renderizado a las 08:43 muestra
+      todo junto en una tarjeta de narración. Sospechosos, por fecha: los dos
+      commits del 05-09 previos al render, `d25c0db` 21:25 (Shorts EN_FRIO,
+      toca `build-timeline.js`) y `776a1ad` 23:02 (carátulas v2, toca
+      `parse.js` +7/-2 y `dia.js`). Verlo en la sesión local reproduciendo el
+      render del 06-09 (out/ de ese día o `dia.js` sin voz) y mirando si los
+      eventos `titulares` llegan al timeline o si las narraciones de soporte
+      se juntan. El rótulo tapado es consecuencia: la tarjeta desbordó.
+
 - [ ] **TARJETA 1: "7 de cada 10" sale como "10"** (Santiago, 05-09 noche,
       informe del 06-09 "La disputa por el Estrecho golpea la imagen de...",
       sección "El Estrecho y la respuesta del Gobierno", minuto 2:04; captura
