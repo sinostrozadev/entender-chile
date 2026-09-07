@@ -12,3 +12,4 @@
 2026-09-04 | contraloria-reparo-juicio-cuentas | Contraloría, reparos y juicios de cuentas: cómo se busca recuperar dinero público cuando una fiscalización detecta un perjuicio
 2026-09-05 | balance-estructural-regla-fiscal | Balance estructural y regla fiscal: por qué Chile no arma el Presupuesto con los ingresos del año tal como vienen
 2026-09-06 | desafuero-parlamentario-chile | Desafuero parlamentario en Chile: qué protege el fuero, quién puede levantarlo y qué ocurre después
+2026-09-07 | fallas-activas-construccion-planificacion | Fallas geológicas activas y construcción antisísmica: qué puede resolver una norma y qué depende de la planificación territorial

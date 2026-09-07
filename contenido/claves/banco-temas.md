@@ -39,3 +39,6 @@
 - formación del currículo escolar y quién decide qué contenidos se incorporan | UDI propone incorporar los dos procesos constitucionales recientes a las clases de Historia | 2026-09-06
 - concesiones de obras públicas, distribución de riesgos, tarifas y obligaciones del concesionario | Concesión vial de 110 kilómetros contempla inversión cercana a 800 millones de euros | 2026-09-06
 - transición desde educación municipal a Servicios Locales de Educación Pública y gobernanza del sistema | Comisión del Senado revisará extensión de implementación de los SLEP hasta 2040 | 2026-09-06
+- zona económica exclusiva, alta mar y facultades de fiscalización naval | Armada detecta 21 pesqueros extranjeros operando cerca de Rapa Nui | 2026-09-07
+- ritmos circadianos, luz matinal y efectos del horario oficial | Especialistas cuestionan efectos del horario vigente sobre sueño y rendimiento | 2026-09-07
+- normas de tenencia responsable y protección de fauna silvestre frente a perros sin control | Muerte de huemul por ataque de perros reabre discusión sobre control en áreas silvestres | 2026-09-07
