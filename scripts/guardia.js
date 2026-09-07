@@ -8,9 +8,11 @@
  * si algo amerita captura inmediata. Diseño aprobado por Santiago el 02-09
  * (bitacora/PENDIENTES.md, "EL AGENTE DE GUARDIA").
  *
- * Criterio "muy importante", 2 de 3 señales sobre el mismo tema:
+ * Criterio "muy importante", 2 de 4 señales sobre el mismo tema (y que NO
+ * sea deporte ni farándula: ver FUERA):
  *   ALARMA     una palabra de la lista del barrido en el titular
  *   PORTADAS   el tema aparece en 3 o más medios distintos
+ *   INDICADOR  encuesta o cifra de fuente identificable (Cadem, INE, BC...)
  *   ANUNCIADO  calza con un dato que el informe de hoy anunció
  *              (PENDIENTE DE CIERRE de hoy o hito de "Agenda de hoy")
  * Lo ANUNCIADO ya publicado se reporta siempre, aunque sume una sola señal.
@@ -48,6 +50,16 @@ const desescapar = (s) => s
 const VACIAS = new Set(["el","la","los","las","un","una","de","del","al","y","o","en","a","por","para","con","que","se","su","sus","es","son","tras","sobre","desde","hasta"]);
 const norm = (t) => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 const palabras = (t) => norm(t).replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter((p) => p.length > 3 && !VACIAS.has(p));
+// FUERA DE LA GUARDIA (regla dura 13: el canal no cubre deporte de rutina ni
+// farándula). Vivía solo en los prompts, así que el detector la ignoraba: el
+// 06-09 el debut de un arquero de Colo Colo juntaba 3 portadas, tantas como la
+// encuesta Criteria. Sin este filtro no se puede abrir el umbral sin meter ruido.
+const FUERA = /\b(colo.?colo|universidad de chile|la u\b|udechile|católica|wanderers|cobreloa|copa chile|libertadores|sudamericana|la roja|selecci[oó]n chilena|gol(es|azo)?\b|arquero|delantero|entrenador|dt\b|fichaje|transferible|partido|clásico|penal(es)? en el|tenis|atp\b|f[uú]tbol|futbolista|hincha|estadio|farándula|farandula|reality|teleserie|instagram de|romance|pareja de|influencer)\b/i;
+// INDICADOR: encuesta o cifra de fuente identificable. Es lo que el canal SÍ
+// cubre y quedaba fuera porque una encuesta no trae palabras de alarma: el
+// 06-09 se perdieron Criteria (aprobación de Kast en 30%) y Cadem (Argentina),
+// las dos con 3 portadas. Señal nueva desde el 06-09, a pedido de Santiago.
+const INDICADOR = /\b(cadem|criteria|activa research|panel ciudadano|pulso ciudadano|encuesta|sondeo|imacec|\bipc\b|inflaci[oó]n|desempleo|desocupaci[oó]n|banco central|\bine\b|cuentas nacionales|balanza comercial|tasa de pol[ií]tica monetaria|\btpm\b|aprobaci[oó]n|desaprobaci[oó]n)\b/i;
 const ALARMA = /\b(tornado|tromba marina|terremoto|sismo|tsunami|aluvi[oó]n|erupci[oó]n|incendio forestal|megaincendio|apag[oó]n|evacuaci[oó]n|evacuan|alerta roja|estado de cat[aá]strofe|estado de excepci[oó]n|toque de queda|derrumbe|explosi[oó]n|descarrilamiento|colapso|femicidio|masacre|balacera|secuestro|fallecidos|muertos|desaparecid[oa]s?|brote|intoxicaci[oó]n|derrame|paro nacional|huelga|renuncia del ministro|renunci[oó]|muere|muri[oó]|asesinat[oa]|homicidio|cat[aá]strofe|accidente|choque|colisi[oó]n|emergencia|atentado|bomba|tiroteo|reh[eé]n|fuga masiva|mot[ií]n|socav[oó]n|marejada|inundaci[oó]n|desborde)\b/i;
 
 async function bajar(url) {
@@ -163,13 +175,16 @@ async function main() {
     const medios = new Set(g.items.map((i) => i.medio));
     const alarma = g.items.map((i) => norm(i.titulo).match(ALARMA)).find(Boolean);
     const anunciado = anunciadoDe(g);
+    const fuera = g.items.every((i) => FUERA.test(norm(i.titulo)));
+    const indicador = g.items.map((i) => norm(i.titulo).match(INDICADOR)).find(Boolean);
     const senales = [];
     if (alarma) senales.push(`ALARMA ("${alarma[1]}")`);
     if (medios.size >= 3) senales.push(`PORTADAS (${medios.size} medios)`);
+    if (indicador) senales.push(`INDICADOR ("${indicador[1]}")`);
     if (anunciado) senales.push(`ANUNCIADO ("${anunciado.slice(0, 60)}")`);
     if (process.argv.includes("--debug") && (senales.length || medios.size >= 2))
-      console.log(`  [debug] ${medios.size} medio(s) · ${senales.join("+") || "sin señal fuerte"} · ${g.items[0].titulo.slice(0, 70)}`);
-    const importa = senales.length >= 2 || Boolean(anunciado);
+      console.log(`  [debug] ${medios.size} medio(s) · ${senales.join("+") || "sin señal fuerte"}${fuera ? " · FUERA (deporte/farándula)" : ""} · ${g.items[0].titulo.slice(0, 70)}`);
+    const importa = (senales.length >= 2 && !fuera) || Boolean(anunciado);
     if (!importa) continue;
     const principal = g.items.slice().sort((a, b) => b.titulo.length - a.titulo.length)[0];
     const firma = palabras(principal.titulo).sort().slice(0, 8).join(" ");
@@ -178,6 +193,15 @@ async function main() {
   }
 
   if (!hallazgos.length) { console.log("guardia: sin novedades que ameriten captura."); return; }
+  // UNO POR RONDA (06-09): con la señal INDICADOR el detector puede cazar dos
+  // temas a la vez (el 06-09: Criteria y Cadem el mismo domingo) y saldrían dos
+  // Shorts de golpe. Se queda el más fuerte (más señales, luego más medios); si
+  // el otro sigue vigente, la ronda de dos horas después lo toma.
+  if (hallazgos.length > 1) {
+    hallazgos.sort((a, b) => (b.senales.length - a.senales.length) || (new Set(b.g.items.map((i) => i.medio)).size - new Set(a.g.items.map((i) => i.medio)).size));
+    for (const h of hallazgos.slice(1)) console.log(`  (queda para la ronda siguiente: ${h.principal.titulo.slice(0, 60)})`);
+    hallazgos.length = 1;
+  }
 
   for (const h of hallazgos) {
     const slug = palabras(h.principal.titulo).slice(0, 4).join("-").slice(0, 48) || "hallazgo";
