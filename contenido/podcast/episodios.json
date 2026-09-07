@@ -141,5 +141,23 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-06-clave.mp3",
     "bytes": 7405632,
     "durSeg": 309
+  },
+  {
+    "fecha": "2026-09-07",
+    "tipo": "informe",
+    "titulo": "07-09-2026 · La disputa por el Estrecho golpea la imagen de Argentina en Chile",
+    "descripcion": "Una encuesta muestra que la mayoría de los chilenos ve pretensiones argentinas sobre el Estrecho de Magallanes, justo cuando la aprobación del Gobierno sigue cayendo. Además, el alcalde de San Bernardo revela nuevas amenazas tras un plan para asesinarlo, la Armada vigila pesqueros extranjeros cerca de Rapa Nui, y el Banco Central entra en dos días clave para la tasa y las proyecciones económicas.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-07-informe.mp3",
+    "bytes": 20383488,
+    "durSeg": 849
+  },
+  {
+    "fecha": "2026-09-07",
+    "tipo": "clave",
+    "titulo": "Clave · ¿Por qué una norma sísmica no basta para evitar el riesgo?",
+    "descripcion": "Una norma de diseño sísmico, el estudio del terreno y la planificación territorial resuelven problemas distintos frente a un terremoto. En este video explicamos qué es la amenaza, la exposición y la vulnerabilidad, qué puede lograr una norma como la NCh433 y qué queda fuera de su alcance cuando existe una falla geológica activa. También revisamos por qué la planificación del territorio es indispensable para reducir el riesgo antes de que exista el proyecto.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-07-clave.mp3",
+    "bytes": 7931520,
+    "durSeg": 330
   }
 ]
