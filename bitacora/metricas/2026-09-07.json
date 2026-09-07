@@ -1,16 +1,52 @@
 {
   "fecha": "2026-09-07",
   "canal": {
-    "suscriptores": 10,
+    "suscriptores": 12,
     "vistas": 333,
-    "videos": 33
+    "videos": 36
   },
   "videos": {
+    "CU4xH6A4dKA": {
+      "titulo": "¿Por qué una norma sísmica no basta para evitar el riesgo?",
+      "publicado": "2026-09-07",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 334
+    },
+    "MsPcFSzX1B0": {
+      "titulo": "Clave: ¿Por qué una norma sísmica no basta para evitar el ri",
+      "publicado": "2026-09-07",
+      "estado": "public",
+      "vistas": 5,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 33
+    },
+    "1CAMSAuZzug": {
+      "titulo": "La disputa por el Estrecho golpea la imagen de Argentina en ",
+      "publicado": "2026-09-07",
+      "estado": "public",
+      "vistas": 5,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 850
+    },
+    "yH9MT_EDK0Y": {
+      "titulo": "El Estrecho es chileno, y otras 4 cosas de hoy #Shorts",
+      "publicado": "2026-09-07",
+      "estado": "public",
+      "vistas": 122,
+      "meGusta": 2,
+      "comentarios": 1,
+      "durSeg": 48
+    },
     "k_im76N_Is4": {
       "titulo": "Clave: ¿Por qué un senador necesita permiso judicial para se",
       "publicado": "2026-09-06",
       "estado": "public",
-      "vistas": 107,
+      "vistas": 124,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 35
@@ -28,7 +64,7 @@
       "titulo": "Su rival lo llamó valiente, y otras 4 cosas de hoy #Shorts",
       "publicado": "2026-09-06",
       "estado": "public",
-      "vistas": 148,
+      "vistas": 152,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 49
@@ -55,7 +91,7 @@
       "titulo": "Cinco cosas que hay que saber hoy, Sábado, 5 de septiembre #",
       "publicado": "2026-09-05",
       "estado": "public",
-      "vistas": 75,
+      "vistas": 81,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 54
@@ -73,7 +109,7 @@
       "titulo": "Muere Camilo Escalona, histórico dirigente socialista y expr",
       "publicado": "2026-09-05",
       "estado": "public",
-      "vistas": 8,
+      "vistas": 9,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 687
@@ -118,7 +154,7 @@
       "titulo": "Chile y Argentina ratifican la soberanía chilena sobre el Es",
       "publicado": "2026-09-04",
       "estado": "public",
-      "vistas": 82,
+      "vistas": 87,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 655
