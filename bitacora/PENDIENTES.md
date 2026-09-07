@@ -302,6 +302,61 @@ referencia:
       y fue rechazada. Hasta que se cargue, la revisión sigue con las cuatro
       categorías de antes; el validador ya avisa igual.
 
+- [ ] **AUDITORIA 1: guarda de dedup omitida, el guionista del informe se
+      disparó dos veces** (hallazgo de `bitacora/2026-09-07-auditoria.md`).
+      `contenido/guiones/informe/2026-09-07.md` quedó bien a las 01:49, pero a
+      las 04:05:58 una segunda ejecución de la misma rutina lo reescribió con
+      contenido distinto (commit `1e1b98e`), justo después del push del guion
+      de la Clave (03:58). El propio sistema lo detectó y revirtió solo 26
+      segundos después (commit `0449173`, "guarda de dedup omitida"), sin
+      pérdida de datos. Causa: `prompts/guion-informe.md` no tiene, en
+      ninguna de sus 184 líneas, una instrucción que le diga a la rutina que
+      compruebe si `contenido/guiones/informe/AAAA-MM-DD.md` ya existe en
+      main antes de generar. **Fix:** agregar entre la línea 1 (el contrato de
+      archivos) y la línea 3 ("Primero lee del repositorio...") un párrafo de
+      guarda de dedup: si el archivo de hoy ya existe completo en main, no
+      regenerarlo. Ver también EVENTOS 1 abajo: esto pasó porque la rutina
+      del guion informe escucha CUALQUIER push, no solo el suyo.
+
+- [ ] **AUDITORIA 2: el horario viejo de esta misma auditoría sigue en dos
+      archivos** (hallazgo de `bitacora/2026-09-07-auditoria.md`, segundo día
+      seguido; propuesta 3 de la auditoría del 06-09 ya lo pedía y no se
+      aplicó). En `prompts/auditoria-matinal.md` líneas 3-4: cambiar "Tarea
+      diaria de las **09:30** de Chile... (las métricas llegan ~08:47)" por
+      "**05:30**... (las métricas llegan ~05:00)"; la línea 10-11 ("No
+      confundir con el guardián (06:07)... corre tres horas después") también
+      quedó vieja, pero antes de reescribirla hay que confirmar contra qué
+      rutina se compara ahora ("guardián" del Informe de la mañana a las
+      06:00, o "Guardia" de urgentes cada 2 horas: son dos cosas distintas).
+      Además, en `scripts/panel-auditoria.js` línea 28 (y el comentario de la
+      línea 5) el mismo texto fijo "la rutina de las 09:30" se inyecta cada
+      mañana en el panel que ve Santiago: cambiarlo a "05:30".
+
+- [ ] **EVENTOS 1: que las rutinas de Claude despierten con la finalización
+      de las rutinas de GPT, no con cualquier push** (pedido de Santiago,
+      07-09, revisando la auditoría del día). Hoy se vio el costo concreto de
+      no tenerlo bien resuelto: el guionista del informe (AUDITORIA 1) se
+      disparó de nuevo porque su webhook "dispara con CUALQUIER push del
+      repo" (limitación ya documentada arriba, sección CANAL DE AVISOS
+      BARRIDO→CHATGPT: `create_webhook_trigger` no acepta filtro por rutas ni
+      ramas, y no hay API para borrar un webhook ya creado). Por eso hoy
+      conviven dos soluciones a medias: el guionista del informe
+      (`trig_01HUjC4MjKGmmpDMApn8gtJm`) usa webhook + guardas de dedup y
+      ventana horaria, y el guionista de la Clave
+      (`trig_017nkjJWR5Voud4dYgPhvwF7`) quedó como "esperadora pura" (solo
+      reloj 03:50) precisamente para evitar el ruido del webhook. El propio
+      `bitacora/cronograma.json` (fila "Guionista de la Clave") ya anota
+      "pendiente fusionar los dos guionistas en una rutina reactiva". Revisar
+      en la sesión local: si ya existen los PR de señal por evento (#2, #3,
+      #4: barrido-listo, preseleccion-lista, informe-listo) que SÍ dan un
+      commit específico y filtrable por archivo tocado, ¿pueden los dos
+      guionistas (y quizás la revisión editorial) escuchar esos PR en vez del
+      webhook general del repo, con guarda de dedup por fecha como ya usa el
+      canal de avisos? Relacionado con TIEMPOS 1 (la propuesta de acortar la
+      madrugada ya tocaba este mismo punto, "que los agentes dependientes
+      escuchen"): esto podría resolverse como parte de esa migración en vez
+      de por separado.
+
 - [ ] **TIEMPOS 1: acortar la madrugada dos horas y que los agentes
       dependientes escuchen** (pedido de Santiago, 03-09). Propuesta completa
       en `bitacora/2026-09-03-propuesta-tiempos.md`: medido, la cadena tarda
