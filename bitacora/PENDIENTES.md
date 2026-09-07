@@ -261,6 +261,24 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **SHORT 1: el sello se superpone a la primera tarjeta en el Short de
+      la Clave** (Santiago, 05-09 21:31, viendo el Short de la Clave del 06-09
+      en el teléfono; captura en
+      `bitacora/capturas-2026-09-06-short-clave-sello-superpuesto.jpg`). Se ven
+      a la vez el texto grande "Entender Chile" con "Claves para entender las
+      noticias" y la fecha (el sello) y, debajo, la tarjeta de apertura "Una
+      clave para entender las noticias. ¿Por qué un senador necesita permiso
+      judicial para ser juzgado?". Lo que pide Santiago: que ese texto
+      "Entender Chile" no quede encima; o el sello va solo y la tarjeta
+      espera, o el sello desaparece del Short. Pista para la sesión local:
+      en `src/Short.tsx` el sello está fijo en 0 a 2,8 s (SELLO_SEG, línea
+      202) y la voz del Short arranca en 3,0 (INICIO_NARRACION en
+      `build-timeline.js`, no aplica la apertura en frío porque la primera
+      sección del Short es "Apertura"); revisar desde cuándo parte la
+      primera tesis (t.from) en el timeline del Short y si algún cambio del
+      02 al 04-09 (BUG 1, apertura en frío, Short exprés) movió ese anclaje.
+      Verlo en la sesión local, no en la remota.
+
 - [ ] **REVISIÓN 1: cargar el prompt nuevo en la rutina "Revisión editorial"**
       (04-09). El prompt con la categoría e (redondeo en voz) y la fuente
       circular como categoría b está en `prompts/revision-editorial.md`. La
