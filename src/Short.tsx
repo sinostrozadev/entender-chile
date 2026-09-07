@@ -147,6 +147,14 @@ export const ShortVideo: React.FC<Timeline> = (tl) => {
   const HOLD = Math.round(fps * 0.3);
   const meta = tl.meta as Timeline["meta"] & { fondo?: string | null; handle?: string; eyebrow?: string; numerar?: boolean };
   const piel = meta.fondo ? (meta.fondo.includes("urgente") ? VINO : meta.fondo.includes("clave") ? VERDE : MARINO) : PAPEL;
+  // El sello VISUAL respeta meta.selloEn; -1 = sin sello (06-09). En los
+  // Shorts va -1 y la razón es de espacio, no de gusto: las tarjetas van
+  // pegadas (0,6 s de hueco entre secciones) y el sello dura 2,8 s, así que
+  // en cualquier posición tapa una tarjeta. La marca ya vive en la cabecera
+  // y el handle, y el sello SONORO sí se queda, en 0. (Bug que Santiago cazó
+  // en el Short de la Clave del 06-09: el sello encima de la apertura.)
+  const selloEn = meta.selloEn ?? 0;
+  const conSello = selloEn >= 0;
 
   const tesis = tl.eventos.filter((e) => e.tipo === "tesis");
   const datos = tl.eventos.filter((e) => e.tipo === "dato");
@@ -186,7 +194,7 @@ export const ShortVideo: React.FC<Timeline> = (tl) => {
         );
       })}
       {meta.cortinas && meta.cortinas.length
-        ? banners.filter((ev, i) => i > 0 && ev.from > SELLO_SEG).map((ev, i) => (
+        ? banners.filter((ev, i) => i > 0 && (!conSello || ev.from > selloEn + SELLO_SEG)).map((ev, i) => (
             <Sequence key={"cor" + i} from={f(ev.from)} durationInFrames={f(CORTINA_SEG)}>
               <Audio src={staticFile(meta.cortinas![i % meta.cortinas!.length])} volume={0.85} />
             </Sequence>
@@ -199,9 +207,11 @@ export const ShortVideo: React.FC<Timeline> = (tl) => {
       ) : null}
       <Cabecera piel={piel} fecha={meta.fecha} handle={meta.handle} />
       <Pie piel={piel} handle={meta.handle ?? "@entenderchile"} />
-      <Sequence from={0} durationInFrames={Math.round(SELLO_SEG * fps)}>
-        <Sello piel={piel} fecha={meta.fecha} eyebrow={meta.eyebrow} />
-      </Sequence>
+      {conSello ? (
+        <Sequence from={f(selloEn)} durationInFrames={Math.round(SELLO_SEG * fps)}>
+          <Sello piel={piel} fecha={meta.fecha} eyebrow={meta.eyebrow} />
+        </Sequence>
+      ) : null}
     </AbsoluteFill>
   );
 };

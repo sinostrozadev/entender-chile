@@ -69,6 +69,7 @@ tl.meta.width = 1080; tl.meta.height = 1920;
 tl.meta.handle = HANDLE;
 tl.meta.eyebrow = "Última hora";
 tl.meta.numerar = false;
+tl.meta.selloEn = -1; // sin sello visual: no cabe en un Short (ver src/Short.tsx)
 tl.meta.fondo = fs.existsSync(path.join("public", "fondos", "fondo-urgente-vertical.png"))
   ? "fondos/fondo-urgente-vertical.png" : null;
 fs.writeFileSync(path.join(OUT, "timeline.json"), JSON.stringify(tl, null, 2));

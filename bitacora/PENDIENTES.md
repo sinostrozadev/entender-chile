@@ -261,7 +261,22 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **SHORT 1: el sello se superpone a la primera tarjeta en el Short de
+- [x] ~~**SHORT 1: el sello se superpone a la primera tarjeta**~~ **RESUELTO
+      (06-09, sesión local).** Causa confirmada: la sesión de la noche del
+      05-09 hizo que los Shorts partieran en frío (EN_FRIO=1, narración en 0)
+      pero `src/Short.tsx` tenía el sello clavado en `from={0}`, mientras
+      `Informe.tsx` sí respeta `meta.selloEn`. Intento 1 (mover el sello a
+      selloEn, como el informe) NO sirvió: en el Short las tarjetas van
+      pegadas (0,6 s de hueco) y el sello dura 2,8 s, así que solo movió el
+      choque a la segunda tarjeta, verificado con frames. **Arreglo final:**
+      el sello VISUAL sale del Short (`meta.selloEn = -1` en short.js y
+      short-urgente.js; Short.tsx respeta selloEn y -1 = sin sello) y la
+      marca SONORA se queda en 0. La identidad no se pierde: la cabecera
+      "ENTENDER CHILE" y el handle están en pantalla todo el video.
+      Verificado con frames en el segundo 1 y el 8 del Short de la Clave del
+      06-09, enviados a Santiago. Rige desde la edición de mañana; el Short
+      de la Clave de HOY quedó con el defecto (ya publicado).
+- [ ] ~~SHORT 1 original~~ (referencia): **el sello se superpone a la primera tarjeta en el Short de
       la Clave** (Santiago, 05-09 21:31, viendo el Short de la Clave del 06-09
       en el teléfono; captura en
       `bitacora/capturas-2026-09-06-short-clave-sello-superpuesto.jpg`). Se ven

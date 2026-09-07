@@ -179,6 +179,7 @@ tl.meta.width = 1080; tl.meta.height = 1920;
 tl.meta.handle = HANDLE;
 tl.meta.eyebrow = esClave ? "Claves para entender las noticias" : "Cinco cosas que hay que saber";
 tl.meta.numerar = !esClave; // "1 de 5" solo tiene sentido en el informe
+tl.meta.selloEn = -1; // sin sello visual: no cabe en un Short (ver src/Short.tsx)
 tl.meta.fondo = conFondo && fs.existsSync(path.join("public", FONDO)) ? FONDO : null;
 fs.writeFileSync(path.join(OUT, "timeline.json"), JSON.stringify(tl, null, 2));
 console.log(`OK: Short de ${(tl.meta.duracionSeg / 60).toFixed(1)} min (${tl.meta.duracionSeg}s)${tl.meta.fondo ? " con fondo" : ""} → ${path.join(OUT, "timeline.json")}`);
