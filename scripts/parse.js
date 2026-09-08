@@ -64,6 +64,26 @@ function cifraPrincipal(textoPantalla) {
     const sig = despues.trim().split(/\s+/);
     const n = Number(valor.replace(/[^\d,.-]/g, "").replace(/\./g, "").replace(",", "."));
     const conMagnitud = MAGNITUD.test((sig[0] || "").replace(/[.,;:]+$/, ""));
+    // "7 de cada 10" es UNA cifra (una proporción), no dos. Sin esto el 7 se
+    // descartaba por chico y salía el "10" solo, con la etiqueta cortada en
+    // "personas consultadas cree que existe" (informe del 06-09, minuto 2:04).
+    if (/^de\s+cada\s*$/i.test(antes.trim().slice(-8)) || /\bde\s+cada\s*$/i.test(antes)) continue; // es el M: ya lo toma el N
+    const prop = despues.match(/^\s+de\s+cada\s+([\d.,]+)\s+(.*)$/i);
+    if (prop) {
+      const resto = prop[2].split(/\s+/);
+      const palabras = [];
+      for (const w of resto) {
+        const limpia = w.replace(/[.,;:!?)]+$/g, "");
+        if (VERBOS.test(limpia) && palabras.length) break;
+        if (/^(y|e|o|u|pero|ni|que|cree|creen|piensa|piensan)$/i.test(limpia) && palabras.length) break;
+        palabras.push(limpia);
+        if (/[.,;:!?)]$/.test(w) || palabras.length >= 4) break;
+      }
+      while (palabras.length && FUNCION.has(palabras[palabras.length - 1].toLowerCase())) palabras.pop();
+      const et = palabras.join(" ");
+      if (!et) continue; // proporción sin sujeto claro: mejor sin tarjeta
+      return { raw: `${valor} de cada ${prop[1]}`, etiqueta: et };
+    }
     if (Number.isInteger(n) && n >= 1900 && n <= 2099 && !/[$%]/.test(valor) && !conMagnitud) continue;          // año
     if (sig[0] && (MESES.test(sig[0]) || (sig[0] === "de" && sig[1] && MESES.test(sig[1])))) continue;          // fecha
     if (/a las\s*$|las\s*$/.test(antes) || /^(horas?|hrs)\b/i.test(sig[0] || "")) continue;                     // hora
@@ -259,6 +279,30 @@ function parseGuion(md) {
     if (iSec >= 0) {
       let fin = eventos.findIndex((e, i) => i > iSec && e.tipo === "seccion");
       if (fin < 0) fin = eventos.length;
+      // RED (07-09): si el guionista escribió los titulares TODOS SEGUIDOS en un
+      // párrafo en vez de uno por línea, aquí llega una sola narración enorme y
+      // el video mostraba un muro de 30 frases que tapaba el rótulo (06 y 07-09,
+      // los dos primeros días del guionista nuevo). El prompt ya pide una línea
+      // por titular; esto es la red para que ningún modelo pueda romper el video
+      // por un salto de línea: se parte en frases y se sigue igual.
+      for (let i = iSec + 1; i < fin; i++) {
+        const ev = eventos[i];
+        if (ev.tipo !== "narracion") continue;
+        const t = (ev.texto || "").replace(/^Y en titulares:\s*/i, "").trim();
+        const partes = t.split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÑ¿¡"“(])/).map((x) => x.trim()).filter(Boolean);
+        if (partes.length < 4) continue; // un párrafo normal, no el muro
+        const base = ev;
+        // OJO: cada frase necesita SU propio texto Y su propio textoPantalla y
+        // lineas. Heredar los del párrafo (spread de base) deja los tiempos
+        // bien pero pinta el muro completo en cada tarjeta.
+        const frase = (texto) => ({ ...base, texto, textoPantalla: texto, lineas: [texto], _partidoDeTitulares: true });
+        const nuevos = partes.map(frase);
+        if (/^Y en titulares:/i.test(ev.texto || "")) nuevos.unshift(frase("Y en titulares:"));
+        eventos.splice(i, 1, ...nuevos);
+        fin += nuevos.length - 1;
+        i += nuevos.length - 1;
+        console.log(`(titulares: el guion los traía en un párrafo; partidos en ${partes.length} frases)`);
+      }
       const frases = [];
       for (let i = iSec + 1; i < fin; i++) if (eventos[i].tipo === "narracion") frases.push(i);
       if (frases.length > 2) {

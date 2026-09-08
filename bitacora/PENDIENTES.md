@@ -293,7 +293,19 @@ referencia:
       02 al 04-09 (BUG 1, apertura en frío, Short exprés) movió ese anclaje.
       Verlo en la sesión local, no en la remota.
 
-- [ ] **TARJETA 2: "En titulares" salió como UN párrafo de 30 frases en una
+- [x] ~~**TARJETA 2: "En titulares" en un párrafo**~~ **RESUELTO (07-09), y la
+      causa NO era la que se sospechaba.** No fueron los commits del 05-09: es
+      que **el guionista nuevo (Claude) escribe los titulares todos seguidos en
+      un párrafo, y GPT los escribía uno por línea**, que es como `parse.js` los
+      agrupa. Por eso nació el 06-09, el primer día del guionista nuevo, y por
+      eso hoy tampoco se veía en local (el guion del 06-09 que probó la sesión
+      remota SÍ venía por líneas; el del 07-09 no). Verificado bajando el mp4
+      del release del 07-09: el muro seguía ahí. Arreglado por los dos lados:
+      el prompt exige una línea por titular, y `parse.js` trae una RED que
+      parte el párrafo en frases si llega junto (con su textoPantalla y sus
+      offsets propios, que era el detalle que hacía que el primer intento
+      pintara el muro igual). Verificado con frame del guion real de hoy.
+      Detalle original: de 30 frases en una
       sola tarjeta, con el rótulo "EN TITULARES" tapado por el texto** (Santiago,
       06-09 20:09, informe del 06-09 "La disputa por el Estrecho golpea la
       imagen de...", captura en
@@ -310,7 +322,11 @@ referencia:
       eventos `titulares` llegan al timeline o si las narraciones de soporte
       se juntan. El rótulo tapado es consecuencia: la tarjeta desbordó.
 
-- [ ] **TARJETA 1: "7 de cada 10" sale como "10"** (Santiago, 05-09 noche,
+- [x] ~~**TARJETA 1: "7 de cada 10" sale como "10"**~~ **RESUELTO (07-09):**
+      `cifraPrincipal` reconoce las proporciones "N de cada M" como UNA cifra
+      y las muestra enteras, con la etiqueta cortada en el sustantivo
+      ("7 de cada 10 · personas consultadas"). El M solo ya no genera tarjeta.
+      Probado con la frase real del informe del 06-09. Detalle original: (Santiago, 05-09 noche,
       informe del 06-09 "La disputa por el Estrecho golpea la imagen de...",
       sección "El Estrecho y la respuesta del Gobierno", minuto 2:04; captura
       en `bitacora/capturas-2026-09-06-tarjeta-7-de-cada-10.jpg`). El párrafo
