@@ -42,3 +42,6 @@
 - zona económica exclusiva, alta mar y facultades de fiscalización naval | Armada detecta 21 pesqueros extranjeros operando cerca de Rapa Nui | 2026-09-07
 - ritmos circadianos, luz matinal y efectos del horario oficial | Especialistas cuestionan efectos del horario vigente sobre sueño y rendimiento | 2026-09-07
 - normas de tenencia responsable y protección de fauna silvestre frente a perros sin control | Muerte de huemul por ataque de perros reabre discusión sobre control en áreas silvestres | 2026-09-07
+- protección de autoridades amenazadas, evaluación de riesgo y coordinación entre policías y Ministerio Público | Veintidós alcaldes y 18 fiscales tienen protección por amenazas o agresiones | 2026-09-08
+- financiamiento de sala cuna, cobertura laboral y diferencia entre beneficio universal y obligación del empleador | Sala Cuna Universal llega a una nueva votación en el Senado | 2026-09-08
+- edad de responsabilidad penal adolescente y medidas de protección para menores inimputables | Investigación identifica a un menor de 12 años en ataques incendiarios | 2026-09-08

@@ -13,3 +13,4 @@
 2026-09-05 | balance-estructural-regla-fiscal | Balance estructural y regla fiscal: por qué Chile no arma el Presupuesto con los ingresos del año tal como vienen
 2026-09-06 | desafuero-parlamentario-chile | Desafuero parlamentario en Chile: qué protege el fuero, quién puede levantarlo y qué ocurre después
 2026-09-07 | fallas-activas-construccion-planificacion | Fallas geológicas activas y construcción antisísmica: qué puede resolver una norma y qué depende de la planificación territorial
+2026-09-08 | interpelacion-ministerial-chile | Interpelación ministerial en Chile: cómo la Cámara exige respuestas al Gobierno y cuáles son sus límites
