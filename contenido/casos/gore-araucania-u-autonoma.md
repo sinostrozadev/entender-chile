@@ -1,7 +1,7 @@
 # Caso: GORE La Araucanía y Universidad Autónoma (convenios 2021-2023)
 
 Estado: ACTIVO
-Dossier abierto: 2026-08-26 · Última actualización: 2026-08-26
+Dossier abierto: 2026-08-26 · Última actualización: 2026-09-08
 
 <!-- datos
 cuestionado: 21804000000
@@ -17,7 +17,7 @@ nota-cifra: Es el total transferido y auditado, no un monto defraudado. Contralo
 - Monto CONFIRMADO por fuente oficial: $21.804 millones transferidos por el GORE a la Universidad Autónoma en convenios 2021-2023, según el informe de Contraloría citado por Diario Financiero y Araucanía Noticias. Este es el monto total transferido y auditado, no un monto acreditado como defraudado (precisión hecha por la propia universidad el 2026-08-19 y no desmentida por el GORE). Del monto rendido ($14.328 millones), Contraloría observó el 47%, unos $6.800 millones (informe citado por Tiempo21 y Araucanía Noticias). Sin cifra oficial de perjuicio fiscal a la fecha.
 - Monto reportado por prensa (si difiere): titulares hablan de "más de $21.800 millones" (Diario Financiero) y "$21 mil millones" (BioBioChile, Tiempo21); todas remiten a la misma cifra base de $21.804 millones.
 - Dinero recuperado a la fecha: el informe de Contraloría citado por prensa consigna reintegros por solo $155,5 millones y saldos pendientes de rendición por $6.929 millones (Tiempo21, Araucanía Noticias). No hay montos recuperados asociados a la denuncia penal, que no registra avances procesales.
-- Origen del caso: auditoría de la Contraloría Regional de La Araucanía a las transferencias GORE-Universidad Autónoma (preinforme N°744, revelado por prensa el 2026-04-10/11; número y fecha exacta del informe final: sin confirmar en las fuentes consultadas), en el contexto amplio del Caso Convenios regional abierto desde 2023.
+- Origen del caso: auditoría de la Contraloría Regional de La Araucanía a las transferencias GORE-Universidad Autónoma (preinforme N°744, revelado por prensa el 2026-04-10/11), en el contexto amplio del Caso Convenios regional abierto desde 2023. El GORE recibió el informe final el 04-08-2026 (Diario Financiero, 18-08-2026; Radio Universal; Tiempo21). El número del informe final sigue sin confirmarse: parte de la cobertura lo identifica con el mismo N°744 del preinforme, sin que ninguna fuente oficial lo respalde.
 
 ## Involucrados
 | Nombre | Cargo | Institución/Partido | Situación procesal (fecha) |
@@ -39,6 +39,7 @@ Nota de rigor: la denuncia del 2026-08-18 no acredita hecho ni participación al
 - 2026-04-10/11: prensa revela el preinforme confidencial N°744 de la Contraloría Regional: conflictos de interés, contratación de familiares de funcionarios (entre ellos el cuñado del exgobernador Rivas, con 32 facturas por $19,5 millones), convenios millonarios tramitados en menos de seis horas frente a un promedio de siete días hábiles, y control de rendiciones en planillas Excel sin resguardos. (BioBioChile Investiga 2026-04-10; El Diario Santiago y Alerta Noticias Temuco 2026-04-11; Araucanía Noticias 2026-04-12)
 - 2026-04-08: la Fiscalía Nacional responde rechazando la inhabilitación de Garrido por falta de antecedentes suficientes; el rechazo se conoce públicamente el 2026-05-12. (BioBioChile, 2026-05-12)
 - 2026-05-22: el CDE presenta querella por fraude al fisco y lavado de activos contra un exfuncionario del GORE, su pareja y su suegra, por más de $140 millones obtenidos mediante empresas de papel en concursos de subvenciones (arista distinta del Caso Convenios); Saffirio valora la acción aunque la considera tardía. (BioBioChile 2026-05-22; Alerta Noticias Temuco 2026-05-23; soychile.cl 2026-05-22)
+- 2026-08-04: el GORE de La Araucanía recibe el informe final de la Contraloría Regional sobre los convenios con la Universidad Autónoma. Ese mismo día el gobernador Saffirio instruye dos investigaciones sumarias internas, destinadas a establecer responsabilidades administrativas de funcionarios del propio GORE y a habilitar la restitución de recursos al Fisco, que se desarrollan bajo supervisión de la Contraloría Regional. Según Saffirio, la gravedad de los antecedentes llevó a la propia Contraloría a remitir el informe al Ministerio Público, al Consejo de Defensa del Estado, al Servicio de Impuestos Internos y a la Cámara de Diputados, por la posibilidad de que algunos hechos fueran constitutivos de delito. (Diario Financiero, 18-08-2026; Radio Universal; Tiempo21)
 - 2026-08-18: el GORE, mediante el gobernador Saffirio, presenta denuncia ante el fiscal regional subrogante César Schibar por eventual fraude al fisco, negociación incompatible, estafa y lavado de activos, contra la U. Autónoma como persona jurídica, su rector Teodoro Ribera, el vicerrector de la sede Temuco, el exgobernador Rivas, el exjefe de gabinete Leonelli y las exjefas de división Alarcón y Poff, entre otros. Hallazgos invocados: proyectos declarados ejecutados y archivados que no se habrían materializado pese a actas de supervisión e informes finales firmados, y 73 facturas rendidas y luego anuladas con notas de crédito por $127,5 millones, además de $134,1 millones en saldos sin rendir. (Diario Financiero y BioBioChile, 2026-08-18; Tiempo21)
 - 2026-08-19: la U. Autónoma emite declaración pública: los $21 mil millones "no constituyen un monto defraudado" sino el total transferido para ejecutar los convenios auditados, y el informe de Contraloría "no establece que la Universidad Autónoma de Chile haya cometido los delitos mencionados públicamente"; agrega que determinar responsabilidades corresponde a los organismos competentes. (uautonoma.cl; Tiempo21 y Araucanía Noticias, 2026-08-19)
 - 2026-08-21: la Fiscalía Regional de La Araucanía confirma que los antecedentes denunciados, incluida la eventual responsabilidad de la U. Autónoma como persona jurídica, serán investigados dentro de causas ya existentes. (Alerta Noticias Temuco, 2026-08-21)
@@ -48,7 +49,9 @@ Nota de rigor: la denuncia del 2026-08-18 no acredita hecho ni participación al
 - Eventuales diligencias, agrupación con las causas vigentes del Caso Convenios regional o formalizaciones: sin fechas conocidas; nadie está citado a formalización en esta arista.
 - Posible presentación de querella del GORE (la acción del 2026-08-18 es una denuncia, no una querella): sin confirmar.
 - Nombramiento de fiscal regional titular de La Araucanía tras la salida de Roberto Garrido: sin fecha confirmada en las fuentes consultadas.
-- Eventuales procedimientos derivados del informe de Contraloría (sumarios, juicio de cuentas, reintegros): sin confirmar.
+- Resultado de las dos investigaciones sumarias internas instruidas por el GORE el 04-08-2026, bajo supervisión de la Contraloría Regional. Sin plazo público informado; ninguna ha concluido a la fecha.
+- Pronunciamientos del Consejo de Defensa del Estado y del Servicio de Impuestos Internos sobre los antecedentes que Contraloría les remitió con el informe final: sin confirmar.
+- Otros procedimientos derivados del informe de Contraloría (juicio de cuentas, reintegros ordenados): sin confirmar.
 
 ## Fuentes
 - Diario Financiero, 2026-08-18: https://www.df.cl/regiones/la-araucania/economia/gore-de-la-araucania-denuncia-a-u-autonoma-ante-fiscalia-por-fraude-al
@@ -62,6 +65,7 @@ Nota de rigor: la denuncia del 2026-08-18 no acredita hecho ni participación al
 - El Diario Santiago, 2026-04-11: https://eldiariosantiago.cl/2026/04/11/contraloria-conflictos-interes-gore-araucania-rivas/
 - Alerta Noticias Temuco, 2026-04-11: https://alertanoticiastemuco.cl/2026/04/11/contraloria-conflictos-interes-gore-araucania-rivas/
 - Araucanía Diario, 2026 (informe N°744 y denuncia): https://araucaniadiario.cl/amp/33099/graves-irregularidades-y-posibles-delitos-detecta-la-contraloria-en-programas-go
+- Radio Universal, agosto de 2026 (recepción del informe final el 04-08-2026, dos investigaciones sumarias y remisión de antecedentes al Ministerio Público, CDE, SII y Cámara de Diputados): https://www.radiouniversal.cl/universidad-autonoma-responde-a-denuncia-del-gobierno-regional-por-convenios-en-la-araucania
 - Cambio21, agosto 2026 (Rivas, Evópoli): https://cambio21.cl/pais/gobernador-de-la-araucania-denuncio-a-la-u-autonoma-por-irregularidades-en-21-mil-millones-involucro-al-antiguo-gore-luciano-rivas-evopoli-6a84ebf659db502e73031997
 - El Periódico, agosto 2026: https://elperiodico.cl/gore-araucania-denuncio-a-la-universidad-autonoma-por-irregularidades-en-21-mil-millones-de-pesos/
 - BioBioChile, 2026-05-22 (querella CDE): https://www.biobiochile.cl/noticias/nacional/region-de-la-araucania/2026/05/22/cde-se-querella-contra-exfuncionario-del-gore-su-pareja-y-suegra-por-caso-convenios-en-la-araucania.shtml
@@ -78,7 +82,18 @@ Nota sobre las fuentes: no se accedió al texto íntegro de las notas de prensa 
 
 ## Registro de actualizaciones del dossier
 - 2026-08-26: dossier creado con investigación inicial. (agente de investigación)
+- 2026-09-08: se incorpora el 04-08-2026 como fecha de recepción del informe final de la Contraloría Regional por el GORE de La Araucanía, junto con dos hechos que el dossier consignaba como "sin confirmar": que ese mismo día el gobernador Saffirio instruyó dos investigaciones sumarias internas bajo supervisión de la Contraloría Regional, y que la propia Contraloría remitió el informe al Ministerio Público, al Consejo de Defensa del Estado, al Servicio de Impuestos Internos y a la Cámara de Diputados. Se agrega una línea a la cronología, se reescriben dos hitos y se suma la fuente de Radio Universal. El número del informe final sigue sin confirmarse. Sin cambios en las cifras del caso. (Diario Financiero, 18-08-2026; Radio Universal; Tiempo21)
 
 <!-- interno
+Límite de acceso (08-09-2026): el proxy de red bloqueó tiempo21.cl,
+elperiodico.cl y radiouniversal.cl (EGRESS_BLOCKED), de modo que no se leyó el
+texto de ninguna nota. Los dos hechos incorporados hoy entran porque coinciden
+en extractos de buscador de tres medios con URL verificada (Diario Financiero,
+Radio Universal y Tiempo21) y porque la nota de Radio Universal aporta contenido
+propio, más allá de la declaración pública de la universidad, que era la duda
+anotada el 02-09-2026 en por-verificar.md. Quedó pendiente ahí el número del
+informe final y la existencia de los actos administrativos que ordenan las dos
+investigaciones sumarias.
+
 Límite de acceso (26-08-2026): Notas metodológicas: el proxy de red bloqueó el acceso directo a los artículos (WebFetch), por lo que las cifras y citas provienen de resultados de búsqueda con URL verificada, contrastados en al menos dos medios cuando fue posible. El número del informe final de Contraloría y su fecha exacta de emisión quedan como "sin confirmar" (solo consta el preinforme N°744 de la Contraloría Regional). Los montos por convenio individual no fueron publicados en las fuentes consultadas. Los nombres de los querellados por el CDE (2026-05-22) no aparecen individualizados en las fuentes disponibles.
 -->
