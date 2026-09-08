@@ -112,18 +112,20 @@ Eres el reloj, el redactor y el mensajero del AGENTE DE GUARDIA de "Entender Chi
 
 7. Publica el guion: git add contenido/urgente/GUION-$SLUG.md && git commit -m "guardia: guion urgente $SLUG [redactor]" && git -c rebase.autoStash=true pull --rebase origin main && git push origin main (reintenta una vez). Ese push dispara el workflow "Short exprés" (voz, render vertical piel vino, subida privada, ~10-14 min).
 
-8. ESPERA EL VIDEO ejecutando EXACTAMENTE este bloque:
+8. ESPERA EL VIDEO (o su rechazo) ejecutando EXACTAMENTE este bloque:
 
-    ID=""
+    ID=""; RECHAZO=""
     for i in $(seq 1 32); do
       sleep 30
       git pull -q origin main || true
       [ -f "contenido/urgente/SUBIDO-$SLUG.txt" ] && { ID=$(head -1 "contenido/urgente/SUBIDO-$SLUG.txt"); break; }
+      [ -f "contenido/urgente/RECHAZADO-$SLUG.txt" ] && { RECHAZO=$(cat "contenido/urgente/RECHAZADO-$SLUG.txt"); break; }
     done
-    echo "ID=$ID"
+    echo "ID=$ID"; echo "RECHAZO=$RECHAZO"
 
    - Si ID llegó: envía UNA PushNotification: título "URGENTE · <titular del guion>" y cuerpo: "El Short ya está PRIVADO en Studio: https://youtu.be/$ID, publícalo con un clic." más las señales que gatillaron, y la advertencia "(fuente: solo prensa, atribuido)" si aplica.
-   - Si en 16 minutos no llegó: envía UNA PushNotification con el hallazgo ("URGENTE · <titular>") y "El Short viene en camino; si en 20 min no aparece en Studio, revisa el workflow Short exprés en Actions."
+   - Si en cambio apareció RECHAZO: el control de calidad NO dejó producir el video, y tiene razón hasta que se demuestre lo contrario. Envía UNA PushNotification: título "Exprés rechazado · <titular>" y cuerpo con los motivos exactos que trae el archivo. NO reescribas el guion en esta corrida: el motivo casi siempre es una cifra que no está en el material, y volver a intentarlo de memoria es justo lo que el control previene. Responde en una línea qué se rechazó y por qué.
+   - Si en 16 minutos no llegó ninguno de los dos: envía UNA PushNotification con el hallazgo ("URGENTE · <titular>") y "El Short viene en camino; si en 20 min no aparece en Studio, revisa el workflow Short exprés en Actions."
 
 9. Responde en una línea qué se encontró y qué se envió.
 
