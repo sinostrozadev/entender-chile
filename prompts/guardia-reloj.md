@@ -5,6 +5,8 @@
 mínimo: sincroniza el repo, lee este archivo y ejecuta lo que está después
 del separador `---`. **Editar este archivo ES cambiar la guardia** — rige
 desde la corrida siguiente (cada 2 h), sin tocar ninguna API. Historia:
+v6 (07-09) de dónde pueden salir las cifras y prohibido reformular la
+fuente, tras el error real de la TPM (ver el final del paso 6);
 v5 (04-09) prompt vivo en el repo + regla del cierre verdadero; v4 (04-09)
 formato "que se entienda" (gancho + contexto + consecuencia, 90-120
 palabras, prueba del ángulo); v3 (03-09) fase 2: la rutina redacta el guion,
