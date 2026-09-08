@@ -214,3 +214,15 @@ madrugada" en ejecutar.md, 2026-08-24.)
   miniatura tipográfica con remotion still. Chile no tiene fair use: las
   fotos de prensa están fuera. La licencia de Remotion es gratis hasta 3
   empleados. El 3D es mala inversión (con GPU rindió 3 veces más lento).
+
+## Un solo disparador y máquina de estados para toda la madrugada
+- **Fecha:** 2026-09-08 · **Origen:** Santiago
+- **Qué:** reemplazar los 3 PR y los relojes de respaldo por un estado
+  explícito del día; GPT (1 tarea) y Claude (1 a 4 despachadores) despiertan
+  con cada disparador y hacen lo que el estado indica, con corrección de
+  errores dentro del bucle y tope de vueltas.
+- **Valor:** alto: revisión 2-3 h antes (hoy un error estuvo público 5 h),
+  dedup por diseño, de 8 relojes a 4, GPT de 3 tareas a 1.
+- **Esfuerzo:** medio-alto, migrable en 5 pasos de una noche cada uno.
+- **Diseño:** `bitacora/2026-09-08-propuesta-maquina-de-estados.md`.
+

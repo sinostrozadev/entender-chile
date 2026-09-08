@@ -76,6 +76,18 @@ en la lista del cambio de hora del 6-09) — si no hay
 espera; sin material NO inventa: avisa. Notifica SOLO si intervino o no
 pudo; silencio cuando GPT cumplió.
 
+## PARA LA TARDE (08-09): un solo disparador y máquina de estados
+
+- [ ] **Conversar y decidir la propuesta de Santiago (08-09 07:45):** un solo
+      PR disparador para GPT, un estado explícito del día, GPT y Claude que
+      despiertan con cada disparador y hacen lo que el estado indica, en bucle
+      hasta el estado final; corrección de errores dentro del bucle; cada
+      prompt claro y en orden. Borrador con tabla de estados, dónde vive el
+      estado (A/B), despachador único, corrección con tope de vueltas,
+      migración en 5 pasos y 7 preguntas:
+      `bitacora/2026-09-08-propuesta-maquina-de-estados.md`. No se toca nada
+      hasta conversarlo.
+
 ## URGENTE — con plazo
 
 - [ ] **Suscripción de Claude vencida = todas las rutinas caen (04-09).**
