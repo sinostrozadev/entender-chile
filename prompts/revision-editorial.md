@@ -5,8 +5,9 @@ Prompt vivo de la rutina "Revisión editorial Entender Chile (Fable)". Desde el
 VERIFICA el dato correcto, corrige el informe y el guion, y republica (ese
 mismo día el rechazo de las 04:44 dejó al canal sin video hasta que Santiago
 lo corrigió a mano). La rutina anterior (trig_019cchTdDCVeVzVh8HjrZrYG,
-Sonnet, 04:40) queda por desactivar desde la sesión local; mientras exista,
-esta la toma como primera lectura. Última versión: 08-09-2026.
+Sonnet, 04:40) quedó DESACTIVADA el 08-09 a las 07:32 desde la sesión local
+(`enabled=false` confirmado por API): desde la madrugada del 09-09 esta corre
+sola y el punto 3b ya no encuentra revisión previa. Última versión: 08-09-2026.
 
 ---
 

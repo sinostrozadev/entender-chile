@@ -14,8 +14,9 @@ lo pushea (`short-expres.yml`: voz, render vertical piel vino, subida
 privada), espera la marca `SUBIDO-<slug>.txt` y avisa al teléfono con el
 link listo en Studio.
 
-Cron: `0 0,2,12,14,16,18,20,22 * * *` (08 a 22 de Chile en UTC-4; con el
-cambio de hora del 6-09 se corre una hora, junto con todos los relojes).
+Cron: `0 23,1,11,13,15,17,19,21 * * *` en UTC = 08, 10, 12, 14, 16, 18, 20 y
+22 de Chile (UTC-3 desde el cambio de hora del 6-09; ese día se corrieron
+una hora todos los relojes).
 Notificaciones de la rutina: APAGADAS; el aviso al teléfono lo manda el
 agente con PushNotification SOLO cuando hay hallazgo. Lo que el arranque de
 la rutina fija y este archivo NO puede cambiar: solo se tocan archivos de

@@ -1,15 +1,18 @@
 # Auditoría matinal: cómo salió la madrugada
 
-Tarea diaria de las **09:30 de Chile**, después de la última ejecución del
-día (las métricas llegan ~08:47). Nació el 02-09-2026, pedida por Santiago:
+Rutina diaria de las **05:30 de Chile** (desde el rediseño del 06-09: métricas
+05:00 → auditoría 05:30 → informe de la mañana 06:00), cuando la madrugada ya
+terminó y las métricas del día están en el repo. Nació el 02-09-2026, pedida
+por Santiago:
 "cada mañana al finalizar la última de las ejecuciones se debe correr la
 auditoría y evaluar cómo funcionó todo, si hubo algún problema, las
 propuestas de solución, si es algo que necesita urgencia o aguanta hasta la
 mañana siguiente".
 
-**No confundir con el guardián** (06:07). El guardián es una alarma: mira si
-faltan piezas y dice una línea. Esta auditoría corre tres horas después, con
-el día completo y las métricas ya en el repo, y su trabajo es distinto:
+**No confundir con el informe de la mañana** (06:00, el guardián v2, Opus).
+Ese es el resumen diario para el teléfono de Santiago y corre media hora
+DESPUÉS de esta auditoría (la lee y la cita). Esta auditoría corre con la
+madrugada completa y las métricas ya en el repo, y su trabajo es distinto:
 evaluar cómo salió, encontrar lo que falló aunque nadie lo haya notado,
 proponer arreglos y decir qué aguanta y qué no.
 
@@ -90,7 +93,7 @@ lista su carpeta y cita lo que viste.
 
 ## Cómo programarla
 
-Como las otras cinco tareas, apuntando a este archivo del repo.
-**09:30 de Chile.** Ojo con el cambio de hora del 6-09: si la programación
-está en hora de Chile se ajusta sola; si queda en UTC hay que moverla de
-13:30 a 12:30.
+Rutina `trig_01GDbvJ1Wjzy25bnVRCXgygZ`, cron `30 8 * * *` UTC = **05:30 de
+Chile** (UTC-3 desde el 6-09). La rutina solo trae el arranque de tres líneas
+(sincronizar, leer este archivo, ejecutar lo que sigue al `---`): cambiar
+esta auditoría es editar este archivo, no la rutina.

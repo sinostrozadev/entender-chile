@@ -13,19 +13,28 @@ contradice ese archivo, gana ese archivo.
 ## La madrugada, de verdad
 
 El cuadro de horarios completo y verificado vive en
-`bitacora/2026-08-28-quien-ejecuta-que.md` y, con la corrida de cada día al
-lado, en el panel interno. En corto (hora de Chile, invierno):
+`bitacora/2026-08-28-quien-ejecuta-que.md` y, siempre al día, en
+`bitacora/cronograma.json` (lo dibuja el panel interno). En corto (hora de
+Chile, UTC-3 desde el 06-09):
 
 ```
 01:30  reloj de Claude toca el despertador → workflow del BARRIDO (22 fuentes)
-01:45  observatorio de plata pública (rutina de Claude)
-03:10  preselección → 03:30 informe → 03:45 Clave → 04:00/04:15 guiones
-       (tareas programadas de ChatGPT; leen prompts/ del repo y pushean)
-04:40  revisión editorial (rutina de Claude) → su push TIMBRA la edición
-~04:45 workflow EDICIÓN DIARIA: render 1440p con voz, 4 piezas, miniaturas,
-       release, subida PRIVADA a YouTube, podcast, web (~71 min en frío)
-06:07  guardián (rutina de Claude): verifica las piezas y avisa al teléfono
-08:45  reloj de métricas → workflow de MÉTRICAS (Data API → bitacora/ y panel)
+       → al terminar emite el evento del PR #2
+~01:38 preselección → PR #3 → ~01:45 informe → PR #4 → ~01:50 Clave
+       (tareas de ChatGPT, cada una despierta con el evento anterior;
+       leen prompts/ del repo y pushean)
+01:45  observatorio de plata pública (rutina de Claude, en paralelo)
+~01:52 guionista de Claude (informe y Clave): cada push lo despierta y escribe
+       el guion que falte; relojes de respaldo 03:35 y 03:50
+04:45  revisión editorial (rutina de Claude en Fable): veredicto, y si una cifra
+       está mal y se comprueba la correcta, corrige y republica → su push
+       TIMBRA la edición
+~04:50 workflow EDICIÓN DIARIA: render 1440p con voz, 4 piezas, miniaturas,
+       release, subida PRIVADA a YouTube, podcast, web (~70 min en frío)
+05:00  reloj de métricas → workflow de MÉTRICAS (Data + Analytics → bitacora/ y panel)
+05:30  auditoría matinal (rutina de Claude): cómo salió la máquina, triage
+06:00  informe de la mañana (rutina de Claude, Opus): el resumen al teléfono
+08-22  guardia cada 2 h (rutina de Claude) → Short exprés si caza algo
 ```
 
 Reglas de infraestructura ya pagadas con errores: el cron de GitHub NUNCA es

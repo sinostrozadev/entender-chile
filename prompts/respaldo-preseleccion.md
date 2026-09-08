@@ -16,8 +16,8 @@ seguridad: si a las 02:30 GPT no dejó `contenido/preseleccion/AAAA-MM-DD.md`
 en main, la hace Claude siguiendo `prompts/seleccion.md`. Silenciosa cuando
 GPT cumplió; notifica SOLO cuando tuvo que intervenir o cuando no pudo.
 
-Cron: `30 6 * * *` (02:30 Chile en UTC-4; con el cambio de hora del 6-09 se
-corre una hora, junto con todos los relojes). Diferencia con GPT que este
+Cron: `30 6 * * *` (hoy sería 03:30 de Chile, UTC-3; quedó como estaba al
+desactivarla, si se reactiva hay que volver a mirar la hora). Diferencia con GPT que este
 respaldo NO puede salvar: Claude no navega — sin barrido en el repo no hay
 material y se declara, no se inventa.
 

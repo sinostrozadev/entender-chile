@@ -342,8 +342,10 @@ referencia:
       falla suma un argumento para que el guion marque sus [DATO] y el
       automático quede solo como red. Verlo en la sesión local.
 
-- [ ] **REVISIÓN 2: desactivar la rutina vieja de revisión (Sonnet, 04:40)**
-      (08-09). Santiago decidió que la revisión corra en Fable y que, ante un
+- [x] **REVISIÓN 2: desactivar la rutina vieja de revisión (Sonnet, 04:40)**
+      (08-09). ✅ HECHO 08-09 07:32 (sesión local): `enabled=false` confirmado
+      por API. Primera corrida real de la nueva: madrugada del 09-09, 04:45.
+      Origen: Santiago decidió que la revisión corra en Fable y que, ante un
       rechazo por cifra, verifique el dato correcto, corrija y republique. La
       sesión remota creó la rutina nueva `trig_012mLfmCi2jDoiS3zRFqETy8`
       "Revisión editorial Entender Chile (Fable, 04:45)", cron `45 7 * * *`,
@@ -354,8 +356,9 @@ referencia:
       primera lectura (punto 3b) y no duplica el push. Desactivar la vieja y
       dejar a la nueva sola. Con esto REVISIÓN 1 queda absorbido.
 
-- [ ] **REVISIÓN 1: cargar el prompt nuevo en la rutina "Revisión editorial"**
-      (04-09). El prompt con la categoría e (redondeo en voz) y la fuente
+- [x] **REVISIÓN 1: cargar el prompt nuevo en la rutina "Revisión editorial"**
+      (04-09). ✅ ABSORBIDO por REVISIÓN 2 (08-09): la rutina nueva lee el
+      prompt vivo del repo, así que nunca más hay que "cargarlo". El prompt con la categoría e (redondeo en voz) y la fuente
       circular como categoría b está en `prompts/revision-editorial.md`. La
       rutina (trig_019cchTdDCVeVzVh8HjrZrYG) se creó por API desde la sesión
       local y solo esa sesión puede actualizarla: la sesión remota lo intentó
