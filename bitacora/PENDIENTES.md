@@ -92,17 +92,16 @@ pudo; silencio cuando GPT cumplió.
       madrugada (una corrida de prueba a las 23:00) para que el barrido de
       la 01:30 no sea el primero en enterarse.
 
-- [ ] **Responder a Google la revisión de la API (plazo: 7 días hábiles
-      desde el 01-09 ≈ 10-09).** Pidieron *"the script / screencast of how
-      you are uploading videos along with the end-results"*. TODO listo en
-      `docs/auditoria-api/respuesta-revision-2026-09-02.md`: borrador del
-      correo en inglés para pegar (Reply EN EL MISMO HILO desde
-      entenderchile@gmail.com), checklist de 3 capturas y el screencast
-      opcional de 60-90 s. Al script se le pega el fuente completo de
-      `scripts/youtube-subir.js`. Al aprobarse la auditoría: cargar
-      `YT_PUBLICAR_HORA` y pasar a hora de publicación POR PIEZA (el paso 7
-      hoy usa una sola para las cuatro; sugerido informe 07:00, Short 12:00,
-      Clave 14:00, Short de la Clave 18:00, como variables del repo).
+- [x] ~~Responder a Google la revisión de la API~~ **DECIDIDO NO ENVIAR
+      (07-09).** Santiago frenó el envío y tenía razón en las tres objeciones.
+      Verificado contra la doc oficial: la restricción de "privado" aplica al
+      MOMENTO DE LA SUBIDA, no impide publicar (prueba: 33 videos subidos por
+      la API, 29 públicos). Lo único que destrabaría la auditoría es que el
+      script programe solo, y programar ya se puede desde Studio. A cambio, el
+      correo era un dossier que enfatiza la automatización justo cuando la
+      política de contenido inauténtico desmonetiza canales de plantilla.
+      Razonamiento completo: `docs/auditoria-api/DECISION-07-09.md`. El plazo
+      se deja expirar; nada cambia en la operación.
 
 ## EL AGENTE DE GUARDIA — LUZ VERDE (02-09 noche, con la condición resuelta)
 

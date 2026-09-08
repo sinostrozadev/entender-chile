@@ -1,3 +1,9 @@
+> ⚠️ **NO ENVIADO — decisión de Santiago, 07-09-2026.** Ver
+> `docs/auditoria-api/DECISION-07-09.md`. Este borrador queda como archivo:
+> la premisa que lo motivaba ("sin auditoría no podemos publicar") es FALSA,
+> verificada contra la doc oficial y contra el propio canal (33 videos
+> subidos por la API, 29 públicos, publicados a mano sin problema).
+
 # Respuesta a Google — revisión de cumplimiento (recibida 01-09, plazo 7 días hábiles ≈ 10-09)
 
 Google pidió (correo de youtube-disputes@, 01-09 06:14): *"the script /

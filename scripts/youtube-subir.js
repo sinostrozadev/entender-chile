@@ -17,7 +17,13 @@
  * Secrets (env): YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN.
  *
  * Por qué privado: los proyectos nuevos de la API de YouTube suben en modo
- * privado obligatorio hasta pasar la auditoría de Google. Y aunque no fuera
+ * privado obligatorio hasta pasar la auditoría de Google. OJO con la premisa
+ * (corregida el 07-09, verificada en la doc oficial): esa restricción NO
+ * impide publicar. Aplica al MOMENTO DE LA SUBIDA; el dueño del canal puede
+ * hacer público, o programar, cualquiera de esos videos desde Studio, y así
+ * se publican los del canal desde el día uno. Lo único que la auditoría
+ * destrabaría es que ESTE script publique o programe por su cuenta
+ * (publishAt), que es un clic de diferencia. Y aunque no fuera
  * así, la regla del canal es que Santiago revisa antes de publicar. El id del
  * video queda en out/FECHA/youtube-id.txt; al publicarlo, ese id va a
  * contenido/videos/FECHA-informe.txt para que la web lo embeba.
