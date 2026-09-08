@@ -1,0 +1,7 @@
+RECHAZADO 2026-09-08T02:44:31.125Z
+guion: contenido/urgente/GUION-2026-09-07-2008-grupo-politica-monetaria-recomendo.md
+
+- la cifra "9,5%" no aparece en el material capturado ni en el informe de hoy (regla del 07-09: cada cifra sale de una de esas dos fuentes, nunca de memoria ni de informes viejos)
+- la cifra "1,3%" no aparece en el material capturado ni en el informe de hoy (regla del 07-09: cada cifra sale de una de esas dos fuentes, nunca de memoria ni de informes viejos)
+
+El Short NO se produjo. Corrige el guion y vuelve a pushearlo, o descártalo.

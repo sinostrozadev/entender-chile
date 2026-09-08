@@ -15,5 +15,6 @@ Guion:
 ## Cierre
 [TESIS] El análisis completo, hoy en el canal Entender Chile.
 Fuentes:
+Verificado en fuente primaria: Banco Central, Encuesta de Operadores Financieros del 3 de septiembre de 2026 (TPM 4,5%; inflación esperada a 12 meses 3,3%). https://www.bcentral.cl
 Banco Central de Chile, Encuesta de Operadores Financieros previa a la RPM, 3 de septiembre de 2026.
 La Tercera / Pulso, "La tasa de interés permanecerá en el nivel actual por un buen tiempo, según los operadores financieros", 3 de septiembre de 2026.

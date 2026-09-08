@@ -51,6 +51,26 @@ jobs:
           echo "Guion elegido: $G"
           echo "guion=$G" >> "$GITHUB_OUTPUT"
 
+      # CONTROL DE CALIDAD (07-09): el exprés era la única pieza que iba del
+      # modelo a YouTube sin revisión. Si el guion no pasa, no hay video: el
+      # verificador deja RECHAZADO-<slug>.txt con los motivos, el paso de
+      # abajo lo commitea y la rutina de guardia avisa al teléfono con la causa.
+      - name: Verificar el guion antes de producir
+        if: steps.elegir.outputs.guion != ''
+        run: node scripts/verificar-expres.js "${{ steps.elegir.outputs.guion }}"
+
+      - name: Commit del rechazo (si no pasó)
+        if: failure() && steps.elegir.outputs.guion != ''
+        run: |
+          git config user.name "guardia-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add contenido/urgente/
+          git diff --cached --quiet || {
+            git commit -m "short exprés RECHAZADO en verificación $(TZ=America/Santiago date +'%F %H:%M') [bot]"
+            git -c rebase.autoStash=true pull --rebase origin main
+            git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
+          }
+
       - name: Producir y subir el Short urgente
         if: steps.elegir.outputs.guion != ''
         env:
