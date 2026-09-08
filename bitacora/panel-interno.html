@@ -92,7 +92,7 @@
       <a href="https://github.com/sinostrozadev/entender-chile/actions/workflows/web.yml" target="_blank" rel="noopener" class="boton">Web y feed del podcast</a>
     </div>
     <p class="nota">Cada enlace abre su workflow en GitHub: ahí el botón <b>Run workflow</b> lo dispara al tiro. Son dos clics y no un botón directo por una razón concreta: <b>esta página es pública para quien tenga el enlace, y un botón de un clic tendría que llevar un token de GitHub escrito adentro.</b> Un token en una página publicada es un token regalado. Los dos clics cuestan tres segundos; el token cuesta el repositorio.</p>
-    <p class="nota">Casi nunca hace falta apretarlos: las métricas ya se actualizan solas a las 08:45 con su propio reloj en la nube, y las demás piezas corren en la madrugada (ver el cuadro de horas más abajo). Estos enlaces son para cuando algo falló y quieres reintentar sin esperar al día siguiente.</p>
+    <p class="nota">Casi nunca hace falta apretarlos: las métricas ya se actualizan solas a las 05:00 con su propio reloj en la nube, y las demás piezas corren en la madrugada (ver el cuadro de horas más abajo). Estos enlaces son para cuando algo falló y quieres reintentar sin esperar al día siguiente.</p>
   </section>
 
   <div class="fila f2">
@@ -110,19 +110,19 @@
         <span class="paso">olla</span><span class="flecha">⚡</span>
         <span class="paso">informe</span><span class="flecha">⚡</span>
         <span class="paso">Clave + guiones (Claude)</span><span class="flecha">→</span>
-        <span class="paso"><b>04:40</b> revisión</span><span class="flecha">→</span>
+        <span class="paso"><b>04:45</b> revisión (Fable)</span><span class="flecha">→</span>
         <span class="paso">videos 1440p</span><span class="flecha">→</span>
         <span class="paso">YouTube privado + podcast + web</span>
       </div>
       <p class="nota" style="margin-top:10px">⚡ = despierta por evento (PR #2, #3 y #4), no por reloj: cada pieza nace cuando su insumo está listo. El detalle completo, con horas y respaldos, está en el módulo <b>Cronograma del sistema</b> más abajo.</p>
-      <p class="nota" style="margin-top:12px">Hoy: todo verde, revisión APROBADA (1 hallazgo menor, ya es regla del prompt). El tornado que ayer se escapó del embudo hoy abrió como [A]: la corroboración por alarma debutó bien.</p>
+      <p class="nota" style="margin-top:12px">08-09: la cadena completa en 22 minutos (01:33 → 01:55) y la revisión RECHAZÓ por dos cifras: la compuerta paró los videos, se corrigió con fuente a las 06:45 y la edición salió después. Desde hoy la revisión corre en Fable y corrige sola cuando puede comprobar el dato.</p>
       <p class="nota">Tu parte diaria: revisar en Studio → publicar o programar → vincular cada Short a su video. 3-5 minutos.</p>
     </section>
   </div>
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 08-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 09:30; archivo completo en bitacora/2026-09-08-auditoria.md</span></p>
+    <p class="eyebrow">Auditoría de la mañana · 08-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-09-08-auditoria.md</span></p>
     <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS — la revisión editorial rechazó la edición de hoy por dos cifras que no cuadran con su propia base de cálculo; la compuerta de la Edición diaria hizo su trabajo y no produjo ni publicó ningún video, pero el texto del informe con el error ya está público en la web desde las 01:43.</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
@@ -285,7 +285,7 @@ Sin más fallas: barrido, preselección, informe, entrega de Clave, guiones y m�
   </section>
 
   <section class="tarjeta">
-    <p class="eyebrow">Qué corre cada día, en orden <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· horas de Chile en invierno (UTC-4). Con el horario de verano del 6-09 todo se corre una hora, salvo que se muevan los cron (todos están en UTC)</span></p>
+    <p class="eyebrow">Cuadro histórico del 01-09 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· cómo corría el sistema antes de los eventos (horario de invierno, UTC-4). EL VIGENTE ES EL "CRONOGRAMA DEL SISTEMA" DE MÁS ARRIBA; este queda como registro de la primera semana</span></p>
     <div style="overflow-x:auto">
     <table>
       <tr><th>Chile</th><th>UTC</th><th>Qué pasa</th><th>Quién aprieta el botón</th><th>Corrida del 01-09</th></tr>

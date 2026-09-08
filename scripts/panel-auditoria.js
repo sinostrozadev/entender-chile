@@ -2,7 +2,7 @@
 /**
  * panel-auditoria.js - Inyecta la auditoría matinal más reciente en el panel.
  *
- * Lo corre la rutina de las 09:30 justo después de escribir
+ * Lo corre la rutina de las 05:30 justo después de escribir
  * bitacora/FECHA-auditoria.md (y cualquier sesión, cuando quiera refrescar).
  * Busca la auditoría más nueva, saca su línea ESTADO y mete el informe
  * completo (plegado) entre los marcadores <!--AUDITORIA-INICIO/FIN--> de
@@ -25,7 +25,7 @@ const color = /TODO EN ORDEN/i.test(lineaEstado) ? "var(--acento)"
   : /FALLAS|HOY/i.test(lineaEstado) ? "var(--cobre)" : "#8A6F3F";
 
 const html = `<!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · ${fecha.split("-").reverse().join("-")} <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 09:30; archivo completo en bitacora/${archivo}</span></p>
+    <p class="eyebrow">Auditoría de la mañana · ${fecha.split("-").reverse().join("-")} <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/${archivo}</span></p>
     <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:${color};margin-bottom:10px">ESTADO: ${esc(lineaEstado)}</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
