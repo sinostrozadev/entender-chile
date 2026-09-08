@@ -1,6 +1,6 @@
 {
   "_regla": "FUENTE DE VERDAD del cronograma del panel. Quien cambie una tarea (rutina, workflow, tarea GPT, horario o disparador) ACTUALIZA este archivo en el mismo commit; scripts/panel-cronograma.js lo inyecta al panel y el reloj de métricas lo refresca a diario.",
-  "actualizado": "2026-09-06",
+  "actualizado": "2026-09-07",
   "fases": [
     {
       "nombre": "La madrugada — cadena editorial (cada pieza despierta a la siguiente)",
@@ -36,22 +36,22 @@
           "que": "Despierta con el evento del PR #3. Verifica cada candidata leyendo las fuentes completas, jerarquiza A/B/C, elige portada con puntaje y escribe la edición completa. Su push emite el evento al PR #4, reconstruye la web y despierta al guionista. Respaldo fijo 03:30 con guarda (se apaga al validar la prueba)."
         },
         {
-          "hora": "~02:10",
-          "quien": "Guionista del informe",
+          "hora": "~02:10 y ~02:35",
+          "quien": "Guionista (informe y Clave)",
           "tipo": "claude",
-          "que": "Despierta con el webhook del push del informe (reloj 03:35 de respaldo). Convierte el informe en guion narrable: qué se narra completo y qué va a En titulares, marcas de tarjetas, techo de duración y la línea Carátula sugerida."
+          "que": "UNA rutina para las dos piezas desde el 07-09: el webhook de GitHub la despierta con cada push y ella mira qué falta — si hay informe sin guion lo escribe, si hay entrega de Clave sin guion lo escribe. Sale en segundos cuando no le toca (guardas probadas: 11 s). Reloj 03:35 de respaldo. Prompt vivo: prompts/guionista.md."
         },
         {
           "hora": "~02:30",
           "quien": "Clave (entrega)",
           "tipo": "gpt",
-          "que": "Despierta con el evento del PR #4. La entrega educativa diaria: un concepto detrás de una noticia, banco de temas e índice de la colección. Respaldo fijo 03:45 con guarda."
+          "que": "Despierta con el evento del PR #4. La entrega educativa diaria: un concepto detrás de una noticia, banco de temas e índice de la colección. Respaldo fijo 03:45 con guarda. Su push despierta al guionista por webhook."
         },
         {
           "hora": "03:50",
-          "quien": "Guionista de la Clave",
+          "quien": "Guionista de la Clave (red)",
           "tipo": "claude",
-          "que": "Entrega → guion de ~5 minutos. Va con reloj por la limitación del webhook (dispara con cualquier push); pendiente fusionar los dos guionistas en una rutina reactiva."
+          "que": "Segunda red por reloj: si el guionista por evento no escribió el guion de la Clave, esta lo hace. Calla por dedup cuando ya está."
         },
         {
           "hora": "04:40",
@@ -93,6 +93,12 @@
           "quien": "Guardia + Short exprés",
           "tipo": "claude",
           "que": "Barrido liviano de urgentes con criterio mecánico (2 de 4 señales, o algo anunciado que se publicó). Si caza: redacta el guion exprés, Actions produce el Short vertical vino, lo sube privado y llega el link al teléfono. Silencio si no hay nada. También a pedido: \"prepara un video exprés de X\" → ~10 min."
+        },
+        {
+          "hora": "con cada exprés",
+          "quien": "Control de calidad del exprés",
+          "tipo": "actions",
+          "que": "verificar-expres.js corre ANTES de producir el Short: cada cifra del guion tiene que estar en el material capturado o en el informe de hoy, más fuente, largo y formato. Si no pasa no hay video: deja RECHAZADO-<slug>.txt y la guardia avisa el motivo al teléfono. Nació del error de la TPM (07-09)."
         },
         {
           "hora": "continuo",
