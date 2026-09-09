@@ -305,6 +305,42 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **TARJETA 3: el esquema de la Clave se dibuja ENCIMA del párrafo**
+      (Santiago, 08-09 16:38, Clave "¿Qué es una interpelación y qué puede
+      exigirle...", captura en
+      `bitacora/capturas-2026-09-08-clave-esquema-superpuesto.jpg`). La marca
+      es `[ESQUEMA | Camino de una interpelación]` con CUATRO nodos (línea 25
+      del guion de la Clave): las dos primeras cajas se ven arriba y las dos
+      últimas quedan tapadas por el párrafo narrado, que se pinta sobre ellas
+      (se leen "Sesión de preguntas y respuestas" y "Consecuencias políticas
+      posibles" en gris detrás del texto). El párrafo que sigue al esquema
+      pasa los 500 caracteres. Pista: con 4 nodos la fila envuelve a dos
+      líneas y la caja del esquema crece más de lo que el layout reserva;
+      revisar `TarjetaEsquema` en `src/tarjetas.tsx` y si el ancla del
+      esquema y la del párrafo caen en el mismo instante. Misma familia que
+      TARJETA 2 (una tarjeta desborda y tapa lo de al lado), que ya se
+      resolvió el 07-09 por otra vía.
+
+- [ ] **TÍTULO 1: el Short se tituló "Buscan comprar al Estado" y no se
+      entiende de qué habla** (Santiago, 08-09 23:54, Short del informe, 61
+      vistas; captura en
+      `bitacora/capturas-2026-09-08-short-titulo-comprar-al-estado.jpg`). El
+      título del Short se arma con la fórmula A del 05-09:
+      `<Carátula sugerida>, y otras 4 cosas de hoy` (`scripts/short.js:124`),
+      y la carátula venía del guion del informe (línea 5: "Carátula sugerida:
+      Buscan comprar al Estado"). Nace de que Valencia dijo que el crimen
+      organizado busca frenar la persecución "mediante soborno o
+      amedrentamiento", pero suelto y sin el video se entiende como otra cosa
+      (una privatización, una licitación) y no como la noticia real: 22
+      alcaldes y 18 fiscales bajo protección. El título del video largo sí
+      funcionó ("22 alcaldes bajo protección por el crimen organizado"). A
+      decidir en la sesión local: o el gancho de carátula deja de ser la
+      fuente del título del Short (usar el "Título sugerido" del guion, que
+      es el que se entiende solo), o la regla de la carátula
+      (`prompts/guion-informe.md:113`) agrega que el gancho tiene que
+      sostenerse SIN el video: nombre propio o hecho reconocible, nunca una
+      metáfora del análisis.
+
 - [x] ~~**SHORT 1: el sello se superpone a la primera tarjeta**~~ **RESUELTO
       (06-09, sesión local).** Causa confirmada: la sesión de la noche del
       05-09 hizo que los Shorts partieran en frío (EN_FRIO=1, narración en 0)
