@@ -305,6 +305,50 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **CLAVE 1: alargar la Clave a 8 minutos como piso** (Santiago, 09-09).
+      "Las siento muy cortas de 5 min. Por lo menos a 8, entre 8 y 10 o 12
+      min, dependiendo de si es necesario extenderse." Esto REVIERTE el
+      ajuste del 05-09 que las bajó a ~5 min "para crecer"
+      (`prompts/guion-claves.md:21`: 650 a 800 palabras) y cambia el control
+      del punto 88 del mismo prompt (600 a 850 palabras). Medido a 135 ppm
+      reales (calibración del 03-09): 8 min = ~1.080 palabras, 10 min =
+      ~1.350, 12 min = ~1.620. Duración real de las últimas cuatro Claves,
+      leída de `contenido/podcast/episodios.json`: 06-09 5,2 min · 07-09 5,5
+      · 08-09 5,3 · 09-09 5,2. O sea, el prompt se está cumpliendo; hay que
+      cambiar el prompt, no vigilarlo. Ojo con dos cosas al tocarlo: el
+      "necesario extenderse" debe quedar como criterio explícito (qué
+      justifica pasar de 8 a 12, no relleno), y el aviso de duración de
+      `scripts/validar-tarjetas.js` hoy solo mira el techo de 13 min del
+      informe; para la Clave habría que agregar también un PISO.
+
+- [ ] **CLAVE 2: elegir el tema desde el banco organizado, y solo si no hay,
+      desde una noticia del día** (Santiago, 09-09: "veamos de organizar las
+      claves primero, si no, buscar de alguna noticia"). Hoy `prompts/claves.md`
+      hace lo contrario: elige la profundización del día (línea 47) y solo
+      cuando ninguna noticia la justifica toma el mejor tema pendiente del
+      banco (línea 49). El banco ya tiene doce temas acumulados en
+      `contenido/claves/banco-temas.md`. Lo que hay que resolver al invertir
+      la prioridad: hoy el gancho de la Clave es la noticia del día ("el
+      Informe diario del 4 de septiembre señaló..."), que es lo que la ancla
+      a la actualidad y al Short; si el tema sale del banco, hay que definir
+      con qué abre. Posible salida: ordenar el banco por prioridad editorial
+      y exigir que el tema elegido tenga un ancla en el informe de los
+      últimos siete días. Decidir en la noche.
+
+- [ ] **MÁQUINA 5: agente de GPT despertado por un PR** (Santiago, 09-09, a
+      partir de que la sesión remota no puede leer varios medios: el proxy
+      bloquea biobiochile.cl, latercera.com, defensa.com, mineduc.cl). La
+      idea: el PR es el despertador; el agente de GPT se activa con él, lee
+      un archivo de instrucciones del repo y arranca el proceso completo,
+      informes, revisiones, preparación de guiones. Encaja con el diseño de
+      la máquina de estados de la sección de arriba (un solo disparador), así
+      que va como paso de ese plan y no como pieza aparte. Lo que hay que
+      definir: quién abre el PR y con qué contenido, dónde vive el archivo de
+      instrucciones (candidato natural: `prompts/`, como el resto), cómo
+      sabe el agente qué paso le toca (lo diría `contenido/estado/FECHA.md`)
+      y qué pasa si el PR se abre dos veces. Ventaja concreta sobre lo de
+      hoy: GPT sí alcanza los medios que a esta sesión le bloquea el proxy.
+
 - [ ] **TARJETA 3: el esquema de la Clave se dibuja ENCIMA del párrafo**
       (Santiago, 08-09 16:38, Clave "¿Qué es una interpelación y qué puede
       exigirle...", captura en
