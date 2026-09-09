@@ -38,6 +38,13 @@ Lo que eso cuesta, con evidencia de esta semana:
    informe con dos cifras malas estuvo público en la web de 01:43 a 06:46.
 4. **Tres tareas de GPT** que hay que mantener a mano en ChatGPT; cualquier
    cambio de orden obliga a tocar las tres.
+5. **Nadie vigila que los eslabones existan.** Esa misma noche (08-09, 22:30)
+   se descubrió que la rutina nueva de revisión se había creado sin repo y que
+   la vieja estaba apagada: la madrugada iba a quedar sin control de calidad y
+   sin video, y NADA en el sistema lo habría avisado hasta la mañana siguiente.
+   Lo encontró una revisión a mano. Un estado explícito con vigía convierte eso
+   en una alarma automática: "son las 04:55 y el estado sigue en
+   `guiones_listos`". Es el argumento más fuerte de esta propuesta.
 
 ## 3. La máquina, ordenada (borrador)
 

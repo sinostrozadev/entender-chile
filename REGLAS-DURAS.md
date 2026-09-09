@@ -120,6 +120,15 @@ archivos de criterio del repositorio.
 26. **Lo que se prueba, se mide dos semanas antes de opinar.** Una táctica
     se decide por retención y swipe-away, no por gusto. Las hipótesis se
     marcan como hipótesis. (viralizacion; estrategia/README)
+27. **Una rutina nueva no reemplaza a la vieja hasta que corrió de verdad
+    una vez.** Antes de apagar la que funciona, la nueva tiene que probar
+    en una corrida real que trae el repo montado (`sources` en el cuerpo
+    de la API: sin eso despierta en un directorio vacío, no puede clonar y
+    pierde la corrida entera). Se apaga la vieja DESPUÉS de leer ese log,
+    nunca por lo que diga una nota. Pagado dos veces: el guardián el 01-09
+    (29-08 a 01-09 sin comprobar nada) y la revisión editorial el 08-09
+    (creada sin fuente; se apagó la que servía y la noche quedó sin
+    control de calidad hasta que se detectó). (decisión 08-09)
 
 ## E. Cómo se ve y cómo suena
 

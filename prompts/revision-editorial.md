@@ -4,10 +4,22 @@ Prompt vivo de la rutina "Revisión editorial Entender Chile (Fable)". Desde el
 08-09 la revisión corre en claude-fable-5-1 y, ante un rechazo por cifra,
 VERIFICA el dato correcto, corrige el informe y el guion, y republica (ese
 mismo día el rechazo de las 04:44 dejó al canal sin video hasta que Santiago
-lo corrigió a mano). La rutina anterior (trig_019cchTdDCVeVzVh8HjrZrYG,
-Sonnet, 04:40) quedó DESACTIVADA el 08-09 a las 07:32 desde la sesión local
-(`enabled=false` confirmado por API): desde la madrugada del 09-09 esta corre
-sola y el punto 3b ya no encuentra revisión previa. Última versión: 08-09-2026.
+lo corrigió a mano).
+
+**Quién lo ejecuta (corregido el 08-09 a las 22:30).** La rutina que la sesión
+remota creó (`trig_012mLfmCi2jDoiS3zRFqETy8`) nació **sin `sources`**: despertaba
+en un directorio vacío, sin repo y sin poder clonarlo (403). Su única corrida
+lo confirma. Como además se había apagado la vieja, la noche del 09-09 iba a
+quedar SIN revisión y sin video. Estado real desde ahora:
+- `trig_01CR3g2re9G7warvfdt4MfMS` — **Fable, 04:45, con el repo montado**, lee
+  este archivo (arranque de 3 líneas). Es la que manda.
+- `trig_019cchTdDCVeVzVh8HjrZrYG` — Sonnet, 04:40, **reactivada** como red de
+  seguridad mientras la de Fable no acumule noches buenas. Su prompt es el
+  viejo (4 categorías, sin modo corrección) y vive en la API, no acá.
+- `trig_012mLfmCi2jDoiS3zRFqETy8` — la rota, DESACTIVADA. No revivirla.
+Mientras las dos corran, el punto 3b es el que evita el trabajo doble: Sonnet
+deja la revisión a las 04:40 y Fable la verifica y corrige a las 04:45.
+Última versión: 08-09-2026.
 
 ---
 

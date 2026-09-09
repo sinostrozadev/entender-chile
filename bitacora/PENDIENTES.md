@@ -354,9 +354,18 @@ referencia:
       falla suma un argumento para que el guion marque sus [DATO] y el
       automático quede solo como red. Verlo en la sesión local.
 
-- [x] **REVISIÓN 2: desactivar la rutina vieja de revisión (Sonnet, 04:40)**
-      (08-09). ✅ HECHO 08-09 07:32 (sesión local): `enabled=false` confirmado
-      por API. Primera corrida real de la nueva: madrugada del 09-09, 04:45.
+- [ ] **REVISIÓN 2: la rutina de Fable se recreó bien; decidir cuándo apagar
+      la de Sonnet.** ⚠️ REABIERTO el 08-09 a las 22:30. La rutina que dejó la
+      sesión remota (`trig_012mLfmCi2jDoiS3zRFqETy8`) se creó **sin `sources`**:
+      arrancaba en un directorio vacío, sin repo, y su única corrida murió
+      intentando clonar (403). Como yo había apagado la vieja a las 07:32
+      fiándome de la nota, la madrugada del 09-09 iba a quedar sin revisión y
+      sin video. Arreglado la misma noche: vieja **reactivada** (04:40), rota
+      **desactivada**, y creada `trig_01CR3g2re9G7warvfdt4MfMS` (Fable, 04:45,
+      con el repo montado y con WebSearch, que el modo corrección necesita).
+      Las dos corren esta noche; el punto 3b del prompt evita el trabajo doble.
+      **Qué falta:** ver dos o tres madrugadas seguidas de la de Fable y recién
+      ahí apagar la de Sonnet. Nueva regla dura 27 para que no se repita.
       Origen: Santiago decidió que la revisión corra en Fable y que, ante un
       rechazo por cifra, verifique el dato correcto, corrija y republique. La
       sesión remota creó la rutina nueva `trig_012mLfmCi2jDoiS3zRFqETy8`
