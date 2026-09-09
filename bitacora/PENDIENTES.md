@@ -305,6 +305,33 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **YOUTUBE 1: dejar los videos PROGRAMADOS directamente, no privados**
+      (Santiago, 09-09). Hoy el paso 7 sube las cuatro piezas en privado y él
+      las publica a mano cada mañana. La pieza de código YA EXISTE:
+      `scripts/youtube-subir.js` acepta `--programar HH:MM` (o la variable
+      `YT_PUBLICAR_HORA`) y arma el `publishAt` en hora de Chile (líneas 46,
+      120 y 122). Falta decidir y probar tres cosas.
+      (1) **Probarlo, porque nunca se probó.** La cabecera del script afirma
+      que `publishAt` "SOLO funciona cuando el proyecto pasó la auditoría",
+      y el 07-09 se decidió no enviarla (`docs/auditoria-api/DECISION-07-09.md`).
+      Pero esa afirmación es una premisa heredada de la misma familia que ya
+      resultó equivocada una vez: el 07-09 se verificó contra la doc oficial
+      que la restricción de "privado" aplica al MOMENTO DE LA SUBIDA y no
+      impide publicar. Puede que `publishAt` sí funcione. Es barato
+      comprobarlo: subir una pieza con `--programar` y mirar si YouTube
+      acepta la hora o la deja privada. Si funciona, no hace falta ninguna
+      auditoría.
+      (2) **La hora por pieza.** Sugerido en su momento: informe 07:00, Short
+      12:00, Clave 14:00, Short de la Clave 18:00. Hoy el paso 7 usaría una
+      sola hora para las cuatro; habría que pasar `--programar` distinto por
+      pieza, o cuatro variables de repositorio.
+      (3) **Qué pasa con la revisión.** La regla del canal es que Santiago
+      revisa antes de publicar. Programar directo la elimina, salvo que la
+      hora quede lo bastante lejos de la subida (sube ~07:56, se programa
+      para las 12:00) como para alcanzar a cancelar en Studio. Definir esa
+      holgura mínima, y qué hace el guardián si detecta una pieza programada
+      que no pasó revisión.
+
 - [ ] **CLAVE 1: alargar la Clave a 8 minutos como piso** (Santiago, 09-09).
       "Las siento muy cortas de 5 min. Por lo menos a 8, entre 8 y 10 o 12
       min, dependiendo de si es necesario extenderse." Esto REVIERTE el
