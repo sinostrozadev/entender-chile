@@ -349,6 +349,33 @@ referencia:
       y qué pasa si el PR se abre dos veces. Ventaja concreta sobre lo de
       hoy: GPT sí alcanza los medios que a esta sesión le bloquea el proxy.
 
+- [ ] **CASOS 1: el observatorio se tragó un caso nuevo de Fonasa por un
+      choque de palabras** (Santiago, 09-09, tras la rutina del observatorio).
+      El informe de hoy marcó bien `EN SEGUIMIENTO: Fonasa, presunto fraude de
+      prestadores` (`contenido/informes/2026-09-09.md:24`), pero
+      `detectarNuevos()` en `scripts/casos.js:187-191` lo descartó como caso ya
+      existente y NO llegó a `por-abrir.md`. Reproducido: las palabras útiles de
+      la marca son `fonasa`, `presunto`, `fraude`, `prestadores`; el dossier
+      viejo normalizado ("fonasa megafraude de licencias medicas falsas...")
+      hace match con `fonasa` y, por coincidencia de SUBCADENA, con `fraude`
+      dentro de "megafraude". Son 2 sobre un umbral de `Math.ceil(4/2)` = 2, y
+      justo lo filtra. Dos defectos que se suman: el match por subcadena
+      (`e.includes(w)`) y un umbral de la mitad demasiado laxo para marcas
+      cortas. **No es un caso aislado:** cualquier arista nueva que comparta
+      institución con un dossier abierto (JUNAEB, JUNJI, Minvu) desaparece
+      igual, en silencio, porque la rutina nocturna solo revisa dossiers
+      existentes y nadie más mira esas marcas. Fix propuesto: match por palabra
+      completa en vez de subcadena, umbral más exigente (dos tercios, o exigir
+      que coincida algo más que el nombre de la institución) y, si el descarte
+      es dudoso, que el script lo anote igual en `por-abrir.md` marcado como
+      posible duplicado (mejor una línea de más que un caso perdido).
+      **Aparte del fix, decidir si se abre el dossier:** Fonasa se querelló el
+      08-09-2026 contra cinco prestadores de salud por fraude de subvenciones,
+      perjuicio estimado cerca de $8.000 millones, más de 71 mil beneficiarios,
+      330 mil bonos y 1,94 millones de prestaciones; ya había denunciado los
+      hechos al Ministerio Público el 07-08-2026. Es un caso DISTINTO del
+      megafraude de licencias falsas que ya tiene ficha: no mezclarlos.
+
 - [ ] **TARJETA 3: el esquema de la Clave se dibuja ENCIMA del párrafo**
       (Santiago, 08-09 16:38, Clave "¿Qué es una interpelación y qué puede
       exigirle...", captura en
