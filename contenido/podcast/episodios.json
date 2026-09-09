@@ -177,5 +177,23 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-08-clave.mp3",
     "bytes": 7594560,
     "durSeg": 316
+  },
+  {
+    "fecha": "2026-09-09",
+    "tipo": "informe",
+    "titulo": "09-09-2026 · Fonasa denuncia un fraude de ocho mil millones en salud",
+    "descripcion": "El resumen del nueve de septiembre en Chile. Fonasa presentó una querella por un presunto fraude de ocho mil millones de pesos en operativos médicos, mientras el IPC de agosto llevó la inflación anual a cuatro coma uno por ciento y el Banco Central mantuvo su tasa en cuatro coma cinco por ciento. Además, la prueba PISA 2025 mostró que el cincuenta y nueve por ciento de los estudiantes chilenos no domina lo básico en matemáticas.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-09-informe.mp3",
+    "bytes": 17281152,
+    "durSeg": 720
+  },
+  {
+    "fecha": "2026-09-09",
+    "tipo": "clave",
+    "titulo": "Clave · ¿Qué significa realmente un puntaje de PISA?",
+    "descripcion": "Cada cierto tiempo un resultado de PISA sacude el debate educativo, pero pocas veces se explica qué mide en realidad esa prueba. En este video vas a entender cómo se construye un puntaje PISA, qué significa alcanzar o no un nivel de desempeño, y por qué un promedio nacional puede esconder brechas enormes entre estudiantes.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-09-clave.mp3",
+    "bytes": 7555968,
+    "durSeg": 315
   }
 ]
