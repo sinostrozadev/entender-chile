@@ -22,3 +22,6 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-09-09 | Inspección Total
 - 2026-09-09 | Hospital del Salvador, atención preferente
 - 2026-09-09 | Hospital de Chillán, cirugías preferenciales
+- 2026-09-09 | Inspección Total
+- 2026-09-09 | Hospital del Salvador, atención preferente
+- 2026-09-09 | Hospital de Chillán, cirugías preferenciales
