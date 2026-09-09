@@ -45,3 +45,6 @@
 - protección de autoridades amenazadas, evaluación de riesgo y coordinación entre policías y Ministerio Público | Veintidós alcaldes y 18 fiscales tienen protección por amenazas o agresiones | 2026-09-08
 - financiamiento de sala cuna, cobertura laboral y diferencia entre beneficio universal y obligación del empleador | Sala Cuna Universal llega a una nueva votación en el Senado | 2026-09-08
 - edad de responsabilidad penal adolescente y medidas de protección para menores inimputables | Investigación identifica a un menor de 12 años en ataques incendiarios | 2026-09-08
+- controles de Fonasa sobre prestadores, emisión de bonos y fraude de subvenciones | Fonasa se querella por presunto fraude cercano a $8.000 millones | 2026-09-09
+- flagrancia penal, persecución inmediata y límites temporales de la detención ciudadana y policial | Proyecto amplía a 24 horas el plazo de flagrancia y queda a una votación de ser ley | 2026-09-09
+- transmisión del IPC a la UF y efectos sobre dividendos, arriendos y contratos reajustables | El IPC de agosto sube 0,6% y la UF superará los $41.000 | 2026-09-09
