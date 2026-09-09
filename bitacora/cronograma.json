@@ -54,6 +54,12 @@
           "que": "Segunda red por reloj: si el guionista por evento no escribió el guion de la Clave, esta lo hace. Calla por dedup cuando ya está."
         },
         {
+          "hora": "02:15 y 05:15",
+          "quien": "Vigía de la cadena",
+          "tipo": "claude",
+          "que": "Mira si algún eslabón falta a destiempo y avisa al teléfono mientras todavía se puede arreglar. No escribe ni repara nada: solo lee el estado que calcula scripts/estado.js desde los archivos. A las 02:15 pilla una madrugada que no arrancó; a las 05:15, una revisión que no llegó (lo que pasó el 08-09 y nadie detectó). Prompt vivo: prompts/vigia.md."
+        },
+        {
           "hora": "04:40 + 04:45",
           "quien": "Revisión editorial (Sonnet + Fable)",
           "tipo": "claude",
