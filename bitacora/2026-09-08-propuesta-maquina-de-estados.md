@@ -109,20 +109,65 @@ primero, se retira. Es exactamente lo que faltó el 07-09.
 - Contexto: las rutinas de Claude ya arrancan limpias en cada corrida
   (`persist_session=false`, verificado hoy por API).
 
-## 5. Corrección de errores dentro del bucle
+## 5. La vuelta del bucle: quién repara (Santiago, 08-09 noche)
 
-- **Cuándo**: por evento, apenas existen los dos guiones (~02:00), no a las
-  04:45. Y la **web publica el informe solo con estado ≥ `aprobada`**: se
-  cierra la ventana de hoy (5 h con un error público).
-- **Quién corrige**: (a) la revisión misma, cuando puede comprobar el dato
-  (hoy ya es así: v3 en Fable, modo corrección); (b) si no puede, devuelve al
-  autor (GPT informe / Claude guionista) la lista de hallazgos con estado
-  `rechazada, vuelta N`; el autor corrige solo esas frases y vuelve a
-  `guiones_listos`.
-- **Tope**: dos vueltas. A la tercera, `bloqueado_humano` + aviso al teléfono
-  con qué dato falta y dónde se buscó. Nunca un bucle infinito.
-- El exprés mantiene su control aparte (`verificar-expres.js`): es otro
-  circuito, más corto.
+> **El principio, con sus palabras:** "si hay error debe volver a la parte que
+> cometió el error, verificarlo y repararlo. Esto para todo, no solo la web."
+
+Es la pieza que le faltaba al borrador. Sin ella la cadena es una flecha: si
+algo sale mal, se detiene. Con ella es un bucle de verdad.
+
+**Por qué el que detecta NO es el que arregla:**
+1. Quien escribió la pieza tiene el material a mano — el barrido, la captura,
+   las fuentes que ya consultó. El detector solo tiene el resultado.
+2. Si el detector parcha, el autor nunca se entera y su prompt queda igual. El
+   mismo error vuelve mañana. La vuelta al autor es lo que deja rastro.
+3. Un revisor que reescribe deja de ser revisor. Se pierde la separación que
+   hace que el control valga algo.
+
+**El mecanismo, igual para toda la cadena:**
+1. **Quien detecta** escribe el hallazgo (qué está mal, contra qué fuente, en
+   qué línea) y deja el estado en `reparar:<pieza>`. No toca la pieza.
+2. **El dueño de la pieza** despierta con el disparador, ve que le toca, y lo
+   primero que hace es **verificar el hallazgo**: el detector también se
+   equivoca (el 08-09 la auditoría propuso "62 años" y el dato real era 34).
+   - Hallazgo correcto → repara SOLO eso, deja constancia de qué decía y qué
+     dice ahora, y devuelve el estado a su etapa (vuelta +1).
+   - Hallazgo equivocado → lo rebate por escrito con la evidencia y devuelve el
+     estado sin tocar la pieza. No se repara lo que no está malo. Un detector
+     que se equivoca dos veces en lo mismo es un prompt que hay que ajustar.
+3. **Tope: dos vueltas.** A la tercera el estado pasa a `bloqueado_humano` y
+   suena el teléfono con qué dato falta y dónde se buscó. Nunca un bucle
+   infinito a las cuatro de la mañana.
+
+**La única excepción, y bien acotada.** Cuando el arreglo es UN dato puntual y
+el detector puede comprobarlo, dejarlo corregir ahorra una vuelta entera y
+salva el día (fue exactamente el caso del 08-09: sin corrección no había
+video). Puede corregir solo si se cumplen las tres: (a) es una cifra, nombre o
+fecha puntual, no un criterio; (b) la comprueba con fuente primaria o con la
+propia aritmética del informe; (c) deja escrito qué decía y qué dice ahora. Eso
+ya es el modo corrección de `prompts/revision-editorial.md`. Todo lo demás
+vuelve al autor.
+
+**Dónde aplica — "esto para todo":**
+
+| Quién detecta | Qué detecta | Vuelve a | Qué hace el dueño |
+|---|---|---|---|
+| `verificar-expres.js` | cifra del exprés que no está en el material | la guardia (redactor) | reescribe ciñéndose a la captura, o declara que no hay ángulo |
+| revisión editorial | el guion no cuadra con el informe | guionista | reescribe solo las frases marcadas |
+| revisión editorial | dato malo en el informe mismo | GPT del informe | verifica contra la fuente y corrige |
+| `validar-tarjetas.js` | formato, duración, carátula ausente | guionista | ajusta |
+| edición diaria (compuerta) | falta una pieza o el veredicto | su dueño | la escribe |
+| vigía | un eslabón que no llegó a tiempo | su dueño | la escribe |
+| métricas / auditoría | una propuesta que lleva días sin aplicarse | la sesión que toca el repo | la aplica o dice por qué no |
+
+**Lo que esto cambia hoy mismo (pendiente de decidir).** El paso 8 de
+`prompts/guardia-reloj.md` dice hoy: "NO reescribas el guion en esta corrida".
+Esa regla se escribió cuando no existía la verificación y reescribir de memoria
+era justo el error. Bajo este principio pasa a ser: la guardia SÍ reescribe,
+pero solo con lo que está en el material capturado, y el verificador vuelve a
+correr — con el mismo tope de dos vueltas. Es la vuelta del bucle aplicada al
+circuito del exprés.
 
 ## 6. Qué gana y qué arriesga
 
@@ -144,12 +189,28 @@ lea mal el estado (por eso la primera línea es texto plano).
 4. **Revisión por evento** y web que espera la aprobación; se retira el 04:45.
 5. **Vigía** cada 30 min; se retiran los respaldos que queden.
 
-## 8. Preguntas para la tarde
+## 8. Decidido y lo que queda
 
-1. ¿Estado escrito por cada tarea (A), calculado desde los archivos (B), o la mezcla?
-2. ¿Uno o cuatro despachadores de Claude? ¿Cuál modelo para cada tarea?
+**Decidido el 08-09 en la noche:**
+- **Primero el vigía y el estado**, porque no tocan GPT ni la madrugada y son
+  lo que habría cazado solo el incidente de esa noche. ✅ HECHO: `scripts/estado.js`
+  y `prompts/vigia.md` (rutina `trig_01LUtn4fSJjBsCzqdoWeVviH`, 02:15 y 05:15).
+- **La vuelta del bucle** es principio general, no un caso de la web (§5).
+- El estado se **calcula desde los archivos** (opción B): la verdad no cambia
+  de dueño. La vista vive en `contenido/estado/FECHA.md`.
+
+**Lo que queda por decidir:**
+
+1. ¿La web espera el veredicto para publicar el informe, o publica marcada como
+   borrador y se limpia al aprobarse? (quedó sin resolver: la respuesta llevó al
+   principio del bucle, que es más de fondo)
+2. ¿Dos despachadoras de Claude (Sonnet para guiones, Fable para revisión) con
+   Opus quedándose por reloj a las 06:00? Es lo que propongo: el modelo se fija
+   al crear la rutina, así que una sola no puede elegirlo.
 3. ¿Cada disparo de una tarea de GPT arranca con contexto limpio? (verificar)
 4. ¿La web espera a la revisión, o publica y corrige?
-5. ¿Dos vueltas de corrección antes de pedir humano, o una?
+5. ¿Dos vueltas de corrección antes de pedir humano, o una? ¿Y la guardia
+   reescribe el exprés rechazado (ver el final del §5)?
 6. ¿Qué se queda por reloj y qué pasa a estado (en especial el informe de la mañana)?
-7. ¿En qué orden migramos? (propuesto: 1 → 2 → 3 → 4 → 5)
+7. Orden restante: re-chequeo antes del push → revisión por evento → GPT a un
+   PR → Claude a dos despachadoras.
