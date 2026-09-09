@@ -59,7 +59,15 @@ El guion incluye las siguientes marcas, y solo estas, cada una en su propia lín
       Posición: la línea [DATO] va INMEDIATAMENTE ANTES del párrafo que la
       narra, nunca después (el sistema la ancla al párrafo siguiente).
   [ESQUEMA | título] elemento -> elemento -> elemento
-      Para procesos, jerarquías, niveles o líneas de tiempo simples. Máximo seis elementos, texto breve por elemento. No se narra. Úsalo entre una y tres veces por guion, en los momentos donde la entrega describe una estructura.
+      Para procesos, jerarquías, niveles o líneas de tiempo simples. No se narra. Úsalo entre una y tres veces por guion, en los momentos donde la entrega describe una estructura.
+      **MÁXIMO TRES ELEMENTOS, de hasta cuatro palabras cada uno** (corregido el
+      08-09: la regla decía seis y el 08-09 un esquema de CUATRO nodos se
+      desbordó a una segunda fila y quedó tapado por el párrafo — captura en
+      bitacora/capturas-2026-09-08-clave-esquema-superpuesto.jpg). El esquema se
+      dibuja en UNA fila horizontal de 1340 px: tres cajas cortas caben, cuatro
+      no. Si el proceso tiene más pasos, agrupa ("Solicitud" en vez de
+      "Solicitud de un tercio de la Cámara en ejercicio") o parte en dos
+      esquemas en bloques distintos. Un esquema que envuelve línea rompe el video.
   [HECHO] párrafo
   [INTERPRETACIÓN] párrafo
       Prefijo cuando la entrega distingue explícitamente análisis. Se narra el párrafo, no la marca. Estas marcas se usan solo cuando en el mismo bloque conviven información factual y análisis: ahí el contraste aporta. Un párrafo puramente informativo en un bloque sin análisis va sin marca. Máximo una marca [HECHO] y una [INTERPRETACIÓN] por bloque.
