@@ -76,7 +76,31 @@ en la lista del cambio de hora del 6-09) — si no hay
 espera; sin material NO inventa: avisa. Notifica SOLO si intervino o no
 pudo; silencio cuando GPT cumplió.
 
-## PARA LA TARDE (08-09): un solo disparador y máquina de estados
+## MÁQUINA DE ESTADOS — paso 1 HECHO (08-09 noche)
+
+- [x] **Vigía y estado del día.** ✅ 08-09, 23:05. `scripts/estado.js` calcula la
+      etapa desde los archivos (probado en 4 casos) y `prompts/vigia.md` +
+      rutina `trig_01LUtn4fSJjBsCzqdoWeVviH` (Haiku, 02:15 y 05:15, con repo
+      montado) avisan al teléfono solo si falta un eslabón. Probada con corrida
+      real: 13 s, salida 0, sin notificar. Primera vigilancia de verdad: 02:15.
+- [ ] **Nadie escribe todavía `contenido/estado/FECHA.md` en el repo.** El vigía
+      solo lee (`--solo-leer`) para no meter commits en la madrugada. Mientras
+      no se escriba, GPT no puede leer el estado y el panel no lo muestra. Paso
+      siguiente y barato: correr `node scripts/estado.js` en el workflow de
+      métricas (ya corre panel-cronograma.js ahí) y, más adelante, en cada push
+      de contenido. **Ojo: un estado viejo commiteado es peor que ninguno** — si
+      se escribe, que sea siempre fresco.
+- [ ] **Lo que sigue de la máquina** (orden acordado): re-chequeo antes del push
+      (mata el bug del 07-09) → revisión por evento + la web esperando el
+      veredicto → GPT a un solo PR → Claude a dos despachadoras. El §5 del
+      diseño ya tiene la vuelta del bucle como principio general, con la tabla
+      de quién repara qué.
+- [ ] **Decidir:** la web, ¿espera el veredicto o publica marcada como borrador?
+      Quedó abierta. Y si la guardia reescribe el exprés rechazado (hoy el
+      prompt se lo prohíbe; bajo el principio del bucle debería, ciñéndose al
+      material capturado y con tope de dos vueltas).
+
+## EL DISEÑO COMPLETO (08-09): un solo disparador y máquina de estados
 
 - [ ] **Conversar y decidir la propuesta de Santiago (08-09 07:45):** un solo
       PR disparador para GPT, un estado explícito del día, GPT y Claude que
