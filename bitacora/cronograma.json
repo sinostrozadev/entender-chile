@@ -61,9 +61,9 @@
         },
         {
           "hora": "04:40 + 04:45",
-          "quien": "Revisión editorial (Sonnet + Fable)",
+          "quien": "Revisión editorial (Sonnet + Opus)",
           "tipo": "claude",
-          "que": "Control de calidad antes de producir. Sonnet 04:40 deja el VEREDICTO base (4 tipos de falla). Fable 04:45 lo verifica y aplica el MODO CORRECCIÓN: si una cifra está mal y puede comprobar la correcta (con la propia base del informe o fuente primaria por WebSearch), corrige informe y guion, aprueba y republica; si no puede comprobarla, rechaza y dice qué falta. Las dos conviven hasta que la de Fable acumule noches buenas (regla dura 27). Prompt vivo de Fable: prompts/revision-editorial.md."
+          "que": "Control de calidad antes de producir. Sonnet 04:40 deja el VEREDICTO base (4 tipos de falla). La de las 04:45 lo verifica y aplica el MODO CORRECCIÓN: si una cifra está mal y puede comprobar la correcta (con la propia base del informe o fuente primaria por WebSearch), corrige informe y guion, aprueba y republica; si no puede comprobarla, rechaza y dice qué falta. Las dos conviven hasta que la de Fable acumule noches buenas (regla dura 27). Corre en Opus (Fable quedó sin créditos hasta el jueves; una rutina no cambia de modelo sola). Prompt vivo: prompts/revision-editorial.md."
         },
         {
           "hora": "~04:50",
