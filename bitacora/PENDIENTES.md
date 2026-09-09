@@ -95,10 +95,19 @@ pudo; silencio cuando GPT cumplió.
       veredicto → GPT a un solo PR → Claude a dos despachadoras. El §5 del
       diseño ya tiene la vuelta del bucle como principio general, con la tabla
       de quién repara qué.
-- [ ] **Decidir:** la web, ¿espera el veredicto o publica marcada como borrador?
-      Quedó abierta. Y si la guardia reescribe el exprés rechazado (hoy el
+- [x] **Decidido: la web ESPERA el veredicto** (Santiago, 08-09 noche). Se
+      implementa en `web/src/lib/contenido.ts` → `informes()`, con fecha de corte
+      desde el 09-09 para no borrar del sitio los informes anteriores a la
+      revisión. Va junto con mover la revisión a por evento (paso 3).
+- [ ] **Sigue abierto:** si la guardia reescribe el exprés rechazado (hoy el
       prompt se lo prohíbe; bajo el principio del bucle debería, ciñéndose al
       material capturado y con tope de dos vueltas).
+- [ ] **Antes del paso 4, Santiago verifica en ChatGPT:** cuántas tareas tiene
+      ocupadas de las 5 (¿3 de contenido, o 5 con los respaldos del informe y la
+      Clave?) y si una tarea programada puede volver a dispararse mientras ya
+      está corriendo. Si NO puede, un disparo que llegue mientras escribe el
+      informe se pierde: por eso el despachador único va acompañado de UNA tarea
+      de respaldo por reloj (2 en total, 3 slots libres), y el vigía avisa igual.
 
 ## EL DISEÑO COMPLETO (08-09): un solo disparador y máquina de estados
 

@@ -201,9 +201,15 @@ lea mal el estado (por eso la primera línea es texto plano).
 
 **Lo que queda por decidir:**
 
-1. ¿La web espera el veredicto para publicar el informe, o publica marcada como
-   borrador y se limpia al aprobarse? (quedó sin resolver: la respuesta llevó al
-   principio del bucle, que es más de fondo)
+1. ✅ **DECIDIDO (Santiago, 08-09): la web ESPERA el veredicto.** Un informe sin
+   `VEREDICTO: APROBADA` no se publica. Dónde se implementa: `web/src/lib/contenido.ts`,
+   función `informes()` (línea ~171) — es el único punto por donde el sitio los
+   lista, así que la compuerta va ahí y no en el workflow (el workflow también
+   publica casos, videos y podcast, que no deben quedar bloqueados).
+   **Cuidado obligatorio:** poner una fecha de corte (desde el 09-09) o los
+   informes viejos, anteriores a que existiera la revisión, desaparecerían del
+   sitio. Y como el informe queda invisible hasta ~04:50, conviene hacerlo junto
+   con mover la revisión a por evento (~02:00), que es el mismo paso 3.
 2. ¿Dos despachadoras de Claude (Sonnet para guiones, Fable para revisión) con
    Opus quedándose por reloj a las 06:00? Es lo que propongo: el modelo se fija
    al crear la rutina, así que una sola no puede elegirlo.
