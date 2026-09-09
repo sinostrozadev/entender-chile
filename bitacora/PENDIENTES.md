@@ -305,6 +305,22 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **SERIE 1: montar "El Estrecho: la ruta en disputa"** (decidida con
+      Santiago el 09-09; idea completa en `ideas/ruta-del-estrecho.md`).
+      Serie de largos con cuenta regresiva a la interpelación del canciller
+      del 28-09, cinco episodios ya definidos con su material, episodio por
+      hecho nuevo y no diario, cada uno con su Short propio de gancho (no el
+      resumen de cinco cosas). Sustento medido: los dos largos más vistos del
+      canal son de este tema (220 y 150) y el segundo Short más visto también
+      (353), pero otros dos largos del mismo tema hicieron 11 y 11, así que
+      lo que predice es el hecho con nombre buscable, no el tema. Las Claves
+      NO se matan: bajan a dos por semana dentro del hilo (retienen 49% a
+      57%, lo mejor del canal), lo que reemplaza a CLAVE 2. Quedan fuera por
+      decisión: escenarios de enfrentamiento militar, "a quién apoya Estados
+      Unidos" y el nombre "Chile vs Argentina"; el motivo está escrito en el
+      archivo. Para la noche: el prompt de la serie, la carátula con
+      contador, y probar el prompt de imagen en Gemini.
+
 - [ ] **YOUTUBE 1: dejar los videos PROGRAMADOS directamente, no privados**
       (Santiago, 09-09). Hoy el paso 7 sube las cuatro piezas en privado y él
       las publica a mano cada mañana. La pieza de código YA EXISTE:
