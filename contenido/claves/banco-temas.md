@@ -48,3 +48,6 @@
 - controles de Fonasa sobre prestadores, emisión de bonos y fraude de subvenciones | Fonasa se querella por presunto fraude cercano a $8.000 millones | 2026-09-09
 - flagrancia penal, persecución inmediata y límites temporales de la detención ciudadana y policial | Proyecto amplía a 24 horas el plazo de flagrancia y queda a una votación de ser ley | 2026-09-09
 - transmisión del IPC a la UF y efectos sobre dividendos, arriendos y contratos reajustables | El IPC de agosto sube 0,6% y la UF superará los $41.000 | 2026-09-09
+- remoción de gobernadores regionales, notable abandono de deberes y competencia del Tribunal Calificador de Elecciones | Tricel rechaza destituir al gobernador Claudio Orrego | 2026-09-10
+- tasa de homicidios, diferencias territoriales y criterios para identificar crimen organizado | Homicidios bajan 11,5%, pero aumenta la presencia del crimen organizado | 2026-09-10
+- cooperación tributaria internacional, soberanía fiscal y negociación de reglas contra la evasión transfronteriza | Chile se retira de negociación tributaria de Naciones Unidas | 2026-09-10
