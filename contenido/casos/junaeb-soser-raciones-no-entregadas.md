@@ -1,7 +1,7 @@
 # Caso: JUNAEB-SOSER, raciones no entregadas del Programa de Alimentación Escolar ("onces fantasma")
 
 Estado: ACTIVO
-Dossier abierto: 2026-08-25 · Última actualización: 2026-09-04
+Dossier abierto: 2026-08-25 · Última actualización: 2026-09-10
 
 <!-- datos
 cuestionado: 14000000000
@@ -47,13 +47,14 @@ Además, la denuncia de JUNAEB individualizó a 9 personas y 3 empresas (La Terc
 - 2026-08-20: Peña confirma que los senadores son indagados por "cohecho" y apunta a la exdirectora y a un exjefe jurídico: "Son hechos graves". (Emol, BioBioChile)
 - 2026-08-21: SOSER y los parlamentarios investigados insisten públicamente en su inocencia. (Radio U. de Chile)
 - 2026-08-25/26: la senadora Alejandra Sepúlveda y dirigentas de las manipuladoras de alimentos de SOSER se reúnen con el director nacional de JUNAEB, Fernando Peña. Según los tres medios que cubrieron el encuentro, Peña comprometió la continuidad del Programa de Alimentación Escolar, el pago de los sueldos de las manipuladoras y sus finiquitos al término del contrato con SOSER, que expira en febrero de 2027. SOSER sigue siendo el proveedor del programa en la Región de O'Higgins mientras la investigación penal está en curso. (G5noticias, Diario El Pulso, El Tipógrafo)
+- 2026-09-09 (fecha de difusión; día exacto de la sesión sin confirmar): se realiza la primera sesión de la comisión especial investigadora de la Cámara de Diputados sobre el Programa de Alimentación Escolar 2019-2024. El primer expositor es el director nacional de JUNAEB, Fernando Peña, que detalla los antecedentes que motivaron las denuncias del servicio: expone un aumento exponencial de las raciones de once en la Región de O'Higgins entre 2021 y 2023 y afirma que "no se sirvió ni una sola once". Cifra en $14.363 millones el total de los desembolsos de JUNAEB a SOSER por esas onces proyectadas, al valor unitario que terminó en $8.680 en 2023, y en torno a $3,8 billones lo invertido en licitaciones del PAE entre 2019 y 2024. La comisión debe reunir antecedentes sobre los mecanismos de supervisión, control, licitación, adjudicación, ejecución y pago del programa en ese periodo. (La Tercera; RadioGennesis, 09-09-2026; Nuevo Poder)
 
 ## Próximos hitos conocidos
 - Análisis por el Ministerio Público de la evidencia incautada el 2026-08-20 (dispositivos, correos institucionales, registros bancarios desde 2018), tras lo cual evaluará eventuales formalizaciones. (Meganoticias, 2026-08-20)
 - Eventual solicitud de desafuero de los senadores Gahona y Calisto ante la Corte de Apelaciones, no solicitada a la fecha. (Meganoticias, 2026-08-20)
 - Tramitación de la querella de SOSER contra Fernando Peña en el Cuarto Juzgado de Garantía de Santiago. (The Clinic, 2026-06-30)
 - Cierre del sumario que Contraloría instruyó en enero de 2025 y que seguía abierto según El Líbero (fecha de cierre sin confirmar), y destino de los antecedentes que remitió entonces al Consejo de Defensa del Estado; pronunciamientos pendientes de Contraloría y del CDE sobre los antecedentes recibidos el 2026-05-27.
-- Informe de la comisión especial investigadora de la Cámara de Diputados sobre el PAE 2019-2024, que tiene 60 días de plazo desde su constitución en julio de 2026. (La Tercera y CNN Chile, julio de 2026)
+- Informe de la comisión especial investigadora de la Cámara de Diputados sobre el PAE 2019-2024, que tiene 60 días de plazo. Su primera sesión, con el director nacional de JUNAEB como expositor, se difundió el 09-09-2026. La fecha de constitución, desde la cual corre el plazo, sigue sin confirmar. (La Tercera y CNN Chile, julio de 2026; La Tercera y RadioGennesis, 09-09-2026)
 - Término del contrato de SOSER con JUNAEB en febrero de 2027 (día sin confirmar) y licitación posterior del Programa de Alimentación Escolar en la Región de O'Higgins. JUNAEB comprometió el 25/26-08-2026 la continuidad del servicio, los sueldos de las manipuladoras y el pago de sus finiquitos al término del contrato. (G5noticias, Diario El Pulso, El Tipógrafo)
 
 ## Fuentes
@@ -86,6 +87,9 @@ Además, la denuncia de JUNAEB individualizó a 9 personas y 3 empresas (La Terc
 - 2025-01-28: Meganoticias, "Contraloría detectó irregularidades en Junaeb por millonario pago a proveedor que entregó pocas raciones de comida", https://www.meganoticias.cl/nacional/474125-contraloria-detecto-irregularidades-millonario-pago-juneb-raciones-de-comida-brk-28-01-2025.html
 - 2026-07 (día sin confirmar): La Tercera, "Aprueban crear comisión para investigar funcionamiento del Programa de Alimentación Escolar de Junaeb entre 2019 y 2024", https://www.latercera.com/politica/noticia/aprueban-crear-comision-para-investigar-funcionamiento-del-programa-de-alimentacion-escolar-de-junaeb-entre-2019-y-2024/
 - 2026-07 (día sin confirmar): CNN Chile, "Programa de Alimentación Escolar de Junaeb bajo la lupa: Cámara aprueba comisión investigadora por gestión entre 2019 y 2024", https://www.cnnchile.com/pais/programa-de-alimentacion-escolar-de-junaeb-bajo-la-lupa-camara-aprueba-comision-investigadora-por-gestion-entre-2019-y-2024/
+- 2026-09 (día sin confirmar): La Tercera, "Director de Junaeb expone en la primera sesión de la comisión investigadora del Programa de Alimentación Escolar", https://www.latercera.com/nacional/noticia/director-de-junaeb-expone-en-la-primera-sesion-de-la-comision-investigadora-del-programa-de-alimentacion-escolar/
+- 2026-09-09: RadioGennesis, "Comienza comisión Investigadora por caso Junaeb, buscan esclarecer raciones no entregadas entre 2019 y 2024", https://www.radiogennesis.cl/2026/09/09/comienza-comision-investigadora-por-caso-junaeb-buscan-esclarecer-raciones-no-entregadas-entre-2019-y-2024/
+- 2026-09 (día sin confirmar): Nuevo Poder, "Cámara investiga pagos por más de $14 mil mills. de Junaeb por raciones no entregadas", https://www.nuevopoder.cl/camara-investiga-pagos-por-mas-de-14-mil-mills-de-junaeb-por-raciones-no-entregadas/
 - 2026-05-27: Radio Agricultura, "PDG solicita Comisión Investigadora por presunto fraude millonario de 'raciones fantasma' en Junaeb", https://www.radioagricultura.cl/noticias/politica/pdg-solicita-comision-investigadora-por-presunto-fraude-millonario-de-raciones-fantasma-en-junaeb_20260527/
 - Nota sobre otros casos recientes en estas instituciones: (1) JUNJI, licencias médicas: informe de Contraloría difundido entre el 2026-01-30 y el 2026-02-09 detectó que entre 2017 y 2024 hubo licencias por $20.916 millones con mal manejo, incluidas 9.964 licencias rechazadas por $5.548 millones no recuperados; JUNJI respondió el 2026-02-10 que ya recobró $1.700 millones (El Mostrador, https://www.elmostrador.cl/noticias/pais/2026/02/09/contraloria-detecta-mal-manejo-de-licencias-medicas-en-la-junji-por-casi-21-mil-millones/ ; The Clinic, https://www.theclinic.cl/2026/01/30/contraloria-detecta-graves-irregularidades-en-la-junji-mas-de-mil-funcionarios-se-han-tomado-mas-de-dos-anos-de-licencias-medicas/ ; Radio Paulina, https://radiopaulina.cl/2026/02/10/junji-responde-a-informe-de-contraloria-por-dineros-de-licencias-medicas-no-recuperados-y-asegura-que-ya-recobro-1-700-millones). Aunque su monto bruto es mayor, corresponde a subsidios de licencias no recuperados, no a un presunto fraude con fondos pagados sin contraprestación; el monto irregular no recuperado confirmado ($5.548 millones) es inferior al del caso JUNAEB. (2) JUNJI, aplicación "Mi Jardín JUNJI": $458 millones pagados 2019-2025 por una app con uso mínimo, con tratos directos cuestionados por $172 millones según Contraloría (Fast Check, 2025-09-07, https://www.fastcheck.cl/2025/09/07/junji-pago-mas-de-458-millones-en-aplicacion-movil-con-escaso-uso-contraloria-detecto-irregularidades/). Por magnitud del presunto fraude, investigación penal activa y coincidencia con la descripción del editor ("miles de millones desaparecidos", destapado recientemente), el caso elegido es JUNAEB-SOSER.
 
@@ -95,6 +99,7 @@ Nota sobre las fuentes: no se accedió al texto íntegro de las notas de prensa;
 - 2026-08-25: dossier creado con investigación inicial. (agente de investigación)
 - 2026-08-27: se agrega la reunión del 25/26-08-2026 entre la senadora Alejandra Sepúlveda, dirigentas de las manipuladoras de alimentos y el director nacional de JUNAEB, Fernando Peña, con el compromiso de continuidad del Programa de Alimentación Escolar, de los sueldos de las manipuladoras y de sus finiquitos, y el dato de que el contrato con SOSER expira en febrero de 2027. Sin cambios en las cifras del caso.
 - 2026-09-04: corrección de algo ya publicado. La ficha decía que "ni Contraloría ni Fiscalía han validado públicamente una cifra propia"; eso es inexacto respecto de Contraloría, que en enero de 2025 hizo pública una auditoría al PAE en la Región de O'Higgins con cifras propias: $3.554 millones pagados a SOSER por 796.043 raciones programadas de once nivel básica de las que se entregaron 284 (unos $12,5 millones por ración entregada), un aumento posterior de 118,2% en esas raciones fijas y $4.640 millones pagados de más a los proveedores por un cambio no autorizado en la proporción fija del precio, del 40% al 60%. Contraloría instruyó un sumario y remitió los antecedentes al Consejo de Defensa del Estado. Ahora la ficha dice que la Fiscalía no ha validado cifra propia y detalla las de Contraloría (BioBioChile 27 y 28-01-2025; T13 27-01-2025; Cooperativa, Emol y Meganoticias 28-01-2025). Se agrega además la comisión especial investigadora del PAE 2019-2024 aprobada por la Cámara de Diputados en julio de 2026, con 60 días de plazo (La Tercera y CNN Chile). El bloque de datos mantiene los $14.000 millones de la denuncia de JUNAEB: las cifras de Contraloría son de otra auditoría y otro periodo, y ninguna fuente establece cuánto se solapan.
+- 2026-09-10: se agrega la primera sesión de la comisión especial investigadora del PAE 2019-2024, difundida el 09-09-2026, con el director nacional de JUNAEB, Fernando Peña, como primer expositor. Peña cifró en $14.363 millones los pagos a SOSER por las onces proyectadas en la Región de O'Higgins, sostuvo que "no se sirvió ni una sola once" y situó en torno a $3,8 billones lo invertido en licitaciones del PAE entre 2019 y 2024 (La Tercera; RadioGennesis, 09-09-2026; Nuevo Poder). El bloque de datos mantiene los $14.000 millones de la denuncia de mayo de 2026: los $14.363 millones son una precisión entregada en sesión parlamentaria y recogida por prensa, y la regla del dossier impide mover la cifra del contador sin el documento oficial.
 
 <!-- interno
 Límite de acceso (27-08-2026): el proxy de red bloqueó el acceso directo al texto de diarioelpulso.cl, eltipografo.cl y g5noticias.cl (EGRESS_BLOCKED). El hecho se consigna porque tres medios coinciden en los extractos verificados con URL. Quedó anotado en por-verificar.md el día exacto del término del contrato con SOSER y la individualización del exdirector subrogante de JUNAEB reportada por Ex-Ante y su redifusión en T13 (28-05-2026), que necesita un segundo medio independiente antes de entrar a la ficha.
@@ -111,5 +116,19 @@ abrirse (La Tercera, Puranoticia y Tiempo21 devolvieron EGRESS_BLOCKED).
 Queda por confirmar el dia exacto de la sesion de sala que aprobo la comision
 investigadora, el numero del informe de Contraloria de enero de 2025 y si el
 sumario que instruyo entonces sigue abierto.
+
+10-09-2026: la primera sesion de la comision investigadora entra con tres
+medios (La Tercera, RadioGennesis y Nuevo Poder), pero los tres dominios y
+camara.cl devolvieron acceso bloqueado: no se leyo el texto de ninguna nota ni
+el acta de la sesion. Por eso la cronologia fecha la difusion (09-09-2026) y no
+el dia de la sesion. Los $14.363 millones de Pena no se llevaron al bloque de
+datos: es una cifra dicha en sesion parlamentaria y recogida por prensa, no un
+documento oficial, y la regla del README impide mover el contador con eso.
+Quedo anotado en por-verificar.md. Aparte, una nota de 24 Horas y otra de
+Alerta Noticias Temuco (08-01-2026) sostienen que JUNAEB retrotrajo en enero de
+2026 una licitacion del PAE por $760 mil millones tras una orden de Contraloria,
+y que SOSER fue una de las cuatro empresas declaradas inadmisibles: es un
+antecedente del 02-01-2026, anterior al dossier, no una novedad, y tampoco
+quedo confirmado. Tambien esta en por-verificar.md.
 -->
 

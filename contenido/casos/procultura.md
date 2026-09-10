@@ -1,7 +1,7 @@
 # Caso: ProCultura (transferencias de GORE y servicios a la fundación)
 
 Estado: JUDICIALIZADO
-Dossier abierto: 2026-08-26 · Última actualización: 2026-09-05
+Dossier abierto: 2026-08-26 · Última actualización: 2026-09-10
 
 <!-- datos
 cuestionado: 5866677378
@@ -65,6 +65,7 @@ nota-cifra: 18 convenios en 8 regiones, cifra atribuida al Ministerio Público. 
 - 2026-05-25: Larraín y Gómez son formalizados en el Juzgado de Garantía de Antofagasta por seis delitos consumados de apropiación indebida, por convenios con el GORE de Antofagasta y la Seremi de Vivienda, entre ellos "Recuperación de Fachadas Zona de Conservación Histórica Antofagasta", por el cual el GORE transfirió $629.815.000. La defensa cuestiona que se trate de hechos ya revisados. (BioBioChile; La Tercera; Radio U. de Chile; Diario El America)
 - 2026-05-26: el Juzgado de Garantía de Antofagasta se declara incompetente en la arista Antofagasta, acogiendo la solicitud de la defensa de Alberto Larraín, y remite la causa al Cuarto Juzgado de Garantía de Santiago. El tribunal invocó el artículo 157 del Código Orgánico de Tribunales, según el cual es competente el tribunal del lugar donde comenzó la ejecución del delito; la defensa sostuvo que María Constanza Gómez firmó los documentos por vía electrónica desde Santiago. La resolución se difundió el 26-05-2026, al día siguiente de la formalización en Antofagasta; la fecha de la resolución misma no está confirmada. (BioBioChile, 26-05-2026; CNN Chile, mayo de 2026; La Tercera, mayo de 2026; Puranoticia, mayo de 2026)
 - 2026-06-02: El Séptimo Juzgado de Garantía de Santiago decreta el sobreseimiento definitivo de Claudio Orrego y condena en costas al Ministerio Público y personalmente al fiscal regional Juan Castro Bekios. Su abogado, Ciro Colombara, afirma que el gobernador "ha probado su inocencia de manera clara y absoluta". (Cooperativa; La Tercera; CNN Chile; BioBioChile; T13; El Mostrador; Pauta)
+- 2026-07-29: la Corte de Apelaciones de Antofagasta resuelve la contienda de competencia de la arista Antofagasta y declara competente al Cuarto Juzgado de Garantía de Santiago, con lo que la investigación por los seis delitos de apropiación indebida imputados a Alberto Larraín y María Constanza Gómez queda radicada en Santiago. La contienda se había abierto cuando el Cuarto Juzgado de Garantía de Santiago se negó a asumir la causa que Antofagasta le remitió el 26-05-2026 y se la devolvió. La Corte rechazó la tesis de la Fiscalía de mantener la competencia en Antofagasta y sostuvo, aplicando el artículo 157 del Código Orgánico de Tribunales, que las primeras conductas que podrían configurar la apropiación indebida son las operaciones bancarias hechas desde cuentas de la fundación administradas en la comuna de Las Condes. La fecha del 29-07-2026 proviene de un solo reporte; el hecho está respaldado por tres medios. Rol de la causa y sala: sin confirmar. (Timeline.cl; Antofagasta.tv; La Tercera)
 - 2026-08-04: Se informa que la Fiscalía de Antofagasta pedirá formalizar a los directivos de ProCultura por la causa vinculada al Biobío. (TVU; Diario Concepción; La Tercera)
 - 2026-08-05: Larraín y Gómez son formalizados en el Juzgado de Garantía de Concepción por un delito consumado de apropiación indebida en la arista Biobío, por hechos ocurridos entre 2022 y 2024. El tribunal rechaza el arresto domiciliario total pedido contra Larraín, impone arraigo nacional y fija 90 días de investigación. Acogiendo a las defensas, se declara incompetente y remite los antecedentes al Cuarto Juzgado de Garantía de Santiago. (Cooperativa; BioBioChile)
 - 2026-08-06: Se informa que la Fiscalía solicitará formalizar a Larraín y Gómez por los proyectos financiados por Anglo American, y que la audiencia quedó fijada en el Cuarto Juzgado de Garantía de Santiago para el 19-10-2026. (Soychile; La Tercera; Nuevo Poder)
@@ -74,12 +75,15 @@ Arista de datos sensibles (estudio de suicidio): no se localizó una arista judi
 ## Próximos hitos conocidos
 - 2026-10-19: Audiencia de formalización de Alberto Larraín y María Constanza Gómez en el Cuarto Juzgado de Garantía de Santiago, por la arista originada en la querella de Anglo American (más de $290 millones no rendidos entre 2021 y 2023). Reportado por La Tercera y Soychile (06-08-2026).
 - Hacia el 03-11-2026 (aproximado): Vencimiento del plazo de investigación de 90 días fijado el 05-08-2026 en la arista Biobío. La fecha exacta de cierre y la audiencia asociada no están confirmadas.
-- Sin fecha: Radicación efectiva ante el Cuarto Juzgado de Garantía de Santiago de las aristas Antofagasta y Biobío, tras las declaraciones de incompetencia.
+- Sin fecha: Radicación efectiva ante el Cuarto Juzgado de Garantía de Santiago de la arista Biobío, tras la declaración de incompetencia del 05-08-2026. La arista Antofagasta ya quedó radicada allí por resolución de la Corte de Apelaciones de Antofagasta de julio de 2026.
 - Sin fecha: Definición de la Fiscalía respecto de los gobernadores Ricardo Díaz, Rodrigo Mundaca, Óscar Crisóstomo y Jorge Flies, que figuran como imputados sin formalización.
 - Sin confirmar: Si el Ministerio Público o el CDE dedujeron recurso contra el sobreseimiento definitivo de Claudio Orrego del 02-06-2026. No se localizó reporte posterior sobre apelación.
 - Sin confirmar: Situación procesal actual de María Teresa Abusleme, Evelyn Magdaleno y Gabriel Prado en la arista metropolitana después del 02-06-2026.
 
 ## Fuentes
+- Timeline.cl, julio de 2026 (Corte de Apelaciones radica la arista Antofagasta en Santiago): https://www.timeline.cl/caso-procultura-corte-de-apelaciones-saca-investigacion-de-antofagasta-y-la-envia-a-santiago/
+- Antofagasta.tv, julio de 2026: https://www.antofagasta.tv/categoria/antofagasta/sale-antofagasta-corte-apelaciones-traslada-investigacion-caso-procultura-santiago
+- La Tercera, julio de 2026: https://www.latercera.com/nacional/noticia/se-destraba-lio-por-competencia-en-arista-antofagasta-de-procultura-y-la-causa-se-radica-en-la-jurisdiccion-de-santiago/
 - Cooperativa, 2026-08-05, "Alberto Larraín fue formalizado por la arista Biobío del caso ProCultura": https://www.cooperativa.cl/noticias/pais/judicial/casos-emblematicos/alberto-larrain-fue-formalizado-por-la-arista-biobio-del-caso-procultura/2026-08-05/232613.html
 - BioBioChile, 2026-08-05: https://www.biobiochile.cl/noticias/nacional/region-del-bio-bio/2026/08/05/caso-procultura-rechazan-arresto-domiciliario-para-alberto-larrain-y-envian-la-causa-a-santiago.shtml
 - Diario Concepción, 2026-08-04: https://www.diarioconcepcion.cl/politica/2026/08/04/caso-procultura-fiscalia-formalizar-larrain-gomez.html
@@ -164,6 +168,7 @@ Notas de discrepancia:
 - 2026-08-26: incorporación de dos hechos posteriores a la base: rechazo unánime del desafuero de Claudio Orrego el 17-02-2026 y su sobreseimiento definitivo el 02-06-2026, con condena en costas al Ministerio Público. El estado de Orrego pasa de "imputado mencionado" a "sobreseído definitivamente". (agente de investigación)
 - 2026-08-26: se fija como próximo hito conocido la audiencia del 19-10-2026 en el Cuarto Juzgado de Garantía de Santiago por la arista Anglo American. (agente de investigación)
 - 2026-09-05: se fecha la declaración de incompetencia de la arista Antofagasta, que el dossier consignaba como "2026 (fecha exacta sin confirmar)". Ahora la cronología la sitúa el 26-05-2026, al día siguiente de la formalización en Antofagasta, y consigna el fundamento invocado (artículo 157 del Código Orgánico de Tribunales, lugar de comienzo de ejecución del delito) y el argumento de la defensa (firma electrónica de María Constanza Gómez desde Santiago). Se agregan tres fuentes: BioBioChile (26-05-2026), CNN Chile y Puranoticia. La fecha de la resolución misma sigue sin confirmar. Sin cambios en las cifras del caso.
+- 2026-09-10: se incorpora un avance procesal que el dossier no tenía: la Corte de Apelaciones de Antofagasta resolvió la contienda de competencia de la arista Antofagasta y declaró competente al Cuarto Juzgado de Garantía de Santiago, donde queda radicada la investigación por los seis delitos de apropiación indebida imputados a Alberto Larraín y María Constanza Gómez. La Corte descartó la tesis de la Fiscalía y situó el comienzo de ejecución en las operaciones bancarias hechas desde cuentas de la fundación administradas en Las Condes. La resolución se sitúa el 29-07-2026 según un reporte; el hecho consta en Timeline.cl, Antofagasta.tv y La Tercera. Con ello, el hito que el dossier listaba como "Radicación efectiva ante el Cuarto Juzgado de Garantía de Santiago" queda resuelto para la arista Antofagasta y pendiente solo para la arista Biobío. Sin cambios en las cifras del caso.
 
 Nota sobre las fuentes: no se accedió al texto íntegro de las resoluciones judiciales ni de las notas de prensa citadas; lo consignado proviene de extractos con URL verificada, con al menos dos medios establecidos por hecho salvo donde se indica el medio único.
 
@@ -180,5 +185,15 @@ Las búsquedas del día no devolvieron ninguna novedad procesal posterior al
 aristas Antofagasta y Biobío ante el Cuarto Juzgado de Garantía de Santiago,
 sobre eventuales recursos contra el sobreseimiento de Claudio Orrego del
 02-06-2026, ni sobre la situación de Abusleme, Magdaleno y Prado.
+
+10-09-2026: lo incorporado hoy no es noticia del dia sino un vacio de la ficha
+que las busquedas cerraron. La resolucion de la Corte de Apelaciones de
+Antofagasta que radico la arista Antofagasta en el Cuarto Juzgado de Garantia
+de Santiago consta en tres medios (Timeline.cl, Antofagasta.tv y La Tercera),
+pero los tres dominios devolvieron acceso bloqueado, igual que pjud.cl, asi que
+no se leyo el texto de ninguna nota ni de la resolucion. La fecha del
+29-07-2026 aparece en un solo reporte y es consistente con el dia de la semana
+que este menciona (miercoles). Rol y sala quedaron anotados en por-verificar.md.
+Ninguna busqueda devolvio novedades posteriores al 05-09-2026 en este caso.
 -->
 

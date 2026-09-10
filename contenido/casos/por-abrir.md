@@ -22,6 +22,8 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-09-09 | Inspección Total
 - 2026-09-09 | Hospital del Salvador, atención preferente
 - 2026-09-09 | Hospital de Chillán, cirugías preferenciales
-- 2026-09-09 | Inspección Total
-- 2026-09-09 | Hospital del Salvador, atención preferente
-- 2026-09-09 | Hospital de Chillán, cirugías preferenciales
+- 2026-09-10 | contratación de estudiante en La Moneda
+- 2026-09-10 | SLEP Valparaíso, pagos a director suspendido
+- 2026-09-10 | remuneraciones en Ministerio de la Mujer
+- 2026-09-10 | oficinas del Ministerio de la Mujer
+- 2026-09-10 | Hospital de Chillán, atención preferente
