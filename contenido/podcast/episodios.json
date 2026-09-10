@@ -195,5 +195,23 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-09-clave.mp3",
     "bytes": 7555968,
     "durSeg": 315
+  },
+  {
+    "fecha": "2026-09-10",
+    "tipo": "informe",
+    "titulo": "10-09-2026 · Banco Central reduce a menos de uno por ciento su proyección de crecimiento para Chile",
+    "descripcion": "El resumen del diez de septiembre en Chile. El Banco Central redujo su proyección de crecimiento para este año a un rango de apenas cero coma veinticinco a cero coma setenta y cinco por ciento, y describió una economía más débil de lo esperado. La Fiscalía Supraterritorial detuvo a un exfiscal y a tres funcionarios de la PDI en una investigación por secuestros extorsivos. Las bencinas y el diésel suben desde hoy, a una semana de Fiestas Patrias, y el Tricel rechazó la destitución del gobernador Claudio Orrego.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-10-informe.mp3",
+    "bytes": 16649280,
+    "durSeg": 694
+  },
+  {
+    "fecha": "2026-09-10",
+    "tipo": "clave",
+    "titulo": "Clave · Cómo leer el IPoM del Banco Central",
+    "descripcion": "¿Qué es el Informe de Política Monetaria del Banco Central y por qué sus proyecciones cambian de una versión a otra? En este video explicamos cómo se construye un IPoM, qué significa que el crecimiento se muestre como un rango, y qué preguntas conviene hacerse cada vez que el Banco revisa sus números a la baja.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-10-clave.mp3",
+    "bytes": 8349120,
+    "durSeg": 348
   }
 ]
