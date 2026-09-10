@@ -435,25 +435,23 @@ referencia:
       TARJETA 2 (una tarjeta desborda y tapa lo de al lado), que ya se
       resolvió el 07-09 por otra vía.
 
-- [ ] **TÍTULO 1: el Short se tituló "Buscan comprar al Estado" y no se
-      entiende de qué habla** (Santiago, 08-09 23:54, Short del informe, 61
-      vistas; captura en
-      `bitacora/capturas-2026-09-08-short-titulo-comprar-al-estado.jpg`). El
-      título del Short se arma con la fórmula A del 05-09:
-      `<Carátula sugerida>, y otras 4 cosas de hoy` (`scripts/short.js:124`),
-      y la carátula venía del guion del informe (línea 5: "Carátula sugerida:
-      Buscan comprar al Estado"). Nace de que Valencia dijo que el crimen
-      organizado busca frenar la persecución "mediante soborno o
-      amedrentamiento", pero suelto y sin el video se entiende como otra cosa
-      (una privatización, una licitación) y no como la noticia real: 22
-      alcaldes y 18 fiscales bajo protección. El título del video largo sí
-      funcionó ("22 alcaldes bajo protección por el crimen organizado"). A
-      decidir en la sesión local: o el gancho de carátula deja de ser la
-      fuente del título del Short (usar el "Título sugerido" del guion, que
-      es el que se entiende solo), o la regla de la carátula
-      (`prompts/guion-informe.md:113`) agrega que el gancho tiene que
-      sostenerse SIN el video: nombre propio o hecho reconocible, nunca una
-      metáfora del análisis.
+- [x] **TÍTULO 1 — RESUELTO (09-09 22:37).** El título del Short ya no sale de
+      la "Carátula sugerida" sino del **"Título sugerido"** del guion del
+      informe, que está escrito para entenderse solo (`scripts/short.js`,
+      decisión de Santiago). La carátula queda de respaldo si el guion no trae
+      título, y sigue mandando en la MINIATURA, que es su trabajo real: ahí sí
+      se apoya en la imagen. Tope de 66 caracteres para el gancho (la cola
+      ", y otras 4 cosas de hoy #Shorts" ocupa 31 de los 100 que deja YouTube),
+      recortando en la primera coma antes que con puntos suspensivos.
+      **Verificado en producción:** el Short del 10-09 salió "Banco Central
+      reduce a menos de uno por ciento su proyección, y otras 4 cosas de hoy"
+      — el mismo titular del video largo. El último con la fórmula vieja fue
+      el del 09-09, "Exámenes que no pediste, y otras 4 cosas de hoy", que
+      volvió a mostrar el problema (el largo de ese día era "Fonasa denuncia
+      un fraude de ocho mil millones en salud").
+      **A EVALUAR esta semana:** el 07-09 la carátula ("El Estrecho es
+      chileno") era más punchy que el título nuevo, más largo. El cambio gana
+      claridad y puede perder gancho: mirar el CTR de los Shorts.
 
 - [x] ~~**SHORT 1: el sello se superpone a la primera tarjeta**~~ **RESUELTO
       (06-09, sesión local).** Causa confirmada: la sesión de la noche del

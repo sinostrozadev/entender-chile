@@ -74,6 +74,19 @@ ENGANCHE PARA YOUTUBE:
 - Puedes generar curiosidad anticipando una consecuencia, pregunta o contraste que el propio informe permita responder.
 - No uses fórmulas como "no vas a creer", "esto lo cambia todo", "nadie te lo está contando", "impactante", "brutal".
 
+COMPARATIVOS Y SUPERLATIVOS: PROHIBIDOS SI NO ESTÁN EN EL INFORME (regla del
+10-09, tras dos días seguidos con el mismo hallazgo de la revisión). Frases
+como "la corrección más dura desde que empezó la desaceleración" (10-09) o "la
+variación más alta en varios meses" (09-09) suenan bien al cerrar un bloque,
+pero son afirmaciones sobre una SERIE HISTÓRICA que el informe no trae: nadie
+comparó con los meses anteriores, y si el dato es falso el canal afirmó algo
+que no puede sostener. Si el informe no dice explícitamente que algo es el
+mayor, el menor, el primero o el peor desde una fecha, el guion tampoco lo
+dice. Sustituto correcto: la cifra sola y su consecuencia ("el Banco Central
+recortó su proyección a menos de uno por ciento"), que no necesita el
+superlativo para pegar. Esto vale para toda [TESIS], y muy especialmente para
+la que cierra un bloque, que es donde aparece la tentación.
+
 ESTRUCTURA DEL GUION:
 
 1. LA NOTICIA DEL DÍA (apertura en frío, activada el 02-09): el guion abre con la sección exacta "## La noticia del día", ANTES de la Apertura. Es la noticia de portada (la misma del "Título sugerido"), dicha entera y sin ningún preámbulo: ni saludo, ni fecha, ni "comenzamos". Dos frases, 25 a 35 palabras en total, con su [TESIS] o su [DATO] principal como tarjeta (una sola marca) y su [FUENTE]. El que llegó por el título recibe exactamente eso en el primer segundo: eso sostiene la retención. El sello de marca suena solo DESPUÉS de esta sección; no lo menciones ni lo esperes.

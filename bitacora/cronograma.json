@@ -1,6 +1,6 @@
 {
   "_regla": "FUENTE DE VERDAD del cronograma del panel. Quien cambie una tarea (rutina, workflow, tarea GPT, horario o disparador) ACTUALIZA este archivo en el mismo commit; scripts/panel-cronograma.js lo inyecta al panel y el reloj de métricas lo refresca a diario.",
-  "actualizado": "2026-09-08",
+  "actualizado": "2026-09-10",
   "fases": [
     {
       "nombre": "La madrugada — cadena editorial (cada pieza despierta a la siguiente)",
@@ -60,10 +60,10 @@
           "que": "Mira si algún eslabón falta a destiempo y avisa al teléfono mientras todavía se puede arreglar. No escribe ni repara nada: solo lee el estado que calcula scripts/estado.js desde los archivos. A las 02:15 pilla una madrugada que no arrancó; a las 05:15, una revisión que no llegó (lo que pasó el 08-09 y nadie detectó). Prompt vivo: prompts/vigia.md."
         },
         {
-          "hora": "04:40 + 04:45",
-          "quien": "Revisión editorial (Sonnet + Opus)",
+          "hora": "04:45",
+          "quien": "Revisión editorial (Opus)",
           "tipo": "claude",
-          "que": "Control de calidad antes de producir. Sonnet 04:40 deja el VEREDICTO base (4 tipos de falla). La de las 04:45 lo verifica y aplica el MODO CORRECCIÓN: si una cifra está mal y puede comprobar la correcta (con la propia base del informe o fuente primaria por WebSearch), corrige informe y guion, aprueba y republica; si no puede comprobarla, rechaza y dice qué falta. Las dos conviven hasta que la de Fable acumule noches buenas (regla dura 27). Corre en Opus (Fable quedó sin créditos hasta el jueves; una rutina no cambia de modelo sola). Prompt vivo: prompts/revision-editorial.md."
+          "que": "Control de calidad: compara los guiones contra el informe buscando 5 tipos de falla (omisión, dato alterado, sentido cambiado, formato, redondeo en voz) y emite el VEREDICTO. Con MODO CORRECCIÓN: si una cifra está mal y puede comprobar la correcta (con la propia base del informe o la fuente primaria), corrige esas frases en informe y guion, aprueba y republica; si no puede comprobarla, rechaza y dice qué falta. Su push TIMBRA la edición. Corre en Opus. La rutina vieja de Sonnet (04:40) se apagó el 10-09: mientras corrían las dos, el render arrancaba con el push de Sonnet, o sea ANTES de que el corrector hubiera dicho la suya. Prompt vivo: prompts/revision-editorial.md."
         },
         {
           "hora": "~04:50",
