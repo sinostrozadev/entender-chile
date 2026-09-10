@@ -121,6 +121,25 @@ pudo; silencio cuando GPT cumplió.
       `bitacora/2026-09-08-propuesta-maquina-de-estados.md`. No se toca nada
       hasta conversarlo.
 
+## DECIDIR: la retención de los largos lleva CUATRO días cayendo
+
+- [ ] **35,5% (06 y 07-09) → 33,9% → 33,2% → 31,3% (10-09)**, mientras las horas
+      vistas suben (13,1 → 14,0 → 15,1 → 16,6). Las auditorías del 08, 09 y
+      10-09 lo marcaron MIRAR y **nadie ha investigado la causa**: es el cuarto
+      día y ya no es ruido. Importa porque la meta de monetización son 4.000
+      horas de largos, y horas que suben con retención que baja significa que
+      YouTube está mandando más gente que se va antes.
+      Hipótesis a descartar, en orden de costo:
+      (a) los largos se alargaron (el informe del 09-09 duró 720 s y el del
+          10-09 694 s, contra ~330 s de las Claves): mirar si la caída coincide
+          con la duración, comparando `durSeg` con `%visto` día a día;
+      (b) el tráfico nuevo viene de Shorts y rebota (Analytics separa por
+          fuente con `insightTrafficSourceType`);
+      (c) la apertura en frío dejó de funcionar como el 02-09.
+      Lo barato es (a): ya está en `bitacora/metricas/*.json`, no hay que
+      pedirle nada nuevo a la API. **Necesita una decisión de Santiago sobre la
+      duración de los largos, no un arreglo técnico.**
+
 ## URGENTE — con plazo
 
 - [ ] **Suscripción de Claude vencida = todas las rutinas caen (04-09).**
