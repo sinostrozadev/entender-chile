@@ -113,11 +113,34 @@ const cierreTexto = esClave
   : "El informe completo de hoy está en el canal Entender Chile.";
 // Título fórmula A (Santiago, 05-09): el gancho del día adelante, la serie
 // atrás — "El Estrecho es chileno — y otras 4 cosas de hoy". En lista cada
-// día se ve distinto y buscable; la serie se reconoce por la cola. El gancho
-// sale de la "Carátula sugerida" del guion; sin ella, de la primera tesis
-// recortada en palabra completa.
-const ganchoDia = (parsed.caratula || "").trim() ||
-  (() => { const t = elegidos[0].tesis.texto.replace(/\.$/, ""); return t.length <= 48 ? t : t.slice(0, 48).replace(/\s+\S*$/, "") + "…"; })();
+// día se ve distinto y buscable; la serie se reconoce por la cola.
+//
+// DE DÓNDE SALE EL GANCHO (corregido el 09-09, decisión de Santiago): del
+// "Título sugerido" del guion del informe, que está escrito para entenderse
+// SOLO. Antes salía de la "Carátula sugerida" y el 08-09 el Short se tituló
+// "Buscan comprar al Estado" — una metáfora del análisis que, sin el video
+// delante, se lee como una privatización; el video largo, con el mismo
+// material, se llamó "22 alcaldes bajo protección por el crimen organizado" y
+// ese sí funcionó. La carátula es un gancho que se apoya en la imagen de la
+// miniatura; el título va solo en el feed. Trabajos distintos, fuentes
+// distintas. La carátula queda de respaldo por si el guion no trae título.
+//
+// El tope existe porque YouTube corta en 100 caracteres y la cola
+// ", y otras 4 cosas de hoy #Shorts" ya ocupa 31. Al recortar se prefiere
+// cerrar en la primera coma (queda una frase entera: "Muere Camilo Escalona")
+// antes que cortar a la mitad con puntos suspensivos.
+const TOPE_GANCHO = 66;
+const recortarGancho = (t) => {
+  if (t.length <= TOPE_GANCHO) return t;
+  const coma = t.slice(0, TOPE_GANCHO).search(/[,;:]/);
+  if (coma >= 20) return t.slice(0, coma);
+  return t.slice(0, TOPE_GANCHO).replace(/\s+\S*$/, "") + "…";
+};
+const ganchoDia = recortarGancho(
+  (parsed.titulo || "").replace(/\s*#\w+/g, "").replace(/\.$/, "").trim() ||
+  (parsed.caratula || "").trim() ||
+  elegidos[0].tesis.texto.replace(/\.$/, "")
+);
 const md = [
   esClave
     ? `Título sugerido: Clave: ${tituloClave || "para entender las noticias"} #Shorts`
