@@ -3,9 +3,45 @@
   "canal": {
     "suscriptores": 13,
     "vistas": 3281,
-    "videos": 48
+    "videos": 52
   },
   "videos": {
+    "FI_7V_pOlwQ": {
+      "titulo": "Cómo leer el IPoM del Banco Central",
+      "publicado": "2026-09-10",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 351
+    },
+    "qvSZvD8PiGk": {
+      "titulo": "Clave: Cómo leer el IPoM del Banco Central #Shorts",
+      "publicado": "2026-09-10",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 28
+    },
+    "bU-eMEkDcHc": {
+      "titulo": "Banco Central reduce a menos de uno por ciento su proyección",
+      "publicado": "2026-09-10",
+      "estado": "public",
+      "vistas": 8,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 49
+    },
+    "tBv9v_TGayw": {
+      "titulo": "Banco Central reduce a menos de uno por ciento su proyección",
+      "publicado": "2026-09-10",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 694
+    },
     "S9lXZ6iXZ3w": {
       "titulo": "¿Por qué el Banco Central ve escasez de cobre para el 2029? ",
       "publicado": "2026-09-09",
@@ -28,7 +64,7 @@
       "titulo": "Clave: ¿Qué significa realmente un puntaje de PISA? #Shorts",
       "publicado": "2026-09-09",
       "estado": "public",
-      "vistas": 13,
+      "vistas": 14,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 28
@@ -46,7 +82,7 @@
       "titulo": "Exámenes que no pediste, y otras 4 cosas de hoy #Shorts",
       "publicado": "2026-09-09",
       "estado": "public",
-      "vistas": 26,
+      "vistas": 27,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 48
@@ -64,7 +100,7 @@
       "titulo": "Banco Central mantiene la tasa en 4,5%: ¿bajarán los crédito",
       "publicado": "2026-09-09",
       "estado": "public",
-      "vistas": 116,
+      "vistas": 123,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 45
@@ -73,7 +109,7 @@
       "titulo": "Clave: ¿Qué es una interpelación y qué puede exigirle a un m",
       "publicado": "2026-09-08",
       "estado": "public",
-      "vistas": 77,
+      "vistas": 81,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 33
@@ -91,7 +127,7 @@
       "titulo": "Buscan comprar al Estado, y otras 4 cosas de hoy #Shorts",
       "publicado": "2026-09-08",
       "estado": "public",
-      "vistas": 132,
+      "vistas": 137,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 48
@@ -388,7 +424,7 @@
       "titulo": "¿Por qué el mercado de capitales influye en tu hipotecario?",
       "publicado": "2026-08-31",
       "estado": "public",
-      "vistas": 14,
+      "vistas": 15,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 791
@@ -419,42 +455,6 @@
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 688
-    },
-    "xCeMIDevwsE": {
-      "titulo": "Clave: ¿Cómo puede una antena falsa identificar tu celular? ",
-      "publicado": "2026-08-30",
-      "estado": "public",
-      "vistas": 126,
-      "meGusta": 3,
-      "comentarios": 0,
-      "durSeg": 36
-    },
-    "MRG9fw8e5P8": {
-      "titulo": "Concepción en Alerta Roja por el aumento del río Andalién",
-      "publicado": "2026-08-30",
-      "estado": "public",
-      "vistas": 18,
-      "meGusta": 3,
-      "comentarios": 0,
-      "durSeg": 692
-    },
-    "9SxSCiC8ZTs": {
-      "titulo": "Cinco cosas que hay que saber hoy, Domingo, 30 de agosto #Sh",
-      "publicado": "2026-08-30",
-      "estado": "public",
-      "vistas": 184,
-      "meGusta": 4,
-      "comentarios": 1,
-      "durSeg": 48
-    },
-    "y-EyhOlc_sU": {
-      "titulo": "Cinco cosas que hay que saber hoy, Sábado, 29 de agosto #Sho",
-      "publicado": "2026-08-30",
-      "estado": "private",
-      "vistas": 2,
-      "meGusta": 1,
-      "comentarios": 0,
-      "durSeg": 48
     }
   },
   "retencion": {
