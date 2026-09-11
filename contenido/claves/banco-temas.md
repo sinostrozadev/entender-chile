@@ -51,3 +51,6 @@
 - remoción de gobernadores regionales, notable abandono de deberes y competencia del Tribunal Calificador de Elecciones | Tricel rechaza destituir al gobernador Claudio Orrego | 2026-09-10
 - tasa de homicidios, diferencias territoriales y criterios para identificar crimen organizado | Homicidios bajan 11,5%, pero aumenta la presencia del crimen organizado | 2026-09-10
 - cooperación tributaria internacional, soberanía fiscal y negociación de reglas contra la evasión transfronteriza | Chile se retira de negociación tributaria de Naciones Unidas | 2026-09-10
+- proyecciones de empleo asociadas a inversión pública, adicionalidad y diferencia entre puestos anunciados y puestos efectivamente creados | BID y Gobierno proyectan inversión para vivienda y hasta 400 mil empleos | 2026-09-11
+- transmisión del precio del cobre al tipo de cambio y del dólar a los precios internos | Dólar registra su mayor alza diaria en tres meses tras caída del cobre | 2026-09-11
+- evaluación ambiental de plantas desalinizadoras, descarga de salmuera y consumo energético | Desalinización minera crece con vacíos ambientales en debate | 2026-09-11

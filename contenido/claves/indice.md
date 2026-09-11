@@ -16,3 +16,4 @@
 2026-09-08 | interpelacion-ministerial-chile | Interpelación ministerial en Chile: cómo la Cámara exige respuestas al Gobierno y cuáles son sus límites
 2026-09-09 | como-leer-pisa | Cómo leer PISA: qué miden los puntajes, qué significa un nivel de desempeño y qué no permite concluir
 2026-09-10 | como-leer-ipom | Cómo leer el IPoM: proyecciones, supuestos y riesgos detrás de las decisiones del Banco Central
+2026-09-11 | disciplina-remocion-jueces-chile | Disciplina y remoción de jueces en Chile: quién controla su conducta sin decidir sus sentencias
