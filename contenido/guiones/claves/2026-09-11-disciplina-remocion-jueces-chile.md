@@ -10,7 +10,7 @@ Guion:
 
 [TESIS] La estabilidad de un juez no es un privilegio personal, es una garantía para quien litiga.
 
-El diez de septiembre de dos mil veintiséis, el pleno de la Corte Suprema resolvió los primeros expedientes abiertos contra jueces que viajaron fuera de Chile mientras tenían licencia médica. Tres de ellos fueron removidos. Otras veinticinco personas quedaron absueltas, varias porque acreditaron una enfermedad compatible con ese viaje. Quedaban más casos por resolver. Y ahí aparece la pregunta que importa más allá de este episodio: ¿cómo puede el sistema exigirle responsabilidad a quien juzga, sin convertir esa exigencia en una forma de presión sobre sus fallos?
+El diez de septiembre de dos mil veintiséis, el pleno de la Corte Suprema resolvió los primeros veinticinco expedientes abiertos contra jueces que viajaron fuera de Chile mientras tenían licencia médica. Tres de ellos fueron removidos. Los otros veintidós no lo fueron, varios porque acreditaron una enfermedad compatible con ese viaje y otros porque no se reunió el quórum exigido. Quedaban más casos por resolver. Y ahí aparece la pregunta que importa más allá de este episodio: ¿cómo puede el sistema exigirle responsabilidad a quien juzga, sin convertir esa exigencia en una forma de presión sobre sus fallos?
 
 ## Promesa
 
@@ -44,9 +44,9 @@ Ese es el mapa disciplinario. La Fiscalía Judicial vigila la conducta funcionar
 
 [TESIS] El caso de las licencias médicas muestra el mecanismo funcionando con su lógica de evaluación caso a caso.
 
-[DATO comparacion | Poder Judicial, 2 al 10 de septiembre de 2026] removidos: 3 ; absueltos: 25
+[DATO comparacion | Poder Judicial, 2 al 10 de septiembre de 2026] removidos: 3 ; sin remoción: 22
 
-De los primeros expedientes resueltos por el pleno hasta el diez de septiembre de dos mil veintiséis, tres jueces fueron removidos y veinticinco personas quedaron absueltas, varias porque acreditaron una enfermedad o una situación compatible con el reposo indicado. Al once de septiembre de dos mil veintiséis quedaban expedientes pendientes, y no correspondía proyectar el resultado de los ya resueltos sobre los que faltaban. Tampoco correspondía leer las remociones como condenas penales: cada investigación, disciplinaria, civil o penal, tenía su propio objeto.
+De los primeros veinticinco expedientes resueltos por el pleno hasta el diez de septiembre de dos mil veintiséis, tres jueces fueron removidos y los otros veintidós no lo fueron, varios porque acreditaron una enfermedad o una situación compatible con el reposo indicado y otros porque no se reunió el quórum exigido. Al once de septiembre de dos mil veintiséis quedaban expedientes pendientes, y no correspondía proyectar el resultado de los ya resueltos sobre los que faltaban. Tampoco correspondía leer las remociones como condenas penales: cada investigación, disciplinaria, civil o penal, tenía su propio objeto.
 
 [INTERPRETACIÓN] Una lectura posible es que el valor institucional de este proceso no depende solo de cuántos jueces terminen removidos, sino de qué tan claros y comparables sean los fundamentos de cada decisión. Fundamentos claros muestran que la independencia convive con rendición de cuentas, fundamentos opacos alimentan la sospecha de arbitrariedad, incluso cuando exista una base disciplinaria legítima.
 
