@@ -213,5 +213,23 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-10-clave.mp3",
     "bytes": 8349120,
     "durSeg": 348
+  },
+  {
+    "fecha": "2026-09-12",
+    "tipo": "informe",
+    "titulo": "12-09-2026 · Corte Suprema remueve a once jueces por viajar con licencia médica",
+    "descripcion": "La Corte Suprema removió a once jueces por viajar al extranjero con licencia médica, más del triple de lo que se esperaba un día antes. También hubo prisión preventiva para el exfiscal Vinko Fodich, un aviso urgente para más de un millón de hogares con el cupón de gas, y un cruce de versiones entre Chile y Argentina por un supuesto patrullaje en el estrecho de Magallanes.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-12-informe.mp3",
+    "bytes": 17002368,
+    "durSeg": 708
+  },
+  {
+    "fecha": "2026-09-12",
+    "tipo": "clave",
+    "titulo": "Clave · ¿Qué es la prisión preventiva y por qué no es una condena?",
+    "descripcion": "Un tribunal dejó al exfiscal Vinko Fodich en prisión preventiva antes de cualquier juicio. En este video explicamos qué es realmente esa medida, qué tiene que probar quien la pide, quién decide y por qué una persona en prisión preventiva sigue siendo, legalmente, inocente.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-12-clave.mp3",
+    "bytes": 8129664,
+    "durSeg": 339
   }
 ]
