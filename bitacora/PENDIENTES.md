@@ -340,6 +340,89 @@ referencia:
       archivo. Para la noche: el prompt de la serie, la carátula con
       contador, y probar el prompt de imagen en Gemini.
 
+- [ ] **CALIDAD 1: bloque visual y de guion pedido por Santiago el 12-09**
+      ("hay trabajo que hacer, esas vistas no llegarán solas ni menos la
+      retención"). Seis puntos, con lo medido al lado para que la noche
+      decida con datos y no con gusto.
+      (1) **El Short de la Clave no gusta: trabajarlo, sacarlo o cambiarlo.**
+      Lo medido le da la razón: sus vistas son un tercio de las del Short del
+      informe (mediana 59 contra 176) y NO convierte a la Clave larga: de 9
+      pares Short→Clave, 7 pasan menos del 6% de las vistas (56→3, 35→2,
+      59→2, 220→2, 99→4); la única excepción es la interpelación (82→23).
+      Con SERIE 1 la Clave baja a dos por semana, así que la decisión es
+      chica: o el Short de la Clave se vuelve un gancho de UNA pregunta con
+      respuesta a medias (formato que sí funciona en el del informe) o se
+      retira y la Clave se promociona desde el Short del informe.
+      (2) **Láminas: 56 de 94 secciones de los últimos cuatro días no tienen
+      imagen** (caen a textura). Dos causas distintas: el catálogo tiene 10
+      láminas y el emparejador es una lista de regex en `src/fondos.tsx`
+      (espejo en `scripts/imagenes-secciones.js`), así que "Fodich en
+      prisión preventiva", "cupón de gas", "PISA", "Coca-Cola", "Ataques
+      rusos" o "Primer 11 de septiembre" no calzan con nada; y un FALSO
+      POSITIVO: `\bcaso\b` hace que la sección "Aplicado al caso" de TODAS
+      las Claves (PISA, IPoM, jueces) salga con la lámina de seguridad.
+      Camino en dos pasos: primero ampliar el catálogo a 30 o 40 láminas
+      pedidas a Gemini en una sola sesión (educación, vivienda, energía y
+      combustibles, transporte, memoria y DD.HH., tribunales, empresas,
+      guerra y Ucrania, gas y servicios básicos, deporte) y darle al
+      emparejador una palabra clave por sección escrita por el guionista
+      (`[LÁMINA economia]`) en vez de adivinar por el título; después,
+      recién, el pedido programado de 3 imágenes por edición que propone
+      Santiago, que hoy no tiene por dónde ejecutarse sin una persona al
+      medio (no hay API de imagen en el pipeline) y que calza con MÁQUINA 5
+      si el agente de GPT genera imágenes. Regla 29 sigue: identificadores,
+      no ilustración del contenido; la variación diaria por código ya está.
+      (3) **La pantalla escribe todo lo que se lee.** `TarjetaParrafo`
+      muestra `textoPantalla ?? texto`, y `textoPantalla` es solo el párrafo
+      con numerales (`parse.js:238`): no existe síntesis. Propuesta: que el
+      guionista escriba una línea de pantalla por párrafo (`[PANTALLA] ...`,
+      máximo 12 palabras, o el dato) y que la tarjeta muestre ESO en grande
+      y el párrafo narrado no aparezca; sin la línea, la tarjeta cae al
+      comportamiento de hoy. Es un cambio de prompt + parse + tarjeta, y
+      además abre espacio para la lámina del punto (2) dentro de la tarjeta.
+      (4) **Se lee el título, empieza el tema y repite lo mismo.** El título
+      de sección NO se narra (parse.js:146), lo que se oye repetido es la
+      TESIS y el párrafo que la sigue o la cierra diciendo lo mismo con
+      otras palabras. Ejemplo de hoy: tesis "once fuera, veintiséis se
+      salvaron y diez casos siguen en pausa" y tres párrafos después "once
+      jueces quedaron fuera, otros veintiséis se salvaron ... y diez
+      expedientes siguen suspendidos". Arreglo en el prompt del guion (la
+      tesis anuncia, el párrafo no la reformula: aporta el cómo o el por
+      qué) y un aviso en el validador cuando tesis y párrafo comparten más
+      de la mitad de sus palabras de contenido.
+      (5) **Las carátulas deben llamar a entrar.** Sigue abierta la vuelta 2
+      de bocetos (taller.json, PENDIENTE DE DECISIÓN desde el 05-09): ahí
+      está la decisión que falta antes de iterar más.
+      (6) **Reorganizar el Taller** para que sea un taller de verdad: ver
+      TALLER 3 abajo.
+
+- [ ] **TALLER 3: convertir el Taller en un lugar de pruebas, no un editor
+      de prompts** (Santiago, 12-09). Hoy `taller/` es navegador + editor con
+      diff + borradores + Claude sobre los archivos de criterio: sirve para
+      cambiar texto, no para ver ni medir. Lo que sí funcionó como taller
+      fue el tablero de carátulas del 05-09 (14 propuestas lado a lado,
+      decisión, 14/14 aplicadas el mismo día); lo que no funcionó fue la
+      vuelta 2, sin decisión en una semana. Propuesta, en tres piezas:
+      (a) **Tableros con variantes renderizadas.** Para cada prueba visual
+      (tarjeta con lámina, tarjeta con línea de pantalla, cortina, carátula)
+      la noche genera 2 o 3 variantes como fotogramas fijos con
+      `remotion still` sobre una edición real, y las publica como tablero
+      con un botón por variante. Santiago elige desde el teléfono. Sin
+      render no hay tablero: los bocetos en texto no se deciden.
+      (b) **Un registro de experimentos** (`bitacora/experimentos.json` o
+      ampliar `taller.json`): hipótesis, qué cambió, desde qué fecha, qué
+      métrica lo juzga (retención a 30 s, % visto, vistas del Short, clics a
+      la Clave) y veredicto a las dos semanas (regla 26). Un cambio a la vez
+      por métrica, si no nada se puede atribuir. Que la auditoría de la
+      mañana lea este registro y diga cuántos días le faltan a cada prueba.
+      (c) **Un módulo "Ver" en el Taller** con el último render por pieza
+      (fotograma por sección, carátula, Short) y las métricas al lado, para
+      mirar lo que se publica sin abrir YouTube. TALLER 1 (panel de métricas
+      como cuarto módulo) entra aquí.
+      Regla que lo hace posible: la sesión de día puede RENDERIZAR variantes
+      y publicar tableros (no toca producción, regla 24 intacta); la noche
+      aplica lo decidido y anota el experimento.
+
 - [ ] **YOUTUBE 1: dejar los videos PROGRAMADOS directamente, no privados**
       (Santiago, 09-09). Hoy el paso 7 sube las cuatro piezas en privado y él
       las publica a mano cada mañana. La pieza de código YA EXISTE:
