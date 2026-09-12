@@ -54,3 +54,6 @@
 - proyecciones de empleo asociadas a inversión pública, adicionalidad y diferencia entre puestos anunciados y puestos efectivamente creados | BID y Gobierno proyectan inversión para vivienda y hasta 400 mil empleos | 2026-09-11
 - transmisión del precio del cobre al tipo de cambio y del dólar a los precios internos | Dólar registra su mayor alza diaria en tres meses tras caída del cobre | 2026-09-11
 - evaluación ambiental de plantas desalinizadoras, descarga de salmuera y consumo energético | Desalinización minera crece con vacíos ambientales en debate | 2026-09-11
+- representantes presidenciales en universidades estatales, función institucional y límites frente a la autonomía universitaria | Gobierno designa 18 representantes en universidades estatales | 2026-09-12
+- prescripción penal, diferencia entre extinción de la responsabilidad y determinación histórica de los hechos | Prescripción provoca sobreseimiento en caso Mariana Sepúlveda | 2026-09-12
+- receta electrónica obligatoria, trazabilidad de medicamentos, protección de datos y excepciones de acceso | Senado avanza con obligación de recetas electrónicas | 2026-09-12
