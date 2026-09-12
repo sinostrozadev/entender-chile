@@ -1,7 +1,7 @@
 # Caso: Municipalidad de Maipú (causa Cathy Barriga)
 
 Estado: JUDICIALIZADO
-Dossier abierto: 2026-08-26 · Última actualización: 2026-08-30
+Dossier abierto: 2026-08-26 · Última actualización: 2026-09-12
 
 <!-- datos
 cuestionado: 32884247128
@@ -58,7 +58,7 @@ Nota de rigor: los seis excolaboradores condenados aceptaron los hechos en proce
 - 2026-05-08: el 7° Juzgado de Garantía de Santiago decreta la prisión preventiva de Lavín León, que queda recluido en el anexo Capitán Yáber. (Poder Judicial, 08-05-2026; La Tercera; Diario El Día, 08-05-2026)
 - 2026-06-17: Segundo grupo de condenas en juicio abreviado: Ana María Cortés, Juan Carlos Quezada y Matías Silva (4 años cada uno) y Andrea Díaz (800 días), todos con penas sustitutivas e inhabilitación de 4 años y 1 día. (Pauta, BioBioChile, La Tercera, 24 Horas)
 - 2026-08-03: el 7° Juzgado de Garantía de Santiago rechaza rebajar la cautelar de Lavín León y mantiene su prisión preventiva. (El Mostrador, 03-08-2026; Puranoticia, 03-08-2026)
-- 2026-08-06: la Corte de Apelaciones de Santiago revoca la prisión preventiva de Lavín León y decreta arresto domiciliario total. (Emol, 06-08-2026; El Mostrador, 06-08-2026; 24 Horas, 08-2026)
+- 2026-08-06: la Corte de Apelaciones de Santiago revoca la prisión preventiva de Lavín León y decreta arresto domiciliario total, más arraigo nacional y prohibición de comunicarse con los demás imputados de la causa. La decisión se adoptó por dos votos contra uno. Los ministros fundaron la rebaja en el tiempo que el exdiputado llevaba bajo la cautelar más gravosa, 90 días desde el 08-05-2026, y en que una medida menos intensa no afectaría el desarrollo de la investigación. (Emol, 06-08-2026; El Mostrador, 06-08-2026; T13, 06-08-2026; 24 Horas, 06-08-2026; Radio U. de Chile, 06-08-2026; CNN Chile, 06-08-2026)
 
 Sobre la audiencia del 04-08-2026 (punto clave del seguimiento): NO se realizó. Fue reprogramada el 03-06-2026 para el 07-10-2026. Al 26-08-2026 no hay fecha de juicio oral fijada; la prensa lo proyecta para 2027 si la preparación avanza (estimación, sin confirmar).
 
@@ -119,13 +119,18 @@ Situación pública actual de Barriga: alejada de cargos públicos y de partidos
 - Puranoticia, 03-08-2026: https://puranoticia.pnt.cl/nacional/tribunal-rechaza-rebajar-medida-cautelar-y-mantiene-prision-preventiva-para
 - El Mostrador, 06-08-2026 (revocación de la prisión preventiva): https://www.elmostrador.cl/noticias/pais/2026/08/06/corte-revoca-prision-preventiva-de-joaquin-lavin-leon-y-ordena-arresto-domiciliario-total/
 - Emol, 06-08-2026: https://www.emol.com/noticias/Nacional/2026/08/06/1207763/joaquin-lavin-leon-carcel-cautelar.html
-- 24 Horas, 08-2026: https://www.24horas.cl/actualidad/nacional/corte-revoca-prision-preventiva-de-joaquin-lavin-leon
+- 24 Horas, 06-08-2026: https://www.24horas.cl/actualidad/nacional/corte-revoca-prision-preventiva-de-joaquin-lavin-leon
+- T13, 06-08-2026 (cautelares accesorias y votación 2-1): https://www.t13.cl/noticia/politica/revocan-prision-preventiva-joaquin-lavin-leon-cumplira-arresto-domiciliario-total-6-8-2026
+- Radio Universidad de Chile, 06-08-2026: https://radio.uchile.cl/2026/08/06/joaquin-lavin-leon-deja-capitan-yaber-corte-revoca-prision-preventiva-y-ordena-arresto-domiciliario-total/
+- CNN Chile, 06-08-2026: https://www.cnnchile.com/pais/joaquin-lavin-leon-abandona-capitan-yaber-y-pasa-a-arresto-domiciliario-total-tras-fallo-de-la-corte/
+- La Prensa Austral, 06-08-2026: https://laprensaaustral.cl/2026/08/06/corte-de-apelaciones-revoca-prision-preventiva-y-decreta-arresto-domiciliario-total-para-exdiputado-lavin/
 
 Nota sobre las fuentes: no se accedió al texto íntegro de las resoluciones judiciales ni de varias de las notas citadas. Lo consignado proviene de extractos con URL verificada, con al menos dos medios establecidos por hecho, salvo donde se indica el medio único.
 
 ## Registro de actualizaciones del dossier
 - 2026-08-26: dossier creado con investigación inicial. (agente de investigación)
 - 2026-08-30: se completa la situación procesal de Joaquín Lavín León, que el dossier consignaba como "sin confirmar". Donde antes decía que el fiscal evaluaba pedir su desafuero, ahora se consigna que la Corte Suprema lo confirmó el 23-02-2026, que fue formalizado el 04-05-2026 ante el 7° Juzgado de Garantía de Santiago por fraude al fisco, tráfico de influencias y falsificación y uso malicioso de instrumento privado mercantil, que estuvo en prisión preventiva desde el 08-05-2026 y que el 06-08-2026 la Corte de Apelaciones de Santiago se la revocó y decretó arresto domiciliario total. Se añaden cinco líneas a la cronología y las fuentes correspondientes. Fuentes: Emol, T13, El Dínamo, Radio U. de Chile, La Tercera, El Mostrador, Puranoticia, Diario El Día y Poder Judicial.
+- 2026-09-12: se completan las condiciones de la cautelar que la Corte de Apelaciones de Santiago decretó el 06-08-2026 para Joaquín Lavín León, que estaban anotadas como pendientes de confirmación. Además del arresto domiciliario total, la Corte impuso arraigo nacional y prohibición de comunicarse con los demás imputados de la causa, y resolvió por dos votos contra uno, fundando la rebaja en los 90 días que el exdiputado llevaba en prisión preventiva desde el 08-05-2026 y en que una medida menos intensa no afectaría la investigación. Entra con seis medios establecidos: Emol, El Mostrador, T13, 24 Horas, Radio U. de Chile y CNN Chile, todos del 06-08-2026, más La Prensa Austral. Sin cambios en el bloque de datos ni en la situación procesal de Cathy Barriga, que sigue acusada y no condenada, con la audiencia de preparación de juicio oral fijada para el 07-10-2026.
 
 <!-- interno
 Límites de acceso en la actualización del 30-08-2026: el proxy de red bloqueó
@@ -142,4 +147,15 @@ discrepa de los "$17 millones" que este dossier consignaba antes; y las
 condiciones accesorias de la cautelar del 06-08-2026 (arraigo nacional y
 prohibición de comunicarse con los demás imputados), que solo aparecen en un
 resumen de buscador.
+
+12-09-2026: las busquedas del dia no devolvieron ninguna novedad procesal
+posterior al 30-08-2026 en la causa de Maipu ni en la de Lavin Leon. Lo unico
+que cambia es que las condiciones accesorias de la cautelar del 06-08-2026, que
+la nota anterior daba por sostenidas en un solo resumen de buscador, aparecen
+ahora en seis medios establecidos (Emol, El Mostrador, T13, 24 Horas, Radio U.
+de Chile y CNN Chile) junto con la votacion 2-1 y el fundamento de la Corte: por
+eso entran a la ficha. cnnchile.com devolvio acceso bloqueado y no se leyo el
+texto de ninguna nota. Siguen pendientes los otros dos puntos de
+por-verificar.md sobre este caso: los nombres de los otros tres formalizados el
+04-05-2026 y la cifra de las facturas.
 -->
