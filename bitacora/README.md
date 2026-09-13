@@ -49,3 +49,72 @@ ejecuta la sesión de la noche, decidido por Santiago.
 
 Cuando el análisis encuentre algo que hay que arreglar, se escribe en
 `PENDIENTES.md` con el archivo y la línea. No se arregla.
+
+## Dónde se anota cada cosa (estándar del 13-09-2026)
+
+Antes de esto había pendientes en nueve lugares y nadie sabía cuál mandaba. La
+regla ahora es corta: **una sola lista de trabajo, y cuatro listas de material
+que escribe la máquina.**
+
+### Lo que hay que HACER: `bitacora/PENDIENTES.md`, y nada más
+
+Toda tarea vive ahí, venga de donde venga: de una auditoría, de una idea, de
+un hallazgo de la revisión, de una conversación. Una entrada trae **qué pasa,
+con qué evidencia (archivo y línea), quién la ejecuta** (noche, día o Santiago)
+y, si está bloqueada, **qué falta para destrabarla**. Si algo no está acá, no
+existe: nadie lo va a hacer.
+
+Las tres secciones por dueño son fijas: "Para la sesión de la noche (código y
+prompts)", "Para la sesión de día (solo análisis)" y "Dependen de Santiago".
+
+### Las cuatro listas que NO se mudan, porque las escribe la máquina
+
+No son tareas del repo, son material editorial con su propio ciclo. Cada una
+tiene dueño y un momento del día en que se mira:
+
+| Lista | La escribe | Se revisa |
+|---|---|---|
+| `contenido/casos/por-abrir.md` | `scripts/casos.js` con las marcas EN SEGUIMIENTO del informe | la sesión de día, al abrir dossiers |
+| `contenido/casos/por-verificar.md` | el observatorio, cuando no pudo confirmar un dato | la rutina de la mañana |
+| marcas `PENDIENTE DE CIERRE:` y `EN SEGUIMIENTO:` dentro de los informes | el informe del día | el informe del día siguiente, obligatorio (regla dura 9) |
+| `bitacora/taller.json` | la sesión que prepara un tablero de variantes | Santiago, cuando decide |
+
+Si una de estas se queda pegada (un caso sin abrir tres días, un tablero sin
+decidir una semana), **ahí sí baja una entrada a PENDIENTES**: lo pegado es
+una tarea, lo que fluye no.
+
+### Lo que todavía no es tarea
+
+- `ideas/evaluar.md`: ideas crudas, con fecha, qué es, valor y esfuerzo.
+  Cuando una se aprueba **se convierte en entrada de PENDIENTES** (ya no pasa
+  por `ejecutar.md`, que está en `archivo/`). Cuando se descarta va a
+  `ideas/descartadas.md` con el porqué.
+- `estrategia/hoja-de-ruta.md`: el mapa del proyecto, no una lista de tareas.
+  Lo que de ahí esté vivo y sea accionable, baja a PENDIENTES.
+- `REGLAS-DURAS.md`, sección de disputas: criterio en discusión. Una disputa se
+  cierra con una decisión de Santiago, y la decisión se registra en
+  `estrategia/decisiones.md`.
+
+### Lo que YA SE HIZO: tres lugares, cada uno con su función
+
+1. **`bitacora/REALIZADOS.md`**: una línea por cosa terminada, con fecha,
+   append-only. Es además la evidencia de aporte humano que pide YouTube.
+2. **`estrategia/decisiones.md`**: solo las decisiones de fondo, con el
+   formato de ese archivo (qué, quién decidió, cuándo, qué regla resultó).
+   Una decisión de NO hacer algo también se registra acá: si no, la auditoría
+   la vuelve a proponer cada mañana.
+3. **El mensaje del commit**: el detalle técnico y el porqué. El archivo del
+   día (`bitacora/AAAA-MM-DD.md`) lleva el relato de la jornada.
+
+Y lo hecho **se borra de PENDIENTES**, no se tacha. Tachar engorda la lista
+hasta que deja de leerse: el 13-09 tenía 908 líneas, doce de ellas cosas
+terminadas hacía una semana.
+
+### La conexión que fallaba
+
+El triage de la auditoría de la mañana (HOY / AGUANTA / MIRAR) **no aterrizaba
+en ninguna parte**: la cifra mala del 11-09 se marcó HOY tres mañanas seguidas
+sin que nadie la anotara. Desde el 13-09 la propia rutina de auditoría escribe
+sus HOY en PENDIENTES antes de terminar (`prompts/auditoria-matinal.md`). Una
+propuesta marcada HOY que no llega a la lista viva es una propuesta que no
+ocurrió.

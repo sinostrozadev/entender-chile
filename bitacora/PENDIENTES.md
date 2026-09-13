@@ -77,25 +77,44 @@ en la lista del cambio de hora del 6-09) — si no hay
 espera; sin material NO inventa: avisa. Notifica SOLO si intervino o no
 pudo; silencio cuando GPT cumplió.
 
-## MÁQUINA DE ESTADOS — paso 1 HECHO (08-09 noche)
+## LO QUE APARECIÓ AL UNIFICAR LOS PENDIENTES (13-09)
+
+- [ ] **`contenido/casos/por-verificar.md` lleva 64 líneas y nadie lo vacía.**
+      Crece unas 5 por día desde el 27-08 y las más viejas, de hace diecisiete
+      días, siguen ahí (JUNAEB-SOSER, Democracia Viva). Su README dice "la
+      rutina de la mañana lo revisa": o la rutina no lo está revisando o lo
+      revisa y no puede cerrar nada, y en los dos casos la lista dejó de ser
+      una lista. Decidir cuál de las dos es, y si el que verifica debe ser la
+      sesión local (la nube no abre varios medios chilenos por el proxy).
+      Dueño: sesión de día para el diagnóstico, noche para el arreglo.
+- [ ] **`estrategia/hoja-de-ruta.md` tiene 23 casillas sin marcar** y varias ya
+      están hechas hace semanas (identidad de cuentas, escaparate del canal).
+      Revisarla entera una vez, marcar lo hecho, y bajar a esta lista lo que
+      siga vivo y sea accionable. Después la hoja de ruta se queda como mapa
+      del proyecto, no como lista de tareas (regla 41). Dueño: sesión de día.
+
+## MÁQUINA DE ESTADOS: paso 1 COMPLETO (vigía el 08-09, estado escrito el 13-09)
 
 - [x] **Vigía y estado del día.** ✅ 08-09, 23:05. `scripts/estado.js` calcula la
       etapa desde los archivos (probado en 4 casos) y `prompts/vigia.md` +
       rutina `trig_01LUtn4fSJjBsCzqdoWeVviH` (Haiku, 02:15 y 05:15, con repo
       montado) avisan al teléfono solo si falta un eslabón. Probada con corrida
       real: 13 s, salida 0, sin notificar. Primera vigilancia de verdad: 02:15.
-- [ ] **Nadie escribe todavía `contenido/estado/FECHA.md` en el repo.** El vigía
-      solo lee (`--solo-leer`) para no meter commits en la madrugada. Mientras
-      no se escriba, GPT no puede leer el estado y el panel no lo muestra. Paso
-      siguiente y barato: correr `node scripts/estado.js` en el workflow de
-      métricas (ya corre panel-cronograma.js ahí) y, más adelante, en cada push
-      de contenido. **Ojo: un estado viejo commiteado es peor que ninguno** — si
-      se escribe, que sea siempre fresco.
-- [ ] **Lo que sigue de la máquina** (orden acordado): re-chequeo antes del push
-      (mata el bug del 07-09) → revisión por evento + la web esperando el
-      veredicto → GPT a un solo PR → Claude a dos despachadoras. El §5 del
-      diseño ya tiene la vuelta del bucle como principio general, con la tabla
-      de quién repara qué.
+- [ ] **Lo que sigue de la máquina** (orden acordado), con el paso 1 ya cerrado
+      el 13-09 (estado.yml escribe la vista con cada pieza que llega):
+      **(2) re-chequeo antes del push.** La guarda de dedup del 13-09 mira ANTES
+      de escribir; falta mirar otra vez ANTES de commitear, que es donde se
+      colaba la carrera del 07-09. Va en `prompts/guionista.md`, que es el
+      prompt que corre de verdad.
+      **(3) revisión por evento + la web esperando el veredicto.** Hoy la
+      revisión va por reloj (04:45) y la web publica el informe apenas llega:
+      el 08-09 un informe con dos cifras malas estuvo público de 01:43 a 06:46.
+      La decisión de que la web espere ya está tomada (08-09); se implementa en
+      `web/src/lib/contenido.ts` → `informes()`, con fecha de corte.
+      **(4) GPT a un solo PR** (necesita lo que Santiago tiene que verificar en
+      ChatGPT, abajo). **(5) Claude a dos despachadoras.**
+      El §5 del diseño ya tiene la vuelta del bucle como principio general, con
+      la tabla de quién repara qué.
 - [x] **Decidido: la web ESPERA el veredicto** (Santiago, 08-09 noche). Se
       implementa en `web/src/lib/contenido.ts` → `informes()`, con fecha de corte
       desde el 09-09 para no borrar del sitio los informes anteriores a la
@@ -558,7 +577,9 @@ referencia:
       y septiembre lleva ~395 min en tres días, pero el ritmo de 150 min
       diarios por re-renders agotaría los 2.000 cerca del día 13.
 
-- [ ] **ORDEN, noches 2 y 3** (`bitacora/2026-09-02-orden-del-repo.md`; la
+- [ ] **ORDEN, noches 2 y 3** (una parte se hizo el 13-09: las disputas de
+      REGLAS-DURAS.md estaban escritas como abiertas once días después de que
+      Santiago las cerrara, y ya quedaron como registro cerrado) (`bitacora/2026-09-02-orden-del-repo.md`; la
       noche 1 se ejecutó el 02-09: archivo/, PENDIENTES limpio, decisiones
       reordenada con las huérfanas, README raíz y de estrategia). Noche 2:
       engordar el contrato y quitar las copias de los cinco prompts;

@@ -4,6 +4,10 @@ Registro append-only de lo completado, con fecha. La sesión de la mañana
 agrega aquí lo que sale de PENDIENTES; también es evidencia del aporte
 editorial y técnico humano del proyecto.
 
+- 13-09 · Máquina de estados, paso 1 completo: estado.yml escribe contenido/estado/FECHA.md con cada pieza que llega (y no commitea cuando lo único que cambió es la hora). Ya se puede saber en qué va el día sin correr nada, y GPT puede leerlo
+- 13-09 · Estandarizado dónde se anota cada cosa: había pendientes en NUEVE lugares. Una sola lista de trabajo (PENDIENTES.md), cuatro listas de material que escribe la máquina, y lo hecho a REALIZADOS + decisiones.md. Escrito en bitacora/README.md, regla dura 41 y la skill de la bitácora
+- 13-09 · La auditoría de la mañana ahora BAJA sus HOY a PENDIENTES en su mismo commit (paso 7 de prompts/auditoria-matinal.md): era el eslabón que faltaba, y por eso la cifra del 11-09 se marcó tres mañanas sin que nadie la anotara
+- 13-09 · Las diez disputas de REGLAS-DURAS.md quedaron como registro cerrado: nueve estaban escritas como abiertas once días después de que Santiago las cerrara (02-09). Deriva documental que la regla 41 viene a cortar
 - 13-09 · metricas.js medía solo 50 videos: la lista de subidas viene por páginas y no se recorrían. Paginado con pageToken. El canal se medía truncado desde el 10-09; hoy volvieron 18 videos a la medición y las horas del día pasaron de 18,8 a 56,1
 - 13-09 · Destapado por lo anterior: la "mejora" de retención de los últimos cuatro días era el truncamiento (se caían del cálculo los informes viejos, que son los de retención baja). La retención real de los largos lleva una semana plana en un tercio, 32,5% hoy, y lo que la predice no es la duración sino de dónde viene el tráfico
 - 13-09 · Guarda de dedup en prompts/guion-informe.md: el guionista ya no rehace ni pisa un guion que ya está completo en main (el 07-09 una segunda corrida reescribió el guion bueno)

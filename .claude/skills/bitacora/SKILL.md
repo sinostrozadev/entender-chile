@@ -116,6 +116,13 @@ proyecto: se usan comas, dos puntos o punto seguido.
 
 ## Modo `cierre`
 
+Antes de escribir nada, la regla de dónde va cada cosa está en
+`bitacora/README.md`, sección "Dónde se anota cada cosa" (estándar del 13-09 y
+regla dura 41): las tareas van SOLO a `bitacora/PENDIENTES.md`, con dueño y con
+archivo y línea; lo terminado se BORRA de ahí y queda como una línea en
+`bitacora/REALIZADOS.md`; las decisiones de fondo, incluidas las de no hacer
+algo, van a `estrategia/decisiones.md`.
+
 1. Dejar `bitacora/AAAA-MM-DD.md` ordenado con: decisiones tomadas hoy y
    quién decidió; hallazgos; ideas nuevas; lo que quedó abierto esperando a
    Santiago; y **para ejecutar esta noche**, en orden, con el archivo o el

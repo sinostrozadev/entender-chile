@@ -199,47 +199,48 @@ archivos de criterio del repositorio.
 40. **La promesa del canal es diaria.** No se recorta el fin de semana por
     costo. (PENDIENTES, decisión de Santiago)
 
+41. **Una sola lista de trabajo: `bitacora/PENDIENTES.md`.** Toda tarea vive
+    ahí, con evidencia (archivo y línea) y con dueño (noche, día o Santiago);
+    lo que no está ahí, no se hace. Las cuatro listas que escribe la máquina
+    (`por-abrir.md`, `por-verificar.md`, las marcas PENDIENTE DE CIERRE del
+    informe y `bitacora/taller.json`) se quedan donde están porque son
+    material editorial, no tareas: bajan a PENDIENTES solo cuando se quedan
+    pegadas. Lo terminado se BORRA de la lista y queda en
+    `bitacora/REALIZADOS.md`; las decisiones de fondo, y también las de NO
+    hacer algo, en `estrategia/decisiones.md`. El estándar completo está en
+    `bitacora/README.md`. (estándar del 13-09, tras encontrar pendientes
+    repartidos en nueve lugares y un HOY marcado tres mañanas seguidas que
+    nunca llegó a la lista)
+
 ---
 
-## Lo que hoy se contradice y hay que cerrar
+## Las disputas: todas cerradas (al 13-09-2026)
 
-Estas no son reglas todavía: son dos afirmaciones vivas en archivos
-distintos. Cada una necesita una decisión de Santiago, anotada en
-`estrategia/decisiones.md`, y después se borra la versión perdedora. Están
-ordenadas por lo que más pesa.
+Acá se anota lo que dos archivos del proyecto afirman de forma distinta. Una
+disputa no es una regla: se cierra con una decisión de Santiago en
+`estrategia/decisiones.md` y después se borra la versión perdedora del archivo
+que la sostenía. **Hoy no hay ninguna abierta.**
 
-1. ~~**Imágenes generadas.**~~ **CERRADA el 03-09 por Santiago**, tras ver
-   las 11 imágenes y el marco de monetización: se formaliza la excepción
-   como regla 29 nueva (identificadores de serie y sección, con variación
-   diaria por código; la tipografía sigue mandando en los datos). Entrada
-   en decisiones.md.
-2. **Voz clonada.** `modelo-de-negocio.md` e `ideas/IMPLEMENTAR.md` la
-   mantienen como "requisito no negociable"; la decisión del 27-08 la
-   aparca indefinidamente y sigue "pendiente de confirmación" ocho días
-   después. Cerrar la decisión 13 y corregir los dos archivos.
-3. **"Nada del informe queda sin sonar" contra el tope de titulares.** La
-   decisión del 29-08 lo hace obligatorio; medido el 02-09, el bloque es el
-   23% del video. La opción B (12 palabras por titular) mantiene la regla;
-   la A (tope de 8) la rompe. Decidir cuál, y si la B no alcanza, volver.
-4. **El clima.** La identidad dice que el pronóstico queda fuera; el
-   informe pide una recomendación de vestimenta diaria y la propuesta del
-   02-09 la amplía a dos localidades. O es una excepción declarada
-   ("una frase, nunca una sección") o se quita.
-5. **"¿En qué quedó?": diaria o por hito.** La estrategia dice "video por
-   hito, no por calendario"; dos documentos de ideas la quieren como
-   sección diaria de 60 segundos.
-6. **La Clave: diaria o excepcional.** `prompts/claves.md` dice diaria;
-   `contrato-archivos.md` dice "si un día no hay Clave, no crear sus
-   archivos"; `guion-claves.md` obliga a crear un archivo SIN-ENTREGA.
-   Tres reglas para el mismo caso.
-7. **Dos auditorías matinales para el mismo archivo.** La skill de la
-   sesión de día y la tarea de las 09:30 escriben las dos
-   `bitacora/FECHA-auditoria.md` con contenidos distintos.
-8. **La hora de publicación** está definida en cuatro archivos con cuatro
-   valores (05:30, 06:30, 07:00, 07:30). Una sola tabla, un solo dueño.
-9. **La base de series: quién la alimenta.** `indicadores-pais.md` dice "la
-   tarea de GPT"; la propuesta del 02-09 dice "el vigía".
-10. **La cortina de sección.** Un documento la define como lo primero que
-    se recorta; otro, como el lugar de mayor palanca visual (es el
-    fotograma de la tira de capítulos). Las dos cosas pueden ser ciertas
-    si se dice que dura 1,1 s y que ese segundo importa.
+- **1 · Imágenes generadas**: CERRADA el 03-09: entran como identificadores de
+  serie y sección, con variación diaria por código (regla 29).
+- **2 · Voz clonada**: CERRADA el 02-09: NO es requisito de monetización; se
+  reabre solo con evidencia.
+- **3 · Titulares**: CERRADA el 02-09: tope de LARGO (12 palabras por titular),
+  no de cantidad; todo lo del informe sigue sonando.
+- **4 · El clima**: CERRADA el 02-09: excepción declarada, UNA frase casual en
+  la despedida, nunca una sección.
+- **5 · "¿En qué quedó?"**: CERRADA el 02-09: por hito, no por calendario.
+- **6 · La Clave**: CERRADA el 02-09: es DIARIA. Su duración cambió dos veces
+  después: a ~5 minutos el 05-09 y de vuelta a 8 como piso el 13-09, a pedido
+  de Santiago (`prompts/guion-claves.md`).
+- **7 · Auditoría matinal**: CERRADA el 02-09: la escribe la rutina; la sesión
+  de día la lee y profundiza.
+- **8 · Hora de publicación**: CERRADA el 02-09: manda la tabla de
+  `ideas/viralizacion.md`; los demás archivos la citan.
+- **9 · La base de series**: CERRADA el 02-09: la alimenta el agente de
+  guardia.
+- **10 · La cortina de sección**: CERRADA el 02-09: no era disputa sino
+  redacción; dura 1,1 s y ese segundo define la tira de capítulos.
+
+Estaban escritas como abiertas hasta el 13-09, once días después de cerrarse:
+es exactamente la deriva documental que la regla 41 viene a cortar.
