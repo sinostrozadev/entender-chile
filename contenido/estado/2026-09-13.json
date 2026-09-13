@@ -1,0 +1,99 @@
+{
+  "fecha": "2026-09-13",
+  "etapa": "videos_listos",
+  "veredicto": "APROBADA",
+  "actualizado": "2026-09-13 19:08",
+  "reparar": null,
+  "piezas": [
+    {
+      "id": "barrido",
+      "etiqueta": "Barrido",
+      "hay": true,
+      "hora": "01:34",
+      "esperada": "01:40",
+      "dueno": "Actions · barrido.yml",
+      "rutas": [
+        "contenido/barrido/2026-09-13.md"
+      ]
+    },
+    {
+      "id": "preseleccion",
+      "etiqueta": "Preselección",
+      "hay": true,
+      "hora": "01:37",
+      "esperada": "02:10",
+      "dueno": "GPT · prompts/seleccion.md",
+      "rutas": [
+        "contenido/preseleccion/2026-09-13.md"
+      ]
+    },
+    {
+      "id": "informe",
+      "etiqueta": "Informe",
+      "hay": true,
+      "hora": "01:57",
+      "esperada": "02:40",
+      "dueno": "GPT · prompts/informe.md",
+      "rutas": [
+        "contenido/informes/2026-09-13.md"
+      ]
+    },
+    {
+      "id": "clave",
+      "etiqueta": "Clave (entrega)",
+      "hay": true,
+      "hora": "02:00",
+      "esperada": "03:10",
+      "dueno": "GPT · prompts/claves.md",
+      "rutas": [
+        "contenido/claves/2026-09-13-investigacion-catastrofes-responsabilidades.md"
+      ]
+    },
+    {
+      "id": "guion_informe",
+      "etiqueta": "Guion del informe",
+      "hay": true,
+      "hora": "02:05",
+      "esperada": "03:10",
+      "dueno": "Claude · prompts/guionista.md",
+      "rutas": [
+        "contenido/guiones/informe/2026-09-13.md"
+      ]
+    },
+    {
+      "id": "guion_clave",
+      "etiqueta": "Guion de la Clave",
+      "hay": true,
+      "hora": "02:10",
+      "esperada": "04:10",
+      "dueno": "Claude · prompts/guionista.md",
+      "rutas": [
+        "contenido/guiones/claves/2026-09-13-investigacion-catastrofes-responsabilidades.md"
+      ]
+    },
+    {
+      "id": "revision",
+      "etiqueta": "Revisión editorial",
+      "hay": true,
+      "hora": "04:51",
+      "esperada": "05:00",
+      "dueno": "Claude · prompts/revision-editorial.md",
+      "rutas": [
+        "contenido/revisiones/2026-09-13.md"
+      ]
+    },
+    {
+      "id": "videos",
+      "etiqueta": "Videos y descripciones",
+      "hay": true,
+      "hora": "05:52",
+      "esperada": "06:15",
+      "dueno": "Actions · edicion-diaria.yml",
+      "rutas": [
+        "contenido/descripciones/2026-09-13-informe.txt",
+        "contenido/descripciones/2026-09-13-clave.txt"
+      ]
+    }
+  ],
+  "atrasos": []
+}

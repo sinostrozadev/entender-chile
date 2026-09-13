@@ -1,0 +1,67 @@
+name: Estado del día
+
+# Escribe la VISTA del estado (contenido/estado/FECHA.md y .json) en el repo,
+# que es lo que faltaba del paso 1 de la máquina de estados
+# (bitacora/2026-09-08-propuesta-maquina-de-estados.md, §7 y §8). Hasta hoy el
+# estado solo se calculaba al vuelo: el vigía lo leía con --solo-leer y nadie
+# más podía verlo, así que GPT no tenía cómo saber en qué va el día.
+#
+# Se recalcula CADA VEZ QUE LLEGA UNA PIEZA, que es exactamente cuando el
+# estado cambia. La regla que manda acá: un estado viejo commiteado es peor
+# que ninguno.
+#
+# Y no se commitea cuando lo único que cambió es la marca de hora. Si no, cada
+# push de contenido dejaría un commit sin información y despertaría por nada a
+# las rutinas de Claude que escuchan el repo.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "contenido/barrido/**"
+      - "contenido/preseleccion/**"
+      - "contenido/informes/**"
+      - "contenido/claves/**"
+      - "contenido/guiones/**"
+      - "contenido/revisiones/**"
+      - "contenido/descripciones/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: estado
+  cancel-in-progress: false
+
+jobs:
+  estado:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Calcular el estado del día
+        run: node scripts/estado.js
+      - name: Commit, solo si el estado cambió de verdad
+        run: |
+          FECHA=$(TZ=America/Santiago date +%F)
+          git config user.name "estado-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add contenido/estado/
+          git diff --cached --quiet && { echo "sin cambios en el estado"; exit 0; }
+          # ¿cambió algo más que la marca de hora?
+          UTIL=$(git diff --cached -U0 -- contenido/estado/ \
+                 | grep -E "^[+-][^+-]" \
+                 | grep -vE "^[+-](ACTUALIZADO:|[[:space:]]*\"actualizado\":)" \
+                 | wc -l)
+          if [ "$UTIL" -eq 0 ]; then
+            git reset -q
+            echo "solo cambió la marca de hora: no se commitea"
+            exit 0
+          fi
+          ETAPA=$(grep -m1 '^ETAPA:' "contenido/estado/$FECHA.md" | cut -d' ' -f2-)
+          git commit -m "estado $FECHA: $ETAPA [bot]"
+          git -c rebase.autoStash=true pull --rebase origin main
+          git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
