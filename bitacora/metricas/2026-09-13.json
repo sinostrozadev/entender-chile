@@ -6,6 +6,42 @@
     "videos": 61
   },
   "videos": {
+    "E5bzH9810Rw": {
+      "titulo": "Clave: ¿Qué prueba realmente una infracción tras una tragedi",
+      "publicado": "2026-09-13",
+      "estado": "private",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 29
+    },
+    "fUYEskTWdGc": {
+      "titulo": "¿Qué prueba realmente una infracción tras una tragedia?",
+      "publicado": "2026-09-13",
+      "estado": "private",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 366
+    },
+    "s1STmc0QX-0": {
+      "titulo": "16 muertos en el incendio de una residencia en Pitrufquén, y",
+      "publicado": "2026-09-13",
+      "estado": "private",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 46
+    },
+    "3QhDzy_gUKk": {
+      "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
+      "publicado": "2026-09-13",
+      "estado": "private",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 680
+    },
     "REcC_ZuhrPY": {
       "titulo": "¿Qué es la prisión preventiva y por qué no es una condena?",
       "publicado": "2026-09-12",
@@ -55,7 +91,7 @@
       "titulo": "¿Cómo termina preso un fiscal acusado de secuestrar por dine",
       "publicado": "2026-09-11",
       "estado": "public",
-      "vistas": 16,
+      "vistas": 25,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 42
@@ -64,7 +100,7 @@
       "titulo": "¿Qué admitió el exfiscal Vinko Fodich antes de ser formaliza",
       "publicado": "2026-09-11",
       "estado": "public",
-      "vistas": 204,
+      "vistas": 207,
       "meGusta": 4,
       "comentarios": 0,
       "durSeg": 48
@@ -419,42 +455,6 @@
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 718
-    },
-    "JpWGFsV-mMc": {
-      "titulo": "Clave: ¿Cómo funcionan los fondos generacionales y qué riesg",
-      "publicado": "2026-09-02",
-      "estado": "public",
-      "vistas": 23,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 37
-    },
-    "hCObnchAo2U": {
-      "titulo": "Cinco cosas que hay que saber hoy, Miércoles, 2 de septiembr",
-      "publicado": "2026-09-02",
-      "estado": "public",
-      "vistas": 238,
-      "meGusta": 5,
-      "comentarios": 0,
-      "durSeg": 54
-    },
-    "qzn2RJefxic": {
-      "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
-      "publicado": "2026-09-02",
-      "estado": "public",
-      "vistas": 44,
-      "meGusta": 1,
-      "comentarios": 0,
-      "durSeg": 682
-    },
-    "rWOxj_0Iris": {
-      "titulo": "La economía cae 1,5% y Hacienda prepara una nueva proyección",
-      "publicado": "2026-09-02",
-      "estado": "public",
-      "vistas": 41,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 816
     }
   },
   "retencion": {
