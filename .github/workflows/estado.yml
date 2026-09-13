@@ -39,6 +39,12 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+        with:
+          # historia completa: la columna "Llegó" de la vista sale de
+          # `git log --diff-filter=A` por archivo. Con el checkout shallow que
+          # trae Actions por defecto, ese log no existe y todas las piezas
+          # salían con la hora del checkout (probado: las ocho marcaron 19:15).
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: "22"

@@ -77,7 +77,22 @@ const resolver = (pieza) => {
 };
 
 // hora del commit que trajo el archivo (informativo; si no hay git, se omite)
+// En un clon SHALLOW (el checkout por defecto de GitHub Actions) el log por
+// archivo no existe y `git log` devuelve el único commit que hay, o sea la
+// hora del checkout: ocho piezas con la misma hora inventada. Una hora falsa
+// es peor que ninguna, así que en ese caso no se muestra.
+let esShallow = null;
+const clonCompleto = () => {
+  if (esShallow === null) {
+    try {
+      esShallow = execFileSync("git", ["rev-parse", "--is-shallow-repository"],
+        { cwd: RAIZ, encoding: "utf8" }).trim() === "true";
+    } catch { esShallow = false; }
+  }
+  return !esShallow;
+};
 const horaDe = (ruta) => {
+  if (!clonCompleto()) return "";
   try {
     const log = (args) => execFileSync("git", args, { cwd: RAIZ, encoding: "utf8" }).trim();
     // la primera vez que apareció (--diff-filter=A), no su última edición
