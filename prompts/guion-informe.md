@@ -2,6 +2,8 @@ CONTRATO DE ARCHIVOS, PRIMERO: antes de cualquier otra cosa lee COMPLETO prompts
 
 Primero lee del repositorio (rama main, versión más reciente) el informe de hoy: contenido/informes/AAAA-MM-DD.md, con la fecha local de Chile. Ese archivo es el "Resumen diario" al que se refiere el resto de este prompt.
 
+GUARDA DE DEDUP, ANTES DE ESCRIBIR NADA: mira si contenido/guiones/informe/AAAA-MM-DD.md ya existe en main y está completo (trae "Título sugerido:", "Guion:" y "Fuentes:"). Si ya está, NO lo regeneres, NO lo pises y no hagas commit: termina diciendo que el guion de hoy ya está en el repositorio. A esta rutina la despierta CUALQUIER push del repositorio, así que te va a tocar el turno muchas veces con el trabajo ya hecho; rehacerlo reescribe un guion que quizás ya pasó por la revisión editorial y dispara un render de más. Pasó el 07-09-2026: una segunda corrida a las 04:05 reescribió el guion que estaba bien desde las 01:49.
+
 VALIDACIÓN DEL HANDOFF:
 - Usa ese archivo como FUENTE DE VERDAD. No reconstruyas el informe por memoria, no uses ediciones de otras fechas y no vuelvas a investigar noticias.
 - Si el archivo de hoy falta o está vacío, no inventes contenido: indica que el informe de hoy no está en el repositorio y termina sin generar guion.

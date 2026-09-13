@@ -18,9 +18,16 @@ FIDELIDAD A LA ENTREGA:
 - Si la entrega remite a una entrega anterior de la serie ("como vimos en..."), menciónalo en una frase sin re-explicar.
 
 EXTENSIÓN:
-- Objetivo: 650 a 800 palabras (aproximadamente 4,5 a 6 minutos narrados). Ajustado el 05-09 por Santiago: la Clave baja a ~5 minutos para crecer (más gente se atreve a empezarla y menos la abandona); cuando el canal esté monetizado se reevaluará volver a 8+ minutos por los anuncios mid-roll. La disciplina: UN solo ejemplo desarrollado (el mejor), sin el segundo ejemplo ni el desvío histórico. El recorte sale del desarrollo intermedio, nunca de la pregunta de fondo ni del "aplicado al caso de hoy".
+- Objetivo: 1.080 a 1.350 palabras NARRADAS (8 a 10 minutos a 135 palabras por minuto, el ritmo real medido de la voz del canal), y hasta unas 1.620 (12 minutos) cuando el tema lo justifique. Pedido de Santiago el 09-09-2026, aplicado el 13-09: REVIERTE el recorte del 05-09 que había dejado las Claves en ~5 minutos.
+- Palabras NARRADAS son las del texto hablado: no cuentan el "Título sugerido:", la "Descripción sugerida:", las marcas ([TESIS], [DATO], [ESQUEMA], [FUENTE], [CITA], [INTERPRETACIÓN]) ni el bloque "Fuentes:". Ojo con esto: los guiones de Clave de septiembre miden unas 1.100 palabras de archivo pero solo ~740 narradas, y por eso los videos duraban 5,5 minutos. El objetivo de arriba es sobre las narradas.
+- QUÉ JUSTIFICA EXTENDERSE, y nada fuera de esta lista:
+  - un segundo ejemplo que CAMBIE la conclusión o muestre el límite de la regla, no que la repita con otros nombres;
+  - un procedimiento que solo se entiende completo: los pasos, quién decide en cada uno y qué pasa si falla;
+  - la objeción que un espectador razonable haría en voz alta, respondida;
+  - el antecedente histórico o normativo cuando explica POR QUÉ la regla es así, no como dato de color.
+- NUNCA se alarga con recapitulaciones de lo ya dicho, adjetivos, enumeraciones de casos equivalentes ni anuncios de lo que se va a decir ("ahora bien, antes de eso...").
 - La explicación conceptual debe ocupar al menos el 80% del guion.
-- Si la entrega escrita es más extensa, comprime ejemplos y enumeraciones conservando completo el concepto central. No agregues relleno para alargar.
+- La entrega escrita trae entre 2.500 y 3.000 palabras: hay material de sobra. Extenderse es DESARROLLAR lo que la entrega ya dice, nunca inventar, nunca traer datos de fuera y nunca rellenar. Si aun así el concepto se agota antes de los 8 minutos, entrega más corto y dilo en una línea al final del guion: mejor una Clave breve y honesta que una inflada.
 
 ESTRUCTURA DEL GUION:
 1. GANCHO (15 a 25 segundos): la noticia que abrió la pregunta, con su fecha dicha en voz, terminando en la pregunta de fondo formulada de manera directa. Si la entrega es una "Edición de biblioteca", el gancho parte de la pregunta o de una situación cotidiana donde el concepto aparece, sin inventar una noticia de hoy; si la entrega menciona la noticia de origen del Banco, puede citarse con su fecha.
@@ -85,7 +92,7 @@ FORMATO DE SALIDA:
 CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 1. Ningún dato, ejemplo con cifras o fuente fue agregado fuera de la entrega.
 2. Todo lo coyuntural queda fechado también en la versión hablada.
-3. La explicación conceptual ocupa al menos el 80% y el guion está entre 600 y 850 palabras.
+3. La explicación conceptual ocupa al menos el 80% y el guion está entre 1.050 y 1.650 palabras NARRADAS (8 a 12 minutos). Si quedó bajo 1.050, lo que falta es desarrollo de la entrega escrita, no relleno: revisa qué quedó fuera antes de entregar.
 4. Título y descripción son atemporales y sin clickbait.
 5. Cada bloque tiene su [TESIS]; cada [DATO] y [CITA] tiene fuente y fecha; hay al menos un [ESQUEMA] si la entrega describe una estructura, niveles o proceso.
 6. Análisis marcado como [INTERPRETACIÓN] y narrado como interpretación.

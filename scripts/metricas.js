@@ -36,7 +36,21 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
 
   const ch = (await yt.channels.list({ mine: true, part: ["statistics", "contentDetails"] })).data.items[0];
   const canal = { suscriptores: +ch.statistics.subscriberCount, vistas: +ch.statistics.viewCount, videos: +ch.statistics.videoCount };
-  const subidos = (await yt.playlistItems.list({ playlistId: ch.contentDetails.relatedPlaylists.uploads, part: ["contentDetails"], maxResults: 50 })).data.items.map((i) => i.contentDetails.videoId);
+  // La lista de subidas viene por páginas de 50. Sin recorrerlas todas, el canal
+  // se mide truncado: al pasar de 50 videos (12-09-2026) cada subida nueva
+  // expulsaba una vieja de la medición y las horas vistas caían sin que el
+  // canal perdiera nada. Se piden todas las páginas.
+  const subidos = [];
+  let pagina;
+  do {
+    const r = await yt.playlistItems.list({
+      playlistId: ch.contentDetails.relatedPlaylists.uploads,
+      part: ["contentDetails"], maxResults: 50, pageToken: pagina,
+    });
+    subidos.push(...r.data.items.map((i) => i.contentDetails.videoId));
+    pagina = r.data.nextPageToken;
+  } while (pagina);
+  if (subidos.length < canal.videos) console.log(`AVISO: el canal declara ${canal.videos} videos y la lista de subidas trajo ${subidos.length}.`);
   const videos = {};
   for (let i = 0; i < subidos.length; i += 50) {
     const r = await yt.videos.list({ id: subidos.slice(i, i + 50), part: ["snippet", "statistics", "status", "contentDetails"] });

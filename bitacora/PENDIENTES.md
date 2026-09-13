@@ -3,9 +3,10 @@
 Lista viva. Se actualiza cada día al cerrar. Lo hecho se borra, no se
 tacha: para saber qué pasó están `REALIZADOS.md` y el archivo del día.
 
-Última actualización: 02-09-2026, sesión de la noche (limpieza ORDEN 1:
-fuera lo hecho y lo resuelto sin marcar; la sección histórica "La puerta"
-vive en decisiones.md, entradas del 28-08 y 30-08).
+Última actualización: 13-09-2026, sesión de la noche (la corrección del
+11-09 queda CERRADA por decisión de Santiago, ver estrategia/decisiones.md;
+entra el bug de medición de metricas.js; la retención de los largos queda
+medida y deja de necesitar decisión).
 
 ---
 
@@ -121,24 +122,34 @@ pudo; silencio cuando GPT cumplió.
       `bitacora/2026-09-08-propuesta-maquina-de-estados.md`. No se toca nada
       hasta conversarlo.
 
-## DECIDIR: la retención de los largos lleva CUATRO días cayendo
+## RETENCIÓN de los largos: la serie estaba mala, ahora está medida (13-09)
 
-- [ ] **35,5% (06 y 07-09) → 33,9% → 33,2% → 31,3% (10-09)**, mientras las horas
-      vistas suben (13,1 → 14,0 → 15,1 → 16,6). Las auditorías del 08, 09 y
-      10-09 lo marcaron MIRAR y **nadie ha investigado la causa**: es el cuarto
-      día y ya no es ruido. Importa porque la meta de monetización son 4.000
-      horas de largos, y horas que suben con retención que baja significa que
-      YouTube está mandando más gente que se va antes.
-      Hipótesis a descartar, en orden de costo:
-      (a) los largos se alargaron (el informe del 09-09 duró 720 s y el del
-          10-09 694 s, contra ~330 s de las Claves): mirar si la caída coincide
-          con la duración, comparando `durSeg` con `%visto` día a día;
-      (b) el tráfico nuevo viene de Shorts y rebota (Analytics separa por
-          fuente con `insightTrafficSourceType`);
-      (c) la apertura en frío dejó de funcionar como el 02-09.
-      Lo barato es (a): ya está en `bitacora/metricas/*.json`, no hay que
-      pedirle nada nuevo a la API. **Necesita una decisión de Santiago sobre la
-      duración de los largos, no un arreglo técnico.**
+- [ ] **MEDIDO el 13-09, y la serie que teníamos estaba MALA.** La subida de
+      los últimos cuatro días (43,4% el 10 y el 11, 49,4% el 12, 53,7% el 13)
+      era el bug de `metricas.js`: la medición se truncó en 50 videos justo el
+      **10-09** (el canal declaraba 52) y los informes viejos, que son los de
+      retención baja, fueron cayéndose del cálculo. Con la lista completa (68
+      videos, corrida de esta noche) la retención ponderada real de hoy es
+      **32,5%**, o sea plana contra el 35,5% del 06-09 y el 33,2% del 09-09.
+      Ni se derrumbó ni se dio vuelta: lleva una semana en un tercio.
+      Lo que sí sube de verdad son las horas de largos: 13,1 (06-09) a **18,1**
+      (13-09), medidas por Analytics, que no dependía del truncamiento.
+      **La hipótesis (a), largos demasiado largos, queda descartada con datos**
+      (snapshot completo del 13-09): el de 14,2 minutos retiene 43,8% y el de
+      10,9 minutos retiene 16,2%. Lo que predice la retención NO es la duración
+      sino **de dónde viene el tráfico**: los cuatro largos más vistos del canal
+      (221, 152, 47 y 41 vistas) retienen 29,3%, 16,2%, 29,9% y 19,4%, mientras
+      los que solo ven los suscriptores (9 a 15 vistas) retienen entre 43% y
+      68%. La gente que YouTube manda de afuera se va temprano: eso es apertura
+      y promesa del título, no minutos de más. Queda abierta la hipótesis (b),
+      y desde mañana la serie ya es comparable día a día.
+- [ ] **Hipótesis (b), la única viva: el tráfico de afuera rebota.** Cómo se
+      mira, sin pedir nada nuevo a nadie: Analytics separa por fuente con
+      `insightTrafficSourceType`, así que una consulta más en `metricas.js`
+      dice qué porcentaje de las vistas de los largos viene de Shorts, de
+      sugeridos o de búsqueda, y qué retiene cada una. Si los sugeridos rebotan,
+      lo que hay que trabajar es la apertura y la promesa del título (CALIDAD 1
+      punto 4 y IMAGEN 4, apertura en frío), no la duración.
 
 ## URGENTE — con plazo
 
@@ -282,7 +293,6 @@ referencia:
 ---
 
 ## Dependen de Santiago
-
 
 
 - [x] **Auditoría matinal: RUTINA CREADA (noche 02-09)**, con la disputa 7
@@ -450,22 +460,6 @@ referencia:
       holgura mínima, y qué hace el guardián si detecta una pieza programada
       que no pasó revisión.
 
-- [ ] **CLAVE 1: alargar la Clave a 8 minutos como piso** (Santiago, 09-09).
-      "Las siento muy cortas de 5 min. Por lo menos a 8, entre 8 y 10 o 12
-      min, dependiendo de si es necesario extenderse." Esto REVIERTE el
-      ajuste del 05-09 que las bajó a ~5 min "para crecer"
-      (`prompts/guion-claves.md:21`: 650 a 800 palabras) y cambia el control
-      del punto 88 del mismo prompt (600 a 850 palabras). Medido a 135 ppm
-      reales (calibración del 03-09): 8 min = ~1.080 palabras, 10 min =
-      ~1.350, 12 min = ~1.620. Duración real de las últimas cuatro Claves,
-      leída de `contenido/podcast/episodios.json`: 06-09 5,2 min · 07-09 5,5
-      · 08-09 5,3 · 09-09 5,2. O sea, el prompt se está cumpliendo; hay que
-      cambiar el prompt, no vigilarlo. Ojo con dos cosas al tocarlo: el
-      "necesario extenderse" debe quedar como criterio explícito (qué
-      justifica pasar de 8 a 12, no relleno), y el aviso de duración de
-      `scripts/validar-tarjetas.js` hoy solo mira el techo de 13 min del
-      informe; para la Clave habría que agregar también un PISO.
-
 - [ ] **CLAVE 2: elegir el tema desde el banco organizado, y solo si no hay,
       desde una noticia del día** (Santiago, 09-09: "veamos de organizar las
       claves primero, si no, buscar de alguna noticia"). Hoy `prompts/claves.md`
@@ -494,28 +488,13 @@ referencia:
       y qué pasa si el PR se abre dos veces. Ventaja concreta sobre lo de
       hoy: GPT sí alcanza los medios que a esta sesión le bloquea el proxy.
 
-- [ ] **CASOS 1: el observatorio se tragó un caso nuevo de Fonasa por un
-      choque de palabras** (Santiago, 09-09, tras la rutina del observatorio).
-      El informe de hoy marcó bien `EN SEGUIMIENTO: Fonasa, presunto fraude de
-      prestadores` (`contenido/informes/2026-09-09.md:24`), pero
-      `detectarNuevos()` en `scripts/casos.js:187-191` lo descartó como caso ya
-      existente y NO llegó a `por-abrir.md`. Reproducido: las palabras útiles de
-      la marca son `fonasa`, `presunto`, `fraude`, `prestadores`; el dossier
-      viejo normalizado ("fonasa megafraude de licencias medicas falsas...")
-      hace match con `fonasa` y, por coincidencia de SUBCADENA, con `fraude`
-      dentro de "megafraude". Son 2 sobre un umbral de `Math.ceil(4/2)` = 2, y
-      justo lo filtra. Dos defectos que se suman: el match por subcadena
-      (`e.includes(w)`) y un umbral de la mitad demasiado laxo para marcas
-      cortas. **No es un caso aislado:** cualquier arista nueva que comparta
-      institución con un dossier abierto (JUNAEB, JUNJI, Minvu) desaparece
-      igual, en silencio, porque la rutina nocturna solo revisa dossiers
-      existentes y nadie más mira esas marcas. Fix propuesto: match por palabra
-      completa en vez de subcadena, umbral más exigente (dos tercios, o exigir
-      que coincida algo más que el nombre de la institución) y, si el descarte
-      es dudoso, que el script lo anote igual en `por-abrir.md` marcado como
-      posible duplicado (mejor una línea de más que un caso perdido).
-      **Aparte del fix, decidir si se abre el dossier:** Fonasa se querelló el
-      08-09-2026 contra cinco prestadores de salud por fraude de subvenciones,
+- [ ] **CASOS 1, la mitad hecha (13-09): falta DECIDIR si se abre el dossier de
+      Fonasa.** El comparador de `scripts/casos.js` ya está arreglado (palabra
+      completa en vez de subcadena, umbral de dos tercios, y lo dudoso se anota
+      igual marcado como posible duplicado); probado contra el informe del 09-09,
+      que ahora sí detecta la marca perdida. La línea quedó en
+      `contenido/casos/por-abrir.md`. Lo que falta es editorial: Fonasa se
+      querelló el 08-09-2026 contra cinco prestadores por fraude de subvenciones,
       perjuicio estimado cerca de $8.000 millones, más de 71 mil beneficiarios,
       330 mil bonos y 1,94 millones de prestaciones; ya había denunciado los
       hechos al Ministerio Público el 07-08-2026. Es un caso DISTINTO del
@@ -536,168 +515,6 @@ referencia:
       esquema y la del párrafo caen en el mismo instante. Misma familia que
       TARJETA 2 (una tarjeta desborda y tapa lo de al lado), que ya se
       resolvió el 07-09 por otra vía.
-
-- [x] **TÍTULO 1 — RESUELTO (09-09 22:37).** El título del Short ya no sale de
-      la "Carátula sugerida" sino del **"Título sugerido"** del guion del
-      informe, que está escrito para entenderse solo (`scripts/short.js`,
-      decisión de Santiago). La carátula queda de respaldo si el guion no trae
-      título, y sigue mandando en la MINIATURA, que es su trabajo real: ahí sí
-      se apoya en la imagen. Tope de 66 caracteres para el gancho (la cola
-      ", y otras 4 cosas de hoy #Shorts" ocupa 31 de los 100 que deja YouTube),
-      recortando en la primera coma antes que con puntos suspensivos.
-      **Verificado en producción:** el Short del 10-09 salió "Banco Central
-      reduce a menos de uno por ciento su proyección, y otras 4 cosas de hoy"
-      — el mismo titular del video largo. El último con la fórmula vieja fue
-      el del 09-09, "Exámenes que no pediste, y otras 4 cosas de hoy", que
-      volvió a mostrar el problema (el largo de ese día era "Fonasa denuncia
-      un fraude de ocho mil millones en salud").
-      **A EVALUAR esta semana:** el 07-09 la carátula ("El Estrecho es
-      chileno") era más punchy que el título nuevo, más largo. El cambio gana
-      claridad y puede perder gancho: mirar el CTR de los Shorts.
-
-- [x] ~~**SHORT 1: el sello se superpone a la primera tarjeta**~~ **RESUELTO
-      (06-09, sesión local).** Causa confirmada: la sesión de la noche del
-      05-09 hizo que los Shorts partieran en frío (EN_FRIO=1, narración en 0)
-      pero `src/Short.tsx` tenía el sello clavado en `from={0}`, mientras
-      `Informe.tsx` sí respeta `meta.selloEn`. Intento 1 (mover el sello a
-      selloEn, como el informe) NO sirvió: en el Short las tarjetas van
-      pegadas (0,6 s de hueco) y el sello dura 2,8 s, así que solo movió el
-      choque a la segunda tarjeta, verificado con frames. **Arreglo final:**
-      el sello VISUAL sale del Short (`meta.selloEn = -1` en short.js y
-      short-urgente.js; Short.tsx respeta selloEn y -1 = sin sello) y la
-      marca SONORA se queda en 0. La identidad no se pierde: la cabecera
-      "ENTENDER CHILE" y el handle están en pantalla todo el video.
-      Verificado con frames en el segundo 1 y el 8 del Short de la Clave del
-      06-09, enviados a Santiago. Rige desde la edición de mañana; el Short
-      de la Clave de HOY quedó con el defecto (ya publicado).
-- [ ] ~~SHORT 1 original~~ (referencia): **el sello se superpone a la primera tarjeta en el Short de
-      la Clave** (Santiago, 05-09 21:31, viendo el Short de la Clave del 06-09
-      en el teléfono; captura en
-      `bitacora/capturas-2026-09-06-short-clave-sello-superpuesto.jpg`). Se ven
-      a la vez el texto grande "Entender Chile" con "Claves para entender las
-      noticias" y la fecha (el sello) y, debajo, la tarjeta de apertura "Una
-      clave para entender las noticias. ¿Por qué un senador necesita permiso
-      judicial para ser juzgado?". Lo que pide Santiago: que ese texto
-      "Entender Chile" no quede encima; o el sello va solo y la tarjeta
-      espera, o el sello desaparece del Short. Pista para la sesión local:
-      en `src/Short.tsx` el sello está fijo en 0 a 2,8 s (SELLO_SEG, línea
-      202) y la voz del Short arranca en 3,0 (INICIO_NARRACION en
-      `build-timeline.js`, no aplica la apertura en frío porque la primera
-      sección del Short es "Apertura"); revisar desde cuándo parte la
-      primera tesis (t.from) en el timeline del Short y si algún cambio del
-      02 al 04-09 (BUG 1, apertura en frío, Short exprés) movió ese anclaje.
-      Verlo en la sesión local, no en la remota.
-
-- [x] ~~**TARJETA 2: "En titulares" en un párrafo**~~ **RESUELTO (07-09), y la
-      causa NO era la que se sospechaba.** No fueron los commits del 05-09: es
-      que **el guionista nuevo (Claude) escribe los titulares todos seguidos en
-      un párrafo, y GPT los escribía uno por línea**, que es como `parse.js` los
-      agrupa. Por eso nació el 06-09, el primer día del guionista nuevo, y por
-      eso hoy tampoco se veía en local (el guion del 06-09 que probó la sesión
-      remota SÍ venía por líneas; el del 07-09 no). Verificado bajando el mp4
-      del release del 07-09: el muro seguía ahí. Arreglado por los dos lados:
-      el prompt exige una línea por titular, y `parse.js` trae una RED que
-      parte el párrafo en frases si llega junto (con su textoPantalla y sus
-      offsets propios, que era el detalle que hacía que el primer intento
-      pintara el muro igual). Verificado con frame del guion real de hoy.
-      Detalle original: de 30 frases en una
-      sola tarjeta, con el rótulo "EN TITULARES" tapado por el texto** (Santiago,
-      06-09 20:09, informe del 06-09 "La disputa por el Estrecho golpea la
-      imagen de...", captura en
-      `bitacora/capturas-2026-09-06-titulares-en-un-parrafo.jpg`). Lo que se
-      comprobó desde la sesión remota: el guion (commit da52866, 04:47) trae
-      los 30 titulares uno por línea, bien; `parse.js` de HOY los agrupa en 7
-      tarjetas de 4 a 6 frases (probado sobre ese guion); el 05-09 también
-      agrupaba (4 tarjetas). Aun así el video renderizado a las 08:43 muestra
-      todo junto en una tarjeta de narración. Sospechosos, por fecha: los dos
-      commits del 05-09 previos al render, `d25c0db` 21:25 (Shorts EN_FRIO,
-      toca `build-timeline.js`) y `776a1ad` 23:02 (carátulas v2, toca
-      `parse.js` +7/-2 y `dia.js`). Verlo en la sesión local reproduciendo el
-      render del 06-09 (out/ de ese día o `dia.js` sin voz) y mirando si los
-      eventos `titulares` llegan al timeline o si las narraciones de soporte
-      se juntan. El rótulo tapado es consecuencia: la tarjeta desbordó.
-
-- [x] ~~**TARJETA 1: "7 de cada 10" sale como "10"**~~ **RESUELTO (07-09):**
-      `cifraPrincipal` reconoce las proporciones "N de cada M" como UNA cifra
-      y las muestra enteras, con la etiqueta cortada en el sustantivo
-      ("7 de cada 10 · personas consultadas"). El M solo ya no genera tarjeta.
-      Probado con la frase real del informe del 06-09. Detalle original: (Santiago, 05-09 noche,
-      informe del 06-09 "La disputa por el Estrecho golpea la imagen de...",
-      sección "El Estrecho y la respuesta del Gobierno", minuto 2:04; captura
-      en `bitacora/capturas-2026-09-06-tarjeta-7-de-cada-10.jpg`). El párrafo
-      dice "7 de cada 10 personas consultadas cree que existe una pretensión
-      argentina sobre el paso" y la tarjeta automática muestra el número
-      grande "10" con la etiqueta "personas consultadas cree que existe". Es
-      el extractor automático de `parse.js` (cifraPrincipal): descarta el 7
-      por ser menor que 10 y toma el 10 porque lo sigue "personas". Una
-      proporción "N de cada M" es UNA cifra y debe mostrarse entera ("7 de
-      cada 10") o no mostrarse; y la etiqueta cortada en "cree que existe"
-      es el mismo problema de etiquetas que no terminan en sustantivo. Misma
-      familia que el "544.800" del 04-09: cada cifra automática nueva que
-      falla suma un argumento para que el guion marque sus [DATO] y el
-      automático quede solo como red. Verlo en la sesión local.
-
-- [ ] **REVISIÓN 2: la rutina de Fable se recreó bien; decidir cuándo apagar
-      la de Sonnet.** ⚠️ REABIERTO el 08-09 a las 22:30. La rutina que dejó la
-      sesión remota (`trig_012mLfmCi2jDoiS3zRFqETy8`) se creó **sin `sources`**:
-      arrancaba en un directorio vacío, sin repo, y su única corrida murió
-      intentando clonar (403). Como yo había apagado la vieja a las 07:32
-      fiándome de la nota, la madrugada del 09-09 iba a quedar sin revisión y
-      sin video. Arreglado la misma noche: vieja **reactivada** (04:40), rota
-      **desactivada**, y creada `trig_01CR3g2re9G7warvfdt4MfMS` (Fable, 04:45,
-      con el repo montado y con WebSearch, que el modo corrección necesita).
-      Las dos corren esta noche; el punto 3b del prompt evita el trabajo doble.
-      **Qué falta:** ver dos o tres madrugadas seguidas de la de Fable y recién
-      ahí apagar la de Sonnet. Nueva regla dura 27 para que no se repita.
-      Origen: Santiago decidió que la revisión corra en Fable y que, ante un
-      rechazo por cifra, verifique el dato correcto, corrija y republique. La
-      sesión remota creó la rutina nueva `trig_012mLfmCi2jDoiS3zRFqETy8`
-      "Revisión editorial Entender Chile (Fable, 04:45)", cron `45 7 * * *`,
-      modelo claude-fable-5-1, prompt vivo en `prompts/revision-editorial.md`
-      (v3, con el punto 3c "modo corrección"). La vieja
-      `trig_019cchTdDCVeVzVh8HjrZrYG` sigue activa a las 04:40 y solo la
-      sesión local puede desactivarla; mientras exista, la nueva la toma como
-      primera lectura (punto 3b) y no duplica el push. Desactivar la vieja y
-      dejar a la nueva sola. Con esto REVISIÓN 1 queda absorbido.
-
-- [x] **REVISIÓN 1: cargar el prompt nuevo en la rutina "Revisión editorial"**
-      (04-09). ✅ ABSORBIDO por REVISIÓN 2 (08-09): la rutina nueva lee el
-      prompt vivo del repo, así que nunca más hay que "cargarlo". El prompt con la categoría e (redondeo en voz) y la fuente
-      circular como categoría b está en `prompts/revision-editorial.md`. La
-      rutina (trig_019cchTdDCVeVzVh8HjrZrYG) se creó por API desde la sesión
-      local y solo esa sesión puede actualizarla: la sesión remota lo intentó
-      y fue rechazada. Hasta que se cargue, la revisión sigue con las cuatro
-      categorías de antes; el validador ya avisa igual.
-
-- [ ] **AUDITORIA 1: guarda de dedup omitida, el guionista del informe se
-      disparó dos veces** (hallazgo de `bitacora/2026-09-07-auditoria.md`).
-      `contenido/guiones/informe/2026-09-07.md` quedó bien a las 01:49, pero a
-      las 04:05:58 una segunda ejecución de la misma rutina lo reescribió con
-      contenido distinto (commit `1e1b98e`), justo después del push del guion
-      de la Clave (03:58). El propio sistema lo detectó y revirtió solo 26
-      segundos después (commit `0449173`, "guarda de dedup omitida"), sin
-      pérdida de datos. Causa: `prompts/guion-informe.md` no tiene, en
-      ninguna de sus 184 líneas, una instrucción que le diga a la rutina que
-      compruebe si `contenido/guiones/informe/AAAA-MM-DD.md` ya existe en
-      main antes de generar. **Fix:** agregar entre la línea 1 (el contrato de
-      archivos) y la línea 3 ("Primero lee del repositorio...") un párrafo de
-      guarda de dedup: si el archivo de hoy ya existe completo en main, no
-      regenerarlo. Ver también EVENTOS 1 abajo: esto pasó porque la rutina
-      del guion informe escucha CUALQUIER push, no solo el suyo.
-
-- [ ] **AUDITORIA 2: el horario viejo de esta misma auditoría sigue en dos
-      archivos** (hallazgo de `bitacora/2026-09-07-auditoria.md`, segundo día
-      seguido; propuesta 3 de la auditoría del 06-09 ya lo pedía y no se
-      aplicó). En `prompts/auditoria-matinal.md` líneas 3-4: cambiar "Tarea
-      diaria de las **09:30** de Chile... (las métricas llegan ~08:47)" por
-      "**05:30**... (las métricas llegan ~05:00)"; la línea 10-11 ("No
-      confundir con el guardián (06:07)... corre tres horas después") también
-      quedó vieja, pero antes de reescribirla hay que confirmar contra qué
-      rutina se compara ahora ("guardián" del Informe de la mañana a las
-      06:00, o "Guardia" de urgentes cada 2 horas: son dos cosas distintas).
-      Además, en `scripts/panel-auditoria.js` línea 28 (y el comentario de la
-      línea 5) el mismo texto fijo "la rutina de las 09:30" se inyecta cada
-      mañana en el panel que ve Santiago: cambiarlo a "05:30".
 
 - [ ] **EVENTOS 1: que las rutinas de Claude despierten con la finalización
       de las rutinas de GPT, no con cualquier push** (pedido de Santiago,
@@ -741,17 +558,6 @@ referencia:
       y septiembre lleva ~395 min en tres días, pero el ritmo de 150 min
       diarios por re-renders agotaría los 2.000 cerca del día 13.
 
-- [x] **WEB 1 — EN PRODUCCIÓN (03-09, madrugada)**, con el boceto aprobado
-      por Santiago: 8 categorías con chips en toda la web y páginas
-      /categorias/<id>/ (archivo día por día con anclas al informe); informe
-      rediseñado con hero de franja ilustrada, bloques por categoría y el
-      video anclado; portada del sitio con el mismo hero; imágenes de
-      sección optimizadas (276 KB las 8); web.yml despliega también con
-      cambios de web/**. Verificado en vivo. AFINAR CON USO: la
-      clasificación sección→categoría es por reglas (web/src/lib/
-      categorias.ts): si un bloque cae en la categoría equivocada, se
-      agrega la palabra a la regla.
-
 - [ ] **ORDEN, noches 2 y 3** (`bitacora/2026-09-02-orden-del-repo.md`; la
       noche 1 se ejecutó el 02-09: archivo/, PENDIENTES limpio, decisiones
       reordenada con las huérfanas, README raíz y de estrategia). Noche 2:
@@ -778,11 +584,6 @@ referencia:
       (3) Count-up y flecha que se dibuja. (4) Cita con cargo, contexto y
       comilla grande; quitar el guion corto del nombre en TarjetaCita.
       Detalle: `ideas/imagen-y-retencion.md` punto 7.
-- [x] **IMAGEN 1 — EN PRODUCCIÓN (03-09, mañana)**: las cortinas y tarjetas
-      usan las imágenes de sección con variación diaria sembrada (regla 29),
-      velo 0,24/0,84, cortina opaca. Verificado en el video renderizado del
-      03-09 (re-corrida de las 06:32, los 4 nuevos privados ~07:57).
-
 - [ ] **IMAGEN 2: "En titulares" a 90 segundos.** Primero la opción B (tope
       de 12 palabras por titular; hoy miden ~30 y el bloque es el 23% del
       video) y mover el bloque ANTES del dato curioso. Medir en la edición
@@ -830,21 +631,6 @@ referencia:
       (`scripts/verificar-fuentes.js`): abrir las URLs del bloque interno
       del informe y buscar la cifra principal de cada noticia; lo que no
       calce, a la bitácora. Una noche.
-- [ ] **Cambio de hora del 6-09 (Chile pasa a UTC-3), hacerlo la noche del
-      5-09**: rutinas de la nube una hora antes en UTC (reloj barrido 05:30
-      → 04:30, observatorio 05:45 → 04:45, revisión 08:40 → 07:40, guardián
-      10:00 → 09:00, reloj métricas 12:45 → 11:45, auditoría matinal
-      13:30 → 12:30) y los crons de GitHub
-      (barrido 05:50 → 04:50, edición 09:00 → 08:00, métricas 15:00 →
-      14:00). Las tareas de ChatGPT van en hora de Chile y no cambian.
-- [ ] **Vigilancia de la apertura en frío (mañana 03-09)**: el guion debe
-      abrir con "## La noticia del día" (2 frases, 25-35 palabras, una
-      tarjeta), la voz partir en 0 y el sello sonar al cierre de esa
-      sección; el capítulo 1 de YouTube mostrará esa sección. Si el guion no
-      trae la sección, todo cae al comportamiento de siempre (sin riesgo).
-- [ ] **Vigilancia del BUG 1 (mañana 03-09)**: el guion nuevo debe traer la
-      línea en blanco tras cada [TESIS] y el paso 2c no debe avisar nada.
-      Si avisa, la regla del prompt no se aplicó.
 - [ ] **Secciones Plata pública y Educación** en el informe + alinear las
       áreas de `prompts/seleccion.md` con las secciones de
       `prompts/informe.md` (hoy son dos listas distintas). Decisiones

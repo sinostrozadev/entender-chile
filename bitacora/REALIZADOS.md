@@ -4,6 +4,13 @@ Registro append-only de lo completado, con fecha. La sesión de la mañana
 agrega aquí lo que sale de PENDIENTES; también es evidencia del aporte
 editorial y técnico humano del proyecto.
 
+- 13-09 · metricas.js medía solo 50 videos: la lista de subidas viene por páginas y no se recorrían. Paginado con pageToken. El canal se medía truncado desde el 10-09; hoy volvieron 18 videos a la medición y las horas del día pasaron de 18,8 a 56,1
+- 13-09 · Destapado por lo anterior: la "mejora" de retención de los últimos cuatro días era el truncamiento (se caían del cálculo los informes viejos, que son los de retención baja). La retención real de los largos lleva una semana plana en un tercio, 32,5% hoy, y lo que la predice no es la duración sino de dónde viene el tráfico
+- 13-09 · Guarda de dedup en prompts/guion-informe.md: el guionista ya no rehace ni pisa un guion que ya está completo en main (el 07-09 una segunda corrida reescribió el guion bueno)
+- 13-09 · Claves de vuelta a 8 minutos de piso (pedido de Santiago del 09-09, cuatro días parado): 1.080 a 1.350 palabras NARRADAS, criterio explícito de qué justifica extenderse, y validar-tarjetas.js avisa cuando una Clave queda bajo el piso. El aviso se probó con la Clave de hoy: 753 palabras, 5,6 min
+- 13-09 · casos.js: el detector de casos nuevos comparaba por subcadena con umbral de la mitad y se tragaba cualquier arista nueva de una institución ya fichada. Ahora compara por palabra completa, exige dos tercios y lo dudoso lo anota igual marcado. Recuperada la marca de Fonasa del 09-09, que llevaba cuatro días perdida
+- 13-09 · PENDIENTES podado: fuera 16 bloques (4 entradas muertas y 12 ya hechas), de 908 a 677 líneas
+- 13-09 · Cifra preliminar del 11-09 (tres removidos y 25 absueltos): decidido NO corregir (Santiago). El recuento final ya estaba publicado en la edición del 12-09, que dice que reemplaza al preliminar. Registro en estrategia/decisiones.md
 - 05-09 · Cambio de hora ejecutado completo (7 rutinas + 5 crons GitHub, −1 h UTC) la víspera del salto a UTC-3
 - 05-09 · Guiones migrados de GPT a Claude: 2 rutinas esperadoras (03:35/03:50) que leen los MISMOS prompts del repo; GPT queda solo donde navega (preselección por evento, informe, claves)
 - 05-09 · Primeros datos reales de retención (scope Analytics habilitado): Claves retienen 54-72%, informes largos 23-30%, Shorts 76-103% — el problema de las Claves es descubrimiento, no calidad

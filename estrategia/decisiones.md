@@ -342,6 +342,23 @@ idénticos en la tira y monotonía visual medida (análisis del 02-09).
 prueba de fondos y el demo del Short urgente. **Regla resultante**: la 29 de
 REGLAS-DURAS.md, reescrita.
 
+## 2026-09-13 - La cifra preliminar del 11-09 se deja como está
+
+**Qué**: el informe y la Clave del 11-09 cerraron la primera tanda de
+remociones del Poder Judicial con "tres jueces removidos y 25 absueltos", un
+recuento preliminar tomado mientras el pleno todavía deliberaba y que además
+no cuadraba con los 25 cuadernos revisados (3 más 25 son 28). Las auditorías
+del 11, 12 y 13-09 lo marcaron HOY y pidieron corrección a la vista con nota
+fechada, según la regla dura 11.
+
+**Decidió**: Santiago, 13-09-2026, frente a la propuesta de corrección: se
+deja como está. Queda anotado que el recuento final ya está publicado en la
+edición del día siguiente, `contenido/informes/2026-09-12.md` líneas 16 y 20
+(once removidos, 26 remociones rechazadas, diez expedientes suspendidos),
+con la frase explícita "el recuento de once reemplaza la cifra preliminar de
+tres". **Consecuencia para la auditoría de la mañana**: el caso está cerrado
+por decisión, no pendiente; no volver a marcarlo HOY.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 Nota (02-09): estas entradas son previas al 26-08 y se reconstruyeron

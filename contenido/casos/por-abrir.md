@@ -32,3 +32,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-09-10 | remuneraciones en Ministerio de la Mujer
 - 2026-09-10 | oficinas del Ministerio de la Mujer
 - 2026-09-10 | Hospital de Chillán, atención preferente
+- 2026-09-09 | Fonasa, presunto fraude de prestadores  (lo cazó el arreglo del comparador el 13-09: la marca del informe del 09-09 se había perdido por el match por subcadena con el dossier de licencias médicas. Es un caso DISTINTO: querella del 08-09 contra cinco prestadores, ~$8.000 millones)

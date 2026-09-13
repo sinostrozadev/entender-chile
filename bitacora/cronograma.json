@@ -1,6 +1,6 @@
 {
   "_regla": "FUENTE DE VERDAD del cronograma del panel. Quien cambie una tarea (rutina, workflow, tarea GPT, horario o disparador) ACTUALIZA este archivo en el mismo commit; scripts/panel-cronograma.js lo inyecta al panel y el reloj de métricas lo refresca a diario.",
-  "actualizado": "2026-09-10",
+  "actualizado": "2026-09-13",
   "fases": [
     {
       "nombre": "La madrugada — cadena editorial (cada pieza despierta a la siguiente)",
@@ -45,7 +45,7 @@
           "hora": "~02:30",
           "quien": "Clave (entrega)",
           "tipo": "gpt",
-          "que": "Despierta con el evento del PR #4. La entrega educativa diaria: un concepto detrás de una noticia, banco de temas e índice de la colección. Respaldo fijo 03:45 con guarda. Su push despierta al guionista por webhook."
+          "que": "Despierta con el evento del PR #4. La entrega educativa diaria: un concepto detrás de una noticia, banco de temas e índice de la colección. Su push despierta al guionista por webhook. SIN RESPALDO POR RELOJ desde el 13-09: Santiago quitó la tarea fija de GPT de las 03:45, así que la Clave depende solo del evento. Si el evento no llega, no hay entrega y ese día no hay Clave ni video de Clave; quien avisa es el Vigía de la cadena (02:15 y 05:15)."
         },
         {
           "hora": "03:50",

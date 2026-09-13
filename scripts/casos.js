@@ -181,15 +181,28 @@ function detectarNuevos() {
 
   const normalizar = (t) => t.toLowerCase()
     .normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
-  const existentes = listarDossiers().map((p) => normalizar(campo(leer(p), /^# Caso:\s*(.+)$/m) + " " + path.basename(p)));
+  // Comparacion por PALABRA COMPLETA, no por subcadena, y umbral de dos
+  // tercios. Antes era `e.includes(w)` sobre la mitad de las palabras: el
+  // 09-09 la marca "Fonasa, presunto fraude de prestadores" se dio por
+  // repetida porque "fonasa" calzaba y "fraude" vivia dentro de
+  // "megafraude" del dossier de licencias, que es OTRO caso. Cualquier
+  // arista nueva de una institucion ya fichada (JUNAEB, JUNJI, Minvu)
+  // desaparecia igual, en silencio.
+  const existentes = listarDossiers().map((p) => new Set(normalizar(campo(leer(p), /^# Caso:\s*(.+)$/m) + " " + path.basename(p)).split(" ")));
   const palabrasUtiles = (t) => normalizar(t).split(" ").filter((w) => w.length > 4);
 
-  const nuevos = marcas.filter((m) => {
+  const nuevos = [];
+  const dudosos = []; // se parecen a un dossier abierto, pero no lo suficiente
+  for (const m of marcas) {
     const palabras = palabrasUtiles(m);
-    if (!palabras.length) return true;
-    // ya existe si algun dossier comparte la mayoria de las palabras largas
-    return !existentes.some((e) => palabras.filter((w) => e.includes(w)).length >= Math.ceil(palabras.length / 2));
-  });
+    if (!palabras.length) { nuevos.push(m); continue; }
+    const mejor = existentes.reduce((max, e) => Math.max(max, palabras.filter((w) => e.has(w)).length), 0);
+    if (mejor >= Math.ceil((palabras.length * 2) / 3)) continue;
+    if (mejor >= Math.ceil(palabras.length / 2)) dudosos.push(m);
+    else nuevos.push(m);
+  }
+  // Mejor una linea de mas que un caso perdido: lo dudoso tambien se anota.
+  for (const d of dudosos) nuevos.push(`${d}  (POSIBLE DUPLICADO de un dossier abierto: revisar antes de abrir)`);
   if (!nuevos.length) { console.log(`Marcas EN SEGUIMIENTO del día: ${marcas.length}, todas con dossier abierto.`); return; }
 
   const ruta = path.join(DIR, "por-abrir.md");

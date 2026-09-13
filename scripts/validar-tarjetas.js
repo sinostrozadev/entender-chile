@@ -147,6 +147,11 @@ for (const n of circulares)
   });
 }
 
+// Piso de la Clave (Santiago, 09-09, aplicado el 13-09): 8 minutos ≈ 1.080
+// palabras narradas. El techo de 13 min sigue rigiendo para las dos series.
+const esClave = /guiones[\\/]claves[\\/]/.test(ruta);
+if (esClave && narradas < 1050)
+  avisos.push(`guion de ${narradas} palabras narradas (~${(narradas / 135).toFixed(1)} min a 135 ppm reales): bajo el PISO de 8 min de la Clave (1.080)`);
 if (narradas > 1760)
   avisos.push(`guion de ${narradas} palabras narradas (~${(narradas / 135).toFixed(1)} min a 135 ppm reales): sobre el techo de 13 min de la promesa (1.760)`);
 

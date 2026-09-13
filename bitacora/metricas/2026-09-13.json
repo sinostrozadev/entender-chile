@@ -2,42 +2,42 @@
   "fecha": "2026-09-13",
   "canal": {
     "suscriptores": 15,
-    "vistas": 4202,
-    "videos": 61
+    "vistas": 4475,
+    "videos": 65
   },
   "videos": {
     "E5bzH9810Rw": {
       "titulo": "Clave: ¿Qué prueba realmente una infracción tras una tragedi",
       "publicado": "2026-09-13",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 5,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 29
     },
-    "fUYEskTWdGc": {
-      "titulo": "¿Qué prueba realmente una infracción tras una tragedia?",
-      "publicado": "2026-09-13",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 366
-    },
     "s1STmc0QX-0": {
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén, y",
       "publicado": "2026-09-13",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 14,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 46
     },
+    "fUYEskTWdGc": {
+      "titulo": "¿Qué prueba realmente una infracción tras una tragedia?",
+      "publicado": "2026-09-13",
+      "estado": "public",
+      "vistas": 1,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 366
+    },
     "3QhDzy_gUKk": {
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
       "publicado": "2026-09-13",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 680
@@ -55,7 +55,7 @@
       "titulo": "Clave: ¿Qué es la prisión preventiva y por qué no es una con",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 26,
+      "vistas": 32,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 34
@@ -64,7 +64,7 @@
       "titulo": "Corte Suprema remueve a once jueces por viajar con licencia ",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 33,
+      "vistas": 42,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 50
@@ -82,7 +82,7 @@
       "titulo": "¿Por qué el caso del exfiscal Fodich terminó con presos y li",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 28,
+      "vistas": 37,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 46
@@ -91,7 +91,7 @@
       "titulo": "¿Cómo termina preso un fiscal acusado de secuestrar por dine",
       "publicado": "2026-09-11",
       "estado": "public",
-      "vistas": 25,
+      "vistas": 46,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 42
@@ -100,7 +100,7 @@
       "titulo": "¿Qué admitió el exfiscal Vinko Fodich antes de ser formaliza",
       "publicado": "2026-09-11",
       "estado": "public",
-      "vistas": 207,
+      "vistas": 222,
       "meGusta": 4,
       "comentarios": 0,
       "durSeg": 48
@@ -109,7 +109,7 @@
       "titulo": "Exfiscal declaró que recibió millones en la causa por secues",
       "publicado": "2026-09-11",
       "estado": "public",
-      "vistas": 153,
+      "vistas": 155,
       "meGusta": 4,
       "comentarios": 0,
       "durSeg": 46
@@ -118,7 +118,7 @@
       "titulo": "¿Por qué evacuaron Seguridad Municipal de Peñalolén este jue",
       "publicado": "2026-09-10",
       "estado": "public",
-      "vistas": 134,
+      "vistas": 135,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 45
@@ -127,7 +127,7 @@
       "titulo": "Cómo leer el IPoM del Banco Central",
       "publicado": "2026-09-10",
       "estado": "public",
-      "vistas": 3,
+      "vistas": 4,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 351
@@ -208,7 +208,7 @@
       "titulo": "Fonasa denuncia un fraude de ocho mil millones en salud",
       "publicado": "2026-09-09",
       "estado": "public",
-      "vistas": 9,
+      "vistas": 10,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 720
@@ -455,6 +455,168 @@
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 718
+    },
+    "JpWGFsV-mMc": {
+      "titulo": "Clave: ¿Cómo funcionan los fondos generacionales y qué riesg",
+      "publicado": "2026-09-02",
+      "estado": "public",
+      "vistas": 23,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 37
+    },
+    "hCObnchAo2U": {
+      "titulo": "Cinco cosas que hay que saber hoy, Miércoles, 2 de septiembr",
+      "publicado": "2026-09-02",
+      "estado": "public",
+      "vistas": 238,
+      "meGusta": 5,
+      "comentarios": 0,
+      "durSeg": 54
+    },
+    "qzn2RJefxic": {
+      "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
+      "publicado": "2026-09-02",
+      "estado": "public",
+      "vistas": 46,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 682
+    },
+    "rWOxj_0Iris": {
+      "titulo": "La economía cae 1,5% y Hacienda prepara una nueva proyección",
+      "publicado": "2026-09-02",
+      "estado": "public",
+      "vistas": 41,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 816
+    },
+    "6sMtPM7Mzsw": {
+      "titulo": "Clave: ¿Cómo leer el Imacec sin confundir señal con ruido? #",
+      "publicado": "2026-09-01",
+      "estado": "public",
+      "vistas": 81,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 34
+    },
+    "XVIxe4EJZbM": {
+      "titulo": "¿Cómo leer el Imacec sin confundir señal con ruido?",
+      "publicado": "2026-09-01",
+      "estado": "public",
+      "vistas": 15,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 724
+    },
+    "Wd9_JFdie-k": {
+      "titulo": "Cinco cosas que hay que saber hoy, Martes, 1 de septiembre #",
+      "publicado": "2026-09-01",
+      "estado": "public",
+      "vistas": 94,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 55
+    },
+    "OttZ12KyBSk": {
+      "titulo": "La industria cae 5,1% antes del Imacec de julio",
+      "publicado": "2026-09-01",
+      "estado": "public",
+      "vistas": 47,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 822
+    },
+    "urU9RKHTg1g": {
+      "titulo": "Clave: ¿Por qué el mercado de capitales influye en tu hipote",
+      "publicado": "2026-08-31",
+      "estado": "public",
+      "vistas": 10,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 34
+    },
+    "TeKnIIGAMUw": {
+      "titulo": "¿Por qué el mercado de capitales influye en tu hipotecario?",
+      "publicado": "2026-08-31",
+      "estado": "public",
+      "vistas": 15,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 791
+    },
+    "2uHk1abTVRA": {
+      "titulo": "Cinco cosas que hay que saber hoy, Lunes, 31 de agosto #Shor",
+      "publicado": "2026-08-31",
+      "estado": "public",
+      "vistas": 15,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 49
+    },
+    "UyW1kuLY37E": {
+      "titulo": "Milei llega a Chile tras el impasse por el Estrecho de Magal",
+      "publicado": "2026-08-31",
+      "estado": "public",
+      "vistas": 220,
+      "meGusta": 1,
+      "comentarios": 1,
+      "durSeg": 843
+    },
+    "HnWm9lwFw8w": {
+      "titulo": "¿Cómo puede una antena falsa identificar tu celular?",
+      "publicado": "2026-08-30",
+      "estado": "public",
+      "vistas": 12,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 688
+    },
+    "xCeMIDevwsE": {
+      "titulo": "Clave: ¿Cómo puede una antena falsa identificar tu celular? ",
+      "publicado": "2026-08-30",
+      "estado": "public",
+      "vistas": 126,
+      "meGusta": 3,
+      "comentarios": 0,
+      "durSeg": 36
+    },
+    "MRG9fw8e5P8": {
+      "titulo": "Concepción en Alerta Roja por el aumento del río Andalién",
+      "publicado": "2026-08-30",
+      "estado": "public",
+      "vistas": 19,
+      "meGusta": 3,
+      "comentarios": 0,
+      "durSeg": 692
+    },
+    "9SxSCiC8ZTs": {
+      "titulo": "Cinco cosas que hay que saber hoy, Domingo, 30 de agosto #Sh",
+      "publicado": "2026-08-30",
+      "estado": "public",
+      "vistas": 184,
+      "meGusta": 4,
+      "comentarios": 1,
+      "durSeg": 48
+    },
+    "y-EyhOlc_sU": {
+      "titulo": "Cinco cosas que hay que saber hoy, Sábado, 29 de agosto #Sho",
+      "publicado": "2026-08-30",
+      "estado": "private",
+      "vistas": 1,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 48
+    },
+    "jsr27ZICuQ4": {
+      "titulo": "Desempleo llega a 9,5% y el Gobierno activa apoyo a nuevas c",
+      "publicado": "2026-08-30",
+      "estado": "private",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 522
     }
   },
   "retencion": {
@@ -482,20 +644,20 @@
       "segProm": 432,
       "pct": 62.5
     },
+    "qzn2RJefxic": {
+      "vistas": 40,
+      "minutos": 84,
+      "segProm": 294,
+      "pct": 43.2
+    },
     "yH9MT_EDK0Y": {
       "vistas": 353,
       "minutos": 81,
       "segProm": 32,
       "pct": 67.1
     },
-    "qzn2RJefxic": {
-      "vistas": 37,
-      "minutos": 79,
-      "segProm": 296,
-      "pct": 43.5
-    },
     "xYaG4nx-IkI": {
-      "vistas": 151,
+      "vistas": 152,
       "minutos": 76,
       "segProm": 106,
       "pct": 16.2
@@ -524,17 +686,17 @@
       "segProm": 158,
       "pct": 19.4
     },
+    "HnWm9lwFw8w": {
+      "vistas": 12,
+      "minutos": 55,
+      "segProm": 332,
+      "pct": 48.3
+    },
     "hCObnchAo2U": {
       "vistas": 245,
       "minutos": 54,
       "segProm": 41,
       "pct": 76.2
-    },
-    "HnWm9lwFw8w": {
-      "vistas": 9,
-      "minutos": 48,
-      "segProm": 413,
-      "pct": 60
     },
     "XRzll3-Hbyw": {
       "vistas": 11,
@@ -549,10 +711,16 @@
       "pct": 52
     },
     "j5gOE3EYaQs": {
-      "vistas": 7,
+      "vistas": 9,
       "minutos": 35,
-      "segProm": 427,
-      "pct": 64.9
+      "segProm": 356,
+      "pct": 54.1
+    },
+    "sXrH9G7A6II": {
+      "vistas": 9,
+      "minutos": 32,
+      "segProm": 489,
+      "pct": 67.9
     },
     "Wd9_JFdie-k": {
       "vistas": 98,
@@ -577,12 +745,6 @@
       "minutos": 25,
       "segProm": 22,
       "pct": 46.5
-    },
-    "sXrH9G7A6II": {
-      "vistas": 6,
-      "minutos": 24,
-      "segProm": 480,
-      "pct": 66.8
     },
     "9SxSCiC8ZTs": {
       "vistas": 188,
@@ -609,7 +771,7 @@
       "pct": 36.1
     },
     "Yoli64YxjuM": {
-      "vistas": 10,
+      "vistas": 11,
       "minutos": 14,
       "segProm": 139,
       "pct": 20.4
@@ -633,13 +795,19 @@
       "pct": 34
     },
     "k_im76N_Is4": {
-      "vistas": 221,
+      "vistas": 222,
       "minutos": 11,
       "segProm": 14,
       "pct": 41.9
     },
+    "8WNkdRrmI9U": {
+      "vistas": 112,
+      "minutos": 11,
+      "segProm": 14,
+      "pct": 32.4
+    },
     "tBv9v_TGayw": {
-      "vistas": 1,
+      "vistas": 2,
       "minutos": 11,
       "segProm": 703,
       "pct": 101.4
@@ -663,10 +831,16 @@
       "pct": 58.8
     },
     "oCEw0HwkUyg": {
-      "vistas": 17,
+      "vistas": 23,
       "minutos": 6,
-      "segProm": 168,
-      "pct": 52.7
+      "segProm": 117,
+      "pct": 36.6
+    },
+    "bU-eMEkDcHc": {
+      "vistas": 111,
+      "minutos": 6,
+      "segProm": 20,
+      "pct": 42.3
     },
     "CU4xH6A4dKA": {
       "vistas": 2,
@@ -716,23 +890,35 @@
       "segProm": 16,
       "pct": 49.7
     },
-    "bU-eMEkDcHc": {
-      "vistas": 14,
+    "MzrT56tga7w": {
+      "vistas": 12,
       "minutos": 3,
-      "segProm": 57,
-      "pct": 116.7
-    },
-    "8WNkdRrmI9U": {
-      "vistas": 19,
-      "minutos": 3,
-      "segProm": 21,
-      "pct": 48.5
+      "segProm": 24,
+      "pct": 51.2
     },
     "MsPcFSzX1B0": {
       "vistas": 60,
       "minutos": 3,
       "segProm": 13,
       "pct": 41.8
+    },
+    "PKh8hj3wd2M": {
+      "vistas": 14,
+      "minutos": 2,
+      "segProm": 21,
+      "pct": 46.8
+    },
+    "rYoBCZmEipg": {
+      "vistas": 8,
+      "minutos": 2,
+      "segProm": 39,
+      "pct": 86
+    },
+    "A2mhFpZpbzo": {
+      "vistas": 14,
+      "minutos": 2,
+      "segProm": 26,
+      "pct": 63
     },
     "2uHk1abTVRA": {
       "vistas": 17,
@@ -752,6 +938,12 @@
       "segProm": 17,
       "pct": 60.7
     },
+    "qvSZvD8PiGk": {
+      "vistas": 56,
+      "minutos": 1,
+      "segProm": 16,
+      "pct": 58.2
+    },
     "AJ4cxxL3XvA": {
       "vistas": 2,
       "minutos": 1,
@@ -759,7 +951,7 @@
       "pct": 174.3
     },
     "JpWGFsV-mMc": {
-      "vistas": 24,
+      "vistas": 25,
       "minutos": 1,
       "segProm": 10,
       "pct": 29
@@ -775,12 +967,6 @@
       "minutos": 0,
       "segProm": 46,
       "pct": 100
-    },
-    "qvSZvD8PiGk": {
-      "vistas": 15,
-      "minutos": 0,
-      "segProm": 4,
-      "pct": 16.8
     },
     "y-EyhOlc_sU": {
       "vistas": 4,
