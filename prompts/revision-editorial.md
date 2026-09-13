@@ -1,6 +1,7 @@
-# Revisión editorial (rutina de Claude, 04:45 Chile)
+# Revisión editorial (rutina de Claude, 02:20 Chile, con red a las 04:45)
 
-Prompt vivo de la rutina "Revisión editorial Entender Chile (04:45)". Desde el
+Prompt vivo de las dos rutinas de revisión (la temprana de las 02:20 y la red
+de las 04:45; ver "Quién lo ejecuta" más abajo). Desde el
 08-09, ante un rechazo por cifra, la revisión VERIFICA el dato correcto,
 corrige el informe y el guion, y republica (ese mismo día el rechazo de las
 04:44 dejó al canal sin video hasta que Santiago lo corrigió a mano).
