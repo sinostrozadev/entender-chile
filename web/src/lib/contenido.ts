@@ -168,11 +168,28 @@ function seccionDe(md: string, titulo: RegExp): string {
   return out.join("\n").trim();
 }
 
+// --- La compuerta de la revisión (decisión de Santiago, 08-09; implementada el
+// 13-09). Una pieza no se publica hasta que la revisión editorial del día dice
+// APROBADA. Antes de esto el informe salía al aire apenas GPT lo pusheaba: el
+// 08-09 uno con dos cifras malas estuvo público desde la 01:43 hasta las 06:46,
+// y la revisión recién corría a las 04:45.
+// La fecha de corte protege lo ya publicado: las ediciones anteriores nacieron
+// sin compuerta y no se bajan del sitio por aplicarla hacia atrás.
+const CORTE_REVISION = "2026-09-14";
+export function aprobada(fecha: string): boolean {
+  if (fecha < CORTE_REVISION) return true;
+  const ruta = path.join(RAIZ, "revisiones", `${fecha}.md`);
+  if (!fs.existsSync(ruta)) return false; // todavía no la revisan: no sale
+  const primera = fs.readFileSync(ruta, "utf8").split("\n")[0].trim();
+  return /^VEREDICTO:\s*APROBADA/i.test(primera);
+}
+
 export function informes(): Informe[] {
   const dir = path.join(RAIZ, "informes");
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir)
     .filter((f) => /^\d{4}-\d{2}-\d{2}\.md$/.test(f))
+    .filter((f) => aprobada(f.replace(/\.md$/, "")))
     .sort().reverse()
     .map((f) => {
       const fecha = f.replace(/\.md$/, "");
@@ -218,6 +235,7 @@ export function claves(): Clave[] {
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir)
     .filter((f) => /^\d{4}-\d{2}-\d{2}-.+\.md$/.test(f))
+    .filter((f) => aprobada(f.slice(0, 10)))
     .sort().reverse()
     .map((f) => {
       const m = f.match(/^(\d{4}-\d{2}-\d{2})-(.+)\.md$/)!;

@@ -106,11 +106,15 @@ pudo; silencio cuando GPT cumplió.
       paso 4: antes de publicar vuelve a mirar `origin/main` por pieza y, si
       alguien llegó primero, se retira sin pisar. Queda por ver una madrugada
       real con las dos redes despiertas.
-      **(3) revisión por evento + la web esperando el veredicto.** Hoy la
-      revisión va por reloj (04:45) y la web publica el informe apenas llega:
-      el 08-09 un informe con dos cifras malas estuvo público de 01:43 a 06:46.
-      La decisión de que la web espere ya está tomada (08-09); se implementa en
-      `web/src/lib/contenido.ts` → `informes()`, con fecha de corte.
+      **(3) revisión temprana + web que espera el veredicto: HECHO el 13-09.**
+      La revisión corre ahora a las 02:20 (`trig_01B8tLFaXe7h1YBCciFE2iKf`),
+      apenas están los guiones, con la de las 04:45 como red; el punto 0 del
+      prompt evita que se pisen. Y la web filtra por veredicto
+      (`web/src/lib/contenido.ts`, `aprobada()`), con corte el 14-09 para no
+      bajar del sitio nada de lo ya publicado.
+      **Queda por ver**: una madrugada real con las dos corridas, y decidir si
+      el corte se mueve hacia atrás (hoy el 11-09 quedaría fuera del sitio: su
+      veredicto fue RECHAZADA y la corrección sigue en el PR #5 sin fusionar).
       **(4) GPT a un solo PR** (necesita lo que Santiago tiene que verificar en
       ChatGPT, abajo). **(5) Claude a dos despachadoras.**
       El §5 del diseño ya tiene la vuelta del bucle como principio general, con

@@ -8,6 +8,10 @@ on:
     branches: [main]
     paths:
       - "contenido/informes/**"
+      # la revisión es la que abre la compuerta: cuando llega el veredicto hay
+      # que re-publicar, o el informe aprobado se queda fuera del sitio hasta
+      # el próximo push de contenido
+      - "contenido/revisiones/**"
       - "contenido/claves/**"
       - "contenido/casos/**"
       - "contenido/videos/**"
