@@ -231,5 +231,23 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-12-clave.mp3",
     "bytes": 8129664,
     "durSeg": 339
+  },
+  {
+    "fecha": "2026-09-13",
+    "tipo": "informe",
+    "titulo": "13-09-2026 · 16 muertos en el incendio de una residencia en Pitrufquén",
+    "descripcion": "Un incendio en una residencia de adultos mayores en Pitrufquén dejó dieciséis muertos y una investigación abierta sobre si el recinto operaba sin autorización. Además, el balance de seguridad del fin de semana patrio, una mejora en las expectativas de contratación, la espera por la respuesta arancelaria de Estados Unidos y las noticias económicas, educativas e internacionales de la jornada.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-13-informe.mp3",
+    "bytes": 16303680,
+    "durSeg": 679
+  },
+  {
+    "fecha": "2026-09-13",
+    "tipo": "clave",
+    "titulo": "Clave · ¿Qué prueba realmente una infracción tras una tragedia?",
+    "descripcion": "Después de una catástrofe como el incendio de Pitrufquén, todos quieren saber quién tuvo la culpa. Pero entre encontrar una irregularidad y probar un delito hay un camino largo: causa física, falla de seguridad y responsabilidad jurídica no son lo mismo. Esta Clave explica cómo se investigan las causas de un desastre, y por qué la vía penal, la administrativa y la civil exigen pruebas distintas.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-13-clave.mp3",
+    "bytes": 8708544,
+    "durSeg": 363
   }
 ]
