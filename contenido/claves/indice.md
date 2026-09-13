@@ -18,3 +18,4 @@
 2026-09-10 | como-leer-ipom | Cómo leer el IPoM: proyecciones, supuestos y riesgos detrás de las decisiones del Banco Central
 2026-09-11 | disciplina-remocion-jueces-chile | Disciplina y remoción de jueces en Chile: quién controla su conducta sin decidir sus sentencias
 2026-09-12 | prision-preventiva-chile | Prisión preventiva en Chile: cuándo puede ordenarse y por qué no equivale a una condena
+2026-09-13 | investigacion-catastrofes-responsabilidades | Después de una catástrofe: cómo se determinan causas y responsabilidades

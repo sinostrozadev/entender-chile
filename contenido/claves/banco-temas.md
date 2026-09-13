@@ -57,3 +57,6 @@
 - representantes presidenciales en universidades estatales, función institucional y límites frente a la autonomía universitaria | Gobierno designa 18 representantes en universidades estatales | 2026-09-12
 - prescripción penal, diferencia entre extinción de la responsabilidad y determinación histórica de los hechos | Prescripción provoca sobreseimiento en caso Mariana Sepúlveda | 2026-09-12
 - receta electrónica obligatoria, trazabilidad de medicamentos, protección de datos y excepciones de acceso | Senado avanza con obligación de recetas electrónicas | 2026-09-12
+- expectativa neta de contratación, diferencia entre intención empresarial y empleos efectivamente creados | Expectativa neta de contratación sube a 15% para cierre de 2026 | 2026-09-13
+- fondos permanentes para reconstrucción, financiamiento anticipado y reglas de activación frente a catástrofes | Vivienda propone fondo permanente de reconstrucción | 2026-09-13
+- manipulación digital coordinada, redes automatizadas y límites regulatorios frente a la libertad de expresión | Proyecto busca sancionar manipulación digital coordinada | 2026-09-13
