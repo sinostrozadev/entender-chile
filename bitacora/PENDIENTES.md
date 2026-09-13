@@ -317,6 +317,15 @@ referencia:
 
 ## Dependen de Santiago
 
+- [ ] **PR #5, abierto desde el 11-09: fusionarlo o cerrarlo.** Trae la
+      corrección completa de la cifra del 11-09 en los cuatro archivos, escrita
+      por la revisión editorial que rechazó esa edición. Decidiste dejar el
+      texto como está, pero la corrección está lista y fusionarla es un clic; si
+      no se fusiona, conviene cerrarlo para que no se pudra ahí. Ojo con lo
+      segundo: mientras siga abierto, hay una rutina en la nube
+      (`trig_01Kckz7b9oRBzYjyi65x641j`) que despierta cada 4 horas a mirarlo y
+      se vuelve a agendar sola. Ya lleva más de veinte corridas.
+
 
 - [x] **Auditoría matinal: RUTINA CREADA (noche 02-09)**, con la disputa 7
       cerrada por Santiago: la rutina de las 09:30

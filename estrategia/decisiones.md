@@ -359,6 +359,16 @@ con la frase explícita "el recuento de once reemplaza la cifra preliminar de
 tres". **Consecuencia para la auditoría de la mañana**: el caso está cerrado
 por decisión, no pendiente; no volver a marcarlo HOY.
 
+**Dato que apareció después, la misma noche**: la corrección ya estaba escrita.
+El **PR #5** ("Corrección 2026-09-11: cifra de jueces removidos/absueltos no
+cuadraba") está abierto desde el 11-09 a las 06:29, con los cuatro archivos
+corregidos, y lo abrió la propia revisión editorial que rechazó esa edición.
+Ninguna de las tres auditorías lo mencionó: las tres miraron solo `main`, donde
+efectivamente no había ningún commit. Queda como decisión aparte para Santiago:
+fusionarlo o cerrarlo. Lección para la auditoría: un trabajo que existe en una
+rama no aparece mirando main, y proponerlo de nuevo cada mañana es trabajo
+duplicado.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 Nota (02-09): estas entradas son previas al 26-08 y se reconstruyeron
