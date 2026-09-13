@@ -102,10 +102,10 @@ pudo; silencio cuando GPT cumplió.
       real: 13 s, salida 0, sin notificar. Primera vigilancia de verdad: 02:15.
 - [ ] **Lo que sigue de la máquina** (orden acordado), con el paso 1 ya cerrado
       el 13-09 (estado.yml escribe la vista con cada pieza que llega):
-      **(2) re-chequeo antes del push.** La guarda de dedup del 13-09 mira ANTES
-      de escribir; falta mirar otra vez ANTES de commitear, que es donde se
-      colaba la carrera del 07-09. Va en `prompts/guionista.md`, que es el
-      prompt que corre de verdad.
+      **(2) re-chequeo antes del push: HECHO el 13-09.** `prompts/guionista.md`
+      paso 4: antes de publicar vuelve a mirar `origin/main` por pieza y, si
+      alguien llegó primero, se retira sin pisar. Queda por ver una madrugada
+      real con las dos redes despiertas.
       **(3) revisión por evento + la web esperando el veredicto.** Hoy la
       revisión va por reloj (04:45) y la web publica el informe apenas llega:
       el 08-09 un informe con dos cifras malas estuvo público de 01:43 a 06:46.

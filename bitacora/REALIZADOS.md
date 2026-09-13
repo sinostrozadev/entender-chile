@@ -4,6 +4,7 @@ Registro append-only de lo completado, con fecha. La sesión de la mañana
 agrega aquí lo que sale de PENDIENTES; también es evidencia del aporte
 editorial y técnico humano del proyecto.
 
+- 13-09 · Máquina de estados, paso 2: re-chequeo antes de publicar en prompts/guionista.md. La guarda de dedup mira antes de escribir; esta mira otra vez antes de commitear, que es donde se colaba la carrera del 07-09. Quien llega segundo se retira
 - 13-09 · Máquina de estados, paso 1 completo: estado.yml escribe contenido/estado/FECHA.md con cada pieza que llega (y no commitea cuando lo único que cambió es la hora). Ya se puede saber en qué va el día sin correr nada, y GPT puede leerlo
 - 13-09 · Estandarizado dónde se anota cada cosa: había pendientes en NUEVE lugares. Una sola lista de trabajo (PENDIENTES.md), cuatro listas de material que escribe la máquina, y lo hecho a REALIZADOS + decisiones.md. Escrito en bitacora/README.md, regla dura 41 y la skill de la bitácora
 - 13-09 · La auditoría de la mañana ahora BAJA sus HOY a PENDIENTES en su mismo commit (paso 7 de prompts/auditoria-matinal.md): era el eslabón que faltaba, y por eso la cifra del 11-09 se marcó tres mañanas sin que nadie la anotara
