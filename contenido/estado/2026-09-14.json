@@ -1,8 +1,8 @@
 {
   "fecha": "2026-09-14",
-  "etapa": "guiones_listos",
-  "veredicto": "pendiente",
-  "actualizado": "2026-09-14 01:51",
+  "etapa": "aprobada",
+  "veredicto": "APROBADA",
+  "actualizado": "2026-09-14 02:27",
   "reparar": null,
   "piezas": [
     {
@@ -74,11 +74,13 @@
     {
       "id": "revision",
       "etiqueta": "Revisión editorial",
-      "hay": false,
-      "hora": "",
+      "hay": true,
+      "hora": "02:27",
       "esperada": "05:00",
       "dueno": "Claude · prompts/revision-editorial.md",
-      "rutas": []
+      "rutas": [
+        "contenido/revisiones/2026-09-14.md"
+      ]
     },
     {
       "id": "videos",
