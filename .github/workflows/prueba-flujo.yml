@@ -91,6 +91,8 @@ jobs:
           ETAPA: ${{ steps.decidir.outputs.etapa }}
           FECHA: ${{ steps.decidir.outputs.fecha }}
         run: |
+          # un "ensayo" (nombre que no es fecha) valida el lado de Claude sin despertar a GPT
+          echo "$FECHA" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}$' || { echo "ensayo $FECHA: no se emite evento"; exit 0; }
           git config user.name "estado-bot"
           git config user.email "bot@users.noreply.github.com"
           git fetch origin main
