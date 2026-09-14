@@ -122,73 +122,81 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 13-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-09-13-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS — la cadena de hoy corrió puntual y sin errores nuevos graves, pero el HOY de las dos auditorías anteriores (la cifra de portada del 11-09, "tres jueces removidos y 25 absueltos" sobre "25 de 56 cuadernos", que no cuadra) sigue publicada sin corregir, va en su tercer día consecutivo señalada por esta auditoría, y nunca se agregó a `bitacora/PENDIENTES.md` pese a que la auditoría de ayer lo pidió explícitamente como HOY.</div>
+    <p class="eyebrow">Auditoría de la mañana · 14-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-09-14-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON OBSERVACIONES — la máquina corrió puntual, sin cortes ni datos perdidos, y la revisión editorial resolvió sola un error GRAVE antes de publicar. Pero el mismo tipo de titular (una proyección o un anuncio narrado como hecho ya ocurrido) se repite por tercer día consecutivo (12, 13 y 14-09) sin que el prompt del guionista lo corrija: es el hallazgo que se repite tres veces sin que cambie nada, y por eso va como HOY.</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON FALLAS — la cadena de hoy corrió puntual y sin errores nuevos graves, pero el HOY de las dos auditorías anteriores (la cifra de portada del 11-09, "tres jueces removidos y 25 absueltos" sobre "25 de 56 cuadernos", que no cuadra) sigue publicada sin corregir, va en su tercer día consecutivo señalada por esta auditoría, y nunca se agregó a `bitacora/PENDIENTES.md` pese a que la auditoría de ayer lo pidió explícitamente como HOY.
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON OBSERVACIONES — la máquina corrió puntual, sin cortes ni datos perdidos, y la revisión editorial resolvió sola un error GRAVE antes de publicar. Pero el mismo tipo de titular (una proyección o un anuncio narrado como hecho ya ocurrido) se repite por tercer día consecutivo (12, 13 y 14-09) sin que el prompt del guionista lo corrija: es el hallazgo que se repite tres veces sin que cambie nada, y por eso va como HOY.
 
-Auditada el 13-09-2026 a las 05:31 de Chile (08:31 UTC), con el checkout sincronizado contra `origin/main` (`db15eab`, "métricas 2026-09-13 [bot]"). Horas esperadas tomadas de `bitacora/cronograma.json` (actualizado 10-09-2026).
+Auditada el 14-09-2026 a las 05:31 de Chile (08:31 UTC), con el checkout sincronizado contra `origin/main` (`3da88fe`, "métricas 2026-09-14 [bot]"). Horas esperadas tomadas de `bitacora/cronograma.json` (actualizado 13-09-2026).
 
 ## Qué salió y a qué hora
 
 | Pieza | Hora esperada | Hora real (Chile) | Estado |
 |---|---|---|---|
-| Barrido | 01:31 | 01:34 (Actions: 01:33:44) | ok |
-| Preselección | ~01:38 | 01:37 | ok |
-| Observatorio plata pública | 01:45 | 01:53 | +8 min |
-| Informe | ~02:00 | 01:57 | ok |
-| Entrega de Clave ("Investigación de catástrofes y responsabilidades") | ~02:30 | 02:00 | ok (30 min antes) |
-| Guion del informe | ~02:10 | 02:05 | ok |
-| Guion de la Clave | ~02:35 | 02:10 | ok (25 min antes) |
-| Revisión editorial (Opus) | 04:45 | 04:51 | +6 min, VEREDICTO: APROBADA (una corrección grave resuelta en el momento) |
-| Edición diaria (compuerta y render) | ~04:50 | 04:51 arrancó; en curso a las 05:31 | dentro de lo normal: mismo ritmo que ayer (a esta hora iba en el paso 14 de 20, "Producir video de la Clave"; ayer a la misma hora del día iba en el paso 13 de 20) |
-| Reloj de métricas → Métricas | 05:00 | 05:05 | ok |
-| Auditoría matinal (esta) | 05:30 | 05:31 | ok |
+| Barrido | 01:31 | 01:33:57 (push despertador 01:33:34) | ok |
+| Preselección | ~01:38 | 01:36:30 | ok |
+| Observatorio plata pública | 01:45 | 01:55:10 | +10 min |
+| Informe | ~02:00 | 01:40:06 | ok (20 min antes) |
+| Entrega de Clave ("¿Quién decide cuánto gasta el Estado cada año?") | ~02:30 | 01:43:32 | ok (47 min antes) |
+| Guion del informe | ~02:10 | 01:48:09 | ok |
+| Guion de la Clave | ~02:35 | 01:51:35 | ok |
+| Revisión editorial (Opus, temprana) | 02:20 | 02:20:56 disparo → archivo 02:27:30 | ok, VEREDICTO: APROBADA (1 corrección GRAVE resuelta en el momento) |
+| Edición diaria (compuerta y render) | ~04:50 | arrancó 02:27:34, videos listos 04:12:17/04:12:26 | ok, terminó antes de lo esperado |
+| Reloj de métricas → Métricas | 05:00 | despertador 05:06:04 → archivo 05:06:29 | +6 min |
+| Auditoría matinal (esta) | 05:30 | 05:31:12 | ok |
 
-Los tres eslabones de la Clave de hoy (entrega, guion, y el video en curso) van sin incidentes. `contenido/descripciones/` todavía no tiene piezas del 13-09 porque el render no ha terminado (va en el paso 14 de 20 de 20): correcto, no es una ausencia real.
+Los tres eslabones de la Clave de hoy (entrega `contenido/claves/2026-09-14-ley-presupuestos-chile.md`, guion `contenido/guiones/claves/2026-09-14-ley-presupuestos-chile.md`, video dentro del mismo render de las 02:27-04:12) están completos. Descripciones (`contenido/descripciones/2026-09-14-informe.txt` y `-clave.txt`) existen, ambas con hora de creación 04:51-06:55 UTC, dentro del mismo render. `bitacora/metricas/2026-09-14.md` existe y quedó escrito a las 05:06.
 
 ## Qué falló
 
-1. **[GRAVE, arrastrado desde el 11-09, día 3 sin ejecutarse]** La cifra de portada del 11-09 sigue mal y sigue publicada, y el HOY de la auditoría de ayer para escalarla a la lista viva tampoco se ejecutó. Verificado ahora: `contenido/informes/2026-09-11.md` línea 16 sigue diciendo "Tres jueces fueron removidos y 25 personas resultaron absueltas en esta primera etapa" sobre "los primeros 25 de 56 cuadernos" (3+25=28, no 25); `contenido/claves/2026-09-11-disciplina-remocion-jueces-chile.md` líneas 7 y 103 repiten la misma cifra. `grep -n "11-09\|2026-09-11\|cuadernos\|jueces removid" bitacora/PENDIENTES.md` no devuelve ninguna línea, y `bitacora/REALIZADOS.md` tampoco registra ninguna corrección de este caso. No existe ningún commit posterior a "revisión 2026-09-11 [claude]" que toque esos archivos. Es la tercera auditoría seguida (11, 12 y ahora 13-09) que verifica lo mismo sin que haya cambiado nada.
+1. **[el hallazgo que importa, 3er día consecutivo]** Un titular narra como hecho ya ocurrido algo que el propio informe deja como anuncio o proyección. `contenido/revisiones/2026-09-14.md` línea 22: guion línea 145 dice "Bolivia amplió su estado de excepción", pero el informe (línea 176) dice que el Gobierno boliviano "anunció un decreto para ampliar el estado de excepción" y que territorios y duración "dependen del texto oficial". La propia revisión lo marca: "Es el mismo patrón marcado el 12 y el 13 de septiembre." Verificado en las fuentes: `contenido/revisiones/2026-09-12.md` línea 24 ("Bolivia retirará subsidios..." vs "proyecta eliminar...") y `contenido/revisiones/2026-09-13.md` línea 24 ("El Presupuesto 2027 declarará al empleo como prioridad" vs "El Ejecutivo anticipó"). Tres días, tres noticias distintas, el mismo error de modo verbal: el prompt del guionista no tiene ninguna regla que proteja el matiz "proyecta/anuncia/prevé" al comprimir a titular, y la revisión editorial lo detecta pero no lo corrige porque no es un dato verificable contra fuente externa (cae fuera del punto 3c, modo corrección).
 
-2. **[MENOR, día 2 del mismo patrón, señalado por el propio revisor]** Titular que convierte una proyección en hecho cierto. `contenido/guiones/informe/2026-09-13.md` línea 121: "El Presupuesto 2027 declarará al empleo como prioridad", cuando el informe (línea 34) dice que "El Ejecutivo anticipó" esa prioridad y que "la definición efectiva se conocerá cuando Hacienda ingrese el erario al Congreso". La revisión editorial de hoy (`contenido/revisiones/2026-09-13.md`) lo marca como "el mismo patrón marcado ayer en el titular de los subsidios bolivianos" (revisión del 12-09: "Bolivia retirará subsidios..." en vez de "Bolivia prevé retirar..."). Dos días seguidos, no tres: todavía no es "el ciclo no aprende", pero ya es una tendencia.
+2. **[2do día seguido, mismo tipo]** El listado "Fuentes:" no acredita fuentes no-mediáticas que el guion sí usa en pantalla. `contenido/revisiones/2026-09-14.md` línea 26: faltan Criteria (líneas 88 y 93 del guion), la Fiscalía Supraterritorial (línea 77) y la OCDE (línea 91); el listado del guion es copia del informe (`contenido/informes/2026-09-14.md`, líneas 216-232), que arrastra la misma omisión. Ayer (`contenido/revisiones/2026-09-13.md` línea 20) fue la Dirección Meteorológica de Chile la que faltó, también "regresión respecto de ayer" en ese momento. Dos días distintos, mismo tipo de bache en el mismo paso (el listado se copia del informe sin revisar fuentes no-medio).
 
-3. **[MENOR, regresión de un día para otro]** Fuente ausente en el listado del guion de hoy. `contenido/guiones/informe/2026-09-13.md`, cierre del guion (línea 158): da "cerca de los cuatro grados" y "unos dieciocho grados", datos que el informe (línea 260) atribuye a la Dirección Meteorológica de Chile, pero el bloque "Fuentes:" del guion no la incluye. Los guiones del 10 y el 12 de septiembre sí la listaban (hallazgo de la revisión editorial de hoy, categoría d).
+3. **[nuevo, un día]** Cifra aproximada narrada como exacta. `contenido/revisiones/2026-09-14.md` línea 24: guion línea 154 dice "quinientos pacientes" (Chaitén); el informe (línea 197) dice "cerca de 500 pacientes". No es un patrón repetido todavía (no aparece en las revisiones del 10 al 13-09 revisadas).
 
-Sin fallas nuevas en la cadena de hoy: `node scripts/validar-tarjetas.js --fecha 2026-09-13` no dio avisos ("variedad OK: ninguna cuota rota, ninguna marca malformada"). Sin marcas `PENDIENTE DE CIERRE` en `contenido/informes/2026-09-13.md` (verificado, no hay ninguna). El patrón de "más de" perdido en una marca `[DATO]` que se repitió el 11 y el 12-09 no volvió a aparecer hoy como hallazgo nuevo.
+4. **[bug de infraestructura, no de hoy pero recién visto, sin registrar]** La edición del 13-09 (`contenido/informes/2026-09-13.md` y sus piezas) tardó ~14 horas de más en publicarse porque el paso final de `edicion-diaria.yml` falló y nadie lo registró: la ejecución 34746265785 (commit `eb5e49e`, "edición 2026-09-13: corrección verificada + revisión") renderizó los 4 videos y commiteó las descripciones sin problema, pero en `.github/workflows/edicion-diaria.yml` líneas 230-231 (`gh release create "$TAG" ... || echo "release ya existía, subiendo archivos"`) la API de GitHub devolvió `HTTP 500` al crear el release; el script asumió que el error significaba "ya existía" y en la línea 232 intentó subir los videos a un release que en realidad nunca se creó, con el resultado `release not found` y el job en `failure` (log verificado: `##[error]Process completed with exit code 1`, 08:52:12 UTC). Los videos y el podcast del 13-09 recién quedaron públicos con una corrida posterior (`podcast 2026-09-13 [bot]` a las 14:22 UTC = 11:22 Chile, y `estado 2026-09-13: videos_listos` recién a las 22:16 UTC = 19:16 Chile). Ocurrió 21 minutos después de que la auditoría de ayer cerrara (05:31 Chile), por eso nadie lo vio: ni la auditoría del 13-09 ni el Vigía (que ya había pasado su chequeo de las 05:15) lo alcanzaron a mirar. No hay ninguna entrada sobre esto en `bitacora/PENDIENTES.md` ni en `bitacora/REALIZADOS.md`. Hoy (14-09) el mismo paso corrió sin problema (ejecución 34809712242, éxito), así que no es una falla de hoy, pero el bug en el script sigue ahí y puede repetirse con cualquier otro `HTTP 500` transitorio de GitHub.
+
+`node scripts/validar-tarjetas.js --fecha 2026-09-14`: un aviso — "guion de 1819 palabras narradas (~13.5 min a 135 ppm reales): sobre el techo de 13 min de la promesa". Verificado contra la duración real en `contenido/podcast/episodios.json`: el informe de hoy mide 778 segundos (12 min 58 s), justo bajo el techo de 13 min para "día cargado". El aviso es la sobreestimación por conteo de palabras que ya está documentada (nota del 03-09 en `prompts/contrato-archivos.md`): no es una falla real. La Clave mide 668 segundos (11 min 8 s).
+
+Sin marcas `PENDIENTE DE CIERRE` en `contenido/informes/2026-09-14.md` (verificado, no hay ninguna).
+
+La cifra de portada del 11-09 (arrastrada tres auditorías, 11-12-13-09) está CERRADA por decisión de Santiago del 13-09 (`estrategia/decisiones.md`, sección "2026-09-13 - La cifra preliminar del 11-09 se deja como está"; confirmado también en `bitacora/REALIZADOS.md` línea 23): no se vuelve a proponer. Sigue abierto solo el trámite administrativo del PR #5 (fusionarlo o cerrarlo), que ya está anotado en `bitacora/PENDIENTES.md` línea 328-329; no lo repito aquí porque no es un hallazgo nuevo.
 
 ## Propuestas
 
-1. En `contenido/informes/2026-09-11.md` línea 16, `contenido/claves/2026-09-11-disciplina-remocion-jueces-chile.md` líneas 7 y 103, `contenido/guiones/informe/2026-09-11.md` líneas 5, 12, 23 y 27, y `contenido/guiones/claves/2026-09-11-disciplina-remocion-jueces-chile.md` línea 47: verificar con una fuente fuera del proxy bloqueado cuántos de los 25 cuadernos resueltos terminaron en absolución, corregir las cuatro cifras de forma consistente y republicar. Decidir aparte (Santiago, no la auditoría) si se corre `edicion-diaria.yml` a mano con `FECHA=2026-09-11` para producir el video atrasado o si se da el día por perdido y solo se corrige el texto público.
-2. Agregar HOY una entrada a `bitacora/PENDIENTES.md` con la propuesta 1 y la constancia de que dos auditorías seguidas (11 y 12-09) la marcaron HOY sin que nadie la ejecutara: si esta tercera auditoría tampoco deja rastro en la lista viva, el problema no es ya la cifra del 11-09 sino que el HOY de esta auditoría no llega a ningún lado.
-3. En `contenido/guiones/informe/2026-09-13.md` línea 121, cambiar "El Presupuesto 2027 declarará al empleo como prioridad" por "El Ejecutivo anticipa que el Presupuesto 2027 priorizará el empleo".
-4. En `contenido/guiones/informe/2026-09-13.md`, bloque "Fuentes:" (cerca de la línea 158), agregar "Dirección Meteorológica de Chile".
+1. En `prompts/guion-informe.md`, en la sección "EN TITULARES" (cerca de la línea 110, junto a la regla de máximo 12 palabras), agregar: "Si el informe usa 'proyecta', 'anticipa', 'prevé', 'anunció' o un anuncio no ejecutado, el titular debe conservar ese matiz (no lo conviertas en un hecho consumado). Fue el mismo error tres días seguidos: 12, 13 y 14 de septiembre (ver `contenido/revisiones/`)." Sin esta regla explícita, la revisión editorial seguirá encontrando el mismo patrón sin poder corregirlo (no es un dato verificable contra fuente externa, así que cae fuera de su mandato de corrección).
+2. En `.github/workflows/edicion-diaria.yml` líneas 230-232, cambiar el manejo de `gh release create`: en vez de asumir que cualquier fallo significa "ya existía", verificar con `gh release view "$TAG" >/dev/null 2>&amp;1` antes de seguir a `gh release upload`; si la vista también falla, reintentar `gh release create` (con un `sleep` corto) en vez de continuar a la subida. Así un `HTTP 500` transitorio no deja el job en `failure` con los videos ya renderizados pero sin publicar.
+3. En `contenido/informes/2026-09-14.md`, líneas 216-232 (listado "Fuentes:"), agregar Criteria, la Fiscalía Supraterritorial y la OCDE, ya que el guion las usa en pantalla y el listado del guion se copia del informe.
+4. En `contenido/guiones/informe/2026-09-14.md` línea 154, cambiar "quinientos pacientes" por "cerca de quinientos pacientes".
 
 ## Triage
 
-- **HOY**: Propuesta 1 y 2 (el error de portada del 11-09 sigue publicado casi 48 horas después y el HOY de dos auditorías seguidas nunca se ejecutó; es la tercera vez que se marca HOY).
+- **HOY**: Propuesta 1 (el patrón "proyección narrada como hecho" lleva tres días seguidos sin que el prompt lo prevenga; es exactamente el caso que este contrato pide escalar cuando "el ciclo revisa y no aprende").
 - **AGUANTA**:
-  - Propuesta 4 (fuente meteorológica ausente del listado del guion; no afecta lo narrado).
+  - Propuesta 2 (el bug del release de GitHub ya causó una demora real de ~14 horas el 13-09, pero la máquina se recuperó sola con una corrida posterior y hoy no volvió a fallar).
+  - Propuesta 3 (fuentes no acreditadas; no cambia lo narrado).
+  - Propuesta 4 (cifra exacta en vez de aproximada; un solo día, no rompe nada).
 - **MIRAR**:
-  - Propuesta 3 y el patrón que describe: dos días seguidos (12 y 13-09) con el mismo tipo de error (proyección presentada como hecho cierto en un titular). Si aparece un tercer día, pasa a ser un patrón que el prompt del guionista no está corrigiendo.
-  - Observatorio plata pública: hoy corrió con +8 minutos de atraso; no rompe nada todavía, pero conviene seguir mirando si crece.
+  - Observatorio plata pública: +8 min ayer, +10 min hoy. Sigue sin romper nada, pero la tendencia crece por segundo día.
+  - El listado de fuentes no acreditadas (propuesta 3) es la segunda vez en dos días que ocurre con fuentes distintas: si aparece una tercera vez, pasa a ser el mismo caso que la propuesta 1 y debería subir a HOY.
 
 ## Comparación con ayer
 
 **Mejoró**:
-- La revisión editorial resolvió en el momento otro error GRAVE en modo corrección (la hora del aviso de emergencia del incendio de Pitrufquén, adelantada media hora en el guion), comprobado contra el propio informe y dos coberturas de prensa independientes. Es el segundo día seguido (ayer corrigió el día de la semana) que el mecanismo de corrección funciona sin necesidad de rechazar.
-- El patrón de la marca `[DATO]` que perdía el "más de" de su fuente, repetido el 11 y el 12-09, no volvió a aparecer hoy: no llegó a ser el hallazgo de tres días que preocupaba a la auditoría de ayer.
-- Horas vistas en videos largos (la única serie que suma para las 4.000 horas): 18.9 horas hoy contra 18.4 ayer (+0.5 h), con retención media ponderada estable en 49.4%. El canal sumó +1 suscriptor (14→15) y +380 vistas totales, con un salto notorio en los videos del caso Fodich (por ejemplo "¿Qué admitió el exfiscal Vinko Fodich..." +175 vistas), contenido de días anteriores que sigue sumando.
+- La cifra de portada del 11-09, arrastrada tres auditorías seguidas (11, 12, 13-09) sin acción, quedó CERRADA por una decisión explícita de Santiago el 13-09: es la primera vez en cuatro días que este ítem no vuelve a aparecer como HOY.
+- La revisión editorial volvió a resolver sola un error GRAVE antes de publicar (el del año de comparación del gasto), tercer día seguido que el mecanismo de corrección en el momento funciona sin rechazar la edición.
 
 **Sigue igual**:
-- La cadena de la madrugada (barrido a guion de Clave) sigue puntual, sin atrasos mayores a 20 minutos.
+- La cadena de la madrugada (barrido a guion de Clave) corrió puntual, sin atrasos mayores a 20 minutos.
+- Horas vistas en videos largos: 18.1 h hoy, igual que las 18.1 h que muestra ahora `bitacora/metricas/2026-09-13.md` (retención media ponderada 32.6% hoy vs 32.5% ayer); prácticamente sin cambio. (La cifra que citó la auditoría de ayer —18.9 h y 49.4%— corresponde a una lectura de las 05:31 de ayer; el archivo de ayer se recalculó más tarde ese mismo día y hoy muestra 18.1 h/32.5%, que es la base real de comparación).
 - `validar-tarjetas.js` sigue sin encontrar roturas de formato.
-- La cifra incorrecta del 11-09 sigue en este momento visible en el sitio público (informe y Claves), ahora con cerca de 48 horas en el aire, y sigue sin ninguna entrada en `bitacora/PENDIENTES.md`.
 
 **Nuevo**:
-- Un patrón distinto de titular (proyección u anuncio presentado como hecho cierto) apareció dos días seguidos, 12 y 13-09, y la propia revisión editorial de hoy lo reconoció como repetición del de ayer.
-- Regresión puntual: el guion de hoy dejó fuera del listado de fuentes a la Dirección Meteorológica de Chile, algo que los guiones del 10 y el 12-09 sí hacían bien.
+- El patrón "proyección narrada como hecho" llegó a su tercer día (12, 13, 14-09) sin corregirse: pasa de tendencia a hallazgo formal (HOY).
+- Se descubrió — con un día de retraso porque ocurrió después del cierre de la auditoría de ayer — que la edición del 13-09 falló en el paso de publicación del release de GitHub (`HTTP 500` mal manejado) y tardó ~14 horas de más en quedar disponible; nadie lo había registrado hasta ahora.
+- Un segundo tipo de bache en el listado de fuentes (categoría d), esta vez con fuentes distintas a las de ayer (Criteria, Fiscalía Supraterritorial, OCDE en vez de la Dirección Meteorológica).
 </pre>
     </details>
     <!--AUDITORIA-FIN-->

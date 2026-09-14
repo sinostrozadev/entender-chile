@@ -374,6 +374,23 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **Titular que convierte una proyección o un anuncio en hecho consumado — 3 mañanas seguidas marcado (12, 13, 14-09), auditoría del 14-09.**
+      `prompts/guion-informe.md`, sección "EN TITULARES" (cerca de la línea
+      110): falta una regla que proteja el matiz "proyecta / anticipa / prevé
+      / anunció" al comprimir a titular de máximo 12 palabras. Sin ella, la
+      revisión editorial encuentra el error pero no lo corrige (no es un dato
+      verificable contra fuente externa, cae fuera del punto 3c de modo
+      corrección). Casos verificados: 12-09 "Bolivia retirará subsidios..."
+      por "proyecta eliminar..." (`contenido/revisiones/2026-09-12.md` línea
+      24); 13-09 "El Presupuesto 2027 declarará al empleo como prioridad" por
+      "El Ejecutivo anticipó..." (línea 24 de esa revisión); 14-09 "Bolivia
+      amplió su estado de excepción" por "anunció un decreto para ampliar"
+      (`contenido/revisiones/2026-09-14.md` línea 22, que cita expresamente
+      "el mismo patrón marcado el 12 y el 13 de septiembre"). Propuesta:
+      agregar a esa sección la regla "si el informe usa 'proyecta',
+      'anticipa', 'prevé', 'anunció' o un anuncio no ejecutado, el titular
+      debe conservar ese matiz, no convertirlo en hecho consumado".
+
 - [ ] **SERIE 1: montar "El Estrecho: la ruta en disputa"** (decidida con
       Santiago el 09-09; idea completa en `ideas/ruta-del-estrecho.md`).
       Serie de largos con cuenta regresiva a la interpelación del canciller
