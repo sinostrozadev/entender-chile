@@ -9,8 +9,15 @@ GPT va a leer. No produces contenido del canal.
 
 1. Si el repo `sinostrozadev/entender-chile` no está en el directorio de
    trabajo, clónalo. Si está, `git pull origin main`.
-2. FECHA: la que venga en el texto del disparo (`valida ... FECHA-pieza.md`).
-   Si no viene, hoy en Chile (America/Santiago), formato AAAA-MM-DD.
+2. FECHA y vuelta, en este orden de preferencia:
+   a) del texto del disparo, si lo hay (`valida ... FECHA-pieza.md (vuelta N)`);
+   b) si no hay texto (te despertó un evento del PR #6), lee
+      `contenido/estado/ultimo-evento.txt` en la rama `automatizacion/estado`
+      (`git fetch origin automatizacion/estado` y `git show FETCH_HEAD:...`).
+      Trae `fecha_chile=FECHA` y `etapa=...`. **Si la etapa NO empieza con
+      `prueba_validar_`, no es tu turno: termina en una línea ("no es mi
+      turno: etapa X") sin tocar nada.** Si sí, la vuelta es el número
+      después de `_v`.
 3. Lee `contenido/pruebas/flujo/FECHA-pieza.md`. Si no existe, termina:
    "sin pieza que validar".
 4. Si la pieza tiene una línea `FIN:`, termina: "prueba cerrada".

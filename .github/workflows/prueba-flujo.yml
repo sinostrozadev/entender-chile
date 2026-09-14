@@ -46,6 +46,7 @@ jobs:
               echo "turno=claude" >> "$GITHUB_OUTPUT"
               echo "fecha=$FECHA" >> "$GITHUB_OUTPUT"
               echo "vuelta=$VUELTA" >> "$GITHUB_OUTPUT"
+              echo "etapa=prueba_validar_v$VUELTA" >> "$GITHUB_OUTPUT"
               ;;
             *-veredicto.md)
               FECHA=$(basename "$F" -veredicto.md)
@@ -63,7 +64,9 @@ jobs:
             *) echo "archivo sin rol en la prueba v2: $F" ;;
           esac
 
-      - name: Despertar a Claude (rutina validadora)
+      # Camino B (después): despertar a Claude por la API de la rutina. Solo
+      # corre si existen los secrets; mientras no estén, el camino es el PR.
+      - name: Despertar a Claude por la API (solo con secrets)
         if: steps.decidir.outputs.turno == 'claude'
         env:
           ID: ${{ secrets.CLAUDE_RUTINA_PRUEBA_ID }}
@@ -72,7 +75,7 @@ jobs:
           VUELTA: ${{ steps.decidir.outputs.vuelta }}
         run: |
           if [ -z "$ID" ] || [ -z "$TOKEN" ]; then
-            echo "SIN SECRETS: a Claude hay que despertarlo a mano para validar $FECHA-pieza.md (vuelta $VUELTA)"
+            echo "sin secrets de la API: a Claude lo despierta el evento del PR #6"
             exit 0
           fi
           BODY=$(printf '{"text":"valida contenido/pruebas/flujo/%s-pieza.md (vuelta %s)"}' "$FECHA" "$VUELTA")
@@ -85,8 +88,13 @@ jobs:
           echo "respuesta $CODIGO"; head -c 400 /tmp/resp.json; echo
           case "$CODIGO" in 2*) echo "Claude despertado";; *) echo "::error::no se pudo despertar a Claude ($CODIGO)"; exit 1;; esac
 
-      - name: Despertar a GPT (evento al PR #6)
-        if: steps.decidir.outputs.turno == 'gpt'
+      # Camino A (ahora): el PR #6 despierta a los dos. Con la pieza se emite
+      # prueba_validar_vN (turno de Claude, que lo escucha con un disparador
+      # de GitHub filtrado por esta rama); con el veredicto, prueba_corregir_vN
+      # o prueba_aprobada_vN (turno de GPT). Cada uno lee la etapa y, si no es
+      # la suya, termina en segundos.
+      - name: Emitir el evento al PR #6 (despierta a quien le toque)
+        if: steps.decidir.outputs.etapa != ''
         env:
           ETAPA: ${{ steps.decidir.outputs.etapa }}
           FECHA: ${{ steps.decidir.outputs.fecha }}
@@ -104,11 +112,12 @@ jobs:
           fi
           SHA=$(git log -1 --format=%h origin/main)
           git checkout -B automatizacion/estado origin/main
+          case "$ETAPA" in prueba_validar_*) VISTA="contenido/pruebas/flujo/$FECHA-pieza.md" ;; *) VISTA="contenido/pruebas/flujo/$FECHA-veredicto.md" ;; esac
           {
             echo "fecha_chile=$FECHA"
             echo "etapa=$ETAPA"
             echo "estado_commit=$SHA"
-            echo "vista=contenido/pruebas/flujo/$FECHA-veredicto.md"
+            echo "vista=$VISTA"
             echo "emitido_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           } > contenido/estado/ultimo-evento.txt
           git add contenido/estado/ultimo-evento.txt
