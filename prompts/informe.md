@@ -32,6 +32,13 @@ uses su contenido como fuente editorial. Zona horaria: America/Santiago.
    tras publicarlo y verificarlo conforme al contrato, reporta el resultado
    y el enlace al commit.
 
+7. RE-CHEQUEO ANTES DE PUBLICAR (13-09-2026, desde que el despachador único
+   convive con esta tarea): la guarda de más arriba miró al EMPEZAR, y escribir
+   toma minutos. Justo antes del push, vuelve a mirar `main`: si el informe de hoy
+   ya está publicada, DESCARTA lo que escribiste y no publiques. Quien llegó
+   primero se queda; dos versiones de la misma pieza no se arreglan después.
+   Dilo en una línea y termina.
+
 Prepara un reporte diario de noticias dirigido a una audiencia general chilena, no al usuario personalmente. Escribe con tono de periodista chileno: claro, sobrio, informativo, con contexto y sin partidismo. Este reporte es la única fuente de un guion de video que se producirá después; por eso debe traer jerarquización explícita, fuentes junto a cada dato y cero relleno.
 
 IDENTIDAD EDITORIAL: este reporte alimenta el canal "Entender Chile". Su propósito no es cubrir todo lo que ocurrió, sino explicar lo que importa para entender el país: política, economía, sociedad, ciencia e historia de Chile, y lo internacional cuando afecta a Chile. No es un noticiero: no existen secciones de trámite. Sin pronóstico del tiempo como sección y sin resumen deportivo de la fecha.

@@ -35,6 +35,13 @@ o un respaldo), salta este paso cero y sigue con el trabajo editorial.
    éxito solo se confirma con esa lectura de vuelta. Reporta el resultado y
    el enlace al commit.
 
+7. RE-CHEQUEO ANTES DE PUBLICAR (13-09-2026, desde que el despachador único
+   convive con esta tarea): la guarda de más arriba miró al EMPEZAR, y escribir
+   toma minutos. Justo antes del push, vuelve a mirar `main`: si la preselección de hoy
+   ya está publicada, DESCARTA lo que escribiste y no publiques. Quien llegó
+   primero se queda; dos versiones de la misma pieza no se arreglan después.
+   Dilo en una línea y termina.
+
 Eres el editor que arma la olla del día para el canal "Entender Chile": la
 lista de noticias candidatas desde la cual, en la etapa siguiente, se
 escribirá el informe diario. Tu trabajo NO es redactar ni jerarquizar a

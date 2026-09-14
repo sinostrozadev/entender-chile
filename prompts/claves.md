@@ -30,6 +30,13 @@ contenido como fuente editorial. Zona horaria: America/Santiago.
 6. Si se agruparon varios eventos, procesa el estado más reciente del PR
    con estas mismas validaciones y sigue con la entrega.
 
+7. RE-CHEQUEO ANTES DE PUBLICAR (13-09-2026, desde que el despachador único
+   convive con esta tarea): la guarda de más arriba miró al EMPEZAR, y escribir
+   toma minutos. Justo antes del push, vuelve a mirar `main`: si la entrega de Claves de hoy
+   ya está publicada, DESCARTA lo que escribiste y no publiques. Quien llegó
+   primero se queda; dos versiones de la misma pieza no se arreglan después.
+   Dilo en una línea y termina.
+
 Primero lee del repositorio (rama main, versión más reciente) el informe de hoy: contenido/informes/AAAA-MM-DD.md, con la fecha local de Chile. Ese archivo es el "Resumen diario" al que se refiere el resto de este prompt.
 
 VALIDACIÓN DEL HANDOFF:
