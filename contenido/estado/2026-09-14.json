@@ -2,7 +2,7 @@
   "fecha": "2026-09-14",
   "etapa": "informe_listo",
   "veredicto": "pendiente",
-  "actualizado": "2026-09-14 01:43",
+  "actualizado": "2026-09-14 01:48",
   "reparar": null,
   "piezas": [
     {
@@ -52,11 +52,13 @@
     {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "hay": false,
-      "hora": "",
+      "hay": true,
+      "hora": "01:48",
       "esperada": "03:10",
       "dueno": "Claude · prompts/guionista.md",
-      "rutas": []
+      "rutas": [
+        "contenido/guiones/informe/2026-09-14.md"
+      ]
     },
     {
       "id": "guion_clave",
