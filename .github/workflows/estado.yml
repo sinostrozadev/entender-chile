@@ -28,6 +28,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: estado
@@ -71,3 +72,38 @@ jobs:
           git commit -m "estado $FECHA: $ETAPA [bot]"
           git -c rebase.autoStash=true pull --rebase origin main
           git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
+
+      - name: Emitir el evento al PR único del estado (es quien despierta a GPT)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          FECHA=$(TZ=America/Santiago date +%F)
+          VISTA="contenido/estado/$FECHA.md"
+          [ -f "$VISTA" ] || { echo "sin vista del estado: sin evento"; exit 0; }
+          ETAPA=$(grep -m1 '^ETAPA:' "$VISTA" | cut -d' ' -f2-)
+          git fetch origin main
+          # dedup por fecha Y etapa: el día tiene varias etapas y cada una
+          # necesita su propio aviso, pero la misma etapa no se anuncia dos veces
+          if git fetch origin automatizacion/estado 2>/dev/null; then
+            EV=$(git show FETCH_HEAD:contenido/estado/ultimo-evento.txt 2>/dev/null || echo "")
+            if echo "$EV" | grep -q "fecha_chile=$FECHA" && echo "$EV" | grep -q "etapa=$ETAPA"; then
+              echo "el evento de la etapa $ETAPA ya se emitió hoy"
+              exit 0
+            fi
+          fi
+          SHA=$(git log -1 --format=%h origin/main)
+          git checkout -B automatizacion/estado origin/main
+          {
+            echo "fecha_chile=$FECHA"
+            echo "etapa=$ETAPA"
+            echo "estado_commit=$SHA"
+            echo "vista=$VISTA"
+            echo "emitido_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } > contenido/estado/ultimo-evento.txt
+          git add contenido/estado/ultimo-evento.txt
+          git commit -m "evento $FECHA: estado $ETAPA"
+          git push -f origin automatizacion/estado
+          gh pr list --head automatizacion/estado --state open --json number -q '.[0].number' | grep -q . \
+            || gh pr create --base main --head automatizacion/estado \
+                 --title "🔔 Estado del día — disparador único de GPT (no fusionar)" \
+                 --body "PR permanente. No se fusiona: cada commit nuevo aquí anuncia que la edición del día cambió de etapa (ver contenido/estado/ultimo-evento.txt, y la vista completa en contenido/estado/FECHA.md). Es el disparador único de la tarea de contenido de ChatGPT, que decide qué hacer leyendo el estado, no el evento. Diseño: bitacora/2026-09-08-propuesta-maquina-de-estados.md y prompts/despachador-gpt.md."
