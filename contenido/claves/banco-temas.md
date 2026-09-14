@@ -60,3 +60,4 @@
 - expectativa neta de contratación, diferencia entre intención empresarial y empleos efectivamente creados | Expectativa neta de contratación sube a 15% para cierre de 2026 | 2026-09-13
 - fondos permanentes para reconstrucción, financiamiento anticipado y reglas de activación frente a catástrofes | Vivienda propone fondo permanente de reconstrucción | 2026-09-13
 - manipulación digital coordinada, redes automatizadas y límites regulatorios frente a la libertad de expresión | Proyecto busca sancionar manipulación digital coordinada | 2026-09-13
+- sistemas de aterrizaje instrumental, categorías ILS y continuidad aérea regional | Balmaceda será el primer aeródromo chileno con ILS categoría II | 2026-09-14
