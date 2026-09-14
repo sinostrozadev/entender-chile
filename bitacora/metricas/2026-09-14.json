@@ -3,50 +3,50 @@
   "canal": {
     "suscriptores": 15,
     "vistas": 4602,
-    "videos": 65
+    "videos": 67
   },
   "videos": {
-    "NIXSupEy11Q": {
-      "titulo": "Clave: ¿Quién decide cuánto gasta el Estado cada año? #Short",
-      "publicado": "2026-09-14",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 32
-    },
     "bfhNo31wIFI": {
       "titulo": "¿Quién decide cuánto gasta el Estado cada año?",
       "publicado": "2026-09-14",
-      "estado": "private",
+      "estado": "public",
       "vistas": 0,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 671
     },
+    "pGzRumCBjg0": {
+      "titulo": "Hacienda prepara un Presupuesto 2027 que casi congela el gas",
+      "publicado": "2026-09-14",
+      "estado": "public",
+      "vistas": 1,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 779
+    },
+    "NIXSupEy11Q": {
+      "titulo": "Clave: ¿Quién decide cuánto gasta el Estado cada año? #Short",
+      "publicado": "2026-09-14",
+      "estado": "private",
+      "vistas": 1,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 32
+    },
     "ifkYQ8GJpOA": {
       "titulo": "Hacienda prepara un Presupuesto 2027 que casi congela el gas",
       "publicado": "2026-09-14",
       "estado": "private",
-      "vistas": 0,
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 50
-    },
-    "pGzRumCBjg0": {
-      "titulo": "Hacienda prepara un Presupuesto 2027 que casi congela el gas",
-      "publicado": "2026-09-14",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 779
     },
     "E-Z-IkAUItw": {
       "titulo": "¿Qué pasa con las reformas si el gobierno tiene su peor eval",
       "publicado": "2026-09-14",
       "estado": "private",
-      "vistas": 0,
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 45
@@ -64,7 +64,7 @@
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén, y",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 61,
+      "vistas": 84,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 46
@@ -100,7 +100,7 @@
       "titulo": "Clave: ¿Qué es la prisión preventiva y por qué no es una con",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 103,
+      "vistas": 159,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 34
@@ -109,8 +109,8 @@
       "titulo": "Corte Suprema remueve a once jueces por viajar con licencia ",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 61,
-      "meGusta": 2,
+      "vistas": 90,
+      "meGusta": 3,
       "comentarios": 0,
       "durSeg": 50
     },
@@ -118,7 +118,7 @@
       "titulo": "Corte Suprema remueve a once jueces por viajar con licencia ",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 6,
+      "vistas": 7,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 709
@@ -669,7 +669,7 @@
       "pct": 29.9
     },
     "94UI6QLnUao": {
-      "vistas": 392,
+      "vistas": 394,
       "minutos": 101,
       "segProm": 45,
       "pct": 92
@@ -693,7 +693,7 @@
       "pct": 67.1
     },
     "xYaG4nx-IkI": {
-      "vistas": 151,
+      "vistas": 152,
       "minutos": 76,
       "segProm": 106,
       "pct": 16.2
@@ -729,7 +729,7 @@
       "pct": 48.3
     },
     "hCObnchAo2U": {
-      "vistas": 238,
+      "vistas": 240,
       "minutos": 54,
       "segProm": 41,
       "pct": 76.2
@@ -759,7 +759,7 @@
       "pct": 67.9
     },
     "Wd9_JFdie-k": {
-      "vistas": 94,
+      "vistas": 95,
       "minutos": 31,
       "segProm": 56,
       "pct": 103.4
@@ -771,7 +771,7 @@
       "pct": 61.4
     },
     "G3zhNQ15u_w": {
-      "vistas": 176,
+      "vistas": 179,
       "minutos": 30,
       "segProm": 37,
       "pct": 71.9
@@ -915,7 +915,7 @@
       "pct": 100
     },
     "Ii7mKdrkNgs": {
-      "vistas": 95,
+      "vistas": 102,
       "minutos": 5,
       "segProm": 27,
       "pct": 74
@@ -987,7 +987,7 @@
       "pct": 174.3
     },
     "JpWGFsV-mMc": {
-      "vistas": 23,
+      "vistas": 24,
       "minutos": 1,
       "segProm": 10,
       "pct": 29
