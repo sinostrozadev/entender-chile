@@ -1,0 +1,68 @@
+name: Prueba de flujo
+
+# PRUEBA (14-09-2026): GPT escribe contenido/pruebas/flujo/FECHA.md en dos
+# vueltas (prompts/prueba-flujo.md). Este workflow es el eslabón del medio: el
+# push del PASO 1 lo despierta, y él emite un evento al PR #6 (misma mecánica
+# que estado.yml) para que GPT vuelva a despertar y haga el PASO 2. Con el
+# PASO 2 (línea FIN) no emite nada: la prueba termina ahí.
+#
+# Se puede borrar cuando la prueba esté hecha.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "contenido/pruebas/flujo/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prueba-flujo
+  cancel-in-progress: false
+
+jobs:
+  emitir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Decidir si hay que despertar a GPT
+        id: decidir
+        run: |
+          F=$(git diff-tree --no-commit-id --name-only -r HEAD | grep '^contenido/pruebas/flujo/.*\.md$' | head -1)
+          [ -n "$F" ] && [ -f "$F" ] || { echo "el push no trae archivo de prueba"; exit 0; }
+          echo "archivo: $F"
+          if grep -q '^FIN' "$F"; then echo "PASO 2 hecho: la prueba cerró, no se emite nada"; exit 0; fi
+          grep -q '^PASO 1' "$F" || { echo "sin PASO 1: nada que anunciar"; exit 0; }
+          echo "etapa=prueba_paso1_listo" >> "$GITHUB_OUTPUT"
+          echo "fecha=$(basename "$F" .md)" >> "$GITHUB_OUTPUT"
+      - name: Emitir el evento al PR único (despierta a GPT)
+        if: steps.decidir.outputs.etapa != ''
+        env:
+          ETAPA: ${{ steps.decidir.outputs.etapa }}
+          FECHA: ${{ steps.decidir.outputs.fecha }}
+        run: |
+          git config user.name "estado-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git fetch origin main
+          if git fetch origin automatizacion/estado 2>/dev/null; then
+            EV=$(git show FETCH_HEAD:contenido/estado/ultimo-evento.txt 2>/dev/null || echo "")
+            if echo "$EV" | grep -q "fecha_chile=$FECHA" && echo "$EV" | grep -q "etapa=$ETAPA"; then
+              echo "el evento $ETAPA ya se emitió hoy"; exit 0
+            fi
+          fi
+          SHA=$(git log -1 --format=%h origin/main)
+          git checkout -B automatizacion/estado origin/main
+          {
+            echo "fecha_chile=$FECHA"
+            echo "etapa=$ETAPA"
+            echo "estado_commit=$SHA"
+            echo "vista=contenido/pruebas/flujo/$FECHA.md"
+            echo "emitido_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } > contenido/estado/ultimo-evento.txt
+          git add contenido/estado/ultimo-evento.txt
+          git commit -m "evento $FECHA: prueba de flujo, $ETAPA"
+          git push -f origin automatizacion/estado
+          echo "evento emitido: $ETAPA"
