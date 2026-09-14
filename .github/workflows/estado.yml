@@ -30,7 +30,7 @@ on:
   # día y para la última. Sin esto, la 01:34 pasaba sin que el estado se
   # recalculara y el despachador de GPT nunca despertaba con barrido_listo.
   workflow_run:
-    workflows: ["Barrido", "Edición diaria", "Web"]
+    workflows: ["Barrido", "Edición diaria"]
     types: [completed]
   workflow_dispatch:
 

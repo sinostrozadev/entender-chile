@@ -4,6 +4,7 @@ Registro append-only de lo completado, con fecha. La sesión de la mañana
 agrega aquí lo que sale de PENDIENTES; también es evidencia del aporte
 editorial y técnico humano del proyecto.
 
+- 14-09 · Cazado a tiempo: estado.yml no se iba a enterar del barrido. Los pushes de Actions con GITHUB_TOKEN no disparan workflows, y el barrido y la edición diaria commitean así (edicion-bot), o sea que el disparador por rutas era ciego justo para la PRIMERA y la ÚLTIMA pieza del día: el despachador de GPT nunca habría despertado con barrido_listo. Arreglado con workflow_run sobre "Barrido" y "Edición diaria", probado en vivo con un tercer workflow inofensivo (corrida con evento=workflow_run, verde)
 - 13-09 · Paso 4 conectado: la tarea "Despachador Entender Chile" existe en ChatGPT, sin horario, escuchando los commits del PR #6. Cableado probado en vivo esa misma noche: se desfasó a propósito la etapa del evento, el emisor volvió a emitir y el PR recibió su commit
 - 13-09 · Máquina de estados, paso 4 (mitad del repo): disparador único PR #6 emitido por estado.yml con dedup por fecha Y etapa, y prompts/despachador-gpt.md con la tabla etapa → prompt, las tres guardas y el bucle de tres piezas. Falta que Santiago cree la tarea en ChatGPT; las tres viejas pueden convivir porque ya son idempotentes
 - 13-09 · Aprendido: Actions NO puede abrir PR en este repo ("not permitted to create or approve pull requests"). Los emisores empujan la rama; el PR permanente lo crea una persona una vez

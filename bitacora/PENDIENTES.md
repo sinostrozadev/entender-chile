@@ -79,6 +79,14 @@ pudo; silencio cuando GPT cumplió.
 
 ## LO QUE APARECIÓ AL UNIFICAR LOS PENDIENTES (13-09)
 
+- [ ] **Revisar qué MÁS depende de un push del bot.** El 14-09 se descubrió que
+      `estado.yml` no se enteraba del barrido porque los pushes con
+      GITHUB_TOKEN no disparan workflows. Se arregló con `workflow_run`, pero
+      la misma trampa puede estar en otros lados: `web.yml` escucha rutas de
+      contenido y hay piezas que commitea el bot (descripciones, podcast,
+      métricas). Listar qué workflow escucha a qué, y cuál de esos disparos
+      viene de un push de bot. Una noche.
+
 - [ ] **`contenido/casos/por-verificar.md` lleva 64 líneas y nadie lo vacía.**
       Crece unas 5 por día desde el 27-08 y las más viejas, de hace diecisiete
       días, siguen ahí (JUNAEB-SOSER, Democracia Viva). Su README dice "la
