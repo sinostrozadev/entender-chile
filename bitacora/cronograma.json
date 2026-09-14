@@ -108,9 +108,9 @@
         },
         {
           "hora": "continuo",
-          "quien": "Señales (PR #2 · #3 · #4)",
+          "quien": "Señales (PR #2 · #3 · #4 · #6)",
           "tipo": "senal",
-          "que": "Tres PR permanentes que jamás se fusionan: el timbre entre eslabones. Cada workflow emisor deduplica por día y se auto-repara en la corrida siguiente."
+          "que": "Cuatro PR permanentes que jamás se fusionan: el timbre entre eslabones. Cada workflow emisor deduplica por día y se auto-repara en la corrida siguiente. El #6 es nuevo (13-09): lo emite estado.yml con cada cambio de ETAPA y es el disparador único del despachador de GPT (prompts/despachador-gpt.md), todavía sin encender."
         },
         {
           "hora": "continuo",

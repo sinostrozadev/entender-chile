@@ -4,6 +4,8 @@ Registro append-only de lo completado, con fecha. La sesión de la mañana
 agrega aquí lo que sale de PENDIENTES; también es evidencia del aporte
 editorial y técnico humano del proyecto.
 
+- 13-09 · Máquina de estados, paso 4 (mitad del repo): disparador único PR #6 emitido por estado.yml con dedup por fecha Y etapa, y prompts/despachador-gpt.md con la tabla etapa → prompt, las tres guardas y el bucle de tres piezas. Falta que Santiago cree la tarea en ChatGPT; las tres viejas pueden convivir porque ya son idempotentes
+- 13-09 · Aprendido: Actions NO puede abrir PR en este repo ("not permitted to create or approve pull requests"). Los emisores empujan la rama; el PR permanente lo crea una persona una vez
 - 13-09 · Máquina de estados, paso 3: la revisión editorial se adelantó de las 04:45 a las 02:20 (rutina nueva trig_01B8tLFaXe7h1YBCciFE2iKf, Opus; la vieja queda de red) y la WEB ESPERA EL VEREDICTO. Un informe ya no se publica hasta que la revisión dice APROBADA: antes salía al aire apenas GPT lo pusheaba, y el 08-09 uno con dos cifras malas estuvo público de 01:43 a 06:46
 - 13-09 · Máquina de estados, paso 2: re-chequeo antes de publicar en prompts/guionista.md. La guarda de dedup mira antes de escribir; esta mira otra vez antes de commitear, que es donde se colaba la carrera del 07-09. Quien llega segundo se retira
 - 13-09 · Máquina de estados, paso 1 completo: estado.yml escribe contenido/estado/FECHA.md con cada pieza que llega (y no commitea cuando lo único que cambió es la hora). Ya se puede saber en qué va el día sin correr nada, y GPT puede leerlo
