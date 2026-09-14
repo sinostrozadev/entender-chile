@@ -24,6 +24,14 @@ on:
       - "contenido/guiones/**"
       - "contenido/revisiones/**"
       - "contenido/descripciones/**"
+  # Los pushes hechos por Actions con GITHUB_TOKEN NO disparan workflows (regla
+  # de GitHub). El barrido y la edición diaria commitean así, como edicion-bot,
+  # de modo que el disparador de arriba es CIEGO justo para la primera pieza del
+  # día y para la última. Sin esto, la 01:34 pasaba sin que el estado se
+  # recalculara y el despachador de GPT nunca despertaba con barrido_listo.
+  workflow_run:
+    workflows: ["Barrido", "Edición diaria", "Web"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -38,6 +46,8 @@ jobs:
   estado:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    # si el workflow que nos despertó falló, no hay pieza nueva que reflejar
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     steps:
       - uses: actions/checkout@v4
         with:
