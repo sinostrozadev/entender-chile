@@ -110,7 +110,7 @@
           "hora": "continuo",
           "quien": "Señales (PR #2 · #3 · #4 · #6)",
           "tipo": "senal",
-          "que": "Cuatro PR permanentes que jamás se fusionan: el timbre entre eslabones. Cada workflow emisor deduplica por día y se auto-repara en la corrida siguiente. El #6 es nuevo (13-09): lo emite estado.yml con cada cambio de ETAPA y es el disparador único del despachador de GPT (prompts/despachador-gpt.md), todavía sin encender."
+          "que": "Cuatro PR permanentes que jamás se fusionan: el timbre entre eslabones. Cada workflow emisor deduplica por día y se auto-repara en la corrida siguiente. El #6 es nuevo (13-09): lo emite estado.yml con cada cambio de ETAPA y es el disparador único del despachador de GPT (prompts/despachador-gpt.md), La tarea 'Despachador Entender Chile' ya existe y escucha ese PR sin horario; las tres tareas viejas siguen encendidas hasta ver una madrugada."
         },
         {
           "hora": "continuo",
