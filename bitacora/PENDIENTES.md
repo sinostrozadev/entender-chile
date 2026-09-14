@@ -391,6 +391,24 @@ referencia:
       'anticipa', 'prevé', 'anunció' o un anuncio no ejecutado, el titular
       debe conservar ese matiz, no convertirlo en hecho consumado".
 
+- [ ] **RELEASE 1: un HTTP 500 al crear el release deja los videos
+      renderizados pero sin publicar** (auditoría del 14-09; Santiago pidió
+      anotarlo para la noche). El 13-09 la ejecución 34746265785 renderizó los
+      4 videos y commiteó las descripciones, pero `gh release create` recibió
+      un 500 de GitHub, la línea `|| echo "release ya existía"` lo tomó por
+      duplicado y el `gh release upload` siguiente falló con "release not
+      found": job en failure a las 05:52 y videos públicos recién a las 11:22,
+      con el estado en `videos_listos` a las 19:16. Pasó 21 minutos después
+      de la auditoría y del vigía, así que nadie lo vio. Arreglo en
+      `.github/workflows/edicion-diaria.yml` (líneas 230-232): tras un fallo
+      de `create`, comprobar con `gh release view "$TAG"`; si no existe,
+      reintentar `create` con una pausa corta (dos o tres veces) antes de
+      subir; y que el job no termine en failure silencioso: si el release no
+      existe al final, avisar (el vigía de las 05:15 ya pasó, así que hace
+      falta un chequeo tardío o que `estado.yml` marque `reparar` cuando
+      Edición diaria termina en failure, que ya lo escucha por
+      `workflow_run`).
+
 - [ ] **SERIE 1: montar "El Estrecho: la ruta en disputa"** (decidida con
       Santiago el 09-09; idea completa en `ideas/ruta-del-estrecho.md`).
       Serie de largos con cuenta regresiva a la interpelación del canciller
