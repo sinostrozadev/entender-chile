@@ -1,8 +1,8 @@
 {
   "fecha": "2026-09-14",
-  "etapa": "informe_listo",
+  "etapa": "guiones_listos",
   "veredicto": "pendiente",
-  "actualizado": "2026-09-14 01:48",
+  "actualizado": "2026-09-14 01:51",
   "reparar": null,
   "piezas": [
     {
@@ -63,11 +63,13 @@
     {
       "id": "guion_clave",
       "etiqueta": "Guion de la Clave",
-      "hay": false,
-      "hora": "",
+      "hay": true,
+      "hora": "01:51",
       "esperada": "04:10",
       "dueno": "Claude · prompts/guionista.md",
-      "rutas": []
+      "rutas": [
+        "contenido/guiones/claves/2026-09-14-ley-presupuestos-chile.md"
+      ]
     },
     {
       "id": "revision",
