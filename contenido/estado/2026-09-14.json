@@ -1,8 +1,8 @@
 {
   "fecha": "2026-09-14",
-  "etapa": "barrido_listo",
+  "etapa": "preseleccion_lista",
   "veredicto": "pendiente",
-  "actualizado": "2026-09-14 01:34",
+  "actualizado": "2026-09-14 01:36",
   "reparar": null,
   "piezas": [
     {
@@ -19,11 +19,13 @@
     {
       "id": "preseleccion",
       "etiqueta": "Preselección",
-      "hay": false,
-      "hora": "",
+      "hay": true,
+      "hora": "01:36",
       "esperada": "02:10",
       "dueno": "GPT · prompts/seleccion.md",
-      "rutas": []
+      "rutas": [
+        "contenido/preseleccion/2026-09-14.md"
+      ]
     },
     {
       "id": "informe",
