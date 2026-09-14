@@ -249,5 +249,23 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-13-clave.mp3",
     "bytes": 8708544,
     "durSeg": 363
+  },
+  {
+    "fecha": "2026-09-14",
+    "tipo": "informe",
+    "titulo": "14-09-2026 · Hacienda prepara un Presupuesto 2027 que casi congela el gasto público",
+    "descripcion": "El Gobierno arma un Presupuesto 2027 con un techo de gasto público de apenas cero a uno por ciento, mientras el Banco Central advierte que la recuperación económica puede tardar más. También: un imputado por el crimen del carabinero Alejandro Ortiz en Renca queda en prisión preventiva, Cancillería responde al embajador de Estados Unidos, y Balmaceda se prepara para ser el primer aeródromo chileno con aterrizaje instrumental de categoría dos.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-14-informe.mp3",
+    "bytes": 18683136,
+    "durSeg": 778
+  },
+  {
+    "fecha": "2026-09-14",
+    "tipo": "clave",
+    "titulo": "Clave · ¿Quién decide cuánto gasta el Estado cada año?",
+    "descripcion": "Cada año se anuncia cuánto va a crecer el gasto público, pero pocas veces se explica quién decide esa cifra y quién puede cambiarla después. Esta Clave explica cómo se arma la Ley de Presupuestos, qué puede y qué no puede hacer el Congreso frente a la propuesta del Presidente, y qué preguntas conviene hacerse antes de tomar un anuncio de gasto como un resultado ya logrado.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-14-clave.mp3",
+    "bytes": 16028352,
+    "durSeg": 668
   }
 ]
