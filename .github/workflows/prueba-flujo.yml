@@ -1,12 +1,16 @@
 name: Prueba de flujo
 
-# PRUEBA (14-09-2026): GPT escribe contenido/pruebas/flujo/FECHA.md en dos
-# vueltas (prompts/prueba-flujo.md). Este workflow es el eslabón del medio: el
-# push del PASO 1 lo despierta, y él emite un evento al PR #6 (misma mecánica
-# que estado.yml) para que GPT vuelva a despertar y haga el PASO 2. Con el
-# PASO 2 (línea FIN) no emite nada: la prueba termina ahí.
+# PRUEBA v2 (14-09-2026): el eslabón de Actions en el bucle
+#   GPT escribe la pieza → aquí se despierta a Claude → Claude deja el
+#   veredicto → aquí se emite el evento al PR #6 → GPT corrige o cierra.
+# Prompts: prompts/prueba-flujo.md (GPT) y prompts/prueba-validador.md
+# (Claude). Se puede borrar cuando la máquina v2 lo reemplace.
 #
-# Se puede borrar cuando la prueba esté hecha.
+# Cómo se despierta a Claude: por la API de la rutina (doc de Routines:
+# POST .../routines/ID/fire con el token de esa rutina), con los secrets
+# CLAUDE_RUTINA_PRUEBA_ID y CLAUDE_RUTINA_PRUEBA_TOKEN. Sin los secrets, el
+# workflow solo lo deja dicho en el log y a Claude hay que despertarlo a mano
+# (etapa 1 de la prueba).
 on:
   push:
     branches: [main]
@@ -21,25 +25,68 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  emitir:
+  eslabon:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
-      - name: Decidir si hay que despertar a GPT
+      - name: Decidir a quién le toca
         id: decidir
         run: |
           F=$(git diff-tree --no-commit-id --name-only -r HEAD | grep '^contenido/pruebas/flujo/.*\.md$' | head -1)
           [ -n "$F" ] && [ -f "$F" ] || { echo "el push no trae archivo de prueba"; exit 0; }
           echo "archivo: $F"
-          if grep -q '^FIN' "$F"; then echo "PASO 2 hecho: la prueba cerró, no se emite nada"; exit 0; fi
-          grep -q '^PASO 1' "$F" || { echo "sin PASO 1: nada que anunciar"; exit 0; }
-          echo "etapa=prueba_paso1_listo" >> "$GITHUB_OUTPUT"
-          echo "fecha=$(basename "$F" .md)" >> "$GITHUB_OUTPUT"
-      - name: Emitir el evento al PR único (despierta a GPT)
-        if: steps.decidir.outputs.etapa != ''
+          case "$F" in
+            *-pieza.md)
+              FECHA=$(basename "$F" -pieza.md)
+              if grep -q '^FIN:' "$F"; then echo "la pieza tiene FIN: prueba cerrada"; exit 0; fi
+              VUELTA=$(grep -m1 '^VUELTA:' "$F" | tr -dc '0-9')
+              echo "turno=claude" >> "$GITHUB_OUTPUT"
+              echo "fecha=$FECHA" >> "$GITHUB_OUTPUT"
+              echo "vuelta=$VUELTA" >> "$GITHUB_OUTPUT"
+              ;;
+            *-veredicto.md)
+              FECHA=$(basename "$F" -veredicto.md)
+              V=$(grep -m1 '^VEREDICTO:' "$F" | awk '{print $2}')
+              VUELTA=$(grep -m1 '^VUELTA:' "$F" | tr -dc '0-9')
+              case "$V" in
+                CORREGIR) ETAPA="prueba_corregir_v$VUELTA" ;;
+                APROBADA) ETAPA="prueba_aprobada_v$VUELTA" ;;
+                *) echo "veredicto ilegible: $V"; exit 0 ;;
+              esac
+              echo "turno=gpt" >> "$GITHUB_OUTPUT"
+              echo "fecha=$FECHA" >> "$GITHUB_OUTPUT"
+              echo "etapa=$ETAPA" >> "$GITHUB_OUTPUT"
+              ;;
+            *) echo "archivo sin rol en la prueba v2: $F" ;;
+          esac
+
+      - name: Despertar a Claude (rutina validadora)
+        if: steps.decidir.outputs.turno == 'claude'
+        env:
+          ID: ${{ secrets.CLAUDE_RUTINA_PRUEBA_ID }}
+          TOKEN: ${{ secrets.CLAUDE_RUTINA_PRUEBA_TOKEN }}
+          FECHA: ${{ steps.decidir.outputs.fecha }}
+          VUELTA: ${{ steps.decidir.outputs.vuelta }}
+        run: |
+          if [ -z "$ID" ] || [ -z "$TOKEN" ]; then
+            echo "SIN SECRETS: a Claude hay que despertarlo a mano para validar $FECHA-pieza.md (vuelta $VUELTA)"
+            exit 0
+          fi
+          BODY=$(printf '{"text":"valida contenido/pruebas/flujo/%s-pieza.md (vuelta %s)"}' "$FECHA" "$VUELTA")
+          CODIGO=$(curl -sS -o /tmp/resp.json -w '%{http_code}' -X POST \
+            "https://api.anthropic.com/v1/claude_code/routines/$ID/fire" \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
+            -H "content-type: application/json" \
+            -d "$BODY")
+          echo "respuesta $CODIGO"; head -c 400 /tmp/resp.json; echo
+          case "$CODIGO" in 2*) echo "Claude despertado";; *) echo "::error::no se pudo despertar a Claude ($CODIGO)"; exit 1;; esac
+
+      - name: Despertar a GPT (evento al PR #6)
+        if: steps.decidir.outputs.turno == 'gpt'
         env:
           ETAPA: ${{ steps.decidir.outputs.etapa }}
           FECHA: ${{ steps.decidir.outputs.fecha }}
@@ -59,7 +106,7 @@ jobs:
             echo "fecha_chile=$FECHA"
             echo "etapa=$ETAPA"
             echo "estado_commit=$SHA"
-            echo "vista=contenido/pruebas/flujo/$FECHA.md"
+            echo "vista=contenido/pruebas/flujo/$FECHA-veredicto.md"
             echo "emitido_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           } > contenido/estado/ultimo-evento.txt
           git add contenido/estado/ultimo-evento.txt
