@@ -1,8 +1,8 @@
 {
   "fecha": "2026-09-14",
-  "etapa": "preseleccion_lista",
+  "etapa": "informe_listo",
   "veredicto": "pendiente",
-  "actualizado": "2026-09-14 01:36",
+  "actualizado": "2026-09-14 01:40",
   "reparar": null,
   "piezas": [
     {
@@ -30,11 +30,13 @@
     {
       "id": "informe",
       "etiqueta": "Informe",
-      "hay": false,
-      "hora": "",
+      "hay": true,
+      "hora": "01:40",
       "esperada": "02:40",
       "dueno": "GPT · prompts/informe.md",
-      "rutas": []
+      "rutas": [
+        "contenido/informes/2026-09-14.md"
+      ]
     },
     {
       "id": "clave",
