@@ -1,0 +1,82 @@
+{
+  "fecha": "2026-09-14",
+  "etapa": "nuevo_dia",
+  "veredicto": "pendiente",
+  "actualizado": "2026-09-14 00:07",
+  "reparar": null,
+  "piezas": [
+    {
+      "id": "barrido",
+      "etiqueta": "Barrido",
+      "hay": false,
+      "hora": "",
+      "esperada": "01:40",
+      "dueno": "Actions · barrido.yml",
+      "rutas": []
+    },
+    {
+      "id": "preseleccion",
+      "etiqueta": "Preselección",
+      "hay": false,
+      "hora": "",
+      "esperada": "02:10",
+      "dueno": "GPT · prompts/seleccion.md",
+      "rutas": []
+    },
+    {
+      "id": "informe",
+      "etiqueta": "Informe",
+      "hay": false,
+      "hora": "",
+      "esperada": "02:40",
+      "dueno": "GPT · prompts/informe.md",
+      "rutas": []
+    },
+    {
+      "id": "clave",
+      "etiqueta": "Clave (entrega)",
+      "hay": false,
+      "hora": "",
+      "esperada": "03:10",
+      "dueno": "GPT · prompts/claves.md",
+      "rutas": []
+    },
+    {
+      "id": "guion_informe",
+      "etiqueta": "Guion del informe",
+      "hay": false,
+      "hora": "",
+      "esperada": "03:10",
+      "dueno": "Claude · prompts/guionista.md",
+      "rutas": []
+    },
+    {
+      "id": "guion_clave",
+      "etiqueta": "Guion de la Clave",
+      "hay": false,
+      "hora": "",
+      "esperada": "04:10",
+      "dueno": "Claude · prompts/guionista.md",
+      "rutas": []
+    },
+    {
+      "id": "revision",
+      "etiqueta": "Revisión editorial",
+      "hay": false,
+      "hora": "",
+      "esperada": "05:00",
+      "dueno": "Claude · prompts/revision-editorial.md",
+      "rutas": []
+    },
+    {
+      "id": "videos",
+      "etiqueta": "Videos y descripciones",
+      "hay": false,
+      "hora": "",
+      "esperada": "06:15",
+      "dueno": "Actions · edicion-diaria.yml",
+      "rutas": []
+    }
+  ],
+  "atrasos": []
+}
