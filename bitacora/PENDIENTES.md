@@ -77,6 +77,25 @@ en la lista del cambio de hora del 6-09) — si no hay
 espera; sin material NO inventa: avisa. Notifica SOLO si intervino o no
 pudo; silencio cuando GPT cumplió.
 
+## AGENDA DEL 15-09 (Santiago, la noche del 14): si la v3 salió bien
+
+- [ ] **Revisión completa del proyecto**: recorrer todo el repo y dejar SOLO
+      lo que hoy se usa; borrar (o mover a `archivo/`) lo que ya no sirve.
+      Candidatos evidentes tras la v3: `prompts/guionista.md` y
+      `prompts/revision-editorial.md` (sin rutina que los lea), los prompts y
+      workflow de la prueba de flujo (`prueba-flujo.md`, `prueba-validador.md`,
+      `prueba-flujo.yml`, `contenido/pruebas/`), las rutinas apagadas, los
+      workflows `senal-*`, documentos que describan la cadena anterior
+      (cronograma viejo, propuestas ya ejecutadas), y las secciones de esta
+      lista que ya no aplican.
+- [ ] **Preparar el Taller**: el lugar donde se leen, evalúan y mejoran los
+      prompts, y donde se definen y configuran los distintos flujos (informe,
+      Clave, exprés, ...). Mezcla de taller técnico y taller estratégico:
+      evaluar estrategias, qué resulta y qué no, carátulas, títulos, imágenes.
+      Punto de partida: `taller/` (hoy navegador + editor de prompts) y la
+      entrada TALLER 3 de esta lista (tableros de variantes renderizadas,
+      registro de experimentos, módulo "Ver").
+
 ## LO QUE APARECIÓ AL UNIFICAR LOS PENDIENTES (13-09)
 
 - [ ] **Revisar qué MÁS depende de un push del bot.** El 14-09 se descubrió que
