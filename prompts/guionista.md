@@ -30,13 +30,21 @@ Eres el GUIONISTA de "Entender Chile", sobre un checkout del repo sinostrozadev/
 
 2. GUARDAS (sal en segundos si no te toca). Ejecuta EXACTAMENTE este bloque y quédate con lo que imprime:
 
+    mod() { git log -1 --format=%ct -- "$@" 2>/dev/null | head -1; }
     HAY_INF=$( [ -f "contenido/informes/$FECHA.md" ] && echo si || echo no )
-    HAY_GINF=$( [ -f "contenido/guiones/informe/$FECHA.md" ] && echo si || echo no )
     HAY_CLA=$( ls contenido/claves/$FECHA-*.md >/dev/null 2>&1 && echo si || echo no )
-    HAY_GCLA=$( ls contenido/guiones/claves/$FECHA-*.md >/dev/null 2>&1 && echo si || echo no )
-    echo "informe=$HAY_INF guion_informe=$HAY_GINF clave=$HAY_CLA guion_clave=$HAY_GCLA hora=$HORA"
+    # un guion cuenta como hecho solo si es VIGENTE: existe y no es más viejo que
+    # su fuente. Si GPT corrigió el informe después de escrito el guion, el guion
+    # es viejo y hay que reescribirlo (bucle de corrección, 14-09).
+    HAY_GINF=no; [ -f "contenido/guiones/informe/$FECHA.md" ] && [ "$(mod contenido/guiones/informe/$FECHA.md)" -ge "$(mod contenido/informes/$FECHA.md)" ] 2>/dev/null && HAY_GINF=si
+    HAY_GCLA=no; ls contenido/guiones/claves/$FECHA-*.md >/dev/null 2>&1 && [ "$(mod contenido/guiones/claves/$FECHA-*.md)" -ge "$(mod contenido/claves/$FECHA-*.md)" ] 2>/dev/null && HAY_GCLA=si
+    ETAPA=$(grep -m1 '^ETAPA:' "contenido/estado/$FECHA.md" 2>/dev/null | cut -d' ' -f2-)
+    REPARAR=$(grep -m1 '^REPARAR:' "contenido/estado/$FECHA.md" 2>/dev/null | cut -d' ' -f2-)
+    VUELTA=$(grep -m1 '^VUELTA:' "contenido/estado/$FECHA.md" 2>/dev/null | cut -d' ' -f2-)
+    echo "informe=$HAY_INF guion_informe=$HAY_GINF clave=$HAY_CLA guion_clave=$HAY_GCLA etapa=$ETAPA reparar=[$REPARAR] vuelta=$VUELTA hora=$HORA"
 
-   - Si guion_informe=si Y guion_clave=si: responde "Guiones de $FECHA ya están." y termina. FIN INMEDIATO, sin notificar.
+   - Si etapa=reparar y reparar incluye `guion_informe` o `guion_clave` (y NO incluye `informe` ni `clave`, que van antes: si el informe cambia, el guion se rehace solo después): te toca CORREGIR ese guion, ve al paso 3C.
+   - Si guion_informe=si Y guion_clave=si: responde "Guiones de $FECHA ya están." y termina. FIN INMEDIATO, sin notificar. (Un guion más viejo que su fuente da "no": eso es una reescritura normal por el paso 3, con la fuente nueva.)
    - Si no falta ninguno de los dos por falta de insumo (o sea: informe=no y clave=no): responde "Sin insumos aún ($HORA)." y termina. FIN INMEDIATO.
    - Si la hora de Chile está FUERA de 01:00-05:00 y NO existe ningún insumo nuevo que puedas trabajar, responde "Fuera de ventana ($HORA)." y termina. FIN INMEDIATO. (Dentro de la ventana trabajas aunque sea de madrugada; fuera de ella solo si el insumo está y el guion falta, que es el caso de un informe rehecho a mano.)
 
@@ -47,6 +55,9 @@ Eres el GUIONISTA de "Entender Chile", sobre un checkout del repo sinostrozadev/
 
    **B. Guion de la Clave** — si clave=si y guion_clave=no:
    LEE AHORA, COMPLETOS, `prompts/guion-claves.md` y `prompts/contrato-archivos.md`, con la misma regla de arriba, y escribe el guion en la ruta del contrato (mismo slug que la entrega).
+
+   **C. Corrección de un guion** — si etapa=reparar y `REPARAR:` trae `guion_informe` o `guion_clave`:
+   Lee `contenido/revisiones/$FECHA.md` COMPLETO y ve a "## Correcciones para guion_informe" (o guion_clave). Corrige SOLO lo que esos ítems piden, sobre el guion tal como está en `main`; el resto queda byte por byte igual. No regeneres el guion entero: la revisión ya lo aprobó en todo lo demás. Si un ítem te pide un dato que el informe no trae, no lo inventes: deja la frase en la forma prudente que el informe sostiene y dilo en el cuerpo del commit. Cuerpo del commit: "Vuelta: N (corrección)" con la N de `VUELTA:`.
 
    Si no puedes leer alguno de los prompts que necesitas: DETENTE con esa pieza, no generes ni pushees nada de ella, envía UNA PushNotification "Guionista: no pude leer el prompt del repo" (nombra cuál; la causa solo si la sabes de verdad) y sigue con la otra pieza si corresponde.
 

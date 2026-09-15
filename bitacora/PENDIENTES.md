@@ -123,8 +123,30 @@ pudo; silencio cuando GPT cumplió.
       **Queda por ver**: una madrugada real con las dos corridas, y decidir si
       el corte se mueve hacia atrás (hoy el 11-09 quedaría fuera del sitio: su
       veredicto fue RECHAZADA y la corrección sigue en el PR #5 sin fusionar).
-      **(4) GPT a un solo PR** (necesita lo que Santiago tiene que verificar en
-      ChatGPT, abajo). **(5) Claude a dos despachadoras.**
+      **(4) GPT a un solo PR: HECHO el 13-09** (despachador por el PR #6; la
+      madrugada del 14 lo probó: tres piezas en siete minutos).
+      **LA VUELTA DEL BUCLE: EN PRODUCCIÓN desde la madrugada del 15-09**
+      (Santiago, 14-09 noche: "GPT crea, Claude valida y cambia de estado o lo
+      mantiene con las correcciones, GPT corrige y avisa, y así"). Cómo queda:
+      la revisión ya no RECHAZA; lo que no puede corregir sola (3c) lo devuelve
+      con `VEREDICTO: CORREGIR`, `VUELTA: N` y `REPARAR: <piezas>` más una
+      sección "Correcciones para <pieza>" con ítems ejecutables. El estado
+      (`estado.js`) entiende VIGENCIA: un guion más viejo que su informe es
+      "viejo" y se reescribe; una revisión más vieja que las piezas es
+      "pendiente" y se repite. GPT corrige `informe`/`clave` por el PR #6
+      (etapa `reparar`); el guionista corrige `guion_*` o reescribe el guion
+      viejo; la revisión se vuelve a disparar por API en cada vuelta (dedup por
+      fecha+etapa+vuelta). Tope: dos vueltas; a la tercera `BLOQUEADA` →
+      etapa `bloqueado_humano`, el vigía alarma y decide Santiago. Un día con
+      videos publicados está CERRADO: ediciones posteriores no reabren nada.
+      **Primera noche en vivo: 15-09. Nunca se probó con piezas reales**; lo
+      que se probó (14-09) fue el bucle con piezas de mentira y los dos
+      despertares por evento. Si algo sale raro, el orden para mirar es:
+      `contenido/estado/2026-09-15.md` (ETAPA, VUELTA, REPARAR), el log de
+      `estado.yml`, y las corridas de las rutinas de revisión.
+      **(5) Claude a dos despachadoras** (el guionista sigue despertando con
+      cualquier push; pasarlo a /fire como la revisión: token + secret + un
+      `case` más).
       El §5 del diseño ya tiene la vuelta del bucle como principio general, con
       la tabla de quién repara qué.
 - [x] **Decidido: la web ESPERA el veredicto** (Santiago, 08-09 noche). Se

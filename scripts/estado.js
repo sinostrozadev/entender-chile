@@ -101,49 +101,94 @@ const horaDe = (ruta) => {
   } catch { return ""; }
 };
 
+// --- última modificación de un archivo (ISO), para la VIGENCIA: en el bucle
+//     de corrección una pieza puede existir y aun así estar vieja (un guion
+//     escrito antes de que GPT corrigiera el informe; una revisión escrita
+//     antes de que se corrigieran las piezas). Existir no basta: hay que ser
+//     más nuevo que lo que te origina. Sale del último commit que tocó el
+//     archivo; sin historia (clon shallow) cae a la fecha del sistema de
+//     archivos, que en un checkout fresco es la del checkout (peor es nada).
+const ultimaMod = (ruta) => {
+  try {
+    if (clonCompleto()) {
+      const iso = execFileSync("git", ["log", "-1", "--format=%cI", "--", ruta], { cwd: RAIZ, encoding: "utf8" }).trim();
+      if (iso) return new Date(iso).getTime();
+    }
+  } catch { /* sin git */ }
+  try { return fs.statSync(path.join(RAIZ, ruta)).mtimeMs; } catch { return 0; }
+};
+const modDe = (rutas) => Math.max(0, ...rutas.map(ultimaMod));
+
 // --- veredicto de la revisión: la primera línea literal manda (la lee el pipeline)
+//     Desde el 14-09 (bucle v2) hay cuatro: APROBADA, CORREGIR (vuelve al
+//     autor, con REPARAR: y VUELTA:), BLOQUEADA (tope de vueltas: humano) y la
+//     vieja RECHAZADA, que se trata como CORREGIR.
 let veredicto = "pendiente";
+let vuelta = 0;
+let reparaPiezas = [];
 const rutaRev = `contenido/revisiones/${FECHA}.md`;
 if (existe(rutaRev)) {
-  const primera = fs.readFileSync(path.join(RAIZ, rutaRev), "utf8").split("\n")[0].trim();
+  const rev = fs.readFileSync(path.join(RAIZ, rutaRev), "utf8");
+  const primera = rev.split("\n")[0].trim();
   if (/^VEREDICTO:\s*APROBADA/i.test(primera)) veredicto = "APROBADA";
-  else if (/^VEREDICTO:\s*RECHAZADA/i.test(primera)) veredicto = "RECHAZADA";
+  else if (/^VEREDICTO:\s*(CORREGIR|RECHAZADA)/i.test(primera)) veredicto = "CORREGIR";
+  else if (/^VEREDICTO:\s*BLOQUEADA/i.test(primera)) veredicto = "BLOQUEADA";
   else veredicto = "sin veredicto";
+  vuelta = Number(rev.match(/^VUELTA:\s*(\d+)/im)?.[1] || 0);
+  reparaPiezas = (rev.match(/^REPARAR:\s*(.+)$/im)?.[1] || "")
+    .split(/[,\s]+/).map((s) => s.trim().toLowerCase()).filter(Boolean);
 }
 
 const estado = PIEZAS.map((p) => {
   const r = resolver(p);
-  return { ...p, ...r, hora: r.hay && r.rutas.length ? horaDe(r.rutas[0]) : "" };
+  return { ...p, ...r, hora: r.hay && r.rutas.length ? horaDe(r.rutas[0]) : "", mod: r.hay ? modDe(r.rutas) : 0 };
 });
-const hecha = (id) => estado.find((p) => p.id === id)?.hay;
+const pieza = (id) => estado.find((p) => p.id === id);
+const hecha = (id) => pieza(id)?.hay;
+// vigente = existe Y no es más vieja que lo que la origina
+const vigente = (id, origenes) => hecha(id) && origenes.every((o) => !hecha(o) || pieza(id).mod >= pieza(o).mod);
+const guionInformeVigente = vigente("guion_informe", ["informe"]);
+const guionClaveVigente = vigente("guion_clave", ["clave"]);
+const revisionVigente = vigente("revision", ["informe", "clave", "guion_informe", "guion_clave"]);
+for (const p of estado) {
+  if (p.id === "guion_informe" && p.hay && !guionInformeVigente) p.vieja = true;
+  if (p.id === "guion_clave" && p.hay && !guionClaveVigente) p.vieja = true;
+  if (p.id === "revision" && p.hay && !revisionVigente) p.vieja = true;
+}
 
 // --- la etapa: la última pieza completa de la cadena, más el veredicto.
 //     Ojo: clave y guion_informe corren EN PARALELO desde informe_listo, así
 //     que la etapa no es un número: es la frontera de lo que ya está listo.
 let etapa;
-if (!hecha("barrido")) etapa = "nuevo_dia";
+// Un día con videos publicados está CERRADO: lo que se edite después en el
+// informe o los guiones es una corrección a la vista (regla dura 11), no una
+// vuelta del bucle. Sin esto, agregar una fuente al informe de un día ya
+// emitido dejaba el guion "viejo" y el estado reabría la cadena entera.
+if (hecha("videos")) etapa = "videos_listos";
+else if (!hecha("barrido")) etapa = "nuevo_dia";
 else if (!hecha("preseleccion")) etapa = "barrido_listo";
 else if (!hecha("informe")) etapa = "preseleccion_lista";
-else if (!hecha("guion_informe") || !hecha("clave") || !hecha("guion_clave")) etapa = "informe_listo";
-else if (veredicto === "pendiente") etapa = "guiones_listos";
-else if (veredicto === "RECHAZADA") etapa = "reparar";
-else if (!hecha("videos")) etapa = "aprobada";
-else etapa = "videos_listos";
+else if (!guionInformeVigente || !hecha("clave") || !guionClaveVigente) etapa = "informe_listo"; // guiones faltantes o viejos
+else if (!revisionVigente) etapa = "guiones_listos"; // sin revisión, o revisión anterior a una corrección
+else if (veredicto === "CORREGIR") etapa = "reparar";
+else if (veredicto === "BLOQUEADA") etapa = "bloqueado_humano";
+else if (veredicto !== "APROBADA") etapa = "guiones_listos"; // veredicto ilegible: que la revisión vuelva a mirar
+else etapa = "aprobada";
 
 // --- la vuelta del bucle (Santiago, 08-09): un error no lo parcha quien lo
 //     detecta, vuelve a quien lo cometió, que verifica y repara. El estado
 //     dice de quién es la pelota.
 let reparar = null;
-if (etapa === "reparar") {
-  const rev = fs.readFileSync(path.join(RAIZ, rutaRev), "utf8");
-  const tocaInforme = /informes?\//i.test(rev) || /\[GRAVE\][^\n]*informe/i.test(rev);
+if (etapa === "reparar" || etapa === "bloqueado_humano") {
+  const dueno = (id) => ({ informe: "GPT (despachador)", clave: "GPT (despachador)",
+    guion_informe: "Claude (guionista)", guion_clave: "Claude (guionista)" }[id] || id);
+  const piezas = reparaPiezas.length ? reparaPiezas : ["informe"];
   reparar = {
-    pieza: tocaInforme ? "informe y guiones" : "guiones",
-    dueno: tocaInforme
-      ? "GPT (informe) y Claude (guiones), o la revisión en modo corrección si puede comprobar el dato"
-      : "Claude · prompts/guionista.md, o la revisión en modo corrección",
+    piezas,
+    pieza: piezas.join(", "),
+    dueno: [...new Set(piezas.map(dueno))].join(" y "),
     motivo: rutaRev,
-    vuelta: (rev.match(/vuelta\s*(\d+)/i)?.[1] || "1"),
+    vuelta,
   };
 }
 
@@ -155,14 +200,16 @@ const atrasos = !mismoDia ? [] : estado.filter((p) => !p.hay && minutos(HORA) > 
   .map((p) => ({ ...p, atraso: minutos(HORA) - minutos(p.esperada) }));
 
 // --- salida
-const marca = (p) => (p.hay ? "listo" : "falta");
+const marca = (p) => (p.vieja ? "vieja (anterior a una corrección)" : p.hay ? "listo" : "falta");
 const lineas = [
   `ETAPA: ${etapa}`,
   `VEREDICTO: ${veredicto}`,
+  `VUELTA: ${vuelta}`,
   `FECHA: ${FECHA}`,
   `ACTUALIZADO: ${AHORA} (hora de Chile)`,
 ];
-if (reparar) lineas.push(`REPARAR: ${reparar.pieza} — la arregla ${reparar.dueno} — motivo en ${reparar.motivo} (vuelta ${reparar.vuelta})`);
+if (reparar) lineas.push(`REPARAR: ${reparar.pieza}`);
+if (reparar) lineas.push(`REPARA: ${reparar.dueno}, leyendo las correcciones en ${reparar.motivo} (vuelta ${reparar.vuelta})`);
 const faltantes = estado.filter((p) => !p.hay);
 lineas.push(`FALTA: ${faltantes.length ? faltantes.map((p) => p.etiqueta).join(", ") : "nada, el día está completo"}`);
 
@@ -178,8 +225,8 @@ if (atrasos.length) {
 }
 
 const json = {
-  fecha: FECHA, etapa, veredicto, actualizado: AHORA, reparar,
-  piezas: estado.map((p) => ({ id: p.id, etiqueta: p.etiqueta, hay: p.hay, hora: p.hora, esperada: p.esperada, dueno: p.dueno, rutas: p.rutas })),
+  fecha: FECHA, etapa, veredicto, vuelta, actualizado: AHORA, reparar,
+  piezas: estado.map((p) => ({ id: p.id, etiqueta: p.etiqueta, hay: p.hay, vieja: !!p.vieja, hora: p.hora, esperada: p.esperada, dueno: p.dueno, rutas: p.rutas })),
   atrasos: atrasos.map((p) => ({ id: p.id, etiqueta: p.etiqueta, atraso: p.atraso, dueno: p.dueno })),
 };
 
@@ -194,6 +241,10 @@ if (bandera("--solo-leer")) {
 }
 
 if (bandera("--vigilar")) {
+  if (etapa === "bloqueado_humano") {
+    console.error(`BLOQUEADO a las ${HORA} (Chile): la revisión agotó las vueltas de corrección (vuelta ${vuelta}). Piezas: ${reparar?.pieza}. Lo destraba una persona leyendo ${rutaRev}.`);
+    process.exit(1);
+  }
   if (atrasos.length) {
     console.error(`ATRASO a las ${HORA} (Chile):`);
     for (const p of atrasos) console.error(`  - ${p.etiqueta}: se esperaba a las ${p.esperada}, van +${p.atraso} min. La escribe ${p.dueno}.`);

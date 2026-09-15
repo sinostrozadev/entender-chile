@@ -49,6 +49,8 @@ toque más.
 | `barrido_listo` | la preselección | `prompts/seleccion.md` | `contenido/preseleccion/FECHA.md` |
 | `preseleccion_lista` | el informe | `prompts/informe.md` | `contenido/informes/FECHA.md` |
 | `informe_listo` | la entrega de Clave | `prompts/claves.md` | `contenido/claves/FECHA-slug.md` |
+| `reparar` | corregir SOLO si `REPARAR:` incluye `informe` o `clave` | las correcciones de `contenido/revisiones/FECHA.md` | la misma pieza, corregida |
+| `bloqueado_humano` | nada: decide Santiago | | |
 | cualquier otra | nada: el resto es de Claude y de Actions | | |
 
 **Lee el prompt de la pieza COMPLETO y del repo, en esta corrida.** No uses
@@ -67,6 +69,29 @@ ahí están la ruta exacta, el formato y las reglas de commit.
    preselección, la preselección para el informe, el informe para la Clave),
    termina y dilo en una línea. Nunca reconstruyas de memoria ni uses otra
    fecha.
+
+## CUANDO TE TOCA CORREGIR (etapa `reparar`)
+
+La revisión editorial de Claude no pudo aprobar y te devolvió una pieza. En la
+vista del estado, `REPARAR:` dice cuáles; a ti te tocan `informe` y `clave`.
+Si solo aparecen `guion_informe` o `guion_clave`, no es tu turno: termina.
+
+1. Lee `contenido/revisiones/FECHA.md` COMPLETO y ve a la sección
+   "## Correcciones para informe" (o "para clave"). Son ítems concretos: qué
+   frase, qué está mal, cómo debe quedar o qué dato verificar y contra qué.
+2. Corrige SOLO eso, en la pieza tal como está en `main`. Todo lo demás queda
+   byte por byte igual: no reescribas, no reordenes, no "mejores" de paso. Si
+   una corrección te pide verificar un dato, verifícalo con las fuentes que
+   la corrección nombra o con la fuente primaria; si no lo puedes sostener,
+   deja lo que sí puedes sostener y dilo en el cuerpo del commit.
+3. Publica con el encabezado del contrato y este cuerpo:
+
+       Tarea: despachador
+       Vuelta: N (corrección)
+
+   con la N de la línea `VUELTA:` del estado.
+4. Termina: lo que sigue es de Claude (el guion se regenera solo si el informe
+   cambió, y la revisión vuelve a mirar). No esperes el veredicto.
 
 ## EL BUCLE
 
