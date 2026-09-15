@@ -1,10 +1,18 @@
 {
   "fecha": "2026-09-15",
-  "etapa": "validar_guion_clave",
+  "etapa": "reparar_guion_clave",
   "veredicto": "pendiente",
-  "vuelta": 0,
-  "actualizado": "2026-09-15 13:02",
-  "reparar": null,
+  "vuelta": 1,
+  "actualizado": "2026-09-15 13:06",
+  "reparar": {
+    "piezas": [
+      "guion_clave"
+    ],
+    "pieza": "guion_clave",
+    "dueno": "GPT (despachador)",
+    "motivo": "contenido/veredictos/2026-09-15-guion_clave.md",
+    "vuelta": 1
+  },
   "piezas": [
     {
       "id": "barrido",
@@ -75,7 +83,7 @@
       "id": "guion_clave",
       "etiqueta": "Guion de la Clave",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "reparar",
       "prompt": "prompts/guion-claves.md",
       "hora": "13:01",
       "esperada": "04:10",
@@ -113,13 +121,13 @@
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 512,
+      "atraso": 516,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 407,
+      "atraso": 411,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
