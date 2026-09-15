@@ -1,9 +1,9 @@
 {
   "fecha": "2026-09-15",
-  "etapa": "preseleccion_lista",
+  "etapa": "validar_informe",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-09-15 06:38",
+  "actualizado": "2026-09-15 06:47",
   "reparar": null,
   "piezas": [
     {
@@ -35,13 +35,15 @@
     {
       "id": "informe",
       "etiqueta": "Informe",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "por_validar",
       "prompt": "prompts/informe.md",
-      "hora": "",
+      "hora": "06:47",
       "esperada": "02:40",
       "dueno": "GPT · prompts/informe.md",
-      "rutas": []
+      "rutas": [
+        "contenido/informes/2026-09-15.md"
+      ]
     },
     {
       "id": "guion_informe",
@@ -101,39 +103,33 @@
   ],
   "atrasos": [
     {
-      "id": "informe",
-      "etiqueta": "Informe",
-      "atraso": 238,
-      "dueno": "GPT · prompts/informe.md"
-    },
-    {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "atraso": 208,
+      "atraso": 217,
       "dueno": "GPT · prompts/guion-informe.md"
     },
     {
       "id": "clave",
       "etiqueta": "Clave (entrega)",
-      "atraso": 178,
+      "atraso": 187,
       "dueno": "GPT · prompts/claves.md"
     },
     {
       "id": "guion_clave",
       "etiqueta": "Guion de la Clave",
-      "atraso": 148,
+      "atraso": 157,
       "dueno": "GPT · prompts/guion-claves.md"
     },
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 128,
+      "atraso": 137,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 23,
+      "atraso": 32,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
