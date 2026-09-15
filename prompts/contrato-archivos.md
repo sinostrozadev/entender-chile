@@ -35,6 +35,14 @@ FORMATO OBLIGATORIO de los dos guiones (el parser depende de esto):
    Fuentes:
    (una línea por fuente)
 
+VEREDICTOS POR PIEZA (cadena lineal v3, desde el 15-09-2026): Claude, el
+validador, escribe contenido/veredictos/AAAA-MM-DD-<pieza>.md con <pieza> en
+preseleccion, informe, guion_informe, clave, guion_clave. Primera línea
+"VEREDICTO: APROBADA" o "VEREDICTO: CORREGIR" (o BLOQUEADA), segunda
+"VUELTA: N", y si es CORREGIR una sección "Correcciones:" numerada. Una pieza
+cuenta como lista SOLO con veredicto APROBADA más nuevo que ella. GPT lee esos
+archivos cuando le toca corregir; nunca los escribe.
+
 REGLAS DE COMMIT:
 - Cada tarea commitea y pushea SOLO sus propios archivos. Mensaje:
   "edición AAAA-MM-DD: <pieza>" donde <pieza> es preselección, informe,
