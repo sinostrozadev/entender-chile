@@ -267,5 +267,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-14-clave.mp3",
     "bytes": 16028352,
     "durSeg": 668
+  },
+  {
+    "fecha": "2026-09-15",
+    "tipo": "informe",
+    "titulo": "15-09-2026 · Chile elimina la rabia humana transmitida por perros",
+    "descripcion": "Chile recibió la validación sanitaria que lo convierte en el primer país sudamericano en alcanzar este hito. La jornada también dejó graves demoras en urgencias, cargos contra Enel por medidores cuestionados y una investigación en la frontera norte.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-15-informe.mp3",
+    "bytes": 19509120,
+    "durSeg": 813
   }
 ]
