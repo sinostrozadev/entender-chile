@@ -374,8 +374,8 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **MÁQUINA V2, PRUEBA 1: el BUCLE COMPLETO PASÓ (14-09, 22:27 a 22:39),
-      pero el despertar de Claude por PR todavía no.** Rastro en
+- [ ] **MÁQUINA V2, PRUEBA 1: PASÓ ENTERA (14-09, 22:27 a 22:41), incluido
+      el despertar de Claude por evento (con webhook `push`, no `pull_request`).** Rastro en
       `contenido/pruebas/flujo/2026-09-14-pieza.md` y `-veredicto.md`: pieza
       vuelta 1 (3 regiones, sin firma) → CORREGIR → vuelta 2 (5 regiones +
       FIRMA) → APROBADA → FIN "aprobada en la vuelta 2". Doce minutos, cero
@@ -389,8 +389,12 @@ referencia:
       API, se creó un segundo webhook tipo `push` (`8925b806`, 01:39Z), que es
       el tipo que ya usa el guionista y despierta con CUALQUIER push del repo;
       el PASO CERO del validador lo hace salir en segundos cuando no es su
-      turno. **Queda por ver** si ese despierta solo: el primer push después de
-      crearlo es el de este mismo commit.
+      turno. **PROBADO a las 01:40Z:** despertó un segundo después del push y
+      terminó en 25 s sin tocar nada. Con eso el eslabón de Claude por evento
+      queda demostrado; lo que cuesta es que despierta con TODOS los pushes
+      (unos 30 al día, Opus, ~25 s cada uno), así que la rutina quedó
+      DESACTIVADA hasta la próxima prueba (se enciende con un `update
+      enabled:true` por API o desde claude.ai/code/routines).
       Rutina: `trig_01Rp682KSf5rAjThxSoEWHm7` (Opus, repo adjunto). Aprendido:
       las rutinas creadas por agente SÍ nacen con el repo si se pasa `sources`.
       La API del webhook exige `hook_type=app`, `source=github`, `scope_id` y
