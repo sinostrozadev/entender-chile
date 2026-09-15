@@ -3,7 +3,7 @@
   "etapa": "validar_guion_informe",
   "veredicto": "pendiente",
   "vuelta": 1,
-  "actualizado": "2026-09-15 08:50",
+  "actualizado": "2026-09-15 08:51",
   "reparar": null,
   "piezas": [
     {
@@ -107,25 +107,25 @@
     {
       "id": "clave",
       "etiqueta": "Clave (entrega)",
-      "atraso": 310,
+      "atraso": 311,
       "dueno": "GPT · prompts/claves.md"
     },
     {
       "id": "guion_clave",
       "etiqueta": "Guion de la Clave",
-      "atraso": 280,
+      "atraso": 281,
       "dueno": "GPT · prompts/guion-claves.md"
     },
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 260,
+      "atraso": 261,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 155,
+      "atraso": 156,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
