@@ -387,6 +387,36 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **GPT 1: se agotó la cuota de ChatGPT a media cadena (15-09, 09:14) y hay
+      que limitar los despertares** (Santiago: "tendremos que limitar, se agotó
+      el uso"). La cadena quedó en `reparar_clave` con la Clave sin corregir;
+      el evento se emitió a las 09:14 y se reemitió a mano a las 09:32 sin
+      respuesta. Lo medido hoy: 20 eventos al PR #6 (cada uno despierta al
+      despachador) para 8 piezas escritas (preselección, informe x3, guion x3,
+      Clave). De los 20, once fueron etapas `validar_*`, que NO son turno de
+      GPT: lo despiertan solo para que ESPERE hasta 10 minutos sondeando main
+      (regla ESPERA del despachador). Y la tarea "Prueba flujo" de ChatGPT, si
+      sigue encendida, también despierta con cada uno de esos 20 eventos.
+      Cuatro medidas, en orden de rendimiento:
+      (1) **Emitir al PR #6 solo en turnos de GPT** (`*_lista`, `*_listo`,
+      `reparar_*`), en `estado.yml`; a Claude ya lo despierta la API. Hoy eso
+      habría sido 9 eventos en vez de 20.
+      (2) **Quitar la ESPERA de 10 minutos** del despachador (o dejarla en 2):
+      existía porque el evento podía no llegar, y desde hoy `estado.yml`
+      escucha los veredictos y el evento llega. Dejar solo "si la etapa ya
+      cambió a una tuya, sigue en la misma corrida".
+      (3) **Apagar o borrar la tarea "Prueba flujo"** en ChatGPT: la prueba
+      terminó el 14-09 y cada evento la despierta por nada.
+      (4) **La regla de convergencia de VALIDADOR 1**: cada vuelta extra es una
+      pieza reescrita entera por GPT (hoy el informe y el guion se escribieron
+      tres veces cada uno).
+      Y para el día en que la cuota igual se agote: el vigía (o el estado)
+      tiene que distinguir "GPT no responde" de "GPT no tiene cuota", y avisar
+      con la hora del último evento sin respuesta; hoy nadie avisó, lo vio la
+      sesión de día mirando el reloj. Falta el dato de Santiago: cuál es el
+      límite de ChatGPT y cómo se mide, para poner un presupuesto de
+      despertares por día.
+
 - [ ] **VALIDADOR 1: tope de vueltas alto, por etapa, y un plan B cuando se
       agote** (Santiago, 15-09 de mañana: "debiese tener un límite alto y por
       etapa, y un plan B para cuando se agote ese límite"). Hoy el tope es 2 y
