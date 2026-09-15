@@ -1,7 +1,7 @@
 {
   "fecha": "2026-09-15",
-  "etapa": "validar_final",
-  "veredicto": "pendiente",
+  "etapa": "aprobada",
+  "veredicto": "APROBADA",
   "vuelta": 0,
   "actualizado": "2026-09-15 13:10",
   "reparar": null,
@@ -87,13 +87,15 @@
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "listo",
       "prompt": null,
-      "hora": "",
+      "hora": "13:10",
       "esperada": "04:30",
       "dueno": "Claude · prompts/validador.md",
-      "rutas": []
+      "rutas": [
+        "contenido/revisiones/2026-09-15.md"
+      ]
     },
     {
       "id": "videos",
@@ -110,12 +112,6 @@
     }
   ],
   "atrasos": [
-    {
-      "id": "revision",
-      "etiqueta": "Revisión (veredicto final)",
-      "atraso": 520,
-      "dueno": "Claude · prompts/validador.md"
-    },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
