@@ -55,13 +55,37 @@ if (gc) chequearGuion(path.join(dirGC, gc), "clave");
 else console.log("- clave: hoy no hay guion (ok)");
 
 const rev = path.join("contenido", "revisiones", `${fecha}.md`);
+let revAprobada = false;
 if (fs.existsSync(rev)) {
   const t = fs.readFileSync(rev, "utf8");
-  if (/^VEREDICTO:\s*RECHAZADA/im.test(t)) errores.push(`la revisión editorial RECHAZÓ la edición - ver ${rev}`);
-  else if (/^VEREDICTO:\s*APROBADA/im.test(t)) console.log("✓ revisión editorial: APROBADA");
-  else avisos.push(`${rev} existe pero sin línea "VEREDICTO: APROBADA/RECHAZADA"`);
+  if (/^VEREDICTO:\s*(RECHAZADA|BLOQUEADA)/im.test(t)) errores.push(`la revisión editorial RECHAZÓ o BLOQUEÓ la edición - ver ${rev}`);
+  else if (/^VEREDICTO:\s*APROBADA/im.test(t)) { revAprobada = true; console.log("✓ revisión editorial: APROBADA"); }
+  else avisos.push(`${rev} existe pero sin línea "VEREDICTO: APROBADA/CORREGIR/BLOQUEADA"`);
 } else {
-  console.log("- sin archivo de revisión de hoy (se renderiza igual; el gate humano es antes de PUBLICAR)");
+  console.log("- sin archivo de revisión de hoy");
+}
+
+// Sin revisión del día, mandan los veredictos POR PIEZA de la cadena v3
+// (COMPUERTA 1, 15-09): desde que los videos suben PROGRAMADOS ya no hay gate
+// humano antes de publicar, así que el reloj de respaldo no puede renderizar
+// un guion que el validador no aprobó. La situación por pieza la calcula
+// scripts/estado.js y queda en contenido/estado/FECHA.json ("lista" =
+// APROBADA vigente, más nueva que la pieza). Un estado sin ese campo es de
+// antes de la v3: ahí se conserva el fail-open de siempre.
+const estadoJson = path.join("contenido", "estado", `${fecha}.json`);
+if (!revAprobada && fs.existsSync(estadoJson)) {
+  const est = JSON.parse(fs.readFileSync(estadoJson, "utf8"));
+  const sit = (id) => (est.piezas || []).find((x) => x.id === id)?.situacion;
+  if (sit("guion_informe") !== undefined) {
+    if (sit("guion_informe") === "lista") console.log("✓ guion del informe: APROBADA vigente del validador");
+    else errores.push(`guion del informe sin APROBADA vigente del validador (situación: ${sit("guion_informe")}) - no se renderiza hasta que Claude lo apruebe`);
+    if (gc && sit("guion_clave") !== "lista") {
+      avisos.push(`guion de la Clave sin APROBADA vigente (situación: ${sit("guion_clave")}): la Clave NO se renderiza en esta corrida; el informe sigue`);
+      if (process.env.GITHUB_ENV) fs.appendFileSync(process.env.GITHUB_ENV, "SIN_CLAVE=1\n");
+    } else if (gc) console.log("✓ guion de la Clave: APROBADA vigente del validador");
+  } else {
+    console.log("- estado sin situación por pieza (anterior a la v3): fail-open");
+  }
 }
 
 for (const a of avisos) console.log(`AVISO: ${a}`);

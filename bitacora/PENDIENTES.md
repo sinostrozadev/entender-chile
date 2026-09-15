@@ -387,8 +387,38 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **COMPUERTA 1 (URGENTE antes de la próxima madrugada): el respaldo por
-      reloj de la Edición diaria renderiza y ahora PUBLICA sin veredicto.**
+- [ ] **GPT 2: elegir el poder de GPT por etapa, para analizar** (Santiago,
+      15-09: "tener 4 PR distintos, uno para cada modelo de GPT, y despertar
+      GPT dependiendo del poder que necesitamos; o ver si le podemos decir a
+      GPT en cada mensaje qué modelo ocupar; o alguna solución similar").
+      Motivo: la cuota de ChatGPT se agotó el 15-09 con 8 piezas y 20
+      despertares, y no toda pieza necesita el modelo más caro (la
+      preselección y las correcciones de forma no; el informe y los guiones
+      sí). Lo que hay que averiguar antes de diseñar: (a) si una tarea
+      programada de ChatGPT tiene el modelo fijo por tarea o se puede pedir
+      por mensaje (hasta donde sabemos, es por tarea, y el texto del disparo
+      no lo cambia); (b) cómo se contabiliza la cuota (por mensaje, por
+      modelo, por tokens); (c) cuántas tareas caben (hoy hay tope de 5 y se
+      usan 2). Diseño A, si el modelo es por tarea: un PR por nivel de poder
+      (`automatizacion/estado-alto` y `-bajo`, no hacen falta cuatro), una
+      tarea de ChatGPT por PR con su modelo, y `estado.yml` emite al PR que
+      corresponde según la etapa: preselección y `reparar_*` de forma al bajo;
+      informe, guiones y Clave al alto. Costo: dos PR permanentes más y una
+      tabla etapa → poder en el estado. Diseño B, si el modelo se puede pedir
+      por mensaje: una sola tarea y el evento lleva `modelo=` en
+      `ultimo-evento.txt`. Diseño C, sin cambiar ChatGPT: bajar el trabajo por
+      pieza (GPT 1 ya hizo la mitad) y mover la preselección a una rutina de
+      Claude con Haiku, que es la pieza más mecánica. Medir una semana antes
+      de elegir.
+
+- [x] **COMPUERTA 1: el respaldo por reloj de la Edición diaria renderizaba y
+      publicaba sin veredicto.** ✅ 15-09, sesión de día con autorización de
+      Santiago: `scripts/gate.js` exige, sin revisión del día, la situación
+      "lista" (APROBADA vigente) del guion del informe en
+      `contenido/estado/FECHA.json`; si el guion de la Clave existe sin
+      aprobar, la corrida sigue sin la Clave (`SIN_CLAVE=1` en los pasos 4 y
+      4b). Estados sin situación por pieza (antes de la v3) siguen fail-open.
+      Queda por ver una madrugada real. Lo visto que motivó el cambio:
       Visto el 15-09: la corrida por cron de las 10:13 (Chile) renderizó el
       informe y su Short sin que existiera `contenido/revisiones/2026-09-15.md`
       (la cadena estaba en `reparar_clave`), porque `scripts/gate.js` es

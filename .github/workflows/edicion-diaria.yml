@@ -193,7 +193,7 @@ jobs:
           AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           VOICE_ID: ${{ secrets.VOICE_ID }}
-        if: env.SALTAR != '1' && env.HAY_CLAVE != '1'
+        if: env.SALTAR != '1' && env.HAY_CLAVE != '1' && env.SIN_CLAVE != '1'
         run: |
           if { [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; } || { [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; }; then VOZ="--voz"; else VOZ=""; fi
           node scripts/dia.js --clave --si-existe $VOZ --render
@@ -204,7 +204,7 @@ jobs:
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           AZURE_SPEECH_KEY2: ${{ secrets.AZURE_SPEECH_KEY2 }}
           AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
-        if: env.SALTAR != '1'
+        if: env.SALTAR != '1' && env.SIN_CLAVE != '1'
         continue-on-error: true
         run: |
           if [ -f "out/$FECHA/$FECHA-clave.mp4" ]; then node scripts/short.js --fecha "$FECHA" --clave --voz --render; else echo "Sin Clave hoy: no hay Short de la Clave."; fi
