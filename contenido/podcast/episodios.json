@@ -276,5 +276,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-15-informe.mp3",
     "bytes": 19509120,
     "durSeg": 813
+  },
+  {
+    "fecha": "2026-09-15",
+    "tipo": "clave",
+    "titulo": "Clave · Eliminar no es erradicar: cómo leer una certificación sanitaria",
+    "descripcion": "Una certificación sanitaria puede anunciar que una enfermedad fue eliminada y, aun así, exigir vacunación y vigilancia permanentes. Esta Clave explica qué separa el control, la eliminación y la erradicación, y cómo interpretar correctamente el reconocimiento otorgado a Chile por la rabia transmitida por perros.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-15-clave.mp3",
+    "bytes": 17220096,
+    "durSeg": 718
   }
 ]
