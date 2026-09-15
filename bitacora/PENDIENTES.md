@@ -374,30 +374,31 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **MÁQUINA V2, PRUEBA 1: la rutina de Claude YA EXISTE; falta correr la
-      prueba** (rutina creada por API desde la sesión local el 14-09 a las
-      22:26: `trig_01Rp682KSf5rAjThxSoEWHm7`, Opus, con el repo adjunto, y
-      webhook de GitHub `eb97eecb-c0d7-481b-8749-475e231f1932` sobre eventos
-      `pull_request` del repo). Dos cosas aprendidas al crearla:
-      (1) las rutinas creadas por agente SÍ nacen con el repo si se pasa
-      `sources`; lo del 08-09 fue una rutina creada sin ese campo. (2) La API
-      del webhook exige `hook_type`, `source`, `scope_id` y `events`; el filtro
-      por rama (`filter.head_ref`) lo aceptó sin error pero no lo devuelve, así
-      que hay que asumir que dispara con CUALQUIER evento de PR del repo (las
-      cuatro ramas de señal, ~10 al día). El PASO CERO del validador lo hace
-      salir en segundos cuando la etapa no es `prueba_validar_*`.
-      **Lo que queda: ejecutar a mano la tarea "Prueba flujo" de ChatGPT** (ya
-      existe, escucha el PR #6, apunta a `prompts/prueba-flujo.md`). Lo
-      esperado: pieza con 3 regiones y sin firma → `prueba_validar_v1` →
-      Claude deja CORREGIR → `prueba_corregir_v1` → GPT corrige (5 regiones +
-      FIRMA, vuelta 2) → `prueba_validar_v2` → APROBADA → `prueba_aprobada_v2`
-      → GPT escribe FIN. Cinco despertares de GPT y cuatro de Claude, dos de
-      ellos para retirarse. Rastro: los commits en
-      `contenido/pruebas/flujo/FECHA-pieza.md` y `FECHA-veredicto.md`.
-      **Ojo con el horario:** la prueba comparte la rama del PR #6 con
-      producción, así que cada evento de prueba también despierta al
-      despachador real (sale solo, etapa `prueba_*` no es suya). Correrla de
-      día o temprano en la noche, nunca entre 01:00 y 05:00.
+- [ ] **MÁQUINA V2, PRUEBA 1: el BUCLE COMPLETO PASÓ (14-09, 22:27 a 22:39),
+      pero el despertar de Claude por PR todavía no.** Rastro en
+      `contenido/pruebas/flujo/2026-09-14-pieza.md` y `-veredicto.md`: pieza
+      vuelta 1 (3 regiones, sin firma) → CORREGIR → vuelta 2 (5 regiones +
+      FIRMA) → APROBADA → FIN "aprobada en la vuelta 2". Doce minutos, cero
+      intervención humana en el lado de GPT: sus tres turnos los despertó el PR
+      #6 (v1 a mano para arrancar; v2 y FIN por evento).
+      **Lo que NO funcionó:** el webhook de GitHub tipo `pull_request` sobre la
+      rutina validadora (`eb97eecb`, creado 01:28Z) no disparó con ninguno de
+      los tres eventos del PR #6 que llegaron después. Los dos veredictos de
+      Claude salieron de corridas lanzadas a mano por API desde la sesión
+      local, no del webhook. Como el filtro por rama no se puede expresar por
+      API, se creó un segundo webhook tipo `push` (`8925b806`, 01:39Z), que es
+      el tipo que ya usa el guionista y despierta con CUALQUIER push del repo;
+      el PASO CERO del validador lo hace salir en segundos cuando no es su
+      turno. **Queda por ver** si ese despierta solo: el primer push después de
+      crearlo es el de este mismo commit.
+      Rutina: `trig_01Rp682KSf5rAjThxSoEWHm7` (Opus, repo adjunto). Aprendido:
+      las rutinas creadas por agente SÍ nacen con el repo si se pasa `sources`.
+      La API del webhook exige `hook_type=app`, `source=github`, `scope_id` y
+      `events`; ningún nombre de filtro por rama (`head_ref`, `branch`,
+      `branches`, `paths`) fue aceptado con efecto.
+      **Ojo con el horario de cualquier prueba nueva:** comparte la rama del PR
+      #6 con producción y cada evento de prueba despierta también al
+      despachador real (sale solo). Nunca entre 01:00 y 05:00.
       **Después de que pase, la prueba 2 (Santiago la prefiere para
       producción):** en la misma rutina generar el token de la API, guardarlo
       como secrets `CLAUDE_RUTINA_PRUEBA_ID` y `CLAUDE_RUTINA_PRUEBA_TOKEN`,
