@@ -103,33 +103,45 @@ jobs:
           VUELTA=$(grep -m1 '^VUELTA:' "$VISTA" | cut -d' ' -f2-); VUELTA=${VUELTA:-0}
           REPARAR=$(grep -m1 '^REPARAR:' "$VISTA" | cut -d' ' -f2- || true)
           git fetch origin main
+          # El PR #6 se toca SOLO en turnos de GPT (escribir o corregir). Las
+          # etapas validar_* son de Claude, que se despierta por API más abajo;
+          # emitirlas al PR despertaba al despachador solo para que esperara
+          # (15-09: 11 de 20 eventos fueron eso, y la cuota de ChatGPT se agotó
+          # a media cadena). aprobada, videos_listos, bloqueado_humano y
+          # nuevo_dia tampoco son de GPT.
+          EMITIR=1
+          echo "$ETAPA" | grep -Eq '^(barrido_listo|[a-z_]+_lista|[a-z_]+_listo|reparar_[a-z_]+)$' \
+            || { echo "etapa $ETAPA no es turno de GPT: no se toca el PR #6"; EMITIR=0; }
           # dedup por fecha, etapa Y vuelta: el día tiene varias etapas y cada
           # una necesita su aviso; y con el bucle de corrección la misma etapa
-          # (guiones_listos, reparar) vuelve a ocurrir en cada vuelta y hay que
-          # volver a avisar. La misma etapa de la misma vuelta no se anuncia dos veces.
-          if git fetch origin automatizacion/estado 2>/dev/null; then
+          # (reparar) vuelve a ocurrir en cada vuelta y hay que volver a avisar.
+          # La misma etapa de la misma vuelta no se anuncia dos veces.
+          if [ "$EMITIR" = 1 ] && git fetch origin automatizacion/estado 2>/dev/null; then
             EV=$(git show FETCH_HEAD:contenido/estado/ultimo-evento.txt 2>/dev/null || echo "")
             if echo "$EV" | grep -q "fecha_chile=$FECHA" && echo "$EV" | grep -q "^etapa=$ETAPA$" && echo "$EV" | grep -q "^vuelta=$VUELTA$"; then
               echo "el evento de la etapa $ETAPA (vuelta $VUELTA) ya se emitió hoy"
-              exit 0
+              EMITIR=0
             fi
           fi
-          SHA=$(git log -1 --format=%h origin/main)
-          git checkout -B automatizacion/estado origin/main
-          {
-            echo "fecha_chile=$FECHA"
-            echo "etapa=$ETAPA"
-            echo "vuelta=$VUELTA"
-            echo "reparar=$REPARAR"
-            echo "pieza=$(grep -m1 '^PIEZA:' "$VISTA" | cut -d' ' -f2- || true)"
-            echo "prompt=$(grep -m1 '^PROMPT:' "$VISTA" | cut -d' ' -f2- || true)"
-            echo "estado_commit=$SHA"
-            echo "vista=$VISTA"
-            echo "emitido_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          } > contenido/estado/ultimo-evento.txt
-          git add contenido/estado/ultimo-evento.txt
-          git commit -m "evento $FECHA: estado $ETAPA (vuelta $VUELTA)"
-          git push -f origin automatizacion/estado
+          if [ "$EMITIR" = 1 ]; then
+            SHA=$(git log -1 --format=%h origin/main)
+            git checkout -B automatizacion/estado origin/main
+            {
+              echo "fecha_chile=$FECHA"
+              echo "etapa=$ETAPA"
+              echo "vuelta=$VUELTA"
+              echo "reparar=$REPARAR"
+              echo "pieza=$(grep -m1 '^PIEZA:' "$VISTA" | cut -d' ' -f2- || true)"
+              echo "prompt=$(grep -m1 '^PROMPT:' "$VISTA" | cut -d' ' -f2- || true)"
+              echo "estado_commit=$SHA"
+              echo "vista=$VISTA"
+              echo "emitido_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            } > contenido/estado/ultimo-evento.txt
+            git add contenido/estado/ultimo-evento.txt
+            git commit -m "evento $FECHA: estado $ETAPA (vuelta $VUELTA)"
+            git push -f origin automatizacion/estado
+            git checkout -q main 2>/dev/null || true
+          fi
 
           # Despertar dirigido a Claude. Solo con etapa de Claude, solo si hay
           # secrets, y solo cuando el evento es NUEVO (el dedup de arriba ya

@@ -89,12 +89,15 @@ Claude.
 ## ESPERA DEL VEREDICTO (no termines al publicar)
 
 Claude valida en uno a tres minutos. Después de tu push, cada 60 segundos
-vuelve a leer `contenido/estado/FECHA.md` en `main`, hasta 10 minutos:
+vuelve a leer `contenido/estado/FECHA.md` en `main`, hasta 2 minutos (era 10:
+desde el 15-09 el estado escucha los veredictos y el PR #6 te despierta de
+verdad; esperar más solo gasta tu cuota):
 
 - si pasa a una etapa tuya (`<pieza>_lista`, `<pieza>_listo`, `reparar_<pieza>`),
   sigue con ella en esta misma corrida;
-- si sigue en `validar_*` a los 10 minutos, termina en una línea: el PR #6 te
-  despertará cuando Claude decida;
+- si sigue en `validar_*` a los 2 minutos, termina en una línea: el PR #6 te
+  despertará cuando Claude decida. Y si te despiertan y la etapa es
+  `validar_*`, no esperes nada: termina en una línea.
 - si pasa a `aprobada`, `videos_listos` o `bloqueado_humano`, termina.
 
 Tope por corrida: las cinco piezas más sus correcciones. Nunca escribas dos

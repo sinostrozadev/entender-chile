@@ -70,6 +70,15 @@ contrato. Para cada requisito, mira en la pieza si se cumple.
 - Los números en palabras cuentan igual que en cifras ("catorce" = 14).
 - Antes de afirmar que algo falta en un archivo, búscalo explícitamente:
   una lectura truncada no permite inferir ausencia (regla dura 10).
+- **Convergencia** (15-09; cada vuelta extra es una pieza reescrita entera y
+  cuota de GPT): en la vuelta 1 lista TODOS los INCUMPLE de la pieza, no los
+  primeros que encuentres. En las vueltas siguientes solo pueden volver los no
+  resueltos y los que la propia corrección introdujo; nunca sumes un hallazgo
+  nuevo sobre una parte que en la vuelta anterior no marcaste. Y cuando
+  propongas una redacción en "Debe quedar", verifícala tú contra la misma
+  regla antes de escribirla (cuenta las palabras, mira las cifras): el 15-09
+  una propuesta del validador tenía trece palabras contra un tope de doce y
+  costó una vuelta.
 
 ## 3. El veredicto
 

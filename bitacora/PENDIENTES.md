@@ -397,7 +397,10 @@ referencia:
       GPT: lo despiertan solo para que ESPERE hasta 10 minutos sondeando main
       (regla ESPERA del despachador). Y la tarea "Prueba flujo" de ChatGPT, si
       sigue encendida, también despierta con cada uno de esos 20 eventos.
-      Cuatro medidas, en orden de rendimiento:
+      Cuatro medidas, en orden de rendimiento. **(1), (2) y la regla de
+      convergencia de (4) APLICADAS el 15-09 desde la sesión de día con
+      autorización de Santiago; (3) la hace él en ChatGPT; queda por medir
+      una madrugada.**
       (1) **Emitir al PR #6 solo en turnos de GPT** (`*_lista`, `*_listo`,
       `reparar_*`), en `estado.yml`; a Claude ya lo despierta la API. Hoy eso
       habría sido 9 eventos en vez de 20.
