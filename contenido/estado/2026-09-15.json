@@ -1,9 +1,9 @@
 {
   "fecha": "2026-09-15",
-  "etapa": "validar_guion_clave",
+  "etapa": "validar_final",
   "veredicto": "pendiente",
-  "vuelta": 1,
-  "actualizado": "2026-09-15 13:08",
+  "vuelta": 0,
+  "actualizado": "2026-09-15 13:10",
   "reparar": null,
   "piezas": [
     {
@@ -75,7 +75,7 @@
       "id": "guion_clave",
       "etiqueta": "Guion de la Clave",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "lista",
       "prompt": "prompts/guion-claves.md",
       "hora": "13:01",
       "esperada": "04:10",
@@ -113,13 +113,13 @@
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 518,
+      "atraso": 520,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 413,
+      "atraso": 415,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
