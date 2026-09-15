@@ -1,54 +1,63 @@
-VEREDICTO: CORREGIR
+VEREDICTO: APROBADA
 VUELTA: 2
 PIEZA: guion_informe
 PROMPT: prompts/guion-informe.md
-VALIDADO: 2026-09-15T11:54:58Z
-
-Correcciones:
-1. Dónde: titular "La Corte anuló el traspaso de dos inmuebles al servicio educativo
-   Santiago Centro." (línea 162): tiene TRECE palabras contadas una por una (La,
-   Corte, anuló, el, traspaso, de, dos, inmuebles, al, servicio, educativo,
-   Santiago, Centro). · Regla: "Cada frase: MÁXIMO 12 PALABRAS" (punto 9, EN
-   TITULARES). · Debe quedar: "Corte anuló traspaso de dos inmuebles al servicio
-   educativo Santiago Centro." (once palabras, verificadas; conserva el hecho del
-   informe, línea 168: "anuló el traspaso de dos propiedades ... al Servicio Local
-   de Educación Pública Santiago Centro"). Nota: la redacción que proponía el
-   veredicto de la vuelta 1 también tenía trece palabras; manda el tope del prompt,
-   no esa propuesta.
+VALIDADO: 2026-09-15T12:01:31Z
 
 Observaciones:
+- El único INCUMPLE de la vuelta 2 quedó resuelto: el titular de la línea 162 es
+  ahora "Corte anuló traspaso de dos inmuebles al servicio educativo Santiago
+  Centro." (once palabras contadas una por una), dentro del tope de doce del
+  punto 9, y conserva el hecho del informe (línea 168). El commit eeaf3c0 tocó
+  esa línea y ninguna otra del guion.
 - Titular de la línea 186: el informe (línea 229) dice que el software de camas
-  "quedó bajo revisión periodística"; el titular dice solo "bajo revisión", que se
-  puede oír como una revisión institucional. Cabe dentro del tope: "Software de
-  camas hospitalarias bajo revisión periodística por conflicto de interés." (once
-  palabras).
-- En la línea 22 el [DATO cifra | Minsal, 14 sep] de los 54 años sigue pegado a un
-  párrafo que narra el año 1972; la cifra de la tarjeta se narra dos bloques antes,
-  en "La noticia del día".
+  "quedó bajo revisión periodística"; el titular dice solo "bajo revisión", que
+  se puede oír como una revisión institucional. Cabe dentro del tope: "Software
+  de camas hospitalarias bajo revisión periodística por conflicto de interés."
+  (once palabras).
+- Titular de la línea 157: "vinculado a Fodich" nombra la causa sin su
+  categoría; "vinculado al caso Fodich" queda en doce palabras y evita que se
+  oiga como una persona.
+- En la línea 22 el [DATO cifra | Minsal, 14 sep] de los 54 años sigue pegado a
+  un párrafo que narra el año 1972; la cifra de la tarjeta se narra dos bloques
+  antes, en "La noticia del día".
 - Titular de la línea 164: "Flávio Bolsonaro aventajó a Lula en un escenario de
-  segunda vuelta" viene de una encuesta (informe, líneas 198 a 200). El condicional
-  se conserva, pero la palabra "encuesta" lo dejaría cerrado.
-- La edición queda en unas 1.850 palabras narradas, cerca de 12 minutos y medio:
-  dentro de la banda de 12 a 13 que el prompt permite en días cargados, sin margen.
+  segunda vuelta" viene de una encuesta (informe, líneas 198 a 200). El
+  condicional se conserva, pero la palabra "encuesta" lo dejaría cerrado.
+- La edición queda en 1.852 palabras narradas, cerca de 12 minutos y medio:
+  dentro de la banda de 12 a 13 que el prompt permite en días cargados, sin
+  margen.
 
-Verificado y correcto en esta vuelta:
-- Las tres correcciones de fondo de la vuelta 1 quedaron resueltas. Desempleo: dos
-  cifras habladas ("nueve coma cinco por ciento" en la [TESIS] y "cerca de un
-  millón"), el resto solo en las tarjetas. Dólar: dos cifras habladas y redondeadas
-  ("cerca de novecientos cuarenta y un pesos", "casi cuatro pesos más"), con los
-  valores exactos en [DATO cambio]. Carátula: "54 años sin contagios", cuatro
-  palabras, en numerales y comprensible sin preguntar.
-- Cobertura: las cuatro [A] narradas, diez noticias narradas justo en el tope, y las
-  trece [B] fuera del corte más las veintiuna [C] suenan una por línea en "En
-  titulares" (34 líneas, cada una en su propia línea, "Y en titulares:" sola en la
-  suya, y solo la línea 162 sobre el tope de palabras).
+Verificado en esta vuelta:
+- Cobertura completa: las cuatro [A] narradas, diez noticias narradas justo en
+  el tope del punto QUÉ SE NARRA, las tres secciones de "¿En qué quedó?"
+  narradas como noticias breves, y las trece [B] fuera del corte más las
+  veintiuna [C] suenan una por línea en "En titulares" (34 líneas, todas de doce
+  palabras o menos, cada una en su propia línea, "Y en titulares:" sola en la
+  suya). Ninguna noticia agregada.
+- Matiz conservado al comprimir: "insistirá", "revisará", "intentará revertir",
+  "anunció", "pidió extender", "recurrirá" siguen siendo anuncio o trámite y no
+  hecho consumado.
+- Estructura: "## La noticia del día" abre en frío con la noticia de portada,
+  dos frases y 31 palabras, una sola marca y su [FUENTE]; Apertura de 30
+  palabras con la fecha y otros tres asuntos de "En una mirada"; "En titulares"
+  antes del dato curioso, agenda después, cierre con una sola frase de síntesis.
 - Once [TESIS], todas de 18 palabras o menos y con su línea en blanco detrás;
-  [FUENTE] en la línea siguiente a cada bloque de noticia y en ninguna de Apertura,
-  En titulares, Dato curioso, Agenda ni Cierre; tipos de [DATO] bien resueltos según
-  el árbol (cifra, comparacion, cambio, barras), sin tres [DATO cifra] seguidas, sin
-  dos tarjetas iguales seguidas dentro de un bloque y con dos [ESQUEMA].
-- Las tres líneas de "Escala humana" del informe están narradas como propias; los
-  números del texto van en palabras y los de las marcas en numerales; sin rayas, sin
-  paréntesis fuera de los indicadores, sin conectores de ensayo, sin superlativos
-  ajenos al informe, sin rutas internas en "Fuentes:", y "Para salir hoy" integrada
-  en la despedida con el tagline cerrando.
+  [FUENTE] en la línea siguiente a cada bloque de noticia y en ninguna de
+  Apertura, En titulares, Dato curioso, Agenda ni Cierre.
+- Marcas [DATO] bien resueltas según el árbol (cifra, comparacion, cambio,
+  barras), valores en numerales, etiquetas con contexto, sin tres [DATO cifra]
+  seguidas, sin dos tarjetas iguales seguidas dentro de un bloque, dos
+  [ESQUEMA], y ninguna tarjeta con un dato que no esté en el informe.
+- Redondeo en voz dentro del tope de tres cifras significativas; dos cifras
+  habladas como máximo en cada [B]; las tres líneas de "Escala humana" del
+  informe narradas como propias, sin mencionar el informe como documento.
+- El informe no trae secciones de "Análisis", así que no correspondía
+  [INTERPRETACIÓN]; sin rayas, sin paréntesis fuera de los indicadores, sin URLs
+  ni conectores de ensayo, sin superlativos ajenos al informe.
+- "Fuentes:" cubre las fuentes de las marcas y las de la prosa, sin rutas
+  internas del sistema; "Para salir hoy" integrada en la despedida y el tagline
+  "El resumen sin gritos." cierra el guion.
+- Contrato: ruta contenido/guiones/informe/2026-09-15.md, encabezados "Título
+  sugerido:", "Descripción sugerida:", "Carátula sugerida:", "Guion:" y
+  "Fuentes:", y commit "edición 2026-09-15: guion informe".
