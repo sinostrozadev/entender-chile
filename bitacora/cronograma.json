@@ -3,7 +3,7 @@
   "actualizado": "2026-09-14",
   "fases": [
     {
-      "nombre": "La madrugada — cadena editorial (cada pieza despierta a la siguiente)",
+      "nombre": "La madrugada: cadena LINEAL v3 (GPT escribe, Claude valida cada pieza, el estado manda)",
       "items": [
         {
           "hora": "01:30",
@@ -15,79 +15,61 @@
           "hora": "01:31",
           "quien": "Barrido",
           "tipo": "actions",
-          "que": "Recorre los feeds de ~22 medios, marca las noticias con señal y publica el material bruto del día. Al terminar emite el evento al PR #2. Respaldos: crons 01:50 y 02:20 (solo si falta)."
+          "que": "Recorre los feeds de ~22 medios y publica el material bruto del día. Al terminar, estado.yml (workflow_run) recalcula la vista y emite barrido_listo al PR #6. Respaldos: crons 01:50 y 02:20."
         },
         {
-          "hora": "~01:38",
-          "quien": "Preselección",
+          "hora": "~01:35 en adelante",
+          "quien": "Despachador (GPT)",
           "tipo": "gpt",
-          "que": "Despierta con el evento del PR #2. Arma la olla: ~50 candidatas por área con el porqué, visitando además las instituciones sin feed. Su push emite el evento al PR #3."
+          "que": "UNA tarea para las cinco piezas, despertada por el PR #6. Lee ETAPA, PIEZA, PROMPT y ARCHIVO del estado, escribe la pieza con ese prompt, pushea y ESPERA el veredicto. Orden: preselección → informe → guion del informe → entrega de Clave → guion de la Clave. Si Claude devuelve (reparar_<pieza>), corrige solo lo pedido. Prompt vivo: prompts/despachador-gpt.md."
+        },
+        {
+          "hora": "tras cada pieza",
+          "quien": "Validador (Claude, Opus)",
+          "tipo": "claude",
+          "que": "Despertado por API desde estado.yml en cada validar_<pieza> (trig_01B8tLFaXe7h1YBCciFE2iKf; su reloj de 02:20 queda de red). Lee el prompt de la pieza y verifica requisito por requisito; escribe contenido/veredictos/FECHA-<pieza>.md: APROBADA avanza el estado, CORREGIR lo mantiene con correcciones ejecutables para GPT. Tope: dos vueltas, después BLOQUEADA. Al aprobar la última pieza escribe contenido/revisiones/FECHA.md, la compuerta. Prompt vivo: prompts/validador.md."
+        },
+        {
+          "hora": "continuo",
+          "quien": "Estado del día",
+          "tipo": "actions",
+          "que": "Con cada push recalcula contenido/estado/FECHA.md desde los archivos y los veredictos, emite la etapa al PR #6 (dedup por fecha, etapa y vuelta) y, si la etapa es validar_*, despierta al validador por API."
         },
         {
           "hora": "01:45",
           "quien": "Observatorio plata pública",
           "tipo": "claude",
-          "que": "En paralelo: busca novedades verificables de cada caso en seguimiento (querellas, cifras oficiales, sentencias) y actualiza los dossiers de ¿En qué quedó? que publica la web."
+          "que": "En paralelo: busca novedades verificables de cada caso en seguimiento y actualiza los dossiers de ¿En qué quedó? que publica la web."
         },
         {
-          "hora": "~02:00",
-          "quien": "Informe",
-          "tipo": "gpt",
-          "que": "Despierta con el evento del PR #3. Verifica cada candidata leyendo las fuentes completas, jerarquiza A/B/C, elige portada con puntaje y escribe la edición completa. Su push emite el evento al PR #4, reconstruye la web y despierta al guionista. Respaldo fijo 03:30 con guarda (se apaga al validar la prueba)."
-        },
-        {
-          "hora": "~02:10 y ~02:35",
-          "quien": "Guionista (informe y Clave)",
-          "tipo": "claude",
-          "que": "UNA rutina para las dos piezas desde el 07-09: el webhook de GitHub la despierta con cada push y ella mira qué falta — si hay informe sin guion lo escribe, si hay entrega de Clave sin guion lo escribe. Sale en segundos cuando no le toca (guardas probadas: 11 s). Reloj 03:35 de respaldo. Prompt vivo: prompts/guionista.md."
-        },
-        {
-          "hora": "~02:30",
-          "quien": "Clave (entrega)",
-          "tipo": "gpt",
-          "que": "Despierta con el evento del PR #4. La entrega educativa diaria: un concepto detrás de una noticia, banco de temas e índice de la colección. Su push despierta al guionista por webhook. SIN RESPALDO POR RELOJ desde el 13-09: Santiago quitó la tarea fija de GPT de las 03:45, así que la Clave depende solo del evento. Si el evento no llega, no hay entrega y ese día no hay Clave ni video de Clave; quien avisa es el Vigía de la cadena (02:15 y 05:15)."
-        },
-        {
-          "hora": "03:50",
-          "quien": "Guionista de la Clave (red)",
-          "tipo": "claude",
-          "que": "Segunda red por reloj: si el guionista por evento no escribió el guion de la Clave, esta lo hace. Calla por dedup cuando ya está."
+          "hora": "~04:00",
+          "quien": "Edición diaria",
+          "tipo": "actions",
+          "que": "La fábrica, con compuerta (exige la revisión del día con VEREDICTO: APROBADA, que ahora escribe el validador al cerrar la cadena): voz Azure, renders de los 4 videos, carátulas, subida privada a YouTube, podcast."
         },
         {
           "hora": "02:15 y 05:15",
           "quien": "Vigía de la cadena",
           "tipo": "claude",
-          "que": "Mira si algún eslabón falta a destiempo y avisa al teléfono mientras todavía se puede arreglar. No escribe ni repara nada: solo lee el estado que calcula scripts/estado.js desde los archivos. A las 02:15 pilla una madrugada que no arrancó; a las 05:15, una revisión que no llegó (lo que pasó el 08-09 y nadie detectó). Prompt vivo: prompts/vigia.md."
-        },
-        {
-          "hora": "~01:52 (relojes 02:20 y 04:45 de red)",
-          "quien": "Revisión editorial (Opus)",
-          "tipo": "claude",
-          "que": "Control de calidad: compara los guiones contra el informe buscando 5 tipos de falla (omisión, dato alterado, sentido cambiado, formato, redondeo en voz) y, ante un dato malo que puede comprobar, lo corrige y republica. Desde el 15-09 la DESPIERTA estado.yml por la API de Routines apenas la etapa llega a guiones_listos (secrets CLAUDE_RUTINA_REVISION_*); la temprana de las 02:20 (trig_01B8tLFaXe7h1YBCciFE2iKf) y la de las 04:45 (trig_01CR3g2re9G7warvfdt4MfMS) quedan de red y salen en segundos si ya hay revisión. Su veredicto es la compuerta: sin APROBADA no hay render ni informe en la web."
-        },
-        {
-          "hora": "~04:50",
-          "quien": "Edición diaria",
-          "tipo": "actions",
-          "que": "La fábrica, con compuerta (exige guion + veredicto APROBADA; el push de la revisión la timbra): voz Azure → renders de los 4 videos → carátulas automáticas → sube todo PRIVADO → descripciones → podcast. Cron de respaldo 05:00."
+          "que": "Mira si algún eslabón falta a destiempo o si el estado quedó en bloqueado_humano, y avisa al teléfono. No escribe ni repara nada."
         },
         {
           "hora": "05:00",
           "quien": "Reloj de métricas → Métricas",
           "tipo": "actions",
-          "que": "Baja los números del canal video por video (con retención de Analytics) y redibuja el panel — ahora ANTES del informe de la mañana, para que llegue con números frescos. Respaldos 06:30 y 08:00."
+          "que": "Baja los números del canal video por video (con retención de Analytics) y redibuja el panel."
         },
         {
           "hora": "05:30",
           "quien": "Auditoría matinal",
           "tipo": "claude",
-          "que": "Audita la máquina: horas reales vs esperadas, hallazgos del validador y la revisión, triage HOY/AGUANTA/MIRAR. Escribe su archivo y lo inyecta al panel. Desde el 06-09 lee su prompt vivo del repo (prompts/auditoria-matinal.md): nunca más una versión atrás."
+          "que": "Audita la máquina: horas reales vs esperadas, vueltas de corrección, hallazgos; triage HOY/AGUANTA/MIRAR; baja sus HOY a PENDIENTES."
         },
         {
           "hora": "06:00",
           "quien": "Informe de la mañana (Opus)",
           "tipo": "claude",
-          "que": "El guardián v2: verifica pieza por pieza la edición, y arma EL INFORME DIARIO para el teléfono de Santiago — la edición, lo editorial (portada, Clave, carátula), los números con deltas, el estado de la máquina y su lista de acciones. Prompt vivo: prompts/guardian.md."
+          "que": "El guardián: verifica pieza por pieza la edición y arma EL INFORME DIARIO para el teléfono de Santiago. Prompt vivo: prompts/guardian.md."
         }
       ]
     },
@@ -108,9 +90,9 @@
         },
         {
           "hora": "continuo",
-          "quien": "Señales (PR #2 · #3 · #4 · #6)",
+          "quien": "Señales (PR #6; #2 sigue emitiéndose, #3 y #4 apagadas)",
           "tipo": "senal",
-          "que": "Cuatro PR permanentes que jamás se fusionan: el timbre entre eslabones. Cada workflow emisor deduplica por día y se auto-repara en la corrida siguiente. El #6 es nuevo (13-09): lo emite estado.yml con cada cambio de ETAPA y es el disparador único del despachador de GPT (prompts/despachador-gpt.md), La tarea 'Despachador Entender Chile' ya existe y escucha ese PR sin horario; las tres tareas viejas siguen encendidas hasta ver una madrugada."
+          "que": "El PR #6 es el único timbre vivo: lo emite estado.yml con cada cambio de etapa y vuelta. Los PR #3 y #4 dejaron de emitirse el 14-09 (senal-*.yml desactivados) y las tres tareas viejas de GPT están apagadas; el #2 lo sigue emitiendo barrido.yml pero ya nadie lo escucha."
         },
         {
           "hora": "continuo",

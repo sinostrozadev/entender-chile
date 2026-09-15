@@ -101,67 +101,39 @@ pudo; silencio cuando GPT cumplió.
       siga vivo y sea accionable. Después la hoja de ruta se queda como mapa
       del proyecto, no como lista de tareas (regla 41). Dueño: sesión de día.
 
-## MÁQUINA DE ESTADOS: paso 1 COMPLETO (vigía el 08-09, estado escrito el 13-09)
+## MÁQUINA DE ESTADOS: CADENA LINEAL v3 EN PRODUCCIÓN desde la madrugada del 15-09
 
-- [x] **Vigía y estado del día.** ✅ 08-09, 23:05. `scripts/estado.js` calcula la
-      etapa desde los archivos (probado en 4 casos) y `prompts/vigia.md` +
-      rutina `trig_01LUtn4fSJjBsCzqdoWeVviH` (Haiku, 02:15 y 05:15, con repo
-      montado) avisan al teléfono solo si falta un eslabón. Probada con corrida
-      real: 13 s, salida 0, sin notificar. Primera vigilancia de verdad: 02:15.
-- [ ] **Lo que sigue de la máquina** (orden acordado), con el paso 1 ya cerrado
-      el 13-09 (estado.yml escribe la vista con cada pieza que llega):
-      **(2) re-chequeo antes del push: HECHO el 13-09.** `prompts/guionista.md`
-      paso 4: antes de publicar vuelve a mirar `origin/main` por pieza y, si
-      alguien llegó primero, se retira sin pisar. Queda por ver una madrugada
-      real con las dos redes despiertas.
-      **(3) revisión temprana + web que espera el veredicto: HECHO el 13-09.**
-      La revisión corre ahora a las 02:20 (`trig_01B8tLFaXe7h1YBCciFE2iKf`),
-      apenas están los guiones, con la de las 04:45 como red; el punto 0 del
-      prompt evita que se pisen. Y la web filtra por veredicto
-      (`web/src/lib/contenido.ts`, `aprobada()`), con corte el 14-09 para no
-      bajar del sitio nada de lo ya publicado.
-      **Queda por ver**: una madrugada real con las dos corridas, y decidir si
-      el corte se mueve hacia atrás (hoy el 11-09 quedaría fuera del sitio: su
-      veredicto fue RECHAZADA y la corrección sigue en el PR #5 sin fusionar).
-      **(4) GPT a un solo PR: HECHO el 13-09** (despachador por el PR #6; la
-      madrugada del 14 lo probó: tres piezas en siete minutos).
-      **LA VUELTA DEL BUCLE: EN PRODUCCIÓN desde la madrugada del 15-09**
-      (Santiago, 14-09 noche: "GPT crea, Claude valida y cambia de estado o lo
-      mantiene con las correcciones, GPT corrige y avisa, y así"). Cómo queda:
-      la revisión ya no RECHAZA; lo que no puede corregir sola (3c) lo devuelve
-      con `VEREDICTO: CORREGIR`, `VUELTA: N` y `REPARAR: <piezas>` más una
-      sección "Correcciones para <pieza>" con ítems ejecutables. El estado
-      (`estado.js`) entiende VIGENCIA: un guion más viejo que su informe es
-      "viejo" y se reescribe; una revisión más vieja que las piezas es
-      "pendiente" y se repite. GPT corrige `informe`/`clave` por el PR #6
-      (etapa `reparar`); el guionista corrige `guion_*` o reescribe el guion
-      viejo; la revisión se vuelve a disparar por API en cada vuelta (dedup por
-      fecha+etapa+vuelta). Tope: dos vueltas; a la tercera `BLOQUEADA` →
-      etapa `bloqueado_humano`, el vigía alarma y decide Santiago. Un día con
-      videos publicados está CERRADO: ediciones posteriores no reabren nada.
-      **Primera noche en vivo: 15-09. Nunca se probó con piezas reales**; lo
-      que se probó (14-09) fue el bucle con piezas de mentira y los dos
-      despertares por evento. Si algo sale raro, el orden para mirar es:
-      `contenido/estado/2026-09-15.md` (ETAPA, VUELTA, REPARAR), el log de
-      `estado.yml`, y las corridas de las rutinas de revisión.
-      **(5) Claude a dos despachadoras** (el guionista sigue despertando con
-      cualquier push; pasarlo a /fire como la revisión: token + secret + un
-      `case` más).
-      El §5 del diseño ya tiene la vuelta del bucle como principio general, con
-      la tabla de quién repara qué.
-- [x] **Decidido: la web ESPERA el veredicto** (Santiago, 08-09 noche). Se
-      implementa en `web/src/lib/contenido.ts` → `informes()`, con fecha de corte
-      desde el 09-09 para no borrar del sitio los informes anteriores a la
-      revisión. Va junto con mover la revisión a por evento (paso 3).
-- [ ] **Sigue abierto:** si la guardia reescribe el exprés rechazado (hoy el
-      prompt se lo prohíbe; bajo el principio del bucle debería, ciñéndose al
-      material capturado y con tope de dos vueltas).
-- [ ] **Antes del paso 4, Santiago verifica en ChatGPT:** cuántas tareas tiene
-      ocupadas de las 5 (¿3 de contenido, o 5 con los respaldos del informe y la
-      Clave?) y si una tarea programada puede volver a dispararse mientras ya
-      está corriendo. Si NO puede, un disparo que llegue mientras escribe el
-      informe se pierde: por eso el despachador único va acompañado de UNA tarea
-      de respaldo por reloj (2 en total, 3 slots libres), y el vigía avisa igual.
+- [ ] **Primera noche en vivo de la v3 (15-09). Nunca corrió con piezas
+      reales.** Lo decidió Santiago el 14-09 en la noche ("prefiero que nos
+      arriesguemos ahora ya"). Qué es: GPT escribe las CINCO piezas (vuelve a
+      escribir los guiones), una por turno, y Claude valida cada una contra su
+      prompt antes de que exista la siguiente. Orden: preselección → informe →
+      guion del informe → entrega de Clave → guion de la Clave. El estado
+      (`scripts/estado.js`) es lineal y lo mueven los veredictos por pieza de
+      Claude (`contenido/veredictos/FECHA-<pieza>.md`); la vista trae PIEZA,
+      PROMPT y ARCHIVO, que GPT y el validador leen tal cual. Tope: dos vueltas
+      de corrección por pieza, después BLOQUEADA y etapa `bloqueado_humano`
+      (el vigía alarma). La revisión del día la escribe el validador al aprobar
+      la última pieza: sigue siendo la compuerta del render y de la web.
+      **Qué mirar en la mañana:** `contenido/estado/2026-09-15.md` (ETAPA,
+      VUELTA, PIEZA), `contenido/veredictos/2026-09-15-*.md` (cinco archivos,
+      con sus vueltas), el log de `estado.yml` ("Claude despertado por API" en
+      cada validar_*), y las corridas de `trig_01B8tLFaXe7h1YBCciFE2iKf`.
+      **Riesgos conocidos:** (1) el despachador espera el veredicto hasta 10
+      min en la misma corrida; si ChatGPT no sostiene la espera, el PR #6 lo
+      despierta igual con cada veredicto. (2) Si un veredicto se pierde, la
+      etapa queda en validar_* y el reloj de las 02:20 del validador la toma.
+      (3) Los guiones vuelven a GPT: calidad por ver contra la rúbrica.
+      **Apagado, no borrado:** rutinas `trig_01CR3g2re9G7warvfdt4MfMS`
+      (revisión 04:45), `trig_01HUjC4MjKGmmpDMApn8gtJm` (guionista) y
+      `trig_017nkjJWR5Voud4dYgPhvwF7` (guionista de la Clave); workflows
+      `senal-preseleccion.yml` y `senal-informe.yml`; las tres tareas viejas de
+      GPT. `prompts/guionista.md` y `prompts/revision-editorial.md` quedan sin
+      rutina que los lea. Si la v3 falla, volver atrás es reactivar eso.
+- [ ] **Antes del paso 4, Santiago verifica en ChatGPT:** ya no aplica, el
+      despachador único está en producción con una sola tarea.
+- [ ] **Después: separar los flujos** (Santiago, 14-09): un estado y una
+      tabla por flujo (informe, Clave, exprés), sobre la misma máquina.
 
 ## EL DISEÑO COMPLETO (08-09): un solo disparador y máquina de estados
 
