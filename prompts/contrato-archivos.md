@@ -39,6 +39,9 @@ REGLAS DE COMMIT:
 - Cada tarea commitea y pushea SOLO sus propios archivos. Mensaje:
   "edición AAAA-MM-DD: <pieza>" donde <pieza> es preselección, informe,
   claves, guion informe o guion clave.
+- El encabezado no se toca, pero el commit PUEDE llevar cuerpo con la línea
+  "Tarea: <nombre>" (por ejemplo "Tarea: despachador") para dejar rastro de qué
+  tarea escribió la pieza. Se lee con `git log --format=%b`.
 - Jamás modificar archivos de fechas anteriores; re-ejecuciones del mismo
   día sí sobreescriben los archivos de ese día.
 - La Clave es DIARIA (decisión del 02-09, disputa 6 cerrada): todos los días

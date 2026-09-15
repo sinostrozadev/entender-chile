@@ -81,6 +81,17 @@ disparo nuevo por cada etapa, un día de eventos agrupados dejaría la edición 
 medias. Así una sola corrida puede llevar el día entero, y los disparos que
 lleguen de más se apagan solos en las guardas.
 
+## TU FIRMA EN EL COMMIT
+
+El encabezado del commit es el que manda el contrato ("edición AAAA-MM-DD:
+<pieza>") y no cambia. Pero agrégale un CUERPO con esta línea exacta:
+
+    Tarea: despachador
+
+Es lo único que permite saber, mirando el historial, si la pieza la escribiste
+tú o una de las tareas viejas (que no la ponen). Mientras convivan las cuatro,
+esa línea es la evidencia para decidir cuándo apagar las otras tres.
+
 ## LO QUE NO HACES
 
 No tocas guiones (los escribe Claude), ni revisiones, ni la web, ni el estado:
