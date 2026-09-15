@@ -70,22 +70,33 @@ jobs:
           FECHA=$(TZ=America/Santiago date +%F)
           git config user.name "estado-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add contenido/estado/
-          git diff --cached --quiet && { echo "sin cambios en el estado"; exit 0; }
-          # ¿cambió algo más que la marca de hora?
-          UTIL=$(git diff --cached -U0 -- contenido/estado/ \
-                 | grep -E "^[+-][^+-]" \
-                 | grep -vE "^[+-](ACTUALIZADO:|[[:space:]]*\"actualizado\":)" \
-                 | wc -l)
-          if [ "$UTIL" -eq 0 ]; then
-            git reset -q
-            echo "solo cambió la marca de hora: no se commitea"
-            exit 0
-          fi
-          ETAPA=$(grep -m1 '^ETAPA:' "contenido/estado/$FECHA.md" | cut -d' ' -f2-)
-          git commit -m "estado $FECHA: $ETAPA [bot]"
-          git -c rebase.autoStash=true pull --rebase origin main
-          git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
+          # El estado es una función de los archivos: si otro push llegó
+          # mientras calculábamos, NO se rebasea (el 15-09 dos corridas a
+          # cuatro segundos chocaron en el JSON y la segunda murió sin emitir
+          # ni despertar a Claude). Se vuelve a main fresco, se recalcula y se
+          # reintenta, hasta tres veces.
+          for intento in 1 2 3; do
+            git fetch -q origin main
+            git reset -q --hard origin/main
+            node scripts/estado.js
+            git add contenido/estado/
+            git diff --cached --quiet && { echo "sin cambios en el estado"; exit 0; }
+            # ¿cambió algo más que la marca de hora?
+            UTIL=$(git diff --cached -U0 -- contenido/estado/ \
+                   | grep -E "^[+-][^+-]" \
+                   | grep -vE "^[+-](ACTUALIZADO:|[[:space:]]*\"actualizado\":)" \
+                   | wc -l)
+            if [ "$UTIL" -eq 0 ]; then
+              git reset -q
+              echo "solo cambió la marca de hora: no se commitea"
+              exit 0
+            fi
+            ETAPA=$(grep -m1 '^ETAPA:' "contenido/estado/$FECHA.md" | cut -d' ' -f2-)
+            git commit -q -m "estado $FECHA: $ETAPA [bot]"
+            if git push -q origin main; then echo "estado commiteado: $ETAPA (intento $intento)"; break; fi
+            echo "push rechazado (intento $intento de 3): main cambió, recalculo encima"
+            [ "$intento" = 3 ] && { echo "::error::no se pudo commitear el estado tras tres intentos"; exit 1; }
+          done
 
       - name: Emitir el evento al PR único del estado (es quien despierta a GPT) y, por API, a Claude
         env:
@@ -159,11 +170,17 @@ jobs:
             else
               ETAPA_DISPARO="$ETAPA"
               git checkout -q main 2>/dev/null || true
-              git -c rebase.autoStash=true pull -q --rebase origin main
-              echo "$FECHA $ETAPA $VUELTA" > "$MARCA"
-              git add "$MARCA"
-              git commit -q -m "disparo a Claude $FECHA: $ETAPA (vuelta $VUELTA) [bot]"
-              git push -q origin main || { git -c rebase.autoStash=true pull -q --rebase origin main; git push -q origin main; }
+              for intento in 1 2 3; do
+                git fetch -q origin main && git reset -q --hard origin/main
+                YA=$(cat "$MARCA" 2>/dev/null || echo "")
+                if [ "$YA" = "$FECHA $ETAPA $VUELTA" ]; then echo "otra corrida ya dejó la marca: no se repite el disparo"; ETAPA_DISPARO=""; break; fi
+                echo "$FECHA $ETAPA $VUELTA" > "$MARCA"
+                git add "$MARCA"
+                git commit -q -m "disparo a Claude $FECHA: $ETAPA (vuelta $VUELTA) [bot]"
+                git push -q origin main && break
+                echo "push de la marca rechazado (intento $intento de 3)"
+                [ "$intento" = 3 ] && { echo "::warning::no se pudo dejar la marca; se dispara igual"; }
+              done
             fi
           else
             ETAPA_DISPARO=""
