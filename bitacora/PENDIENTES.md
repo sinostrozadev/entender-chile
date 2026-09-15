@@ -387,6 +387,23 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **COMPUERTA 1 (URGENTE antes de la próxima madrugada): el respaldo por
+      reloj de la Edición diaria renderiza y ahora PUBLICA sin veredicto.**
+      Visto el 15-09: la corrida por cron de las 10:13 (Chile) renderizó el
+      informe y su Short sin que existiera `contenido/revisiones/2026-09-15.md`
+      (la cadena estaba en `reparar_clave`), porque `scripts/gate.js` es
+      fail-open a propósito: "la ausencia del archivo de revisión NO bloquea;
+      el gate de publicación real es humano, antes de subir a YouTube". Ese
+      gate humano desapareció hoy con la subida PROGRAMADA: el informe se
+      publicó solo a las 11:36. Hoy no pasó nada grave porque en la v3 el
+      informe y su guion ya tenían APROBADA por pieza, pero un guion en
+      `reparar_` a la hora del cron saldría al aire. Arreglo mínimo, en
+      `gate.js` o en el paso 0b: con `event_name == schedule`, exigir
+      `contenido/veredictos/FECHA-guion_informe.md` con APROBADA más nuevo
+      que el guion (y lo mismo para la Clave si hay guion de Clave); sin eso,
+      no renderizar y avisar. La revisión del día completa sigue siendo la
+      compuerta de la web.
+
 - [ ] **GPT 1: se agotó la cuota de ChatGPT a media cadena (15-09, 09:14) y hay
       que limitar los despertares** (Santiago: "tendremos que limitar, se agotó
       el uso"). La cadena quedó en `reparar_clave` con la Clave sin corregir;

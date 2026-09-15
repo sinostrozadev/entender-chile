@@ -150,7 +150,7 @@ function horaProgramada(dia, hhmm) {
       if (pl) { await yt.playlistItems.insert({ part: ["snippet"], requestBody: { snippet: { playlistId: pl, resourceId: { kind: "youtube#video", videoId: id } } } }); console.log("agregado a su playlist ✓"); }
     } catch (e) { console.log(`(playlist no: ${e.message.split("\n")[0]})`); }
   }
-  console.log(`Subido: https://youtu.be/${id} (${programar ? `programado para las ${programar} de Chile` : privacidad})`);
+  console.log(`Subido: https://youtu.be/${id} (${programar ? `programado, publishAt ${horaProgramada(fecha, programar)} (pedido: ${programar} de Chile)` : privacidad})`);
 
   if (fs.existsSync(miniatura)) {
     try {
