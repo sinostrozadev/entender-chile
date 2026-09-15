@@ -3,7 +3,7 @@
   "etapa": "reparar_clave",
   "veredicto": "pendiente",
   "vuelta": 1,
-  "actualizado": "2026-09-15 11:07",
+  "actualizado": "2026-09-15 12:53",
   "reparar": {
     "piezas": [
       "clave"
@@ -119,19 +119,19 @@
     {
       "id": "guion_clave",
       "etiqueta": "Guion de la Clave",
-      "atraso": 417,
+      "atraso": 523,
       "dueno": "GPT · prompts/guion-claves.md"
     },
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 397,
+      "atraso": 503,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 292,
+      "atraso": 398,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
