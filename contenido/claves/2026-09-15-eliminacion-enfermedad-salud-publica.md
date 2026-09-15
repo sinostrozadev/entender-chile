@@ -4,7 +4,7 @@ Slug: eliminacion-enfermedad-salud-publica
 
 ## La noticia que abrió esta pregunta - 15 de septiembre de 2026
 
-La Organización Mundial de la Salud validó a Chile como el primer país de Sudamérica que eliminó la rabia humana transmitida por perros como problema de salud pública. Al 15 de septiembre de 2026, el reconocimiento se apoyaba en más de cinco décadas sin casos humanos asociados a la variante canina y en la capacidad del país para sostener vacunación animal, vigilancia, diagnóstico y profilaxis después de una exposición. El informe también advertía que el riesgo no había desaparecido, porque el virus podía seguir circulando en reservorios silvestres (Informe diario, 15 sep 2026).
+La Organización Mundial de la Salud validó a Chile como el primer país de Sudamérica que eliminó la rabia humana transmitida por perros como problema de salud pública. Al 15 de septiembre de 2026, el reconocimiento se apoyaba en más de cinco décadas sin casos humanos asociados a la variante canina y en la capacidad del país para sostener vacunación animal, vigilancia, educación y profilaxis después de una exposición. El informe también advertía que el riesgo no había desaparecido, porque el virus podía seguir circulando en reservorios silvestres (Informe diario, 15 sep 2026).
 
 ## La pregunta de fondo
 
@@ -91,8 +91,8 @@ Por eso no hay contradicción entre celebrar la certificación y seguir vacunand
 Fuentes:
 
 - Informe diario de Entender Chile, 15 sep 2026.
-- Organización Mundial de la Salud, "Chile becomes first country in South America validated for eliminating dog-transmitted rabies as a public health problem", 14 sep 2026.
-- Organización Mundial de la Salud, ficha informativa "Rabies", 5 jun 2024.
-- Organización Panamericana de la Salud, "A Policy for an Integrated Sustainable Approach to Communicable Diseases in the Americas: Elimination Initiative", 2019.
+- Organización Mundial de la Salud, comunicado sobre la validación de Chile por la eliminación de la rabia humana transmitida por perros como problema de salud pública, 14 sep 2026.
+- Organización Mundial de la Salud, ficha informativa sobre la rabia, 5 jun 2024.
+- Organización Panamericana de la Salud, política para un enfoque integrado y sostenible frente a las enfermedades transmisibles en las Américas: Iniciativa de Eliminación, 2019.
 - Ministerio de Salud de Chile, Decreto 1, Reglamento de prevención y control de la rabia en el hombre y en los animales, 29 ene 2014.
 - Comité Asesor en Vacunas y Estrategias de Inmunización y Ministerio de Salud de Chile, "Recomendación sobre vacunación antirrábica", 17 abr 2025.
