@@ -98,8 +98,6 @@ Esa es la paradoja de la prevención. Cuando falla, todos ven el costo. Cuando f
 
 Volvamos al quince de septiembre de dos mil veintiséis. A esa fecha, el último caso humano asociado a la variante canina en Chile databa de mil novecientos setenta y dos. La Organización Mundial de la Salud validó la interrupción sostenida de la rabia humana transmitida por perros y la capacidad institucional para impedir su retorno.
 
-[DATO comparacion | OMS, 14 sep 2026] último caso humano por variante canina: 1972 ; validación internacional: 2026
-
 El reconocimiento no declaró al país libre de todo virus rábico. Tampoco convirtió una mordedura en un hecho que pueda ignorarse. Celebrar la validación y mantener vacunación de mascotas, vigilancia de animales, evaluación de exposiciones y profilaxis son acciones compatibles.
 
 Esas medidas forman parte del logro. No demuestran que la eliminación fracasó. Demuestran que un resultado sanitario puede sostenerse sin confundir ausencia de casos con ausencia de riesgo.
