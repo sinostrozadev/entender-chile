@@ -20,3 +20,4 @@
 2026-09-12 | prision-preventiva-chile | Prisión preventiva en Chile: cuándo puede ordenarse y por qué no equivale a una condena
 2026-09-13 | investigacion-catastrofes-responsabilidades | Después de una catástrofe: cómo se determinan causas y responsabilidades
 2026-09-14 | ley-presupuestos-chile | Ley de Presupuestos en Chile: quién decide el gasto, qué puede cambiar el Congreso y qué ocurre si no hay acuerdo
+2026-09-15 | eliminacion-enfermedad-salud-publica | Eliminar una enfermedad como problema de salud pública: qué significa y por qué no equivale a erradicarla
