@@ -387,6 +387,39 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **VALIDADOR 1: tope de vueltas alto, por etapa, y un plan B cuando se
+      agote** (Santiago, 15-09 de mañana: "debiese tener un límite alto y por
+      etapa, y un plan B para cuando se agote ese límite"). Hoy el tope es 2 y
+      vive en `prompts/validador.md` (punto 3, "TOPE"), no en código: con
+      `VUELTA: 2` y algún INCUMPLE el validador escribe BLOQUEADA, el estado
+      pasa a `bloqueado_humano` y el único plan B es que el vigía avise a las
+      02:15 o 05:15 y una persona destrabe. Sí es por pieza (estado.js lee la
+      vuelta del veredicto de cada pieza), pero un día con cinco piezas y dos
+      vueltas cada una puede bloquearse en cualquiera. Propuesta, en tres
+      partes:
+      (1) **Tope por pieza, 4 vueltas**, en `validador.md` y reflejado en
+      `estado.js` (que hoy no valida el número, solo lee BLOQUEADA).
+      (2) **Regla de convergencia, que importa más que el número**: el
+      validador tiene que listar TODOS los INCUMPLE en la vuelta 1; en las
+      siguientes solo puede arrastrar los no resueltos o los que la propia
+      corrección introdujo, nunca sumar hallazgos nuevos sobre partes que ya
+      había aprobado. Hoy (15-09) la vuelta 2 del informe trajo una corrección
+      nueva (lista de fuentes) que la vuelta 1 no había marcado: así el tope
+      se gasta sin que GPT haya fallado.
+      (3) **Plan B al agotar el tope, por tipo de hallazgo**: si lo que queda
+      es un dato o cifra que el validador no puede verificar, BLOQUEADA y
+      aviso inmediato (que `estado.yml` despierte al vigía por API en
+      `bloqueado_humano`, no esperar a su reloj); si lo que queda es de forma
+      (formato, secciones, listas, marcas, fechas absolutas), el validador
+      aplica él mismo las correcciones pendientes sobre la pieza, la aprueba
+      con `VEREDICTO: APROBADA` y una línea `CORREGIDA POR EL VALIDADOR:
+      vuelta N`, y la cadena sigue; la noche revisa esos casos para arreglar el
+      prompt que los produjo. Es la única excepción a "el validador no corrige
+      piezas", y existe para que el canal publique todos los días.
+      Complemento: **tope por hora**: si son más de las 05:00 de Chile y la
+      pieza sigue en CORREGIR por hallazgos de forma, pasar al plan B aunque
+      queden vueltas; un informe a las 08:00 no sirve.
+
 - [ ] **`estado.yml` no escucha `contenido/veredictos/**`: la v3 se congela en
       su primer eslabón (marcado HOY, auditoría del 15-09).** La v3 corrió por
       primera vez con piezas reales la madrugada del 15-09. El validador
