@@ -387,6 +387,27 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **`estado.yml` no escucha `contenido/veredictos/**`: la v3 se congela en
+      su primer eslabón (marcado HOY, auditoría del 15-09).** La v3 corrió por
+      primera vez con piezas reales la madrugada del 15-09. El validador
+      aprobó la preselección a las 01:44 (`contenido/veredictos/2026-09-15-preseleccion.md`,
+      commit `a857df7`) y pusheó, tal como manda `prompts/validador.md` punto 4
+      ("Tu push es lo que recalcula el estado y despierta a GPT"). Pero
+      `.github/workflows/estado.yml`, sección `on.push.paths` (líneas 19-26),
+      no incluye `contenido/veredictos/**` (carpeta nueva de hoy) entre las
+      rutas que disparan el workflow, así que ese push no recalculó nada:
+      `contenido/estado/2026-09-15.md` se quedó en `ETAPA: validar_preseleccion`
+      desde antes de que el veredicto existiera, y a las 05:34 (hora de esta
+      auditoría) no había informe, guion, Clave ni videos del día. El reloj de
+      respaldo del validador (02:20) no repara esto: si despierta y ve que ya
+      hay veredicto para la pieza, responde "ya tiene veredicto" y no vuelve a
+      disparar el recálculo (`prompts/validador.md` punto 0). Arreglo: agregar
+      `- "contenido/veredictos/**"` a la lista de `paths` de `estado.yml`
+      (líneas 19-26). Para destrabar la edición de hoy sin esperar a mañana:
+      disparar `estado.yml` a mano por `workflow_dispatch` (ya declarado en la
+      línea 35) para que recalcule el estado con el veredicto ya aprobado.
+      Detalle completo en `bitacora/2026-09-15-auditoria.md`.
+
 - [ ] **MÁQUINA V2, PRUEBA 1: PASÓ ENTERA (14-09, 22:27 a 22:41), incluido
       el despertar de Claude por evento (con webhook `push`, no `pull_request`).** Rastro en
       `contenido/pruebas/flujo/2026-09-14-pieza.md` y `-veredicto.md`: pieza

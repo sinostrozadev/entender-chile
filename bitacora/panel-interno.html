@@ -122,81 +122,77 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 14-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-09-14-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON OBSERVACIONES — la máquina corrió puntual, sin cortes ni datos perdidos, y la revisión editorial resolvió sola un error GRAVE antes de publicar. Pero el mismo tipo de titular (una proyección o un anuncio narrado como hecho ya ocurrido) se repite por tercer día consecutivo (12, 13 y 14-09) sin que el prompt del guionista lo corrija: es el hallazgo que se repite tres veces sin que cambie nada, y por eso va como HOY.</div>
+    <p class="eyebrow">Auditoría de la mañana · 15-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-09-15-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS — la cadena lineal v3, en su primera noche real en producción, se congeló completa a las 01:44 de Chile: `estado.yml` no escucha `contenido/veredictos/**`, así que el push del validador (que el propio `prompts/validador.md` dice que "es lo que recalcula el estado y despierta a GPT") no disparó nada. La preselección quedó APROBADA hace casi cuatro horas sin que nadie lo notara y hoy, a la hora de esta auditoría, no existen ni informe, ni guion, ni Clave, ni videos: es HOY.</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON OBSERVACIONES — la máquina corrió puntual, sin cortes ni datos perdidos, y la revisión editorial resolvió sola un error GRAVE antes de publicar. Pero el mismo tipo de titular (una proyección o un anuncio narrado como hecho ya ocurrido) se repite por tercer día consecutivo (12, 13 y 14-09) sin que el prompt del guionista lo corrija: es el hallazgo que se repite tres veces sin que cambie nada, y por eso va como HOY.
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON FALLAS — la cadena lineal v3, en su primera noche real en producción, se congeló completa a las 01:44 de Chile: `estado.yml` no escucha `contenido/veredictos/**`, así que el push del validador (que el propio `prompts/validador.md` dice que "es lo que recalcula el estado y despierta a GPT") no disparó nada. La preselección quedó APROBADA hace casi cuatro horas sin que nadie lo notara y hoy, a la hora de esta auditoría, no existen ni informe, ni guion, ni Clave, ni videos: es HOY.
 
-Auditada el 14-09-2026 a las 05:31 de Chile (08:31 UTC), con el checkout sincronizado contra `origin/main` (`3da88fe`, "métricas 2026-09-14 [bot]"). Horas esperadas tomadas de `bitacora/cronograma.json` (actualizado 13-09-2026).
+Auditada el 15-09-2026 a las 05:34 de Chile (08:34 UTC), con el checkout sincronizado contra `origin/main` (`19c180b`, "métricas 2026-09-15 [bot]"). Horas esperadas tomadas de `bitacora/cronograma.json` (actualizado 14-09-2026, ya describe la v3).
 
 ## Qué salió y a qué hora
 
 | Pieza | Hora esperada | Hora real (Chile) | Estado |
 |---|---|---|---|
-| Barrido | 01:31 | 01:33:57 (push despertador 01:33:34) | ok |
-| Preselección | ~01:38 | 01:36:30 | ok |
-| Observatorio plata pública | 01:45 | 01:55:10 | +10 min |
-| Informe | ~02:00 | 01:40:06 | ok (20 min antes) |
-| Entrega de Clave ("¿Quién decide cuánto gasta el Estado cada año?") | ~02:30 | 01:43:32 | ok (47 min antes) |
-| Guion del informe | ~02:10 | 01:48:09 | ok |
-| Guion de la Clave | ~02:35 | 01:51:35 | ok |
-| Revisión editorial (Opus, temprana) | 02:20 | 02:20:56 disparo → archivo 02:27:30 | ok, VEREDICTO: APROBADA (1 corrección GRAVE resuelta en el momento) |
-| Edición diaria (compuerta y render) | ~04:50 | arrancó 02:27:34, videos listos 04:12:17/04:12:26 | ok, terminó antes de lo esperado |
-| Reloj de métricas → Métricas | 05:00 | despertador 05:06:04 → archivo 05:06:29 | +6 min |
-| Auditoría matinal (esta) | 05:30 | 05:31:12 | ok |
+| Barrido | 01:31 | 01:33:26 | ok |
+| Preselección (GPT) | ~01:38 | 01:41:55 | ok |
+| Estado → `validar_preseleccion` | tras la pieza | 01:42:07 | ok |
+| Veredicto preselección (Claude): **APROBADA, vuelta 0** | tras la pieza | 01:44:28 | escrito y pusheado, pero **sin efecto**: no recalculó el estado |
+| Observatorio plata pública | 01:45 | 01:53:41 | +8 min, dentro de lo normal |
+| Informe (GPT) | ~02:00 | — | **falta**, nunca se disparó |
+| Guion del informe | ~02:10–03:10 | — | falta |
+| Entrega de Clave | ~02:30–03:40 | — | falta |
+| Guion de la Clave | ~02:35–04:10 | — | falta |
+| Revisión final (`contenido/revisiones/2026-09-15.md`) | ~04:30 | — | falta |
+| Edición diaria (compuerta, render, videos) | ~04:00 | — | no arrancó: exige la revisión APROBADA, que no existe |
+| Reloj de métricas → Métricas | 05:00 | despertador 05:05:48 → archivo 05:06:45 | +6 min, ok |
+| Auditoría matinal (esta) | 05:30 | 05:34 | +4 min, ok |
 
-Los tres eslabones de la Clave de hoy (entrega `contenido/claves/2026-09-14-ley-presupuestos-chile.md`, guion `contenido/guiones/claves/2026-09-14-ley-presupuestos-chile.md`, video dentro del mismo render de las 02:27-04:12) están completos. Descripciones (`contenido/descripciones/2026-09-14-informe.txt` y `-clave.txt`) existen, ambas con hora de creación 04:51-06:55 UTC, dentro del mismo render. `bitacora/metricas/2026-09-14.md` existe y quedó escrito a las 05:06.
+`contenido/estado/2026-09-15.md` sigue mostrando `ETAPA: validar_preseleccion`, `VEREDICTO: pendiente`, `ACTUALIZADO: 01:42` — de **antes** de que el veredicto existiera (01:44). Verificado en `contenido/veredictos/`: solo hay un archivo, `2026-09-15-preseleccion.md` (debería haber cinco al cerrar el día). Verificado con `git log` que no hay ningún commit sobre `contenido/informes/`, `contenido/guiones/` ni `contenido/claves/` con fecha 2026-09-15.
 
 ## Qué falló
 
-1. **[el hallazgo que importa, 3er día consecutivo]** Un titular narra como hecho ya ocurrido algo que el propio informe deja como anuncio o proyección. `contenido/revisiones/2026-09-14.md` línea 22: guion línea 145 dice "Bolivia amplió su estado de excepción", pero el informe (línea 176) dice que el Gobierno boliviano "anunció un decreto para ampliar el estado de excepción" y que territorios y duración "dependen del texto oficial". La propia revisión lo marca: "Es el mismo patrón marcado el 12 y el 13 de septiembre." Verificado en las fuentes: `contenido/revisiones/2026-09-12.md` línea 24 ("Bolivia retirará subsidios..." vs "proyecta eliminar...") y `contenido/revisiones/2026-09-13.md` línea 24 ("El Presupuesto 2027 declarará al empleo como prioridad" vs "El Ejecutivo anticipó"). Tres días, tres noticias distintas, el mismo error de modo verbal: el prompt del guionista no tiene ninguna regla que proteja el matiz "proyecta/anuncia/prevé" al comprimir a titular, y la revisión editorial lo detecta pero no lo corrige porque no es un dato verificable contra fuente externa (cae fuera del punto 3c, modo corrección).
+**La causa, verificada línea por línea.** `.github/workflows/estado.yml` líneas 19-26 declara los `paths` que disparan el recálculo del estado con cada push:
 
-2. **[2do día seguido, mismo tipo]** El listado "Fuentes:" no acredita fuentes no-mediáticas que el guion sí usa en pantalla. `contenido/revisiones/2026-09-14.md` línea 26: faltan Criteria (líneas 88 y 93 del guion), la Fiscalía Supraterritorial (línea 77) y la OCDE (línea 91); el listado del guion es copia del informe (`contenido/informes/2026-09-14.md`, líneas 216-232), que arrastra la misma omisión. Ayer (`contenido/revisiones/2026-09-13.md` línea 20) fue la Dirección Meteorológica de Chile la que faltó, también "regresión respecto de ayer" en ese momento. Dos días distintos, mismo tipo de bache en el mismo paso (el listado se copia del informe sin revisar fuentes no-medio).
+```
+paths:
+  - "contenido/barrido/**"
+  - "contenido/preseleccion/**"
+  - "contenido/informes/**"
+  - "contenido/claves/**"
+  - "contenido/guiones/**"
+  - "contenido/revisiones/**"
+  - "contenido/descripciones/**"
+```
 
-3. **[nuevo, un día]** Cifra aproximada narrada como exacta. `contenido/revisiones/2026-09-14.md` línea 24: guion línea 154 dice "quinientos pacientes" (Chaitén); el informe (línea 197) dice "cerca de 500 pacientes". No es un patrón repetido todavía (no aparece en las revisiones del 10 al 13-09 revisadas).
+Falta `contenido/veredictos/**`. Es la carpeta que la v3 introdujo hoy (`prompts/contrato-archivos.md` línea 38: "cadena lineal v3, desde el 15-09-2026") y es exactamente donde escribe el validador en cada `validar_&lt;pieza>` (`prompts/validador.md`, punto 3). El validador pusheó su veredicto a las 01:44:28 (commit `a857df7`, "veredicto 2026-09-15: preseleccion APROBADA vuelta 0 [claude]"), tocando solo `contenido/veredictos/2026-09-15-preseleccion.md`; como esa ruta no está en la lista, GitHub no disparó `estado.yml`, nadie recalculó `contenido/estado/2026-09-15.md`, nadie emitió el evento al PR del estado y GPT nunca se enteró de que le tocaba escribir el informe. Confirmado con `mcp__github__actions_list` sobre `estado.yml`: la última corrida de hoy es la run 28 (`04:41:58Z`, la que procesó la preselección); no hay ninguna corrida después, pese a que el commit del veredicto llegó dos minutos y medio más tarde y a que ya pasaron casi cuatro horas.
 
-4. **[bug de infraestructura, no de hoy pero recién visto, sin registrar]** La edición del 13-09 (`contenido/informes/2026-09-13.md` y sus piezas) tardó ~14 horas de más en publicarse porque el paso final de `edicion-diaria.yml` falló y nadie lo registró: la ejecución 34746265785 (commit `eb5e49e`, "edición 2026-09-13: corrección verificada + revisión") renderizó los 4 videos y commiteó las descripciones sin problema, pero en `.github/workflows/edicion-diaria.yml` líneas 230-231 (`gh release create "$TAG" ... || echo "release ya existía, subiendo archivos"`) la API de GitHub devolvió `HTTP 500` al crear el release; el script asumió que el error significaba "ya existía" y en la línea 232 intentó subir los videos a un release que en realidad nunca se creó, con el resultado `release not found` y el job en `failure` (log verificado: `##[error]Process completed with exit code 1`, 08:52:12 UTC). Los videos y el podcast del 13-09 recién quedaron públicos con una corrida posterior (`podcast 2026-09-13 [bot]` a las 14:22 UTC = 11:22 Chile, y `estado 2026-09-13: videos_listos` recién a las 22:16 UTC = 19:16 Chile). Ocurrió 21 minutos después de que la auditoría de ayer cerrara (05:31 Chile), por eso nadie lo vio: ni la auditoría del 13-09 ni el Vigía (que ya había pasado su chequeo de las 05:15) lo alcanzaron a mirar. No hay ninguna entrada sobre esto en `bitacora/PENDIENTES.md` ni en `bitacora/REALIZADOS.md`. Hoy (14-09) el mismo paso corrió sin problema (ejecución 34809712242, éxito), así que no es una falla de hoy, pero el bug en el script sigue ahí y puede repetirse con cualquier otro `HTTP 500` transitorio de GitHub.
+Es el mismo tipo de trampa que ya se documentó el 14-09 para otro caso ("Revisar qué MÁS depende de un push del bot", `bitacora/PENDIENTES.md` línea 101-107) — aquí no es un push de bot sin disparar workflows, es un filtro de `paths` que no cubre una carpeta nueva — pero el síntoma es el mismo: un eslabón que escribe en el repo y no despierta al siguiente.
 
-`node scripts/validar-tarjetas.js --fecha 2026-09-14`: un aviso — "guion de 1819 palabras narradas (~13.5 min a 135 ppm reales): sobre el techo de 13 min de la promesa". Verificado contra la duración real en `contenido/podcast/episodios.json`: el informe de hoy mide 778 segundos (12 min 58 s), justo bajo el techo de 13 min para "día cargado". El aviso es la sobreestimación por conteo de palabras que ya está documentada (nota del 03-09 en `prompts/contrato-archivos.md`): no es una falla real. La Clave mide 668 segundos (11 min 8 s).
+**Consecuencia verificada:** a las 05:34, casi cuatro horas después de la aprobación de la preselección, no existe `contenido/informes/2026-09-15.md` ni ninguna pieza posterior. El "riesgo conocido (2)" que la propia migración a v3 anotó en `bitacora/PENDIENTES.md` ("si un veredicto se pierde, la etapa queda en validar_* y el reloj de las 02:20 del validador la toma") **no repara este caso**: leí `prompts/validador.md` punto 0 — si la rutina del validador despierta de nuevo (por su reloj de las 02:20, que quedó "de red") y ve que ya existe un veredicto más nuevo que la pieza, responde "ya tiene veredicto" y termina sin recalcular el estado ni volver a disparar nada. El reloj de respaldo no cubre este agujero: solo repara un veredicto que falta, no un estado que no se recalculó.
 
-Sin marcas `PENDIENTE DE CIERRE` en `contenido/informes/2026-09-14.md` (verificado, no hay ninguna).
-
-La cifra de portada del 11-09 (arrastrada tres auditorías, 11-12-13-09) está CERRADA por decisión de Santiago del 13-09 (`estrategia/decisiones.md`, sección "2026-09-13 - La cifra preliminar del 11-09 se deja como está"; confirmado también en `bitacora/REALIZADOS.md` línea 23): no se vuelve a proponer. Sigue abierto solo el trámite administrativo del PR #5 (fusionarlo o cerrarlo), que ya está anotado en `bitacora/PENDIENTES.md` línea 328-329; no lo repito aquí porque no es un hallazgo nuevo.
+No se pudo evaluar calidad de contenido (`validar-tarjetas.js`, comparación de hallazgos con los tres días anteriores, duración real de los episodios, marcas `PENDIENTE DE CIERRE`) porque no hay informe ni guion que auditar: `node scripts/validar-tarjetas.js --fecha 2026-09-15` devuelve "(sin guion en contenido/guiones/informe/2026-09-15.md: nada que contar)". No es una omisión de esta auditoría: es la consecuencia directa de la falla de arriba.
 
 ## Propuestas
 
-1. En `prompts/guion-informe.md`, en la sección "EN TITULARES" (cerca de la línea 110, junto a la regla de máximo 12 palabras), agregar: "Si el informe usa 'proyecta', 'anticipa', 'prevé', 'anunció' o un anuncio no ejecutado, el titular debe conservar ese matiz (no lo conviertas en un hecho consumado). Fue el mismo error tres días seguidos: 12, 13 y 14 de septiembre (ver `contenido/revisiones/`)." Sin esta regla explícita, la revisión editorial seguirá encontrando el mismo patrón sin poder corregirlo (no es un dato verificable contra fuente externa, así que cae fuera de su mandato de corrección).
-2. En `.github/workflows/edicion-diaria.yml` líneas 230-232, cambiar el manejo de `gh release create`: en vez de asumir que cualquier fallo significa "ya existía", verificar con `gh release view "$TAG" >/dev/null 2>&amp;1` antes de seguir a `gh release upload`; si la vista también falla, reintentar `gh release create` (con un `sleep` corto) en vez de continuar a la subida. Así un `HTTP 500` transitorio no deja el job en `failure` con los videos ya renderizados pero sin publicar.
-3. En `contenido/informes/2026-09-14.md`, líneas 216-232 (listado "Fuentes:"), agregar Criteria, la Fiscalía Supraterritorial y la OCDE, ya que el guion las usa en pantalla y el listado del guion se copia del informe.
-4. En `contenido/guiones/informe/2026-09-14.md` línea 154, cambiar "quinientos pacientes" por "cerca de quinientos pacientes".
+1. En `.github/workflows/estado.yml`, sección `on.push.paths` (líneas 19-26), agregar la línea `- "contenido/veredictos/**"`. Es el fix de fondo: sin él, la v3 se va a congelar cada noche apenas el validador apruebe la primera pieza.
+2. Para destrabar la edición de HOY sin esperar a la madrugada siguiente: disparar `estado.yml` a mano con `workflow_dispatch` (ya está declarado en la línea 35 del workflow) para que recalcule el estado ahora mismo con el veredicto ya aprobado; eso debería mover la etapa a `informe` y, si el despachador de GPT sigue escuchando el PR del estado, retomar la cadena todavía esta mañana.
 
 ## Triage
 
-- **HOY**: Propuesta 1 (el patrón "proyección narrada como hecho" lleva tres días seguidos sin que el prompt lo prevenga; es exactamente el caso que este contrato pide escalar cuando "el ciclo revisa y no aprende").
-- **AGUANTA**:
-  - Propuesta 2 (el bug del release de GitHub ya causó una demora real de ~14 horas el 13-09, pero la máquina se recuperó sola con una corrida posterior y hoy no volvió a fallar).
-  - Propuesta 3 (fuentes no acreditadas; no cambia lo narrado).
-  - Propuesta 4 (cifra exacta en vez de aproximada; un solo día, no rompe nada).
-- **MIRAR**:
-  - Observatorio plata pública: +8 min ayer, +10 min hoy. Sigue sin romper nada, pero la tendencia crece por segundo día.
-  - El listado de fuentes no acreditadas (propuesta 3) es la segunda vez en dos días que ocurre con fuentes distintas: si aparece una tercera vez, pasa a ser el mismo caso que la propuesta 1 y debería subir a HOY.
+- **HOY**: propuesta 1 y 2. La cadena está parada y no se repara sola; cada hora que pasa sin el `workflow_dispatch` es una hora menos para que la edición de hoy alcance a completarse antes de que tenga sentido publicarla.
 
 ## Comparación con ayer
 
-**Mejoró**:
-- La cifra de portada del 11-09, arrastrada tres auditorías seguidas (11, 12, 13-09) sin acción, quedó CERRADA por una decisión explícita de Santiago el 13-09: es la primera vez en cuatro días que este ítem no vuelve a aparecer como HOY.
-- La revisión editorial volvió a resolver sola un error GRAVE antes de publicar (el del año de comparación del gasto), tercer día seguido que el mecanismo de corrección en el momento funciona sin rechazar la edición.
+**Mejoró:**
+- Las dos propuestas HOY de la auditoría del 14-09 quedaron resueltas la misma noche, verificado en el commit `c36f0f8` ("RELEASE 1 arreglado, el matiz de los titulares protegido...", 14-09 22:26 Chile, autor Santiago): `prompts/guion-informe.md` línea 110 ya trae la regla del matiz "proyecta/anticipa/prevé/anunció" (verificado, está en el texto); `.github/workflows/edicion-diaria.yml` líneas 222-240 ya comprueba `gh release view` y reintenta tres veces antes de subir (verificado, código presente). El hallazgo que se repetía tres días seguidos no tiene un cuarto día porque no llegó a producirse ningún guion hoy — pero la regla que lo iba a prevenir ya está puesta.
+- Las horas vistas en videos largos siguen subiendo, modesto pero sostenido: 18.1 h (13-09) → 18.1 h (14-09) → **18.6 h** (15-09); retención ponderada 32.5% → 32.6% → **32.9%**.
 
-**Sigue igual**:
-- La cadena de la madrugada (barrido a guion de Clave) corrió puntual, sin atrasos mayores a 20 minutos.
-- Horas vistas en videos largos: 18.1 h hoy, igual que las 18.1 h que muestra ahora `bitacora/metricas/2026-09-13.md` (retención media ponderada 32.6% hoy vs 32.5% ayer); prácticamente sin cambio. (La cifra que citó la auditoría de ayer —18.9 h y 49.4%— corresponde a una lectura de las 05:31 de ayer; el archivo de ayer se recalculó más tarde ese mismo día y hoy muestra 18.1 h/32.5%, que es la base real de comparación).
-- `validar-tarjetas.js` sigue sin encontrar roturas de formato.
+**Sigue igual:**
+- El barrido y la preselección corrieron puntuales (01:33 y 01:41, dentro del rango de los últimos días).
 
-**Nuevo**:
-- El patrón "proyección narrada como hecho" llegó a su tercer día (12, 13, 14-09) sin corregirse: pasa de tendencia a hallazgo formal (HOY).
-- Se descubrió — con un día de retraso porque ocurrió después del cierre de la auditoría de ayer — que la edición del 13-09 falló en el paso de publicación del release de GitHub (`HTTP 500` mal manejado) y tardó ~14 horas de más en quedar disponible; nadie lo había registrado hasta ahora.
-- Un segundo tipo de bache en el listado de fuentes (categoría d), esta vez con fuentes distintas a las de ayer (Criteria, Fiscalía Supraterritorial, OCDE en vez de la Dirección Meteorológica).
+**Nuevo:**
+- La v3 corrió por primera vez con piezas reales anoche y se congeló en su primer eslabón por un filtro de `paths` incompleto en `estado.yml`. No es una repetición de nada anterior: es un hallazgo de día uno del rediseño, y el más grave que ha registrado esta auditoría hasta ahora porque no perdió un dato o un matiz — dejó el día entero sin producir.
 </pre>
     </details>
     <!--AUDITORIA-FIN-->
