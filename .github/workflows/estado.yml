@@ -83,9 +83,14 @@ jobs:
           git -c rebase.autoStash=true pull --rebase origin main
           git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
 
-      - name: Emitir el evento al PR único del estado (es quien despierta a GPT)
+      - name: Emitir el evento al PR único del estado (es quien despierta a GPT) y, por API, a Claude
         env:
           GH_TOKEN: ${{ github.token }}
+          # Camino B del diseño (doc: code.claude.com/docs/en/routines): despertar
+          # DIRIGIDO a la rutina de Claude por su endpoint /fire. Sin estos secrets
+          # el paso no hace nada y los relojes de 02:20 y 04:45 siguen mandando.
+          REVISION_ID: ${{ secrets.CLAUDE_RUTINA_REVISION_ID }}
+          REVISION_TOKEN: ${{ secrets.CLAUDE_RUTINA_REVISION_TOKEN }}
         run: |
           FECHA=$(TZ=America/Santiago date +%F)
           VISTA="contenido/estado/$FECHA.md"
@@ -113,6 +118,32 @@ jobs:
           git add contenido/estado/ultimo-evento.txt
           git commit -m "evento $FECHA: estado $ETAPA"
           git push -f origin automatizacion/estado
+
+          # Despertar dirigido a Claude. Solo con etapa de Claude, solo si hay
+          # secrets, y solo cuando el evento es NUEVO (el dedup de arriba ya
+          # hizo salir a esta corrida si la etapa se había anunciado). Nunca
+          # falla el job: si el /fire no responde 2xx, avisa y los relojes de
+          # 02:20 y 04:45 hacen el trabajo como hasta ahora.
+          case "$ETAPA" in
+            guiones_listos) RUTINA_ID="$REVISION_ID"; RUTINA_TOKEN="$REVISION_TOKEN"; QUE="revisión editorial" ;;
+            *) RUTINA_ID=""; RUTINA_TOKEN=""; QUE="" ;;
+          esac
+          if [ -n "$RUTINA_ID" ] && [ -n "$RUTINA_TOKEN" ]; then
+            BODY=$(printf '{"text":"Entender Chile, %s: etapa %s. Te toca la %s. Este texto solo te despierta: la verdad son los archivos del repo y tus guardas del punto 0 se aplican igual."}' "$FECHA" "$ETAPA" "$QUE")
+            CODIGO=$(curl -sS -o /tmp/fire.json -w '%{http_code}' -X POST \
+              "https://api.anthropic.com/v1/claude_code/routines/$RUTINA_ID/fire" \
+              -H "Authorization: Bearer $RUTINA_TOKEN" \
+              -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
+              -H "anthropic-version: 2023-06-01" \
+              -H "content-type: application/json" \
+              -d "$BODY" || echo 000)
+            case "$CODIGO" in
+              2*) echo "Claude despertado por API para $ETAPA: $(head -c 300 /tmp/fire.json)" ;;
+              *) echo "::warning::no se pudo despertar a Claude por API (HTTP $CODIGO); los relojes de 02:20 y 04:45 lo cubren" ;;
+            esac
+          elif [ "$ETAPA" = "guiones_listos" ]; then
+            echo "sin secrets CLAUDE_RUTINA_REVISION_*: a la revisión la despiertan sus relojes"
+          fi
           gh pr list --head automatizacion/estado --state open --json number -q '.[0].number' | grep -q . \
             || gh pr create --base main --head automatizacion/estado \
                  --title "🔔 Estado del día — disparador único de GPT (no fusionar)" \
