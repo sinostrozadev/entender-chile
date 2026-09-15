@@ -251,19 +251,29 @@ jobs:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
-          # Variable del repo (Settings → Variables), ej. "07:30": publica solo a esa
-          # hora de Chile. Solo sirve tras la auditoría de la API; vacía = privado.
-          YT_PUBLICAR_HORA: ${{ vars.YT_PUBLICAR_HORA }}
+          # Hora de Chile de publicación por pieza (variables del repo, Settings →
+          # Variables; si no existen, valen estos defaults). Desde el 15-09 los
+          # videos suben PROGRAMADOS, no privados.
+          YT_HORA_INFORME: ${{ vars.YT_HORA_INFORME || '07:30' }}
+          YT_HORA_SHORT: ${{ vars.YT_HORA_SHORT || '12:00' }}
+          YT_HORA_CLAVE: ${{ vars.YT_HORA_CLAVE || '14:00' }}
+          YT_HORA_SHORT_CLAVE: ${{ vars.YT_HORA_SHORT_CLAVE || '18:00' }}
         if: env.SALTAR != '1'
         continue-on-error: true
         run: |
           # youtube-subir.js sale con 1 si falta el archivo, y eso abortaría el
           # bloque antes de llegar a la Clave: cada pieza sube solo si esta
           # corrida la renderizó.
-          if [ -f "out/$FECHA/$FECHA-informe.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA"; fi
-          if [ -f "out/$FECHA/$FECHA-short.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --short; fi
-          if [ -f "out/$FECHA/$FECHA-clave.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --clave; fi
-          if [ -f "out/$FECHA/$FECHA-short-clave.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --short --clave; fi
+          # PROGRAMADO, no privado (Santiago, 15-09: "quiero ver si eso funciona").
+          # Hora de Chile por pieza; se cambia con las variables de repositorio
+          # YT_HORA_INFORME, YT_HORA_SHORT, YT_HORA_CLAVE y YT_HORA_SHORT_CLAVE
+          # sin tocar este archivo. Si la hora ya pasó, el script programa 30 min
+          # después de ahora. Si YouTube rechaza publishAt (proyecto sin
+          # auditoría), el script falla y el video no sube: mirar el log.
+          if [ -f "out/$FECHA/$FECHA-informe.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --programar "$YT_HORA_INFORME"; fi
+          if [ -f "out/$FECHA/$FECHA-short.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --short --programar "$YT_HORA_SHORT"; fi
+          if [ -f "out/$FECHA/$FECHA-clave.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --clave --programar "$YT_HORA_CLAVE"; fi
+          if [ -f "out/$FECHA/$FECHA-short-clave.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --short --clave --programar "$YT_HORA_SHORT_CLAVE"; fi
 
       # El informe como episodio de podcast (Spotify y compañía leen el RSS solos).
       # Necesita el secret AUDIO_TOKEN (PAT fino con contents:write sobre

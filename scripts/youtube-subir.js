@@ -99,6 +99,18 @@ function horaChileISO(dia, hhmm) {
   return new Date(comoUTC.getTime() - (enChile.getTime() - comoUTC.getTime())).toISOString();
 }
 
+// publishAt tiene que quedar en el futuro. Si la hora pedida ya pasó (un render
+// tardío, como el 15-09 que terminó pasadas las 09:00 con el informe pedido
+// para las 07:30), se programa para 30 minutos después de ahora y se avisa.
+function horaProgramada(dia, hhmm) {
+  const pedida = new Date(horaChileISO(dia, hhmm));
+  const minimo = new Date(Date.now() + 20 * 60 * 1000);
+  if (pedida >= minimo) return pedida.toISOString();
+  const tarde = new Date(Date.now() + 30 * 60 * 1000);
+  console.log(`La hora pedida (${hhmm} de Chile) ya pasó: se programa para ${tarde.toISOString()} (30 min desde ahora).`);
+  return tarde.toISOString();
+}
+
 (async () => {
   const oauth2 = new google.auth.OAuth2(YT_CLIENT_ID, YT_CLIENT_SECRET);
   oauth2.setCredentials({ refresh_token: YT_REFRESH_TOKEN });
@@ -119,7 +131,7 @@ function horaChileISO(dia, hhmm) {
       status: {
         privacyStatus: programar ? "private" : privacidad,
         selfDeclaredMadeForKids: false,
-        ...(programar ? { publishAt: horaChileISO(fecha, programar) } : {}),
+        ...(programar ? { publishAt: horaProgramada(fecha, programar) } : {}),
       },
     },
     media: { body: fs.createReadStream(video) },

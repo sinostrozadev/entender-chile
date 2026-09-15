@@ -96,10 +96,11 @@ Reglas del veredicto:
 - `VUELTA`: si el estado dice `VUELTA: 0` (primera validación), CORREGIR lleva
   `VUELTA: 1` y APROBADA lleva `VUELTA: 0`. Si dice `VUELTA: n` (ya hubo
   correcciones), CORREGIR lleva `n+1` y APROBADA conserva `n`.
-- **TOPE**: si el estado dice `VUELTA: 2` y sigue habiendo INCUMPLE, escribe
+- **TOPE**: si el estado dice `VUELTA: 4` y sigue habiendo INCUMPLE, escribe
   `VEREDICTO: BLOQUEADA` con las mismas correcciones y una línea al final,
   "Para destrabar: ...", con lo que falta. Ahí se detiene el bucle y decide
-  Santiago. Nunca una tercera vuelta.
+  Santiago. Nunca una quinta vuelta. (Era 2; Santiago lo subió a 4 el 15-09
+  desde la sesión de día. El plan B al agotarlo está pendiente: VALIDADOR 1.)
 
 ## 4. Publica
 
