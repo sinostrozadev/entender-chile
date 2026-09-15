@@ -258,6 +258,9 @@ jobs:
           YT_HORA_SHORT: ${{ vars.YT_HORA_SHORT || '12:00' }}
           YT_HORA_CLAVE: ${{ vars.YT_HORA_CLAVE || '14:00' }}
           YT_HORA_SHORT_CLAVE: ${{ vars.YT_HORA_SHORT_CLAVE || '18:00' }}
+          # Mínimo de minutos entre la subida y la publicación: la ventana de
+          # revisión de Santiago. Si la hora de arriba queda más cerca, se corre.
+          YT_MARGEN_MIN: ${{ vars.YT_MARGEN_MIN || '90' }}
         if: env.SALTAR != '1'
         continue-on-error: true
         run: |

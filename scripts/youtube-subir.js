@@ -102,13 +102,17 @@ function horaChileISO(dia, hhmm) {
 // publishAt tiene que quedar en el futuro. Si la hora pedida ya pasó (un render
 // tardío, como el 15-09 que terminó pasadas las 09:00 con el informe pedido
 // para las 07:30), se programa para 30 minutos después de ahora y se avisa.
+// La ventana entre la subida y la publicación es la REVISIÓN de Santiago (por
+// eso programado y no público). YT_MARGEN_MIN (variable del repo, default 90)
+// es el mínimo de minutos que esa ventana tiene que durar: si la hora pedida
+// queda más cerca que eso, se programa a ahora + margen.
+const MARGEN_MIN = Number(process.env.YT_MARGEN_MIN) > 0 ? Number(process.env.YT_MARGEN_MIN) : 90;
 function horaProgramada(dia, hhmm) {
   const pedida = new Date(horaChileISO(dia, hhmm));
-  const minimo = new Date(Date.now() + 20 * 60 * 1000);
+  const minimo = new Date(Date.now() + MARGEN_MIN * 60 * 1000);
   if (pedida >= minimo) return pedida.toISOString();
-  const tarde = new Date(Date.now() + 30 * 60 * 1000);
-  console.log(`La hora pedida (${hhmm} de Chile) ya pasó: se programa para ${tarde.toISOString()} (30 min desde ahora).`);
-  return tarde.toISOString();
+  console.log(`La hora pedida (${hhmm} de Chile) deja menos de ${MARGEN_MIN} min para revisar: se programa para ${minimo.toISOString()} (${MARGEN_MIN} min desde ahora).`);
+  return minimo.toISOString();
 }
 
 (async () => {
