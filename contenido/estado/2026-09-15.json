@@ -1,9 +1,9 @@
 {
   "fecha": "2026-09-15",
-  "etapa": "guion_informe_listo",
+  "etapa": "validar_clave",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-09-15 09:02",
+  "actualizado": "2026-09-15 09:10",
   "reparar": null,
   "piezas": [
     {
@@ -61,13 +61,15 @@
     {
       "id": "clave",
       "etiqueta": "Clave (entrega)",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "por_validar",
       "prompt": "prompts/claves.md",
-      "hora": "",
+      "hora": "09:10",
       "esperada": "03:40",
       "dueno": "GPT · prompts/claves.md",
-      "rutas": []
+      "rutas": [
+        "contenido/claves/2026-09-15-eliminacion-enfermedad-salud-publica.md"
+      ]
     },
     {
       "id": "guion_clave",
@@ -105,27 +107,21 @@
   ],
   "atrasos": [
     {
-      "id": "clave",
-      "etiqueta": "Clave (entrega)",
-      "atraso": 322,
-      "dueno": "GPT · prompts/claves.md"
-    },
-    {
       "id": "guion_clave",
       "etiqueta": "Guion de la Clave",
-      "atraso": 292,
+      "atraso": 300,
       "dueno": "GPT · prompts/guion-claves.md"
     },
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 272,
+      "atraso": 280,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 167,
+      "atraso": 175,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
