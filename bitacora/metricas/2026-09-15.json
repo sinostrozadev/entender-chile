@@ -6,11 +6,29 @@
     "videos": 68
   },
   "videos": {
+    "22gwMpPnCxY": {
+      "titulo": "Chile elimina la rabia humana transmitida por perros, y otra",
+      "publicado": "2026-09-15",
+      "estado": "private",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 47
+    },
+    "0BNQR6diTNI": {
+      "titulo": "Chile elimina la rabia humana transmitida por perros",
+      "publicado": "2026-09-15",
+      "estado": "private",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 813
+    },
     "hpryKVLBUXg": {
       "titulo": "¿Prepara el gobierno un plan de emergencia por el desempleo?",
       "publicado": "2026-09-14",
       "estado": "public",
-      "vistas": 6,
+      "vistas": 7,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 42
@@ -73,7 +91,7 @@
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén, y",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 104,
+      "vistas": 106,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 46
@@ -100,7 +118,7 @@
       "titulo": "¿Qué es la prisión preventiva y por qué no es una condena?",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 1,
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 342
@@ -172,7 +190,7 @@
       "titulo": "¿Por qué evacuaron Seguridad Municipal de Peñalolén este jue",
       "publicado": "2026-09-10",
       "estado": "public",
-      "vistas": 135,
+      "vistas": 136,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 45
@@ -307,7 +325,7 @@
       "titulo": "22 alcaldes bajo protección por el crimen organizado",
       "publicado": "2026-09-08",
       "estado": "public",
-      "vistas": 7,
+      "vistas": 8,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 705
@@ -438,15 +456,6 @@
       "comentarios": 0,
       "durSeg": 51
     },
-    "bO42vVDt5vg": {
-      "titulo": "Clave: ¿Qué ocurre cuando Contraloría detecta un perjuicio f",
-      "publicado": "2026-09-04",
-      "estado": "public",
-      "vistas": 99,
-      "meGusta": 1,
-      "comentarios": 0,
-      "durSeg": 35
-    },
     "94UI6QLnUao": {
       "titulo": "Cinco cosas que hay que saber hoy, Viernes, 4 de septiembre ",
       "publicado": "2026-09-04",
@@ -455,6 +464,15 @@
       "meGusta": 6,
       "comentarios": 0,
       "durSeg": 50
+    },
+    "NaMLfrB4nzU": {
+      "titulo": "¿Qué ocurre cuando Contraloría detecta un perjuicio fiscal?",
+      "publicado": "2026-09-04",
+      "estado": "public",
+      "vistas": 5,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 565
     },
     "xYaG4nx-IkI": {
       "titulo": "Chile y Argentina ratifican la soberanía chilena sobre el Es",
@@ -478,7 +496,7 @@
       "titulo": "¿Cómo conviven soberanía y libre navegación en un estrecho?",
       "publicado": "2026-09-03",
       "estado": "public",
-      "vistas": 11,
+      "vistas": 13,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 551
@@ -586,7 +604,7 @@
       "titulo": "¿Por qué el mercado de capitales influye en tu hipotecario?",
       "publicado": "2026-08-31",
       "estado": "public",
-      "vistas": 16,
+      "vistas": 17,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 791
