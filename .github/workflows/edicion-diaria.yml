@@ -227,8 +227,19 @@ jobs:
           TAG="edicion-$FECHA"
           NOTAS="contenido/descripciones/$FECHA-informe.txt"
           [ -f "$NOTAS" ] || { echo "(sin descripción, release con notas mínimas)"; echo "Edición $FECHA" > "$NOTAS"; }
-          gh release create "$TAG" --title "Edición $FECHA" --notes-file "$NOTAS" \
-            || echo "release ya existía, subiendo archivos"
+          # Un fallo de `create` NO significa "ya existía". El 13-09 fue un HTTP 500
+          # de GitHub: la línea de antes lo dio por duplicado, el `upload` falló con
+          # "release not found" y los cuatro videos quedaron renderizados y sin
+          # publicar seis horas (RELEASE 1). Ahora se comprueba con `release view`
+          # y se reintenta hasta tres veces antes de subir.
+          for intento in 1 2 3; do
+            if gh release view "$TAG" >/dev/null 2>&1; then echo "el release $TAG existe"; break; fi
+            gh release create "$TAG" --title "Edición $FECHA" --notes-file "$NOTAS" && break
+            echo "create del release falló (intento $intento de 3); reintento en 20 s"
+            sleep 20
+          done
+          gh release view "$TAG" >/dev/null 2>&1 \
+            || { echo "::error::el release $TAG no existe tras tres intentos: los videos quedaron renderizados y SIN publicar"; exit 1; }
           gh release upload "$TAG" out/$FECHA/*.mp4 --clobber
           if ls public/$FECHA-*.mp3 >/dev/null 2>&1; then gh release upload "$TAG" public/$FECHA-*.mp3 --clobber; fi
 
