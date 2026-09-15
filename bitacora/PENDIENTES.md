@@ -420,6 +420,19 @@ referencia:
       contra las nuevas, y decidir la fórmula con ese dato. Esto también
       destraba la vuelta 2 de bocetos pendiente desde el 05-09 (taller.json).
       Entra al Taller como tablero de variantes renderizadas (TALLER 3).
+      **Referencia que Santiago dio como buena** (15-09):
+      `bitacora/capturas-2026-09-15-ejemplo-caratula-meganoticias.jpg`, la
+      carátula de Meganoticias "¿SE ACERCA EL FIN DEL REINO UNIDO?": pregunta
+      con algo en juego, texto en dos líneas grandes sobre cajas de alto
+      contraste (amarillo y blanco), una foto de personas y un símbolo
+      reconocible (la bandera). La nuestra del mismo día está al lado en
+      `capturas-2026-09-15-caratula-rabia-54-anos.jpg`. Lo que se copia:
+      la pregunta, las dos líneas en cajas de contraste, el símbolo grande.
+      Lo que NO se puede copiar por la regla 29 (fotos ajenas jamás; Content
+      ID bloquea la monetización): la foto de prensa. En su lugar, un
+      símbolo del tema generado o dibujado (para la rabia, un perro en
+      grabado lineal; para el Estrecho, el mapa del canal con la ruta), y las
+      láminas de sección que ya existen.
 
 - [ ] **ACTIONS 1: el ciclo de minutos se agotó al día 15 (1.843 de 2.000;
       se reinicia el 1 de octubre).** Medido con la API el 15-09: 457
