@@ -387,6 +387,62 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **CARÁTULA 2 (PRIORIDAD ALTA, Santiago 15-09): las carátulas no dan
+      ganas de entrar.** El ejemplo: el informe del 15-09, "Chile elimina la
+      rabia humana transmitida por perros", salió con la carátula "54 · años
+      sin contagios" sobre verde oscuro con el mapa a la derecha. Santiago:
+      "con esa imagen no le dan ganas a nadie de hacer click; hay que buscar
+      una carátula que dé ganas de ver, un texto rimbombante". Diagnóstico
+      compartido por la sesión de día: la carátula cuenta la RESOLUCIÓN en
+      tono de comunicado (un número sin referencia y un estado que no cambia
+      nada), no hay tensión ni pregunta ni una persona, y el mapa se repite
+      todos los días, así que ninguna carátula se distingue de la anterior.
+      La "Carátula sugerida" la escribe el guionista al final del guion como
+      una frase más, sin regla de gancho ni alternativas. Lo que hay que
+      construir:
+      (1) **Regla de gancho para el texto**: máximo 4 palabras grandes, con
+      una tensión o una pregunta que el video responde, escrita desde el
+      espectador ("qué te pasa a ti"), nunca la conclusión. Para el 15-09,
+      en vez de "54 años sin contagios": "¿Y si te muerde un perro?", "Chile
+      venció a la rabia", "Adiós a la rabia". El titular del video ya dice
+      el hecho; la carátula tiene que dar la razón para entrar.
+      (2) **Tres opciones por edición, no una**: que el paso de carátula (hoy
+      una línea del guionista) entregue tres textos con enfoques distintos
+      (pregunta, contradicción, cifra con referencia) y un motivo visual
+      sugerido para la lámina, y que un validador o Santiago elija.
+      (3) **Imagen que cambie con el tema**: el mapa y el verde como
+      identidad de la casa, pero el elemento principal debe ser del tema
+      (la lámina de sección o una generada por el prompt de Gemini que ya
+      existe para la serie), no el mismo mapa todos los días.
+      (4) **Medir en vez de discutir**: YouTube Studio permite probar hasta
+      tres carátulas por video y elige por tiempo de visualización. Usarlo
+      en cada largo durante dos semanas (regla 26), con la carátula actual
+      contra las nuevas, y decidir la fórmula con ese dato. Esto también
+      destraba la vuelta 2 de bocetos pendiente desde el 05-09 (taller.json).
+      Entra al Taller como tablero de variantes renderizadas (TALLER 3).
+
+- [ ] **ACTIONS 1: el ciclo de minutos se agotó al día 15 (1.843 de 2.000;
+      se reinicia el 1 de octubre).** Medido con la API el 15-09: 457
+      corridas y ~2.004 minutos desde el 1-09; la Edición diaria se lleva
+      1.500 (75%), a 55-105 minutos por render y 130 minutos por día en
+      promedio, con cinco días de doble render. Decisión de Santiago (15-09):
+      poner presupuesto en Manage budgets en vez de $0 para que el canal no
+      se detenga (a $0,008 el minuto Linux, entre $9 y $17 hasta el 1-10; $20
+      cubre). Para la noche, dos optimizaciones que deberían bajar el render
+      a la mitad sin tocar la calidad, medir con un render real:
+      (a) `scripts/dia.js` y `scripts/short.js`: pasar `--concurrency=100%`
+      a `remotion render`; hoy va con el default, que en el runner de 4
+      núcleos usa 2.
+      (b) `scripts/build-timeline.js` línea 149: fps 30 → 24 (20% menos
+      cuadros; en tarjetas de texto no se nota). Revisar que SELLO_SEG y los
+      offsets en segundos no dependan de 30.
+      Y dos desperdicios chicos (12% del ciclo): `web.yml` corre con cada
+      push de contenido (96 corridas, 139 min): bastaría al aprobarse el día
+      y al subir los videos; y la Guardia despierta cada dos horas por un
+      minuto (96 corridas). Para octubre decidir: GitHub Pro ($4/mes, 3.000
+      min) o runner propio en el computador de Santiago (gratis, equipo
+      encendido a las 05:00).
+
 - [ ] **GPT 2: elegir el poder de GPT por etapa, para analizar** (Santiago,
       15-09: "tener 4 PR distintos, uno para cada modelo de GPT, y despertar
       GPT dependiendo del poder que necesitamos; o ver si le podemos decir a
