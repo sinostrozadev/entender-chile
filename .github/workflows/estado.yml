@@ -23,6 +23,10 @@ on:
       - "contenido/claves/**"
       - "contenido/guiones/**"
       - "contenido/revisiones/**"
+      # los veredictos por pieza del validador (v3): son los que mueven la
+      # etapa entre pieza y pieza. Sin esta ruta, el 15-09 la cadena se congeló
+      # a las 01:44 y solo avanzó cuando el reloj del barrido recalculó de paso.
+      - "contenido/veredictos/**"
       - "contenido/descripciones/**"
   # Los pushes hechos por Actions con GITHUB_TOKEN NO disparan workflows (regla
   # de GitHub). El barrido y la edición diaria commitean así, como edicion-bot,
