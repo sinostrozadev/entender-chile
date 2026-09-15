@@ -3,13 +3,13 @@
   "canal": {
     "suscriptores": 15,
     "vistas": 4966,
-    "videos": 68
+    "videos": 70
   },
   "videos": {
     "22gwMpPnCxY": {
       "titulo": "Chile elimina la rabia humana transmitida por perros, y otra",
       "publicado": "2026-09-15",
-      "estado": "private",
+      "estado": "public",
       "vistas": 0,
       "meGusta": 0,
       "comentarios": 0,
@@ -18,7 +18,7 @@
     "0BNQR6diTNI": {
       "titulo": "Chile elimina la rabia humana transmitida por perros",
       "publicado": "2026-09-15",
-      "estado": "private",
+      "estado": "public",
       "vistas": 0,
       "meGusta": 0,
       "comentarios": 0,
@@ -433,7 +433,7 @@
       "titulo": "¿Cómo funciona la regla fiscal y el balance estructural?",
       "publicado": "2026-09-05",
       "estado": "public",
-      "vistas": 11,
+      "vistas": 12,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 598
@@ -496,7 +496,7 @@
       "titulo": "¿Cómo conviven soberanía y libre navegación en un estrecho?",
       "publicado": "2026-09-03",
       "estado": "public",
-      "vistas": 13,
+      "vistas": 12,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 551
