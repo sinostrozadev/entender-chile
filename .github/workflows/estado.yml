@@ -144,15 +144,35 @@ jobs:
           fi
 
           # Despertar dirigido a Claude. Solo con etapa de Claude, solo si hay
-          # secrets, y solo cuando el evento es NUEVO (el dedup de arriba ya
-          # hizo salir a esta corrida si la etapa se había anunciado). Nunca
-          # falla el job: si el /fire no responde 2xx, avisa y los relojes de
-          # 02:20 y 04:45 hacen el trabajo como hasta ahora.
+          # secrets, y solo una vez por etapa y vuelta: como las validar_* ya
+          # no pasan por el PR #6, su dedup vive en main, en
+          # contenido/estado/ultimo-disparo-claude.txt (un recálculo repetido
+          # en la misma etapa, por ejemplo el reloj del barrido, no vuelve a
+          # disparar). Nunca falla el job: si el /fire no responde 2xx, avisa
+          # y los relojes de 02:20 y 04:45 hacen el trabajo como hasta ahora.
+          MARCA="contenido/estado/ultimo-disparo-claude.txt"
+          if echo "$ETAPA" | grep -q '^validar_'; then
+            YA=$(git show origin/main:"$MARCA" 2>/dev/null || echo "")
+            if [ "$YA" = "$FECHA $ETAPA $VUELTA" ]; then
+              echo "Claude ya fue despertado para $ETAPA (vuelta $VUELTA): no se repite"
+              ETAPA_DISPARO=""
+            else
+              ETAPA_DISPARO="$ETAPA"
+              git checkout -q main 2>/dev/null || true
+              git -c rebase.autoStash=true pull -q --rebase origin main
+              echo "$FECHA $ETAPA $VUELTA" > "$MARCA"
+              git add "$MARCA"
+              git commit -q -m "disparo a Claude $FECHA: $ETAPA (vuelta $VUELTA) [bot]"
+              git push -q origin main || { git -c rebase.autoStash=true pull -q --rebase origin main; git push -q origin main; }
+            fi
+          else
+            ETAPA_DISPARO=""
+          fi
           # Cadena lineal v3 (15-09): cada pieza de GPT se valida antes de la
           # siguiente. Toda etapa validar_<pieza> (y validar_final) es turno de
           # Claude: se dispara la rutina validadora, que hoy es la misma de las
           # 02:20 (su reloj queda de red).
-          case "$ETAPA" in
+          case "$ETAPA_DISPARO" in
             validar_*) RUTINA_ID="$REVISION_ID"; RUTINA_TOKEN="$REVISION_TOKEN"; QUE="validación de la pieza $(grep -m1 '^PIEZA:' "$VISTA" | cut -d' ' -f2-)" ;;
             *) RUTINA_ID=""; RUTINA_TOKEN=""; QUE="" ;;
           esac
@@ -169,7 +189,7 @@ jobs:
               2*) echo "Claude despertado por API para $ETAPA: $(head -c 300 /tmp/fire.json)" ;;
               *) echo "::warning::no se pudo despertar a Claude por API (HTTP $CODIGO); los relojes de 02:20 y 04:45 lo cubren" ;;
             esac
-          elif echo "$ETAPA" | grep -q '^validar_'; then
+          elif echo "$ETAPA_DISPARO" | grep -q '^validar_'; then
             echo "sin secrets CLAUDE_RUTINA_REVISION_*: al validador lo despierta su reloj de las 02:20"
           fi
           gh pr list --head automatizacion/estado --state open --json number -q '.[0].number' | grep -q . \
