@@ -1,6 +1,6 @@
 {
   "_regla": "FUENTE DE VERDAD del cronograma del panel. Quien cambie una tarea (rutina, workflow, tarea GPT, horario o disparador) ACTUALIZA este archivo en el mismo commit; scripts/panel-cronograma.js lo inyecta al panel y el reloj de métricas lo refresca a diario.",
-  "actualizado": "2026-09-13",
+  "actualizado": "2026-09-14",
   "fases": [
     {
       "nombre": "La madrugada — cadena editorial (cada pieza despierta a la siguiente)",
@@ -60,10 +60,10 @@
           "que": "Mira si algún eslabón falta a destiempo y avisa al teléfono mientras todavía se puede arreglar. No escribe ni repara nada: solo lee el estado que calcula scripts/estado.js desde los archivos. A las 02:15 pilla una madrugada que no arrancó; a las 05:15, una revisión que no llegó (lo que pasó el 08-09 y nadie detectó). Prompt vivo: prompts/vigia.md."
         },
         {
-          "hora": "02:20 (red 04:45)",
+          "hora": "~01:52 (relojes 02:20 y 04:45 de red)",
           "quien": "Revisión editorial (Opus)",
           "tipo": "claude",
-          "que": "Control de calidad: compara los guiones contra el informe buscando 5 tipos de falla (omisión, dato alterado, sentido cambiado, formato, redondeo en voz) y, ante un dato malo que puede comprobar, lo corrige y republica. Desde el 13-09 corre TEMPRANO, a las 02:20, apenas están los guiones (trig_01B8tLFaXe7h1YBCciFE2iKf); la de las 04:45 (trig_01CR3g2re9G7warvfdt4MfMS) queda de red y sale en segundos si ya hay revisión. Su veredicto es la compuerta: sin APROBADA no hay render ni informe en la web."
+          "que": "Control de calidad: compara los guiones contra el informe buscando 5 tipos de falla (omisión, dato alterado, sentido cambiado, formato, redondeo en voz) y, ante un dato malo que puede comprobar, lo corrige y republica. Desde el 15-09 la DESPIERTA estado.yml por la API de Routines apenas la etapa llega a guiones_listos (secrets CLAUDE_RUTINA_REVISION_*); la temprana de las 02:20 (trig_01B8tLFaXe7h1YBCciFE2iKf) y la de las 04:45 (trig_01CR3g2re9G7warvfdt4MfMS) quedan de red y salen en segundos si ya hay revisión. Su veredicto es la compuerta: sin APROBADA no hay render ni informe en la web."
         },
         {
           "hora": "~04:50",

@@ -403,13 +403,21 @@ referencia:
       **Ojo con el horario de cualquier prueba nueva:** comparte la rama del PR
       #6 con producción y cada evento de prueba despierta también al
       despachador real (sale solo). Nunca entre 01:00 y 05:00.
-      **Después de que pase, la prueba 2 (Santiago la prefiere para
-      producción):** en la misma rutina generar el token de la API, guardarlo
-      como secrets `CLAUDE_RUTINA_PRUEBA_ID` y `CLAUDE_RUTINA_PRUEBA_TOKEN`,
-      y repetir; el workflow ya hace el POST. Motivo de la preferencia:
-      despertares dirigidos, sin el tope por hora de eventos de GitHub que
-      documenta la doc en esta etapa, y el texto del disparo dice qué
-      validar. Doc: https://code.claude.com/docs/en/routines
+      **PRUEBA 2 (por API): HECHA el 14-09 a las 22:58, y ya está en
+      producción para la revisión.** Santiago generó el token de la rutina de
+      revisión temprana desde la interfaz (lápiz → Selecciona un disparador →
+      Agregar otro disparador → API → Generar token); quedó en GitHub como
+      secrets `CLAUDE_RUTINA_REVISION_ID` y `CLAUDE_RUTINA_REVISION_TOKEN`.
+      Disparo directo probado: HTTP 200, la rutina arrancó en 3 s con el repo,
+      leyó el payload como aviso (llega envuelto en routine-fire-payload,
+      marcado como dato) y salió por la guarda 0a en 27 s sin tocar nada.
+      Desde esta madrugada `estado.yml` la despierta cuando la etapa pasa a
+      `guiones_listos` (~01:52); los relojes de 02:20 y 04:45 quedan de red.
+      Ojo: el token se pegó en el chat de la sesión local; conviene
+      REGENERARLO en el mismo modal cuando haya calma y actualizar el secret.
+      Para el resto de las rutinas que en el paso 5 pasen a evento, es el
+      mismo camino: token por rutina, un secret por rutina, un `case` más en
+      `estado.yml`.
       Limpieza pendiente cuando termine: borrar `prompts/prueba-flujo.md`,
       `prompts/prueba-validador.md`, el workflow y `contenido/pruebas/`, o
       moverlos a `archivo/`; y archivar la sesión persistente
