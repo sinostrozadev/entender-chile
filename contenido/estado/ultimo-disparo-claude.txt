@@ -1,1 +1,1 @@
-2026-09-16 validar_clave 1
+2026-09-16 validar_guion_clave 0
