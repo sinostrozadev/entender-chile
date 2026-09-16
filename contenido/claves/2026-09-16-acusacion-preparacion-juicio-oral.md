@@ -35,7 +35,7 @@ Presentada la acusación, el juez de garantía debe notificarla y citar a una au
 
 Esta audiencia no es un juicio pequeño ni una oportunidad para declarar culpable o inocente al acusado. Su función es ordenar el conflicto que sí llegará al juicio. Allí se corrigen vicios formales, se resuelven ciertas excepciones, se determina qué prueba podrá rendirse y se delimita el objeto que conocerá el tribunal oral.
 
-La separación de funciones importa. El Ministerio Público investiga y acusa. El juez de garantía controla la legalidad del procedimiento y protege los derechos de los intervinientes durante la investigación y la preparación. El tribunal de juicio oral en lo penal recibe la prueba, escucha a las partes y decide el fondo mediante sentencia. El juez que prepara no sustituye al tribunal que juzga.
+La separación de funciones evita que el mismo juez que ordena y filtra el caso sea quien decida la culpabilidad. El Ministerio Público investiga y acusa. El juez de garantía controla la legalidad del procedimiento y protege los derechos de los intervinientes durante la investigación y la preparación. El tribunal de juicio oral en lo penal recibe la prueba, escucha a las partes y decide el fondo mediante sentencia. El juez que prepara no sustituye al tribunal que juzga.
 
 ## Qué pueden hacer la defensa y los demás intervinientes
 
