@@ -387,6 +387,87 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **MODO 1: cómo trabajamos desde el 16-09.** Santiago: "quiero que sigamos
+      operando y afinando, y vayas guardando lo que hablamos, tal como hasta
+      ahora; la diferencia es que cuando tengamos todo listo y pensado me
+      preguntarás, y si te doy el sí, lo harás tú mismo". O sea: la sesión de
+      día pasa de solo anotar a proponer y EJECUTAR con aprobación explícita,
+      porque la sesión de la noche se le está complicando. Esto REEMPLAZA en
+      la práctica a la regla dura 24 ("la sesión de día no toca el
+      comportamiento del proyecto"), que ya se levantó seis veces el 15 y el
+      16-09. Hay que reescribir la regla 24 con la forma nueva: el día
+      propone con alcance medido, Santiago aprueba, el día ejecuta, prueba con
+      una corrida real y lo deja anotado. Lo que la sesión de día NO puede
+      hacer sigue igual y conviene dejarlo escrito en la regla: no tiene los
+      secrets (Azure, YouTube, podcast), no puede renderizar video ni
+      carátulas (el Chromium del entorno no confía en el certificado del
+      proxy al pedir las fuentes a Google y el render muere ahí; se destraba
+      bajando las fuentes al repo, que además le ahorraría a Actions unas 300
+      peticiones por render), y no puede editar las rutinas de Claude creadas
+      desde la interfaz.
+
+- [ ] **CLAVE 3: eliminar el Short de la Clave** (Santiago, 16-09: "ese está
+      malo, no me gusta y no sirve de nada"). Coincide con lo medido el 12-09
+      (CALIDAD 1, punto 1): su mediana de vistas es un tercio de la del Short
+      del informe y no convierte a la Clave larga (7 de 9 pares pasan menos
+      del 6%). Alcance exacto, seis puntos:
+      (1) `.github/workflows/edicion-diaria.yml`: borrar el paso 4b (produce
+      el Short de la Clave), la línea 279 (lo sube a YouTube) y las líneas 97
+      y 104, donde el release lo cuenta como pieza que falta.
+      (2) La variable `YT_HORA_SHORT_CLAVE` queda sin uso: retirarla del
+      workflow.
+      (3) `scripts/short.js` conserva su modo `--clave` (sirve si algún día se
+      retoma) pero ya nadie lo invoca: dejarlo dicho en la cabecera.
+      (4) Revisar si `prompts/guion-claves.md` pide algo SOLO para el Short
+      (las cuatro tesis); si es así, quitar ese requisito del prompt y del
+      validador.
+      (5) `bitacora/cronograma.json` y los prompts que hablan de "cuatro
+      piezas" pasan a tres (y a dos cuando la Clave salga de la cadena
+      diaria, CLAVE 4).
+      (6) Los Shorts de Clave YA publicados en YouTube no se tocan: quedan
+      como están, con sus vistas.
+
+- [ ] **CLAVE 4: la Clave sale de la cadena diaria y tiene flujo propio, con
+      dos aprobaciones de Santiago** (16-09). "La Clave la vamos a lanzar una
+      o dos veces por semana dependiendo de la lista que tengamos, y la
+      haremos bien. Antes de hacerla video me presentas la lista de
+      disponibles. Esa lista se actualiza con cada informe si encontramos algo
+      interesante. Luego que decidimos el tema, me presentarás la idea
+      completa, y recién cuando te dé el sí lo harás video y subirás."
+      **Lo que ya existe y sirve:** `contenido/claves/banco-temas.md` tiene 67
+      temas con su noticia de origen y su fecha, y `contenido/claves/indice.md`
+      lleva lo ya explicado. El prompt de la Clave ya sabe leer los dos.
+      **Lo que hay que cambiar:**
+      (a) **Sacar la Clave de la cadena diaria**: en `scripts/estado.js`,
+      `VALIDADAS` pasa de cinco piezas a tres (preselección, informe, guion del
+      informe) y la pieza `videos` deja de exigir la descripción de la Clave.
+      La cadena del día termina en `guion_informe_listo` → `validar_final` →
+      `aprobada` → videos. Un día sin Clave deja de ser un día incompleto.
+      (b) **Alguien tiene que seguir alimentando el banco todos los días.** Hoy
+      lo hace el prompt de la Clave, que corre cada madrugada; si la Clave sale
+      de la cadena, ese paso desaparece. Propuesta: un paso corto y barato
+      después del informe aprobado (GPT o una rutina de Haiku) que lea el
+      informe del día y agregue al banco los temas que ameriten, con concepto,
+      noticia de origen y fecha. Sin esto la lista se congela.
+      (c) **Flujo propio con estado propio**, `contenido/estado/clave-<slug>`,
+      con estas etapas: `banco_al_dia` → **`elegir_tema` (Santiago)** →
+      `proponer_idea` (GPT, con título, promesa, las preguntas que responde,
+      el caso de entrada y la carátula) → `validar_idea` (Claude, contra el
+      prompt) → **`aprobar_idea` (Santiago)** → `entrega` → `validar_entrega`
+      → `guion` → `validar_guion` → `aprobada` → video y subida. Los dos pasos
+      en negrita son de Santiago y el flujo se detiene ahí hasta su respuesta.
+      (d) **Disparo manual**: el flujo no arranca por reloj, sino porque
+      Santiago lo pide ("hagamos la Clave de X"). Es el caso de uso del
+      "despertar un flujo con un aviso" de MÁQUINA 5.
+      (e) **Cadencia**: una o dos por semana según lo que tenga el banco.
+      Sustituye a CLAVE 2 y ajusta lo dicho en SERIE 1 (dos por semana dentro
+      del hilo del Estrecho).
+      **Esto obliga a tener el Taller**: la lista de temas y la idea propuesta
+      hay que presentarlas de una forma que Santiago pueda mirar y decidir
+      desde el teléfono. Es TALLER 3, ahora con un uso concreto y urgente: un
+      tablero de la lista de temas disponibles con su fecha y su noticia de
+      origen, y una ficha de la idea propuesta con botón de aprobar.
+
 - [ ] **CARÁTULA 2 (PRIORIDAD ALTA, Santiago 15-09): las carátulas no dan
       ganas de entrar.** El ejemplo: el informe del 15-09, "Chile elimina la
       rabia humana transmitida por perros", salió con la carátula "54 · años
