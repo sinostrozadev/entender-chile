@@ -13,9 +13,14 @@
  *   node scripts/short.js [--fecha AAAA-MM-DD] [--clave] [--voz] [--sin-fondo] [--render]
  *
  *   --clave      Short de la Clave del día (4 tesis) en vez del informe (5).
- *                OJO: dia.js escribe informe y clave en la misma carpeta
- *                out/FECHA/, así que cada Short se produce justo después de
- *                su dia.js (el workflow lo ordena así: 3 → 3b, 4 → 4b).
+ *                RETIRADO DE PRODUCCIÓN el 16-09-2026 (Santiago: "ese está
+ *                malo, no me gusta y no sirve de nada"; lo medido: un tercio
+ *                de las vistas del Short del informe y 7 de 9 pares llevaron
+ *                menos del 6% de su público a la Clave larga). El modo sigue
+ *                aquí por si se retoma, pero ningún workflow lo invoca.
+ *                OJO si se retoma: dia.js escribe informe y clave en la misma
+ *                carpeta out/FECHA/, así que cada Short se produce justo
+ *                después de su dia.js.
  *
  *   --voz        usa Azure si hay AZURE_SPEECH_KEY/REGION (si no, voz simulada)
  *   --sin-fondo  piel papel; por defecto va el fondo marino con el mapa

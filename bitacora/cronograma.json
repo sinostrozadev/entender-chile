@@ -45,7 +45,7 @@
           "hora": "~04:00",
           "quien": "Edición diaria",
           "tipo": "actions",
-          "que": "La fábrica, con compuerta (exige la revisión del día con VEREDICTO: APROBADA, que ahora escribe el validador al cerrar la cadena): voz Azure, renders de los 4 videos, carátulas, subida privada a YouTube, podcast."
+          "que": "La fábrica, con compuerta (exige la revisión del día con VEREDICTO: APROBADA, que ahora escribe el validador al cerrar la cadena): voz Azure, renders de los videos del día (informe, su Short y la Clave cuando hay; el Short de la Clave se retiró el 16-09), carátulas, subida privada a YouTube, podcast."
         },
         {
           "hora": "02:15 y 05:15",

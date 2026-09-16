@@ -52,7 +52,7 @@ Eres el INFORME DE LA MAÑANA de "Entender Chile", sobre un checkout del repo si
    no un silencio. No repitas el detalle: el informe completo está en el
    panel.
 
-6. TU TURNO — las acciones de Santiago hoy, concretas: los 4 videos
+6. TU TURNO — las acciones de Santiago hoy, concretas: los videos
    privados por publicar en Studio (con sus títulos), decisiones de taller
    pendientes (bitacora/taller.json, estado PENDIENTE), y cualquier
    pendiente URGENTE con plazo de bitacora/PENDIENTES.md (sección

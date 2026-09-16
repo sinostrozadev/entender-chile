@@ -406,8 +406,16 @@ referencia:
       peticiones por render), y no puede editar las rutinas de Claude creadas
       desde la interfaz.
 
-- [ ] **CLAVE 3: eliminar el Short de la Clave** (Santiago, 16-09: "ese está
-      malo, no me gusta y no sirve de nada"). Coincide con lo medido el 12-09
+- [x] **CLAVE 3: eliminar el Short de la Clave.** ✅ 16-09, sesión de día con
+      autorización de Santiago ("sí, aplícalo"). Hecho: paso 4b, subida,
+      conteo del release y `YT_HORA_SHORT_CLAVE` fuera de
+      `edicion-diaria.yml`; `scripts/short.js` conserva `--clave` con una nota
+      de por qué nadie lo invoca; cronograma y prompt del guardián al día. El
+      prompt del guion de la Clave NO pedía nada solo para el Short
+      (las [TESIS] son del formato del guion largo), así que no se tocó. Los
+      Shorts ya publicados quedan como están. Queda verlo en la próxima
+      madrugada con Clave. El pedido original (Santiago, 16-09: "ese está
+      malo, no me gusta y no sirve de nada"): Coincide con lo medido el 12-09
       (CALIDAD 1, punto 1): su mediana de vistas es un tercio de la del Short
       del informe y no convierte a la Clave larga (7 de 9 pares pasan menos
       del 6%). Alcance exacto, seis puntos:

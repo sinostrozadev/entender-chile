@@ -94,14 +94,13 @@ jobs:
           tiene informe     && echo "HAY_INFORME=1"     >> "$GITHUB_ENV"
           tiene short       && echo "HAY_SHORT=1"       >> "$GITHUB_ENV"
           tiene clave       && echo "HAY_CLAVE=1"       >> "$GITHUB_ENV"
-          tiene short-clave && echo "HAY_SHORT_CLAVE=1" >> "$GITHUB_ENV"
           FALTA=""
           tiene informe || FALTA="$FALTA informe"
           tiene short   || FALTA="$FALTA short"
           # La Clave solo cuenta como pendiente si hoy existe su guion.
+          # (Su Short se retiró el 16-09: ver CLAVE 3 en bitacora/PENDIENTES.md.)
           if ls contenido/guiones/claves/$FECHA-*.md >/dev/null 2>&1; then
-            tiene clave       || FALTA="$FALTA clave"
-            tiene short-clave || FALTA="$FALTA short-clave"
+            tiene clave || FALTA="$FALTA clave"
           fi
           if [ -z "$FALTA" ]; then
             echo "SALTAR=1" >> "$GITHUB_ENV"
@@ -198,17 +197,6 @@ jobs:
           if { [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; } || { [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; }; then VOZ="--voz"; else VOZ=""; fi
           node scripts/dia.js --clave --si-existe $VOZ --render
 
-      - name: 4b · Producir el Short de la Clave (si hubo)
-        env:
-          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
-          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
-          AZURE_SPEECH_KEY2: ${{ secrets.AZURE_SPEECH_KEY2 }}
-          AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
-        if: env.SALTAR != '1' && env.SIN_CLAVE != '1'
-        continue-on-error: true
-        run: |
-          if [ -f "out/$FECHA/$FECHA-clave.mp4" ]; then node scripts/short.js --fecha "$FECHA" --clave --voz --render; else echo "Sin Clave hoy: no hay Short de la Clave."; fi
-
       - name: 5 · Commit de las descripciones
         if: env.SALTAR != '1'
         run: |
@@ -257,7 +245,6 @@ jobs:
           YT_HORA_INFORME: ${{ vars.YT_HORA_INFORME || '07:30' }}
           YT_HORA_SHORT: ${{ vars.YT_HORA_SHORT || '12:00' }}
           YT_HORA_CLAVE: ${{ vars.YT_HORA_CLAVE || '14:00' }}
-          YT_HORA_SHORT_CLAVE: ${{ vars.YT_HORA_SHORT_CLAVE || '18:00' }}
           # Mínimo de minutos entre la subida y la publicación: la ventana de
           # revisión de Santiago. Si la hora de arriba queda más cerca, se corre.
           YT_MARGEN_MIN: ${{ vars.YT_MARGEN_MIN || '90' }}
@@ -269,14 +256,13 @@ jobs:
           # corrida la renderizó.
           # PROGRAMADO, no privado (Santiago, 15-09: "quiero ver si eso funciona").
           # Hora de Chile por pieza; se cambia con las variables de repositorio
-          # YT_HORA_INFORME, YT_HORA_SHORT, YT_HORA_CLAVE y YT_HORA_SHORT_CLAVE
-          # sin tocar este archivo. Si la hora ya pasó, el script programa 30 min
-          # después de ahora. Si YouTube rechaza publishAt (proyecto sin
-          # auditoría), el script falla y el video no sube: mirar el log.
+          # YT_HORA_INFORME, YT_HORA_SHORT y YT_HORA_CLAVE sin tocar este
+          # archivo. Si la hora pedida deja menos de YT_MARGEN_MIN minutos de
+          # revisión, el script la corre. Si YouTube rechaza publishAt, el
+          # script falla y el video no sube: mirar el log.
           if [ -f "out/$FECHA/$FECHA-informe.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --programar "$YT_HORA_INFORME"; fi
           if [ -f "out/$FECHA/$FECHA-short.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --short --programar "$YT_HORA_SHORT"; fi
           if [ -f "out/$FECHA/$FECHA-clave.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --clave --programar "$YT_HORA_CLAVE"; fi
-          if [ -f "out/$FECHA/$FECHA-short-clave.mp4" ]; then node scripts/youtube-subir.js --fecha "$FECHA" --short --clave --programar "$YT_HORA_SHORT_CLAVE"; fi
 
       # El informe como episodio de podcast (Spotify y compañía leen el RSS solos).
       # Necesita el secret AUDIO_TOKEN (PAT fino con contents:write sobre
