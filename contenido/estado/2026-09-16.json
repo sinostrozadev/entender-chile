@@ -1,9 +1,9 @@
 {
   "fecha": "2026-09-16",
-  "etapa": "clave_lista",
+  "etapa": "validar_guion_clave",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-09-16 02:30",
+  "actualizado": "2026-09-16 02:33",
   "reparar": null,
   "piezas": [
     {
@@ -74,13 +74,15 @@
     {
       "id": "guion_clave",
       "etiqueta": "Guion de la Clave",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "por_validar",
       "prompt": "prompts/guion-claves.md",
-      "hora": "",
+      "hora": "02:33",
       "esperada": "04:10",
       "dueno": "GPT · prompts/guion-claves.md",
-      "rutas": []
+      "rutas": [
+        "contenido/guiones/claves/2026-09-16-acusacion-preparacion-juicio-oral.md"
+      ]
     },
     {
       "id": "revision",
