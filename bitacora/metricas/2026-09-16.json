@@ -3,9 +3,18 @@
   "canal": {
     "suscriptores": 15,
     "vistas": 5005,
-    "videos": 74
+    "videos": 75
   },
   "videos": {
+    "v8hygFRbm2U": {
+      "titulo": "Fiscalía pide 17 años para Luis Hermosilla, y otras 4 cosas ",
+      "publicado": "2026-09-16",
+      "estado": "public",
+      "vistas": 1,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 52
+    },
     "VqkqyzQp8Ec": {
       "titulo": "Fiscalía pide 17 años para Luis Hermosilla",
       "publicado": "2026-09-16",
@@ -32,15 +41,6 @@
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 686
-    },
-    "v8hygFRbm2U": {
-      "titulo": "Fiscalía pide 17 años para Luis Hermosilla, y otras 4 cosas ",
-      "publicado": "2026-09-16",
-      "estado": "private",
-      "vistas": 1,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 52
     },
     "ei1OUk3ZvAI": {
       "titulo": "Clave: Eliminar no es erradicar: cómo leer una certificación",
@@ -82,7 +82,7 @@
       "titulo": "Chile elimina la rabia humana transmitida por perros",
       "publicado": "2026-09-15",
       "estado": "public",
-      "vistas": 1,
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 813
