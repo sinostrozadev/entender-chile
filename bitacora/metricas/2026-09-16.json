@@ -3,14 +3,23 @@
   "canal": {
     "suscriptores": 15,
     "vistas": 5005,
-    "videos": 73
+    "videos": 74
   },
   "videos": {
+    "VqkqyzQp8Ec": {
+      "titulo": "Fiscalía pide 17 años para Luis Hermosilla",
+      "publicado": "2026-09-16",
+      "estado": "public",
+      "vistas": 1,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 640
+    },
     "4a0tM4wBa8c": {
       "titulo": "Clave: ¿Qué se decide antes de un juicio oral? #Shorts",
       "publicado": "2026-09-16",
       "estado": "private",
-      "vistas": 0,
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 24
@@ -28,19 +37,10 @@
       "titulo": "Fiscalía pide 17 años para Luis Hermosilla, y otras 4 cosas ",
       "publicado": "2026-09-16",
       "estado": "private",
-      "vistas": 0,
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 52
-    },
-    "VqkqyzQp8Ec": {
-      "titulo": "Fiscalía pide 17 años para Luis Hermosilla",
-      "publicado": "2026-09-16",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 640
     },
     "ei1OUk3ZvAI": {
       "titulo": "Clave: Eliminar no es erradicar: cómo leer una certificación",
@@ -55,7 +55,7 @@
       "titulo": "¿Quién fue Patricio Guzmán, el documentalista que despide Ch",
       "publicado": "2026-09-15",
       "estado": "public",
-      "vistas": 90,
+      "vistas": 104,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 44
@@ -73,7 +73,7 @@
       "titulo": "Chile elimina la rabia humana transmitida por perros, y otra",
       "publicado": "2026-09-15",
       "estado": "public",
-      "vistas": 12,
+      "vistas": 13,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 47
@@ -91,7 +91,7 @@
       "titulo": "¿Prepara el gobierno un plan de emergencia por el desempleo?",
       "publicado": "2026-09-14",
       "estado": "public",
-      "vistas": 9,
+      "vistas": 13,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 42
@@ -172,7 +172,7 @@
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 4,
+      "vistas": 5,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 680
@@ -208,7 +208,7 @@
       "titulo": "Corte Suprema remueve a once jueces por viajar con licencia ",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 13,
+      "vistas": 14,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 709
@@ -235,7 +235,7 @@
       "titulo": "¿Qué admitió el exfiscal Vinko Fodich antes de ser formaliza",
       "publicado": "2026-09-11",
       "estado": "public",
-      "vistas": 233,
+      "vistas": 234,
       "meGusta": 4,
       "comentarios": 0,
       "durSeg": 48
@@ -343,7 +343,7 @@
       "titulo": "Fonasa denuncia un fraude de ocho mil millones en salud",
       "publicado": "2026-09-09",
       "estado": "public",
-      "vistas": 10,
+      "vistas": 11,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 720
@@ -370,7 +370,7 @@
       "titulo": "¿Qué es una interpelación y qué puede exigirle a un ministro",
       "publicado": "2026-09-08",
       "estado": "public",
-      "vistas": 24,
+      "vistas": 26,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 320
@@ -496,7 +496,7 @@
       "titulo": "¿Cómo funciona la regla fiscal y el balance estructural?",
       "publicado": "2026-09-05",
       "estado": "public",
-      "vistas": 12,
+      "vistas": 13,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 598
@@ -613,7 +613,7 @@
       "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 51,
+      "vistas": 52,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 682
