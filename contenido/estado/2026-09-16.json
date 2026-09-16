@@ -1,9 +1,9 @@
 {
   "fecha": "2026-09-16",
-  "etapa": "validar_guion_clave",
+  "etapa": "validar_final",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-09-16 02:33",
+  "actualizado": "2026-09-16 02:38",
   "reparar": null,
   "piezas": [
     {
@@ -75,7 +75,7 @@
       "id": "guion_clave",
       "etiqueta": "Guion de la Clave",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "lista",
       "prompt": "prompts/guion-claves.md",
       "hora": "02:33",
       "esperada": "04:10",
