@@ -1,18 +1,10 @@
 {
   "fecha": "2026-09-16",
-  "etapa": "reparar_clave",
+  "etapa": "validar_clave",
   "veredicto": "pendiente",
   "vuelta": 1,
-  "actualizado": "2026-09-16 02:27",
-  "reparar": {
-    "piezas": [
-      "clave"
-    ],
-    "pieza": "clave",
-    "dueno": "GPT (despachador)",
-    "motivo": "contenido/veredictos/2026-09-16-clave.md",
-    "vuelta": 1
-  },
+  "actualizado": "2026-09-16 02:28",
+  "reparar": null,
   "piezas": [
     {
       "id": "barrido",
@@ -70,7 +62,7 @@
       "id": "clave",
       "etiqueta": "Clave (entrega)",
       "hay": true,
-      "situacion": "reparar",
+      "situacion": "por_validar",
       "prompt": "prompts/claves.md",
       "hora": "02:23",
       "esperada": "03:40",
