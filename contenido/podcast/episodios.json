@@ -285,5 +285,23 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-15-clave.mp3",
     "bytes": 17220096,
     "durSeg": 718
+  },
+  {
+    "fecha": "2026-09-16",
+    "tipo": "informe",
+    "titulo": "16-09-2026 · Fiscalía pide 17 años para Luis Hermosilla",
+    "descripcion": "La Fiscalía cerró la investigación del caso Audio-Factop y presentó su acusación. También explicamos las solicitudes de indulto que debe resolver el Gobierno, las esperas detectadas en urgencias y las señales del empleo. Cerramos con economía, regiones, cultura y el resto de la jornada en titulares.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-16-informe.mp3",
+    "bytes": 15348672,
+    "durSeg": 640
+  },
+  {
+    "fecha": "2026-09-16",
+    "tipo": "clave",
+    "titulo": "Clave · ¿Qué se decide antes de un juicio oral?",
+    "descripcion": "Una acusación no es una condena y el cierre de una investigación tampoco termina la causa. Este video explica qué decide la Fiscalía, qué controla el juez de garantía, cómo se filtra la prueba y cuándo el caso pasa al tribunal oral.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-16-clave.mp3",
+    "bytes": 16388352,
+    "durSeg": 683
   }
 ]
