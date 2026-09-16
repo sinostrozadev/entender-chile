@@ -1,9 +1,9 @@
 {
   "fecha": "2026-09-16",
-  "etapa": "validar_clave",
+  "etapa": "clave_lista",
   "veredicto": "pendiente",
-  "vuelta": 1,
-  "actualizado": "2026-09-16 02:28",
+  "vuelta": 0,
+  "actualizado": "2026-09-16 02:30",
   "reparar": null,
   "piezas": [
     {
@@ -62,7 +62,7 @@
       "id": "clave",
       "etiqueta": "Clave (entrega)",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "lista",
       "prompt": "prompts/claves.md",
       "hora": "02:23",
       "esperada": "03:40",
