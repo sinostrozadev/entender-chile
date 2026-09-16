@@ -61,3 +61,7 @@
 - fondos permanentes para reconstrucción, financiamiento anticipado y reglas de activación frente a catástrofes | Vivienda propone fondo permanente de reconstrucción | 2026-09-13
 - manipulación digital coordinada, redes automatizadas y límites regulatorios frente a la libertad de expresión | Proyecto busca sancionar manipulación digital coordinada | 2026-09-13
 - sistemas de aterrizaje instrumental, categorías ILS y continuidad aérea regional | Balmaceda será el primer aeródromo chileno con ILS categoría II | 2026-09-14
+- indulto particular presidencial, límites y diferencia con amnistía y cumplimiento alternativo | Más de 100 solicitudes de indulto esperan una decisión del Gobierno | 2026-09-16
+- triaje de urgencia, categorías de riesgo y uso de tiempos de espera | Contraloría detecta esperas de hasta 73 horas y 41 minutos para pacientes de riesgo vital | 2026-09-16
+- banca multilateral de desarrollo y diferencia entre financiamiento disponible y desembolso | CAF pone a disposición de Chile US$6.000 millones para cuatro años | 2026-09-16
+- toma de razón de reglamentos y control preventivo de legalidad | El reglamento de seguridad municipal llegó a Contraloría con puntos en disputa | 2026-09-16
