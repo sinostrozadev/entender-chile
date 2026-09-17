@@ -214,7 +214,7 @@ console.log(`OK: Short de ${(tl.meta.duracionSeg / 60).toFixed(1)} min (${tl.met
 
 const video = path.join(OUT_DIA, `${fecha}-${SERIE}${conFondo ? "" : "-papel"}.mp4`);
 if (conRender) {
-  execFileSync("npx", ["remotion", "render", "src/short-entry.tsx", "Short", video, `--props=./${path.join(OUT, "timeline.json")}`], { stdio: "inherit" });
+  execFileSync("npx", ["remotion", "render", "src/short-entry.tsx", "Short", video, `--props=./${path.join(OUT, "timeline.json")}`, "--concurrency=100%"], { stdio: "inherit" });
   console.log(`\nListo: ${video}`);
 } else {
   console.log(`\nPara verlo: npx remotion render src/short-entry.tsx Short ${video} --props=./${path.join(OUT, "timeline.json")}`);

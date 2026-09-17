@@ -86,7 +86,7 @@ FUENTES Y VERIFICACIÓN:
 - Las citas textuales van entrecomilladas, con nombre y cargo de quien las dijo y fuente.
 - Para las cifras y hechos de toda noticia [A], exige al menos dos fuentes coincidentes. Si las fuentes discrepan, informa la discrepancia en vez de elegir una.
 - Toda referencia temporal relativa ("ayer", "esta semana", "esta madrugada") va acompañada de la fecha absoluta, porque el reporte puede narrarse horas o un día después.
-- Al final de la edición, incluye "Fuentes consultadas": una línea por medio o institución, con fecha.
+- Al final de la edición, incluye "Fuentes consultadas": una línea por medio o institución, con fecha. AUTOVERIFICACIÓN OBLIGATORIA antes de cerrar (16-09; costó una vuelta de corrección los dos primeros días de la cadena v3): recorre el cuerpo del informe, anota cada medio o institución citado entre paréntesis o con "según" o "vía", y comprueba que cada uno tenga su línea en "Fuentes consultadas". Ninguno puede faltar; el validador lo revisa después con esa misma lista.
 - Fuentes de calidad: organismos oficiales y medios establecidos. Para meteorología, la fuente primaria es la Dirección Meteorológica de Chile. Nunca sitios de apuestas, agregadores estadísticos de apuestas ni nombres de procesos internos ("pronóstico estructurado") como fuente.
 
 ESTRUCTURA:

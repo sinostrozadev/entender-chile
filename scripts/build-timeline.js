@@ -146,7 +146,7 @@ const timeline = {
     cortinas: process.env.CORTINAS && (!audioFile || pausas.length)
       ? process.env.CORTINAS.split(",") : null,
     cierre: process.env.CIERRE || null,             // melodía final
-    fps: 30,
+    fps: 24, // era 30; 24 = 20% menos cuadros que renderizar (ACTIONS 1, 16-09). Todos los tiempos van en segundos, no en cuadros.
     width: 1920,
     height: 1080,
     duracionSeg: Number((fin + 1.2).toFixed(2)),

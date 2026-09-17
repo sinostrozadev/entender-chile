@@ -182,8 +182,10 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
 const video = path.join(OUT, `${fecha}-${etiqueta}.mp4`);
 if (conRender) {
   console.log("── Render ────────────────────────────────────────");
+  // --concurrency=100%: el runner de Actions tiene 4 núcleos y el default de
+  // remotion usaba 2; el render de un informe tardaba 55 a 105 min (ACTIONS 1).
   execFileSync("npx", ["remotion", "render", "Informe", video,
-    `--props=./${path.join(OUT, "timeline.json")}`], { stdio: "inherit" });
+    `--props=./${path.join(OUT, "timeline.json")}`, "--concurrency=100%"], { stdio: "inherit" });
   console.log(`\nListo: ${video}`);
 } else {
   console.log("\nSiguiente paso:");

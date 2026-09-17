@@ -1,6 +1,6 @@
 {
   "_regla": "FUENTE DE VERDAD del cronograma del panel. Quien cambie una tarea (rutina, workflow, tarea GPT, horario o disparador) ACTUALIZA este archivo en el mismo commit; scripts/panel-cronograma.js lo inyecta al panel y el reloj de métricas lo refresca a diario.",
-  "actualizado": "2026-09-14",
+  "actualizado": "2026-09-16",
   "fases": [
     {
       "nombre": "La madrugada: cadena LINEAL v3 (GPT escribe, Claude valida cada pieza, el estado manda)",
@@ -21,13 +21,13 @@
           "hora": "~01:35 en adelante",
           "quien": "Despachador (GPT)",
           "tipo": "gpt",
-          "que": "UNA tarea para las cinco piezas, despertada por el PR #6. Lee ETAPA, PIEZA, PROMPT y ARCHIVO del estado, escribe la pieza con ese prompt, pushea y ESPERA el veredicto. Orden: preselección → informe → guion del informe → entrega de Clave → guion de la Clave. Si Claude devuelve (reparar_<pieza>), corrige solo lo pedido. Prompt vivo: prompts/despachador-gpt.md."
+          "que": "UNA tarea para las piezas del día, despertada por el PR #6. Lee ETAPA, PIEZA, PROMPT y ARCHIVO del estado, escribe la pieza con ese prompt, pushea y espera el veredicto. Orden desde el 16-09 (CLAVE 4): preselección → informe → guion del informe; y con el día aprobado, alimenta el banco de temas de la Clave (prompts/banco-temas.md, sin validación). Si Claude devuelve (reparar_<pieza>), corrige solo lo pedido. Prompt vivo: prompts/despachador-gpt.md."
         },
         {
           "hora": "tras cada pieza",
           "quien": "Validador (Claude, Opus)",
           "tipo": "claude",
-          "que": "Despertado por API desde estado.yml en cada validar_<pieza> (trig_01B8tLFaXe7h1YBCciFE2iKf; su reloj de 02:20 queda de red). Lee el prompt de la pieza y verifica requisito por requisito; escribe contenido/veredictos/FECHA-<pieza>.md: APROBADA avanza el estado, CORREGIR lo mantiene con correcciones ejecutables para GPT. Tope: dos vueltas, después BLOQUEADA. Al aprobar la última pieza escribe contenido/revisiones/FECHA.md, la compuerta. Prompt vivo: prompts/validador.md."
+          "que": "Despertado por API desde estado.yml en cada validar_<pieza> (trig_01B8tLFaXe7h1YBCciFE2iKf; su reloj de 02:20 queda de red). Lee el prompt de la pieza y verifica requisito por requisito; escribe contenido/veredictos/FECHA-<pieza>.md: APROBADA avanza el estado, CORREGIR lo mantiene con correcciones ejecutables para GPT. Tope: dos vueltas, después BLOQUEADA. Al aprobar el guion del informe (la última pieza diaria desde el 16-09) escribe contenido/revisiones/FECHA.md, la compuerta. Prompt vivo: prompts/validador.md."
         },
         {
           "hora": "continuo",
@@ -45,7 +45,7 @@
           "hora": "~04:00",
           "quien": "Edición diaria",
           "tipo": "actions",
-          "que": "La fábrica, con compuerta (exige la revisión del día con VEREDICTO: APROBADA, que ahora escribe el validador al cerrar la cadena): voz Azure, renders de los videos del día (informe, su Short y la Clave cuando hay; el Short de la Clave se retiró el 16-09), carátulas, subida privada a YouTube, podcast."
+          "que": "La fábrica, con compuerta (exige la revisión del día con VEREDICTO: APROBADA, que escribe el validador al cerrar la cadena): voz Azure, render del informe y su Short (24 fps y concurrency 100% desde el 16-09), carátulas, subida PROGRAMADA a YouTube, podcast. La Clave, cuando exista por su flujo propio, entra por el mismo camino."
         },
         {
           "hora": "02:15 y 05:15",

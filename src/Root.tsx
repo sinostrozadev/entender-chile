@@ -11,7 +11,7 @@ export const Root: React.FC = () => {
       defaultProps={timelineEjemplo as unknown as Timeline}
       calculateMetadata={({ props }) => {
         const m = (props as Timeline).meta;
-        const fps = m?.fps ?? 30;
+        const fps = m?.fps ?? 24;
         return {
           fps,
           width: m?.width ?? 1920,

@@ -30,9 +30,11 @@ lista su carpeta y cita lo que viste.
 
 2. **Qué se produjo.** Comprueba y anota la hora de creación de cada pieza
    (`git log --diff-filter=A --format='%cd' --date=format-local:'%H:%M' -- RUTA`):
-   barrido, preselección, informe, Clave, guion del informe, guion de la
-   Clave, revisión (y su línea VEREDICTO), descripciones del informe y de la
-   Clave, y `bitacora/metricas/FECHA.md`. La Clave tiene tres eslabones
+   barrido, preselección, informe, guion del informe, revisión (y su línea
+   VEREDICTO), descripciones del informe, el banco de temas de la Clave
+   (`contenido/claves/banco-temas.md`, que debe tener commit de hoy) y
+   `bitacora/metricas/FECHA.md`. La Clave NO es diaria desde el 16-09
+   (CLAVE 4: flujo propio, una o dos por semana); si un día aparece, tiene tres eslabones
    (entrega, guion, video): una entrega sin guion es peor que no tener
    Clave, porque el trabajo se hizo y se perdió.
 

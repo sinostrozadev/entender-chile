@@ -3,7 +3,7 @@
 Prompt vivo de la rutina validadora (`trig_01B8tLFaXe7h1YBCciFE2iKf`, Opus, con
 el repo; la despierta `estado.yml` por API en cada etapa `validar_*`, y su reloj
 de las 02:20 queda de red). Cadena lineal v3, pedida por Santiago el
-14-09-2026: GPT escribe las cinco piezas del día, una por vez, y Claude valida
+14-09-2026 (tres piezas desde el 16-09, CLAVE 4): GPT escribe las piezas del día, una por vez, y Claude valida
 CADA una antes de que exista la siguiente. La regla, con sus palabras: **"los
 validadores de Claude solo tienen que mirar el prompt correspondiente al estado
 y verificar que GPT haya cumplido con todo"**.
@@ -43,8 +43,8 @@ fecha y la etapa: es solo un aviso. La verdad es el archivo de estado.)
 3. El `ARCHIVO` (la pieza que escribió GPT), hasta la última línea.
 4. Las ENTRADAS que ese prompt declara, porque la fidelidad se verifica contra
    ellas: el barrido para la preselección; la preselección para el informe;
-   el informe para el guion del informe; el informe (y el índice y el banco de
-   temas) para la entrega de Clave; la entrega para el guion de la Clave.
+   el informe para el guion del informe. (La Clave tiene flujo propio desde
+   el 16-09 y no pasa por esta cadena.)
 
 ## 2. Verifica requisito por requisito
 
@@ -117,27 +117,26 @@ Reglas del veredicto:
 (si el push falla, reintenta una vez con pull --rebase). Tu push es lo que
 recalcula el estado y despierta a GPT.
 
-Si la pieza que acabas de APROBAR es `guion_clave` (la última de la cadena),
-sigue con el punto 5 en esta misma corrida.
+Si la pieza que acabas de APROBAR es `guion_informe` (la última de la cadena
+diaria desde el 16-09), sigue con el punto 5 en esta misma corrida.
 
 ## 5. El veredicto final del día (etapa `validar_final`, o tras aprobar la última pieza)
 
 Escribe `contenido/revisiones/FECHA.md` con:
 
     VEREDICTO: APROBADA
-    VUELTA: <la mayor VUELTA de los cinco veredictos>
+    VUELTA: <la mayor VUELTA de los tres veredictos>
 
     Revisado:
-    - preseleccion: APROBADA (vuelta N) · informe: ... · guion_informe: ... ·
-      clave: ... · guion_clave: ...
+    - preseleccion: APROBADA (vuelta N) · informe: ... · guion_informe: ...
 
     Resumen:
     (dos líneas: qué costó y qué no)
 
     Hallazgos:
-    (las observaciones que quedaron en los cinco veredictos, o "Sin hallazgos")
+    (las observaciones que quedaron en los tres veredictos, o "Sin hallazgos")
 
-Solo si los cinco veredictos dicen APROBADA. Commit `revisión FECHA [claude]`
+Solo si los tres veredictos dicen APROBADA. Commit `revisión FECHA [claude]`
 y push: ese push es la compuerta que dispara el render de los videos y la
 publicación en la web.
 

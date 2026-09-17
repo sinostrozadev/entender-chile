@@ -111,10 +111,17 @@ archivos de criterio del repositorio.
     claves viven en los secrets de GitHub y en archivos fuera del repo. Un
     token dentro de una página publicada es un token regalado. (docs/youtube;
     decisión del Taller, 02-09)
-24. **La sesión de día no toca el comportamiento del proyecto.** Analiza,
-    mide y escribe en `bitacora/`; los cambios a prompts, scripts,
-    workflows y `src/` los hace la sesión de la noche, salvo pedido
-    explícito y puntual de Santiago. (decisión 28-08)
+24. **El día propone, Santiago aprueba, el día ejecuta.** La sesión de día
+    analiza, mide y anota como siempre; cuando algo está listo y pensado,
+    lo propone con alcance medido (qué archivos, qué líneas, qué cambia y
+    cómo se prueba), y con el sí explícito de Santiago lo ejecuta ella
+    misma, lo prueba con una corrida real y lo deja anotado. Sin el sí, no
+    se toca nada. Lo que la sesión de día NO puede hacer y sigue siendo de
+    la noche: nada que necesite los secrets (Azure, YouTube, podcast),
+    renderizar video o carátulas (el Chromium de su entorno no confía en
+    el certificado del proxy al pedir las fuentes), y editar las rutinas
+    de Claude creadas desde la interfaz. (decisión 16-09, MODO 1; reemplaza
+    a la del 28-08, que se había levantado seis veces en dos días)
 25. **Máximo tres agentes en paralelo.** Seis agotaron la ventana de cinco
     horas el 25-08. (casos/README)
 26. **Lo que se prueba, se mide dos semanas antes de opinar.** Una táctica

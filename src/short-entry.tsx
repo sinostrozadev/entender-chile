@@ -20,11 +20,11 @@ const RootShort: React.FC = () => (
     defaultProps={vacio}
     width={1080}
     height={1920}
-    fps={30}
+    fps={24}
     durationInFrames={300}
     calculateMetadata={({ props }) => {
       const m = (props as Timeline).meta;
-      const fps = m?.fps ?? 30;
+      const fps = m?.fps ?? 24;
       return { fps, width: 1080, height: 1920, durationInFrames: Math.max(60, Math.ceil((m?.duracionSeg ?? 10) * fps)) };
     }}
   />

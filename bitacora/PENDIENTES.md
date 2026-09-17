@@ -77,7 +77,7 @@ en la lista del cambio de hora del 6-09) — si no hay
 espera; sin material NO inventa: avisa. Notifica SOLO si intervino o no
 pudo; silencio cuando GPT cumplió.
 
-## AGENDA DEL 15-09 (Santiago, la noche del 14): si la v3 salió bien
+## AGENDA PENDIENTE (Santiago, la noche del 14): revisión completa y el Taller
 
 - [ ] **Revisión completa del proyecto**: recorrer todo el repo y dejar SOLO
       lo que hoy se usa; borrar (o mover a `archivo/`) lo que ya no sirve.
@@ -120,39 +120,16 @@ pudo; silencio cuando GPT cumplió.
       siga vivo y sea accionable. Después la hoja de ruta se queda como mapa
       del proyecto, no como lista de tareas (regla 41). Dueño: sesión de día.
 
-## MÁQUINA DE ESTADOS: CADENA LINEAL v3 EN PRODUCCIÓN desde la madrugada del 15-09
+## MÁQUINA DE ESTADOS: CADENA LINEAL v3 EN PRODUCCIÓN (desde el 15-09; tres piezas desde el 17-09)
 
-- [ ] **Primera noche en vivo de la v3 (15-09). Nunca corrió con piezas
-      reales.** Lo decidió Santiago el 14-09 en la noche ("prefiero que nos
-      arriesguemos ahora ya"). Qué es: GPT escribe las CINCO piezas (vuelve a
-      escribir los guiones), una por turno, y Claude valida cada una contra su
-      prompt antes de que exista la siguiente. Orden: preselección → informe →
-      guion del informe → entrega de Clave → guion de la Clave. El estado
-      (`scripts/estado.js`) es lineal y lo mueven los veredictos por pieza de
-      Claude (`contenido/veredictos/FECHA-<pieza>.md`); la vista trae PIEZA,
-      PROMPT y ARCHIVO, que GPT y el validador leen tal cual. Tope: dos vueltas
-      de corrección por pieza, después BLOQUEADA y etapa `bloqueado_humano`
-      (el vigía alarma). La revisión del día la escribe el validador al aprobar
-      la última pieza: sigue siendo la compuerta del render y de la web.
-      **Qué mirar en la mañana:** `contenido/estado/2026-09-15.md` (ETAPA,
-      VUELTA, PIEZA), `contenido/veredictos/2026-09-15-*.md` (cinco archivos,
-      con sus vueltas), el log de `estado.yml` ("Claude despertado por API" en
-      cada validar_*), y las corridas de `trig_01B8tLFaXe7h1YBCciFE2iKf`.
-      **Riesgos conocidos:** (1) el despachador espera el veredicto hasta 10
-      min en la misma corrida; si ChatGPT no sostiene la espera, el PR #6 lo
-      despierta igual con cada veredicto. (2) Si un veredicto se pierde, la
-      etapa queda en validar_* y el reloj de las 02:20 del validador la toma.
-      (3) Los guiones vuelven a GPT: calidad por ver contra la rúbrica.
-      **Apagado, no borrado:** rutinas `trig_01CR3g2re9G7warvfdt4MfMS`
-      (revisión 04:45), `trig_01HUjC4MjKGmmpDMApn8gtJm` (guionista) y
-      `trig_017nkjJWR5Voud4dYgPhvwF7` (guionista de la Clave); workflows
-      `senal-preseleccion.yml` y `senal-informe.yml`; las tres tareas viejas de
-      GPT. `prompts/guionista.md` y `prompts/revision-editorial.md` quedan sin
-      rutina que los lea. Si la v3 falla, volver atrás es reactivar eso.
-- [ ] **Antes del paso 4, Santiago verifica en ChatGPT:** ya no aplica, el
-      despachador único está en producción con una sola tarea.
-- [ ] **Después: separar los flujos** (Santiago, 14-09): un estado y una
-      tabla por flujo (informe, Clave, exprés), sobre la misma máquina.
+- [ ] **Separar los flujos** (Santiago, 14-09): un estado y una tabla por
+      flujo. El primero es el de la Clave (CLAVE 4 c-d-e), que necesita el
+      Taller para las dos aprobaciones; después el exprés.
+- [ ] **Vigilar la madrugada del 17-09**, la primera con tres piezas y con el
+      banco como etapa: que la cadena cierre en `guion_informe_listo` →
+      `validar_final` → `aprobada` → `alimentar_banco` → `videos_listos`, que
+      `contenido/claves/banco-temas.md` tenga commit del día, y cuánto tarda el
+      render con 24 fps y concurrency 100%.
 
 ## EL DISEÑO COMPLETO (08-09): un solo disparador y máquina de estados
 
@@ -387,56 +364,12 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **MODO 1: cómo trabajamos desde el 16-09.** Santiago: "quiero que sigamos
-      operando y afinando, y vayas guardando lo que hablamos, tal como hasta
-      ahora; la diferencia es que cuando tengamos todo listo y pensado me
-      preguntarás, y si te doy el sí, lo harás tú mismo". O sea: la sesión de
-      día pasa de solo anotar a proponer y EJECUTAR con aprobación explícita,
-      porque la sesión de la noche se le está complicando. Esto REEMPLAZA en
-      la práctica a la regla dura 24 ("la sesión de día no toca el
-      comportamiento del proyecto"), que ya se levantó seis veces el 15 y el
-      16-09. Hay que reescribir la regla 24 con la forma nueva: el día
-      propone con alcance medido, Santiago aprueba, el día ejecuta, prueba con
-      una corrida real y lo deja anotado. Lo que la sesión de día NO puede
-      hacer sigue igual y conviene dejarlo escrito en la regla: no tiene los
-      secrets (Azure, YouTube, podcast), no puede renderizar video ni
-      carátulas (el Chromium del entorno no confía en el certificado del
-      proxy al pedir las fuentes a Google y el render muere ahí; se destraba
-      bajando las fuentes al repo, que además le ahorraría a Actions unas 300
-      peticiones por render), y no puede editar las rutinas de Claude creadas
-      desde la interfaz.
-
-- [x] **CLAVE 3: eliminar el Short de la Clave.** ✅ 16-09, sesión de día con
-      autorización de Santiago ("sí, aplícalo"). Hecho: paso 4b, subida,
-      conteo del release y `YT_HORA_SHORT_CLAVE` fuera de
-      `edicion-diaria.yml`; `scripts/short.js` conserva `--clave` con una nota
-      de por qué nadie lo invoca; cronograma y prompt del guardián al día. El
-      prompt del guion de la Clave NO pedía nada solo para el Short
-      (las [TESIS] son del formato del guion largo), así que no se tocó. Los
-      Shorts ya publicados quedan como están. Queda verlo en la próxima
-      madrugada con Clave. El pedido original (Santiago, 16-09: "ese está
-      malo, no me gusta y no sirve de nada"): Coincide con lo medido el 12-09
-      (CALIDAD 1, punto 1): su mediana de vistas es un tercio de la del Short
-      del informe y no convierte a la Clave larga (7 de 9 pares pasan menos
-      del 6%). Alcance exacto, seis puntos:
-      (1) `.github/workflows/edicion-diaria.yml`: borrar el paso 4b (produce
-      el Short de la Clave), la línea 279 (lo sube a YouTube) y las líneas 97
-      y 104, donde el release lo cuenta como pieza que falta.
-      (2) La variable `YT_HORA_SHORT_CLAVE` queda sin uso: retirarla del
-      workflow.
-      (3) `scripts/short.js` conserva su modo `--clave` (sirve si algún día se
-      retoma) pero ya nadie lo invoca: dejarlo dicho en la cabecera.
-      (4) Revisar si `prompts/guion-claves.md` pide algo SOLO para el Short
-      (las cuatro tesis); si es así, quitar ese requisito del prompt y del
-      validador.
-      (5) `bitacora/cronograma.json` y los prompts que hablan de "cuatro
-      piezas" pasan a tres (y a dos cuando la Clave salga de la cadena
-      diaria, CLAVE 4).
-      (6) Los Shorts de Clave YA publicados en YouTube no se tocan: quedan
-      como están, con sus vistas.
-
 - [ ] **CLAVE 4: la Clave sale de la cadena diaria y tiene flujo propio, con
-      dos aprobaciones de Santiago** (16-09). "La Clave la vamos a lanzar una
+      dos aprobaciones de Santiago** (16-09). **(a) y (b) HECHOS la noche del
+      16-09:** la cadena diaria es de tres piezas y termina en el guion del
+      informe; el banco se alimenta cada día con la etapa `alimentar_banco`
+      (`prompts/banco-temas.md`, GPT, sin validación, no frena el render).
+      Quedan (c), (d) y (e), que necesitan el Taller. Diseño original: "La Clave la vamos a lanzar una
       o dos veces por semana dependiendo de la lista que tengamos, y la
       haremos bien. Antes de hacerla video me presentas la lista de
       disponibles. Esa lista se actualiza con cada informe si encontramos algo
@@ -538,6 +471,9 @@ referencia:
       (b) `scripts/build-timeline.js` línea 149: fps 30 → 24 (20% menos
       cuadros; en tarjetas de texto no se nota). Revisar que SELLO_SEG y los
       offsets en segundos no dependan de 30.
+      **(a) y (b) HECHOS la noche del 16-09** (`--concurrency=100%` en dia.js y
+      short.js; 24 fps en build-timeline.js y en los defaults de Root.tsx y
+      short-entry.tsx). Medir con el render del 17-09: hoy tardó 92 minutos.
       Y dos desperdicios chicos (12% del ciclo): `web.yml` corre con cada
       push de contenido (96 corridas, 139 min): bastaría al aprobarse el día
       y al subir los videos; y la Guardia despierta cada dos horas por un
@@ -568,29 +504,6 @@ referencia:
       pieza (GPT 1 ya hizo la mitad) y mover la preselección a una rutina de
       Claude con Haiku, que es la pieza más mecánica. Medir una semana antes
       de elegir.
-
-- [x] **COMPUERTA 1: el respaldo por reloj de la Edición diaria renderizaba y
-      publicaba sin veredicto.** ✅ 15-09, sesión de día con autorización de
-      Santiago: `scripts/gate.js` exige, sin revisión del día, la situación
-      "lista" (APROBADA vigente) del guion del informe en
-      `contenido/estado/FECHA.json`; si el guion de la Clave existe sin
-      aprobar, la corrida sigue sin la Clave (`SIN_CLAVE=1` en los pasos 4 y
-      4b). Estados sin situación por pieza (antes de la v3) siguen fail-open.
-      Queda por ver una madrugada real. Lo visto que motivó el cambio:
-      Visto el 15-09: la corrida por cron de las 10:13 (Chile) renderizó el
-      informe y su Short sin que existiera `contenido/revisiones/2026-09-15.md`
-      (la cadena estaba en `reparar_clave`), porque `scripts/gate.js` es
-      fail-open a propósito: "la ausencia del archivo de revisión NO bloquea;
-      el gate de publicación real es humano, antes de subir a YouTube". Ese
-      gate humano desapareció hoy con la subida PROGRAMADA: el informe se
-      publicó solo a las 11:36. Hoy no pasó nada grave porque en la v3 el
-      informe y su guion ya tenían APROBADA por pieza, pero un guion en
-      `reparar_` a la hora del cron saldría al aire. Arreglo mínimo, en
-      `gate.js` o en el paso 0b: con `event_name == schedule`, exigir
-      `contenido/veredictos/FECHA-guion_informe.md` con APROBADA más nuevo
-      que el guion (y lo mismo para la Clave si hay guion de Clave); sin eso,
-      no renderizar y avisar. La revisión del día completa sigue siendo la
-      compuerta de la web.
 
 - [ ] **GPT 1: se agotó la cuota de ChatGPT a media cadena (15-09, 09:14) y hay
       que limitar los despertares** (Santiago: "tendremos que limitar, se agotó
@@ -657,93 +570,6 @@ referencia:
       Complemento: **tope por hora**: si son más de las 05:00 de Chile y la
       pieza sigue en CORREGIR por hallazgos de forma, pasar al plan B aunque
       queden vueltas; un informe a las 08:00 no sirve.
-
-- [ ] **`estado.yml` no escucha `contenido/veredictos/**`: la v3 se congela en
-      su primer eslabón (marcado HOY, auditoría del 15-09).** La v3 corrió por
-      primera vez con piezas reales la madrugada del 15-09. El validador
-      aprobó la preselección a las 01:44 (`contenido/veredictos/2026-09-15-preseleccion.md`,
-      commit `a857df7`) y pusheó, tal como manda `prompts/validador.md` punto 4
-      ("Tu push es lo que recalcula el estado y despierta a GPT"). Pero
-      `.github/workflows/estado.yml`, sección `on.push.paths` (líneas 19-26),
-      no incluye `contenido/veredictos/**` (carpeta nueva de hoy) entre las
-      rutas que disparan el workflow, así que ese push no recalculó nada:
-      `contenido/estado/2026-09-15.md` se quedó en `ETAPA: validar_preseleccion`
-      desde antes de que el veredicto existiera, y a las 05:34 (hora de esta
-      auditoría) no había informe, guion, Clave ni videos del día. El reloj de
-      respaldo del validador (02:20) no repara esto: si despierta y ve que ya
-      hay veredicto para la pieza, responde "ya tiene veredicto" y no vuelve a
-      disparar el recálculo (`prompts/validador.md` punto 0). Arreglo: agregar
-      `- "contenido/veredictos/**"` a la lista de `paths` de `estado.yml`
-      (líneas 19-26). Para destrabar la edición de hoy sin esperar a mañana:
-      disparar `estado.yml` a mano por `workflow_dispatch` (ya declarado en la
-      línea 35) para que recalcule el estado con el veredicto ya aprobado.
-      Detalle completo en `bitacora/2026-09-15-auditoria.md`.
-
-- [ ] **MÁQUINA V2, PRUEBA 1: PASÓ ENTERA (14-09, 22:27 a 22:41), incluido
-      el despertar de Claude por evento (con webhook `push`, no `pull_request`).** Rastro en
-      `contenido/pruebas/flujo/2026-09-14-pieza.md` y `-veredicto.md`: pieza
-      vuelta 1 (3 regiones, sin firma) → CORREGIR → vuelta 2 (5 regiones +
-      FIRMA) → APROBADA → FIN "aprobada en la vuelta 2". Doce minutos, cero
-      intervención humana en el lado de GPT: sus tres turnos los despertó el PR
-      #6 (v1 a mano para arrancar; v2 y FIN por evento).
-      **Lo que NO funcionó:** el webhook de GitHub tipo `pull_request` sobre la
-      rutina validadora (`eb97eecb`, creado 01:28Z) no disparó con ninguno de
-      los tres eventos del PR #6 que llegaron después. Los dos veredictos de
-      Claude salieron de corridas lanzadas a mano por API desde la sesión
-      local, no del webhook. Como el filtro por rama no se puede expresar por
-      API, se creó un segundo webhook tipo `push` (`8925b806`, 01:39Z), que es
-      el tipo que ya usa el guionista y despierta con CUALQUIER push del repo;
-      el PASO CERO del validador lo hace salir en segundos cuando no es su
-      turno. **PROBADO a las 01:40Z:** despertó un segundo después del push y
-      terminó en 25 s sin tocar nada. Con eso el eslabón de Claude por evento
-      queda demostrado; lo que cuesta es que despierta con TODOS los pushes
-      (unos 30 al día, Opus, ~25 s cada uno), así que la rutina quedó
-      DESACTIVADA hasta la próxima prueba (se enciende con un `update
-      enabled:true` por API o desde claude.ai/code/routines).
-      Rutina: `trig_01Rp682KSf5rAjThxSoEWHm7` (Opus, repo adjunto). Aprendido:
-      las rutinas creadas por agente SÍ nacen con el repo si se pasa `sources`.
-      La API del webhook exige `hook_type=app`, `source=github`, `scope_id` y
-      `events`; ningún nombre de filtro por rama (`head_ref`, `branch`,
-      `branches`, `paths`) fue aceptado con efecto.
-      **Ojo con el horario de cualquier prueba nueva:** comparte la rama del PR
-      #6 con producción y cada evento de prueba despierta también al
-      despachador real (sale solo). Nunca entre 01:00 y 05:00.
-      **PRUEBA 2 (por API): HECHA el 14-09 a las 22:58, y ya está en
-      producción para la revisión.** Santiago generó el token de la rutina de
-      revisión temprana desde la interfaz (lápiz → Selecciona un disparador →
-      Agregar otro disparador → API → Generar token); quedó en GitHub como
-      secrets `CLAUDE_RUTINA_REVISION_ID` y `CLAUDE_RUTINA_REVISION_TOKEN`.
-      Disparo directo probado: HTTP 200, la rutina arrancó en 3 s con el repo,
-      leyó el payload como aviso (llega envuelto en routine-fire-payload,
-      marcado como dato) y salió por la guarda 0a en 27 s sin tocar nada.
-      Desde esta madrugada `estado.yml` la despierta cuando la etapa pasa a
-      `guiones_listos` (~01:52); los relojes de 02:20 y 04:45 quedan de red.
-      Ojo: el token se pegó en el chat de la sesión local; conviene
-      REGENERARLO en el mismo modal cuando haya calma y actualizar el secret.
-      Para el resto de las rutinas que en el paso 5 pasen a evento, es el
-      mismo camino: token por rutina, un secret por rutina, un `case` más en
-      `estado.yml`.
-      Limpieza pendiente cuando termine: borrar `prompts/prueba-flujo.md`,
-      `prompts/prueba-validador.md`, el workflow y `contenido/pruebas/`, o
-      moverlos a `archivo/`; y archivar la sesión persistente
-      `session_01SSDPuw54qE8NwJ7FGxgUQ3` (fue el respaldo manual del 14-09).
-
-- [ ] **Titular que convierte una proyección o un anuncio en hecho consumado — 3 mañanas seguidas marcado (12, 13, 14-09), auditoría del 14-09.**
-      `prompts/guion-informe.md`, sección "EN TITULARES" (cerca de la línea
-      110): falta una regla que proteja el matiz "proyecta / anticipa / prevé
-      / anunció" al comprimir a titular de máximo 12 palabras. Sin ella, la
-      revisión editorial encuentra el error pero no lo corrige (no es un dato
-      verificable contra fuente externa, cae fuera del punto 3c de modo
-      corrección). Casos verificados: 12-09 "Bolivia retirará subsidios..."
-      por "proyecta eliminar..." (`contenido/revisiones/2026-09-12.md` línea
-      24); 13-09 "El Presupuesto 2027 declarará al empleo como prioridad" por
-      "El Ejecutivo anticipó..." (línea 24 de esa revisión); 14-09 "Bolivia
-      amplió su estado de excepción" por "anunció un decreto para ampliar"
-      (`contenido/revisiones/2026-09-14.md` línea 22, que cita expresamente
-      "el mismo patrón marcado el 12 y el 13 de septiembre"). Propuesta:
-      agregar a esa sección la regla "si el informe usa 'proyecta',
-      'anticipa', 'prevé', 'anunció' o un anuncio no ejecutado, el titular
-      debe conservar ese matiz, no convertirlo en hecho consumado".
 
 - [ ] **RELEASE 1: un HTTP 500 al crear el release deja los videos
       renderizados pero sin publicar** (auditoría del 14-09; Santiago pidió

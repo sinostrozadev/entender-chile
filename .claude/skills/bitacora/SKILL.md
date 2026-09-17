@@ -10,12 +10,13 @@ Dos modos. El argumento decide cuál.
 Antes de cualquiera de los dos, leer `bitacora/README.md`: ahí está la regla
 que manda sobre esta sesión.
 
-**La sesión de día no toca el comportamiento del proyecto.** No se editan
-prompts, scripts, workflows ni `src/`. Si el análisis encuentra algo que
-arreglar, se anota en `bitacora/PENDIENTES.md` con archivo y línea, y lo
-ejecuta la sesión de la noche. Escribir dentro de `bitacora/` y registrar
-decisiones en `estrategia/decisiones.md` sí está permitido: es registro, no
-comportamiento.
+**El día propone, Santiago aprueba, el día ejecuta** (MODO 1, regla dura 24,
+desde el 16-09). Lo que el análisis encuentra se anota en
+`bitacora/PENDIENTES.md` con archivo y línea; cuando está listo y pensado se
+propone con alcance medido, y solo con el sí explícito de Santiago se ejecuta,
+se prueba con una corrida real y se anota. Sin el sí, no se toca ningún
+prompt, script, workflow ni `src/`. Fuera del alcance del día, siempre: los
+secrets, el render y las rutinas creadas desde la interfaz.
 
 ---
 

@@ -9,8 +9,10 @@ disparada por los commits del PR #6 "Estado del día" (rama
     el estado avanza; si no, se mantiene con correcciones para GPT → PR #6 →
     GPT lee el estado → ... y así, pieza por pieza, hasta el veredicto final.
 
-Las cinco piezas, en orden: preselección → informe → guion del informe →
-entrega de Clave → guion de la Clave. **Tú escribes las cinco.** Tú no decides
+Las piezas del día, en orden: preselección → informe → guion del informe; y
+al final, con el día aprobado, alimentar el banco de temas de la Clave. (La
+Clave salió de la cadena diaria el 16-09: tiene flujo propio, una o dos por
+semana, con dos aprobaciones de Santiago.) **Tú escribes todas.** Tú no decides
 qué toca: lo dice el estado. Tú no cambias el estado: lo cambia Claude con su
 veredicto. Toda la información para escribir cada pieza está en su prompt.
 
@@ -50,7 +52,8 @@ sinostrozadev/entender-chile (rama main).
 | ETAPA | Te toca |
 |---|---|
 | `nuevo_dia` | nada: falta el barrido. Termina. |
-| `barrido_listo`, `preseleccion_lista`, `informe_listo`, `guion_informe_listo`, `clave_lista` | ESCRIBIR la pieza que dice `PIEZA`, con el prompt que dice `PROMPT`, en la ruta que dice `ARCHIVO` |
+| `barrido_listo`, `preseleccion_lista`, `informe_listo` | ESCRIBIR la pieza que dice `PIEZA`, con el prompt que dice `PROMPT`, en la ruta que dice `ARCHIVO` |
+| `alimentar_banco` | ACTUALIZAR `contenido/claves/banco-temas.md` con `prompts/banco-temas.md` (no se valida; no frena el render) |
 | `reparar_<pieza>` | CORREGIR esa pieza con las correcciones de Claude |
 | `validar_<pieza>`, `validar_final` | no es tu turno: Claude está validando. Espera (ver ESPERA). |
 | `aprobada`, `videos_listos`, `bloqueado_humano` | nada. Termina en una línea. |
@@ -100,7 +103,7 @@ verdad; esperar más solo gasta tu cuota):
   `validar_*`, no esperes nada: termina en una línea.
 - si pasa a `aprobada`, `videos_listos` o `bloqueado_humano`, termina.
 
-Tope por corrida: las cinco piezas más sus correcciones. Nunca escribas dos
+Tope por corrida: las tres piezas, el banco y sus correcciones. Nunca escribas dos
 veces la misma pieza sin un `reparar_` entre medio.
 
 ## Las tres guardas, siempre
@@ -130,7 +133,7 @@ Claude y los workflows, nunca tú.
     que creas recordar, incluido este texto.
 
     Escribes solo la pieza que el estado te asigne (preselección, informe,
-    guion del informe, entrega de Clave o guion de la Clave), con el prompt
+    guion del informe, o el banco de temas de la Clave), con el prompt
     que el estado indica, y después esperas el veredicto como dice el
     archivo. No escribes veredictos, ni revisiones, ni contenido/estado/.
 

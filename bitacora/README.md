@@ -42,13 +42,19 @@ ejecuta desde ahí.
 
 ## La regla que separa las dos sesiones
 
-Desde el 28-08-2026: **la sesión de día no toca el comportamiento del
-proyecto.** No modifica prompts, scripts, workflows ni `src/`. Solo lee,
-analiza, recomienda y escribe aquí. Todo cambio de código o de prompt lo
-ejecuta la sesión de la noche, decidido por Santiago.
+Desde el 16-09-2026 (MODO 1, regla dura 24): **el día propone, Santiago
+aprueba, el día ejecuta.** La sesión de día analiza, mide y anota; cuando
+algo está listo y pensado lo propone con alcance medido (archivos, líneas,
+qué cambia, cómo se prueba) y, con el sí explícito de Santiago, lo ejecuta,
+lo prueba con una corrida real y lo deja anotado aquí. Sin el sí, no se toca
+nada: lo que el análisis encuentre se escribe en `PENDIENTES.md` con archivo
+y línea.
 
-Cuando el análisis encuentre algo que hay que arreglar, se escribe en
-`PENDIENTES.md` con el archivo y la línea. No se arregla.
+Sigue siendo de la sesión de la noche lo que el día no puede hacer: lo que
+necesita secrets (Azure, YouTube, podcast), renderizar video o carátulas, y
+editar las rutinas de Claude creadas desde la interfaz. (La regla anterior,
+del 28-08, decía que el día no tocaba nada; se levantó seis veces en dos días
+y se reemplazó.)
 
 ## Dónde se anota cada cosa (estándar del 13-09-2026)
 
