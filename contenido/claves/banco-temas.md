@@ -65,3 +65,7 @@
 - triaje de urgencia, categorías de riesgo y uso de tiempos de espera | Contraloría detecta esperas de hasta 73 horas y 41 minutos para pacientes de riesgo vital | 2026-09-16
 - banca multilateral de desarrollo y diferencia entre financiamiento disponible y desembolso | CAF pone a disposición de Chile US$6.000 millones para cuatro años | 2026-09-16
 - toma de razón de reglamentos y control preventivo de legalidad | El reglamento de seguridad municipal llegó a Contraloría con puntos en disputa | 2026-09-16
+- querella de capítulos y antejuicio para perseguir penalmente a jueces | CDE se querella contra Antonio Ulloa y otros cuatro involucrados en la arista judicial del caso Hermosilla | 2026-09-17
+- salvoconductos migratorios, homologación y salida del país con pasaporte vencido | Gobierno prepara un salvoconducto especial para venezolanos con documentos vencidos | 2026-09-17
+- minutas de política monetaria, opciones consideradas y límites para anticipar decisiones futuras | Minuta del Banco Central confirma que mantener la tasa fue la opción dominante | 2026-09-17
+- vuelos subvencionados, continuidad del servicio y conectividad de territorios aislados | Suspensión de vuelos subvencionados agrava el aislamiento de Juan Fernández | 2026-09-17
