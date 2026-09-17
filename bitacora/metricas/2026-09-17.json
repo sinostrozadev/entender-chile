@@ -3,9 +3,18 @@
   "canal": {
     "suscriptores": 14,
     "vistas": 5217,
-    "videos": 77
+    "videos": 78
   },
   "videos": {
+    "WjXgunaHKjs": {
+      "titulo": "Falla en la PGU afecta a cerca de 53 mil pensionados",
+      "publicado": "2026-09-17",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 627
+    },
     "kD55KQ0o38Q": {
       "titulo": "Falla en la PGU afecta a cerca de 53 mil pensionados, y otra",
       "publicado": "2026-09-17",
@@ -15,20 +24,11 @@
       "comentarios": 0,
       "durSeg": 47
     },
-    "WjXgunaHKjs": {
-      "titulo": "Falla en la PGU afecta a cerca de 53 mil pensionados",
-      "publicado": "2026-09-17",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 627
-    },
     "4a0tM4wBa8c": {
       "titulo": "Clave: ¿Qué se decide antes de un juicio oral? #Shorts",
       "publicado": "2026-09-16",
       "estado": "public",
-      "vistas": 7,
+      "vistas": 8,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 24
@@ -64,7 +64,7 @@
       "titulo": "Clave: Eliminar no es erradicar: cómo leer una certificación",
       "publicado": "2026-09-15",
       "estado": "public",
-      "vistas": 22,
+      "vistas": 28,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 28
@@ -73,8 +73,8 @@
       "titulo": "¿Quién fue Patricio Guzmán, el documentalista que despide Ch",
       "publicado": "2026-09-15",
       "estado": "public",
-      "vistas": 173,
-      "meGusta": 6,
+      "vistas": 182,
+      "meGusta": 7,
       "comentarios": 0,
       "durSeg": 44
     },
@@ -91,7 +91,7 @@
       "titulo": "Chile elimina la rabia humana transmitida por perros, y otra",
       "publicado": "2026-09-15",
       "estado": "public",
-      "vistas": 22,
+      "vistas": 25,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 47
@@ -118,7 +118,7 @@
       "titulo": "¿Quién decide cuánto gasta el Estado cada año?",
       "publicado": "2026-09-14",
       "estado": "public",
-      "vistas": 5,
+      "vistas": 6,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 671
@@ -190,7 +190,7 @@
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 7,
+      "vistas": 8,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 680
@@ -226,7 +226,7 @@
       "titulo": "Corte Suprema remueve a once jueces por viajar con licencia ",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 17,
+      "vistas": 18,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 709
@@ -245,7 +245,7 @@
       "publicado": "2026-09-11",
       "estado": "public",
       "vistas": 49,
-      "meGusta": 1,
+      "meGusta": 0,
       "comentarios": 0,
       "durSeg": 42
     },
@@ -254,7 +254,7 @@
       "publicado": "2026-09-11",
       "estado": "public",
       "vistas": 234,
-      "meGusta": 4,
+      "meGusta": 3,
       "comentarios": 0,
       "durSeg": 48
     },
@@ -263,7 +263,7 @@
       "publicado": "2026-09-11",
       "estado": "public",
       "vistas": 157,
-      "meGusta": 4,
+      "meGusta": 2,
       "comentarios": 0,
       "durSeg": 46
     },
@@ -272,7 +272,7 @@
       "publicado": "2026-09-10",
       "estado": "public",
       "vistas": 136,
-      "meGusta": 2,
+      "meGusta": 1,
       "comentarios": 0,
       "durSeg": 45
     },
