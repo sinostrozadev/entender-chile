@@ -303,5 +303,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-16-clave.mp3",
     "bytes": 16388352,
     "durSeg": 683
+  },
+  {
+    "fecha": "2026-09-17",
+    "tipo": "informe",
+    "titulo": "17-09-2026 · Falla en la PGU afecta a cerca de 53 mil pensionados",
+    "descripcion": "Cerca de 53 mil pensionados de BICE Vida quedaron con pagos previsionales retrasados y Contraloría exigió explicaciones al IPS. También revisamos el retiro del reglamento de Seguridad Municipal, la querella contra Antonio Ulloa, la nueva alza de tasas de la Reserva Federal y las otras noticias que marcan este 17 de septiembre. Una edición con foco en las consecuencias concretas para las personas.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-17-informe.mp3",
+    "bytes": 15037632,
+    "durSeg": 627
   }
 ]
