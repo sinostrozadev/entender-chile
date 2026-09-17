@@ -3,26 +3,26 @@
   "canal": {
     "suscriptores": 14,
     "vistas": 5217,
-    "videos": 78
+    "videos": 79
   },
   "videos": {
+    "kD55KQ0o38Q": {
+      "titulo": "Falla en la PGU afecta a cerca de 53 mil pensionados, y otra",
+      "publicado": "2026-09-17",
+      "estado": "public",
+      "vistas": 1,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 47
+    },
     "WjXgunaHKjs": {
       "titulo": "Falla en la PGU afecta a cerca de 53 mil pensionados",
       "publicado": "2026-09-17",
       "estado": "public",
-      "vistas": 0,
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 627
-    },
-    "kD55KQ0o38Q": {
-      "titulo": "Falla en la PGU afecta a cerca de 53 mil pensionados, y otra",
-      "publicado": "2026-09-17",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 47
     },
     "4a0tM4wBa8c": {
       "titulo": "Clave: ¿Qué se decide antes de un juicio oral? #Shorts",
@@ -181,7 +181,7 @@
       "titulo": "¿Qué prueba realmente una infracción tras una tragedia?",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 1,
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 366
