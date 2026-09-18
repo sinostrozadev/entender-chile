@@ -1,9 +1,9 @@
 {
   "fecha": "2026-09-18",
-  "etapa": "alimentar_banco",
+  "etapa": "aprobada",
   "veredicto": "APROBADA",
   "vuelta": 0,
-  "actualizado": "2026-09-18 02:48",
+  "actualizado": "2026-09-18 02:50",
   "reparar": null,
   "piezas": [
     {
@@ -74,10 +74,10 @@
     {
       "id": "banco",
       "etiqueta": "Banco de temas de la Clave",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "listo",
       "prompt": "prompts/banco-temas.md",
-      "hora": "",
+      "hora": "04:18",
       "esperada": "04:00",
       "dueno": "GPT · prompts/banco-temas.md",
       "rutas": [
