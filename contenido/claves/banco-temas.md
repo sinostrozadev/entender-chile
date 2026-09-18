@@ -69,3 +69,7 @@
 - salvoconductos migratorios, homologación y salida del país con pasaporte vencido | Gobierno prepara un salvoconducto especial para venezolanos con documentos vencidos | 2026-09-17
 - minutas de política monetaria, opciones consideradas y límites para anticipar decisiones futuras | Minuta del Banco Central confirma que mantener la tasa fue la opción dominante | 2026-09-17
 - vuelos subvencionados, continuidad del servicio y conectividad de territorios aislados | Suspensión de vuelos subvencionados agrava el aislamiento de Juan Fernández | 2026-09-17
+- licitaciones públicas declaradas desiertas, efectos y mecanismos para relanzar una obra | Tren Melipilla posterga el tramo soterrado y partirá sin llegar a Estación Central | 2026-09-18
+- interoperabilidad de pagos instantáneos, redes comunes y protección al usuario | Llegada de Pix reabre el debate sobre una infraestructura común de pagos | 2026-09-18
+- diferencia entre exportaciones mineras, inversión en proyectos y producción futura | Récord exportador no despeja la debilidad de la inversión minera | 2026-09-18
+- autorización sanitaria y fiscalización de establecimientos de larga estadía para personas mayores | Tragedia en Pitrufquén expone hogares clandestinos para personas mayores | 2026-09-18
