@@ -3,9 +3,18 @@
   "canal": {
     "suscriptores": 15,
     "vistas": 5359,
-    "videos": 80
+    "videos": 81
   },
   "videos": {
+    "uzbivsRi_cE": {
+      "titulo": "Tren Melipilla partirá desde Lo Errázuriz",
+      "publicado": "2026-09-18",
+      "estado": "public",
+      "vistas": 1,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 707
+    },
     "RgyxBISTZ9Y": {
       "titulo": "Tren Melipilla partirá desde Lo Errázuriz, y otras 4 cosas d",
       "publicado": "2026-09-18",
@@ -15,20 +24,11 @@
       "comentarios": 0,
       "durSeg": 47
     },
-    "uzbivsRi_cE": {
-      "titulo": "Tren Melipilla partirá desde Lo Errázuriz",
-      "publicado": "2026-09-18",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 707
-    },
     "5GyUYE2Goj8": {
       "titulo": "¿Tienes pasaporte venezolano vencido en Chile? Desde mañana ",
       "publicado": "2026-09-17",
       "estado": "public",
-      "vistas": 3,
+      "vistas": 4,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 52
@@ -46,7 +46,7 @@
       "titulo": "Falla en la PGU afecta a cerca de 53 mil pensionados",
       "publicado": "2026-09-17",
       "estado": "public",
-      "vistas": 9,
+      "vistas": 12,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 627
@@ -55,7 +55,7 @@
       "titulo": "Clave: ¿Qué se decide antes de un juicio oral? #Shorts",
       "publicado": "2026-09-16",
       "estado": "public",
-      "vistas": 13,
+      "vistas": 16,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 24
@@ -577,7 +577,7 @@
       "titulo": "¿Qué ocurre cuando Contraloría detecta un perjuicio fiscal?",
       "publicado": "2026-09-04",
       "estado": "public",
-      "vistas": 7,
+      "vistas": 8,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 565
@@ -649,7 +649,7 @@
       "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 57,
+      "vistas": 59,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 682
@@ -739,7 +739,7 @@
       "titulo": "¿Cómo puede una antena falsa identificar tu celular?",
       "publicado": "2026-08-30",
       "estado": "public",
-      "vistas": 13,
+      "vistas": 14,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 688
