@@ -312,5 +312,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-17-informe.mp3",
     "bytes": 15037632,
     "durSeg": 627
+  },
+  {
+    "fecha": "2026-09-18",
+    "tipo": "informe",
+    "titulo": "18-09-2026 · Tren Melipilla partirá desde Lo Errázuriz",
+    "descripcion": "EFE postergó el tramo soterrado hasta Alameda y la primera etapa del Tren Melipilla terminará en Lo Errázuriz. Chile habilitó un salvoconducto digital para viajeros venezolanos con pasaporte vencido, mientras Santiago tendrá una jornada seca y el frente se intensificará en el sur. Revisamos además vivienda, minería, TAG, pagos previsionales y la conexión aérea de Juan Fernández.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-18-informe.mp3",
+    "bytes": 16951680,
+    "durSeg": 706
   }
 ]
