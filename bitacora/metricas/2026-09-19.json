@@ -2,10 +2,19 @@
   "fecha": "2026-09-19",
   "canal": {
     "suscriptores": 15,
-    "vistas": 5489,
-    "videos": 82
+    "vistas": 5513,
+    "videos": 83
   },
   "videos": {
+    "m16ACKSvQ5g": {
+      "titulo": "Cinco regiones bajo alerta por un frente con rachas de 90 km",
+      "publicado": "2026-09-19",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 508
+    },
     "LjpVaF71JbQ": {
       "titulo": "Cinco regiones bajo alerta por un frente con rachas de 90 km",
       "publicado": "2026-09-19",
@@ -15,20 +24,11 @@
       "comentarios": 0,
       "durSeg": 48
     },
-    "m16ACKSvQ5g": {
-      "titulo": "Cinco regiones bajo alerta por un frente con rachas de 90 km",
-      "publicado": "2026-09-19",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 508
-    },
     "RgyxBISTZ9Y": {
       "titulo": "Tren Melipilla partirá desde Lo Errázuriz, y otras 4 cosas d",
       "publicado": "2026-09-18",
       "estado": "public",
-      "vistas": 20,
+      "vistas": 22,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 47
@@ -46,7 +46,7 @@
       "titulo": "¿Tienes pasaporte venezolano vencido en Chile? Desde mañana ",
       "publicado": "2026-09-17",
       "estado": "public",
-      "vistas": 24,
+      "vistas": 26,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 52
@@ -262,7 +262,7 @@
       "titulo": "Corte Suprema remueve a once jueces por viajar con licencia ",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 103,
+      "vistas": 104,
       "meGusta": 3,
       "comentarios": 0,
       "durSeg": 50
@@ -298,7 +298,7 @@
       "titulo": "¿Qué admitió el exfiscal Vinko Fodich antes de ser formaliza",
       "publicado": "2026-09-11",
       "estado": "public",
-      "vistas": 236,
+      "vistas": 235,
       "meGusta": 4,
       "comentarios": 0,
       "durSeg": 48
@@ -325,7 +325,7 @@
       "titulo": "Cómo leer el IPoM del Banco Central",
       "publicado": "2026-09-10",
       "estado": "public",
-      "vistas": 5,
+      "vistas": 6,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 351
