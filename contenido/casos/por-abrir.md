@@ -36,3 +36,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-09-17 | retraso de pagos PGU del IPS  (POSIBLE DUPLICADO de un dossier abierto: revisar antes de abrir)
 - 2026-09-18 | convenio habitacional Minvu-GORE Antofagasta
 - 2026-09-18 | retraso de pagos PGU del IPS  (POSIBLE DUPLICADO de un dossier abierto: revisar antes de abrir)
+- 2026-09-19 | arriendo y habilitación de inmueble municipal en Antofagasta
