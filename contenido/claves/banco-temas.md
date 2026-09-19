@@ -73,3 +73,7 @@
 - interoperabilidad de pagos instantáneos, redes comunes y protección al usuario | Llegada de Pix reabre el debate sobre una infraestructura común de pagos | 2026-09-18
 - diferencia entre exportaciones mineras, inversión en proyectos y producción futura | Récord exportador no despeja la debilidad de la inversión minera | 2026-09-18
 - autorización sanitaria y fiscalización de establecimientos de larga estadía para personas mayores | Tragedia en Pitrufquén expone hogares clandestinos para personas mayores | 2026-09-18
+- calificaciones soberanas de riesgo, escala crediticia y efecto sobre el costo de endeudamiento público | Fitch mantiene la nota A- y recorta el crecimiento previsto para 2026 | 2026-09-19
+- sumario administrativo de Contraloría, etapas y diferencia entre investigación y sanción | Contraloría abre sumario por la conducta del alcalde de Lota en un casino | 2026-09-19
+- distribución de competencias entre gobernador regional y delegado presidencial | Mundaca acusa a Millones de usurpar facultades regionales | 2026-09-19
+- acuerdos internacionales de seguridad y diferencia entre control operativo y soberanía territorial | Trump anuncia un acuerdo sobre la seguridad de Groenlandia | 2026-09-19
