@@ -321,5 +321,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-18-informe.mp3",
     "bytes": 16951680,
     "durSeg": 706
+  },
+  {
+    "fecha": "2026-09-19",
+    "tipo": "informe",
+    "titulo": "19-09-2026 · Cinco regiones bajo alerta por un frente con rachas de 90 km/h",
+    "descripcion": "Senapred activó alertas preventivas en cinco regiones por un sistema frontal con lluvia, nieve y viento fuerte. La jornada también deja una nueva caída de apoyo para Michelle Bachelet en la carrera por la ONU, la mantención de la nota A- de Chile y un primer balance vial de Fiestas Patrias con víctimas fatales. Revisamos además exportaciones, licencias médicas, Contraloría y el acuerdo anunciado sobre Groenlandia.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-19-informe.mp3",
+    "bytes": 12193344,
+    "durSeg": 508
   }
 ]
