@@ -3,9 +3,18 @@
   "canal": {
     "suscriptores": 15,
     "vistas": 5578,
-    "videos": 84
+    "videos": 85
   },
   "videos": {
+    "Yum6CV5gfwA": {
+      "titulo": "Bachelet retira su candidatura a la Secretaría General de la",
+      "publicado": "2026-09-20",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 641
+    },
     "-QmnmBnT1Ng": {
       "titulo": "Bachelet retira su candidatura a la Secretaría General de la",
       "publicado": "2026-09-20",
@@ -14,15 +23,6 @@
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 48
-    },
-    "Yum6CV5gfwA": {
-      "titulo": "Bachelet retira su candidatura a la Secretaría General de la",
-      "publicado": "2026-09-20",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 641
     },
     "LjpVaF71JbQ": {
       "titulo": "Cinco regiones bajo alerta por un frente con rachas de 90 km",
@@ -46,7 +46,7 @@
       "titulo": "Tren Melipilla partirá desde Lo Errázuriz, y otras 4 cosas d",
       "publicado": "2026-09-18",
       "estado": "public",
-      "vistas": 42,
+      "vistas": 45,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 47
@@ -855,7 +855,7 @@
       "pct": 29.9
     },
     "94UI6QLnUao": {
-      "vistas": 394,
+      "vistas": 392,
       "minutos": 101,
       "segProm": 45,
       "pct": 92
@@ -867,7 +867,7 @@
       "pct": 62.2
     },
     "yH9MT_EDK0Y": {
-      "vistas": 353,
+      "vistas": 352,
       "minutos": 81,
       "segProm": 32,
       "pct": 67.1
@@ -879,7 +879,7 @@
       "pct": 45.1
     },
     "xYaG4nx-IkI": {
-      "vistas": 153,
+      "vistas": 151,
       "minutos": 76,
       "segProm": 106,
       "pct": 16.2
@@ -915,13 +915,13 @@
       "pct": 44.1
     },
     "hCObnchAo2U": {
-      "vistas": 240,
+      "vistas": 238,
       "minutos": 54,
       "segProm": 41,
       "pct": 76.2
     },
     "MzrT56tga7w": {
-      "vistas": 238,
+      "vistas": 235,
       "minutos": 48,
       "segProm": 21,
       "pct": 44.3
@@ -951,13 +951,13 @@
       "pct": 67.7
     },
     "rYoBCZmEipg": {
-      "vistas": 161,
+      "vistas": 157,
       "minutos": 37,
       "segProm": 24,
       "pct": 53.7
     },
     "j5gOE3EYaQs": {
-      "vistas": 9,
+      "vistas": 8,
       "minutos": 35,
       "segProm": 356,
       "pct": 54.1
@@ -969,25 +969,25 @@
       "pct": 54.9
     },
     "Wd9_JFdie-k": {
-      "vistas": 95,
+      "vistas": 94,
       "minutos": 31,
       "segProm": 56,
       "pct": 103.4
     },
     "G3zhNQ15u_w": {
-      "vistas": 179,
+      "vistas": 176,
       "minutos": 30,
       "segProm": 37,
       "pct": 71.9
     },
     "RPWexIZS3d0": {
-      "vistas": 102,
+      "vistas": 104,
       "minutos": 27,
       "segProm": 35,
       "pct": 71.8
     },
     "o91xeQhkSv4": {
-      "vistas": 230,
+      "vistas": 231,
       "minutos": 25,
       "segProm": 22,
       "pct": 46.5
@@ -1023,7 +1023,7 @@
       "pct": 58
     },
     "i31AWVLW6qg": {
-      "vistas": 132,
+      "vistas": 129,
       "minutos": 14,
       "segProm": 16,
       "pct": 36.1
@@ -1047,13 +1047,13 @@
       "pct": 53.5
     },
     "Lx5FGXPlpvg": {
-      "vistas": 140,
+      "vistas": 134,
       "minutos": 13,
       "segProm": 21,
       "pct": 44.1
     },
     "8WNkdRrmI9U": {
-      "vistas": 138,
+      "vistas": 136,
       "minutos": 13,
       "segProm": 12,
       "pct": 28.6
@@ -1065,7 +1065,7 @@
       "pct": 27
     },
     "k_im76N_Is4": {
-      "vistas": 224,
+      "vistas": 222,
       "minutos": 11,
       "segProm": 14,
       "pct": 41.9
@@ -1107,7 +1107,7 @@
       "pct": 99.9
     },
     "bU-eMEkDcHc": {
-      "vistas": 119,
+      "vistas": 113,
       "minutos": 9,
       "segProm": 34,
       "pct": 70
@@ -1119,7 +1119,7 @@
       "pct": 57.9
     },
     "PKh8hj3wd2M": {
-      "vistas": 76,
+      "vistas": 75,
       "minutos": 9,
       "segProm": 17,
       "pct": 37
@@ -1149,7 +1149,7 @@
       "pct": 58.8
     },
     "oCEw0HwkUyg": {
-      "vistas": 29,
+      "vistas": 26,
       "minutos": 6,
       "segProm": 90,
       "pct": 28.3
@@ -1160,17 +1160,17 @@
       "segProm": 366,
       "pct": 100
     },
-    "A2mhFpZpbzo": {
-      "vistas": 53,
-      "minutos": 6,
-      "segProm": 20,
-      "pct": 48.1
-    },
     "0BNQR6diTNI": {
       "vistas": 3,
       "minutos": 6,
       "segProm": 181,
       "pct": 22.3
+    },
+    "A2mhFpZpbzo": {
+      "vistas": 49,
+      "minutos": 6,
+      "segProm": 20,
+      "pct": 48.1
     },
     "CU4xH6A4dKA": {
       "vistas": 2,
@@ -1179,7 +1179,7 @@
       "pct": 106
     },
     "OeGU38H6ryU": {
-      "vistas": 82,
+      "vistas": 81,
       "minutos": 5,
       "segProm": 13,
       "pct": 40.4
@@ -1197,7 +1197,7 @@
       "pct": 100
     },
     "Ii7mKdrkNgs": {
-      "vistas": 102,
+      "vistas": 95,
       "minutos": 5,
       "segProm": 27,
       "pct": 74
@@ -1215,7 +1215,7 @@
       "pct": 4
     },
     "MsPcFSzX1B0": {
-      "vistas": 60,
+      "vistas": 59,
       "minutos": 3,
       "segProm": 13,
       "pct": 41.8
@@ -1250,17 +1250,17 @@
       "segProm": 17,
       "pct": 60.7
     },
-    "qvSZvD8PiGk": {
-      "vistas": 56,
-      "minutos": 1,
-      "segProm": 16,
-      "pct": 58.2
-    },
     "ifkYQ8GJpOA": {
       "vistas": 2,
       "minutos": 1,
       "segProm": 100,
       "pct": 200.6
+    },
+    "qvSZvD8PiGk": {
+      "vistas": 55,
+      "minutos": 1,
+      "segProm": 16,
+      "pct": 58.2
     },
     "v8hygFRbm2U": {
       "vistas": 9,
@@ -1281,7 +1281,7 @@
       "pct": 174.3
     },
     "JpWGFsV-mMc": {
-      "vistas": 24,
+      "vistas": 23,
       "minutos": 1,
       "segProm": 10,
       "pct": 29
@@ -1299,7 +1299,7 @@
       "pct": 75.5
     },
     "S9lXZ6iXZ3w": {
-      "vistas": 3,
+      "vistas": 2,
       "minutos": 0,
       "segProm": 46,
       "pct": 100
