@@ -77,3 +77,7 @@
 - sumario administrativo de Contraloría, etapas y diferencia entre investigación y sanción | Contraloría abre sumario por la conducta del alcalde de Lota en un casino | 2026-09-19
 - distribución de competencias entre gobernador regional y delegado presidencial | Mundaca acusa a Millones de usurpar facultades regionales | 2026-09-19
 - acuerdos internacionales de seguridad y diferencia entre control operativo y soberanía territorial | Trump anuncia un acuerdo sobre la seguridad de Groenlandia | 2026-09-19
+- tasas de siniestralidad vial, exposición al riesgo y comparación de cortes temporales | Fiestas Patrias deja 13 fallecidos en las rutas y 170 detenidos | 2026-09-20
+- recurso de protección, necesidad de peritajes y juicio de lato conocimiento | La Corte mantiene paralizadas las obras de El Olivar | 2026-09-20
+- interferencia de constelaciones satelitales en observaciones ópticas y radioastronómicas | La expansión de satélites amenaza una fracción creciente de las observaciones astronómicas | 2026-09-20
+- subsidios a los combustibles, costo fiscal y traspaso a transporte e inflación | Bolivia elimina el subsidio al diésel tras aprobar un crédito con el FMI | 2026-09-20
