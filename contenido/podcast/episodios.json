@@ -330,5 +330,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-19-informe.mp3",
     "bytes": 12193344,
     "durSeg": 508
+  },
+  {
+    "fecha": "2026-09-20",
+    "tipo": "informe",
+    "titulo": "20-09-2026 · Bachelet retira su candidatura a la Secretaría General de la ONU",
+    "descripcion": "Michelle Bachelet abandonó la carrera por la Secretaría General de Naciones Unidas tras quedar penúltima en una consulta del Consejo de Seguridad. La jornada también deja trece fallecidos en las rutas de Fiestas Patrias, el fin del subsidio boliviano al diésel y alertas meteorológicas para la zona centro sur de Chile.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-20-informe.mp3",
+    "bytes": 15375168,
+    "durSeg": 641
   }
 ]
