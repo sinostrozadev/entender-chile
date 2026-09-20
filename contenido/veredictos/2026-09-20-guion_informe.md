@@ -1,19 +1,47 @@
-VEREDICTO: CORREGIR
+VEREDICTO: APROBADA
 VUELTA: 1
 PIEZA: guion_informe
 PROMPT: prompts/guion-informe.md
-VALIDADO: 2026-09-20T05:16:30Z
-
-Correcciones:
-1. Dónde: sección "## La noticia del día", la [TESIS] "Michelle Bachelet retira su candidatura a la ONU tras quedar penúltima en la consulta del Consejo de Seguridad." más el párrafo "Obtuvo un voto de apoyo, tres posiciones neutrales y once votos de desaliento, y decidió abandonar la carrera." suman 36 palabras narradas (18 + 18) · Regla: "1. LA NOTICIA DEL DÍA ... Dos frases, 25 a 35 palabras en total, con su [TESIS] o su [DATO] principal como tarjeta (una sola marca) y su [FUENTE]." · Debe quedar: la sección con 35 palabras narradas o menos entre la [TESIS] y el párrafo. Por ejemplo, dejando la [TESIS] igual y el párrafo como "Obtuvo un voto de apoyo, tres neutrales y once de desaliento, y abandonó la carrera." (15 palabras): total 33, verificado contando palabra por palabra.
-2. Dónde: la edición trae tres marcas [ESQUEMA]: "[ESQUEMA | Elección de la ONU] consulta del Consejo -> recomendación -> Asamblea General -> nuevo mandato en 2027", "[ESQUEMA | Programa de estabilización] Congreso aprueba crédito -> directorio del FMI decide -> programa de tres años" y "[ESQUEMA | Ruta judicial de El Olivar] Minvu paraliza obras -> Corte rechaza recursos -> recurrentes anuncian Suprema" · Regla: "[ESQUEMA | título] ... Cero a dos por edición, y OBLIGATORIO al menos uno cuando el día tenga una noticia de proceso" · Debe quedar: como máximo dos [ESQUEMA] en todo el guion. Elimina una de las tres marcas, por ejemplo la de "Programa de estabilización", cuyo contenido (aprobación del Congreso, decisión del directorio del FMI y programa de tres años) ya está dicho en la narración del bloque de Bolivia; las otras dos se quedan.
-3. Dónde: las marcas "[DATO cifra | MOP vía La Tercera, 19 sep] vehículos proyectados de regreso: 178.751", "[DATO cifra | Reuters, 19 sep] crédito aprobado con el FMI: US$1.900 millones", "[DATO cifra | Gobierno de Bolivia, 19 sep] costo semanal del subsidio: US$55 millones" y "[DATO cifra | Carabineros vía La Tercera, 19 sep] postulaciones a oficiales: 2.845" son cuatro [DATO cifra] consecutivas, y las dos de Bolivia van seguidas dentro del mismo bloque · Regla: "VARIEDAD ... nunca más de dos [DATO cifra] seguidas en el guion; nunca dos tarjetas del mismo tipo seguidas dentro del mismo bloque" y "Si una cuota se rompe ... si el árbol está bien aplicado, deja la cifra sobrante en la narración" · Debe quedar: ninguna secuencia de más de dos [DATO cifra] consecutivas y ninguna repetición de tipo seguida dentro de un bloque. Se logra dejando dos de esas cuatro cifras solo en la narración, sin marca: la de "vehículos proyectados de regreso" y la de "costo semanal del subsidio". La secuencia de tarjetas queda entonces barras, cifra, barras, cifra, cifra, cambio, cifra, cifra, verificada marca por marca.
-4. Dónde: "La Escuela de Carabineros recibió dos mil ochocientas cuarenta y cinco postulaciones a oficiales, veintinueve por ciento más que en dos mil veinticinco." · Regla: "REGLA DE REDONDEO EN VOZ (Santiago, 04-09): las cifras grandes se narran REDONDEADAS, con 'más de', 'casi', 'cerca de' o 'unos' ... Tope: TRES cifras significativas habladas por número (3.640 millones sí; 3.640.544.800 no; 762 mil sí; 762.326 no). La cifra exacta va en la marca [DATO], que es para pantalla." · Debe quedar: la cifra hablada redondeada a tres cifras significativas con aproximador, por ejemplo "más de dos mil ochocientas postulaciones a oficiales". El 2.845 exacto se conserva en la marca [DATO cifra] del bloque.
-5. Dónde: "Los envíos acumularon cuatro mil trescientos treinta y dos millones de dólares y triplicaron sus retornos durante dos mil veintiséis." · Regla: la misma REGLA DE REDONDEO EN VOZ, "Tope: TRES cifras significativas habladas por número" · Debe quedar: la cifra hablada redondeada con aproximador, por ejemplo "más de cuatro mil trescientos millones de dólares". El valor exacto US$4.332 millones se conserva en la marca [DATO cifra | SoyChile, 19 sep].
+VALIDADO: 2026-09-20T05:20:35Z
 
 Observaciones:
-- En "## ¿En qué quedó?", la marca [FUENTE El Mostrador; Pauta, 16 sep] deja a El Mostrador bajo la fecha 16 sep; el informe lo fecha el 15 sep y solo a Pauta el 16 sep.
-- La lista "Fuentes:" omite Notimérica, que en el informe respalda junto a Infobae el titular de la inteligencia brasileña, aunque sí incluye otras fuentes de noticias que solo van en titulares.
-- Carátula sugerida "No reunió los apoyos": contra la prueba del gancho, un desconocido puede necesitar preguntar de quién y qué apoyos se trata.
-- El titular "Una presunta coautora fue detenida por una estafa con mil quinientas víctimas" pierde el "cerca de" con que el informe presenta esa cifra.
-- Cobertura verificada: se narran las tres [A] y siete [B] (tope de 10), y las 25 noticias restantes del informe tienen su frase en "En titulares", una por línea; ninguna noticia del informe queda sin sonar y no hay noticias agregadas.
+- Las cinco correcciones de la vuelta 1 quedaron resueltas, verificadas una por
+  una en esta corrida: (1) "## La noticia del día" suma ahora 33 palabras
+  narradas, 18 de la [TESIS] y 15 del párrafo "Obtuvo un voto de apoyo, tres
+  neutrales y once de desaliento, y abandonó la carrera.", dentro del rango de
+  25 a 35 y en dos frases; (2) quedan dos [ESQUEMA], el de la elección de la
+  ONU y el de la ruta judicial de El Olivar, tras eliminarse el de "Programa de
+  estabilización"; (3) la secuencia de marcas es barras, cifra, barras, cifra,
+  cifra, cambio, cifra, cifra, sin más de dos [DATO cifra] seguidas y sin dos
+  tarjetas del mismo tipo seguidas dentro de un bloque; (4) el 2.845 se narra
+  "más de dos mil ochocientas postulaciones a oficiales" y el exacto se
+  conserva en la marca; (5) el 4.332 se narra "más de cuatro mil trescientos
+  millones de dólares" y el exacto se conserva en la marca.
+- La corrección no introdujo nada nuevo: el diff entre las dos versiones toca
+  exactamente los cinco lugares pedidos y ninguna línea más. Las dos cifras que
+  perdieron su marca ([DATO cifra] del MOP por los vehículos de regreso y
+  [DATO cifra] del costo semanal del subsidio boliviano) siguen narradas en el
+  texto, como manda la regla de VARIEDAD ("si el árbol está bien aplicado, deja
+  la cifra sobrante en la narración"), y sus fuentes siguen acreditadas en la
+  lista final porque su contenido sigue narrado.
+- Las cifras del párrafo de apertura mantienen el sentido del informe: un voto
+  de apoyo, tres posiciones neutrales y once votos de desaliento (línea 16 del
+  informe), comprimidos sin cambiar ningún número.
+- Las once [TESIS] del guion siguen en 18 palabras o menos (18, 16, 13, 16, 13,
+  11, 14, 13, 16, 14, 14) y cada una conserva su línea en blanco antes del
+  párrafo narrado.
+- Sigue en pie, sin bloquear, lo anotado en la vuelta 1: en "## ¿En qué quedó?"
+  la marca [FUENTE El Mostrador; Pauta, 16 sep] deja a El Mostrador bajo el 16
+  de septiembre, mientras el informe lo fecha el 15 sep (línea 208) y solo a
+  Pauta el 16 sep.
+- Sigue en pie: la carátula sugerida "No reunió los apoyos" no dice de quién ni
+  qué apoyos, lo que contra la prueba del gancho obliga a preguntar.
+- Sigue en pie: el titular "Una presunta coautora fue detenida por una estafa
+  con mil quinientas víctimas" pierde el "cerca de" con que el informe presenta
+  esa cifra (línea 48).
+- Se retira la observación de la vuelta 1 sobre Notimérica: la fuente sí está
+  en la lista "Fuentes:" del guion, en su última línea.
+- Cobertura verificada de nuevo sobre esta versión: se narran las tres [A] y
+  siete [B] (tope de 10), las 25 noticias restantes del informe tienen su frase
+  en "En titulares", una por línea, ninguna noticia del informe queda sin sonar
+  y no hay noticias agregadas.
