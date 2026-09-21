@@ -82,6 +82,7 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
   // las 4.000 horas son alcanzables: vistas × duración × retención. Si el token
   // no está, el reporte sale igual y lo dice; nunca bloquea las métricas.
   let retencion = null;
+  let fuentes = null; // de dónde viene el tráfico y dónde se va (20-09)
   if (process.env.YT_ANALYTICS_REFRESH_TOKEN) {
     try {
       const oa = new google.auth.OAuth2(YT_CLIENT_ID, YT_CLIENT_SECRET);
@@ -96,6 +97,39 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
       retencion = {};
       for (const [id, v, min, seg, pct] of r.data.rows || []) {
         retencion[id] = { vistas: v, minutos: min, segProm: seg, pct: Number(pct.toFixed(1)) };
+      }
+
+      // DE DÓNDE VIENE Y DÓNDE SE VA (20-09): la retención media no dice nada
+      // accionable; lo que sirve es la fuente del tráfico (¿sugeridos que
+      // rebotan o búsqueda que se queda?) y la CURVA por video (¿en qué
+      // segundo se van?). Probado el 20-09: la curva solo existe para videos
+      // con ~20 vistas o más en la ventana; con menos, YouTube devuelve vacío.
+      const fq = async (extra) => (await an.reports.query({ ids: "channel==MINE", startDate: desde, endDate: fecha, ...extra })).data.rows || [];
+      fuentes = { canal: {}, videos: {} };
+      for (const [src, v, min] of await fq({ metrics: "views,estimatedMinutesWatched", dimensions: "insightTrafficSourceType", sort: "-views" })) {
+        fuentes.canal[src] = { vistas: v, minutos: min };
+      }
+      const largosConVistas = Object.entries(retencion)
+        .filter(([id, r]) => (videos[id]?.durSeg ?? 0) > 75 && r.vistas >= 10)
+        .sort((a, b) => b[1].minutos - a[1].minutos).slice(0, 25);
+      for (const [id, r] of largosConVistas) {
+        const f = {};
+        for (const [src, v] of await fq({ metrics: "views", dimensions: "insightTrafficSourceType", filters: `video==${id}`, sort: "-views" })) f[src] = v;
+        let curva = null;
+        if (r.vistas >= 15) {
+          const rows = await fq({ metrics: "audienceWatchRatio", dimensions: "elapsedVideoTimeRatio", filters: `video==${id}` });
+          if (rows.length >= 90) {
+            const serie = rows.map((x) => Number(x[1].toFixed(3)));
+            const en = (i) => Number((serie[i] * 100).toFixed(0));
+            // la mayor caída entre puntos consecutivos, dicha en segundos del video
+            let caida = { desde: 0, puntos: 0 };
+            for (let i = 1; i < serie.length; i++) { const d = serie[i - 1] - serie[i]; if (d > caida.puntos) caida = { desde: i - 1, puntos: d }; }
+            const dur = videos[id]?.durSeg ?? 0;
+            curva = { p01: en(1), p03: en(3), p05: en(5), p10: en(10), p25: en(25), p50: en(50), p75: en(75),
+              caidaMayor: { segundo: Math.round((caida.desde / 100) * dur), puntos: Number((caida.puntos * 100).toFixed(0)) }, serie };
+          }
+        }
+        fuentes.videos[id] = { fuentes: f, curva };
       }
     } catch (e) {
       console.log(`(retención no disponible: ${e.message.split("\n")[0]})`);
@@ -133,11 +167,31 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
       `**Retención real (Analytics, últimos 30 días):** ${(minLargos / 60).toFixed(1)} horas vistas en videos LARGOS ` +
       `(las que cuentan para el YPP) · retención media ponderada de los largos: ${pesoVistas ? (pesoPct / pesoVistas).toFixed(1) : "-"}%.`,
       "Las horas de esta línea son medidas, no estimadas: sustituyen al cálculo de vistas × duración × 40%.", "");
+    if (fuentes) {
+      const NOMBRE = { SHORTS: "Shorts", YT_SEARCH: "búsqueda", SUBSCRIBER: "suscriptores", YT_CHANNEL: "página del canal", RELATED_VIDEO: "sugeridos",
+        NOTIFICATION: "notificaciones", PLAYLIST: "listas", EXT_URL: "enlaces externos", NO_LINK_OTHER: "directo", YT_OTHER_PAGE: "otras páginas de YouTube",
+        SHORTS_CONTENT_LINKS: "enlace desde un Short", END_SCREEN: "pantalla final", ANNOTATION: "tarjetas", PROMOTED: "promocionado", ADVERTISING: "anuncios", CAMPAIGN_CARD: "campaña" };
+      const nom = (s) => NOMBRE[s] || s.toLowerCase();
+      const canalOrd = Object.entries(fuentes.canal).sort((a, b) => b[1].minutos - a[1].minutos);
+      lineas.push(`**De dónde vienen los MINUTOS (30 días, todo el canal):** ` +
+        canalOrd.slice(0, 6).map(([s, x]) => `${nom(s)} ${x.minutos} min (${x.vistas} vistas)`).join(" · ") + ".", "");
+      const conCurva = Object.entries(fuentes.videos).filter(([, x]) => x.curva);
+      if (conCurva.length) {
+        lineas.push("**Dónde se va la gente (largos con curva de Analytics):** \"queda al 5%\" es la audiencia que sigue viendo a los ~30-40 s de un video de 10-12 min.", "",
+          "| Video | Vistas | Fuente principal | queda al 1% | al 5% | al 25% | al 50% | al 75% | mayor caída |", "|---|---|---|---|---|---|---|---|---|");
+        for (const [id, x] of conCurva.sort((a, b) => (retencion[b[0]]?.vistas ?? 0) - (retencion[a[0]]?.vistas ?? 0))) {
+          const top = Object.entries(x.fuentes).sort((a, b) => b[1] - a[1])[0];
+          const c = x.curva;
+          lineas.push(`| ${videos[id]?.titulo ?? id} | ${retencion[id].vistas} | ${top ? `${nom(top[0])} ${Math.round((100 * top[1]) / retencion[id].vistas)}%` : "-"} | ${c.p01}% | ${c.p05}% | ${c.p25}% | ${c.p50}% | ${c.p75}% | seg ${c.caidaMayor.segundo} (-${c.caidaMayor.puntos} pts) |`);
+        }
+        lineas.push("");
+      }
+    }
   } else {
     lineas.push("", "Retención: sin YT_ANALYTICS_REFRESH_TOKEN en el entorno (la métrica queda fuera, el resto no se afecta).", "");
   }
   fs.writeFileSync(path.join(DIR, `${fecha}.md`), lineas.join("\n"));
-  fs.writeFileSync(path.join(DIR, `${fecha}.json`), JSON.stringify({ fecha, canal, videos, ...(retencion ? { retencion } : {}) }, null, 2) + "\n");
+  fs.writeFileSync(path.join(DIR, `${fecha}.json`), JSON.stringify({ fecha, canal, videos, ...(retencion ? { retencion } : {}), ...(fuentes ? { fuentes } : {}) }, null, 2) + "\n");
 
   reconstruirHistorico();
   console.log(`métricas del ${fecha}: ${canal.suscriptores} subs, ${Object.keys(videos).length} videos → ${DIR}/${fecha}.md`);

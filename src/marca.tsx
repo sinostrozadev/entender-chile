@@ -178,6 +178,45 @@ const MiniaturaV2: React.FC<MiniaturaV2Props> = ({ gancho, imagen, cifra, fecha,
   );
 };
 
+
+// MiniaturaV3 (20-09, CARÁTULA 2, prioridad alta de Santiago): la carátula
+// tiene que dar la RAZÓN para entrar, no contar la conclusión. Referencia que
+// dio como buena: pregunta con algo en juego, dos líneas grandes en cajas de
+// alto contraste, un símbolo reconocible del tema. Aquí: la lámina de sección
+// a todo el ancho y SIN velo (respira), dos líneas en mayúsculas sobre cajas,
+// y el eyebrow del canal en una cinta. Dos paletas para decidir con el
+// tablero: "casa" (cobre + tinta, la identidad) y "amarillo" (la referencia
+// tal cual, para medir si la identidad nos está costando clics).
+type MiniaturaV3Props = { linea1: string; linea2?: string; imagen: string; fecha?: string; paleta?: "casa" | "amarillo" };
+const MiniaturaV3: React.FC<MiniaturaV3Props> = ({ linea1, linea2, imagen, fecha, paleta = "casa" }) => {
+  const amarillo = paleta === "amarillo";
+  const caja1 = { bg: amarillo ? "#F5D33F" : "#D08A5B", tx: tema.tinta };
+  const caja2 = { bg: amarillo ? "#FFFFFF" : tema.tinta, tx: amarillo ? tema.tinta : "#F2F2EF" };
+  // el tamaño sale del largo de la línea: en Plex Sans 600 mayúsculas cada
+  // carácter mide ~0,56 em, y el ancho útil es 1180 px (1280 menos márgenes).
+  // Probado el 20-09: a tamaño fijo, "TREN MELIPILLA, A MEDIAS" se salía.
+  const talla = (s: string) => Math.max(60, Math.min(124, Math.floor((1180 - 60) / (0.56 * Math.max(s.length, 8)))));
+  const caja = (s: string, c: { bg: string; tx: string }): React.CSSProperties => ({
+    display: "inline-block", background: c.bg, color: c.tx, fontFamily: tema.sans, fontWeight: 600,
+    fontSize: talla(s), lineHeight: 1.0, padding: "10px 30px 14px", textTransform: "uppercase",
+    letterSpacing: "-0.015em", boxShadow: "0 14px 40px rgba(0,0,0,0.28)", whiteSpace: "nowrap",
+  });
+  return (
+    <AbsoluteFill style={{ backgroundColor: tema.papel }}>
+      <Img src={staticFile(imagen)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "right center" }} />
+      {/* un velo mínimo abajo para que las cajas asienten sobre láminas claras */}
+      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(23,25,28,0) 55%, rgba(23,25,28,0.22) 100%)" }} />
+      <div style={{ position: "absolute", left: 48, top: 40, padding: "10px 20px 12px", background: "rgba(23,25,28,0.88)", color: "#F2F2EF", fontFamily: tema.mono, fontSize: 26, letterSpacing: "0.22em", textTransform: "uppercase" }}>
+        Entender Chile{fecha ? <span style={{ color: "#C7BFB2", marginLeft: 18 }}>{fecha}</span> : null}
+      </div>
+      <div style={{ position: "absolute", left: 48, bottom: 56, display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 14 }}>
+        <div style={caja(linea1, caja1)}>{linea1}</div>
+        {linea2 ? <div style={caja(linea2, caja2)}>{linea2}</div> : null}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 const RootMarca: React.FC = () => (
   <>
     <Composition id="Avatar" component={Avatar} width={800} height={800} fps={1} durationInFrames={1} />
@@ -191,6 +230,15 @@ const RootMarca: React.FC = () => (
       fps={1}
       durationInFrames={1}
       defaultProps={{ gancho: "", imagen: "fondos/seccion-economia.jpg", cifra: "", fecha: "" }}
+    />
+    <Composition
+      id="MiniaturaV3"
+      component={MiniaturaV3}
+      width={1280}
+      height={720}
+      fps={1}
+      durationInFrames={1}
+      defaultProps={{ linea1: "", linea2: "", imagen: "fondos/seccion-economia.jpg", fecha: "", paleta: "casa" as const }}
     />
     <Composition
       id="Miniatura"

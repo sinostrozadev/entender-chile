@@ -164,13 +164,23 @@ pudo; silencio cuando GPT cumplió.
       68%. La gente que YouTube manda de afuera se va temprano: eso es apertura
       y promesa del título, no minutos de más. Queda abierta la hipótesis (b),
       y desde mañana la serie ya es comparable día a día.
-- [ ] **Hipótesis (b), la única viva: el tráfico de afuera rebota.** Cómo se
-      mira, sin pedir nada nuevo a nadie: Analytics separa por fuente con
-      `insightTrafficSourceType`, así que una consulta más en `metricas.js`
-      dice qué porcentaje de las vistas de los largos viene de Shorts, de
-      sugeridos o de búsqueda, y qué retiene cada una. Si los sugeridos rebotan,
-      lo que hay que trabajar es la apertura y la promesa del título (CALIDAD 1
-      punto 4 y IMAGEN 4, apertura en frío), no la duración.
+- [ ] **MEDIDO el 20-09: la hipótesis (b) es cierta, y ya se mide todos los
+      días.** `scripts/metricas.js` pide ahora a Analytics las fuentes de
+      tráfico (canal y por largo) y la CURVA de retención por video (solo
+      existe con ~20 vistas o más en la ventana; con menos YouTube devuelve
+      vacío). Lo que dicen las curvas: de 100 que entran a un largo, ~50 se
+      van antes del segundo 40 y después la curva es casi plana. Los que
+      llegan por SUGERIDOS rebotan (el largo del 04-09, 153 vistas, queda 34%
+      al 5% y 7% al final); los que llegan por BÚSQUEDA se quedan (fondos
+      generacionales, búsqueda 49%: 67% al 5% y 40% al final). Los minutos de
+      largos vienen de la página del canal (538), sugeridos (309), búsqueda
+      (196) y listas (196); los suscriptores aportan 141. Y los largos de la
+      cadena v3 (17 al 20-09) tienen 12, 9, 2 y 0 vistas: no hay retención
+      que medir porque nadie entra. **Conclusión: primero la puerta (carátula
+      y título, CARÁTULA 2), después los primeros 40 segundos (IMAGEN 4, la
+      apertura), y recién ahí la duración.** Sección nueva en
+      `bitacora/metricas/FECHA.md`: "De dónde vienen los minutos" y "Dónde se
+      va la gente"; la auditoría puede leerla desde mañana.
 
 ## URGENTE — con plazo
 
@@ -410,7 +420,17 @@ referencia:
       origen, y una ficha de la idea propuesta con botón de aprobar.
 
 - [ ] **CARÁTULA 2 (PRIORIDAD ALTA, Santiago 15-09): las carátulas no dan
-      ganas de entrar.** El ejemplo: el informe del 15-09, "Chile elimina la
+      ganas de entrar.** **AVANCE 20-09 (noche): tablero publicado y
+      composición nueva en el repo, esperando la decisión de Santiago.**
+      `MiniaturaV3` en `src/marca.tsx` (dos líneas en mayúsculas sobre cajas de
+      alto contraste, lámina del tema sin velo, cinta con el canal y la fecha;
+      paletas "casa" cobre+tinta y "amarillo" como la referencia). Nadie la usa
+      todavía: `dia.js` sigue con MiniaturaV2. El tablero muestra las tres
+      últimas ediciones con la carátula que salió y tres ganchos nuevos cada
+      una, al tamaño del teléfono.
+      Tablero: https://claude.ai/artifact/XsfWbLELW4LWLv4rF6roZR Decide: paleta, qué gancho manda, y cuándo
+      entra. Con el sí: prompt del guion (tres ganchos en dos líneas, cuatro
+      palabras por línea, sin conclusión), validador y `dia.js` a la V3. El ejemplo: el informe del 15-09, "Chile elimina la
       rabia humana transmitida por perros", salió con la carátula "54 · años
       sin contagios" sobre verde oscuro con el mapa a la derecha. Santiago:
       "con esa imagen no le dan ganas a nadie de hacer click; hay que buscar
