@@ -342,6 +342,27 @@ idénticos en la tira y monotonía visual medida (análisis del 02-09).
 prueba de fondos y el demo del Short urgente. **Regla resultante**: la 29 de
 REGLAS-DURAS.md, reescrita.
 
+## 2026-09-20 - La carátula da la razón para entrar: dos líneas en cajas, cobre y tinta
+
+**Qué**: la carátula del informe deja de contar la conclusión en tono de
+comunicado sobre el mismo mapa (la del 15-09, "54 años sin contagios", fue
+el ejemplo) y pasa a la forma que Santiago señaló como referencia: una
+pregunta o una tensión con algo en juego, dos líneas grandes en mayúsculas
+sobre cajas de alto contraste, y la lámina del tema sin velo. El guionista
+escribe TRES carátulas (pregunta, contradicción, cifra con referencia), cada
+una de dos líneas de hasta cuatro palabras; la primera sale al aire y las
+otras dos van al release para la prueba A/B de YouTube Studio. Medido antes
+de decidir: de 100 personas que entran a un largo, ~50 se van antes del
+segundo 40, y los largos de la cadena v3 tenían 12, 9, 2 y 0 vistas: el
+problema era la puerta.
+
+**Decidió**: Santiago, 20-09-2026, sobre un tablero con las tres últimas
+ediciones reales, la carátula que salió y tres ganchos nuevos por edición
+("me gusta, y cobre y tinta"). **Paleta: casa** (cobre y tinta), no el
+amarillo de la referencia. **Rige desde la edición del 21-09.** Las carátulas
+ya publicadas no se tocan. Regla en `prompts/guion-informe.md`; composición
+`MiniaturaV3` en `src/marca.tsx`; aviso en `validar-tarjetas.js`.
+
 ## 2026-09-13 - La cifra preliminar del 11-09 se deja como está
 
 **Qué**: el informe y la Clave del 11-09 cerraron la primera tanda de

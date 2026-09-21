@@ -419,63 +419,23 @@ referencia:
       tablero de la lista de temas disponibles con su fecha y su noticia de
       origen, y una ficha de la idea propuesta con botón de aprobar.
 
-- [ ] **CARÁTULA 2 (PRIORIDAD ALTA, Santiago 15-09): las carátulas no dan
-      ganas de entrar.** **AVANCE 20-09 (noche): tablero publicado y
-      composición nueva en el repo, esperando la decisión de Santiago.**
-      `MiniaturaV3` en `src/marca.tsx` (dos líneas en mayúsculas sobre cajas de
-      alto contraste, lámina del tema sin velo, cinta con el canal y la fecha;
-      paletas "casa" cobre+tinta y "amarillo" como la referencia). Nadie la usa
-      todavía: `dia.js` sigue con MiniaturaV2. El tablero muestra las tres
-      últimas ediciones con la carátula que salió y tres ganchos nuevos cada
-      una, al tamaño del teléfono.
-      Tablero: https://claude.ai/artifact/XsfWbLELW4LWLv4rF6roZR Decide: paleta, qué gancho manda, y cuándo
-      entra. Con el sí: prompt del guion (tres ganchos en dos líneas, cuatro
-      palabras por línea, sin conclusión), validador y `dia.js` a la V3. El ejemplo: el informe del 15-09, "Chile elimina la
-      rabia humana transmitida por perros", salió con la carátula "54 · años
-      sin contagios" sobre verde oscuro con el mapa a la derecha. Santiago:
-      "con esa imagen no le dan ganas a nadie de hacer click; hay que buscar
-      una carátula que dé ganas de ver, un texto rimbombante". Diagnóstico
-      compartido por la sesión de día: la carátula cuenta la RESOLUCIÓN en
-      tono de comunicado (un número sin referencia y un estado que no cambia
-      nada), no hay tensión ni pregunta ni una persona, y el mapa se repite
-      todos los días, así que ninguna carátula se distingue de la anterior.
-      La "Carátula sugerida" la escribe el guionista al final del guion como
-      una frase más, sin regla de gancho ni alternativas. Lo que hay que
-      construir:
-      (1) **Regla de gancho para el texto**: máximo 4 palabras grandes, con
-      una tensión o una pregunta que el video responde, escrita desde el
-      espectador ("qué te pasa a ti"), nunca la conclusión. Para el 15-09,
-      en vez de "54 años sin contagios": "¿Y si te muerde un perro?", "Chile
-      venció a la rabia", "Adiós a la rabia". El titular del video ya dice
-      el hecho; la carátula tiene que dar la razón para entrar.
-      (2) **Tres opciones por edición, no una**: que el paso de carátula (hoy
-      una línea del guionista) entregue tres textos con enfoques distintos
-      (pregunta, contradicción, cifra con referencia) y un motivo visual
-      sugerido para la lámina, y que un validador o Santiago elija.
-      (3) **Imagen que cambie con el tema**: el mapa y el verde como
-      identidad de la casa, pero el elemento principal debe ser del tema
-      (la lámina de sección o una generada por el prompt de Gemini que ya
-      existe para la serie), no el mismo mapa todos los días.
-      (4) **Medir en vez de discutir**: YouTube Studio permite probar hasta
-      tres carátulas por video y elige por tiempo de visualización. Usarlo
-      en cada largo durante dos semanas (regla 26), con la carátula actual
-      contra las nuevas, y decidir la fórmula con ese dato. Esto también
-      destraba la vuelta 2 de bocetos pendiente desde el 05-09 (taller.json).
-      Entra al Taller como tablero de variantes renderizadas (TALLER 3).
-      **Referencia que Santiago dio como buena** (15-09):
-      `bitacora/capturas-2026-09-15-ejemplo-caratula-meganoticias.jpg`, la
-      carátula de Meganoticias "¿SE ACERCA EL FIN DEL REINO UNIDO?": pregunta
-      con algo en juego, texto en dos líneas grandes sobre cajas de alto
-      contraste (amarillo y blanco), una foto de personas y un símbolo
-      reconocible (la bandera). La nuestra del mismo día está al lado en
-      `capturas-2026-09-15-caratula-rabia-54-anos.jpg`. Lo que se copia:
-      la pregunta, las dos líneas en cajas de contraste, el símbolo grande.
-      Lo que NO se puede copiar por la regla 29 (fotos ajenas jamás; Content
-      ID bloquea la monetización): la foto de prensa. En su lugar, un
-      símbolo del tema generado o dibujado (para la rabia, un perro en
-      grabado lineal; para el Estrecho, el mapa del canal con la ruta), y las
-      láminas de sección que ya existen.
-
+- [ ] **CARÁTULA 2: EN PRODUCCIÓN desde la edición del 21-09** (decidido por
+      Santiago el 20-09 sobre el tablero, paleta cobre y tinta). Hecho: regla
+      de tres carátulas de dos líneas en `prompts/guion-informe.md`;
+      `parse.js` las lee y ninguna se narra; `dia.js` renderiza la primera
+      como `miniatura.png` (V3) y las otras dos como `miniatura-2.png` y
+      `miniatura-3.png`; el release las sube; `validar-tarjetas.js` avisa si
+      falta una, si no trae " / " o si una línea pasa de cuatro palabras. Probado
+      con el guion de hoy (formato viejo, una sola carátula corta): render
+      correcto en una línea. **Queda:**
+      (a) mirar la del 21-09, la primera con GPT escribiendo tres ganchos;
+      (b) **Santiago**: cargar las alternativas 2 y 3 en YouTube Studio
+      (Prueba y compara) durante dos semanas, con la 1 como control, y
+      decidir la fórmula con ese dato (regla 26);
+      (c) la imagen del tema: hoy es la lámina de sección (10 láminas) y cae al
+      mapa cuando nada calza; el pedido de "un símbolo del tema generado o
+      dibujado" sigue abierto y es parte del Taller.
+      Tablero: https://claude.ai/artifact/XsfWbLELW4LWLv4rF6roZR
 - [ ] **ACTIONS 1: el ciclo de minutos se agotó al día 15 (1.843 de 2.000;
       se reinicia el 1 de octubre).** Medido con la API el 15-09: 457
       corridas y ~2.004 minutos desde el 1-09; la Edición diaria se lleva

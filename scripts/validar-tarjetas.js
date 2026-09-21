@@ -58,11 +58,24 @@ for (let i = 0; i < lineas.length; i++) {
 }
 
 const avisos = [];
+const esClave = /guiones[\\/]claves[\\/]/.test(ruta);
 // Carátula sugerida (regla 05-09): el gancho de la miniatura lo escribe el
 // guionista; sin la línea, dia.js cae al título recortado (funciona, pero
 // pierde el gancho pensado). Avisar para que el ciclo aprenda.
 if (!lineas.some((l) => /^car[áa]tula sugerida:/i.test(l.trim().replace(/\*\*/g, "")))) {
   avisos.push('sin línea "Carátula sugerida:": la miniatura usará el título recortado en vez de un gancho pensado (prompts/guion-informe.md y guion-claves.md la exigen desde el 05-09)');
+}
+// Carátulas v3 (20-09, solo el informe): tres ganchos de dos líneas, hasta
+// cuatro palabras por línea. Más palabras no caben en las cajas; sin " / "
+// el render parte la frase al medio a ciegas.
+if (!esClave) {
+  const cars = lineas.map((l) => l.trim().replace(/\*\*/g, "")).map((l) => l.match(/^car[áa]tula\s*(sugerida|2|3):\s*(.+)$/i)).filter(Boolean);
+  if (cars.length && cars.length < 3) avisos.push(`carátulas: hay ${cars.length} y el prompt pide tres ("Carátula sugerida:", "Carátula 2:", "Carátula 3:"); sin las otras dos no hay prueba A/B`);
+  for (const c of cars) {
+    const partes = c[2].split(/\s*\/\s*/).map((s) => s.trim()).filter(Boolean);
+    if (partes.length !== 2) { avisos.push(`carátula ${c[1]}: debe traer DOS líneas separadas por " / " ("${c[2]}")`); continue; }
+    for (const p of partes) if (p.split(/\s+/).length > 4) avisos.push(`carátula ${c[1]}: "${p}" tiene ${p.split(/\s+/).length} palabras (máximo cuatro por línea)`);
+  }
 }
 // Techo de duración (auditoría 03-09): palabras NARRADAS, o sea antes del
 // bloque "Fuentes:" y sin marcas ni encabezados. Calibrado con audio real
@@ -149,7 +162,6 @@ for (const n of circulares)
 
 // Piso de la Clave (Santiago, 09-09, aplicado el 13-09): 8 minutos ≈ 1.080
 // palabras narradas. El techo de 13 min sigue rigiendo para las dos series.
-const esClave = /guiones[\\/]claves[\\/]/.test(ruta);
 if (esClave && narradas < 1050)
   avisos.push(`guion de ${narradas} palabras narradas (~${(narradas / 135).toFixed(1)} min a 135 ppm reales): bajo el PISO de 8 min de la Clave (1.080)`);
 if (narradas > 1760)

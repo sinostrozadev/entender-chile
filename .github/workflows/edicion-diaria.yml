@@ -229,6 +229,9 @@ jobs:
           gh release view "$TAG" >/dev/null 2>&1 \
             || { echo "::error::el release $TAG no existe tras tres intentos: los videos quedaron renderizados y SIN publicar"; exit 1; }
           gh release upload "$TAG" out/$FECHA/*.mp4 --clobber
+          # las tres carátulas (la que salió y las dos alternativas) para la
+          # prueba A/B de YouTube Studio, que se carga a mano (20-09)
+          if ls out/$FECHA/miniatura*.png >/dev/null 2>&1; then gh release upload "$TAG" out/$FECHA/miniatura*.png --clobber; fi
           if ls public/$FECHA-*.mp3 >/dev/null 2>&1; then gh release upload "$TAG" public/$FECHA-*.mp3 --clobber; fi
 
       # Sube el informe a YouTube como PRIVADO si existen los tres secrets

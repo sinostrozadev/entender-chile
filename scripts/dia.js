@@ -145,37 +145,46 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
       if (e.tipo === "tesis" && !vistos.has(sec)) { vistos.add(sec); tesis.push(e.texto); }
     }
   }
-  // Carátula v2 (05-09, iterada con Santiago): gancho del guionista
-  // ("Carátula sugerida:"), imagen de la sección de la portada, velo del color
-  // de la sección para el informe (con fecha), verde de serie para la Clave.
-  // Si el gancho parte con una cifra ("762.326 vacunas botadas"), la cifra va
-  // gigante y el resto abajo. Sin línea de carátula, cae al título (y sirve
-  // igual: nunca queda una miniatura vacía).
+  // Carátula v3 (20-09, decisión de Santiago sobre el tablero: "me gusta, y
+  // cobre y tinta"): dos líneas en mayúsculas sobre cajas, la lámina del tema
+  // sin velo. El guionista escribe TRES carátulas ("Carátula sugerida:",
+  // "Carátula 2:", "Carátula 3:"), cada una "línea 1 / línea 2" con hasta
+  // cuatro palabras por línea. La primera sale al aire (miniatura.png); las
+  // otras dos se renderizan aparte (miniatura-2.png, miniatura-3.png) y van al
+  // release para la prueba A/B de YouTube Studio. La Clave sigue en la V2 con
+  // su verde de serie: tiene flujo propio y su carátula se decide allá.
   const { imagenDe } = require("./imagenes-secciones");
-  const gcru = (parsed.caratula || "").trim();
   const recortar = (t) => (t.length <= 64 ? t : t.slice(0, 64).replace(/\s+\S*$/, "") + "…");
-  let gancho = gcru || recortar(parsed.titulo || "");
-  let cifraMini = "";
-  const mg = gcru.match(/^([$]?[\d][\d.,]*%?)\s+(.{6,})$/);
-  if (mg) { cifraMini = mg[1]; gancho = mg[2]; }
-  // La Clave va SIEMPRE con su fondo verde de serie: es colección, no sección
-  // (y el matcheo por palabras se equivoca fácil: "regla fiscal" → fiscalía).
-  const img = esClave ? null : imagenDe(`${bloquePortada || ""} ${parsed.titulo || ""}`);
-  const props = {
-    gancho,
-    cifra: cifraMini,
-    fecha: esClave ? "" : fecha.split("-").reverse().join("-"), // la Clave es atemporal: sin fecha (Santiago, 30-08)
-    imagen: img ? `fondos/seccion-${img}.jpg` : esClave ? "fondos/fondo-clave-vertical.png" : "fondos/banner-fondo.png",
-    modo: "velo-seccion",
-    seccion: bloquePortada || "",
-    serie: esClave ? "clave" : "informe",
+  const dosLineas = (g) => {
+    const partes = g.split(/\s*\/\s*/).map((s) => s.trim()).filter(Boolean);
+    if (partes.length >= 2) return [partes[0], partes.slice(1).join(" ")];
+    const w = g.split(/\s+/); // sin " / ": se parte al medio, o queda en una línea si es corta
+    if (w.length <= 4) return [g, ""];
+    const m = Math.ceil(w.length / 2);
+    return [w.slice(0, m).join(" "), w.slice(m).join(" ")];
   };
-  const mini = path.join(OUT, esClave ? "miniatura-clave.png" : "miniatura.png");
-  try {
-    execFileSync("npx", ["remotion", "still", "src/marca.tsx", "MiniaturaV2", mini, `--props=${JSON.stringify(props)}`], { stdio: "ignore" });
-    console.log(`Miniatura: ${mini} (gancho: "${gancho}"${cifraMini ? ` · cifra ${cifraMini}` : ""}${gcru ? "" : " — SIN línea de carátula, usé el título"})`);
-  } catch (e) {
-    console.log(`(miniatura no generada: ${e.message.split("\n")[0]})`);
+  const img = esClave ? null : imagenDe(`${bloquePortada || ""} ${parsed.titulo || ""}`);
+  const imagen = img ? `fondos/seccion-${img}.jpg` : esClave ? "fondos/fondo-clave-vertical.png" : "fondos/seccion-regiones.jpg";
+  const fechaVisible = fecha.split("-").reverse().join("-");
+  const still = (comp, props, salida) => execFileSync("npx", ["remotion", "still", "src/marca.tsx", comp, salida, `--props=${JSON.stringify(props)}`], { stdio: "ignore" });
+  if (esClave) {
+    const gancho = (parsed.caratula || "").trim() || recortar(parsed.titulo || "");
+    const mini = path.join(OUT, "miniatura-clave.png");
+    try {
+      still("MiniaturaV2", { gancho, cifra: "", fecha: "", imagen, modo: "velo-seccion", seccion: bloquePortada || "", serie: "clave" }, mini);
+      console.log(`Miniatura de la Clave: ${mini} (gancho: "${gancho}")`);
+    } catch (e) { console.log(`(miniatura no generada: ${e.message.split("\n")[0]})`); }
+  } else {
+    const ganchos = (parsed.caratulas && parsed.caratulas.length ? parsed.caratulas : [(parsed.caratula || "").trim()]).filter(Boolean);
+    if (!ganchos.length) ganchos.push(recortar(parsed.titulo || ""));
+    ganchos.slice(0, 3).forEach((g, n) => {
+      const [linea1, linea2] = dosLineas(g);
+      const mini = path.join(OUT, n === 0 ? "miniatura.png" : `miniatura-${n + 1}.png`);
+      try {
+        still("MiniaturaV3", { linea1, linea2, imagen, fecha: fechaVisible, paleta: "casa" }, mini);
+        console.log(`Miniatura${n ? ` ${n + 1} (alternativa A/B)` : ""}: ${mini} ("${linea1}" / "${linea2}"${parsed.caratulas?.length ? "" : n ? "" : ": SIN línea de carátula, usé el título"})`);
+      } catch (e) { console.log(`(miniatura ${n + 1} no generada: ${e.message.split("\n")[0]})`); }
+    });
   }
 }
 

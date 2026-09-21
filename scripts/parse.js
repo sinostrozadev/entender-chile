@@ -125,6 +125,7 @@ function cifraPrincipal(textoPantalla) {
 function parseGuion(md) {
   const lineas = md.replace(/\r\n/g, "\n").split("\n");
   let titulo = null, caratula = null, descripcion = [], fuentes = [];
+  const caratulas = []; // 20-09: hasta tres ganchos ("Carátula sugerida:", "Carátula 2:", "Carátula 3:")
   let zona = "pre"; // pre | descripcion | guion | fuentes
   const eventos = [];
   let buffer = null; // párrafo narrado en construcción
@@ -144,7 +145,10 @@ function parseGuion(md) {
     if (/^t[íi]tulo sugerido:/i.test(sinNegrita)) { titulo = sinNegrita.replace(/^t[íi]tulo sugerido:/i, "").trim(); continue; }
     // Carátula sugerida (05-09): el gancho de 3-5 palabras para la miniatura,
     // escrito por el guionista. Dice lo que el título no dice; nunca se narra.
-    if (/^car[áa]tula sugerida:/i.test(sinNegrita)) { caratula = sinNegrita.replace(/^car[áa]tula sugerida:/i, "").trim(); continue; }
+    if (/^car[áa]tula sugerida:/i.test(sinNegrita)) { caratula = sinNegrita.replace(/^car[áa]tula sugerida:/i, "").trim(); caratulas[0] = caratula; continue; }
+    // Carátulas 2 y 3 (20-09): alternativas para la prueba A/B de YouTube.
+    // Tampoco se narran: sin este continue irían a la voz como un párrafo.
+    { const m = sinNegrita.match(/^car[áa]tula\s*([23]):\s*(.+)$/i); if (m) { caratulas[Number(m[1]) - 1] = m[2].trim(); continue; } }
     // El texto puede venir en la MISMA línea que la etiqueta o en las
     // siguientes: los dos guionistas alternan. Si se descarta la línea entera,
     // la descripción del video queda vacía (pasó con la Clave del 06-09, lo
@@ -348,7 +352,7 @@ function parseGuion(md) {
     }
   }
 
-  return { titulo, caratula, descripcion: descripcion.join(" "), fuentes, eventos, cleanText };
+  return { titulo, caratula, caratulas: caratulas.filter(Boolean), descripcion: descripcion.join(" "), fuentes, eventos, cleanText };
 }
 
 // ---- CLI ----

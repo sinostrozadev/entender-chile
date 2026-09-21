@@ -125,7 +125,13 @@ REGISTRO ORAL Y ANTI-PLANTILLA:
 FORMATO DE SALIDA:
 - Primera línea: "Título sugerido:" seguida de un título de una sola idea, concreto, específico del día, sin clickbait.
 - Segunda sección: "Descripción sugerida:" con dos a cuatro frases que resuman la jornada para la descripción del video de YouTube. NO incluyas la lista de fuentes aquí: el sistema la agrega automáticamente al final de la descripción del video.
-- Tercera línea: "Carátula sugerida:" con el GANCHO de la miniatura (regla de Santiago, 05-09): 3 a 5 palabras sobre la noticia de portada que digan lo que el título NO dice — la consecuencia o el conflicto, no el hecho ("El Estrecho es chileno", no "Chile y Argentina ratifican tratados"). PRUEBA DEL GANCHO: si un desconocido necesita preguntarte "¿qué?" o "¿de quién?", no es gancho (falló "¿quién le pone freno al gasto?" porque no decía QUÉ gasto). Puede llevar una cifra solo si se entiende en un segundo sin contexto (762.326 dosis sí; 2,6% del PIB tendencial no). No se narra; es solo para la carátula, que se genera sola.
+- Tercera, cuarta y quinta líneas: TRES CARÁTULAS para la noticia de portada, con este formato exacto (regla de Santiago, 20-09-2026, tras ver el tablero; reemplaza a la de 3-5 palabras del 05-09):
+
+    Carátula sugerida: ¿Y Estación Central? / Tren Melipilla, a medias
+    Carátula 2: Tren nuevo, / sin llegar al centro
+    Carátula 3: Rachas de 90 km/h / ¿Dónde pega más?
+
+  Cada carátula son DOS líneas separadas por " / ", de MÁXIMO CUATRO PALABRAS cada una (se pintan en mayúsculas, grandes, sobre cajas: más palabras no caben). La carátula tiene que dar la RAZÓN PARA ENTRAR, no contar la conclusión: el título ya dice el hecho. Está escrita desde el espectador (qué le pasa a él, qué tiene en juego), con una tensión o una pregunta que el video responde. Las tres son enfoques distintos: la primera, una PREGUNTA; la segunda, una CONTRADICCIÓN o un giro; la tercera, una CIFRA CON REFERENCIA (solo si la cifra se entiende en un segundo sin contexto) o un segundo giro si no hay cifra. La primera es la que sale al aire; las otras dos van a la prueba A/B de YouTube. PRUEBA DEL GANCHO: si un desconocido necesita preguntarte "¿qué?" o "¿de quién?", no es gancho. Prohibido subir el gancho con indignación, morbo, daño a personas o sospecha sin fallo (rompe la revisión de monetización). Ninguna se narra: son solo para la carátula, que se genera sola.
 - Después: "Guion:" y el texto narrable con las siguientes marcas, y solo estas, cada una en su propia línea:
   ## Nombre de sección
       Una por bloque temático. No se narra.
