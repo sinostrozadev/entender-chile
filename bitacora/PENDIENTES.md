@@ -88,14 +88,7 @@ pudo; silencio cuando GPT cumplió.
       workflows `senal-*`, documentos que describan la cadena anterior
       (cronograma viejo, propuestas ya ejecutadas), y las secciones de esta
       lista que ya no aplican.
-- [ ] **Preparar el Taller**: el lugar donde se leen, evalúan y mejoran los
-      prompts, y donde se definen y configuran los distintos flujos (informe,
-      Clave, exprés, ...). Mezcla de taller técnico y taller estratégico:
-      evaluar estrategias, qué resulta y qué no, carátulas, títulos, imágenes.
-      Punto de partida: `taller/` (hoy navegador + editor de prompts) y la
-      entrada TALLER 3 de esta lista (tableros de variantes renderizadas,
-      registro de experimentos, módulo "Ver").
-
+- [ ] **Preparar el Taller**: fase 1 publicada el 20-09 (https://claude.ai/artifact/2WH2fioUJK7tQHrKbXtBfw); ver TALLER 3.
 ## LO QUE APARECIÓ AL UNIFICAR LOS PENDIENTES (13-09)
 
 - [ ] **Revisar qué MÁS depende de un push del bot.** El 14-09 se descubrió que
@@ -641,8 +634,18 @@ referencia:
       (6) **Reorganizar el Taller** para que sea un taller de verdad: ver
       TALLER 3 abajo.
 
-- [ ] **TALLER 3: convertir el Taller en un lugar de pruebas, no un editor
-      de prompts** (Santiago, 12-09). Hoy `taller/` es navegador + editor con
+- [ ] **TALLER 3: FASE 1 PUBLICADA la noche del 20-09** (https://claude.ai/artifact/2WH2fioUJK7tQHrKbXtBfw):
+      página de lectura generada desde el repo por `scripts/taller-tablero.js`
+      con seis módulos (Ver, Medir, Experimentos, Decidir, Mejorar, Flujos) y
+      el registro `bitacora/experimentos.json` estrenado con cuatro fichas.
+      Propuesta completa y plan por fases en
+      `bitacora/2026-09-20-propuesta-taller.md`. **Decide Santiago:** (1) si
+      panel y Taller se fusionan en una página con pestañas; (2) si las
+      decisiones con botón van por GitHub desde la página (fase 2) o siguen
+      por el chat; (3) qué se retira del Taller viejo (`taller/`). Después:
+      fase 2 (botones del flujo de la Clave, CLAVE 4 c-d-e), fase 3 (Ver con
+      las carátulas del release, siete días atrás), fase 4 (la auditoría lee
+      experimentos.json). El diseño original (Santiago, 12-09): Hoy `taller/` es navegador + editor con
       diff + borradores + Claude sobre los archivos de criterio: sirve para
       cambiar texto, no para ver ni medir. Lo que sí funcionó como taller
       fue el tablero de carátulas del 05-09 (14 propuestas lado a lado,

@@ -1,8 +1,40 @@
 {
   "_regla": "Índice del taller: los tableros y bocetos de diseño que se iteran con Santiago, con su estado de decisión. Quien abra o cierre un taller actualiza este archivo.",
   "items": [
-    { "fecha": "2026-09-05", "titulo": "Tablero de carátulas: hoy vs propuesta (14 videos)", "url": "https://claude.ai/code/artifact/67d551fc-4b23-416e-b92c-863b3a8445c2", "estado": "APROBADO Y APLICADO", "nota": "14/14 carátulas cambiadas en YouTube; respaldo de las anteriores en out/caratulas-respaldo-2026-09-05/." },
-    { "fecha": "2026-09-05", "titulo": "Bocetos de carátula, vuelta 2: direcciones de color (oscuro · velo de sección · papel)", "url": "", "estado": "PENDIENTE DE DECISIÓN", "nota": "Santiago debe elegir la dirección; imágenes enviadas al teléfono y en out/bocetos/. En producción quedó velo-de-sección para informes y verde de serie para Claves." },
-    { "fecha": "2026-09-03", "titulo": "Fondos por sección en los videos (imágenes Gemini)", "url": "", "estado": "CERRADO", "nota": "Regla 29: en producción con variación diaria." }
+    {
+      "fecha": "2026-09-20",
+      "titulo": "Taller, fase 1 (lectura): Ver, Medir, Experimentos, Decidir, Mejorar, Flujos",
+      "url": "https://claude.ai/artifact/2WH2fioUJK7tQHrKbXtBfw",
+      "estado": "PUBLICADO, ESPERA COMENTARIOS",
+      "nota": "Generado por scripts/taller-tablero.js desde el repo. Propuesta completa en bitacora/2026-09-20-propuesta-taller.md; decisiones pendientes: fusionar con el panel, botones por GitHub (fase 2), qué se retira del Taller viejo."
+    },
+    {
+      "fecha": "2026-09-20",
+      "titulo": "Tablero de carátulas v3: tres ediciones, la que salió y tres ganchos nuevos",
+      "url": "https://claude.ai/artifact/XsfWbLELW4LWLv4rF6roZR",
+      "estado": "APROBADO Y APLICADO",
+      "nota": "Santiago: 'me gusta, y cobre y tinta'. En producción desde la edición del 21-09."
+    },
+    {
+      "fecha": "2026-09-05",
+      "titulo": "Tablero de carátulas: hoy vs propuesta (14 videos)",
+      "url": "https://claude.ai/code/artifact/67d551fc-4b23-416e-b92c-863b3a8445c2",
+      "estado": "APROBADO Y APLICADO",
+      "nota": "14/14 carátulas cambiadas en YouTube; respaldo de las anteriores en out/caratulas-respaldo-2026-09-05/."
+    },
+    {
+      "fecha": "2026-09-05",
+      "titulo": "Bocetos de carátula, vuelta 2: direcciones de color (oscuro · velo de sección · papel)",
+      "url": "",
+      "estado": "CERRADO POR LA V3",
+      "nota": "Superado por la carátula v3 del 20-09."
+    },
+    {
+      "fecha": "2026-09-03",
+      "titulo": "Fondos por sección en los videos (imágenes Gemini)",
+      "url": "",
+      "estado": "CERRADO",
+      "nota": "Regla 29: en producción con variación diaria."
+    }
   ]
 }
