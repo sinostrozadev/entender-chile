@@ -81,3 +81,7 @@
 - recurso de protección, necesidad de peritajes y juicio de lato conocimiento | La Corte mantiene paralizadas las obras de El Olivar | 2026-09-20
 - interferencia de constelaciones satelitales en observaciones ópticas y radioastronómicas | La expansión de satélites amenaza una fracción creciente de las observaciones astronómicas | 2026-09-20
 - subsidios a los combustibles, costo fiscal y traspaso a transporte e inflación | Bolivia elimina el subsidio al diésel tras aprobar un crédito con el FMI | 2026-09-20
+- acuerdo BBNJ, gobernanza de la alta mar y elección de sede de su organismo | Kast lleva a la ONU una agenda de seguridad, comercio y océanos | 2026-09-21
+- límites de confidencialidad contractual frente a fiscalización del Congreso en empresas estatales | Un proyecto busca abrir al Congreso contratos confidenciales de empresas estatales | 2026-09-21
+- convenios marco, comparación de ofertas y cómo se identifica sobregasto en compras públicas | Dipres cifra en $10.615 millones el sobregasto de compras por convenio marco | 2026-09-21
+- ríos atmosféricos, categorías de intensidad y lectura de pronósticos de precipitación | Un río atmosférico intenso amenaza a cuatro regiones | 2026-09-21
