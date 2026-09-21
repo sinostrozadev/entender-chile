@@ -10,7 +10,7 @@
       "titulo": "Fiestas Patrias deja 18 fallecidos y un balance vial todavía",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 1,
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 48
@@ -879,7 +879,7 @@
       "pct": 29.3
     },
     "qzn2RJefxic": {
-      "vistas": 65,
+      "vistas": 63,
       "minutos": 148,
       "segProm": 294,
       "pct": 43.2
@@ -909,7 +909,7 @@
       "pct": 67.1
     },
     "TeKnIIGAMUw": {
-      "vistas": 19,
+      "vistas": 18,
       "minutos": 77,
       "segProm": 356,
       "pct": 45.1
@@ -921,7 +921,7 @@
       "pct": 16.2
     },
     "j3KKFH9yaUc": {
-      "vistas": 18,
+      "vistas": 17,
       "minutos": 66,
       "segProm": 266,
       "pct": 48.3
@@ -957,7 +957,7 @@
       "pct": 76.2
     },
     "nvG_C4evsL8": {
-      "vistas": 246,
+      "vistas": 241,
       "minutos": 48,
       "segProm": 26,
       "pct": 59.8
@@ -1071,10 +1071,10 @@
       "pct": 36.1
     },
     "9Le8uCfDRA4": {
-      "vistas": 18,
+      "vistas": 16,
       "minutos": 14,
-      "segProm": 86,
-      "pct": 12.1
+      "segProm": 107,
+      "pct": 15.1
     },
     "Yoli64YxjuM": {
       "vistas": 11,
@@ -1101,7 +1101,7 @@
       "pct": 28.6
     },
     "bfhNo31wIFI": {
-      "vistas": 11,
+      "vistas": 10,
       "minutos": 12,
       "segProm": 190,
       "pct": 28.4
@@ -1137,13 +1137,13 @@
       "pct": 99.9
     },
     "3QhDzy_gUKk": {
-      "vistas": 7,
+      "vistas": 5,
       "minutos": 11,
-      "segProm": 97,
-      "pct": 14.4
+      "segProm": 136,
+      "pct": 20
     },
     "5GyUYE2Goj8": {
-      "vistas": 24,
+      "vistas": 23,
       "minutos": 11,
       "segProm": 93,
       "pct": 180
@@ -1263,10 +1263,10 @@
       "pct": 49.7
     },
     "WjXgunaHKjs": {
-      "vistas": 10,
+      "vistas": 1,
       "minutos": 4,
-      "segProm": 25,
-      "pct": 4
+      "segProm": 252,
+      "pct": 40.2
     },
     "RgyxBISTZ9Y": {
       "vistas": 22,
@@ -1571,7 +1571,7 @@
       "qzn2RJefxic": {
         "fuentes": {
           "YT_SEARCH": 32,
-          "SUBSCRIBER": 26,
+          "SUBSCRIBER": 24,
           "NO_LINK_OTHER": 2,
           "PLAYLIST": 2,
           "YT_CHANNEL": 1,
@@ -1952,7 +1952,6 @@
           "NO_LINK_OTHER": 2,
           "RELATED_VIDEO": 2,
           "PLAYLIST": 2,
-          "SUBSCRIBER": 1,
           "EXT_URL": 1,
           "NOTIFICATION": 1
         },
@@ -2200,8 +2199,8 @@
       "j3KKFH9yaUc": {
         "fuentes": {
           "RELATED_VIDEO": 10,
-          "YT_SEARCH": 4,
           "YT_CHANNEL": 3,
+          "YT_SEARCH": 3,
           "PLAYLIST": 1
         },
         "curva": {
@@ -2621,7 +2620,7 @@
       "9Le8uCfDRA4": {
         "fuentes": {
           "YT_SEARCH": 12,
-          "NO_LINK_OTHER": 4,
+          "NO_LINK_OTHER": 2,
           "YT_CHANNEL": 1,
           "RELATED_VIDEO": 1
         },
@@ -2639,7 +2638,7 @@
       },
       "bfhNo31wIFI": {
         "fuentes": {
-          "SUBSCRIBER": 8,
+          "SUBSCRIBER": 7,
           "RELATED_VIDEO": 3,
           "NO_LINK_OTHER": 0
         },
@@ -2651,13 +2650,6 @@
           "YT_SEARCH": 2,
           "YT_CHANNEL": 1,
           "NO_LINK_OTHER": 0
-        },
-        "curva": null
-      },
-      "WjXgunaHKjs": {
-        "fuentes": {
-          "NO_LINK_OTHER": 9,
-          "NOTIFICATION": 1
         },
         "curva": null
       }
