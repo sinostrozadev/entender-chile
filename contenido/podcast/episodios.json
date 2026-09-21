@@ -339,5 +339,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-20-informe.mp3",
     "bytes": 15375168,
     "durSeg": 641
+  },
+  {
+    "fecha": "2026-09-21",
+    "tipo": "informe",
+    "titulo": "21-09-2026 · Fiestas Patrias deja 18 fallecidos y un balance vial todavía abierto",
+    "descripcion": "El balance vial de Fiestas Patrias registra dieciocho fallecidos y dos casos que aún deben incorporarse. También revisamos el sobregasto detectado por la Dirección de Presupuestos, la agenda de Chile ante Naciones Unidas y el nuevo frente de lluvias para la zona centro-sur.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-21-informe.mp3",
+    "bytes": 15933312,
+    "durSeg": 664
   }
 ]
