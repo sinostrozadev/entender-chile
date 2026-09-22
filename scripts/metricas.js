@@ -151,23 +151,48 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
       const an2 = google.youtubeAnalytics({ version: "v2", auth: oa2 });
       const desde2 = new Date(Date.now() - 30 * 864e5).toISOString().slice(0, 10);
       const METRICAS_IMPR = "videoThumbnailImpressions,videoThumbnailImpressionsClickRate";
-      const porVideo = await an2.reports.query({
-        ids: "channel==MINE", startDate: desde2, endDate: fecha,
-        metrics: METRICAS_IMPR, dimensions: "video", sort: "-videoThumbnailImpressions", maxResults: 200,
-      });
+      // La API acepta estas métricas solo en ciertas combinaciones de informe,
+      // y cuál es no está documentado de forma accesible desde aquí: el primer
+      // intento (dimensions video + sort por impresiones) devolvió "The query
+      // is not supported" el 22-09. Así que se prueban variantes de más útil a
+      // menos, y se usa la primera que la API acepte. El log dice cuál pasó,
+      // para poder dejar solo esa cuando se sepa.
+      const intentar = async (nombre, params) => {
+        try {
+          const r = await an2.reports.query({ ids: "channel==MINE", startDate: desde2, endDate: fecha, ...params });
+          console.log(`(impresiones: la variante "${nombre}" SÍ funciona, ${(r.data.rows || []).length} filas)`);
+          return r.data.rows || [];
+        } catch (e) {
+          console.log(`(impresiones: la variante "${nombre}" no: ${(e.response?.data?.error?.message || e.message).split("\n")[0].slice(0, 110)})`);
+          return null;
+        }
+      };
       impresiones = { videos: {}, dias: {} };
-      for (const [id, impr, ctr] of porVideo.data.rows || []) {
-        impresiones.videos[id] = { impresiones: impr, ctr: Number((ctr ?? 0).toFixed(2)) };
+      const porVideo =
+        (await intentar("video sin sort", { metrics: METRICAS_IMPR, dimensions: "video", maxResults: 200 })) ??
+        (await intentar("video, solo impresiones", { metrics: "videoThumbnailImpressions", dimensions: "video", maxResults: 200 })) ??
+        (await intentar("video + views", { metrics: `views,${METRICAS_IMPR}`, dimensions: "video", sort: "-views", maxResults: 200 }));
+      if (porVideo) {
+        for (const fila of porVideo) {
+          const [id] = fila;
+          // según la variante, las columnas son [id, impr, ctr], [id, impr] o [id, views, impr, ctr]
+          const impr = fila.length === 4 ? fila[2] : fila[1];
+          const ctr = fila.length === 4 ? fila[3] : fila.length === 3 ? fila[2] : null;
+          impresiones.videos[id] = { impresiones: impr, ...(ctr === null ? {} : { ctr: Number(ctr.toFixed(2)) }) };
+        }
       }
-      const porDia = await an2.reports.query({
-        ids: "channel==MINE", startDate: desde2, endDate: fecha,
-        metrics: METRICAS_IMPR, dimensions: "day", sort: "day",
-      });
-      for (const [dia, impr, ctr] of porDia.data.rows || []) {
-        impresiones.dias[dia] = { impresiones: impr, ctr: Number((ctr ?? 0).toFixed(2)) };
+      const porDia =
+        (await intentar("día", { metrics: METRICAS_IMPR, dimensions: "day", sort: "day" })) ??
+        (await intentar("canal sin dimensión", { metrics: METRICAS_IMPR }));
+      if (porDia) {
+        for (const fila of porDia) {
+          if (fila.length >= 3) impresiones.dias[fila[0]] = { impresiones: fila[1], ctr: Number((fila[2] ?? 0).toFixed(2)) };
+          else impresiones.dias["total30d"] = { impresiones: fila[0], ctr: Number((fila[1] ?? 0).toFixed(2)) };
+        }
       }
       const nV = Object.keys(impresiones.videos).length;
-      if (!nV) { impresiones = null; console.log("(impresiones: la API respondió sin filas; el canal aún no tiene datos de carátula)"); }
+      const nD = Object.keys(impresiones.dias).length;
+      if (!nV && !nD) { impresiones = null; console.log("(impresiones: ninguna variante funcionó; la carátula sigue sin poder medirse)"); }
     } catch (e) {
       impresiones = null;
       console.log(`(impresiones no disponibles: ${e.response?.data?.error?.message || e.message.split("\n")[0]})`);
@@ -191,7 +216,7 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
     const pv = prev?.videos?.[id];
     const re = retencion?.[id];
     const im = impresiones?.videos?.[id];
-    const colImpr = impresiones ? ` ${im ? im.impresiones : "-"} | ${im ? im.ctr + "%" : "-"} |` : "";
+    const colImpr = impresiones ? ` ${im ? im.impresiones : "-"} | ${im && typeof im.ctr === "number" ? im.ctr + "%" : "-"} |` : "";
     lineas.push(retencion
       ? `| ${v.titulo} | ${v.estado} | ${v.vistas}${d(v.vistas, pv?.vistas)} |${colImpr} ${re ? re.minutos : "-"} | ${re ? re.pct + "%" : "-"} | ${v.meGusta}${d(v.meGusta, pv?.meGusta)} |`
       : `| ${v.titulo} | ${v.estado} | ${v.vistas}${d(v.vistas, pv?.vistas)} | ${v.meGusta}${d(v.meGusta, pv?.meGusta)} | ${v.comentarios}${d(v.comentarios, pv?.comentarios)} |`);
@@ -209,8 +234,12 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
       "Las horas de esta línea son medidas, no estimadas: sustituyen al cálculo de vistas × duración × 40%.", "");
     if (impresiones) {
       const V = Object.entries(impresiones.videos);
-      const totImpr = V.reduce((a, [, x]) => a + x.impresiones, 0);
-      const ctrPond = totImpr ? V.reduce((a, [, x]) => a + x.ctr * x.impresiones, 0) / totImpr : 0;
+      const D = Object.entries(impresiones.dias);
+      const totImpr = V.length ? V.reduce((a, [, x]) => a + x.impresiones, 0) : D.reduce((a, [, x]) => a + x.impresiones, 0);
+      const conCtr = V.filter(([, x]) => typeof x.ctr === "number");
+      const baseCtr = conCtr.reduce((a, [, x]) => a + x.impresiones, 0);
+      const ctrPond = baseCtr ? conCtr.reduce((a, [, x]) => a + x.ctr * x.impresiones, 0) / baseCtr
+        : D.length ? D.reduce((a, [, x]) => a + (x.ctr || 0), 0) / D.length : 0;
       lineas.push(`**Carátulas (30 días):** ${totImpr} impresiones · CTR medio ponderado ${ctrPond.toFixed(2)}%. ` +
         "La impresión es la carátula mostrada; el CTR, cuántos entraron. Una carátula solo se puede juzgar con cientos de impresiones: con menos, la cifra es ruido.", "");
       const conDatos = V.filter(([id, x]) => x.impresiones >= 100 && (videos[id]?.durSeg ?? 0) > 75)
@@ -219,7 +248,7 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
         lineas.push("**Largos con impresiones suficientes para juzgar la carátula (100 o más):**", "",
           "| Video | Publicado | Impresiones | CTR | Vistas |", "|---|---|---|---|---|");
         for (const [id, x] of conDatos) {
-          lineas.push(`| ${videos[id]?.titulo ?? id} | ${videos[id]?.publicado ?? "-"} | ${x.impresiones} | ${x.ctr}% | ${videos[id]?.vistas ?? "-"} |`);
+          lineas.push(`| ${videos[id]?.titulo ?? id} | ${videos[id]?.publicado ?? "-"} | ${x.impresiones} | ${typeof x.ctr === "number" ? x.ctr + "%" : "-"} | ${videos[id]?.vistas ?? "-"} |`);
         }
         lineas.push("");
       } else {
