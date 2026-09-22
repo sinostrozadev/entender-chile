@@ -19,8 +19,8 @@
       "titulo": "Lluvias fuertes e isoterma cero alta entre Maule y Los Lagos",
       "publicado": "2026-09-22",
       "estado": "public",
-      "vistas": 0,
-      "meGusta": 0,
+      "vistas": 1,
+      "meGusta": 1,
       "comentarios": 0,
       "durSeg": 895
     },
@@ -28,7 +28,7 @@
       "titulo": "¿Cómo terminó Fiestas Patrias en accidentes y violencia? El ",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 36,
+      "vistas": 65,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 43
@@ -55,7 +55,7 @@
       "titulo": "¿Por qué la aprobación de Kast tocó su peor nivel como presi",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 208,
+      "vistas": 205,
       "meGusta": 6,
       "comentarios": 0,
       "durSeg": 46
@@ -775,7 +775,7 @@
       "titulo": "¿Cómo leer el Imacec sin confundir señal con ruido?",
       "publicado": "2026-09-01",
       "estado": "public",
-      "vistas": 19,
+      "vistas": 17,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 724
@@ -1432,6 +1432,12 @@
     },
     "sCdoxJs4Ea8": {
       "vistas": 1,
+      "minutos": 0,
+      "segProm": 0,
+      "pct": 0
+    },
+    "Yum6CV5gfwA": {
+      "vistas": 0,
       "minutos": 0,
       "segProm": 0,
       "pct": 0
