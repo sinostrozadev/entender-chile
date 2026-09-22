@@ -348,5 +348,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-21-informe.mp3",
     "bytes": 15933312,
     "durSeg": 664
+  },
+  {
+    "fecha": "2026-09-22",
+    "tipo": "informe",
+    "titulo": "22-09-2026 · Lluvias fuertes e isoterma cero alta entre Maule y Los Lagos",
+    "descripcion": "La Dirección Meteorológica activó alertas por lluvias fuertes e isoterma cero alta en la zona centro-sur. Revisamos también el balance de Fiestas Patrias, la agenda de José Antonio Kast en Naciones Unidas y las suspensiones pagadas detectadas por Contraloría. Cerramos con empleo, vivienda, política y lo que conviene observar durante este martes.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-22-informe.mp3",
+    "bytes": 21473856,
+    "durSeg": 895
   }
 ]
