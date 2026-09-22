@@ -318,6 +318,18 @@ referencia:
 
 ## Dependen de Santiago
 
+- [ ] **22-09, HOY: la cadena se congeló en el informe — revisar/relanzar la
+      tarea "Despachador Entender Chile" de ChatGPT.** `estado.yml` avisó bien
+      a las 01:58:50 (commit `35e98cb` en el PR #6, `pieza=informe`,
+      `prompt=prompts/informe.md`) que le tocaba el informe a GPT, con la
+      preselección ya aprobada. A las 05:38 —3h40 después— no había respuesta:
+      ni informe, ni guion, ni revisión, ni banco de temas, ni videos de hoy.
+      Es la misma falla de fondo que "GPT 1" (15-09, más abajo en esta
+      sección) dejó sin cerrar: nada en el repo distingue "GPT no responde" de
+      "GPT no tiene cuota" ni avisa antes de que una persona mire el reloj.
+      Primera vez que se marca esta ocurrencia puntual: 22-09-2026 (ver
+      `bitacora/2026-09-22-auditoria.md`).
+
 - [ ] **PR #5, abierto desde el 11-09: fusionarlo o cerrarlo.** Trae la
       corrección completa de la cifra del 11-09 en los cuatro archivos, escrita
       por la revisión editorial que rechazó esa edición. Decidiste dejar el
