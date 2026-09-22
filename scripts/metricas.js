@@ -83,6 +83,7 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
   // no está, el reporte sale igual y lo dice; nunca bloquea las métricas.
   let retencion = null;
   let fuentes = null; // de dónde viene el tráfico y dónde se va (20-09)
+  let impresiones = null; // cuántas veces se mostró la carátula y cuántos entraron (22-09)
   if (process.env.YT_ANALYTICS_REFRESH_TOKEN) {
     try {
       const oa = new google.auth.OAuth2(YT_CLIENT_ID, YT_CLIENT_SECRET);
@@ -134,6 +135,43 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
     } catch (e) {
       console.log(`(retención no disponible: ${e.message.split("\n")[0]})`);
     }
+
+    // IMPRESIONES Y CLICS DE CARÁTULA (22-09): sin esto no se puede evaluar
+    // ninguna carátula. "Entró o no entró" se decide en la impresión, y hasta
+    // hoy solo medíamos lo que pasa DESPUÉS del clic. Los nombres de estas dos
+    // métricas no son impressions/impressionClickThroughRate, que es el error
+    // fácil: son videoThumbnailImpressions y videoThumbnailImpressionsClickRate,
+    // y existen en la API desde el 15-01-2026.
+    // Va en su PROPIA consulta y con su propio try: si la API las rechaza (o el
+    // canal no tiene bastantes datos), la retención y las fuentes de arriba ya
+    // quedaron guardadas y no se pierden.
+    try {
+      const oa2 = new google.auth.OAuth2(YT_CLIENT_ID, YT_CLIENT_SECRET);
+      oa2.setCredentials({ refresh_token: process.env.YT_ANALYTICS_REFRESH_TOKEN });
+      const an2 = google.youtubeAnalytics({ version: "v2", auth: oa2 });
+      const desde2 = new Date(Date.now() - 30 * 864e5).toISOString().slice(0, 10);
+      const METRICAS_IMPR = "videoThumbnailImpressions,videoThumbnailImpressionsClickRate";
+      const porVideo = await an2.reports.query({
+        ids: "channel==MINE", startDate: desde2, endDate: fecha,
+        metrics: METRICAS_IMPR, dimensions: "video", sort: "-videoThumbnailImpressions", maxResults: 200,
+      });
+      impresiones = { videos: {}, dias: {} };
+      for (const [id, impr, ctr] of porVideo.data.rows || []) {
+        impresiones.videos[id] = { impresiones: impr, ctr: Number((ctr ?? 0).toFixed(2)) };
+      }
+      const porDia = await an2.reports.query({
+        ids: "channel==MINE", startDate: desde2, endDate: fecha,
+        metrics: METRICAS_IMPR, dimensions: "day", sort: "day",
+      });
+      for (const [dia, impr, ctr] of porDia.data.rows || []) {
+        impresiones.dias[dia] = { impresiones: impr, ctr: Number((ctr ?? 0).toFixed(2)) };
+      }
+      const nV = Object.keys(impresiones.videos).length;
+      if (!nV) { impresiones = null; console.log("(impresiones: la API respondió sin filas; el canal aún no tiene datos de carátula)"); }
+    } catch (e) {
+      impresiones = null;
+      console.log(`(impresiones no disponibles: ${e.response?.data?.error?.message || e.message.split("\n")[0]})`);
+    }
   }
   const publicos = Object.values(videos).filter((v) => v.estado === "public").length;
   const lineas = [
@@ -144,16 +182,18 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
     `${Object.keys(videos).length} subidos, ${publicos} públicos.` +
     (prev ? ` (vs ${previos[previos.length - 1].replace(".json", "")})` : " (línea base, sin comparación)"),
     "",
-    retencion ? "| Video | Estado | Vistas | Min. vistos | % visto | Me gusta |"
+    retencion ? `| Video | Estado | Vistas |${impresiones ? " Impres. | CTR |" : ""} Min. vistos | % visto | Me gusta |`
               : "| Video | Estado | Vistas | Me gusta | Coment. |",
-    retencion ? "|---|---|---|---|---|---|" : "|---|---|---|---|---|",
+    retencion ? `|---|---|---|${impresiones ? "---|---|" : ""}---|---|---|` : "|---|---|---|---|---|",
   ];
   const orden = Object.entries(videos).sort((a, b) => (a[1].publicado < b[1].publicado ? 1 : -1));
   for (const [id, v] of orden) {
     const pv = prev?.videos?.[id];
     const re = retencion?.[id];
+    const im = impresiones?.videos?.[id];
+    const colImpr = impresiones ? ` ${im ? im.impresiones : "-"} | ${im ? im.ctr + "%" : "-"} |` : "";
     lineas.push(retencion
-      ? `| ${v.titulo} | ${v.estado} | ${v.vistas}${d(v.vistas, pv?.vistas)} | ${re ? re.minutos : "-"} | ${re ? re.pct + "%" : "-"} | ${v.meGusta}${d(v.meGusta, pv?.meGusta)} |`
+      ? `| ${v.titulo} | ${v.estado} | ${v.vistas}${d(v.vistas, pv?.vistas)} |${colImpr} ${re ? re.minutos : "-"} | ${re ? re.pct + "%" : "-"} | ${v.meGusta}${d(v.meGusta, pv?.meGusta)} |`
       : `| ${v.titulo} | ${v.estado} | ${v.vistas}${d(v.vistas, pv?.vistas)} | ${v.meGusta}${d(v.meGusta, pv?.meGusta)} | ${v.comentarios}${d(v.comentarios, pv?.comentarios)} |`);
   }
   if (retencion) {
@@ -167,6 +207,25 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
       `**Retención real (Analytics, últimos 30 días):** ${(minLargos / 60).toFixed(1)} horas vistas en videos LARGOS ` +
       `(las que cuentan para el YPP) · retención media ponderada de los largos: ${pesoVistas ? (pesoPct / pesoVistas).toFixed(1) : "-"}%.`,
       "Las horas de esta línea son medidas, no estimadas: sustituyen al cálculo de vistas × duración × 40%.", "");
+    if (impresiones) {
+      const V = Object.entries(impresiones.videos);
+      const totImpr = V.reduce((a, [, x]) => a + x.impresiones, 0);
+      const ctrPond = totImpr ? V.reduce((a, [, x]) => a + x.ctr * x.impresiones, 0) / totImpr : 0;
+      lineas.push(`**Carátulas (30 días):** ${totImpr} impresiones · CTR medio ponderado ${ctrPond.toFixed(2)}%. ` +
+        "La impresión es la carátula mostrada; el CTR, cuántos entraron. Una carátula solo se puede juzgar con cientos de impresiones: con menos, la cifra es ruido.", "");
+      const conDatos = V.filter(([id, x]) => x.impresiones >= 100 && (videos[id]?.durSeg ?? 0) > 75)
+        .sort((a, b) => b[1].impresiones - a[1].impresiones).slice(0, 12);
+      if (conDatos.length) {
+        lineas.push("**Largos con impresiones suficientes para juzgar la carátula (100 o más):**", "",
+          "| Video | Publicado | Impresiones | CTR | Vistas |", "|---|---|---|---|---|");
+        for (const [id, x] of conDatos) {
+          lineas.push(`| ${videos[id]?.titulo ?? id} | ${videos[id]?.publicado ?? "-"} | ${x.impresiones} | ${x.ctr}% | ${videos[id]?.vistas ?? "-"} |`);
+        }
+        lineas.push("");
+      } else {
+        lineas.push("Ningún largo llega todavía a 100 impresiones en la ventana: por ahora la carátula no se puede evaluar con estos datos.", "");
+      }
+    }
     if (fuentes) {
       const NOMBRE = { SHORTS: "Shorts", YT_SEARCH: "búsqueda", SUBSCRIBER: "suscriptores", YT_CHANNEL: "página del canal", RELATED_VIDEO: "sugeridos",
         NOTIFICATION: "notificaciones", PLAYLIST: "listas", EXT_URL: "enlaces externos", NO_LINK_OTHER: "directo", YT_OTHER_PAGE: "otras páginas de YouTube",
@@ -191,7 +250,7 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
     lineas.push("", "Retención: sin YT_ANALYTICS_REFRESH_TOKEN en el entorno (la métrica queda fuera, el resto no se afecta).", "");
   }
   fs.writeFileSync(path.join(DIR, `${fecha}.md`), lineas.join("\n"));
-  fs.writeFileSync(path.join(DIR, `${fecha}.json`), JSON.stringify({ fecha, canal, videos, ...(retencion ? { retencion } : {}), ...(fuentes ? { fuentes } : {}) }, null, 2) + "\n");
+  fs.writeFileSync(path.join(DIR, `${fecha}.json`), JSON.stringify({ fecha, canal, videos, ...(retencion ? { retencion } : {}), ...(fuentes ? { fuentes } : {}), ...(impresiones ? { impresiones } : {}) }, null, 2) + "\n");
 
   reconstruirHistorico();
   console.log(`métricas del ${fecha}: ${canal.suscriptores} subs, ${Object.keys(videos).length} videos → ${DIR}/${fecha}.md`);

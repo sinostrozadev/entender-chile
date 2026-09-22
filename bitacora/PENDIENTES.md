@@ -401,7 +401,18 @@ referencia:
       carátula v3 entró el 20-09; los largos del 20 y 21 hicieron 1 y 3
       vistas.
       **Lo que propongo, en orden:**
-      1. **Agregar impresiones y CTR a la recolección** (`metrics:
+      1. **APLICADO el 22-09 por la sesión de día, con el visto de Santiago:
+      impresiones y CTR de carátula entran en `scripts/metricas.js`.** Los
+      nombres correctos NO son impressions/impressionClickThroughRate sino
+      `videoThumbnailImpressions` y `videoThumbnailImpressionsClickRate`, que
+      la API tiene desde el 15-01-2026 (verificado antes de escribir, porque
+      developers.google.com está bloqueado por el proxy de la sesión). Van en
+      su propia consulta con su propio try, así que si la API las rechaza la
+      retención y las fuentes no se pierden. El reporte trae una línea de
+      total y CTR ponderado, y una tabla de los largos con 100 impresiones o
+      más, que es el piso para juzgar una carátula. Queda medir la v3 cuando
+      haya impresiones suficientes. El pedido original era:
+      **Agregar impresiones y CTR a la recolección** (`metrics:
       "views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage"`
       suma `impressions,impressionClickThroughRate` en la consulta por video, y
       la misma serie por día). Sin esto no se puede evaluar ninguna carátula,
