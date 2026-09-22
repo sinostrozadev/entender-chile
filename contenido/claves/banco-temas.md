@@ -85,3 +85,7 @@
 - límites de confidencialidad contractual frente a fiscalización del Congreso en empresas estatales | Un proyecto busca abrir al Congreso contratos confidenciales de empresas estatales | 2026-09-21
 - convenios marco, comparación de ofertas y cómo se identifica sobregasto en compras públicas | Dipres cifra en $10.615 millones el sobregasto de compras por convenio marco | 2026-09-21
 - ríos atmosféricos, categorías de intensidad y lectura de pronósticos de precipitación | Un río atmosférico intenso amenaza a cuatro regiones | 2026-09-21
+- isoterma cero, altura de congelación y por qué la lluvia en altura eleva el riesgo | Meteorología alerta por lluvias fuertes e isoterma cero alta en la zona centro-sur | 2026-09-22
+- urgencias legislativas, discusión inmediata y efecto sobre los plazos del Congreso | Sala Cuna Universal entra en discusión inmediata | 2026-09-22
+- suspensión preventiva en sumarios administrativos, pago de remuneraciones y controles de duración | Contraloría registra 485 suspensiones pagadas y 221 que superan un año | 2026-09-22
+- baterías Grid Forming y cómo aportan frecuencia y voltaje a la red eléctrica | Chile prueba baterías Grid Forming para estabilizar la red | 2026-09-22
