@@ -79,7 +79,13 @@ if (!revAprobada && fs.existsSync(estadoJson)) {
   if (sit("guion_informe") !== undefined) {
     if (sit("guion_informe") === "lista") console.log("✓ guion del informe: APROBADA vigente del validador");
     else errores.push(`guion del informe sin APROBADA vigente del validador (situación: ${sit("guion_informe")}) - no se renderiza hasta que Claude lo apruebe`);
-    if (gc && sit("guion_clave") !== "lista") {
+    // Clave por flujo propio (CLAVE 4, 21-09): si hay un flujo aprobado con
+    // esta fecha de producción, su guion está validado y se renderiza.
+    const flujoAprobado = fs.readdirSync(path.join("contenido", "estado")).filter((f) => /^clave-.*\.json$/.test(f))
+      .map((f) => JSON.parse(fs.readFileSync(path.join("contenido", "estado", f), "utf8")))
+      .some((e) => e.fecha_produccion === fecha && /^(aprobada|videos_listos)$/.test(e.etapa));
+    if (gc && flujoAprobado) console.log("✓ guion de la Clave: aprobado por su flujo propio");
+    else if (gc && sit("guion_clave") !== "lista") {
       avisos.push(`guion de la Clave sin APROBADA vigente (situación: ${sit("guion_clave")}): la Clave NO se renderiza en esta corrida; el informe sigue`);
       if (process.env.GITHUB_ENV) fs.appendFileSync(process.env.GITHUB_ENV, "SIN_CLAVE=1\n");
     } else if (gc) console.log("✓ guion de la Clave: APROBADA vigente del validador");

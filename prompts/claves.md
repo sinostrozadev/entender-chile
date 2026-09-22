@@ -37,7 +37,9 @@ contenido como fuente editorial. Zona horaria: America/Santiago.
    primero se queda; dos versiones de la misma pieza no se arreglan después.
    Dilo en una línea y termina.
 
-Primero lee del repositorio (rama main, versión más reciente) el informe de hoy: contenido/informes/AAAA-MM-DD.md, con la fecha local de Chile. Ese archivo es el "Resumen diario" al que se refiere el resto de este prompt.
+MODO FLUJO (desde el 21-09, CLAVE 4; es el modo normal ahora): la Clave ya no nace del informe de hoy. Si el estado que te despertó es un flujo de Clave (`contenido/estado/clave-<slug>.md`, PIEZA: entrega), tu entrada es `ARCHIVO_ENTRADA`: la idea que Santiago APROBÓ (`contenido/claves/flujo/<slug>/idea.md`), más `tema.md` y los informes de la fecha de origen y posteriores que nombren la noticia. El tema, el título propuesto, las preguntas y la estructura vienen de la idea: NO elijas otro tema ni cambies la promesa; desarrolla lo prometido. El archivo va en `ARCHIVO` del estado (`contenido/claves/FECHA_PRODUCCION-<slug>.md`), con ese slug exacto. Las secciones de este prompt que hablan de "el informe de hoy", de "la serie es diaria" y de elegir el tema NO aplican en este modo; todo lo demás (estructura, reglas de datos y fuentes, índice y banco de temas, contrato) sí.
+
+MODO DIARIO (el anterior; solo si el estado NO es un flujo de Clave): lee del repositorio (rama main, versión más reciente) el informe de hoy: contenido/informes/AAAA-MM-DD.md, con la fecha local de Chile. Ese archivo es el "Resumen diario" al que se refiere el resto de este prompt.
 
 VALIDACIÓN DEL HANDOFF:
 - Usa ese archivo como FUENTE DE VERDAD. No reconstruyas el informe por memoria, no uses ediciones de otras fechas y no vuelvas a investigar las noticias del día.

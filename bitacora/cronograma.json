@@ -1,6 +1,6 @@
 {
   "_regla": "FUENTE DE VERDAD del cronograma del panel. Quien cambie una tarea (rutina, workflow, tarea GPT, horario o disparador) ACTUALIZA este archivo en el mismo commit; scripts/panel-cronograma.js lo inyecta al panel y el reloj de métricas lo refresca a diario.",
-  "actualizado": "2026-09-16",
+  "actualizado": "2026-09-21",
   "fases": [
     {
       "nombre": "La madrugada: cadena LINEAL v3 (GPT escribe, Claude valida cada pieza, el estado manda)",
@@ -99,6 +99,41 @@
           "quien": "Web",
           "tipo": "actions",
           "que": "Cada push de contenido re-publica la web pública con el informe por categorías, los casos y los videos embebidos."
+        }
+      ]
+    },
+    {
+      "nombre": "La Clave: flujo propio, una o dos por semana (CLAVE 4, desde el 21-09)",
+      "items": [
+        {
+          "hora": "cuando Santiago elige",
+          "quien": "Santiago (por el chat)",
+          "tipo": "santiago",
+          "que": "Elige un tema del banco (scripts/clave.js listar) y la sesión escribe contenido/claves/flujo/<slug>/tema.md (clave.js elegir). Etapa tema_elegido."
+        },
+        {
+          "hora": "~5 min después",
+          "quien": "Despachador (GPT)",
+          "tipo": "gpt",
+          "que": "Propone la idea completa con prompts/clave-idea.md: promesa, preguntas, caso de entrada, estructura, carátulas. El validador la revisa contra el prompt; queda en idea_lista."
+        },
+        {
+          "hora": "cuando Santiago aprueba",
+          "quien": "Santiago (por el chat)",
+          "tipo": "santiago",
+          "que": "Lee idea.md y aprueba (clave.js aprobar, fija la fecha de producción) o pide cambios (clave.js cambiar). Sin su sí no hay entrega."
+        },
+        {
+          "hora": "tras el sí",
+          "quien": "Despachador y Validador",
+          "tipo": "gpt",
+          "que": "GPT escribe la entrega (prompts/claves.md en MODO FLUJO) y el guion (prompts/guion-claves.md); Claude valida cada uno; estado-clave.yml despierta a cada uno por turno."
+        },
+        {
+          "hora": "aprobada",
+          "quien": "Edición diaria",
+          "tipo": "actions",
+          "que": "estado-clave.yml dispara el render para la fecha de producción: voz, video, carátula verde de serie, subida programada a la hora de la Clave, podcast."
         }
       ]
     }

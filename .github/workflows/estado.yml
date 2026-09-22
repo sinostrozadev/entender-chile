@@ -137,6 +137,12 @@ jobs:
           if [ "$EMITIR" = 1 ]; then
             SHA=$(git log -1 --format=%h origin/main)
             git checkout -B automatizacion/estado origin/main
+            # el flujo de la Clave deja su propio evento en la misma rama
+            # (ultimo-evento-clave.txt, estado-clave.yml): al resetear la rama a
+            # main hay que conservarlo, o cada emisión diaria lo borraría y el
+            # despachador volvería a despertar por la Clave sin motivo (21-09)
+            git show origin/automatizacion/estado:contenido/estado/ultimo-evento-clave.txt > contenido/estado/ultimo-evento-clave.txt 2>/dev/null \
+              && git add contenido/estado/ultimo-evento-clave.txt || rm -f contenido/estado/ultimo-evento-clave.txt
             {
               echo "fecha_chile=$FECHA"
               echo "etapa=$ETAPA"

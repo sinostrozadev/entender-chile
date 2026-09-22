@@ -367,9 +367,30 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **CLAVE 4: la Clave sale de la cadena diaria y tiene flujo propio, con
-      dos aprobaciones de Santiago** (16-09). **(a) y (b) HECHOS la noche del
-      16-09:** la cadena diaria es de tres piezas y termina en el guion del
+- [ ] **CLAVE 4: FLUJO PROPIO CONSTRUIDO la noche del 21-09; falta la primera
+      Clave real.** Cómo se usa (fase 1, decisiones por el chat):
+      1. `node scripts/clave.js listar` muestra el banco numerado; Santiago
+         elige; la sesión corre `node scripts/clave.js elegir <slug> --tema <n>`
+         → GPT propone la idea (`prompts/clave-idea.md`, nuevo) → Claude la
+         valida → etapa `idea_lista`.
+      2. Santiago lee `contenido/claves/flujo/<slug>/idea.md` y dice sí o pide
+         cambios: `clave.js aprobar <slug> [--fecha]` o `clave.js cambiar
+         <slug> --nota "..."` → GPT escribe la entrega (`prompts/claves.md`,
+         MODO FLUJO) → Claude valida → GPT el guion → Claude valida →
+         `aprobada` → `estado-clave.yml` dispara la Edición diaria para la
+         fecha de producción → video programado a la hora de la Clave.
+      Piezas: `scripts/estado-clave.js` (vista `contenido/estado/clave-<slug>.md`
+      con PIEZA/PROMPT/ARCHIVO/ARCHIVO_ENTRADA), `estado-clave.yml` (evento
+      propio `ultimo-evento-clave.txt` en el PR #6, disparo del validador por
+      API, render), despachador y validador con su rama de Clave, `gate.js`
+      acepta la Clave aprobada por flujo, `contenido/claves/flujo/README.md`.
+      Probado en local de punta a punta con un flujo de prueba (tema → idea →
+      veredicto → aprobar → cambiar); nunca corrió con GPT y Claude de verdad.
+      **Primera Clave real: cuando Santiago elija el tema.** Riesgos: el
+      despachador tiene que leer el segundo archivo de evento; la entrega en
+      MODO FLUJO es un prompt viejo con un párrafo nuevo encima. Fase 2 del
+      Taller: las dos decisiones con botón en la página.
+      **(a) y (b) HECHOS la noche del 16-09:** la cadena diaria es de tres piezas y termina en el guion del
       informe; el banco se alimenta cada día con la etapa `alimentar_banco`
       (`prompts/banco-temas.md`, GPT, sin validación, no frena el render).
       Quedan (c), (d) y (e), que necesitan el Taller. Diseño original: "La Clave la vamos a lanzar una

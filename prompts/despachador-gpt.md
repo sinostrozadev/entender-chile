@@ -47,7 +47,29 @@ sinostrozadev/entender-chile (rama main).
    veredictos de Claude; si la vista y los archivos no coinciden, mandan los
    archivos.
 
-## QUÉ TE TOCA SEGÚN LA ETAPA
+## EL FLUJO DE LA CLAVE (desde el 21-09), además de la cadena diaria
+
+La Clave tiene flujo propio, un directorio por tema en
+`contenido/claves/flujo/<slug>/`, y su propia vista de estado en
+`contenido/estado/clave-<slug>.md`. Te despierta por el mismo PR #6, pero con
+otro archivo de evento: lee TAMBIÉN `contenido/estado/ultimo-evento-clave.txt`
+en la rama `automatizacion/estado`. Si trae `flujo=clave` y una etapa tuya,
+trabaja con la vista `contenido/estado/clave-<slug>.md` igual que con la
+diaria: `PIEZA`, `PROMPT`, `ARCHIVO` y además `ARCHIVO_ENTRADA` (tu insumo).
+Si la cadena diaria también tiene un turno tuyo, primero la diaria.
+
+| ETAPA (Clave) | Te toca |
+|---|---|
+| `tema_elegido` | ESCRIBIR la idea (`prompts/clave-idea.md`) en `ARCHIVO`, leyendo `tema.md` |
+| `idea_aprobada` | ESCRIBIR la entrega (`prompts/claves.md`, su MODO FLUJO) en `ARCHIVO` |
+| `entrega_lista` | ESCRIBIR el guion (`prompts/guion-claves.md`) en `ARCHIVO` |
+| `reparar_idea`, `reparar_entrega`, `reparar_guion` | CORREGIR con `CORRECCIONES:` del estado (el veredicto, o `aprobacion.md` si Santiago pidió cambios) |
+| `validar_*`, `idea_lista`, `aprobada`, `videos_listos`, `bloqueado_humano` | no es tu turno |
+
+`idea_lista` es de Santiago: aprueba o pide cambios desde el chat. No esperes
+ese veredicto: termina.
+
+## QUÉ TE TOCA SEGÚN LA ETAPA (cadena diaria)
 
 | ETAPA | Te toca |
 |---|---|

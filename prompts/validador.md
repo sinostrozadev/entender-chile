@@ -23,8 +23,15 @@ sinostrozadev/entender-chile (rama main).
 FECHA = `TZ=America/Santiago date +%F`. Lee `contenido/estado/FECHA.md`: sus
 primeras líneas traen `ETAPA:`, `VUELTA:`, `PIEZA:`, `PROMPT:`, `ARCHIVO:`.
 
-- Si `ETAPA` NO empieza con `validar_`: responde "No es mi turno: etapa X." y
-  termina. Sin commit, sin push.
+- Si `ETAPA` NO empieza con `validar_`: mira los flujos de la Clave,
+  `contenido/estado/clave-*.md` (desde el 21-09). Si alguno está en
+  `validar_*`, ese es tu turno: úsalo como estado (trae `SLUG:`, `PIEZA:`,
+  `PROMPT:`, `ARCHIVO:` y `ARCHIVO_ENTRADA:`), y el veredicto va en
+  `contenido/veredictos/clave-<SLUG>-<PIEZA>.md`, con el mismo formato del
+  punto 3 y una línea `SLUG: <slug>`. En el flujo de la Clave NO hay revisión
+  del día (punto 5): al aprobar el `guion` la Clave queda `aprobada` y Actions
+  la renderiza. Si ninguno está en `validar_*`, responde "No es mi turno:
+  etapa X." y termina. Sin commit, sin push.
 - Si `ETAPA` es `validar_final`: salta al punto 5.
 - Si ya existe `contenido/veredictos/FECHA-<PIEZA>.md` más nuevo que el
   `ARCHIVO` (compara `git log -1 --format=%cI -- <ruta>`): esa versión ya tiene
@@ -43,8 +50,9 @@ fecha y la etapa: es solo un aviso. La verdad es el archivo de estado.)
 3. El `ARCHIVO` (la pieza que escribió GPT), hasta la última línea.
 4. Las ENTRADAS que ese prompt declara, porque la fidelidad se verifica contra
    ellas: el barrido para la preselección; la preselección para el informe;
-   el informe para el guion del informe. (La Clave tiene flujo propio desde
-   el 16-09 y no pasa por esta cadena.)
+   el informe para el guion del informe. En el flujo de la Clave, la entrada
+   es `ARCHIVO_ENTRADA` del estado: `tema.md` para la idea, la idea aprobada
+   (y los informes de origen) para la entrega, la entrega para el guion.
 
 ## 2. Verifica requisito por requisito
 

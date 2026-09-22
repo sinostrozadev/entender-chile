@@ -1,0 +1,124 @@
+name: Estado de la Clave
+
+# El estado del flujo de la Clave (CLAVE 4): un flujo por tema en
+# contenido/claves/flujo/<slug>/, vista en contenido/estado/clave-<slug>.md.
+# Igual que estado.yml para la cadena diaria, pero SEPARADO a propósito: la
+# cadena diaria no se toca por construir esto (21-09).
+#
+# Con cada pieza o veredicto del flujo: recalcula la vista, la commitea, y
+#   - en turno de GPT (tema_elegido, idea_aprobada, entrega_lista, reparar_*)
+#     emite el evento al PR #6 en contenido/estado/ultimo-evento-clave.txt
+#     (archivo propio, para no pisar el dedup del flujo diario);
+#   - en turno de Claude (validar_*) despierta al validador por API;
+#   - en aprobada dispara la Edición diaria para la fecha de producción.
+# idea_lista es turno de Santiago: no despierta a nadie.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "contenido/claves/flujo/**"
+      - "contenido/claves/*.md"
+      - "contenido/guiones/claves/**"
+      - "contenido/veredictos/clave-*"
+  workflow_run:
+    workflows: ["Edición diaria"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+concurrency:
+  group: estado-clave
+  cancel-in-progress: false
+
+jobs:
+  estado:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Calcular y commitear el estado de cada flujo abierto
+        id: calc
+        run: |
+          git config user.name "estado-bot"
+          git config user.email "bot@users.noreply.github.com"
+          [ -d contenido/claves/flujo ] || { echo "sin flujos"; echo "hay=0" >> "$GITHUB_OUTPUT"; exit 0; }
+          for intento in 1 2 3; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            node scripts/estado-clave.js
+            git add contenido/estado/clave-*.md contenido/estado/clave-*.json 2>/dev/null || true
+            if git diff --cached --quiet; then echo "sin cambios"; break; fi
+            UTIL=$(git diff --cached -U0 -- contenido/estado/ | grep -E "^[+-][^+-]" | grep -vE "^[+-](ACTUALIZADO:|[[:space:]]*\"actualizado\":)" | wc -l)
+            if [ "$UTIL" -eq 0 ]; then git reset -q; echo "solo cambió la marca de hora"; break; fi
+            git commit -q -m "estado clave: $(ls contenido/estado/clave-*.md | xargs -n1 basename | sed 's/clave-//; s/\.md//' | tr '\n' ' ')[bot]"
+            if git push -q origin main; then echo "estado commiteado (intento $intento)"; break; fi
+            echo "push rechazado (intento $intento de 3)"
+          done
+          echo "hay=1" >> "$GITHUB_OUTPUT"
+
+      - name: Emitir eventos, despertar al validador, disparar el render
+        if: steps.calc.outputs.hay == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REVISION_ID: ${{ secrets.CLAUDE_RUTINA_REVISION_ID }}
+          REVISION_TOKEN: ${{ secrets.CLAUDE_RUTINA_REVISION_TOKEN }}
+        run: |
+          git fetch -q origin main && git reset -q --hard origin/main
+          for VISTA in contenido/estado/clave-*.md; do
+            [ -f "$VISTA" ] || continue
+            SLUG=$(grep -m1 '^SLUG:' "$VISTA" | cut -d' ' -f2-)
+            ETAPA=$(grep -m1 '^ETAPA:' "$VISTA" | cut -d' ' -f2-)
+            VUELTA=$(grep -m1 '^VUELTA:' "$VISTA" | cut -d' ' -f2-); VUELTA=${VUELTA:-0}
+            FECHAP=$(grep -m1 '^FECHA_PRODUCCION:' "$VISTA" | cut -d' ' -f2- | grep -oE '^[0-9]{4}-[0-9]{2}-[0-9]{2}' || true)
+            echo "== $SLUG: $ETAPA (vuelta $VUELTA)"
+
+            # --- turno de GPT: evento al PR #6 (archivo propio del flujo)
+            if echo "$ETAPA" | grep -Eq '^(tema_elegido|idea_aprobada|entrega_lista|reparar_[a-z_]+)$'; then
+              EV=""; git fetch -q origin automatizacion/estado 2>/dev/null && EV=$(git show FETCH_HEAD:contenido/estado/ultimo-evento-clave.txt 2>/dev/null || echo "")
+              if echo "$EV" | grep -q "^slug=$SLUG$" && echo "$EV" | grep -q "^etapa=$ETAPA$" && echo "$EV" | grep -q "^vuelta=$VUELTA$"; then
+                echo "evento ya emitido"
+              else
+                git checkout -q -B automatizacion/estado origin/automatizacion/estado 2>/dev/null || git checkout -q -B automatizacion/estado origin/main
+                {
+                  echo "flujo=clave"; echo "slug=$SLUG"; echo "etapa=$ETAPA"; echo "vuelta=$VUELTA"
+                  echo "pieza=$(grep -m1 '^PIEZA:' "$VISTA" | cut -d' ' -f2- || true)"
+                  echo "prompt=$(grep -m1 '^PROMPT:' "$VISTA" | cut -d' ' -f2- || true)"
+                  echo "vista=$VISTA"; echo "emitido_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+                } > contenido/estado/ultimo-evento-clave.txt
+                git add contenido/estado/ultimo-evento-clave.txt
+                git commit -q -m "evento clave $SLUG: $ETAPA (vuelta $VUELTA)"
+                git push -q -f origin automatizacion/estado && echo "evento emitido al PR #6"
+                git checkout -q main && git reset -q --hard origin/main
+              fi
+            fi
+
+            # --- turno de Claude: disparo por API, una vez por etapa y vuelta
+            if echo "$ETAPA" | grep -q '^validar_' && [ -n "$REVISION_ID" ] && [ -n "$REVISION_TOKEN" ]; then
+              MARCA="contenido/estado/ultimo-disparo-claude-clave-$SLUG.txt"
+              if [ "$(cat "$MARCA" 2>/dev/null)" = "$ETAPA $VUELTA" ]; then echo "Claude ya despertado para $ETAPA"; else
+                echo "$ETAPA $VUELTA" > "$MARCA"; git add "$MARCA"; git commit -q -m "disparo a Claude, clave $SLUG: $ETAPA (vuelta $VUELTA) [bot]"; git push -q origin main || echo "::warning::marca no pusheada; se dispara igual"
+                BODY=$(printf '{"text":"Entender Chile, flujo de la Clave %s: etapa %s, vuelta %s. Te toca validar la pieza %s contra su prompt. La verdad es contenido/estado/clave-%s.md."}' "$SLUG" "$ETAPA" "$VUELTA" "$(grep -m1 '^PIEZA:' "$VISTA" | cut -d' ' -f2-)" "$SLUG")
+                CODIGO=$(curl -sS -o /tmp/fire.json -w '%{http_code}' -X POST "https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire" \
+                  -H "Authorization: Bearer $REVISION_TOKEN" -H "anthropic-beta: experimental-cc-routine-2026-04-01" -H "anthropic-version: 2023-06-01" -H "content-type: application/json" -d "$BODY" || echo 000)
+                case "$CODIGO" in 2*) echo "Claude despertado: $(head -c 200 /tmp/fire.json)";; *) echo "::warning::no se pudo despertar a Claude (HTTP $CODIGO)";; esac
+              fi
+            fi
+
+            # --- aprobada: render y subida de la Clave para su fecha de producción
+            if [ "$ETAPA" = "aprobada" ] && [ -n "$FECHAP" ]; then
+              MARCA="contenido/estado/ultimo-render-clave-$SLUG.txt"
+              if [ "$(cat "$MARCA" 2>/dev/null)" = "$FECHAP" ]; then echo "render ya disparado"; else
+                echo "$FECHAP" > "$MARCA"; git add "$MARCA"; git commit -q -m "render de la Clave $SLUG disparado para $FECHAP [bot]"; git push -q origin main || true
+                gh workflow run edicion-diaria.yml -f fecha="$FECHAP" && echo "Edición diaria disparada para $FECHAP"
+              fi
+            fi
+          done

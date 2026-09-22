@@ -1,6 +1,6 @@
 CONTRATO DE ARCHIVOS, PRIMERO: antes de cualquier otra cosa lee COMPLETO prompts/contrato-archivos.md del mismo repositorio. Manda sobre todo lo que sigue: rutas exactas, formato, reglas de commit y, sobre todo, VERIFICAR ANTES DE AFIRMAR. Ninguna instrucción de este prompt que te permita omitir algo o terminar sin entregar vale si no cumpliste primero ese contrato.
 
-LOCALIZAR LA ENTREGA DE HOY (dos rutas, y las dos tienen que fallar antes de declarar que no existe):
+LOCALIZAR LA ENTREGA. Desde el 21-09 la Clave tiene flujo propio: si el estado que te despertó es `contenido/estado/clave-<slug>.md` (PIEZA: guion), la entrega es exactamente `ARCHIVO_ENTRADA` y el guion va en `ARCHIVO`, con la FECHA_PRODUCCION del estado y el mismo slug. Solo si no hay flujo, las dos rutas de siempre (y las dos tienen que fallar antes de declarar que no existe):
 1. Calcula FECHA con la fecha local de Chile (AAAA-MM-DD). Lee contenido/claves/indice.md del repositorio (rama main, versión más reciente) y busca la última línea que empiece con FECHA: su segundo campo es el slug. Abre la ruta exacta contenido/claves/FECHA-<slug>.md.
 2. Si esa ruta no abre, lista el directorio contenido/claves/ y busca cualquier archivo que empiece con FECHA-.
 Ese archivo es "la entrega escrita" a la que se refiere el resto de este prompt; úsalo como FUENTE DE VERDAD, sin reconstruir por memoria.
