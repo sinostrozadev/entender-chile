@@ -418,6 +418,11 @@ referencia:
       y la página de métricas desde la sesión local o desde el navegador de
       Santiago, y confirmar si la métrica existe con otro nombre, si es solo
       para content owners o si pide otro scope en el token de Analytics.
+      **Delegado a GPT el 22-09** (Santiago: "él puede entrar a las páginas
+      sin problemas"): investigar en la documentación oficial si la métrica
+      existe, con qué nombre, en qué informe y con qué scope, y devolver la
+      consulta exacta o la confirmación de que no está disponible para un
+      canal propio. Cuando responda, la sesión de día aplica lo que diga.
       **Mientras tanto**, impresiones y CTR se leen a mano en YouTube Studio,
       y la prueba A/B de carátulas de Studio sigue siendo la vía para decidir
       entre la v3 y lo anterior (CARÁTULA 2, punto 4). El pedido original era:
@@ -505,6 +510,20 @@ referencia:
       desde el teléfono. Es TALLER 3, ahora con un uso concreto y urgente: un
       tablero de la lista de temas disponibles con su fecha y su noticia de
       origen, y una ficha de la idea propuesta con botón de aprobar.
+
+- [ ] **CARÁTULA 4: la prueba A/B de Studio NO está andando y necesita a
+      Santiago** (aclarado el 22-09). Lo que la máquina SÍ hace sola desde el
+      21-09: el guionista escribe tres carátulas por edición, `dia.js` las
+      renderiza (`miniatura.png`, `miniatura-2.png`, `miniatura-3.png`), el
+      workflow las sube al release del día y la PRIMERA queda como carátula
+      del video en YouTube. Lo que NO hace nadie: cargar las otras dos en
+      "Probar y comparar" de YouTube Studio. Eso es manual, por video, desde
+      el teléfono, bajando las dos alternativas del release.
+      **Advertencia medida**: con largos de 1 a 9 vistas la prueba A/B no va a
+      concluir, porque necesita impresiones suficientes para decidir. Por eso
+      el orden correcto es primero tráfico (NÚMEROS 1) y después carátulas; la
+      prueba conviene activarla en el video que más impresiones reciba, no en
+      todos.
 
 - [ ] **CARÁTULA 2: EN PRODUCCIÓN desde la edición del 21-09** (decidido por
       Santiago el 20-09 sobre el tablero, paleta cobre y tinta). Hecho: regla
