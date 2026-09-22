@@ -3,7 +3,7 @@
   "etapa": "validar_guion_informe",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-09-22 11:30",
+  "actualizado": "2026-09-22 11:31",
   "reparar": null,
   "piezas": [
     {
@@ -98,19 +98,19 @@
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 480,
+      "atraso": 481,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "banco",
       "etiqueta": "Banco de temas de la Clave",
-      "atraso": 450,
+      "atraso": 451,
       "dueno": "GPT · prompts/banco-temas.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 375,
+      "atraso": 376,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
