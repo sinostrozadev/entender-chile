@@ -1,9 +1,9 @@
 {
   "fecha": "2026-09-22",
-  "etapa": "preseleccion_lista",
+  "etapa": "validar_informe",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-09-22 07:05",
+  "actualizado": "2026-09-22 11:04",
   "reparar": null,
   "piezas": [
     {
@@ -35,13 +35,15 @@
     {
       "id": "informe",
       "etiqueta": "Informe",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "por_validar",
       "prompt": "prompts/informe.md",
-      "hora": "",
+      "hora": "11:04",
       "esperada": "02:40",
       "dueno": "GPT · prompts/informe.md",
-      "rutas": []
+      "rutas": [
+        "contenido/informes/2026-09-22.md"
+      ]
     },
     {
       "id": "guion_informe",
@@ -92,33 +94,27 @@
   ],
   "atrasos": [
     {
-      "id": "informe",
-      "etiqueta": "Informe",
-      "atraso": 265,
-      "dueno": "GPT · prompts/informe.md"
-    },
-    {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "atraso": 235,
+      "atraso": 474,
       "dueno": "GPT · prompts/guion-informe.md"
     },
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 215,
+      "atraso": 454,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "banco",
       "etiqueta": "Banco de temas de la Clave",
-      "atraso": 185,
+      "atraso": 424,
       "dueno": "GPT · prompts/banco-temas.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 110,
+      "atraso": 349,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
