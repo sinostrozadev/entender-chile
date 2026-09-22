@@ -1,0 +1,115 @@
+name: Reintento del despertar
+
+# Cuando GPT no responde, alguien tiene que volver a tocarle el timbre.
+#
+# El 22-09 el conector de GitHub de ChatGPT devolvió "HTTP 400: Invalid MCP
+# request metadata" y la tarea no pudo leer ni escribir el repo. La cadena
+# quedó parada NUEVE HORAS, de la 01:58 a las 11:04, con el evento bien
+# emitido en el PR #6. Lo dijo la propia tarea después: "el error de metadatos
+# era transitorio y el conector se recuperó al reintentar una lectura
+# autenticada". Es decir, cualquier reintento habría destrabado el día, y no
+# hubo ninguno porque estado.yml emite el evento UNA vez y no insiste.
+#
+# Esto cubre la familia entera: conector caído un rato, despertar perdido,
+# eventos agrupados por ChatGPT. No cubre a Claude, que se despierta por API
+# con su propio reintento en estado.yml.
+on:
+  schedule:
+    # cada 20 minutos en la ventana de la edición. En UTC para no depender del
+    # cambio de hora: 04:00-09:59 UTC cubre 01:00-07:00 de Chile en verano
+    # (UTC-3) y 00:00-06:00 en invierno (UTC-4). Fuera de la ventana de Chile
+    # el propio job se retira en segundos.
+    - cron: "*/20 4-9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: reintento
+  cancel-in-progress: false
+
+jobs:
+  reintento:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mirar si hay que reemitir, y reemitir
+        run: |
+          set -e
+          ESPERA_MIN=25   # margen: Claude valida en 1-3 min y GPT escribe en 5-15
+          TOPE=3          # a la cuarta no se insiste: algo está roto de verdad
+
+          FECHA=$(TZ=America/Santiago date +%F)
+          HORA=$(TZ=America/Santiago date +%H)
+          # solo en la madrugada de la edición; con el dispatch a mano se salta
+          if [ "${{ github.event_name }}" = "schedule" ] && { [ "$HORA" -lt 1 ] || [ "$HORA" -ge 7 ]; }; then
+            echo "son las $HORA de Chile: fuera de la ventana de la edición"; exit 0
+          fi
+
+          git fetch -q origin main
+          git checkout -q -B main origin/main
+          VISTA="contenido/estado/$FECHA.md"
+          [ -f "$VISTA" ] || { echo "todavía no hay estado de hoy"; exit 0; }
+          ETAPA=$(grep -m1 '^ETAPA:' "$VISTA" | cut -d' ' -f2-)
+          VUELTA=$(grep -m1 '^VUELTA:' "$VISTA" | cut -d' ' -f2-); VUELTA=${VUELTA:-0}
+
+          # ¿es turno de GPT? MISMA regla que estado.yml (línea 124) para emitir
+          # al PR #6. Si una cambia, la otra también: alimentar_banco entró el
+          # 21-09 y se habría quedado fuera de aquí sin este comentario.
+          echo "$ETAPA" | grep -Eq '^(barrido_listo|[a-z_]+_lista|[a-z_]+_listo|reparar_[a-z_]+|alimentar_banco)$' || {
+            echo "etapa $ETAPA: no es turno de GPT, nada que reintentar"; exit 0; }
+
+          git fetch -q origin automatizacion/estado || { echo "sin rama de eventos"; exit 0; }
+          EV=$(git show FETCH_HEAD:contenido/estado/ultimo-evento.txt 2>/dev/null || echo "")
+          campo() { echo "$EV" | grep -m1 "^$1=" | cut -d= -f2-; }
+          # el evento tiene que ser el de ESTA etapa y vuelta; si no, estado.yml
+          # todavía no emitió y le toca a él, no a nosotros
+          [ "$(campo fecha_chile)" = "$FECHA" ] && [ "$(campo etapa)" = "$ETAPA" ] && [ "$(campo vuelta)" = "$VUELTA" ] || {
+            echo "el último evento no es el de $ETAPA (vuelta $VUELTA): no me toca"; exit 0; }
+
+          EMITIDO=$(campo emitido_utc)
+          EDAD=$(( ( $(date -u +%s) - $(date -u -d "$EMITIDO" +%s) ) / 60 ))
+          if [ "$EDAD" -lt "$ESPERA_MIN" ]; then
+            echo "el evento tiene $EDAD min: aún dentro de los $ESPERA_MIN de gracia"; exit 0
+          fi
+
+          # ¿y si GPT ya respondió y el estado no se ha recalculado? La pieza que
+          # toca aparecería en main. El estado se recalcula con cada push, así
+          # que si la etapa sigue igual es que la pieza no llegó.
+          N=$(campo reintentos); N=${N:-0}
+          # alimentar_banco es la única etapa de GPT que no frena la edición (el
+          # render ya corrió): se reintenta igual, pero agotarla no es una falla
+          # que merezca teñir la corrida de rojo.
+          if [ "$N" -ge "$TOPE" ]; then
+            if [ "$ETAPA" = "alimentar_banco" ]; then
+              echo "::warning::el banco de temas no se alimentó hoy tras $N intentos; la edición no se ve afectada"
+              exit 0
+            fi
+            echo "::error::$ETAPA lleva $EDAD min sin respuesta de GPT y ya se reintentó $N veces. No insisto más: la tarea de ChatGPT necesita una mirada."
+            exit 1
+          fi
+          N=$((N + 1))
+
+          echo "$ETAPA lleva $EDAD min sin respuesta: reemitiendo (intento $N de $TOPE)"
+          git config user.name "estado-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git checkout -q -B reintento FETCH_HEAD
+          {
+            echo "fecha_chile=$FECHA"
+            echo "etapa=$ETAPA"
+            echo "vuelta=$VUELTA"
+            echo "reparar=$(campo reparar)"
+            echo "pieza=$(campo pieza)"
+            echo "prompt=$(campo prompt)"
+            echo "estado_commit=$(campo estado_commit)"
+            echo "vista=$VISTA"
+            echo "emitido_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "reintentos=$N"
+            echo "motivo=GPT no respondio en $EDAD min"
+          } > contenido/estado/ultimo-evento.txt
+          git add contenido/estado/ultimo-evento.txt
+          git commit -q -m "evento $FECHA: $ETAPA reemitido (intento $N de $TOPE, $EDAD min sin respuesta)"
+          git push -q -f origin reintento:automatizacion/estado
+          echo "reemitido"

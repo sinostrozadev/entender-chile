@@ -379,8 +379,46 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **REINTENTO 1 (propuesto el 22-09, espera el sí de Santiago): que la
-      máquina reintente sola cuando GPT no responde.** Lo que pasó hoy: el
+- [ ] **IMPRESIONES 1: la vía es la YouTube Reporting API, no Analytics**
+      (respuesta de GPT con documentación oficial, 22-09). Cierra la
+      investigación abierta hoy:
+      - En `reports.query` de Analytics v2 estas métricas NO existen: los
+        informes de alcance son "supported for channels (bulk) and content
+        owners (bulk)". Por eso las cinco variantes dieron "The query is not
+        supported". El intento diario que quedó en `scripts/metricas.js` se
+        puede retirar.
+      - Los nombres reales son `video_thumbnail_impressions` y
+        `video_thumbnail_impressions_ctr`, en la **YouTube Reporting API**.
+      - El informe es **`channel_reach_basic_a1`**, con campos `date`,
+        `channel_id`, `video_id` más esas dos métricas. NO admite filtros: se
+        descarga el CSV completo y se filtra en casa. No usa `channel==MINE`.
+      - El scope actual sirve: `yt-analytics.readonly`. No está limitado a
+        content owners; sin `onBehalfOfContentOwner` Google asume el canal
+        propio.
+      **Lo que hay que construir** (más grande que una consulta, por eso queda
+      como tarea aparte): crear UNA vez el trabajo con `jobs.create`, y después
+      un paso diario que liste los informes del trabajo, baje el CSV del día,
+      lo cruce con `contenido/videos` y escriba impresiones y CTR por video en
+      `bitacora/metricas/FECHA.json`, donde el reporte ya tiene el hueco hecho
+      (la tabla de largos con 100 impresiones o más). Ojo con dos cosas: el
+      informe es diario y asíncrono, así que el dato del día llega con rezago,
+      y el trabajo empieza a generar informes recién desde que se crea, no
+      hacia atrás. Doc: developers.google.com/youtube/reporting y
+      /youtube/reporting/v1/reports/channel_reports.
+
+- [x] **REINTENTO 1: la máquina reintenta sola cuando GPT no responde.** ✅
+      22-09, sesión de día con el sí de Santiago. `.github/workflows/reintento.yml`:
+      cada 20 minutos entre las 04:00 y las 09:59 UTC (la ventana cubre la
+      madrugada de Chile con y sin horario de verano; fuera de 01:00-07:00 de
+      Chile el job se retira en segundos). Mira el estado, y solo si la etapa
+      es turno de GPT y el evento del PR #6 lleva 25 minutos o más sin que
+      llegue la pieza, lo reemite con `reintentos=N` y el motivo. Tope de tres:
+      al cuarto no insiste y falla con un error explícito, salvo en
+      `alimentar_banco`, que no frena la edición y solo deja un aviso. La
+      regla de qué etapa es de GPT es la MISMA de `estado.yml` línea 124 y hay
+      que cambiarlas juntas: el ensayo en seco cazó que `alimentar_banco`
+      faltaba en la primera versión. Queda verlo actuar en una madrugada real.
+      El caso que lo motivó: Lo que pasó hoy: el
       conector de GitHub de ChatGPT devolvió "HTTP 400: Invalid MCP request
       metadata" y la tarea no pudo leer ni escribir el repo. La cadena quedó
       parada 9 horas, de las 01:58 a las 11:04, con todo el lado del repo
