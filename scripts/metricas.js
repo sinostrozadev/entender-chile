@@ -151,12 +151,16 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
       const an2 = google.youtubeAnalytics({ version: "v2", auth: oa2 });
       const desde2 = new Date(Date.now() - 30 * 864e5).toISOString().slice(0, 10);
       const METRICAS_IMPR = "videoThumbnailImpressions,videoThumbnailImpressionsClickRate";
-      // La API acepta estas métricas solo en ciertas combinaciones de informe,
-      // y cuál es no está documentado de forma accesible desde aquí: el primer
-      // intento (dimensions video + sort por impresiones) devolvió "The query
-      // is not supported" el 22-09. Así que se prueban variantes de más útil a
-      // menos, y se usa la primera que la API acepte. El log dice cuál pasó,
-      // para poder dejar solo esa cuando se sepa.
+      // ESTADO AL 22-09: la API RECHAZA estas métricas para este canal. Se
+      // probaron cinco formas (por video con y sin sort, solo impresiones,
+      // junto a views, por día y sin dimensión) y las cinco devolvieron "The
+      // query is not supported". Puede ser que el nombre sea otro, que la
+      // métrica sea solo para content owners, o que pida un scope distinto:
+      // no se pudo confirmar porque developers.google.com está bloqueado por
+      // el proxy de la sesión de día. Queda UN intento al día, barato: si
+      // Google la habilita, el dato empieza a aparecer solo y el log lo dice.
+      // Para confirmarlo hace falta abrir la doc desde la sesión local o
+      // leer impresiones y CTR a mano en YouTube Studio.
       const intentar = async (nombre, params) => {
         try {
           const r = await an2.reports.query({ ids: "channel==MINE", startDate: desde2, endDate: fecha, ...params });
@@ -168,10 +172,7 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
         }
       };
       impresiones = { videos: {}, dias: {} };
-      const porVideo =
-        (await intentar("video sin sort", { metrics: METRICAS_IMPR, dimensions: "video", maxResults: 200 })) ??
-        (await intentar("video, solo impresiones", { metrics: "videoThumbnailImpressions", dimensions: "video", maxResults: 200 })) ??
-        (await intentar("video + views", { metrics: `views,${METRICAS_IMPR}`, dimensions: "video", sort: "-views", maxResults: 200 }));
+      const porVideo = await intentar("video", { metrics: METRICAS_IMPR, dimensions: "video", maxResults: 200 });
       if (porVideo) {
         for (const fila of porVideo) {
           const [id] = fila;
@@ -181,9 +182,7 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
           impresiones.videos[id] = { impresiones: impr, ...(ctr === null ? {} : { ctr: Number(ctr.toFixed(2)) }) };
         }
       }
-      const porDia =
-        (await intentar("día", { metrics: METRICAS_IMPR, dimensions: "day", sort: "day" })) ??
-        (await intentar("canal sin dimensión", { metrics: METRICAS_IMPR }));
+      const porDia = porVideo ? await intentar("día", { metrics: METRICAS_IMPR, dimensions: "day", sort: "day" }) : null;
       if (porDia) {
         for (const fila of porDia) {
           if (fila.length >= 3) impresiones.dias[fila[0]] = { impresiones: fila[1], ctr: Number((fila[2] ?? 0).toFixed(2)) };
