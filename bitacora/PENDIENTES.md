@@ -379,6 +379,27 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **REINTENTO 1 (propuesto el 22-09, espera el sí de Santiago): que la
+      máquina reintente sola cuando GPT no responde.** Lo que pasó hoy: el
+      conector de GitHub de ChatGPT devolvió "HTTP 400: Invalid MCP request
+      metadata" y la tarea no pudo leer ni escribir el repo. La cadena quedó
+      parada 9 horas, de las 01:58 a las 11:04, con todo el lado del repo
+      correcto (el evento salió al PR #6 a las 01:58 y quedó registrado).
+      **El diagnóstico, dicho por la propia tarea de GPT:** "no hubo
+      reconexión manual: el error de metadatos era transitorio y el conector
+      se recuperó al reintentar una lectura autenticada". O sea, un reintento
+      cualquiera habría destrabado el día. La edición salió completa a las
+      12:15 tras la intervención a mano, con aprobación en una sola vuelta.
+      **Propuesta**: un workflow chico por reloj (cada 20 o 30 minutos entre
+      la 01:30 y las 06:00 de Chile) que mire el estado; si la etapa es de GPT
+      (`barrido_listo`, `*_lista`, `*_listo`, `reparar_*`) y la pieza que toca
+      no aparece después de 25 minutos del último evento, reemite el evento al
+      PR #6 exactamente como lo hace `estado.yml`. Tope de tres reintentos por
+      etapa para no insistir sobre algo roto de verdad, y al tercero que avise
+      al teléfono en vez de seguir. Cuesta un minuto de Actions por corrida y
+      cubre la clase entera de fallo: conector caído, despertar perdido o
+      evento agrupado. Hoy habría ahorrado nueve horas sin que nadie mirara.
+
 - [ ] **NÚMEROS 1 (PRIORIDAD ALTA, 22-09): el problema no es la carátula ni la
       retención de los largos, es que los largos no reciben tráfico.** Medido
       hoy sobre `bitacora/metricas/2026-09-22.json`:
