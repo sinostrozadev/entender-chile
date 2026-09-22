@@ -68,6 +68,22 @@ ruta y formato exactos del contrato. Guarda antes de escribir: si `ARCHIVO` ya
 existe en `main` y la etapa no es `reparar_*`, alguien llegó antes: no lo
 pises, pasa a ESPERA.
 
+### Antes de escribir: las observaciones del validador sobre tu entrada
+
+Cada pieza aprobada trae un veredicto en `contenido/veredictos/FECHA-<pieza>.md`
+con una sección `Observaciones:` que no bloqueó, pero que el editor escribió
+para quien viene después. ANTES de escribir tu pieza, lee las observaciones
+del veredicto de la pieza que usas como entrada (la preselección para el
+informe; el informe para el guion) y actúa así:
+- si señalan una noticia del barrido que quedó fuera y que el canal ya venía
+  contando, o una alarma, y tu prompt te permite tomarla (el informe elige
+  entre candidatas: esa es una candidata más), incorpórala y márcala en el
+  bloque interno como "(sumada por observación del validador)";
+- si piden verificar o precisar algo que tu prompt cubre, hazlo;
+- si piden algo que tu prompt no permite, ignóralas y no las menciones.
+El 21-09 el validador anotó dos historias que faltaban (el caso Ojeda, una
+alarma en Pitrufquén) y nadie las leyó: el informe salió sin ellas.
+
 ### Corregir una pieza (`reparar_<pieza>`)
 
 Lee `contenido/veredictos/FECHA-<pieza>.md`. Trae `Correcciones:` numeradas:

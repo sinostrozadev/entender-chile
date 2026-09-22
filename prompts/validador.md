@@ -96,7 +96,11 @@ Escribe `contenido/veredictos/FECHA-<PIEZA>.md` con EXACTAMENTE esta forma:
     2. ...
 
     Observaciones:               (opcional; nunca manda a corregir)
-    - ...
+    - Para la pieza siguiente: <lo que quien escriba la próxima pieza debería
+      tomar en cuenta: una noticia del barrido que falta, un dato por
+      precisar>. Estas van PRIMERO, con ese rótulo: el despachador de GPT las
+      lee antes de escribir la pieza que sigue (desde el 21-09).
+    - <las demás observaciones>
 
 Reglas del veredicto:
 - APROBADA si no hay ningún INCUMPLE. Con observaciones, igual APROBADA.

@@ -12,7 +12,10 @@
       "control": "las alternativas 2 y 3 en la prueba A/B de Studio, con la 1 como control",
       "decidio": "Santiago, 20-09, sobre el tablero https://claude.ai/artifact/XsfWbLELW4LWLv4rF6roZR",
       "estado": "en_curso",
-      "veredicto": ""
+      "veredicto": "",
+      "bitacora": [
+        "21-09: primera edición real. GPT escribió las tres carátulas con el formato pedido ('¿Por qué tantas muertes? / Balance aún abierto'; 'Fiestas largas / Costos irreparables'; '267 siniestros / Balance aún abierto'). Render correcto; las tres en el release. La lámina cayó al mapa: ninguna sección calzó con 'balance vial'."
+      ]
     },
     {
       "id": "apertura-en-frio",

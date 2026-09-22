@@ -297,12 +297,13 @@ async function main() {
     porArea.get(a).push(n);
   }
   const dm = (f) => f.split("-").reverse().join("-");
-  // Las URL de Google News son redirecciones de 500 caracteres: ocupan el 70%
-  // del archivo y no aportan (el enlace útil está en el JSON). Solo se muestra
-  // la URL cuando es directa al medio.
+  // Las URL de Google News son redirecciones largas, pero SIN ellas la
+  // preselección citaba la portada o la sección del medio en vez de la nota
+  // (auditorías del 18, 20 y 21-09). Se imprimen igual, marcadas: en el
+  // navegador redirigen a la nota, y son mejor cita que una portada.
   const linea = (n) => `- ${n.titulo}\n  ${n.medios.slice(0, 3).join(", ")} · ${n.motivo_destaque}` +
     (n.visto_antes ? ` (desde el ${dm(n.visto_antes)})` : "") +
-    (n.url && !n.url.includes("news.google.com") ? `\n  ${n.url}` : "");
+    (n.url ? `\n  ${n.url}${n.url.includes("news.google.com") ? "  (vía Google News: redirige a la nota; cita esta y no la portada del medio)" : ""}` : "");
   const md = [
     `# Barrido del ${dm(fecha)}`, "",
     `${destacadas.length} noticias con señal, de ${salida.total_unico} únicas recogidas en ${objetivos.length} fuentes (${salida.total_bruto} titulares brutos).`,

@@ -99,12 +99,16 @@ const clonCompleto = () => {
   }
   return !esShallow;
 };
-const horaDe = (ruta) => {
+const horaDe = (ruta, ultima = false) => {
   if (!clonCompleto()) return "";
   try {
     const log = (args) => execFileSync("git", args, { cwd: RAIZ, encoding: "utf8" }).trim();
-    // la primera vez que apareció (--diff-filter=A), no su última edición
-    const iso = log(["log", "--diff-filter=A", "-1", "--format=%cI", "--", ruta]) || log(["log", "-1", "--format=%cI", "--", ruta]);
+    // la primera vez que apareció (--diff-filter=A), no su última edición;
+    // salvo las piezas "hoy" (el banco de temas, un archivo único que se toca
+    // cada día): ahí la hora que importa es la del último commit. Cinco
+    // auditorías seguidas (17 al 21-09) pidieron esto.
+    const iso = ultima ? log(["log", "-1", "--format=%cI", "--", ruta])
+      : log(["log", "--diff-filter=A", "-1", "--format=%cI", "--", ruta]) || log(["log", "-1", "--format=%cI", "--", ruta]);
     return iso ? enChile(new Date(iso)).slice(11) : "";
   } catch { return ""; }
 };
@@ -154,7 +158,7 @@ if (existe(rutaRev)) {
 
 const estado = PIEZAS.map((p) => {
   const r = resolver(p);
-  return { ...p, ...r, hora: r.hay && r.rutas.length ? horaDe(r.rutas[0]) : "", mod: r.hay ? modDe(r.rutas) : 0 };
+  return { ...p, ...r, hora: r.hay && r.rutas.length ? horaDe(r.rutas[0], Boolean(p.hoy)) : "", mod: r.hay ? modDe(r.rutas) : 0 };
 });
 const pieza = (id) => estado.find((p) => p.id === id);
 const hecha = (id) => pieza(id)?.hay;
