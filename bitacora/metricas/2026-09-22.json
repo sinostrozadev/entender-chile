@@ -1,16 +1,34 @@
 {
   "fecha": "2026-09-22",
   "canal": {
-    "suscriptores": 16,
-    "vistas": 6046,
-    "videos": 90
+    "suscriptores": 17,
+    "vistas": 6123,
+    "videos": 92
   },
   "videos": {
+    "hrufcYlaUSM": {
+      "titulo": "Lluvias fuertes e isoterma cero alta entre Maule y Los Lagos",
+      "publicado": "2026-09-22",
+      "estado": "public",
+      "vistas": 2,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 46
+    },
+    "9JjmWDJroLU": {
+      "titulo": "Lluvias fuertes e isoterma cero alta entre Maule y Los Lagos",
+      "publicado": "2026-09-22",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 895
+    },
     "NgutmEp2__Y": {
       "titulo": "¿Cómo terminó Fiestas Patrias en accidentes y violencia? El ",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 16,
+      "vistas": 36,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 43
@@ -19,7 +37,7 @@
       "titulo": "Fiestas Patrias deja 18 fallecidos y un balance vial todavía",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 15,
+      "vistas": 16,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 48
@@ -37,7 +55,7 @@
       "titulo": "¿Por qué la aprobación de Kast tocó su peor nivel como presi",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 202,
+      "vistas": 208,
       "meGusta": 6,
       "comentarios": 0,
       "durSeg": 46
@@ -46,7 +64,7 @@
       "titulo": "Bachelet retira su candidatura a la Secretaría General de la",
       "publicado": "2026-09-20",
       "estado": "public",
-      "vistas": 34,
+      "vistas": 33,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 48
@@ -91,7 +109,7 @@
       "titulo": "Tren Melipilla partirá desde Lo Errázuriz",
       "publicado": "2026-09-18",
       "estado": "public",
-      "vistas": 18,
+      "vistas": 20,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 707
@@ -118,7 +136,7 @@
       "titulo": "Falla en la PGU afecta a cerca de 53 mil pensionados",
       "publicado": "2026-09-17",
       "estado": "public",
-      "vistas": 1,
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 627
@@ -217,7 +235,7 @@
       "titulo": "¿Quién decide cuánto gasta el Estado cada año?",
       "publicado": "2026-09-14",
       "estado": "public",
-      "vistas": 11,
+      "vistas": 12,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 671
@@ -523,7 +541,7 @@
       "titulo": "¿Por qué una norma sísmica no basta para evitar el riesgo?",
       "publicado": "2026-09-07",
       "estado": "public",
-      "vistas": 2,
+      "vistas": 6,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 334
@@ -568,7 +586,7 @@
       "titulo": "¿Por qué un senador necesita permiso judicial para ser juzga",
       "publicado": "2026-09-06",
       "estado": "public",
-      "vistas": 6,
+      "vistas": 7,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 312
@@ -757,7 +775,7 @@
       "titulo": "¿Cómo leer el Imacec sin confundir señal con ruido?",
       "publicado": "2026-09-01",
       "estado": "public",
-      "vistas": 17,
+      "vistas": 19,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 724
@@ -873,7 +891,7 @@
   },
   "retencion": {
     "qzn2RJefxic": {
-      "vistas": 72,
+      "vistas": 82,
       "minutos": 184,
       "segProm": 304,
       "pct": 44.6
@@ -957,10 +975,10 @@
       "pct": 76.2
     },
     "nvG_C4evsL8": {
-      "vistas": 245,
-      "minutos": 48,
+      "vistas": 251,
+      "minutos": 49,
       "segProm": 26,
-      "pct": 59.8
+      "pct": 59.1
     },
     "MzrT56tga7w": {
       "vistas": 238,
@@ -992,6 +1010,12 @@
       "segProm": 288,
       "pct": 51
     },
+    "LjpVaF71JbQ": {
+      "vistas": 195,
+      "minutos": 40,
+      "segProm": 27,
+      "pct": 57.7
+    },
     "rYoBCZmEipg": {
       "vistas": 159,
       "minutos": 37,
@@ -1017,7 +1041,7 @@
       "pct": 71.9
     },
     "RPWexIZS3d0": {
-      "vistas": 106,
+      "vistas": 111,
       "minutos": 28,
       "segProm": 35,
       "pct": 71.4
@@ -1113,10 +1137,10 @@
       "pct": 28.6
     },
     "bfhNo31wIFI": {
-      "vistas": 10,
-      "minutos": 12,
-      "segProm": 190,
-      "pct": 28.4
+      "vistas": 11,
+      "minutos": 13,
+      "segProm": 155,
+      "pct": 23.2
     },
     "vtb2qda7A9E": {
       "vistas": 8,
@@ -1160,6 +1184,18 @@
       "segProm": 639,
       "pct": 99.9
     },
+    "I-cYlzfnJ70": {
+      "vistas": 2,
+      "minutos": 10,
+      "segProm": 318,
+      "pct": 100
+    },
+    "RgyxBISTZ9Y": {
+      "vistas": 56,
+      "minutos": 10,
+      "segProm": 26,
+      "pct": 57.4
+    },
     "bU-eMEkDcHc": {
       "vistas": 111,
       "minutos": 9,
@@ -1191,7 +1227,7 @@
       "pct": 67.3
     },
     "xDofJVmO0rk": {
-      "vistas": 5,
+      "vistas": 6,
       "minutos": 7,
       "segProm": 86,
       "pct": 27.6
@@ -1238,29 +1274,11 @@
       "segProm": 13,
       "pct": 40.4
     },
-    "RgyxBISTZ9Y": {
-      "vistas": 42,
-      "minutos": 5,
-      "segProm": 19,
-      "pct": 41.9
-    },
-    "LjpVaF71JbQ": {
-      "vistas": 23,
-      "minutos": 5,
-      "segProm": 34,
-      "pct": 71.2
-    },
     "n7CU6xJQ6Zw": {
       "vistas": 17,
       "minutos": 5,
       "segProm": 44,
       "pct": 93
-    },
-    "I-cYlzfnJ70": {
-      "vistas": 1,
-      "minutos": 5,
-      "segProm": 317,
-      "pct": 100
     },
     "Ii7mKdrkNgs": {
       "vistas": 95,
@@ -1280,11 +1298,23 @@
       "segProm": 252,
       "pct": 40.2
     },
+    "-QmnmBnT1Ng": {
+      "vistas": 20,
+      "minutos": 3,
+      "segProm": 31,
+      "pct": 65.2
+    },
     "MsPcFSzX1B0": {
       "vistas": 59,
       "minutos": 3,
       "segProm": 13,
       "pct": 41.8
+    },
+    "0zRRrvdLUac": {
+      "vistas": 11,
+      "minutos": 2,
+      "segProm": 31,
+      "pct": 67.8
     },
     "hpryKVLBUXg": {
       "vistas": 19,
@@ -1346,17 +1376,17 @@
       "segProm": 14,
       "pct": 51.5
     },
+    "m16ACKSvQ5g": {
+      "vistas": 3,
+      "minutos": 1,
+      "segProm": 79,
+      "pct": 15.6
+    },
     "AJ4cxxL3XvA": {
       "vistas": 3,
       "minutos": 1,
       "segProm": 81,
       "pct": 174.3
-    },
-    "m16ACKSvQ5g": {
-      "vistas": 2,
-      "minutos": 1,
-      "segProm": 79,
-      "pct": 15.6
     },
     "JpWGFsV-mMc": {
       "vistas": 23,
@@ -1410,27 +1440,27 @@
   "fuentes": {
     "canal": {
       "SHORTS": {
-        "vistas": 4273,
-        "minutos": 612
+        "vistas": 4486,
+        "minutos": 656
       },
       "YT_SEARCH": {
-        "vistas": 523,
-        "minutos": 201
+        "vistas": 539,
+        "minutos": 203
       },
       "SUBSCRIBER": {
-        "vistas": 402,
-        "minutos": 176
+        "vistas": 412,
+        "minutos": 177
       },
       "YT_CHANNEL": {
         "vistas": 181,
         "minutos": 538
       },
       "RELATED_VIDEO": {
-        "vistas": 138,
-        "minutos": 314
+        "vistas": 140,
+        "minutos": 319
       },
       "NOTIFICATION": {
-        "vistas": 33,
+        "vistas": 34,
         "minutos": 64
       },
       "YT_OTHER_PAGE": {
@@ -1457,8 +1487,8 @@
     "videos": {
       "qzn2RJefxic": {
         "fuentes": {
-          "SUBSCRIBER": 32,
-          "YT_SEARCH": 32,
+          "SUBSCRIBER": 40,
+          "YT_SEARCH": 34,
           "NO_LINK_OTHER": 2,
           "PLAYLIST": 2,
           "YT_CHANNEL": 1,
@@ -2668,7 +2698,7 @@
       "bfhNo31wIFI": {
         "fuentes": {
           "SUBSCRIBER": 7,
-          "RELATED_VIDEO": 3,
+          "RELATED_VIDEO": 4,
           "NO_LINK_OTHER": 0
         },
         "curva": null
