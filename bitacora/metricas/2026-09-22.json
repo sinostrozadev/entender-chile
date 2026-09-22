@@ -2,7 +2,7 @@
   "fecha": "2026-09-22",
   "canal": {
     "suscriptores": 16,
-    "vistas": 5840,
+    "vistas": 5958,
     "videos": 90
   },
   "videos": {
@@ -10,7 +10,7 @@
       "titulo": "¿Cómo terminó Fiestas Patrias en accidentes y violencia? El ",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 13,
+      "vistas": 15,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 43
@@ -19,7 +19,7 @@
       "titulo": "Fiestas Patrias deja 18 fallecidos y un balance vial todavía",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 11,
+      "vistas": 15,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 48
@@ -28,7 +28,7 @@
       "titulo": "Fiestas Patrias deja 18 fallecidos y un balance vial todavía",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 2,
+      "vistas": 3,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 664
@@ -37,7 +37,7 @@
       "titulo": "¿Por qué la aprobación de Kast tocó su peor nivel como presi",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 187,
+      "vistas": 202,
       "meGusta": 6,
       "comentarios": 0,
       "durSeg": 46
@@ -46,7 +46,7 @@
       "titulo": "Bachelet retira su candidatura a la Secretaría General de la",
       "publicado": "2026-09-20",
       "estado": "public",
-      "vistas": 30,
+      "vistas": 34,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 48
@@ -73,7 +73,7 @@
       "titulo": "Cinco regiones bajo alerta por un frente con rachas de 90 km",
       "publicado": "2026-09-19",
       "estado": "public",
-      "vistas": 13,
+      "vistas": 15,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 508
@@ -100,7 +100,7 @@
       "titulo": "¿Tienes pasaporte venezolano vencido en Chile? Desde mañana ",
       "publicado": "2026-09-17",
       "estado": "public",
-      "vistas": 61,
+      "vistas": 62,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 52
@@ -298,7 +298,7 @@
       "titulo": "¿Qué es la prisión preventiva y por qué no es una condena?",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 13,
+      "vistas": 14,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 342
@@ -379,7 +379,7 @@
       "titulo": "Cómo leer el IPoM del Banco Central",
       "publicado": "2026-09-10",
       "estado": "public",
-      "vistas": 6,
+      "vistas": 7,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 351
@@ -977,8 +977,8 @@
     "GJMefzqOaqk": {
       "vistas": 17,
       "minutos": 45,
-      "segProm": 303,
-      "pct": 50.8
+      "segProm": 341,
+      "pct": 57.1
     },
     "XRzll3-Hbyw": {
       "vistas": 11,
@@ -1414,7 +1414,7 @@
         "minutos": 612
       },
       "YT_SEARCH": {
-        "vistas": 525,
+        "vistas": 523,
         "minutos": 201
       },
       "SUBSCRIBER": {
@@ -1442,7 +1442,7 @@
         "minutos": 196
       },
       "NO_LINK_OTHER": {
-        "vistas": 20,
+        "vistas": 19,
         "minutos": 37
       },
       "EXT_URL": {
@@ -1457,8 +1457,8 @@
     "videos": {
       "qzn2RJefxic": {
         "fuentes": {
-          "YT_SEARCH": 33,
           "SUBSCRIBER": 32,
+          "YT_SEARCH": 32,
           "NO_LINK_OTHER": 2,
           "PLAYLIST": 2,
           "YT_CHANNEL": 1,
@@ -2615,7 +2615,6 @@
         "fuentes": {
           "SUBSCRIBER": 9,
           "RELATED_VIDEO": 6,
-          "NO_LINK_OTHER": 1,
           "YT_SEARCH": 1
         },
         "curva": null
