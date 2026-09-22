@@ -379,6 +379,47 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **NÚMEROS 1 (PRIORIDAD ALTA, 22-09): el problema no es la carátula ni la
+      retención de los largos, es que los largos no reciben tráfico.** Medido
+      hoy sobre `bitacora/metricas/2026-09-22.json`:
+      (a) **Los largos publicados del 17 al 21 tienen entre 1 y 9 vistas cada
+      uno.** Con esa base, ningún porcentaje de retención (van de 15% a 99%)
+      significa nada: son una o dos personas.
+      (b) **El canal vive de los Shorts**: 5.051 de 5.881 vistas (86%), y la
+      fuente SHORTS aporta 4.273. Los largos hacen 1.412 minutos vistos contra
+      742 de los Shorts, o sea generan el doble de minutos con un sexto de las
+      vistas: el problema de los largos es de ENTRADA, no de permanencia.
+      (c) **Distancia a la monetización**: 23,5 horas vistas de largos de las
+      4.000 que pide el YPP, y 16 suscriptores de 1.000. Por el camino de los
+      largos, al ritmo actual, no se llega. Hay que decidir si el producto
+      principal pasa a ser el Short.
+      (d) **La pregunta de Santiago ("¿sirven las carátulas nuevas?") HOY NO SE
+      PUEDE RESPONDER**, por dos razones: `scripts/metricas.js` no pide
+      impresiones ni CTR (línea 94: solo views, estimatedMinutesWatched,
+      averageViewDuration, averageViewPercentage), y aunque las pidiera, un
+      largo con 3 vistas tiene decenas de impresiones y ninguna señal. La
+      carátula v3 entró el 20-09; los largos del 20 y 21 hicieron 1 y 3
+      vistas.
+      **Lo que propongo, en orden:**
+      1. **Agregar impresiones y CTR a la recolección** (`metrics:
+      "views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage"`
+      suma `impressions,impressionClickThroughRate` en la consulta por video, y
+      la misma serie por día). Sin esto no se puede evaluar ninguna carátula,
+      ni la v3 ni la que venga. Es código y lo puede hacer la sesión de día.
+      2. **Mirar dónde abandonan los pocos largos que sí tienen vistas**: el
+      script YA pide `audienceWatchRatio` por `elapsedVideoTimeRatio` (línea
+      120) y ese dato no se está usando en ningún análisis. Con él se sabe si
+      la caída es en el sello, en la apertura o en la tercera noticia.
+      3. **Medir y forzar la conversión Short → largo**, que hoy es casi cero:
+      enlace al largo en el comentario fijado y un cierre explícito en el
+      Short. Es la única fuente de tráfico propia que el canal tiene.
+      4. **Fórmula del Short**: los de pregunta con nombre propio funcionan
+      mejor que el resumen genérico. Los ocho más vistos incluyen "¿Qué
+      admitió el exfiscal Vinko Fodich...", "¿Quién fue Patricio Guzmán..." y
+      "¿Por qué la aprobación de Kast tocó su peor nivel" (202 vistas el
+      21-09, un exprés). Los "y otras 4 cosas de hoy" sostienen una mediana de
+      134 y los de Clave apenas 59.
+
 - [ ] **CLAVE 4: FLUJO PROPIO CONSTRUIDO la noche del 21-09; falta la primera
       Clave real.** Cómo se usa (fase 1, decisiones por el chat):
       1. `node scripts/clave.js listar` muestra el banco numerado; Santiago
