@@ -54,13 +54,24 @@ final. La prueba: si al verla alguien piensa "ah, buena", sirve; si piensa
 
 ## Cómo tiene que verse
 
+- **Estilo: cartel serigráfico de tres tintas** (probado el 23-09 contra un
+  grabado con volumen, y ganó por lejos). Masas planas y saturadas, contorno
+  grueso, sombra dura de un solo tono, luz lateral, fondo liso. Sin
+  degradados suaves, sin brillos realistas, sin transparencias: el agua, el
+  vidrio y todo lo translúcido se pintan como masa sólida, porque a 168
+  píxeles lo transparente se confunde con el fondo y la imagen se deshace.
 - **Formato 16:9**, mínimo 1280 x 720.
 - **Paleta de la casa**, dos o tres tintas: fondo oscuro (tinta #17191C o el
   color de la sección oscurecido), acento cobre #D08A5B, papel #F2F2EF.
-- **Composición con el texto en mente**: el sujeto va al centro o a la
-  derecha, y el TERCIO INFERIOR IZQUIERDO queda despejado y oscuro, porque
-  ahí se pintan los dos banners del gancho. Una imagen bonita con el motivo
-  abajo a la izquierda no sirve: queda tapada.
+- **Composición con el texto en mente** (corregido el 23-09 al montar la
+  primera imagen real): el sujeto va arriba y a la DERECHA, y queda libre y
+  oscura **la mitad inferior izquierda**, no el tercio. Los dos banners del
+  gancho son anchos y altos: con un tercio no alcanza y le comen la base al
+  motivo.
+- **El detalle que lleva la idea va en la parte ALTA del sujeto.** En la
+  primera prueba, la banda de cobre que marcaba "el nivel esperado" era la
+  idea entera de la imagen y quedó justo detrás del texto. Lo que explica la
+  metáfora tiene que vivir en el tercio superior del cuadro.
 - **Un solo sujeto, grande.** La carátula se ve a 168 píxeles de ancho en un
   teléfono: lo que no se lee en un cuadrado de dos centímetros no existe.
 
