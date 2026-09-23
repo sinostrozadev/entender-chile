@@ -143,6 +143,9 @@ jobs:
             # despachador volvería a despertar por la Clave sin motivo (21-09)
             git show origin/automatizacion/estado:contenido/estado/ultimo-evento-clave.txt > contenido/estado/ultimo-evento-clave.txt 2>/dev/null \
               && git add contenido/estado/ultimo-evento-clave.txt || rm -f contenido/estado/ultimo-evento-clave.txt
+            # lo mismo con el evento de los pedidos a GPT (pedido-gpt.yml, 23-09)
+            git show origin/automatizacion/estado:contenido/estado/ultimo-evento-pedido.txt > contenido/estado/ultimo-evento-pedido.txt 2>/dev/null \
+              && git add contenido/estado/ultimo-evento-pedido.txt || rm -f contenido/estado/ultimo-evento-pedido.txt
             {
               echo "fecha_chile=$FECHA"
               echo "etapa=$ETAPA"

@@ -1,0 +1,79 @@
+name: Pedido a GPT
+
+# Regla del 23-09: lo que requiere entrar a las páginas se delega a GPT.
+# Una rutina de Claude deja contenido/urgente/PEDIDO-<slug>.md; este workflow
+# emite el evento al PR #6 (rama automatizacion/estado) en su propio archivo,
+# contenido/estado/ultimo-evento-pedido.txt, para no pisar el dedup de la
+# cadena diaria ni el de la Clave. El despachador de GPT lo lee y se va a
+# prompts/lector-gpt.md, que deja contenido/urgente/FUENTE-<slug>.md.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "contenido/urgente/PEDIDO-*.md"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pedido-gpt
+  cancel-in-progress: false
+
+jobs:
+  emitir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Elegir el pedido abierto más nuevo (sin FUENTE)
+        id: elegir
+        run: |
+          SLUG=""
+          for f in $(ls -t contenido/urgente/PEDIDO-*.md 2>/dev/null); do
+            s=$(basename "$f" .md); s="${s#PEDIDO-}"
+            [ -f "contenido/urgente/FUENTE-$s.md" ] || { SLUG="$s"; break; }
+          done
+          [ -n "$SLUG" ] && echo "Pedido abierto: $SLUG" || echo "Sin pedidos abiertos."
+          echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
+
+      - name: Emitir el evento al PR #6
+        if: steps.elegir.outputs.slug != ''
+        env:
+          SLUG: ${{ steps.elegir.outputs.slug }}
+        run: |
+          git config user.name "estado-bot"
+          git config user.email "bot@users.noreply.github.com"
+          TAREA=$(grep -m1 -i '^Tarea:' "contenido/urgente/PEDIDO-$SLUG.md" | cut -d' ' -f2- | tr -d '\r' || true)
+          TAREA=${TAREA:-lectura}
+          for intento in 1 2 3; do
+            git fetch -q origin main
+            if git fetch -q origin automatizacion/estado 2>/dev/null; then
+              EV=$(git show FETCH_HEAD:contenido/estado/ultimo-evento-pedido.txt 2>/dev/null || echo "")
+              if echo "$EV" | grep -q "^slug=$SLUG$"; then echo "evento ya emitido para $SLUG"; exit 0; fi
+              git checkout -q -B automatizacion/estado FETCH_HEAD
+            else
+              git checkout -q -B automatizacion/estado origin/main
+            fi
+            mkdir -p contenido/estado
+            {
+              echo "flujo=pedido"
+              echo "tarea=$TAREA"
+              echo "slug=$SLUG"
+              echo "pedido=contenido/urgente/PEDIDO-$SLUG.md"
+              echo "hallazgo=contenido/urgente/$SLUG.md"
+              echo "salida=contenido/urgente/FUENTE-$SLUG.md"
+              echo "prompt=prompts/lector-gpt.md"
+              echo "emitido_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            } > contenido/estado/ultimo-evento-pedido.txt
+            git add contenido/estado/ultimo-evento-pedido.txt
+            git commit -q -m "evento pedido $SLUG: $TAREA"
+            if git push -q origin automatizacion/estado; then echo "evento emitido al PR #6 (intento $intento)"; exit 0; fi
+            echo "push rechazado (intento $intento de 3)"
+            sleep 5
+          done
+          echo "::error::no se pudo emitir el evento del pedido $SLUG"
+          exit 1

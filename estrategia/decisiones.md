@@ -390,6 +390,19 @@ fusionarlo o cerrarlo. Lección para la auditoría: un trabajo que existe en una
 rama no aparece mirando main, y proponerlo de nuevo cada mañana es trabajo
 duplicado.
 
+## 2026-09-23 - Lo que requiere entrar a las páginas o hacer una imagen, lo hace GPT
+**Qué**: Claude no navega. Cuando una rutina de Claude necesita leer una
+página, deja `contenido/urgente/PEDIDO-<slug>.md`; el workflow
+`pedido-gpt.yml` despierta a GPT por el PR #6; el despachador lo manda a
+`prompts/lector-gpt.md`, y GPT deja `FUENTE-<slug>.md` con citas
+textuales. Claude redacta solo con esas citas, y `verificar-expres.js` las
+acepta como material permitido. Las imágenes siguen la misma regla; su
+prompt se escribe cuando se defina en qué piezas van. **Por qué**: la
+guardia de las 16:14 cazó la Ley Antibarricadas 2.0 con tres titulares y
+nada más; sin saber qué contiene el proyecto, el Short quedó sin ángulo.
+Que la lectura quede escrita mantiene la regla del 07-09 (ningún dato de
+memoria). **Decidió**: Santiago.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 Nota (02-09): estas entradas son previas al 26-08 y se reconstruyeron

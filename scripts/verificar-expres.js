@@ -13,8 +13,9 @@
  * antes. Santiago lo despublicó.
  *
  * Qué verifica (determinista, sin modelo, milisegundos):
- *   1. CIFRAS TRAZABLES: cada cifra del guion aparece en el material capturado
- *      o en el informe de HOY. Es exactamente el error de la TPM.
+ *   1. CIFRAS TRAZABLES: cada cifra del guion aparece en el material capturado,
+ *      en el informe de HOY o en las citas de FUENTE-<slug>.md (la lectura de
+ *      GPT, 23-09). Es exactamente el error de la TPM.
  *   2. FUENTE: hay al menos una marca [FUENTE ...].
  *   3. LARGO: 60 a 140 palabras narradas (el prompt pide 90-120; el margen
  *      evita rechazar por una palabra).
@@ -34,8 +35,13 @@ const slug = path.basename(ruta).replace(/^GUION-/, "").replace(/\.md$/, "");
 const fecha = slug.slice(0, 10);
 const guion = fs.readFileSync(ruta, "utf8");
 
+const fuente = path.join("contenido", "urgente", `FUENTE-${slug}.md`);
+// De la lectura de GPT (23-09) solo cuentan las citas textuales: las
+// "Respuestas al pedido" son su paráfrasis y no habilitan cifras.
+const citas = fs.existsSync(fuente)
+  ? fs.readFileSync(fuente, "utf8").split("\n").filter((l) => /^\s*>/.test(l)).join("\n") : "";
 const permitido = [path.join("contenido", "urgente", `${slug}.md`), path.join("contenido", "informes", `${fecha}.md`)]
-  .filter((p) => fs.existsSync(p)).map((p) => fs.readFileSync(p, "utf8")).join("\n");
+  .filter((p) => fs.existsSync(p)).map((p) => fs.readFileSync(p, "utf8")).concat(citas).join("\n");
 
 const fallas = [];
 if (!permitido.trim()) fallas.push("no encontré el material del hallazgo ni el informe de hoy: sin fuentes contra las que verificar");
@@ -62,7 +68,7 @@ const huerfanas = [...new Set(cifras)].filter((c) => {
   const enAlguna = (t) => t.includes(limpio) || t.includes(limpio.replace(",", "."));
   return !enAlguna(permitido) && !enAlguna(declaradas);
 });
-for (const c of huerfanas) fallas.push(`la cifra "${c}" no aparece en el material capturado ni en el informe de hoy (regla del 07-09: cada cifra sale de una de esas dos fuentes, nunca de memoria ni de informes viejos)`);
+for (const c of huerfanas) fallas.push(`la cifra "${c}" no aparece en el material capturado, ni en el informe de hoy, ni en las citas de FUENTE-${slug}.md (regla del 07-09: cada cifra sale del material permitido, nunca de memoria ni de informes viejos)`);
 
 if (!/\[FUENTE /.test(guion)) fallas.push("el guion no trae ninguna marca [FUENTE institución, fecha]");
 
