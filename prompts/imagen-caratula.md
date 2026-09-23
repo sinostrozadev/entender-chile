@@ -17,7 +17,7 @@ tiene que quedar la imagen. Entonces:
 1. Lee el archivo de `pedido=`. Bajo el encabezado va la DESCRIPCIÓN concreta
    de la imagen de ese día: úsala tal cual, no la reinterpretes.
 2. Genera la imagen respetando todo lo de abajo (16:9, sin texto, sin
-   personas reconocibles, nada fotorrealista).
+   personas reconocibles, y nunca la escena de la noticia).
 3. Súbela al repo, rama `main`, en la ruta EXACTA de `salida=`. El nombre y
    la extensión importan: `scripts/dia.js` busca `contenido/caratulas/FECHA`
    con extensión png, jpg, jpeg o webp, y no busca en ninguna otra parte.
@@ -46,21 +46,25 @@ final. La prueba: si al verla alguien piensa "ah, buena", sirve; si piensa
   pinta el código encima. Una imagen con texto generado se descarta.
 - **Sin personas reconocibles**, sin caras de figuras públicas, sin logos,
   marcas ni banderas.
-- **Nada que parezca una fotografía del hecho.** Regla 29: la imagen es un
-  identificador ilustrado, nunca el registro de lo que pasó. Estilo
-  ilustración editorial, grabado o serigrafía; jamás fotorrealista.
+- **Nada que parezca una fotografía DEL HECHO.** Regla 29: la imagen es un
+  identificador de ambiente, nunca el registro de lo que pasó. Puede verse
+  fotográfica si muestra un objeto o un ambiente genérico; no puede mostrar
+  la escena de la noticia.
 - **Nada morboso**: sin sangre, sin cuerpos, sin armas apuntando, sin
   sufrimiento explícito. La monetización se revisa y esto la rompe.
 
 ## Cómo tiene que verse
 
-- **Estilo: ilustración cinematográfica con profundidad** (decidido por
-  Santiago el 23-09, después de ver la serigrafía plana y el grabado). Fondo
-  DESENFOCADO y atmosférico a la izquierda, sujeto NÍTIDO a la derecha, luz
-  de contraluz, lluvia o partículas en el aire. Pintada, con volumen y
-  atmósfera, pero **nunca fotorrealista**: tiene que verse como ilustración,
-  no como una fotografía del hecho (regla 29). Nada de texturas de cámara,
-  ni grano fotográfico, ni gente reconocible.
+- **Estilo: imagen fotorrealista de ambiente** (regla 29 ampliada por
+  Santiago el 23-09). Fondo DESENFOCADO a la izquierda, sujeto NÍTIDO a la
+  derecha, contraluz, profundidad de campo real. Se permite que parezca una
+  fotografía, con su luz, su textura y su grano, porque lo que se muestra es
+  AMBIENTE U OBJETO y no afirma nada sobre la noticia.
+- **El límite que no se cruza**: la imagen NUNCA representa el hecho
+  noticioso. Un paraguas bajo la lluvia, sí; el río desbordado de hoy, el
+  choque, la marcha o el edificio del que habla la nota, JAMÁS. Eso sería un
+  registro falso de algo que nadie fotografió. Y en ningún caso lugares
+  identificables ni personas reconocibles.
 - **El cobre NO va en la imagen.** El acento cobre queda reservado para el
   banner del texto, que es donde tiene que pegar. La ilustración va en azul
   noche, grafito y blanco frío, con las luces cálidas al mínimo. Si la
@@ -83,13 +87,12 @@ final. La prueba: si al verla alguien piensa "ah, buena", sirve; si piensa
 
 ## El pedido, para pegar tal cual
 
-> Ilustración cinematográfica en 16:9 (1280x720) para la carátula de un
+> Imagen fotorrealista en 16:9 (1280x720) para la carátula de un
 > video de noticias de Chile. Tema: <la noticia de portada en una frase>.
 > Quiero una METÁFORA VISUAL ingeniosa, no la escena literal. Fondo
 > atmosférico DESENFOCADO a la izquierda y el sujeto NÍTIDO arriba a la
-> derecha, con contraluz y profundidad de campo. Pintada, con volumen, pero
-> NUNCA fotorrealista: tiene que leerse como ilustración, sin grano de
-> cámara. Paleta azul noche, grafito y blanco frío; nada de cobre ni naranjo
+> derecha, con contraluz y profundidad de campo. Puede parecer una
+> fotografía. Paleta azul noche, grafito y blanco frío; nada de cobre ni naranjo
 > en la imagen. La MITAD INFERIOR IZQUIERDA queda oscura y despejada, ahí va
 > el texto. SIN texto, sin letras ni números. Sin personas reconocibles, sin
 > lugares identificables, sin logos, sin banderas.

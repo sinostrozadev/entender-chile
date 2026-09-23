@@ -145,19 +145,33 @@ archivos de criterio del repositorio.
 28. **Sobriedad radical.** Sin alarma, sin relleno, sin pirotecnia; nada de
     zooms ni efectos. En notas de duelo o violencia, frases más cortas y
     cero música. (identidad; formato-video)
-29. **Imágenes: nada ajeno, nada realista, y lo generado solo como
-    identificador.** Fotos ajenas jamás (Chile no tiene fair use; un
-    reclamo de Content ID bloquea la monetización del video entero). Las
-    imágenes GENERADAS propias (estilo grabado lineal, paleta de la casa)
-    se permiten SOLO como identificadores de serie y de sección: cortinas
-    de 1,1 s, pieles de los Shorts, carátulas, cabeceras de la web. Nunca
-    son el contenido: las tarjetas de datos siguen siendo tipográficas y
-    ninguna cifra grande lleva textura detrás. Y llevan VARIACIÓN DIARIA
-    POR CÓDIGO (encuadre, desplazamiento y tinte sembrados con la fecha),
-    porque el ejemplo textual de la política de contenido inauténtico es
-    "mismas imágenes de IA repetidas" y eso se evita por construcción, no
-    por promesa. (decisión 03-09, cierra la disputa 1; corrige parcialmente
-    la del 27-08)
+29. **Imágenes: nada ajeno, y nada que se pueda leer como registro del
+    hecho.** Fotos ajenas jamás (Chile no tiene fair use; un reclamo de
+    Content ID bloquea la monetización del video entero). Las imágenes
+    GENERADAS propias se permiten SOLO como identificadores de serie y de
+    sección: cortinas de 1,1 s, pieles de los Shorts, carátulas, cabeceras
+    de la web. **Pueden ser fotorrealistas cuando son AMBIENTE U OBJETO**
+    (un paraguas bajo la lluvia, una calle desenfocada de noche, una
+    alcancía, un vaso que se desborda): esas no afirman nada sobre la
+    noticia, y la versión ilustrada se probó y no compite como carátula.
+    **Queda PROHIBIDO el fotorrealismo cuando la imagen representa EL HECHO
+    NOTICIOSO**: el río desbordado de hoy, el choque, la marcha, el
+    edificio del que habla la nota, la persona de la que se habla. Una
+    imagen así es un registro falso de algo que nadie fotografió: obliga a
+    la etiqueta de contenido sintético, la política de contenido inauténtico
+    la persigue, y si alguien la pilla se lleva puesta la credibilidad de
+    todas las cifras del canal, que es lo único que tenemos. En ningún caso
+    lugares identificables ni personas reconocibles. Nunca son el
+    contenido: las tarjetas de datos siguen siendo tipográficas y ninguna
+    cifra grande lleva textura detrás. Y llevan VARIACIÓN DIARIA POR CÓDIGO
+    (encuadre, desplazamiento y tinte sembrados con la fecha), porque el
+    ejemplo textual de la política de contenido inauténtico es "mismas
+    imágenes de IA repetidas" y eso se evita por construcción, no por
+    promesa. (decisión 03-09, cierra la disputa 1; corrige parcialmente la
+    del 27-08; ampliada el 23-09 por Santiago en el taller de carátulas:
+    el "nada realista" original dejaba fuera la única dirección que
+    funcionaba, y la línea correcta no es el estilo sino si la imagen
+    pretende ser el registro del hecho)
 30. **La música se genera por código y es puntuación, no cama.** Silencio
     bajo la narración; sello, cortinas de 1,1 segundos y cierre, nada más.
     Nada descargado de ningún banco. (decisión 27-08)
