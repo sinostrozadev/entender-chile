@@ -4,10 +4,10 @@
  *
  * Cómo sube cada pieza hoy (23-09-2026): informe, Short del día y Clave van
  * PROGRAMADOS (--programar), y esa ventana entre la subida y la publicación
- * es la revisión de Santiago. El Short exprés va PÚBLICO de inmediato
- * (--privacidad public, desde scripts/short-urgente.js): es última hora y
- * una hora de espera lo deja sin noticia. El default del parámetro sigue
- * siendo private, para que nada se publique por descuido.
+ * es la revisión de Santiago. El Short exprés va programado a 5 minutos
+ * (--en-minutos 5, desde scripts/short-urgente.js): es última hora, y esos
+ * 5 minutos son para que Santiago lo vea antes. El default del parámetro
+ * sigue siendo private, para que nada se publique por descuido.
  *
  * Uso:
  *   node scripts/youtube-subir.js --fecha 2026-08-30 [--clave | --short] [--privacidad private|unlisted|public] [--programar HH:MM]
@@ -121,6 +121,12 @@ function horaProgramada(dia, hhmm) {
   console.log(`La hora pedida (${hhmm} de Chile) deja menos de ${MARGEN_MIN} min para revisar: se programa para ${minimo.toISOString()} (${MARGEN_MIN} min desde ahora).`);
   return minimo.toISOString();
 }
+// --en-minutos N: programado a N minutos de la subida, sin el margen de arriba.
+// Es el del exprés (Santiago, 23-09): 5 minutos para verlo antes de que salga.
+const enMinutos = Number(opt("--en-minutos")) || 0;
+const publishAt = enMinutos ? new Date(Date.now() + enMinutos * 60 * 1000).toISOString()
+  : programar ? horaProgramada(fecha, programar) : null;
+const publishAtChile = publishAt && new Intl.DateTimeFormat("es-CL", { timeZone: "America/Santiago", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date(publishAt));
 
 (async () => {
   const oauth2 = new google.auth.OAuth2(YT_CLIENT_ID, YT_CLIENT_SECRET);
@@ -140,9 +146,9 @@ function horaProgramada(dia, hhmm) {
         defaultAudioLanguage: "es-CL",
       },
       status: {
-        privacyStatus: programar ? "private" : privacidad,
+        privacyStatus: publishAt ? "private" : privacidad,
         selfDeclaredMadeForKids: false,
-        ...(programar ? { publishAt: horaProgramada(fecha, programar) } : {}),
+        ...(publishAt ? { publishAt } : {}),
       },
     },
     media: { body: fs.createReadStream(video) },
@@ -152,7 +158,8 @@ function horaProgramada(dia, hhmm) {
   // Short exprés: la marca SUBIDO vive en contenido/ (el workflow la commitea);
   // es la deduplicación (un hallazgo = un Short) y lo que la rutina de guardia
   // espera para avisar al teléfono con el link.
-  if (urgente) fs.writeFileSync(path.join("contenido", "urgente", `SUBIDO-${urgente}.txt`), id + "\n");
+  // la segunda línea (hora de Chile en que se publica) la usa el aviso al teléfono
+  if (urgente) fs.writeFileSync(path.join("contenido", "urgente", `SUBIDO-${urgente}.txt`), id + "\n" + (publishAtChile ? `publica ${publishAtChile}\n` : ""));
   // a su playlist (informe y clave; los Shorts no): ids en contenido/youtube.json
   if (!short) {
     try {
@@ -161,7 +168,7 @@ function horaProgramada(dia, hhmm) {
       if (pl) { await yt.playlistItems.insert({ part: ["snippet"], requestBody: { snippet: { playlistId: pl, resourceId: { kind: "youtube#video", videoId: id } } } }); console.log("agregado a su playlist ✓"); }
     } catch (e) { console.log(`(playlist no: ${e.message.split("\n")[0]})`); }
   }
-  console.log(`Subido: https://youtu.be/${id} (${programar ? `programado, publishAt ${horaProgramada(fecha, programar)} (pedido: ${programar} de Chile)` : privacidad})`);
+  console.log(`Subido: https://youtu.be/${id} (${publishAt ? `programado, publishAt ${publishAt} (${publishAtChile} de Chile)` : privacidad})`);
 
   if (fs.existsSync(miniatura)) {
     try {
