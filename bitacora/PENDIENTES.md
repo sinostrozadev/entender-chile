@@ -318,7 +318,7 @@ referencia:
 
 ## Dependen de Santiago
 
-- [ ] **UN CLIC EN GOOGLE CLOUD: habilitar la YouTube Reporting API.** Es lo
+- [x] **UN CLIC EN GOOGLE CLOUD: habilitar la YouTube Reporting API.** ✅ 23-09 Es lo
       único que falta para que las impresiones de carátula empiecen a medirse.
       El código quedó listo y probado el 23-09, pero la primera corrida real
       devolvió: "YouTube Reporting API has not been used in project
@@ -358,6 +358,18 @@ referencia:
       YT_ANALYTICS_REFRESH_TOKEN). Es bastante más trabajo, necesita el
       navegador de la sesión local para el consentimiento, y mientras tanto
       todo lo demás sigue funcionando: los secrets actuales son válidos.
+      **HABILITADA Y TRABAJO CREADO (23-09, 16:33 UTC).** Santiago encontró
+      la cuenta y habilitó la API; la corrida siguiente de Métricas creó el
+      trabajo `channel_reach_basic_a1`, id
+      `512e38a3-6714-4fdd-b6bc-0a4a375117b3`, y dejó
+      `bitacora/metricas/impresiones.json` e `impresiones-diario.json` vacíos,
+      que es exactamente lo que corresponde el primer día. **El reloj de 48
+      horas partió hoy.** No hay que hacer nada más: Métricas corre cada
+      mañana y baja sola los días que aparezcan. **Mirar el 25-09**: si para
+      esa mañana `impresiones.json` sigue con `videos: {}`, el trabajo no está
+      generando y hay que revisar el log del paso de impresiones. La primera
+      lectura útil de carátulas (impresiones y CTR por video) será la del
+      26-09, con dos días acumulados.
 
 - [ ] **23-09, HOY: el video del informe de hoy publica a las 07:30 con dos
       datos mal atribuidos — decidir si se corrige antes de esa hora.**
