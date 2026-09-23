@@ -81,5 +81,8 @@ if (conRender) {
   console.log(`Render listo: ${video}`);
 }
 if (conSubir) {
-  run("youtube-subir.js", ["--urgente", slug]);
+  // PÚBLICO, no privado (Santiago, 23-09): el exprés es de última hora y no
+  // tiene ventana de revisión. Si sale una hora después, ya no es noticia.
+  // El informe y la Clave siguen PROGRAMADOS, que es su revisión.
+  run("youtube-subir.js", ["--urgente", slug, "--privacidad", "public"]);
 }

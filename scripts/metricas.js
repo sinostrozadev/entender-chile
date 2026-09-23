@@ -83,7 +83,7 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
   // no está, el reporte sale igual y lo dice; nunca bloquea las métricas.
   let retencion = null;
   let fuentes = null; // de dónde viene el tráfico y dónde se va (20-09)
-  let impresiones = null; // cuántas veces se mostró la carátula y cuántos entraron (22-09)
+  let impresiones = null; // carátula mostrada y clics; lo baja scripts/impresiones.js (Reporting API)
   if (process.env.YT_ANALYTICS_REFRESH_TOKEN) {
     try {
       const oa = new google.auth.OAuth2(YT_CLIENT_ID, YT_CLIENT_SECRET);
@@ -135,67 +135,30 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
     } catch (e) {
       console.log(`(retención no disponible: ${e.message.split("\n")[0]})`);
     }
+  }
 
-    // IMPRESIONES Y CLICS DE CARÁTULA (22-09): sin esto no se puede evaluar
-    // ninguna carátula. "Entró o no entró" se decide en la impresión, y hasta
-    // hoy solo medíamos lo que pasa DESPUÉS del clic. Los nombres de estas dos
-    // métricas no son impressions/impressionClickThroughRate, que es el error
-    // fácil: son videoThumbnailImpressions y videoThumbnailImpressionsClickRate,
-    // y existen en la API desde el 15-01-2026.
-    // Va en su PROPIA consulta y con su propio try: si la API las rechaza (o el
-    // canal no tiene bastantes datos), la retención y las fuentes de arriba ya
-    // quedaron guardadas y no se pierden.
+  // IMPRESIONES Y CLICS DE CARÁTULA (22-09, corregido el 23-09): el dato NO
+  // está en la Analytics API. Se probaron cinco variantes el 22-09 y las
+  // cinco devolvieron "The query is not supported". Vive solo en la
+  // Reporting API, que entrega CSV por día: lo baja scripts/impresiones.js y
+  // deja el resumen en bitacora/metricas/impresiones.json. Acá solo se lee.
+  // Si el archivo no está (o quedó viejo), el reporte sale igual y lo dice.
+  const RUTA_IMPR = path.join(DIR, "impresiones.json");
+  if (fs.existsSync(RUTA_IMPR)) {
     try {
-      const oa2 = new google.auth.OAuth2(YT_CLIENT_ID, YT_CLIENT_SECRET);
-      oa2.setCredentials({ refresh_token: process.env.YT_ANALYTICS_REFRESH_TOKEN });
-      const an2 = google.youtubeAnalytics({ version: "v2", auth: oa2 });
-      const desde2 = new Date(Date.now() - 30 * 864e5).toISOString().slice(0, 10);
-      const METRICAS_IMPR = "videoThumbnailImpressions,videoThumbnailImpressionsClickRate";
-      // ESTADO AL 22-09: la API RECHAZA estas métricas para este canal. Se
-      // probaron cinco formas (por video con y sin sort, solo impresiones,
-      // junto a views, por día y sin dimensión) y las cinco devolvieron "The
-      // query is not supported". Puede ser que el nombre sea otro, que la
-      // métrica sea solo para content owners, o que pida un scope distinto:
-      // no se pudo confirmar porque developers.google.com está bloqueado por
-      // el proxy de la sesión de día. Queda UN intento al día, barato: si
-      // Google la habilita, el dato empieza a aparecer solo y el log lo dice.
-      // Para confirmarlo hace falta abrir la doc desde la sesión local o
-      // leer impresiones y CTR a mano en YouTube Studio.
-      const intentar = async (nombre, params) => {
-        try {
-          const r = await an2.reports.query({ ids: "channel==MINE", startDate: desde2, endDate: fecha, ...params });
-          console.log(`(impresiones: la variante "${nombre}" SÍ funciona, ${(r.data.rows || []).length} filas)`);
-          return r.data.rows || [];
-        } catch (e) {
-          console.log(`(impresiones: la variante "${nombre}" no: ${(e.response?.data?.error?.message || e.message).split("\n")[0].slice(0, 110)})`);
-          return null;
-        }
-      };
-      impresiones = { videos: {}, dias: {} };
-      const porVideo = await intentar("video", { metrics: METRICAS_IMPR, dimensions: "video", maxResults: 200 });
-      if (porVideo) {
-        for (const fila of porVideo) {
-          const [id] = fila;
-          // según la variante, las columnas son [id, impr, ctr], [id, impr] o [id, views, impr, ctr]
-          const impr = fila.length === 4 ? fila[2] : fila[1];
-          const ctr = fila.length === 4 ? fila[3] : fila.length === 3 ? fila[2] : null;
-          impresiones.videos[id] = { impresiones: impr, ...(ctr === null ? {} : { ctr: Number(ctr.toFixed(2)) }) };
-        }
+      const im = JSON.parse(fs.readFileSync(RUTA_IMPR, "utf8"));
+      const nV = Object.keys(im.videos || {}).length;
+      if (nV) {
+        impresiones = { videos: im.videos, dias: im.dias || {}, desde: im.desde, hasta: im.hasta, actualizado: im.actualizado };
+        console.log(`(impresiones: ${nV} videos, ventana ${im.desde} a ${im.hasta}, medido el ${im.actualizado})`);
+      } else {
+        console.log("(impresiones: el archivo existe pero aún sin datos; la Reporting API tarda hasta 48 horas desde que se creó el trabajo)");
       }
-      const porDia = porVideo ? await intentar("día", { metrics: METRICAS_IMPR, dimensions: "day", sort: "day" }) : null;
-      if (porDia) {
-        for (const fila of porDia) {
-          if (fila.length >= 3) impresiones.dias[fila[0]] = { impresiones: fila[1], ctr: Number((fila[2] ?? 0).toFixed(2)) };
-          else impresiones.dias["total30d"] = { impresiones: fila[0], ctr: Number((fila[1] ?? 0).toFixed(2)) };
-        }
-      }
-      const nV = Object.keys(impresiones.videos).length;
-      const nD = Object.keys(impresiones.dias).length;
-      if (!nV && !nD) { impresiones = null; console.log("(impresiones: ninguna variante funcionó; la carátula sigue sin poder medirse)"); }
     } catch (e) {
-      impresiones = null;
-      console.log(`(impresiones no disponibles: ${e.response?.data?.error?.message || e.message.split("\n")[0]})`);
+      console.log(`(impresiones: no se pudo leer ${RUTA_IMPR}: ${e.message.split("\n")[0]})`);
     }
+  } else {
+    console.log("(impresiones: todavía no existe bitacora/metricas/impresiones.json; corre scripts/impresiones.js)");
   }
   const publicos = Object.values(videos).filter((v) => v.estado === "public").length;
   const lineas = [

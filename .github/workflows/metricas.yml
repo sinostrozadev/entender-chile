@@ -33,6 +33,19 @@ jobs:
           node-version: "22"
       - name: Instalar solo googleapis (npm ci entero tarda y no hace falta)
         run: npm install --no-save googleapis
+      # IMPRESIONES DE CARÁTULA (23-09): van antes que las métricas porque el
+      # reporte de la mañana las lee del archivo que deja este paso. La
+      # Reporting API entrega un CSV por día; el script crea el trabajo la
+      # primera vez y después solo baja los días que faltan. Si falla, las
+      # métricas se bajan igual.
+      - name: Impresiones de carátula (Reporting API)
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_ANALYTICS_REFRESH_TOKEN: ${{ secrets.YT_ANALYTICS_REFRESH_TOKEN }}
+        continue-on-error: true
+        run: node scripts/impresiones.js
+
       - name: Bajar métricas
         env:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}

@@ -1,6 +1,13 @@
 #!/usr/bin/env node
 /**
- * youtube-subir.js - Sube el video de una edición a YouTube como PRIVADO.
+ * youtube-subir.js - Sube el video de una edición a YouTube.
+ *
+ * Cómo sube cada pieza hoy (23-09-2026): informe, Short del día y Clave van
+ * PROGRAMADOS (--programar), y esa ventana entre la subida y la publicación
+ * es la revisión de Santiago. El Short exprés va PÚBLICO de inmediato
+ * (--privacidad public, desde scripts/short-urgente.js): es última hora y
+ * una hora de espera lo deja sin noticia. El default del parámetro sigue
+ * siendo private, para que nada se publique por descuido.
  *
  * Uso:
  *   node scripts/youtube-subir.js --fecha 2026-08-30 [--clave | --short] [--privacidad private|unlisted|public] [--programar HH:MM]

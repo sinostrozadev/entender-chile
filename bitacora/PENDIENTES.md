@@ -396,6 +396,19 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [x] **SUBIDA 23-09: el exprés sale público y el informe se publica a las
+      6:30.** ✅ 23-09, sesión de día, pedido de Santiago ("deja los videos
+      exprés públicos por defecto y los informes prográmalos para las 6.30").
+      El Short exprés se sube PÚBLICO (`scripts/short-urgente.js` le pasa
+      `--privacidad public` al subidor): es última hora, y esperar una
+      revisión lo deja sin noticia. El informe pasa de 07:30 a **06:30** de
+      Chile (`YT_HORA_INFORME` en `edicion-diaria.yml`). La edición termina
+      cerca de las 03:00, así que el margen de revisión sigue siendo de más
+      de tres horas y `YT_MARGEN_MIN` (90) no lo corre. **OJO**: si en
+      Settings → Variables existe la variable `YT_HORA_INFORME`, manda ella y
+      hay que cambiarla ahí; el default del archivo solo vale si no existe.
+      El Short del día (12:00) y la Clave (14:00) quedan igual.
+
 - [x] **PROMPTS 23-09: las dos reglas que la auditoría pedía, aplicadas.** ✅
       23-09, sesión de día, con el sí de Santiago ("deja el video, corrige las
       dos reglas de prompt").
@@ -447,7 +460,7 @@ referencia:
       arrastre. Primera vez que se marca en esta lista: 23-09-2026 (el patrón
       lleva señalado desde al menos el 20-09 sin bajar aquí).
 
-- [ ] **IMPRESIONES 1: la vía es la YouTube Reporting API, no Analytics**
+- [x] **IMPRESIONES 1: la vía es la YouTube Reporting API, no Analytics** ✅ 23-09
       (respuesta de GPT con documentación oficial, 22-09). Cierra la
       investigación abierta hoy:
       - En `reports.query` de Analytics v2 estas métricas NO existen: los
@@ -473,6 +486,23 @@ referencia:
       y el trabajo empieza a generar informes recién desde que se crea, no
       hacia atrás. Doc: developers.google.com/youtube/reporting y
       /youtube/reporting/v1/reports/channel_reports.
+      **CONSTRUIDO el 23-09** (sesión de día, con el sí de Santiago):
+      `scripts/impresiones.js`. Busca el trabajo `channel_reach_basic_a1` y lo
+      crea si no está; lista los informes, baja SOLO los días que faltan y
+      guarda el crudo por día y por video en
+      `bitacora/metricas/impresiones-diario.json` (45 días, se poda solo).
+      De ahí sale `bitacora/metricas/impresiones.json`, el resumen de 30 días
+      que `metricas.js` ahora LEE en vez de preguntarle a Analytics: el
+      intento diario que sobraba se retiró. El CSV trae varias filas por video
+      y por día (país, suscrito): se suman las impresiones y el CTR se pondera
+      por impresiones, nunca se promedia. La escala del CTR (fracción o
+      porcentaje) se decide por el máximo de cada archivo y queda dicha en el
+      log. Corre en `metricas.yml`, antes de las métricas, con
+      `continue-on-error`. Probado en seco contra una API falsa con dos días
+      de CSV: suma, ponderación, poda y segunda corrida sin volver a bajar.
+      **Lo que falta es esperar**: el trabajo se crea en la primera corrida
+      real y el primer CSV tarda hasta 48 horas, así que el dato no aparece
+      hasta el 25-09 y no habrá historia anterior a hoy.
 
 - [x] **REINTENTO 1: la máquina reintenta sola cuando GPT no responde.** ✅
       22-09, sesión de día con el sí de Santiago. `.github/workflows/reintento.yml`:
