@@ -3,9 +3,18 @@
   "canal": {
     "suscriptores": 17,
     "vistas": 6209,
-    "videos": 92
+    "videos": 93
   },
   "videos": {
+    "5rhKCFnA-Mc": {
+      "titulo": "Lluvias intensas: alerta en seis regiones hasta el jueves",
+      "publicado": "2026-09-23",
+      "estado": "public",
+      "vistas": 1,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 614
+    },
     "ml6Yj5G-1_I": {
       "titulo": "Lluvias intensas: alerta en seis regiones hasta el jueves, y",
       "publicado": "2026-09-23",
@@ -15,20 +24,11 @@
       "comentarios": 0,
       "durSeg": 45
     },
-    "5rhKCFnA-Mc": {
-      "titulo": "Lluvias intensas: alerta en seis regiones hasta el jueves",
-      "publicado": "2026-09-23",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 614
-    },
     "hrufcYlaUSM": {
       "titulo": "Lluvias fuertes e isoterma cero alta entre Maule y Los Lagos",
       "publicado": "2026-09-22",
       "estado": "public",
-      "vistas": 20,
+      "vistas": 22,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 46
@@ -46,8 +46,8 @@
       "titulo": "¿Cómo terminó Fiestas Patrias en accidentes y violencia? El ",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 161,
-      "meGusta": 2,
+      "vistas": 180,
+      "meGusta": 4,
       "comentarios": 0,
       "durSeg": 43
     },
@@ -55,7 +55,7 @@
       "titulo": "Fiestas Patrias deja 18 fallecidos y un balance vial todavía",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 32,
+      "vistas": 33,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 48
@@ -442,7 +442,7 @@
       "titulo": "Banco Central reduce a menos de uno por ciento su proyección",
       "publicado": "2026-09-10",
       "estado": "public",
-      "vistas": 5,
+      "vistas": 4,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 694
@@ -604,7 +604,7 @@
       "titulo": "¿Por qué un senador necesita permiso judicial para ser juzga",
       "publicado": "2026-09-06",
       "estado": "public",
-      "vistas": 7,
+      "vistas": 8,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 312
