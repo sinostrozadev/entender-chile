@@ -1,11 +1,17 @@
 name: Pedido a GPT
 
-# Regla del 23-09: lo que requiere entrar a las páginas se delega a GPT.
-# Una rutina de Claude deja contenido/urgente/PEDIDO-<slug>.md; este workflow
-# emite el evento al PR #6 (rama automatizacion/estado) en su propio archivo,
-# contenido/estado/ultimo-evento-pedido.txt, para no pisar el dedup de la
-# cadena diaria ni el de la Clave. El despachador de GPT lo lee y se va a
-# prompts/lector-gpt.md, que deja contenido/urgente/FUENTE-<slug>.md.
+# Regla del 23-09: lo que requiere entrar a las páginas O GENERAR UNA IMAGEN
+# se delega a GPT. Claude deja contenido/urgente/PEDIDO-<slug>.md; este
+# workflow emite el evento al PR #6 (rama automatizacion/estado) en su propio
+# archivo, contenido/estado/ultimo-evento-pedido.txt, para no pisar el dedup
+# de la cadena diaria ni el de la Clave.
+#
+# El PEDIDO manda: sus líneas "Tarea:", "Salida:" y "Prompt:" dicen qué tipo
+# de pedido es, en qué ruta se espera el resultado y con qué instrucciones.
+# Si no las trae, valen los valores de la tarea "lectura", que fue la primera
+# (salida contenido/urgente/FUENTE-<slug>.md, prompt prompts/lector-gpt.md).
+# El pedido se considera cumplido cuando existe el archivo de Salida, sea un
+# .md de fuentes o un .png de carátula.
 on:
   push:
     branches: [main]
@@ -29,13 +35,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Elegir el pedido abierto más nuevo (sin FUENTE)
+      - name: Elegir el pedido abierto más nuevo (sin su Salida)
         id: elegir
         run: |
+          campo() { grep -m1 -i "^$2:" "$1" | cut -d' ' -f2- | tr -d '\r' || true; }
           SLUG=""
           for f in $(ls -t contenido/urgente/PEDIDO-*.md 2>/dev/null); do
             s=$(basename "$f" .md); s="${s#PEDIDO-}"
-            [ -f "contenido/urgente/FUENTE-$s.md" ] || { SLUG="$s"; break; }
+            SAL=$(campo "$f" Salida); SAL=${SAL:-contenido/urgente/FUENTE-$s.md}
+            [ -f "$SAL" ] || { SLUG="$s"; break; }
           done
           [ -n "$SLUG" ] && echo "Pedido abierto: $SLUG" || echo "Sin pedidos abiertos."
           echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
@@ -47,8 +55,12 @@ jobs:
         run: |
           git config user.name "estado-bot"
           git config user.email "bot@users.noreply.github.com"
-          TAREA=$(grep -m1 -i '^Tarea:' "contenido/urgente/PEDIDO-$SLUG.md" | cut -d' ' -f2- | tr -d '\r' || true)
-          TAREA=${TAREA:-lectura}
+          campo() { grep -m1 -i "^$2:" "$1" | cut -d' ' -f2- | tr -d '\r' || true; }
+          P="contenido/urgente/PEDIDO-$SLUG.md"
+          TAREA=$(campo "$P" Tarea);   TAREA=${TAREA:-lectura}
+          SALIDA=$(campo "$P" Salida); SALIDA=${SALIDA:-contenido/urgente/FUENTE-$SLUG.md}
+          PROMPT=$(campo "$P" Prompt); PROMPT=${PROMPT:-prompts/lector-gpt.md}
+          echo "pedido $SLUG: tarea=$TAREA salida=$SALIDA prompt=$PROMPT"
           for intento in 1 2 3; do
             git fetch -q origin main
             if git fetch -q origin automatizacion/estado 2>/dev/null; then
@@ -65,8 +77,8 @@ jobs:
               echo "slug=$SLUG"
               echo "pedido=contenido/urgente/PEDIDO-$SLUG.md"
               echo "hallazgo=contenido/urgente/$SLUG.md"
-              echo "salida=contenido/urgente/FUENTE-$SLUG.md"
-              echo "prompt=prompts/lector-gpt.md"
+              echo "salida=$SALIDA"
+              echo "prompt=$PROMPT"
               echo "emitido_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
             } > contenido/estado/ultimo-evento-pedido.txt
             git add contenido/estado/ultimo-evento-pedido.txt

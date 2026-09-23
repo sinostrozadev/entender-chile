@@ -62,6 +62,11 @@ diaria y que la Clave (hay una rutina esperándolo con el reloj corriendo):
 | `tarea=` | Te toca |
 |---|---|
 | `lectura` | Lee COMPLETO `prompts/lector-gpt.md` y haz exactamente lo que dice |
+| `imagen` | Lee COMPLETO `prompts/imagen-caratula.md` y haz exactamente lo que dice: GENERAS una imagen y la dejas en la ruta de `salida=` |
+
+El evento trae `prompt=` con el archivo de instrucciones y `salida=` con la
+ruta exacta donde dejar el resultado. Esos dos campos mandan sobre lo que
+recuerdes de esta tabla.
 
 Si el archivo de `salida=` ya existe en `main`, el pedido está cumplido:
 ignóralo. Terminado el pedido, sigue con la cadena diaria y la Clave como

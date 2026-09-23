@@ -8,6 +8,27 @@ copia sola a `public/caratulas/` y la usa para `miniatura-3.png`. Si el día no
 llegó ninguna imagen, la tercera carátula sale igual con el pictograma: la
 edición NUNCA se frena por esto.
 
+## Cuando te llega un pedido (así trabaja GPT)
+
+El evento `contenido/estado/ultimo-evento-pedido.txt` trae `tarea=imagen`,
+`pedido=` con el archivo del encargo y `salida=` con la ruta exacta donde
+tiene que quedar la imagen. Entonces:
+
+1. Lee el archivo de `pedido=`. Bajo el encabezado va la DESCRIPCIÓN concreta
+   de la imagen de ese día: úsala tal cual, no la reinterpretes.
+2. Genera la imagen respetando todo lo de abajo (16:9, sin texto, sin
+   personas reconocibles, nada fotorrealista).
+3. Súbela al repo, rama `main`, en la ruta EXACTA de `salida=`. El nombre y
+   la extensión importan: `scripts/dia.js` busca `contenido/caratulas/FECHA`
+   con extensión png, jpg, jpeg o webp, y no busca en ninguna otra parte.
+4. Si por lo que sea no puedes subir un archivo binario al repo, NO lo dejes
+   en silencio: escribe `<salida sin extensión>-NO-PUDE.md` explicando qué
+   falló y dónde quedó la imagen. Un pedido sin respuesta deja una rutina
+   esperando con el reloj corriendo.
+
+Mientras la imagen no exista en `salida=`, el pedido sigue abierto y te va a
+volver a llegar.
+
 ## Qué imagen pedir
 
 UNA metáfora visual de la noticia de portada. No la escena literal de la
