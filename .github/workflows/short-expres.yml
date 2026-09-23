@@ -3,7 +3,7 @@ name: Short exprés
 # Fase 2 del agente de guardia (03-09). La rutina de guardia redacta
 # contenido/urgente/GUION-<slug>.md a partir del material capturado; ese
 # push dispara este workflow, que produce el Short vertical con la piel
-# VINO (voz, render, subida PRIVADA a YouTube) y deja la marca
+# VINO (voz, render, subida PÚBLICA a YouTube desde el 23-09) y deja la marca
 # contenido/urgente/SUBIDO-<slug>.txt con el id. La rutina, que quedó
 # esperando esa marca, avisa al teléfono con el link. Un hallazgo = un
 # Short: la marca SUBIDO deduplica aunque el guion se pushee dos veces.
