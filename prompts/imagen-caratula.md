@@ -29,6 +29,68 @@ tiene que quedar la imagen. Entonces:
 Mientras la imagen no exista en `salida=`, el pedido sigue abierto y te va a
 volver a llegar.
 
+## LA FÓRMULA (23-09-2026, sacada de seis vueltas con Santiago en el taller)
+
+Seis intentos sobre las mismas dos noticias dejaron esto. No es gusto: cada
+regla viene de una carátula que falló.
+
+**1. Dos capas, siempre.** El FONDO dice DÓNDE vive la noticia (un lugar
+genérico, anónimo, vacío y muy desenfocado). El PRIMER PLANO dice QUÉ pasó,
+en un objeto nítido. Ninguna de las dos capas sola alcanza: el objeto solo
+flota sin contexto, y el lugar solo no cuenta nada.
+
+**2. El objeto sale de una de cuatro figuras.** Primero se decide qué le
+pasó a la noticia, y de ahí sale el objeto:
+
+| Si la noticia es... | La figura es | Ejemplo probado |
+|---|---|---|
+| algo que faltó, se perdió o no llegó | **AUSENCIA** | butacas iguales e iluminadas, una sola a oscuras |
+| algo que superó un límite | **DESBORDE** | el vaso de medir rebalsado por sobre su marca |
+| algo que se decidió por poco, o dos lados | **DESEQUILIBRIO** | la balanza casi pareja con un solo grano |
+| algo que quedó a punto y no pasó, o cruzó una raya | **UMBRAL** | la línea marcada y el nivel que no llega |
+
+Si ninguna calza, el objeto es **el instrumento con que se mide el tema**:
+el pluviómetro, el reloj, la regla, la pesa.
+
+**3. Destacar por AUSENCIA le gana a destacar por luz.** Fue el hallazgo de
+Santiago y cambió la mejor carátula del día: el ojo va antes al hueco negro
+entre cosas iluminadas que al foco sobre una cosa. Cuando la noticia es que
+algo faltó, se muestra lo que falta, no lo que quedó.
+
+**4. El objeto destacado es IGUAL a sus pares.** Lo distingue la luz, nunca
+su jerarquía. En una prueba salió un sillón de respaldo alto entre butacas
+normales, y la imagen pasó a decir "el que preside", que no era la noticia.
+
+**5. El detalle que lleva la idea va EXAGERADO y en el tercio superior.** La
+primera perla en la balanza medía dos píxeles y la imagen no decía nada. Lo
+que explica la metáfora se dibuja más grande de lo que sería en la vida real
+y nunca abajo, donde el texto lo tapa.
+
+**6. El cobre no entra en la imagen.** Es el color del banner y de nada más.
+Con el paraguas cobre sobre fondo azul, el banner dejó de resaltar y la
+carátula se aplanó.
+
+**7. El clima lo manda la noticia.** No todas pueden salir sombrías o el
+canal parece una sola noticia repetida (y la regla 29 pide variación). El
+guion declara `Clima de carátula:` y de ahí sale la luz:
+
+| Clima | Luz y paleta |
+|---|---|
+| `grave` | azul noche, contraluz duro, casi monocromo |
+| `institucional` | grafito y azul frío, luz lateral de sala |
+| `cotidiano` | luz de día neutra, grises cálidos, sombras suaves |
+| `bueno` | luz cálida de mañana, dorados suaves, fondo claro |
+| `curioso` | colores saturados y limpios, fondo claro, luz pareja |
+| `deporte` | luz de estadio, alto contraste |
+
+La mayoría de los días va a ser `institucional` o `cotidiano`, y está bien:
+una noticia mala con luz de mañana se ve falsa y es peor que sombría.
+
+**8. Lo que no cambia nunca** (esto es la marca): fondo desenfocado, objeto
+nítido arriba a la derecha, mitad inferior izquierda oscura y libre, los dos
+banners abajo a la izquierda, el sello en mono arriba. Un espectador tiene
+que reconocer que el video es del canal antes de leer una palabra.
+
 ## Qué imagen pedir
 
 UNA metáfora visual de la noticia de portada. No la escena literal de la
