@@ -89,3 +89,7 @@
 - urgencias legislativas, discusión inmediata y efecto sobre los plazos del Congreso | Sala Cuna Universal entra en discusión inmediata | 2026-09-22
 - suspensión preventiva en sumarios administrativos, pago de remuneraciones y controles de duración | Contraloría registra 485 suspensiones pagadas y 221 que superan un año | 2026-09-22
 - baterías Grid Forming y cómo aportan frecuencia y voltaje a la red eléctrica | Chile prueba baterías Grid Forming para estabilizar la red | 2026-09-22
+- quórums constitucionales y cómo se calcula el quórum de cuatro séptimos | La Cámara rechaza por un voto ampliar la detención para expulsiones administrativas | 2026-09-23
+- cooperación policial internacional sin tratado, intercambio de información y límites operativos | Chile se incorpora al Escudo de las Américas | 2026-09-23
+- interoperabilidad de bases biométricas, trazabilidad y control de acceso a huellas y ADN | La PDI y Carabineros podrán cruzar huellas y ADN sin depender de una consulta manual al Servicio Médico Legal, cambio que busca acelerar identificaciones criminales y exige resguardos de trazabilidad y acceso | 2026-09-23
+- consejo resolutivo de asignaciones parlamentarias, autonomía y control del gasto del Congreso | El Senado aprobó integrantes del Consejo Resolutivo de Asignaciones Parlamentarias, organismo encargado de fijar y revisar criterios de gastos de senadores y diputados | 2026-09-23
