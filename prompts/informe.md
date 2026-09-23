@@ -55,6 +55,16 @@ JERARQUIZACIÓN:
   [A] = las noticias que definen la jornada. Objetivo 3, máximo 4; si hay más candidatas, elige y baja las demás a [B].
   [B] = relevante pero no central. Uno o dos párrafos.
   [C] = registro en una línea para "Además, hoy".
+- CIERRE DE CAUTELA, TOPE DURO: como MÁXIMO UNA noticia [B] o [C] de toda la
+  edición puede terminar diciendo lo que falta por saber ("falta esclarecer",
+  "antes de medir el efecto faltan", "queda por conocer", "el seguimiento
+  queda puesto en", "habrá que ver" y cualquier variante). Las demás cierran
+  con lo que SÍ se sabe: el hecho, la cifra, el actor, la consecuencia o el
+  próximo paso con su fecha. La cautela es correcta una vez; repetida en cada
+  bloque deja de informar y se vuelve una muletilla que además viaja al video,
+  porque el guion hereda el texto. Marcado cuatro días seguidos del 20 al
+  23-09, y el 23 la revisión lo encontró ya cruzado al guion ("tres bloques
+  seguidos cierran con la misma cadencia").
 - El informe NO tiene tope de cantidad ni de largo: es la edición completa para la web. El recorte por duración lo hace el guion del video, no el informe. Aquí el criterio es la relevancia y la verificación, nunca el espacio.
 - Toda noticia preseleccionada que NO haya sido descartada por calidad (sin segunda fuente, duplicada, no verificable) entra al informe al menos como [C]. "Espacio" deja de ser motivo de exclusión: si estaba en la olla y es verificable, se nombra. El rastro del descarte del bloque interno queda solo para los descartes de calidad y de relevancia mínima.
 
@@ -135,6 +145,7 @@ ESTILO ANTI-PLANTILLA (para que no se lea como texto generado):
 - Incisos con comas o paréntesis, nunca con guiones ni rayas.
 
 CONTROL ANTES DE ENTREGAR:
+0b. Como máximo UNA [B] o [C] cierra diciendo lo que falta por saber; las demás cierran con lo que sí se sabe.
 1. Toda noticia tiene peso [A], [B] o [C]; hasta 4 [A]. Sin tope de [B] ni de [C]. Toda [A] responde la pauta de cinco preguntas (u omite en silencio las que no tienen respuesta verificable). Toda preseleccionada verificable está en el informe, aunque sea como [C].
 2. Ningún tema aparece desarrollado en dos secciones.
 3. Toda cifra y cita tiene fuente y fecha.

@@ -396,6 +396,28 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [x] **PROMPTS 23-09: las dos reglas que la auditoría pedía, aplicadas.** ✅
+      23-09, sesión de día, con el sí de Santiago ("deja el video, corrige las
+      dos reglas de prompt").
+      (1) `prompts/guion-informe.md`, en la marca [FUENTE] y en el control
+      final: toda sigla que se pinte en pantalla va expandida la primera vez
+      ("Dirección Meteorológica (DMC)"), salvo las de uso corriente. "DMC"
+      salió sin expandir el 21, 22 y 23-09.
+      (2) `prompts/informe.md`, junto a la definición de pesos y en el control
+      final: tope duro de UNA sola [B] o [C] por edición que cierre diciendo lo
+      que falta por saber; las demás cierran con lo que sí se sabe. Marcado
+      cuatro días seguidos del 20 al 23-09, y el 23 la revisión lo encontró ya
+      cruzado al guion.
+      **Decisión sobre el video del 23-09**: se dejó publicar a las 07:30 con
+      los dos defectos que marcó la auditoría (la tarjeta de lluvias atribuye a
+      la DMC los +200 mm que vienen de modelos privados, y la apertura llama
+      "reforma migratoria" a una reforma constitucional). Motivo: la narración
+      SÍ aclara que la proyección viene de modelos privados, el bloque
+      desarrollado sí nombra bien la reforma, y rehacer el render costaba una
+      hora de Actions y la hora de publicación por un pie de tarjeta y una
+      palabra. Queda verificado en la madrugada del 24 si las dos reglas
+      nuevas evitan la repetición.
+
 - [ ] **23-09, HOY: expandir siglas que se pintan en pantalla — la "DMC" lleva
       3 días repitiéndose sin corregirse ni anotarse.** Auditoría del 23-09
       (`bitacora/2026-09-23-auditoria.md`, punto 3). Las marcas `[FUENTE DMC

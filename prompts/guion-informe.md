@@ -136,6 +136,13 @@ FORMATO DE SALIDA:
   ## Nombre de sección
       Una por bloque temático. No se narra.
   [FUENTE medio, fecha]
+      SIGLAS: toda sigla que se PINTE EN PANTALLA (en esta marca o en el pie de
+      un [DATO]) va expandida la primera vez que aparece en el guion: "Dirección
+      Meteorológica (DMC)", no "DMC" a secas. Después ya se puede abreviar. Se
+      salvan las de uso corriente que cualquiera lee sin traducir (IPC, PIB,
+      ONU, INE, Carabineros, PDI). El que ve el video no tiene el informe al
+      lado: una sigla suelta en el pie de una tarjeta no acredita nada. "DMC"
+      salió sin expandir tres días seguidos, 21, 22 y 23-09.
       En la línea siguiente a cada "## sección": la fuente principal del bloque (una, o dos separadas por punto y coma), tomada del informe, en el mismo formato legible de las marcas [DATO] (institución o medio + fecha, máximo seis palabras). No se narra: va al pie de TODAS las tarjetas de ese bloque en pantalla. Cada bloque de noticia la lleva, incluida "La noticia del día"; Apertura, Dato curioso, Agenda, En titulares y Cierre no.
   [TESIS] frase
       La idea central del bloque, una por bloque, obligatoria en bloques con noticias [A] y [B]. Sí se narra. MÁXIMO 18 PALABRAS: es la tarjeta grande en pantalla; si necesita más, está mal formulada.
@@ -191,6 +198,7 @@ CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 14. Cada [TESIS] tiene 18 palabras o menos.
 15. La línea "Para salir hoy" del informe quedó integrada en la despedida, y el tagline "El resumen sin gritos." cierra el video.
 16. Ningún bloque termina en síntesis abstracta y no quedan conectores de ensayo escrito.
+17b. Ninguna sigla se pinta en pantalla sin haber sido expandida antes, salvo las de uso corriente.
 17. Variedad visual: no hay más de dos [DATO cifra] seguidas, y si el día tiene una noticia de proceso hay al menos un [ESQUEMA]. Y ninguna marca lleva un dato que no esté en el informe.
 18. Solo después de superar estas comprobaciones entrega el título, el guion y las fuentes.
 
