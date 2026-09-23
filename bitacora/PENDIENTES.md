@@ -318,6 +318,22 @@ referencia:
 
 ## Dependen de Santiago
 
+- [ ] **UN CLIC EN GOOGLE CLOUD: habilitar la YouTube Reporting API.** Es lo
+      único que falta para que las impresiones de carátula empiecen a medirse.
+      El código quedó listo y probado el 23-09, pero la primera corrida real
+      devolvió: "YouTube Reporting API has not been used in project
+      456975949202 before or it is disabled". Se habilita acá, con la cuenta
+      dueña del proyecto:
+      https://console.developers.google.com/apis/api/youtubereporting.googleapis.com/overview?project=456975949202
+      (Ese proyecto es el mismo de los secrets YT_ del canal; no hay que crear
+      credenciales nuevas ni volver a autorizar nada: el scope
+      yt-analytics.readonly que ya tenemos sirve.) Después de habilitarla,
+      la corrida siguiente de Métricas crea el trabajo sola. **Ojo con el
+      reloj**: la Reporting API solo genera informes desde el día en que se
+      crea el trabajo, y el primero tarda hasta 48 horas. Si se habilita hoy,
+      el primer dato de carátulas aparece el 25 o 26; si se deja para la
+      semana que viene, ese plazo corre desde entonces.
+
 - [ ] **23-09, HOY: el video del informe de hoy publica a las 07:30 con dos
       datos mal atribuidos — decidir si se corrige antes de esa hora.**
       Auditoría del 23-09 (`bitacora/2026-09-23-auditoria.md`, puntos 1 y 2).
