@@ -3,9 +3,18 @@
   "canal": {
     "suscriptores": 17,
     "vistas": 6209,
-    "videos": 94
+    "videos": 95
   },
   "videos": {
+    "-phNJeYXTLA": {
+      "titulo": "¿Escondida hacia una huelga? El sindicato pide rechazar el b",
+      "publicado": "2026-09-23",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 42
+    },
     "ml6Yj5G-1_I": {
       "titulo": "Lluvias intensas: alerta en seis regiones hasta el jueves, y",
       "publicado": "2026-09-23",
@@ -721,7 +730,7 @@
       "titulo": "¿Cómo conviven soberanía y libre navegación en un estrecho?",
       "publicado": "2026-09-03",
       "estado": "public",
-      "vistas": 17,
+      "vistas": 18,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 551
