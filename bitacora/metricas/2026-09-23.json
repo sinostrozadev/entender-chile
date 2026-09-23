@@ -19,7 +19,7 @@
       "titulo": "Lluvias intensas: alerta en seis regiones hasta el jueves, y",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 0,
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 45
@@ -37,7 +37,7 @@
       "titulo": "Lluvias fuertes e isoterma cero alta entre Maule y Los Lagos",
       "publicado": "2026-09-22",
       "estado": "public",
-      "vistas": 22,
+      "vistas": 26,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 46
@@ -55,7 +55,7 @@
       "titulo": "¿Cómo terminó Fiestas Patrias en accidentes y violencia? El ",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 176,
+      "vistas": 186,
       "meGusta": 4,
       "comentarios": 0,
       "durSeg": 43
@@ -64,7 +64,7 @@
       "titulo": "Fiestas Patrias deja 18 fallecidos y un balance vial todavía",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 33,
+      "vistas": 34,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 48
@@ -82,7 +82,7 @@
       "titulo": "¿Por qué la aprobación de Kast tocó su peor nivel como presi",
       "publicado": "2026-09-21",
       "estado": "public",
-      "vistas": 246,
+      "vistas": 244,
       "meGusta": 6,
       "comentarios": 0,
       "durSeg": 46
@@ -91,7 +91,7 @@
       "titulo": "Bachelet retira su candidatura a la Secretaría General de la",
       "publicado": "2026-09-20",
       "estado": "public",
-      "vistas": 33,
+      "vistas": 32,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 48
@@ -127,7 +127,7 @@
       "titulo": "Tren Melipilla partirá desde Lo Errázuriz, y otras 4 cosas d",
       "publicado": "2026-09-18",
       "estado": "public",
-      "vistas": 64,
+      "vistas": 65,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 47
@@ -136,7 +136,7 @@
       "titulo": "Tren Melipilla partirá desde Lo Errázuriz",
       "publicado": "2026-09-18",
       "estado": "public",
-      "vistas": 26,
+      "vistas": 27,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 707
@@ -775,7 +775,7 @@
       "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 88,
+      "vistas": 89,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 682
@@ -1459,12 +1459,6 @@
     },
     "sCdoxJs4Ea8": {
       "vistas": 1,
-      "minutos": 0,
-      "segProm": 0,
-      "pct": 0
-    },
-    "Yum6CV5gfwA": {
-      "vistas": 0,
       "minutos": 0,
       "segProm": 0,
       "pct": 0
