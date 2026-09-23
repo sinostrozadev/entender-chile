@@ -333,6 +333,31 @@ referencia:
       crea el trabajo, y el primero tarda hasta 48 horas. Si se habilita hoy,
       el primer dato de carátulas aparece el 25 o 26; si se deja para la
       semana que viene, ese plazo corre desde entonces.
+      **PRIMER INTENTO, 23-09: la cuenta no ve el proyecto.** Santiago abrió
+      el enlace con sinostrozadev@gmail.com y Google respondió "You need
+      additional access to the project: 456975949202", permiso faltante
+      `resourcemanager.projects.get`. Eso no es que falte un rol: es que esa
+      cuenta no ve el proyecto. **No apretar "Request access"**: ese botón
+      redacta un mensaje para un administrador que somos nosotros mismos en
+      otra cuenta, y no lo manda solo.
+      El proyecto sí es el nuestro: el error salió de usar YT_CLIENT_ID, y
+      todo client id empieza con el número del proyecto
+      (`456975949202-....apps.googleusercontent.com`). O sea, las credenciales
+      del canal se crearon desde OTRA cuenta de Google, casi seguro la del
+      canal y no la de desarrollo.
+      **Cómo encontrarla**: en el avatar de arriba a la derecha de la consola,
+      cambiar de cuenta y abrir https://console.cloud.google.com/apis/credentials
+      buscando un cliente OAuth cuyo id parta con 456975949202. La cuenta
+      donde aparezca es la dueña, y ahí la Reporting API se habilita con un
+      clic. Vale la pena probar primero la cuenta con la que se autorizaron
+      los tokens de YouTube (la dueña del canal).
+      **Plan B si ninguna cuenta lo ve**: proyecto nuevo con la cuenta del
+      canal, habilitar YouTube Data API v3, YouTube Analytics y YouTube
+      Reporting, credenciales OAuth nuevas y volver a emitir los cuatro
+      secrets (YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN y
+      YT_ANALYTICS_REFRESH_TOKEN). Es bastante más trabajo, necesita el
+      navegador de la sesión local para el consentimiento, y mientras tanto
+      todo lo demás sigue funcionando: los secrets actuales son válidos.
 
 - [ ] **23-09, HOY: el video del informe de hoy publica a las 07:30 con dos
       datos mal atribuidos — decidir si se corrige antes de esa hora.**
