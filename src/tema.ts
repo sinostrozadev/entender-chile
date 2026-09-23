@@ -58,6 +58,15 @@ export const tema = {
 // Color por sección: identifica sin romper el escenario único.
 // Coincidencia por palabra clave; si no calza, se usa la pátina.
 const paletaSecciones: Array<[RegExp, string]> = [
+  // (23-09) los diez slugs de sección que usa la carátula V4 entran primero:
+  // "plata-publica" o "congreso" no calzaban con ninguna regla de abajo y
+  // caían todos a la pátina, así que la carátula salía del mismo color.
+  [/plata-publica/i, "#806B45"],   // ocre viejo
+  [/dato-curioso/i, "#A98F3C"],    // mostaza
+  [/congreso/i, "#6B6257"],        // piedra
+  [/^salud$|salud/i, "#3E7A70"],   // verde clínico
+  [/educacion|educaci/i, "#55708A"], // azul tiza
+  [/regiones/i, "#55705E"],        // verde campo
   [/econom|mercado|bolsillo|trabajo/i, "#8A6F3F"],   // ocre
   [/deport/i, "#44546A"],                             // azul pizarra
   [/ciencia|tecnolog/i, "#46788A"],                   // petróleo

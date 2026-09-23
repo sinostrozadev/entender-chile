@@ -8,6 +8,7 @@
 import React from "react";
 import { AbsoluteFill, Composition, Img, staticFile } from "remotion";
 import { tema, colorDeSeccion } from "./tema";
+import { Picto, PICTOGRAMAS } from "./pictogramas";
 
 // mezcla dos hex (0 = a, 1 = b)
 const mezclar = (a: string, b: string, t: number) => {
@@ -140,11 +141,24 @@ const CaratulaPicto: React.FC<Base & { cifra?: string; etiqueta?: string }> = ({
   );
 };
 
+// hoja de contactos: los diez pictogramas juntos, para mirarlos de una vez
+const Contactos: React.FC = () => (
+  <AbsoluteFill style={{ backgroundColor: mezclar(tema.tinta, "#000000", 0.1), padding: 24, display: "flex", flexWrap: "wrap", alignContent: "flex-start" }}>
+    {PICTOGRAMAS.map((n) => (
+      <div key={n} style={{ width: "20%", height: "50%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ width: 150, height: 150 }}><Picto nombre={n} color={COBRE} /></div>
+        <div style={{ fontFamily: tema.mono, fontSize: 17, color: "rgba(242,242,239,0.7)", letterSpacing: "0.1em", marginTop: 6 }}>{n}</div>
+      </div>
+    ))}
+  </AbsoluteFill>
+);
+
 const props = { linea1: "¿CUÁNTA LLUVIA VIENE?", linea2: "SEIS REGIONES ALERTADAS", imagen: "fondos/seccion-clima.jpg", seccion: "clima", semilla: 23 };
 export const RootTaller: React.FC = () => (
   <>
     <Composition id="CaratulaCampo" component={CaratulaCampo} width={1280} height={720} fps={1} durationInFrames={1} defaultProps={props} />
     <Composition id="CaratulaCifra" component={CaratulaCifra} width={1280} height={720} fps={1} durationInFrames={1} defaultProps={{ ...props, cifra: "105", etiqueta: "milímetros en 24 horas" }} />
+    <Composition id="Contactos" component={Contactos} width={1280} height={720} fps={1} durationInFrames={1} />
     <Composition id="CaratulaPicto" component={CaratulaPicto} width={1280} height={720} fps={1} durationInFrames={1} defaultProps={{ ...props, cifra: "105", etiqueta: "milímetros en 24 horas" }} />
     <Composition id="CaratulaPictoSinCifra" component={CaratulaPicto} width={1280} height={720} fps={1} durationInFrames={1} defaultProps={props} />
     <Composition id="CaratulaRetrato" component={CaratulaRetrato} width={1280} height={720} fps={1} durationInFrames={1} defaultProps={props} />

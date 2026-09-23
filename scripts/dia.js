@@ -175,16 +175,53 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
       console.log(`Miniatura de la Clave: ${mini} (gancho: "${gancho}")`);
     } catch (e) { console.log(`(miniatura no generada: ${e.message.split("\n")[0]})`); }
   } else {
+    // TRES DISEÑOS, UN MISMO GANCHO (23-09, decisión de Santiago: "deja 3
+    // opciones, 1 la idea tuya, 2 la idea que ya está hoy y 3 la imagen
+    // pedida a gpt"). Antes las tres eran el MISMO diseño con tres ganchos
+    // distintos, para la prueba A/B de textos; esa prueba queda en pausa
+    // hasta que se decida el diseño, porque comparar dos cosas a la vez no
+    // enseña nada.
+    //   miniatura.png   = V4, pictograma dibujado por código (la que sale al aire)
+    //   miniatura-2.png = V3, la que veníamos usando
+    //   miniatura-3.png = V5, la ilustración que genera GPT; si no llegó, la
+    //                     V4 sin cifra con el segundo gancho, para que nunca
+    //                     falte la tercera.
     const ganchos = (parsed.caratulas && parsed.caratulas.length ? parsed.caratulas : [(parsed.caratula || "").trim()]).filter(Boolean);
     if (!ganchos.length) ganchos.push(recortar(parsed.titulo || ""));
-    ganchos.slice(0, 3).forEach((g, n) => {
-      const [linea1, linea2] = dosLineas(g);
-      const mini = path.join(OUT, n === 0 ? "miniatura.png" : `miniatura-${n + 1}.png`);
+    const [linea1, linea2] = dosLineas(ganchos[0]);
+    // la cifra grande de la V4: la primera cifra graficable del bloque de
+    // portada, con su etiqueta. Si el bloque no trae uno, la V4 va sin cifra.
+    const valor = dato?.series?.[0];
+    const cifra = valor?.raw ? String(valor.raw).trim().slice(0, 7) : "";
+    const etiqueta = valor?.etiqueta ? String(valor.etiqueta).trim().slice(0, 42) : "";
+    const semilla = Number(fecha.replace(/-/g, "").slice(-4)) % 97; // variación diaria por código (regla 29)
+    // la ilustración de GPT vive en contenido/caratulas/FECHA.(png|jpg); se
+    // copia a public/ porque Remotion solo sirve desde ahí
+    let imagenGpt = null;
+    for (const ext of ["png", "jpg", "jpeg", "webp"]) {
+      const orig = path.join("contenido", "caratulas", `${fecha}.${ext}`);
+      if (fs.existsSync(orig)) {
+        const destino = path.join("public", "caratulas", `${fecha}.${ext}`);
+        fs.mkdirSync(path.dirname(destino), { recursive: true });
+        fs.copyFileSync(orig, destino);
+        imagenGpt = `caratulas/${fecha}.${ext}`;
+        break;
+      }
+    }
+    const planes = [
+      ["miniatura.png", "MiniaturaV4", { linea1, linea2, cifra, etiqueta, seccion: img || "", semilla }, `pictograma${cifra ? ` + cifra ${cifra}` : ""}`],
+      ["miniatura-2.png", "MiniaturaV3", { linea1, linea2, imagen, fecha: fechaVisible, paleta: "casa" }, "diseño actual"],
+      imagenGpt
+        ? ["miniatura-3.png", "MiniaturaV5", { linea1, linea2, imagen: imagenGpt }, `ilustración de GPT (${imagenGpt})`]
+        : ["miniatura-3.png", "MiniaturaV4", { linea1: dosLineas(ganchos[1] || ganchos[0])[0], linea2: dosLineas(ganchos[1] || ganchos[0])[1], cifra: "", etiqueta: "", seccion: img || "", semilla: semilla + 7 }, "SIN ilustración de GPT: pictograma con el segundo gancho"],
+    ];
+    for (const [archivo, comp, props, nota] of planes) {
+      const mini = path.join(OUT, archivo);
       try {
-        still("MiniaturaV3", { linea1, linea2, imagen, fecha: fechaVisible, paleta: "casa" }, mini);
-        console.log(`Miniatura${n ? ` ${n + 1} (alternativa A/B)` : ""}: ${mini} ("${linea1}" / "${linea2}"${parsed.caratulas?.length ? "" : n ? "" : ": SIN línea de carátula, usé el título"})`);
-      } catch (e) { console.log(`(miniatura ${n + 1} no generada: ${e.message.split("\n")[0]})`); }
-    });
+        still(comp, props, mini);
+        console.log(`Carátula ${archivo}: ${comp}, ${nota}`);
+      } catch (e) { console.log(`(carátula ${archivo} no generada: ${e.message.split("\n")[0]})`); }
+    }
   }
 }
 

@@ -10,6 +10,21 @@
 import React from "react";
 import { AbsoluteFill, Composition, Img, registerRoot, staticFile } from "remotion";
 import { tema, estiloEyebrow, colorDeSeccion } from "./tema";
+import { Picto } from "./pictogramas";
+
+// ayudantes de las carátulas V4 y V5 (23-09)
+const COBRE = "#D08A5B";
+// mezcla dos hex; t = 0 devuelve a, t = 1 devuelve b
+const mezclarHex = (a: string, b: string, t: number) => {
+  const h = (s: string) => [1, 3, 5].map((i) => parseInt(s.slice(i, i + 2), 16));
+  const [r1, g1, b1] = h(a); const [r2, g2, b2] = h(b);
+  const c = (x: number, y: number) => Math.round(x + (y - x) * t).toString(16).padStart(2, "0");
+  return `#${c(r1, r2)}${c(g1, g2)}${c(b1, b2)}`;
+};
+// el cuerpo sale del largo de la línea: en Plex Sans 600 mayúsculas cada
+// carácter mide ~0,56 em. Mismo criterio que la V3.
+const tallaLinea = (s: string, ancho: number, max: number) =>
+  Math.max(46, Math.min(max, Math.floor(ancho / (0.56 * Math.max(s.length, 8)))));
 
 const Avatar: React.FC = () => (
   <AbsoluteFill style={{ backgroundColor: tema.papel, alignItems: "center", justifyContent: "center" }}>
@@ -217,6 +232,71 @@ const MiniaturaV3: React.FC<MiniaturaV3Props> = ({ linea1, linea2, imagen, fecha
   );
 };
 
+// MiniaturaV4 (23-09, CARÁTULA 5): la carátula deja de ser "texto sobre
+// papel". Fondo lleno del color de la sección oscurecido, el PICTOGRAMA del
+// tema dibujado por código saliéndose del cuadro, la cifra del día grande si
+// la hay, y los dos banners abajo. El diagnóstico está en src/pictogramas.tsx:
+// las láminas de public/fondos son texturas al 8% de tinta y a 168 px (el
+// ancho real en un teléfono) la carátula quedaba vacía.
+// VARIACIÓN DIARIA POR CÓDIGO (regla 29): la semilla mueve el pictograma, lo
+// gira un poco y corre el degradado. Hasta hoy la carátula no variaba y dos
+// días seguidos de clima salieron idénticos (22 y 23-09).
+type MiniaturaV4Props = { linea1: string; linea2?: string; cifra?: string; etiqueta?: string; seccion?: string; semilla?: number };
+const MiniaturaV4: React.FC<MiniaturaV4Props> = ({ linea1, linea2, cifra, etiqueta, seccion, semilla = 0 }) => {
+  const color = colorDeSeccion(seccion);
+  const fondo = mezclarHex(color, tema.tinta, 0.68);
+  const banner = (s: string, bg: string, tx: string): React.CSSProperties => ({
+    display: "inline-block", background: bg, color: tx, fontFamily: tema.sans, fontWeight: 600,
+    fontSize: tallaLinea(s, 980, 88), lineHeight: 1, padding: "10px 24px 14px",
+    textTransform: "uppercase", letterSpacing: "-0.015em", whiteSpace: "nowrap",
+    boxShadow: "0 14px 40px rgba(0,0,0,0.35)",
+  });
+  return (
+    <AbsoluteFill style={{ backgroundColor: fondo }}>
+      <div style={{ position: "absolute", right: -70 + (semilla % 5) * 12, top: 8 + (semilla % 3) * 14, width: 470, height: 470, opacity: 0.92 }}>
+        <Picto nombre={seccion} color={COBRE} giro={-4 + (semilla % 5) * 2} />
+      </div>
+      <div style={{ position: "absolute", left: 44, top: 38, fontFamily: tema.mono, fontSize: 22, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(242,242,239,0.66)" }}>Entender Chile</div>
+      {cifra ? (
+        <div style={{ position: "absolute", left: 48, top: 104 }}>
+          <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: cifra.length > 4 ? 200 : 260, lineHeight: 0.82, color: "#F7F6F2", letterSpacing: "-0.03em" }}>{cifra}</div>
+          {etiqueta ? <div style={{ fontFamily: tema.mono, fontSize: 25, letterSpacing: "0.1em", textTransform: "uppercase", color: COBRE, marginTop: 12, maxWidth: 620 }}>{etiqueta}</div> : null}
+        </div>
+      ) : null}
+      <div style={{ position: "absolute", left: 48, bottom: 50, display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 10 }}>
+        <div style={banner(linea1, COBRE, tema.tinta)}>{linea1}</div>
+        {linea2 ? <div style={banner(linea2, "#F7F6F2", tema.tinta)}>{linea2}</div> : null}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+// MiniaturaV5 (23-09, CARÁTULA 5, opción 3): la imagen la genera GPT y la
+// deja en contenido/caratulas/FECHA.*; dia.js la copia a public/ y la pasa
+// acá. Va a sangre, con un velo en diagonal para que los banners se lean
+// sobre cualquier imagen. Ojo: la imagen es ILUSTRACIÓN, nunca una foto ni
+// algo que parezca registro de los hechos (regla 29).
+type MiniaturaV5Props = { linea1: string; linea2?: string; imagen: string };
+const MiniaturaV5: React.FC<MiniaturaV5Props> = ({ linea1, linea2, imagen }) => {
+  const banner = (s: string, bg: string, tx: string): React.CSSProperties => ({
+    display: "inline-block", background: bg, color: tx, fontFamily: tema.sans, fontWeight: 600,
+    fontSize: tallaLinea(s, 1060, 96), lineHeight: 1, padding: "10px 26px 14px",
+    textTransform: "uppercase", letterSpacing: "-0.015em", whiteSpace: "nowrap",
+    boxShadow: "0 16px 44px rgba(0,0,0,0.45)",
+  });
+  return (
+    <AbsoluteFill style={{ backgroundColor: tema.tinta }}>
+      <Img src={staticFile(imagen)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+      <AbsoluteFill style={{ background: "linear-gradient(15deg, rgba(23,25,28,0.86) 18%, rgba(23,25,28,0.25) 58%, rgba(23,25,28,0) 78%)" }} />
+      <div style={{ position: "absolute", left: 44, top: 38, padding: "8px 16px 10px", background: "rgba(23,25,28,0.7)", fontFamily: tema.mono, fontSize: 22, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(242,242,239,0.85)" }}>Entender Chile</div>
+      <div style={{ position: "absolute", left: 46, bottom: 52, display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 10 }}>
+        <div style={banner(linea1, COBRE, tema.tinta)}>{linea1}</div>
+        {linea2 ? <div style={banner(linea2, "#F7F6F2", tema.tinta)}>{linea2}</div> : null}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 const RootMarca: React.FC = () => (
   <>
     <Composition id="Avatar" component={Avatar} width={800} height={800} fps={1} durationInFrames={1} />
@@ -239,6 +319,24 @@ const RootMarca: React.FC = () => (
       fps={1}
       durationInFrames={1}
       defaultProps={{ linea1: "", linea2: "", imagen: "fondos/seccion-economia.jpg", fecha: "", paleta: "casa" as const }}
+    />
+    <Composition
+      id="MiniaturaV4"
+      component={MiniaturaV4}
+      width={1280}
+      height={720}
+      fps={1}
+      durationInFrames={1}
+      defaultProps={{ linea1: "", linea2: "", cifra: "", etiqueta: "", seccion: "", semilla: 0 }}
+    />
+    <Composition
+      id="MiniaturaV5"
+      component={MiniaturaV5}
+      width={1280}
+      height={720}
+      fps={1}
+      durationInFrames={1}
+      defaultProps={{ linea1: "", linea2: "", imagen: "fondos/seccion-economia.jpg" }}
     />
     <Composition
       id="Miniatura"
