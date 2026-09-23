@@ -318,6 +318,23 @@ referencia:
 
 ## Dependen de Santiago
 
+- [ ] **23-09, HOY: el video del informe de hoy publica a las 07:30 con dos
+      datos mal atribuidos — decidir si se corrige antes de esa hora.**
+      Auditoría del 23-09 (`bitacora/2026-09-23-auditoria.md`, puntos 1 y 2).
+      El guion ya aprobado y renderizado (`contenido/guiones/informe/2026-09-23.md`)
+      tiene: (1) línea 22, la tarjeta `[DATO comparacion | DMC vía BioBioChile,
+      22 sep] ... 105 mm ; ... más de 200 mm` deja ambos valores bajo la fuente
+      oficial, cuando el informe (`contenido/informes/2026-09-23.md`) atribuye
+      los +200 mm a modelos privados (Meteored y ADN Radio); (2) línea 12, la
+      Apertura llama "reforma migratoria" a la reforma constitucional de
+      detención para expulsiones administrativas (nombrada bien en el resto
+      del guion y en el informe). El validador ya lo señaló en
+      `contenido/veredictos/2026-09-23-guion_informe.md` y lo dejó pasar como
+      no bloqueante. `scripts/youtube-subir.js` sube el informe con
+      `--programar 07:30` (`vars.YT_HORA_INFORME`): a las 05:31 de hoy quedan
+      cerca de 2 horas antes de que salga de "private". Primera vez que se
+      marca: 23-09-2026.
+
 - [ ] **22-09, HOY: la cadena se congeló en el informe — revisar/relanzar la
       tarea "Despachador Entender Chile" de ChatGPT.** `estado.yml` avisó bien
       a las 01:58:50 (commit `35e98cb` en el PR #6, `pieza=informe`,
@@ -378,6 +395,35 @@ referencia:
       despierten.
 
 ## Para la sesión de la noche (código y prompts)
+
+- [ ] **23-09, HOY: expandir siglas que se pintan en pantalla — la "DMC" lleva
+      3 días repitiéndose sin corregirse ni anotarse.** Auditoría del 23-09
+      (`bitacora/2026-09-23-auditoria.md`, punto 3). Las marcas `[FUENTE DMC
+      vía ...]` y `[DATO ... DMC ...]` de `prompts/guion-informe.md` pintan la
+      sigla sin expandir donde no se explica sola (la narración sí dice
+      "Dirección Meteorológica de Chile"). `contenido/revisiones/2026-09-23.md`
+      dice "Viene repitiéndose desde el 21-09"; `contenido/revisiones/2026-09-22.md`
+      dice "misma observación del 21-09"; `contenido/revisiones/2026-09-21.md`
+      la describe de cero. Tres veredictos seguidos la aprobaron como no
+      bloqueante y ninguno bajó tarea aquí. Propuesta: en
+      `prompts/guion-informe.md`, agregar que toda sigla en una marca que se
+      pinta en pantalla vaya expandida la primera vez que aparece. Primera vez
+      que se marca en esta lista: 23-09-2026 (lleva 3 mañanas seguidas
+      señalada en las revisiones).
+
+- [ ] **23-09, HOY: tope al cierre de cautela repetido ("queda para
+      verificar/en seguimiento/pendiente") — más de una semana sin corregirse
+      ni anotarse, y ya cruzó del informe al guion.** Auditoría del 23-09
+      (`bitacora/2026-09-23-auditoria.md`, punto 4). `bitacora/2026-09-20-auditoria.md`
+      y `bitacora/2026-09-21-auditoria.md` ya registran "cuarto día seguido"
+      de casi todas las [B] y [C] del informe cerrando con la misma fórmula de
+      cautela. `contenido/revisiones/2026-09-23.md` constata que el molde
+      ("falta revisar", "el seguimiento queda puesto en") ya se escucha en
+      "Tres bloques seguidos del guion". Propuesta: en `prompts/informe.md`,
+      topar a una sola [B]/[C] por edición el cierre con esa fórmula y variar
+      el resto; como el guion hereda el texto del informe, resuelve también el
+      arrastre. Primera vez que se marca en esta lista: 23-09-2026 (el patrón
+      lleva señalado desde al menos el 20-09 sin bajar aquí).
 
 - [ ] **IMPRESIONES 1: la vía es la YouTube Reporting API, no Analytics**
       (respuesta de GPT con documentación oficial, 22-09). Cierra la
