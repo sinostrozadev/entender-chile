@@ -54,15 +54,21 @@ final. La prueba: si al verla alguien piensa "ah, buena", sirve; si piensa
 
 ## Cómo tiene que verse
 
-- **Estilo: cartel serigráfico de tres tintas** (probado el 23-09 contra un
-  grabado con volumen, y ganó por lejos). Masas planas y saturadas, contorno
-  grueso, sombra dura de un solo tono, luz lateral, fondo liso. Sin
-  degradados suaves, sin brillos realistas, sin transparencias: el agua, el
-  vidrio y todo lo translúcido se pintan como masa sólida, porque a 168
-  píxeles lo transparente se confunde con el fondo y la imagen se deshace.
+- **Estilo: ilustración cinematográfica con profundidad** (decidido por
+  Santiago el 23-09, después de ver la serigrafía plana y el grabado). Fondo
+  DESENFOCADO y atmosférico a la izquierda, sujeto NÍTIDO a la derecha, luz
+  de contraluz, lluvia o partículas en el aire. Pintada, con volumen y
+  atmósfera, pero **nunca fotorrealista**: tiene que verse como ilustración,
+  no como una fotografía del hecho (regla 29). Nada de texturas de cámara,
+  ni grano fotográfico, ni gente reconocible.
+- **El cobre NO va en la imagen.** El acento cobre queda reservado para el
+  banner del texto, que es donde tiene que pegar. La ilustración va en azul
+  noche, grafito y blanco frío, con las luces cálidas al mínimo. Si la
+  imagen también es cobre, el banner deja de resaltar y la carátula se
+  aplana (probado el 23-09 con el paraguas).
 - **Formato 16:9**, mínimo 1280 x 720.
-- **Paleta de la casa**, dos o tres tintas: fondo oscuro (tinta #17191C o el
-  color de la sección oscurecido), acento cobre #D08A5B, papel #F2F2EF.
+- **Paleta de la imagen**: azul noche, grafito y blanco frío. El cobre
+  #D08A5B no se usa acá: vive en el banner del texto.
 - **Composición con el texto en mente** (corregido el 23-09 al montar la
   primera imagen real): el sujeto va arriba y a la DERECHA, y queda libre y
   oscura **la mitad inferior izquierda**, no el tercio. Los dos banners del
@@ -77,11 +83,13 @@ final. La prueba: si al verla alguien piensa "ah, buena", sirve; si piensa
 
 ## El pedido, para pegar tal cual
 
-> Ilustración editorial en 16:9 (1280x720) para la carátula de un video de
-> noticias de Chile. Tema: <la noticia de portada en una frase>. Quiero una
-> METÁFORA VISUAL ingeniosa, no la escena literal. Estilo grabado o
-> serigrafía de tres tintas: fondo oscuro, acento cobre cálido, blanco
-> papel. Un solo sujeto grande, centrado a la derecha del cuadro. El tercio
-> inferior izquierdo tiene que quedar despejado y oscuro (ahí va el texto).
-> SIN texto, sin letras ni números en la imagen. Sin personas reconocibles,
-> sin logos, sin banderas. Nada fotorrealista.
+> Ilustración cinematográfica en 16:9 (1280x720) para la carátula de un
+> video de noticias de Chile. Tema: <la noticia de portada en una frase>.
+> Quiero una METÁFORA VISUAL ingeniosa, no la escena literal. Fondo
+> atmosférico DESENFOCADO a la izquierda y el sujeto NÍTIDO arriba a la
+> derecha, con contraluz y profundidad de campo. Pintada, con volumen, pero
+> NUNCA fotorrealista: tiene que leerse como ilustración, sin grano de
+> cámara. Paleta azul noche, grafito y blanco frío; nada de cobre ni naranjo
+> en la imagen. La MITAD INFERIOR IZQUIERDA queda oscura y despejada, ahí va
+> el texto. SIN texto, sin letras ni números. Sin personas reconocibles, sin
+> lugares identificables, sin logos, sin banderas.
