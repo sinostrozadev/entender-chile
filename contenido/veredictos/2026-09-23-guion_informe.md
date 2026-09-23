@@ -1,41 +1,8 @@
-VEREDICTO: CORREGIR
+VEREDICTO: APROBADA
 VUELTA: 1
 PIEZA: guion_informe
 PROMPT: prompts/guion-informe.md
-VALIDADO: 2026-09-23T05:34:01Z
-
-Correcciones:
-1. Dónde: el titular "El Tribunal Constitucional validó el instrumento para
-   remover jueces." (única aparición en el guion de la sección "¿En qué quedó?"
-   del informe, que trae el fallo del TC sobre el artículo 41 del Auto Acordado
-   N° 108-2020) · Regla: "La sección «¿En qué quedó?», si el informe la trae,
-   sí se narra, como noticias breves", y "En titulares" es "UNA frase por cada
-   noticia del informe que no se narró: las [B] que quedaron fuera del corte y
-   todas las [C]", que no es el caso de esta sección · Debe quedar: un bloque
-   propio "## ¿En qué quedó?" antes de "## En titulares", con su
-   [FUENTE Tribunal Constitucional, 21 sep] (cuatro palabras, dentro del tope
-   de seis que pide la marca) y dos o tres frases
-   narradas con lo que trae el informe (el TC rechazó por unanimidad el
-   requerimiento y declaró que el instrumento usado por la Corte Suprema en los
-   cuadernos de remoción de jueces se ajusta a la Constitución), y ese titular
-   sale de la lista para que el tema no suene dos veces. Es la forma que ya
-   tuvieron los guiones del 19-09 y del 20-09.
-2. Dónde: "El dólar terminó el martes veintidós en novecientos cuarenta y siete
-   pesos con cuarenta centavos. En tres sesiones acumuló una baja de once pesos
-   con ochenta y cinco centavos." (bloque "## Dólar bajo novecientos cincuenta
-   pesos", peso [B]) · Regla: "Tope: TRES cifras significativas habladas por
-   número", con la excepción solo para "porcentajes con un decimal, años,
-   fechas, horas, números de ley y resultados de votación", ninguna de las
-   cuales cubre un tipo de cambio; y "En noticias [B], máximo dos cifras
-   habladas" · Debe quedar: el bloque narra a lo más dos cifras, y cada una con
-   tres cifras significativas como máximo. Sirve dejar la [TESIS] como está
-   ("cerró bajo novecientos cincuenta pesos") y una sola cifra en el párrafo,
-   redondeada con alguno de los aproximadores que pide el prompt: "cerca de
-   novecientos cuarenta y siete pesos" (tres cifras significativas, contadas).
-   La baja de once pesos con ochenta y cinco centavos y la diferencia de
-   treinta centavos de REDIMIN salen de la narración; el valor exacto ya está
-   donde corresponde, en "[DATO cifra | La Tercera, 22 sep] cierre del dólar:
-   $947,40", que es para pantalla.
+VALIDADO: 2026-09-23T06:05:00Z
 
 Observaciones:
 - Para la pieza siguiente: el informe deja cuatro conceptos que sirven para el
@@ -46,11 +13,34 @@ Observaciones:
   Américas, y el problema de medir empleos adicionales frente a contrataciones
   que ocurrirían igual, que el propio informe plantea al discutir el subsidio
   de RN.
-- Extensión: el texto narrado suma 1.353 palabras, unos 10,2 minutos a las 132
-  palabras por minuto con que calcula el prompt. Queda dentro del "en torno a
-  10 minutos" y corrige lo que quedó observado el 22-09, cuando la edición se
-  iba a unos 16 minutos. El bloque de portada, con "La noticia del día", suma
-  183 palabras y es el de mayor desarrollo, como pide el prompt.
+- Las dos correcciones de la vuelta 1 quedaron resueltas y verificadas contra
+  el informe de hoy. Primera: existe el bloque "## ¿En qué quedó?" (línea 107),
+  antes de "## En titulares", con [FUENTE Tribunal Constitucional, 21 sep]
+  (cuatro palabras) y tres frases narradas que dicen lo mismo que la sección
+  del informe (línea 190): rechazo por unanimidad del requerimiento contra el
+  artículo 41 del Auto Acordado N° 108-2020, el instrumento de la Corte Suprema
+  en los cuadernos de remoción de jueces ajustado a la Constitución, y el fallo
+  redactado por el ministro Raúl Mera. El titular "El Tribunal Constitucional
+  validó el instrumento para remover jueces." salió de la lista: búsqueda
+  explícita de "Tribunal Constitucional" y "remover jueces" en el guion, tres
+  coincidencias, todas en el bloque nuevo y en "Fuentes:", ninguna entre los
+  titulares. Segunda: el bloque del dólar narra ahora dos cifras, "bajo
+  novecientos cincuenta pesos" en la [TESIS] y "cerca de novecientos cuarenta y
+  siete pesos" en el párrafo, las dos de tres cifras significativas y la
+  segunda con aproximador; el valor exacto quedó solo en
+  "[DATO cifra | La Tercera, 22 sep] cierre del dólar: $947,40".
+- Revisado lo que la corrección pudo introducir, sin hallazgos nuevos. El
+  bloque "¿En qué quedó?" no lleva [TESIS] y no la necesita: el prompt la exige
+  en bloques con noticias [A] y [B], y esa sección del informe no trae peso.
+  Cierra en un hecho concreto, no en síntesis abstracta. Los números van en
+  palabras. Al salir el titular del Tribunal Constitucional, las cuentas siguen
+  cuadrando: el informe trae 3 [A], 32 [B] y 7 [C]; el guion narra las tres [A]
+  y siete [B], diez noticias narradas, justo en el tope, y quedan 32 titulares
+  para las 25 [B] fuera del corte más las 7 [C], uno por noticia y cada uno en
+  su propia línea. Nada del informe queda sin narrar y sin titular.
+- Extensión: el texto narrado suma 1.366 palabras, unos 10,3 minutos a las 132
+  palabras por minuto con que calcula el prompt, trece palabras más que en la
+  vuelta anterior. Sigue dentro del "en torno a 10 minutos".
 - "[FUENTE DMC vía BioBioChile, 22 sep]" (líneas 8 y 22) abrevia la Dirección
   Meteorológica en dos marcas que se pintan en pantalla, donde la sigla no se
   explica sola; la narración del bloque sí escribe "Dirección Meteorológica de
