@@ -13,9 +13,9 @@
  *   node scripts/youtube-subir.js --fecha 2026-08-30 [--clave | --short] [--privacidad private|unlisted|public] [--programar HH:MM]
  *
  *   --programar HH:MM  sube privado y YouTube lo publica solo a esa hora de
- *                      Chile del mismo día (publishAt). SOLO funciona cuando el
- *                      proyecto pasó la auditoría de la API; antes, YouTube
- *                      mantiene el video privado y hay que programar en Studio.
+ *                      Chile del mismo día (publishAt). Probado en uso real:
+ *                      los informes ya se suben programados (Santiago, 23-09).
+ *   --en-minutos N     igual, pero a N minutos de la subida (el exprés, 5).
  *
  * Toma: el mp4 de out/FECHA/, el título de out/FECHA/parsed.json ("Título
  * sugerido"), la descripción de contenido/descripciones/FECHA-*.txt y, si
