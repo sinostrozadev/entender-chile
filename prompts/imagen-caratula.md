@@ -29,6 +29,21 @@ tiene que quedar la imagen. Entonces:
 Mientras la imagen no exista en `salida=`, el pedido sigue abierto y te va a
 volver a llegar.
 
+### Cuando el generador de imágenes está topado (23-09)
+
+Pasó el mismo día que se estrenó esto: seis pedidos en dos horas agotaron el
+límite de uso del generador, y el séptimo quedó en silencio. El conector y el
+webhook estaban sanos; lo único topado era el dibujo.
+
+Si te pasa, **no te quedes esperando en silencio**: escribe
+`<salida sin extensión>-NO-PUDE.md` diciendo que el generador está topado y
+desde cuándo. Un pedido callado deja a alguien mirando el repo sin saber si
+el problema es la cuota, el conector o el prompt.
+
+**El ritmo normal es UNA imagen al día**, la de la carátula del informe. Las
+pruebas y las variantes se piden cuando la edición del día ya está cerrada,
+nunca antes: el generador es un recurso escaso y la edición manda.
+
 ## LA FÓRMULA (23-09-2026, sacada de seis vueltas con Santiago en el taller)
 
 Seis intentos sobre las mismas dos noticias dejaron esto. No es gusto: cada

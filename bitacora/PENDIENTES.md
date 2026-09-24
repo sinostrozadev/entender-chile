@@ -449,6 +449,46 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **CARÁTULA 6: conectar el CLIMA, lo único que quedó a medias del
+      taller del 23-09.** La fórmula ya está escrita en
+      `prompts/imagen-caratula.md` (regla 7): el guion declara
+      `Clima de carátula: grave|institucional|cotidiano|bueno|curioso|deporte`
+      y esa palabra decide la luz de la imagen y el color del pictograma, para
+      que no salgan todas sombrías (Santiago, 23-09: "si la noticia es alegre,
+      estilo alegre"). Falta: (a) la línea en `prompts/guion-informe.md`, junto
+      a las tres carátulas; (b) leerla en `parse.js`; (c) pasarla al pedido de
+      imagen y a `MiniaturaV4`. NO se tocó esa noche a propósito: cambiar el
+      prompt del guion sin poder probarlo con GPT arriesga la edición del día
+      siguiente.
+
+- [x] **CARÁTULA 5: el taller del 23-09, seis vueltas y una fórmula.** ✅
+      23-09, tarde y noche, con Santiago mirando cada render.
+      Punto de partida: se bajaron las carátulas reales del 21, 22 y 23 y el
+      problema no era el texto, era que NO HABÍA IMAGEN. Las diez láminas de
+      `public/fondos` son texturas al 8% de tinta: a 168 px (el ancho real en
+      un teléfono) la carátula era dos cajas de texto sobre blanco. Y el 22 y
+      el 23 salieron idénticas, así que la variación diaria que pide la regla
+      29 tampoco se estaba aplicando.
+      Lo construido: `src/pictogramas.tsx` (diez símbolos por código),
+      `MiniaturaV4` (pictograma + cifra) y `MiniaturaV5` (ilustración de GPT)
+      en `src/marca.tsx`, tres diseños por edición en `dia.js`, y la tarea
+      `imagen` en el canal de pedidos (`pedido-gpt.yml` ahora lee Tarea:,
+      Salida: y Prompt: del propio PEDIDO).
+      La regla 29 se amplió con el sí de Santiago: fotorrealismo permitido en
+      ambiente y objeto, prohibido en el hecho noticioso.
+      **La fórmula quedó en `prompts/imagen-caratula.md`** y cada regla viene
+      de una carátula que falló: dos capas (fondo dice dónde, objeto dice
+      qué), cuatro figuras (ausencia, desborde, desequilibrio, umbral),
+      destacar por ausencia le gana a destacar por luz (hallazgo de Santiago,
+      cambió la mejor imagen del día), el objeto igual a sus pares, el detalle
+      exagerado y arriba, el cobre solo en el banner, el clima según la
+      noticia y la estructura fija como marca.
+      **Límite medido**: seis pedidos de imagen en dos horas agotaron el
+      generador de GPT. El conector quedó sano (GPT lo confirmó); lo topado
+      era el dibujo. Ritmo normal: UNA imagen al día, y las pruebas después de
+      cerrar la edición. Quedaron sin hacer la prueba del dólar y la del
+      15-09 ("54 años sin contagios"), que era el antes y el después.
+
 - [x] **SUBIDA 23-09: el exprés sale público y el informe se publica a las
       6:30.** ✅ 23-09, sesión de día, pedido de Santiago ("deja los videos
       exprés públicos por defecto y los informes prográmalos para las 6.30").
