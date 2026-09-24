@@ -181,11 +181,11 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
     // distintos, para la prueba A/B de textos; esa prueba queda en pausa
     // hasta que se decida el diseño, porque comparar dos cosas a la vez no
     // enseña nada.
-    //   miniatura.png   = V4, pictograma dibujado por código (la que sale al aire)
-    //   miniatura-2.png = V3, la que veníamos usando
-    //   miniatura-3.png = V5, la ilustración que genera GPT; si no llegó, la
-    //                     V4 sin cifra con el segundo gancho, para que nunca
-    //                     falte la tercera.
+    //   miniatura.png   = V5, la ilustración de GPT (la que sale al aire desde
+    //                     el 24-09, decisión de Santiago). Si no llegó, cae a
+    //                     la V4 y la edición sigue igual.
+    //   miniatura-2.png = V4, pictograma dibujado por código
+    //   miniatura-3.png = V3, la que veníamos usando hasta el 23-09
     const ganchos = (parsed.caratulas && parsed.caratulas.length ? parsed.caratulas : [(parsed.caratula || "").trim()]).filter(Boolean);
     if (!ganchos.length) ganchos.push(recortar(parsed.titulo || ""));
     const [linea1, linea2] = dosLineas(ganchos[0]);
@@ -212,12 +212,15 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
         break;
       }
     }
+    const pictograma = { linea1, linea2, cifra, etiqueta, seccion: img || "", semilla, clima };
     const planes = [
-      ["miniatura.png", "MiniaturaV4", { linea1, linea2, cifra, etiqueta, seccion: img || "", semilla, clima }, `pictograma${cifra ? ` + cifra ${cifra}` : ""}, clima ${clima}`],
-      ["miniatura-2.png", "MiniaturaV3", { linea1, linea2, imagen, fecha: fechaVisible, paleta: "casa" }, "diseño actual"],
       imagenGpt
-        ? ["miniatura-3.png", "MiniaturaV5", { linea1, linea2, imagen: imagenGpt }, `ilustración de GPT (${imagenGpt})`]
-        : ["miniatura-3.png", "MiniaturaV4", { linea1: dosLineas(ganchos[1] || ganchos[0])[0], linea2: dosLineas(ganchos[1] || ganchos[0])[1], cifra: "", etiqueta: "", seccion: img || "", semilla: semilla + 7, clima }, "SIN ilustración de GPT: pictograma con el segundo gancho"],
+        ? ["miniatura.png", "MiniaturaV5", { linea1, linea2, imagen: imagenGpt }, `ilustración de GPT (${imagenGpt}), clima ${clima}`]
+        : ["miniatura.png", "MiniaturaV4", pictograma, `SIN ilustración de GPT: sale el pictograma de respaldo, clima ${clima}`],
+      imagenGpt
+        ? ["miniatura-2.png", "MiniaturaV4", pictograma, `pictograma${cifra ? ` + cifra ${cifra}` : ""}, clima ${clima}`]
+        : ["miniatura-2.png", "MiniaturaV4", { ...pictograma, cifra: "", etiqueta: "", semilla: semilla + 7, linea1: dosLineas(ganchos[1] || ganchos[0])[0], linea2: dosLineas(ganchos[1] || ganchos[0])[1] }, "pictograma con el segundo gancho"],
+      ["miniatura-3.png", "MiniaturaV3", { linea1, linea2, imagen, fecha: fechaVisible, paleta: "casa" }, "diseño anterior al 23-09"],
     ];
     for (const [archivo, comp, props, nota] of planes) {
       const mini = path.join(OUT, archivo);

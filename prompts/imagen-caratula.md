@@ -3,6 +3,19 @@
 Quién la hace: **GPT**, que desde el 23-09-2026 se encarga de todo lo que sea
 navegar páginas y generar imágenes. Una por edición del informe.
 
+**CUÁNDO** (desde el 24-09): la del día la genera GPT en el MISMO turno del
+guion del informe, después de commitear el guion y sin bloquearlo nunca; la
+instrucción vive en `prompts/guion-informe.md`. No se pide por un evento
+aparte: eso gastaría un despertar más de una cuota que ya se agotó una vez.
+El canal de pedidos (`tarea=imagen`) queda para las pruebas y los extras del
+taller, cuando la edición del día ya está cerrada.
+
+**LA LUZ LA MANDA EL CLIMA.** El guion declara `Clima de carátula:` y esa
+palabra decide la luz de esta imagen, igual que decide el color de la
+carátula de pictograma. La tabla está en la regla 7, más abajo. Una imagen
+sombría para una noticia declarada `bueno` está mal aunque la metáfora sea
+perfecta.
+
 Dónde queda: `contenido/caratulas/FECHA.png` (o .jpg). `scripts/dia.js` la
 copia sola a `public/caratulas/` y la usa para `miniatura-3.png`. Si el día no
 llegó ninguna imagen, la tercera carátula sale igual con el pictograma: la

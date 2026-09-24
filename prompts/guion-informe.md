@@ -146,6 +146,32 @@ FORMATO DE SALIDA:
   La mayoría de los días es `institucional` o `cotidiano`, y está bien: una
   noticia mala con luz de mañana se ve falsa. No fuerces `bueno`. Si no
   escribes la línea, el sistema usa `institucional`.
+
+## LA IMAGEN DE LA CARÁTULA, AL FINAL Y SIN BLOQUEAR NADA
+
+Desde el 23-09 la carátula que sale al aire es una ILUSTRACIÓN que generas
+tú. Va después de todo lo demás, en este orden exacto:
+
+1. **Primero commitea el guion.** Sin excepción. El guion es lo que la
+   edición está esperando y lo que Claude valida; la imagen viene después,
+   en su propio commit.
+2. Después lee COMPLETO `prompts/imagen-caratula.md` y genera la imagen de
+   la noticia de portada siguiendo su fórmula: dos capas (fondo de contexto
+   desenfocado y anónimo, objeto nítido arriba a la derecha), la figura que
+   corresponda (ausencia, desborde, desequilibrio o umbral), el detalle
+   exagerado y arriba, la mitad inferior izquierda oscura y libre, sin texto
+   y sin el hecho noticioso.
+3. La LUZ de la imagen la manda el `Clima de carátula:` que acabas de
+   declarar. Ese archivo tiene la tabla: `grave` es azul noche y contraluz
+   duro; `cotidiano`, luz de día neutra; `bueno`, luz cálida de mañana; y
+   así. Una imagen sombría para una noticia que declaraste `bueno` está mal.
+4. Déjala en `contenido/caratulas/FECHA.png` (la fecha de Chile del día).
+   Esa ruta exacta: `scripts/dia.js` no busca en ninguna otra parte.
+
+**Si el generador de imágenes está topado o falla, NO detengas nada**: deja
+`contenido/caratulas/FECHA-NO-PUDE.md` con el motivo y termina. La edición
+sigue con la carátula de respaldo y nadie se queda esperando. Una imagen que
+no salió jamás puede frenar un informe.
 - Después: "Guion:" y el texto narrable con las siguientes marcas, y solo estas, cada una en su propia línea:
   ## Nombre de sección
       Una por bloque temático. No se narra.
