@@ -43,4 +43,36 @@ const imagenDe = (texto, categoria) => {
   for (const [re, f] of IMAGENES) if (re.test(s)) return f;
   return null;
 };
-module.exports = { imagenDe, SECCIONES };
+
+// ── Qué secciones tienen imagen propia HOY ────────────────────────────────
+// Las imágenes de sección van llegando de a una (la primera, clima, se pidió
+// el 24-09). El video no espera a tenerlas todas: la baldosa que no tiene
+// imagen se pinta con el color de su sección y su pictograma, que es el
+// diseño del mosaico v3 tal como se aprobó. Cuando aparece el archivo, esa
+// baldosa lo usa y las demás siguen igual. No hay código que cambiar por
+// sección: basta con que el PNG exista.
+//
+// El original vive en contenido/secciones/<slug>.png; acá se copia a
+// public/secciones/ porque Remotion solo sirve desde public.
+const fs = require("fs");
+const path = require("path");
+
+const copiarSecciones = () => {
+  const origen = path.join("contenido", "secciones");
+  const destino = path.join("public", "secciones");
+  if (!fs.existsSync(origen)) return [];
+  fs.mkdirSync(destino, { recursive: true });
+  const conImagen = [];
+  for (const slug of SECCIONES) {
+    for (const ext of ["png", "jpg"]) {
+      const orig = path.join(origen, `${slug}.${ext}`);
+      if (!fs.existsSync(orig)) continue;
+      fs.copyFileSync(orig, path.join(destino, `${slug}.${ext}`));
+      conImagen.push(`${slug}.${ext}`);
+      break;
+    }
+  }
+  return conImagen;
+};
+
+module.exports = { imagenDe, SECCIONES, copiarSecciones };

@@ -20,6 +20,8 @@ export type Evento = {
   fuente?: string;
   grafico?: "barras" | "cifra" | "comparacion" | "lineas" | "marcador" | "tabla" | "cambio";
   seccion?: string;
+  categoria?: string;          // la sección DECLARADA por el guion (24-09): elige imagen, color y pictograma
+  pausaDur?: number;           // segundos de silencio real en este corte; el mosaico de transición dura eso
   series?: Serie[];
   titulo?: string;
   elementos?: string[];

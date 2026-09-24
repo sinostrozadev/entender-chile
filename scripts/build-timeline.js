@@ -7,6 +7,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const { copiarSecciones, imagenDe } = require("./imagenes-secciones.js");
 
 const [, , parsedPath, alignPath, salida = "out/timeline.json", audioFile = null] = process.argv;
 if (!parsedPath || !alignPath) {
@@ -112,10 +113,18 @@ parsed.eventos.forEach((ev) => {
   const ancla = porIndice.get(ev.anchor);
   if (!ancla) return;
   const pausa = pausas.find((p) => Math.abs(p.from + p.dur - ancla.from) < 0.4);
-  banners.push({ texto: ev.texto, from: Math.max(0, pausa ? pausa.from + 0.05 : ancla.from - 0.1) });
+  // La categoría se resuelve ACÁ, no en el video: primero la que declara el
+  // guion, y si el guion es viejo y no la trae, el clasificador por palabras.
+  // Así el lado Remotion nunca tiene que adivinar nada.
+  banners.push({ texto: ev.texto, categoria: ev.categoria || imagenDe(ev.texto) || null,
+    // cuánto silencio hay de verdad acá: el mosaico de transición dura lo que
+    // dura la pausa, ni un cuadro más, para no pisar voz nunca
+    pausaDur: pausa ? Number(pausa.dur.toFixed(2)) : null,
+    from: Math.max(0, pausa ? pausa.from + 0.05 : ancla.from - 0.1) });
 });
 banners.forEach((b, i) => {
-  eventos.push({ tipo: "seccion", texto: b.texto, from: b.from, to: i + 1 < banners.length ? banners[i + 1].from : 9e9, overlay: true });
+  eventos.push({ tipo: "seccion", texto: b.texto, ...(b.categoria ? { categoria: b.categoria } : {}),
+    ...(b.pausaDur ? { pausaDur: b.pausaDur } : {}), from: b.from, to: i + 1 < banners.length ? banners[i + 1].from : 9e9, overlay: true });
 });
 
 eventos.sort((a, b) => a.from - b.from);
@@ -136,6 +145,13 @@ const timeline = {
     // Fondos por sección ENCENDIDOS (03-09, disputa 1 cerrada): imágenes
     // como identificadores con variación diaria por código (src/fondos.tsx).
     fondos: true,
+    // Qué secciones tienen imagen propia HOY. Las que no están en esta lista
+    // se pintan con su color y su pictograma, que es el mosaico v3 aprobado.
+    // Van llegando de a una y el video no espera a tenerlas todas.
+    secciones: copiarSecciones(),
+    // El mosaico como transición de sección (24-09, aprobado por Santiago en
+    // el taller). MOSAICO=0 vuelve a la cortina de siempre.
+    mosaico: process.env.MOSAICO !== "0",
     // apertura en frío: el sello suena en la pausa que cierra la primera
     // sección (banners[1].from ya apunta al inicio de ese silencio)
     selloEn: enFrio && banners[1] ? Number(Math.max(0, banners[1].from - 0.05).toFixed(2)) : 0,

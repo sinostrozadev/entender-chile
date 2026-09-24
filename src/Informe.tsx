@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { tema, estiloEyebrow } from "./tema";
 import { Tarjeta, SeccionBanner, CortinaSeccion, Evento } from "./tarjetas";
+import { TransicionMosaico, Baldosa } from "./mosaico";
 import { FondosContext } from "./fondos";
 
 export type Timeline = {
@@ -17,6 +18,8 @@ export type Timeline = {
     cortinas?: string[] | null;  // melodias de transicion, se van alternando
     cierre?: string | null;      // melodia final
     fondos?: boolean;            // texturas por sección (src/fondos.tsx); apagado = video de siempre
+    mosaico?: boolean;           // el mosaico como transición de sección (24-09); apagado = la cortina de siempre
+    secciones?: string[];        // qué secciones tienen imagen propia hoy, ej. ["clima.png"]; el resto va a color
     selloEn?: number;            // segundos en que entra el sello; 0 = al inicio (apertura en frío: después de la noticia)
     fps: number;
     width: number;
@@ -36,6 +39,11 @@ const SELLO_SEG = 2.8;
 // Presupuesto duro de la cortina de seccion. No aporta informacion: si alguna
 // vez hay que recortar el video, se recorta aqui primero.
 const CORTINA_SEG = 1.1;
+
+// El mosaico de transición nunca dura más que esto, ni más que el silencio
+// real que hay en ese corte (ev.pausaDur). Entre las dos manda la más corta:
+// pisar voz es peor que un viaje apurado.
+const MOSAICO_MAX_SEG = 2.4;
 
 const Sello: React.FC<{ fecha?: string; serie?: string }> = ({ fecha, serie }) => {
   const frame = useCurrentFrame();
@@ -75,6 +83,10 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
 
   const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte);
   const overlays = tl.eventos.filter((e) => e.overlay);
+  // Las baldosas del mosaico son las secciones del día, en el orden del
+  // guion. La fila se BARAJA con la fecha adentro del componente; el orden de
+  // lectura, que es este, no se toca.
+  const baldosas: Baldosa[] = overlays.map((e) => ({ texto: e.texto ?? "", categoria: e.categoria ?? null }));
   const selloEn = tl.meta.selloEn ?? 0;
   // la tesis de cada sección, como texto difuminado en su cortina
   const tesisDe = (nombre: string) => tl.eventos.find((e) => e.tipo === "tesis" && e.seccion === nombre)?.texto;
@@ -109,10 +121,34 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
           <SeccionBanner texto={ev.texto ?? ""} />
         </Sequence>
       ))}
-      {/* Cortinas de seccion: melodia corta + tarjeta a pantalla completa.
-          Solo se encienden cuando la narracion trae pausa en ese punto; si no,
-          taparian voz. La primera seccion no lleva porque ya esta el sello. */}
-      {tl.meta.cortinas && tl.meta.cortinas.length
+      {/* TRANSICIÓN DE SECCIÓN. Con meta.mosaico encendido, la cámara se aleja
+          del bloque que termina, cruza la fila de secciones del día y entra en
+          el que empieza: una sola toma, el mosaico v3 que Santiago aprobó en
+          el taller. Apagado, queda la cortina de siempre.
+
+          Las dos comparten la misma regla: solo se encienden donde la
+          narración trae silencio, si no taparían voz. La primera sección no
+          lleva, porque ahí ya está el sello. La diferencia es que la cortina
+          necesitaba una melodía para existir y el mosaico no: la música es
+          opcional, el viaje es el que cuenta. */}
+      {tl.meta.mosaico
+        ? overlays
+            .map((ev, i) => ({ ev, i }))
+            .filter(({ ev, i }) => i > 0 && ev.pausaDur
+              && (ev.from < selloEn - 0.5 || ev.from > selloEn + SELLO_SEG + 0.5))
+            .map(({ ev, i }) => {
+              const dur = Math.min(ev.pausaDur!, MOSAICO_MAX_SEG);
+              return (
+                <Sequence key={"mos" + i} from={f(ev.from)} durationInFrames={Math.max(1, f(dur))}>
+                  {tl.meta.cortinas && tl.meta.cortinas.length ? (
+                    <Audio src={staticFile(tl.meta.cortinas[i % tl.meta.cortinas.length])} volume={0.85} />
+                  ) : null}
+                  <TransicionMosaico baldosas={baldosas} indice={i} dur={dur}
+                    conImagen={tl.meta.secciones ?? []} fecha={tl.meta.fecha} />
+                </Sequence>
+              );
+            })
+        : tl.meta.cortinas && tl.meta.cortinas.length
         ? overlays
             .filter((ev, i) => i > 0 && (ev.from < selloEn - 0.5 || ev.from > selloEn + SELLO_SEG + 0.5))
             .map((ev, i) => (
