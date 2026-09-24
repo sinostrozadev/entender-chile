@@ -1,18 +1,10 @@
 {
   "fecha": "2026-09-24",
-  "etapa": "reparar_preseleccion",
+  "etapa": "validar_preseleccion",
   "veredicto": "pendiente",
   "vuelta": 1,
-  "actualizado": "2026-09-24 06:46",
-  "reparar": {
-    "piezas": [
-      "preseleccion"
-    ],
-    "pieza": "preseleccion",
-    "dueno": "GPT (despachador)",
-    "motivo": "contenido/veredictos/2026-09-24-preseleccion.md",
-    "vuelta": 1
-  },
+  "actualizado": "2026-09-24 06:48",
+  "reparar": null,
   "piezas": [
     {
       "id": "barrido",
@@ -31,7 +23,7 @@
       "id": "preseleccion",
       "etiqueta": "Preselección",
       "hay": true,
-      "situacion": "reparar",
+      "situacion": "por_validar",
       "prompt": "prompts/seleccion.md",
       "hora": "06:41",
       "esperada": "02:10",
@@ -102,31 +94,31 @@
     {
       "id": "informe",
       "etiqueta": "Informe",
-      "atraso": 246,
+      "atraso": 248,
       "dueno": "GPT · prompts/informe.md"
     },
     {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "atraso": 216,
+      "atraso": 218,
       "dueno": "GPT · prompts/guion-informe.md"
     },
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 196,
+      "atraso": 198,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "banco",
       "etiqueta": "Banco de temas de la Clave",
-      "atraso": 166,
+      "atraso": 168,
       "dueno": "GPT · prompts/banco-temas.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 91,
+      "atraso": 93,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
