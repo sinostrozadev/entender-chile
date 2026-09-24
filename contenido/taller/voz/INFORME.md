@@ -10,7 +10,7 @@ Prueba del 2026-09-24. Mismo párrafo, varias formas de decirlo. Se decide escuc
 | **4-dos-voces** · Segunda voz para la cita | La regla 31 permite dos voces cuando el cambio significa algo. Una cita leída por otra voz se entiende como cita sin decir comillas. | ✅ 491 KB |
 | **5-estilo-noticiero** · Estilo noticiero (PUEDE FALLAR) | mstts:express-as con estilo newscast. No sé si las voces chilenas lo soportan; si Azure lo rechaza, queda escrito acá y dejamos de preguntárnoslo. | ✅ 456 KB |
 | **6-enfasis-y-siglas** · Énfasis y siglas (PUEDE FALLAR EL ÉNFASIS) | emphasis sobre la palabra que importa, y sub para que una sigla se lea expandida sin tocar el texto del guion. | ✅ 213 KB |
-| **7-procesada** · La misma voz, procesada | Compresión suave, menos barro en 180 Hz, más presencia en 3,2 kHz y volumen parejo. Hecha sobre 3-tono.mp3. | ❌ node_modules/@remotion/compositor-linux-x64-gnu/ffmpeg: Error opening output files: Filter not found |
+| **7-procesada** · La misma voz, procesada | Compresión suave, menos barro en 180 Hz, más presencia en 3,2 kHz y volumen parejo. Hecha sobre 3-tono.mp3. | ✅ lista |
 
 ## Texto usado
 
