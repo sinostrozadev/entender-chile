@@ -1,0 +1,54 @@
+name: Cambiar carátula
+
+# Cambia la carátula de un video YA PUBLICADO. Nació el 24-09-2026: el taller
+# dejó carátulas muy superiores a las que llevaban los videos ya subidos, y
+# cambiarlas significaba entrar a Studio a mano, video por video.
+#
+# Se dispara a mano (Actions -> Cambiar carátula -> Run workflow). La imagen
+# tiene que estar YA en el repo, en contenido/caratulas/listas/.
+on:
+  workflow_dispatch:
+    inputs:
+      imagen:
+        description: "Ruta de la imagen en el repo (ej: contenido/caratulas/listas/2026-09-23-informe.png)"
+        required: true
+      fecha:
+        description: "Fecha de Chile del video (AAAA-MM-DD). Se ignora si pasas el id."
+        required: false
+        default: ""
+      pieza:
+        description: "informe | short | clave (solo se usa con fecha)"
+        required: false
+        default: "informe"
+      id:
+        description: "Id del video de YouTube, si lo sabes. Manda sobre la fecha."
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  cambiar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Instalar solo googleapis
+        run: npm install --no-save googleapis
+      - name: Cambiar la carátula
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: |
+          ARGS="--imagen ${{ inputs.imagen }}"
+          if [ -n "${{ inputs.id }}" ]; then
+            ARGS="$ARGS --id ${{ inputs.id }}"
+          else
+            ARGS="$ARGS --fecha ${{ inputs.fecha }} --pieza ${{ inputs.pieza }}"
+          fi
+          node scripts/youtube-caratula.js $ARGS
