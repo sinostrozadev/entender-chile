@@ -38,7 +38,7 @@ const azar = (s0: number) => {
 const familias: Array<[RegExp, Familia]> = [
   [/seguridad|polic|fiscal|justicia|corte|delito|carabinero|pdi|crimen|homicid|narco|^caso\b|molino/i, "rayado"],
   [/econom|mercado|bolsillo|trabajo|empleo|imacec|hipotec|fondo|pensi|subsidio|inflaci|\bipc\b|cobre|miner|financ|banco|tasa|dólar|dolar/i, "grafico"],
-  [/regi|clima|tiempo|medioambiente|incendio|lluvia|alerta|río|rio|volc|sismo|terremoto|comuna|ciudad|vivienda|territor|bolivia|argentina|perú|peru|internacional|mundo|curioso/i, "topografica"],
+  [/regi|clima|tiempo|medioambiente|emergencia|incendio|lluvia|alerta|río|rio|volc|sismo|terremoto|avalancha|aluvi|derrumbe|tsunami|evacua|comuna|ciudad|vivienda|territor|bolivia|argentina|perú|peru|internacional|mundo|curioso/i, "topografica"],
   [/congreso|senado|cámara|camara|gobierno|reforma|ley|constitu|elecci|presiden|minist|contralor|licencia|derechos|agenda|apertura|cierre|titulares/i, "trama"],
 ];
 // Imagen de sección (disputa 1 cerrada el 03-09): una de las diez láminas de
@@ -53,9 +53,11 @@ const IMAGENES: Array<[RegExp, string]> = [
   [/dato curioso/, "dato-curioso"],
   [/salud|hospital|isapre|fonasa|medicament/, "salud"],
   [/educaci|ciencia|universidad|escuela|inteligencia artificial/, "educacion"],
-  [/seguridad|polic|fiscal|justicia|corte|delito|carabinero|crimen|homicid|narco|robo|secuestro|c[aá]rcel|condena|\bcaso\b/, "seguridad"],
+  [/seguridad|polic|fiscal|justicia|corte|delito|carabinero|crimen|homicid|narco|robo|secuestr|c[aá]rcel|condena|\bcaso\b/, "seguridad"],
   [/econom|mercado|bolsillo|empleo|imacec|hipotec|pensi|subsidio|inflaci|\bipc\b|cobre|miner|banc|tasa|d[oó]lar|bono|sueldo|fondos|vivienda|arriendo/, "economia"],
-  [/clima|tiempo|aire|alerta|incendio|lluvia|sismo|terremoto|volc[aá]n|medioambiente|tornado/, "clima"],
+  // ESPEJO del corte emergencia/clima del 24-09. Ver scripts/imagenes-secciones.js.
+  [/emergencia|cat[aá]strofe|desastre|terremoto|sismo|tsunami|erupci[oó]n|volc[aá]n|avalancha|aluvi[oó]n|derrumbe|deslizamiento|incendio|evacua|damnificad|senapred|alerta roja|alerta amarilla|inundaci|anegad|desborde/, "emergencia"],
+  [/clima|tiempo|pron[oó]stico|sistema frontal|lluvia|nieve|nevaz[oó]n|granizo|helada|ola de calor|temperatura|viento|aire|medioambiente|tornado/, "clima"],
   [/regi[oó]n|antofagasta|araucan|magallanes|concepci|valpara|[ñn]uble|ays[eé]n|atacama|coquimbo|biob/, "regiones"],
   [/congreso|senado|c[aá]mara|gobierno|reforma|\bley\b|elecci|presiden|minist|feriado|pol[ií]tic/, "congreso"],
 ];

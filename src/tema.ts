@@ -74,6 +74,10 @@ const paletaSecciones: Array<[RegExp, string]> = [
   [/vivienda|ciudad/i, "#8A5A46"],                    // arcilla apagada
   [/seguridad|justicia/i, "#7A5560"],                 // vino gris
   [/curioso/i, "#A98F3C"],                            // mostaza
+  // emergencia ANTES que clima: comparten palabras y son tonos opuestos.
+  // Ladrillo oscuro, bien lejos del cobre del banner (#D08A5B) para que no
+  // se confundan, y lejos del vino de seguridad (#7A5560).
+  [/emergencia|catástrofe|catastrofe|desastre|terremoto|sismo|tsunami|erupci|volc|avalancha|aluvi|derrumbe|evacua|damnificad/i, "#8A4A3C"],
   [/tiempo|clima|medioambiente/i, "#5A7D9A"],         // celeste piedra
 ];
 export const colorDeSeccion = (nombre?: string | null): string => {

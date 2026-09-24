@@ -24,6 +24,16 @@ const TRAZOS: Record<string, React.ReactNode> = {
     <P d="M70 128l-12 30M104 128l-12 30M138 128l-12 30" />
     <P d="M86 166l-7 18M120 166l-7 18" w={7} o={0.6} />
   </>),
+  // triángulo de advertencia: algo pasó. Es el símbolo que ya significa esto
+  // en todas partes (la señal de la carretera), así que no hay que enseñarlo.
+  // A propósito NO es una casa rota ni una grieta: la sección cubre
+  // terremoto, aluvión, incendio y avalancha, y ningún dibujo concreto los
+  // cubre todos, que es exactamente el error que nos costó la tarde con clima.
+  emergencia: (<>
+    <P d="M100 34L22 172h156z" />
+    <P d="M100 82v52" w={13} />
+    <P d="M100 152v2" w={15} />
+  </>),
   // barras con flecha: el bolsillo
   economia: (<>
     <P d="M40 168V118M80 168V96M120 168v-72M160 168V64" w={14} />

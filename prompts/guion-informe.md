@@ -176,10 +176,29 @@ no salió jamás puede frenar un informe.
   ## Nombre de sección [categoria]
       Una por bloque temático. No se narra.
       LA CATEGORÍA ENTRE CORCHETES ES OBLIGATORIA en los bloques de noticia, y
-      es UNA de estas once, tal cual, en minúscula y sin tilde:
-      `clima`, `economia`, `seguridad`, `congreso`, `salud`, `educacion`,
-      `internacional`, `plata-publica`, `regiones`, `dato-curioso`, `deporte`.
+      es UNA de estas doce, tal cual, en minúscula y sin tilde:
+      `clima`, `emergencia`, `economia`, `seguridad`, `congreso`, `salud`,
+      `educacion`, `internacional`, `plata-publica`, `regiones`,
+      `dato-curioso`, `deporte`.
       Ejemplo: `## Sistema frontal [clima]`
+
+      CLIMA Y EMERGENCIA NO SON LO MISMO (24-09, pregunta de Santiago: "¿y qué
+      pasa cuando es avalancha?"). La regla:
+        · `clima` es el ESTADO DEL CIELO y nada más: el pronóstico, el sistema
+          frontal que viene, la ola de calor, las heladas del martes. Nadie se
+          ha muerto todavía. Es información para saber si mañana llevas
+          paraguas.
+        · `emergencia` es que ALGO PASÓ: terremoto, réplica, tsunami, aluvión,
+          avalancha, derrumbe, incendio forestal, erupción, inundación, alerta
+          roja, evacuados, damnificados. Hay víctimas, daños o una alerta
+          declarada.
+      Para decidir: si hay víctimas, evacuados, daños o una alerta declarada,
+      es `emergencia`; si es pronóstico o condición, es `clima`. Y fíjate en
+      esto: el terremoto, el tsunami, la avalancha y la erupción NO son
+      fenómenos meteorológicos, son geológicos. Nunca van en `clima`.
+      Importa porque el tono visual es opuesto: clima se pinta tranquilo y
+      emergencia se pinta grave. Un cielo apacible detrás de un número de
+      muertos es una falta de respeto.
       Para qué sirve: decide la imagen, el color y el pictograma con que se
       pinta ese bloque en el video. Hasta el 24-09 se adivinaba buscando
       palabras en el titular y fallaba en 302 de 510 bloques: "Sistema
