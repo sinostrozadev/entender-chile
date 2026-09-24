@@ -176,8 +176,19 @@ function parseGuion(md) {
 
     if (linea.startsWith("## ")) {
       flush();
-      eventos.push({ tipo: "seccion", texto: linea.slice(3).trim() });
-      seccionNombre = linea.slice(3).trim();
+      // CATEGORÍA DECLARADA (24-09): "## Sistema frontal [clima]". Antes la
+      // sección visual se adivinaba buscando palabras clave en el TITULAR, y
+      // medido sobre 510 bloques reales fallaba el 59% de las veces: el guion
+      // titula "Sistema frontal" y no dice "clima", así que caía al respaldo.
+      // Es el mismo error que el clima de la carátula: adivinar en vez de
+      // preguntar. El corchete es opcional, así que los guiones viejos siguen
+      // funcionando con el clasificador de siempre.
+      const bruto = linea.slice(3).trim();
+      const m = bruto.match(/^(.*?)\s*\[([a-záéíóúñ-]+)\]$/i);
+      const texto = (m ? m[1] : bruto).trim();
+      const categoria = m ? m[2].toLowerCase() : null;
+      eventos.push({ tipo: "seccion", texto, ...(categoria ? { categoria } : {}) });
+      seccionNombre = texto;
       continue;
     }
 

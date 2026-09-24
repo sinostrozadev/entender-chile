@@ -173,8 +173,21 @@ tú. Va después de todo lo demás, en este orden exacto:
 sigue con la carátula de respaldo y nadie se queda esperando. Una imagen que
 no salió jamás puede frenar un informe.
 - Después: "Guion:" y el texto narrable con las siguientes marcas, y solo estas, cada una en su propia línea:
-  ## Nombre de sección
+  ## Nombre de sección [categoria]
       Una por bloque temático. No se narra.
+      LA CATEGORÍA ENTRE CORCHETES ES OBLIGATORIA en los bloques de noticia, y
+      es UNA de estas once, tal cual, en minúscula y sin tilde:
+      `clima`, `economia`, `seguridad`, `congreso`, `salud`, `educacion`,
+      `internacional`, `plata-publica`, `regiones`, `dato-curioso`, `deporte`.
+      Ejemplo: `## Sistema frontal [clima]`
+      Para qué sirve: decide la imagen, el color y el pictograma con que se
+      pinta ese bloque en el video. Hasta el 24-09 se adivinaba buscando
+      palabras en el titular y fallaba en 302 de 510 bloques: "Sistema
+      frontal" es clima y no calzaba con nada, "Presupuesto 2027" es economía
+      y tampoco. Elige por el TEMA del bloque, no por las palabras del título.
+      Si dudas entre dos, elige la que un lector usaría para archivar la
+      noticia. Los bloques de estructura (Apertura, La noticia del día, En
+      titulares, Agenda, ¿En qué quedó?, Cierre) NO llevan corchete.
   [FUENTE medio, fecha]
       SIGLAS: toda sigla que se PINTE EN PANTALLA (en esta marca o en el pie de
       un [DATO]) va expandida la primera vez que aparece en el guion: "Dirección

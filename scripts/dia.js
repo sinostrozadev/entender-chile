@@ -183,7 +183,11 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
     const m = Math.ceil(w.length / 2);
     return [w.slice(0, m).join(" "), w.slice(m).join(" ")];
   };
-  const img = esClave ? null : imagenDe(`${bloquePortada || ""} ${parsed.titulo || ""}`);
+  // la categoría la DECLARA el guion en el encabezado del bloque
+  // ("## Sistema frontal [clima]"); el texto queda de respaldo para guiones
+  // viejos, que es lo que fallaba el 59% de las veces (medido el 24-09)
+  const catPortada = (parsed.eventos.find((e) => e.tipo === "seccion" && e.texto === bloquePortada) || {}).categoria || null;
+  const img = esClave ? null : imagenDe(`${bloquePortada || ""} ${parsed.titulo || ""}`, catPortada);
   const imagen = img ? `fondos/seccion-${img}.jpg` : esClave ? "fondos/fondo-clave-vertical.png" : "fondos/seccion-regiones.jpg";
   const fechaVisible = fecha.split("-").reverse().join("-");
   // REMOTION_BROWSER_EXECUTABLE deja probar las carátulas sin que Remotion

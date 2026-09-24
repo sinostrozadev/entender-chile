@@ -15,9 +15,19 @@ const IMAGENES = [
   [/regi[oó]n|antofagasta|araucan|magallanes|concepci|valpara|[ñn]uble|ays[eé]n|atacama|coquimbo|biob/, "regiones"],
   [/congreso|senado|c[aá]mara|gobierno|reforma|\bley\b|elecci|presiden|minist|feriado|pol[ií]tic/, "congreso"],
 ];
-const imagenDe = (texto) => {
+// Las diez secciones válidas, más deporte, que apareció en los guiones y no
+// existía en el sistema (medido el 24-09).
+const SECCIONES = ["clima", "economia", "seguridad", "congreso", "salud", "educacion",
+  "internacional", "plata-publica", "regiones", "dato-curioso", "deporte"];
+
+// Si el guion DECLARA la categoría entre corchetes, manda esa. El clasificador
+// por palabras clave queda solo de respaldo para guiones viejos: medido sobre
+// 510 bloques reales, fallaba el 59% de las veces porque busca palabras en un
+// titular libre ("Sistema frontal" es clima y no calzaba con nada).
+const imagenDe = (texto, categoria) => {
+  if (categoria && SECCIONES.includes(String(categoria).toLowerCase())) return String(categoria).toLowerCase();
   const s = (texto || "").toLowerCase();
   for (const [re, f] of IMAGENES) if (re.test(s)) return f;
   return null;
 };
-module.exports = { imagenDe };
+module.exports = { imagenDe, SECCIONES };
