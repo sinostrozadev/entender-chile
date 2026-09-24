@@ -57,17 +57,29 @@ const Baldosa: React.FC<{ b: Bal; activa: boolean; z: number }> = ({ b, activa, 
       {b.img ? <Img src={staticFile(b.img)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} /> : null}
       {b.categoria ? (
         <div style={{ position: "absolute", right: -22, top: -16, width: 166, height: 166,
-          opacity: interpolate(z, [0, 0.55], [0.85, 0.12], { extrapolateRight: "clamp" }) }}>
+          opacity: interpolate(z, [0, 0.55, 0.9], [0.85, 0.12, 0], { extrapolateRight: "clamp" }) }}>
           <Picto nombre={b.categoria} color="rgba(255,255,255,0.9)" />
         </div>
       ) : null}
-      <AbsoluteFill style={{ background: b.img
-        ? "linear-gradient(60deg, rgba(23,25,28,0.84) 26%, rgba(23,25,28,0.06) 82%)"
-        : "linear-gradient(60deg, rgba(23,25,28,0.42) 20%, rgba(23,25,28,0) 78%)" }} />
+      {/* EL EMPALME. Lo que el ojo lee como salto no es el zoom: es que la
+          baldosa llena el cuadro con un velo diagonal y el bloque que viene
+          después lo tiene a la mitad, de izquierda a derecha. Al llegar, la
+          baldosa se convierte en el bloque: el velo gira de diagonal a
+          vertical y se planta en la mitad, el pictograma se apaga y su propio
+          título se va, que es justo cuando entra la cabecera. */}
+      <AbsoluteFill style={{ background: "linear-gradient(60deg, rgba(23,25,28,0.84) 26%, rgba(23,25,28,0.06) 82%)",
+        opacity: b.img ? 1 - z : 0 }} />
+      <AbsoluteFill style={{ background: "linear-gradient(60deg, rgba(23,25,28,0.42) 20%, rgba(23,25,28,0) 78%)",
+        opacity: b.img ? 0 : 1 - z }} />
+      <AbsoluteFill style={{ background: velo(b.img ? 0.5 : 1, false), opacity: z }} />
       <div style={{ position: "absolute", left: 24, bottom: 22, width: 300, fontFamily: tema.serif,
         fontWeight: 600, fontSize: 22, lineHeight: 1.06, color: "#F7F6F2", opacity: 1 - z }}>{b.texto}</div>
+      {/* el filo de cobre se apaga MUCHO antes de llegar: al llenar el cuadro
+          quedaba una línea de un píxel marcando el borde de la baldosa, y eso
+          delataba el empalme */}
       <div style={{ position: "absolute", inset: 0,
-        outline: activa ? `${interpolate(z, [0, 1], [3, 0])}px solid ${COBRE}` : "none", outlineOffset: -2 }} />
+        outline: activa ? `${interpolate(z, [0, 0.72], [3, 0], { extrapolateRight: "clamp" })}px solid ${COBRE}` : "none",
+        outlineOffset: -2 }} />
     </div>
   </div>
 );
@@ -177,11 +189,23 @@ const Intro: React.FC<{ conTextos: boolean; dur: number }> = ({ conTextos, dur }
 // ── el guion de tiempos ──────────────────────────────────────────────────
 // Todo en cuadros a 24. Los tramos respiran: 2 s de imagen limpia, 1,6 s de
 // barrido, y 2,5 s de pausa entre secciones, que es lo aprobado.
-const PPAL = { from: 0, dur: 300 };          // 12,5 s
-const INTRO = { from: 276, dur: 216 };       // 9 s: alejarse, la fila avanza, entrar
-const S1 = { from: 470, dur: 330 };          // 13,75 s
-const S2 = { from: 780, dur: 250 };
-const LARGO = 1040;
+// LOS TIEMPOS. La regla que faltaba: un bloque no puede empezar antes de que
+// la cámara termine de llegar. Antes el bloque de sección arrancaba 22
+// cuadros antes del final del viaje y se pintaba encima, así que el viaje
+// quedaba cortado a mitad de camino. Ese era el salto.
+// Y NADA DE FUNDIDO EN EL EMPALME: corte exacto en el cuadro en que la
+// cámara llega. A zoom 1 la baldosa mide exactamente 1920 y muestra lo mismo
+// que el bloque (mismo recorte de la imagen, mismo velo a la mitad, sin
+// título en ninguna de las dos), así que el corte no se ve. Un fundido, en
+// cambio, deja asomar el borde de la baldosa esos cuadros.
+const PPAL  = { from: 0,   dur: 290 };
+const INTRO = { from: 272, dur: 240 };
+const S1    = { from: INTRO.from + INTRO.dur, dur: 330 };
+const PASEO = { from: 0, dur: 120 };
+const S2    = { from: 0, dur: 250 };
+PASEO.from = S1.from + S1.dur;
+S2.from = PASEO.from + PASEO.dur;
+const LARGO = S2.from + S2.dur;
 
 const Secuencia: React.FC<{ conTextos: boolean }> = ({ conTextos }) => (
   <AbsoluteFill style={{ backgroundColor: "#15171A" }}>
@@ -196,7 +220,7 @@ const Secuencia: React.FC<{ conTextos: boolean }> = ({ conTextos }) => (
         avanza, y al final entra en la primera sección */}
     <Sequence from={INTRO.from} durationInFrames={INTRO.dur}>
       <Audio src={staticFile("musica/sello.wav")} volume={0.75} />
-      <Tablero cuadros={[0, 70, 150, 216]} zooms={[1, 0.12, 0.12, 1]} focos={[0, 0, 1, 1]} />
+      <Tablero cuadros={[0, 80, 165, 240]} zooms={[1, 0.12, 0.12, 1]} focos={[0, 0, 1, 1]} />
       {/* el bloque anterior quedó oscuro y el tablero no: sin este velo que
           se va soltando, al empezar a alejarse la imagen se aclaraba de
           golpe. Es uno de los saltos. */}
@@ -217,8 +241,8 @@ const Secuencia: React.FC<{ conTextos: boolean }> = ({ conTextos }) => (
     </Sequence>
 
     {/* el recorrido entre una sección y la siguiente */}
-    <Sequence from={S1.from + S1.dur - 30} durationInFrames={90}>
-      <Tablero cuadros={[0, 40, 90]} zooms={[1, 0.24, 1]} focos={[1, 1, 2]} />
+    <Sequence from={PASEO.from} durationInFrames={PASEO.dur}>
+      <Tablero cuadros={[0, 55, 120]} zooms={[1, 0.24, 1]} focos={[1, 1, 2]} />
     </Sequence>
 
     <Sequence from={S2.from} durationInFrames={S2.dur}>
