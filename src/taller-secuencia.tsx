@@ -48,6 +48,34 @@ const BALDOSAS: Bal[] = [
   { texto: "Presupuesto de educación", categoria: "educacion" },
 ];
 
+// EL TRATAMIENTO DE SECCIÓN (24-09). Una foto sola no dice de qué sección es.
+// Lo que convierte diez fotos distintas en una familia, y a cada una en SU
+// sección, son dos capas que se aplican siempre igual:
+//
+//   el TINTE     un velo del color de la sección, en modo color, que tiñe sin
+//                oscurecer: clima azul piedra, economía ocre, seguridad vino.
+//   el GRABADO   el pictograma de la sección, enorme y casi transparente,
+//                SIEMPRE en el mismo lugar. Es lo que se reconoce de un
+//                vistazo, incluso cuando la cabecera ya pasó.
+//
+// Van las dos en código, no dentro de la imagen: se aplican a las diez de una
+// vez y se ajustan en un render, sin volver a pedirle nada a GPT.
+const TINTE = 0.3;      // cuánto tiñe
+const GRABADO = 0.085;  // cuánto se ve el pictograma
+
+const Tratamiento: React.FC<{ categoria: string | null; escala?: number }> = ({ categoria, escala = 1 }) => {
+  if (!categoria) return null;
+  return (
+    <>
+      <AbsoluteFill style={{ backgroundColor: colorDeSeccion(categoria), opacity: TINTE, mixBlendMode: "color" }} />
+      <div style={{ position: "absolute", right: -60 * escala, bottom: -90 * escala,
+        width: 620 * escala, height: 620 * escala, opacity: GRABADO }}>
+        <Picto nombre={categoria} color="#FFFFFF" />
+      </div>
+    </>
+  );
+};
+
 const Baldosa: React.FC<{ b: Bal; activa: boolean; z: number }> = ({ b, activa, z }) => (
   <div style={{ width: ANCHO, height: ALTO, flex: "0 0 auto", position: "relative" }}>
     <div style={{ width: CAJA, height: CAJA_ALTO, position: "relative", overflow: "hidden",
@@ -55,12 +83,7 @@ const Baldosa: React.FC<{ b: Bal; activa: boolean; z: number }> = ({ b, activa, 
       backgroundColor: b.categoria ? colorDeSeccion(b.categoria) : "#3A3D42",
       opacity: activa ? 1 : 0.78 }}>
       {b.img ? <Img src={staticFile(b.img)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} /> : null}
-      {b.categoria ? (
-        <div style={{ position: "absolute", right: -22, top: -16, width: 166, height: 166,
-          opacity: interpolate(z, [0, 0.55, 0.9], [0.85, 0.12, 0], { extrapolateRight: "clamp" }) }}>
-          <Picto nombre={b.categoria} color="rgba(255,255,255,0.9)" />
-        </div>
-      ) : null}
+      <Tratamiento categoria={b.categoria} escala={CAJA / 1920} />
       {/* EL EMPALME. Lo que el ojo lee como salto no es el zoom: es que la
           baldosa llena el cuadro con un velo diagonal y el bloque que viene
           después lo tiene a la mitad, de izquierda a derecha. Al llegar, la
@@ -121,7 +144,7 @@ type Fase = [number, number];
 //   con cabecera →  aparece al 50%, se muestra el título, barre al 100%,
 //                   entran los textos
 const Bloque: React.FC<{
-  img: string; titulo?: string; seccion?: string; categoria?: string | null;
+  img?: string | null; titulo?: string; seccion?: string; categoria?: string | null;
   lleno?: Fase;   // solo si lleva cabecera: el barrido de la mitad al final
   tarjetas: { ev: Evento; from: number; dur: number }[];
 }> = ({ img, titulo, categoria, lleno, tarjetas }) => {
@@ -132,9 +155,16 @@ const Bloque: React.FC<{
     ? interpolate(f, [0, 12, lleno[0] - 4, lleno[0] + 12], [0, 1, 1, 0], sv) : 0;
   return (
     <AbsoluteFill style={{ backgroundColor: "#15171A" }}>
-      <Img src={staticFile(img)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%",
-        objectFit: "cover", transform: `scale(${1 + f * 0.00008})` }} />
-      <AbsoluteFill style={{ background: velo(avance, retirando) }} />
+      {/* sin imagen propia, el fondo es el color de la sección: el grabado
+          hace que igual se lea como sección y no como un color suelto */}
+      {img ? (
+        <Img src={staticFile(img)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%",
+          objectFit: "cover", transform: `scale(${1 + f * 0.00008})` }} />
+      ) : (
+        <AbsoluteFill style={{ backgroundColor: colorDeSeccion(categoria) }} />
+      )}
+      <Tratamiento categoria={categoria ?? null} />
+      <AbsoluteFill style={{ background: velo(img ? avance : Math.min(avance, 0.62), retirando) }} />
       {titulo ? (
         <div style={{ position: "absolute", left: 110, top: "50%", transform: "translateY(-50%)", maxWidth: 760, opacity: opTitulo }}>
           <div style={{ fontFamily: tema.mono, fontSize: 24, letterSpacing: "0.2em", textTransform: "uppercase",
@@ -246,7 +276,7 @@ const Secuencia: React.FC<{ conTextos: boolean }> = ({ conTextos }) => (
     </Sequence>
 
     <Sequence from={S2.from} durationInFrames={S2.dur}>
-      <Bloque img={CARATULA} titulo="Dólar sobre los novecientos sesenta" categoria="economia"
+      <Bloque titulo="Dólar sobre los novecientos sesenta" categoria="economia"
         lleno={[86, 126]}
         tarjetas={[{ from: 134, dur: 116, ev: ev({ tipo: "dato", grafico: "cifra", seccion: "economia",
           series: [{ etiqueta: "más caro cada mil dólares de deuda", raw: "15.000", num: 15000, unidad: "pesos" }] }) }]} />
