@@ -9,7 +9,8 @@
 // del marco. Se ve la foto, y el número sigue leyéndose sobre papel limpio.
 import React from "react";
 import { AbsoluteFill, Composition, Img, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-import { tema } from "./tema";
+import { tema, colorDeSeccion } from "./tema";
+import { Picto } from "./pictogramas";
 
 const IMG = "caratulas/2026-09-24.png";
 const COBRE = "#D08A5B";
@@ -184,8 +185,82 @@ const Muestra: React.FC = () => (
   </AbsoluteFill>
 );
 
+// ─────────────────────────────────────────────────────────────────────────
+// MUESTRA 2 (24-09): la estructura que propuso Santiago. La imagen del día
+// manda SOLO en la portada; después cada sección entra con su cabecera a
+// media pantalla y la nota vive en el cuadro blanco.
+//
+// El problema a decidir: con qué imagen entra cada sección. Las láminas de
+// public/fondos son texturas al 8% de tinta y en una cabecera difuminada
+// desaparecen igual que desaparecían en la carátula. Acá se muestran las dos
+// opciones seguidas, con la misma sección, para decidir mirando:
+//   A. la lámina tal cual
+//   B. el pictograma de la sección sobre el color de la sección
+
+const CabeceraSeccion: React.FC<{ nombre: string; slug: string; conPicto: boolean; etiqueta: string }> =
+({ nombre, slug, conPicto, etiqueta }) => {
+  const f = useCurrentFrame();
+  const color = colorDeSeccion(slug);
+  return (
+    <AbsoluteFill style={{ backgroundColor: tema.tinta }}>
+      <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "52%", overflow: "hidden",
+        background: conPicto ? color : tema.papel }}>
+        {conPicto ? (
+          <div style={{ position: "absolute", inset: "14%" }}><Picto nombre={slug} color="rgba(255,255,255,0.92)" /></div>
+        ) : (
+          <Img src={staticFile(`fondos/seccion-${slug}.jpg`)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        )}
+        <AbsoluteFill style={{ background: `linear-gradient(90deg, ${tema.tinta} 0%, rgba(23,25,28,0) 45%)` }} />
+      </div>
+      <div style={{ position: "absolute", left: 120, top: 92 }}><Sello claro /></div>
+      <div style={{ position: "absolute", left: 120, top: "50%", transform: "translateY(-50%)", width: "44%" }}>
+        <div style={{ fontFamily: tema.mono, fontSize: 26, letterSpacing: "0.18em", textTransform: "uppercase", color: COBRE,
+          marginBottom: 20, opacity: fade(f, 3), transform: `translateY(${sube(f, 3)}px)` }}>{etiqueta}</div>
+        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 88, lineHeight: 1.04, color: "#F7F6F2",
+          opacity: fade(f, 10, 14), transform: `translateY(${sube(f, 10, 30, 18)}px)` }}>{nombre}</div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+const NotaEnCuadro: React.FC<{ seccion: string; valor: string; etiqueta: string; fuente: string }> =
+({ seccion, valor, etiqueta, fuente }) => {
+  const f = useCurrentFrame();
+  const inset = interpolate(f, [0, 16], [230, 132], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#DEDCD6" }}>
+      <div style={{ position: "absolute", inset, borderRadius: 10, overflow: "hidden", opacity: fade(f, 0, 10),
+        border: `4px solid ${tema.tinta}`, background: tema.papel, boxShadow: "0 40px 120px rgba(0,0,0,0.28)" }}>
+        <div style={{ height: 80, background: tema.tinta, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 32px" }}>
+          <Sello claro />
+          <div style={{ fontFamily: tema.mono, fontSize: 22, letterSpacing: "0.16em", textTransform: "uppercase", color: COBRE }}>{seccion}</div>
+        </div>
+        <div style={{ position: "absolute", top: 80, left: 0, right: 0, bottom: 0, padding: "56px 64px" }}>
+          <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 170, lineHeight: 1.02, color: tema.tinta,
+            opacity: fade(f, 20, 12), transform: `translateY(${sube(f, 20, 24, 14)}px)` }}>{valor}</div>
+          <div style={{ fontFamily: tema.sans, fontSize: 34, color: tema.gris, marginTop: 18, opacity: fade(f, 30) }}>{etiqueta}</div>
+          <div style={{ position: "absolute", left: 64, bottom: 40, fontFamily: tema.mono, fontSize: 20, color: tema.gris,
+            letterSpacing: "0.08em", opacity: fade(f, 38) }}>{fuente}</div>
+        </div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+const Muestra2: React.FC = () => (
+  <AbsoluteFill style={{ backgroundColor: tema.tinta }}>
+    <Sequence durationInFrames={80}><EscenaApertura /></Sequence>
+    <Sequence from={80} durationInFrames={62}><CabeceraSeccion nombre="Dólar bajo los 950" slug="economia" conPicto={false} etiqueta="Opción A · la lámina de hoy" /></Sequence>
+    <Sequence from={142} durationInFrames={62}><CabeceraSeccion nombre="Dólar bajo los 950" slug="economia" conPicto={true} etiqueta="Opción B · el pictograma" /></Sequence>
+    <Sequence from={204} durationInFrames={96}><NotaEnCuadro seccion="Economía" valor="947,40" etiqueta="cierre del dólar" fuente="La Tercera, 22 sep" /></Sequence>
+    <Sequence from={300} durationInFrames={62}><CabeceraSeccion nombre="Escudo de las Américas" slug="seguridad" conPicto={true} etiqueta="Bloque 3" /></Sequence>
+    <Sequence from={362} durationInFrames={86}><NotaEnCuadro seccion="Seguridad" valor="21" etiqueta="países en la iniciativa" fuente="Cancillería, 23 sep" /></Sequence>
+  </AbsoluteFill>
+);
+
 export const RootTallerVideo: React.FC = () => (
   <>
+    <Composition id="Muestra2" component={Muestra2} width={1920} height={1080} fps={24} durationInFrames={448} />
     <Composition id="Muestra" component={Muestra} width={1920} height={1080} fps={24} durationInFrames={312} />
     <Composition id="Apertura" component={Apertura} width={1920} height={1080} fps={1} durationInFrames={1} />
     <Composition id="MarcoSolo" component={MarcoSolo} width={1920} height={1080} fps={1} durationInFrames={1} />
