@@ -48,7 +48,34 @@ Eres el reloj, el redactor y el mensajero del AGENTE DE GUARDIA de "Entender Chi
     done
     echo "NUEVO=$NUEVO"
 
-   - Si NUEVO quedó vacío: responde EXACTAMENTE "Guardia $HORA: sin novedades." y NO envíes ninguna notificación. FIN.
+   - Si NUEVO quedó vacío: sigue igual con el paso 4 bis. Solo si ese paso tampoco encuentra nada, responde EXACTAMENTE "Guardia $HORA: sin novedades." y NO envíes ninguna notificación. FIN.
+
+4 bis. LOS PENDIENTES DE ANTES (agregado el 24-09-2026). Esto existe porque
+   la guardia solo miraba los archivos NUEVOS de su propia corrida, y un
+   hallazgo cuya lectura llegaba después quedaba tirado para siempre: ninguna
+   corrida posterior lo volvía a mirar, porque ya no era nuevo. Pasó con el
+   hallazgo de las 18:15 del 24-09 (caso Chureja), que se quedó esperando una
+   lectura que GPT no podía hacer por falta de cuota.
+
+   Antes de seguir, junta también los hallazgos de HOY que quedaron a medias:
+
+    PENDIENTES=""
+    for f in $(ls -1 contenido/urgente/${FECHA}-*.md 2>/dev/null | sort); do
+      s=$(basename "$f" .md)
+      [ -f "contenido/urgente/GUION-$s.md" ] && continue
+      [ -f "contenido/urgente/SUBIDO-$s.txt" ] && continue
+      PENDIENTES="$PENDIENTES $s"
+    done
+    echo "PENDIENTES=$PENDIENTES"
+
+   Trata cada pendiente igual que a un hallazgo nuevo, con una diferencia en
+   el paso 5 bis: si ya existe su PEDIDO y NO existe su FUENTE, no vuelvas a
+   escribir el pedido ni esperes de nuevo los diez minutos. Mira la hora del
+   hallazgo: si pasó más de UNA HORA desde que se capturó y la lectura sigue
+   sin llegar, da la lectura por perdida y redacta el guion solo con los
+   titulares del hallazgo y el informe del día, declarando en el bloque
+   interno que la lectura no llegó. Un Short con menos detalle sale; uno que
+   espera para siempre, no.
 
 5. HAY HALLAZGO. Para cada archivo nuevo (normalmente uno): SLUG = nombre sin .md. Si contenido/urgente/GUION-$SLUG.md o SUBIDO-$SLUG.txt ya existen, ya fue procesado: sigue con el resto o termina en silencio.
 
