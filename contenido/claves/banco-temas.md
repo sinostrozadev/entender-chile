@@ -93,3 +93,7 @@
 - cooperación policial internacional sin tratado, intercambio de información y límites operativos | Chile se incorpora al Escudo de las Américas | 2026-09-23
 - interoperabilidad de bases biométricas, trazabilidad y control de acceso a huellas y ADN | La PDI y Carabineros podrán cruzar huellas y ADN sin depender de una consulta manual al Servicio Médico Legal, cambio que busca acelerar identificaciones criminales y exige resguardos de trazabilidad y acceso | 2026-09-23
 - consejo resolutivo de asignaciones parlamentarias, autonomía y control del gasto del Congreso | El Senado aprobó integrantes del Consejo Resolutivo de Asignaciones Parlamentarias, organismo encargado de fijar y revisar criterios de gastos de senadores y diputados | 2026-09-23
+- recesión técnica regional, medición por trimestres y diferencia con una caída interanual | Tres regiones entran en recesión técnica | 2026-09-24
+- listas de espera en salud, diferencia entre stock de pacientes y tiempo efectivo de espera | Salud pone el foco en el tiempo de espera y no solo en el número de pacientes | 2026-09-24
+- investigación de accidentes mineros, atribuciones de Sernageomin y coordinación con fiscalía y autoridad laboral | Sernageomin investiga un accidente fatal en Minera Escondida | 2026-09-24
+- exenciones de multa por no votar, acreditación de discapacidad y electrodependencia | Electores con alto grado de discapacidad y personas electrodependientes podrían quedar exentos de multas por no votar | 2026-09-24
