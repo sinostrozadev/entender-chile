@@ -50,6 +50,46 @@ export const semillaDeFecha = (fecha?: string) => {
 // todos a la pátina y la fila quedaba con seis baldosas verdes iguales.
 const GRAFITO = "#3A3D42";
 
+// LA BANDA DE PÍXELES (24-09, idea de Santiago: "degradado a pixelado oscuro
+// hacia la izquierda"). A pantalla completa la imagen se rompe en bloques que
+// se apagan hacia la izquierda, hasta el negro donde va el texto.
+//
+// Está dibujada como una grilla de recortes de la propia imagen, no con
+// image-rendering: pixelated, que en el Chromium del render no produce nada
+// visible. Cada bloque muestra su pedazo de la foto ampliado tres veces, así
+// que tiende a un tono plano, y los bordes entre bloques son duros.
+//
+// No es el corte con difuminado que Santiago descartó el 24-09: ahí había un
+// borde recto al 42% del ancho. Acá el paso es una banda que se deshace.
+const COLS = 20, FILAS = 11;
+const BandaPixel: React.FC<{ img: string; z: number }> = ({ img, z }) => {
+  const url = staticFile(`secciones/${img}`);
+  const aparece = interpolate(z, [0.3, 0.85], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const bloques: React.ReactNode[] = [];
+  for (let c = 0; c < COLS; c++) {
+    // de 0 (izquierda, todo apagado) a 1 (derecha, imagen entera)
+    const t = c / (COLS - 1);
+    if (t < 0.24 || t > 0.72) continue;   // fuera de la banda no hay nada que dibujar
+    const vive = interpolate(t, [0.24, 0.72], [0, 1]);
+    for (let r = 0; r < FILAS; r++) {
+      // el escalón sube fila a fila, así el borde de la banda no es una raya
+      const ruido = ((c * 7 + r * 13) % 11) / 11;
+      const op = Math.max(0, Math.min(1, (vive - ruido * 0.45) * 1.5)) * aparece;
+      if (op <= 0.02) continue;
+      bloques.push(
+        <div key={`${c}-${r}`} style={{
+          position: "absolute", left: `${(c / COLS) * 100}%`, top: `${(r / FILAS) * 100}%`,
+          width: `${100 / COLS}%`, height: `${100 / FILAS}%`, opacity: op,
+          backgroundImage: `url(${url})`,
+          backgroundSize: `${COLS * 300}% ${FILAS * 300}%`,
+          backgroundPosition: `${(c / (COLS - 1)) * 100}% ${(r / (FILAS - 1)) * 100}%`,
+        }} />
+      );
+    }
+  }
+  return <AbsoluteFill style={{ overflow: "hidden" }}>{bloques}</AbsoluteFill>;
+};
+
 const Cara: React.FC<{ b: Baldosa; activa: boolean; leida: boolean; z: number; img?: string }> =
 ({ b, activa, leida, z, img }) => {
   const color = b.categoria ? colorDeSeccion(b.categoria) : GRAFITO;
@@ -84,20 +124,39 @@ const Cara: React.FC<{ b: Baldosa; activa: boolean; leida: boolean; z: number; i
           </div>
         ) : null}
 
-        {/* El velo existe para poder leer texto blanco sobre una FOTO. Sobre
-            color plano no hace falta y además mata la baldosa: con 0,86 de
-            negro encima, una fila de colores de sección se ve toda negra. Por
-            eso el velo es fuerte solo donde hay imagen. */}
+        {/* DOS COLUMNAS CON PIXELADO (24-09, idea de Santiago). A pantalla
+            completa la imagen se queda en la derecha y hacia la izquierda se
+            va rompiendo en bloques que se oscurecen, hasta el negro donde va
+            el texto. No es el corte duro con difuminado que Santiago descartó
+            el 24-09: ahí había un borde al 42% del ancho; acá el paso es una
+            banda de píxeles que crece.
+
+            El pixelado es una copia de la misma imagen dibujada a 1/22 de su
+            tamaño y ampliada con image-rendering: pixelated, recortada con
+            una máscara para que solo aparezca en la banda del medio.
+
+            Todo esto nace con el zoom: en la baldosa chica la banda no existe
+            (no hay espacio y no hay texto que proteger), y aparece al entrar. */}
+        {img && z > 0.3 ? <BandaPixel img={img} z={z} /> : null}
+
+        {/* El velo. Sobre una FOTO tiene que ser fuerte para leer texto blanco;
+            sobre color plano no hace falta y además mata la baldosa (con 0,86
+            de negro encima, una fila de colores se ve toda negra). A pantalla
+            completa el velo se endereza: deja de ser diagonal y se convierte
+            en la columna oscura de la izquierda. */}
         <AbsoluteFill style={{ background: img
-          ? `linear-gradient(60deg, rgba(23,25,28,${entre(0.86, 0.9)}) ${entre(26, 34)}%, rgba(23,25,28,0.08) 82%)`
-          : `linear-gradient(60deg, rgba(23,25,28,${entre(0.42, 0.55)}) ${entre(20, 28)}%, rgba(23,25,28,0) 78%)` }} />
+          ? `linear-gradient(${entre(60, 90)}deg, rgba(23,25,28,${entre(0.86, 1)}) ${entre(26, 36)}%, rgba(23,25,28,${entre(0.08, 0)}) ${entre(82, 66)}%)`
+          : `linear-gradient(${entre(60, 90)}deg, rgba(23,25,28,${entre(0.42, 0.72)}) ${entre(20, 44)}%, rgba(23,25,28,0) ${entre(78, 70)}%)` }} />
 
         <div style={{ position: "absolute", left: entre(24, 30), top: entre(20, 26), fontFamily: tema.mono,
           fontSize: entre(9, 10), letterSpacing: "0.22em", textTransform: "uppercase",
           color: "rgba(242,242,239,0.75)", opacity: z }}>Entender Chile</div>
 
-        <div style={{ position: "absolute", left: entre(24, 30), bottom: entre(22, 40), width: entre(300, 380) }}>
-          <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: entre(22, 34), lineHeight: 1.06, color: "#F7F6F2" }}>
+        {/* el título vive en la columna oscura: a pantalla completa se
+            angosta en vez de crecer, si no se cruza sobre la imagen y se
+            vuelve ilegible justo donde la foto tiene más detalle */}
+        <div style={{ position: "absolute", left: entre(24, 30), bottom: entre(22, 46), width: entre(300, 200) }}>
+          <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: entre(22, 28), lineHeight: 1.08, color: "#F7F6F2" }}>
             {b.texto}
           </div>
         </div>
@@ -111,10 +170,17 @@ const Cara: React.FC<{ b: Baldosa; activa: boolean; leida: boolean; z: number; i
 // la trayectoria es siempre la misma forma.
 export const TransicionMosaico: React.FC<{
   baldosas: Baldosa[]; indice: number; dur: number; conImagen?: string[]; fecha?: string;
-}> = ({ baldosas, indice, dur, conImagen = [], fecha }) => {
+  salidaSeg?: number;
+}> = ({ baldosas, indice, dur, conImagen = [], fecha, salidaSeg = 0.45 }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
   const total = Math.max(1, Math.round(dur * fps));
+  // SALIDA SUAVE. La tarjeta vive sobre papel claro y el mosaico es oscuro:
+  // cortar de uno al otro es un golpe de negro a blanco, que fue lo primero
+  // que saltó al verlo en el informe real. Los últimos cuadros el mosaico se
+  // desvanece y deja aparecer la tarjeta que ya está debajo.
+  const salida = Math.max(1, Math.round(salidaSeg * fps));
+  const opSalida = interpolate(f, [total - salida, total], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   // LA FILA VA EN EL ORDEN DEL GUION. En el taller se barajaba, pero ahí eran
   // seis baldosas y tres paradas. En un informe real son dieciséis, y barajar
@@ -138,16 +204,21 @@ export const TransicionMosaico: React.FC<{
   const suavizar = { easing: Easing.inOut(Easing.ease), extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
   // tres puntos: salgo de la anterior, paso por el medio lejos, entro en la
   // nueva. Una sola interpolación de principio a fin.
-  const z = interpolate(f, [0, total * 0.42, total], [1, afuera, 1], suavizar);
-  const x = interpolate(f, [0, total * 0.42, total],
-    [posDe(desde), (posDe(desde) + posDe(indice)) / 2 + deriva, posDe(indice)], suavizar);
-  const zDe = (i: number) => (i === indice ? interpolate(f, [total * 0.42, total], [0, 1], suavizar)
-    : i === desde && indice !== desde ? interpolate(f, [0, total * 0.42], [1, 0], suavizar) : 0);
+  // El viaje termina al 72% y el 28% restante la baldosa se queda QUIETA a
+  // pantalla completa antes de desvanecerse. Sin esa espera, la cámara
+  // llegaba justo cuando empezaba el fundido y nunca se veía instalada, que
+  // es lo que pide la regla 8: en pantalla completa nada se mueve.
+  const LLEGA = 0.72;
+  const z = interpolate(f, [0, total * 0.34, total * LLEGA, total], [1, afuera, 1, 1], suavizar);
+  const x = interpolate(f, [0, total * 0.34, total * LLEGA, total],
+    [posDe(desde), (posDe(desde) + posDe(indice)) / 2 + deriva, posDe(indice), posDe(indice)], suavizar);
+  const zDe = (i: number) => (i === indice ? interpolate(f, [total * 0.34, total * LLEGA], [0, 1], suavizar)
+    : i === desde && indice !== desde ? interpolate(f, [0, total * 0.34], [1, 0], suavizar) : 0);
 
   const imgDe = (b: Baldosa) => conImagen.find((n) => n.startsWith(`${b.categoria}.`));
 
   return (
-    <AbsoluteFill style={{ backgroundColor: "#15171A" }}>
+    <AbsoluteFill style={{ backgroundColor: "#15171A", opacity: opSalida }}>
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}>
         <div style={{ display: "flex", gap: HUECO,
           transform: `scale(${1 + (ESCALA - 1) * z}) translateX(${-x}px)`, transformOrigin: "center center" }}>

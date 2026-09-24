@@ -45,6 +45,14 @@ const CORTINA_SEG = 1.1;
 // pisar voz es peor que un viaje apurado.
 const MOSAICO_MAX_SEG = 2.4;
 
+// El viaje ARRANCA ANTES de la pausa. La pausa de la narración dura 1,2 s y
+// en ese tiempo el viaje se ve apurado (Santiago, 24-09: "es muy rápido el
+// cambio"). Alargar la pausa encarecería el informe entero en unos 12 s; en
+// cambio el mosaico puede empezar mientras se terminan de decir las últimas
+// palabras del bloque anterior, porque esa tarjeta ya se leyó. No se toca el
+// audio: se gana tiempo de imagen, no de silencio.
+const MOSAICO_ANTICIPO_SEG = 1.0;
+
 const Sello: React.FC<{ fecha?: string; serie?: string }> = ({ fecha, serie }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -137,11 +145,17 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
             .filter(({ ev, i }) => i > 0 && ev.pausaDur
               && (ev.from < selloEn - 0.5 || ev.from > selloEn + SELLO_SEG + 0.5))
             .map(({ ev, i }) => {
-              const dur = Math.min(ev.pausaDur!, MOSAICO_MAX_SEG);
+              const anticipo = Math.min(MOSAICO_ANTICIPO_SEG, Math.max(0, ev.from - (overlays[i - 1]?.from ?? 0) - 2));
+              const dur = Math.min(ev.pausaDur!, MOSAICO_MAX_SEG) + anticipo;
               return (
-                <Sequence key={"mos" + i} from={f(ev.from)} durationInFrames={Math.max(1, f(dur))}>
+                <Sequence key={"mos" + i} from={f(ev.from - anticipo)} durationInFrames={Math.max(1, f(dur))}>
+                  {/* la melodía NO se adelanta con la imagen: suena en la
+                      pausa, que es donde hay silencio. La imagen puede
+                      empezar antes, el sonido no. */}
                   {tl.meta.cortinas && tl.meta.cortinas.length ? (
-                    <Audio src={staticFile(tl.meta.cortinas[i % tl.meta.cortinas.length])} volume={0.85} />
+                    <Sequence from={f(anticipo)}>
+                      <Audio src={staticFile(tl.meta.cortinas[i % tl.meta.cortinas.length])} volume={0.85} />
+                    </Sequence>
                   ) : null}
                   <TransicionMosaico baldosas={baldosas} indice={i} dur={dur}
                     conImagen={tl.meta.secciones ?? []} fecha={tl.meta.fecha} />
