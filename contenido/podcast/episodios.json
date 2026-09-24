@@ -366,5 +366,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-23-informe.mp3",
     "bytes": 14723712,
     "durSeg": 613
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "informe",
+    "titulo": "24-09-2026 · Escudo de las Américas: el Congreso interpelará al canciller",
+    "descripcion": "El Congreso pedirá explicaciones por la adhesión de Chile al Escudo de las Américas. También revisamos el salto del dólar sobre los novecientos sesenta pesos, la presión educativa por el Presupuesto 2027 y las principales noticias políticas, económicas y regionales.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-24-informe.mp3",
+    "bytes": 14400576,
+    "durSeg": 600
   }
 ]
