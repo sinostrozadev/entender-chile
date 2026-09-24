@@ -258,8 +258,134 @@ const Muestra2: React.FC = () => (
   </AbsoluteFill>
 );
 
+// ─────────────────────────────────────────────────────────────────────────
+// MUESTRA 3 (24-09): la idea completa, con movimiento DENTRO del dato.
+//
+// Lo que faltaba en las dos anteriores: las tarjetas aparecían y se quedaban
+// quietas. En un informe de diez minutos eso es lo que pierde gente. Acá la
+// cifra cuenta, las barras crecen escalonadas y la comparación aparece una a
+// una. La regla de ritmo: algo cambia en pantalla cada cuatro a seis
+// segundos, y el movimiento SIEMPRE explica algo (una barra crece porque
+// mide, un número cuenta porque es una cantidad). Nada se mueve de adorno.
+
+// número que cuenta hasta su valor; respeta decimales y separadores chilenos
+const Contador: React.FC<{ hasta: number; decimales?: number; desde?: number; dur?: number; style?: React.CSSProperties }> =
+({ hasta, decimales = 0, desde = 6, dur = 26, style }) => {
+  const f = useCurrentFrame();
+  const t = interpolate(f, [desde, desde + dur], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const suave = 1 - Math.pow(1 - t, 3); // desacelera al final, como un velocímetro
+  const v = hasta * suave;
+  return <span style={style}>{v.toLocaleString("es-CL", { minimumFractionDigits: decimales, maximumFractionDigits: decimales })}</span>;
+};
+
+const Cuadro: React.FC<{ seccion: string; fuente: string; children: React.ReactNode; fondo?: string }> =
+({ seccion, fuente, children, fondo }) => {
+  const f = useCurrentFrame();
+  const inset = interpolate(f, [0, 16], [220, 132], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <AbsoluteFill style={{ backgroundColor: fondo ?? "#DEDCD6" }}>
+      <div style={{ position: "absolute", inset, borderRadius: 10, overflow: "hidden", opacity: fade(f, 0, 10),
+        border: `4px solid ${tema.tinta}`, background: tema.papel, boxShadow: "0 40px 120px rgba(0,0,0,0.3)" }}>
+        <div style={{ height: 80, background: tema.tinta, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 32px" }}>
+          <Sello claro />
+          <div style={{ fontFamily: tema.mono, fontSize: 22, letterSpacing: "0.16em", textTransform: "uppercase", color: COBRE }}>{seccion}</div>
+        </div>
+        <div style={{ position: "absolute", top: 80, left: 0, right: 0, bottom: 0, padding: "54px 64px" }}>
+          {children}
+          <div style={{ position: "absolute", left: 64, bottom: 38, fontFamily: tema.mono, fontSize: 20, color: tema.gris,
+            letterSpacing: "0.08em", opacity: fade(f, 40) }}>{fuente}</div>
+        </div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+// la cifra cuenta y una línea de cobre la subraya al llegar
+const NotaCifra: React.FC = () => {
+  const f = useCurrentFrame();
+  const raya = interpolate(f, [30, 44], [0, 520], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <Cuadro seccion="Economía" fuente="La Tercera, 22 sep">
+      <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 180, lineHeight: 1.02, color: tema.tinta,
+        opacity: fade(f, 4, 10) }}>
+        <Contador hasta={947.4} decimales={2} />
+      </div>
+      <div style={{ height: 8, width: raya, background: COBRE, marginTop: 8 }} />
+      <div style={{ fontFamily: tema.sans, fontSize: 36, color: tema.gris, marginTop: 24, opacity: fade(f, 34) }}>cierre del dólar</div>
+    </Cuadro>
+  );
+};
+
+// las barras crecen escalonadas: se comparan mientras crecen, no después
+const NotaBarras: React.FC = () => {
+  const f = useCurrentFrame();
+  const datos = [{ e: "A favor", v: 88 }, { e: "En contra", v: 28 }, { e: "Abstenciones", v: 19 }];
+  const max = 88;
+  return (
+    <Cuadro seccion="Congreso" fuente="BioBioChile, 22 sep">
+      <div style={{ display: "flex", alignItems: "flex-end", gap: 74, height: 430, paddingTop: 16 }}>
+        {datos.map((d, i) => {
+          const desde = 8 + i * 12;
+          const alto = interpolate(f, [desde, desde + 26], [0, (d.v / max) * 390], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+          return (
+            <div key={d.e} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-end", height: "100%" }}>
+              <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 60, color: tema.tinta, marginBottom: 12,
+                opacity: fade(f, desde + 22, 8) }}>
+                <Contador hasta={d.v} desde={desde} dur={26} />
+              </div>
+              <div style={{ width: 168, height: alto, background: i === 0 ? tema.tinta : tema.linea, borderTop: `6px solid ${i === 0 ? COBRE : tema.gris}` }} />
+              <div style={{ fontFamily: tema.sans, fontSize: 30, color: tema.gris, marginTop: 18, opacity: fade(f, desde + 26, 8) }}>{d.e}</div>
+            </div>
+          );
+        })}
+      </div>
+      <div style={{ fontFamily: tema.sans, fontSize: 32, color: tema.tinta, marginTop: 10, opacity: fade(f, 62, 12) }}>
+        Faltaba uno para el quórum de cuatro séptimos
+      </div>
+    </Cuadro>
+  );
+};
+
+// comparación: el segundo valor entra después, para que el contraste se note
+const NotaComparacion: React.FC = () => {
+  const f = useCurrentFrame();
+  const lado = (etiqueta: string, valor: number, unidad: string, desde: number, fuerte: boolean) => (
+    <div style={{ flex: 1, opacity: fade(f, desde, 12), transform: `translateY(${sube(f, desde, 26, 14)}px)` }}>
+      <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 132, lineHeight: 1, color: fuerte ? COBRE : tema.tinta }}>
+        <Contador hasta={valor} desde={desde} dur={24} />{unidad}
+      </div>
+      <div style={{ fontFamily: tema.sans, fontSize: 32, color: tema.gris, marginTop: 18, maxWidth: 420 }}>{etiqueta}</div>
+    </div>
+  );
+  return (
+    <Cuadro seccion="Clima" fuente="DMC vía BioBioChile, 22 sep">
+      <div style={{ display: "flex", gap: 60, alignItems: "flex-start", paddingTop: 30 }}>
+        {lado("alerta oficial en algunas zonas", 105, " mm", 6, false)}
+        <div style={{ width: 4, height: 230, background: tema.linea, opacity: fade(f, 26) }} />
+        {lado("acumulado modelado en cordillera", 200, " mm", 34, true)}
+      </div>
+      <div style={{ fontFamily: tema.sans, fontSize: 32, color: tema.tinta, marginTop: 40, opacity: fade(f, 62, 12) }}>
+        El pronóstico dobla a la alerta
+      </div>
+    </Cuadro>
+  );
+};
+
+const MuestraCompleta: React.FC = () => (
+  <AbsoluteFill style={{ backgroundColor: tema.tinta }}>
+    <Sequence durationInFrames={76}><EscenaApertura /></Sequence>
+    <Sequence from={76} durationInFrames={56}><CabeceraSeccion nombre="Dólar bajo los 950" slug="economia" conPicto={true} etiqueta="Bloque 1" /></Sequence>
+    <Sequence from={132} durationInFrames={110}><NotaCifra /></Sequence>
+    <Sequence from={242} durationInFrames={56}><CabeceraSeccion nombre="La reforma por un voto" slug="congreso" conPicto={true} etiqueta="Bloque 2" /></Sequence>
+    <Sequence from={298} durationInFrames={130}><NotaBarras /></Sequence>
+    <Sequence from={428} durationInFrames={56}><CabeceraSeccion nombre="El frente que viene" slug="clima" conPicto={true} etiqueta="Bloque 3" /></Sequence>
+    <Sequence from={484} durationInFrames={126}><NotaComparacion /></Sequence>
+  </AbsoluteFill>
+);
+
 export const RootTallerVideo: React.FC = () => (
   <>
+    <Composition id="MuestraCompleta" component={MuestraCompleta} width={1920} height={1080} fps={24} durationInFrames={610} />
     <Composition id="Muestra2" component={Muestra2} width={1920} height={1080} fps={24} durationInFrames={448} />
     <Composition id="Muestra" component={Muestra} width={1920} height={1080} fps={24} durationInFrames={312} />
     <Composition id="Apertura" component={Apertura} width={1920} height={1080} fps={1} durationInFrames={1} />
