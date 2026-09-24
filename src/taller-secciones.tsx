@@ -42,7 +42,7 @@ const COBRE = "#D08A5B";
 // factor con que se encoge para que las cinco quepan juntas en el cuadro,
 // que es el punto del video. Sigue siendo DOM, así que al ampliar no pixela.
 const CAJA = 420, CAJA_ALTO = 236;
-const ANCHO = 342, ALTO = 192, HUECO = 30;   // 5 x 342 + 4 x 30 = 1830, entra en 1920
+const ANCHO = 283, ALTO = 159, HUECO = 26;   // 6 x 283 + 5 x 26 = 1828, entra en 1920
 const K = ANCHO / CAJA;
 const ESCALA = 1920 / ANCHO;
 
@@ -52,6 +52,7 @@ const cand = [
   { img: "secciones/cielo.png",       tag: "3 · cielo",       nota: "camino A" },
   { img: "secciones/vidrio.png",      tag: "4 · vidrio",      nota: "camino B" },
   { img: "secciones/tarjeta.png",     tag: "5 · tarjeta",     nota: "camino C, seis franjas" },
+  { img: "secciones/apertura.png",    tag: "6 · apertura",    nota: "la que mandó GPT sola" },
 ];
 
 // el mismo contenido en las cuatro: así la comparación es limpia
@@ -142,6 +143,7 @@ const PLAN = [
   { abre: 394, cierra: 472 },
   { abre: 536, cierra: 614 },
   { abre: 678, cierra: 756 },
+  { abre: 820, cierra: 898 },
 ];
 const VIAJE = 46;
 const AFUERA = 0;   // en este video el punto lejano muestra la fila COMPLETA
@@ -194,5 +196,5 @@ const Comparador: React.FC = () => {
 };
 
 export const RootSecciones: React.FC = () => (
-  <Composition id="Secciones" component={Comparador} width={1920} height={1080} fps={24} durationInFrames={852} />
+  <Composition id="Secciones" component={Comparador} width={1920} height={1080} fps={24} durationInFrames={994} />
 );
