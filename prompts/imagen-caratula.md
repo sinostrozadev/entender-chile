@@ -102,14 +102,21 @@ carátula se aplanó.
 canal parece una sola noticia repetida (y la regla 29 pide variación). El
 guion declara `Clima de carátula:` y de ahí sale la luz:
 
-| Clima | Luz y paleta |
+| Clima | Luz y paleta de la imagen |
 |---|---|
-| `grave` | azul noche, contraluz duro, casi monocromo |
-| `institucional` | grafito y azul frío, luz lateral de sala |
-| `cotidiano` | luz de día neutra, grises cálidos, sombras suaves |
-| `bueno` | luz cálida de mañana, dorados suaves, fondo claro |
-| `curioso` | colores saturados y limpios, fondo claro, luz pareja |
-| `deporte` | luz de estadio, alto contraste |
+| `grave` | NOCHE. Azul noche, contraluz duro, casi monocromo |
+| `institucional` | DÍA nublado. Gris piedra y azul acero, luz de ventana entrando de lado |
+| `cotidiano` | DÍA claro. Grises cálidos y beige, luz natural, sombras suaves |
+| `bueno` | MAÑANA. Luz cálida y dorada, fondo claro, aire limpio |
+| `curioso` | DÍA. Colores limpios y saturados, fondo claro, luz pareja |
+| `deporte` | Luz de estadio o exterior, alto contraste, verdes o azules saturados |
+
+**SOLO `grave` es de noche.** Los otros cinco son de día, con luz. Esto no es
+un detalle: el 24-09 salió una carátula nocturna para una noticia declarada
+`institucional` porque más abajo este mismo archivo fijaba "azul noche" para
+todas, y la instrucción concreta le ganó a la tabla. Si la mayoría de los
+días es `institucional` o `cotidiano`, la mayoría de las carátulas tiene que
+ser de día, o el canal entero se ve igual a la semana.
 
 La mayoría de los días va a ser `institucional` o `cotidiano`, y está bien:
 una noticia mala con luz de mañana se ve falsa y es peor que sombría.
@@ -161,8 +168,10 @@ final. La prueba: si al verla alguien piensa "ah, buena", sirve; si piensa
   imagen también es cobre, el banner deja de resaltar y la carátula se
   aplana (probado el 23-09 con el paraguas).
 - **Formato 16:9**, mínimo 1280 x 720.
-- **Paleta de la imagen**: azul noche, grafito y blanco frío. El cobre
-  #D08A5B no se usa acá: vive en el banner del texto.
+- **Paleta de la imagen: la que diga el CLIMA** (tabla de la regla 7). No hay
+  una paleta fija: eso es lo que hacía que todas salieran de noche. Lo único
+  invariable es que el cobre #D08A5B NO se usa en la imagen: vive en el
+  banner del texto.
 - **Composición con el texto en mente** (corregido el 23-09 al montar la
   primera imagen real): el sujeto va arriba y a la DERECHA, y queda libre y
   oscura **la mitad inferior izquierda**, no el tercio. Los dos banners del
@@ -182,7 +191,8 @@ final. La prueba: si al verla alguien piensa "ah, buena", sirve; si piensa
 > Quiero una METÁFORA VISUAL ingeniosa, no la escena literal. Fondo
 > atmosférico DESENFOCADO a la izquierda y el sujeto NÍTIDO arriba a la
 > derecha, con contraluz y profundidad de campo. Puede parecer una
-> fotografía. Paleta azul noche, grafito y blanco frío; nada de cobre ni naranjo
-> en la imagen. La MITAD INFERIOR IZQUIERDA queda oscura y despejada, ahí va
+> fotografía. Clima: <grave | institucional | cotidiano | bueno | curioso |
+> deporte>, con la luz y la paleta que ese clima pide (solo `grave` es de
+> noche; los demás son de día). Nada de cobre ni naranjo en la imagen. La MITAD INFERIOR IZQUIERDA queda oscura y despejada, ahí va
 > el texto. SIN texto, sin letras ni números. Sin personas reconocibles, sin
 > lugares identificables, sin logos, sin banderas.
