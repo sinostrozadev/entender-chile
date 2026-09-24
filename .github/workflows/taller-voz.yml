@@ -28,8 +28,12 @@ jobs:
           node-version: "22"
       # el SDK de Azure para la voz y el ffmpeg de Remotion para la variante
       # procesada, que no usa Azure
-      - name: Instalar lo necesario
-        run: npm install --no-save microsoft-cognitiveservices-speech-sdk @remotion/compositor-linux-x64-gnu
+      # ffmpeg completo: ni el de Remotion ni el del runner traen acompressor
+      # (comprobado el 24-09), y la variante procesada lo necesita
+      - name: Instalar ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Instalar el SDK de voz
+        run: npm install --no-save microsoft-cognitiveservices-speech-sdk
       - name: Sintetizar las variantes
         env:
           AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
