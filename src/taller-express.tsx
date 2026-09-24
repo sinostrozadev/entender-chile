@@ -64,15 +64,19 @@ const Portada: React.FC = () => {
 
 // El guion: cada tarjeta con su ventana, y las transiciones ENCIMA, montadas
 // sobre el final del bloque anterior igual que en el informe real.
+// 77 cuadros = 3,2 s por transición: 1 s antes de la pausa, la pausa de 1,2 y
+// 1 s después, tal como quedó en producción.
+const T = 77;
 const P = {
-  portada:  { from: 0,   dur: 112 },
-  noticia:  { from: 112, dur: 150 },
-  trans1:   { from: 238, dur: 53 },
-  climaA:   { from: 262, dur: 130 },
-  climaB:   { from: 392, dur: 130 },
-  trans2:   { from: 498, dur: 53 },
-  econA:    { from: 522, dur: 130 },
-  econB:    { from: 652, dur: 140 },
+  portada:  { from: 0,   dur: 132 },
+  trans0:   { from: 106, dur: T },
+  noticia:  { from: 130, dur: 172 },
+  trans1:   { from: 264, dur: T },
+  climaA:   { from: 288, dur: 136 },
+  climaB:   { from: 424, dur: 132 },
+  trans2:   { from: 518, dur: T },
+  econA:    { from: 542, dur: 136 },
+  econB:    { from: 678, dur: 142 },
 };
 
 const Express: React.FC = () => (
@@ -106,6 +110,12 @@ const Express: React.FC = () => (
 
     {/* las transiciones van ARRIBA de las tarjetas: al desvanecerse, la
         tarjeta que ya está debajo aparece sola */}
+    {/* LA ENTRADA: la portada ya no corta a la tarjeta blanca. La cámara
+        entra desde la fila hasta la baldosa de la noticia del día. */}
+    <Sequence from={P.trans0.from} durationInFrames={P.trans0.dur}>
+      <TransicionMosaico baldosas={BALDOSAS} indice={0} dur={P.trans0.dur / 24}
+        conImagen={["clima.png"]} fecha={FECHA} />
+    </Sequence>
     <Sequence from={P.trans1.from} durationInFrames={P.trans1.dur}>
       <TransicionMosaico baldosas={BALDOSAS} indice={I_CLIMA} dur={P.trans1.dur / 24}
         conImagen={["clima.png"]} fecha={FECHA} />
@@ -118,5 +128,5 @@ const Express: React.FC = () => (
 );
 
 export const RootExpress: React.FC = () => (
-  <Composition id="Express" component={Express} width={1920} height={1080} fps={24} durationInFrames={800} />
+  <Composition id="Express" component={Express} width={1920} height={1080} fps={24} durationInFrames={820} />
 );

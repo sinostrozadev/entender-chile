@@ -53,6 +53,13 @@ const MOSAICO_MAX_SEG = 2.4;
 // audio: se gana tiempo de imagen, no de silencio.
 const MOSAICO_ANTICIPO_SEG = 1.0;
 
+// Y ADEMÁS SE QUEDA UN SEGUNDO DESPUÉS de la pausa (Santiago, 24-09: "gana
+// otro segundo más después de la pausa también"). Ese segundo la cabecera ya
+// está quieta a pantalla completa y se va desvaneciendo mientras la voz
+// arranca el bloque nuevo, que es como entra un titular en televisión. Con el
+// anticipo, la transición completa dura 3,2 s sobre una pausa de 1,2.
+const MOSAICO_COLA_SEG = 1.0;
+
 const Sello: React.FC<{ fecha?: string; serie?: string }> = ({ fecha, serie }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -142,11 +149,15 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
       {tl.meta.mosaico
         ? overlays
             .map((ev, i) => ({ ev, i }))
-            .filter(({ ev, i }) => i > 0 && ev.pausaDur
+            // el índice 0 (la entrada del video) también lleva cabecera, salvo
+            // que ahí esté el sello: sin ella la portada corta directo a la
+            // tarjeta blanca
+            .filter(({ ev, i }) => (i > 0 ? !!ev.pausaDur : ev.from > 0.2)
               && (ev.from < selloEn - 0.5 || ev.from > selloEn + SELLO_SEG + 0.5))
             .map(({ ev, i }) => {
-              const anticipo = Math.min(MOSAICO_ANTICIPO_SEG, Math.max(0, ev.from - (overlays[i - 1]?.from ?? 0) - 2));
-              const dur = Math.min(ev.pausaDur!, MOSAICO_MAX_SEG) + anticipo;
+              const anticipo = i === 0 ? Math.min(MOSAICO_ANTICIPO_SEG, ev.from)
+                : Math.min(MOSAICO_ANTICIPO_SEG, Math.max(0, ev.from - (overlays[i - 1]?.from ?? 0) - 2));
+              const dur = Math.min(ev.pausaDur ?? 1.2, MOSAICO_MAX_SEG) + anticipo + MOSAICO_COLA_SEG;
               return (
                 <Sequence key={"mos" + i} from={f(ev.from - anticipo)} durationInFrames={Math.max(1, f(dur))}>
                   {/* la melodía NO se adelanta con la imagen: suena en la

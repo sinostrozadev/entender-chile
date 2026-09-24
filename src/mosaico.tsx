@@ -171,7 +171,7 @@ const Cara: React.FC<{ b: Baldosa; activa: boolean; leida: boolean; z: number; i
 export const TransicionMosaico: React.FC<{
   baldosas: Baldosa[]; indice: number; dur: number; conImagen?: string[]; fecha?: string;
   salidaSeg?: number;
-}> = ({ baldosas, indice, dur, conImagen = [], fecha, salidaSeg = 0.45 }) => {
+}> = ({ baldosas, indice, dur, conImagen = [], fecha, salidaSeg = 0.7 }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
   const total = Math.max(1, Math.round(dur * fps));
@@ -200,6 +200,11 @@ export const TransicionMosaico: React.FC<{
   const centro = (baldosas.length - 1) / 2;
   const posDe = (i: number) => (i - centro) * paso;
 
+  // La ENTRADA del video (el primer bloque) no viene de ninguna baldosa: no
+  // hay bloque anterior del que alejarse. Ahí el viaje es solo hacia adentro:
+  // empieza mirando la fila y entra en la primera. Sin esto, la portada
+  // cortaba directo a la tarjeta blanca, que era el peor corte del informe.
+  const entrada = indice === 0;
   const desde = Math.max(0, indice - 1);
   const suavizar = { easing: Easing.inOut(Easing.ease), extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
   // tres puntos: salgo de la anterior, paso por el medio lejos, entro en la
@@ -209,11 +214,16 @@ export const TransicionMosaico: React.FC<{
   // llegaba justo cuando empezaba el fundido y nunca se veía instalada, que
   // es lo que pide la regla 8: en pantalla completa nada se mueve.
   const LLEGA = 0.72;
-  const z = interpolate(f, [0, total * 0.34, total * LLEGA, total], [1, afuera, 1, 1], suavizar);
-  const x = interpolate(f, [0, total * 0.34, total * LLEGA, total],
-    [posDe(desde), (posDe(desde) + posDe(indice)) / 2 + deriva, posDe(indice), posDe(indice)], suavizar);
-  const zDe = (i: number) => (i === indice ? interpolate(f, [total * 0.34, total * LLEGA], [0, 1], suavizar)
-    : i === desde && indice !== desde ? interpolate(f, [0, total * 0.34], [1, 0], suavizar) : 0);
+  const z = entrada
+    ? interpolate(f, [0, total * LLEGA, total], [afuera, 1, 1], suavizar)
+    : interpolate(f, [0, total * 0.34, total * LLEGA, total], [1, afuera, 1, 1], suavizar);
+  const x = entrada
+    ? interpolate(f, [0, total * LLEGA, total], [posDe(indice) + deriva, posDe(indice), posDe(indice)], suavizar)
+    : interpolate(f, [0, total * 0.34, total * LLEGA, total],
+        [posDe(desde), (posDe(desde) + posDe(indice)) / 2 + deriva, posDe(indice), posDe(indice)], suavizar);
+  const zDe = (i: number) => (i === indice
+    ? interpolate(f, [entrada ? 0 : total * 0.34, total * LLEGA], [0, 1], suavizar)
+    : i === desde && !entrada ? interpolate(f, [0, total * 0.34], [1, 0], suavizar) : 0);
 
   const imgDe = (b: Baldosa) => conImagen.find((n) => n.startsWith(`${b.categoria}.`));
 
