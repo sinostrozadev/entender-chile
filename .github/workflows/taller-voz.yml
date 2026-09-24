@@ -18,6 +18,14 @@ on:
         description: "solo para ronda=lista: voces separadas por coma, cada una voz o voz|estilo"
         required: false
         default: ""
+      texto:
+        description: "solo para ronda=lista: ruta de un texto largo en el repo (vacío = el párrafo corto)"
+        required: false
+        default: ""
+      procesar:
+        description: "solo para ronda=lista: 1 para agregar la versión procesada de cada voz"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -50,7 +58,7 @@ jobs:
         run: |
           case "${{ inputs.ronda }}" in
             neutras) node scripts/taller-voz-neutras.js ;;
-            lista)   VOCES="${{ inputs.voces }}" node scripts/taller-voz-lista.js ;;
+            lista)   VOCES="${{ inputs.voces }}" TEXTO_FILE="${{ inputs.texto }}" PROCESAR="${{ inputs.procesar }}" node scripts/taller-voz-lista.js ;;
             *)       node scripts/taller-voz.js ;;
           esac
       - name: Commit
