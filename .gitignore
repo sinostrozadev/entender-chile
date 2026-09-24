@@ -13,3 +13,11 @@ bitacora/taller-tablero.html
 # copias de trabajo que hace dia.js desde contenido/caratulas/ (el original
 # vive allá; acá solo se copia para que Remotion lo pueda servir)
 public/caratulas/
+
+# copias de trabajo de las imágenes de sección (el original vive en
+# contenido/secciones/; acá solo se copia para que Remotion las sirva).
+# Para rearmarlas, ver la cabecera de src/taller-secciones.tsx.
+public/secciones/
+
+# videos del taller: se rinden, se miran y se botan
+taller-*.mp4
