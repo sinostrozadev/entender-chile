@@ -15,7 +15,7 @@
 // Se retiran dos cosas que Santiago descartó: el cuadro blanco (era marco
 // por ser marco, no cumplía función) y el corte duro de dos columnas.
 import React from "react";
-import { AbsoluteFill, Composition, Easing, Img, Sequence, interpolate, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Audio, Composition, Easing, Img, Sequence, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { tema, colorDeSeccion } from "./tema";
 import { Picto } from "./pictogramas";
 
@@ -146,7 +146,8 @@ const PLAN = [
 const VIAJE = 46;   // cuadros de alejarse, cruzar y volver a entrar
 const AFUERA = 0.2; // cuánto zoom queda en el punto más lejano: nunca se ve todo el tablero de golpe
 
-const Recorrido: React.FC<{ semilla: number }> = ({ semilla }) => {
+const Recorrido: React.FC<{ semilla: number; plan?: typeof PLAN }> = ({ semilla, plan }) => {
+  const PLAN2 = plan ?? PLAN;
   const f = useCurrentFrame();
   const r = azar(semilla);
   const orden = React.useMemo(() => {
@@ -166,11 +167,11 @@ const Recorrido: React.FC<{ semilla: number }> = ({ semilla }) => {
   const cuadros: number[] = [0];
   const zooms: number[] = [AFUERA];
   const equis: number[] = [posDe(0) - paso * 0.8];
-  PLAN.forEach((p, i) => {
+  PLAN2.forEach((p, i) => {
     cuadros.push(p.abre, p.cierra);
     zooms.push(1, 1);
     equis.push(posDe(i), posDe(i));
-    const sig = PLAN[i + 1];
+    const sig = PLAN2[i + 1];
     if (sig) {
       const medio = (p.cierra + sig.abre) / 2;
       cuadros.push(medio);
@@ -178,10 +179,10 @@ const Recorrido: React.FC<{ semilla: number }> = ({ semilla }) => {
       equis.push((posDe(i) + posDe(i + 1)) / 2);   // el punto medio del viaje
     }
   });
-  const ultimo = PLAN[PLAN.length - 1];
+  const ultimo = PLAN2[PLAN2.length - 1];
   cuadros.push(ultimo.cierra + VIAJE * 2);
   zooms.push(AFUERA);
-  equis.push(posDe(PLAN.length - 1) + paso * 0.8);
+  equis.push(posDe(PLAN2.length - 1) + paso * 0.8);
 
   const suavizar = { easing: Easing.inOut(Easing.ease), extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
   const z = interpolate(f, cuadros, zooms, suavizar);
@@ -192,7 +193,7 @@ const Recorrido: React.FC<{ semilla: number }> = ({ semilla }) => {
   // qué baldosa está enfocada y cuánto se ha leído de cada una
   let foco: number | null = null, fLocal = 0;
   const leidas: Record<number, number> = {};
-  PLAN.forEach((p, i) => {
+  PLAN2.forEach((p, i) => {
     if (f >= p.cierra) leidas[i] = interpolate(f, [p.cierra, p.cierra + VIAJE], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
     const desde = p.abre - VIAJE, hasta = p.cierra + VIAJE;
     if (f >= desde && f < hasta) { foco = i; fLocal = f - p.abre; }
@@ -216,8 +217,70 @@ const Mosaico: React.FC<{ semilla: number }> = ({ semilla }) => (
   </AbsoluteFill>
 );
 
+// ─────────────────────────────────────────────────────────────────────────
+// DEMO DE UN MINUTO (24-09): la estructura aprobada con la voz procesada
+// encima. Sirve para ver las dos mejoras juntas, que es como se van a ver
+// en el canal: el movimiento no se juzga en silencio.
+//
+// Orden, el aprobado: portada con la ilustración del día → la noticia
+// principal completa → el mosaico como presentación → el recorrido.
+
+const NoticiaPrincipal: React.FC = () => {
+  const f = useCurrentFrame();
+  const entra = (d: number, dur = 14) => interpolate(f, [d, d + dur], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const sube = (d: number, px = 26, dur = 16) => interpolate(f, [d, d + dur], [px, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  // la cifra cuenta y la subraya una línea de cobre
+  const cuenta = interpolate(f, [150, 178], [0, 15], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const raya = interpolate(f, [176, 192], [0, 420], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <AbsoluteFill style={{ backgroundColor: tema.tinta }}>
+      <Img src={staticFile(IMG)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover",
+        transform: `scale(${interpolate(f, [0, 380], [1.06, 1.14])})` }} />
+      <AbsoluteFill style={{ background: "linear-gradient(25deg, rgba(23,25,28,0.94) 26%, rgba(23,25,28,0.5) 70%, rgba(23,25,28,0.2) 100%)" }} />
+      <div style={{ position: "absolute", left: 110, top: 86, fontFamily: tema.mono, fontSize: 24, letterSpacing: "0.22em",
+        textTransform: "uppercase", color: "rgba(242,242,239,0.72)" }}>Entender Chile</div>
+      <div style={{ position: "absolute", left: 110, top: 250, width: 1150 }}>
+        <div style={{ fontFamily: tema.mono, fontSize: 26, letterSpacing: "0.18em", textTransform: "uppercase", color: COBRE,
+          marginBottom: 26, opacity: entra(8), transform: `translateY(${sube(8)}px)` }}>La noticia del día</div>
+        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 76, lineHeight: 1.08, color: "#F7F6F2",
+          opacity: entra(18, 18), transform: `translateY(${sube(18, 36, 20)}px)` }}>
+          El Congreso interpelará al canciller por la adhesión de Chile al Escudo de las Américas.
+        </div>
+      </div>
+      <div style={{ position: "absolute", left: 110, bottom: 130, opacity: entra(146, 12) }}>
+        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 150, lineHeight: 1, color: "#F7F6F2" }}>
+          {Math.round(cuenta)}
+        </div>
+        <div style={{ width: raya, height: 6, background: COBRE, marginTop: 10 }} />
+        <div style={{ fontFamily: tema.sans, fontSize: 32, color: "rgba(242,242,239,0.8)", marginTop: 20, opacity: entra(190) }}>
+          países en la iniciativa
+        </div>
+      </div>
+      <div style={{ position: "absolute", left: 110, bottom: 62, fontFamily: tema.mono, fontSize: 20, letterSpacing: "0.08em",
+        color: "rgba(242,242,239,0.55)", opacity: entra(200) }}>Cancillería, 23 sep</div>
+    </AbsoluteFill>
+  );
+};
+
+// tres bloques en el minuto: alcanza para ver el viaje sin apurarlo
+const PLAN_MINUTO = [
+  { abre: 60, cierra: 168 },
+  { abre: 232, cierra: 340 },
+  { abre: 404, cierra: 512 },
+];
+
+const DemoMinuto: React.FC<{ semilla: number }> = ({ semilla }) => (
+  <AbsoluteFill style={{ backgroundColor: tema.tinta }}>
+    <Audio src={staticFile("taller/voz.mp3")} />
+    <Sequence from={576} durationInFrames={880}><Recorrido semilla={semilla} plan={PLAN_MINUTO} /></Sequence>
+    <Sequence from={168} durationInFrames={420}><Disolver desde={396} dur={20}><NoticiaPrincipal /></Disolver></Sequence>
+    <Sequence durationInFrames={190}><Disolver desde={168} dur={22}><Portada /></Disolver></Sequence>
+  </AbsoluteFill>
+);
+
 export const RootMosaico: React.FC = () => (
   <>
+    <Composition id="DemoMinuto" component={DemoMinuto} width={1920} height={1080} fps={24} durationInFrames={1440} defaultProps={{ semilla: 240926 }} />
     <Composition id="Mosaico" component={Mosaico} width={1920} height={1080} fps={24} durationInFrames={602} defaultProps={{ semilla: 240926 }} />
     <Composition id="MosaicoOtroDia" component={Mosaico} width={1920} height={1080} fps={24} durationInFrames={602} defaultProps={{ semilla: 250926 }} />
   </>
