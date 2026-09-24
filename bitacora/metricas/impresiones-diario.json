@@ -1,6 +1,188 @@
 {
   "tipo": "channel_reach_basic_a1",
-  "dias": {},
-  "actualizado": "2026-09-23",
+  "dias": {
+    "2026-09-15": {
+      "reporte": "20485093671",
+      "videos": {
+        "0BNQR6diTNI": {
+          "impresiones": 4,
+          "clics": 0
+        },
+        "1CAMSAuZzug": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "22gwMpPnCxY": {
+          "impresiones": 21,
+          "clics": 1
+        },
+        "8WNkdRrmI9U": {
+          "impresiones": 3,
+          "clics": 0
+        },
+        "9Le8uCfDRA4": {
+          "impresiones": 2,
+          "clics": 1
+        },
+        "A2mhFpZpbzo": {
+          "impresiones": 2,
+          "clics": 0
+        },
+        "AJ4cxxL3XvA": {
+          "impresiones": 2,
+          "clics": 0
+        },
+        "CU4xH6A4dKA": {
+          "impresiones": 4,
+          "clics": 0
+        },
+        "E-Z-IkAUItw": {
+          "impresiones": 11,
+          "clics": 0
+        },
+        "E5bzH9810Rw": {
+          "impresiones": 11,
+          "clics": 0
+        },
+        "GJMefzqOaqk": {
+          "impresiones": 8,
+          "clics": 0
+        },
+        "HnWm9lwFw8w": {
+          "impresiones": 2,
+          "clics": 0
+        },
+        "MRG9fw8e5P8": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "MzrT56tga7w": {
+          "impresiones": 12,
+          "clics": 1
+        },
+        "NIXSupEy11Q": {
+          "impresiones": 11,
+          "clics": 0
+        },
+        "NaMLfrB4nzU": {
+          "impresiones": 4,
+          "clics": 0
+        },
+        "PKh8hj3wd2M": {
+          "impresiones": 4,
+          "clics": 0
+        },
+        "QARbL1VEpvY": {
+          "impresiones": 6,
+          "clics": 0
+        },
+        "REcC_ZuhrPY": {
+          "impresiones": 3,
+          "clics": 1
+        },
+        "RPWexIZS3d0": {
+          "impresiones": 5,
+          "clics": 0
+        },
+        "TeKnIIGAMUw": {
+          "impresiones": 6,
+          "clics": 2
+        },
+        "XRzll3-Hbyw": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "XVIxe4EJZbM": {
+          "impresiones": 3,
+          "clics": 0
+        },
+        "Yoli64YxjuM": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "bU-eMEkDcHc": {
+          "impresiones": 4,
+          "clics": 0
+        },
+        "bfhNo31wIFI": {
+          "impresiones": 2,
+          "clics": 0
+        },
+        "ei1OUk3ZvAI": {
+          "impresiones": 7,
+          "clics": 1
+        },
+        "fUYEskTWdGc": {
+          "impresiones": 12,
+          "clics": 0
+        },
+        "hpryKVLBUXg": {
+          "impresiones": 12,
+          "clics": 0
+        },
+        "ifkYQ8GJpOA": {
+          "impresiones": 11,
+          "clics": 0
+        },
+        "j3KKFH9yaUc": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "nvG_C4evsL8": {
+          "impresiones": 416,
+          "clics": 13
+        },
+        "oCEw0HwkUyg": {
+          "impresiones": 5,
+          "clics": 1
+        },
+        "pGzRumCBjg0": {
+          "impresiones": 6,
+          "clics": 0
+        },
+        "qvSZvD8PiGk": {
+          "impresiones": 3,
+          "clics": 0
+        },
+        "qzn2RJefxic": {
+          "impresiones": 9,
+          "clics": 1
+        },
+        "rYoBCZmEipg": {
+          "impresiones": 3,
+          "clics": 0
+        },
+        "s1STmc0QX-0": {
+          "impresiones": 15,
+          "clics": 0
+        },
+        "sCdoxJs4Ea8": {
+          "impresiones": 3,
+          "clics": 0
+        },
+        "sXrH9G7A6II": {
+          "impresiones": 3,
+          "clics": 0
+        },
+        "tBv9v_TGayw": {
+          "impresiones": 2,
+          "clics": 0
+        },
+        "vtb2qda7A9E": {
+          "impresiones": 1,
+          "clics": 1
+        },
+        "xDofJVmO0rk": {
+          "impresiones": 17,
+          "clics": 1
+        },
+        "xYaG4nx-IkI": {
+          "impresiones": 4,
+          "clics": 0
+        }
+      }
+    }
+  },
+  "actualizado": "2026-09-24",
   "job": "512e38a3-6714-4fdd-b6bc-0a4a375117b3"
 }
