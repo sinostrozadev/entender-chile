@@ -36,9 +36,14 @@ import { Picto } from "./pictogramas";
 
 const COBRE = "#D08A5B";
 
-// baldosa más chica que en el mosaico normal: acá las cuatro tienen que
-// caber juntas en el cuadro, porque la comparación es el punto del video.
-const ANCHO = 420, ALTO = 236, HUECO = 36;
+// La baldosa se DIBUJA a 420x236 y se MUESTRA a 342x192. Separar las dos
+// medidas es lo que permitió pasar de cuatro candidatas a cinco sin retocar
+// un solo número del contenido: la caja de dibujo no se mueve, cambia el
+// factor con que se encoge para que las cinco quepan juntas en el cuadro,
+// que es el punto del video. Sigue siendo DOM, así que al ampliar no pixela.
+const CAJA = 420, CAJA_ALTO = 236;
+const ANCHO = 342, ALTO = 192, HUECO = 30;   // 5 x 342 + 4 x 30 = 1830, entra en 1920
+const K = ANCHO / CAJA;
 const ESCALA = 1920 / ANCHO;
 
 const cand = [
@@ -46,6 +51,7 @@ const cand = [
   { img: "secciones/acuarela.png",    tag: "2 · acuarela",    nota: "los cuatro climas" },
   { img: "secciones/cielo.png",       tag: "3 · cielo",       nota: "camino A" },
   { img: "secciones/vidrio.png",      tag: "4 · vidrio",      nota: "camino B" },
+  { img: "secciones/tarjeta.png",     tag: "5 · tarjeta",     nota: "camino C, seis franjas" },
 ];
 
 // el mismo contenido en las cuatro: así la comparación es limpia
@@ -59,7 +65,9 @@ const Baldosa: React.FC<{ c: typeof cand[0]; activa: boolean; f: number; z: numb
   const entre = (a: number, b: number) => interpolate(z, [0, 1], [a, b]);
   const opDato = interpolate(z, [0.45, 0.95], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
-    <div style={{ width: ANCHO, height: ALTO, flex: "0 0 auto", position: "relative", overflow: "hidden",
+    <div style={{ width: ANCHO, height: ALTO, flex: "0 0 auto", position: "relative" }}>
+    <div style={{ width: CAJA, height: CAJA_ALTO, position: "relative", overflow: "hidden",
+      transform: `scale(${K})`, transformOrigin: "top left",
       backgroundColor: "#15171A",
       opacity: activa ? 1 : 0.86,
       outline: activa ? `${entre(3, 0)}px solid ${COBRE}` : "none", outlineOffset: -2 }}>
@@ -107,6 +115,7 @@ const Baldosa: React.FC<{ c: typeof cand[0]; activa: boolean; f: number; z: numb
           color: "rgba(255,255,255,0.6)", marginTop: entre(2, 5) }}>{c.nota}</div>
       </div>
     </div>
+    </div>
   );
 };
 
@@ -132,6 +141,7 @@ const PLAN = [
   { abre: 252, cierra: 330 },
   { abre: 394, cierra: 472 },
   { abre: 536, cierra: 614 },
+  { abre: 678, cierra: 756 },
 ];
 const VIAJE = 46;
 const AFUERA = 0;   // en este video el punto lejano muestra la fila COMPLETA
@@ -184,5 +194,5 @@ const Comparador: React.FC = () => {
 };
 
 export const RootSecciones: React.FC = () => (
-  <Composition id="Secciones" component={Comparador} width={1920} height={1080} fps={24} durationInFrames={710} />
+  <Composition id="Secciones" component={Comparador} width={1920} height={1080} fps={24} durationInFrames={852} />
 );
