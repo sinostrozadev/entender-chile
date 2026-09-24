@@ -122,67 +122,153 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 23-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-09-23-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS — la cadena de la madrugada corrió completa y a tiempo, sin bloqueos de infraestructura (a diferencia de ayer), pero el guion ya aprobado del informe (video sube a las 07:30 de Chile, dentro de ~2 horas) atribuye a la DMC oficial una cifra de +200 mm que en realidad viene de modelos privados, y llama "reforma migratoria" a la reforma constitucional de detención por expulsión administrativa. HOY: decidir antes de las 07:30 si se interviene el video ya renderizado, y bajar a la sesión de la noche dos ajustes de prompt para dos hallazgos que llevan 3+ días repitiéndose sin corregirse ni quedar anotados.</div>
+    <p class="eyebrow">Auditoría de la mañana · 24-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-09-24-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS — la cadena de hoy nunca arrancó (barrido en 0, todo lo demás detrás)</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON FALLAS — la cadena de la madrugada corrió completa y a tiempo, sin bloqueos de infraestructura (a diferencia de ayer), pero el guion ya aprobado del informe (video sube a las 07:30 de Chile, dentro de ~2 horas) atribuye a la DMC oficial una cifra de +200 mm que en realidad viene de modelos privados, y llama "reforma migratoria" a la reforma constitucional de detención por expulsión administrativa. HOY: decidir antes de las 07:30 si se interviene el video ya renderizado, y bajar a la sesión de la noche dos ajustes de prompt para dos hallazgos que llevan 3+ días repitiéndose sin corregirse ni quedar anotados.
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON FALLAS — la cadena de hoy nunca arrancó (barrido en 0, todo lo demás detrás)
 
-Auditada el 23-09-2026 desde las 05:30 de Chile, checkout sincronizado contra `origin/main` (`0acd512`, "métricas 2026-09-23 [bot]"). Horas reales de `git log` con `TZ=America/Santiago` fijado explícitamente (el contenedor corre en UTC; sin fijar el TZ las horas salían 3 h adelantadas) y de `mcp__github__actions_list` sobre los workflows del día. El checkout de esta sesión es un clon superficial (`git rev-parse --is-shallow-repository` → `true`): alcanza para todo lo de hoy, pero no para pedir horas de archivos de días anteriores por `git log`, así que la comparación con ayer usa el contenido de los archivos, no sus horas de commit.
+Auditada el 24-09-2026 desde las 05:30 de Chile, checkout sincronizado contra
+`origin/main` (`fb2feed`, "métricas 2026-09-24 [bot]"). Horas reales de
+`git log` con `TZ=America/Santiago` fijado explícitamente y de
+`mcp__github__actions_list` sobre los workflows del día. El checkout es un
+clon superficial (`git rev-parse --is-shallow-repository` → `true`, 50
+commits, desde 2026-09-23 17:15 UTC en adelante): alcanza de sobra para
+cubrir toda la ventana de hoy (01:30-05:33 Chile), así que las horas de
+commit de esta auditoría son confiables.
 
 ## Qué salió y a qué hora
 
-| Pieza | Hora real (Chile) | Esperada (cuadro) | Estado |
+| Pieza | Hora real (Chile) | Esperada | Estado |
 |---|---|---|---|
-| Reloj del barrido | 01:40 | 01:30 | ok (+10 min) |
-| Barrido | 01:41 | ~01:31 | ok |
-| Preselección: v0 01:47 → CORREGIR v1 01:51 → v1 01:52 → APROBADA 01:54 | — | ~01:35 en adelante | ok, 1 vuelta |
-| Informe: v0 02:06 → CORREGIR v1 02:12 → v1 02:15 → APROBADA 02:17 | — | tras preselección | ok, 1 vuelta |
-| Guion del informe: v0 02:27 → CORREGIR v1 02:34 → v1 02:37 → APROBADA 02:40 | — | tras informe | ok, 1 vuelta |
-| Revisión (veredicto final, compuerta) | 02:40 | tras guion | ok, APROBADA vuelta 1 |
-| Edición diaria (render, voz, subida programada) | dispara 02:40, termina 03:09 (29 min) | ~04:00 en el cuadro, en la práctica arranca con la compuerta | ok, dentro del rango histórico (~28 min) |
-| Banco de temas de la Clave | 02:42 | tras el día aprobado | ok, 4 conceptos agregados |
-| Métricas | 05:15 | 05:00 | ok (+15 min, bajo el umbral de 20) |
+| Barrido | no llegó | 01:40 | **falta, +233 min** a las 05:33 |
+| Preselección | no llegó | 02:10 | **falta, +203 min** |
+| Informe | no llegó | 02:40 | **falta, +173 min** |
+| Guion del informe | no llegó | 03:10 | **falta, +143 min** |
+| Revisión (veredicto final) | no llegó | 03:30 | **falta, +123 min** |
+| Banco de temas de la Clave | no llegó | 04:00 | **sin alimentar, +93 min** |
+| Edición diaria (videos) | no llegó | 05:15 | **falta, +18 min** |
+| Métricas | 05:15 (commit `fb2feed`, 08:15 UTC) | 05:00 | ok, +15 min, bajo el umbral de 20 |
+| Observatorio plata pública | 01:50 (commit `ab1a0a5`, 04:50 UTC) | 01:45 | ok, +5 min |
 
-No hubo Clave hoy: listado `contenido/claves/` y `contenido/guiones/claves/`, sin entradas del 23-09 (corresponde, CLAVE 4 no es diaria). Todos los workflows de GitHub Actions del día (`Barrido`, `Estado del día`, `Edición diaria`, `Web`, `Métricas`, `Estado de la Clave`) terminaron `completed`/`success`, sin reintentos ni fallas de infraestructura.
-
-`node scripts/validar-tarjetas.js --fecha 2026-09-23`: `tarjetas de 2026-09-23.md (12 bloques con fuente): cifra: 4 · cita: 3 · comparacion: 2 · barras: 1 · esquema: 1` — `variedad OK: ninguna cuota rota, ninguna marca malformada.`
-
-Duración real (`contenido/podcast/episodios.json`, campo `durSeg` del informe de hoy): **613 s = 10,2 min**, dentro de "~10 min, 12-13 en día cargado". Sin `PENDIENTE DE CIERRE` en `contenido/informes/2026-09-23.md` (verificado con grep sobre el archivo completo, sin resultados).
+Tabla y minutos de atraso tomados de `node scripts/estado.js --solo-leer`
+corrido en esta misma sesión (ETAPA: `nuevo_dia`, VUELTA: 0, FECHA:
+2026-09-24), que es la vista calculada por el propio repo a partir de qué
+archivos existen — no una estimación mía.
 
 ## Qué falló
 
-**1. La tarjeta `[DATO comparacion]` del guion le atribuye a la fuente oficial una cifra que no es suya, y el video publica en ~2 horas.** `contenido/guiones/informe/2026-09-23.md`, línea 22: `[DATO comparacion | DMC vía BioBioChile, 22 sep] alerta oficial en algunas zonas: 105 mm ; acumulado modelado en cordillera: más de 200 mm`. El párrafo siguiente narra correctamente que los 105 mm son la alerta oficial de la DMC y que los +200 mm son de "modelos privados" (Meteored y ADN Radio, según `contenido/informes/2026-09-23.md`). Con el video en silencio o pausado, la tarjeta en pantalla deja los dos valores bajo la misma fuente oficial. El propio validador lo anotó en `contenido/veredictos/2026-09-23-guion_informe.md` y lo dejó pasar como no bloqueante porque "el prompt pide una sola fuente por marca" — es un límite de la regla, no un error del validador. `scripts/youtube-subir.js` sube el informe con `--programar 07:30` (o el valor de `vars.YT_HORA_INFORME`), y el video ya está renderizado (`Edición diaria` run 35823383577, terminado 03:09 Chile): a esta hora (05:31 Chile) quedan cerca de 2 horas antes de que salga de "private".
+**El despertador del barrido corrió a horario pero no escribió nada.** La
+rutina Claude (Haiku, `trig_01W5KE`, toca `contenido/barrido/despertador.txt`
+y pushea) generó el commit `98abc93` a las 2026-09-24 04:40:16 UTC (≈01:40
+Chile, dentro del margen normal) con el mensaje "despertador 2026-09-24
+[reloj]" — pero el commit **no tiene ningún archivo cambiado**
+(`git show --stat 98abc93` no lista diffs). El archivo
+`contenido/barrido/despertador.txt` sigue con el contenido
+`2026-09-23 04:40:45 UTC`: la marca de AYER, exactamente 24 horas menos 29
+segundos más vieja que el commit de hoy. Como `barrido.yml` dispara por
+push sobre ese path exacto (`.github/workflows/barrido.yml:16`) y el commit
+no tocó el archivo, el push no cumplió el filtro y el workflow nunca se
+disparó. Comparar con los otros dos despertadores de hoy, que sí
+escribieron su marca correctamente: `bitacora/metricas/despertador.txt` →
+`2026-09-24 08:14:49 UTC` y `contenido/urgente/despertador.txt` →
+`2026-09-24T01:15:23Z`. Solo el del barrido quedó vacío.
 
-**2. La Apertura del guion, ya narrada en audio, llama "reforma migratoria" a una reforma constitucional.** `contenido/guiones/informe/2026-09-23.md`, línea 12: "la Cámara frena por un voto una reforma migratoria". `contenido/informes/2026-09-23.md`, línea 38-40, la nombra correctamente como "la reforma constitucional del Gobierno que buscaba ampliar el plazo de detención de personas con una orden de expulsión administrativa"; el bloque desarrollado del guion (línea ~39 en adelante) también usa el nombre correcto. Solo la Apertura, que es de las primeras frases que se escuchan, la nombra mal. Mismo problema de fondo que (1): ya está en el audio renderizado del video que publica a las 07:30.
+**Las dos redes de respaldo tampoco dispararon ni una sola vez hoy.**
+Confirmado con `mcp__github__actions_list` (`list_workflow_runs`), no
+listando ausencia por no encontrarla en el repo sino consultando la fuente
+de verdad de GitHub directamente:
+- `barrido.yml` tiene sus crons de respaldo en `50 4 * * *` y `20 5 * * *`
+  UTC (`.github/workflows/barrido.yml:23-24`, 01:50 y 02:20 Chile). La
+  última ejecución del workflow es la #74, `2026-09-23T10:05:24Z` — de
+  AYER. Cero corridas hoy, ni por cron ni por push.
+- `reintento.yml` corre cada 20 min entre las 04:00 y las 09:59 UTC. Su
+  última ejecución es la #3, `2026-09-23T14:04:26Z` — también de ayer. A
+  las 08:31 UTC de hoy (más de 4 horas dentro de su propia ventana) no ha
+  corrido ni una vez.
 
-**3. La sigla "DMC" se pinta en pantalla sin expandir por tercer día consecutivo, y nunca quedó anotada en `bitacora/PENDIENTES.md`.** `contenido/guiones/informe/2026-09-23.md`, líneas 8 y 17: `[FUENTE DMC vía BioBioChile, ...]`. La revisión de hoy (`contenido/revisiones/2026-09-23.md`) dice explícitamente "Viene repitiéndose desde el 21-09"; la de ayer (`contenido/revisiones/2026-09-22.md`) dice "misma observación del 21-09"; la del 21-09 (`contenido/revisiones/2026-09-21.md`) ya la describe de cero. Tres validaciones seguidas señalan lo mismo, el veredicto la aprueba las tres veces como no bloqueante, y ninguna de las tres bajó una tarea a `bitacora/PENDIENTES.md`: es exactamente el patrón de "el ciclo revisa y no aprende" que esta auditoría existe para cazar.
+Los dos workflows están `state: "active"` (no deshabilitados). Esto es
+consistente con la decisión de infraestructura del 31-08
+(`estrategia/decisiones.md`, sección "El cron de GitHub no se usa como
+reloj principal"): el cron de GitHub ya estaba documentado como no
+confiable (10 a 12 horas de atraso medidas entonces, algún día que no corrió
+nunca) y por eso quedó solo como red, con el despertador de Claude como
+reloj principal. Hoy falló exactamente el reloj principal — que se supone
+puntual al minuto — y la red de respaldo, que ya sabíamos que podía no
+llegar, efectivamente no llegó.
 
-**4. El cierre de cautela repetitivo del informe se heredó al guion, y tampoco está anotado.** La auditoría del 20-09 y la del 21-09 (`bitacora/2026-09-20-auditoria.md`, `bitacora/2026-09-21-auditoria.md`) ya registran, citando las revisiones de esos días, "cuarto día seguido" en que casi todas las [B] y [C] del informe cierran con la misma fórmula de cautela. Hoy, `contenido/revisiones/2026-09-23.md` constata que ese molde ("falta revisar", "el seguimiento queda puesto en") ya cruzó al guion: "Tres bloques seguidos del guion cierran con la misma cadencia... heredada del informe." Búsqueda en `bitacora/PENDIENTES.md` y `estrategia/decisiones.md` por "cautela", "falta revisar" y "molde": sin resultados. Tampoco está cerrado por una decisión de Santiago: es un hallazgo que se repite hace más de una semana sin que nadie lo convierta en tarea.
+**Gap adicional encontrado en el reintento**: aunque `reintento.yml`
+hubiera corrido hoy, no habría arreglado nada, porque su primer chequeo
+(`.github/workflows/reintento.yml:53-54`) exige que ya exista
+`contenido/estado/$FECHA.md` para actuar, y ese archivo solo lo escribe
+`estado.yml` después de que algo (el barrido) haya puesto una pieza en
+main. El reintento está diseñado para "GPT no responde" (la etapa ya
+está en marcha) y no cubre el caso de hoy: "el barrido nunca arrancó, no
+hay ni estado que mirar".
 
-Nada de esto es un problema de fidelidad de fondo ni de infraestructura: las 42 noticias del informe suenan en el video (diez narradas, treinta y dos en titulares), ninguna cifra del guion es ajena al material de entrada, y los tres pases de corrección (preselección, informe, guion) tocaron exactamente lo pedido. Sin fallas nuevas en el barrido, la preselección ni el pipeline de GitHub Actions.
+**Consecuencia**: sin barrido no hay preselección, informe, guion,
+revisión ni edición diaria. No hay video del informe de hoy, no hay
+avance de la Clave, no hay entrada nueva al banco de temas. Es la primera
+vez que se marca esta falla puntual (despertador del barrido con commit
+vacío); no hay antecedente en `PENDIENTES.md`, `REALIZADOS.md` ni
+`estrategia/decisiones.md`.
 
 ## Propuestas
 
-1. En `contenido/guiones/informe/2026-09-23.md`, línea 22: partir la marca en dos `[DATO cifra]` con su propia fuente cada una ("alerta oficial DMC: 105 mm" / "acumulado modelado, Meteored y ADN Radio: más de 200 mm"), o cambiar la etiqueta de fuente a "DMC vía BioBioChile; Meteored y ADN Radio, 21 sep" para que la tarjeta no deje ambos valores bajo un solo nombre. Es una corrección puntual al archivo ya escrito, para decidir si se aplica antes de las 07:30.
-2. En `contenido/guiones/informe/2026-09-23.md`, línea 12: cambiar "una reforma migratoria" por "la reforma constitucional que ampliaba la detención para expulsiones administrativas" (o una forma corta equivalente), igual que el bloque desarrollado. Misma urgencia que la propuesta 1.
-3. En `prompts/guion-informe.md`, agregar una regla explícita: toda sigla que se pinte en pantalla (marcas `[FUENTE ...]`, `[DATO ...]`) debe ir expandida la primera vez que aparece, salvo las de uso público general. Cierra el hallazgo que se repite desde el 21-09 (punto 3).
-4. En `prompts/informe.md`, agregar un tope explícito: no más de una [B] o [C] por edición puede cerrar con la fórmula "queda [para verificar/en seguimiento/pendiente]" o equivalente; variar el cierre del resto. Como el guion hereda el texto del informe, esto también resuelve el arrastre al guion (punto 4).
+1. **HOY, urgente**: volver a tocar `contenido/barrido/despertador.txt` con
+   la hora actual y pushear (a mano o re-disparando la rutina
+   `trig_01W5KE`), o disparar `barrido.yml` por `workflow_dispatch`
+   directamente, para que la cadena arranque hoy aunque sea tarde. Cada
+   hora que pasa achica el margen antes de la hora de publicación del
+   informe (06:30 Chile) y del resto de la cadena.
+2. En `.github/workflows/reintento.yml`, antes de la línea 53 (donde exige
+   `contenido/estado/$FECHA.md`), agregar un chequeo previo: si son más de
+   las ~02:00 Chile y no existe `contenido/barrido/$FECHA.md` ni el estado
+   del día, y `contenido/barrido/despertador.txt` no trae la fecha de hoy,
+   reescribir ese archivo con la marca de tiempo actual y pushear (la
+   misma receta de "rutina toca un despertador y el push dispara el
+   workflow" que ya usan barrido, métricas y guardia). Así la red de
+   respaldo cubre también la falla de hoy, no solo "GPT no responde".
+3. Para el despertador de Claude del barrido específicamente: aplicar la
+   escritura verificada que ya exige `prompts/contrato-archivos.md`
+   ("ESCRITURA VERIFICADA") — después de escribir la marca, releerla desde
+   main y confirmar que cambió respecto a la de ayer antes de dar la
+   rutina por cumplida; si no cambió, reintentar. Hoy no hay forma de saber
+   por qué el commit salió vacío (la rutina no tiene prompt vivo en el
+   repo, a diferencia de `prompts/guardia-reloj.md`); esto ya estaba
+   anotado como pendiente en `bitacora/PENDIENTES.md` ("aplicar el mismo
+   patrón prompt-vivo a las demás rutinas... barrido... cuando toque
+   editarlas") — la falla de hoy es motivo para adelantarlo.
 
 ## Triage
 
-- **HOY**: propuestas 1 y 2, para Santiago — el video del informe publica a las 07:30 de Chile (dentro de ~2 horas) con estos dos defectos ya renderizados; decidir si se corrige el archivo y se vuelve a renderizar antes de esa hora, se ajusta la descripción/tarjeta después de publicado, o se deja así. Va en la primera línea del archivo.
-- **HOY**: propuestas 3 y 4, para la sesión de la noche — no son urgentes por el video de hoy, pero llevan repitiéndose sin corregirse ni anotarse (3 días la sigla, más de una semana el cierre de cautela) y deben quedar en el prompt antes de la corrida de esta madrugada que viene.
-- **AGUANTA**: nada adicional — el resto de los hallazgos de `contenido/revisiones/2026-09-23.md` (etiqueta "abstenciones" corta, bloque del subsidio laboral sobre el rango de [B], líneas compartidas en "Fuentes consultadas") son de forma, no se repiten con la misma claridad en los tres días comparados, y el propio validador ya los dejó para "si mañana el guion se alarga" o como nota menor.
-- **MIRAR**: las 23,6 horas vistas en videos LARGOS de los últimos 30 días (Analytics) no se movieron entre el 22-09 y el 23-09 (23.6 → 23.6, retención 33.4% → 33.4%). Un día sin movimiento no es una tendencia; si se repite mañana, sí lo es.
+- **HOY**: propuesta 1 (retocar el despertador o disparar `barrido.yml` a
+  mano) — rompe la edición de hoy completa si no se hace ya; ya está en la
+  primera línea de este archivo.
+- **AGUANTA**: propuesta 2 (ampliar `reintento.yml` para cubrir la falla
+  del despertador del barrido) — la máquina puede seguir operando mañana
+  con vigilancia manual mientras se construye.
+- **MIRAR**: propuesta 3 (prompt vivo + escritura verificada para el
+  despertador del barrido) — no es un problema todavía si la propuesta 2
+  se construye primero; se vuelve más urgente si el commit vacío se repite
+  un segundo día.
 
 ## Comparación con ayer
 
-**Mejoró, y bastante:** ayer (22-09) la cadena se congeló por completo después de la preselección — el informe nunca llegó a horario, la edición completa (informe, guion, revisión, banco de temas, videos) recién salió a las 12:15 del mediodía tras intervención manual, `bitacora/2026-09-22-auditoria.md` lo marcó CON FALLAS y HOY. Hoy la cadena completa corrió sola entre las 01:40 y las 02:42, sin intervención, con la misma cantidad de vueltas de corrección (una por pieza) que en días normales. `REINTENTO 1`, la propuesta que salió de esa misma auditoría de ayer, ya está marcada como hecha en `bitacora/PENDIENTES.md`; hoy no hizo falta que se activara porque GPT respondió a tiempo, así que queda sin probar en una madrugada real, pero el síntoma que la motivó no se repitió.
-
-**Sigue igual:** cada una de las tres piezas (preselección, informe, guion) volvió a costar exactamente una vuelta de corrección, por omisión y no por error de dato — el mismo patrón que describen las revisiones del 20, 21 y 22-09. La sigla "DMC" sin expandir en pantalla sigue sin corregirse, tercer día.
-
-**Peor / nuevo:** por primera vez en los últimos días, un veredicto APROBADA deja pasar un guion con una atribución de dato incorrecta (punto 1) y un nombre de reforma equivocado (punto 2) hacia un video que sí llega a publicarse — a diferencia de días anteriores donde hallazgos similares (por ejemplo, el río atmosférico del 22-09) se resolvían narrando la salvedad correctamente. Y se confirma, revisando `bitacora/PENDIENTES.md` completo, que ni la sigla DMC (3 días) ni el cierre de cautela repetido (más de una semana) llegaron nunca a esa lista pese a que las revisiones los nombran una y otra vez.
+Ayer (23-09) la cadena completa corrió y publicó, con dos defectos menores
+ya conocidos (sigla DMC sin expandir, cierre de cautela repetido — ambos
+con corrección de prompt aplicada anoche, `f4de3d9`/commits de carátula
+del 24-09 antes de las 00:30, a verificar recién en la próxima madrugada
+que sí produzca guion). Hoy no hay nada que comparar en calidad de
+contenido porque no se produjo contenido: es un tipo de falla nuevo, no
+una repetición de los hallazgos de días previos. Los números del canal
+(`bitacora/metricas/2026-09-24.md` vs `2026-09-23.md`) se movieron por
+tráfico acumulado en el catálogo existente, no por una pieza nueva: 17→18
+suscriptores (+1), 6501→6685 vistas (+184), horas vistas de largos
+23.6h→24.3h (+0.7h), retención ponderada de largos 33.4%→32.5% (-0.9pp,
+dentro del rango plano de las últimas semanas, sin video nuevo hoy que la
+explique). Nada de esto es una serie interrumpida — vuelve a moverse en
+cuanto la edición de hoy salga.
 </pre>
     </details>
     <!--AUDITORIA-FIN-->

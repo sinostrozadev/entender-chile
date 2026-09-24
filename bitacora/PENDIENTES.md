@@ -449,6 +449,38 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **24-09, HOY: el despertador del barrido corrió a horario y dejó un
+      commit vacío — la cadena entera de hoy no arrancó.** Auditoría del
+      24-09 (`bitacora/2026-09-24-auditoria.md`). El commit `98abc93`
+      ("despertador 2026-09-24 [reloj]", 2026-09-24 04:40:16 UTC) no tiene
+      ningún archivo cambiado; `contenido/barrido/despertador.txt` quedó con
+      la marca de AYER (`2026-09-23 04:40:45 UTC`). Como `barrido.yml`
+      dispara por push sobre ese path exacto
+      (`.github/workflows/barrido.yml:16`), el push no cumplió el filtro y
+      el workflow nunca corrió. Las dos redes de respaldo tampoco dispararon
+      ni una vez hoy: los crons de `barrido.yml:23-24` (04:50 y 05:20 UTC) y
+      el de `reintento.yml` (cada 20 min, 04:00-09:59 UTC) llevan cero
+      corridas en todo el día según `mcp__github__actions_list` — y aunque
+      `reintento.yml` hubiera corrido, su chequeo de la línea 53-54 exige
+      que ya exista `contenido/estado/$FECHA.md`, que nunca se creó porque
+      el barrido nunca puso nada en main: no cubre este caso. Consecuencia:
+      a las 05:33 Chile, `node scripts/estado.js --solo-leer` marca
+      ETAPA `nuevo_dia` y todo atrasado, de Barrido (+233 min) a Videos
+      (+18 min); sin barrido no hay preselección, informe, guion, revisión
+      ni edición diaria, y no hay video del informe hoy. **Acción
+      inmediata**: retocar `contenido/barrido/despertador.txt` con la hora
+      actual y pushear (a mano o re-disparando `trig_01W5KE`), o disparar
+      `barrido.yml` por `workflow_dispatch`, para arrancar la cadena hoy
+      aunque sea tarde — cada hora que pasa achica el margen antes de la
+      hora de publicación del informe (06:30 Chile). Propuesta de fondo (no
+      urgente): en `.github/workflows/reintento.yml`, antes de la línea 53,
+      agregar un chequeo previo que, si pasan las ~02:00 Chile sin
+      `contenido/barrido/$FECHA.md` ni estado del día y el despertador del
+      barrido no trae la fecha de hoy, lo retoque y pushee él mismo — la
+      misma receta de despertador-que-dispara-workflow que ya usan barrido,
+      métricas y guardia, aplicada a esta falla en vez de solo a "GPT no
+      responde". Primera vez que se marca: 24-09-2026.
+
 - [ ] **CARÁTULA 6: conectar el CLIMA, lo único que quedó a medias del
       taller del 23-09.** La fórmula ya está escrita en
       `prompts/imagen-caratula.md` (regla 7): el guion declara
