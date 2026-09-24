@@ -98,18 +98,26 @@ const Tablero: React.FC<{ cuadros: number[]; zooms: number[]; focos: number[] }>
 
 // ── un bloque: imagen limpia → barrido → texto ───────────────────────────
 type Fase = [number, number];
+// EL BLOQUE (corregido el 24-09 con los reparos de Santiago).
+//
+// El oscurecido YA NO ENTRA barriendo: el bloque aparece directamente oscuro,
+// o a la mitad si lleva cabecera. El único barrido que queda es el de la
+// mitad al final, cuando el título terminó de mostrarse. Y al terminar el
+// tema no se retira nada: queda como está.
+//
+//   sin cabecera →  aparece al 100% oscuro y entra el texto
+//   con cabecera →  aparece al 50%, se muestra el título, barre al 100%,
+//                   entran los textos
 const Bloque: React.FC<{
   img: string; titulo?: string; seccion?: string; categoria?: string | null;
-  medio?: Fase; lleno: Fase; retiro?: Fase;
+  lleno?: Fase;   // solo si lleva cabecera: el barrido de la mitad al final
   tarjetas: { ev: Evento; from: number; dur: number }[];
-}> = ({ img, titulo, categoria, medio, lleno, retiro, tarjetas }) => {
+}> = ({ img, titulo, categoria, lleno, tarjetas }) => {
   const f = useCurrentFrame();
-  let avance = medio ? interpolate(f, medio, [0, 0.5], sv) : 0;
-  avance = Math.max(avance, interpolate(f, lleno, [medio ? 0.5 : 0, 1], sv));
-  let retirando = false;
-  if (retiro && f >= retiro[0]) { retirando = true; avance = interpolate(f, retiro, [1, 0], sv); }
-  const opTitulo = titulo && medio
-    ? interpolate(f, [medio[1] - 6, medio[1] + 10, lleno[0] - 4, lleno[0] + 12], [0, 1, 1, 0], sv) : 0;
+  const avance = titulo && lleno ? interpolate(f, lleno, [0.5, 1], sv) : 1;
+  const retirando = false;
+  const opTitulo = titulo && lleno
+    ? interpolate(f, [0, 12, lleno[0] - 4, lleno[0] + 12], [0, 1, 1, 0], sv) : 0;
   return (
     <AbsoluteFill style={{ backgroundColor: "#15171A" }}>
       <Img src={staticFile(img)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%",
@@ -132,6 +140,12 @@ const Bloque: React.FC<{
 };
 
 // ── el intro ─────────────────────────────────────────────────────────────
+const VeloQueSuelta: React.FC = () => {
+  const f = useCurrentFrame();
+  return <AbsoluteFill style={{ backgroundColor: "rgba(21,23,26,0.76)",
+    opacity: interpolate(f, [0, 34], [1, 0], sv), pointerEvents: "none" }} />;
+};
+
 const Intro: React.FC<{ conTextos: boolean; dur: number }> = ({ conTextos, dur }) => {
   const f = useCurrentFrame();
   const op = interpolate(f, [0, 14, dur - 20, dur], [0, 1, 1, 0], sv);
@@ -173,8 +187,8 @@ const Secuencia: React.FC<{ conTextos: boolean }> = ({ conTextos }) => (
   <AbsoluteFill style={{ backgroundColor: "#15171A" }}>
     {/* 1-3 · la principal: limpia, barre, texto, y el oscurecido se retira */}
     <Sequence from={PPAL.from} durationInFrames={PPAL.dur}>
-      <Bloque img={CARATULA} lleno={[48, 86]} retiro={[252, 292]}
-        tarjetas={[{ from: 92, dur: 168, ev: ev({ tipo: "tesis",
+      <Bloque img={CARATULA}
+        tarjetas={[{ from: 16, dur: 250, ev: ev({ tipo: "tesis",
           texto: "El Congreso interpelará al canciller por la adhesión de Chile al Escudo de las Américas." }) }]} />
     </Sequence>
 
@@ -183,17 +197,21 @@ const Secuencia: React.FC<{ conTextos: boolean }> = ({ conTextos }) => (
     <Sequence from={INTRO.from} durationInFrames={INTRO.dur}>
       <Audio src={staticFile("musica/sello.wav")} volume={0.75} />
       <Tablero cuadros={[0, 70, 150, 216]} zooms={[1, 0.12, 0.12, 1]} focos={[0, 0, 1, 1]} />
+      {/* el bloque anterior quedó oscuro y el tablero no: sin este velo que
+          se va soltando, al empezar a alejarse la imagen se aclaraba de
+          golpe. Es uno de los saltos. */}
+      <VeloQueSuelta />
       <Sequence from={24} durationInFrames={120}><Intro conTextos={conTextos} dur={120} /></Sequence>
     </Sequence>
 
     {/* 6-7 · la sección: barre a la mitad, título, barre al final, textos */}
     <Sequence from={S1.from} durationInFrames={S1.dur}>
       <Bloque img="secciones/clima.png" titulo="Sistema frontal en el sur" categoria="clima"
-        medio={[30, 70]} lleno={[150, 190]}
+        lleno={[92, 132]}
         tarjetas={[
-          { from: 196, dur: 92, ev: ev({ tipo: "tesis", seccion: "clima",
+          { from: 140, dur: 104, ev: ev({ tipo: "tesis", seccion: "clima",
             texto: "Un sistema frontal mantiene alertas por lluvias y tormentas en el sur." }) },
-          { from: 288, dur: 42, ev: ev({ tipo: "dato", grafico: "cifra", seccion: "clima",
+          { from: 244, dur: 86, ev: ev({ tipo: "dato", grafico: "cifra", seccion: "clima",
             series: [{ etiqueta: "acumulado proyectado en cordillera", raw: "más de 300 mm", num: 300, unidad: "mm" }] }) },
         ]} />
     </Sequence>
@@ -205,8 +223,8 @@ const Secuencia: React.FC<{ conTextos: boolean }> = ({ conTextos }) => (
 
     <Sequence from={S2.from} durationInFrames={S2.dur}>
       <Bloque img={CARATULA} titulo="Dólar sobre los novecientos sesenta" categoria="economia"
-        medio={[24, 62]} lleno={[132, 170]}
-        tarjetas={[{ from: 176, dur: 74, ev: ev({ tipo: "dato", grafico: "cifra", seccion: "economia",
+        lleno={[86, 126]}
+        tarjetas={[{ from: 134, dur: 116, ev: ev({ tipo: "dato", grafico: "cifra", seccion: "economia",
           series: [{ etiqueta: "más caro cada mil dólares de deuda", raw: "15.000", num: 15000, unidad: "pesos" }] }) }]} />
     </Sequence>
   </AbsoluteFill>
