@@ -50,9 +50,17 @@ function rangoTiempo(charStart, charEnd) {
 const eventos = [];
 const porIndice = new Map();
 let seccionActual = null;
+// además del título de la sección, su SLUG: es el que elige la imagen de
+// fondo de cada tarjeta (24-09, Santiago: el contenido no va sobre blanco,
+// va sobre la imagen de su sección).
+let categoriaActual = null;
 parsed.eventos.forEach((ev, idx) => {
-  if (ev.tipo === "seccion") seccionActual = ev.texto;
+  if (ev.tipo === "seccion") {
+    seccionActual = ev.texto;
+    categoriaActual = ev.categoria || imagenDe(ev.texto) || null;
+  }
   ev._seccion = seccionActual;
+  ev._categoria = categoriaActual;
   if (ev.charStart != null) {
     const r = rangoTiempo(ev.charStart, ev.charEnd);
     if (r) {
@@ -60,6 +68,7 @@ parsed.eventos.forEach((ev, idx) => {
       if (ev.textoPantalla) out.textoPantalla = ev.textoPantalla; // numerales en pantalla
       if (ev.fuenteSeccion) out.fuenteSeccion = ev.fuenteSeccion; // fuente al pie del bloque
       if (ev._seccion) out.seccion = ev._seccion;
+      if (ev._categoria) out.categoria = ev._categoria;
       if (ev.etiqueta) out.etiqueta = ev.etiqueta;
       if (ev.soporte) out.soporte = true;
       if (ev.tipo === "cita") { out.autor = ev.autor; out.fuente = ev.fuente; }
@@ -93,7 +102,7 @@ for (const [anchor, grupo] of grupos) {
   grupo.forEach((ev, k) => {
     const from = ancla.from + paso * k;
     const to = k === grupo.length - 1 ? ancla.to : ancla.from + paso * (k + 1);
-    const base = { seccion: ev._seccion, caption: ev.caption, from: Number(from.toFixed(3)), to: Number(to.toFixed(3)) };
+    const base = { seccion: ev._seccion, ...(ev._categoria ? { categoria: ev._categoria } : {}), caption: ev.caption, from: Number(from.toFixed(3)), to: Number(to.toFixed(3)) };
     if (ev.fuenteSeccion) base.fuenteSeccion = ev.fuenteSeccion;
     if (ev.automatico) base.automatico = true;
     if (ev.tipo === "dato") eventos.push({ tipo: "dato", grafico: ev.grafico, fuente: ev.fuente, series: ev.series, ...base });

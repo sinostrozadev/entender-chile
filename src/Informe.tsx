@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { tema, estiloEyebrow } from "./tema";
-import { Tarjeta, SeccionBanner, CortinaSeccion, Evento } from "./tarjetas";
+import { Tarjeta, SeccionBanner, CortinaSeccion, Evento, FondoTarjetaContext, ModoFondo } from "./tarjetas";
 import { TransicionMosaico, Baldosa } from "./mosaico";
 import { FondosContext } from "./fondos";
 
@@ -20,6 +20,8 @@ export type Timeline = {
     fondos?: boolean;            // texturas por sección (src/fondos.tsx); apagado = video de siempre
     mosaico?: boolean;           // el mosaico como transición de sección (24-09); apagado = la cortina de siempre
     secciones?: string[];        // qué secciones tienen imagen propia hoy, ej. ["clima.png"]; el resto va a color
+    caratula?: string | null;    // la ilustración del día, ej. "caratulas/2026-09-24.png"
+    fondoTarjeta?: ModoFondo;    // cómo va el fondo de las tarjetas: columna | oscurecer | tv | papel
     selloEn?: number;            // segundos en que entra el sello; 0 = al inicio (apertura en frío: después de la noticia)
     fps: number;
     width: number;
@@ -108,6 +110,8 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
 
   return (
     <FondosContext.Provider value={{ activo: !!tl.meta.fondos, fecha: tl.meta.fecha ?? "" }}>
+    <FondoTarjetaContext.Provider value={{ modo: tl.meta.fondoTarjeta ?? "papel",
+      caratula: tl.meta.caratula ?? null, secciones: tl.meta.secciones ?? [] }}>
     <AbsoluteFill style={{ backgroundColor: tema.papel }}>
       {tl.audio ? (
         // la voz entra cuando el sello ya se fue (build-timeline corrió los tiempos)
@@ -149,15 +153,15 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
       {tl.meta.mosaico
         ? overlays
             .map((ev, i) => ({ ev, i }))
-            // el índice 0 (la entrada del video) también lleva cabecera, salvo
-            // que ahí esté el sello: sin ella la portada corta directo a la
-            // tarjeta blanca
-            .filter(({ ev, i }) => (i > 0 ? !!ev.pausaDur : ev.from > 0.2)
+            // El primer bloque NO lleva cabecera (Santiago, 24-09: "la
+            // principal, no la quiero con cabecera, esa abre"). Lo que hacía
+            // falta ahí no era una transición: era que la tarjeta dejara de
+            // ser blanca, y eso lo resuelve el fondo de la tarjeta.
+            .filter(({ ev, i }) => i > 0 && ev.pausaDur
               && (ev.from < selloEn - 0.5 || ev.from > selloEn + SELLO_SEG + 0.5))
             .map(({ ev, i }) => {
-              const anticipo = i === 0 ? Math.min(MOSAICO_ANTICIPO_SEG, ev.from)
-                : Math.min(MOSAICO_ANTICIPO_SEG, Math.max(0, ev.from - (overlays[i - 1]?.from ?? 0) - 2));
-              const dur = Math.min(ev.pausaDur ?? 1.2, MOSAICO_MAX_SEG) + anticipo + MOSAICO_COLA_SEG;
+              const anticipo = Math.min(MOSAICO_ANTICIPO_SEG, Math.max(0, ev.from - (overlays[i - 1]?.from ?? 0) - 2));
+              const dur = Math.min(ev.pausaDur!, MOSAICO_MAX_SEG) + anticipo + MOSAICO_COLA_SEG;
               return (
                 <Sequence key={"mos" + i} from={f(ev.from - anticipo)} durationInFrames={Math.max(1, f(dur))}>
                   {/* la melodía NO se adelanta con la imagen: suena en la
@@ -192,6 +196,7 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
         <Sello fecha={tl.meta.fecha} serie={tl.meta.serie} />
       </Sequence>
     </AbsoluteFill>
+    </FondoTarjetaContext.Provider>
     </FondosContext.Provider>
   );
 };
