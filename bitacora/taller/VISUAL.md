@@ -76,7 +76,8 @@ propio: **Apertura**, **La noticia del día**, **¿En qué quedó?**,
 | Contador | el número cuenta hasta su valor | toda cifra grande | 🧪 |
 | Barras escalonadas | crecen una después de otra | `barras` | 🧪 |
 | Comparación en dos tiempos | el segundo valor entra después | `comparacion` | 🧪 |
-| Mosaico de secciones | la fila, el zoom y el apagado | estructura del informe | 🧪 24-09 |
+| Mosaico de secciones | la fila, el zoom y el apagado | estructura del informe | 🧪 24-09, v2 |
+| Recorrido sembrado | el orden de la fila y la deriva salen de la fecha | mosaico | 🧪 24-09 |
 
 ---
 
@@ -89,6 +90,15 @@ propio: **Apertura**, **La noticia del día**, **¿En qué quedó?**,
 4. **La imagen del día manda solo en la portada**; las secciones tienen lo suyo.
 5. **Ninguna cifra grande lleva textura detrás** (regla 29).
 6. **El cobre es el acento y vive en un solo lugar del cuadro.**
+7. **Nada cambia de golpe a mitad de una transición.** Si el contenido salta
+   mientras la cámara se mueve, el movimiento se lee como un corte aunque sea
+   continuo. Todo lo que cambia entre el estado chico y el grande se
+   interpola con el zoom: posición, tamaño, opacidad y degradado.
+8. **En pantalla completa nada se mueve.** La pieza se instala y se queda
+   quieta; el movimiento vive en los traslados, no en la lectura.
+9. **El recorrido se siembra con la fecha.** Dos días distintos no se mueven
+   igual, dos renders del mismo día sí. Es lo mismo que pide la regla 29 para
+   las imágenes, aplicado al movimiento.
 
 ## 4. Descartado, con motivo
 
