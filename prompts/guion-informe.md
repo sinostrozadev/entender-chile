@@ -132,6 +132,20 @@ FORMATO DE SALIDA:
     Carátula 3: Rachas de 90 km/h / ¿Dónde pega más?
 
   Cada carátula son DOS líneas separadas por " / ", de MÁXIMO CUATRO PALABRAS cada una (se pintan en mayúsculas, grandes, sobre cajas: más palabras no caben). La carátula tiene que dar la RAZÓN PARA ENTRAR, no contar la conclusión: el título ya dice el hecho. Está escrita desde el espectador (qué le pasa a él, qué tiene en juego), con una tensión o una pregunta que el video responde. Las tres son enfoques distintos: la primera, una PREGUNTA; la segunda, una CONTRADICCIÓN o un giro; la tercera, una CIFRA CON REFERENCIA (solo si la cifra se entiende en un segundo sin contexto) o un segundo giro si no hay cifra. La primera es la que sale al aire; las otras dos van a la prueba A/B de YouTube. PRUEBA DEL GANCHO: si un desconocido necesita preguntarte "¿qué?" o "¿de quién?", no es gancho. Prohibido subir el gancho con indignación, morbo, daño a personas o sospecha sin fallo (rompe la revisión de monetización). Ninguna se narra: son solo para la carátula, que se genera sola.
+- Sexta línea: "Clima de carátula:" seguido de UNA de estas seis palabras, la
+  que corresponda al tono de la noticia de portada. Decide la luz y el color
+  de la carátula (regla de Santiago, 23-09: "si la noticia es alegre, estilo
+  alegre"; hasta ese día todas salían con la misma penumbra):
+
+    Clima de carátula: institucional
+
+  `grave` (emergencia, tragedia, crisis) · `institucional` (leyes,
+  votaciones, gobierno) · `cotidiano` (economía, bolsillo, trabajo, lo que
+  pasa sin drama) · `bueno` (un logro, una cifra que mejora, algo que parte)
+  · `curioso` (dato curioso, ciencia, cultura) · `deporte`.
+  La mayoría de los días es `institucional` o `cotidiano`, y está bien: una
+  noticia mala con luz de mañana se ve falsa. No fuerces `bueno`. Si no
+  escribes la línea, el sistema usa `institucional`.
 - Después: "Guion:" y el texto narrable con las siguientes marcas, y solo estas, cada una en su propia línea:
   ## Nombre de sección
       Una por bloque temático. No se narra.

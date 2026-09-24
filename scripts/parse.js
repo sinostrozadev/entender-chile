@@ -125,6 +125,11 @@ function cifraPrincipal(textoPantalla) {
 function parseGuion(md) {
   const lineas = md.replace(/\r\n/g, "\n").split("\n");
   let titulo = null, caratula = null, descripcion = [], fuentes = [];
+  // CLIMA DE CARÁTULA (23-09): la luz de la carátula la manda la noticia, no
+  // el gusto. Sin esta línea todas salían con la misma penumbra y el canal
+  // parecía una sola noticia repetida. Si el guion no la trae, vale
+  // "institucional", que es el tono neutro del informe.
+  let clima = null;
   const caratulas = []; // 20-09: hasta tres ganchos ("Carátula sugerida:", "Carátula 2:", "Carátula 3:")
   let zona = "pre"; // pre | descripcion | guion | fuentes
   const eventos = [];
@@ -145,6 +150,7 @@ function parseGuion(md) {
     if (/^t[íi]tulo sugerido:/i.test(sinNegrita)) { titulo = sinNegrita.replace(/^t[íi]tulo sugerido:/i, "").trim(); continue; }
     // Carátula sugerida (05-09): el gancho de 3-5 palabras para la miniatura,
     // escrito por el guionista. Dice lo que el título no dice; nunca se narra.
+    { const m = sinNegrita.match(/^clima\s+de\s+car[áa]tula:\s*([a-záéíóú]+)/i); if (m) { clima = m[1].toLowerCase(); continue; } }
     if (/^car[áa]tula sugerida:/i.test(sinNegrita)) { caratula = sinNegrita.replace(/^car[áa]tula sugerida:/i, "").trim(); caratulas[0] = caratula; continue; }
     // Carátulas 2 y 3 (20-09): alternativas para la prueba A/B de YouTube.
     // Tampoco se narran: sin este continue irían a la voz como un párrafo.
@@ -352,7 +358,7 @@ function parseGuion(md) {
     }
   }
 
-  return { titulo, caratula, caratulas: caratulas.filter(Boolean), descripcion: descripcion.join(" "), fuentes, eventos, cleanText };
+  return { titulo, caratula, clima, caratulas: caratulas.filter(Boolean), descripcion: descripcion.join(" "), fuentes, eventos, cleanText };
 }
 
 // ---- CLI ----

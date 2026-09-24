@@ -21,6 +21,28 @@ const mezclarHex = (a: string, b: string, t: number) => {
   const c = (x: number, y: number) => Math.round(x + (y - x) * t).toString(16).padStart(2, "0");
   return `#${c(r1, r2)}${c(g1, g2)}${c(b1, b2)}`;
 };
+// CLIMAS DE CARÁTULA (23-09, decisión de Santiago: "si la noticia es alegre,
+// estilo alegre"). La luz la manda la noticia, no el gusto: con un solo tono
+// todas las carátulas salían en penumbra y el canal parecía una sola noticia
+// repetida, que además es justo lo que la regla 29 manda evitar. El guion
+// declara "Clima de carátula:" y de ahí sale esta paleta. Sin línea vale
+// "institucional", el tono neutro del informe.
+//   haciaTinta: cuánto se oscurece el color de la sección (1 = tinta pura)
+//   tinte y peso: color que se mezcla antes de oscurecer, para dar el humor,
+//     y cuánto manda sobre el color de la sección. Probado el 23-09: a mitad
+//     y mitad, un clima "bueno" dorado sobre una sección azul daba un verde
+//     oliva embarrado. El humor tiene que mandar; de la sección queda un
+//     resto, que basta para que dos secciones no salgan idénticas.
+//   picto: color del pictograma
+const CLIMAS: Record<string, { haciaTinta: number; tinte?: string; peso?: number; picto: string }> = {
+  grave: { haciaTinta: 0.82, picto: COBRE },
+  institucional: { haciaTinta: 0.68, picto: COBRE },
+  cotidiano: { haciaTinta: 0.52, tinte: "#8C8578", peso: 0.7, picto: "#F4F1EA" },
+  bueno: { haciaTinta: 0.30, tinte: "#C08A2E", peso: 0.88, picto: "#FFF8E8" },
+  curioso: { haciaTinta: 0.34, tinte: "#2F7263", peso: 0.88, picto: "#FFF1CC" },
+  deporte: { haciaTinta: 0.44, tinte: "#1E5B3A", peso: 0.85, picto: "#FFFFFF" },
+};
+
 // el cuerpo sale del largo de la línea: en Plex Sans 600 mayúsculas cada
 // carácter mide ~0,56 em. Mismo criterio que la V3.
 const tallaLinea = (s: string, ancho: number, max: number) =>
@@ -241,22 +263,31 @@ const MiniaturaV3: React.FC<MiniaturaV3Props> = ({ linea1, linea2, imagen, fecha
 // VARIACIÓN DIARIA POR CÓDIGO (regla 29): la semilla mueve el pictograma, lo
 // gira un poco y corre el degradado. Hasta hoy la carátula no variaba y dos
 // días seguidos de clima salieron idénticos (22 y 23-09).
-type MiniaturaV4Props = { linea1: string; linea2?: string; cifra?: string; etiqueta?: string; seccion?: string; semilla?: number };
-const MiniaturaV4: React.FC<MiniaturaV4Props> = ({ linea1, linea2, cifra, etiqueta, seccion, semilla = 0 }) => {
-  const color = colorDeSeccion(seccion);
-  const fondo = mezclarHex(color, tema.tinta, 0.68);
+type MiniaturaV4Props = { linea1: string; linea2?: string; cifra?: string; etiqueta?: string; seccion?: string; semilla?: number; clima?: string };
+const MiniaturaV4: React.FC<MiniaturaV4Props> = ({ linea1, linea2, cifra, etiqueta, seccion, semilla = 0, clima }) => {
+  const c = CLIMAS[(clima || "").toLowerCase()] || CLIMAS.institucional;
+  const base = c.tinte ? mezclarHex(colorDeSeccion(seccion), c.tinte, c.peso ?? 0.85) : colorDeSeccion(seccion);
+  const fondo = mezclarHex(base, tema.tinta, c.haciaTinta);
+  // CONTORNO EN CLIMAS CLAROS (23-09): sobre un fondo cálido y claro, el
+  // banner de cobre perdía el golpe, que es justo el defecto que la carátula
+  // del paraguas dejó en evidencia. Una línea de tinta le devuelve el borde
+  // sin tocar el color de la casa. En los climas oscuros no hace falta.
+  const contorno = c.haciaTinta < 0.55 ? "3px solid rgba(23,25,28,0.9)" : "none";
   const banner = (s: string, bg: string, tx: string): React.CSSProperties => ({
     display: "inline-block", background: bg, color: tx, fontFamily: tema.sans, fontWeight: 600,
     fontSize: tallaLinea(s, 980, 88), lineHeight: 1, padding: "10px 24px 14px",
     textTransform: "uppercase", letterSpacing: "-0.015em", whiteSpace: "nowrap",
-    boxShadow: "0 14px 40px rgba(0,0,0,0.35)",
+    border: contorno, boxShadow: "0 14px 40px rgba(0,0,0,0.35)",
   });
   return (
     <AbsoluteFill style={{ backgroundColor: fondo }}>
       <div style={{ position: "absolute", right: -70 + (semilla % 5) * 12, top: 8 + (semilla % 3) * 14, width: 470, height: 470, opacity: 0.92 }}>
-        <Picto nombre={seccion} color={COBRE} giro={-4 + (semilla % 5) * 2} />
+        <Picto nombre={seccion} color={c.picto} giro={-4 + (semilla % 5) * 2} />
       </div>
-      <div style={{ position: "absolute", left: 44, top: 38, fontFamily: tema.mono, fontSize: 22, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(242,242,239,0.66)" }}>Entender Chile</div>
+      {/* la esquina de los banners se oscurece SIEMPRE: con un clima claro el
+          banner de papel perdía contraste contra el fondo */}
+      <AbsoluteFill style={{ background: "linear-gradient(20deg, rgba(23,25,28,0.62) 8%, rgba(23,25,28,0) 58%)" }} />
+      <div style={{ position: "absolute", left: 44, top: 38, fontFamily: tema.mono, fontSize: 22, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(242,242,239,0.72)" }}>Entender Chile</div>
       {cifra ? (
         <div style={{ position: "absolute", left: 48, top: 104 }}>
           <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: cifra.length > 4 ? 200 : 260, lineHeight: 0.82, color: "#F7F6F2", letterSpacing: "-0.03em" }}>{cifra}</div>
@@ -327,7 +358,7 @@ const RootMarca: React.FC = () => (
       height={720}
       fps={1}
       durationInFrames={1}
-      defaultProps={{ linea1: "", linea2: "", cifra: "", etiqueta: "", seccion: "", semilla: 0 }}
+      defaultProps={{ linea1: "", linea2: "", cifra: "", etiqueta: "", seccion: "", semilla: 0, clima: "institucional" }}
     />
     <Composition
       id="MiniaturaV5"

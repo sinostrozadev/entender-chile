@@ -153,11 +153,25 @@ const Contactos: React.FC = () => (
   </AbsoluteFill>
 );
 
+// los seis climas juntos, en el tamaño en que se ven en la grilla de YouTube
+const CLIMAS_LISTA = ["grave", "institucional", "cotidiano", "bueno", "curioso", "deporte"];
+const HojaClimas: React.FC = () => (
+  <AbsoluteFill style={{ backgroundColor: "#0E0F11", padding: 18, display: "flex", flexWrap: "wrap", alignContent: "flex-start" }}>
+    {CLIMAS_LISTA.map((n) => (
+      <div key={n} style={{ width: "33.33%", padding: 10, boxSizing: "border-box" }}>
+        <Img src={staticFile(`clima/clima-${n}.png`)} style={{ width: "100%", display: "block", borderRadius: 4 }} />
+        <div style={{ fontFamily: tema.mono, fontSize: 18, color: "rgba(242,242,239,0.75)", letterSpacing: "0.12em", marginTop: 6 }}>{n}</div>
+      </div>
+    ))}
+  </AbsoluteFill>
+);
+
 const props = { linea1: "¿CUÁNTA LLUVIA VIENE?", linea2: "SEIS REGIONES ALERTADAS", imagen: "fondos/seccion-clima.jpg", seccion: "clima", semilla: 23 };
 export const RootTaller: React.FC = () => (
   <>
     <Composition id="CaratulaCampo" component={CaratulaCampo} width={1280} height={720} fps={1} durationInFrames={1} defaultProps={props} />
     <Composition id="CaratulaCifra" component={CaratulaCifra} width={1280} height={720} fps={1} durationInFrames={1} defaultProps={{ ...props, cifra: "105", etiqueta: "milímetros en 24 horas" }} />
+    <Composition id="HojaClimas" component={HojaClimas} width={1500} height={860} fps={1} durationInFrames={1} />
     <Composition id="Contactos" component={Contactos} width={1280} height={720} fps={1} durationInFrames={1} />
     <Composition id="CaratulaPicto" component={CaratulaPicto} width={1280} height={720} fps={1} durationInFrames={1} defaultProps={{ ...props, cifra: "105", etiqueta: "milímetros en 24 horas" }} />
     <Composition id="CaratulaPictoSinCifra" component={CaratulaPicto} width={1280} height={720} fps={1} durationInFrames={1} defaultProps={props} />

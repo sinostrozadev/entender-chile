@@ -195,6 +195,10 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
     const cifra = valor?.raw ? String(valor.raw).trim().slice(0, 7) : "";
     const etiqueta = valor?.etiqueta ? String(valor.etiqueta).trim().slice(0, 42) : "";
     const semilla = Number(fecha.replace(/-/g, "").slice(-4)) % 97; // variación diaria por código (regla 29)
+    // el clima lo declara el guion ("Clima de carátula:"); sin línea, el tono
+    // neutro del informe. Decide la luz de la carátula para que no salgan
+    // todas en penumbra (Santiago, 23-09).
+    const clima = (parsed.clima || "institucional").toLowerCase();
     // la ilustración de GPT vive en contenido/caratulas/FECHA.(png|jpg); se
     // copia a public/ porque Remotion solo sirve desde ahí
     let imagenGpt = null;
@@ -209,11 +213,11 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
       }
     }
     const planes = [
-      ["miniatura.png", "MiniaturaV4", { linea1, linea2, cifra, etiqueta, seccion: img || "", semilla }, `pictograma${cifra ? ` + cifra ${cifra}` : ""}`],
+      ["miniatura.png", "MiniaturaV4", { linea1, linea2, cifra, etiqueta, seccion: img || "", semilla, clima }, `pictograma${cifra ? ` + cifra ${cifra}` : ""}, clima ${clima}`],
       ["miniatura-2.png", "MiniaturaV3", { linea1, linea2, imagen, fecha: fechaVisible, paleta: "casa" }, "diseño actual"],
       imagenGpt
         ? ["miniatura-3.png", "MiniaturaV5", { linea1, linea2, imagen: imagenGpt }, `ilustración de GPT (${imagenGpt})`]
-        : ["miniatura-3.png", "MiniaturaV4", { linea1: dosLineas(ganchos[1] || ganchos[0])[0], linea2: dosLineas(ganchos[1] || ganchos[0])[1], cifra: "", etiqueta: "", seccion: img || "", semilla: semilla + 7 }, "SIN ilustración de GPT: pictograma con el segundo gancho"],
+        : ["miniatura-3.png", "MiniaturaV4", { linea1: dosLineas(ganchos[1] || ganchos[0])[0], linea2: dosLineas(ganchos[1] || ganchos[0])[1], cifra: "", etiqueta: "", seccion: img || "", semilla: semilla + 7, clima }, "SIN ilustración de GPT: pictograma con el segundo gancho"],
     ];
     for (const [archivo, comp, props, nota] of planes) {
       const mini = path.join(OUT, archivo);
