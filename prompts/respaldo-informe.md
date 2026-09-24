@@ -11,7 +11,7 @@
 > lo que viene después del `---`. Editar este archivo ES cambiar el respaldo.
 
 **ESTE ARCHIVO ES EL PROMPT VIVO** de la rutina "Respaldo informe (02:35
-Chile)". Rutina: `trig_01Sp4z4tC5RonDnkw7rGdSyd`. Cron `35 5 * * *` (02:35 de
+Chile)". Rutina: `trig_01VU2rZ6AejJCNC1tY7imx9Q`. Cron `35 5 * * *` (02:35 de
 Chile, UTC-3; si cambia la hora en Chile, hay que volver a mirarlo).
 
 Por qué a las 02:35: el respaldo de la preselección corre a la 01:55 y, con

@@ -1,9 +1,19 @@
-# Respaldo de la preselección — DESACTIVADA (04-09, a pedido de Santiago)
+# Respaldo de la preselección — REACTIVADA (24-09-2026, caída de GPT)
 
-> La rutina `trig_01CVyy1m21cpCGHk9sKfVY9r` quedó `enabled=false` la misma
-> noche en que se creó: la prueba del disparo por PR funcionó (GPT entregó
-> la preselección 2 min después del evento) y Santiago pidió borrarla. El
-> prompt queda acá por si algún día se reactiva por API.
+> Historia: la rutina original `trig_01CVyy1m21cpCGHk9sKfVY9r` quedó
+> `enabled=false` el 04-09, la misma noche en que se creó, porque la prueba
+> del disparo por PR funcionó (GPT entregó la preselección 2 min después del
+> evento) y Santiago pidió apagarla.
+>
+> El 24-09 ChatGPT se quedó sin cuota hasta el domingo y esta red de
+> seguridad pasó a ser el camino principal. La rutina vieja no se pudo
+> reactivar desde acá (fue creada por la web y solo Santiago puede editarla),
+> así que se creó una nueva con este mismo prompt:
+> **`trig_01CEfUBNnqtRYgEgyYhYocUU`, cron `55 4 * * *` = 01:55 de Chile.**
+>
+> Se adelantó de las 03:30 a la 01:55 a propósito: con GPT caído no tiene
+> sentido esperarlo, y el informe necesita la preselección temprano. Cuando
+> GPT vuelva, conviene apagar la nueva o devolverla a una hora tardía.
 
 **ESTE ARCHIVO ES EL PROMPT VIVO** de la rutina de respaldo de la
 preselección `trig_01CVyy1m21cpCGHk9sKfVY9r` (patrón prompt-en-el-repo, 04-09). La rutina solo sincroniza el
