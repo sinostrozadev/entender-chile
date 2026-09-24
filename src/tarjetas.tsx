@@ -55,10 +55,29 @@ const useEntrada = () => {
 //   tv         la imagen queda entera y el texto va dentro de un cuadro.
 //
 // papel es el modo de antes, para poder volver sin tocar nada.
-export type ModoFondo = "columna" | "oscurecer" | "tv" | "papel";
+// transparente: la tarjeta no dibuja fondo. Lo pone el BLOQUE, que es quien
+// maneja el barrido, porque el oscurecido es de la sección entera y no de
+// cada tarjeta: si cada tarjeta barriera, la sección barrería cuatro veces.
+export type ModoFondo = "columna" | "oscurecer" | "tv" | "papel" | "transparente";
 export const FondoTarjetaContext = createContext<{
   modo: ModoFondo; caratula?: string | null; secciones: string[];
+  // EL BARRIDO (24-09, secuencia de Santiago). El oscurecido no aparece de
+  // golpe: entra de izquierda a derecha. avance 0 = imagen limpia, 1 = toda
+  // oscurecida, 0,5 = hasta la mitad, que es donde se muestra el título.
+  // retirando invierte el sentido: la oscuridad se va y la imagen vuelve.
+  avance?: number; retirando?: boolean;
 }>({ modo: "papel", secciones: [] });
+
+// Borde suave de 15% del ancho: un filo recto se lee como transición de
+// presentación, no como luz que avanza.
+const BANDA = 15;
+export const velo = (avance: number, retirando: boolean, alfa = 0.76) => {
+  const a = Math.max(0, Math.min(1, avance)) * (100 + BANDA * 2) - BANDA;
+  const oscuro = `rgba(21,23,26,${alfa})`;
+  return retirando
+    ? `linear-gradient(90deg, rgba(21,23,26,0) ${a}%, ${oscuro} ${a + BANDA}%)`
+    : `linear-gradient(90deg, ${oscuro} ${a - BANDA}%, rgba(21,23,26,0) ${a}%)`;
+};
 
 const CLARO = { "--ec-tinta": "#17191C", "--ec-gris": "#6B6E6A", "--ec-linea": "#DDDDD5",
   "--ec-acento": "#2F7263", "--ec-fondo": "#F2F2EF", "--ec-elevado": "#FCFCFA" } as React.CSSProperties;
@@ -102,7 +121,8 @@ const Marco: React.FC<{ children: React.ReactNode; abajo?: React.ReactNode; secc
   const deSeccion = categoria ? fondo.secciones.find((n) => n.startsWith(`${categoria}.`)) : undefined;
   const ruta = deSeccion ? `secciones/${deSeccion}` : fondo.caratula || null;
   const url = ruta ? staticFile(ruta) : null;
-  const modo: ModoFondo = url && fondo.modo !== "papel" ? fondo.modo : "papel";
+  const modo: ModoFondo = fondo.modo === "transparente" ? "transparente"
+    : url && fondo.modo !== "papel" ? fondo.modo : "papel";
   const oscuro = modo !== "papel";
 
   // imagen viva: el acercamiento lentísimo que ya estaba probado. Nunca se
@@ -111,8 +131,9 @@ const Marco: React.FC<{ children: React.ReactNode; abajo?: React.ReactNode; secc
 
   return (
   <AbsoluteFill style={{ ...(oscuro ? OSCURO : CLARO),
-    backgroundColor: oscuro ? "#15171A" : tema.papel, padding: tema.margen, justifyContent: "center" }}>
-    {url && oscuro ? (
+    backgroundColor: modo === "transparente" ? "transparent" : oscuro ? "#15171A" : tema.papel,
+    padding: tema.margen, justifyContent: "center" }}>
+    {url && oscuro && modo !== "transparente" ? (
       <>
         <Img src={url} style={{ position: "absolute", inset: 0, width: "100%", height: "100%",
           objectFit: "cover", transform: `scale(${escala})` }} />
@@ -123,7 +144,7 @@ const Marco: React.FC<{ children: React.ReactNode; abajo?: React.ReactNode; secc
           </>
         ) : null}
         {modo === "oscurecer" ? (
-          <AbsoluteFill style={{ backgroundColor: "rgba(21,23,26,0.74)" }} />
+          <AbsoluteFill style={{ background: velo(fondo.avance ?? 1, !!fondo.retirando) }} />
         ) : null}
         {modo === "tv" ? (
           <AbsoluteFill style={{ background: "linear-gradient(90deg, rgba(21,23,26,0.55) 0%, rgba(21,23,26,0.25) 100%)" }} />
