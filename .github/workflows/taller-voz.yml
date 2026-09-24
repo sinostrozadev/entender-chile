@@ -11,9 +11,13 @@ on:
   workflow_dispatch:
     inputs:
       ronda:
-        description: "chilenas | neutras"
+        description: "chilenas | neutras | lista"
         required: false
         default: "chilenas"
+      voces:
+        description: "solo para ronda=lista: voces separadas por coma, cada una voz o voz|estilo"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -44,11 +48,11 @@ jobs:
           AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
         run: |
-          if [ "${{ inputs.ronda }}" = "neutras" ]; then
-            node scripts/taller-voz-neutras.js
-          else
-            node scripts/taller-voz.js
-          fi
+          case "${{ inputs.ronda }}" in
+            neutras) node scripts/taller-voz-neutras.js ;;
+            lista)   VOCES="${{ inputs.voces }}" node scripts/taller-voz-lista.js ;;
+            *)       node scripts/taller-voz.js ;;
+          esac
       - name: Commit
         run: |
           git config user.name "taller-bot"
