@@ -25,7 +25,7 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 
 const KEY = process.env.AZURE_SPEECH_KEY;
 const REGION = process.env.AZURE_SPEECH_REGION;
-const SALIDA = process.argv[2] || path.join("contenido", "taller", "voz");
+const SALIDA = process.argv[2] || path.join("contenido", "taller", "voz", "ronda2");
 const VOZ = "es-CL-LorenzoNeural";
 const VOZ2 = "es-CL-CatalinaNeural";
 
@@ -39,63 +39,70 @@ const CIFRA = "La reforma obtuvo ochenta y ocho votos a favor. Necesitaba ochent
 const PREGUNTA = "¿Qué pasa ahora con el proyecto?";
 const CITA = "El Gobierno todavía puede pedir que el Senado revise la reforma.";
 
+// Pregunta a Azure qué voces hay, en vez de recordarlo. La regla 31 pide
+// acento chileno, así que lo que importa es cuántas es-CL existen y cuáles
+// aceptan estilos. Nunca lo habíamos comprobado.
+function listarVoces() {
+  return new Promise((resolve) => {
+    const cfg = sdk.SpeechConfig.fromSubscription(KEY, REGION);
+    const synth = new sdk.SpeechSynthesizer(cfg, null);
+    synth.getVoicesAsync("es-CL").then((r) => {
+      synth.close();
+      const v = (r && r.voices) || [];
+      resolve(v.map((x) => ({
+        nombre: x.shortName || x.name,
+        genero: x.gender === 1 ? "femenina" : x.gender === 2 ? "masculina" : "?",
+        estilos: (x.styleList || []).filter(Boolean),
+      })));
+    }).catch(() => { synth.close(); resolve([]); });
+  });
+}
+
 const esc = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const speak = (cuerpo) =>
   `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="es-CL">${cuerpo}</speak>`;
 const voz = (contenido, nombre = VOZ) => `<voice name="${nombre}">${contenido}</voice>`;
 
-const VARIANTES = [
+// RONDA 2 (24-09). Santiago escuchó la ronda 1 y descartó las tres variantes
+// que tocan la interpretación a mano: el movimiento de tono "suena
+// artificial", el ritmo por frase "tampoco", y del estilo noticiero "no
+// detecto el cambio". La conclusión no es insistir con más SSML: si
+// manipular la voz se nota, hay que cambiar la voz.
+//
+// Esta ronda prueba VOCES y AIRE, no interpretación:
+//   - cada voz chilena que Azure tenga, leyendo igual y sin trucos
+//   - el aire puesto por puntuación (mstts:silence), que es global y no
+//     frase por frase, así no se siente dirigido
+//   - y el procesado de audio AISLADO, sobre la voz tal cual, que en la
+//     ronda 1 iba montado sobre la variante con tono y quedó contaminado
+const TEXTO = `${TESIS} ${CIFRA} ${PREGUNTA} ${CITA}`;
+
+const variantesDeVoz = (voces) => {
+  const v = [];
+  for (const nombre of voces) {
+    v.push({
+      id: `v-${nombre.replace(/^es-CL-/, "").replace(/Neural$/, "").toLowerCase()}`,
+      titulo: `Voz ${nombre}, tal cual`,
+      nota: "Sin ningún truco: solo la velocidad de siempre. Lo que se compara es la voz, no la interpretación.",
+      ssml: speak(voz(`<prosody rate="-10%">${esc(TEXTO)}</prosody>`, nombre)),
+    });
+  }
+  return v;
+};
+
+const VARIANTES_FIJAS = [
   {
-    id: "1-actual",
-    titulo: "Como suena hoy",
-    nota: "Una sola velocidad al 90% y nada más. Es la referencia contra la que se comparan las otras.",
-    ssml: speak(voz(`<prosody rate="-10%">${esc(TESIS)} ${esc(CIFRA)} ${esc(PREGUNTA)} ${esc(CITA)}</prosody>`)),
+    id: "aire-puntuacion",
+    titulo: "Aire por puntuación, sin dirigir frase por frase",
+    nota: "mstts:silence agrega silencio en comas y puntos de forma pareja. Es lo contrario de la ronda 1: el aire lo pone la puntuación, no yo.",
+    ssml: speak(`<voice name="${VOZ}"><mstts:silence type="Sentenceboundary" value="450ms"/><mstts:silence type="Comma-exact" value="180ms"/>` +
+      `<prosody rate="-10%">${esc(TEXTO)}</prosody></voice>`),
   },
   {
-    id: "2-ritmo",
-    titulo: "Velocidad y pausas por tipo de frase",
-    nota: "La tesis más lenta, la cifra con una pausa antes para que pese, la pregunta con aire después. Solo prosody y break: esto funciona seguro.",
-    ssml: speak(voz(
-      `<prosody rate="-16%">${esc(TESIS)}</prosody><break time="520ms"/>` +
-      `<prosody rate="-6%">La reforma obtuvo <break time="260ms"/>ochenta y ocho votos a favor.</prosody><break time="420ms"/>` +
-      `<prosody rate="-14%">Necesitaba ochenta y nueve.</prosody><break time="700ms"/>` +
-      `<prosody rate="-8%">${esc(PREGUNTA)}</prosody><break time="620ms"/>` +
-      `<prosody rate="-10%">${esc(CITA)}</prosody>`)),
-  },
-  {
-    id: "3-tono",
-    titulo: "Ritmo más movimiento de tono",
-    nota: "Lo anterior, y además el tono sube en la pregunta y baja en el cierre. Es lo que hace que una voz suene viva y no leída.",
-    ssml: speak(voz(
-      `<prosody rate="-16%" pitch="-2%">${esc(TESIS)}</prosody><break time="520ms"/>` +
-      `<prosody rate="-6%">La reforma obtuvo <break time="260ms"/><prosody pitch="+4%">ochenta y ocho votos a favor.</prosody></prosody><break time="420ms"/>` +
-      `<prosody rate="-14%" pitch="-4%">Necesitaba ochenta y nueve.</prosody><break time="700ms"/>` +
-      `<prosody rate="-8%" pitch="+8%">${esc(PREGUNTA)}</prosody><break time="620ms"/>` +
-      `<prosody rate="-10%" pitch="-3%">${esc(CITA)}</prosody>`)),
-  },
-  {
-    id: "4-dos-voces",
-    titulo: "Segunda voz para la cita",
-    nota: "La regla 31 permite dos voces cuando el cambio significa algo. Una cita leída por otra voz se entiende como cita sin decir comillas.",
-    ssml: speak(
-      voz(`<prosody rate="-16%">${esc(TESIS)}</prosody><break time="520ms"/><prosody rate="-6%">${esc(CIFRA)}</prosody><break time="600ms"/>`) +
-      voz(`<prosody rate="-8%">${esc(CITA)}</prosody>`, VOZ2) +
-      voz(`<break time="400ms"/><prosody rate="-10%">${esc(PREGUNTA)}</prosody>`)),
-  },
-  {
-    id: "5-estilo-noticiero",
-    titulo: "Estilo noticiero (PUEDE FALLAR)",
-    nota: "mstts:express-as con estilo newscast. No sé si las voces chilenas lo soportan; si Azure lo rechaza, queda escrito acá y dejamos de preguntárnoslo.",
-    ssml: speak(voz(
-      `<mstts:express-as style="newscast"><prosody rate="-12%">${esc(TESIS)} ${esc(CIFRA)} ${esc(PREGUNTA)} ${esc(CITA)}</prosody></mstts:express-as>`)),
-  },
-  {
-    id: "6-enfasis-y-siglas",
-    titulo: "Énfasis y siglas (PUEDE FALLAR EL ÉNFASIS)",
-    nota: "emphasis sobre la palabra que importa, y sub para que una sigla se lea expandida sin tocar el texto del guion.",
-    ssml: speak(voz(
-      `<prosody rate="-12%">La <emphasis level="strong">Cámara</emphasis> rechazó por <emphasis level="strong">un voto</emphasis> la reforma.` +
-      `<break time="500ms"/>La <sub alias="Dirección Meteorológica de Chile">DMC</sub> ya había advertido el sistema frontal.</prosody>`)),
+    id: "lento",
+    titulo: "Más lento, y nada más",
+    nota: "La misma voz al 84% en vez del 90%. A veces lo único que falta es tiempo para respirar.",
+    ssml: speak(voz(`<prosody rate="-16%">${esc(TEXTO)}</prosody>`)),
   },
 ];
 
@@ -137,6 +144,11 @@ function procesar(entrada, salida) {
 
 (async () => {
   fs.mkdirSync(SALIDA, { recursive: true });
+  const disponibles = await listarVoces();
+  const nombresCL = disponibles.map((v) => v.nombre).filter((n) => n.startsWith("es-CL-"));
+  console.log(`Voces es-CL que Azure declara: ${nombresCL.join(", ") || "(ninguna)"}`);
+
+  const VARIANTES = [...variantesDeVoz(nombresCL.length ? nombresCL : [VOZ, VOZ2]), ...VARIANTES_FIJAS];
   const filas = [];
   for (const v of VARIANTES) {
     const destino = path.join(SALIDA, `${v.id}.mp3`);
@@ -151,27 +163,34 @@ function procesar(entrada, salida) {
     }
   }
 
-  // la procesada sale de la 3 si existe, y si no de la 2, y si no de la 1
-  const base = ["3-tono", "2-ritmo", "1-actual"].map((id) => path.join(SALIDA, `${id}.mp3`)).find((p) => fs.existsSync(p));
-  if (base) {
-    const destino = path.join(SALIDA, "7-procesada.mp3");
+  // El procesado AISLADO: sobre la voz tal cual, no sobre una variante con
+  // tono. En la ronda 1 iba montado sobre la de pitch y no se podía saber
+  // cuánto aportaba el procesado y cuánto molestaba el tono.
+  const base = path.join(SALIDA, `${(VARIANTES[0] || {}).id}.mp3`);
+  if (fs.existsSync(base)) {
+    const destino = path.join(SALIDA, "procesada-sola.mp3");
     const err = procesar(base, destino);
-    filas.push({ id: "7-procesada", titulo: "La misma voz, procesada",
-      nota: `Compresión suave, menos barro en 180 Hz, más presencia en 3,2 kHz y volumen parejo. Hecha sobre ${path.basename(base)}.`,
+    filas.push({ id: "procesada-sola", titulo: "La voz tal cual, solo procesada",
+      nota: `Compresión suave, menos barro en 180 Hz, más presencia en 3,2 kHz y volumen parejo. Sobre ${path.basename(base)}, sin ningún SSML de interpretación.`,
       ok: !err, detalle: err || "lista" });
-    console.log(err ? `✗ 7-procesada: ${err}` : "✓ 7-procesada");
+    console.log(err ? `✗ procesada-sola: ${err}` : "✓ procesada-sola");
   }
 
-  const md = ["# Taller de voz: qué se puede y qué no", "",
-    `Prueba del ${new Intl.DateTimeFormat("en-CA", { timeZone: "America/Santiago" }).format(new Date())}. ` +
-    "Mismo párrafo, varias formas de decirlo. Se decide escuchando.", "",
+  const md = ["# Taller de voz · ronda 2: voces, no trucos", "",
+    `Prueba del ${new Intl.DateTimeFormat("en-CA", { timeZone: "America/Santiago" }).format(new Date())}.`, "",
+    "Santiago escuchó la ronda 1 y descartó las tres variantes que tocan la",
+    "interpretación a mano: el tono \"suena artificial\", el ritmo por frase",
+    "\"tampoco\", y del estilo noticiero \"no detecto el cambio\". Así que esta",
+    "ronda cambia de camino: se prueban VOCES y AIRE, no interpretación.", "",
+    "## Voces que Azure declara para es-CL", "",
+    disponibles.length
+      ? ["| Voz | Género | Estilos |", "|---|---|---|",
+         ...disponibles.map((v) => `| \`${v.nombre}\` | ${v.genero} | ${v.estilos.length ? v.estilos.join(", ") : "ninguno"} |`)].join("\n")
+      : "Azure no devolvió la lista en esta corrida.",
+    "", "## Variantes", "",
     "| Variante | Qué prueba | ¿Funcionó? |", "|---|---|---|",
     ...filas.map((f) => `| **${f.id}** · ${f.titulo} | ${f.nota} | ${f.ok ? "✅ " + f.detalle : "❌ " + f.detalle} |`),
-    "", "## Texto usado", "",
-    "> " + [TESIS, CIFRA, PREGUNTA, CITA].join(" "), "",
-    "Lleva a propósito una tesis, una cifra, una pregunta y una cita: si una",
-    "variante mejora la cifra pero arruina la cita, con un texto pobre no nos",
-    "daríamos cuenta.", ""].join("\n");
+    "", "## Texto usado", "", "> " + TEXTO, ""].join("\n");
   fs.writeFileSync(path.join(SALIDA, "INFORME.md"), md);
   console.log(`\nInforme: ${path.join(SALIDA, "INFORME.md")}`);
 })().catch((e) => { console.error("taller-voz:", e.message); process.exit(1); });
