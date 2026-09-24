@@ -1,0 +1,47 @@
+name: Taller de voz
+
+# Sintetiza el mismo párrafo en varias variantes de SSML y las deja en
+# contenido/taller/voz/ para escucharlas seguidas. Nace el 24-09-2026: la voz
+# del canal lleva un mes con una sola etiqueta de velocidad y nada más.
+#
+# Se dispara a mano. Gasta caracteres del cupo de Azure (unos 700 por corrida,
+# de 500.000 al mes), así que no tiene cron: se corre cuando hay algo que
+# decidir.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: taller-voz
+  cancel-in-progress: false
+
+jobs:
+  voz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      # el SDK de Azure para la voz y el ffmpeg de Remotion para la variante
+      # procesada, que no usa Azure
+      - name: Instalar lo necesario
+        run: npm install --no-save microsoft-cognitiveservices-speech-sdk @remotion/compositor-linux-x64-gnu
+      - name: Sintetizar las variantes
+        env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+        run: node scripts/taller-voz.js
+      - name: Commit
+        run: |
+          git config user.name "taller-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add contenido/taller/voz/
+          git diff --cached --quiet || {
+            git commit -m "taller de voz: variantes $(TZ=America/Santiago date +%F) [bot]"
+            git -c rebase.autoStash=true pull --rebase origin main
+            git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
+          }
