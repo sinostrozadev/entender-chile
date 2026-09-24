@@ -116,12 +116,23 @@ function sintetizar(ssml) {
 // compresión suave y un realce de presencia. Es la diferencia entre "voz de
 // computador" y "voz de radio", y no depende de Azure.
 function procesar(entrada, salida) {
-  const ff = path.join("node_modules", "@remotion", "compositor-linux-x64-gnu", "ffmpeg");
-  if (!fs.existsSync(ff)) return "sin ffmpeg de Remotion en este runner";
-  execFileSync(ff, ["-v", "error", "-y", "-i", entrada,
-    "-af", "acompressor=threshold=-18dB:ratio=3:attack=12:release=180,equalizer=f=180:t=q:w=1:g=-2,equalizer=f=3200:t=q:w=1.4:g=3,loudnorm=I=-16:TP=-1.5:LRA=11",
-    salida], { stdio: "inherit" });
-  return null;
+  // El ffmpeg que trae Remotion es una compilación mínima y NO tiene
+  // acompressor (24-09: por eso se cayó la primera corrida). Los runners de
+  // Ubuntu traen ffmpeg completo, así que se prueba ese primero.
+  const candidatos = ["ffmpeg", path.join("node_modules", "@remotion", "compositor-linux-x64-gnu", "ffmpeg")];
+  const filtros = "acompressor=threshold=-18dB:ratio=3:attack=12:release=180," +
+    "equalizer=f=180:t=q:w=1:g=-2,equalizer=f=3200:t=q:w=1.4:g=3," +
+    "loudnorm=I=-16:TP=-1.5:LRA=11";
+  let ultimo = "sin ffmpeg disponible";
+  for (const ff of candidatos) {
+    try {
+      execFileSync(ff, ["-v", "error", "-y", "-i", entrada, "-af", filtros, salida], { stdio: "pipe" });
+      return null;
+    } catch (e) {
+      ultimo = `${ff}: ${String(e.stderr || e.message).split("\n").filter(Boolean).pop()}`.slice(0, 200);
+    }
+  }
+  return ultimo;
 }
 
 (async () => {
