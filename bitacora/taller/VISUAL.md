@@ -100,6 +100,39 @@ propio: **Apertura**, **La noticia del día**, **¿En qué quedó?**,
    igual, dos renders del mismo día sí. Es lo mismo que pide la regla 29 para
    las imágenes, aplicado al movimiento.
 
+## 3b. La estructura del informe, APROBADA el 24-09
+
+Orden definitivo, confirmado por Santiago al ver el mosaico v3:
+
+1. **Portada.** La ilustración del día a sangre, con el gancho encima. Cierra
+   la promesa que hizo la carátula: el que entró por esa imagen la encuentra
+   en el primer segundo.
+2. **La noticia principal, completa.** Sigue con la imagen del día. Es el
+   bloque que justifica el clic, así que va entero antes de cualquier índice.
+3. **El mosaico, como PRESENTACIÓN.** Recién acá aparece la fila con las
+   secciones del día. No abre el video: entra cuando la noticia principal ya
+   se contó, y su función es decir "esto es lo que viene".
+4. **El recorrido.** La cámara viaja por el tablero, se acerca a cada sección,
+   se lee, se aleja y la leída se apaga.
+
+La regla detrás: **el índice va después del contenido que engancha, nunca
+antes**. Un índice al principio le pide paciencia a alguien que todavía no
+tiene motivos para dártela.
+
+### El mosaico, aprobado (v3)
+
+- Una sola toma: posición y zoom son una única trayectoria interpolada, así
+  que no puede aparecer un corte. El defecto de la v2 no era el zoom sino que
+  el punto al que apuntaba la cámara saltaba al cambiar de sección.
+- La fila se mueve cuando la cámara está lejos y se queda quieta cuando una
+  baldosa está a pantalla completa.
+- El zoom nunca baja de 0,2 en los viajes: el tablero completo no se ve de
+  golpe y el traslado se siente movimiento de cámara, no plano nuevo.
+- El orden de las baldosas en la fila se siembra con la fecha; el orden de
+  lectura sigue siendo el del guion.
+- **Pendiente**: con diez bloques la fila queda apretada. Hay que mostrar
+  cinco a la vez y que avance, no que quepan todas.
+
 ## 4. Descartado, con motivo
 
 - **Cuadro blanco tipo televisor** (24-09): marco por ser marco. No cumplía
