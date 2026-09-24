@@ -125,16 +125,36 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
 // Miniatura (1280x720, src/marca.tsx): la cifra principal del día + el título.
 // Cifra = el primer [DATO] que eligió el guion (no los automáticos). No bloquea.
 {
-  // La cifra debe ser LA DE LA PORTADA (el primer bloque de noticia), no la
-  // primera del guion: el 30-08 salió "114 votos" junto al titular del Andalién.
-  let seccion = "", dato = null, bloquePortada = null;
+  // Un número pelado y chico no sirve de cifra grande: el 20-09 la portada
+  // habría salido con un "1" gigante y la etiqueta "votos de apoyo", que a
+  // tamaño de carátula no dice nada. Si no trae unidad ni símbolo y es menor
+  // que diez, se prefiere no poner cifra: la V4 se ve bien sin ella.
+  const cifraSirve = (v) => {
+    if (!v || !v.raw) return false;
+    const t = String(v.raw).trim();
+    if (!/[%$€a-zA-Z]/.test(t) && Number(t.replace(/[.,]/g, "")) < 10) return false;
+    return true;
+  };
+
+  // La cifra debe ser LA DE LA PORTADA, no la primera del guion: el 30-08
+  // salió "114 votos" junto al titular del Andalién.
+  // CORREGIDO EL 24-09: mirar solo el primer bloque dejaba la cifra vacía casi
+  // siempre, y con ella la cifra grande de la carátula V4, que es su elemento
+  // más fuerte. El motivo: "La noticia del día" es un bloque de resumen y casi
+  // nunca lleva [DATO]; el dato vive en el bloque siguiente, que desarrolla esa
+  // misma noticia (el 23-09: "La noticia del día" era la lluvia y los 105 mm
+  // estaban en "Sistema frontal"). Ahora se miran los DOS primeros bloques con
+  // tesis y ahí se corta, que es lo que la guarda original quería proteger.
+  let seccion = "", dato = null, bloques = [];
   for (const e of parsed.eventos) {
     if (e.tipo === "seccion") { seccion = e.texto; continue; }
     if (/apertura/i.test(seccion)) continue;
-    if (bloquePortada && seccion !== bloquePortada) break;
-    if (e.tipo === "tesis") bloquePortada = seccion;
-    if (!dato && e.tipo === "dato" && !e.automatico && e.series?.length && e.series[0].raw) dato = { ...e, seccion };
+    if (e.tipo === "tesis" && !bloques.includes(seccion)) bloques.push(seccion);
+    if (bloques.length && !bloques.includes(seccion)) break;   // ya pasamos a un tercer bloque
+    if (bloques.length > 2) break;                              // dos bloques bastan
+    if (!dato && e.tipo === "dato" && !e.automatico && e.series?.length && cifraSirve(e.series[0])) dato = { ...e, seccion };
   }
+  const bloquePortada = bloques[0] || null;
   // extractos: las tesis de los dos bloques siguientes, como textura desvanecida
   const tesis = [];
   {
@@ -166,7 +186,12 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
   const img = esClave ? null : imagenDe(`${bloquePortada || ""} ${parsed.titulo || ""}`);
   const imagen = img ? `fondos/seccion-${img}.jpg` : esClave ? "fondos/fondo-clave-vertical.png" : "fondos/seccion-regiones.jpg";
   const fechaVisible = fecha.split("-").reverse().join("-");
-  const still = (comp, props, salida) => execFileSync("npx", ["remotion", "still", "src/marca.tsx", comp, salida, `--props=${JSON.stringify(props)}`], { stdio: "ignore" });
+  // REMOTION_BROWSER_EXECUTABLE deja probar las carátulas sin que Remotion
+  // baje su propio Chromium, que es lo que impedía verificarlas fuera de
+  // Actions (24-09). En Actions la variable no existe y todo sigue igual.
+  const still = (comp, props, salida) => execFileSync("npx", ["remotion", "still", "src/marca.tsx", comp, salida,
+    ...(process.env.REMOTION_BROWSER_EXECUTABLE ? [`--browser-executable=${process.env.REMOTION_BROWSER_EXECUTABLE}`] : []),
+    `--props=${JSON.stringify(props)}`], { stdio: "ignore" });
   if (esClave) {
     const gancho = (parsed.caratula || "").trim() || recortar(parsed.titulo || "");
     const mini = path.join(OUT, "miniatura-clave.png");
