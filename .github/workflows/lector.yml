@@ -1,0 +1,56 @@
+name: Lector automático
+
+# Por qué existe (24-09-2026): la regla del 23-09 mandaba toda lectura de
+# páginas a GPT porque Claude no navega. Con GPT sin cuota hasta el domingo,
+# la guardia se quedó sin poder hacer Shorts. Este workflow corre el lector
+# donde SÍ hay red, igual que el barrido, y deja el FUENTE en el repo.
+#
+# Se dispara solo cuando la guardia deja un PEDIDO, y también a mano.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "contenido/urgente/PEDIDO-*.md"
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Slug del pedido (vacío = el pedido de lectura abierto más nuevo)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lector
+  cancel-in-progress: false
+
+jobs:
+  leer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+
+      - name: Leer las páginas del hallazgo
+        id: leer
+        continue-on-error: true
+        run: node scripts/lector.js "${{ github.event.inputs.slug }}"
+
+      - name: Publicar el FUENTE
+        run: |
+          if ! git diff --quiet --exit-code -- contenido/urgente/ || [ -n "$(git ls-files -o --exclude-standard contenido/urgente/)" ]; then
+            git config user.name "lector-bot"
+            git config user.email "bot@users.noreply.github.com"
+            git add contenido/urgente/FUENTE-*.md
+            git commit -q -m "lectura automática: fuentes del hallazgo [lector]" || { echo "nada que commitear"; exit 0; }
+            for i in 1 2 3; do
+              git -c rebase.autoStash=true pull --rebase -q origin main && git push -q origin HEAD:main && { echo "publicado"; exit 0; }
+              sleep 5
+            done
+            echo "::error::no se pudo publicar el FUENTE"; exit 1
+          else
+            echo "el lector no dejó nada nuevo"
+          fi
