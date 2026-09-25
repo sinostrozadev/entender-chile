@@ -449,6 +449,29 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **25-09, HOY: GPT se atascó en la preselección y `reintento.yml` no
+      corrió ni una vez dentro de su ventana — segundo día seguido.**
+      Auditoría del 25-09 (`bitacora/2026-09-25-auditoria.md`). El aviso a
+      GPT se emitió bien (`automatizacion/estado`, `04:41:11Z`, etapa
+      `preseleccion`), pero a las 08:36 UTC (235 min después,
+      `contenido/preseleccion/2026-09-25.md` verificado ausente) no hubo
+      respuesta ni un solo reintento: `mcp__github__actions_list` sobre
+      `reintento.yml` marca **cero corridas** en su ventana de hoy
+      (04:00-09:59 UTC), y en las 20 corridas de todo su historial solo dos
+      cayeron dentro de la ventana (23-09 08:57 UTC, 24-09 08:52 UTC), casi
+      al cierre de ella, nunca cada 20 minutos como indica
+      `.github/workflows/reintento.yml:27` (`*/20 4-9 * * *`). Consecuencia:
+      sin preselección no hubo informe, guion, revisión, banco de temas ni
+      videos hoy. **Propuesta**: agregar a `reintento.yml` un despertador
+      propio (rutina Claude que toque un archivo y pushee cada 20 min en
+      01:00-07:00 Chile, con `on: push` sobre esa ruta), igual que ya usan
+      `barrido.yml`, `metricas.yml` y `guardia.yml`, en vez de depender del
+      cron nativo de GitHub. Relacionado con la propuesta 2 de la auditoría
+      del 24-09 (más abajo), que ya señalaba esta misma falla de fondo como
+      `AGUANTA`; hoy causó una cadena completa perdida, así que sube a
+      `HOY`. Primera vez que se marca esta ocurrencia puntual (GPT atascado
+      + reintento sin correr causando daño real): 25-09-2026.
+
 - [ ] **24-09, HOY: el despertador del barrido corrió a horario y dejó un
       commit vacío — la cadena entera de hoy no arrancó.** Auditoría del
       24-09 (`bitacora/2026-09-24-auditoria.md`). El commit `98abc93`
