@@ -375,5 +375,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-24-informe.mp3",
     "bytes": 14400576,
     "durSeg": 600
+  },
+  {
+    "fecha": "2026-09-25",
+    "tipo": "informe",
+    "titulo": "25-09-2026 · Alerta roja en el sur: evacuaciones y desbordes por el temporal",
+    "descripcion": "El sistema frontal dejó alerta roja en provincias de Biobío, La Araucanía y Los Ríos, con sectores evacuados, cientos de viviendas dañadas y clases suspendidas en cuatro comunas. También revisamos el pedido de Bachelet y Boric para reconsiderar la permanencia de Chile en el Escudo de las Américas, la exclusión de Defensa del recorte del tres por ciento y dos investigaciones por plata pública que partieron el mismo día.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-25-informe.mp3",
+    "bytes": 18435456,
+    "durSeg": 768
   }
 ]
