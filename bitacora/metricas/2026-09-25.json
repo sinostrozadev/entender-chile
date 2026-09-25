@@ -2,15 +2,33 @@
   "fecha": "2026-09-25",
   "canal": {
     "suscriptores": 19,
-    "vistas": 6655,
-    "videos": 100
+    "vistas": 6748,
+    "videos": 101
   },
   "videos": {
+    "RGSENsGCBKA": {
+      "titulo": "Alerta roja en el sur: evacuaciones y desbordes por el tempo",
+      "publicado": "2026-09-25",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 768
+    },
+    "38xMuHE47eI": {
+      "titulo": "Alerta roja en el sur: evacuaciones y desbordes por el tempo",
+      "publicado": "2026-09-25",
+      "estado": "private",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 43
+    },
     "DQl1ZQPx51o": {
       "titulo": "¿El Escudo de las Américas trae tropas de EE.UU. a Chile? El",
       "publicado": "2026-09-24",
       "estado": "public",
-      "vistas": 125,
+      "vistas": 136,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 49
@@ -19,7 +37,7 @@
       "titulo": "Escudo de las Américas: el Congreso interpelará al canciller",
       "publicado": "2026-09-24",
       "estado": "public",
-      "vistas": 99,
+      "vistas": 112,
       "meGusta": 3,
       "comentarios": 1,
       "durSeg": 46
@@ -37,7 +55,7 @@
       "titulo": "Muere un trabajador en Minera Escondida mientras hacía mante",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 231,
+      "vistas": 239,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 42
@@ -55,7 +73,7 @@
       "titulo": "¿Escondida hacia una huelga? El sindicato pide rechazar el b",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 27,
+      "vistas": 59,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 42
@@ -64,7 +82,7 @@
       "titulo": "Lluvias intensas: alerta en seis regiones hasta el jueves, y",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 77,
+      "vistas": 98,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 45
@@ -307,7 +325,7 @@
       "titulo": "¿Quién decide cuánto gasta el Estado cada año?",
       "publicado": "2026-09-14",
       "estado": "public",
-      "vistas": 15,
+      "vistas": 16,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 671
@@ -388,7 +406,7 @@
       "titulo": "¿Qué es la prisión preventiva y por qué no es una condena?",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 16,
+      "vistas": 17,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 342
@@ -1548,28 +1566,28 @@
   "fuentes": {
     "canal": {
       "SHORTS": {
-        "vistas": 4957,
-        "minutos": 764
+        "vistas": 4952,
+        "minutos": 763
       },
       "YT_SEARCH": {
-        "vistas": 606,
-        "minutos": 240
+        "vistas": 608,
+        "minutos": 241
       },
       "SUBSCRIBER": {
         "vistas": 430,
         "minutos": 183
       },
       "YT_CHANNEL": {
-        "vistas": 188,
+        "vistas": 187,
         "minutos": 552
       },
       "RELATED_VIDEO": {
-        "vistas": 151,
-        "minutos": 331
+        "vistas": 152,
+        "minutos": 340
       },
       "NO_LINK_OTHER": {
-        "vistas": 36,
-        "minutos": 47
+        "vistas": 35,
+        "minutos": 38
       },
       "NOTIFICATION": {
         "vistas": 35,
@@ -2606,9 +2624,8 @@
       "GJMefzqOaqk": {
         "fuentes": {
           "SUBSCRIBER": 9,
-          "RELATED_VIDEO": 6,
-          "YT_SEARCH": 3,
-          "NO_LINK_OTHER": 1
+          "RELATED_VIDEO": 7,
+          "YT_SEARCH": 3
         },
         "curva": {
           "p01": 80,
