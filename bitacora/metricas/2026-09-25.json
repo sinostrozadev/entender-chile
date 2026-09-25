@@ -3,32 +3,32 @@
   "canal": {
     "suscriptores": 19,
     "vistas": 6748,
-    "videos": 101
+    "videos": 102
   },
   "videos": {
-    "RGSENsGCBKA": {
-      "titulo": "Alerta roja en el sur: evacuaciones y desbordes por el tempo",
-      "publicado": "2026-09-25",
-      "estado": "public",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 768
-    },
     "38xMuHE47eI": {
       "titulo": "Alerta roja en el sur: evacuaciones y desbordes por el tempo",
       "publicado": "2026-09-25",
-      "estado": "private",
+      "estado": "public",
       "vistas": 0,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 43
     },
+    "RGSENsGCBKA": {
+      "titulo": "Alerta roja en el sur: evacuaciones y desbordes por el tempo",
+      "publicado": "2026-09-25",
+      "estado": "public",
+      "vistas": 1,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 768
+    },
     "DQl1ZQPx51o": {
       "titulo": "¿El Escudo de las Américas trae tropas de EE.UU. a Chile? El",
       "publicado": "2026-09-24",
       "estado": "public",
-      "vistas": 136,
+      "vistas": 138,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 49
@@ -37,7 +37,7 @@
       "titulo": "Escudo de las Américas: el Congreso interpelará al canciller",
       "publicado": "2026-09-24",
       "estado": "public",
-      "vistas": 112,
+      "vistas": 129,
       "meGusta": 3,
       "comentarios": 1,
       "durSeg": 46
@@ -46,7 +46,7 @@
       "titulo": "Escudo de las Américas: el Congreso interpelará al canciller",
       "publicado": "2026-09-24",
       "estado": "public",
-      "vistas": 2,
+      "vistas": 3,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 600
@@ -55,7 +55,7 @@
       "titulo": "Muere un trabajador en Minera Escondida mientras hacía mante",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 239,
+      "vistas": 240,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 42
@@ -73,7 +73,7 @@
       "titulo": "¿Escondida hacia una huelga? El sindicato pide rechazar el b",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 59,
+      "vistas": 64,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 42
@@ -946,7 +946,7 @@
       "titulo": "Concepción en Alerta Roja por el aumento del río Andalién",
       "publicado": "2026-08-30",
       "estado": "public",
-      "vistas": 20,
+      "vistas": 21,
       "meGusta": 3,
       "comentarios": 0,
       "durSeg": 692
