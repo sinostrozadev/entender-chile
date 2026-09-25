@@ -1,10 +1,18 @@
 {
   "fecha": "2026-09-25",
-  "etapa": "validar_informe",
+  "etapa": "reparar_informe",
   "veredicto": "pendiente",
-  "vuelta": 0,
-  "actualizado": "2026-09-25 08:59",
-  "reparar": null,
+  "vuelta": 1,
+  "actualizado": "2026-09-25 09:00",
+  "reparar": {
+    "piezas": [
+      "informe"
+    ],
+    "pieza": "informe",
+    "dueno": "GPT (despachador)",
+    "motivo": "contenido/veredictos/2026-09-25-informe.md",
+    "vuelta": 1
+  },
   "piezas": [
     {
       "id": "barrido",
@@ -36,7 +44,7 @@
       "id": "informe",
       "etiqueta": "Informe",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "reparar",
       "prompt": "prompts/informe.md",
       "hora": "08:53",
       "esperada": "02:40",
@@ -98,19 +106,19 @@
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 329,
+      "atraso": 330,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "banco",
       "etiqueta": "Banco de temas de la Clave",
-      "atraso": 299,
+      "atraso": 300,
       "dueno": "GPT · prompts/banco-temas.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 224,
+      "atraso": 225,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
