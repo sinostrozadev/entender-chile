@@ -40,3 +40,5 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-09-22 | fondos municipales de El Tabo
 - 2026-09-25 | Fraude al fisco en Gendarmería, Atacama
 - 2026-09-25 | Permisos de circulación en San Rosendo
+- 2026-09-25 | Fraude al fisco en Gendarmería, Atacama
+- 2026-09-25 | Permisos de circulación en San Rosendo
