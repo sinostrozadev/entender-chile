@@ -1,9 +1,9 @@
 {
   "fecha": "2026-09-25",
-  "etapa": "validar_final",
-  "veredicto": "pendiente",
+  "etapa": "alimentar_banco",
+  "veredicto": "APROBADA",
   "vuelta": 0,
-  "actualizado": "2026-09-25 09:26",
+  "actualizado": "2026-09-25 09:29",
   "reparar": null,
   "piezas": [
     {
@@ -61,13 +61,15 @@
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "listo",
       "prompt": null,
-      "hora": "",
+      "hora": "09:29",
       "esperada": "03:30",
       "dueno": "Claude · prompts/validador.md",
-      "rutas": []
+      "rutas": [
+        "contenido/revisiones/2026-09-25.md"
+      ]
     },
     {
       "id": "banco",
@@ -96,21 +98,15 @@
   ],
   "atrasos": [
     {
-      "id": "revision",
-      "etiqueta": "Revisión (veredicto final)",
-      "atraso": 356,
-      "dueno": "Claude · prompts/validador.md"
-    },
-    {
       "id": "banco",
       "etiqueta": "Banco de temas de la Clave",
-      "atraso": 326,
+      "atraso": 329,
       "dueno": "GPT · prompts/banco-temas.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 251,
+      "atraso": 254,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
