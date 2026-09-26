@@ -12,7 +12,7 @@
       "hay": true,
       "situacion": "listo",
       "prompt": null,
-      "hora": "",
+      "hora": "01:40",
       "esperada": "01:40",
       "dueno": "Actions · barrido.yml",
       "rutas": [
@@ -25,7 +25,7 @@
       "hay": true,
       "situacion": "lista",
       "prompt": "prompts/seleccion.md",
-      "hora": "",
+      "hora": "02:03",
       "esperada": "02:10",
       "dueno": "GPT · prompts/seleccion.md",
       "rutas": [
@@ -38,7 +38,7 @@
       "hay": true,
       "situacion": "lista",
       "prompt": "prompts/informe.md",
-      "hora": "",
+      "hora": "02:08",
       "esperada": "02:40",
       "dueno": "GPT · prompts/informe.md",
       "rutas": [
@@ -51,7 +51,7 @@
       "hay": true,
       "situacion": "lista",
       "prompt": "prompts/guion-informe.md",
-      "hora": "",
+      "hora": "02:13",
       "esperada": "03:10",
       "dueno": "GPT · prompts/guion-informe.md",
       "rutas": [
@@ -64,7 +64,7 @@
       "hay": true,
       "situacion": "listo",
       "prompt": null,
-      "hora": "",
+      "hora": "10:13",
       "esperada": "03:30",
       "dueno": "Claude · prompts/validador.md",
       "rutas": [
