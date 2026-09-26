@@ -318,7 +318,7 @@ referencia:
 
 ## Dependen de Santiago
 
-- [ ] **26-09, HOY: la corrección del informe de hoy lleva 3+ horas
+- [x] **26-09, HOY: la corrección del informe de hoy lleva 3+ horas
       atascada — GPT no respondió ni una pieza en toda la madrugada, segunda
       noche seguida.** Auditoría del 26-09 (`bitacora/2026-09-26-auditoria.md`).
       Los commits de preselección, informe y guion de hoy dicen literalmente
@@ -340,8 +340,16 @@ referencia:
       entrada "22-09, HOY" más abajo en esta sección (GPT sin responder), que
       sigue sin marcarse como resuelta: van al menos tres ocurrencias
       (22-09, 25-09, 26-09), y las dos últimas fueron mañanas seguidas.
+      ✅ 26-09: la sesión de día aplicó las correcciones a mano (09:05 a
+      10:11) y el video salió a las 10:44; en la mañana reemplazó los tres
+      respaldos por la rutina "Cadena nocturna sin GPT" (01:55), que escribe
+      Y repara en bucle. En la noche se sumó el SUPLENTE (prompts/suplente.md,
+      commit b278cc1): con contenido/estado/plan-b.txt vigente, estado.yml
+      despierta por API a la rutina validadora en los turnos de GPT que nadie
+      cubre (reparar_* si la Cadena ya se fue, alimentar_banco, la Clave).
+      Ver bitacora/2026-09-26.md.
 
-- [ ] **26-09: tercer día seguido sin que `reintento.yml` dispare ni una vez
+- [x] **26-09: tercer día seguido sin que `reintento.yml` dispare ni una vez
       dentro de su ventana de cron (04:00-09:59 UTC), y hoy sí importa.**
       Auditoría del 26-09 (`bitacora/2026-09-26-auditoria.md`).
       `mcp__github__actions_list` confirma cero corridas hoy (la última fue
@@ -353,6 +361,13 @@ referencia:
       propio como el de `barrido.yml`/`metricas.yml`/`guardia.yml`): sigue
       sin implementarse y hoy lleva ya **tres mañanas seguidas** (24, 25,
       26-09) con cero corridas en ventana.
+      ✅ 26-09 noche: reloj propio creado (trig_016JsVfFwrJFut5vy2f4c8TS,
+      Haiku, 01:10/02:10/03:10/04:10 Chile) que toca
+      contenido/estado/reintento-despertador.txt; reintento.yml tiene `on:
+      push` sobre esa ruta (commit b278cc1). Precisión: el cron de GitHub SÍ
+      corre, dos veces al día a horas al azar (26-09: 08:56Z y 13:35Z), casi
+      siempre fuera de ventana. Verificar el 27-09 que aparezcan commits
+      "reintento: despertador HH:MM [reloj]" a esas horas.
 
 - [x] **UN CLIC EN GOOGLE CLOUD: habilitar la YouTube Reporting API.** ✅ 23-09 Es lo
       único que falta para que las impresiones de carátula empiecen a medirse.
@@ -447,9 +462,27 @@ referencia:
       por la revisión editorial que rechazó esa edición. Decidiste dejar el
       texto como está, pero la corrección está lista y fusionarla es un clic; si
       no se fusiona, conviene cerrarlo para que no se pudra ahí. Ojo con lo
-      segundo: mientras siga abierto, hay una rutina en la nube
-      (`trig_01Kckz7b9oRBzYjyi65x641j`) que despierta cada 4 horas a mirarlo y
-      se vuelve a agendar sola. Ya lleva más de veinte corridas.
+      segundo: mientras siga abierto, hay una rutina en la nube que despierta
+      cada 4 horas a mirarlo y se vuelve a agendar sola (26-09: ya no es un
+      ID fijo, es una cadena de recordatorios de un solo disparo, dieciocho
+      entre el 23 y el 26, sesión persistente
+      `session_01GZbDrbTYnw545j1wKZXtt1`; el vivo hoy es
+      `trig_01Jw1QAE68ZZ1NQsnshyBgez` para las 19:30Z). Se corta cerrando o
+      fusionando el PR.
+
+- [ ] **26-09: cuando GPT vuelva (domingo 27), apagar el plan B y decidir
+      el flujo de respaldo.** Apagar = borrar `contenido/estado/plan-b.txt`
+      y commitear (una línea; el suplente deja de dispararse solo) y apagar
+      o dejar como red la rutina "Cadena nocturna sin GPT" de la 01:55
+      (`trig_01NscKtv2hPKqkV6ft8X6GKG`, creada por la sesión de día desde
+      la web, así que se apaga desde ahí). La decisión de flujo para la
+      próxima caída de GPT: (a) Cadena nocturna (una sesión larga que
+      escribe las tres piezas y repara en bucle) o (b) suplente en TODOS
+      los turnos (agregar `barrido_listo *_lista *_listo` a la línea
+      `turnos:` de plan-b.txt: la cadena lineal tal cual, con Claude en la
+      silla de GPT y validación entre pieza y pieza). Hoy convive: la
+      Cadena escribe y repara; el suplente cubre banco, Clave y las
+      reparaciones que la Cadena ya no alcanza. bitacora/2026-09-26.md.
 
 
 - [x] **Auditoría matinal: RUTINA CREADA (noche 02-09)**, con la disputa 7
@@ -491,7 +524,7 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **25-09, HOY: GPT se atascó en la preselección y `reintento.yml` no
+- [x] **25-09, HOY: GPT se atascó en la preselección y `reintento.yml` no
       corrió ni una vez dentro de su ventana — segundo día seguido.**
       Auditoría del 25-09 (`bitacora/2026-09-25-auditoria.md`). El aviso a
       GPT se emitió bien (`automatizacion/estado`, `04:41:11Z`, etapa
@@ -516,6 +549,10 @@ referencia:
       **26-09: van dos mañanas seguidas** con la misma verificación (cero
       corridas de `reintento.yml` en ventana); hoy el atasco real es
       `reparar_informe` (`bitacora/2026-09-26-auditoria.md`).
+      ✅ 26-09 noche: hecho tal como se propuso, con reloj de Claude cada
+      hora (no cada 20 min: el reintento espera 25 min de gracia de todos
+      modos). Detalle en la entrada del 26-09 de "Dependen de Santiago" y en
+      bitacora/2026-09-26.md.
 
 - [ ] **24-09, HOY: el despertador del barrido corrió a horario y dejó un
       commit vacío — la cadena entera de hoy no arrancó.** Auditoría del

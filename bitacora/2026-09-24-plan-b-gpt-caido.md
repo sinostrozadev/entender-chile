@@ -88,3 +88,21 @@ v2 y el molde de las nueve que faltan.
   workflow que avise cuando un PEDIDO lleva horas sin respuesta. Con el
   lector automático ya no urge para lecturas, pero sigue faltando para las
   imágenes.
+
+## 26-09: lo que cambió (para no buscar IDs que ya no existen)
+
+- Los tres respaldos de arriba (`trig_01CEfU…`, `trig_01VU2r…`,
+  `trig_01TgYr…`) **ya no existen**: la sesión de día los reemplazó el 26-09
+  a las 09:06 por UNA rutina, "Cadena nocturna sin GPT (01:55 Chile):
+  escribir Y reparar hasta aprobar" (`trig_01NscKtv2hPKqkV6ft8X6GKG`,
+  sesión persistente `session_01DLpwxAZS4q3pexq9GBPVY4`, con el repo
+  clonado). Esa misma sesión fue la que escribió las piezas del 25 y del 26
+  a las 02:0x. Ahora además repara en bucle hasta `aprobada`.
+- La noche del 26 se sumó el **suplente** (`prompts/suplente.md`): la rutina
+  validadora hace los turnos de GPT que la Cadena no cubre, mientras exista
+  `contenido/estado/plan-b.txt` (interruptor y única lista de turnos). Y el
+  **reloj del reintento** (`trig_016JsVfFwrJFut5vy2f4c8TS`). Detalle en
+  `bitacora/2026-09-26.md`.
+- **Cuando GPT vuelva:** borrar `plan-b.txt`, y apagar (o dejar de red) la
+  Cadena nocturna desde la web. Decisión pendiente de Santiago en
+  PENDIENTES ("cuando GPT vuelva").
