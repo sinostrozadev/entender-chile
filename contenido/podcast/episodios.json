@@ -384,5 +384,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-25-informe.mp3",
     "bytes": 18435456,
     "durSeg": 768
+  },
+  {
+    "fecha": "2026-09-26",
+    "tipo": "informe",
+    "titulo": "26-09-2026 · Curarrehue aislada: 7.850 personas sin paso y un puente caído en Lautaro",
+    "descripcion": "El temporal en el sur dejó a Curarrehue con 7.850 personas aisladas, hizo caer el Puente Viejo de Lautaro y llevó al Ejército a desplegarse en La Araucanía. También revisamos el plan de emergencia que prepara el Gobierno por el diésel, el chequeo que golpea el argumento del Escudo de las Américas y dos hallazgos de Contraloría y Fiscalía sobre plata pública.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-26-informe.mp3",
+    "bytes": 16235712,
+    "durSeg": 676
   }
 ]
