@@ -1,9 +1,9 @@
 {
   "fecha": "2026-09-26",
-  "etapa": "alimentar_banco",
+  "etapa": "videos_listos",
   "veredicto": "APROBADA",
   "vuelta": 0,
-  "actualizado": "2026-09-26 12:48",
+  "actualizado": "2026-09-26 12:53",
   "reparar": null,
   "piezas": [
     {
@@ -74,10 +74,10 @@
     {
       "id": "banco",
       "etiqueta": "Banco de temas de la Clave",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "listo",
       "prompt": "prompts/banco-temas.md",
-      "hora": "",
+      "hora": "12:52",
       "esperada": "04:00",
       "dueno": "GPT · prompts/banco-temas.md",
       "rutas": [
@@ -98,12 +98,5 @@
       ]
     }
   ],
-  "atrasos": [
-    {
-      "id": "banco",
-      "etiqueta": "Banco de temas de la Clave",
-      "atraso": 528,
-      "dueno": "GPT · prompts/banco-temas.md"
-    }
-  ]
+  "atrasos": []
 }
