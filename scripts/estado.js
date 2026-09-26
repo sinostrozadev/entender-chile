@@ -54,13 +54,13 @@ const PIEZAS = [
     prompt: "prompts/informe.md", archivos: (F) => [`contenido/informes/${F}.md`] },
   { id: "guion_informe", etiqueta: "Guion del informe", dueno: "GPT · prompts/guion-informe.md", esperada: "03:10",
     prompt: "prompts/guion-informe.md", archivos: (F) => [`contenido/guiones/informe/${F}.md`] },
-  // La Clave SALIÓ de la cadena diaria el 16-09 (CLAVE 4): tiene flujo propio,
-  // una o dos por semana, con dos aprobaciones de Santiago. Lo que queda del
-  // día es alimentar su banco de temas con el informe (pieza "banco").
+  // La Clave SALIÓ de la cadena diaria el 16-09 (CLAVE 4): tiene flujo propio.
+  // Desde el 26-09 el día tampoco alimenta su banco de temas: el banco quedó
+  // congelado y los temas salen del barrido semanal (scripts/semana.js), que
+  // corre el domingo y no es parte de la cadena diaria. El día cierra con el
+  // veredicto final y los videos.
   { id: "revision", etiqueta: "Revisión (veredicto final)", dueno: "Claude · prompts/validador.md", esperada: "03:30",
     archivos: (F) => [`contenido/revisiones/${F}.md`] },
-  { id: "banco", etiqueta: "Banco de temas de la Clave", dueno: "GPT · prompts/banco-temas.md", esperada: "04:00",
-    prompt: "prompts/banco-temas.md", archivos: () => ["contenido/claves/banco-temas.md"], hoy: true },
   { id: "videos", etiqueta: "Videos y descripciones", dueno: "Actions · edicion-diaria.yml", esperada: "05:15",
     archivos: (F) => [`contenido/descripciones/${F}-informe.txt`] },
 ];
@@ -70,10 +70,7 @@ const existe = (p) => fs.existsSync(path.join(RAIZ, p));
 const resolver = (pieza) => {
   if (pieza.archivos) {
     const rutas = pieza.archivos(FECHA);
-    let hay = rutas.every(existe);
-    // pieza "hoy": un archivo único que se actualiza cada día (el banco de
-    // temas); existe siempre, así que cuenta solo si su último commit es de HOY
-    if (hay && pieza.hoy) hay = rutas.every((r) => enChile(new Date(ultimaMod(r))).slice(0, 10) === FECHA);
+    const hay = rutas.every(existe);
     return { hay, rutas: rutas.filter(existe), faltan: hay ? [] : rutas };
   }
   const [dir, re] = pieza.patron(FECHA);
@@ -99,16 +96,13 @@ const clonCompleto = () => {
   }
   return !esShallow;
 };
-const horaDe = (ruta, ultima = false) => {
+const horaDe = (ruta) => {
   if (!clonCompleto()) return "";
   try {
     const log = (args) => execFileSync("git", args, { cwd: RAIZ, encoding: "utf8" }).trim();
-    // la primera vez que apareció (--diff-filter=A), no su última edición;
-    // salvo las piezas "hoy" (el banco de temas, un archivo único que se toca
-    // cada día): ahí la hora que importa es la del último commit. Cinco
-    // auditorías seguidas (17 al 21-09) pidieron esto.
-    const iso = ultima ? log(["log", "-1", "--format=%cI", "--", ruta])
-      : log(["log", "--diff-filter=A", "-1", "--format=%cI", "--", ruta]) || log(["log", "-1", "--format=%cI", "--", ruta]);
+    // la primera vez que apareció (--diff-filter=A), no su última edición: lo
+    // que interesa es a qué hora llegó la pieza del día.
+    const iso = log(["log", "--diff-filter=A", "-1", "--format=%cI", "--", ruta]) || log(["log", "-1", "--format=%cI", "--", ruta]);
     return iso ? enChile(new Date(iso)).slice(11) : "";
   } catch { return ""; }
 };
@@ -158,7 +152,7 @@ if (existe(rutaRev)) {
 
 const estado = PIEZAS.map((p) => {
   const r = resolver(p);
-  return { ...p, ...r, hora: r.hay && r.rutas.length ? horaDe(r.rutas[0], Boolean(p.hoy)) : "", mod: r.hay ? modDe(r.rutas) : 0 };
+  return { ...p, ...r, hora: r.hay && r.rutas.length ? horaDe(r.rutas[0]) : "", mod: r.hay ? modDe(r.rutas) : 0 };
 });
 const pieza = (id) => estado.find((p) => p.id === id);
 const hecha = (id) => pieza(id)?.hay;
@@ -183,14 +177,13 @@ for (const id of VALIDADAS) {
 //       aprobada → videos_listos                 → Actions
 let etapa, actual = null, vuelta = 0;
 const listaDe = { preseleccion: "barrido_listo", informe: "preseleccion_lista", guion_informe: "informe_listo" };
-if (hecha("videos") && hecha("banco")) etapa = "videos_listos";
+if (hecha("videos")) etapa = "videos_listos";
 else if (!hecha("barrido")) etapa = "nuevo_dia";
 else {
   const pendiente = VALIDADAS.map(pieza).find((p) => p.situacion !== "lista");
   if (!pendiente) {
     if (veredicto !== "APROBADA") etapa = "validar_final"; // todo aprobado; falta el veredicto final
-    else if (!hecha("banco")) etapa = "alimentar_banco"; // turno de GPT, no frena el render
-    else etapa = hecha("videos") ? "videos_listos" : "aprobada";
+    else etapa = "aprobada"; // el render; desde el 26-09 no hay etapa de banco entre medio
   } else {
     actual = pendiente;
     vuelta = pendiente.veredicto?.vuelta || 0;
@@ -199,7 +192,6 @@ else {
   }
 }
 if (etapa === "validar_final") { actual = pieza("guion_informe"); }
-if (etapa === "alimentar_banco") { actual = pieza("banco"); }
 
 // --- de quién es la pelota (para la vista y para el vigía)
 let reparar = null;
@@ -215,7 +207,7 @@ const atrasos = !mismoDia ? [] : estado.filter((p) => !p.hay && minutos(HORA) > 
   .map((p) => ({ ...p, atraso: minutos(HORA) - minutos(p.esperada) }));
 
 // --- salida
-const marca = (p) => (p.situacion ? { falta: "falta", por_validar: "por validar", reparar: "devuelta a GPT", bloqueada: "BLOQUEADA", lista: "aprobada" }[p.situacion] : p.hoy ? (p.hay ? "al día" : "sin alimentar hoy") : p.hay ? "listo" : "falta");
+const marca = (p) => (p.situacion ? { falta: "falta", por_validar: "por validar", reparar: "devuelta a GPT", bloqueada: "BLOQUEADA", lista: "aprobada" }[p.situacion] : p.hay ? "listo" : "falta");
 const lineas = [
   `ETAPA: ${etapa}`,
   `VEREDICTO: ${veredicto}`,

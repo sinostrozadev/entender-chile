@@ -15,6 +15,11 @@ la propuesta de orden del 02-09 (`bitacora/2026-09-02-orden-del-repo.md`).
   hechas. El backlog vivo es `bitacora/PENDIENTES.md`; lo cumplido,
   `bitacora/REALIZADOS.md`. Ojo: `IMPLEMENTAR.md` aún trataba la voz clonada
   como requisito (disputa 2 de `REGLAS-DURAS.md`).
+- `prompts/banco-temas.md` (de prompts/) - prompt de la etapa diaria
+  `alimentar_banco`, retirada el 26-09-2026. El banco crecía y nadie elegía de
+  él; hoy los temas de la Clave salen del barrido semanal (`scripts/semana.js`)
+  y del prompt del domingo (`prompts/tema-semana.md`). El banco en sí queda
+  congelado y sin tocar en `contenido/claves/banco-temas.md`.
 - `timeline-schema.md` (de docs/) — describía el esquema del timeline
   anterior al 27-08: hoy desinforma. Si vuelve a hacer falta un esquema, se
   regenera desde `scripts/build-timeline.js`, que es la verdad.

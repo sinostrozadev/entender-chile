@@ -403,6 +403,41 @@ nada más; sin saber qué contiene el proyecto, el Short quedó sin ángulo.
 Que la lectura quede escrita mantiene la regla del 07-09 (ningún dato de
 memoria). **Decidió**: Santiago.
 
+## 2026-09-26 - El tema de la semana reemplaza al banco diario
+**Qué**: se elimina la etapa diaria `alimentar_banco` y se congela
+`contenido/claves/banco-temas.md`. En su lugar, un script barre los informes
+de lunes a sábado y puntúa cada tema por repetición ponderada por nivel ([A]
+pesa 3, [B] 2, [C] 1), con bonificación por marca de seguimiento, por cada día
+extra en que el tema volvió y por tener dossier previo en `contenido/casos/`.
+Con ese ranking, Claude escribe el domingo TRES candidatos, Santiago elige uno
+y la Clave de esa semana sale el miércoles contando la historia completa del
+asunto: de dónde viene, por qué hitos pasó, cómo funciona el mecanismo y qué
+está en juego.
+
+**Por qué**: Santiago, textual: "el banco de temas, cambiemos la forma, lo
+estamos llenando de temas que quedan ahí. Debe ser una selección de un tema
+por día si es que lo hay y al final decidir sobre el tema de la semana y hacer
+un video de la Clave de ese tema, explicando en profundidad y enseñando,
+trayendo contexto, comienzo de la historia, cosas por las que ha pasado.
+Debería ser sobre el tema que más se repitió en la semana. Hay que buscar una
+forma de puntuar. Quizás ni siquiera se guardan los temas a diario: una vez a
+la semana se hace un barrido semanal y puntuamos, los más relevantes o los más
+repetidos, y me presentas los 3 temas ganadores para seleccionar sobre cuál
+hablaremos." El banco tenía 100 temas y nadie elegía de ahí: acumular no era
+decidir. La repetición, en cambio, es una señal que el propio canal produce
+todos los días sin costo.
+
+**Qué cambia**: la cadena diaria pierde una etapa y cierra en `videos_listos`
+apenas están los videos (`scripts/estado.js`, `estado.yml`, `reintento.yml`).
+`prompts/banco-temas.md` se retiró a `archivo/prompts/`. Entran
+`scripts/semana.js` (determinista, sin tokens) y `prompts/tema-semana.md` (lo
+ejecuta Claude, no GPT, para no gastar la cuota del despachador).
+`scripts/clave.js elegir` toma el candidato en vez de una línea del banco, y
+`aprobar` sin fecha usa el próximo miércoles. Los prompts de la Clave
+(`clave-idea.md`, `guion-claves.md`, el MODO FLUJO de `claves.md`) pasan de
+explicar una noticia a contar una historia con origen, hitos y mecanismo.
+**Decidió**: Santiago.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 Nota (02-09): estas entradas son previas al 26-08 y se reconstruyeron

@@ -23,9 +23,10 @@ validadora.
 
 Historia, para que no confunda: entre el 24 y el 26-09 las piezas del día las
 escribía la rutina "Cadena nocturna sin GPT" de la 01:55 y el suplente solo
-tapaba los huecos que ella dejaba (el banco de temas, la Clave, las
-reparaciones tardías). Esa rutina quedó apagada el 26-09: hoy el suplente cubre
-todos los turnos del día, pieza por pieza y con validación entre medio.
+tapaba los huecos que ella dejaba (la Clave, las reparaciones tardías y el
+banco de temas, mientras esa etapa existió: se retiró el 26-09). Esa rutina
+quedó apagada el mismo día: hoy el suplente cubre todos los turnos, pieza por
+pieza y con validación entre medio.
 
 ---
 
@@ -45,9 +46,9 @@ GPT, ni más ni menos, y con las mismas reglas.
    no calza (por ejemplo `validar_*`, `aprobada`, `idea_lista`,
    `bloqueado_humano`, o una etapa de escritura que hoy no está en la
    lista): "No es turno del suplente: etapa X." y terminas.
-4. Si `ARCHIVO` ya existe en `main` y la etapa no es `reparar_*` ni
-   `alimentar_banco`: alguien llegó antes, y lo más probable es que sea GPT,
-   que volvió. No lo pises: "La pieza ya está." y terminas. Vale igual si
+4. Si `ARCHIVO` ya existe en `main` y la etapa no es `reparar_*`: alguien
+   llegó antes, y lo más probable es que sea GPT, que volvió. No lo pises:
+   "La pieza ya está." y terminas. Vale igual si
    aparece MIENTRAS trabajas, que es el caso peligroso: antes de pushear haz
    `git pull --rebase`, y si el rebase da conflicto en `ARCHIVO`, la versión
    que manda es la de `main`. Abandona la tuya (`git rebase --abort` y
@@ -93,6 +94,6 @@ Con estas diferencias, porque eres Claude y no GPT:
 
 ## 2. Publica y termina
 
-Encabezado del commit según el contrato ("edición FECHA: <pieza>", "banco de
-temas FECHA", "clave <slug>: ..."), pull con rebase, push. Termina con UNA
-línea: qué escribiste o corregiste, o por qué no hiciste nada.
+Encabezado del commit según el contrato ("edición FECHA: <pieza>",
+"clave <slug>: ..."), pull con rebase, push. Termina con UNA línea: qué
+escribiste o corregiste, o por qué no hiciste nada.

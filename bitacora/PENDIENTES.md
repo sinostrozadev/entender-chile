@@ -318,6 +318,11 @@ referencia:
 
 ## Dependen de Santiago
 
+- [ ] **27-09 (domingo): elegir el tema de la semana 39.** Los tres
+      candidatos están en `contenido/claves/semana/2026-W39-candidatos.md`; se
+      elige con `node scripts/clave.js elegir <slug> --candidato n`. Video el
+      miércoles 30-09.
+
 - [x] **26-09, HOY: la corrección del informe de hoy lleva 3+ horas
       atascada — GPT no respondió ni una pieza en toda la madrugada, segunda
       noche seguida.** Auditoría del 26-09 (`bitacora/2026-09-26-auditoria.md`).

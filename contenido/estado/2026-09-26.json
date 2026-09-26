@@ -3,7 +3,7 @@
   "etapa": "videos_listos",
   "veredicto": "APROBADA",
   "vuelta": 0,
-  "actualizado": "2026-09-26 12:53",
+  "actualizado": "2026-09-26 14:09",
   "reparar": null,
   "piezas": [
     {
@@ -69,19 +69,6 @@
       "dueno": "Claude · prompts/validador.md",
       "rutas": [
         "contenido/revisiones/2026-09-26.md"
-      ]
-    },
-    {
-      "id": "banco",
-      "etiqueta": "Banco de temas de la Clave",
-      "hay": true,
-      "situacion": "listo",
-      "prompt": "prompts/banco-temas.md",
-      "hora": "12:52",
-      "esperada": "04:00",
-      "dueno": "GPT · prompts/banco-temas.md",
-      "rutas": [
-        "contenido/claves/banco-temas.md"
       ]
     },
     {

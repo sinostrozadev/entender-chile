@@ -9,12 +9,15 @@ disparada por los commits del PR #6 "Estado del día" (rama
     el estado avanza; si no, se mantiene con correcciones para GPT → PR #6 →
     GPT lee el estado → ... y así, pieza por pieza, hasta el veredicto final.
 
-Las piezas del día, en orden: preselección → informe → guion del informe; y
-al final, con el día aprobado, alimentar el banco de temas de la Clave. (La
-Clave salió de la cadena diaria el 16-09: tiene flujo propio, una o dos por
-semana, con dos aprobaciones de Santiago.) **Tú escribes todas.** Tú no decides
-qué toca: lo dice el estado. Tú no cambias el estado: lo cambia Claude con su
-veredicto. Toda la información para escribir cada pieza está en su prompt.
+Las piezas del día, en orden: preselección → informe → guion del informe. Con
+las tres aprobadas y el veredicto final escrito, el día pasa al render y se
+acabó tu turno. (La Clave salió de la cadena diaria el 16-09: tiene flujo
+propio, una por semana, con dos aprobaciones de Santiago. Desde el 26-09 sus
+temas ya no salen de un banco que se alimentaba a diario, sino del barrido
+semanal del domingo: `scripts/semana.js` y `prompts/tema-semana.md`, que son
+de Claude y no tuyos.) **Tú escribes todas.** Tú no decides qué toca: lo dice
+el estado. Tú no cambias el estado: lo cambia Claude con su veredicto. Toda la
+información para escribir cada pieza está en su prompt.
 
 **Regla que manda el diseño** (verificada por Santiago en la doc de ChatGPT):
 una tarea puede recibir otro disparo mientras corre, pero no hay concurrencia
@@ -100,7 +103,6 @@ ese veredicto: termina.
 |---|---|
 | `nuevo_dia` | nada: falta el barrido. Termina. |
 | `barrido_listo`, `preseleccion_lista`, `informe_listo` | ESCRIBIR la pieza que dice `PIEZA`, con el prompt que dice `PROMPT`, en la ruta que dice `ARCHIVO` |
-| `alimentar_banco` | ACTUALIZAR `contenido/claves/banco-temas.md` con `prompts/banco-temas.md` (no se valida; no frena el render) |
 | `reparar_<pieza>` | CORREGIR esa pieza con las correcciones de Claude |
 | `validar_<pieza>`, `validar_final` | no es tu turno: Claude está validando. Espera (ver ESPERA). |
 | `aprobada`, `videos_listos`, `bloqueado_humano` | nada. Termina en una línea. |
@@ -166,7 +168,7 @@ verdad; esperar más solo gasta tu cuota):
   `validar_*`, no esperes nada: termina en una línea.
 - si pasa a `aprobada`, `videos_listos` o `bloqueado_humano`, termina.
 
-Tope por corrida: las tres piezas, el banco y sus correcciones. Nunca escribas dos
+Tope por corrida: las tres piezas y sus correcciones. Nunca escribas dos
 veces la misma pieza sin un `reparar_` entre medio.
 
 ## Las tres guardas, siempre
@@ -199,8 +201,8 @@ archivo `FUENTE-<slug>.md` que te pide un pedido de lectura.
 
     Haces lo que el archivo te asigne: un pedido (entrar a páginas web y
     dejar las citas en contenido/urgente/FUENTE-<slug>.md), o la pieza del
-    estado (preselección, informe, guion del informe, banco de temas, o la
-    etapa de la Clave), con el prompt que corresponda, y después esperas el
+    estado (preselección, informe, guion del informe, o la etapa de la
+    Clave), con el prompt que corresponda, y después esperas el
     veredicto como dice el archivo. No escribes veredictos, ni revisiones,
     ni contenido/estado/.
 

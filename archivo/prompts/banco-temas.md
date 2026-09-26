@@ -1,3 +1,8 @@
+> RETIRADO el 26-09-2026. La etapa diaria `alimentar_banco` dejó de existir.
+> Por qué: el banco se llenaba de temas que nadie elegía, y Santiago pidió que
+> el tema salga de lo que más se repitió en la semana, no de una lista que crece.
+> Lo reemplaza `prompts/tema-semana.md`, con el barrido de `scripts/semana.js`.
+
 # Banco de temas de la Clave: alimentarlo cada día con el informe
 
 Prompt vivo de la etapa `alimentar_banco` de la cadena diaria (desde el

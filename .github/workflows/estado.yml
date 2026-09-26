@@ -121,7 +121,7 @@ jobs:
           # a media cadena). aprobada, videos_listos, bloqueado_humano y
           # nuevo_dia tampoco son de GPT.
           EMITIR=1
-          echo "$ETAPA" | grep -Eq '^(barrido_listo|[a-z_]+_lista|[a-z_]+_listo|reparar_[a-z_]+|alimentar_banco)$' \
+          echo "$ETAPA" | grep -Eq '^(barrido_listo|[a-z_]+_lista|[a-z_]+_listo|reparar_[a-z_]+)$' \
             || { echo "etapa $ETAPA no es turno de GPT: no se toca el PR #6"; EMITIR=0; }
           # dedup por fecha, etapa Y vuelta: el día tiene varias etapas y cada
           # una necesita su aviso; y con el bucle de corrección la misma etapa

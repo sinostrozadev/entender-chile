@@ -8,7 +8,7 @@
  * como artifact (como el panel). Lee:
  *   contenido/estado/FECHA.md, contenido/veredictos/*.md, contenido/informes/,
  *   bitacora/metricas/FECHA.json, bitacora/experimentos.json,
- *   bitacora/cronograma.json, bitacora/taller.json, contenido/claves/banco-temas.md,
+ *   bitacora/cronograma.json, bitacora/taller.json, contenido/claves/semana/,
  *   bitacora/*-auditoria.md, prompts/*.md (+ git log para la última edición).
  *
  * Uso:  node scripts/taller-tablero.js [--fecha AAAA-MM-DD] [--imagenes DIR] [salida.html]
@@ -114,15 +114,37 @@ const modExp = `
 </section>`;
 
 // ---------- Decidir
+// Desde el 26-09 el tema de la Clave sale del barrido semanal y no del banco
+// diario (congelado). Si existe contenido/claves/semana/, se muestra el último
+// ranking y sus tres candidatos; si no, el banco de siempre.
+const DIR_SEMANA = "contenido/claves/semana";
+const semanas = (() => { try { return fs.readdirSync(path.join(RAIZ, DIR_SEMANA)).filter((f) => /^\d{4}-W\d{2}\.json$/.test(f)).map((f) => f.replace(".json", "")).sort(); } catch { return []; } })();
+const ultima = semanas.slice(-1)[0] || null;
+const ranking = ultima ? (json(`${DIR_SEMANA}/${ultima}.json`, {}).ranking || []) : [];
+const candidatos = ultima ? leer(`${DIR_SEMANA}/${ultima}-candidatos.md`).split(/^##\s+/m).slice(1).map((b) => ({
+  titulo: b.split("\n")[0].trim(),
+  datos: (b.match(/^Puntaje:.*$/m) || [""])[0].trim(),
+})) : [];
 const banco = leer("contenido/claves/banco-temas.md").split("\n").filter((l) => l.startsWith("- ")).map((l) => l.slice(2).split("|").map((s) => s.trim())).reverse();
-const modDecidir = `
-<section id="decidir" class="mod">
-  <header class="mod-cab"><span class="eyebrow">Decidir</span><h2>Lo que espera a Santiago</h2><p>Fase 1: se decide en el chat con la sesión de día (el día propone, Santiago dice sí, el día ejecuta). Fase 2: los botones de esta página escriben la decisión en el repo y la máquina sigue sola.</p></header>
+const bloqueSemana = `
+  <h3>Tema de la semana <span class="gris">(${esc(ultima || "")}, ranking de scripts/semana.js)</span></h3>
+  <div class="tabla-envoltura"><table>
+    <thead><tr><th>#</th><th>Puntaje</th><th>Días</th><th>Tema</th><th>Titular más reciente</th></tr></thead>
+    <tbody>${ranking.slice(0, 10).map((t) => `<tr><td class="mono">${t.puesto}</td><td class="mono">${String(t.puntaje).replace(".", ",")}</td><td class="mono">${t.dias.map(ddmm).join(", ")}</td><td>${esc(t.terminos.slice(0, 5).join(", "))}</td><td class="gris">${esc(t.titulares[t.titulares.length - 1]?.titular || "")}</td></tr>`).join("")}</tbody>
+  </table></div>
+  <h3>Los tres candidatos ${candidatos.length ? "" : `<span class="gris">(todavía sin escribir: falta prompts/tema-semana.md)</span>`}</h3>
+  <ul class="tableros">${candidatos.map((c) => `<li><b>${esc(c.titulo)}</b><br><span class="mono gris">${esc(c.datos)}</span></li>`).join("") || "<li class='gris'>Corre <span class='mono'>node scripts/semana.js</span> y después la rutina del domingo.</li>"}</ul>
+  <p class="nota">Santiago elige con <span class="mono">node scripts/clave.js elegir &lt;slug&gt; --candidato n</span>. El banco de temas diario quedó congelado el 26-09-2026 (${banco.length} temas, sin uso).</p>`;
+const bloqueBanco = `
   <h3>Banco de temas de la Clave <span class="gris">(${banco.length} temas; los ${Math.min(15, banco.length)} más nuevos)</span></h3>
   <div class="tabla-envoltura"><table>
     <thead><tr><th>Fecha</th><th>Concepto</th><th>Noticia de origen</th><th></th></tr></thead>
     <tbody>${banco.slice(0, 15).map(([c, n, f]) => `<tr><td class="mono">${ddmm(f)}</td><td>${esc(c)}</td><td class="gris">${esc(n)}</td><td><button type="button" class="btn" disabled title="Fase 2: escribe la decisión en el repo">Elegir</button></td></tr>`).join("")}</tbody>
-  </table></div>
+  </table></div>`;
+const modDecidir = `
+<section id="decidir" class="mod">
+  <header class="mod-cab"><span class="eyebrow">Decidir</span><h2>Lo que espera a Santiago</h2><p>Fase 1: se decide en el chat con la sesión de día (el día propone, Santiago dice sí, el día ejecuta). Fase 2: los botones de esta página escriben la decisión en el repo y la máquina sigue sola.</p></header>
+  ${ultima ? bloqueSemana : bloqueBanco}
   <h3>Tableros</h3>
   <ul class="tableros">${tableros.map((t) => `<li><span class="chip ${/APROBADO|CERRADO/.test(t.estado) ? "cerrado" : "en_curso"}">${esc(t.estado)}</span> <b>${esc(t.titulo)}</b> <span class="mono gris">${esc(t.fecha)}</span>${t.url ? ` · <a href="${esc(t.url)}">abrir</a>` : ""}<br><span class="gris">${esc(t.nota)}</span></li>`).join("")}</ul>
 </section>`;
@@ -198,4 +220,4 @@ const html = `<title>Taller Entender Chile</title>
 ${modVer}${modMedir}${modExp}${modDecidir}${modMejorar}${modFlujos}
 `;
 fs.writeFileSync(path.join(RAIZ, salida), html);
-console.log(`${salida}: ${(html.length / 1024).toFixed(0)} KB · ${semana.length} días · ${curvas.length} curvas · ${experimentos.length} experimentos · ${prompts.length} prompts · ${banco.length} temas`);
+console.log(`${salida}: ${(html.length / 1024).toFixed(0)} KB · ${semana.length} días · ${curvas.length} curvas · ${experimentos.length} experimentos · ${prompts.length} prompts · ${ultima ? `ranking ${ultima} (${ranking.length} temas)` : `${banco.length} temas del banco`}`);
