@@ -17,6 +17,9 @@ versionada y la rutina es una skill del proyecto, no del usuario.
     bitacora/PENDIENTES.md        la lista viva. Lo único que no caduca.
     bitacora/AAAA-MM-DD.md        lo que se habló y decidió ese día.
     bitacora/AAAA-MM-DD-auditoria.md   el análisis de la mañana.
+    bitacora/rutinas.md           las rutinas de la nube y los workflows, para no listarlos por API.
+    .claude/skills/noche/         `/noche`: la puesta al día de la noche, con lectura acotada.
+    .claude/skills/encargo/       `/encargo`: la plantilla para delegar una tarea a un agente ejecutor.
 
 `PENDIENTES.md` existe porque un archivo por día pierde continuidad: lo que
 no se hizo el lunes desaparece de la vista el martes. Ahí no.
