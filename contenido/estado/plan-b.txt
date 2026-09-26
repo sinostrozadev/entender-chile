@@ -1,0 +1,9 @@
+plan-b: activo
+hasta: 2026-09-28
+turnos: reparar_* alimentar_banco tema_elegido idea_aprobada entrega_lista
+espera_reparar_min: 10
+motivo: ChatGPT sin cuota desde el 24-09-2026; vuelve el domingo 27 segun Santiago (margen de un dia).
+que hace: mientras este archivo exista con `hasta:` vigente, estado.yml y estado-clave.yml despiertan por API a la rutina validadora en MODO SUPLENTE (prompts/suplente.md) cuando la etapa calza con `turnos:` (el * es comodin). Esa linea es la UNICA lista: la leen los dos workflows y la rutina.
+por que estos turnos y no todos: las piezas del dia (preseleccion, informe, guion) las escribe la rutina "Cadena nocturna sin GPT" de la 01:55 (trig_01NscKtv2hPKqkV6ft8X6GKG, sesion de dia, 26-09), que ademas repara en bucle mientras vive. El suplente cubre lo que ella no cubre: el banco de temas y el flujo de la Clave, y las reparaciones si ella ya no esta (por eso espera `espera_reparar_min` antes de tocar una reparacion). Si esa rutina se retira, basta agregar aqui: barrido_listo *_lista *_listo.
+como se apaga: borrar este archivo (o poner una fecha pasada en `hasta:`) y commitear. Nada mas.
+activado: 2026-09-26 por la sesion de la noche

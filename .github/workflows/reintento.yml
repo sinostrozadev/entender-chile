@@ -23,6 +23,14 @@ name: Reintento del despertar
 # retiró en silencio cada vez, porque solo sabía reintentar cadenas
 # ATASCADAS, no cadenas que nunca empezaron.
 on:
+  # DESPERTADOR PROPIO (26-09): el cron de GitHub de abajo no disparó ni una vez
+  # en su ventana el 24, el 25 ni el 26-09 (auditorías). Una rutina de Claude
+  # toca este archivo cada hora de la madrugada y pushea: ese push sí llega.
+  # Es la misma receta que barrido, métricas y guardia.
+  push:
+    branches: [main]
+    paths:
+      - "contenido/estado/reintento-despertador.txt"
   schedule:
     # cada 20 minutos en la ventana de la edición. En UTC para no depender del
     # cambio de hora: 04:00-09:59 UTC cubre 01:00-07:00 de Chile en verano

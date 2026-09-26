@@ -218,6 +218,28 @@ jobs:
           elif echo "$ETAPA_DISPARO" | grep -q '^validar_'; then
             echo "sin secrets CLAUDE_RUTINA_REVISION_*: al validador lo despierta su reloj de las 02:20"
           fi
+
+          # PLAN B (26-09): mientras contenido/estado/plan-b.txt tenga `hasta:`
+          # vigente, GPT no está. Las etapas de su línea `turnos:` (el * es
+          # comodín) despiertan por API a la rutina validadora en MODO SUPLENTE
+          # (prompts/suplente.md), una vez por etapa y vuelta. La lista vive SOLO
+          # en ese archivo: aquí no se repite. Se apaga borrando el archivo.
+          PLANB=$(grep -m1 '^hasta:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
+          TURNOS=$(grep -m1 '^turnos:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
+          RE_T="^($(echo "$TURNOS" | sed 's/\*/[a-z_]+/g; s/  */|/g'))$"
+          if [ -n "$PLANB" ] && [ -n "$TURNOS" ] && [ "$PLANB" \> "$FECHA" -o "$PLANB" = "$FECHA" ] \
+             && echo "$ETAPA" | grep -Eq "$RE_T" \
+             && [ -n "$REVISION_ID" ] && [ -n "$REVISION_TOKEN" ]; then
+            MARCA_S="contenido/estado/ultimo-disparo-suplente.txt"
+            git checkout -q main 2>/dev/null || true; git fetch -q origin main && git reset -q --hard origin/main
+            if [ "$(cat "$MARCA_S" 2>/dev/null)" = "$FECHA $ETAPA $VUELTA" ]; then echo "suplente ya despertado para $ETAPA (vuelta $VUELTA)"; else
+              echo "$FECHA $ETAPA $VUELTA" > "$MARCA_S"; git add "$MARCA_S"; git commit -q -m "disparo al suplente $FECHA: $ETAPA (vuelta $VUELTA) [bot]"; git push -q origin main || echo "::warning::marca del suplente no pusheada; se dispara igual"
+              BODY=$(printf '{"text":"Entender Chile, PLAN B (GPT sin cuota, contenido/estado/plan-b.txt): %s, etapa %s, vuelta %s. Haz el turno de GPT como SUPLENTE segun prompts/suplente.md. La verdad es contenido/estado/%s.md."}' "$FECHA" "$ETAPA" "$VUELTA" "$FECHA")
+              CODIGO=$(curl -sS -o /tmp/fire-s.json -w '%{http_code}' -X POST "https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire" \
+                -H "Authorization: Bearer $REVISION_TOKEN" -H "anthropic-beta: experimental-cc-routine-2026-04-01" -H "anthropic-version: 2023-06-01" -H "content-type: application/json" -d "$BODY" || echo 000)
+              case "$CODIGO" in 2*) echo "SUPLENTE despertado por API para $ETAPA: $(head -c 200 /tmp/fire-s.json)";; *) echo "::warning::no se pudo despertar al suplente (HTTP $CODIGO)";; esac
+            fi
+          fi
           gh pr list --head automatizacion/estado --state open --json number -q '.[0].number' | grep -q . \
             || gh pr create --base main --head automatizacion/estado \
                  --title "🔔 Estado del día — disparador único de GPT (no fusionar)" \

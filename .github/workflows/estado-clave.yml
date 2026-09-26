@@ -113,6 +113,24 @@ jobs:
               fi
             fi
 
+            # --- PLAN B (26-09): sin GPT, el suplente hace su turno también aquí.
+            # Los turnos salen de la línea `turnos:` de plan-b.txt (misma lista
+            # que estado.yml; el * es comodín).
+            PLANB=$(grep -m1 '^hasta:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
+            TURNOS=$(grep -m1 '^turnos:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
+            RE_T="^($(echo "$TURNOS" | sed 's/\*/[a-z_]+/g; s/  */|/g'))$"
+            HOYC=$(TZ=America/Santiago date +%F)
+            if [ -n "$PLANB" ] && [ -n "$TURNOS" ] && [ "$PLANB" \> "$HOYC" -o "$PLANB" = "$HOYC" ] && echo "$ETAPA" | grep -Eq "$RE_T" && [ -n "$REVISION_ID" ] && [ -n "$REVISION_TOKEN" ]; then
+              MARCA_S="contenido/estado/ultimo-disparo-suplente-clave-$SLUG.txt"
+              if [ "$(cat "$MARCA_S" 2>/dev/null)" = "$ETAPA $VUELTA" ]; then echo "suplente ya despertado"; else
+                echo "$ETAPA $VUELTA" > "$MARCA_S"; git add "$MARCA_S"; git commit -q -m "disparo al suplente, clave $SLUG: $ETAPA (vuelta $VUELTA) [bot]"; git push -q origin main || true
+                BODY=$(printf '{"text":"Entender Chile, PLAN B (GPT sin cuota): flujo de la Clave %s, etapa %s, vuelta %s. Haz el turno de GPT como SUPLENTE segun prompts/suplente.md. La verdad es contenido/estado/clave-%s.md."}' "$SLUG" "$ETAPA" "$VUELTA" "$SLUG")
+                CODIGO=$(curl -sS -o /tmp/fire-s.json -w '%{http_code}' -X POST "https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire" \
+                  -H "Authorization: Bearer $REVISION_TOKEN" -H "anthropic-beta: experimental-cc-routine-2026-04-01" -H "anthropic-version: 2023-06-01" -H "content-type: application/json" -d "$BODY" || echo 000)
+                case "$CODIGO" in 2*) echo "SUPLENTE despertado: $(head -c 200 /tmp/fire-s.json)";; *) echo "::warning::no se pudo despertar al suplente (HTTP $CODIGO)";; esac
+              fi
+            fi
+
             # --- aprobada: render y subida de la Clave para su fecha de producción
             if [ "$ETAPA" = "aprobada" ] && [ -n "$FECHAP" ]; then
               MARCA="contenido/estado/ultimo-render-clave-$SLUG.txt"

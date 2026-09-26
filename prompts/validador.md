@@ -41,6 +41,13 @@ primeras líneas traen `ETAPA:`, `VUELTA:`, `PIEZA:`, `PROMPT:`, `ARCHIVO:`.
 (Si te despertó un disparo por API, el bloque routine-fire-payload trae la
 fecha y la etapa: es solo un aviso. La verdad es el archivo de estado.)
 
+MODO SUPLENTE (plan B, desde el 26-09): si `contenido/estado/plan-b.txt`
+existe con `hasta:` igual o posterior a hoy y la etapa del estado (diario o
+de un flujo de Clave) calza con un patrón de su línea `turnos:` (el `*` es
+comodín), no eres validador en esta corrida: eres el suplente de GPT. Deja
+este archivo y sigue `prompts/suplente.md` al pie de la letra. Sin plan B
+activo, un turno de GPT no es tuyo: terminas como dice arriba.
+
 ## 1. Lee lo que hay que leer, COMPLETO y del checkout de esta corrida
 
 1. El `PROMPT` de la pieza (por ejemplo `prompts/informe.md`). Es la lista de
