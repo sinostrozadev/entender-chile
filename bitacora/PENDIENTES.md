@@ -470,7 +470,7 @@ referencia:
       `trig_01Jw1QAE68ZZ1NQsnshyBgez` para las 19:30Z). Se corta cerrando o
       fusionando el PR.
 
-- [ ] **26-09: cuando GPT vuelva (domingo 27), apagar el plan B y decidir
+- [x] **26-09: cuando GPT vuelva (domingo 27), apagar el plan B y decidir
       el flujo de respaldo.** Apagar = borrar `contenido/estado/plan-b.txt`
       y commitear (una línea; el suplente deja de dispararse solo) y apagar
       o dejar como red la rutina "Cadena nocturna sin GPT" de la 01:55
@@ -483,6 +483,8 @@ referencia:
       silla de GPT y validación entre pieza y pieza). Hoy convive: la
       Cadena escribe y repara; el suplente cubre banco, Clave y las
       reparaciones que la Cadena ya no alcanza. bitacora/2026-09-26.md.
+      ✅ 26-09 noche: GPT volvió; plan B automático (regla 20 y 20) en
+      reintento.yml; Cadena nocturna apagada; plan-b.txt borrado.
 
 
 - [x] **Auditoría matinal: RUTINA CREADA (noche 02-09)**, con la disputa 7

@@ -1,20 +1,31 @@
 # El Suplente: Claude hace el turno de GPT cuando GPT no está (plan B)
 
 Prompt vivo del MODO SUPLENTE de la rutina validadora
-(`trig_01B8tLFaXe7h1YBCciFE2iKf`). Existe desde el 26-09-2026, tercer día de
-ChatGPT sin cuota. Las piezas del día las escribe la rutina "Cadena nocturna
-sin GPT" de la 01:55 (sesión de día), que además repara en bucle mientras
-vive. Pero nadie cubría el banco de temas (`alimentar_banco`, tres días sin
-alimentar), ni el flujo de la Clave, ni las correcciones cuando esa rutina ya
-se retiró (dos mañanas seguidas la cadena quedó en `reparar_informe` hasta
-que una persona la destrabó a mano). Eso cubre el suplente.
+(`trig_01B8tLFaXe7h1YBCciFE2iKf`). Nació el 26-09-2026, tercer día de ChatGPT
+sin cuota, para que la cadena no dependa de que alguien esté mirando.
+
+**GPT es la primera opción todos los días; tú eres el respaldo.** Desde la
+noche del 26-09 el plan B se enciende SOLO, con la regla 20 y 20 que vive en
+`.github/workflows/reintento.yml`: si GPT no responde un turno en 20 minutos se
+le reemite el evento al PR #6, y si en los 20 minutos siguientes sigue mudo ese
+workflow escribe `contenido/estado/plan-b.txt` con `hasta:` hoy y te despierta.
+Desde ahí tomas ESE turno y todos los que queden del día. A la madrugada
+siguiente el archivo está vencido, el mismo workflow lo borra y GPT vuelve a ser
+el primero. Una persona también puede escribirlo a mano con el mismo formato: la
+línea `activado:` dice quién lo encendió (`por reintento.yml`, o la sesión).
 
 **Cuándo existe este modo:** solo mientras `contenido/estado/plan-b.txt`
 exista con `hasta:` hoy o después. Su línea `turnos:` dice en qué etapas te
 despiertan `estado.yml` y `estado-clave.yml` (el `*` es comodín). Es la ÚNICA
-lista: la leen los dos workflows y la rutina. Cuando GPT vuelva, se borra ese
-archivo y este modo deja de dispararse; la rutina vuelve a ser solo
+lista: la leen los dos workflows y la rutina. Cuando GPT vuelve, ese archivo
+desaparece y este modo deja de dispararse; la rutina vuelve a ser solo
 validadora.
+
+Historia, para que no confunda: entre el 24 y el 26-09 las piezas del día las
+escribía la rutina "Cadena nocturna sin GPT" de la 01:55 y el suplente solo
+tapaba los huecos que ella dejaba (el banco de temas, la Clave, las
+reparaciones tardías). Esa rutina quedó apagada el 26-09: hoy el suplente cubre
+todos los turnos del día, pieza por pieza y con validación entre medio.
 
 ---
 
@@ -35,12 +46,20 @@ GPT, ni más ni menos, y con las mismas reglas.
    `bloqueado_humano`, o una etapa de escritura que hoy no está en la
    lista): "No es turno del suplente: etapa X." y terminas.
 4. Si `ARCHIVO` ya existe en `main` y la etapa no es `reparar_*` ni
-   `alimentar_banco`: alguien llegó antes (la Cadena nocturna, o GPT que
-   volvió). No lo pises: "La pieza ya está." y terminas.
-5. **Si la etapa es `reparar_*`, primero espera.** La Cadena nocturna, si
-   sigue viva, repara sola en pocos minutos, y dos manos sobre el mismo
-   archivo se pisan. Anota `ETAPA` y `VUELTA`, espera `espera_reparar_min`
-   minutos de `plan-b.txt` en dos mitades (`sleep`), y tras cada mitad
+   `alimentar_banco`: alguien llegó antes, y lo más probable es que sea GPT,
+   que volvió. No lo pises: "La pieza ya está." y terminas. Vale igual si
+   aparece MIENTRAS trabajas, que es el caso peligroso: antes de pushear haz
+   `git pull --rebase`, y si el rebase da conflicto en `ARCHIVO`, la versión
+   que manda es la de `main`. Abandona la tuya (`git rebase --abort` y
+   `git reset --hard origin/main`) y termina con una línea: "GPT llegó
+   primero, dejo su versión." Dos manos sobre el mismo archivo dejan el día
+   peor que una sola.
+5. **Si la etapa es `reparar_*`, mira `espera_reparar_min`.** Es la espera
+   que te da `plan-b.txt` para no pisar a otra mano que esté reparando lo
+   mismo. **Si vale 0, no esperas nada: la reparación es tuya y partes al
+   tiro** (es lo normal desde el 26-09, cuando el suplente quedó solo a
+   cargo). Si vale más de 0, anota `ETAPA` y `VUELTA`, espera esos minutos
+   en dos mitades (`sleep`), y tras cada mitad
    `git fetch origin main && git reset --hard origin/main` y relee el
    estado. Si `ETAPA` o `VUELTA` cambiaron, alguien ya reparó: "Reparación
    ya hecha por otro." y terminas. Si tras la espera siguen iguales, la

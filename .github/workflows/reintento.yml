@@ -1,32 +1,40 @@
 name: Reintento del despertar
 
-# Cuando GPT no responde, alguien tiene que volver a tocarle el timbre.
+# La red de seguridad de la cadena: que el día arranque, y que ningún turno de
+# GPT quede colgado. Cubre tres caídas distintas:
+#   1. el conector de GitHub de ChatGPT caído un rato, o el despertar perdido,
+#   2. GPT sin cuota o mudo por lo que sea,
+#   3. el día que no arrancó (sin barrido no hay nada que reintentar).
 #
-# El 22-09 el conector de GitHub de ChatGPT devolvió "HTTP 400: Invalid MCP
-# request metadata" y la tarea no pudo leer ni escribir el repo. La cadena
-# quedó parada NUEVE HORAS, de la 01:58 a las 11:04, con el evento bien
-# emitido en el PR #6. Lo dijo la propia tarea después: "el error de metadatos
-# era transitorio y el conector se recuperó al reintentar una lectura
-# autenticada". Es decir, cualquier reintento habría destrabado el día, y no
-# hubo ninguno porque estado.yml emite el evento UNA vez y no insiste.
+# REGLA 20 Y 20 (26-09-2026, decisión de Santiago): GPT es la primera opción
+# cada día y Claude es el respaldo. Si GPT no responde un turno en 20 minutos,
+# se le vuelve a tocar el timbre (se reemite el evento al PR #6). Si en los 20
+# minutos siguientes sigue mudo, se activa el plan B: este workflow escribe
+# contenido/estado/plan-b.txt en main y despierta al suplente por API, que toma
+# ESE turno y todos los que queden del día. Al día siguiente ese archivo está
+# vencido, este mismo workflow lo borra y GPT vuelve a ser el primero. Una
+# caída activa el plan B sola, sin que nadie edite nada a mano.
 #
-# Esto cubre la familia entera: conector caído un rato, despertar perdido,
-# eventos agrupados por ChatGPT. No cubre a Claude, que se despierta por API
-# con su propio reintento en estado.yml.
+# plan-b.txt lo escribe este workflow o una persona a mano, con el mismo
+# formato: una línea por clave (plan-b, hasta, turnos, espera_reparar_min,
+# motivo, activado), y `activado:` dice quién lo encendió. La línea `turnos:`
+# es la única lista de etapas del suplente: la leen estado.yml, estado-clave.yml
+# y prompts/suplente.md.
 #
-# Y DESDE EL 24-09 cubre algo que no cubría: que la cadena NO HAYA ARRANCADO.
-# Ese día el reloj pusheó un commit VACÍO ("despertador 2026-09-24" sin tocar
-# contenido/barrido/despertador.txt), así que el push no calzó con el filtro
-# de rutas y el Barrido nunca corrió; encima los dos crones de respaldo del
-# Barrido tampoco los lanzó GitHub. Fallaron las dos redes a la vez y no salió
-# nada en todo el día. Este workflow corrió cuatro veces esa mañana y se
-# retiró en silencio cada vez, porque solo sabía reintentar cadenas
-# ATASCADAS, no cadenas que nunca empezaron.
+# Historia: el 22-09 el conector de ChatGPT devolvió "HTTP 400: Invalid MCP
+# request metadata" y la cadena quedó parada nueve horas con el evento bien
+# emitido, porque estado.yml emite una vez y no insiste: de ahí salió este
+# workflow. El 24-09 el reloj pusheó un commit vacío, el push no calzó con el
+# filtro de rutas, el Barrido nunca corrió y los crones de respaldo tampoco
+# dispararon: día entero perdido, y este workflow se retiró en silencio cuatro
+# veces porque solo sabía reintentar cadenas atascadas, no cadenas que nunca
+# empezaron. Desde entonces también relanza el barrido.
 on:
-  # DESPERTADOR PROPIO (26-09): el cron de GitHub de abajo no disparó ni una vez
-  # en su ventana el 24, el 25 ni el 26-09 (auditorías). Una rutina de Claude
-  # toca este archivo cada hora de la madrugada y pushea: ese push sí llega.
-  # Es la misma receta que barrido, métricas y guardia.
+  # DESPERTADOR PROPIO (26-09): el cron de GitHub de abajo es red, no reloj.
+  # Dispara dos veces al día a horas al azar (auditorías del 24, 25 y 26-09),
+  # casi nunca dentro de la ventana. Los relojes de Claude tocan este archivo y
+  # pushean cada 20 minutos entre la 01:10 y las 05:50 de Chile: ese push sí
+  # llega puntual, y es lo que hace posible medir los 20 y 20.
   push:
     branches: [main]
     paths:
@@ -38,6 +46,12 @@ on:
     # el propio job se retira en segundos.
     - cron: "*/20 4-9 * * *"
   workflow_dispatch:
+    inputs:
+      simular:
+        description: "Ensayo en seco: imprime cada decisión y no pushea, no llama a la API ni relanza el barrido"
+        type: boolean
+        default: false
+        required: false
 
 permissions:
   contents: write
@@ -53,23 +67,83 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Mirar si hay que reemitir, y reemitir
+      - name: Reintentar el turno de GPT y, si sigue mudo, activar el plan B
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Mismos secrets que usa estado.yml para el despertar dirigido por
+          # API. Sin ellos el plan B queda escrito igual, pero al suplente lo
+          # despierta estado.yml en el próximo recálculo, no este workflow.
+          REVISION_ID: ${{ secrets.CLAUDE_RUTINA_REVISION_ID }}
+          REVISION_TOKEN: ${{ secrets.CLAUDE_RUTINA_REVISION_TOKEN }}
+          # En variables de entorno y no en el script: así el script se puede
+          # extraer tal cual y probar en seco fuera de Actions.
+          EVENTO: ${{ github.event_name }}
+          SIMULAR: ${{ inputs.simular }}
         run: |
           set -e
-          ESPERA_MIN=25   # margen: Claude valida en 1-3 min y GPT escribe en 5-15
-          TOPE=3          # a la cuarta no se insiste: algo está roto de verdad
+          # 20 y 20: a los 20 minutos se reemite el evento, a los 40 entra el
+          # suplente. No hay tope de reintentos ni salida en rojo: quedarse sin
+          # GPT ya no es una falla que haya que mirar a mano, es el plan B.
+          ESPERA_MIN=20
+
+          case "${SIMULAR:-false}" in true|1|si|yes) SIMULAR=1 ;; *) SIMULAR=0 ;; esac
+          if [ "$SIMULAR" = 1 ]; then
+            echo "SIMULACIÓN: se imprime cada decisión y no se toca nada."
+          fi
+
+          # Todos los efectos pasan por acá. Con SIMULAR=1 se imprimen y no se
+          # ejecutan, así el ensayo en seco no pushea ni despierta a nadie.
+          hacer() {
+            if [ "$SIMULAR" = 1 ]; then echo "  [simulado] $*"; else "$@"; fi
+          }
+          # La hermana de hacer() para escribir archivos (redirección no cabe
+          # en "$@"): escribir <ruta> <contenido>.
+          escribir() {
+            if [ "$SIMULAR" = 1 ]; then
+              echo "  [simulado] escribiría $1 con:"
+              printf '%s\n' "$2" | sed 's/^/      | /'
+            else
+              printf '%s\n' "$2" > "$1"
+            fi
+          }
 
           FECHA=$(TZ=America/Santiago date +%F)
           HORA=$(TZ=America/Santiago date +%H)
-          # solo en la madrugada de la edición; con el dispatch a mano se salta
-          if [ "${{ github.event_name }}" = "schedule" ] && { [ "$HORA" -lt 1 ] || [ "$HORA" -ge 7 ]; }; then
-            echo "son las $HORA de Chile: fuera de la ventana de la edición"; exit 0
-          fi
+          # Solo en la madrugada de la edición, venga el disparo del cron de
+          # GitHub o del reloj de Claude (push). El dispatch a mano se la salta:
+          # es para probar o para destrabar el día a cualquier hora.
+          case "$EVENTO" in
+            schedule|push)
+              if [ "$HORA" -lt 1 ] || [ "$HORA" -ge 7 ]; then
+                echo "son las $HORA de Chile: fuera de la ventana de la edición (01 a 07)"; exit 0
+              fi ;;
+          esac
 
           git fetch -q origin main
           git checkout -q -B main origin/main
+          git config user.name "estado-bot"
+          git config user.email "bot@users.noreply.github.com"
+
+          # ¿QUEDÓ UN PLAN B DE AYER? Se borra antes que nada: mientras exista
+          # con `hasta:` vigente, el suplente le gana el turno a GPT, y la regla
+          # es que GPT arranca primero todos los días. El plan B dura un día.
+          HASTA=$(grep -m1 '^hasta:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
+          if [ -n "$HASTA" ] && [ "$HASTA" \< "$FECHA" ]; then
+            echo "el plan B venció ($HASTA, hoy es $FECHA): lo borro para que GPT vuelva a ser el primero"
+            if [ "$SIMULAR" = 1 ]; then echo "  borraría plan-b vencido"; fi
+            for intento in 1 2 3; do
+              hacer git fetch -q origin main
+              hacer git reset -q --hard origin/main
+              if [ "$SIMULAR" = 0 ] && [ ! -f contenido/estado/plan-b.txt ]; then
+                echo "otra corrida ya lo borró"; break
+              fi
+              hacer git rm -q contenido/estado/plan-b.txt
+              hacer git commit -q -m "plan B vencido [bot]"
+              if hacer git push -q origin main; then echo "plan B vencido borrado"; break; fi
+              echo "push rechazado (intento $intento de 3): main se movió, lo reintento"
+              if [ "$intento" = 3 ]; then echo "::warning::no se pudo borrar el plan B vencido; lo verá la corrida siguiente"; fi
+            done
+          fi
 
           # ¿ARRANCÓ SIQUIERA EL DÍA? Sin barrido no hay nada que reintentar:
           # hay que volver a tocar el primer botón. Se espera a las 02:00 de
@@ -82,7 +156,8 @@ jobs:
               echo "no hay barrido de hoy, pero ya se lanzó uno hace menos de 25 minutos: espero"; exit 0
             fi
             echo "::warning::no hay barrido de $FECHA y son las $HORA de Chile: relanzando el Barrido"
-            gh workflow run barrido.yml --ref main
+            if [ "$SIMULAR" = 1 ]; then echo "  relanzaría el barrido"; fi
+            hacer gh workflow run barrido.yml --ref main
             exit 0
           fi
 
@@ -108,44 +183,113 @@ jobs:
           EMITIDO=$(campo emitido_utc)
           EDAD=$(( ( $(date -u +%s) - $(date -u -d "$EMITIDO" +%s) ) / 60 ))
           if [ "$EDAD" -lt "$ESPERA_MIN" ]; then
-            echo "el evento tiene $EDAD min: aún dentro de los $ESPERA_MIN de gracia"; exit 0
+            echo "el evento tiene $EDAD min: aún en gracia (los $ESPERA_MIN del primer tramo)"; exit 0
           fi
 
           # ¿y si GPT ya respondió y el estado no se ha recalculado? La pieza que
           # toca aparecería en main. El estado se recalcula con cada push, así
           # que si la etapa sigue igual es que la pieza no llegó.
           N=$(campo reintentos); N=${N:-0}
-          # alimentar_banco es la única etapa de GPT que no frena la edición (el
-          # render ya corrió): se reintenta igual, pero agotarla no es una falla
-          # que merezca teñir la corrida de rojo.
-          if [ "$N" -ge "$TOPE" ]; then
-            if [ "$ETAPA" = "alimentar_banco" ]; then
-              echo "::warning::el banco de temas no se alimentó hoy tras $N intentos; la edición no se ve afectada"
-              exit 0
-            fi
-            echo "::error::$ETAPA lleva $EDAD min sin respuesta de GPT y ya se reintentó $N veces. No insisto más: la tarea de ChatGPT necesita una mirada."
-            exit 1
-          fi
-          N=$((N + 1))
 
-          echo "$ETAPA lleva $EDAD min sin respuesta: reemitiendo (intento $N de $TOPE)"
-          git config user.name "estado-bot"
-          git config user.email "bot@users.noreply.github.com"
-          git checkout -q -B reintento FETCH_HEAD
-          {
-            echo "fecha_chile=$FECHA"
-            echo "etapa=$ETAPA"
-            echo "vuelta=$VUELTA"
-            echo "reparar=$(campo reparar)"
-            echo "pieza=$(campo pieza)"
-            echo "prompt=$(campo prompt)"
-            echo "estado_commit=$(campo estado_commit)"
-            echo "vista=$VISTA"
-            echo "emitido_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-            echo "reintentos=$N"
-            echo "motivo=GPT no respondio en $EDAD min"
-          } > contenido/estado/ultimo-evento.txt
-          git add contenido/estado/ultimo-evento.txt
-          git commit -q -m "evento $FECHA: $ETAPA reemitido (intento $N de $TOPE, $EDAD min sin respuesta)"
-          git push -q -f origin reintento:automatizacion/estado
-          echo "reemitido"
+          # PRIMER TRAMO: nadie le ha vuelto a tocar el timbre. Se reemite el
+          # evento al PR #6 con la hora de ahora, y el reloj de los 20 minutos
+          # vuelve a partir desde cero.
+          if [ "$N" -lt 1 ]; then
+            echo "$ETAPA lleva $EDAD min sin respuesta: reemito el evento (segundo aviso)"
+            if [ "$SIMULAR" = 1 ]; then echo "  reemitiría el evento al PR #6"; fi
+            hacer git checkout -q -B reintento FETCH_HEAD
+            EVENTO_TXT=$(printf '%s\n' \
+              "fecha_chile=$FECHA" \
+              "etapa=$ETAPA" \
+              "vuelta=$VUELTA" \
+              "reparar=$(campo reparar)" \
+              "pieza=$(campo pieza)" \
+              "prompt=$(campo prompt)" \
+              "estado_commit=$(campo estado_commit)" \
+              "vista=$VISTA" \
+              "emitido_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+              "reintentos=1" \
+              "motivo=GPT no respondio en $EDAD min")
+            escribir contenido/estado/ultimo-evento.txt "$EVENTO_TXT"
+            hacer git add contenido/estado/ultimo-evento.txt
+            hacer git commit -q -m "evento $FECHA: $ETAPA reemitido ($EDAD min sin respuesta)"
+            hacer git push -q -f origin reintento:automatizacion/estado
+            echo "reemitido: si en $ESPERA_MIN min más no responde, entra el suplente"
+            exit 0
+          fi
+
+          # SEGUNDO TRAMO: ya se le tocó el timbre dos veces y GPT sigue mudo.
+          # Se da por caído el día entero: plan B. No se distingue por etapa
+          # (alimentar_banco incluido): la línea `turnos:` que se escribe abajo
+          # las cubre todas, y así el suplente no tiene que volver a decidir.
+          echo "$ETAPA lleva $EDAD min sin respuesta y ya se reemitió $N vez/veces: ACTIVO EL PLAN B (regla 20 y 20)"
+          if [ "$SIMULAR" = 1 ]; then echo "  activaría plan B y despertaría al suplente"; fi
+
+          # (i) El interruptor en main. Mientras exista con `hasta:` vigente,
+          # estado.yml y estado-clave.yml despiertan al suplente en cada etapa
+          # que calce con `turnos:`; mañana esta misma corrida lo borrará.
+          VIGENTE=$(grep -m1 '^hasta:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
+          if [ "$VIGENTE" = "$FECHA" ]; then
+            echo "el plan B de hoy ya estaba activo ($VIGENTE): no lo reescribo"
+          else
+            PLANB_TXT=$(printf '%s\n' \
+              "plan-b: activo" \
+              "hasta: $FECHA" \
+              "turnos: barrido_listo *_lista *_listo reparar_* alimentar_banco tema_elegido idea_aprobada entrega_lista" \
+              "espera_reparar_min: 0" \
+              "motivo: GPT no respondio el turno $ETAPA (vuelta $VUELTA) en $EDAD min tras dos avisos" \
+              "activado: $(date -u +%Y-%m-%dT%H:%M:%SZ) por reintento.yml")
+            # mismo patrón de reintento de push que estado.yml: main se mueve
+            # solo (el estado se recalcula con cada pieza), así que se vuelve a
+            # main fresco y se reescribe encima en vez de rebasear.
+            for intento in 1 2 3; do
+              hacer git checkout -q -B main origin/main
+              hacer git fetch -q origin main
+              hacer git reset -q --hard origin/main
+              VIGENTE=$(grep -m1 '^hasta:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
+              if [ "$VIGENTE" = "$FECHA" ]; then echo "otra corrida activó el plan B de hoy primero"; break; fi
+              escribir contenido/estado/plan-b.txt "$PLANB_TXT"
+              hacer git add contenido/estado/plan-b.txt
+              hacer git commit -q -m "plan B activado $FECHA: GPT sin responder $ETAPA [bot]"
+              if hacer git push -q origin main; then echo "plan B activado hasta $FECHA"; break; fi
+              echo "push del plan B rechazado (intento $intento de 3): main se movió, lo reintento"
+              if [ "$intento" = 3 ]; then echo "::warning::no se pudo dejar plan-b.txt en main tras tres intentos"; fi
+            done
+          fi
+
+          # (ii) Despertar al suplente para ESTE turno, que es el que se perdió.
+          # Mismo mecanismo que el bloque PLAN B de estado.yml: marca en main
+          # para no disparar dos veces la misma etapa y vuelta, y POST /fire.
+          if [ -z "$REVISION_ID" ] || [ -z "$REVISION_TOKEN" ]; then
+            echo "::warning::sin secrets CLAUDE_RUTINA_REVISION_*: el plan B queda activo, pero al suplente lo despertará estado.yml en el próximo recálculo"
+            exit 0
+          fi
+          MARCA_S="contenido/estado/ultimo-disparo-suplente.txt"
+          hacer git checkout -q -B main origin/main
+          hacer git fetch -q origin main
+          hacer git reset -q --hard origin/main
+          if [ "$(cat "$MARCA_S" 2>/dev/null)" = "$FECHA $ETAPA $VUELTA" ]; then
+            echo "suplente ya despertado para $ETAPA (vuelta $VUELTA)"
+          else
+            escribir "$MARCA_S" "$FECHA $ETAPA $VUELTA"
+            hacer git add "$MARCA_S"
+            hacer git commit -q -m "disparo al suplente $FECHA: $ETAPA (vuelta $VUELTA) [bot]"
+            hacer git push -q origin main || echo "::warning::marca del suplente no pusheada; se dispara igual"
+            BODY=$(printf '{"text":"Entender Chile, PLAN B (GPT no respondio, contenido/estado/plan-b.txt): %s, etapa %s, vuelta %s. Haz el turno de GPT como SUPLENTE segun prompts/suplente.md. La verdad es contenido/estado/%s.md."}' "$FECHA" "$ETAPA" "$VUELTA" "$FECHA")
+            URL="https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire"
+            if [ "$SIMULAR" = 1 ]; then
+              hacer curl -X POST "$URL"
+              echo "  despertaría al suplente para $ETAPA (vuelta $VUELTA)"
+            else
+              CODIGO=$(curl -sS -o /tmp/fire-s.json -w '%{http_code}' -X POST "$URL" \
+                -H "Authorization: Bearer $REVISION_TOKEN" \
+                -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
+                -H "anthropic-version: 2023-06-01" \
+                -H "content-type: application/json" \
+                -d "$BODY" || echo 000)
+              case "$CODIGO" in
+                2*) echo "SUPLENTE despertado por API para $ETAPA: $(head -c 200 /tmp/fire-s.json)" ;;
+                *) echo "::warning::no se pudo despertar al suplente (HTTP $CODIGO); estado.yml lo intentará en el próximo recálculo" ;;
+              esac
+            fi
+          fi

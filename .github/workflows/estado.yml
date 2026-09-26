@@ -223,7 +223,13 @@ jobs:
           # vigente, GPT no está. Las etapas de su línea `turnos:` (el * es
           # comodín) despiertan por API a la rutina validadora en MODO SUPLENTE
           # (prompts/suplente.md), una vez por etapa y vuelta. La lista vive SOLO
-          # en ese archivo: aquí no se repite. Se apaga borrando el archivo.
+          # en ese archivo: aquí no se repite.
+          # Ese archivo NO se escribe acá: lo escribe reintento.yml cuando GPT
+          # se saltó dos avisos seguidos (regla 20 y 20), o una persona a mano
+          # con el mismo formato. Con la línea `turnos:` completa que deja
+          # reintento.yml, el suplente cubre todos los turnos del día. Se apaga
+          # borrando el archivo; si nadie lo borra, al día siguiente vence y lo
+          # borra el propio reintento.yml.
           PLANB=$(grep -m1 '^hasta:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
           TURNOS=$(grep -m1 '^turnos:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
           RE_T="^($(echo "$TURNOS" | sed 's/\*/[a-z_]+/g; s/  */|/g'))$"

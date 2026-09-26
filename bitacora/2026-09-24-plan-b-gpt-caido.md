@@ -106,3 +106,9 @@ v2 y el molde de las nueve que faltan.
 - **Cuando GPT vuelva:** borrar `plan-b.txt`, y apagar (o dejar de red) la
   Cadena nocturna desde la web. Decisión pendiente de Santiago en
   PENDIENTES ("cuando GPT vuelva").
+- **Desde la noche del 26 el plan B se activa SOLO** (regla 20 y 20 en
+  `reintento.yml`: un aviso a los 20 minutos, suplente a los 40) y dura un día,
+  porque a la madrugada siguiente vence y el mismo workflow lo borra. GPT
+  vuelve a ser la primera opción cada mañana; nadie enciende ni apaga nada a
+  mano. Detalle en `bitacora/2026-09-26.md`.
+
