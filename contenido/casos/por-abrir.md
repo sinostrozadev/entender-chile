@@ -42,3 +42,7 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-09-25 | Permisos de circulación en San Rosendo
 - 2026-09-25 | Fraude al fisco en Gendarmería, Atacama
 - 2026-09-25 | Permisos de circulación en San Rosendo
+- 2026-09-26 | Indemnizaciones del estallido con testigos falsos
+- 2026-09-26 | Caso LED en Puerto Natales
+- 2026-09-26 | Compra de inmuebles en municipios de O'Higgins
+- 2026-09-26 | Fraude al fisco en Gendarmería, Atacama
