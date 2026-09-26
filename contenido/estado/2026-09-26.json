@@ -1,9 +1,9 @@
 {
   "fecha": "2026-09-26",
-  "etapa": "validar_guion_informe",
-  "veredicto": "pendiente",
-  "vuelta": 1,
-  "actualizado": "2026-09-26 10:12",
+  "etapa": "alimentar_banco",
+  "veredicto": "APROBADA",
+  "vuelta": 0,
+  "actualizado": "2026-09-26 10:13",
   "reparar": null,
   "piezas": [
     {
@@ -12,7 +12,7 @@
       "hay": true,
       "situacion": "listo",
       "prompt": null,
-      "hora": "01:40",
+      "hora": "",
       "esperada": "01:40",
       "dueno": "Actions · barrido.yml",
       "rutas": [
@@ -25,7 +25,7 @@
       "hay": true,
       "situacion": "lista",
       "prompt": "prompts/seleccion.md",
-      "hora": "02:03",
+      "hora": "",
       "esperada": "02:10",
       "dueno": "GPT · prompts/seleccion.md",
       "rutas": [
@@ -38,7 +38,7 @@
       "hay": true,
       "situacion": "lista",
       "prompt": "prompts/informe.md",
-      "hora": "02:08",
+      "hora": "",
       "esperada": "02:40",
       "dueno": "GPT · prompts/informe.md",
       "rutas": [
@@ -49,9 +49,9 @@
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "lista",
       "prompt": "prompts/guion-informe.md",
-      "hora": "02:13",
+      "hora": "",
       "esperada": "03:10",
       "dueno": "GPT · prompts/guion-informe.md",
       "rutas": [
@@ -61,13 +61,15 @@
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "listo",
       "prompt": null,
       "hora": "",
       "esperada": "03:30",
       "dueno": "Claude · prompts/validador.md",
-      "rutas": []
+      "rutas": [
+        "contenido/revisiones/2026-09-26.md"
+      ]
     },
     {
       "id": "banco",
@@ -96,21 +98,15 @@
   ],
   "atrasos": [
     {
-      "id": "revision",
-      "etiqueta": "Revisión (veredicto final)",
-      "atraso": 402,
-      "dueno": "Claude · prompts/validador.md"
-    },
-    {
       "id": "banco",
       "etiqueta": "Banco de temas de la Clave",
-      "atraso": 372,
+      "atraso": 373,
       "dueno": "GPT · prompts/banco-temas.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 297,
+      "atraso": 298,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
