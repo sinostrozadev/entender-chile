@@ -1,0 +1,4 @@
+fecha_chile=2026-09-14
+preseleccion_commit=02b19a8
+estado=listo
+completado_utc=2026-09-14T04:37:16Z
