@@ -1,0 +1,775 @@
+{
+  "semana": "2026-W39",
+  "lunes": "2026-09-21",
+  "sabado": "2026-09-26",
+  "dias": [
+    "2026-09-21",
+    "2026-09-22",
+    "2026-09-23",
+    "2026-09-24",
+    "2026-09-25",
+    "2026-09-26"
+  ],
+  "dias_con_informe": [
+    "2026-09-21",
+    "2026-09-22",
+    "2026-09-23",
+    "2026-09-24",
+    "2026-09-25",
+    "2026-09-26"
+  ],
+  "generado": "2026-09-26",
+  "noticias": 244,
+  "temas": 190,
+  "pesos": {
+    "A": 3,
+    "B": 2,
+    "C": 1,
+    "seguimiento": 1.5,
+    "dia_extra": 1,
+    "dossier": 2
+  },
+  "ranking": [
+    {
+      "puesto": 1,
+      "puntaje": 15,
+      "dias": [
+        "2026-09-23",
+        "2026-09-24",
+        "2026-09-25",
+        "2026-09-26"
+      ],
+      "niveles": [
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "secciones": [
+        "Política"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "escudo",
+        "america",
+        "bachelet",
+        "boric",
+        "acusa",
+        "argumento",
+        "canciller",
+        "chequeo"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-23",
+          "nivel": "A",
+          "titular": "Chile se incorpora al Escudo de las Américas",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-09-24",
+          "nivel": "A",
+          "titular": "El Congreso llevará al canciller a una interpelación por el Escudo de las Américas",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-09-25",
+          "nivel": "A",
+          "titular": "Bachelet y Boric piden reconsiderar la permanencia de Chile en el Escudo de las Américas",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-09-26",
+          "nivel": "A",
+          "titular": "El Gobierno acusa \"confrontación\" a Bachelet y Boric, y un chequeo golpea el argumento del Escudo",
+          "seccion": "Política"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 2,
+      "puntaje": 11,
+      "dias": [
+        "2026-09-22",
+        "2026-09-23",
+        "2026-09-25",
+        "2026-09-26"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "A",
+        "C"
+      ],
+      "secciones": [
+        "Regiones",
+        "Chile en regiones",
+        "Actualidad",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "alerta",
+        "amenaza",
+        "evacuacion",
+        "magnitud",
+        "percibio",
+        "sismo",
+        "tsunami",
+        "cerca"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-22",
+          "nivel": "B",
+          "titular": "Un sismo de magnitud 5,3 se percibió en el norte sin amenaza de tsunami",
+          "seccion": "Regiones"
+        },
+        {
+          "fecha": "2026-09-23",
+          "nivel": "B",
+          "titular": "SHOA descartó una amenaza de tsunami para Chile tras un terremoto en Nueva Zelanda, cerrando la alerta costera sin ordenar evacuaciones",
+          "seccion": "Chile en regiones"
+        },
+        {
+          "fecha": "2026-09-25",
+          "nivel": "A",
+          "titular": "El temporal deja alertas rojas, evacuaciones y cientos de viviendas dañadas en el sur",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-09-26",
+          "nivel": "C",
+          "titular": "Un sismo de magnitud 5,1 con epicentro cerca de Navidad se percibió en Santiago, Valparaíso y Rancagua",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 3,
+      "puntaje": 10,
+      "dias": [
+        "2026-09-21",
+        "2026-09-22",
+        "2026-09-23",
+        "2026-09-24"
+      ],
+      "niveles": [
+        "C",
+        "B",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Política",
+        "Salud"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "critica",
+        "evaluacion",
+        "bachelet",
+        "candidatura",
+        "juvenil",
+        "mental",
+        "retiro",
+        "salud"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-21",
+          "nivel": "C",
+          "titular": "Cadem registró una caída de nueve puntos en la evaluación del canciller Francisco Pérez Mackenna, en medio de las críticas por el retiro del apoyo estatal a la candidatura de Michelle Bachelet a la ONU",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-09-22",
+          "nivel": "B",
+          "titular": "Bachelet retiró su candidatura a la ONU y el costo político sigue abierto",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-09-23",
+          "nivel": "B",
+          "titular": "Chile aparece con la evaluación más crítica de salud mental juvenil entre 31 países",
+          "seccion": "Salud"
+        },
+        {
+          "fecha": "2026-09-24",
+          "nivel": "B",
+          "titular": "Chile registra la evaluación más crítica de salud mental juvenil entre 31 países",
+          "seccion": "Salud"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 4,
+      "puntaje": 8.5,
+      "dias": [
+        "2026-09-21",
+        "2026-09-22"
+      ],
+      "niveles": [
+        "A",
+        "A"
+      ],
+      "secciones": [
+        "Actualidad"
+      ],
+      "seguimiento": true,
+      "noticias": 2,
+      "terminos": [
+        "fiesta",
+        "patria",
+        "vial",
+        "balance",
+        "cierra",
+        "detenido",
+        "fallecido",
+        "homicidio"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-21",
+          "nivel": "A",
+          "titular": "El balance vial de Fiestas Patrias registra 18 fallecidos y 282 detenidos",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-09-22",
+          "nivel": "A",
+          "titular": "Fiestas Patrias cierra con 20 muertes viales y 16 homicidios",
+          "seccion": "Actualidad"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 5,
+      "puntaje": 8,
+      "dias": [
+        "2026-09-23",
+        "2026-09-24",
+        "2026-09-25"
+      ],
+      "niveles": [
+        "A",
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Política",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "administrativa",
+        "expulsion",
+        "rechazo",
+        "reforma",
+        "voto",
+        "activan",
+        "ampliar",
+        "camara"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-23",
+          "nivel": "A",
+          "titular": "La Cámara rechaza por un voto ampliar la detención para expulsiones administrativas",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-09-24",
+          "nivel": "C",
+          "titular": "El rechazo de la reforma de expulsiones administrativas se produjo tras un error de procedimiento parlamentario y dejó al Ejecutivo sin los votos para reponerla",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-09-25",
+          "nivel": "B",
+          "titular": "Los republicanos activan un plan B tras el rechazo de la reforma migratoria",
+          "seccion": "Política"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 6,
+      "puntaje": 8,
+      "dias": [
+        "2026-09-22",
+        "2026-09-25",
+        "2026-09-26"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Resumen internacional"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "lula",
+        "bolsonaro",
+        "brasil",
+        "eleccion",
+        "empate",
+        "flavio",
+        "tecnico",
+        "apuesta"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-22",
+          "nivel": "B",
+          "titular": "Lula y Flávio Bolsonaro llegan en empate técnico a la recta final brasileña",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-09-25",
+          "nivel": "B",
+          "titular": "Lula y Flávio Bolsonaro llegan en empate técnico a diez días de la elección en Brasil",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-09-26",
+          "nivel": "B",
+          "titular": "Lula prohíbe las apuestas deportivas en línea a nueve días de las elecciones en Brasil",
+          "seccion": "Resumen internacional"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 7,
+      "puntaje": 8,
+      "dias": [
+        "2026-09-23",
+        "2026-09-24",
+        "2026-09-26"
+      ],
+      "niveles": [
+        "B",
+        "C",
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Vivienda y ciudad",
+        "Además, hoy",
+        "Plata pública"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "minvu",
+        "centro",
+        "culto",
+        "abrio",
+        "comunitario",
+        "beneficiario",
+        "cerca",
+        "criterio"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-23",
+          "nivel": "B",
+          "titular": "El Minvu abrió una línea de $5.900 millones para centros comunitarios de culto; deben publicarse criterios, beneficiarios y mecanismos de fiscalización para evaluar el uso de recursos públicos",
+          "seccion": "Vivienda y ciudad"
+        },
+        {
+          "fecha": "2026-09-24",
+          "nivel": "C",
+          "titular": "El Minvu abrió un subsidio de reparación de viviendas por hasta $1,6 millones",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-09-26",
+          "nivel": "B",
+          "titular": "El Minvu destina $5.900 millones a centros de culto y el ministro defiende el gasto",
+          "seccion": "Plata pública"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 8,
+      "puntaje": 7,
+      "dias": [
+        "2026-09-22",
+        "2026-09-23",
+        "2026-09-25"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "C"
+      ],
+      "secciones": [
+        "Política",
+        "Economía",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "consejo",
+        "educacion",
+        "publica",
+        "senado",
+        "aprobo",
+        "asignacion",
+        "confederacion",
+        "criterio"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-22",
+          "nivel": "B",
+          "titular": "Senado tramita nombramientos para el Consejo de Educación Pública",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-09-23",
+          "nivel": "B",
+          "titular": "El Senado aprobó integrantes del Consejo Resolutivo de Asignaciones Parlamentarias, organismo encargado de fijar y revisar criterios de gastos de senadores y diputados",
+          "seccion": "Economía"
+        },
+        {
+          "fecha": "2026-09-25",
+          "nivel": "C",
+          "titular": "La Confederación de Estudiantes de Chile ratificó el paro nacional del 01-10-2026 en defensa del financiamiento de la educación pública",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 9,
+      "puntaje": 7,
+      "dias": [
+        "2026-09-21",
+        "2026-09-22",
+        "2026-09-23"
+      ],
+      "niveles": [
+        "C",
+        "C",
+        "B",
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Vivienda y ciudad"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "investiga",
+        "muerte",
+        "homicidio",
+        "nino",
+        "alcaldesa",
+        "antecedente",
+        "causa",
+        "cayo"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-21",
+          "nivel": "C",
+          "titular": "La Fiscalía investiga como homicidio la muerte de una mujer de 91 años encontrada en su vivienda de Pitrufquén",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-09-22",
+          "nivel": "B",
+          "titular": "La muerte de un niño reactiva el proyecto de seguridad en edificios",
+          "seccion": "Vivienda y ciudad"
+        },
+        {
+          "fecha": "2026-09-23",
+          "nivel": "C",
+          "titular": "La Fiscalía investiga el homicidio de un narcotraficante que habría ofrecido dinero para matar a la alcaldesa de Lo Espejo; esa oferta es un antecedente de la causa, no un hecho judicialmente establecido",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 10,
+      "puntaje": 7,
+      "dias": [
+        "2026-09-21",
+        "2026-09-22"
+      ],
+      "niveles": [
+        "A",
+        "A"
+      ],
+      "secciones": [
+        "Política"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "comercio",
+        "kast",
+        "seguridad",
+        "agenda",
+        "autonomia",
+        "debuta",
+        "disputa",
+        "lleva"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-21",
+          "nivel": "A",
+          "titular": "Kast lleva a la ONU una agenda de seguridad, comercio y océanos",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-09-22",
+          "nivel": "A",
+          "titular": "Kast debuta en la ONU entre seguridad regional, comercio y la disputa por autonomía",
+          "seccion": "Política"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    }
+  ],
+  "fuera_por_ya_explicado": [
+    {
+      "puntaje": 11,
+      "dias": [
+        "2026-09-21",
+        "2026-09-23",
+        "2026-09-25"
+      ],
+      "niveles": [
+        "C",
+        "B",
+        "C",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Seguridad y Justicia",
+        "Plata pública"
+      ],
+      "seguimiento": true,
+      "noticias": 5,
+      "terminos": [
+        "preventiva",
+        "prision",
+        "imputado",
+        "femicidio",
+        "funcionario",
+        "gendarmeria",
+        "abuso",
+        "atacama"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-21",
+          "nivel": "C",
+          "titular": "Un imputado por femicidio tentado contra su exconviviente quedó en prisión preventiva en Coyhaique",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-09-23",
+          "nivel": "B",
+          "titular": "Prisión preventiva para funcionario de Gendarmería por muerte de ciclista",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-09-25",
+          "nivel": "B",
+          "titular": "Prisión preventiva para el segundo imputado por el homicidio de un carabinero en Renca",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "prision-preventiva-chile",
+        "titulo": "Prisión preventiva en Chile: cuándo puede ordenarse y por qué no equivale a una condena"
+      }
+    },
+    {
+      "puntaje": 4,
+      "dias": [
+        "2026-09-22",
+        "2026-09-23"
+      ],
+      "niveles": [
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Gobierno, Estado y dinero público",
+        "Política"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "magallan",
+        "senado",
+        "comercio",
+        "control",
+        "discutir",
+        "estrecho",
+        "fondo",
+        "navegacion"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-22",
+          "nivel": "C",
+          "titular": "El Senado revisa fondos de navegación y comercio para Magallanes",
+          "seccion": "Gobierno, Estado y dinero público"
+        },
+        {
+          "fecha": "2026-09-23",
+          "nivel": "B",
+          "titular": "El Senado vuelve a discutir control soberano en el Estrecho de Magallanes",
+          "seccion": "Política"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "estrecho-magallanes-soberania-navegacion",
+        "titulo": "Estrecho de Magallanes: cómo conviven soberanía chilena, libre navegación y obligaciones con Argentina"
+      }
+    },
+    {
+      "puntaje": 3,
+      "dias": [
+        "2026-09-25"
+      ],
+      "niveles": [
+        "B"
+      ],
+      "secciones": [
+        "Seguridad y Justicia"
+      ],
+      "seguimiento": true,
+      "noticias": 1,
+      "terminos": [
+        "constitucional",
+        "destitucion",
+        "evitar",
+        "juez",
+        "recurre",
+        "tribunal",
+        "urrutia"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-25",
+          "nivel": "B",
+          "titular": "El juez Urrutia recurre al Tribunal Constitucional para evitar su destitución",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "control-constitucional-proyectos-ley",
+        "titulo": "Tribunal Constitucional y formación de la ley: qué revisa antes de la promulgación y por qué puede frenar una norma aprobada por el Congreso"
+      }
+    },
+    {
+      "puntaje": 2,
+      "dias": [
+        "2026-09-22"
+      ],
+      "niveles": [
+        "B"
+      ],
+      "secciones": [
+        "Economía"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "banco",
+        "central",
+        "estrechan",
+        "margen",
+        "tasa",
+        "unido"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-22",
+          "nivel": "B",
+          "titular": "Las tasas de Estados Unidos estrechan el margen del Banco Central",
+          "seccion": "Economía"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "mercado-capitales-credito-hipotecario",
+        "titulo": "Mercado de capitales y crédito hipotecario: por qué el costo de financiar a los bancos termina influyendo en la tasa de una vivienda"
+      }
+    },
+    {
+      "puntaje": 2,
+      "dias": [
+        "2026-09-23"
+      ],
+      "niveles": [
+        "B"
+      ],
+      "secciones": [
+        "Vivienda y ciudad"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "comprador",
+        "credito",
+        "defiende",
+        "fondo",
+        "hipotecario"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-23",
+          "nivel": "B",
+          "titular": "El Gobierno defiende el fondo comprador de créditos hipotecarios",
+          "seccion": "Vivienda y ciudad"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "fogaes-garantia-estatal-hipotecaria",
+        "titulo": "FOGAES y crédito hipotecario: qué garantiza el Estado, qué riesgo conserva el banco y por qué puede reducir el pie"
+      }
+    }
+  ]
+}
