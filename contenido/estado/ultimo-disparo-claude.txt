@@ -1,1 +1,1 @@
-2026-09-26 validar_preseleccion 0
+2026-09-26 validar_informe 0
