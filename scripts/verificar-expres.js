@@ -36,10 +36,33 @@ const fecha = slug.slice(0, 10);
 const guion = fs.readFileSync(ruta, "utf8");
 
 const fuente = path.join("contenido", "urgente", `FUENTE-${slug}.md`);
-// De la lectura de GPT (23-09) solo cuentan las citas textuales: las
-// "Respuestas al pedido" son su paráfrasis y no habilitan cifras.
+// Qué parte del FUENTE habilita una cifra. Hay dos formatos y la regla es la
+// misma en los dos: solo vale lo TEXTUAL, nunca una paráfrasis.
+//
+//   Lectura de GPT (23-09): cuentan sus citas, las líneas que empiezan con
+//   ">". Sus "Respuestas al pedido" son paráfrasis y no habilitan cifras.
+//
+//   Lectura del LECTOR AUTOMÁTICO (26-09): cuenta el texto de la nota, que el
+//   script baja tal cual y deja bajo "Texto de la nota, sin resumir:". Es
+//   texto de la página, no de un modelo, así que es la evidencia más fuerte
+//   que hay; lo que pasaba antes es que el verificador no lo miraba y
+//   rechazaba cifras que SÍ estaban. Rechazó así el Short del 26-09.
+//
+// Lo que NUNCA cuenta, en ninguno de los dos: un bloque marcado "no
+// accesible". Esa página no se leyó y su contenido no se puede reconstruir.
+const textoDelLector = (txt) => txt.split(/\n## /).map((bloque) => {
+  if (/^no accesible:/m.test(bloque)) return "";
+  const i = bloque.indexOf("Texto de la nota, sin resumir:");
+  return i === -1 ? "" : bloque.slice(i);
+}).join("\n");
+
 const citas = fs.existsSync(fuente)
-  ? fs.readFileSync(fuente, "utf8").split("\n").filter((l) => /^\s*>/.test(l)).join("\n") : "";
+  ? (() => {
+      const txt = fs.readFileSync(fuente, "utf8");
+      const entrecomilladas = txt.split("\n").filter((l) => /^\s*>/.test(l)).join("\n");
+      return /LECTOR AUTOM[ÁA]TICO/i.test(txt) ? entrecomilladas + "\n" + textoDelLector(txt) : entrecomilladas;
+    })()
+  : "";
 const permitido = [path.join("contenido", "urgente", `${slug}.md`), path.join("contenido", "informes", `${fecha}.md`)]
   .filter((p) => fs.existsSync(p)).map((p) => fs.readFileSync(p, "utf8")).concat(citas).join("\n");
 
