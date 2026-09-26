@@ -97,3 +97,7 @@
 - listas de espera en salud, diferencia entre stock de pacientes y tiempo efectivo de espera | Salud pone el foco en el tiempo de espera y no solo en el número de pacientes | 2026-09-24
 - investigación de accidentes mineros, atribuciones de Sernageomin y coordinación con fiscalía y autoridad laboral | Sernageomin investiga un accidente fatal en Minera Escondida | 2026-09-24
 - exenciones de multa por no votar, acreditación de discapacidad y electrodependencia | Electores con alto grado de discapacidad y personas electrodependientes podrían quedar exentos de multas por no votar | 2026-09-24
+- seguridad de abastecimiento de combustibles, inventarios mínimos y dependencia de las importaciones | El Gobierno alista un plan de emergencia por el diésel y evalúa comprarlo en Japón o China | 2026-09-26
+- financiamiento plurianual de la Defensa y cómo se aprueban las compras de capacidades militares | Chile invertirá casi el doble que en 2025 en renovar sus Fuerzas Armadas | 2026-09-26
+- sanciones de la Superintendencia del Medio Ambiente y reclamación ante los tribunales ambientales | La Corte Suprema ratifica una multa de $4.200 millones al relleno sanitario de Til Til | 2026-09-26
+- principio de Estado laico y financiamiento público de actividades religiosas | El Minvu destina $5.900 millones a centros de culto y el ministro defiende el gasto | 2026-09-26
