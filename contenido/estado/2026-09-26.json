@@ -3,7 +3,7 @@
   "etapa": "validar_informe",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-09-26 02:11",
+  "actualizado": "2026-09-26 02:13",
   "reparar": null,
   "piezas": [
     {
@@ -48,13 +48,15 @@
     {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "por_validar",
       "prompt": "prompts/guion-informe.md",
-      "hora": "",
+      "hora": "02:13",
       "esperada": "03:10",
       "dueno": "GPT · prompts/guion-informe.md",
-      "rutas": []
+      "rutas": [
+        "contenido/guiones/informe/2026-09-26.md"
+      ]
     },
     {
       "id": "revision",
