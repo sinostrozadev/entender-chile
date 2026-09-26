@@ -21,3 +21,4 @@ public/secciones/
 
 # videos del taller: se rinden, se miran y se botan
 taller-*.mp4
+.claude/worktrees/

@@ -15,8 +15,9 @@ Codificación UTF-8, Markdown plano.
    contenido/claves/AAAA-MM-DD-<slug>.md
    Además, AGREGAR (nunca reescribir) una línea al final de:
    contenido/claves/indice.md        → "AAAA-MM-DD | <slug> | Título completo"
-   contenido/claves/banco-temas.md   → "- concepto | noticia de origen | fecha"
-                                        (solo si detectó temas nuevos)
+   (El banco de temas contenido/claves/banco-temas.md quedó congelado el
+   26-09-2026: los temas de la Clave salen del ranking semanal en
+   contenido/claves/semana/, ver prompts/tema-semana.md.)
 
 3. Guion del video del informe (NOMBRE EXACTO, dia.js lo busca por fecha):
    contenido/guiones/informe/AAAA-MM-DD.md
@@ -54,15 +55,16 @@ REGLAS DE COMMIT:
   día sí sobreescriben los archivos de ese día.
 - La Clave YA NO ES DIARIA (CLAVE 4, decisión de Santiago del 16-09): sale
   una o dos veces por semana, con flujo propio y dos aprobaciones suyas
-  (tema e idea). La cadena diaria termina en el guion del informe. Lo que sí
-  es diario es alimentar contenido/claves/banco-temas.md con los temas que
-  deja el informe (prompts/banco-temas.md). Regla anterior, hoy sin efecto:
+  (tema e idea). La cadena diaria termina en el guion del informe. El tema
+  de cada Clave sale del ranking semanal (scripts/semana.js, domingos) y de
+  los tres candidatos que Claude escribe con prompts/tema-semana.md; el
+  banco diario de temas se dejó el 26-09-2026. Regla anterior, hoy sin efecto:
   la Clave era diaria (decisión del 02-09, disputa 6) y todos los días había
   entrega y guion. Si el guionista no encuentra la entrega del día, NO
   inventa: crea contenido/guiones/claves/AAAA-MM-DD-SIN-ENTREGA.md con la
   evidencia (el listado que vio), y eso es el reporte de la falla. "Sin
   entrega de Claves" queda solo para el caso excepcional que claves.md
-  define (banco vacío Y ninguna noticia da pie).
+  define (ranking semanal sin tema con concepto Y ninguna noticia da pie).
 
 ESCRITURA VERIFICADA (obligatorio en toda tarea que escriba en el repo):
 - Escribe el archivo. Si la escritura falla, NO des por perdida la ejecución:
