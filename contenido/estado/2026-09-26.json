@@ -3,7 +3,7 @@
   "etapa": "alimentar_banco",
   "veredicto": "APROBADA",
   "vuelta": 0,
-  "actualizado": "2026-09-26 10:50",
+  "actualizado": "2026-09-26 12:48",
   "reparar": null,
   "piezas": [
     {
@@ -102,7 +102,7 @@
     {
       "id": "banco",
       "etiqueta": "Banco de temas de la Clave",
-      "atraso": 410,
+      "atraso": 528,
       "dueno": "GPT · prompts/banco-temas.md"
     }
   ]
