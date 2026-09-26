@@ -318,6 +318,42 @@ referencia:
 
 ## Dependen de Santiago
 
+- [ ] **26-09, HOY: la corrección del informe de hoy lleva 3+ horas
+      atascada — GPT no respondió ni una pieza en toda la madrugada, segunda
+      noche seguida.** Auditoría del 26-09 (`bitacora/2026-09-26-auditoria.md`).
+      Los commits de preselección, informe y guion de hoy dicen literalmente
+      en el cuerpo "recuperación a mano de la edición del 26-09-2026, segunda
+      noche sin GPT" (una sesión de Claude los escribió sin GPT, igual que la
+      madrugada del 25-09). `contenido/veredictos/2026-09-26-informe.md`
+      pidió 5 correcciones menores a las 02:25:58 Chile;
+      `contenido/estado/2026-09-26.md` sigue en `ETAPA: reparar_informe`,
+      `REPARA: GPT (despachador)`, sin ningún cambio desde entonces (verificado
+      con `git log --since`: solo hubo un commit de aviso de estado y las
+      métricas de rutina). A diferencia de la escritura inicial, esta vez
+      ninguna sesión de repuesto entró a aplicar la corrección: el atasco
+      sigue en pie a la hora de esta auditoría (05:37 Chile) con la
+      publicación (~06:30 Chile) cada vez más cerca. **Acción inmediata**:
+      revisar/relanzar la tarea "Despachador Entender Chile" en ChatGPT, o
+      aplicar a mano las 5 correcciones de ese veredicto sobre
+      `contenido/informes/2026-09-26.md` y arrastrarlas al guion, como ya se
+      hizo dos veces esta madrugada. Es la misma clase de falla que la
+      entrada "22-09, HOY" más abajo en esta sección (GPT sin responder), que
+      sigue sin marcarse como resuelta: van al menos tres ocurrencias
+      (22-09, 25-09, 26-09), y las dos últimas fueron mañanas seguidas.
+
+- [ ] **26-09: tercer día seguido sin que `reintento.yml` dispare ni una vez
+      dentro de su ventana de cron (04:00-09:59 UTC), y hoy sí importa.**
+      Auditoría del 26-09 (`bitacora/2026-09-26-auditoria.md`).
+      `mcp__github__actions_list` confirma cero corridas hoy (la última fue
+      ayer 25-09 a las 14:37 UTC, fuera de ventana). La etapa activa
+      (`reparar_informe`, GPT atascado desde las 02:25 Chile) es exactamente
+      el caso para el que existe el workflow. Esta es la misma falla de fondo
+      que la entrada "25-09, HOY" en la sección "Para la sesión de la noche"
+      ya marcó `HOY` ayer con la misma propuesta (agregar un despertador
+      propio como el de `barrido.yml`/`metricas.yml`/`guardia.yml`): sigue
+      sin implementarse y hoy lleva ya **tres mañanas seguidas** (24, 25,
+      26-09) con cero corridas en ventana.
+
 - [x] **UN CLIC EN GOOGLE CLOUD: habilitar la YouTube Reporting API.** ✅ 23-09 Es lo
       único que falta para que las impresiones de carátula empiecen a medirse.
       El código quedó listo y probado el 23-09, pero la primera corrida real
@@ -399,6 +435,12 @@ referencia:
       "GPT no tiene cuota" ni avisa antes de que una persona mire el reloj.
       Primera vez que se marca esta ocurrencia puntual: 22-09-2026 (ver
       `bitacora/2026-09-22-auditoria.md`).
+      **Vuelve a pasar el 25 y el 26-09, dos mañanas seguidas**: GPT no
+      escribió ninguna pieza ninguna de las dos noches (los commits de
+      recuperación a mano de ambos días lo dicen literalmente), y el 26-09
+      además dejó atascada la corrección del informe por más de 3 horas sin
+      que nadie la tomara (entrada nueva al comienzo de esta sección,
+      `bitacora/2026-09-26-auditoria.md`).
 
 - [ ] **PR #5, abierto desde el 11-09: fusionarlo o cerrarlo.** Trae la
       corrección completa de la cifra del 11-09 en los cuatro archivos, escrita
@@ -471,6 +513,9 @@ referencia:
       `AGUANTA`; hoy causó una cadena completa perdida, así que sube a
       `HOY`. Primera vez que se marca esta ocurrencia puntual (GPT atascado
       + reintento sin correr causando daño real): 25-09-2026.
+      **26-09: van dos mañanas seguidas** con la misma verificación (cero
+      corridas de `reintento.yml` en ventana); hoy el atasco real es
+      `reparar_informe` (`bitacora/2026-09-26-auditoria.md`).
 
 - [ ] **24-09, HOY: el despertador del barrido corrió a horario y dejó un
       commit vacío — la cadena entera de hoy no arrancó.** Auditoría del
