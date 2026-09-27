@@ -61,6 +61,10 @@ const useEntrada = () => {
 export type ModoFondo = "columna" | "oscurecer" | "tv" | "papel" | "transparente";
 export const FondoTarjetaContext = createContext<{
   modo: ModoFondo; caratula?: string | null; secciones: string[];
+  // De qué carpeta de public/ salen las imágenes de sección. "secciones" es
+  // la de producción; el video de prueba (scripts/prueba-video.js) manda
+  // "secciones-prueba" para no pisarlas mientras Santiago decide.
+  dir?: string;
   // EL BARRIDO (24-09, secuencia de Santiago). El oscurecido no aparece de
   // golpe: entra de izquierda a derecha. avance 0 = imagen limpia, 1 = toda
   // oscurecida, 0,5 = hasta la mitad, que es donde se muestra el título.
@@ -119,7 +123,7 @@ const Marco: React.FC<{ children: React.ReactNode; abajo?: React.ReactNode; secc
   // estructura (Apertura, En titulares, Agenda, Cierre), que son de la
   // edición entera y no de un tema.
   const deSeccion = categoria ? fondo.secciones.find((n) => n.startsWith(`${categoria}.`)) : undefined;
-  const ruta = deSeccion ? `secciones/${deSeccion}` : fondo.caratula || null;
+  const ruta = deSeccion ? `${fondo.dir ?? "secciones"}/${deSeccion}` : fondo.caratula || null;
   const url = ruta ? staticFile(ruta) : null;
   const modo: ModoFondo = fondo.modo === "transparente" ? "transparente"
     : url && fondo.modo !== "papel" ? fondo.modo : "papel";

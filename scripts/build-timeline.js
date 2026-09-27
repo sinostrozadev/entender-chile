@@ -7,7 +7,7 @@
  */
 const fs = require("fs");
 const path = require("path");
-const { copiarSecciones, imagenDe } = require("./imagenes-secciones.js");
+const { copiarSecciones, imagenDe, carpetaPublica } = require("./imagenes-secciones.js");
 
 const [, , parsedPath, alignPath, salida = "out/timeline.json", audioFile = null] = process.argv;
 if (!parsedPath || !alignPath) {
@@ -158,6 +158,11 @@ const timeline = {
     // se pintan con su color y su pictograma, que es el mosaico v3 aprobado.
     // Van llegando de a una y el video no espera a tenerlas todas.
     secciones: copiarSecciones(),
+    // De qué carpeta de public/ salen esas imágenes. Solo se escribe en el
+    // modo de prueba (SECCIONES_DIR): en producción la clave no existe y el
+    // video usa public/secciones/ como siempre, así el timeline del día sale
+    // byte por byte igual que antes de que existiera la prueba.
+    ...(carpetaPublica() !== "secciones" ? { seccionesDir: carpetaPublica() } : {}),
     // El mosaico como transición de sección (24-09, aprobado por Santiago en
     // el taller). MOSAICO=0 vuelve a la cortina de siempre.
     mosaico: process.env.MOSAICO !== "0",

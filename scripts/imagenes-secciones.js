@@ -54,13 +54,31 @@ const imagenDe = (texto, categoria) => {
 //
 // El original vive en contenido/secciones/<slug>.png; acá se copia a
 // public/secciones/ porque Remotion solo sirve desde public.
+//
+// MODO DE PRUEBA (27-09-2026, pedido de Santiago: ver las imágenes planas
+// pasando en el video antes de decidir). SECCIONES_DIR apunta a otra carpeta
+// de origen (por ejemplo contenido/secciones/pruebas) y entonces las copias
+// van a public/secciones-prueba/, NO a public/secciones/. El porqué de la
+// carpeta aparte: si la prueba escribiera en public/secciones/ pisaría las
+// imágenes buenas y la edición siguiente saldría con las de prueba sin que
+// nadie lo note. Sin la variable no cambia nada: mismo origen, mismo destino
+// y el timeline sale idéntico (seccionesDir solo se escribe en prueba).
 const fs = require("fs");
 const path = require("path");
 
+const DESTINO_PRUEBA = "secciones-prueba";
+// qué carpeta de public/ sirve las imágenes en esta corrida; el lado Remotion
+// la recibe por meta.seccionesDir (ver src/Informe.tsx)
+const carpetaPublica = () => (process.env.SECCIONES_DIR ? DESTINO_PRUEBA : "secciones");
+
 const copiarSecciones = () => {
-  const origen = path.join("contenido", "secciones");
-  const destino = path.join("public", "secciones");
+  const prueba = !!process.env.SECCIONES_DIR;
+  const origen = prueba ? process.env.SECCIONES_DIR : path.join("contenido", "secciones");
+  const destino = path.join("public", carpetaPublica());
   if (!fs.existsSync(origen)) return [];
+  // En prueba se vacía el destino primero: una imagen que quedó de una corrida
+  // anterior haría creer que la sección tiene imagen nueva cuando no la tiene.
+  if (prueba && fs.existsSync(destino)) fs.rmSync(destino, { recursive: true, force: true });
   fs.mkdirSync(destino, { recursive: true });
   const conImagen = [];
   for (const slug of SECCIONES) {
@@ -75,4 +93,4 @@ const copiarSecciones = () => {
   return conImagen;
 };
 
-module.exports = { imagenDe, SECCIONES, copiarSecciones };
+module.exports = { imagenDe, SECCIONES, copiarSecciones, carpetaPublica };

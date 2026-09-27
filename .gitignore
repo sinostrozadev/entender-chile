@@ -19,6 +19,12 @@ public/caratulas/
 # Para rearmarlas, ver la cabecera de src/taller-secciones.tsx.
 public/secciones/
 
+# lo mismo para el video de prueba (scripts/prueba-video.js): las imágenes y
+# la carátula que todavía se están evaluando van a carpetas aparte para no
+# pisar las de producción
+public/secciones-prueba/
+public/caratulas-prueba/
+
 # videos del taller: se rinden, se miran y se botan
 taller-*.mp4
 .claude/worktrees/

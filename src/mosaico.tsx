@@ -62,8 +62,8 @@ const GRAFITO = "#3A3D42";
 // No es el corte con difuminado que Santiago descartó el 24-09: ahí había un
 // borde recto al 42% del ancho. Acá el paso es una banda que se deshace.
 const COLS = 20, FILAS = 11;
-const BandaPixel: React.FC<{ img: string; z: number }> = ({ img, z }) => {
-  const url = staticFile(`secciones/${img}`);
+const BandaPixel: React.FC<{ img: string; z: number; dir: string }> = ({ img, z, dir }) => {
+  const url = staticFile(`${dir}/${img}`);
   const aparece = interpolate(z, [0.3, 0.85], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const bloques: React.ReactNode[] = [];
   for (let c = 0; c < COLS; c++) {
@@ -90,8 +90,8 @@ const BandaPixel: React.FC<{ img: string; z: number }> = ({ img, z }) => {
   return <AbsoluteFill style={{ overflow: "hidden" }}>{bloques}</AbsoluteFill>;
 };
 
-const Cara: React.FC<{ b: Baldosa; activa: boolean; leida: boolean; z: number; img?: string }> =
-({ b, activa, leida, z, img }) => {
+const Cara: React.FC<{ b: Baldosa; activa: boolean; leida: boolean; z: number; img?: string; dir?: string }> =
+({ b, activa, leida, z, img, dir = "secciones" }) => {
   const color = b.categoria ? colorDeSeccion(b.categoria) : GRAFITO;
   const entre = (a: number, c: number) => interpolate(z, [0, 1], [a, c]);
   return (
@@ -106,7 +106,7 @@ const Cara: React.FC<{ b: Baldosa; activa: boolean; leida: boolean; z: number; i
         opacity: leida ? 0.5 : activa ? 1 : 0.8,
         outline: activa ? `${entre(3, 0)}px solid ${COBRE}` : "none", outlineOffset: -2 }}>
 
-        {img ? <Img src={staticFile(`secciones/${img}`)}
+        {img ? <Img src={staticFile(`${dir}/${img}`)}
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} /> : null}
 
         {/* el pictograma se apaga al entrar: chica, la baldosa lo necesita
@@ -137,7 +137,7 @@ const Cara: React.FC<{ b: Baldosa; activa: boolean; leida: boolean; z: number; i
 
             Todo esto nace con el zoom: en la baldosa chica la banda no existe
             (no hay espacio y no hay texto que proteger), y aparece al entrar. */}
-        {img && z > 0.3 ? <BandaPixel img={img} z={z} /> : null}
+        {img && z > 0.3 ? <BandaPixel img={img} z={z} dir={dir} /> : null}
 
         {/* El velo. Sobre una FOTO tiene que ser fuerte para leer texto blanco;
             sobre color plano no hace falta y además mata la baldosa (con 0,86
@@ -171,7 +171,10 @@ const Cara: React.FC<{ b: Baldosa; activa: boolean; leida: boolean; z: number; i
 export const TransicionMosaico: React.FC<{
   baldosas: Baldosa[]; indice: number; dur: number; conImagen?: string[]; fecha?: string;
   salidaSeg?: number;
-}> = ({ baldosas, indice, dur, conImagen = [], fecha, salidaSeg = 0.7 }) => {
+  // carpeta de public/ con las imágenes de sección; el video de prueba manda
+  // "secciones-prueba" y producción no manda nada (ver scripts/prueba-video.js)
+  dir?: string;
+}> = ({ baldosas, indice, dur, conImagen = [], fecha, salidaSeg = 0.7, dir = "secciones" }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
   const total = Math.max(1, Math.round(dur * fps));
@@ -234,7 +237,7 @@ export const TransicionMosaico: React.FC<{
           transform: `scale(${1 + (ESCALA - 1) * z}) translateX(${-x}px)`, transformOrigin: "center center" }}>
           {baldosas.map((b, i) => (
             <Cara key={i} b={b} activa={i === indice} leida={i < indice}
-              z={zDe(i)} img={imgDe(b)} />
+              z={zDe(i)} img={imgDe(b)} dir={dir} />
           ))}
         </div>
       </AbsoluteFill>

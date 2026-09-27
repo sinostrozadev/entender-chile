@@ -4,6 +4,7 @@ import { tema, estiloEyebrow } from "./tema";
 import { Tarjeta, SeccionBanner, CortinaSeccion, Evento, FondoTarjetaContext, ModoFondo } from "./tarjetas";
 import { TransicionMosaico, Baldosa } from "./mosaico";
 import { FondosContext } from "./fondos";
+import { PortadaPrueba } from "./portada-prueba";
 
 export type Timeline = {
   version: number;
@@ -20,6 +21,9 @@ export type Timeline = {
     fondos?: boolean;            // texturas por sección (src/fondos.tsx); apagado = video de siempre
     mosaico?: boolean;           // el mosaico como transición de sección (24-09); apagado = la cortina de siempre
     secciones?: string[];        // qué secciones tienen imagen propia hoy, ej. ["clima.png"]; el resto va a color
+    seccionesDir?: string;       // carpeta de public/ con esas imágenes; solo la escribe el modo de prueba (secciones-prueba)
+    portada?: string | null;     // SOLO en el video de prueba: carátula a pantalla completa al abrir (src/portada-prueba.tsx)
+    portadaSeg?: number;         // cuánto dura esa portada de prueba
     caratula?: string | null;    // la ilustración del día, ej. "caratulas/2026-09-24.png"
     fondoTarjeta?: ModoFondo;    // cómo va el fondo de las tarjetas: columna | oscurecer | tv | papel
     selloEn?: number;            // segundos en que entra el sello; 0 = al inicio (apertura en frío: después de la noticia)
@@ -111,7 +115,8 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
   return (
     <FondosContext.Provider value={{ activo: !!tl.meta.fondos, fecha: tl.meta.fecha ?? "" }}>
     <FondoTarjetaContext.Provider value={{ modo: tl.meta.fondoTarjeta ?? "papel",
-      caratula: tl.meta.caratula ?? null, secciones: tl.meta.secciones ?? [] }}>
+      caratula: tl.meta.caratula ?? null, secciones: tl.meta.secciones ?? [],
+      dir: tl.meta.seccionesDir ?? "secciones" }}>
     <AbsoluteFill style={{ backgroundColor: tema.papel }}>
       {tl.audio ? (
         // la voz entra cuando el sello ya se fue (build-timeline corrió los tiempos)
@@ -173,7 +178,8 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
                     </Sequence>
                   ) : null}
                   <TransicionMosaico baldosas={baldosas} indice={i} dur={dur}
-                    conImagen={tl.meta.secciones ?? []} fecha={tl.meta.fecha} />
+                    conImagen={tl.meta.secciones ?? []} fecha={tl.meta.fecha}
+                    dir={tl.meta.seccionesDir ?? "secciones"} />
                 </Sequence>
               );
             })
@@ -195,6 +201,14 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
       <Sequence from={f(selloEn)} durationInFrames={Math.round(SELLO_SEG * fps)}>
         <Sello fecha={tl.meta.fecha} serie={tl.meta.serie} />
       </Sequence>
+      {/* Portada de prueba: solo cuando el timeline la trae (lo hace
+          scripts/prueba-video.js). En la edición real meta.portada no existe
+          y acá no se monta nada. */}
+      {tl.meta.portada ? (
+        <Sequence durationInFrames={Math.max(1, f(tl.meta.portadaSeg ?? 3.5))}>
+          <PortadaPrueba imagen={tl.meta.portada} titulo={tl.meta.titulo} fecha={tl.meta.fecha} />
+        </Sequence>
+      ) : null}
     </AbsoluteFill>
     </FondoTarjetaContext.Provider>
     </FondosContext.Provider>
