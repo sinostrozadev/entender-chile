@@ -318,6 +318,30 @@ referencia:
 
 ## Dependen de Santiago
 
+- [ ] **27-09, HOY: la carátula que SÍ se genera se pierde, porque el
+      conector de esa ejecución no admite binarios y la ruta queda en un
+      scratch que se borra.** Auditoría del 27-09
+      (`bitacora/2026-09-27-auditoria.md`). Evidencia:
+      `contenido/caratulas/2026-09-27-NO-PUDE.md` dice que la imagen se
+      generó bien y quedó en
+      `/workspace/scratch/3b1551457c46/generated_images/exec-....png`, una
+      ruta que no sobrevive a la sesión. No es el mismo problema del 25 y
+      26-09 (`contenido/caratulas/2026-09-25-NO-PUDE.md` y
+      `2026-09-26-NO-PUDE.md`: esos días no había generador de imágenes en
+      el entorno). Hoy sí generó, y aun así se perdió: es la tercera mañana
+      seguida sin carátula nueva y la primera por pérdida de un archivo ya
+      hecho, no por falta de herramienta. `contenido/revisiones/2026-09-27.md`
+      ya lo marcó "PARA SANTIAGO" y dice que es la segunda cosa del día que
+      se detiene por el mismo motivo. Falta decidir por dónde sube el PNG:
+      qué conector o tipo de sesión soporta binarios para esta tarea, o si
+      conviene un camino de respaldo (por ejemplo, que la sesión que genera
+      la imagen la codifique en base64 y la deje como
+      `contenido/caratulas/FECHA.png.b64`, texto plano que sí acepta
+      cualquier conector, con un paso nuevo en `edicion-diaria.yml` o en
+      `scripts/dia.js` que la decodifique antes de armar `miniatura-3.png`).
+      Mientras no se decida, cada carátula que sí se genere se sigue
+      perdiendo igual.
+
 - [ ] **27-09: nombre de la Clave semanal.** Santiago quiere evaluar un
       renombre; opciones propuestas por la noche: mantener La Clave, En
       contexto, Para entender; decidir antes del primer video del camino nuevo
@@ -692,6 +716,14 @@ referencia:
       pinta en pantalla vaya expandida la primera vez que aparece. Primera vez
       que se marca en esta lista: 23-09-2026 (lleva 3 mañanas seguidas
       señalada en las revisiones).
+      **27-09: sigue sin cerrarse, ya van cinco mañanas.** El 25 y el 26-09
+      la sigla fue Senapred (`contenido/revisiones/2026-09-26.md`: "cuarto
+      día seguido"); hoy `contenido/revisiones/2026-09-27.md` marca "quinto
+      día con la misma observación" y ya no es solo DMC: se pintan sin
+      expandir SEC, Senapred y DW. La regla que se agregó a
+      `prompts/guion-informe.md` el 23-09 no cerró el problema de fondo,
+      solo cubrió el caso puntual de esa sigla: sigue faltando una lista de
+      exentas o una regla general para cualquier sigla nueva.
 
 - [ ] **23-09, HOY: tope al cierre de cautela repetido ("queda para
       verificar/en seguimiento/pendiente") — más de una semana sin corregirse
