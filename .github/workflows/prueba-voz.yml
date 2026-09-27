@@ -39,6 +39,10 @@ on:
         description: "fondo del mosaico: aire | sala | vacío para el negro liso"
         required: false
         default: "sala"
+      secciones_dir:
+        description: "de dónde salen las imágenes de sección: papel | pruebas | vacío para producción"
+        required: false
+        default: "papel"
 
 permissions:
   contents: write
@@ -73,6 +77,11 @@ jobs:
           GUION="contenido/guiones/informe/${{ inputs.fecha }}.md"
           [ -f "$GUION" ] || { echo "::error::no existe $GUION"; exit 1; }
           if [ -z "$AZURE_SPEECH_KEY" ]; then echo "::error::sin AZURE_SPEECH_KEY: esta prueba no tiene sentido muda"; exit 1; fi
+          if [ -n "${{ inputs.secciones_dir }}" ]; then
+            export SECCIONES_DIR="contenido/secciones/${{ inputs.secciones_dir }}"
+            [ -d "$SECCIONES_DIR" ] || { echo "::error::no existe $SECCIONES_DIR"; exit 1; }
+            echo "imágenes de sección desde $SECCIONES_DIR"
+          fi
           N="${{ inputs.secciones }}"
           if [ -n "$N" ] && [ "$N" != "0" ]; then
             CORTO="out/corto-${{ inputs.fecha }}.md"
