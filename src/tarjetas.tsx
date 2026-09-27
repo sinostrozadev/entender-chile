@@ -26,6 +26,17 @@ export type Evento = {
   titulo?: string;
   elementos?: string[];
   caption?: string;
+  // SOLO en el video de prueba (scripts/prueba-video.js): el fondo de ESTA
+  // tarjeta, por encima de meta.fondoTarjeta. Es lo que deja poner la misma
+  // sección dos veces seguidas, primero sobre papel y después sobre su imagen,
+  // que es la única manera de compararlas sin rendir dos videos.
+  fondo?: ModoFondo;
+  rotulo?: string;             // rótulo discreto de esa comparación ("papel" / "imagen")
+  // También solo en --comparar, y solo en el evento de sección: en qué tramos
+  // se parte su banner. La tarjeta de abajo cambia de fondo a mitad de la
+  // sección y el banner vive en su propia capa, así que sin esto se quedaría
+  // con el color del primer pase y en el segundo no se leería.
+  pases?: { from: number; to: number; fondo: ModoFondo }[];
   from: number;
   to: number;
 };
@@ -54,12 +65,19 @@ const useEntrada = () => {
 //   oscurecer  la imagen queda entera de fondo y baja de brillo;
 //   tv         la imagen queda entera y el texto va dentro de un cuadro.
 //
+// imagen es el modo que Santiago mandó activar el 27-09-2026, y es el que
+// contaba con las imágenes de sección que llegaron: están dibujadas dejando
+// la mitad izquierda vacía a propósito, así que no hace falta ni la banda de
+// bloques ni el cuadro. El texto se queda en esa mitad, el motivo sigue
+// entero a la derecha y encima va un velo suave, que es la red para cuando la
+// imagen sea clara (ver VELO_IMAGEN).
+//
 // papel es el modo de antes, para poder volver sin tocar nada.
 // transparente: la tarjeta no dibuja fondo. Lo pone el BLOQUE, que es quien
 // maneja el barrido, porque el oscurecido es de la sección entera y no de
 // cada tarjeta: si cada tarjeta barriera, la sección barrería cuatro veces.
-export type ModoFondo = "columna" | "oscurecer" | "tv" | "papel" | "transparente";
-export const FondoTarjetaContext = createContext<{
+export type ModoFondo = "columna" | "oscurecer" | "tv" | "papel" | "transparente" | "imagen";
+export type Fondo = {
   modo: ModoFondo; caratula?: string | null; secciones: string[];
   // De qué carpeta de public/ salen las imágenes de sección. "secciones" es
   // la de producción; el video de prueba (scripts/prueba-video.js) manda
@@ -70,7 +88,27 @@ export const FondoTarjetaContext = createContext<{
   // oscurecida, 0,5 = hasta la mitad, que es donde se muestra el título.
   // retirando invierte el sentido: la oscuridad se va y la imagen vuelve.
   avance?: number; retirando?: boolean;
-}>({ modo: "papel", secciones: [] });
+};
+export const FondoTarjetaContext = createContext<Fondo>({ modo: "papel", secciones: [] });
+
+// Qué imagen le toca a un bloque y, con ella, sobre qué va su tarjeta. Vive
+// fuera del Marco porque el banner de sección necesita LA MISMA respuesta: el
+// 27-09-2026 el banner se seguía pintando con la tinta oscura y sobre la
+// imagen quedaba negro sobre azul noche, invisible. Cuando dos lugares
+// deciden lo mismo por separado, tarde o temprano dicen cosas distintas.
+export const rutaDeFondo = (fondo: Fondo, categoria?: string | null): string | null => {
+  const deSeccion = categoria ? fondo.secciones.find((n) => n.startsWith(`${categoria}.`)) : undefined;
+  if (deSeccion) return `${fondo.dir ?? "secciones"}/${deSeccion}`;
+  // En modo "imagen" manda la imagen de LA SECCIÓN y nada más: el bloque que
+  // no tiene una (Apertura, En titulares, Agenda, Cierre, o una sección cuyo
+  // PNG todavía no llega) se queda sobre papel, que es lo que se pidió. Los
+  // modos del taller sí caen a la ilustración del día, que es para lo que se
+  // hicieron, y por eso la regla no se toca para ellos.
+  return fondo.modo === "imagen" ? null : fondo.caratula || null;
+};
+export const modoDeFondo = (fondo: Fondo, categoria?: string | null): ModoFondo =>
+  fondo.modo === "transparente" ? "transparente"
+    : rutaDeFondo(fondo, categoria) && fondo.modo !== "papel" ? fondo.modo : "papel";
 
 // Borde suave de 15% del ancho: un filo recto se lee como transición de
 // presentación, no como luz que avanza.
@@ -82,6 +120,20 @@ export const velo = (avance: number, retirando: boolean, alfa = 0.76) => {
     ? `linear-gradient(90deg, rgba(21,23,26,0) ${a}%, ${oscuro} ${a + BANDA}%)`
     : `linear-gradient(90deg, ${oscuro} ${a - BANDA}%, rgba(21,23,26,0) ${a}%)`;
 };
+
+// EL VELO DEL MODO "imagen" (27-09-2026). No es un fondo, es una red: las
+// imágenes de sección son azul oscuro y el texto blanco ya se lee encima, pero
+// las doce definitivas no tienen por qué serlo todas, y una clara dejaría la
+// tarjeta ilegible sin que nadie lo revise imagen por imagen. Así que baja
+// fuerte sobre la columna del texto y se retira antes del motivo: sube el
+// contraste donde hay letras y deja la ilustración a la vista donde no las
+// hay. Nada se mueve: el barrido es de los modos del taller, no de este.
+const VELO_IMAGEN = "linear-gradient(90deg, rgba(21,23,26,0.62) 0%, rgba(21,23,26,0.58) 38%, " +
+  "rgba(21,23,26,0.18) 64%, rgba(21,23,26,0.12) 100%)";
+
+// El texto se queda en la mitad izquierda, que es la que la imagen deja vacía.
+// Con tema.anchoTexto (1340) una tesis larga cruzaba por encima del motivo.
+const ANCHO_TEXTO_IMAGEN = 900;
 
 const CLARO = { "--ec-tinta": "#17191C", "--ec-gris": "#6B6E6A", "--ec-linea": "#DDDDD5",
   "--ec-acento": "#2F7263", "--ec-fondo": "#F2F2EF", "--ec-elevado": "#FCFCFA" } as React.CSSProperties;
@@ -121,12 +173,10 @@ const Marco: React.FC<{ children: React.ReactNode; abajo?: React.ReactNode; secc
   // qué imagen le toca a este bloque: la de su sección si existe; si no, la
   // ilustración del día, que sirve para la principal y para los bloques de
   // estructura (Apertura, En titulares, Agenda, Cierre), que son de la
-  // edición entera y no de un tema.
-  const deSeccion = categoria ? fondo.secciones.find((n) => n.startsWith(`${categoria}.`)) : undefined;
-  const ruta = deSeccion ? `${fondo.dir ?? "secciones"}/${deSeccion}` : fondo.caratula || null;
+  // edición entera y no de un tema. La regla completa está en rutaDeFondo.
+  const ruta = rutaDeFondo(fondo, categoria);
   const url = ruta ? staticFile(ruta) : null;
-  const modo: ModoFondo = fondo.modo === "transparente" ? "transparente"
-    : url && fondo.modo !== "papel" ? fondo.modo : "papel";
+  const modo = modoDeFondo(fondo, categoria);
   const oscuro = modo !== "papel";
 
   // imagen viva: el acercamiento lentísimo que ya estaba probado. Nunca se
@@ -153,6 +203,7 @@ const Marco: React.FC<{ children: React.ReactNode; abajo?: React.ReactNode; secc
         {modo === "tv" ? (
           <AbsoluteFill style={{ background: "linear-gradient(90deg, rgba(21,23,26,0.55) 0%, rgba(21,23,26,0.25) 100%)" }} />
         ) : null}
+        {modo === "imagen" ? <AbsoluteFill style={{ background: VELO_IMAGEN }} /> : null}
       </>
     ) : null}
     {!oscuro && fondos.activo ? <Fondo seccion={seccion} fuerza={0.7} /> : null}
@@ -171,13 +222,22 @@ const Marco: React.FC<{ children: React.ReactNode; abajo?: React.ReactNode; secc
     {/* el cuadro: en modo tv el texto vive adentro de un panel sobre la foto */}
     {/* en modo columna el texto tiene que caber en la columna oscura: con el
         ancho de siempre se cruzaba sobre la imagen justo donde más clara es */}
-    <div style={{ maxWidth: modo === "tv" ? 1180 : modo === "columna" ? 980 : tema.anchoTexto, position: "relative",
+    {/* en modo imagen, lo mismo pero por el lado del dibujo: la mitad
+        izquierda está vacía a propósito y el texto no puede invadir el motivo */}
+    <div style={{ maxWidth: modo === "tv" ? 1180 : modo === "columna" ? 980
+      : modo === "imagen" ? ANCHO_TEXTO_IMAGEN : tema.anchoTexto, position: "relative",
       ...(modo === "tv" ? {
         backgroundColor: "rgba(17,19,22,0.88)", padding: "64px 72px", borderRadius: 4,
         border: "1px solid rgba(255,255,255,0.12)",
       } : {}) }}>{children}</div>
+    {/* la leyenda del pie también es texto y también tiene que quedarse en la
+        mitad izquierda: sobre la imagen cruzaba por encima del motivo y ahí no
+        se leía. La línea de FUENTE no se toca, va donde siempre. */}
     {abajo ? (
-      <div style={{ position: "absolute", left: tema.margen, right: tema.margen, bottom: 84 }}>{abajo}</div>
+      <div style={{ position: "absolute", left: tema.margen, right: tema.margen, bottom: 84,
+        "--ec-ancho-leyenda": modo === "imagen" ? `${ANCHO_TEXTO_IMAGEN}px` : "1200px" } as React.CSSProperties}>
+        {abajo}
+      </div>
     ) : null}
   </AbsoluteFill>
   );
@@ -208,7 +268,8 @@ const Chip: React.FC<{ etiqueta: "hecho" | "interpretacion" }> = ({ etiqueta }) 
 const PieFuente: React.FC<{ fuente?: string; caption?: string }> = ({ fuente, caption }) => (
   <div>
     {caption ? (
-      <div style={{ fontFamily: tema.sans, fontSize: 28, lineHeight: 1.4, color: "var(--ec-gris)", maxWidth: 1200, marginBottom: 18 }}>
+      <div style={{ fontFamily: tema.sans, fontSize: 28, lineHeight: 1.4, color: "var(--ec-gris)",
+        maxWidth: "var(--ec-ancho-leyenda, 1200px)", marginBottom: 18 }}>
         {caption}
       </div>
     ) : null}
@@ -489,11 +550,20 @@ export const TarjetaTitulares: React.FC<{ ev: Evento }> = ({ ev }) => {
   );
 };
 
-export const SeccionBanner: React.FC<{ texto: string }> = ({ texto }) => {
+export const SeccionBanner: React.FC<{ texto: string; categoria?: string | null; fondo?: ModoFondo }> =
+({ texto, categoria, fondo }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const ctx = useContext(FondoTarjetaContext);
   const e = spring({ frame, fps, config: { damping: 200 } });
   const color = colorDeSeccion(texto);
+  // El banner es una capa aparte de la tarjeta, así que tiene que preguntar
+  // sobre qué va a caer. Sobre imagen toma el color del papel; sobre papel se
+  // queda en la tinta. Antes decía var(--ec-tinta), que fuera del Marco no
+  // resuelve nada y terminaba en negro: daba igual sobre papel y desaparecía
+  // sobre la imagen. El fondo suelto es el de la muestra --comparar, donde la
+  // sección cambia de fondo a la mitad.
+  const oscuro = modoDeFondo(fondo ? { ...ctx, modo: fondo } : ctx, categoria) !== "papel";
   return (
     <div style={{ position: "absolute", top: 64, left: tema.margen }}>
       <div
@@ -502,7 +572,7 @@ export const SeccionBanner: React.FC<{ texto: string }> = ({ texto }) => {
           fontSize: 26,
           letterSpacing: "0.3em",
           textTransform: "uppercase",
-          color: "var(--ec-tinta)",
+          color: oscuro ? tema.papel : tema.tinta,
           opacity: e,
         }}
       >

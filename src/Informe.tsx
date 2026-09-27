@@ -5,6 +5,7 @@ import { Tarjeta, SeccionBanner, CortinaSeccion, Evento, FondoTarjetaContext, Mo
 import { TransicionMosaico, Baldosa } from "./mosaico";
 import { FondosContext } from "./fondos";
 import { PortadaPrueba } from "./portada-prueba";
+import { SecuenciaInforme, Plan } from "./secuencia";
 
 export type Timeline = {
   version: number;
@@ -25,7 +26,12 @@ export type Timeline = {
     portada?: string | null;     // SOLO en el video de prueba: carátula a pantalla completa al abrir (src/portada-prueba.tsx)
     portadaSeg?: number;         // cuánto dura esa portada de prueba
     caratula?: string | null;    // la ilustración del día, ej. "caratulas/2026-09-24.png"
-    fondoTarjeta?: ModoFondo;    // cómo va el fondo de las tarjetas: columna | oscurecer | tv | papel
+    fondoTarjeta?: ModoFondo;    // cómo va el fondo de las tarjetas: imagen | columna | oscurecer | tv | papel
+    // LA SECUENCIA DEL 24-09 (ver src/secuencia.tsx). Si el timeline trae el
+    // plan, el informe se dibuja entero de esa otra manera y nada de lo de
+    // abajo se monta. El timeline de producción no lo trae salvo que se pida
+    // con SECUENCIA, así que la edición del día sigue saliendo como siempre.
+    secuencia?: Plan;
     selloEn?: number;            // segundos en que entra el sello; 0 = al inicio (apertura en frío: después de la noticia)
     fps: number;
     width: number;
@@ -97,7 +103,28 @@ const Sello: React.FC<{ fecha?: string; serie?: string }> = ({ fecha, serie }) =
   );
 };
 
+// EL RÓTULO DE LA MUESTRA (27-09-2026). Solo aparece si el evento lo trae, y
+// eso únicamente lo escribe scripts/prueba-video.js con --comparar: en la
+// edición real ningún evento tiene rotulo y acá no se monta nada. Va arriba a
+// la derecha porque arriba a la izquierda vive el banner de sección, y en
+// píldora oscura porque tiene que leerse igual sobre papel que sobre imagen.
+const RotuloPrueba: React.FC<{ texto: string }> = ({ texto }) => (
+  <div style={{ position: "absolute", top: 58, right: tema.margen,
+    fontFamily: tema.mono, fontSize: 20, letterSpacing: "0.2em", textTransform: "uppercase",
+    color: "rgba(247,246,242,0.82)", backgroundColor: "rgba(21,23,26,0.55)",
+    padding: "6px 16px", borderRadius: 999 }}>
+    {texto}
+  </div>
+);
+
 export const InformeVideo: React.FC<Timeline> = (tl) => {
+  // La secuencia del 24-09 no es una capa más encima de este montaje: es otro
+  // montaje. Quien la pide se lleva ese, entero, y acá no se monta nada.
+  if (tl.meta.secuencia) return <SecuenciaInforme {...tl} />;
+  return <InformeTarjetas {...tl} />;
+};
+
+const InformeTarjetas: React.FC<Timeline> = (tl) => {
   const { fps } = useVideoConfig();
   const f = (s: number) => Math.round(s * fps);
   const HOLD = Math.round(fps * 0.3); // pequeña cola para que no haya huecos entre tarjetas
@@ -111,12 +138,17 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
   const selloEn = tl.meta.selloEn ?? 0;
   // la tesis de cada sección, como texto difuminado en su cortina
   const tesisDe = (nombre: string) => tl.eventos.find((e) => e.tipo === "tesis" && e.seccion === nombre)?.texto;
+  // El fondo de las tarjetas es uno solo para el video entero (meta.fondoTarjeta).
+  // El video de prueba puede pedir otro para UNA tarjeta (ev.fondo): así la
+  // muestra --comparar pone la misma sección sobre papel y enseguida sobre su
+  // imagen, en un solo render, que es la única forma de compararlas de verdad.
+  const fondoBase = { modo: (tl.meta.fondoTarjeta ?? "papel") as ModoFondo,
+    caratula: tl.meta.caratula ?? null, secciones: tl.meta.secciones ?? [],
+    dir: tl.meta.seccionesDir ?? "secciones" };
 
   return (
     <FondosContext.Provider value={{ activo: !!tl.meta.fondos, fecha: tl.meta.fecha ?? "" }}>
-    <FondoTarjetaContext.Provider value={{ modo: tl.meta.fondoTarjeta ?? "papel",
-      caratula: tl.meta.caratula ?? null, secciones: tl.meta.secciones ?? [],
-      dir: tl.meta.seccionesDir ?? "secciones" }}>
+    <FondoTarjetaContext.Provider value={fondoBase}>
     <AbsoluteFill style={{ backgroundColor: tema.papel }}>
       {tl.audio ? (
         // la voz entra cuando el sello ya se fue (build-timeline corrió los tiempos)
@@ -137,14 +169,26 @@ export const InformeVideo: React.FC<Timeline> = (tl) => {
       ) : null}
       {tarjetas.map((ev, i) => (
         <Sequence key={i} from={f(ev.from)} durationInFrames={Math.max(1, f(ev.to) - f(ev.from) + HOLD)}>
-          <Tarjeta ev={ev} />
+          {ev.fondo ? (
+            <FondoTarjetaContext.Provider value={{ ...fondoBase, modo: ev.fondo }}>
+              <Tarjeta ev={ev} />
+            </FondoTarjetaContext.Provider>
+          ) : (
+            <Tarjeta ev={ev} />
+          )}
+          {ev.rotulo ? <RotuloPrueba texto={ev.rotulo} /> : null}
         </Sequence>
       ))}
-      {overlays.map((ev, i) => (
-        <Sequence key={"ov" + i} from={f(ev.from)} durationInFrames={Math.max(1, f(ev.to) - f(ev.from))}>
-          <SeccionBanner texto={ev.texto ?? ""} />
-        </Sequence>
-      ))}
+      {/* El banner de sección se parte en tramos solo en la muestra
+          --comparar (ev.pases), donde la tarjeta cambia de fondo a mitad de la
+          sección y el banner tiene que cambiar con ella. En la edición real no
+          hay pases y sale una sola capa por sección, como siempre. */}
+      {overlays.flatMap((ev, i) =>
+        (ev.pases ?? [{ from: ev.from, to: ev.to, fondo: undefined }]).map((p, k) => (
+          <Sequence key={"ov" + i + "-" + k} from={f(p.from)} durationInFrames={Math.max(1, f(p.to) - f(p.from))}>
+            <SeccionBanner texto={ev.texto ?? ""} categoria={ev.categoria} fondo={p.fondo} />
+          </Sequence>
+        )))}
       {/* TRANSICIÓN DE SECCIÓN. Con meta.mosaico encendido, la cámara se aleja
           del bloque que termina, cruza la fila de secciones del día y entra en
           el que empieza: una sola toma, el mosaico v3 que Santiago aprobó en

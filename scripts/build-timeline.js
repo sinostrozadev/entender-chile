@@ -29,6 +29,35 @@ const chars = al.characters;
 // EN_FRIO=1 fuerza la apertura en frío desde afuera: los Shorts (05-09,
 // pedido de Santiago) parten directo en el contenido, sin los 3 s de
 // pantalla muerta que además quedaban de portada del Short en YouTube.
+// EL FONDO DE LAS TARJETAS DE CONTENIDO (27-09-2026). Producción sigue sobre
+// papel hasta que Santiago apruebe el video de prueba; FONDO_TARJETA=imagen
+// las manda sobre la imagen de su sección (la sección que todavía no tiene
+// imagen se queda en papel sola, lo resuelve src/tarjetas.tsx). El día que se
+// apruebe, activarlo es una línea en el workflow y nada de código.
+//
+// La clave viaja al timeline SOLO cuando no es papel, igual que seccionesDir:
+// así una edición que no pasa la variable produce el mismo archivo, byte por
+// byte, que antes de que el interruptor existiera, y el cambio no puede
+// colarse por descuido.
+const FONDOS_TARJETA = ["papel", "imagen"];
+const FONDO_TARJETA = (process.env.FONDO_TARJETA || "papel").toLowerCase();
+if (!FONDOS_TARJETA.includes(FONDO_TARJETA)) {
+  console.error(`FONDO_TARJETA no reconocido: "${FONDO_TARJETA}". Valores: ${FONDOS_TARJETA.join(" | ")}.`);
+  process.exit(1);
+}
+
+// LA SECUENCIA DEL 24-09 EN PRODUCCIÓN (27-09-2026). SECUENCIA=2409 hace que
+// el informe se monte como lo aprobó Santiago en el taller: la imagen de la
+// sección dura toda la sección y el texto va encima. Está apagada mientras él
+// mira el video de prueba; el día que lo apruebe es esta línea en el workflow.
+// El número es la fecha en que se aprobó a propósito: si mañana hay otra
+// secuencia, tendrá su número y se va a saber cuál está corriendo.
+const SECUENCIA = (process.env.SECUENCIA || "").trim();
+if (SECUENCIA && SECUENCIA !== "2409") {
+  console.error(`SECUENCIA no reconocida: "${SECUENCIA}". Valores: (vacío) | 2409.`);
+  process.exit(1);
+}
+
 const enFrio = process.env.EN_FRIO === "1" ||
   /la noticia del d[ií]a/i.test((parsed.eventos.find((e) => e.tipo === "seccion") || {}).texto || "");
 const INICIO = enFrio ? 0 : Number(process.env.INICIO_NARRACION || 3.0);
@@ -163,6 +192,9 @@ const timeline = {
     // video usa public/secciones/ como siempre, así el timeline del día sale
     // byte por byte igual que antes de que existiera la prueba.
     ...(carpetaPublica() !== "secciones" ? { seccionesDir: carpetaPublica() } : {}),
+    // Dónde va el contenido: sobre papel (lo de siempre) o sobre la imagen de
+    // su sección. Ver FONDO_TARJETA arriba: la clave solo existe si cambia.
+    ...(FONDO_TARJETA !== "papel" ? { fondoTarjeta: FONDO_TARJETA } : {}),
     // El mosaico como transición de sección (24-09, aprobado por Santiago en
     // el taller). MOSAICO=0 vuelve a la cortina de siempre.
     mosaico: process.env.MOSAICO !== "0",
@@ -185,5 +217,14 @@ const timeline = {
   fuentes: parsed.fuentes || [],
   eventos,
 };
+// El plan de la secuencia se calcula al final, porque necesita el timeline ya
+// armado (las secciones con sus tiempos definitivos). Sin la variable no se
+// agrega nada y el archivo sale idéntico al de siempre.
+if (SECUENCIA === "2409") {
+  const { planear } = require("./secuencia-plan.js");
+  const plan = planear(timeline);
+  if (plan) timeline.meta.secuencia = plan;
+  else console.warn("SECUENCIA=2409: esta edición no tiene secciones suficientes; sale el montaje de siempre.");
+}
 fs.writeFileSync(salida, JSON.stringify(timeline, null, 2));
 console.log(`OK: timeline con ${eventos.length} eventos, duración ${(timeline.meta.duracionSeg / 60).toFixed(1)} min → ${salida}`);

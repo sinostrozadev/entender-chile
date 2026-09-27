@@ -106,6 +106,31 @@ const cortinas = ["cortina-a.wav", "cortina-b.wav", "cortina-c.wav"].map(son).fi
 if (cortinas.length) process.env.CORTINAS = cortinas.join(","); else delete process.env.CORTINAS;
 const cierre = son("cierre.wav");
 if (cierre) process.env.CIERRE = cierre; else delete process.env.CIERRE;
+// EL FONDO DE LAS TARJETAS (27-09-2026, decisión de Santiago). El contenido
+// sobre la imagen de sección está encendido en el video de prueba y apagado
+// acá hasta que él lo apruebe viéndolo pasar. Cuando lo apruebe, prenderlo en
+// producción es poner FONDO_TARJETA: imagen en el workflow, una línea.
+//
+// Se normaliza y se valida ACÁ, y no solo en build-timeline, porque un valor
+// mal escrito en un workflow no puede terminar en una edición que sale al aire
+// sobre papel como si nada hubiera pasado: tiene que caerse y verse.
+process.env.FONDO_TARJETA = (process.env.FONDO_TARJETA || "papel").toLowerCase();
+if (!["papel", "imagen"].includes(process.env.FONDO_TARJETA)) {
+  console.error(`FONDO_TARJETA no reconocido: "${process.env.FONDO_TARJETA}". Valores: papel | imagen.`);
+  process.exit(1);
+}
+if (process.env.FONDO_TARJETA !== "papel") console.log(`(fondo de tarjetas: ${process.env.FONDO_TARJETA})`);
+// EL MONTAJE (27-09-2026). SECUENCIA=2409 monta el informe como se aprobó en
+// el taller el 24-09: la imagen de la sección dura toda la sección y el texto
+// va encima. Apagado hasta que Santiago apruebe el video de prueba. Se valida
+// acá por lo mismo que FONDO_TARJETA: un valor mal escrito en el workflow no
+// puede pasar en silencio y salir al aire con el montaje viejo.
+process.env.SECUENCIA = (process.env.SECUENCIA || "").trim();
+if (process.env.SECUENCIA && process.env.SECUENCIA !== "2409") {
+  console.error(`SECUENCIA no reconocida: "${process.env.SECUENCIA}". Valores: (vacío) | 2409.`);
+  process.exit(1);
+}
+if (process.env.SECUENCIA) console.log(`(montaje: secuencia ${process.env.SECUENCIA})`);
 run("build-timeline.js", [
   path.join(OUT, "parsed.json"),
   path.join(OUT, "alignment.json"),

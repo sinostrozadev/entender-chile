@@ -19,11 +19,20 @@
  * Uso:
  *   node scripts/prueba-video.js 2026-09-26            → el informe completo
  *   node scripts/prueba-video.js 2026-09-26 --corto    → una muestra de uno a dos minutos
+ *   ... --fondo papel                                  → las tarjetas como salen hoy al aire
+ *   ... --comparar (con --corto)                       → cada sección dos veces: papel y después imagen
  *
  * Con --corto sale la apertura con la carátula y unos cuatro segundos por
  * sección, en el orden real del guion: sirve para ver la FILA de imágenes sin
  * esperar veinte minutos de render. Los segundos por sección se cambian con
  * SEGUNDOS_POR_SECCION.
+ *
+ * LAS TARJETAS VAN SOBRE LA IMAGEN DE SECCIÓN (27-09-2026, orden de Santiago:
+ * "activa el mecanismo"). Acá viene encendido por defecto, porque la prueba es
+ * justamente esa; producción sigue en papel hasta que él apruebe el video (el
+ * interruptor de allá es FONDO_TARJETA, ver scripts/dia.js). La sección que no
+ * tiene imagen de prueba se queda sobre papel, no hay fondo inventado.
+ * --fondo papel devuelve la muestra a lo de hoy, para mirar la diferencia.
  *
  * La voz no se vuelve a generar nunca (cero créditos): se reutiliza el audio y
  * la alineación de esa fecha si están en out/AAAA-MM-DD/ o en el release
@@ -37,11 +46,30 @@ const path = require("path");
 // ── argumentos ────────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
 const corto = args.includes("--corto");
-const fecha = args.find((a) => !a.startsWith("--"));
-if (!fecha || !/^\d{4}-\d{2}-\d{2}$/.test(fecha)) {
-  console.error("Uso: node scripts/prueba-video.js AAAA-MM-DD [--corto]");
+const comparar = args.includes("--comparar");
+// --fondo se come el argumento que le sigue: si no se descuenta, un
+// "--fondo papel 2026-09-26" tomaría "papel" como fecha y el script se caería
+// diciendo una cosa que no es.
+const iFondo = args.indexOf("--fondo");
+const fondo = iFondo >= 0 ? String(args[iFondo + 1] || "").toLowerCase() : "imagen";
+if (!["papel", "imagen"].includes(fondo)) {
+  console.error(`--fondo no reconocido: "${fondo}". Valores: papel | imagen.`);
   process.exit(1);
 }
+const fecha = args.filter((a, i) => !a.startsWith("--") && args[i - 1] !== "--fondo")[0];
+if (!fecha || !/^\d{4}-\d{2}-\d{2}$/.test(fecha)) {
+  console.error("Uso: node scripts/prueba-video.js AAAA-MM-DD [--corto] [--sin-secuencia] [--comparar] [--fondo papel|imagen]");
+  process.exit(1);
+}
+// LA SECUENCIA DEL 24-09 ES EL MODO POR DEFECTO (27-09-2026). Santiago
+// devolvió el primer intento: "la imagen de la sección debe quedar durante
+// TODA la sección". Lo aprobado está en src/taller-secuencia.tsx y se dibuja
+// desde src/secuencia.tsx; lo de antes (cada tarjeta con su propio fondo)
+// queda accesible para comparar, porque comparar contra lo que sale hoy es
+// justamente lo que pidió.
+const secuencia = !args.includes("--sin-secuencia") && !comparar && !(iFondo >= 0 && fondo === "papel");
+if (comparar && !corto) console.log("(--comparar solo existe en la muestra --corto: se ignora)");
+if (!secuencia && !args.includes("--sin-secuencia")) console.log("(--comparar y --fondo papel son del modo anterior: la secuencia queda apagada)");
 
 const guion = path.join("contenido", "guiones", "informe", `${fecha}.md`);
 if (!fs.existsSync(guion)) {
@@ -70,6 +98,9 @@ if (!process.env.CARATULA) {
 process.env.REMOTION_FUENTES_LOCALES = process.env.REMOTION_FUENTES_LOCALES || "1";
 process.env.FECHA_EDICION = fecha;
 process.env.SERIE = "informe";
+// lo lee build-timeline.js y queda en meta.fondoTarjeta; acá "imagen" es el
+// valor por defecto, al revés que en producción
+process.env.FONDO_TARJETA = fondo;
 
 const OUT = path.join("out", "pruebas", fecha) + path.sep;
 fs.mkdirSync(OUT, { recursive: true });
@@ -80,6 +111,8 @@ const run = (script, extra = []) =>
 console.log(`Edición de prueba: ${fecha}`);
 console.log(`  imágenes de sección: ${process.env.SECCIONES_DIR} → public/secciones-prueba/`);
 console.log(`  carátula:            ${process.env.CARATULA || "(no hay: sale el pictograma de respaldo)"}`);
+console.log(`  montaje:             ${secuencia ? "secuencia del 24-09 (la imagen dura toda la sección)" : "tarjeta por tarjeta"}`);
+if (!secuencia) console.log(`  fondo de tarjetas:   ${fondo}${comparar && corto ? " (y --comparar: cada sección con imagen, papel y después imagen)" : ""}`);
 console.log(`  salidas:             ${OUT}\n`);
 
 // ── 1 · el guion ──────────────────────────────────────────────────────────
@@ -180,6 +213,22 @@ const construirCorto = () => {
   const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte);
   const portada = ilustracion || null;
   const eventos = [];
+  // Solo se puede comparar la sección que TIENE imagen de prueba: en las demás
+  // los dos pases saldrían idénticos (las dos veces papel) y solo alargarían
+  // la muestra sin mostrar nada.
+  const conImagenPrueba = (cat) => !!cat && (tl.meta.secciones || []).some((n) => n.startsWith(`${cat}.`));
+  const copiaDe = (card, desde, hasta, extra = {}) => {
+    const copia = { ...card, ...extra, from: Number(desde.toFixed(3)), to: Number(hasta.toFixed(3)) };
+    // las tarjetas de titulares llevan el tiempo de cada frase adentro: hay
+    // que repartir la ventana nueva entre ellas o se quedan todas apagadas
+    if (copia.items) {
+      const paso = (hasta - desde) / copia.items.length;
+      copia.items = copia.items.map((it, k) => ({ texto: it.texto,
+        from: Number((desde + paso * k).toFixed(3)), to: Number((desde + paso * (k + 1)).toFixed(3)) }));
+    }
+    return copia;
+  };
+  let comparadas = 0;
   let t = (portada ? PORTADA_SEG : 0) + SELLO_SEG;
   overlays.forEach((ov, i) => {
     // el mosaico de esta sección arranca antes de ov.from y se desvanece
@@ -189,22 +238,31 @@ const construirCorto = () => {
     const desde = t;
     const dela = tarjetas.filter((c) => c.seccion === ov.texto);
     const card = dela.find((c) => c.tipo === "tesis") || dela[0];
-    const fin = desde + viaje + SEG;
-    if (card) {
-      const copia = { ...card, from: Number(desde.toFixed(3)), to: Number(fin.toFixed(3)) };
-      // las tarjetas de titulares llevan el tiempo de cada frase adentro: hay
-      // que repartir la ventana nueva entre ellas o se quedan todas apagadas
-      if (copia.items) {
-        const paso = (fin - desde) / copia.items.length;
-        copia.items = copia.items.map((it, k) => ({ texto: it.texto,
-          from: Number((desde + paso * k).toFixed(3)), to: Number((desde + paso * (k + 1)).toFixed(3)) }));
-      }
-      eventos.push(copia);
+    // LOS DOS PASES de --comparar: la misma tarjeta primero sobre papel y
+    // enseguida sobre su imagen, pegadas. Separadas en dos videos no se
+    // compara nada, porque la memoria de un fondo dura menos que el render.
+    const pases = comparar && conImagenPrueba(ov.categoria) ? ["papel", "imagen"] : [null];
+    if (pases.length > 1) comparadas++;
+    let corre = desde;
+    const tramos = [];
+    for (const modo of pases) {
+      // el primer pase carga además con el viaje del mosaico, que le tapa el
+      // comienzo: si no se le suma, la tarjeta se ve menos que la segunda
+      const hasta = corre + (corre === desde ? viaje : 0) + SEG;
+      if (card) eventos.push(copiaDe(card, corre, hasta, modo ? { fondo: modo, rotulo: modo } : {}));
+      // el banner de sección no está dentro de la tarjeta: si no se parte
+      // igual, se queda con el color del primer pase y en el segundo no se lee
+      if (modo) tramos.push({ from: Number(corre.toFixed(3)), to: Number(hasta.toFixed(3)), fondo: modo });
+      corre = hasta;
     }
-    eventos.push({ ...ov, from: Number(desde.toFixed(3)), to: Number((fin + HUECO).toFixed(3)),
+    const fin = corre;
+    if (tramos.length) tramos[tramos.length - 1].to = Number((fin + HUECO).toFixed(3));
+    eventos.push({ ...ov, ...(tramos.length ? { pases: tramos } : {}),
+      from: Number(desde.toFixed(3)), to: Number((fin + HUECO).toFixed(3)),
       pausaDur: i === 0 ? null : 2.4 });
     t = fin + HUECO;
   });
+  if (comparar) console.log(`(--comparar: ${comparadas} secciones se ven dos veces, papel y después imagen)`);
   // el último rótulo llega hasta el final
   const ultimo = eventos.filter((e) => e.overlay).pop();
   if (ultimo) ultimo.to = Number((t + 1.2).toFixed(3));
@@ -222,9 +280,68 @@ const construirCorto = () => {
   };
 };
 
+// ── la muestra corta, en modo secuencia ───────────────────────────────────
+// Los tiempos los manda la secuencia aprobada (scripts/secuencia-plan.js), no
+// al revés: cada sección necesita su preámbulo completo (imagen al 50%,
+// título, barrido al 100%) antes de que entre el primer texto, más el viaje
+// de la cámara. Si la muestra le diera a cada sección los cuatro segundos de
+// siempre, la cabecera no cabría y Santiago vería otra vez algo que no es lo
+// que aprobó.
+const { planear, PREAMBULO_SEG, PASEO_SEG, PRESENTACION_SEG } = require("./secuencia-plan.js");
+const construirCortoSecuencia = () => {
+  const SEG = Number(process.env.SEGUNDOS_POR_SECCION || 4);
+  const HUECO = 0.2;
+  const overlays = tl.eventos.filter((e) => e.overlay);
+  const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte);
+  const portada = ilustracion || null;
+  const portadaSeg = portada ? PORTADA_SEG : 0;
+  const eventos = [];
+  let t = portadaSeg;
+  overlays.forEach((ov, i) => {
+    // antes de cada bloque: nada en la principal, la presentación del mosaico
+    // después de ella, y el recorrido corto en las demás
+    const previo = i === 0 ? 0 : i === 1 ? PRESENTACION_SEG : PASEO_SEG;
+    const preambulo = i === 0 ? 0 : PREAMBULO_SEG;
+    const desde = t;
+    const dela = tarjetas.filter((c) => c.seccion === ov.texto);
+    const card = dela.find((c) => c.tipo === "tesis") || dela[0];
+    const entra = desde + previo + preambulo;
+    const sale = entra + SEG;
+    if (card) {
+      const copia = { ...card, from: Number(entra.toFixed(3)), to: Number(sale.toFixed(3)) };
+      if (copia.items) {
+        const paso = SEG / copia.items.length;
+        copia.items = copia.items.map((it, k) => ({ texto: it.texto,
+          from: Number((entra + paso * k).toFixed(3)), to: Number((entra + paso * (k + 1)).toFixed(3)) }));
+      }
+      eventos.push(copia);
+    }
+    eventos.push({ ...ov, from: Number(desde.toFixed(3)), to: Number((sale + HUECO).toFixed(3)) });
+    t = sale + HUECO;
+  });
+  const ultimo = eventos.filter((e) => e.overlay).pop();
+  if (ultimo) ultimo.to = Number((t + 1.2).toFixed(3));
+  const base = {
+    ...tl,
+    audio: null,   // los tiempos son de la muestra, no de la voz de ese día
+    meta: { ...tl.meta, ...(portada ? { portada, portadaSeg } : {}),
+      inicioNarracion: 0, duracionSeg: Number((t + 1.2).toFixed(2)) },
+    eventos: eventos.sort((a, b) => a.from - b.from),
+  };
+  return { ...base, meta: { ...base.meta, secuencia: planear(base, { holgado: true }) } };
+};
+
 // ── render ────────────────────────────────────────────────────────────────
 const props = corto ? path.join(OUT, "timeline-corto.json") : path.join(OUT, "timeline.json");
-if (corto) fs.writeFileSync(props, JSON.stringify(construirCorto(), null, 2));
+if (corto) fs.writeFileSync(props, JSON.stringify(secuencia ? construirCortoSecuencia() : construirCorto(), null, 2));
+else if (secuencia) {
+  // el informe completo: los tiempos son los de la voz y no se mueven; la
+  // cabecera de cada sección se acomoda al aire que haya, que es lo que
+  // tendría que pasar también en producción
+  const plan = planear(tl, { portada: ilustracion || null, portadaSeg: PORTADA_SEG });
+  if (!plan) console.log("(esta edición no tiene secciones suficientes para la secuencia: sale el montaje de siempre)");
+  else fs.writeFileSync(props, JSON.stringify({ ...tl, meta: { ...tl.meta, secuencia: plan } }, null, 2));
+}
 const video = path.join(OUT, `${fecha}-informe-prueba${corto ? "-corto" : ""}.mp4`);
 const duracion = JSON.parse(fs.readFileSync(props, "utf8")).meta.duracionSeg;
 console.log(`── Render ${corto ? "(muestra corta)" : "(informe completo)"} ─ ${(duracion / 60).toFixed(1)} min de video ─`);
@@ -258,5 +375,8 @@ console.log(`timeline:    ${props}`);
 console.log(`carátula:    ${ilustracion || "(ninguna: la que sale al aire es el pictograma de respaldo)"}`);
 console.log(`con imagen de prueba (${usadas.length}): ${usadas.join(", ") || "ninguna"}`);
 console.log(`con dibujo por código (${dibujadas.length}): ${dibujadas.join(", ") || "ninguna"}`);
+console.log(secuencia
+  ? "montaje: secuencia del 24-09 (la imagen dura toda la sección; la sección sin imagen va con su color y el grabado)"
+  : `montaje: tarjeta por tarjeta, fondo ${fondo}${fondo === "imagen" ? " (las secciones sin imagen quedan sobre papel)" : ""}`);
 if (sobrantes.length) console.log(`imágenes de prueba que esta edición no usa: ${sobrantes.join(", ")}`);
 console.log(`render: ${((Date.now() - arranque) / 60000).toFixed(1)} min`);
