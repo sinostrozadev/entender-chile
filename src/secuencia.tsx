@@ -49,6 +49,21 @@ const APAGADO_SEG = 0.45;
 const ANTES_SEG = 1;
 const sv = { easing: Easing.inOut(Easing.ease), extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
 
+// NINGÚN interpolate de este archivo puede volver a tumbar un render
+// (27-09-2026). Dos veces en la misma tarde un rango calculado salió sin
+// crecer y el render de doce minutos murió: en el cuadro 281 por el sello,
+// [0,14,-13,7], y en el 308 por la cabecera, [0,0]. Las dos veces el cálculo
+// de arriba estaba mal y había que arreglarlo, y se arregló; pero que un
+// número raro mate media hora de render es un lujo que este archivo no puede
+// darse, porque el video sale de noche y no hay nadie mirando. El rango se
+// fuerza a crecer acá, una vez, en vez de confiar en que los catorce cálculos
+// de arriba salgan todos bien todas las noches.
+const rango = (xs: number[]) => {
+  const o = [...xs];
+  for (let i = 1; i < o.length; i++) if (!(o[i] > o[i - 1])) o[i] = o[i - 1] + 1e-6;
+  return o;
+};
+
 // ── el plan que llega en meta.secuencia ──────────────────────────────────
 export type Baldosa = { texto: string; categoria?: string | null; imagen?: string | null };
 export type BloqueP = {
@@ -215,8 +230,9 @@ export const Tablero: React.FC<{ baldosas: Baldosa[]; cuadros: number[]; zooms: 
   const paso = ANCHO + HUECO;
   const centro = (baldosas.length - 1) / 2;
   const posDe = (i: number) => (i - centro) * paso;
-  const z = interpolate(f, cuadros, zooms, sv);
-  const x = interpolate(f, cuadros, focos.map(posDe), sv);
+  const cs = rango(cuadros);
+  const z = interpolate(f, cs, zooms, sv);
+  const x = interpolate(f, cs, focos.map(posDe), sv);
   let foco = focos[0];
   for (let i = 0; i < cuadros.length; i++) if (f >= cuadros[i]) foco = focos[i];
   return (
@@ -255,7 +271,7 @@ const Sello: React.FC<{ fecha?: string; serie?: string; dur: number }> = ({ fech
   // no vale un video, así que acá se acomoda solo a lo que dure.
   const entra = Math.max(1, Math.min(14, Math.floor(dur * 0.3)));
   const sale = Math.max(entra + 1, dur - Math.max(1, Math.min(20, Math.floor(dur * 0.3))));
-  const op = interpolate(f, [0, entra, sale, Math.max(sale + 1, dur)], [0, 1, 1, 0], sv);
+  const op = interpolate(f, rango([0, entra, sale, Math.max(sale + 1, dur)]), [0, 1, 1, 0], sv);
   let fechaLarga = "";
   if (fecha) {
     const txt = new Intl.DateTimeFormat("es-CL", {
@@ -292,7 +308,7 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
   const { fps } = useVideoConfig();
   const lleno: [number, number] | null = b.titulo && b.lleno
     ? [Math.round(b.lleno[0] * fps), Math.round(b.lleno[1] * fps)] : null;
-  const avance = lleno ? interpolate(f, lleno, [0.5, 1], sv) : 1;
+  const avance = lleno ? interpolate(f, rango(lleno), [0.5, 1], sv) : 1;
 
   // EL TÍTULO NO SE PISA CON EL BARRIDO (27-09-2026). Santiago: "la primera
   // imagen te muestra un título, y queda pasado y se ve feo, y pasa en
@@ -306,7 +322,7 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
   // Tampoco entra con fundido: al llegar la cámara el título YA está, dibujado
   // por la baldosa en el mismo lugar. Encenderlo acá sería encender algo que
   // ya se veía.
-  const opTitulo = lleno ? interpolate(f, [lleno[0] - 10, lleno[0]], [1, 0], sv) : 0;
+  const opTitulo = lleno ? interpolate(f, rango([lleno[0] - 10, lleno[0]]), [1, 0], sv) : 0;
 
   // LA SALIDA (27-09-2026). Santiago: "antes de terminar cada sección se ve
   // como si parpadeara... quitémoslo, para que se vea natural la salida, ahí
@@ -319,7 +335,7 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
   const finTarjetas = tarjetas.length ? Math.max(...tarjetas.map((c) => c.from + c.dur)) : 0;
   const salidaDesde = Math.max(finTarjetas, dur - Math.round(fps * SALIDA_SEG));
   const retiro = dur - salidaDesde >= Math.round(fps * 0.25)
-    ? interpolate(f, [salidaDesde, dur], [0, 1], sv) : 0;
+    ? interpolate(f, rango([salidaDesde, dur]), [0, 1], sv) : 0;
 
   // EL TEXTO SE APAGA ANTES DE IRSE (27-09-2026, Santiago: "antes de irse
   // nuevamente al fondo quita el texto de la pantalla, con algún efecto, para
@@ -335,7 +351,7 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
   // quede un respiro de imagen sola entre el último texto y el viaje de la
   // cámara (27-09-2026, Santiago: "haz que el texto desvanezca 1 s antes").
   const cierra = salidaDesde - Math.round(fps * ANTES_SEG);
-  const apagado = interpolate(f, [cierra - Math.round(fps * APAGADO_SEG), cierra], [1, 0], sv);
+  const apagado = interpolate(f, rango([cierra - Math.round(fps * APAGADO_SEG), cierra]), [1, 0], sv);
   return (
     <AbsoluteFill style={{ backgroundColor: "#15171A" }}>
       {/* sin imagen propia, el fondo es el color de la sección: el grabado

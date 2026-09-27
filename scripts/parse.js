@@ -393,7 +393,11 @@ function parseGuion(md) {
     const ev = eventos[i];
     if (ev.tipo === "dato" || ev.tipo === "esquema" || ev.tipo === "seccion") {
       let j = i + 1;
-      while (j < eventos.length && !["tesis", "narracion", "cita"].includes(eventos[j].tipo)) j++;
+      // "entrada" cuenta: es lo primero que se dice de la sección, así que es
+      // donde tiene que engancharse el banner. Sin ella acá, el banner saltaba
+      // por encima de la entrada y arrancaba recién con la primera tarjeta, o
+      // sea justo después del silencio que la entrada venía a crear (27-09).
+      while (j < eventos.length && !["tesis", "narracion", "cita", "entrada"].includes(eventos[j].tipo)) j++;
       ev.anchor = j < eventos.length ? j : null;
       if ((ev.tipo === "dato" || ev.tipo === "esquema") && ev.anchor != null) {
         eventos[ev.anchor].soporte = true; // ese párrafo se muestra como pie del gráfico

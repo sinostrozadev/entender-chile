@@ -59,6 +59,8 @@ const RESERVA_CABECERA = 0.55;  // del silencio del corte, antes que la cámara
 // Lo que el viaje conserva pase lo que pase: por debajo de esto el recorrido
 // deja de leerse como un viaje y la presentación del canal desaparece.
 const VIAJE_MIN = 1.2;
+// Lo mínimo para que un título se vea como título y no como un parpadeo.
+const CABECERA_MIN = 0.5;
 // Y este sigue siendo un mínimo real, pero para OTRA cosa: lo que el viaje de
 // la cámara no puede comerse del bloque. Un bloque sin nada de preámbulo
 // entraría con el texto ya encima.
@@ -153,7 +155,12 @@ const planear = (tl, opciones = {}) => {
     }
     // la cabecera ocupa el aire que quedó después del viaje, y nada más
     const aire = opciones.holgado ? PREAMBULO_SEG : Math.max(0, primeraAbs - desde);
-    const cabecera = i > 0;
+    // ...pero una cabecera de dos cuadros no es un título, es un parpadeo, y
+    // además produce un rango degenerado ([0,0]) que el 27-09-2026 mató el
+    // render en el cuadro 308. Bajo este mínimo la sección entra ya oscura,
+    // sin título. Es el gate viejo, pero en 0,5 s en vez de 1,6: con el
+    // reparto del silencio, la cabecera ya casi siempre lo supera.
+    const cabecera = i > 0 && aire >= CABECERA_MIN;
     const p = cabecera ? Math.min(aire, PREAMBULO_SEG) / PREAMBULO_SEG : 0;
     bloques.push({
       texto: b.ov.texto || "",
