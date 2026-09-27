@@ -318,6 +318,11 @@ referencia:
 
 ## Dependen de Santiago
 
+- [ ] **27-09: nombre de la Clave semanal.** Santiago quiere evaluar un
+      renombre; opciones propuestas por la noche: mantener La Clave, En
+      contexto, Para entender; decidir antes del primer video del camino nuevo
+      (el del miércoles 30-09, si el tema se elige hoy).
+
 - [ ] **27-09 (domingo): elegir el tema de la semana 39.** Los tres
       candidatos están en `contenido/claves/semana/2026-W39-candidatos.md`; se
       elige con `node scripts/clave.js elegir <slug> --candidato n`. Video el

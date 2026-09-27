@@ -22,9 +22,10 @@ qué pieza le toca y con qué prompt. Nada de esto corre por reloj.
 | `informe.md` | etapa `preseleccion_lista` | `contenido/informes/FECHA.md`, la edición completa que publica la web |
 | `guion-informe.md` | etapa `informe_listo` | `contenido/guiones/informe/FECHA.md`, y en el mismo turno la carátula del día |
 | `imagen-caratula.md` | dentro del turno del guion del informe, o un pedido `tarea=imagen` | `contenido/caratulas/FECHA.png` |
-| `clave-idea.md` | etapa `tema_elegido` de un flujo de la Clave | `contenido/claves/flujo/<slug>/idea.md`, la promesa que aprueba Santiago |
-| `claves.md` (MODO FLUJO) | etapa `idea_aprobada` | `contenido/claves/FECHA-<slug>.md`, la entrega |
+| `investigacion-clave.md` | etapa `pauta_aprobada` de un flujo de la Clave | `contenido/claves/flujo/<slug>/investigacion.md`, el dossier con fuentes |
+| `claves.md` (MODO FLUJO) | etapa `investigacion_lista` (camino nuevo) o `idea_aprobada` (camino viejo) | `contenido/claves/FECHA-<slug>.md`, la entrega |
 | `guion-claves.md` | etapa `entrega_lista` | `contenido/guiones/claves/FECHA-<slug>.md` |
+| `clave-idea.md` | etapa `tema_elegido`, SOLO en el camino viejo de la Clave | `contenido/claves/flujo/<slug>/idea.md`; desde el 27-09-2026 lo reemplaza `pauta-clave.md`, que es de Claude |
 | `lector-gpt.md` | un pedido `tarea=lectura` (`pedido-gpt.yml`) | `contenido/urgente/FUENTE-<slug>.md`, citas textuales para que Claude contraste |
 
 Regla de Santiago del 23-09-2026: **todo lo que requiere entrar a las páginas o
@@ -40,6 +41,8 @@ la rutina. Acá va solo qué prompt lee cada una.
 |---|---|---|---|
 | `validador.md` | la rutina validadora | la despierta `estado.yml` por API en cada etapa `validar_*`; reloj de red 02:20 y 04:45 | `contenido/veredictos/FECHA-<pieza>.md`, y en `validar_final` la `contenido/revisiones/FECHA.md` que abre la compuerta del render |
 | `suplente.md` | la misma rutina, en MODO SUPLENTE | solo mientras exista `contenido/estado/plan-b.txt` de hoy (lo escribe `reintento.yml` con la regla 20 y 20) | la pieza que le tocaba a GPT, en la ruta que diga el estado |
+| `pauta-clave.md` | la misma rutina, en MODO PAUTADOR | la despierta `estado-clave.yml` en las etapas `pautar` y `reparar_pauta` | `contenido/claves/flujo/<slug>/pauta.md`, lo que el video debe tocar y contener, que es lo que aprueba Santiago antes de que GPT trabaje |
+| `validador.md`, punto 0 MODO AVISADOR | la misma rutina | la despierta `estado-clave.yml` en `pauta_lista` e `idea_lista`, y `estado.yml` en `bloqueado_humano` | `bitacora/bandeja.json` si cambió, y UNA notificación push al teléfono de Santiago |
 | `tema-semana.md` | la rutina del tema de la semana | domingos 09:00 | `contenido/claves/semana/AAAA-Www-candidatos.md`, tres candidatos para que Santiago elija |
 | `caso-seguimiento.md` | el observatorio de la plata pública | 01:45, en paralelo a la cadena | engorda los dossiers de `contenido/casos/` solo si hay novedad verificable |
 | `guardia-reloj.md` | la guardia | cada 2 horas, 08:00 a 22:00 | `contenido/urgente/GUION-<slug>.md` para el Short exprés, y `PEDIDO-<slug>.md` cuando necesita que GPT lea una página |
@@ -55,8 +58,8 @@ la rutina. Acá va solo qué prompt lee cada una.
 | `CALIDAD.md` | la sesión que itera los prompts | la rúbrica de calidad editorial y la bitácora de cada cambio de regla, con fecha |
 | `web.md` | la sesión que toca `web/` o lo publicable | qué necesita la web y qué no le sirve, frente a lo que necesita el video |
 
-`investigacion-clave.md` está escrito y probado, pero **hoy no lo dispara
-ningún flujo**: la propuesta del 26-09-2026 es engancharlo al flujo de la Clave
-como pedido a GPT entre la idea aprobada y la entrega (GPT sí navega, y la
-Clave en profundidad necesita fuentes). La decisión está pendiente; mientras no
-esté, ninguna etapa lo nombra.
+`investigacion-clave.md` estuvo escrito y huérfano desde que se creó. **Desde el
+27-09-2026 ya está enganchado**: es el turno `pauta_aprobada` del flujo de la
+Clave, el primero de GPT en el camino nuevo, y va arriba en la tabla de lo que
+escribe GPT. Lee la pauta y escribe el dossier con el que después se escriben la
+entrega y el guion.

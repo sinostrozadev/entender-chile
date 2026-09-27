@@ -438,6 +438,52 @@ ejecuta Claude, no GPT, para no gastar la cuota del despachador).
 explicar una noticia a contar una historia con origen, hitos y mecanismo.
 **Decidió**: Santiago.
 
+## 2026-09-27 - La pauta antes de GPT, y la Bandeja del Taller
+
+**Qué**: el flujo de la Clave gana un camino nuevo y el Taller una bandeja de
+decisiones. Lo que Santiago aprueba ya no es la idea que escribía GPT, sino una
+PAUTA que escribe Claude con todo lo que el video debe tocar y contener; recién
+con su sí GPT trabaja, y su primer turno ya no es escribir sino INVESTIGAR con
+fuentes. Etapas nuevas: `pautar` y `reparar_pauta` (Claude), `pauta_lista`
+(Santiago), `pauta_aprobada`, `validar_investigacion`, `reparar_investigacion` e
+`investigacion_lista`. En paralelo, `bitacora/bandeja.json` reúne todo lo que
+espera decisión suya y lo muestran tres cosas: el módulo Bandeja del Taller (el
+primero, con contador), el informe de la mañana y una notificación al teléfono
+que se dispara cuando la etapa entra en `pauta_lista`, `idea_lista` o
+`bloqueado_humano`.
+
+**Por qué**: cuatro frases de Santiago, textuales. Sobre el contenido: "quiero
+que la Clave semanal, del tema que se hable, te dé el contexto suficiente para
+entender aunque no sepas nada: cómo inició, datos importantes hasta llegar a lo
+que se sabe hoy, responder las dudas que se presenten, evaluar (solo si
+corresponde) beneficios, riesgos, etc.". Sobre el orden de trabajo: "siempre,
+antes de que envíes a trabajar a GPT, me presentes del tema todo lo que debe
+tocar y contener, y cuando te confirmo recién avanzamos, para que GPT solo
+trabaje cuando estamos seguros". Sobre el Taller: "crea en el Taller un sistema
+de notificaciones: cuando algo necesita mi aprobación, que lo pueda ver ahí". Y
+la cuarta, de la noche anterior: enganchar `prompts/investigacion-clave.md` al
+flujo, que estaba escrito y huérfano desde que se creó.
+
+Lo que estaba mal del orden viejo: cuando la idea de GPT no era la que él
+quería, lo gastado era cuota de GPT y una vuelta entera de validación. La pauta
+cuesta una lectura del repo y se corrige en dos líneas. Y una Clave que se
+escribía solo con los informes del canal quedaba sin documentos, sin cifras
+primarias y sin poder decir "esto no se pudo averiguar".
+
+**Qué cambia**: `prompts/pauta-clave.md` (nuevo, ocho secciones con encabezados
+fijos: qué es, cómo empezó, los datos hasta hoy, las dudas que hay que
+responder, evaluación solo si corresponde, qué NO va, qué debe conseguir la
+investigación, carátulas y duración). `prompts/clave-idea.md` queda solo para
+el flujo viejo y se retira cuando cierre. El validador gana
+`validar_investigacion` y, en `validar_entrega` y `validar_guion`, dos
+comprobaciones nuevas contra la pauta: que las preguntas de su sección 4 estén
+respondidas y que nada de su "Qué NO va" haya entrado. Entran
+`scripts/bandeja.js` y `scripts/botones.js` (los enlaces a GitHub compartidos
+por el Taller y la Bandeja, para que el mismo botón no apunte a dos rutas
+distintas). Los dos caminos conviven: el flujo abierto ese día termina por el
+viejo, porque cambiarle las etapas a mitad de recorrido lo habría dejado en una
+etapa que ningún archivo sostiene. **Decidió**: Santiago.
+
 ## Decisiones previas, reconstruidas del repo (para que no se pierdan)
 
 Nota (02-09): estas entradas son previas al 26-08 y se reconstruyeron
