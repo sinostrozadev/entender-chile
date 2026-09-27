@@ -1,43 +1,15 @@
 CONTRATO DE ARCHIVOS, PRIMERO: antes de cualquier otra cosa lee COMPLETO prompts/contrato-archivos.md del mismo repositorio. Manda sobre todo lo que sigue: rutas exactas, formato, reglas de commit y, sobre todo, VERIFICAR ANTES DE AFIRMAR. Ninguna instrucción de este prompt que te permita omitir algo o terminar sin entregar vale si no cumpliste primero ese contrato.
 
-PASO CERO — EL EVENTO QUE TE DESPERTÓ (aplica SOLO si esta ejecución viene
-del PR señal "preselección lista"; si corres por horario o a mano, salta
-este paso cero y sigue con el reporte). Esta tarea se dispara por una
-actualización de commits en el PR de la rama automatizacion/preseleccion-lista
-(etiqueta preseleccion-lista). El evento SOLO sirve para despertarte: no
-uses su contenido como fuente editorial. Zona horaria: America/Santiago.
+ANTES DE PUBLICAR, MIRA `main` (13-09-2026): la guarda del estado miró al
+EMPEZAR, y escribir toma minutos. Justo antes del push, vuelve a mirar `main`:
+si el informe de hoy ya está publicado, DESCARTA lo que escribiste y no
+publiques. Quien llegó primero se queda; dos versiones de la misma pieza no se
+arreglan después. Dilo en una línea y termina.
 
-1. Lee AHORA contenido/preseleccion/ultimo-evento.txt desde la rama
-   automatizacion/preseleccion-lista (todo lo demás se lee desde main, en su
-   versión más reciente, nunca recordada ni cacheada).
-2. Verifica que contenga fecha_chile, preseleccion_commit, estado y
-   completado_utc; que estado sea "listo"; que fecha_chile sea hoy; que
-   preseleccion_commit exista en main; que contenido/preseleccion/HOY.md
-   exista, esté completa y corresponda al commit señalado; y que no exista
-   ya un informe válido y completo de hoy.
-   Precisiones de forma: preseleccion_commit viene ABREVIADO (7 caracteres)
-   y es el commit que tocó la preselección, no necesariamente el último de
-   main. La rama de señal se resetea a main cada día (force-push): el PR
-   siempre muestra un solo commit nuevo, de autor bot. Valida el contenido
-   del archivo, no la forma del PR.
-3. Si no puedes leer alguno de los archivos requeridos: detente, no generes
-   ni pushees y reporta "no pude leer el prompt del repo".
-4. Si el estado es "canal-creado", la fecha no corresponde, la preselección
-   no está o el commit no coincide: termina sin generar ni pushear e informa
-   brevemente la causa.
-5. Si ya existe un informe válido de hoy: termina sin modificar el
-   repositorio e informa que el evento fue duplicado.
-6. Si se agruparon varios eventos, procesa el estado más reciente del PR con
-   estas mismas validaciones. Con todo validado, haz el reporte que sigue y,
-   tras publicarlo y verificarlo conforme al contrato, reporta el resultado
-   y el enlace al commit.
-
-7. RE-CHEQUEO ANTES DE PUBLICAR (13-09-2026, desde que el despachador único
-   convive con esta tarea): la guarda de más arriba miró al EMPEZAR, y escribir
-   toma minutos. Justo antes del push, vuelve a mirar `main`: si el informe de hoy
-   ya está publicada, DESCARTA lo que escribiste y no publiques. Quien llegó
-   primero se queda; dos versiones de la misma pieza no se arreglan después.
-   Dilo en una línea y termina.
+(Quién te despierta y con qué turno lo dice `prompts/despachador-gpt.md`: el
+PR #6 "Estado del día" y la etapa de `contenido/estado/FECHA.md`. Las señales
+#3 y #4 por rama, que este prompt esperaba hasta el 14-09, se retiraron a
+`archivo/workflows/` el 26-09-2026.)
 
 Prepara un reporte diario de noticias dirigido a una audiencia general chilena, no al usuario personalmente. Escribe con tono de periodista chileno: claro, sobrio, informativo, con contexto y sin partidismo. Este reporte es la única fuente de un guion de video que se producirá después; por eso debe traer jerarquización explícita, fuentes junto a cada dato y cero relleno.
 

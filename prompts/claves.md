@@ -1,41 +1,16 @@
 CONTRATO DE ARCHIVOS, PRIMERO: antes de cualquier otra cosa lee COMPLETO prompts/contrato-archivos.md del mismo repositorio. Manda sobre todo lo que sigue: rutas exactas, formato, reglas de commit y, sobre todo, VERIFICAR ANTES DE AFIRMAR. Ninguna instrucción de este prompt que te permita omitir algo o terminar sin entregar vale si no cumpliste primero ese contrato.
 
-PASO CERO — EL EVENTO QUE TE DESPERTÓ (aplica SOLO si esta ejecución viene
-del PR señal "informe listo"; si corres por horario o a mano, salta este
-paso cero y sigue con la entrega). Esta tarea se dispara por una
-actualización de commits en el PR de la rama automatizacion/informe-listo
-(etiqueta informe-listo). El evento SOLO sirve para despertarte: no uses su
-contenido como fuente editorial. Zona horaria: America/Santiago.
+ANTES DE PUBLICAR, MIRA `main` (13-09-2026): la guarda del estado miró al
+EMPEZAR, y escribir toma minutos. Justo antes del push, vuelve a mirar `main`:
+si la entrega de hoy ya está publicada, DESCARTA lo que escribiste y no
+publiques. Quien llegó primero se queda; dos versiones de la misma pieza no se
+arreglan después. Dilo en una línea y termina.
 
-1. Lee AHORA contenido/informes/ultimo-evento.txt desde la rama
-   automatizacion/informe-listo (todo lo demás se lee desde main, en su
-   versión más reciente, nunca recordada ni cacheada).
-2. Verifica que contenga fecha_chile, informe_commit, estado y
-   completado_utc; que estado sea "listo"; que fecha_chile sea hoy; que
-   informe_commit exista en main; que contenido/informes/HOY.md exista,
-   esté completo y corresponda al commit señalado; y que no exista ya una
-   entrega de Claves válida de hoy (contenido/claves/HOY-*.md).
-   Precisiones de forma: informe_commit viene ABREVIADO (7 caracteres) y es
-   el commit que tocó el informe, no necesariamente el último de main. La
-   rama de señal se resetea a main cada día (force-push): el PR siempre
-   muestra un solo commit nuevo, de autor bot. Valida el contenido del
-   archivo, no la forma del PR.
-3. Si no puedes leer alguno de los archivos requeridos: detente, no generes
-   ni pushees y reporta "no pude leer el prompt del repo".
-4. Si el estado es "canal-creado", la fecha no corresponde, el informe no
-   está o el commit no coincide: termina sin generar ni pushear e informa
-   brevemente la causa.
-5. Si ya existe una entrega de Claves de hoy: termina sin modificar el
-   repositorio e informa que el evento fue duplicado.
-6. Si se agruparon varios eventos, procesa el estado más reciente del PR
-   con estas mismas validaciones y sigue con la entrega.
-
-7. RE-CHEQUEO ANTES DE PUBLICAR (13-09-2026, desde que el despachador único
-   convive con esta tarea): la guarda de más arriba miró al EMPEZAR, y escribir
-   toma minutos. Justo antes del push, vuelve a mirar `main`: si la entrega de Claves de hoy
-   ya está publicada, DESCARTA lo que escribiste y no publiques. Quien llegó
-   primero se queda; dos versiones de la misma pieza no se arreglan después.
-   Dilo en una línea y termina.
+(Quién te despierta y con qué turno lo dice `prompts/despachador-gpt.md`: el
+PR #6 "Estado del día" y la etapa del flujo en
+`contenido/estado/clave-<slug>.md`. Las señales #3 y #4 por rama, que este
+prompt esperaba hasta el 14-09, se retiraron a `archivo/workflows/` el
+26-09-2026.)
 
 MODO FLUJO (desde el 21-09, CLAVE 4; es el modo normal ahora): la Clave ya no nace del informe de hoy. Si el estado que te despertó es un flujo de Clave (`contenido/estado/clave-<slug>.md`, PIEZA: entrega), tu entrada es `ARCHIVO_ENTRADA`: la idea que Santiago APROBÓ (`contenido/claves/flujo/<slug>/idea.md`), más `tema.md` y los informes que ese `tema.md` nombra. El tema, el título propuesto, las preguntas y la estructura vienen de la idea: NO elijas otro tema ni cambies la promesa; desarrolla lo prometido. El archivo va en `ARCHIVO` del estado (`contenido/claves/FECHA_PRODUCCION-<slug>.md`), con ese slug exacto. Las secciones de este prompt que hablan de "el informe de hoy", de "la serie es diaria", de elegir el tema y del Banco de temas NO aplican en este modo (el banco quedó congelado el 26-09-2026); todo lo demás (estructura, reglas de datos y fuentes, índice, contrato) sí.
 

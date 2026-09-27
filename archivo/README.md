@@ -126,3 +126,27 @@ Scripts sin uso, a `archivo/scripts/`:
 
 Fuera de git, borrados del disco local: los seis mp3 sueltos de `public/`
 (70 MB de renders del 29 y 30-08, ya ignorados por `.gitignore`).
+
+Documentación reescrita el 26-09-2026 (bloque B de la misma propuesta):
+
+- `README-horarios-2026-09.md` (del `README.md` de la raíz) - el cuadro de
+  horarios de la madrugada: cuatro tareas de ChatGPT por hora fija, Clave
+  diaria, guionista de Claude, revisión de las 04:45 y las señales #3 y #4.
+  Describía la máquina anterior al 14-09. El README de la raíz quedó corto y
+  con la cadena lineal; el inventario al día de rutinas y workflows vive en
+  `bitacora/rutinas.md`.
+
+Ideas ya implementadas, a `archivo/ideas/`. Se retiran porque una idea hecha en
+un backlog compite por la atención con las que faltan:
+
+- `ideas/shorts-diarios.md` - la propuesta de hacer un Short vertical por
+  pieza. La implementó `scripts/short.js` (y `scripts/short-urgente.js` para el
+  exprés de la guardia); el Short del informe sale todos los días con la
+  edición.
+- `ideas/sonido-y-transiciones.md` - el estudio de qué sonidos necesita el
+  canal. Lo implementó `scripts/sonido.js` con la decisión del 27-08: cero
+  bancos de música y cero cama bajo la voz, todo sintetizado (sello, cortinas
+  de sección, cierre).
+- `ideas/voz-opciones.md` - la comparación de proveedores de voz. La cerró
+  `scripts/tts-azure.js`: Azure es-CL Lorenzo al 90% de velocidad, con el
+  recurso S0 como respaldo cuando se agota el F0 gratis.
