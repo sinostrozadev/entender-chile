@@ -201,6 +201,31 @@ lineasImg.forEach((linea, i) => {
   });
 });
 
+// LA CARÁTULA DEL DÍA (27-09-2026). Es la única imagen que no se pide a mano,
+// así que no estaba en la lista de arriba, y por eso las tres que faltaron
+// entre el 25 y el 27 no avisaron a nadie: Santiago se enteró viendo el video
+// ya publicado. Solo cuenta si el guion del día existe: antes de eso no falta,
+// todavía no toca.
+const guionHoy = `contenido/guiones/informe/${FECHA}.md`;
+const rutaCaratula = `contenido/caratulas/${FECHA}.png`;
+const hayCaratula = ["png", "jpg", "jpeg", "webp"].some((e) => existe(`contenido/caratulas/${FECHA}.${e}`));
+if (existe(guionHoy) && !hayCaratula) {
+  const noPude = existe(`contenido/caratulas/${FECHA}-NO-PUDE.md`);
+  const pedido = existe(`contenido/urgente/PEDIDO-caratula-${FECHA}.md`);
+  const reintento = pedido ? "El reintento automático ya está pedido." : "Aún no hay pedido de reintento abierto.";
+  items.push({
+    id: `caratula-${FECHA}`,
+    tipo: "imagen",
+    titulo: "Falta la carátula del informe de hoy: el video va a salir sin portada",
+    detalle: noPude
+      ? `GPT dejó contenido/caratulas/${FECHA}-NO-PUDE.md con su motivo. ${reintento} Un NO-PUDE no es prueba de que no se pueda: el 27-09-2026 la causa escrita ahí era falsa y la imagen subió al segundo intento.`
+      : `El turno del guion terminó sin dejarla y sin explicar por qué. ${reintento}`,
+    desde: desdeDe(guionHoy),
+    archivo: rutaCaratula,
+    acciones: [{ texto: "Abrir el prompt de la carátula", href: urlVer("prompts/imagen-caratula.md") }],
+  });
+}
+
 // ---------- el orden: primero lo que detiene la máquina --------------------
 const URGENCIA = { clave: 0, bloqueo: 1, semana: 2, pendiente: 3, imagen: 4 };
 items.sort((a, b) => (URGENCIA[a.tipo] - URGENCIA[b.tipo]) || a.desde.localeCompare(b.desde) || a.id.localeCompare(b.id));

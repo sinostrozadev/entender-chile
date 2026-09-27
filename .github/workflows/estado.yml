@@ -98,6 +98,25 @@ jobs:
             [ "$intento" = 3 ] && { echo "::error::no se pudo commitear el estado tras tres intentos"; exit 1; }
           done
 
+      # (27-09-2026) La carátula del día se genera dentro del turno del guion y
+      # no tiene reintento: si ese turno falla, el video sale sin portada y no
+      # se entera nadie. Pasó tres días seguidos. El script no hace nada salvo
+      # que haya guion, falte la imagen y el pedido de hoy no esté abierto, así
+      # que como mucho gasta un despertar de GPT al día. El push a
+      # contenido/urgente/PEDIDO-* dispara pedido-gpt.yml, que es quien emite.
+      - name: Si falta la carátula del día, abrir el pedido a GPT
+        run: |
+          git fetch -q origin main
+          git reset -q --hard origin/main
+          node scripts/pedir-caratula.js
+          git add contenido/urgente/ || true
+          git diff --cached --quiet && exit 0
+          FECHA=$(TZ=America/Santiago date +%F)
+          git config user.name "estado-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git commit -q -m "pedido $FECHA: carátula (reintento automático) [bot]"
+          git push -q origin main || echo "::warning::el pedido de carátula no se pudo pushear; se reintenta en el próximo estado"
+
       - name: Emitir el evento al PR único del estado (es quien despierta a GPT) y, por API, a Claude
         env:
           GH_TOKEN: ${{ github.token }}

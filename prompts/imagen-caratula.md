@@ -34,10 +34,31 @@ tiene que quedar la imagen. Entonces:
 3. Súbela al repo, rama `main`, en la ruta EXACTA de `salida=`. El nombre y
    la extensión importan: `scripts/dia.js` busca `contenido/caratulas/FECHA`
    con extensión png, jpg, jpeg o webp, y no busca en ninguna otra parte.
-4. Si por lo que sea no puedes subir un archivo binario al repo, NO lo dejes
-   en silencio: escribe `<salida sin extensión>-NO-PUDE.md` explicando qué
-   falló y dónde quedó la imagen. Un pedido sin respuesta deja una rutina
-   esperando con el reloj corriendo.
+4. Si por lo que sea no puedes subir la imagen al repo, NO lo dejes en
+   silencio: escribe `<salida sin extensión>-NO-PUDE.md`. Y ahí manda esta
+   regla, que costó un día entero: **un reporte de falla no es evidencia de
+   falla**. El archivo tiene que decir QUÉ INTENTASTE, con el nombre de la
+   herramienta que llamaste, y CITAR EL ERROR que te devolvió, literal. Una
+   causa sin mensaje de error no es una causa: si no llegaste a intentarlo,
+   escribe "no lo intenté" y di por qué.
+
+   El 27-09-2026 el NO-PUDE dijo que el conector "solo permite crear archivos
+   de texto UTF-8 y no admite subir binarios PNG". Era falso. Cuando Santiago
+   preguntó, la respuesta fue: "revisé la función para archivos de texto y
+   pasé por alto la opción para subir imágenes como blobs binarios. No
+   comprobé ningún cambio del conector que impidiera hacerlo". La imagen
+   subió sin problema al segundo intento, y el mismo tipo de tarea había
+   subido un PNG de 4,2 MB tres días antes. El costo de esa frase escrita sin
+   comprobar fue un informe publicado sin portada y media mañana de
+   diagnóstico sobre una causa inventada.
+
+   Antes de escribir que algo no se puede: intenta la vía binaria (subir la
+   imagen como blob), y solo si te devuelve un error, cópialo.
+
+   Si aun así no sube, no pasa nada grave: desde el 27-09-2026 `estado.yml`
+   abre solo un pedido de reintento cuando el guion está y la imagen no, así
+   que va a haber una ejecución nueva. Lo que no se recupera es una causa
+   falsa escrita en el repo, porque manda a todos a buscar donde no es.
 
 Mientras la imagen no exista en `salida=`, el pedido sigue abierto y te va a
 volver a llegar.
