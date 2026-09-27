@@ -9,7 +9,7 @@ web/dist/
 web/.astro/
 bitacora/taller.html
 
-bitacora/taller-tablero.html
+bitacora/taller.html
 # copias de trabajo que hace dia.js desde contenido/caratulas/ (el original
 # vive allá; acá solo se copia para que Remotion lo pueda servir)
 public/caratulas/

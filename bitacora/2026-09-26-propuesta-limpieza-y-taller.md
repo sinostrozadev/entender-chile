@@ -93,7 +93,7 @@ agosto, ya ignorados por git). Se borran del disco.
 
 ## D. El Taller de una página
 
-Base: `scripts/taller-tablero.js` (fase 1 del 20-09) pasa a llamarse
+Base: `scripts/taller.js` (fase 1 del 20-09) pasa a llamarse
 `scripts/taller.js` cuando se retire el viejo. Genera UNA página, publicada
 como artefacto privado con URL fija (fijada en la barra de claude.ai), con
 una barra de módulos para navegar sin salir de ella:

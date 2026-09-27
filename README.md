@@ -79,7 +79,7 @@ por tarea: el estado dice de quién es el turno.
   el día ejecuta y lo prueba con una corrida real. Sin el sí, no se toca nada.
 - **La bitácora se escribe mientras ocurre**, no al final: lo hablado del día
   en `bitacora/AAAA-MM-DD.md`, el análisis de la mañana en su `-auditoria.md`.
-- **El Taller** es la página única de control (`scripts/taller-tablero.js`):
+- **El Taller** es la página única de control (`scripts/taller.js`):
   estado del día, tema de la semana, flujos de la Clave, métricas, prompts y
   rutinas, con botones que abren GitHub con el trabajo ya hecho.
 - Producir una pieza a mano: `node scripts/dia.js [--clave] [--voz] [--render]`.

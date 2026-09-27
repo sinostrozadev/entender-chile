@@ -63,7 +63,7 @@ recién desde hoy se mide), y el título fórmula A del Short (desde el 05-09).
 ## 5. Dónde vive y cómo vuelven las decisiones
 
 **Una página, generada desde el repo.** Como el panel: un script
-(`scripts/taller-tablero.js`) lee el repo y escribe un HTML con todo adentro;
+(`scripts/taller.js`) lee el repo y escribe un HTML con todo adentro;
 la sesión de la mañana lo republica como artifact privado junto al panel (o
 en su lugar: propongo fusionarlos, dos pestañas). El repo sigue siendo la
 única verdad; la página es una vista.

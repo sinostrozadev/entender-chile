@@ -62,7 +62,7 @@ Taller viejo (02-09), a `archivo/taller/` y `archivo/scripts/`:
 - `taller/app.js`, `taller/body.html`, `taller/head.html` y
   `scripts/taller.js` - el navegador de archivos con editor y diff que se
   armaba en un HTML. Lo reemplaza el Taller de una página, hoy
-  `scripts/taller-tablero.js`, que pasará a llamarse `scripts/taller.js`.
+  `scripts/taller.js`, que pasará a llamarse `scripts/taller.js`.
 
 Carpeta `revisar/` completa, a `archivo/revisar/`. Su propio README decía que
 nada de ahí participaba del día a día y llevaba un mes esperando decisión:

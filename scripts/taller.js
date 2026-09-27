@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * taller-tablero.js - El Taller de una página, fase 2: SIETE módulos en un solo
+ * taller.js - El Taller de una página, fase 2: SIETE módulos en un solo
  * HTML autocontenido (Hoy, Semana, Clave, Medir, Experimentos, Prompts, Flujos
  * y rutinas), con botones que abren GitHub con el trabajo ya hecho.
  * Especificación validada por Santiago en la sección D de
@@ -26,7 +26,7 @@
  *   bitacora/cronograma.json, bitacora/rutinas.md, contenido/veredictos/,
  *   contenido/informes/ y prompts/*.md.
  *
- * Uso:  node scripts/taller-tablero.js [--fecha AAAA-MM-DD] [--imagenes DIR] [salida.html]
+ * Uso:  node scripts/taller.js [--fecha AAAA-MM-DD] [--imagenes DIR] [salida.html]
  *   --imagenes DIR: carpeta con caratula-hoy.jpg y caratula-manana.jpg para el
  *   módulo Hoy (se pasan a mano; fase 3: saldrán del release del día).
  */
@@ -42,7 +42,7 @@ const enChile = (d = new Date()) => new Intl.DateTimeFormat("sv-SE", { timeZone:
 const AHORA = enChile();
 const FECHA = opt("--fecha") || AHORA.slice(0, 10);
 const IMG = opt("--imagenes");
-const salida = args.find((a) => a.endsWith(".html")) || path.join("bitacora", "taller-tablero.html");
+const salida = args.find((a) => a.endsWith(".html")) || path.join("bitacora", "taller.html");
 
 const leer = (p) => { try { return fs.readFileSync(path.join(RAIZ, p), "utf8"); } catch { return ""; } };
 const existe = (p) => fs.existsSync(path.join(RAIZ, p));

@@ -1147,7 +1147,7 @@ referencia:
       TALLER 3 abajo.
 
 - [ ] **TALLER 3: FASE 1 PUBLICADA la noche del 20-09** (https://claude.ai/artifact/2WH2fioUJK7tQHrKbXtBfw):
-      página de lectura generada desde el repo por `scripts/taller-tablero.js`
+      página de lectura generada desde el repo por `scripts/taller.js`
       con seis módulos (Ver, Medir, Experimentos, Decidir, Mejorar, Flujos) y
       el registro `bitacora/experimentos.json` estrenado con cuatro fichas.
       Propuesta completa y plan por fases en

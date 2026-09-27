@@ -6,7 +6,7 @@
       "titulo": "Taller, fase 1 (lectura): Ver, Medir, Experimentos, Decidir, Mejorar, Flujos",
       "url": "https://claude.ai/artifact/2WH2fioUJK7tQHrKbXtBfw",
       "estado": "PUBLICADO, ESPERA COMENTARIOS",
-      "nota": "Generado por scripts/taller-tablero.js desde el repo. Propuesta completa en bitacora/2026-09-20-propuesta-taller.md; decisiones pendientes: fusionar con el panel, botones por GitHub (fase 2), qué se retira del Taller viejo."
+      "nota": "Generado por scripts/taller.js desde el repo. Propuesta completa en bitacora/2026-09-20-propuesta-taller.md; decisiones pendientes: fusionar con el panel, botones por GitHub (fase 2), qué se retira del Taller viejo."
     },
     {
       "fecha": "2026-09-20",

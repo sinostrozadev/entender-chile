@@ -25,7 +25,7 @@
  * Cada orden commitea y pushea (con --sin-push, solo escribe).
  *
  * Por qué hay funciones exportadas: los botones del Taller de una página
- * (scripts/taller-tablero.js) abren GitHub con el archivo YA escrito, así que
+ * (scripts/taller.js) abren GitHub con el archivo YA escrito, así que
  * necesitan el mismo texto que escribe este script. Si el formato viviera en
  * dos lados derivaría, y estado-clave.js leería una cosa u otra según quién
  * apretó el botón. Por eso el texto se arma en un solo lugar, aquí, y el
