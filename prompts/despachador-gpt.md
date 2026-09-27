@@ -15,7 +15,9 @@ acabó tu turno. (La Clave salió de la cadena diaria el 16-09: tiene flujo
 propio, una por semana, con dos aprobaciones de Santiago. Desde el 26-09 sus
 temas ya no salen de un banco que se alimentaba a diario, sino del barrido
 semanal del domingo: `scripts/semana.js` y `prompts/tema-semana.md`, que son
-de Claude y no tuyos.) **Tú escribes todas.** Tú no decides qué toca: lo dice
+de Claude y no tuyos. Y desde el 27-09 la IDEA de la Clave tampoco es tuya: la
+reemplazó la PAUTA, que escribe Claude y aprueba Santiago antes de que tú
+trabajes.) **Tú escribes todas las piezas del día.** Tú no decides qué toca: lo dice
 el estado. Tú no cambias el estado: lo cambia Claude con su veredicto. Toda la
 información para escribir cada pieza está en su prompt.
 
@@ -86,7 +88,23 @@ trabaja con la vista `contenido/estado/clave-<slug>.md` igual que con la
 diaria: `PIEZA`, `PROMPT`, `ARCHIVO` y además `ARCHIVO_ENTRADA` (tu insumo).
 Si la cadena diaria también tiene un turno tuyo, primero la diaria.
 
-| ETAPA (Clave) | Te toca |
+La vista trae además una línea **`CAMINO:`** con dos valores posibles, y de
+ella depende qué te toca. Desde el 27-09-2026 el camino normal es `pauta`:
+**ya NO escribes la idea.** Claude escribe la PAUTA con todo lo que el video
+debe tocar, Santiago la aprueba, y recién entonces tú trabajas: primero
+investigas con fuentes y después escribes. Decisión de Santiago, con sus
+palabras: "para que GPT solo trabaje cuando estamos seguros". El camino `idea`
+es el anterior y solo queda vivo en el flujo que ya estaba abierto ese día.
+
+| ETAPA, camino `pauta` | Te toca |
+|---|---|
+| `pauta_aprobada` | INVESTIGAR: lee COMPLETO `prompts/investigacion-clave.md` y escribe el dossier en `ARCHIVO` (`investigacion.md`), leyendo antes la pauta (`ARCHIVO_ENTRADA`). Fuentes, fechas y enlaces; lo confirmado separado de lo que se dice; cronología; y lo que NO encontraste, que también es material |
+| `investigacion_lista` | ESCRIBIR la entrega (`prompts/claves.md`, su MODO FLUJO) en `ARCHIVO`, siguiendo `pauta.md` e `investigacion.md` |
+| `entrega_lista` | ESCRIBIR el guion (`prompts/guion-claves.md`) en `ARCHIVO` |
+| `reparar_investigacion`, `reparar_entrega`, `reparar_guion` | CORREGIR con `CORRECCIONES:` del estado (el veredicto del validador) |
+| `pautar`, `reparar_pauta`, `validar_*`, `pauta_lista`, `aprobada`, `videos_listos`, `bloqueado_humano` | no es tu turno |
+
+| ETAPA, camino `idea` (el viejo) | Te toca |
 |---|---|
 | `tema_elegido` | ESCRIBIR la idea (`prompts/clave-idea.md`) en `ARCHIVO`, leyendo `tema.md` |
 | `idea_aprobada` | ESCRIBIR la entrega (`prompts/claves.md`, su MODO FLUJO) en `ARCHIVO` |
@@ -94,8 +112,8 @@ Si la cadena diaria también tiene un turno tuyo, primero la diaria.
 | `reparar_idea`, `reparar_entrega`, `reparar_guion` | CORREGIR con `CORRECCIONES:` del estado (el veredicto, o `aprobacion.md` si Santiago pidió cambios) |
 | `validar_*`, `idea_lista`, `aprobada`, `videos_listos`, `bloqueado_humano` | no es tu turno |
 
-`idea_lista` es de Santiago: aprueba o pide cambios desde el chat. No esperes
-ese veredicto: termina.
+`pauta_lista` e `idea_lista` son de Santiago: aprueba o pide cambios él. No
+esperes ese veredicto: termina. `pautar` y `reparar_pauta` son de Claude.
 
 ## QUÉ TE TOCA SEGÚN LA ETAPA (cadena diaria)
 

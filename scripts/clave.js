@@ -17,10 +17,20 @@
  *   node scripts/clave.js elegir <slug> --concepto "..." --noticia "..." --origen AAAA-MM-DD
  *       el camino manual, para un tema que no viene del ranking
  *   node scripts/clave.js aprobar <slug> [--fecha AAAA-MM-DD]
- *       escribe aprobacion.md "APROBADA: fecha"        → etapa idea_aprobada (GPT escribe la entrega)
+ *       escribe aprobacion.md "APROBADA: fecha"        → etapa pauta_aprobada (GPT investiga)
+ *       en el camino viejo: idea_aprobada (GPT escribe la entrega)
  *       sin --fecha: el PRÓXIMO MIÉRCOLES, que es el día en que sale la Clave
  *   node scripts/clave.js cambiar <slug> --nota "qué cambiar"
- *       escribe aprobacion.md "CAMBIAR: nota"          → etapa reparar_idea (GPT rehace la idea con la nota)
+ *       escribe aprobacion.md "CAMBIAR: nota"          → etapa reparar_pauta (Claude rehace la pauta)
+ *       en el camino viejo: reparar_idea (GPT rehace la idea con la nota)
+ *
+ * DOS CAMINOS desde el 27-09-2026 (decisión de Santiago: "siempre, antes de
+ * que envíes a trabajar a GPT, me presentes del tema todo lo que debe tocar y
+ * contener"). En el camino NUEVO lo que Santiago aprueba es la PAUTA que
+ * escribe Claude, y GPT recién trabaja después; en el VIEJO aprobaba la idea
+ * que escribía GPT. `aprobar` y `cambiar` sirven para los dos: lo que cambia
+ * es qué archivo quedó esperando y qué etapa sigue, y eso lo decide
+ * caminoDe(slug), no la orden.
  *
  * Cada orden commitea y pushea (con --sin-push, solo escribe).
  *
@@ -93,7 +103,7 @@ const temaDelRanking = (semana, cand) => {
 const contenidoTema = ({ slug, concepto, noticia = "", origen = "", cabecera = "", cuerpo = "", ahora = hoyChile() }) =>
   `CONCEPTO: ${concepto}\nNOTICIA: ${noticia || ""}\nORIGEN: ${origen || ""}\n${cabecera}`
   + `ELEGIDO: ${ahora} (hora de Chile), por Santiago\n${cuerpo}`
-  + `\nTema elegido por Santiago para una Clave (CLAVE 4, flujo propio). GPT propone\nla idea con prompts/clave-idea.md; Claude la valida; Santiago la aprueba con\nscripts/clave.js aprobar ${slug}.\n`;
+  + `\nTema elegido por Santiago para una Clave (CLAVE 4, flujo propio). Desde el\n27-09-2026: Claude escribe la PAUTA (prompts/pauta-clave.md) con todo lo que el\nvideo debe tocar; Santiago la aprueba con scripts/clave.js aprobar ${slug} y\nrecién entonces GPT investiga y escribe.\n`;
 
 // El tema.md completo de un candidato del ranking: lo que escribe
 // `elegir <slug> --candidato n` y lo que lleva el botón "Elegir este tema".
@@ -131,15 +141,44 @@ const proximoMiercoles = (desde = hoyChile().slice(0, 10)) => {
   return d.toISOString().slice(0, 10);
 };
 
-const contenidoAprobacion = (fecha, ahora = hoyChile()) =>
-  `APROBADA: ${fecha}\nAPROBO: Santiago, ${ahora} (hora de Chile)\n\nLa entrega y el guion llevan la fecha ${fecha}; el video sube programado ese\ndía a la hora de la Clave.\n`;
+// El camino del flujo, que decide qué etapas tiene y qué aprueba Santiago:
+//   "pauta" → el nuevo (27-09-2026): Claude escribe pauta.md, Santiago la
+//             aprueba, y recién entonces GPT investiga y escribe.
+//   "idea"  → el viejo: GPT escribía idea.md y Santiago aprobaba esa idea.
+// Criterio, en este orden: si ya hay pauta.md, es nuevo; si no, la fecha de
+// `ELEGIDO:` en tema.md contra el corte. Hacen falta los dos: un flujo nuevo
+// todavía no tiene pauta.md la primera vez que el estado lo mira, y un flujo
+// viejo no va a tener pauta.md nunca, aunque se recalcule dentro de un año.
+const CORTE_PAUTA = "2026-09-27";
+const caminoDe = (slug, raiz = RAIZ) => {
+  const dir = path.join(raiz, "contenido/claves/flujo", slug);
+  if (fs.existsSync(path.join(dir, "pauta.md"))) return "pauta";
+  let tema = "";
+  try { tema = fs.readFileSync(path.join(dir, "tema.md"), "utf8"); } catch { return "pauta"; }
+  const elegido = (tema.match(/^ELEGIDO:\s*(\d{4}-\d{2}-\d{2})/m) || [])[1];
+  return !elegido || elegido >= CORTE_PAUTA ? "pauta" : "idea";
+};
 
-const contenidoCambio = (nota, ahora = hoyChile()) =>
-  `CAMBIAR: ${nota}\nPIDIO: Santiago, ${ahora} (hora de Chile)\n\nGPT rehace la idea con esta nota (etapa reparar_idea); Claude la valida de\nnuevo y vuelve a Santiago.\n`;
+// Las dos decisiones, con el mismo formato en los dos caminos (`APROBADA:
+// fecha` y `CAMBIAR: nota`): lo único que cambia es la prosa que explica qué
+// sigue, porque quien rehace la pieza devuelta es Claude en el camino nuevo y
+// GPT en el viejo.
+const contenidoAprobacion = (fecha, ahora = hoyChile(), camino = "pauta") =>
+  `APROBADA: ${fecha}\nAPROBO: Santiago, ${ahora} (hora de Chile)\n\n`
+  + (camino === "pauta"
+    ? `Aprobada la PAUTA: GPT ya puede trabajar. Investiga con fuentes\n(investigacion.md) y después escribe la entrega y el guion, que llevan la\nfecha ${fecha}; el video sube programado ese día a la hora de la Clave.\n`
+    : `La entrega y el guion llevan la fecha ${fecha}; el video sube programado ese\ndía a la hora de la Clave.\n`);
+
+const contenidoCambio = (nota, ahora = hoyChile(), camino = "pauta") =>
+  `CAMBIAR: ${nota}\nPIDIO: Santiago, ${ahora} (hora de Chile)\n\n`
+  + (camino === "pauta"
+    ? `Claude rehace la pauta con esta nota (etapa reparar_pauta) y vuelve a\nSantiago. GPT no trabaja hasta que la pauta esté aprobada.\n`
+    : `GPT rehace la idea con esta nota (etapa reparar_idea); Claude la valida de\nnuevo y vuelve a Santiago.\n`);
 
 module.exports = {
   hoyChile, ddmm, semanasDisponibles, ultimaSemana, leerCandidatos, temaDelRanking,
   contenidoTema, temaDeCandidato, proximoMiercoles, contenidoAprobacion, contenidoCambio,
+  caminoDe, CORTE_PAUTA,
 };
 
 // --- la orden de la consola -------------------------------------------------
@@ -165,7 +204,19 @@ if (require.main === module) {
     }
     const dirFlujo = path.join(RAIZ, "contenido/claves/flujo");
     const abiertos = fs.existsSync(dirFlujo) ? fs.readdirSync(dirFlujo, { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name) : [];
-    console.log(abiertos.length ? `Flujos abiertos: ${abiertos.join(", ")} (estado en contenido/estado/clave-<slug>.md)` : "Sin flujos de Clave abiertos.");
+    if (!abiertos.length) console.log("Sin flujos de Clave abiertos.");
+    else {
+      console.log("Flujos abiertos (la vista completa, en contenido/estado/clave-<slug>.md):\n");
+      for (const s of abiertos) {
+        // el camino y el turno salen de la vista si existe; el camino se puede
+        // saber igual sin ella, porque lo dicen los archivos del flujo
+        let vista = {};
+        try { vista = JSON.parse(fs.readFileSync(path.join(RAIZ, "contenido/estado", `clave-${s}.json`), "utf8")); } catch { /* sin vista */ }
+        console.log(`  ${s}`);
+        console.log(`    camino ${vista.camino || caminoDe(s)} · etapa ${vista.etapa || "(sin vista: corre node scripts/estado-clave.js)"} · vuelta ${vista.vuelta ?? 0}`);
+        console.log(`    turno: ${vista.turno || "(sin vista)"}\n`);
+      }
+    }
     process.exit(0);
   }
 
@@ -194,13 +245,20 @@ if (require.main === module) {
     fs.writeFileSync(path.join(dir, "tema.md"), md);
     commit(`clave ${slug}: tema elegido por Santiago`, `contenido/claves/flujo/${slug}/tema.md`);
   } else if (orden === "aprobar") {
-    if (!fs.existsSync(path.join(dir, "idea.md"))) { console.error(`no hay idea que aprobar en ${dir}`); process.exit(2); }
+    // la misma orden aprueba la pauta (camino nuevo) o la idea (camino viejo):
+    // se exige que la pieza exista, porque aprobar lo que nadie escribió deja
+    // el flujo en una etapa que ningún archivo sostiene
+    const camino = caminoDe(slug);
+    const pieza = camino === "pauta" ? "pauta" : "idea";
+    if (!fs.existsSync(path.join(dir, `${pieza}.md`))) { console.error(`no hay ${pieza} que aprobar en ${dir}`); process.exit(2); }
     const fecha = opt("--fecha") || proximoMiercoles();
-    fs.writeFileSync(path.join(dir, "aprobacion.md"), contenidoAprobacion(fecha));
-    commit(`clave ${slug}: idea aprobada por Santiago, sale el ${fecha}`, `contenido/claves/flujo/${slug}/aprobacion.md`);
+    fs.writeFileSync(path.join(dir, "aprobacion.md"), contenidoAprobacion(fecha, hoyChile(), camino));
+    commit(`clave ${slug}: ${pieza} aprobada por Santiago, sale el ${fecha}`, `contenido/claves/flujo/${slug}/aprobacion.md`);
   } else if (orden === "cambiar") {
     const nota = opt("--nota"); if (!nota) { console.error("falta --nota"); process.exit(2); }
-    fs.writeFileSync(path.join(dir, "aprobacion.md"), contenidoCambio(nota));
-    commit(`clave ${slug}: Santiago pide cambios en la idea`, `contenido/claves/flujo/${slug}/aprobacion.md`);
+    const camino = caminoDe(slug);
+    const pieza = camino === "pauta" ? "pauta" : "idea";
+    fs.writeFileSync(path.join(dir, "aprobacion.md"), contenidoCambio(nota, hoyChile(), camino));
+    commit(`clave ${slug}: Santiago pide cambios en la ${pieza}`, `contenido/claves/flujo/${slug}/aprobacion.md`);
   } else { console.error(`orden desconocida: ${orden}`); process.exit(2); }
 }

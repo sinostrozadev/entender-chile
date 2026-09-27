@@ -1,10 +1,11 @@
 FLUJO: clave
 SLUG: acuerdo-internacional-sin-tratado
+CAMINO: idea
 ETAPA: idea_lista
 VUELTA: 1
 TURNO: Santiago: aprobar o pedir cambios (scripts/clave.js aprobar | cambiar)
 FECHA_PRODUCCION: (la fija Santiago al aprobar la idea)
-ACTUALIZADO: 2026-09-26 23:37 (hora de Chile)
+ACTUALIZADO: 2026-09-27 00:31 (hora de Chile)
 PIEZA: idea
 PROMPT: prompts/clave-idea.md
 ARCHIVO: contenido/claves/flujo/acuerdo-internacional-sin-tratado/idea.md

@@ -6,12 +6,21 @@ name: Estado de la Clave
 # cadena diaria no se toca por construir esto (21-09).
 #
 # Con cada pieza o veredicto del flujo: recalcula la vista, la commitea, y
-#   - en turno de GPT (tema_elegido, idea_aprobada, entrega_lista, reparar_*)
-#     emite el evento al PR #6 en contenido/estado/ultimo-evento-clave.txt
-#     (archivo propio, para no pisar el dedup del flujo diario);
-#   - en turno de Claude (validar_*) despierta al validador por API;
+#   - en turno de GPT emite el evento al PR #6 en
+#     contenido/estado/ultimo-evento-clave.txt (archivo propio, para no pisar el
+#     dedup del flujo diario). Camino nuevo (27-09): pauta_aprobada,
+#     investigacion_lista, entrega_lista, reparar_{investigacion,entrega,guion}.
+#     Camino viejo: tema_elegido, idea_aprobada, entrega_lista, reparar_idea;
+#   - en turno de Claude despierta a la rutina por API: validar_* (valida) y,
+#     desde el 27-09, pautar y reparar_pauta (escribe la pauta). Mismo
+#     mecanismo de marca y dedup, mismo endpoint /fire, distinto texto;
+#   - en turno de SANTIAGO (pauta_lista, idea_lista) dispara el AVISO: la misma
+#     rutina, que en MODO AVISADOR comprueba bitacora/bandeja.json y manda UNA
+#     notificación push a su teléfono. Antes estas dos etapas no despertaban a
+#     nadie y la Clave podía quedar días esperando sin que él lo supiera;
 #   - en aprobada dispara la Edición diaria para la fecha de producción.
-# idea_lista es turno de Santiago: no despierta a nadie.
+# reparar_pauta es de Claude y NO de GPT: por eso los reparar_ del turno de GPT
+# van enumerados y no como reparar_*.
 on:
   push:
     branches: [main]
@@ -82,7 +91,7 @@ jobs:
             echo "== $SLUG: $ETAPA (vuelta $VUELTA)"
 
             # --- turno de GPT: evento al PR #6 (archivo propio del flujo)
-            if echo "$ETAPA" | grep -Eq '^(tema_elegido|idea_aprobada|entrega_lista|reparar_[a-z_]+)$'; then
+            if echo "$ETAPA" | grep -Eq '^(pauta_aprobada|investigacion_lista|entrega_lista|tema_elegido|idea_aprobada|reparar_(investigacion|entrega|guion|idea))$'; then
               EV=""; git fetch -q origin automatizacion/estado 2>/dev/null && EV=$(git show FETCH_HEAD:contenido/estado/ultimo-evento-clave.txt 2>/dev/null || echo "")
               if echo "$EV" | grep -q "^slug=$SLUG$" && echo "$EV" | grep -q "^etapa=$ETAPA$" && echo "$EV" | grep -q "^vuelta=$VUELTA$"; then
                 echo "evento ya emitido"
@@ -101,15 +110,46 @@ jobs:
               fi
             fi
 
-            # --- turno de Claude: disparo por API, una vez por etapa y vuelta
-            if echo "$ETAPA" | grep -q '^validar_' && [ -n "$REVISION_ID" ] && [ -n "$REVISION_TOKEN" ]; then
+            # --- turno de Claude: disparo por API, una vez por etapa y vuelta.
+            # Dos clases de turno con el MISMO mecanismo (marca, dedup y
+            # endpoint /fire) y distinto texto: validar_* es el validador de
+            # siempre; pautar y reparar_pauta son el PAUTADOR (27-09), que
+            # escribe contenido/claves/flujo/<slug>/pauta.md con
+            # prompts/pauta-clave.md. La rutina decide su rol leyendo los
+            # archivos: este texto solo despierta.
+            if echo "$ETAPA" | grep -Eq '^(validar_[a-z_]+|pautar|reparar_pauta)$' && [ -n "$REVISION_ID" ] && [ -n "$REVISION_TOKEN" ]; then
+              case "$ETAPA" in
+                pautar) QUE="etapa pautar: escribe la pauta con prompts/pauta-clave.md" ;;
+                reparar_pauta) QUE="etapa reparar_pauta: escribe la pauta de nuevo con la nota de Santiago que apunta CORRECCIONES, con prompts/pauta-clave.md" ;;
+                *) QUE="te toca validar la pieza $(grep -m1 '^PIEZA:' "$VISTA" | cut -d' ' -f2-) contra su prompt" ;;
+              esac
               MARCA="contenido/estado/ultimo-disparo-claude-clave-$SLUG.txt"
               if [ "$(cat "$MARCA" 2>/dev/null)" = "$ETAPA $VUELTA" ]; then echo "Claude ya despertado para $ETAPA"; else
                 echo "$ETAPA $VUELTA" > "$MARCA"; git add "$MARCA"; git commit -q -m "disparo a Claude, clave $SLUG: $ETAPA (vuelta $VUELTA) [bot]"; git push -q origin main || echo "::warning::marca no pusheada; se dispara igual"
-                BODY=$(printf '{"text":"Entender Chile, flujo de la Clave %s: etapa %s, vuelta %s. Te toca validar la pieza %s contra su prompt. La verdad es contenido/estado/clave-%s.md."}' "$SLUG" "$ETAPA" "$VUELTA" "$(grep -m1 '^PIEZA:' "$VISTA" | cut -d' ' -f2-)" "$SLUG")
+                BODY=$(printf '{"text":"Entender Chile, flujo de la Clave %s: etapa %s, vuelta %s. %s. La verdad es contenido/estado/clave-%s.md."}' "$SLUG" "$ETAPA" "$VUELTA" "$QUE" "$SLUG")
                 CODIGO=$(curl -sS -o /tmp/fire.json -w '%{http_code}' -X POST "https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire" \
                   -H "Authorization: Bearer $REVISION_TOKEN" -H "anthropic-beta: experimental-cc-routine-2026-04-01" -H "anthropic-version: 2023-06-01" -H "content-type: application/json" -d "$BODY" || echo 000)
                 case "$CODIGO" in 2*) echo "Claude despertado: $(head -c 200 /tmp/fire.json)";; *) echo "::warning::no se pudo despertar a Claude (HTTP $CODIGO)";; esac
+              fi
+            fi
+
+            # --- turno de SANTIAGO: AVISO a su teléfono (27-09). pauta_lista e
+            # idea_lista no las mueve nadie más que él, así que un flujo puede
+            # quedarse ahí días sin que se note. Marca y dedup PROPIOS
+            # (ultimo-aviso-<slug>.txt), para no pisar el disparo de Claude: las
+            # dos cosas pueden ocurrir en la vida del mismo flujo. La rutina, en
+            # MODO AVISADOR (prompts/validador.md), comprueba primero que el
+            # ítem esté de verdad en bitacora/bandeja.json y solo entonces manda
+            # la notificación: un aviso falso enseña a ignorar los avisos.
+            if echo "$ETAPA" | grep -Eq '^(pauta_lista|idea_lista)$' && [ -n "$REVISION_ID" ] && [ -n "$REVISION_TOKEN" ]; then
+              PIEZA_ESPERA=$(echo "$ETAPA" | cut -d_ -f1)
+              MARCA_A="contenido/estado/ultimo-aviso-$SLUG.txt"
+              if [ "$(cat "$MARCA_A" 2>/dev/null)" = "$ETAPA $VUELTA" ]; then echo "aviso ya enviado para $ETAPA (vuelta $VUELTA)"; else
+                echo "$ETAPA $VUELTA" > "$MARCA_A"; git add "$MARCA_A"; git commit -q -m "aviso a Santiago, clave $SLUG: $ETAPA (vuelta $VUELTA) [bot]"; git push -q origin main || echo "::warning::marca del aviso no pusheada; se avisa igual"
+                BODY=$(printf '{"text":"AVISO a Santiago: la Clave %s espera su decision. La %s esta escrita y la etapa es %s; hasta que apruebe o pida cambios, nadie mas puede mover el flujo. Estas en MODO AVISADOR (prompts/validador.md, punto 0): comprueba bitacora/bandeja.json y manda UNA notificacion push."}' "$SLUG" "$PIEZA_ESPERA" "$ETAPA")
+                CODIGO=$(curl -sS -o /tmp/fire-a.json -w '%{http_code}' -X POST "https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire" \
+                  -H "Authorization: Bearer $REVISION_TOKEN" -H "anthropic-beta: experimental-cc-routine-2026-04-01" -H "anthropic-version: 2023-06-01" -H "content-type: application/json" -d "$BODY" || echo 000)
+                case "$CODIGO" in 2*) echo "AVISO disparado: $(head -c 200 /tmp/fire-a.json)";; *) echo "::warning::no se pudo disparar el aviso (HTTP $CODIGO); el Taller y el informe de la mañana lo muestran igual";; esac
               fi
             fi
 

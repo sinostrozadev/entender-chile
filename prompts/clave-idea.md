@@ -1,3 +1,9 @@
+> **SOLO PARA EL CAMINO VIEJO.** Desde el 27-09-2026 a este prompt lo reemplaza
+> `prompts/pauta-clave.md`: la pauta la escribe Claude y Santiago la aprueba
+> ANTES de que GPT trabaje. Este archivo sigue vivo únicamente para los flujos
+> con `CAMINO: idea` y se retira cuando cierre el último (el 27-09 era
+> `acuerdo-internacional-sin-tratado`).
+
 # La idea de una Clave: lo que Santiago aprueba antes de que exista el video
 
 Prompt vivo de la etapa `tema_elegido` del flujo de la Clave (CLAVE 4, 16-09;

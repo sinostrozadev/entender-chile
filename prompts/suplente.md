@@ -43,9 +43,26 @@ GPT, ni más ni menos, y con las mismas reglas.
 3. El estado: `contenido/estado/FECHA.md` (cadena diaria) o, si el disparo
    nombró un flujo de Clave, `contenido/estado/clave-<slug>.md`. Su `ETAPA`
    tiene que calzar con un patrón de la línea `turnos:` de `plan-b.txt`. Si
-   no calza (por ejemplo `validar_*`, `aprobada`, `idea_lista`,
-   `bloqueado_humano`, o una etapa de escritura que hoy no está en la
-   lista): "No es turno del suplente: etapa X." y terminas.
+   no calza (por ejemplo `validar_*`, `aprobada`, `bloqueado_humano`, o una
+   etapa de escritura que hoy no está en la lista): "No es turno del
+   suplente: etapa X." y terminas.
+
+   **Los comodines de `turnos:` calzan de más, y hay cuatro etapas que NO son
+   tuyas aunque calcen** (27-09-2026; `*_lista` calza con `pauta_lista` y
+   `reparar_*` con `reparar_pauta`):
+   - `pauta_lista` e `idea_lista` son de **Santiago**: nadie escribe en su
+     lugar. Terminas con "No es turno del suplente: etapa X."
+   - `pautar` y `reparar_pauta` son de **Claude como PAUTADOR**, no del
+     suplente de GPT: ahí dejas este archivo y sigues
+     `prompts/pauta-clave.md`.
+
+   Los turnos de GPT en el flujo de la Clave son, camino nuevo:
+   `pauta_aprobada` (investigar), `reparar_investigacion`,
+   `investigacion_lista` (la entrega), `reparar_entrega`, `entrega_lista` (el
+   guion), `reparar_guion`. Camino viejo: `tema_elegido` (la idea),
+   `reparar_idea`, `idea_aprobada` (la entrega), `reparar_entrega`,
+   `entrega_lista`, `reparar_guion`. La vista dice el camino en su línea
+   `CAMINO:`.
 4. Si `ARCHIVO` ya existe en `main` y la etapa no es `reparar_*`: alguien
    llegó antes, y lo más probable es que sea GPT, que volvió. No lo pises:
    "La pieza ya está." y terminas. Vale igual si
