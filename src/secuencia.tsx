@@ -248,7 +248,14 @@ export const Tablero: React.FC<{ baldosas: Baldosa[]; cuadros: number[]; zooms: 
 // baldosa y las dos letras se pisan.
 const Sello: React.FC<{ fecha?: string; serie?: string; dur: number }> = ({ fecha, serie, dur }) => {
   const f = useCurrentFrame();
-  const op = interpolate(f, [0, 14, dur - 20, dur], [0, 1, 1, 0], sv);
+  // El rango tiene que ir SIEMPRE en aumento o interpolate se cae y con él el
+  // render entero. Con la presentación larga de siempre (10 s) nunca pasaba,
+  // pero el 27-09-2026 un cambio en el reparto del silencio la dejó en medio
+  // segundo y salió [0,14,-13,7]: el render murió en el cuadro 281. El sello
+  // no vale un video, así que acá se acomoda solo a lo que dure.
+  const entra = Math.max(1, Math.min(14, Math.floor(dur * 0.3)));
+  const sale = Math.max(entra + 1, dur - Math.max(1, Math.min(20, Math.floor(dur * 0.3))));
+  const op = interpolate(f, [0, entra, sale, Math.max(sale + 1, dur)], [0, 1, 1, 0], sv);
   let fechaLarga = "";
   if (fecha) {
     const txt = new Intl.DateTimeFormat("es-CL", {

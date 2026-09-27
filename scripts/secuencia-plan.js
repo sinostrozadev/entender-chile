@@ -56,6 +56,9 @@ const PREAMBULO_SEG = TITULO_SEG + BARRIDO_SEG + AIRE_SEG;
 // que va a resolver que la voz LEA el título, la prueba que quedó para el
 // final.
 const RESERVA_CABECERA = 0.55;  // del silencio del corte, antes que la cámara
+// Lo que el viaje conserva pase lo que pase: por debajo de esto el recorrido
+// deja de leerse como un viaje y la presentación del canal desaparece.
+const VIAJE_MIN = 1.2;
 // Y este sigue siendo un mínimo real, pero para OTRA cosa: lo que el viaje de
 // la cámara no puede comerse del bloque. Un bloque sin nada de preámbulo
 // entraría con el texto ya encima.
@@ -128,7 +131,16 @@ const planear = (tl, opciones = {}) => {
     const suyas = tarjetas.filter((c) => c.seccion === b.ov.texto);
     const primeraAbs = suyas.length ? Math.min(...suyas.map((c) => c.from)) : b.hasta;
     const hueco = Math.max(0, primeraAbs - b.desde);
-    const paraCabecera = opciones.holgado ? 0 : Math.min(PREAMBULO_SEG, hueco * RESERVA_CABECERA);
+    // ...pero sin dejar al viaje en nada. El 27-09-2026 la primera versión de
+    // este reparto dejó la PRESENTACIÓN (el intro del canal, 10 s) en medio
+    // segundo, y de paso hizo caer el render por el rango del sello. El viaje
+    // conserva VIAJE_MIN antes de que la cabecera cobre.
+    // La PRESENTACIÓN no paga: es el intro del canal, pasa una vez y ya venía
+    // acotada por el silencio real. Quitarle tiempo para la cabecera de la
+    // segunda sección es cambiar algo que funciona por algo que se repite
+    // catorce veces más adelante.
+    const paraCabecera = opciones.holgado || i === 1 ? 0
+      : Math.min(PREAMBULO_SEG, hueco * RESERVA_CABECERA, Math.max(0, hueco - VIAJE_MIN));
     // En la muestra (holgado) los tiempos ya vienen hechos a la medida y el
     // viaje va entero: repartir ahí sería recortar dos veces.
     const topes = [previo, techo, Math.max(0, b.hasta - b.desde - PREAMBULO_MIN)];
