@@ -531,6 +531,11 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **26-09: `contenido/README.md` describe el flujo viejo** (veredicto de la
+      revisión editorial, Clave diaria). La limpieza del 26-09 reescribió los
+      README de las subcarpetas pero no este mapa. Reescribirlo corto,
+      apuntando a los README de cada subcarpeta.
+
 - [x] **25-09, HOY: GPT se atascó en la preselección y `reintento.yml` no
       corrió ni una vez dentro de su ventana — segundo día seguido.**
       Auditoría del 25-09 (`bitacora/2026-09-25-auditoria.md`). El aviso a

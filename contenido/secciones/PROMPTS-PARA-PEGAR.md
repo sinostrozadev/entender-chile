@@ -1,89 +1,121 @@
-# Prompts de imágenes, para pegar en el chat de ChatGPT
+# Prompts de imágenes de sección, para pegar en el chat de ChatGPT
 
-Escrito el 24-09-2026, con GPT sin cuota para el canal del PR pero todavía
-disponible desde el chat. Santiago pega estos prompts, GPT devuelve la imagen,
-y Santiago la guarda en la ruta que dice cada bloque.
+Las imágenes de prueba y las de sección se piden A MANO en el chat de ChatGPT
+(decisión de Santiago del 26-09-2026: la cuota del work, la que usa el PR #6,
+se reserva para las piezas y la portada diaria). Santiago pega el prompt,
+genera, y guarda el archivo en la ruta que dice cada bloque.
 
-**Lo que cambió y baja mucho la exigencia:** desde el 24-09 las imágenes de
-sección llevan encima, por código, dos capas que antes se le pedían a la
-imagen: el **tinte** del color de la sección y el **pictograma grabado** en la
-esquina. Eso significa que la foto ya no tiene que "explicar" la sección. Solo
-tiene que ser un ambiente bueno, tranquilo y con la izquierda despejada.
+Estilo decidido el 26-09-2026 (reemplaza al fotográfico del 24-09): NO son
+fotos ni realismo. Son imágenes DE SECCIÓN: una ilustración plana, tipo
+pictograma editorial, con un solo motivo que se lee en un segundo y que no
+representa ninguna noticia. Una imagen fija por sección, reutilizada todos
+los días.
 
-## Las reglas fijas: van en TODOS los pedidos
-
-Pega esto al final de cualquiera de los prompts de abajo.
+## Las reglas fijas: van al final de TODOS los pedidos
 
     Fijo para todas:
-    - 16:9, 1920 x 1080, fotográfica. Nada de pintura, acuarela, ilustración,
-      render ni collage. Si se ve dibujada, está mal.
-    - La MITAD IZQUIERDA va despejada y pareja: ahí se pinta el texto del
-      video. El peso visual va a la derecha.
-    - Contraste medio. Sin blancos quemados ni negros cerrados: encima va un
-      velo oscuro y texto blanco, y si la foto ya es extrema el texto pelea.
-    - Sin texto, sin letras, sin números, sin símbolos, sin logos, sin marcas.
-    - Sin personas, sin caras, sin lugares identificables, sin geografía
-      reconocible.
-    - Nada de cobre ni naranjo: ese color es del banner de texto que va
-      encima. Por lo mismo, ningún atardecer.
-    - No representa ningún hecho noticioso: nada de víctimas, destrozos,
-      rescates ni emergencias. Es ambiente, no noticia.
+    - 16:9, 1920 x 1080. Ilustración plana, de formas grandes y simples,
+      como un pictograma editorial. NADA de fotografía, realismo, textura de
+      foto, 3D, render, acuarela ni collage. Si parece una foto, está mal.
+    - Paleta: fondo azul marino profundo y parejo; el motivo en blanco hueso
+      y un gris azulado; como mucho un tercer tono, un azul más claro. Nada
+      de cobre ni naranjo: ese color es del banner de texto que va encima.
+    - La MITAD IZQUIERDA queda vacía, solo fondo parejo: ahí se pinta el
+      texto del video. El motivo va en la mitad derecha, grande, centrado
+      en vertical.
+    - Sin texto, sin letras, sin números, sin símbolos, sin logos, sin
+      banderas, sin marcas.
+    - Sin personas, sin caras, sin siluetas humanas, sin lugares
+      reconocibles.
+    - Contraste medio: sin blancos puros ni negros cerrados; encima va un
+      velo y texto blanco.
+    - No representa ningún hecho: es la sección, no la noticia del día.
 
-## 1. Clima, versión 2 — la que quedó pendiente
+## Cómo saber si sirve, antes de guardarla
 
-Guardar en: `contenido/secciones/clima.png`
+Achica la imagen al tamaño de un pulgar: el motivo tiene que seguir
+entendiéndose. Tápale la mitad izquierda: nada importante debe perderse.
+Imagínale un banner cobre con texto blanco encima de la mitad izquierda: si
+compite con el motivo, sobra detalle.
 
-    Corrección de una imagen que ya hiciste: un cielo azul profundo con una
-    masa de nubes a la derecha. La composición está bien y hay que
-    conservarla: mitad izquierda de cielo abierto y parejo, mitad derecha con
-    el peso de las nubes. No la rehagas de cero.
+## PRUEBA (primero esto): dos secciones, dos estilos
 
-    El único cambio: SACA EL RAYO DE SOL. En la versión actual el sol se abre
-    entre las nubes con rayos visibles, y eso cuenta una historia ("después
-    de la tormenta sale el sol") que la sección va a repetir todos los días,
-    incluidos los de mal pronóstico. En su lugar, la misma masa de nubes
-    iluminada desde atrás de forma pareja y difusa, sin haz de luz y sin un
-    punto brillante que sea el centro de atención.
+Se generan estas cuatro, se eligen el estilo A o B, y con esa elección se
+escriben los prompts de las otras diez. Guardar en
+`contenido/secciones/pruebas/`.
 
-    Además: baja el blanco más brillante, que tenga cuerpo y no sea blanco
-    puro. Y la mitad izquierda, todavía más pareja.
+### Economía, estilo A (geométrico, duro)
 
-## 2. Las nueve que faltan
+Guardar en: `contenido/secciones/pruebas/economia-plano-a.png`
 
-Mismo molde para todas. Reemplaza lo que va entre < >.
+    Ilustración plana de sección "Economía" para un canal de noticias. Un
+    solo motivo en la mitad derecha: una balanza de dos platos dibujada con
+    formas geométricas simples (líneas rectas, círculos, trapecios), con
+    tres monedas planas apiladas en un plato y una sola en el otro, apenas
+    inclinada. Trazo limpio, sin degradados, sin sombras suaves, esquinas
+    netas. Estilo de pictograma de señalética moderna.
 
-    Imagen permanente de la sección <NOMBRE> del informe diario de un canal
-    de noticias. No ilustra una noticia: es el ambiente de la sección, se
-    repite durante meses y va de fondo con texto encima.
+    (pegar acá el bloque "Fijo para todas")
 
-    El ambiente: <AMBIENTE>
+### Economía, estilo B (suave, con volumen plano)
 
-Los ambientes, uno por sección:
+Guardar en: `contenido/secciones/pruebas/economia-plano-b.png`
 
-| Sección | Guardar en | Ambiente sugerido |
+    Ilustración plana de sección "Economía" para un canal de noticias. Un
+    solo motivo en la mitad derecha: una balanza de dos platos con monedas
+    planas, dibujada con formas redondeadas y dos tonos por forma (una cara
+    clara y una cara en gris azulado, como papel recortado en capas), sin
+    líneas de contorno. Sombras planas, sin degradados. Estilo de
+    ilustración editorial de papel recortado.
+
+    (pegar acá el bloque "Fijo para todas")
+
+### Clima, estilo A (geométrico, duro)
+
+Guardar en: `contenido/secciones/pruebas/clima-plano-a.png`
+
+    Ilustración plana de sección "Clima" para un canal de noticias. Un solo
+    motivo en la mitad derecha: un sol de círculo perfecto con rayos cortos
+    y rectos, asomando detrás de una nube hecha de tres o cuatro círculos
+    superpuestos con base recta. Formas geométricas puras, trazo limpio,
+    sin degradados ni sombras suaves. Neutro: ni tormenta ni día radiante,
+    solo el signo del tiempo.
+
+    (pegar acá el bloque "Fijo para todas")
+
+### Clima, estilo B (suave, con volumen plano)
+
+Guardar en: `contenido/secciones/pruebas/clima-plano-b.png`
+
+    Ilustración plana de sección "Clima" para un canal de noticias. Un solo
+    motivo en la mitad derecha: una nube grande de bordes redondeados en dos
+    tonos (cara clara arriba, gris azulado abajo, como papel recortado en
+    capas) y detrás medio sol de rayos anchos y redondeados. Sombras planas,
+    sin líneas de contorno, sin degradados. Neutro: ni tormenta ni día
+    radiante.
+
+    (pegar acá el bloque "Fijo para todas")
+
+## Las doce secciones y su motivo (para después de la prueba)
+
+Con el estilo elegido, un prompt por sección con el mismo bloque fijo.
+Guardar en `contenido/secciones/<slug>.png`.
+
+| Sección | Archivo | Motivo único |
 |---|---|---|
-| economía | `economia.png` | un escritorio de oficina antigua a media luz, papeles y una lámpara encendida al fondo, sin pantallas |
-| seguridad | `seguridad.png` | una calle urbana de noche después de la lluvia, asfalto mojado reflejando luces, vacía |
-| congreso | `congreso.png` | un pasillo institucional con columnas de piedra y luz de ventanal alta, vacío |
-| salud | `salud.png` | un pasillo de hospital en penumbra, luz fría al fondo, sin camillas ni personas |
-| educación | `educacion.png` | una sala de clases vacía con luz de tarde entrando por las ventanas |
-| internacional | `internacional.png` | una sala de reuniones vacía con sillas alrededor de una mesa larga, luz de día |
-| plata pública | `plata-publica.png` | archivadores y carpetas apiladas en un archivo oficial, luz de tubo |
-| regiones | `regiones.png` | un camino rural de tierra entre campo abierto, cielo amplio, sin señalética |
-| dato curioso | `dato-curioso.png` | objetos comunes ordenados sobre una mesa, luz lateral suave, escala de gabinete |
-| emergencia | `emergencia.png` | cielo cargado sobre un terreno abierto, polvo o bruma en el aire, nada roto |
+| clima | `clima.png` | sol detrás de una nube |
+| emergencia | `emergencia.png` | un triángulo de aviso vacío sobre una línea de horizonte, sin signo dentro |
+| economia | `economia.png` | balanza con monedas |
+| seguridad | `seguridad.png` | un candado cerrado, grande y simple |
+| congreso | `congreso.png` | un frontón con cuatro columnas, reducido a formas |
+| salud | `salud.png` | una cruz gruesa dentro de un círculo |
+| educacion | `educacion.png` | un libro abierto visto de frente, dos páginas |
+| internacional | `internacional.png` | un globo terráqueo de meridianos y paralelos, sin continentes |
+| plata-publica | `plata-publica.png` | una carpeta de archivo con una moneda encima |
+| regiones | `regiones.png` | una cordillera de tres picos con un camino que la cruza |
+| dato-curioso | `dato-curioso.png` | una lupa grande sobre un punto |
+| deporte | `deporte.png` | una pelota simple (círculo con gajos) sobre una línea |
 
-**Ojo con emergencia**: es la sección nueva del 24-09 (terremoto, aluvión,
-avalancha, incendio). Es la que más aparece y la única sin identidad. Pero es
-también en la que más fácil se cruza la regla 29: nada de destrozos, nada de
-rescates, nada de víctimas. Ambiente de que algo va a pasar o acaba de pasar,
-nunca el hecho.
-
-## Cómo saber si una imagen sirve, antes de guardarla
-
-Tres preguntas. Si alguna falla, pídela de nuevo.
-
-1. ¿La mitad izquierda está despejada? Ahí va el texto.
-2. ¿Sirve igual para una noticia buena y una mala de esa sección? Si solo
-   sirve para una, opina, y no puede.
-3. ¿Se ve fotográfica? Si duda entre foto y dibujo, está mal.
+Nota: el motivo de cada sección se puede discutir; lo que no cambia es la
+regla de un solo motivo, mitad izquierda vacía y paleta marino, blanco y
+gris.
