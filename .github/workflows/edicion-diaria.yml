@@ -121,7 +121,7 @@ jobs:
 
       # La edición la escribe ChatGPT de madrugada y la pushea al repo. NO hay
       # plan B: si a esta hora no llegó, el gate del paso 2b falla y la edición
-      # del día no se renderiza. Ver revisar/README.md (generar.js retirado).
+      # del día no se renderiza. Ver archivo/revisar/README.md (generar.js retirado).
 
       # Sin ANTHROPIC_API_KEY solo regenera el índice y detecta las marcas
       # EN SEGUIMIENTO del informe; las novedades de cada dossier las trae la

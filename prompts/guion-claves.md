@@ -75,7 +75,7 @@ El guion incluye las siguientes marcas, y solo estas, cada una en su propia lín
       **MÁXIMO TRES ELEMENTOS, de hasta cuatro palabras cada uno** (corregido el
       08-09: la regla decía seis y el 08-09 un esquema de CUATRO nodos se
       desbordó a una segunda fila y quedó tapado por el párrafo — captura en
-      bitacora/capturas-2026-09-08-clave-esquema-superpuesto.jpg). El esquema se
+      archivo/capturas/capturas-2026-09-08-clave-esquema-superpuesto.jpg). El esquema se
       dibuja en UNA fila horizontal de 1340 px: tres cajas cortas caben, cuatro
       no. Si el proceso tiene más pasos, agrupa ("Solicitud" en vez de
       "Solicitud de un tercio de la Cámara en ejercicio") o parte en dos

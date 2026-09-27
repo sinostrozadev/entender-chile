@@ -8,7 +8,7 @@ Listar las rutinas de Claude por API cuesta unos **75 KB por llamada** (el
 volcado trae el prompt completo de cada una), y una sesión que quiere saber
 "¿quién toca el barrido?" paga ese precio entero para leer una línea. Esta
 tabla responde eso gratis. Lo mismo con los workflows: en vez de abrir
-dieciséis archivos YAML, se lee una fila.
+trece archivos YAML, se lee una fila.
 
 ## Cómo se mantiene
 
@@ -72,8 +72,10 @@ treinta y nueve rutinas en total.
 
 ## Workflows de GitHub Actions
 
-Dieciséis archivos en `.github/workflows/`. Todos aceptan además
-`workflow_dispatch` salvo `prueba-flujo.yml`. Regla de fondo (31-08-2026): **el
+Trece archivos en `.github/workflows/`, todos con `workflow_dispatch`. Los
+tres que faltan respecto del 25-09 (`prueba-flujo.yml`, `senal-informe.yml` y
+`senal-preseleccion.yml`) se retiraron a `archivo/workflows/` el 26-09-2026:
+ver `archivo/README.md`. Regla de fondo (31-08-2026): **el
 cron de GitHub nunca es reloj principal**, solo red de respaldo, porque demostró
 atrasos de diez y once horas; los despertadores de verdad son rutinas de Claude
 que pushean un archivo.
@@ -89,10 +91,7 @@ que pushean un archivo.
 | Lector automático | `lector.yml` | push de `contenido/urgente/PEDIDO-*.md`; dispatch con `slug` | Corre el lector de páginas donde SÍ hay red y deja el `FUENTE-` en el repo. Nació el 24-09 porque, con GPT caído, la guardia se quedó sin poder hacer Shorts |
 | Métricas | `metricas.yml` | push de `bitacora/metricas/despertador.txt`; crons de red `30 9 * * *` y `0 11 * * *` | Baja las cifras del canal a `bitacora/metricas/FECHA.md` (más el json de los deltas) y redibuja el panel |
 | Pedido a GPT | `pedido-gpt.yml` | push de `contenido/urgente/PEDIDO-*.md` | Emite al PR #6 el pedido que Claude no puede cumplir (entrar a una página o generar una imagen), en su propio archivo de evento para no pisar el dedup de la cadena diaria |
-| Prueba de flujo | `prueba-flujo.yml` | push de `contenido/pruebas/flujo/` (sin dispatch) | El eslabón de Actions del bucle de prueba GPT escribe, Claude valida. Se puede borrar cuando la máquina v2 lo reemplace |
 | Reintento del despertar | `reintento.yml` | push de `contenido/estado/reintento-despertador.txt`; cron `*/20 4-9 * * *` | Vuelve a tocarle el timbre a GPT cuando no responde, y desde el 24-09 también relanza el Barrido si la cadena nunca arrancó. El 22-09 la cadena quedó parada nueve horas por falta de un reintento |
-| Señal informe listo | `senal-informe.yml` | push de `contenido/informes/*.md` | Resetea la rama `automatizacion/informe-listo` y pushea: ese commit es el evento del PR permanente. Una emisión por día. Según `bitacora/cronograma.json` dejó de emitirse el 14-09, aunque el archivo conserva su `on:` |
-| Señal preselección lista | `senal-preseleccion.yml` | push de `contenido/preseleccion/*.md` | Gemelo del anterior para la preselección. Se emite por Actions y no desde la tarea de GPT porque el reseteo limpio de la rama exige force-push. También sin emitir desde el 14-09 |
 | Short exprés | `short-expres.yml` | push de `contenido/urgente/GUION-*.md`; dispatch con `guion` | Produce el Short vertical de piel vino del hallazgo de la guardia y deja la marca `SUBIDO-`, que además deduplica si el guion se pushea dos veces |
 | Taller de voz | `taller-voz.yml` | solo dispatch (ronda, voces, texto, procesar) | Sintetiza el mismo párrafo en varias variantes de SSML para escucharlas seguidas. Sin cron a propósito: gasta cupo de Azure, se corre cuando hay algo que decidir |
 | Web | `web.yml` | push de las carpetas publicables (`informes`, `revisiones`, `claves`, `casos`, `videos`, `podcast`) y de `web/` | Publica el sitio (Astro) en el repo público `entender-chile-web`. La revisión es la que abre la compuerta: sin ese push, el informe aprobado se queda fuera del sitio |

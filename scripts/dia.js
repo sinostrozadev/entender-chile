@@ -69,14 +69,16 @@ run("parse.js", [guion, OUT]);
 console.log("── 2/4 · Voz ─────────────────────────────────────");
 let audio = null;
 if (conVoz) {
-  // proveedor según qué secrets existan: Azure primero (gratis, voz chilena),
-  // ElevenLabs si algún día vuelve (clonación)
+  // Azure es la única voz de producción (26-09-2026): el respaldo cuando el F0
+  // gratis se agota NO es otro proveedor, es el recurso S0 de Azure, y lo
+  // resuelve tts-azure.js por dentro con AZURE_SPEECH_KEY2/REGION2. El camino
+  // de ElevenLabs se retiró a archivo/scripts/tts-elevenlabs.js: tener dos
+  // proveedores escondía que la cuota se acabó, que es justo lo que hay que ver.
   const proveedor =
     process.env.AZURE_SPEECH_KEY && process.env.AZURE_SPEECH_REGION ? "tts-azure.js"
-    : process.env.ELEVENLABS_API_KEY && process.env.VOICE_ID ? "tts-elevenlabs.js"
     : null;
   if (!proveedor) {
-    console.error("--voz requiere AZURE_SPEECH_KEY + AZURE_SPEECH_REGION (o ELEVENLABS_API_KEY + VOICE_ID).");
+    console.error("--voz requiere AZURE_SPEECH_KEY + AZURE_SPEECH_REGION (respaldo: AZURE_SPEECH_KEY2 + AZURE_SPEECH_REGION2).");
     process.exit(1);
   }
   console.log(`(proveedor de voz: ${proveedor})`);

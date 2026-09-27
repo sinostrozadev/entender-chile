@@ -8,8 +8,9 @@
  * Variables opcionales:
  *   AZURE_VOICE   (default es-CL-LorenzoNeural; alternativa es-CL-CatalinaNeural)
  *
- * Produce lo MISMO que tts-elevenlabs.js (narracion.mp3 + alignment.json con
- * tiempos por caracter), así que build-timeline.js no cambia. Azure entrega
+ * Produce narracion.mp3 + alignment.json con tiempos por caracter, que es lo
+ * que build-timeline.js espera (el formato lo fijó el ElevenLabs del principio,
+ * retirado a archivo/scripts/ el 26-09-2026; el formato se conserva). Azure entrega
  * tiempos por PALABRA (WordBoundary); cada palabra se reparte proporcionalmente
  * entre sus caracteres.
  *
