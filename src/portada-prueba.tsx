@@ -34,8 +34,14 @@ export const PortadaPrueba: React.FC<{ imagen: string; titulo?: string; fecha?: 
   }
   return (
     <AbsoluteFill style={{ backgroundColor: tema.tinta, opacity: Math.min(entrada, salida) }}>
+      {/* EL RESPIRO DE LA PORTADA (27-09-2026). La ilustracion del dia estaba
+          completamente quieta y era lo primero que se veia del video: un
+          cuadro fijo durante tres segundos y medio se lee como una foto
+          pegada. El zoom es lento y solo mueve la IMAGEN; el gancho y el
+          nombre del canal van aparte y quedan clavados. */}
       <Img src={staticFile(imagen)} style={{ position: "absolute", inset: 0,
-        width: "100%", height: "100%", objectFit: "cover" }} />
+        width: "100%", height: "100%", objectFit: "cover",
+        transform: `scale(${1.02 + frame * 0.00035})` }} />
       {/* el velo va abajo y a la izquierda, donde vive el texto: la
           ilustración tiene que quedar a la vista, que es lo que se está
           juzgando en esta prueba */}

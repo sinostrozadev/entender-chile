@@ -70,7 +70,6 @@ export type BloqueP = {
   texto: string; categoria?: string | null; imagen?: string | null;
   from: number; to: number;            // segundos absolutos
   titulo?: string | null;              // si lo trae, lleva cabecera
-  oscurece?: [number, number];         // segundos: el velo entra a la vista (la principal)
   lleno?: [number, number];            // segundos desde el inicio del bloque: el barrido de la mitad al final
 };
 export type Paseo = {
@@ -81,6 +80,7 @@ export type Paseo = {
 export type Plan = {
   portada?: string | null; portadaSeg?: number;
   baldosas: Baldosa[]; bloques: BloqueP[]; paseos: Paseo[];
+  fondo?: string | null;               // la imagen detras del mosaico
 };
 
 // ── el tratamiento de sección (24-09) ────────────────────────────────────
@@ -225,8 +225,8 @@ const Cara: React.FC<{ b: Baldosa; activa: boolean; z: number; entrante?: boolea
 // La cámara: una sola trayectoria de principio a fin, así no puede aparecer un
 // corte. La baldosa que llena el cuadro se dibuja igual que la pantalla
 // completa que viene después, por eso el paso no se nota.
-export const Tablero: React.FC<{ baldosas: Baldosa[]; cuadros: number[]; zooms: number[]; focos: number[] }> =
-({ baldosas, cuadros, zooms, focos }) => {
+export const Tablero: React.FC<{ baldosas: Baldosa[]; cuadros: number[]; zooms: number[]; focos: number[]; fondo?: string | null }> =
+({ baldosas, cuadros, zooms, focos, fondo }) => {
   const f = useCurrentFrame();
   const paso = ANCHO + HUECO;
   const centro = (baldosas.length - 1) / 2;
@@ -238,6 +238,16 @@ export const Tablero: React.FC<{ baldosas: Baldosa[]; cuadros: number[]; zooms: 
   for (let i = 0; i < cuadros.length; i++) if (f >= cuadros[i]) foco = focos[i];
   return (
     <AbsoluteFill style={{ backgroundColor: "#15171A" }}>
+      {/* EL FONDO DEL MOSAICO (27-09-2026). La fila viaja por la franja
+          central, asi que la imagen solo se ve arriba y abajo. Se mueve MUY
+          poco y al reves que la fila: ese desfase minimo es lo que hace que
+          las baldosas parezcan atravesar un lugar en vez de deslizarse sobre
+          un papel pintado. */}
+      {fondo ? (
+        <Img src={staticFile(fondo)} style={{ position: "absolute", inset: 0,
+          width: "100%", height: "100%", objectFit: "cover",
+          transform: `scale(${1.06 + z * 0.05}) translateX(${x * 0.035}px)` }} />
+      ) : null}
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}>
         <div style={{ display: "flex", gap: HUECO,
           transform: `scale(${1 + (ESCALA - 1) * z}) translateX(${-x}px)`, transformOrigin: "center center" }}>
@@ -309,14 +319,17 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
   const { fps } = useVideoConfig();
   const lleno: [number, number] | null = b.titulo && b.lleno
     ? [Math.round(b.lleno[0] * fps), Math.round(b.lleno[1] * fps)] : null;
-  // Sin cabecera la seccion entra ya oscura, salvo que el plan pida que se
-  // oscurezca a la vista: es el caso de la principal, que viene de la portada
-  // con la misma ilustracion limpia y no puede cambiar de golpe al 100%
-  // (27-09-2026).
-  const osc: [number, number] | null = b.oscurece
-    ? [Math.round(b.oscurece[0] * fps), Math.round(b.oscurece[1] * fps)] : null;
-  const avance = lleno ? interpolate(f, rango(lleno), [0.5, 1], sv)
-    : osc ? interpolate(f, rango(osc), [0, 1], sv) : 1;
+  // SIEMPRE OSCURA, SIN TRANSICIONES (27-09-2026, Santiago: "hay problemas al
+  // oscurecer la pantalla de a poco, dejemoslo siempre oscurecida mejor, que
+  // no haya transiciones de oscurecimiento").
+  //
+  // El barrido de la mitad al total y el oscurecido gradual de la principal se
+  // van los dos. El velo entra puesto y no se mueve en toda la seccion: lo
+  // unico que pasa encima es el titular, que aparece, se lee y se desvanece.
+  // Menos piezas moviendose a la vez, y ninguna que pueda quedar a medio
+  // camino. `lleno` sigue calculandose en el plan porque es el que marca
+  // CUANDO se va el titular, pero ya no mueve el velo.
+  const avance = 1;
 
   // EL TÍTULO NO SE PISA CON EL BARRIDO (27-09-2026). Santiago: "la primera
   // imagen te muestra un título, y queda pasado y se ve feo, y pasa en
@@ -330,7 +343,9 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
   // Tampoco entra con fundido: al llegar la cámara el título YA está, dibujado
   // por la baldosa en el mismo lugar. Encenderlo acá sería encender algo que
   // ya se veía.
-  const opTitulo = lleno ? interpolate(f, rango([lleno[0] - 10, lleno[0]]), [1, 0], sv) : 0;
+  // El titular se desvanece cuando el locutor termina de decirlo: ese instante
+  // es lleno[0], que el plan calcula desde la entrada hablada.
+  const opTitulo = lleno ? interpolate(f, rango([lleno[0], lleno[1]]), [1, 0], sv) : 0;
 
   // LA SALIDA (27-09-2026). Santiago: "antes de terminar cada sección se ve
   // como si parpadeara... quitémoslo, para que se vea natural la salida, ahí
@@ -340,6 +355,14 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
   // Nunca antes de que termine la última tarjeta: el texto no puede quedar
   // sobre la imagen sin velo. Si no queda tramo, no se retira nada y el corte
   // es el de siempre.
+  // EL RESPIRO (27-09-2026, Santiago: "dale un poco de vida a las imagenes...
+  // un pequeno zoom que vaya moviendo solo el fondo, no el texto, para que se
+  // vea que respira"). Zoom lento mas una deriva horizontal minima, y la
+  // direccion alterna de una seccion a la siguiente: si todas derivaran hacia
+  // el mismo lado, doce secciones seguidas se leerian como un solo movimiento
+  // largo en vez de como doce respiraciones. Se saca del propio titulo para
+  // que sea estable entre renders, sin guardar nada.
+  const deriva = (b.texto || "").length % 2 === 0 ? 1 : -1;
   const finTarjetas = tarjetas.length ? Math.max(...tarjetas.map((c) => c.from + c.dur)) : 0;
   const salidaDesde = Math.max(finTarjetas, dur - Math.round(fps * SALIDA_SEG));
   const retiro = dur - salidaDesde >= Math.round(fps * 0.25)
@@ -366,7 +389,7 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
           hace que igual se lea como sección y no como un color suelto */}
       {b.imagen ? (
         <Img src={staticFile(b.imagen)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%",
-          objectFit: "cover", transform: `scale(${1 + f * 0.00008})` }} />
+          objectFit: "cover", transform: `scale(${1.04 + f * 0.00009}) translateX(${deriva * f * 0.012}px)` }} />
       ) : (
         // el mismo gris de estructura que usa la baldosa: Apertura, En
         // titulares, Agenda y Cierre no son un tema, así que no pueden llevar
@@ -458,7 +481,7 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
             {!p.presentacion && tl.meta.cortinas && tl.meta.cortinas.length ? (
               <Audio src={staticFile(tl.meta.cortinas[i % tl.meta.cortinas.length])} volume={0.85} />
             ) : null}
-            <Tablero baldosas={plan.baldosas} cuadros={cuadros} zooms={zooms} focos={focos} />
+            <Tablero baldosas={plan.baldosas} cuadros={cuadros} zooms={zooms} focos={focos} fondo={plan.fondo} />
             {p.presentacion ? (
               <Sequence from={Math.round(dur * 0.12)} durationInFrames={Math.max(1, Math.round(dur * 0.56))}>
                 <Sello fecha={tl.meta.fecha} serie={tl.meta.serie} dur={Math.round(dur * 0.56)} />

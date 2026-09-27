@@ -65,8 +65,6 @@ const CABECERA_MIN = 0.5;
 // tener por lo menos 1 s el titular de minimo en vista, se ve mal que aparezca
 // y desaparezca rapido").
 const TITULO_MIN = 1.0;
-// Lo que tarda la principal en oscurecerse sobre la ilustracion de la portada.
-const OSCURECE_SEG = 1.2;
 // Y este sigue siendo un mínimo real, pero para OTRA cosa: lo que el viaje de
 // la cámara no puede comerse del bloque. Un bloque sin nada de preámbulo
 // entraría con el texto ya encima.
@@ -195,14 +193,6 @@ const planear = (tl, opciones = {}) => {
       imagen: i === 0 ? portada : imagenDeSeccion(tl, b.ov.categoria),
       from: Number(desde.toFixed(3)),
       to: Number(Math.max(desde + 0.5, b.hasta).toFixed(3)),
-      // LA PRINCIPAL NO SE OSCURECE DE GOLPE (27-09-2026, Santiago: "sigue
-      // oscureciendose al 100 antes de cambiar desde el inicio al desarrollo de
-      // la noticia principal"). La portada deja la ilustracion limpia y el
-      // bloque entraba ya al 100%: un corte a oscuras entre dos cuadros de la
-      // MISMA imagen, que es justo lo que se nota. Ahora el velo entra
-      // corriendo sobre la ilustracion, que es el mismo gesto del barrido pero
-      // desde cero, y recien despues llega el texto.
-      ...(i === 0 ? { oscurece: [0, Number(OSCURECE_SEG.toFixed(3))] } : {}),
       ...(cabecera ? {
         titulo: b.ov.texto || "",
         // el barrido, en segundos desde el inicio del bloque: arranca cuando se
@@ -221,7 +211,13 @@ const planear = (tl, opciones = {}) => {
     });
   });
 
-  return { ...(portada ? { portada, portadaSeg } : {}), baldosas, bloques, paseos };
+  // EL FONDO DEL MOSAICO (27-09-2026). Se elige con la variable FONDO_MOSAICO
+  // para poder comparar las dos que hizo Santiago sin tocar codigo: "aire" es
+  // la atmosfera abstracta y "sala" es el salon con el nombre del canal en el
+  // muro. Vacio = el negro liso de siempre.
+  const cual = (process.env.FONDO_MOSAICO || "").trim().toLowerCase();
+  const fondo = cual && cual !== "0" ? `fondos/mosaico-${cual}.png` : null;
+  return { ...(portada ? { portada, portadaSeg } : {}), ...(fondo ? { fondo } : {}), baldosas, bloques, paseos };
 };
 
 module.exports = { planear, PREAMBULO_SEG, PASEO_SEG, PRESENTACION_SEG };

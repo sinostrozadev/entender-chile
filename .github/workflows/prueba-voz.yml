@@ -35,6 +35,10 @@ on:
         description: "cuántas secciones de noticia (2 = muestra corta y barata; 0 = el informe entero)"
         required: false
         default: "2"
+      fondo:
+        description: "fondo del mosaico: aire | sala | vacío para el negro liso"
+        required: false
+        default: "sala"
 
 permissions:
   contents: write
@@ -61,6 +65,7 @@ jobs:
           AZURE_SPEECH_KEY2: ${{ secrets.AZURE_SPEECH_KEY2 }}
           AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
           ENTRADA_VOZ: ${{ inputs.entrada }}
+          FONDO_MOSAICO: ${{ inputs.fondo }}
           SECUENCIA: "2409"
           FECHA_EDICION: ${{ inputs.fecha }}
           REMOTION_FUENTES_LOCALES: "1"
