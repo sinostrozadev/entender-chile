@@ -1,55 +1,92 @@
 #!/usr/bin/env node
 /**
- * taller-tablero.js - El Taller, fase 1 (lectura): una página generada desde
- * el repo con seis módulos: Ver, Medir, Experimentos, Decidir, Mejorar y
- * Flujos. Propuesta en bitacora/2026-09-20-propuesta-taller.md.
+ * taller-tablero.js - El Taller de una página, fase 2: SIETE módulos en un solo
+ * HTML autocontenido (Hoy, Semana, Clave, Medir, Experimentos, Prompts, Flujos
+ * y rutinas), con botones que abren GitHub con el trabajo ya hecho.
+ * Especificación validada por Santiago en la sección D de
+ * bitacora/2026-09-26-propuesta-limpieza-y-taller.md.
  *
- * El repo es la única verdad; esto es una vista. Se rearma y se republica
- * como artifact (como el panel). Lee:
- *   contenido/estado/FECHA.md, contenido/veredictos/*.md, contenido/informes/,
+ * Por qué los botones son enlaces a GitHub y no un formulario: la fase 1
+ * (20-09) solo leía, y cada decisión de Santiago volvía al chat o a la consola.
+ * Un enlace `/new/main?filename=...&value=...` abre el editor de GitHub con la
+ * ruta y el contenido ya rellenados; Santiago aprieta "Commit" y ese push mueve
+ * la máquina (estado-clave.yml) igual que scripts/clave.js. No hay tokens, no
+ * hay servidor, no consume cuota de nadie y funciona desde el teléfono. Lo que
+ * es un workflow abre su página de "Run workflow" con la instrucción al lado.
+ *
+ * El texto de los archivos de decisión NO se arma aquí: sale de las funciones
+ * exportadas de scripts/clave.js. Si el formato viviera en dos lados derivaría,
+ * y estado-clave.js leería una cosa u otra según quién escribió el archivo.
+ *
+ * El repo es la única verdad; esto es una vista. Lee:
+ *   contenido/estado/FECHA.{md,json} y contenido/estado/clave-<slug>.json,
+ *   bitacora/FECHA-auditoria.md (ESTADO y triage HOY), el git log de 24 horas,
+ *   contenido/claves/semana/ (ranking y candidatos), contenido/claves/flujo/,
  *   bitacora/metricas/FECHA.json, bitacora/experimentos.json,
- *   bitacora/cronograma.json, bitacora/taller.json, contenido/claves/semana/,
- *   bitacora/*-auditoria.md, prompts/*.md (+ git log para la última edición).
+ *   bitacora/cronograma.json, bitacora/rutinas.md, contenido/veredictos/,
+ *   contenido/informes/ y prompts/*.md.
  *
  * Uso:  node scripts/taller-tablero.js [--fecha AAAA-MM-DD] [--imagenes DIR] [salida.html]
  *   --imagenes DIR: carpeta con caratula-hoy.jpg y caratula-manana.jpg para el
- *   módulo Ver (fase 1: se pasan a mano; fase 3: saldrán del release del día).
+ *   módulo Hoy (se pasan a mano; fase 3: saldrán del release del día).
  */
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
+const clave = require("./clave.js");
 
 const RAIZ = path.join(__dirname, "..");
 const args = process.argv.slice(2);
 const opt = (n) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : null; };
-const FECHA = opt("--fecha") || new Intl.DateTimeFormat("en-CA", { timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+const enChile = (d = new Date()) => new Intl.DateTimeFormat("sv-SE", { timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }).format(d);
+const AHORA = enChile();
+const FECHA = opt("--fecha") || AHORA.slice(0, 10);
 const IMG = opt("--imagenes");
 const salida = args.find((a) => a.endsWith(".html")) || path.join("bitacora", "taller-tablero.html");
 
 const leer = (p) => { try { return fs.readFileSync(path.join(RAIZ, p), "utf8"); } catch { return ""; } };
+const existe = (p) => fs.existsSync(path.join(RAIZ, p));
 const json = (p, def) => { try { return JSON.parse(leer(p)); } catch { return def; } };
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const ddmm = (iso) => (iso || "").slice(0, 10).split("-").reverse().join("-");
 const diasEntre = (a, b) => Math.round((new Date(b) - new Date(a)) / 864e5);
-const git = (cmd) => { try { return execSync(`git ${cmd}`, { cwd: RAIZ, encoding: "utf8" }).trim(); } catch { return ""; } };
+// TZ fijada: el git log tiene que dar horas de Chile aunque la máquina que
+// genera la página esté en otra zona (las auditorías se equivocaron por esto).
+const git = (cmd) => { try { return execSync(`git ${cmd}`, { cwd: RAIZ, encoding: "utf8", env: { ...process.env, TZ: "America/Santiago" } }).trim(); } catch { return ""; } };
 const fechas = (n) => Array.from({ length: n }, (_, i) => { const d = new Date(`${FECHA}T12:00:00Z`); d.setUTCDate(d.getUTCDate() - i); return d.toISOString().slice(0, 10); });
-
-// ---------- datos
-const estado = leer(`contenido/estado/${FECHA}.md`);
 const campo = (txt, k) => (txt.match(new RegExp(`^${k}:\\s*(.+)$`, "m")) || [])[1] || "";
+const unaLinea = (s) => String(s ?? "").replace(/\s+/g, " ").trim();
+const corta = (s, n) => (s.length > n ? `${s.slice(0, n)}…` : s);
+// markdown de una línea, para las celdas de las tablas de bitacora/rutinas.md
+const inline = (s) => esc(s).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+
+// ---------- los enlaces a GitHub: la única forma de decidir sin tokens
+const REPO = "https://github.com/sinostrozadev/entender-chile";
+const urlVer = (ruta) => `${REPO}/blob/main/${ruta}`;
+const urlEditar = (ruta) => `${REPO}/edit/main/${ruta}`;
+const urlNuevo = (ruta, contenido) => `${REPO}/new/main?filename=${encodeURIComponent(ruta)}&value=${encodeURIComponent(contenido)}`;
+const urlFlujo = (archivo) => `${REPO}/actions/workflows/${archivo}`;
+const boton = (href, texto, ayuda = "", clase = "") => `<span class="boton"><a class="btn${clase ? ` ${clase}` : ""}" href="${esc(href)}">${esc(texto)}</a>${ayuda ? `<span class="ayuda">${ayuda}</span>` : ""}</span>`;
+// Un archivo que YA existe no se puede crear: GitHub rechaza /new con esa ruta.
+// Ahí el botón abre el editor y lo dice, para que nadie crea que pisa una
+// decisión sin verla; y como el editor no acepta contenido prellenado, el texto
+// que habría llevado el botón queda a la vista para copiarlo.
+const botonArchivo = (ruta, contenido, texto, ayuda) => (existe(ruta)
+  ? boton(urlEditar(ruta), `${texto} (editar, ya existe)`, `${ayuda}. El archivo ya está escrito, así que GitHub lo abre tal cual y hay que reemplazar su contenido: <details><summary>qué dejar escrito</summary><pre>${esc(contenido)}</pre></details>`)
+  : boton(urlNuevo(ruta, contenido), texto, ayuda, "primario"));
+
+// ---------- datos comunes
 const metricas = json(`bitacora/metricas/${FECHA}.json`, null) || json(`bitacora/metricas/${fechas(2)[1]}.json`, {});
 const experimentos = json("bitacora/experimentos.json", { experimentos: [] }).experimentos || [];
 const cronograma = json("bitacora/cronograma.json", { fases: [] });
-const tableros = json("bitacora/taller.json", { items: [] }).items || [];
-
 const PIEZAS = { preseleccion: "prompts/seleccion.md", informe: "prompts/informe.md", guion_informe: "prompts/guion-informe.md", clave: "prompts/claves.md", guion_clave: "prompts/guion-claves.md" };
 const veredicto = (fecha, pieza) => {
   const t = leer(`contenido/veredictos/${fecha}-${pieza}.md`);
   if (!t) return null;
-  return { veredicto: campo(t, "VEREDICTO"), vuelta: Number(campo(t, "VUELTA") || 0) };
+  return { fecha, veredicto: campo(t, "VEREDICTO"), vuelta: Number(campo(t, "VUELTA") || 0), observacion: unaLinea((t.match(/Observaciones:\s*\n-\s*([\s\S]*?)(?=\n-\s|\n\n|$)/) || [])[1] || "") };
 };
 const dias7 = fechas(7);
-const semana = dias7.map((f) => {
+const semana7 = dias7.map((f) => {
   const inf = leer(`contenido/informes/${f}.md`);
   const titulo = (inf.match(/^### \[A\]\s+(.+)$/m) || [])[1] || (inf.match(/^NOTICIA DE PORTADA:\s*([^|\n]+)/m) || [])[1] || "";
   const vueltas = Object.keys(PIEZAS).map((p) => [p, veredicto(f, p)]).filter(([, v]) => v);
@@ -57,25 +94,156 @@ const semana = dias7.map((f) => {
   return { fecha: f, titulo: titulo.trim(), vueltas, vistas: video ? video.vistas : null, existe: Boolean(inf) };
 }).filter((d) => d.existe);
 
-// ---------- Ver
-const img = (nombre) => { if (!IMG) return ""; const p = path.join(IMG, nombre); if (!fs.existsSync(p)) return ""; return "data:image/jpeg;base64," + fs.readFileSync(p).toString("base64"); };
-const hoy = semana[0] || { titulo: "", vueltas: [] };
-const modVer = `
-<section id="ver" class="mod">
-  <header class="mod-cab"><span class="eyebrow">Ver</span><h2>Lo que salió hoy, ${ddmm(FECHA)}</h2>
-    <p>${esc(hoy.titulo || "Sin informe de hoy todavía")}. Estado: <b>${esc(campo(estado, "ETAPA") || "sin vista")}</b>${campo(estado, "VUELTA") ? ` · vuelta ${esc(campo(estado, "VUELTA"))}` : ""}.</p></header>
-  <div class="caratulas">
+// ---------- 1. Hoy -----------------------------------------------------------
+// Si el estado de hoy todavía no está escrito (la cadena parte a la 01:30), se
+// muestra el más reciente de la semana y se dice de qué día es.
+const fechaEstado = dias7.find((f) => existe(`contenido/estado/${f}.json`)) || FECHA;
+const estadoMd = leer(`contenido/estado/${fechaEstado}.md`);
+const est = json(`contenido/estado/${fechaEstado}.json`, {});
+const piezasHoy = est.piezas || [];
+const marcaPieza = { falta: "falta", por_validar: "por validar", reparar: "devuelta a GPT", bloqueada: "BLOQUEADA", lista: "aprobada", listo: "listo" };
+
+const fechaAud = dias7.find((f) => existe(`bitacora/${f}-auditoria.md`));
+const audTxt = fechaAud ? leer(`bitacora/${fechaAud}-auditoria.md`) : "";
+const audEstado = unaLinea((audTxt.match(/^ESTADO:\s*([\s\S]*?)(?:\n\s*\n|$)/) || [])[1] || "");
+// Sin la bandera /m: con ella, `$` corta en el primer fin de LÍNEA y el triage
+// quedaba en media frase (los puntos HOY ocupan dos o tres líneas cada uno).
+const triage = (audTxt.match(/\n##\s+Triage\s*([\s\S]*?)(?=\n##\s|$)/) || [])[1] || "";
+const puntosHoy = triage.split(/\n(?=\s*-\s)/).map((b) => unaLinea(b))
+  .filter((b) => /^-\s*\*\*HOY\*\*/.test(b)).map((b) => b.replace(/^-\s*\*\*HOY\*\*:?\s*/, ""));
+
+// El formato es el que pide el encargo. `%an` y `%s` caen en la misma celda
+// porque un espacio no distingue dónde termina el nombre del autor.
+const commits = git(`log --since="24 hours ago" --format='%h %ad %an %s' --date=format-local:'%H:%M'`)
+  .split("\n").filter(Boolean).map((l) => {
+    const m = l.match(/^(\S+)\s+(\d{2}:\d{2})\s+([\s\S]*)$/);
+    return m ? { hash: m[1], hora: m[2], quien: m[3] } : { hash: "", hora: "", quien: l };
+  });
+
+const img = (nombre) => { if (!IMG) return ""; const p = path.join(IMG, nombre); if (!fs.existsSync(p)) return ""; return `data:image/jpeg;base64,${fs.readFileSync(p).toString("base64")}`; };
+
+const botonesEmergencia = [
+  boton(urlFlujo("barrido.yml"), "Relanzar barrido", 'Run workflow: marca <code>forzar</code> solo si hay que pisar el barrido que ya existe'),
+  boton(urlFlujo("estado.yml"), "Recalcular estado", "Run workflow sin campos: recalcula la vista del día y despierta al validador"),
+  boton(urlFlujo("reintento.yml"), "Simular reintento", 'Run workflow con <code>simular</code> marcado: imprime cada decisión y no pushea ni llama a la API'),
+  boton(urlFlujo("edicion-diaria.yml"), "Producir edición", 'Run workflow: <code>fecha</code> vacía es hoy en Chile; <code>forzar</code> solo para rehacer piezas que ya están en el release'),
+].join("");
+
+const modHoy = `
+<section id="hoy" class="mod">
+  <header class="mod-cab"><span class="eyebrow">Hoy</span><h2>En qué va el día ${ddmm(fechaEstado)}</h2>
+    <p>Etapa <b>${esc(campo(estadoMd, "ETAPA") || "sin vista")}</b>${campo(estadoMd, "VUELTA") ? ` · vuelta ${esc(campo(estadoMd, "VUELTA"))}` : ""}${campo(estadoMd, "VEREDICTO") ? ` · veredicto ${esc(campo(estadoMd, "VEREDICTO"))}` : ""}. Vista de <span class="mono">contenido/estado/${esc(fechaEstado)}.md</span>, actualizada ${esc(campo(estadoMd, "ACTUALIZADO") || "sin hora")}.${fechaEstado !== FECHA ? ` <b>Es el estado del ${ddmm(fechaEstado)}</b>, no del ${ddmm(FECHA)}: el de hoy todavía no está escrito.` : ""}</p></header>
+  ${campo(estadoMd, "PIEZA") ? `<p class="dato">Pieza en juego: <b>${esc(campo(estadoMd, "PIEZA"))}</b> con <a href="${esc(urlVer(campo(estadoMd, "PROMPT")))}">${esc(campo(estadoMd, "PROMPT"))}</a>${campo(estadoMd, "ARCHIVO") ? ` → <span class="mono">${esc(campo(estadoMd, "ARCHIVO"))}</span>` : ""}.${campo(estadoMd, "REPARA") ? ` Repara: ${esc(campo(estadoMd, "REPARA"))}.` : ""}</p>` : ""}
+  ${(est.atrasos || []).length ? `<p class="aviso">Atrasadas: ${est.atrasos.map((a) => `${esc(a.etiqueta)} (+${a.atraso} min, ${esc(a.dueno)})`).join("; ")}.</p>` : ""}
+  <div class="tabla-envoltura"><table>
+    <thead><tr><th>Pieza</th><th>Estado</th><th>Llegó</th><th>Se espera a las</th><th>Quién la escribe</th></tr></thead>
+    <tbody>${piezasHoy.map((p) => `<tr><td>${esc(p.etiqueta)}</td><td>${esc(marcaPieza[p.situacion] || p.situacion)}</td><td class="mono">${esc(p.hora || "sin llegar")}</td><td class="mono">${esc(p.esperada)}</td><td class="gris">${esc(p.dueno)}</td></tr>`).join("") || `<tr><td colspan="5" class="gris">Sin vista del estado todavía.</td></tr>`}</tbody>
+  </table></div>
+  <h3>Botones de emergencia</h3>
+  <p class="nota">Cada uno abre la página "Run workflow" de ese workflow en GitHub Actions. El texto al lado dice qué poner antes de apretar.</p>
+  <div class="botones">${botonesEmergencia}</div>
+  <h3>La auditoría de la mañana ${fechaAud ? `<span class="gris">(${ddmm(fechaAud)})</span>` : ""}</h3>
+  ${audTxt ? `<p class="dato"><b>ESTADO:</b> ${inline(audEstado)} <a class="mas" href="${esc(urlVer(`bitacora/${fechaAud}-auditoria.md`))}">leer completa</a></p>
+  ${puntosHoy.length ? `<ul class="hoy">${puntosHoy.map((p) => `<li><span class="chip">HOY</span>${inline(p)}</li>`).join("")}</ul>` : `<p class="nota">El triage de esa auditoría no dejó puntos HOY.</p>`}` : `<p class="nota">No hay auditoría en los últimos siete días.</p>`}
+  ${img("caratula-hoy.jpg") || img("caratula-manana.jpg") ? `<h3>Carátulas</h3><div class="caratulas">
     ${img("caratula-hoy.jpg") ? `<figure><img src="${img("caratula-hoy.jpg")}" alt="Carátula de hoy" width="640" height="360"><figcaption><span class="rotulo">Salió hoy</span>la carátula que se publicó</figcaption></figure>` : ""}
     ${img("caratula-manana.jpg") ? `<figure><img src="${img("caratula-manana.jpg")}" alt="Carátula de la regla nueva" width="640" height="360"><figcaption><span class="rotulo cobre">Desde mañana</span>la regla nueva sobre la misma noticia (ejemplo)</figcaption></figure>` : ""}
-  </div>
+  </div>` : ""}
+  <h3>Lo que salió estos siete días</h3>
   <div class="tabla-envoltura"><table>
     <thead><tr><th>Día</th><th>Portada</th><th>Vueltas de corrección</th><th>Vistas del largo</th></tr></thead>
-    <tbody>${semana.map((d) => `<tr><td class="mono">${ddmm(d.fecha)}</td><td>${esc(d.titulo)}</td><td class="mono">${d.vueltas.length ? d.vueltas.map(([p, v]) => `${p.replace("_", " ")}: ${v.vuelta}`).join(" · ") : "sin veredictos (cadena anterior)"}</td><td class="num">${d.vistas ?? "-"}</td></tr>`).join("")}</tbody>
+    <tbody>${semana7.map((d) => `<tr><td class="mono">${ddmm(d.fecha)}</td><td>${esc(d.titulo)}</td><td class="mono">${d.vueltas.length ? d.vueltas.map(([p, v]) => `${p.replace("_", " ")}: ${v.vuelta}`).join(" · ") : "sin veredictos"}</td><td class="num">${d.vistas ?? "-"}</td></tr>`).join("")}</tbody>
   </table></div>
   <p class="nota">Las vueltas cuentan cuántas veces Claude devolvió la pieza a GPT antes de aprobarla. Las vistas son las acumuladas al ${ddmm(metricas.fecha || FECHA)}; un largo del día lleva pocas horas al aire.</p>
+  <h3>Commits de las últimas 24 horas <span class="gris">(${commits.length})</span></h3>
+  <div class="tabla-envoltura"><table>
+    <thead><tr><th>Hora</th><th>Commit</th><th>Quién y qué</th></tr></thead>
+    <tbody>${commits.map((c) => `<tr><td class="mono">${esc(c.hora)}</td><td class="mono">${esc(c.hash)}</td><td>${esc(c.quien)}</td></tr>`).join("") || `<tr><td colspan="3" class="gris">Sin commits en 24 horas.</td></tr>`}</tbody>
+  </table></div>
 </section>`;
 
-// ---------- Medir
+// ---------- 2. Semana --------------------------------------------------------
+// Desde el 26-09 el tema de la Clave sale del barrido semanal (scripts/semana.js
+// + prompts/tema-semana.md) y no del banco diario, que quedó congelado.
+const DIR_SEMANA = "contenido/claves/semana";
+const semanas = (() => { try { return fs.readdirSync(path.join(RAIZ, DIR_SEMANA)).filter((f) => /^\d{4}-W\d{2}\.json$/.test(f)).map((f) => f.replace(".json", "")).sort(); } catch { return []; } })();
+const ultima = clave.ultimaSemana() || semanas.slice(-1)[0] || null;
+const ranking = ultima ? (json(`${DIR_SEMANA}/${ultima}.json`, {}).ranking || []) : [];
+const candidatos = ultima ? (clave.leerCandidatos(ultima) || []) : [];
+const flujoDe = (slug) => `contenido/claves/flujo/${slug}`;
+const candidatosHtml = candidatos.map((c) => {
+  const armado = clave.temaDeCandidato(ultima, c.numero, { ahora: AHORA });
+  if (!armado) return "";
+  const yaHay = existe(`${flujoDe(armado.slug)}/tema.md`);
+  return `<article class="candidato">
+    <div class="exp-cab"><span class="chip">candidato ${c.numero}</span><span class="mono gris">puntaje ${esc(c.puntaje)} · días ${esc(c.dias.join(", "))}</span></div>
+    <h4>${esc(c.concepto)}</h4>
+    <p class="mono gris">slug: ${esc(armado.slug)}</p>
+    <p><b>Historia hasta hoy.</b> ${esc(c.historia)}</p>
+    <p><b>Qué enseñaría la Clave.</b> ${esc(c.ensenaria)}</p>
+    <div class="botones">${yaHay
+      ? boton(urlVer(`${flujoDe(armado.slug)}/tema.md`), "Elegido", 'ya tiene flujo abierto: <a href="#clave">verlo en el módulo Clave</a>', "hecho")
+      : botonArchivo(armado.ruta, armado.contenido, "Elegir este tema", `crea <code>${esc(armado.ruta)}</code> ya escrito; al confirmar el commit, <code>estado-clave.yml</code> abre el flujo y GPT propone la idea`)}</div>
+  </article>`;
+}).join("");
+
+const modSemana = `
+<section id="semana" class="mod">
+  <header class="mod-cab"><span class="eyebrow">Semana</span><h2>El tema de la Clave</h2>
+    <p>Ranking de <span class="mono">scripts/semana.js</span> sobre los informes de la semana ${esc(ultima || "(sin semana)")}, y los tres candidatos que escribió <span class="mono">prompts/tema-semana.md</span>. El banco de temas diario quedó congelado el 26-09-2026.</p></header>
+  <h3>Ranking de la semana</h3>
+  <div class="tabla-envoltura"><table>
+    <thead><tr><th>#</th><th>Puntaje</th><th>Días</th><th>Tema</th><th>Titular más reciente</th></tr></thead>
+    <tbody>${ranking.slice(0, 10).map((t) => `<tr><td class="mono">${t.puesto}</td><td class="mono">${String(t.puntaje).replace(".", ",")}</td><td class="mono">${t.dias.map(ddmm).join(", ")}</td><td>${esc(t.terminos.slice(0, 5).join(", "))}</td><td class="gris">${esc(t.titulares[t.titulares.length - 1]?.titular || "")}</td></tr>`).join("") || `<tr><td colspan="5" class="gris">Sin ranking: corre <span class="mono">node scripts/semana.js</span>.</td></tr>`}</tbody>
+  </table></div>
+  <h3>Los tres candidatos</h3>
+  ${candidatosHtml || `<p class="nota">Todavía sin candidatos escritos: corre <span class="mono">node scripts/semana.js</span> y después la rutina del domingo (<span class="mono">prompts/tema-semana.md</span>).</p>`}
+  <p class="nota">El botón abre GitHub con <span class="mono">tema.md</span> completo (concepto, titulares de origen, días de los informes, historia y qué enseñaría). Es el mismo texto que escribe <span class="mono">node scripts/clave.js elegir &lt;slug&gt; --candidato n</span>: lo arma la misma función. La hora del campo <span class="mono">ELEGIDO</span> es la de generación de esta página.</p>
+</section>`;
+
+// ---------- 3. Clave ---------------------------------------------------------
+const slugsFlujo = (() => { try { return fs.readdirSync(path.join(RAIZ, "contenido/claves/flujo"), { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name).sort(); } catch { return []; } })();
+const TURNO = {
+  tema_elegido: "GPT escribe la idea", validar_idea: "Claude valida la idea", reparar_idea: "GPT rehace la idea",
+  idea_lista: "te toca a ti", idea_aprobada: "GPT escribe la entrega", validar_entrega: "Claude valida la entrega",
+  reparar_entrega: "GPT rehace la entrega", entrega_lista: "GPT escribe el guion", validar_guion: "Claude valida el guion",
+  reparar_guion: "GPT rehace el guion", aprobada: "Actions renderiza y sube", videos_listos: "cerrado",
+  bloqueado_humano: "te toca a ti: está bloqueado",
+};
+const flujosHtml = slugsFlujo.map((slug) => {
+  const e = json(`contenido/estado/clave-${slug}.json`, null) || {};
+  const etapa = e.etapa || "sin vista";
+  const base = flujoDe(slug);
+  const hayIdea = existe(`${base}/idea.md`);
+  const rutaAprob = `${base}/aprobacion.md`;
+  const decide = etapa === "idea_lista";
+  const fechaMiercoles = clave.proximoMiercoles(FECHA);
+  const botones = decide ? [
+    botonArchivo(rutaAprob, clave.contenidoAprobacion(fechaMiercoles, AHORA), "Aprobar idea", `fija la producción para el <b>${esc(ddmm(fechaMiercoles))}</b>, el próximo miércoles`),
+    botonArchivo(rutaAprob, clave.contenidoCambio("ESCRIBE AQUÍ LA NOTA (qué hay que cambiar en la idea)", AHORA), "Pedir cambios", "reemplaza <code>ESCRIBE AQUÍ LA NOTA</code> por lo que hay que cambiar antes de confirmar"),
+    botonArchivo(rutaAprob, clave.contenidoAprobacion("ESCRIBE-AQUI-LA-FECHA-AAAA-MM-DD", AHORA), "Fijar fecha", "igual que aprobar, pero tú pones la fecha de producción en las dos líneas que la llevan"),
+  ].join("") : "";
+  return `<article class="flujo-clave">
+    <div class="exp-cab"><span class="chip${decide ? " espera" : ""}">${esc(etapa)}</span><span class="mono gris">vuelta ${e.vuelta ?? 0}${e.fecha_produccion ? ` · sale el ${ddmm(e.fecha_produccion)}` : ""}</span></div>
+    <h3>${esc(e.concepto || slug)}</h3>
+    <p class="mono gris">${esc(slug)}</p>
+    <p><b>Turno:</b> ${esc(TURNO[etapa] || e.turno || "sin turno")}${TURNO[etapa] && /[:(]/.test(e.turno || "") ? ` <span class="gris">(${esc(e.turno)})</span>` : ""}.</p>
+    <p class="dato">Archivos:
+      <a href="${esc(urlVer(`${base}/tema.md`))}">tema.md</a>${hayIdea ? ` · <a href="${esc(urlVer(`${base}/idea.md`))}">idea.md</a>` : " · <span class=\"gris\">idea.md todavía no existe</span>"}${existe(rutaAprob) ? ` · <a href="${esc(urlVer(rutaAprob))}">aprobacion.md</a>` : ""} · <a href="${esc(urlVer(`contenido/estado/clave-${slug}.md`))}">estado</a></p>
+    ${decide ? `<p class="nota">La idea está validada y espera tu decisión. Cada botón abre GitHub con <span class="mono">aprobacion.md</span> escrito; al confirmar el commit, <span class="mono">estado-clave.yml</span> mueve la etapa.</p><div class="botones">${botones}</div>`
+      : `<p class="nota">Los botones de decisión aparecen cuando la etapa es <span class="mono">idea_lista</span>, que es el único momento en que la pelota es tuya.</p>`}
+  </article>`;
+}).join("");
+
+const modClave = `
+<section id="clave" class="mod">
+  <header class="mod-cab"><span class="eyebrow">Clave</span><h2>Los flujos abiertos</h2>
+    <p>Una Clave por tema, con flujo propio (CLAVE 4): tema elegido, idea de GPT, validación de Claude, <b>tu aprobación</b>, entrega, guion y video. Vista de <span class="mono">scripts/estado-clave.js</span>.</p></header>
+  ${flujosHtml || `<p class="nota">Sin flujos de Clave abiertos. Se abre uno eligiendo un tema en el módulo <a href="#semana">Semana</a>.</p>`}
+  <div class="botones">${boton(urlFlujo("estado-clave.yml"), "Recalcular el estado de la Clave", "Run workflow sin campos, si la vista quedó vieja")}</div>
+</section>`;
+
+// ---------- 4. Medir ---------------------------------------------------------
 const NOMBRE = { SHORTS: "Shorts", YT_SEARCH: "búsqueda", SUBSCRIBER: "suscriptores", YT_CHANNEL: "página del canal", RELATED_VIDEO: "sugeridos", NOTIFICATION: "notificaciones", PLAYLIST: "listas", EXT_URL: "enlaces externos", NO_LINK_OTHER: "directo", YT_OTHER_PAGE: "otras páginas", SHORTS_CONTENT_LINKS: "enlace desde un Short", END_SCREEN: "pantalla final" };
 const nom = (s) => NOMBRE[s] || String(s).toLowerCase();
 const ret = metricas.retencion || {};
@@ -90,6 +258,15 @@ const sparkline = (serie) => {
   const pts = serie.map((v, i) => `${((i / (n - 1)) * w).toFixed(1)},${(h - Math.min(1, v) * h).toFixed(1)}`).join(" ");
   return `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="Curva de retención"><line x1="0" y1="${h * 0.5}" x2="${w}" y2="${h * 0.5}" class="guia"/><line x1="${w * 0.05}" y1="0" x2="${w * 0.05}" y2="${h}" class="guia"/><polyline points="${pts}" class="curva"/></svg>`;
 };
+// impresiones y CTR: el json del día los trae desde el 20-09; si no, el archivo
+// acumulado que escribe scripts/impresiones.js.
+const imp = metricas.impresiones || json("bitacora/metricas/impresiones.json", {});
+const impVideos = Object.entries(imp.videos || {});
+const impTotal = impVideos.reduce((s, [, x]) => s + (x.impresiones || 0), 0);
+const clicsTotal = impVideos.reduce((s, [, x]) => s + (x.clics || 0), 0);
+const impTop = impVideos.filter(([id]) => (vids[id]?.durSeg ?? 0) > 75).sort((a, b) => b[1].impresiones - a[1].impresiones).slice(0, 8);
+const impDias = Object.entries(imp.dias || {}).sort((a, b) => a[0].localeCompare(b[0])).slice(-10);
+
 const modMedir = `
 <section id="medir" class="mod">
   <header class="mod-cab"><span class="eyebrow">Medir</span><h2>Qué resultó</h2><p>Analytics de los últimos 30 días, medido el ${ddmm(metricas.fecha || FECHA)}. La meta son 4.000 horas de largos antes del 01-02-2027.</p></header>
@@ -98,126 +275,157 @@ const modMedir = `
     <div class="cifra"><span class="n">${pesoVistas ? (pesoPct / pesoVistas).toFixed(1) : "-"}%</span><span class="q">retención media ponderada de los largos</span></div>
     <div class="cifra"><span class="n">${metricas.canal?.suscriptores ?? "-"}</span><span class="q">suscriptores</span></div>
     <div class="cifra"><span class="n">${Object.values(vids).reduce((s, v) => s + (v.vistas || 0), 0)}</span><span class="q">vistas totales, suma por video</span></div>
+    <div class="cifra"><span class="n">${impTotal}</span><span class="q">impresiones, ${imp.ventanaDias || 30} días</span></div>
+    <div class="cifra"><span class="n">${impTotal ? (100 * clicsTotal / impTotal).toFixed(2) : "-"}%</span><span class="q">CTR del canal (${clicsTotal} clics)</span></div>
   </div>
   <h3>De dónde vienen los minutos de los largos</h3>
   <div class="barras">${canalFuentes.map(([s, x]) => `<div class="barra-fila"><span class="etq">${esc(nom(s))}</span><span class="pista"><span class="relleno" style="width:${(100 * x.minutos / maxMin).toFixed(0)}%"></span></span><span class="mono val">${x.minutos} min · ${x.vistas} vistas</span></div>`).join("")}</div>
+  <h3>Impresiones y CTR por largo <span class="gris">(los ocho más mostrados)</span></h3>
+  <p class="nota">Impresión es una miniatura mostrada en YouTube; CTR es qué porcentaje de esas veces alguien entró. Es la métrica que juzga la carátula y el título, no el contenido.</p>
+  <div class="tabla-envoltura"><table>
+    <thead><tr><th>Video</th><th>Impresiones</th><th>Clics</th><th>CTR</th></tr></thead>
+    <tbody>${impTop.map(([id, x]) => `<tr><td>${esc(vids[id]?.titulo || id)}</td><td class="num">${x.impresiones}</td><td class="num">${x.clics}</td><td class="num">${(x.ctr ?? 0).toFixed(2)}%</td></tr>`).join("") || `<tr><td colspan="4" class="gris">Sin impresiones todavía.</td></tr>`}</tbody>
+  </table></div>
+  ${impDias.length ? `<h3>Últimos diez días</h3><div class="tabla-envoltura"><table>
+    <thead><tr><th>Día</th><th>Impresiones</th><th>CTR</th></tr></thead>
+    <tbody>${impDias.map(([f, x]) => `<tr><td class="mono">${ddmm(f)}</td><td class="num">${x.impresiones}</td><td class="num">${(x.ctr ?? 0).toFixed(2)}%</td></tr>`).join("")}</tbody>
+  </table></div>` : ""}
   <h3>Dónde se va la gente</h3>
-  <p class="nota">Cada curva es la audiencia que sigue viendo a lo largo del video (de 0 a 100% de su duración). La línea vertical marca el 5%, unos 30-40 segundos. Solo existe para largos con ~20 vistas o más.</p>
-  <div class="curvas">${curvas.map(([id, x]) => { const top = Object.entries(x.fuentes).sort((a, b) => b[1] - a[1])[0]; const c = x.curva; return `<div class="curva-tarjeta"><div class="curva-titulo">${esc(vids[id]?.titulo || id)}</div>${sparkline(c.serie)}<div class="curva-datos mono">${ret[id]?.vistas ?? "-"} vistas · ${top ? esc(nom(top[0])) + " " + Math.round(100 * top[1] / (ret[id]?.vistas || 1)) + "%" : ""}<br>al 5%: <b>${c.p05}%</b> · al 25%: ${c.p25}% · al final: ${c.p75}%<br>mayor caída: segundo ${c.caidaMayor.segundo} (${c.caidaMayor.puntos} puntos)</div></div>`; }).join("") || "<p class='nota'>Sin curvas todavía.</p>"}</div>
+  <p class="nota">Cada curva es la audiencia que sigue viendo a lo largo del video (de 0 a 100% de su duración). La línea vertical marca el 5%, unos 30 a 40 segundos. Solo existe para largos con unas 20 vistas o más.</p>
+  <div class="curvas">${curvas.map(([id, x]) => { const top = Object.entries(x.fuentes).sort((a, b) => b[1] - a[1])[0]; const c = x.curva; return `<div class="curva-tarjeta"><div class="curva-titulo">${esc(vids[id]?.titulo || id)}</div>${sparkline(c.serie)}<div class="curva-datos mono">${ret[id]?.vistas ?? "-"} vistas · ${top ? `${esc(nom(top[0]))} ${Math.round(100 * top[1] / (ret[id]?.vistas || 1))}%` : ""}<br>al 5%: <b>${c.p05}%</b> · al 25%: ${c.p25}% · al final: ${c.p75}%<br>mayor caída: segundo ${c.caidaMayor.segundo} (${c.caidaMayor.puntos} puntos)</div></div>`; }).join("") || "<p class='nota'>Sin curvas todavía.</p>"}</div>
 </section>`;
 
-// ---------- Experimentos
+// ---------- 5. Experimentos --------------------------------------------------
 const modExp = `
 <section id="experimentos" class="mod">
-  <header class="mod-cab"><span class="eyebrow">Experimentos</span><h2>Qué estamos probando</h2><p>Un cambio a la vez por métrica, dos semanas, veredicto con números (regla 26). Registro: <span class="mono">bitacora/experimentos.json</span>.</p></header>
+  <header class="mod-cab"><span class="eyebrow">Experimentos</span><h2>Qué estamos probando</h2><p>Un cambio a la vez por métrica, dos semanas, veredicto con números (regla 26). Registro: <a href="${esc(urlVer("bitacora/experimentos.json"))}">bitacora/experimentos.json</a>.</p></header>
   <div class="exp-lista">${experimentos.map((e) => { const t = diasEntre(e.desde, FECHA); const faltan = Math.max(0, (e.dias || 14) - t); const fin = e.estado !== "en_curso"; return `<article class="exp ${esc(e.estado)}"><div class="exp-cab"><span class="chip ${esc(e.estado)}">${fin ? esc(e.estado) : t < 0 ? `empieza en ${-t} d` : faltan ? `día ${t} de ${e.dias || 14}` : "listo para juzgar"}</span><span class="mono gris">desde ${ddmm(e.desde)}</span></div><h3>${esc(e.titulo)}</h3><p>${esc(e.hipotesis)}</p><dl><dt>Cambió</dt><dd class="mono">${esc(e.cambio)}</dd><dt>Lo juzga</dt><dd>${esc(e.metrica)}</dd><dt>Control</dt><dd>${esc(e.control)}</dd>${e.veredicto ? `<dt>Veredicto</dt><dd>${esc(e.veredicto)}</dd>` : ""}</dl></article>`; }).join("")}</div>
 </section>`;
 
-// ---------- Decidir
-// Desde el 26-09 el tema de la Clave sale del barrido semanal y no del banco
-// diario (congelado). Si existe contenido/claves/semana/, se muestra el último
-// ranking y sus tres candidatos; si no, el banco de siempre.
-const DIR_SEMANA = "contenido/claves/semana";
-const semanas = (() => { try { return fs.readdirSync(path.join(RAIZ, DIR_SEMANA)).filter((f) => /^\d{4}-W\d{2}\.json$/.test(f)).map((f) => f.replace(".json", "")).sort(); } catch { return []; } })();
-const ultima = semanas.slice(-1)[0] || null;
-const ranking = ultima ? (json(`${DIR_SEMANA}/${ultima}.json`, {}).ranking || []) : [];
-const candidatos = ultima ? leer(`${DIR_SEMANA}/${ultima}-candidatos.md`).split(/^##\s+/m).slice(1).map((b) => ({
-  titulo: b.split("\n")[0].trim(),
-  datos: (b.match(/^Puntaje:.*$/m) || [""])[0].trim(),
-})) : [];
-const banco = leer("contenido/claves/banco-temas.md").split("\n").filter((l) => l.startsWith("- ")).map((l) => l.slice(2).split("|").map((s) => s.trim())).reverse();
-const bloqueSemana = `
-  <h3>Tema de la semana <span class="gris">(${esc(ultima || "")}, ranking de scripts/semana.js)</span></h3>
-  <div class="tabla-envoltura"><table>
-    <thead><tr><th>#</th><th>Puntaje</th><th>Días</th><th>Tema</th><th>Titular más reciente</th></tr></thead>
-    <tbody>${ranking.slice(0, 10).map((t) => `<tr><td class="mono">${t.puesto}</td><td class="mono">${String(t.puntaje).replace(".", ",")}</td><td class="mono">${t.dias.map(ddmm).join(", ")}</td><td>${esc(t.terminos.slice(0, 5).join(", "))}</td><td class="gris">${esc(t.titulares[t.titulares.length - 1]?.titular || "")}</td></tr>`).join("")}</tbody>
-  </table></div>
-  <h3>Los tres candidatos ${candidatos.length ? "" : `<span class="gris">(todavía sin escribir: falta prompts/tema-semana.md)</span>`}</h3>
-  <ul class="tableros">${candidatos.map((c) => `<li><b>${esc(c.titulo)}</b><br><span class="mono gris">${esc(c.datos)}</span></li>`).join("") || "<li class='gris'>Corre <span class='mono'>node scripts/semana.js</span> y después la rutina del domingo.</li>"}</ul>
-  <p class="nota">Santiago elige con <span class="mono">node scripts/clave.js elegir &lt;slug&gt; --candidato n</span>. El banco de temas diario quedó congelado el 26-09-2026 (${banco.length} temas, sin uso).</p>`;
-const bloqueBanco = `
-  <h3>Banco de temas de la Clave <span class="gris">(${banco.length} temas; los ${Math.min(15, banco.length)} más nuevos)</span></h3>
-  <div class="tabla-envoltura"><table>
-    <thead><tr><th>Fecha</th><th>Concepto</th><th>Noticia de origen</th><th></th></tr></thead>
-    <tbody>${banco.slice(0, 15).map(([c, n, f]) => `<tr><td class="mono">${ddmm(f)}</td><td>${esc(c)}</td><td class="gris">${esc(n)}</td><td><button type="button" class="btn" disabled title="Fase 2: escribe la decisión en el repo">Elegir</button></td></tr>`).join("")}</tbody>
-  </table></div>`;
-const modDecidir = `
-<section id="decidir" class="mod">
-  <header class="mod-cab"><span class="eyebrow">Decidir</span><h2>Lo que espera a Santiago</h2><p>Fase 1: se decide en el chat con la sesión de día (el día propone, Santiago dice sí, el día ejecuta). Fase 2: los botones de esta página escriben la decisión en el repo y la máquina sigue sola.</p></header>
-  ${ultima ? bloqueSemana : bloqueBanco}
-  <h3>Tableros</h3>
-  <ul class="tableros">${tableros.map((t) => `<li><span class="chip ${/APROBADO|CERRADO/.test(t.estado) ? "cerrado" : "en_curso"}">${esc(t.estado)}</span> <b>${esc(t.titulo)}</b> <span class="mono gris">${esc(t.fecha)}</span>${t.url ? ` · <a href="${esc(t.url)}">abrir</a>` : ""}<br><span class="gris">${esc(t.nota)}</span></li>`).join("")}</ul>
-</section>`;
-
-// ---------- Mejorar
-const audits = fechas(7).map((f) => ({ fecha: f, txt: leer(`bitacora/${f}-auditoria.md`) })).filter((a) => a.txt);
+// ---------- 6. Prompts -------------------------------------------------------
+const audits = dias7.map((f) => ({ fecha: f, txt: leer(`bitacora/${f}-auditoria.md`) })).filter((a) => a.txt);
 const propuestas = (txt) => { const m = txt.match(/## Propuestas([\s\S]*?)## Triage/); return m ? m[1].split("\n").filter((l) => /^\d+\./.test(l.trim())) : []; };
 const lectores = {};
 for (const f of cronograma.fases || []) for (const i of f.items || []) for (const p of (i.que || "").match(/prompts\/[a-z-]+\.md/g) || []) (lectores[p] = lectores[p] || new Set()).add(i.quien);
 const prompts = fs.readdirSync(path.join(RAIZ, "prompts")).filter((f) => f.endsWith(".md") && !/README|CALIDAD/.test(f)).map((f) => {
   const p = `prompts/${f}`;
   const pieza = Object.entries(PIEZAS).find(([, v]) => v === p)?.[0];
-  const vueltas = pieza ? dias7.map((d) => veredicto(d, pieza)).filter(Boolean).reduce((s, v) => s + v.vuelta, 0) : null;
+  const vs = pieza ? dias7.map((d) => veredicto(d, pieza)).filter(Boolean) : [];
+  const vueltas = pieza ? vs.reduce((s, v) => s + v.vuelta, 0) : null;
   const dias = audits.filter((a) => propuestas(a.txt).some((l) => l.includes(f)));
-  const ultima = dias[0] ? propuestas(dias[0].txt).find((l) => l.includes(f)) : "";
-  return { p, lineas: leer(p).split("\n").length, editado: git(`log -1 --format=%ad --date=short -- ${p}`), lee: [...(lectores[p] || [])].join(", ") || "(nadie en el cronograma)", vueltas, diasAud: dias.length, ultima: (ultima || "").replace(/^\d+\.\s*/, "").slice(0, 220) };
+  const ultimaProp = dias[0] ? propuestas(dias[0].txt).find((l) => l.includes(f)) : "";
+  return { p, archivo: f, lineas: leer(p).split("\n").length, editado: git(`log -1 --format=%ad --date=short -- ${p}`), lee: [...(lectores[p] || [])].join(", ") || "(nadie en el cronograma)", vueltas, ultimoV: vs[0] || null, diasAud: dias.length, ultima: unaLinea(ultimaProp || "").replace(/^\d+\.\s*/, "") };
 }).sort((a, b) => (b.vueltas ?? -1) - (a.vueltas ?? -1) || b.diasAud - a.diasAud);
-const modMejorar = `
-<section id="mejorar" class="mod">
-  <header class="mod-cab"><span class="eyebrow">Mejorar</span><h2>Qué prompt cuesta, y por qué</h2><p>Vueltas de corrección de los últimos siete días (lo que Claude devolvió a GPT) y en cuántas auditorías apareció una propuesta sobre ese archivo. Lo que se repite es lo que hay que cambiar.</p></header>
+
+const modPrompts = `
+<section id="prompts" class="mod">
+  <header class="mod-cab"><span class="eyebrow">Prompts</span><h2>Qué prompt cuesta, y por qué</h2><p>Vueltas de corrección de los últimos siete días (lo que Claude devolvió a GPT), el último hallazgo del validador y en cuántas auditorías apareció una propuesta sobre ese archivo. Lo que se repite es lo que hay que cambiar.</p></header>
   <div class="tabla-envoltura"><table>
-    <thead><tr><th>Prompt</th><th>Lo lee</th><th>Vueltas, 7 días</th><th>Auditorías, 7 días</th><th>Última propuesta de la auditoría</th><th>Editado</th></tr></thead>
-    <tbody>${prompts.map((x) => `<tr><td class="mono">${esc(x.p.replace("prompts/", ""))}<br><span class="gris">${x.lineas} líneas</span></td><td>${esc(x.lee)}</td><td class="num">${x.vueltas ?? "-"}</td><td class="num">${x.diasAud || "-"}</td><td class="gris">${esc(x.ultima) || "-"}</td><td class="mono">${ddmm(x.editado)}</td></tr>`).join("")}</tbody>
+    <thead><tr><th>Prompt</th><th>Lo lee</th><th>Vueltas, 7 días</th><th>Último veredicto del validador</th><th>Auditorías, 7 días</th><th>Última propuesta de la auditoría</th><th>Editado</th><th></th></tr></thead>
+    <tbody>${prompts.map((x) => `<tr>
+      <td class="mono">${esc(x.archivo)}<br><span class="gris">${x.lineas} líneas</span></td>
+      <td>${esc(x.lee)}</td>
+      <td class="num">${x.vueltas ?? "-"}</td>
+      <td class="gris">${x.ultimoV ? `<b>${esc(x.ultimoV.veredicto)}</b> vuelta ${x.ultimoV.vuelta} (${ddmm(x.ultimoV.fecha)})${x.ultimoV.observacion ? `: ${esc(corta(x.ultimoV.observacion, 200))}` : ""}` : "-"}</td>
+      <td class="num">${x.diasAud || "-"}</td>
+      <td class="gris">${esc(corta(x.ultima, 220)) || "-"}</td>
+      <td class="mono">${ddmm(x.editado)}</td>
+      <td>${boton(urlEditar(x.p), "Editar en GitHub", "")}</td>
+    </tr>`).join("")}</tbody>
   </table></div>
+  <p class="nota">El botón abre el editor de GitHub en ese archivo: se corrige desde el teléfono y el commit queda con tu nombre.</p>
 </section>`;
 
-// ---------- Flujos
+// ---------- 7. Flujos y rutinas ---------------------------------------------
+// Las dos tablas de bitacora/rutinas.md se renderizan tal cual: ese archivo es
+// el inventario a mano que evita pagar 75 KB por llamada a la API de rutinas.
+const tablasDeMarkdown = (txt) => {
+  const salidas = []; let titulo = "", actual = null;
+  for (const linea of txt.split("\n")) {
+    const h = linea.match(/^##\s+(.+)$/);
+    if (h) { titulo = h[1].trim(); actual = null; continue; }
+    if (!/^\s*\|/.test(linea)) { actual = null; continue; }
+    if (/^\s*\|[\s:|-]+\|?\s*$/.test(linea)) continue; // la línea separadora
+    const celdas = linea.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map((c) => c.trim());
+    if (!actual) { actual = { titulo, cabecera: celdas, filas: [] }; salidas.push(actual); }
+    else actual.filas.push(celdas);
+  }
+  return salidas;
+};
+const celda = (c) => { const m = c.match(/^`([a-z0-9-]+\.yml)`$/); return m ? `<a class="mono" href="${esc(urlFlujo(m[1]))}">${esc(m[1])}</a>` : inline(c); };
+const tablaHtml = (t) => `<h3>${esc(t.titulo)}</h3><div class="tabla-envoltura"><table>
+  <thead><tr>${t.cabecera.map((c) => `<th>${inline(c)}</th>`).join("")}</tr></thead>
+  <tbody>${t.filas.map((f) => `<tr>${f.map((c) => `<td>${celda(c)}</td>`).join("")}</tr>`).join("")}</tbody>
+</table></div>`;
+const rutinas = tablasDeMarkdown(leer("bitacora/rutinas.md"));
+
 const modFlujos = `
 <section id="flujos" class="mod">
-  <header class="mod-cab"><span class="eyebrow">Flujos</span><h2>Quién hace qué, y con qué prompt</h2><p>Del cronograma (<span class="mono">bitacora/cronograma.json</span>, actualizado ${ddmm(cronograma.actualizado || "")}). Hoy hay un flujo diario; la Clave y el exprés tendrán el suyo.</p></header>
-  ${(cronograma.fases || []).map((f) => `<h3>${esc(f.nombre)}</h3><ol class="flujo">${(f.items || []).map((i) => `<li><span class="mono hora">${esc(i.hora)}</span><span class="chip tipo-${esc(i.tipo)}">${esc(i.tipo)}</span><b>${esc(i.quien)}</b><span class="gris">${esc((i.que || "").slice(0, 200))}${(i.que || "").length > 200 ? "…" : ""}</span></li>`).join("")}</ol>`).join("")}
+  <header class="mod-cab"><span class="eyebrow">Flujos y rutinas</span><h2>Quién hace qué, con qué prompt y desde dónde se edita</h2>
+    <p>La cadena sale de <a href="${esc(urlVer("bitacora/cronograma.json"))}">bitacora/cronograma.json</a> (actualizado ${ddmm(cronograma.actualizado || "")}); el inventario de rutinas y workflows, de <a href="${esc(urlVer("bitacora/rutinas.md"))}">bitacora/rutinas.md</a>. Quien crea, cambia o apaga una rutina edita esa tabla en el mismo commit.</p></header>
+  ${(cronograma.fases || []).map((f) => `<h3>${esc(f.nombre)}</h3><ol class="flujo">${(f.items || []).map((i) => `<li><span class="mono hora">${esc(i.hora)}</span><span class="chip tipo-${esc(i.tipo)}">${esc(i.tipo)}</span><b>${esc(i.quien)}</b><span class="gris">${esc(corta(i.que || "", 200))}</span></li>`).join("")}</ol>`).join("")}
+  ${rutinas.map(tablaHtml).join("")}
+  <div class="botones">${boton(urlEditar("bitacora/rutinas.md"), "Editar el inventario en GitHub", "cuando una rutina cambie de hora, de modelo o se apague")}</div>
 </section>`;
 
-// ---------- página
-const html = `<title>Taller Entender Chile</title>
+// ---------- la página --------------------------------------------------------
+const commitHash = git("rev-parse --short HEAD") || "sin git";
+const NAV = [["hoy", "Hoy"], ["semana", "Semana"], ["clave", "Clave"], ["medir", "Medir"], ["experimentos", "Experimentos"], ["prompts", "Prompts"], ["flujos", "Flujos y rutinas"]];
+const html = `<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller Entender Chile</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
   :root { --papel:#F2F2EF; --alto:#FCFCFA; --tinta:#17191C; --gris:#6B6E6A; --linea:#DDDDD5; --patina:#2F7263; --patina-suave:#E4EEEA; --cobre:#D08A5B; --ambar:#F0E3C6;
     --serif:'Fraunces',Georgia,'Times New Roman',serif; --sans:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif; --mono:'IBM Plex Mono','Courier New',monospace; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --papel:#15181A; --alto:#1F2326; --tinta:#EDE6DA; --gris:#A6A399; --linea:#2E3336; --patina:#5FA48F; --patina-suave:#1E2E2A; --cobre:#E0A175; --ambar:#3A3222; } }
   :root[data-theme="dark"] { --papel:#15181A; --alto:#1F2326; --tinta:#EDE6DA; --gris:#A6A399; --linea:#2E3336; --patina:#5FA48F; --patina-suave:#1E2E2A; --cobre:#E0A175; --ambar:#3A3222; }
-  body { background:var(--papel); color:var(--tinta); font-family:var(--sans); font-size:15px; line-height:1.5; padding-inline:20px; padding-block:24px 80px; max-width:1180px; margin:0 auto; }
-  h1,h2,h3 { font-family:var(--serif); font-weight:600; margin:0; text-wrap:balance; }
-  h1 { font-size:clamp(30px,4.5vw,44px); line-height:1.05; } h2 { font-size:clamp(22px,3vw,30px); line-height:1.15; } h3 { font-size:19px; margin-top:26px; }
-  p { margin:0; max-width:70ch; } a { color:var(--patina); }
+  * { box-sizing:border-box; }
+  html { background:var(--papel); }
+  body { background:var(--papel); color:var(--tinta); font-family:var(--sans); font-size:15px; line-height:1.5; padding-inline:16px; padding-block:20px 80px; max-width:1180px; margin:0 auto; overflow-wrap:break-word; }
+  @media (min-width:720px) { body { padding-inline:24px; } }
+  h1,h2,h3,h4 { font-family:var(--serif); font-weight:600; margin:0; text-wrap:balance; }
+  h1 { font-size:clamp(28px,4.5vw,44px); line-height:1.05; } h2 { font-size:clamp(21px,3vw,30px); line-height:1.15; } h3 { font-size:19px; margin-top:26px; } h4 { font-size:17px; }
+  p { margin:0; max-width:74ch; } a { color:var(--patina); }
   .eyebrow { font-family:var(--mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--patina); }
-  .mono { font-family:var(--mono); font-size:13px; } .gris { color:var(--gris); } .num { font-family:var(--mono); text-align:right; font-variant-numeric:tabular-nums; } .nota { color:var(--gris); font-size:14px; margin-top:10px; }
-  .cab { display:grid; gap:10px; padding-bottom:22px; } .cab p { color:var(--gris); }
-  nav.tabs { position:sticky; top:env(safe-area-inset-top,0px); z-index:3; background:var(--papel); border-block:1px solid var(--linea); display:flex; gap:4px; overflow-x:auto; padding-block:8px; margin-bottom:8px; }
-  nav.tabs a { flex:0 0 auto; font:500 14px var(--sans); color:var(--tinta); text-decoration:none; padding:8px 14px; border-radius:2px; } nav.tabs a:hover, nav.tabs a:focus-visible { background:var(--patina-suave); outline:none; }
-  .mod { padding-block:34px; border-bottom:1px solid var(--linea); scroll-margin-top:60px; } .mod-cab { display:grid; gap:8px; margin-bottom:18px; } .mod-cab p { color:var(--gris); }
-  .caratulas { display:flex; flex-wrap:wrap; gap:18px; margin-bottom:22px; } .caratulas figure { margin:0; width:420px; max-width:100%; display:grid; gap:8px; } .caratulas img { width:100%; height:auto; aspect-ratio:16/9; display:block; box-shadow:0 2px 10px rgba(0,0,0,.18); }
+  .mono, code { font-family:var(--mono); font-size:13px; } .gris { color:var(--gris); } .num { font-family:var(--mono); text-align:right; font-variant-numeric:tabular-nums; }
+  .nota { color:var(--gris); font-size:14px; margin-top:10px; } .dato { font-size:14px; margin-top:10px; } .mas { font-size:13px; white-space:nowrap; }
+  .cab { display:grid; gap:10px; padding-bottom:18px; } .cab p { color:var(--gris); } .sello { font-family:var(--mono); font-size:12px; color:var(--gris); }
+  nav.tabs { position:sticky; top:0; z-index:3; background:var(--papel); border-block:1px solid var(--linea); display:flex; gap:4px; overflow-x:auto; padding-block:8px; margin-bottom:8px; }
+  nav.tabs a { flex:0 0 auto; font:500 14px var(--sans); color:var(--tinta); text-decoration:none; padding:8px 12px; border-radius:2px; } nav.tabs a:hover, nav.tabs a:focus-visible { background:var(--patina-suave); outline:none; }
+  .mod { padding-block:30px; border-bottom:1px solid var(--linea); scroll-margin-top:60px; } .mod-cab { display:grid; gap:8px; margin-bottom:16px; } .mod-cab p { color:var(--gris); }
+  .caratulas { display:flex; flex-wrap:wrap; gap:18px; margin:14px 0 22px; } .caratulas figure { margin:0; width:420px; max-width:100%; display:grid; gap:8px; } .caratulas img { width:100%; height:auto; aspect-ratio:16/9; display:block; box-shadow:0 2px 10px rgba(0,0,0,.18); }
   .caratulas figcaption { font-size:13px; color:var(--gris); display:grid; gap:2px; } .rotulo { font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--patina); } .rotulo.cobre { color:var(--cobre); }
-  .tabla-envoltura { overflow-x:auto; } table { border-collapse:collapse; width:100%; font-size:14px; } th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--linea); vertical-align:top; } th { font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gris); font-weight:500; }
-  .cifras { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-bottom:8px; } .cifra { background:var(--alto); border:1px solid var(--linea); padding:16px 18px; display:grid; gap:4px; } .cifra .n { font-family:var(--serif); font-size:40px; line-height:1; font-variant-numeric:tabular-nums; } .cifra .q { font-size:13px; color:var(--gris); }
+  .tabla-envoltura { overflow-x:auto; margin-top:10px; -webkit-overflow-scrolling:touch; } table { border-collapse:collapse; width:100%; font-size:14px; } th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--linea); vertical-align:top; } th { font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gris); font-weight:500; white-space:nowrap; }
+  .cifras { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-bottom:8px; } .cifra { background:var(--alto); border:1px solid var(--linea); padding:16px 18px; display:grid; gap:4px; } .cifra .n { font-family:var(--serif); font-size:36px; line-height:1; font-variant-numeric:tabular-nums; } .cifra .q { font-size:13px; color:var(--gris); }
   .barras { display:grid; gap:8px; max-width:720px; } .barra-fila { display:grid; grid-template-columns:150px 1fr auto; gap:12px; align-items:center; font-size:14px; } .pista { height:12px; background:var(--patina-suave); } .relleno { display:block; height:100%; background:var(--patina); } .val { color:var(--gris); white-space:nowrap; }
-  .curvas { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:14px; margin-top:12px; } .curva-tarjeta { background:var(--alto); border:1px solid var(--linea); padding:14px; display:grid; gap:8px; } .curva-titulo { font-size:14px; font-weight:500; line-height:1.3; } .curva-tarjeta svg { width:100%; height:auto; max-width:100%; } .curva { fill:none; stroke:var(--patina); stroke-width:2; } .guia { stroke:var(--linea); stroke-width:1; stroke-dasharray:3 3; } .curva-datos { color:var(--gris); line-height:1.5; }
-  .exp-lista { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:14px; } .exp { background:var(--alto); border:1px solid var(--linea); border-left:4px solid var(--patina); padding:16px 18px; display:grid; gap:10px; } .exp.cancelado { border-left-color:var(--gris); } .exp.cerrado { border-left-color:var(--cobre); } .exp h3 { margin:0; } .exp-cab { display:flex; justify-content:space-between; gap:10px; align-items:center; }
+  .curvas { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px; margin-top:12px; } .curva-tarjeta { background:var(--alto); border:1px solid var(--linea); padding:14px; display:grid; gap:8px; } .curva-titulo { font-size:14px; font-weight:500; line-height:1.3; } .curva-tarjeta svg { width:100%; height:auto; max-width:100%; } .curva { fill:none; stroke:var(--patina); stroke-width:2; } .guia { stroke:var(--linea); stroke-width:1; stroke-dasharray:3 3; } .curva-datos { color:var(--gris); line-height:1.5; }
+  .exp-lista { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px; } .exp { background:var(--alto); border:1px solid var(--linea); border-left:4px solid var(--patina); padding:16px 18px; display:grid; gap:10px; } .exp.cancelado { border-left-color:var(--gris); } .exp.cerrado { border-left-color:var(--cobre); } .exp h3 { margin:0; } .exp-cab { display:flex; justify-content:space-between; gap:10px; align-items:center; flex-wrap:wrap; }
   .exp dl { display:grid; grid-template-columns:auto 1fr; gap:4px 12px; font-size:13px; margin:0; } .exp dt { color:var(--gris); font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding-top:2px; } .exp dd { margin:0; }
-  .chip { display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; padding:3px 8px; background:var(--patina-suave); color:var(--patina); } .chip.cancelado { background:var(--linea); color:var(--gris); } .chip.cerrado { background:var(--ambar); color:var(--tinta); }
+  .candidato, .flujo-clave { background:var(--alto); border:1px solid var(--linea); border-left:4px solid var(--patina); padding:16px 18px; display:grid; gap:10px; margin-top:14px; } .candidato p, .flujo-clave p { font-size:14px; }
+  .chip { display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; padding:3px 8px; background:var(--patina-suave); color:var(--patina); } .chip.cancelado { background:var(--linea); color:var(--gris); } .chip.cerrado, .chip.espera { background:var(--ambar); color:var(--tinta); }
   .chip.tipo-gpt { background:var(--ambar); color:var(--tinta); } .chip.tipo-actions { background:var(--linea); color:var(--tinta); } .chip.tipo-senal { background:var(--linea); color:var(--gris); }
-  .btn { font:500 13px var(--sans); color:var(--patina); background:transparent; border:1px solid var(--patina); padding:5px 12px; } .btn:disabled { color:var(--gris); border-color:var(--linea); cursor:not-allowed; }
-  .tableros { list-style:none; padding:0; margin:0; display:grid; gap:12px; font-size:14px; }
+  .botones { display:grid; gap:10px; margin-top:12px; } .boton { display:grid; gap:4px; } .btn { display:inline-block; justify-self:start; font:500 14px var(--sans); color:var(--patina); background:transparent; border:1px solid var(--patina); padding:8px 14px; text-decoration:none; } .btn:hover, .btn:focus-visible { background:var(--patina-suave); outline:none; }
+  .btn.primario { background:var(--patina); color:var(--papel); } .btn.primario:hover, .btn.primario:focus-visible { background:var(--tinta); border-color:var(--tinta); } .btn.hecho { color:var(--gris); border-color:var(--linea); }
+  .ayuda { font-size:13px; color:var(--gris); max-width:70ch; }
+  details summary { cursor:pointer; color:var(--patina); } pre { font-family:var(--mono); font-size:12px; white-space:pre-wrap; background:var(--papel); border:1px solid var(--linea); padding:10px; margin:6px 0 0; overflow-x:auto; color:var(--tinta); }
+  .aviso { background:var(--ambar); color:var(--tinta); border-left:4px solid var(--cobre); padding:10px 14px; font-size:14px; margin-top:12px; }
+  .hoy { list-style:none; padding:0; margin:12px 0 0; display:grid; gap:10px; font-size:14px; } .hoy li { display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:baseline; }
   .flujo { list-style:none; padding:0; margin:0 0 8px; display:grid; gap:8px; } .flujo li { display:grid; grid-template-columns:130px auto 1fr; gap:6px 12px; align-items:baseline; font-size:14px; padding:8px 0; border-bottom:1px solid var(--linea); } .flujo li .gris { grid-column:1/-1; font-size:13px; } .hora { color:var(--gris); white-space:nowrap; }
-  @media (max-width:600px) { .barra-fila { grid-template-columns:1fr; gap:4px; } .flujo li { grid-template-columns:1fr; } }
+  @media (max-width:600px) { .barra-fila { grid-template-columns:1fr; gap:4px; } .flujo li { grid-template-columns:1fr; } .hoy li { grid-template-columns:1fr; } }
 </style>
 <header class="cab">
-  <span class="eyebrow">Entender Chile · fase 1, lectura</span>
+  <p class="sello">Generado el ${ddmm(AHORA)} ${AHORA.slice(11)} (hora de Chile) desde el commit ${esc(commitHash)}</p>
+  <span class="eyebrow">Entender Chile · fase 2, siete módulos</span>
   <h1>Taller</h1>
-  <p>Donde se mira lo que salió, se mide qué resultó, se decide qué probar y se mejora el prompt que lo produce. Generado desde el repo el ${ddmm(FECHA)}; el repo es la única verdad.</p>
+  <p>Una sola página para mirar el día, elegir el tema de la semana, aprobar la Clave, medir qué resultó y arreglar el prompt que lo produce. Los botones abren GitHub con el archivo ya escrito: tú solo confirmas el commit, y ese push mueve la máquina. El repo es la única verdad; esto es una vista.</p>
 </header>
-<nav class="tabs" aria-label="Módulos"><a href="#ver">Ver</a><a href="#medir">Medir</a><a href="#experimentos">Experimentos</a><a href="#decidir">Decidir</a><a href="#mejorar">Mejorar</a><a href="#flujos">Flujos</a></nav>
-${modVer}${modMedir}${modExp}${modDecidir}${modMejorar}${modFlujos}
+<nav class="tabs" aria-label="Módulos">${NAV.map(([id, t]) => `<a href="#${id}">${t}</a>`).join("")}</nav>
+${modHoy}${modSemana}${modClave}${modMedir}${modExp}${modPrompts}${modFlujos}
+</html>
 `;
 fs.writeFileSync(path.join(RAIZ, salida), html);
-console.log(`${salida}: ${(html.length / 1024).toFixed(0)} KB · ${semana.length} días · ${curvas.length} curvas · ${experimentos.length} experimentos · ${prompts.length} prompts · ${ultima ? `ranking ${ultima} (${ranking.length} temas)` : `${banco.length} temas del banco`}`);
+const cuentaBotones = (html.match(/class="btn/g) || []).length;
+console.log(`${salida}: ${(html.length / 1024).toFixed(0)} KB · estado ${fechaEstado} (${campo(estadoMd, "ETAPA") || "sin vista"}) · ${commits.length} commits 24 h · ${candidatos.length} candidatos de ${ultima || "sin semana"} · ${slugsFlujo.length} flujos de Clave · ${curvas.length} curvas · ${experimentos.length} experimentos · ${prompts.length} prompts · ${rutinas.reduce((s, t) => s + t.filas.length, 0)} filas de rutinas · ${cuentaBotones} botones`);

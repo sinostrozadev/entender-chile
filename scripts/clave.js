@@ -4,7 +4,7 @@
  * al repo (CLAVE 4: "antes de hacerla video me presentas la lista de
  * disponibles... luego que decidimos el tema, me presentarás la idea completa,
  * y recién cuando te dé el sí lo harás video"). Fase 1 del Taller: Santiago
- * decide en el chat y la sesión corre esto; en fase 2 lo harán los botones.
+ * decide en el chat y la sesión corre esto; en fase 2 lo hacen los botones.
  *
  * Desde el 26-09-2026 el tema NO sale del banco diario (congelado), sino del
  * barrido semanal: scripts/semana.js puntúa la semana y prompts/tema-semana.md
@@ -23,6 +23,13 @@
  *       escribe aprobacion.md "CAMBIAR: nota"          → etapa reparar_idea (GPT rehace la idea con la nota)
  *
  * Cada orden commitea y pushea (con --sin-push, solo escribe).
+ *
+ * Por qué hay funciones exportadas: los botones del Taller de una página
+ * (scripts/taller-tablero.js) abren GitHub con el archivo YA escrito, así que
+ * necesitan el mismo texto que escribe este script. Si el formato viviera en
+ * dos lados derivaría, y estado-clave.js leería una cosa u otra según quién
+ * apretó el botón. Por eso el texto se arma en un solo lugar, aquí, y el
+ * Taller lo pide con require.
  */
 const fs = require("fs");
 const path = require("path");
@@ -30,9 +37,6 @@ const { execSync } = require("child_process");
 
 const RAIZ = path.join(__dirname, "..");
 const DIR_SEMANA = path.join(RAIZ, "contenido/claves/semana");
-const args = process.argv.slice(2);
-const orden = args[0], slug = args[1];
-const opt = (n) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : null; };
 const hoyChile = () => new Intl.DateTimeFormat("sv-SE", { timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date());
 const ddmm = (f) => `${f.slice(8, 10)}-${f.slice(5, 7)}`;
 
@@ -82,79 +86,121 @@ const temaDelRanking = (semana, cand) => {
   return exacto || mismoPuntaje.find((t) => t.dias.length === cand.dias.length) || mismoPuntaje[0] || null;
 };
 
-if (orden === "listar") {
-  const semana = opt("--semana") || ultimaSemana();
-  const cands = semana ? leerCandidatos(semana) : null;
-  if (!cands || !cands.length) {
-    console.log("No hay candidatos escritos todavía. Corre `node scripts/semana.js` y después prompts/tema-semana.md.");
-  } else {
-    console.log(`Candidatos de la semana ${semana} (contenido/claves/semana/${semana}-candidatos.md):\n`);
-    for (const c of cands) {
-      console.log(`${String(c.numero).padStart(2)}. ${c.concepto}`);
-      console.log(`    puntaje ${c.puntaje} · días ${c.dias.join(", ")} · slug propuesto: ${c.slug}`);
-      console.log(`    elegir: node scripts/clave.js elegir ${c.slug} --candidato ${c.numero}\n`);
-    }
-  }
-  const dirFlujo = path.join(RAIZ, "contenido/claves/flujo");
-  const abiertos = fs.existsSync(dirFlujo) ? fs.readdirSync(dirFlujo, { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name) : [];
-  console.log(abiertos.length ? `Flujos abiertos: ${abiertos.join(", ")} (estado en contenido/estado/clave-<slug>.md)` : "Sin flujos de Clave abiertos.");
-  process.exit(0);
-}
+// --- el texto exacto de cada decisión, en un solo lugar ---------------------
+// `ahora` es parámetro y no una llamada fija al reloj para que el Taller pueda
+// fijarlo (y para que una prueba pueda comparar dos textos sin que la hora los
+// separe).
+const contenidoTema = ({ slug, concepto, noticia = "", origen = "", cabecera = "", cuerpo = "", ahora = hoyChile() }) =>
+  `CONCEPTO: ${concepto}\nNOTICIA: ${noticia || ""}\nORIGEN: ${origen || ""}\n${cabecera}`
+  + `ELEGIDO: ${ahora} (hora de Chile), por Santiago\n${cuerpo}`
+  + `\nTema elegido por Santiago para una Clave (CLAVE 4, flujo propio). GPT propone\nla idea con prompts/clave-idea.md; Claude la valida; Santiago la aprueba con\nscripts/clave.js aprobar ${slug}.\n`;
 
-if (!orden || !slug || !/^[a-z0-9-]+$/.test(slug)) { console.error("uso: clave.js listar | elegir <slug> --candidato <n> | elegir <slug> --concepto ... --noticia ... | aprobar <slug> | cambiar <slug> --nota ...  (slug en minúsculas, con guiones)"); process.exit(2); }
-const dir = path.join(RAIZ, "contenido/claves/flujo", slug);
-const commit = (msg, archivo) => {
-  if (args.includes("--sin-push")) { console.log(`escrito ${archivo} (sin push)`); return; }
-  execSync(`git add "${archivo}" && git commit -q -m "${msg}" && git -c rebase.autoStash=true pull --rebase -q origin main && git push -q origin main`, { cwd: RAIZ, stdio: "inherit" });
-  console.log(`pusheado: ${msg}`);
+// El tema.md completo de un candidato del ranking: lo que escribe
+// `elegir <slug> --candidato n` y lo que lleva el botón "Elegir este tema".
+// Devuelve null si ese candidato no existe en esa semana.
+const temaDeCandidato = (semana, numero, opciones = {}) => {
+  const cands = leerCandidatos(semana);
+  const c = (cands || []).find((x) => x.numero === Number(numero));
+  if (!c) return null;
+  const tema = temaDelRanking(semana, c);
+  const slug = opciones.slug || c.slug;
+  // la noticia de origen del tema de la semana son los titulares de los días
+  const noticia = opciones.noticia || (tema ? tema.titulares.map((t) => `${ddmm(t.fecha)}: ${t.titular}`).join(" | ") : c.dias.join(", "));
+  const fechas = tema ? tema.titulares.map((t) => t.fecha) : [];
+  // DIAS son las fechas de los informes que la idea y la entrega tienen que
+  // leer: con ORIGEN ocupado por la semana, es la única pista de dónde está
+  // el material (así lo dice prompts/clave-idea.md).
+  const cabecera = `SEMANA: ${semana}\nCANDIDATO: ${c.numero}\nPUNTAJE: ${c.puntaje}\n`
+    + `DIAS: ${fechas.length ? fechas.join(", ") : c.dias.join(", ")}\n`
+    + `CANDIDATOS: contenido/claves/semana/${semana}-candidatos.md\n`
+    + (tema?.dossier ? `DOSSIER: contenido/casos/${tema.dossier.slug}.md\n` : "");
+  const cuerpo = `\n## Historia hasta hoy\n\n${c.historia}\n\n## Qué enseñaría la Clave\n\n${c.ensenaria}\n`;
+  return {
+    semana, slug, candidato: c, tema,
+    ruta: `contenido/claves/flujo/${slug}/tema.md`,
+    contenido: contenidoTema({ slug, concepto: opciones.concepto || c.concepto, noticia, origen: `tema de la semana ${semana}`, cabecera, cuerpo, ahora: opciones.ahora }),
+  };
 };
 
-if (orden === "elegir") {
-  let concepto = opt("--concepto"), noticia = opt("--noticia"), origen = opt("--origen");
-  let cabecera = "", cuerpo = "";
-  if (opt("--candidato")) {
+// La Clave de la semana sale el MIÉRCOLES: sin fecha, el próximo miércoles.
+// Estrictamente el próximo: si hoy es miércoles, el de la semana siguiente,
+// porque el video de hoy ya no alcanza a producirse.
+const proximoMiercoles = (desde = hoyChile().slice(0, 10)) => {
+  const d = new Date(`${desde}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + (((3 - d.getUTCDay() + 7) % 7) || 7));
+  return d.toISOString().slice(0, 10);
+};
+
+const contenidoAprobacion = (fecha, ahora = hoyChile()) =>
+  `APROBADA: ${fecha}\nAPROBO: Santiago, ${ahora} (hora de Chile)\n\nLa entrega y el guion llevan la fecha ${fecha}; el video sube programado ese\ndía a la hora de la Clave.\n`;
+
+const contenidoCambio = (nota, ahora = hoyChile()) =>
+  `CAMBIAR: ${nota}\nPIDIO: Santiago, ${ahora} (hora de Chile)\n\nGPT rehace la idea con esta nota (etapa reparar_idea); Claude la valida de\nnuevo y vuelve a Santiago.\n`;
+
+module.exports = {
+  hoyChile, ddmm, semanasDisponibles, ultimaSemana, leerCandidatos, temaDelRanking,
+  contenidoTema, temaDeCandidato, proximoMiercoles, contenidoAprobacion, contenidoCambio,
+};
+
+// --- la orden de la consola -------------------------------------------------
+// Bajo require.main para que el Taller pueda pedir las funciones de arriba sin
+// que el script intente ejecutar una orden que nadie escribió.
+if (require.main === module) {
+  const args = process.argv.slice(2);
+  const orden = args[0], slug = args[1];
+  const opt = (n) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : null; };
+
+  if (orden === "listar") {
     const semana = opt("--semana") || ultimaSemana();
-    if (!semana) { console.error("no hay ninguna semana con candidatos; corre scripts/semana.js y prompts/tema-semana.md"); process.exit(2); }
-    const cands = leerCandidatos(semana);
-    const c = (cands || []).find((x) => x.numero === Number(opt("--candidato")));
-    if (!c) { console.error(`no hay candidato ${opt("--candidato")} en la semana ${semana}`); process.exit(2); }
-    const tema = temaDelRanking(semana, c);
-    concepto = concepto || c.concepto;
-    // la noticia de origen del tema de la semana son los titulares de los días
-    noticia = noticia || (tema ? tema.titulares.map((t) => `${ddmm(t.fecha)}: ${t.titular}`).join(" | ") : c.dias.join(", "));
-    origen = `tema de la semana ${semana}`;
-    const fechas = tema ? tema.titulares.map((t) => t.fecha) : [];
-    // DIAS son las fechas de los informes que la idea y la entrega tienen que
-    // leer: con ORIGEN ocupado por la semana, es la única pista de dónde está
-    // el material (así lo dice prompts/clave-idea.md).
-    cabecera = `SEMANA: ${semana}\nCANDIDATO: ${c.numero}\nPUNTAJE: ${c.puntaje}\n`
-      + `DIAS: ${fechas.length ? fechas.join(", ") : c.dias.join(", ")}\n`
-      + `CANDIDATOS: contenido/claves/semana/${semana}-candidatos.md\n`
-      + (tema?.dossier ? `DOSSIER: contenido/casos/${tema.dossier.slug}.md\n` : "");
-    cuerpo = `\n## Historia hasta hoy\n\n${c.historia}\n\n## Qué enseñaría la Clave\n\n${c.ensenaria}\n`;
+    const cands = semana ? leerCandidatos(semana) : null;
+    if (!cands || !cands.length) {
+      console.log("No hay candidatos escritos todavía. Corre `node scripts/semana.js` y después prompts/tema-semana.md.");
+    } else {
+      console.log(`Candidatos de la semana ${semana} (contenido/claves/semana/${semana}-candidatos.md):\n`);
+      for (const c of cands) {
+        console.log(`${String(c.numero).padStart(2)}. ${c.concepto}`);
+        console.log(`    puntaje ${c.puntaje} · días ${c.dias.join(", ")} · slug propuesto: ${c.slug}`);
+        console.log(`    elegir: node scripts/clave.js elegir ${c.slug} --candidato ${c.numero}\n`);
+      }
+    }
+    const dirFlujo = path.join(RAIZ, "contenido/claves/flujo");
+    const abiertos = fs.existsSync(dirFlujo) ? fs.readdirSync(dirFlujo, { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name) : [];
+    console.log(abiertos.length ? `Flujos abiertos: ${abiertos.join(", ")} (estado en contenido/estado/clave-<slug>.md)` : "Sin flujos de Clave abiertos.");
+    process.exit(0);
   }
-  if (!concepto) { console.error("falta --concepto (o --candidato <n> de la semana)"); process.exit(2); }
-  fs.mkdirSync(dir, { recursive: true });
-  const md = `CONCEPTO: ${concepto}\nNOTICIA: ${noticia || ""}\nORIGEN: ${origen || ""}\n${cabecera}`
-    + `ELEGIDO: ${hoyChile()} (hora de Chile), por Santiago\n${cuerpo}`
-    + `\nTema elegido por Santiago para una Clave (CLAVE 4, flujo propio). GPT propone\nla idea con prompts/clave-idea.md; Claude la valida; Santiago la aprueba con\nscripts/clave.js aprobar ${slug}.\n`;
-  fs.writeFileSync(path.join(dir, "tema.md"), md);
-  commit(`clave ${slug}: tema elegido por Santiago`, `contenido/claves/flujo/${slug}/tema.md`);
-} else if (orden === "aprobar") {
-  if (!fs.existsSync(path.join(dir, "idea.md"))) { console.error(`no hay idea que aprobar en ${dir}`); process.exit(2); }
-  let fecha = opt("--fecha");
-  if (!fecha) {
-    // la Clave de la semana sale el MIÉRCOLES: sin fecha, el próximo miércoles.
-    // Estrictamente el próximo: si hoy es miércoles, el de la semana siguiente,
-    // porque el video de hoy ya no alcanza a producirse.
-    const d = new Date(`${hoyChile().slice(0, 10)}T12:00:00Z`);
-    d.setUTCDate(d.getUTCDate() + (((3 - d.getUTCDay() + 7) % 7) || 7));
-    fecha = d.toISOString().slice(0, 10);
-  }
-  fs.writeFileSync(path.join(dir, "aprobacion.md"), `APROBADA: ${fecha}\nAPROBO: Santiago, ${hoyChile()} (hora de Chile)\n\nLa entrega y el guion llevan la fecha ${fecha}; el video sube programado ese\ndía a la hora de la Clave.\n`);
-  commit(`clave ${slug}: idea aprobada por Santiago, sale el ${fecha}`, `contenido/claves/flujo/${slug}/aprobacion.md`);
-} else if (orden === "cambiar") {
-  const nota = opt("--nota"); if (!nota) { console.error("falta --nota"); process.exit(2); }
-  fs.writeFileSync(path.join(dir, "aprobacion.md"), `CAMBIAR: ${nota}\nPIDIO: Santiago, ${hoyChile()} (hora de Chile)\n\nGPT rehace la idea con esta nota (etapa reparar_idea); Claude la valida de\nnuevo y vuelve a Santiago.\n`);
-  commit(`clave ${slug}: Santiago pide cambios en la idea`, `contenido/claves/flujo/${slug}/aprobacion.md`);
-} else { console.error(`orden desconocida: ${orden}`); process.exit(2); }
+
+  if (!orden || !slug || !/^[a-z0-9-]+$/.test(slug)) { console.error("uso: clave.js listar | elegir <slug> --candidato <n> | elegir <slug> --concepto ... --noticia ... | aprobar <slug> | cambiar <slug> --nota ...  (slug en minúsculas, con guiones)"); process.exit(2); }
+  const dir = path.join(RAIZ, "contenido/claves/flujo", slug);
+  const commit = (msg, archivo) => {
+    if (args.includes("--sin-push")) { console.log(`escrito ${archivo} (sin push)`); return; }
+    execSync(`git add "${archivo}" && git commit -q -m "${msg}" && git -c rebase.autoStash=true pull --rebase -q origin main && git push -q origin main`, { cwd: RAIZ, stdio: "inherit" });
+    console.log(`pusheado: ${msg}`);
+  };
+
+  if (orden === "elegir") {
+    const concepto = opt("--concepto"), noticia = opt("--noticia"), origen = opt("--origen");
+    let md;
+    if (opt("--candidato")) {
+      const semana = opt("--semana") || ultimaSemana();
+      if (!semana) { console.error("no hay ninguna semana con candidatos; corre scripts/semana.js y prompts/tema-semana.md"); process.exit(2); }
+      const armado = temaDeCandidato(semana, opt("--candidato"), { slug, concepto, noticia });
+      if (!armado) { console.error(`no hay candidato ${opt("--candidato")} en la semana ${semana}`); process.exit(2); }
+      md = armado.contenido;
+    } else {
+      if (!concepto) { console.error("falta --concepto (o --candidato <n> de la semana)"); process.exit(2); }
+      md = contenidoTema({ slug, concepto, noticia, origen });
+    }
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, "tema.md"), md);
+    commit(`clave ${slug}: tema elegido por Santiago`, `contenido/claves/flujo/${slug}/tema.md`);
+  } else if (orden === "aprobar") {
+    if (!fs.existsSync(path.join(dir, "idea.md"))) { console.error(`no hay idea que aprobar en ${dir}`); process.exit(2); }
+    const fecha = opt("--fecha") || proximoMiercoles();
+    fs.writeFileSync(path.join(dir, "aprobacion.md"), contenidoAprobacion(fecha));
+    commit(`clave ${slug}: idea aprobada por Santiago, sale el ${fecha}`, `contenido/claves/flujo/${slug}/aprobacion.md`);
+  } else if (orden === "cambiar") {
+    const nota = opt("--nota"); if (!nota) { console.error("falta --nota"); process.exit(2); }
+    fs.writeFileSync(path.join(dir, "aprobacion.md"), contenidoCambio(nota));
+    commit(`clave ${slug}: Santiago pide cambios en la idea`, `contenido/claves/flujo/${slug}/aprobacion.md`);
+  } else { console.error(`orden desconocida: ${orden}`); process.exit(2); }
+}
