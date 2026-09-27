@@ -428,6 +428,15 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
 // el lente; un grano que salta se lee como grano de pelicula, que es lo que
 // el ojo espera de algo filmado. La lista es fija a proposito: el render
 // tiene que dar el mismo video dos veces.
+// CUANTO GRANO. La primera version iba en 0,045 y no se veia NADA, y eso se
+// puede calcular en vez de renderizar para mirarlo: el modo overlay sobre una
+// base oscura (#15171A, que en luz es 0,09) da 2*base*ruido, o sea un maximo
+// de 0,18, y a 0,045 de opacidad el pixel se mueve entre 21,9 y 24,0 de 255.
+// Dos niveles. Invisible. Este video es casi todo oscuro, asi que el grano
+// necesita mas de lo que necesitaria sobre material claro: a 0,18 el pixel se
+// mueve entre 18,8 y 27,1, un swing de 8 niveles, que es lo que se lee como
+// grano sin ensuciar la imagen.
+const GRANO_OP = 0.18;
 const SALTOS = [[0, 0], [17, 9], [5, 23], [28, 3], [11, 31], [23, 14], [3, 19], [31, 27]];
 const RUIDO = "data:image/svg+xml;utf8," + encodeURIComponent(
   '<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140">' +
@@ -440,7 +449,7 @@ const Grano: React.FC = () => {
   const [dx, dy] = SALTOS[Math.floor(f / 3) % SALTOS.length];
   return (
     <AbsoluteFill style={{ backgroundImage: `url("${RUIDO}")`, backgroundRepeat: "repeat",
-      backgroundPosition: `${dx}px ${dy}px`, opacity: 0.045, mixBlendMode: "overlay",
+      backgroundPosition: `${dx}px ${dy}px`, opacity: GRANO_OP, mixBlendMode: "overlay",
       pointerEvents: "none" }} />
   );
 };
