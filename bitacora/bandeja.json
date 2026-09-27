@@ -1,11 +1,10 @@
 {
-  "generado": "2026-09-27 00:41",
+  "generado": "2026-09-27 02:28",
   "fecha": "2026-09-27",
-  "total": 16,
+  "total": 15,
   "por_tipo": {
     "clave": 1,
-    "pendiente": 14,
-    "imagen": 1
+    "pendiente": 14
   },
   "items": [
     {
@@ -13,7 +12,7 @@
       "tipo": "clave",
       "titulo": "Clave \"qué obliga a Chile un acuerdo internacional que no es un tratado\": la idea espera tu aprobación",
       "detalle": "Etapa idea_lista, camino idea. Al aprobar, la producción queda para el 2026-09-30 y GPT recién entonces trabaja.",
-      "desde": "2026-09-26",
+      "desde": "2026-09-27",
       "archivo": "contenido/claves/flujo/acuerdo-internacional-sin-tratado/idea.md",
       "acciones": [
         {
@@ -22,12 +21,12 @@
         },
         {
           "texto": "Aprobar la idea",
-          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Facuerdo-internacional-sin-tratado%2Faprobacion.md&value=APROBADA%3A%202026-09-30%0AAPROBO%3A%20Santiago%2C%202026-09-27%2000%3A41%20(hora%20de%20Chile)%0A%0ALa%20entrega%20y%20el%20guion%20llevan%20la%20fecha%202026-09-30%3B%20el%20video%20sube%20programado%20ese%0Ad%C3%ADa%20a%20la%20hora%20de%20la%20Clave.%0A",
+          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Facuerdo-internacional-sin-tratado%2Faprobacion.md&value=APROBADA%3A%202026-09-30%0AAPROBO%3A%20Santiago%2C%202026-09-27%2002%3A28%20(hora%20de%20Chile)%0A%0ALa%20entrega%20y%20el%20guion%20llevan%20la%20fecha%202026-09-30%3B%20el%20video%20sube%20programado%20ese%0Ad%C3%ADa%20a%20la%20hora%20de%20la%20Clave.%0A",
           "crea": true
         },
         {
           "texto": "Pedir cambios",
-          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Facuerdo-internacional-sin-tratado%2Faprobacion.md&value=CAMBIAR%3A%20ESCRIBE%20AQU%C3%8D%20LA%20NOTA%20(qu%C3%A9%20hay%20que%20cambiar)%0APIDIO%3A%20Santiago%2C%202026-09-27%2000%3A41%20(hora%20de%20Chile)%0A%0AGPT%20rehace%20la%20idea%20con%20esta%20nota%20(etapa%20reparar_idea)%3B%20Claude%20la%20valida%20de%0Anuevo%20y%20vuelve%20a%20Santiago.%0A",
+          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Facuerdo-internacional-sin-tratado%2Faprobacion.md&value=CAMBIAR%3A%20ESCRIBE%20AQU%C3%8D%20LA%20NOTA%20(qu%C3%A9%20hay%20que%20cambiar)%0APIDIO%3A%20Santiago%2C%202026-09-27%2002%3A28%20(hora%20de%20Chile)%0A%0AGPT%20rehace%20la%20idea%20con%20esta%20nota%20(etapa%20reparar_idea)%3B%20Claude%20la%20valida%20de%0Anuevo%20y%20vuelve%20a%20Santiago.%0A",
           "crea": true
         }
       ]
@@ -281,20 +280,6 @@
         {
           "texto": "Editar la lista",
           "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
-        }
-      ]
-    },
-    {
-      "id": "imagen-contenido/secciones/pruebas/caratula-2026-09-26.png",
-      "tipo": "imagen",
-      "titulo": "Falta la imagen caratula-2026-09-26.png: el prompt está listo para pegar en ChatGPT",
-      "detalle": "Pedido de imagen en contenido/secciones/PROMPTS-PARA-PEGAR.md, línea 177. Se genera a mano en el chat y se guarda en contenido/secciones/pruebas/caratula-2026-09-26.png.",
-      "desde": "2026-09-27",
-      "archivo": "contenido/secciones/pruebas/caratula-2026-09-26.png",
-      "acciones": [
-        {
-          "texto": "Abrir el prompt para pegar",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/contenido/secciones/PROMPTS-PARA-PEGAR.md#L177"
         }
       ]
     }
