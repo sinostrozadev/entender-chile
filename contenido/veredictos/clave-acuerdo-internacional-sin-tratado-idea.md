@@ -1,43 +1,19 @@
-VEREDICTO: CORREGIR
+VEREDICTO: APROBADA
 VUELTA: 1
 PIEZA: idea
 SLUG: acuerdo-internacional-sin-tratado
 PROMPT: prompts/clave-idea.md
-VALIDADO: 2026-09-27T02:32:07Z
-
-Correcciones:
-1. Dónde: en "El caso de entrada", "El 23-09 la Cámara preparó una
-   interpelación al canciller; el 24-09 Bachelet y Boric pidieron reconsiderar
-   la permanencia" y "El 25-09 el ministro Martín Arrau dijo"; y en "De dónde
-   viene", "el control de la Cámara el 23-09, las objeciones y gestiones ante
-   Senado y Contraloría el 24-09, y la precisión gubernamental del 25-09" ·
-   Regla: prompts/clave-idea.md, sección "Reglas": "Sin rayas largas; fechas
-   DD-MM-AAAA en prosa" (regla dura 35) · Debe quedar: las seis fechas con año,
-   23-09-2026, 24-09-2026 y 25-09-2026 en cada uno de los dos bloques. Y las
-   dos referencias a informes que arrastran un día suelto sin mes ni año,
-   "(informes del 24 y 25-09-2026)" y "(informes del 24 al 26-09-2026)",
-   quedan "(informes del 24-09-2026 y del 25-09-2026)" y "(informes del
-   24-09-2026 al 26-09-2026)". Las otras once fechas del archivo ya están
-   completas y no se tocan.
-2. Dónde: en "Duración y fuentes", "La entrega necesitará Constitución y
-   Biblioteca del Congreso Nacional para tratados; Cancillería para el
-   instrumento de adhesión; Cámara para la interpelación; Senado para la sesión
-   especial; y Contraloría para la presentación" · Regla:
-   prompts/clave-idea.md, bloque "Duración y fuentes": "las tres a cinco
-   fuentes primarias que la entrega va a necesitar (organismo, ley, informe),
-   nombradas" · Debe quedar: una cuenta que no admita dos lecturas. Hoy el
-   primer grupo nombra dos fuentes de distinta clase (la Constitución es ley,
-   la Biblioteca del Congreso Nacional es organismo), así que la lista se lee
-   como cinco o como seis, y seis pasa el tope. Basta dejar el primer grupo
-   como una sola fuente, por ejemplo "la Constitución, en la edición de la
-   Biblioteca del Congreso Nacional, para tratados", y que las otras cuatro
-   queden igual: cinco fuentes contadas sin ambigüedad.
+VALIDADO: 2026-09-27T02:37:28Z
 
 Observaciones:
-Ninguna de estas pide cambios en esta vuelta. Por la regla de convergencia
-(prompts/validador.md, punto 2) lo único que corresponde corregir ahora son las
-dos correcciones de arriba; las tres primeras observaciones son para la entrega,
-si Santiago aprueba la idea.
+Las dos correcciones de la vuelta 1 quedaron aplicadas tal como pedía cada
+"Debe quedar", y el diff entre a9048f7 y 33b59d6 toca solo esos dos bloques ("El
+caso de entrada", "De dónde viene" y "Duración y fuentes"), de modo que la
+corrección no introdujo nada nuevo. Por la regla de convergencia
+(prompts/validador.md, punto 2) no se suman hallazgos sobre partes que la vuelta
+anterior no marcó: lo demás ya quedó verificado ahí. Las observaciones que
+siguen se arrastran del veredicto anterior porque ninguna pedía cambios en esta
+pieza: son para la entrega, si Santiago aprueba la idea.
 
 - Para la pieza siguiente: cuatro de los seis bloques de "Estructura tentativa"
   son coyunturales (gancho de la semana, hitos, qué está en juego ahora, qué
@@ -61,6 +37,11 @@ si Santiago aprueba la idea.
   como la deuda concreta de la entrega: sin esos dos documentos no se pueden
   atribuir obligaciones específicas, y el bloque 2 de la estructura ("verificar
   qué acto creó el mecanismo") sigue abierto.
+- Para la pieza siguiente: las cinco fuentes de "Duración y fuentes" quedaron
+  contables sin ambigüedad, y la primera ahora nombra la Constitución con la
+  edición de la Biblioteca del Congreso Nacional como una sola fuente. La
+  entrega tendrá que citar el artículo constitucional concreto sobre tratados,
+  no la Constitución entera, porque es ahí donde se apoya el bloque 4.
 - Las comillas angulares de "«no es un tratado»" y "«Chile se sumó»" no las
   prohíbe ningún prompt, pero el resto del repo escribe las citas con comillas
   dobles rectas. Unificarlas evitaría que el guion las arrastre a pantalla.
@@ -75,68 +56,35 @@ si Santiago aprueba la idea.
   ocupado que define el prompt, alguien que trabaja y quiere entender en diez
   minutos. Cumple, y ganaría con esa caracterización.
 
-Verificado y conforme:
-- Encabezados: están los ocho exactos del prompt y en su orden ("La promesa",
-  "Las preguntas que responde", "El caso de entrada", "De dónde viene",
-  "Estructura tentativa", "Lo que NO va", "Carátulas", "Duración y fuentes"),
-  más el título en la forma "# Idea de Clave: ...", una sola vez.
-- SLUG, CONCEPTO y NOTICIA DE ORIGEN: el slug es el del flujo; el CONCEPTO es
-  idéntico carácter por carácter al de tema.md (comparadas las dos líneas); la
-  noticia va en la forma "<titular> (<ORIGEN>)" con el ORIGEN literal de
-  tema.md, "tema de la semana 2026-W39".
-- Fidelidad contra la entrada, hecho por hecho, contra los informes de los
-  cuatro días de la línea DIAS: la formalización del 22-09-2026 con "aquí no
-  hay un tratado" y el descarte de operaciones militares está en
-  contenido/informes/2026-09-23.md, líneas 32 y 34; los 15 países y las 25
-  organizaciones, en la línea 32 del mismo; Chile observador y Kast
-  describiéndolo el 14-09-2026, en la línea 36; la interpelación al canciller
-  Francisco Pérez Mackenna, en contenido/informes/2026-09-24.md, línea 16;
-  Bachelet y Boric, la sesión especial del Senado con tres ministros citados y
-  la bancada DC ante Contraloría, en contenido/informes/2026-09-25.md, líneas
-  29 y 37; Arrau y el chequeo que encontró solo dos de las 25 organizaciones
-  presentes en Chile, en contenido/informes/2026-09-26.md, líneas 53 y 55.
-  Ninguna cifra cambia de valor y no hay ninguna que los informes no traigan.
-- El desfase entre fecha del hecho y fecha del informe está bien resuelto en
-  las seis atribuciones del archivo: cada hecho se atribuye al informe del día
-  siguiente, que es donde efectivamente está.
-- "Las preguntas que responde": cinco, dentro del rango de tres a cinco, cada
-  una en su propia línea y en el orden de los bloques.
-- "El caso de entrada": tres frases de hechos fechados más la frase que dice
-  que el asunto volvió cuatro días y por qué sin el concepto el debate queda
-  reducido a una etiqueta. Es lo que pide el prompt. El bloque no lleva
-  saltos de línea, pero el prompt solo exige línea por ítem donde lo dice
-  expresamente ("cada una de una línea", "uno por línea"), y acá no lo dice.
-- "De dónde viene": cinco frases, dentro del rango de tres a cinco, con el
-  primer antecedente que el material sostiene y con la falta declarada en una
-  línea en vez de rellenada, que es exactamente la salida que el prompt
-  autoriza.
-- "Estructura tentativa": seis bloques, uno por línea, en el orden que fija el
-  prompt, y las únicas cifras que aparecen (cuatro días, 15 países, 25
-  organizaciones) están en los informes.
-- Carátulas: tres, cada una en dos líneas separadas por " / ", con tres, tres,
-  tres, tres, dos y dos palabras por línea, todas bajo el tope de cuatro.
-  Contadas una por una. Las tres son preguntas o la cita de la posición del
-  Gobierno, ninguna adelanta la conclusión, y la tercera lleva su referencia
-  (informe del 23-09-2026), que es lo que pide el rótulo "cifra con
-  referencia".
-- Duración: 10 a 12 minutos, dentro del rango de 8 a 12, y con el porqué.
-- Extensión: 543 palabras en el cuerpo y 622 con título y encabezados, dentro
-  del rango de 400 a 700.
-- Sin clickbait, sin morbo y sin sospecha sin fallo: el archivo descarta
-  expresamente afirmar que la adhesión autoriza operaciones militares y separa
-  compromisos documentados de afirmaciones de las partes.
+Verificado y conforme en esta vuelta:
+- Corrección 1 (fechas DD-MM-AAAA, regla dura 35): las seis fechas sueltas que
+  faltaban quedaron con año, "el 23-09-2026 la Cámara", "el 24-09-2026 Bachelet
+  y Boric" y "El 25-09-2026 el ministro" en "El caso de entrada", y "el control
+  de la Cámara el 23-09-2026", "Senado y Contraloría el 24-09-2026" y "la
+  precisión gubernamental del 25-09-2026" en "De dónde viene". Las dos
+  referencias a informes quedaron "(informes del 24-09-2026 y del 25-09-2026)" y
+  "(informes del 24-09-2026 al 26-09-2026)", literalmente lo que pedía el "Debe
+  quedar". Contadas todas las fechas del archivo: diecinueve, y las diecinueve
+  en DD-MM-AAAA. Buscado el formato AAAA-MM-DD en prosa: no aparece (la única
+  marca con año adelante es "2026-W39", que es el ORIGEN literal de tema.md).
+- Corrección 2 (cuenta de fuentes): "La entrega necesitará la Constitución, en
+  la edición de la Biblioteca del Congreso Nacional, para tratados; Cancillería
+  para el instrumento de adhesión; Cámara para la interpelación; Senado para la
+  sesión especial; y Contraloría para la presentación". Son cinco fuentes y solo
+  cinco, dentro del rango de tres a cinco del bloque "Duración y fuentes", sin
+  la doble lectura que costó la vuelta anterior.
+- Alcance del cambio: el diff entre las dos versiones toca tres párrafos y nada
+  más. Encabezados, título, SLUG, CONCEPTO, NOTICIA DE ORIGEN, "La promesa",
+  "Las preguntas que responde", "Estructura tentativa", "Lo que NO va" y
+  "Carátulas" llegan idénticos a la versión ya validada, así que su verificación
+  del veredicto anterior sigue en pie.
 - Rayas: buscadas la raya larga y la raya media en el archivo completo, no hay
-  ninguna. Tampoco hay fechas en formato AAAA-MM-DD en la prosa.
-- El concepto no tiene Clave en contenido/claves/indice.md: leídas sus 24
-  líneas, ninguna cubre qué obliga un acuerdo internacional que no es tratado,
-  así que la exigencia de declarar una dimensión nueva no se activa.
-- No existe contenido/claves/flujo/acuerdo-internacional-sin-tratado/
-  aprobacion.md: listada la carpeta, solo tiene idea.md y tema.md, de modo que
-  no hay nota CAMBIAR: de Santiago que atender. tema.md tampoco trae línea
-  DOSSIER:, buscada explícitamente, así que el material era el de los cuatro
-  informes y contenido/claves/semana/2026-W39-candidatos.md.
-- Contrato de archivos: la pieza está en la ruta que nombra el estado,
+  ninguna.
+- Extensión: 549 palabras de cuerpo y 628 con título y encabezados, dentro del
+  rango de 400 a 700 que fija el prompt. La corrección sumó palabras (los años
+  de las fechas y el giro de la primera fuente) y aun así no roza el tope.
+- Contrato de archivos: la pieza sigue en la ruta que nombra el estado,
   contenido/claves/flujo/acuerdo-internacional-sin-tratado/idea.md, y el commit
-  a9048f7 usa el encabezado que manda su prompt ("clave
+  33b59d6 usa el encabezado que manda su prompt ("clave
   acuerdo-internacional-sin-tratado: idea propuesta") con el cuerpo "Tarea:
   despachador", y toca un solo archivo, el suyo.
