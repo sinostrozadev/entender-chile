@@ -76,15 +76,20 @@ export type Plan = {
 const TINTE = 0.3;
 const GRABADO = 0.085;
 
-export const Tratamiento: React.FC<{ categoria?: string | null; escala?: number }> = ({ categoria, escala = 1 }) => {
+// (27-09) El GRABADO va solo cuando NO hay imagen propia: las imágenes de
+// sección ya traen su motivo y el pictograma encima se leía como una mancha
+// (Santiago lo vio en el video de prueba). El tinte sí va siempre.
+export const Tratamiento: React.FC<{ categoria?: string | null; escala?: number; conImagen?: boolean }> = ({ categoria, escala = 1, conImagen = false }) => {
   if (!categoria) return null;
   return (
     <>
       <AbsoluteFill style={{ backgroundColor: colorDeSeccion(categoria), opacity: TINTE, mixBlendMode: "color" }} />
+      {conImagen ? null : (
       <div style={{ position: "absolute", right: -60 * escala, bottom: -90 * escala,
         width: 620 * escala, height: 620 * escala, opacity: GRABADO }}>
         <Picto nombre={categoria} color="#FFFFFF" />
       </div>
+      )}
     </>
   );
 };
@@ -102,7 +107,7 @@ const Cara: React.FC<{ b: Baldosa; activa: boolean; z: number }> = ({ b, activa,
       opacity: activa ? 1 : 0.78 }}>
       {b.imagen ? <Img src={staticFile(b.imagen)} style={{ position: "absolute", inset: 0,
         width: "100%", height: "100%", objectFit: "cover" }} /> : null}
-      <Tratamiento categoria={b.categoria} escala={CAJA / 1920} />
+      <Tratamiento categoria={b.categoria} escala={CAJA / 1920} conImagen={!!b.imagen} />
       {/* EL EMPALME. Lo que el ojo lee como salto no es el zoom: es que la
           baldosa llena el cuadro con un velo diagonal y el bloque que viene
           después lo tiene a la mitad, de izquierda a derecha. Al llegar, la
@@ -218,7 +223,7 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
         // el color de un tema (colorDeSeccion los mandaba a todos a la pátina)
         <AbsoluteFill style={{ backgroundColor: b.categoria ? colorDeSeccion(b.categoria) : GRAFITO }} />
       )}
-      <Tratamiento categoria={b.categoria} />
+      <Tratamiento categoria={b.categoria} conImagen={!!b.imagen} />
       {/* sin imagen el velo es más suave: si no, el color de la sección, que
           es lo único que la identifica ahí, se apaga hasta desaparecer */}
       <AbsoluteFill style={{ background: velo(b.imagen ? avance : Math.min(avance, 0.62), false) }} />

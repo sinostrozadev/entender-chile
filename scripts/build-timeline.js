@@ -221,6 +221,23 @@ const timeline = {
 // armado (las secciones con sus tiempos definitivos). Sin la variable no se
 // agrega nada y el archivo sale idéntico al de siempre.
 if (SECUENCIA === "2409") {
+  // La portada de la secuencia es la ilustración del día (contenido/caratulas/
+  // FECHA.png, la que genera GPT). Se copia a public/caratulas/ porque Remotion
+  // solo sirve desde public, igual que hace miniaturas.js, y se anota en
+  // meta.caratula para que el plan la use. Sin ilustración no hay portada y
+  // la secuencia arranca en la principal, sin frenar nada (27-09).
+  try {
+    const fechaDia = timeline.meta.fecha;
+    for (const ext of ["png", "jpg", "jpeg", "webp"]) {
+      const orig = path.join("contenido", "caratulas", `${fechaDia}.${ext}`);
+      if (fs.existsSync(orig)) {
+        fs.mkdirSync(path.join("public", "caratulas"), { recursive: true });
+        fs.copyFileSync(orig, path.join("public", "caratulas", path.basename(orig)));
+        timeline.meta.caratula = `caratulas/${path.basename(orig)}`;
+        break;
+      }
+    }
+  } catch (e) { console.warn(`portada: ${e.message}`); }
   const { planear } = require("./secuencia-plan.js");
   const plan = planear(timeline);
   if (plan) timeline.meta.secuencia = plan;

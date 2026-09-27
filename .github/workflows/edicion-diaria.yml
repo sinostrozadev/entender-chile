@@ -164,6 +164,10 @@ jobs:
           AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           VOICE_ID: ${{ secrets.VOICE_ID }}
+          # (27-09) la secuencia aprobada el 24-09 (imagen de sección toda la
+          # sección, oscurecida, texto encima) entra a producción por decisión
+          # de Santiago tras ver el video de prueba. Vacío = montaje anterior.
+          SECUENCIA: "2409"
         if: env.SALTAR != '1' && env.HAY_INFORME != '1'
         run: |
           if { [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; } || { [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; }; then VOZ="--voz"; else VOZ=""; echo "Sin secrets de voz: video mudo de prueba."; fi
