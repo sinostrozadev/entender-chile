@@ -417,6 +417,34 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
   );
 };
 
+// EL GRANO (27-09-2026). Es lo que usan los documentales para que un cuadro
+// quieto no se sienta muerto: una capa de textura finisima que se mueve sola.
+// Va ARRIBA DE TODO y cubre el video entero, no una pieza: asi no puede
+// delatar ningun empalme, que es el riesgo de cualquier efecto que este de un
+// lado de un corte y no del otro.
+//
+// No se desliza, SALTA: cambia de posicion cada tres cuadros a un punto
+// distinto de una lista fija. Un grano que se desliza se lee como suciedad en
+// el lente; un grano que salta se lee como grano de pelicula, que es lo que
+// el ojo espera de algo filmado. La lista es fija a proposito: el render
+// tiene que dar el mismo video dos veces.
+const SALTOS = [[0, 0], [17, 9], [5, 23], [28, 3], [11, 31], [23, 14], [3, 19], [31, 27]];
+const RUIDO = "data:image/svg+xml;utf8," + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140">' +
+  '<filter id="r"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/>' +
+  '<feColorMatrix type="saturate" values="0"/></filter>' +
+  '<rect width="140" height="140" filter="url(#r)"/></svg>');
+
+const Grano: React.FC = () => {
+  const f = useCurrentFrame();
+  const [dx, dy] = SALTOS[Math.floor(f / 3) % SALTOS.length];
+  return (
+    <AbsoluteFill style={{ backgroundImage: `url("${RUIDO}")`, backgroundRepeat: "repeat",
+      backgroundPosition: `${dx}px ${dy}px`, opacity: 0.045, mixBlendMode: "overlay",
+      pointerEvents: "none" }} />
+  );
+};
+
 // ── el informe entero ────────────────────────────────────────────────────
 export type PropsSecuencia = {
   meta: {
@@ -490,6 +518,9 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
           </Sequence>
         );
       })}
+
+      {/* el grano va al final del arbol: encima de todo lo demas */}
+      <Grano />
 
       {tl.meta.cierre ? (
         <Sequence from={Math.max(0, f(tl.meta.duracionSeg - 3.2))}>
