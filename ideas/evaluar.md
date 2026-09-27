@@ -226,3 +226,29 @@ madrugada" en ejecutar.md, 2026-08-24.)
 - **Esfuerzo:** medio-alto, migrable en 5 pasos de una noche cada uno.
 - **Diseño:** `bitacora/2026-09-08-propuesta-maquina-de-estados.md`.
 
+
+## 27-09-2026 · Dos ideas de Santiago sobre el mosaico y el fondo (madrugada)
+
+**1. El trencito no se detiene.** Hoy la fila de baldosas se mueve cuando la
+cámara está lejos y se queda quieta cuando una baldosa llena la pantalla.
+Santiago quiere lo contrario: la fila del fondo sigue avanzando siempre, como
+un trencito; la baldosa elegida se agranda hacia el frente para contar su
+noticia y después vuelve a su lugar en la fila, que nunca dejó de moverse.
+Qué pensar antes de probarlo: el movimiento detrás del texto compite con la
+lectura (el velo lo amortigua); y si la fila avanzó mientras la baldosa
+estaba al frente, al volver tiene que caer en el lugar donde la fila va
+ahora, no donde estaba. Se prueba primero en el banco (src/taller-*.tsx) y en
+un tablero, antes de tocar la secuencia de producción.
+
+**2. El fondo es nuestro diario.** Que detrás del video esté la página del
+diario que ya publicamos en la web (la edición del día en HTML), y que cada
+noticia salga de ahí: la cámara va a la noticia en la página y se abre el
+cuadro con la tarjeta. Idea fuerte de identidad: web y video son la misma
+cosa, y el que vio el video reconoce la página, y al revés. Qué hace falta:
+tener la página del día como componente de Remotion (el mismo contenido que
+genera web/, con su tipografía y su grilla) o como captura; el "abrir" es un
+zoom desde la posición de la noticia en la página hasta la tarjeta a pantalla
+completa. Riesgo: la página con muchas noticias se ve pequeña y con texto
+ilegible de fondo; se resuelve con el velo y con mostrar solo la zona de la
+noticia. Se propone como variante del mosaico, no como reemplazo, y se
+decide sobre un tablero renderizado.
