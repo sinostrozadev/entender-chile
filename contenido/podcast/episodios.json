@@ -393,5 +393,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-26-informe.mp3",
     "bytes": 16235712,
     "durSeg": 676
+  },
+  {
+    "fecha": "2026-09-27",
+    "tipo": "informe",
+    "titulo": "27-09-2026 · Temporal deja más de 12 mil personas aisladas en el centro-sur",
+    "descripcion": "El temporal mantiene miles de personas aisladas y cientos de damnificados en tres regiones. También revisamos las alzas proyectadas para los combustibles, la percepción de emergencia laboral y las principales noticias políticas, económicas e internacionales.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-27-informe.mp3",
+    "bytes": 17237376,
+    "durSeg": 718
   }
 ]
