@@ -45,6 +45,8 @@ const GRAFITO = "#3A3D42";
 const SALIDA_SEG = 0.9;
 // Lo que tarda el texto en apagarse, justo antes de que empiece la salida.
 const APAGADO_SEG = 0.45;
+// Cuánto antes de la salida tiene que estar el texto ya apagado.
+const ANTES_SEG = 1;
 const sv = { easing: Easing.inOut(Easing.ease), extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
 
 // ── el plan que llega en meta.secuencia ──────────────────────────────────
@@ -322,7 +324,11 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
   // tramo, así que el orden en pantalla es el que él dictó: se lee, se apaga,
   // se va. No le quita tiempo a nadie: el fundido pasa dentro de los cuadros
   // que la tarjeta ya tenía.
-  const apagado = interpolate(f, [salidaDesde - Math.round(fps * APAGADO_SEG), salidaDesde], [1, 0], sv);
+  // y termina de apagarse ANTES_SEG antes de que empiece la salida, para que
+  // quede un respiro de imagen sola entre el último texto y el viaje de la
+  // cámara (27-09-2026, Santiago: "haz que el texto desvanezca 1 s antes").
+  const cierra = salidaDesde - Math.round(fps * ANTES_SEG);
+  const apagado = interpolate(f, [cierra - Math.round(fps * APAGADO_SEG), cierra], [1, 0], sv);
   return (
     <AbsoluteFill style={{ backgroundColor: "#15171A" }}>
       {/* sin imagen propia, el fondo es el color de la sección: el grabado
@@ -373,7 +379,7 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
   const { fps } = useVideoConfig();
   const f = (s: number) => Math.round(s * fps);
   const plan = tl.meta.secuencia as Plan;
-  const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte);
+  const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte && !e.muda);
   const HOLD = Math.round(fps * 0.3);
 
   return (

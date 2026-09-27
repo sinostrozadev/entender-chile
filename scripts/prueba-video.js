@@ -210,7 +210,7 @@ const construirCorto = () => {
   const SEG = Number(process.env.SEGUNDOS_POR_SECCION || 4);
   const HUECO = 0.2;
   const overlays = tl.eventos.filter((e) => e.overlay);
-  const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte);
+  const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte && !e.muda);
   const portada = ilustracion || null;
   const eventos = [];
   // Solo se puede comparar la sección que TIENE imagen de prueba: en las demás
@@ -292,7 +292,7 @@ const construirCortoSecuencia = () => {
   const SEG = Number(process.env.SEGUNDOS_POR_SECCION || 4);
   const HUECO = 0.2;
   const overlays = tl.eventos.filter((e) => e.overlay);
-  const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte);
+  const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte && !e.muda);
   const portada = ilustracion || null;
   const portadaSeg = portada ? PORTADA_SEG : 0;
   const eventos = [];

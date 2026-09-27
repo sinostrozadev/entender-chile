@@ -15,6 +15,9 @@ export type Evento = {
   automatico?: boolean;        // cifra que el sistema sacó del párrafo (no la eligió el guion)
   etiqueta?: "hecho" | "interpretacion" | null;
   soporte?: boolean;
+  // la entrada hablada de una sección: existe en el timeline porque ocupa
+  // tiempo de voz y porque el banner se ancla a ella, pero no se pinta (27-09)
+  muda?: boolean;
   overlay?: boolean;
   autor?: string;
   fuente?: string;

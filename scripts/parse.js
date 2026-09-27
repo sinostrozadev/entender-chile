@@ -19,6 +19,20 @@
  * "(bien)", "(mal)", "(igual)". Un valor puede ser solo el indicador: la
  * tarjeta muestra la etiqueta grande con la flecha ("Empleo formal (baja)").
  */
+// LA ENTRADA HABLADA DE CADA SECCIÓN (27-09-2026). Apagada por defecto: es un
+// cambio en lo que el locutor DICE, no en cómo se ve, así que no entra a una
+// edición al aire hasta que Santiago la escuche. ENTRADA_VOZ=1 la enciende.
+const ENTRADA_VOZ = process.env.ENTRADA_VOZ === "1";
+// Conectores que funcionan con cualquier título, lleve artículo o no: son
+// apósitos, no rigen al sustantivo. "Seguimos con" se cayó justo por eso,
+// porque los títulos del informe suelen venir sin artículo ("Temporal en el
+// centro-sur") y quedaba "seguimos con temporal".
+const CONECTORES = ["Ahora,", "Enseguida,"];
+// Las de estructura no se anuncian: "Ahora, cierre" no le dice nada a nadie.
+const ESTRUCTURA = /^(apertura|la noticia del d[ií]a|en titulares|agenda|cierre|¿en qu[eé] qued[oó]\?)$/i;
+// La voz no lee guiones: "centro-sur" se dice "centro sur".
+const paraLaVoz = (s) => s.replace(/-/g, " ").replace(/\s+/g, " ").trim();
+
 const fs = require("fs");
 const path = require("path");
 const { aNumerales, formatoCifra } = require("./numerales");
@@ -135,6 +149,7 @@ function parseGuion(md) {
   const eventos = [];
   let buffer = null; // párrafo narrado en construcción
   let seccionNombre = "";
+  let nEntradas = 0;
 
   const flush = () => {
     if (buffer && buffer.lineas.length) {
@@ -188,6 +203,24 @@ function parseGuion(md) {
       const texto = (m ? m[1] : bruto).trim();
       const categoria = m ? m[2].toLowerCase() : null;
       eventos.push({ tipo: "seccion", texto, ...(categoria ? { categoria } : {}) });
+      // LA ENTRADA HABLADA (27-09-2026, decisión de Santiago: "que lo lea con
+      // una entrada... que no lo lea textual, pero sí que mencione el cambio").
+      //
+      // No es adorno: es lo que CREA el silencio. La cabecera de una sección
+      // solo puede durar lo que la voz le deje libre, y hasta hoy no le dejaba
+      // nada, así que el informe del 27-09 salió sin un solo título en
+      // pantalla. Con la entrada, el locutor anuncia el cambio, el banner
+      // arranca ahí (se ancla a ella) y la primera tarjeta entra después: el
+      // título tiene su tiempo sin quitárselo a ninguna noticia.
+      //
+      // No se lee el rótulo a secas ("Temporal en el centro sur"), que suena a
+      // índice: va con un conector que avisa el cambio, alternado para que no
+      // se vuelva muletilla. Las secciones de estructura no llevan: anunciar
+      // "Ahora, cierre" no le dice nada a nadie.
+      if (ENTRADA_VOZ && !ESTRUCTURA.test(texto) && eventos.some((e) => e.tipo === "seccion" && e.texto !== texto)) {
+        const conector = CONECTORES[nEntradas++ % CONECTORES.length];
+        eventos.push({ tipo: "entrada", texto: `${conector} ${paraLaVoz(texto)}.`, _seccionNombre: texto });
+      }
       seccionNombre = texto;
       continue;
     }
@@ -346,7 +379,7 @@ function parseGuion(md) {
   const SEP = "\n\n";
   let ultimoNarradoIdx = -1;
   eventos.forEach((ev, i) => {
-    const narrado = ev.tipo === "tesis" || ev.tipo === "narracion" || ev.tipo === "cita";
+    const narrado = ev.tipo === "tesis" || ev.tipo === "narracion" || ev.tipo === "cita" || ev.tipo === "entrada";
     if (narrado) {
       if (cleanText) cleanText += SEP;
       ev.charStart = cleanText.length;

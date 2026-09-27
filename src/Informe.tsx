@@ -129,7 +129,7 @@ const InformeTarjetas: React.FC<Timeline> = (tl) => {
   const f = (s: number) => Math.round(s * fps);
   const HOLD = Math.round(fps * 0.3); // pequeña cola para que no haya huecos entre tarjetas
 
-  const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte);
+  const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte && !e.muda);
   const overlays = tl.eventos.filter((e) => e.overlay);
   // Las baldosas del mosaico son las secciones del día, en el orden del
   // guion. La fila se BARAJA con la fecha adentro del componente; el orden de

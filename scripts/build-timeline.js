@@ -100,6 +100,10 @@ parsed.eventos.forEach((ev, idx) => {
       if (ev._categoria) out.categoria = ev._categoria;
       if (ev.etiqueta) out.etiqueta = ev.etiqueta;
       if (ev.soporte) out.soporte = true;
+      // la entrada hablada existe en el timeline para que el banner se ancle a
+      // ella y para que se vea cuánto dura, pero no se pinta: es voz, no
+      // tarjeta (27-09-2026)
+      if (ev.tipo === "entrada") out.muda = true;
       if (ev.tipo === "cita") { out.autor = ev.autor; out.fuente = ev.fuente; }
       porIndice.set(idx, out);
       eventos.push(out);

@@ -82,7 +82,7 @@ const imagenDeSeccion = (tl, categoria) => {
 const planear = (tl, opciones = {}) => {
   const overlays = (tl.eventos || []).filter((e) => e.overlay);
   if (overlays.length < 2) return null;
-  const tarjetas = (tl.eventos || []).filter((e) => !e.overlay && !e.soporte);
+  const tarjetas = (tl.eventos || []).filter((e) => !e.overlay && !e.soporte && !e.muda);
   const portada = opciones.portada || tl.meta.portada || tl.meta.caratula || null;
   const portadaSeg = portada ? (opciones.portadaSeg ?? tl.meta.portadaSeg ?? 3.5) : 0;
   const paseoSeg = opciones.paseoSeg ?? PASEO_SEG;
