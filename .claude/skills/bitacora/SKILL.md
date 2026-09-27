@@ -132,6 +132,14 @@ algo, van a `estrategia/decisiones.md`.
    sacar lo que dejó de tener sentido.
 3. Si hubo una decisión de fondo, registrarla también en
    `estrategia/decisiones.md` con el formato que ya usa ese archivo.
+4. Correr `node scripts/bandeja.js` y **commitear `bitacora/bandeja.json` si
+   cambió**: es la lista de lo que espera decisión de Santiago, y la leen el
+   informe de la mañana y el aviso a su teléfono. Cerrar el día sin
+   recalcularla deja pidiendo decisiones ya tomadas.
+5. Regenerar el Taller (`node scripts/taller.js`) y **republicarlo a su URL
+   fija** (la que anota `bitacora/2026-09-26.md`). En ese orden: el Taller lee
+   el json de la bandeja. `bitacora/taller.html` está en `.gitignore`, así que
+   lo que Santiago abre es la publicación, no el repo.
 
 Escribir para alguien que llega cansado a las nueve de la noche: la lista
 de ejecución tiene que poder seguirse sin releer la conversación.

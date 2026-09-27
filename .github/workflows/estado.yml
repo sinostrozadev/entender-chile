@@ -246,6 +246,26 @@ jobs:
               case "$CODIGO" in 2*) echo "SUPLENTE despertado por API para $ETAPA: $(head -c 200 /tmp/fire-s.json)";; *) echo "::warning::no se pudo despertar al suplente (HTTP $CODIGO)";; esac
             fi
           fi
+          # AVISO a Santiago (27-09): bloqueado_humano es la única etapa del día
+          # que NO se destraba sola. La pone el validador al agotar el tope de
+          # vueltas, y hasta ahora solo se veía entrando al repo o al Taller: la
+          # cadena quedaba muerta con la publicación acercándose. Se despierta la
+          # misma rutina, que en MODO AVISADOR (prompts/validador.md, punto 0)
+          # comprueba bitacora/bandeja.json y manda UNA notificación push. Marca
+          # propia (ultimo-aviso.txt) para no pisar el dedup del validador ni el
+          # del suplente: las tres cosas pueden pasar el mismo día.
+          if [ "$ETAPA" = "bloqueado_humano" ] && [ -n "$REVISION_ID" ] && [ -n "$REVISION_TOKEN" ]; then
+            MARCA_A="contenido/estado/ultimo-aviso.txt"
+            git checkout -q main 2>/dev/null || true; git fetch -q origin main && git reset -q --hard origin/main
+            if [ "$(cat "$MARCA_A" 2>/dev/null)" = "$FECHA $ETAPA $VUELTA" ]; then echo "aviso ya enviado para $ETAPA (vuelta $VUELTA)"; else
+              echo "$FECHA $ETAPA $VUELTA" > "$MARCA_A"; git add "$MARCA_A"; git commit -q -m "aviso a Santiago $FECHA: $ETAPA (vuelta $VUELTA) [bot]"; git push -q origin main || echo "::warning::marca del aviso no pusheada; se avisa igual"
+              BODY=$(printf '{"text":"AVISO a Santiago: la edicion del %s quedo BLOQUEADA en la pieza %s (vuelta %s) y no avanza sin el. Estas en MODO AVISADOR (prompts/validador.md, punto 0): comprueba bitacora/bandeja.json y manda UNA notificacion push."}' "$FECHA" "$(grep -m1 '^PIEZA:' "$VISTA" | cut -d' ' -f2-)" "$VUELTA")
+              CODIGO=$(curl -sS -o /tmp/fire-a.json -w '%{http_code}' -X POST "https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire" \
+                -H "Authorization: Bearer $REVISION_TOKEN" -H "anthropic-beta: experimental-cc-routine-2026-04-01" -H "anthropic-version: 2023-06-01" -H "content-type: application/json" -d "$BODY" || echo 000)
+              case "$CODIGO" in 2*) echo "AVISO disparado: $(head -c 200 /tmp/fire-a.json)";; *) echo "::warning::no se pudo disparar el aviso (HTTP $CODIGO); el Taller y el informe de la mañana lo muestran igual";; esac
+            fi
+          fi
+
           gh pr list --head automatizacion/estado --state open --json number -q '.[0].number' | grep -q . \
             || gh pr create --base main --head automatizacion/estado \
                  --title "🔔 Estado del día — disparador único de GPT (no fusionar)" \

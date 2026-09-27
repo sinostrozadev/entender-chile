@@ -1,0 +1,302 @@
+{
+  "generado": "2026-09-27 00:34",
+  "fecha": "2026-09-27",
+  "total": 16,
+  "por_tipo": {
+    "clave": 1,
+    "pendiente": 14,
+    "imagen": 1
+  },
+  "items": [
+    {
+      "id": "clave-acuerdo-internacional-sin-tratado-idea_lista",
+      "tipo": "clave",
+      "titulo": "Clave \"qué obliga a Chile un acuerdo internacional que no es un tratado\": la idea espera tu aprobación",
+      "detalle": "Etapa idea_lista, camino idea. Al aprobar, la producción queda para el 2026-09-30 y GPT recién entonces trabaja.",
+      "desde": "2026-09-26",
+      "archivo": "contenido/claves/flujo/acuerdo-internacional-sin-tratado/idea.md",
+      "acciones": [
+        {
+          "texto": "Leer la idea",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/contenido/claves/flujo/acuerdo-internacional-sin-tratado/idea.md"
+        },
+        {
+          "texto": "Aprobar la idea",
+          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Facuerdo-internacional-sin-tratado%2Faprobacion.md&value=APROBADA%3A%202026-09-30%0AAPROBO%3A%20Santiago%2C%202026-09-27%2000%3A34%20(hora%20de%20Chile)%0A%0ALa%20entrega%20y%20el%20guion%20llevan%20la%20fecha%202026-09-30%3B%20el%20video%20sube%20programado%20ese%0Ad%C3%ADa%20a%20la%20hora%20de%20la%20Clave.%0A",
+          "crea": true
+        },
+        {
+          "texto": "Pedir cambios",
+          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Facuerdo-internacional-sin-tratado%2Faprobacion.md&value=CAMBIAR%3A%20ESCRIBE%20AQU%C3%8D%20LA%20NOTA%20(qu%C3%A9%20hay%20que%20cambiar)%0APIDIO%3A%20Santiago%2C%202026-09-27%2000%3A34%20(hora%20de%20Chile)%0A%0AGPT%20rehace%20la%20idea%20con%20esta%20nota%20(etapa%20reparar_idea)%3B%20Claude%20la%20valida%20de%0Anuevo%20y%20vuelve%20a%20Santiago.%0A",
+          "crea": true
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L452",
+      "tipo": "pendiente",
+      "titulo": "22-09, HOY: la cadena se congeló en el informe, revisar/relanzar la",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 452.",
+      "desde": "2026-09-22",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L452"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L435",
+      "tipo": "pendiente",
+      "titulo": "23-09, HOY: el video del informe de hoy publica a las 07:30 con dos",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 435.",
+      "desde": "2026-09-23",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L435"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L470",
+      "tipo": "pendiente",
+      "titulo": "PR #5, abierto desde el 11-09: fusionarlo o cerrarlo. Trae la",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 470.",
+      "desde": "2026-09-26",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L470"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L511",
+      "tipo": "pendiente",
+      "titulo": "Fondos: elegir intensidad en las láminas de Descargas",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 511.",
+      "desde": "2026-09-26",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L511"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L517",
+      "tipo": "pendiente",
+      "titulo": "Reservar el handle @entenderchile en TikTok e Instagram (no",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 517.",
+      "desde": "2026-09-26",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L517"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L519",
+      "tipo": "pendiente",
+      "titulo": "Funciones avanzadas de YouTube: Settings → Channel → Feature",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 519.",
+      "desde": "2026-09-26",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L519"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L522",
+      "tipo": "pendiente",
+      "titulo": "Voz de respaldo S0 (~día 17 del mes): segundo recurso Speech plan",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 522.",
+      "desde": "2026-09-26",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L522"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L525",
+      "tipo": "pendiente",
+      "titulo": "Facebook: el Reel diario de la fase 1 (dos semanas midiendo antes",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 525.",
+      "desde": "2026-09-26",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L525"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L527",
+      "tipo": "pendiente",
+      "titulo": "Tagline: sigue en duda \"El resumen sin gritos\"; alternativas en",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 527.",
+      "desde": "2026-09-26",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L527"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L529",
+      "tipo": "pendiente",
+      "titulo": "Música de los Shorts: elegir una pista en la Biblioteca de audio",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 529.",
+      "desde": "2026-09-26",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L529"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L531",
+      "tipo": "pendiente",
+      "titulo": "Noticias que faltaron el 29 según tu ojo: nombrarlas para rastrear",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 531.",
+      "desde": "2026-09-26",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L531"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L533",
+      "tipo": "pendiente",
+      "titulo": "Notificaciones: permitir que la app de Claude se salte el modo",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 533.",
+      "desde": "2026-09-26",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L533"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L321",
+      "tipo": "pendiente",
+      "titulo": "27-09: nombre de la Clave semanal. Santiago quiere evaluar un",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 321.",
+      "desde": "2026-09-27",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L321"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L326",
+      "tipo": "pendiente",
+      "titulo": "27-09 (domingo): elegir el tema de la semana 39. Los tres",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 326.",
+      "desde": "2026-09-27",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L326"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "imagen-contenido/secciones/pruebas/caratula-2026-09-26.png",
+      "tipo": "imagen",
+      "titulo": "Falta la imagen caratula-2026-09-26.png: el prompt está listo para pegar en ChatGPT",
+      "detalle": "Pedido de imagen en contenido/secciones/PROMPTS-PARA-PEGAR.md, línea 177. Se genera a mano en el chat y se guarda en contenido/secciones/pruebas/caratula-2026-09-26.png.",
+      "desde": "2026-09-26",
+      "archivo": "contenido/secciones/pruebas/caratula-2026-09-26.png",
+      "acciones": [
+        {
+          "texto": "Abrir el prompt para pegar",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/contenido/secciones/PROMPTS-PARA-PEGAR.md#L177"
+        }
+      ]
+    }
+  ]
+}

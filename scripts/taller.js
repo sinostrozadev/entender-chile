@@ -1,10 +1,19 @@
 #!/usr/bin/env node
 /**
- * taller.js - El Taller de una página, fase 2: SIETE módulos en un solo
- * HTML autocontenido (Hoy, Semana, Clave, Medir, Experimentos, Prompts, Flujos
- * y rutinas), con botones que abren GitHub con el trabajo ya hecho.
+ * taller.js - El Taller de una página, fase 2: OCHO módulos en un solo HTML
+ * autocontenido (Bandeja, Hoy, Semana, Clave, Medir, Experimentos, Prompts,
+ * Flujos y rutinas), con botones que abren GitHub con el trabajo ya hecho.
  * Especificación validada por Santiago en la sección D de
  * bitacora/2026-09-26-propuesta-limpieza-y-taller.md.
+ *
+ * La BANDEJA es del 27-09-2026 ("crea en el Taller un sistema de
+ * notificaciones: cuando algo necesita mi aprobación, que lo pueda ver ahí") y
+ * va PRIMERA con un contador en la pestaña y en el título de la página: lo que
+ * espera una decisión suya tiene que verse antes de abrir nada. No la calcula
+ * este script: la calcula scripts/bandeja.js en bitacora/bandeja.json, porque
+ * la misma lista la leen el informe de la mañana y la rutina que manda el aviso
+ * al teléfono, y tres cálculos distintos de "qué está esperando" habrían dado
+ * tres respuestas distintas.
  *
  * Por qué los botones son enlaces a GitHub y no un formulario: la fase 1
  * (20-09) solo leía, y cada decisión de Santiago volvía al chat o a la consola.
@@ -34,6 +43,7 @@ const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
 const clave = require("./clave.js");
+const { urlVer, urlEditar, urlNuevo, urlFlujo } = require("./botones.js");
 
 const RAIZ = path.join(__dirname, "..");
 const args = process.argv.slice(2);
@@ -61,11 +71,9 @@ const corta = (s, n) => (s.length > n ? `${s.slice(0, n)}…` : s);
 const inline = (s) => esc(s).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
 
 // ---------- los enlaces a GitHub: la única forma de decidir sin tokens
-const REPO = "https://github.com/sinostrozadev/entender-chile";
-const urlVer = (ruta) => `${REPO}/blob/main/${ruta}`;
-const urlEditar = (ruta) => `${REPO}/edit/main/${ruta}`;
-const urlNuevo = (ruta, contenido) => `${REPO}/new/main?filename=${encodeURIComponent(ruta)}&value=${encodeURIComponent(contenido)}`;
-const urlFlujo = (archivo) => `${REPO}/actions/workflows/${archivo}`;
+// Las URL salen de scripts/botones.js, que comparte con scripts/bandeja.js: el
+// href de un botón del Taller y el del mismo botón en la Bandeja tienen que ser
+// el mismo, porque ese push es el que mueve la máquina.
 const boton = (href, texto, ayuda = "", clase = "") => `<span class="boton"><a class="btn${clase ? ` ${clase}` : ""}" href="${esc(href)}">${esc(texto)}</a>${ayuda ? `<span class="ayuda">${ayuda}</span>` : ""}</span>`;
 // Un archivo que YA existe no se puede crear: GitHub rechaza /new con esa ruta.
 // Ahí el botón abre el editor y lo dice, para que nadie crea que pisa una
@@ -93,6 +101,31 @@ const semana7 = dias7.map((f) => {
   const video = Object.values(metricas.videos || {}).filter((v) => v.publicado === f && v.durSeg > 180 && !/^Clave:|^¿/.test(v.titulo)).sort((a, b) => b.vistas - a.vistas)[0];
   return { fecha: f, titulo: titulo.trim(), vueltas, vistas: video ? video.vistas : null, existe: Boolean(inf) };
 }).filter((d) => d.existe);
+
+// ---------- 0. Bandeja -------------------------------------------------------
+// La lista no se calcula acá: la calcula scripts/bandeja.js. Si el json no está
+// o quedó viejo, el módulo lo dice en vez de inventar una bandeja vacía: "nada
+// espera tu decisión" y "no sé qué espera tu decisión" no son lo mismo.
+const bandeja = json("bitacora/bandeja.json", null);
+const itemsBandeja = bandeja?.items || [];
+const ROTULO_TIPO = { clave: "Clave", bloqueo: "bloqueo", semana: "semana", pendiente: "pendiente", imagen: "imagen" };
+const itemHtml = (it) => `<article class="item-bandeja ${esc(it.tipo)}">
+  <div class="exp-cab"><span class="chip espera">${esc(ROTULO_TIPO[it.tipo] || it.tipo)}</span><span class="mono gris">desde ${ddmm(it.desde)}</span></div>
+  <h3>${esc(it.titulo)}</h3>
+  ${it.detalle ? `<p class="nota">${esc(it.detalle)}</p>` : ""}
+  <div class="botones">${(it.acciones || []).map((a, i) => boton(a.href, a.texto, "", i === 1 && it.tipo === "clave" ? "primario" : "")).join("")}</div>
+</article>`;
+
+const modBandeja = `
+<section id="bandeja" class="mod">
+  <header class="mod-cab"><span class="eyebrow">Bandeja</span><h2>Espera tu decisión${itemsBandeja.length ? ` <span class="badge">${itemsBandeja.length}</span>` : ""}</h2>
+    <p>Todo lo que no avanza hasta que tú decidas, en un solo lugar y en orden de urgencia: primero la Clave y los bloqueos. Vista de <span class="mono">bitacora/bandeja.json</span>${bandeja ? `, calculada ${esc(bandeja.generado || "")}` : ""}. El mismo archivo alimenta el informe de la mañana y el aviso al teléfono.</p></header>
+  ${bandeja === null
+    ? `<p class="aviso">No hay <span class="mono">bitacora/bandeja.json</span> en el repo: corre <span class="mono">node scripts/bandeja.js</span> y vuelve a generar esta página. Sin ese archivo no se puede saber qué está esperando.</p>`
+    : itemsBandeja.length
+      ? itemsBandeja.map(itemHtml).join("")
+      : `<p class="nota">Nada espera tu decisión.</p>`}
+</section>`;
 
 // ---------- 1. Hoy -----------------------------------------------------------
 // Si el estado de hoy todavía no está escrito (la cadena parte a la 01:30), se
@@ -204,41 +237,83 @@ const modSemana = `
 // ---------- 3. Clave ---------------------------------------------------------
 const slugsFlujo = (() => { try { return fs.readdirSync(path.join(RAIZ, "contenido/claves/flujo"), { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name).sort(); } catch { return []; } })();
 const TURNO = {
+  pautar: "Claude escribe la pauta", reparar_pauta: "Claude rehace la pauta con tu nota",
+  pauta_lista: "te toca a ti", pauta_aprobada: "GPT investiga con fuentes",
+  validar_investigacion: "Claude valida la investigación", reparar_investigacion: "GPT rehace la investigación",
+  investigacion_lista: "GPT escribe la entrega",
   tema_elegido: "GPT escribe la idea", validar_idea: "Claude valida la idea", reparar_idea: "GPT rehace la idea",
   idea_lista: "te toca a ti", idea_aprobada: "GPT escribe la entrega", validar_entrega: "Claude valida la entrega",
   reparar_entrega: "GPT rehace la entrega", entrega_lista: "GPT escribe el guion", validar_guion: "Claude valida el guion",
   reparar_guion: "GPT rehace el guion", aprobada: "Actions renderiza y sube", videos_listos: "cerrado",
   bloqueado_humano: "te toca a ti: está bloqueado",
 };
+// La pauta se muestra RENDERIZADA en la página: Santiago la aprueba desde el
+// teléfono y no puede depender de abrir GitHub para leerla. Es un markdown
+// acotado y conocido (el que escribe prompts/pauta-clave.md): encabezados,
+// párrafos y listas. Nada de HTML crudo del archivo: todo pasa por esc().
+// Va línea por línea y no por bloques separados con línea en blanco: una pauta
+// real trae el encabezado pegado a su texto y las listas pegadas a su párrafo,
+// y con el corte por bloques esos encabezados salían como texto con almohadillas
+// a la vista (visto en la prueba del 27-09).
+const mdHtml = (txt) => {
+  const salida = [];
+  let parrafo = [], lista = null;
+  const cerrarParrafo = () => { if (parrafo.length) { salida.push(`<p>${parrafo.map(inline).join("<br>")}</p>`); parrafo = []; } };
+  const cerrarLista = () => { if (lista) { salida.push(`<${lista.tag}>${lista.items.map((i) => `<li>${inline(i)}</li>`).join("")}</${lista.tag}>`); lista = null; } };
+  const cerrar = () => { cerrarParrafo(); cerrarLista(); };
+  for (const linea of txt.replace(/\r/g, "").split("\n")) {
+    if (!linea.trim()) { cerrar(); continue; }
+    const enc = linea.match(/^(#{1,6})\s+(.+)$/);
+    if (enc) { cerrar(); const n = Math.min(6, enc[1].length + 2); salida.push(`<h${n}>${inline(enc[2])}</h${n}>`); continue; }
+    const item = linea.match(/^\s*(?:[-*]|\d+[.)])\s+(.+)$/);
+    if (item) {
+      const tag = /^\s*[-*]\s/.test(linea) ? "ul" : "ol";
+      cerrarParrafo();
+      if (lista && lista.tag !== tag) cerrarLista();
+      lista = lista || { tag, items: [] };
+      lista.items.push(item[1]);
+      continue;
+    }
+    cerrarLista();
+    parrafo.push(linea.trim());
+  }
+  cerrar();
+  return salida.join("");
+};
 const flujosHtml = slugsFlujo.map((slug) => {
   const e = json(`contenido/estado/clave-${slug}.json`, null) || {};
   const etapa = e.etapa || "sin vista";
+  const camino = e.camino || clave.caminoDe(slug, RAIZ);
   const base = flujoDe(slug);
-  const hayIdea = existe(`${base}/idea.md`);
+  // la pieza que Santiago aprueba, distinta en cada camino
+  const pieza = camino === "pauta" ? "pauta" : "idea";
+  const rutaPieza = `${base}/${pieza}.md`;
   const rutaAprob = `${base}/aprobacion.md`;
-  const decide = etapa === "idea_lista";
+  const decide = etapa === "pauta_lista" || etapa === "idea_lista";
   const fechaMiercoles = clave.proximoMiercoles(FECHA);
   const botones = decide ? [
-    botonArchivo(rutaAprob, clave.contenidoAprobacion(fechaMiercoles, AHORA), "Aprobar idea", `fija la producción para el <b>${esc(ddmm(fechaMiercoles))}</b>, el próximo miércoles`),
-    botonArchivo(rutaAprob, clave.contenidoCambio("ESCRIBE AQUÍ LA NOTA (qué hay que cambiar en la idea)", AHORA), "Pedir cambios", "reemplaza <code>ESCRIBE AQUÍ LA NOTA</code> por lo que hay que cambiar antes de confirmar"),
-    botonArchivo(rutaAprob, clave.contenidoAprobacion("ESCRIBE-AQUI-LA-FECHA-AAAA-MM-DD", AHORA), "Fijar fecha", "igual que aprobar, pero tú pones la fecha de producción en las dos líneas que la llevan"),
+    botonArchivo(rutaAprob, clave.contenidoAprobacion(fechaMiercoles, AHORA, camino), `Aprobar ${pieza}`, `fija la producción para el <b>${esc(ddmm(fechaMiercoles))}</b>, el próximo miércoles${camino === "pauta" ? ", y suelta a GPT a investigar" : ""}`),
+    botonArchivo(rutaAprob, clave.contenidoCambio(`ESCRIBE AQUÍ LA NOTA (qué hay que cambiar en la ${pieza})`, AHORA, camino), "Pedir cambios", "reemplaza <code>ESCRIBE AQUÍ LA NOTA</code> por lo que hay que cambiar antes de confirmar"),
+    botonArchivo(rutaAprob, clave.contenidoAprobacion("ESCRIBE-AQUI-LA-FECHA-AAAA-MM-DD", AHORA, camino), "Fijar fecha", "igual que aprobar, pero tú pones la fecha de producción en las dos líneas que la llevan"),
   ].join("") : "";
+  const textoPauta = camino === "pauta" && etapa === "pauta_lista" ? leer(rutaPieza) : "";
   return `<article class="flujo-clave">
-    <div class="exp-cab"><span class="chip${decide ? " espera" : ""}">${esc(etapa)}</span><span class="mono gris">vuelta ${e.vuelta ?? 0}${e.fecha_produccion ? ` · sale el ${ddmm(e.fecha_produccion)}` : ""}</span></div>
+    <div class="exp-cab"><span class="chip${decide ? " espera" : ""}">${esc(etapa)}</span><span class="mono gris">camino ${esc(camino)} · vuelta ${e.vuelta ?? 0}${e.fecha_produccion ? ` · sale el ${ddmm(e.fecha_produccion)}` : ""}</span></div>
     <h3>${esc(e.concepto || slug)}</h3>
     <p class="mono gris">${esc(slug)}</p>
     <p><b>Turno:</b> ${esc(TURNO[etapa] || e.turno || "sin turno")}${TURNO[etapa] && /[:(]/.test(e.turno || "") ? ` <span class="gris">(${esc(e.turno)})</span>` : ""}.</p>
     <p class="dato">Archivos:
-      <a href="${esc(urlVer(`${base}/tema.md`))}">tema.md</a>${hayIdea ? ` · <a href="${esc(urlVer(`${base}/idea.md`))}">idea.md</a>` : " · <span class=\"gris\">idea.md todavía no existe</span>"}${existe(rutaAprob) ? ` · <a href="${esc(urlVer(rutaAprob))}">aprobacion.md</a>` : ""} · <a href="${esc(urlVer(`contenido/estado/clave-${slug}.md`))}">estado</a></p>
-    ${decide ? `<p class="nota">La idea está validada y espera tu decisión. Cada botón abre GitHub con <span class="mono">aprobacion.md</span> escrito; al confirmar el commit, <span class="mono">estado-clave.yml</span> mueve la etapa.</p><div class="botones">${botones}</div>`
-      : `<p class="nota">Los botones de decisión aparecen cuando la etapa es <span class="mono">idea_lista</span>, que es el único momento en que la pelota es tuya.</p>`}
+      <a href="${esc(urlVer(`${base}/tema.md`))}">tema.md</a>${existe(rutaPieza) ? ` · <a href="${esc(urlVer(rutaPieza))}">${pieza}.md</a>` : ` · <span class="gris">${pieza}.md todavía no existe</span>`}${existe(`${base}/investigacion.md`) ? ` · <a href="${esc(urlVer(`${base}/investigacion.md`))}">investigacion.md</a>` : ""}${existe(rutaAprob) ? ` · <a href="${esc(urlVer(rutaAprob))}">aprobacion.md</a>` : ""} · <a href="${esc(urlVer(`contenido/estado/clave-${slug}.md`))}">estado</a></p>
+    ${textoPauta ? `<div class="pauta">${mdHtml(textoPauta)}</div>` : ""}
+    ${decide ? `<p class="nota">La ${pieza} espera tu decisión${camino === "pauta" ? " y GPT no trabaja hasta que la apruebes" : ""}. Cada botón abre GitHub con <span class="mono">aprobacion.md</span> escrito; al confirmar el commit, <span class="mono">estado-clave.yml</span> mueve la etapa.</p><div class="botones">${botones}</div>`
+      : `<p class="nota">Los botones de decisión aparecen cuando la etapa es <span class="mono">${camino === "pauta" ? "pauta_lista" : "idea_lista"}</span>, que es el único momento en que la pelota es tuya.</p>`}
   </article>`;
 }).join("");
 
 const modClave = `
 <section id="clave" class="mod">
   <header class="mod-cab"><span class="eyebrow">Clave</span><h2>Los flujos abiertos</h2>
-    <p>Una Clave por tema, con flujo propio (CLAVE 4): tema elegido, idea de GPT, validación de Claude, <b>tu aprobación</b>, entrega, guion y video. Vista de <span class="mono">scripts/estado-clave.js</span>.</p></header>
+    <p>Una Clave por tema, con flujo propio (CLAVE 4). Desde el 27-09-2026 hay dos caminos, y cada flujo dice el suyo: en el camino <b>pauta</b> Claude escribe la pauta, <b>tú la apruebas</b> y recién entonces GPT investiga, escribe la entrega y el guion; en el camino <b>idea</b>, el anterior, GPT escribía la idea y tú aprobabas esa. Vista de <span class="mono">scripts/estado-clave.js</span>.</p></header>
   ${flujosHtml || `<p class="nota">Sin flujos de Clave abiertos. Se abre uno eligiendo un tema en el módulo <a href="#semana">Semana</a>.</p>`}
   <div class="botones">${boton(urlFlujo("estado-clave.yml"), "Recalcular el estado de la Clave", "Run workflow sin campos, si la vista quedó vieja")}</div>
 </section>`;
@@ -370,12 +445,15 @@ const modFlujos = `
 
 // ---------- la página --------------------------------------------------------
 const commitHash = git("rev-parse --short HEAD") || "sin git";
-const NAV = [["hoy", "Hoy"], ["semana", "Semana"], ["clave", "Clave"], ["medir", "Medir"], ["experimentos", "Experimentos"], ["prompts", "Prompts"], ["flujos", "Flujos y rutinas"]];
+// La Bandeja va primera y con contador: el número en la pestaña y en el título
+// de la página es lo que se ve en la lista de pestañas del teléfono sin abrir
+// nada.
+const NAV = [["bandeja", "Bandeja", itemsBandeja.length], ["hoy", "Hoy"], ["semana", "Semana"], ["clave", "Clave"], ["medir", "Medir"], ["experimentos", "Experimentos"], ["prompts", "Prompts"], ["flujos", "Flujos y rutinas"]];
 const html = `<!doctype html>
 <html lang="es">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Taller Entender Chile</title>
+<title>Taller${itemsBandeja.length ? ` (${itemsBandeja.length})` : ""} · Entender Chile</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
   :root { --papel:#F2F2EF; --alto:#FCFCFA; --tinta:#17191C; --gris:#6B6E6A; --linea:#DDDDD5; --patina:#2F7263; --patina-suave:#E4EEEA; --cobre:#D08A5B; --ambar:#F0E3C6;
@@ -404,7 +482,11 @@ const html = `<!doctype html>
   .curvas { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px; margin-top:12px; } .curva-tarjeta { background:var(--alto); border:1px solid var(--linea); padding:14px; display:grid; gap:8px; } .curva-titulo { font-size:14px; font-weight:500; line-height:1.3; } .curva-tarjeta svg { width:100%; height:auto; max-width:100%; } .curva { fill:none; stroke:var(--patina); stroke-width:2; } .guia { stroke:var(--linea); stroke-width:1; stroke-dasharray:3 3; } .curva-datos { color:var(--gris); line-height:1.5; }
   .exp-lista { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px; } .exp { background:var(--alto); border:1px solid var(--linea); border-left:4px solid var(--patina); padding:16px 18px; display:grid; gap:10px; } .exp.cancelado { border-left-color:var(--gris); } .exp.cerrado { border-left-color:var(--cobre); } .exp h3 { margin:0; } .exp-cab { display:flex; justify-content:space-between; gap:10px; align-items:center; flex-wrap:wrap; }
   .exp dl { display:grid; grid-template-columns:auto 1fr; gap:4px 12px; font-size:13px; margin:0; } .exp dt { color:var(--gris); font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding-top:2px; } .exp dd { margin:0; }
-  .candidato, .flujo-clave { background:var(--alto); border:1px solid var(--linea); border-left:4px solid var(--patina); padding:16px 18px; display:grid; gap:10px; margin-top:14px; } .candidato p, .flujo-clave p { font-size:14px; }
+  .candidato, .flujo-clave, .item-bandeja { background:var(--alto); border:1px solid var(--linea); border-left:4px solid var(--patina); padding:16px 18px; display:grid; gap:10px; margin-top:14px; } .candidato p, .flujo-clave p, .item-bandeja p { font-size:14px; }
+  .item-bandeja { border-left-color:var(--cobre); } .item-bandeja.clave, .item-bandeja.bloqueo { border-left-width:6px; } .item-bandeja h3 { margin:0; font-size:18px; }
+  .badge { display:inline-block; font-family:var(--mono); font-size:14px; letter-spacing:0; vertical-align:middle; background:var(--cobre); color:var(--papel); padding:1px 9px; border-radius:999px; }
+  nav.tabs a .badge { font-size:12px; padding:0 7px; }
+  .pauta { border-top:1px solid var(--linea); border-bottom:1px solid var(--linea); padding:6px 0 12px; } .pauta h3 { font-size:17px; margin-top:18px; } .pauta h4, .pauta h5, .pauta h6 { font-size:15px; margin-top:16px; } .pauta p, .pauta li { font-size:14px; } .pauta ul, .pauta ol { margin:8px 0; padding-left:22px; } .pauta li { margin-bottom:4px; }
   .chip { display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; padding:3px 8px; background:var(--patina-suave); color:var(--patina); } .chip.cancelado { background:var(--linea); color:var(--gris); } .chip.cerrado, .chip.espera { background:var(--ambar); color:var(--tinta); }
   .chip.tipo-gpt { background:var(--ambar); color:var(--tinta); } .chip.tipo-actions { background:var(--linea); color:var(--tinta); } .chip.tipo-senal { background:var(--linea); color:var(--gris); }
   .botones { display:grid; gap:10px; margin-top:12px; } .boton { display:grid; gap:4px; } .btn { display:inline-block; justify-self:start; font:500 14px var(--sans); color:var(--patina); background:transparent; border:1px solid var(--patina); padding:8px 14px; text-decoration:none; } .btn:hover, .btn:focus-visible { background:var(--patina-suave); outline:none; }
@@ -418,14 +500,14 @@ const html = `<!doctype html>
 </style>
 <header class="cab">
   <p class="sello">Generado el ${ddmm(AHORA)} ${AHORA.slice(11)} (hora de Chile) desde el commit ${esc(commitHash)}</p>
-  <span class="eyebrow">Entender Chile · fase 2, siete módulos</span>
+  <span class="eyebrow">Entender Chile · fase 2, ocho módulos</span>
   <h1>Taller</h1>
-  <p>Una sola página para mirar el día, elegir el tema de la semana, aprobar la Clave, medir qué resultó y arreglar el prompt que lo produce. Los botones abren GitHub con el archivo ya escrito: tú solo confirmas el commit, y ese push mueve la máquina. El repo es la única verdad; esto es una vista.</p>
+  <p>Una sola página para ver qué espera tu decisión, mirar el día, elegir el tema de la semana, aprobar la pauta de la Clave, medir qué resultó y arreglar el prompt que lo produce. Los botones abren GitHub con el archivo ya escrito: tú solo confirmas el commit, y ese push mueve la máquina. El repo es la única verdad; esto es una vista.</p>
 </header>
-<nav class="tabs" aria-label="Módulos">${NAV.map(([id, t]) => `<a href="#${id}">${t}</a>`).join("")}</nav>
-${modHoy}${modSemana}${modClave}${modMedir}${modExp}${modPrompts}${modFlujos}
+<nav class="tabs" aria-label="Módulos">${NAV.map(([id, t, n]) => `<a href="#${id}">${t}${n ? ` <span class="badge">${n}</span>` : ""}</a>`).join("")}</nav>
+${modBandeja}${modHoy}${modSemana}${modClave}${modMedir}${modExp}${modPrompts}${modFlujos}
 </html>
 `;
 fs.writeFileSync(path.join(RAIZ, salida), html);
 const cuentaBotones = (html.match(/class="btn/g) || []).length;
-console.log(`${salida}: ${(html.length / 1024).toFixed(0)} KB · estado ${fechaEstado} (${campo(estadoMd, "ETAPA") || "sin vista"}) · ${commits.length} commits 24 h · ${candidatos.length} candidatos de ${ultima || "sin semana"} · ${slugsFlujo.length} flujos de Clave · ${curvas.length} curvas · ${experimentos.length} experimentos · ${prompts.length} prompts · ${rutinas.reduce((s, t) => s + t.filas.length, 0)} filas de rutinas · ${cuentaBotones} botones`);
+console.log(`${salida}: ${(html.length / 1024).toFixed(0)} KB · ${itemsBandeja.length} en la bandeja · estado ${fechaEstado} (${campo(estadoMd, "ETAPA") || "sin vista"}) · ${commits.length} commits 24 h · ${candidatos.length} candidatos de ${ultima || "sin semana"} · ${slugsFlujo.length} flujos de Clave · ${curvas.length} curvas · ${experimentos.length} experimentos · ${prompts.length} prompts · ${rutinas.reduce((s, t) => s + t.filas.length, 0)} filas de rutinas · ${cuentaBotones} botones`);

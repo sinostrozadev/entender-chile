@@ -49,7 +49,17 @@ Cuando dudes entre leer un archivo más o preguntar, pregunta.
    `contenido/estado/FECHA.md` (`head -8`). Ahí está la etapa y la vuelta, que
    es lo único que decide si la cadena avanzó o está atascada.
 
-7. **Salud de las rutinas:** se consulta `bitacora/rutinas.md`, que es el
+7. **La Bandeja y el Taller** (desde el 27-09-2026), dos comandos:
+   `node scripts/bandeja.js` recalcula `bitacora/bandeja.json` (lo que espera
+   decisión de Santiago) y **se commitea si cambió**: lo leen el informe de la
+   mañana y la rutina que le avisa al teléfono, así que un json viejo le
+   miente. Después `node scripts/taller.js` y se **republica
+   `bitacora/taller.html` a su URL fija** (la de `bitacora/2026-09-26.md`):
+   el html está en `.gitignore`, así que sin republicar, el Taller que
+   Santiago abre sigue siendo el de anoche. La bandeja va primero: el Taller
+   lee su json.
+
+8. **Salud de las rutinas:** se consulta `bitacora/rutinas.md`, que es el
    inventario mantenido a mano. **No listar rutinas por API**: cada llamada
    trae unos 75 KB. La única excepción es que falte una rutina concreta en el
    inventario o que haya sospecha fundada de que una está apagada o borrada;
