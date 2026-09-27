@@ -1,10 +1,10 @@
 FLUJO: clave
 SLUG: acuerdo-internacional-sin-tratado
-ETAPA: tema_elegido
+ETAPA: validar_idea
 VUELTA: 0
-TURNO: GPT
+TURNO: Claude
 FECHA_PRODUCCION: (la fija Santiago al aprobar la idea)
-ACTUALIZADO: 2026-09-26 23:23 (hora de Chile)
+ACTUALIZADO: 2026-09-26 23:25 (hora de Chile)
 PIEZA: idea
 PROMPT: prompts/clave-idea.md
 ARCHIVO: contenido/claves/flujo/acuerdo-internacional-sin-tratado/idea.md
@@ -19,7 +19,7 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 | Paso | Estado | Hora | Quién |
 |---|---|---|---|
 | Tema elegido | listo | 23:23 | Santiago |
-| Idea | falta |  | GPT, valida Claude |
+| Idea | por validar | 23:25 | GPT, valida Claude |
 | Aprobación de Santiago | espera |  | Santiago |
 | Entrega escrita | falta |  | GPT, valida Claude |
 | Guion | falta |  | GPT, valida Claude |
