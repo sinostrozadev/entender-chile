@@ -36,7 +36,19 @@ const VOICE = process.env.AZURE_VOICE || "es-CL-LorenzoNeural";
 // Velocidad de habla. Santiago (30-08): la lectura normal "es como si leyera
 // corriendo"; al 90% se aprecia mucho más. Se ajusta con AZURE_RATE (-8%, -12%...).
 const RATE = process.env.AZURE_RATE || "-10%";
-const PAUSA_SECCION_MS = 1200;
+// 3.000 ms desde el 27-09-2026 (eran 1.200). Esta pausa es lo único que el
+// recorrido de cámara tiene para viajar: build-timeline no le deja durar más
+// que el silencio real, para no pisar voz nunca. Con 1.200 ms el viaje de ida
+// y vuelta al mosaico duraba poco más de un segundo y Santiago lo dijo dos
+// veces seguidas: "se movió muy rápido el cambio de sección, no se aprecia
+// nada". El tiempo del juego sale de acá o no sale de ninguna parte.
+const PAUSA_SECCION_MS = 3000;
+// La PRIMERA pausa es mas larga: ahi va la presentacion del canal, el mosaico
+// entero con su melodia, y con 3 s la melodia quedaba cortada a la mitad
+// (Santiago, 27-09-2026: "la apertura empezo tan rapido que no alcanzo a
+// terminar la melodia de apertura"). Pasa una sola vez en todo el video.
+const PAUSA_INTRO_MS = 5200;
+const msDe = (chunk) => (chunk.intro ? PAUSA_INTRO_MS : PAUSA_SECCION_MS);
 const LIMITE = 5000; // caracteres por request; Azure corta el audio en 10 min por solicitud
 
 const TICK = 1 / 10_000_000; // los offsets del SDK vienen en unidades de 100 ns
@@ -64,6 +76,9 @@ function trocear(texto, cortesSeccion) {
   let ini = 0;
   for (const c of cortes) { secciones.push({ texto: texto.slice(ini, c), pausa: ini !== 0 }); ini = c; }
   secciones.push({ texto: texto.slice(ini), pausa: ini !== 0 });
+  // la primera con pausa es la que abre la presentacion del canal
+  const abre = secciones.find((x) => x.pausa);
+  if (abre) abre.intro = true;
 
   const chunks = [];
   for (const s of secciones) {
@@ -72,11 +87,11 @@ function trocear(texto, cortesSeccion) {
     let actual = "", primera = true;
     for (const p of parrafos) {
       if ((actual + p).length > LIMITE && actual) {
-        chunks.push({ texto: actual, pausa: s.pausa && primera });
+        chunks.push({ texto: actual, pausa: s.pausa && primera, intro: s.intro && primera });
         primera = false; actual = p;
       } else actual += p;
     }
-    if (actual) chunks.push({ texto: actual, pausa: s.pausa && primera });
+    if (actual) chunks.push({ texto: actual, pausa: s.pausa && primera, intro: s.intro && primera });
   }
   return chunks;
 }
@@ -89,7 +104,7 @@ function sintetizar(chunk) {
     const synth = new sdk.SpeechSynthesizer(cfg, null);
 
     const { esc, mapa } = escaparConMapa(chunk.texto);
-    const brk = chunk.pausa ? `<break time="${PAUSA_SECCION_MS}ms"/>` : "";
+    const brk = chunk.pausa ? `<break time="${msDe(chunk)}ms"/>` : "";
     const prefijo = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="es-CL"><voice name="${VOICE}"><prosody rate="${RATE}">${brk}`;
     const ssml = `${prefijo}${esc}</prosody></voice></speak>`;
 
@@ -164,7 +179,7 @@ async function main() {
   for (let i = 0; i < chunks.length; i++) {
     const ch = chunks[i];
     const r = await sintetizarConRespaldo(ch);
-    if (ch.pausa) pausas.push({ from: Number(offset.toFixed(3)), dur: PAUSA_SECCION_MS / 1000, charIndex: base });
+    if (ch.pausa) pausas.push({ from: Number(offset.toFixed(3)), dur: msDe(ch) / 1000, charIndex: base });
     for (const w of r.palabras) {
       const ini = base + w.desde;
       const paso = w.dur / Math.max(1, w.largo);

@@ -23,11 +23,10 @@
 // cambio en lo que el locutor DICE, no en cómo se ve, así que no entra a una
 // edición al aire hasta que Santiago la escuche. ENTRADA_VOZ=1 la enciende.
 const ENTRADA_VOZ = process.env.ENTRADA_VOZ === "1";
-// Conectores que funcionan con cualquier título, lleve artículo o no: son
-// apósitos, no rigen al sustantivo. "Seguimos con" se cayó justo por eso,
-// porque los títulos del informe suelen venir sin artículo ("Temporal en el
-// centro-sur") y quedaba "seguimos con temporal".
-const CONECTORES = ["Ahora,", "Enseguida,"];
+// SIN CONECTOR (27-09-2026, Santiago, después de escucharlo: "deja solo los
+// titulares, nada de enseguida, ni ahora... que lea el titular y ya"). Probé
+// primero con "Ahora," y "Enseguida," alternados y en voz suena a relleno:
+// el titular solo ya dice que cambió la sección, porque cambia el tema.
 // Las de estructura no se anuncian: "Ahora, cierre" no le dice nada a nadie.
 const ESTRUCTURA = /^(apertura|la noticia del d[ií]a|en titulares|agenda|cierre|¿en qu[eé] qued[oó]\?)$/i;
 // La voz no lee guiones: "centro-sur" se dice "centro sur".
@@ -218,8 +217,8 @@ function parseGuion(md) {
       // se vuelva muletilla. Las secciones de estructura no llevan: anunciar
       // "Ahora, cierre" no le dice nada a nadie.
       if (ENTRADA_VOZ && !ESTRUCTURA.test(texto) && eventos.some((e) => e.tipo === "seccion" && e.texto !== texto)) {
-        const conector = CONECTORES[nEntradas++ % CONECTORES.length];
-        eventos.push({ tipo: "entrada", texto: `${conector} ${paraLaVoz(texto)}.`, _seccionNombre: texto });
+        nEntradas++;
+        eventos.push({ tipo: "entrada", texto: `${paraLaVoz(texto)}.`, _seccionNombre: texto });
       }
       seccionNombre = texto;
       continue;

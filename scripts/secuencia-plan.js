@@ -61,13 +61,22 @@ const RESERVA_CABECERA = 0.55;  // del silencio del corte, antes que la cámara
 const VIAJE_MIN = 1.2;
 // Lo mínimo para que un título se vea como título y no como un parpadeo.
 const CABECERA_MIN = 0.5;
+// Lo minimo que un titular se queda en pantalla (Santiago, 27-09: "tiene que
+// tener por lo menos 1 s el titular de minimo en vista, se ve mal que aparezca
+// y desaparezca rapido").
+const TITULO_MIN = 1.0;
+// Lo que tarda la principal en oscurecerse sobre la ilustracion de la portada.
+const OSCURECE_SEG = 1.2;
 // Y este sigue siendo un mínimo real, pero para OTRA cosa: lo que el viaje de
 // la cámara no puede comerse del bloque. Un bloque sin nada de preámbulo
 // entraría con el texto ya encima.
 const PREAMBULO_MIN = 1.6;
 
 // El recorrido entre sección y sección y la presentación, en segundos.
-const PASEO_SEG = 2.5;         // "pausa de 2,5 s entre secciones", aprobado el 24-09
+// 4 s desde el 27-09-2026: con 2,5 el viaje de ida y vuelta no se alcanzaba a
+// leer como un viaje. Igual no manda este número, manda el silencio real de la
+// voz (PAUSA_SECCION_MS en tts-azure.js), que es el techo.
+const PASEO_SEG = 4.0;
 const PRESENTACION_SEG = 10;   // el intro del banco: alejarse, recorrer la fila y entrar
 
 const imagenDeSeccion = (tl, categoria) => {
@@ -127,7 +136,12 @@ const planear = (tl, opciones = {}) => {
     // empieza. En la muestra los tiempos son de mentira y se hicieron a la
     // medida, así que ahí el viaje va entero.
     const silencio = Number(b.ov.pausaDur || 0);
-    const techo = opciones.holgado ? previo : (silencio > 0 ? Math.min(silencio, 2.4) + 2 : 0);
+    // LA CAMARA VIAJA EN EL SILENCIO Y NADA MAS (27-09-2026). Antes se tomaba
+    // el silencio mas dos segundos de anticipo y cola, o sea se metia encima de
+    // la voz, y por eso al titular no le quedaba tiempo ni para decirse. Ahora
+    // el reparto es limpio y es el que dicto Santiago: la camara va y vuelve
+    // mientras nadie habla, y cuando llega empieza a leerse el titular.
+    const techo = opciones.holgado ? previo : silencio;
     // el hueco entero del corte: desde que termina la sección anterior hasta
     // que se dice la primera frase de esta. Es lo único que hay para repartir.
     const suyas = tarjetas.filter((c) => c.seccion === b.ov.texto);
@@ -141,8 +155,8 @@ const planear = (tl, opciones = {}) => {
     // acotada por el silencio real. Quitarle tiempo para la cabecera de la
     // segunda sección es cambiar algo que funciona por algo que se repite
     // catorce veces más adelante.
-    const paraCabecera = opciones.holgado || i === 1 ? 0
-      : Math.min(PREAMBULO_SEG, hueco * RESERVA_CABECERA, Math.max(0, hueco - VIAJE_MIN));
+    // Lo que no es silencio es del titular: ahi se lo esta diciendo.
+    const paraCabecera = opciones.holgado || i === 1 ? 0 : Math.max(0, hueco - silencio);
     // En la muestra (holgado) los tiempos ya vienen hechos a la medida y el
     // viaje va entero: repartir ahí sería recortar dos veces.
     const topes = [previo, techo, Math.max(0, b.hasta - b.desde - PREAMBULO_MIN)];
@@ -161,18 +175,48 @@ const planear = (tl, opciones = {}) => {
     // sin título. Es el gate viejo, pero en 0,5 s en vez de 1,6: con el
     // reparto del silencio, la cabecera ya casi siempre lo supera.
     const cabecera = i > 0 && aire >= CABECERA_MIN;
-    const p = cabecera ? Math.min(aire, PREAMBULO_SEG) / PREAMBULO_SEG : 0;
+
+    // EL BARRIDO ESPERA A QUE TERMINE DE LEERSE EL TITULAR (27-09-2026,
+    // Santiago: "desde el momento en que venga de vuelta la seccion puede
+    // empezar a leer el titular. Al terminar de leer el titular, el texto del
+    // titular se desvanece y se agranda lo oscurecido").
+    //
+    // Antes el titulo duraba un tiempo fijo, 3,83 s encogidos a lo que hubiera,
+    // y el barrido salia cuando le tocaba: la voz y la imagen iban cada una por
+    // su lado. Ahora manda el locutor. La entrada hablada existe en el timeline
+    // (muda: true) justo para esto: el instante en que termina de decirse el
+    // titular es donde empieza el barrido. Y nunca menos de TITULO_MIN en
+    // pantalla: un titular que aparece y desaparece se ve peor que no ponerlo.
+    const dicha = (tl.eventos || []).find((e) => e.muda && e.seccion === b.ov.texto);
+    const leido = dicha ? Math.max(TITULO_MIN, dicha.to - desde) : TITULO_SEG;
     bloques.push({
       texto: b.ov.texto || "",
       categoria: b.ov.categoria || null,
       imagen: i === 0 ? portada : imagenDeSeccion(tl, b.ov.categoria),
       from: Number(desde.toFixed(3)),
       to: Number(Math.max(desde + 0.5, b.hasta).toFixed(3)),
+      // LA PRINCIPAL NO SE OSCURECE DE GOLPE (27-09-2026, Santiago: "sigue
+      // oscureciendose al 100 antes de cambiar desde el inicio al desarrollo de
+      // la noticia principal"). La portada deja la ilustracion limpia y el
+      // bloque entraba ya al 100%: un corte a oscuras entre dos cuadros de la
+      // MISMA imagen, que es justo lo que se nota. Ahora el velo entra
+      // corriendo sobre la ilustracion, que es el mismo gesto del barrido pero
+      // desde cero, y recien despues llega el texto.
+      ...(i === 0 ? { oscurece: [0, Number(OSCURECE_SEG.toFixed(3))] } : {}),
       ...(cabecera ? {
         titulo: b.ov.texto || "",
-        // el barrido de la mitad al final, en segundos desde el inicio del
-        // bloque; si hubo que encoger la cabecera, encoge proporcional
-        lleno: [Number((TITULO_SEG * p).toFixed(3)), Number(((TITULO_SEG + BARRIDO_SEG) * p).toFixed(3))],
+        // el barrido, en segundos desde el inicio del bloque: arranca cuando se
+        // termino de decir el titular y no puede pasarse del aire que hay (si
+        // se pasara, taparia la primera tarjeta)
+        // El barrido arranca cuando se termino de decir el titular, punto. NO se
+        // lo acota al aire: oscurecer el fondo no tapa nada, porque la tarjeta
+        // se dibuja encima, asi que puede terminar de agrandarse sobre la
+        // entrada de la primera tarjeta. Acotarlo era lo que lo hacia empezar
+        // antes de que el locutor terminara la frase.
+        lleno: (() => {
+          const ini = opciones.holgado ? TITULO_SEG : Math.max(TITULO_MIN, leido);
+          return [Number(ini.toFixed(3)), Number((ini + BARRIDO_SEG).toFixed(3))];
+        })(),
       } : {}),
     });
   });

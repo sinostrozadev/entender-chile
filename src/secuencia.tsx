@@ -70,6 +70,7 @@ export type BloqueP = {
   texto: string; categoria?: string | null; imagen?: string | null;
   from: number; to: number;            // segundos absolutos
   titulo?: string | null;              // si lo trae, lleva cabecera
+  oscurece?: [number, number];         // segundos: el velo entra a la vista (la principal)
   lleno?: [number, number];            // segundos desde el inicio del bloque: el barrido de la mitad al final
 };
 export type Paseo = {
@@ -308,7 +309,14 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
   const { fps } = useVideoConfig();
   const lleno: [number, number] | null = b.titulo && b.lleno
     ? [Math.round(b.lleno[0] * fps), Math.round(b.lleno[1] * fps)] : null;
-  const avance = lleno ? interpolate(f, rango(lleno), [0.5, 1], sv) : 1;
+  // Sin cabecera la seccion entra ya oscura, salvo que el plan pida que se
+  // oscurezca a la vista: es el caso de la principal, que viene de la portada
+  // con la misma ilustracion limpia y no puede cambiar de golpe al 100%
+  // (27-09-2026).
+  const osc: [number, number] | null = b.oscurece
+    ? [Math.round(b.oscurece[0] * fps), Math.round(b.oscurece[1] * fps)] : null;
+  const avance = lleno ? interpolate(f, rango(lleno), [0.5, 1], sv)
+    : osc ? interpolate(f, rango(osc), [0, 1], sv) : 1;
 
   // EL TÍTULO NO SE PISA CON EL BARRIDO (27-09-2026). Santiago: "la primera
   // imagen te muestra un título, y queda pasado y se ve feo, y pasa en

@@ -10,6 +10,12 @@ name: Prueba de voz
 # Azure, que están acá. Y por qué a mano y no en cron: cada corrida gasta unos
 # 11.000 caracteres del cupo mensual de 500.000, algo más del 2%.
 #
+# Por defecto rinde una MUESTRA CORTA: portada, apertura, dos secciones de
+# noticia y cierre (scripts/guion-corto.js). Son unos 2.300 caracteres en vez
+# de 11.200 y unos cinco minutos de render en vez de veinticinco, porque lo que
+# estamos ajustando se ve todo en los primeros dos minutos. Con secciones=0
+# rinde el informe entero.
+#
 # NO TOCA NINGUNA EDICIÓN: no commitea nada. Escribe en out/ y en
 # contenido/descripciones/ (dia.js lo hace siempre), pero como no hay push,
 # el repo queda igual. Deja el mp4 en el release `prueba-voz`, que se pisa en
@@ -22,9 +28,13 @@ on:
         description: "Fecha de un informe ya escrito (AAAA-MM-DD)"
         required: true
       entrada:
-        description: "1 = con la entrada hablada por sección; vacío = como suena hoy"
+        description: "1 = el locutor lee el titular de cada sección; vacío = como suena hoy"
         required: false
         default: "1"
+      secciones:
+        description: "cuántas secciones de noticia (2 = muestra corta y barata; 0 = el informe entero)"
+        required: false
+        default: "2"
 
 permissions:
   contents: write
@@ -58,6 +68,13 @@ jobs:
           GUION="contenido/guiones/informe/${{ inputs.fecha }}.md"
           [ -f "$GUION" ] || { echo "::error::no existe $GUION"; exit 1; }
           if [ -z "$AZURE_SPEECH_KEY" ]; then echo "::error::sin AZURE_SPEECH_KEY: esta prueba no tiene sentido muda"; exit 1; fi
+          N="${{ inputs.secciones }}"
+          if [ -n "$N" ] && [ "$N" != "0" ]; then
+            CORTO="out/corto-${{ inputs.fecha }}.md"
+            mkdir -p out
+            node scripts/guion-corto.js "$GUION" "$CORTO" "$N"
+            GUION="$CORTO"
+          fi
           node scripts/dia.js "$GUION" --voz --render
       - name: Dejar el video donde se pueda ver
         env:
