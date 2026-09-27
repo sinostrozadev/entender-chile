@@ -1,11 +1,20 @@
 {
   "fecha": "2026-09-27",
   "canal": {
-    "suscriptores": 20,
-    "vistas": 7661,
-    "videos": 105
+    "suscriptores": 21,
+    "vistas": 7842,
+    "videos": 106
   },
   "videos": {
+    "4SzkhEkMdEI": {
+      "titulo": "Temporal deja más de 12 mil personas aisladas en el centro-s",
+      "publicado": "2026-09-27",
+      "estado": "public",
+      "vistas": 1,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 719
+    },
     "lidq_pTvTlo": {
       "titulo": "Temporal deja más de 12 mil personas aisladas en el centro-s",
       "publicado": "2026-09-27",
@@ -15,20 +24,11 @@
       "comentarios": 0,
       "durSeg": 51
     },
-    "4SzkhEkMdEI": {
-      "titulo": "Temporal deja más de 12 mil personas aisladas en el centro-s",
-      "publicado": "2026-09-27",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 719
-    },
     "iJvu555lINQ": {
       "titulo": "Curarrehue aislada: 7.850 personas sin paso y un puente caíd",
       "publicado": "2026-09-26",
       "estado": "public",
-      "vistas": 42,
+      "vistas": 78,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 46
@@ -46,7 +46,7 @@
       "titulo": "87% de los chilenos cree que el país vive una emergencia lab",
       "publicado": "2026-09-26",
       "estado": "public",
-      "vistas": 269,
+      "vistas": 300,
       "meGusta": 7,
       "comentarios": 1,
       "durSeg": 48
@@ -55,7 +55,7 @@
       "titulo": "Alerta roja en el sur: evacuaciones y desbordes por el tempo",
       "publicado": "2026-09-25",
       "estado": "public",
-      "vistas": 399,
+      "vistas": 421,
       "meGusta": 11,
       "comentarios": 0,
       "durSeg": 43
@@ -64,7 +64,7 @@
       "titulo": "Alerta roja en el sur: evacuaciones y desbordes por el tempo",
       "publicado": "2026-09-25",
       "estado": "public",
-      "vistas": 33,
+      "vistas": 35,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 768
@@ -100,9 +100,9 @@
       "titulo": "Muere un trabajador en Minera Escondida mientras hacía mante",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 257,
-      "meGusta": 2,
-      "comentarios": 0,
+      "vistas": 259,
+      "meGusta": 3,
+      "comentarios": 1,
       "durSeg": 42
     },
     "n8N1z4-124E": {
@@ -370,7 +370,7 @@
       "titulo": "¿Quién decide cuánto gasta el Estado cada año?",
       "publicado": "2026-09-14",
       "estado": "public",
-      "vistas": 17,
+      "vistas": 18,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 671
@@ -442,7 +442,7 @@
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 12,
+      "vistas": 13,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 680
@@ -451,7 +451,7 @@
       "titulo": "¿Qué es la prisión preventiva y por qué no es una condena?",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 17,
+      "vistas": 18,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 342
@@ -550,7 +550,7 @@
       "titulo": "Banco Central reduce a menos de uno por ciento su proyección",
       "publicado": "2026-09-10",
       "estado": "public",
-      "vistas": 3,
+      "vistas": 4,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 694
@@ -874,7 +874,7 @@
       "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 100,
+      "vistas": 101,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 682
@@ -1055,8 +1055,8 @@
     "TeKnIIGAMUw": {
       "vistas": 18,
       "minutos": 77,
-      "segProm": 309,
-      "pct": 39.1
+      "segProm": 356,
+      "pct": 45.1
     },
     "xYaG4nx-IkI": {
       "vistas": 152,
@@ -1289,8 +1289,8 @@
     "9Le8uCfDRA4": {
       "vistas": 16,
       "minutos": 14,
-      "segProm": 95,
-      "pct": 13.5
+      "segProm": 107,
+      "pct": 15.1
     },
     "Yoli64YxjuM": {
       "vistas": 11,
@@ -1343,8 +1343,8 @@
     "tBv9v_TGayw": {
       "vistas": 2,
       "minutos": 11,
-      "segProm": 235,
-      "pct": 33.9
+      "segProm": 703,
+      "pct": 101.4
     },
     "w8IPmwGoq3w": {
       "vistas": 8,
@@ -1457,8 +1457,8 @@
     "CU4xH6A4dKA": {
       "vistas": 2,
       "minutos": 5,
-      "segProm": 87,
-      "pct": 26.1
+      "segProm": 354,
+      "pct": 106
     },
     "OeGU38H6ryU": {
       "vistas": 82,
@@ -1470,7 +1470,7 @@
       "vistas": 39,
       "minutos": 5,
       "segProm": 19,
-      "pct": 42
+      "pct": 42.8
     },
     "n7CU6xJQ6Zw": {
       "vistas": 17,
@@ -1499,8 +1499,8 @@
     "WjXgunaHKjs": {
       "vistas": 1,
       "minutos": 4,
-      "segProm": 25,
-      "pct": 4.1
+      "segProm": 252,
+      "pct": 40.2
     },
     "m16ACKSvQ5g": {
       "vistas": 19,
