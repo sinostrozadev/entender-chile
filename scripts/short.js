@@ -139,12 +139,33 @@ const recortarGancho = (t) => {
   if (t.length <= TOPE_GANCHO) return t;
   const coma = t.slice(0, TOPE_GANCHO).search(/[,;:]/);
   if (coma >= 20) return t.slice(0, coma);
-  return t.slice(0, TOPE_GANCHO).replace(/\s+\S*$/, "") + "…";
+  // y nunca terminar en una palabra que deja la frase colgando: "un puente
+  // caído en…" se lee como un titular roto (26-09-2026).
+  let corte = t.slice(0, TOPE_GANCHO).replace(/\s+\S*$/, "");
+  while (/\s(en|de|del|a|al|con|por|para|sobre|y|e|o|u|la|el|los|las|un|una|que|su|sus)$/i.test(corte)) {
+    corte = corte.replace(/\s+\S*$/, "");
+  }
+  return corte + "…";
 };
+// EL TÍTULO SALE DE LO QUE EL SHORT DICE (27-09-2026, Santiago: "el título
+// dice un puente caído, y el short no lo menciona en ningún lado").
+//
+// Salía del título del INFORME, que resume una edición de doce minutos, y el
+// Short cuenta cinco noticias. El 26-09 el informe se titulaba "Curarrehue
+// aislada: 7.850 personas sin paso y un puente caído en Lautaro" y el recorte
+// a 66 caracteres lo dejó en "...y un puente caído en…": un titular que
+// promete un puente que el Short nunca menciona, y encima cortado en una
+// preposición. Las dos cosas son la misma: el titular no puede prometer lo que
+// el video no entrega.
+//
+// Ahora el gancho es la TESIS DE LA PRIMERA NOTICIA del propio Short, que por
+// construcción se narra adentro. El título del informe queda de respaldo, solo
+// si entra entero: si hay que recortarlo, ya no dice lo que decía.
+const entero = (parsed.titulo || "").replace(/\s*#\w+/g, "").replace(/\.$/, "").trim();
 const ganchoDia = recortarGancho(
-  (parsed.titulo || "").replace(/\s*#\w+/g, "").replace(/\.$/, "").trim() ||
-  (parsed.caratula || "").trim() ||
-  elegidos[0].tesis.texto.replace(/\.$/, "")
+  elegidos[0].tesis.texto.replace(/\.$/, "").trim() ||
+  (entero.length <= TOPE_GANCHO ? entero : "") ||
+  (parsed.caratula || "").trim()
 );
 const md = [
   esClave

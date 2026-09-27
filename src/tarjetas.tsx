@@ -113,12 +113,23 @@ export const modoDeFondo = (fondo: Fondo, categoria?: string | null): ModoFondo 
 // Borde suave de 15% del ancho: un filo recto se lee como transición de
 // presentación, no como luz que avanza.
 const BANDA = 15;
+// EL DIFUMINADO EMPIEZA DONDE TERMINA LO OSCURO (27-09-2026, Santiago: "la
+// mitad izquierda oscurecida sin difuminado y recién ahí empieza el
+// difuminado"). Antes la banda quedaba CENTRADA en el avance, así que al 50%
+// lo macizo llegaba solo al 35% de la pantalla y el título, que llega al 45%,
+// sobraba por la derecha: "el título queda más ancho que lo oscuro". Ahora el
+// avance marca el borde de lo macizo y la banda sale desde ahí hacia afuera,
+// que es lo que se pidió y de paso deja al título siempre dentro.
 export const velo = (avance: number, retirando: boolean, alfa = 0.76) => {
-  const a = Math.max(0, Math.min(1, avance)) * (100 + BANDA * 2) - BANDA;
+  const v = Math.max(0, Math.min(1, avance));
   const oscuro = `rgba(21,23,26,${alfa})`;
-  return retirando
-    ? `linear-gradient(90deg, rgba(21,23,26,0) ${a}%, ${oscuro} ${a + BANDA}%)`
-    : `linear-gradient(90deg, ${oscuro} ${a - BANDA}%, rgba(21,23,26,0) ${a}%)`;
+  if (retirando) {
+    // el velo se va: la banda corre por delante para que en 0 quede todo
+    // oscuro (empalma con avance 1) y en 1 no quede nada
+    const q = v * (100 + BANDA);
+    return `linear-gradient(90deg, rgba(21,23,26,0) ${q - BANDA}%, ${oscuro} ${q}%)`;
+  }
+  return `linear-gradient(90deg, ${oscuro} ${v * 100}%, rgba(21,23,26,0) ${v * 100 + BANDA}%)`;
 };
 
 // EL VELO DEL MODO "imagen" (27-09-2026). No es un fondo, es una red: las

@@ -43,6 +43,8 @@ const GRAFITO = "#3A3D42";
 // Lo que dura la salida de una sección: el velo se retira y vuelve la imagen
 // limpia, que es el cuadro con el que arranca el viaje de la cámara.
 const SALIDA_SEG = 0.9;
+// Lo que tarda el texto en apagarse, justo antes de que empiece la salida.
+const APAGADO_SEG = 0.45;
 const sv = { easing: Easing.inOut(Easing.ease), extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
 
 // ── el plan que llega en meta.secuencia ──────────────────────────────────
@@ -127,14 +129,31 @@ const ALFA_SIN_IMAGEN = 0.6;
 // bloque a 1, así que en el cuadro en que la baldosa llena la pantalla las dos
 // versiones caen en el mismo pixel y no hay nada que relevar. Es la misma
 // regla del empalme que ya obedecen el velo y el pictograma.
+// SE DIBUJA SIEMPRE A TAMAÑO REAL (27-09-2026, Santiago: "los textos se
+// cambian de tamaño al moverse entre el mosaico y el tamaño completo, se ve
+// mal que se estén acomodando las letras en el movimiento").
+//
+// Antes la baldosa lo dibujaba con la letra achicada por número (78 por la
+// escala) y el bloque con la letra entera. Dos composiciones distintas del
+// mismo texto: a 17 px las palabras cortan en un lugar y a 78 px en otro, así
+// que al llegar la cámara las líneas se reacomodaban. Ahora las dos dibujan
+// el MISMO cuadro de 1920 con la MISMA letra de 78, y la baldosa solo lo
+// encoge con un transform de CSS, que mueve pixeles y no vuelve a componer el
+// texto. Las líneas cortan igual en los dos extremos del viaje.
+//
+// El ancho, 760 sobre 1920 desde la izquierda, deja el título dentro de la
+// mitad de la pantalla, que es hasta donde llega lo oscuro macizo (ver velo).
 export const TituloSeccion: React.FC<{ categoria?: string | null; titulo: string; escala?: number; opacidad?: number }> =
 ({ categoria, titulo, escala = 1, opacidad = 1 }) => (
-  <div style={{ position: "absolute", left: 110 * escala, top: "50%", transform: "translateY(-50%)",
-    maxWidth: 760 * escala, opacity: opacidad }}>
-    <div style={{ fontFamily: tema.mono, fontSize: 24 * escala, letterSpacing: "0.2em", textTransform: "uppercase",
-      color: COBRE, marginBottom: 22 * escala }}>{categoria || "Entender Chile"}</div>
-    <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 78 * escala, lineHeight: 1.06, color: "#F7F6F2" }}>
-      {titulo}
+  <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080,
+    transform: escala === 1 ? undefined : `scale(${escala})`, transformOrigin: "top left",
+    opacity: opacidad, pointerEvents: "none" }}>
+    <div style={{ position: "absolute", left: 110, top: "50%", transform: "translateY(-50%)", maxWidth: 760 }}>
+      <div style={{ fontFamily: tema.mono, fontSize: 24, letterSpacing: "0.2em", textTransform: "uppercase",
+        color: COBRE, marginBottom: 22 }}>{categoria || "Entender Chile"}</div>
+      <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 78, lineHeight: 1.06, color: "#F7F6F2" }}>
+        {titulo}
+      </div>
     </div>
   </div>
 );
@@ -172,6 +191,9 @@ const Cara: React.FC<{ b: Baldosa; activa: boolean; z: number; entrante?: boolea
         opacity: entrante ? z : 0 }} />
       <TituloSeccion categoria={b.categoria} titulo={b.texto} escala={CAJA / 1920}
         opacidad={entrante || z < 0.02 ? 1 : 1 - z} />
+      {/* CAJA/1920 = 420/1920, y CAJA_ALTO/1080 da lo mismo: el cuadro de la
+          baldosa es el de la pantalla a escala, así que el título cae donde
+          mismo. */}
       {/* el filo de cobre se apaga MUCHO antes de llegar: al llenar el cuadro
           quedaba una línea de un píxel marcando el borde de la baldosa, y eso
           delataba el empalme */}
@@ -289,6 +311,18 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
   const salidaDesde = Math.max(finTarjetas, dur - Math.round(fps * SALIDA_SEG));
   const retiro = dur - salidaDesde >= Math.round(fps * 0.25)
     ? interpolate(f, [salidaDesde, dur], [0, 1], sv) : 0;
+
+  // EL TEXTO SE APAGA ANTES DE IRSE (27-09-2026, Santiago: "antes de irse
+  // nuevamente al fondo quita el texto de la pantalla, con algún efecto, para
+  // que no se vea tan brusco el cambio. Así: termina la lectura del texto, se
+  // apaga el texto, y ahí recién se va al fondo").
+  //
+  // Antes la última tarjeta simplemente dejaba de existir en su último cuadro
+  // y enseguida arrancaba el viaje. Ahora se desvanece dentro de ese último
+  // tramo, así que el orden en pantalla es el que él dictó: se lee, se apaga,
+  // se va. No le quita tiempo a nadie: el fundido pasa dentro de los cuadros
+  // que la tarjeta ya tenía.
+  const apagado = interpolate(f, [salidaDesde - Math.round(fps * APAGADO_SEG), salidaDesde], [1, 0], sv);
   return (
     <AbsoluteFill style={{ backgroundColor: "#15171A" }}>
       {/* sin imagen propia, el fondo es el color de la sección: el grabado
@@ -313,9 +347,11 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
         : velo(avance, false, b.imagen ? undefined : ALFA_SIN_IMAGEN) }} />
       {b.titulo ? <TituloSeccion categoria={b.categoria} titulo={b.titulo} opacidad={opTitulo} /> : null}
       <FondoTarjetaContext.Provider value={{ modo: "transparente", secciones: [] }}>
-        {tarjetas.map((t, i) => (
-          <Sequence key={i} from={t.from} durationInFrames={Math.max(1, t.dur)}><Tarjeta ev={t.ev} /></Sequence>
-        ))}
+        <AbsoluteFill style={{ opacity: apagado }}>
+          {tarjetas.map((t, i) => (
+            <Sequence key={i} from={t.from} durationInFrames={Math.max(1, t.dur)}><Tarjeta ev={t.ev} /></Sequence>
+          ))}
+        </AbsoluteFill>
       </FondoTarjetaContext.Provider>
     </AbsoluteFill>
   );
