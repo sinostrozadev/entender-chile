@@ -94,6 +94,25 @@ export const Tratamiento: React.FC<{ categoria?: string | null; escala?: number;
   );
 };
 
+// EL VELO DE UNA SECCIÓN SIN IMAGEN PROPIA (27-09-2026, corrección de
+// Santiago: "ese oscurecido a la mitad es solo para título y debe oscurecerse
+// toda la pantalla para el desarrollo de la noticia").
+//
+// Antes esto frenaba el BARRIDO en 0,62 cuando la sección no tenía imagen, con
+// la idea correcta de no apagar el color que ahí es lo único que la identifica.
+// El error fue el instrumento: velo() no es una opacidad, es la POSICIÓN de la
+// cortina. Frenarla en 0,62 deja la pantalla oscura hasta el 50,6% y limpia
+// desde el 65,6% hacia la derecha, y no solo durante el título: durante todo el
+// bloque, con el texto de la noticia encima. El informe del 27-09-2026 salió
+// así en 13 de sus 16 secciones, porque solo economía tenía imagen.
+//
+// Ahora la cortina llega a 1 siempre, con imagen o sin ella, y lo que deja
+// respirar al color es la TINTA. Con 0,6 el peor caso de los doce colores de
+// sección es plata pública (#806B45), que compuesto queda en rgb(64,57,43): el
+// texto #F7F6F2 encima da 10,6 a 1 de contraste, y el color todavía se ve.
+// Medido, no estimado, para los seis colores en uso.
+const ALFA_SIN_IMAGEN = 0.6;
+
 // ── el tablero ───────────────────────────────────────────────────────────
 const CAJA = 420, CAJA_ALTO = 236;
 const ANCHO = 300, ALTO = 169, HUECO = 26;
@@ -118,7 +137,7 @@ const Cara: React.FC<{ b: Baldosa; activa: boolean; z: number }> = ({ b, activa,
         opacity: b.imagen ? 1 - z : 0 }} />
       <AbsoluteFill style={{ background: "linear-gradient(60deg, rgba(23,25,28,0.42) 20%, rgba(23,25,28,0) 78%)",
         opacity: b.imagen ? 0 : 1 - z }} />
-      <AbsoluteFill style={{ background: velo(b.imagen ? 0.5 : 1, false), opacity: z }} />
+      <AbsoluteFill style={{ background: velo(b.imagen ? 0.5 : 1, false, b.imagen ? undefined : ALFA_SIN_IMAGEN), opacity: z }} />
       <div style={{ position: "absolute", left: 24, bottom: 22, width: 300, fontFamily: tema.serif,
         fontWeight: 600, fontSize: 22, lineHeight: 1.06, color: "#F7F6F2", opacity: 1 - z }}>{b.texto}</div>
       {/* el filo de cobre se apaga MUCHO antes de llegar: al llenar el cuadro
@@ -226,7 +245,7 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
       <Tratamiento categoria={b.categoria} conImagen={!!b.imagen} />
       {/* sin imagen el velo es más suave: si no, el color de la sección, que
           es lo único que la identifica ahí, se apaga hasta desaparecer */}
-      <AbsoluteFill style={{ background: velo(b.imagen ? avance : Math.min(avance, 0.62), false) }} />
+      <AbsoluteFill style={{ background: velo(avance, false, b.imagen ? undefined : ALFA_SIN_IMAGEN) }} />
       {b.titulo ? (
         <div style={{ position: "absolute", left: 110, top: "50%", transform: "translateY(-50%)",
           maxWidth: 760, opacity: opTitulo }}>
