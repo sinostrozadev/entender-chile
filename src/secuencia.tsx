@@ -40,6 +40,9 @@ const COBRE = "#D08A5B";
 // Gris de estructura (el mismo de src/mosaico.tsx): Apertura, En titulares,
 // Agenda y Cierre no son un tema y no pueden llevar el color de un tema.
 const GRAFITO = "#3A3D42";
+// Lo que dura la salida de una sección: el velo se retira y vuelve la imagen
+// limpia, que es el cuadro con el que arranca el viaje de la cámara.
+const SALIDA_SEG = 0.9;
 const sv = { easing: Easing.inOut(Easing.ease), extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
 
 // ── el plan que llega en meta.secuencia ──────────────────────────────────
@@ -113,12 +116,40 @@ export const Tratamiento: React.FC<{ categoria?: string | null; escala?: number;
 // Medido, no estimado, para los seis colores en uso.
 const ALFA_SIN_IMAGEN = 0.6;
 
+// EL TÍTULO DE LA SECCIÓN, UNO SOLO (27-09-2026, Santiago: "el mosaico que
+// contenga el título de la noticia, no solo la imagen de la sección, para que
+// la transición se vea más limpia").
+//
+// Antes había dos títulos distintos: uno chico abajo en la baldosa, que se
+// apagaba al llegar la cámara, y otro grande al medio en el bloque, que se
+// encendía justo después. Eso es un relevo, y un relevo se ve. Ahora es el
+// MISMO componente con una escala: la baldosa lo dibuja a CAJA/1920 y el
+// bloque a 1, así que en el cuadro en que la baldosa llena la pantalla las dos
+// versiones caen en el mismo pixel y no hay nada que relevar. Es la misma
+// regla del empalme que ya obedecen el velo y el pictograma.
+export const TituloSeccion: React.FC<{ categoria?: string | null; titulo: string; escala?: number; opacidad?: number }> =
+({ categoria, titulo, escala = 1, opacidad = 1 }) => (
+  <div style={{ position: "absolute", left: 110 * escala, top: "50%", transform: "translateY(-50%)",
+    maxWidth: 760 * escala, opacity: opacidad }}>
+    <div style={{ fontFamily: tema.mono, fontSize: 24 * escala, letterSpacing: "0.2em", textTransform: "uppercase",
+      color: COBRE, marginBottom: 22 * escala }}>{categoria || "Entender Chile"}</div>
+    <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 78 * escala, lineHeight: 1.06, color: "#F7F6F2" }}>
+      {titulo}
+    </div>
+  </div>
+);
+
 // ── el tablero ───────────────────────────────────────────────────────────
 const CAJA = 420, CAJA_ALTO = 236;
 const ANCHO = 300, ALTO = 169, HUECO = 26;
 const K = ANCHO / CAJA, ESCALA = 1920 / ANCHO;
 
-const Cara: React.FC<{ b: Baldosa; activa: boolean; z: number }> = ({ b, activa, z }) => (
+// `entrante` = esta baldosa es el DESTINO del viaje. Importa porque los dos
+// extremos del viaje tienen que calzar con lo que hay al otro lado: la que
+// entra se dibuja como el primer cuadro del bloque que viene (medio oscura,
+// con su título), y la que sale como el último cuadro del bloque que acaba de
+// terminar, que ahora se va limpio (ver SALIDA_SEG más abajo).
+const Cara: React.FC<{ b: Baldosa; activa: boolean; z: number; entrante?: boolean }> = ({ b, activa, z, entrante = false }) => (
   <div style={{ width: ANCHO, height: ALTO, flex: "0 0 auto", position: "relative" }}>
     <div style={{ width: CAJA, height: CAJA_ALTO, position: "relative", overflow: "hidden",
       transform: `scale(${K})`, transformOrigin: "top left",
@@ -137,9 +168,10 @@ const Cara: React.FC<{ b: Baldosa; activa: boolean; z: number }> = ({ b, activa,
         opacity: b.imagen ? 1 - z : 0 }} />
       <AbsoluteFill style={{ background: "linear-gradient(60deg, rgba(23,25,28,0.42) 20%, rgba(23,25,28,0) 78%)",
         opacity: b.imagen ? 0 : 1 - z }} />
-      <AbsoluteFill style={{ background: velo(b.imagen ? 0.5 : 1, false, b.imagen ? undefined : ALFA_SIN_IMAGEN), opacity: z }} />
-      <div style={{ position: "absolute", left: 24, bottom: 22, width: 300, fontFamily: tema.serif,
-        fontWeight: 600, fontSize: 22, lineHeight: 1.06, color: "#F7F6F2", opacity: 1 - z }}>{b.texto}</div>
+      <AbsoluteFill style={{ background: velo(0.5, false, b.imagen ? undefined : ALFA_SIN_IMAGEN),
+        opacity: entrante ? z : 0 }} />
+      <TituloSeccion categoria={b.categoria} titulo={b.texto} escala={CAJA / 1920}
+        opacidad={entrante || z < 0.02 ? 1 : 1 - z} />
       {/* el filo de cobre se apaga MUCHO antes de llegar: al llenar el cuadro
           quedaba una línea de un píxel marcando el borde de la baldosa, y eso
           delataba el empalme */}
@@ -168,21 +200,24 @@ export const Tablero: React.FC<{ baldosas: Baldosa[]; cuadros: number[]; zooms: 
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}>
         <div style={{ display: "flex", gap: HUECO,
           transform: `scale(${1 + (ESCALA - 1) * z}) translateX(${-x}px)`, transformOrigin: "center center" }}>
-          {baldosas.map((b, i) => <Cara key={i} b={b} activa={i === foco} z={i === foco ? z : 0} />)}
+          {baldosas.map((b, i) => (
+            <Cara key={i} b={b} activa={i === foco} z={i === foco ? z : 0}
+              entrante={i === focos[focos.length - 1]} />
+          ))}
         </div>
       </AbsoluteFill>
     </AbsoluteFill>
   );
 };
 
-// el bloque anterior quedó oscuro y el tablero no: sin este velo que se va
-// soltando, al empezar a alejarse la imagen se aclaraba de golpe. Es uno de
-// los saltos que Santiago marcó el 24-09.
-const VeloQueSuelta: React.FC = () => {
-  const f = useCurrentFrame();
-  return <AbsoluteFill style={{ backgroundColor: "rgba(21,23,26,0.76)",
-    opacity: interpolate(f, [0, 34], [1, 0], sv), pointerEvents: "none" }} />;
-};
+// (27-09-2026) Acá vivía VeloQueSuelta: una capa negra al 76% que entraba
+// entera en el primer cuadro del viaje y se soltaba en 34 cuadros. Existía
+// para tapar un desajuste, que el bloque terminaba oscuro y el tablero no, y
+// el remedio se veía peor que la enfermedad: Santiago lo describió como "un
+// parpadeo, al parecer tiene algún efecto que pone en negro la imagen". Se
+// fue. Ahora los dos extremos calzan de verdad: el bloque se va retirando su
+// propio velo (SALIDA_SEG) y la baldosa que sale se dibuja sin velo, así que
+// no queda nada que tapar.
 
 // El sello, encima del tablero que ya se está moviendo. El velo de abajo no
 // es decoración: sin él el nombre del canal cae justo sobre el título de una
@@ -220,15 +255,40 @@ const Sello: React.FC<{ fecha?: string; serie?: string; dur: number }> = ({ fech
 };
 
 // ── un bloque: la imagen manda toda la sección ───────────────────────────
-export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number; dur: number }[] }> =
-({ b, tarjetas }) => {
+export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number; dur: number }[]; dur: number }> =
+({ b, tarjetas, dur }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
   const lleno: [number, number] | null = b.titulo && b.lleno
     ? [Math.round(b.lleno[0] * fps), Math.round(b.lleno[1] * fps)] : null;
   const avance = lleno ? interpolate(f, lleno, [0.5, 1], sv) : 1;
-  // al terminar la sección no se retira nada: queda como está (24-09)
-  const opTitulo = lleno ? interpolate(f, [0, 12, lleno[0] - 4, lleno[0] + 12], [0, 1, 1, 0], sv) : 0;
+
+  // EL TÍTULO NO SE PISA CON EL BARRIDO (27-09-2026). Santiago: "la primera
+  // imagen te muestra un título, y queda pasado y se ve feo, y pasa en
+  // varias". Y tenía razón: el título se apagaba 12 cuadros DESPUÉS de que
+  // empezara el barrido, así que la cortina cruzaba la pantalla con el texto
+  // todavía encima y se veía media pantalla clara al lado del título. Ahora
+  // son tres tiempos seguidos y no dos superpuestos: el título está puesto
+  // desde el primer cuadro (lo trae la baldosa), se va del todo, y recién
+  // entonces barre.
+  //
+  // Tampoco entra con fundido: al llegar la cámara el título YA está, dibujado
+  // por la baldosa en el mismo lugar. Encenderlo acá sería encender algo que
+  // ya se veía.
+  const opTitulo = lleno ? interpolate(f, [lleno[0] - 10, lleno[0]], [1, 0], sv) : 0;
+
+  // LA SALIDA (27-09-2026). Santiago: "antes de terminar cada sección se ve
+  // como si parpadeara... quitémoslo, para que se vea natural la salida, ahí
+  // sí puede volver solo la imagen de sección al fondo de mosaicos, para
+  // mantener la suavidad". Así que el velo se RETIRA en el último tramo y la
+  // imagen vuelve limpia, que es con lo que arranca el viaje de la cámara.
+  // Nunca antes de que termine la última tarjeta: el texto no puede quedar
+  // sobre la imagen sin velo. Si no queda tramo, no se retira nada y el corte
+  // es el de siempre.
+  const finTarjetas = tarjetas.length ? Math.max(...tarjetas.map((c) => c.from + c.dur)) : 0;
+  const salidaDesde = Math.max(finTarjetas, dur - Math.round(fps * SALIDA_SEG));
+  const retiro = dur - salidaDesde >= Math.round(fps * 0.25)
+    ? interpolate(f, [salidaDesde, dur], [0, 1], sv) : 0;
   return (
     <AbsoluteFill style={{ backgroundColor: "#15171A" }}>
       {/* sin imagen propia, el fondo es el color de la sección: el grabado
@@ -245,17 +305,13 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
       <Tratamiento categoria={b.categoria} conImagen={!!b.imagen} />
       {/* sin imagen el velo es más suave: si no, el color de la sección, que
           es lo único que la identifica ahí, se apaga hasta desaparecer */}
-      <AbsoluteFill style={{ background: velo(avance, false, b.imagen ? undefined : ALFA_SIN_IMAGEN) }} />
-      {b.titulo ? (
-        <div style={{ position: "absolute", left: 110, top: "50%", transform: "translateY(-50%)",
-          maxWidth: 760, opacity: opTitulo }}>
-          <div style={{ fontFamily: tema.mono, fontSize: 24, letterSpacing: "0.2em", textTransform: "uppercase",
-            color: COBRE, marginBottom: 22 }}>{b.categoria || "Entender Chile"}</div>
-          <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 78, lineHeight: 1.06, color: "#F7F6F2" }}>
-            {b.titulo}
-          </div>
-        </div>
-      ) : null}
+      {/* velo(x, true) es el mismo velo al revés: transparente hasta x y
+          oscuro después. En retiro = 0 los dos dibujan la pantalla entera
+          oscura, así que el cambio de uno al otro no se ve. */}
+      <AbsoluteFill style={{ background: retiro > 0
+        ? velo(retiro, true, b.imagen ? undefined : ALFA_SIN_IMAGEN)
+        : velo(avance, false, b.imagen ? undefined : ALFA_SIN_IMAGEN) }} />
+      {b.titulo ? <TituloSeccion categoria={b.categoria} titulo={b.titulo} opacidad={opTitulo} /> : null}
       <FondoTarjetaContext.Provider value={{ modo: "transparente", secciones: [] }}>
         {tarjetas.map((t, i) => (
           <Sequence key={i} from={t.from} durationInFrames={Math.max(1, t.dur)}><Tarjeta ev={t.ev} /></Sequence>
@@ -306,7 +362,7 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
         const dela = tarjetas.filter((c) => c.seccion === b.texto);
         return (
           <Sequence key={"bl" + i} from={f(b.from)} durationInFrames={Math.max(1, f(b.to) - f(b.from))}>
-            <Bloque b={b} tarjetas={dela.map((c) => ({ ev: c,
+            <Bloque b={b} dur={Math.max(1, f(b.to) - f(b.from))} tarjetas={dela.map((c) => ({ ev: c,
               from: Math.max(0, f(c.from) - f(b.from)),
               dur: f(c.to) - f(c.from) + HOLD }))} />
           </Sequence>
@@ -330,7 +386,6 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
               <Audio src={staticFile(tl.meta.cortinas[i % tl.meta.cortinas.length])} volume={0.85} />
             ) : null}
             <Tablero baldosas={plan.baldosas} cuadros={cuadros} zooms={zooms} focos={focos} />
-            <VeloQueSuelta />
             {p.presentacion ? (
               <Sequence from={Math.round(dur * 0.12)} durationInFrames={Math.max(1, Math.round(dur * 0.56))}>
                 <Sello fecha={tl.meta.fecha} serie={tl.meta.serie} dur={Math.round(dur * 0.56)} />

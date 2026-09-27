@@ -32,8 +32,33 @@ const TITULO_SEG = 3.83;
 const BARRIDO_SEG = 1.67;
 const AIRE_SEG = 0.33;
 const PREAMBULO_SEG = TITULO_SEG + BARRIDO_SEG + AIRE_SEG;
-// Lo mínimo que tiene sentido: por debajo de esto el título no alcanza a
-// leerse y es mejor que la sección entre directamente oscura, sin cabecera.
+// SIEMPRE HAY TÍTULO (27-09-2026, Santiago: "dejemos siempre el título").
+// Antes la cabecera se saltaba cuando la voz no dejaba 1,6 s de aire, y el
+// resultado era que unas secciones se presentaban y otras no, sin que el
+// espectador pudiera saber por qué. En el informe del 27-09 no la llevó
+// NINGUNA. Ahora va siempre, y cuando el aire no alcanza se encoge.
+//
+// Lo que no se puede hacer es moverle el tiempo a la voz, así que una cabecera
+// encogida se superpone al comienzo de la primera tarjeta. Por eso quedó
+// pedido que la voz LEA el título de la sección: eso es lo único que crea aire
+// de verdad, y es la prueba que Santiago dejó para el final.
+// DE DÓNDE SALE EL TIEMPO DEL TÍTULO. No de las tarjetas: los tiempos de la
+// voz no se tocan, esa es la regla de este archivo. Sale del VIAJE DE LA
+// CÁMARA, que hasta hoy se quedaba con todo el silencio del corte y le dejaba
+// a la cabecera las sobras. Por eso el informe del 27-09-2026 no tuvo ninguna:
+// no porque no hubiera silencio, sino porque se lo gastaba entero el
+// recorrido. Ahora el silencio se reparte y la cabecera cobra primero.
+//
+// Consecuencia buscada: el preámbulo nunca puede pasarse del aire que tiene,
+// así que el título JAMÁS se superpone a la primera tarjeta. Si un corte trae
+// poco silencio, el título dura poco; lo que no hace nunca es comerse el
+// texto. Que dure lo que debe depende de que el silencio exista, y eso es lo
+// que va a resolver que la voz LEA el título, la prueba que quedó para el
+// final.
+const RESERVA_CABECERA = 0.55;  // del silencio del corte, antes que la cámara
+// Y este sigue siendo un mínimo real, pero para OTRA cosa: lo que el viaje de
+// la cámara no puede comerse del bloque. Un bloque sin nada de preámbulo
+// entraría con el texto ya encima.
 const PREAMBULO_MIN = 1.6;
 
 // El recorrido entre sección y sección y la presentación, en segundos.
@@ -98,18 +123,25 @@ const planear = (tl, opciones = {}) => {
     // medida, así que ahí el viaje va entero.
     const silencio = Number(b.ov.pausaDur || 0);
     const techo = opciones.holgado ? previo : (silencio > 0 ? Math.min(silencio, 2.4) + 2 : 0);
-    const viaje = Math.min(previo, techo, Math.max(0, b.hasta - b.desde - PREAMBULO_MIN));
+    // el hueco entero del corte: desde que termina la sección anterior hasta
+    // que se dice la primera frase de esta. Es lo único que hay para repartir.
+    const suyas = tarjetas.filter((c) => c.seccion === b.ov.texto);
+    const primeraAbs = suyas.length ? Math.min(...suyas.map((c) => c.from)) : b.hasta;
+    const hueco = Math.max(0, primeraAbs - b.desde);
+    const paraCabecera = opciones.holgado ? 0 : Math.min(PREAMBULO_SEG, hueco * RESERVA_CABECERA);
+    // En la muestra (holgado) los tiempos ya vienen hechos a la medida y el
+    // viaje va entero: repartir ahí sería recortar dos veces.
+    const topes = [previo, techo, Math.max(0, b.hasta - b.desde - PREAMBULO_MIN)];
+    if (!opciones.holgado) topes.push(Math.max(0, hueco - paraCabecera));
+    const viaje = Math.min(...topes);
     const desde = b.desde + viaje;
     if (viaje > 0.2) {
       paseos.push({ from: Number(b.desde.toFixed(3)), dur: Number(viaje.toFixed(3)),
         desde: i - 1, hasta: i, ...(i === 1 ? { presentacion: true } : {}) });
     }
-    // la cabecera solo puede ocupar el aire que hay antes de la primera
-    // tarjeta de la sección: los tiempos de las tarjetas no se tocan
-    const dela = tarjetas.filter((c) => c.seccion === b.ov.texto);
-    const primera = dela.length ? Math.min(...dela.map((c) => c.from)) : b.hasta;
-    const aire = opciones.holgado ? PREAMBULO_SEG : Math.max(0, primera - desde);
-    const cabecera = i > 0 && aire >= PREAMBULO_MIN;
+    // la cabecera ocupa el aire que quedó después del viaje, y nada más
+    const aire = opciones.holgado ? PREAMBULO_SEG : Math.max(0, primeraAbs - desde);
+    const cabecera = i > 0;
     const p = cabecera ? Math.min(aire, PREAMBULO_SEG) / PREAMBULO_SEG : 0;
     bloques.push({
       texto: b.ov.texto || "",
