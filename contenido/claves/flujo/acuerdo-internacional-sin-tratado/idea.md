@@ -18,11 +18,11 @@ Vas a distinguir una adhesión política de un tratado y a preguntar por el text
 
 ## El caso de entrada
 
-El 22-09-2026 Chile formalizó su ingreso al Escudo y Kast dijo que no había tratado ni operaciones militares (informe del 23-09-2026). El 23-09 la Cámara preparó una interpelación al canciller; el 24-09 Bachelet y Boric pidieron reconsiderar la permanencia, el Senado agendó una sesión especial y la DC acudió a Contraloría (informes del 24 y 25-09-2026). El 25-09 el ministro Martín Arrau dijo que, si llegara a ser tratado, tendría que pasar por el Congreso, mientras un chequeo cuestionó el alcance chileno de la lista de 25 organizaciones (informe del 26-09-2026). Fue una historia seguida cuatro días: sin conocer la forma jurídica, el debate queda reducido a una etiqueta.
+El 22-09-2026 Chile formalizó su ingreso al Escudo y Kast dijo que no había tratado ni operaciones militares (informe del 23-09-2026). El 23-09-2026 la Cámara preparó una interpelación al canciller; el 24-09-2026 Bachelet y Boric pidieron reconsiderar la permanencia, el Senado agendó una sesión especial y la DC acudió a Contraloría (informes del 24-09-2026 y del 25-09-2026). El 25-09-2026 el ministro Martín Arrau dijo que, si llegara a ser tratado, tendría que pasar por el Congreso, mientras un chequeo cuestionó el alcance chileno de la lista de 25 organizaciones (informe del 26-09-2026). Fue una historia seguida cuatro días: sin conocer la forma jurídica, el debate queda reducido a una etiqueta.
 
 ## De dónde viene
 
-El primer antecedente del material es Chile como observador, condición que Kast aún describía el 14-09-2026. El cambio ocurrió el 22-09-2026 en Nueva York: adhesión formal a una coordinación de 15 países impulsada por Estados Unidos (informe del 23-09-2026). Luego llegaron el control de la Cámara el 23-09, las objeciones y gestiones ante Senado y Contraloría el 24-09, y la precisión gubernamental del 25-09 (informes del 24 al 26-09-2026). Los informes no identifican el acto fundador del Escudo ni reproducen el instrumento íntegro de adhesión. La entrega deberá verificar ambos antes de atribuir obligaciones específicas.
+El primer antecedente del material es Chile como observador, condición que Kast aún describía el 14-09-2026. El cambio ocurrió el 22-09-2026 en Nueva York: adhesión formal a una coordinación de 15 países impulsada por Estados Unidos (informe del 23-09-2026). Luego llegaron el control de la Cámara el 23-09-2026, las objeciones y gestiones ante Senado y Contraloría el 24-09-2026, y la precisión gubernamental del 25-09-2026 (informes del 24-09-2026 al 26-09-2026). Los informes no identifican el acto fundador del Escudo ni reproducen el instrumento íntegro de adhesión. La entrega deberá verificar ambos antes de atribuir obligaciones específicas.
 
 ## Estructura tentativa
 
@@ -45,4 +45,4 @@ Carátula 3 (cifra con referencia): 15 PAÍSES / ¿QUÉ COMPROMISO? (informe del
 
 ## Duración y fuentes
 
-10 a 12 minutos: la cronología abre el caso y el centro enseña la diferencia jurídica y los controles. La entrega necesitará Constitución y Biblioteca del Congreso Nacional para tratados; Cancillería para el instrumento de adhesión; Cámara para la interpelación; Senado para la sesión especial; y Contraloría para la presentación. Pendiente de verificar: acto fundador, texto íntegro, obligaciones operativas y fechas de los controles.
+10 a 12 minutos: la cronología abre el caso y el centro enseña la diferencia jurídica y los controles. La entrega necesitará la Constitución, en la edición de la Biblioteca del Congreso Nacional, para tratados; Cancillería para el instrumento de adhesión; Cámara para la interpelación; Senado para la sesión especial; y Contraloría para la presentación. Pendiente de verificar: acto fundador, texto íntegro, obligaciones operativas y fechas de los controles.
