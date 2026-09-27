@@ -1,1 +1,1 @@
-validar_idea 0
+validar_idea 1
