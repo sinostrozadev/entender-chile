@@ -1398,6 +1398,17 @@ referencia:
 
 ## Para la sesión de día (solo análisis)
 
+- [ ] **27-09: revisar el primer video de producción con la secuencia del
+      24-09** (imagen de sección toda la sección, oscurecida, texto encima;
+      encendida con `SECUENCIA=2409` en edicion-diaria.yml, commit 984a461).
+      Mirar cabeceras (cortas o sin título si la voz no dejó pausas), la fila
+      del mosaico (apretada) y la portada. Si falló el render por la
+      secuencia: `SECUENCIA` en blanco y relanzar. bitacora/2026-09-27.md.
+- [ ] **27-09: la voz debe dejar pausas de 2,5 s entre secciones** para que
+      las cabeceras de la secuencia quepan en producción (hoy el plan las
+      recorta al aire disponible). Es trabajo del TTS (scripts/tts-azure.js /
+      build-timeline); proponer con alcance medido.
+
 - [ ] **Dónde se nota la IA**: lista de frases concretas con cita, sobre
       los informes publicados.
 - [ ] **Inventario de errores reales** en los informes, separando error de
