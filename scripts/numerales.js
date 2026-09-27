@@ -86,11 +86,27 @@ function aNumerales(texto) {
   while (i < tokens.length) {
     const t = tokens[i];
     const w = bajo(t).replace(/[.,;:()"“”]+$/g, "");
-    if (!esNumero(w) && w !== "mil") { out.push(t); i++; continue; }
+
+    // Dígitos y "mil" mezclados: "25 mil empleos". El texto llega así cuando
+    // quien lo escribió puso el número en cifras y la magnitud en palabra, que
+    // es como se habla. Antes el conversor no veía el 25 (no es palabra) y
+    // traducía el "mil" suelto como el número mil: el Short del 26-09-2026
+    // salió con "25 1.000 empleos nuevos" en la tarjeta, público y con vistas.
+    // Ahora el dígito manda la magnitud: 25 por mil es 25.000, y lo que venga
+    // después de "mil" se suma ("25 mil quinientos" es 25.500).
+    let enDigitos = 0, iSeq = i;
+    if (/^\d{1,3}(?:\.\d{3})+$|^\d+$/.test(w)) {
+      let k = i + 1; while (k < tokens.length && /^\s+$/.test(tokens[k])) k++;
+      if (k < tokens.length && bajo(tokens[k]).replace(/[.,;:()"“”]+$/g, "") === "mil") {
+        enDigitos = Number(w.replace(/\./g, ""));
+        iSeq = k;
+      }
+    }
+    if (!enDigitos && !esNumero(w) && w !== "mil") { out.push(t); i++; continue; }
 
     // juntar la secuencia numérica: número (y número)* (mil)? ...
     const tomar = (k) => { const s = bajo(tokens[k]); return s.replace(/[.,;:()"“”]+$/g, ""); };
-    const { seq, j: jSeq } = leerSecuencia(tokens, i, tomar);
+    const { seq, j: jSeq } = leerSecuencia(tokens, iSeq, tomar);
     let j = jSeq;
     const soloArticulo = seq.length === 1 && ARTICULOS.has(seq[0]);
     const siguiente = (() => { let k = j; while (k < tokens.length && /^\s+$/.test(tokens[k])) k++; return k < tokens.length ? bajo(tokens[k]).replace(/[.,;:]+$/g, "") : ""; })();
@@ -99,6 +115,9 @@ function aNumerales(texto) {
       out.push(t); i++; continue;
     }
     let numero = valorDe(seq);
+    // valorDe ya contó el "mil" como 1.000; con el número en dígitos delante,
+    // la magnitud la pone el dígito y el resto de la secuencia se suma.
+    if (enDigitos) numero = enDigitos * 1000 + (numero - 1000);
     let textoNum = conMiles(numero);
 
     // compuestos con "millones": "tres mil seiscientos cuarenta millones
@@ -202,6 +221,13 @@ if (require.main === module) {
     ["mil quinientos millones trescientos mil pesos", "1.500.300.000 pesos"],
     ["un millón doscientas mil personas", "1.200.000 personas"],
     ["dos millones de dólares y tres mil pesos", "2 millones de dólares y 3.000 pesos"],
+    // dígitos y palabra mezclados (26-09-2026: el Short mostró "25 1.000 empleos")
+    ["el gobierno alistaría 25 mil empleos nuevos", "el gobierno alistaría 25.000 empleos nuevos"],
+    ["10 mil personas aisladas", "10.000 personas aisladas"],
+    ["un bono de 200 mil pesos", "un bono de 200.000 pesos"],
+    ["25 mil quinientos cupos", "25.500 cupos"],
+    ["3 mil millones de dólares", "3.000 millones de dólares"],
+    ["25 millones de dólares", "25 millones de dólares"],
   ];
   let mal = 0;
   for (const [entrada, esperado] of casos) {
