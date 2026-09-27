@@ -1,7 +1,7 @@
 # Caso: ProCultura (transferencias de GORE y servicios a la fundación)
 
 Estado: JUDICIALIZADO
-Dossier abierto: 2026-08-26 · Última actualización: 2026-09-10
+Dossier abierto: 2026-08-26 · Última actualización: 2026-09-27
 
 <!-- datos
 cuestionado: 5866677378
@@ -30,7 +30,7 @@ nota-cifra: 18 convenios en 8 regiones, cifra atribuida al Ministerio Público. 
 | Claudio Orrego | Gobernador regional | Gobierno Regional Metropolitano | NO fue formalizado ni acusado. Su apellido fue mencionado 70 veces en el documento de formalización de otros imputados, del 02-02-2026: eso es una referencia dentro del relato del Ministerio Público, no una imputación de cargos en su contra (T13/Ex-Ante, CIPER, 02-02-2026). El 01-02-2026 la Fiscalía confirmó públicamente que registraba calidad de imputado (Cooperativa). El 17-02-2026 el pleno de la Corte de Apelaciones de Santiago rechazó por unanimidad su desafuero, lo que impidió formalizarlo (Cooperativa, La Tercera). El 02-06-2026 el Séptimo Juzgado de Garantía de Santiago decretó su SOBRESEIMIENTO DEFINITIVO y condenó en costas al Ministerio Público (Cooperativa, La Tercera, CNN Chile, BioBioChile, T13). A la fecha del dossier no consta que esté vigente ninguna imputación en su contra. |
 | Ricardo Díaz | Gobernador regional | Gobierno Regional de Antofagasta | Figura como imputado en la investigación de la Fiscalía Regional de Antofagasta, sin formalización a la fecha, por un convenio directo de recuperación de fachadas (La Tercera, Ex-Ante). No hay cargos formulados. |
 | Rodrigo Mundaca | Gobernador regional | Gobierno Regional de Valparaíso | Imputado sin formalización, por un convenio de murales por $25 millones (La Tercera, Ex-Ante). No hay cargos formulados. |
-| Óscar Crisóstomo | Gobernador regional | Gobierno Regional de Ñuble (PS) | Imputado sin formalización, por un convenio de fortalecimiento de la integración con Argentina (La Tercera, Ex-Ante). Monto sin confirmar. No hay cargos formulados. |
+| Óscar Crisóstomo | Gobernador regional | Gobierno Regional de Ñuble (PS) | Imputado sin formalización en la causa penal, por un convenio de fortalecimiento de la integración con Argentina (La Tercera, Ex-Ante). No hay cargos formulados en su contra en sede penal. En sede administrativa, la Contraloría General de la República le abrió un juicio de cuentas el 20-03-2025, junto a cinco funcionarios del Gobierno Regional de Ñuble, por omisión negligente en la supervisión del convenio de $268.100.000 asignado por trato directo a ProCultura en 2022 para el programa "Transferencia fortalecimiento de la integración con Argentina, Encuentro Binacional Ñuble" (BioBioChile, Ex-Ante y La Discusión, 20-03-2025). Un juicio de cuentas es un procedimiento administrativo de responsabilidad patrimonial que puede terminar en la obligación de restituir los fondos; no es una condena penal. Resultado del juicio de cuentas: sin confirmar al 27-09-2026. |
 | Jorge Flies | Gobernador regional | Gobierno Regional de Magallanes | Imputado sin formalización, por un convenio de recuperación de espacios públicos y conservación de murales (La Tercera, Ex-Ante). Monto sin confirmar. No hay cargos formulados. |
 | Miguel Crispi | Exasesor presidencial | Segunda Presidencia / gobierno | La Fiscalía le asignó un rol en el relato del convenio con el GORE de Orrego, según reportaje de T13/Ex-Ante del 02-02-2026. No consta formalización ni cargos en su contra. Referencia, no imputación de cargos. |
 | Juan Castro Bekios | Fiscal regional de Antofagasta | Ministerio Público | No es imputado. Fue condenado en costas personalmente por el Séptimo Juzgado de Garantía de Santiago el 02-06-2026, por "grave negligencia" en la conducción de la investigación, según Cooperativa y El Nortero. |
@@ -47,6 +47,7 @@ nota-cifra: 18 convenios en 8 regiones, cifra atribuida al Ministerio Público. 
 - 2024-10-15: Anglo American presenta querella contra ProCultura por más de $290 millones no rendidos, dentro de cinco convenios por cerca de $405 millones firmados entre 2021 y 2023. (El Dínamo; BioBioChile; Interferencia)
 - 2024 (mes sin confirmar): El Consejo de Defensa del Estado interpone querella criminal contra la representante legal de ProCultura por apropiación indebida, por cinco convenios con el Minvu y el Serviu de Antofagasta. (CDE, cde.cl; La Tercera)
 - 2024-11-22: La Fiscalía realiza diligencias en la Región Metropolitana y Antofagasta con 49 personas citadas, 5 de las cuales no asisten. (BioBioChile)
+- 2025-03-20: La Contraloría General de la República inicia un juicio de cuentas contra el gobernador de Ñuble, Óscar Crisóstomo, y cinco funcionarios del Gobierno Regional de Ñuble por omisión negligente en la supervisión del convenio de $268.100.000 asignado por trato directo a ProCultura en 2022 para el programa "Transferencia fortalecimiento de la integración con Argentina, Encuentro Binacional Ñuble". El informe del organismo detectó sobreprecios, $54 millones objetados y $20 millones no ejecutados, e indagó la presunta intervención del gobernador en la elección de la empresa Esquerré para ejecutar el proyecto, pese a que la ejecutora formal era la fundación. El procedimiento puede terminar en la obligación de restituir los fondos. (BioBioChile, 20-03-2025; Ex-Ante, 20-03-2025; La Discusión, 20-03-2025)
 - 2025-05-13 a 2025-05-18: Serie de reportajes sobre los nexos Larraín-Orrego y las aristas del caso. (Emol, The Clinic)
 - 2025-05-16: The Clinic revela que un error de la Fiscalía expuso detalles de la salud mental del Presidente Boric obtenidos en una interceptación telefónica a su expsiquiatra. Es un incidente de datos sensibles atribuido a la Fiscalía, no una arista de fondos públicos.
 - 2025-05-27: El GORE de Santiago exige a la aseguradora Aspor la restitución de más de $1.000 millones por las pólizas de garantía de ProCultura. (Emol; La Tercera)
@@ -77,10 +78,14 @@ Arista de datos sensibles (estudio de suicidio): no se localizó una arista judi
 - Hacia el 03-11-2026 (aproximado): Vencimiento del plazo de investigación de 90 días fijado el 05-08-2026 en la arista Biobío. La fecha exacta de cierre y la audiencia asociada no están confirmadas.
 - Sin fecha: Radicación efectiva ante el Cuarto Juzgado de Garantía de Santiago de la arista Biobío, tras la declaración de incompetencia del 05-08-2026. La arista Antofagasta ya quedó radicada allí por resolución de la Corte de Apelaciones de Antofagasta de julio de 2026.
 - Sin fecha: Definición de la Fiscalía respecto de los gobernadores Ricardo Díaz, Rodrigo Mundaca, Óscar Crisóstomo y Jorge Flies, que figuran como imputados sin formalización.
+- Sin fecha: Resultado del juicio de cuentas que la Contraloría inició el 20-03-2025 contra el gobernador de Ñuble y cinco funcionarios del Gobierno Regional de Ñuble por el convenio de $268.100.000. Es la única vía de restitución de fondos abierta en este caso con un procedimiento formal en curso; su estado al 27-09-2026 no está confirmado.
 - Sin confirmar: Si el Ministerio Público o el CDE dedujeron recurso contra el sobreseimiento definitivo de Claudio Orrego del 02-06-2026. No se localizó reporte posterior sobre apelación.
 - Sin confirmar: Situación procesal actual de María Teresa Abusleme, Evelyn Magdaleno y Gabriel Prado en la arista metropolitana después del 02-06-2026.
 
 ## Fuentes
+- BioBioChile, 2025-03-20 (juicio de cuentas a Crisóstomo): https://www.biobiochile.cl/noticias/nacional/region-de-nuble/2025/03/20/procultura-contraloria-inicia-juicio-de-cuentas-contra-gobernador-de-nuble-por-omision-negligente.shtml
+- Ex-Ante, 2025-03-20: https://www.ex-ante.cl/procultura-contraloria-abre-juicio-de-cuentas-a-gobernador-crisostomo-ps-acusando-omision-negligente-en-convenio-de-268-millones/
+- La Discusión, 2025-03-20: https://ladiscusion.cl/contraloria-inicio-juicio-de-cuentas-contra-el-gobernador-y-cinco-funcionarios-por-caso-procultura/
 - Timeline.cl, julio de 2026 (Corte de Apelaciones radica la arista Antofagasta en Santiago): https://www.timeline.cl/caso-procultura-corte-de-apelaciones-saca-investigacion-de-antofagasta-y-la-envia-a-santiago/
 - Antofagasta.tv, julio de 2026: https://www.antofagasta.tv/categoria/antofagasta/sale-antofagasta-corte-apelaciones-traslada-investigacion-caso-procultura-santiago
 - La Tercera, julio de 2026: https://www.latercera.com/nacional/noticia/se-destraba-lio-por-competencia-en-arista-antofagasta-de-procultura-y-la-causa-se-radica-en-la-jurisdiccion-de-santiago/
@@ -170,6 +175,8 @@ Notas de discrepancia:
 - 2026-09-05: se fecha la declaración de incompetencia de la arista Antofagasta, que el dossier consignaba como "2026 (fecha exacta sin confirmar)". Ahora la cronología la sitúa el 26-05-2026, al día siguiente de la formalización en Antofagasta, y consigna el fundamento invocado (artículo 157 del Código Orgánico de Tribunales, lugar de comienzo de ejecución del delito) y el argumento de la defensa (firma electrónica de María Constanza Gómez desde Santiago). Se agregan tres fuentes: BioBioChile (26-05-2026), CNN Chile y Puranoticia. La fecha de la resolución misma sigue sin confirmar. Sin cambios en las cifras del caso.
 - 2026-09-10: se incorpora un avance procesal que el dossier no tenía: la Corte de Apelaciones de Antofagasta resolvió la contienda de competencia de la arista Antofagasta y declaró competente al Cuarto Juzgado de Garantía de Santiago, donde queda radicada la investigación por los seis delitos de apropiación indebida imputados a Alberto Larraín y María Constanza Gómez. La Corte descartó la tesis de la Fiscalía y situó el comienzo de ejecución en las operaciones bancarias hechas desde cuentas de la fundación administradas en Las Condes. La resolución se sitúa el 29-07-2026 según un reporte; el hecho consta en Timeline.cl, Antofagasta.tv y La Tercera. Con ello, el hito que el dossier listaba como "Radicación efectiva ante el Cuarto Juzgado de Garantía de Santiago" queda resuelto para la arista Antofagasta y pendiente solo para la arista Biobío. Sin cambios en las cifras del caso.
 
+- 2026-09-27: entra a la ficha la única vía de restitución de fondos con procedimiento formal en curso, que el dossier no registraba: el juicio de cuentas que la Contraloría General de la República inició el 20-03-2025 contra el gobernador de Ñuble, Óscar Crisóstomo, y cinco funcionarios de su Gobierno Regional por omisión negligente en la supervisión del convenio de $268.100.000 asignado por trato directo a ProCultura en 2022 (programa "Transferencia fortalecimiento de la integración con Argentina, Encuentro Binacional Ñuble"), con sobreprecios, $54 millones objetados y $20 millones no ejecutados según el informe del organismo. Con eso la fila de Crisóstomo deja de decir "monto sin confirmar": el convenio queda cifrado en $268.100.000 y su situación queda separada en sede penal (imputado sin formalización, sin cargos) y sede administrativa (juicio de cuentas abierto, resultado sin confirmar). Tres medios establecidos: BioBioChile, Ex-Ante y La Discusión, los tres del 20-03-2025. Sin cambios en las cifras del bloque de datos: un juicio de cuentas abierto no es dinero recuperado.
+
 Nota sobre las fuentes: no se accedió al texto íntegro de las resoluciones judiciales ni de las notas de prensa citadas; lo consignado proviene de extractos con URL verificada, con al menos dos medios establecidos por hecho salvo donde se indica el medio único.
 
 <!-- interno
@@ -195,5 +202,19 @@ no se leyo el texto de ninguna nota ni de la resolucion. La fecha del
 29-07-2026 aparece en un solo reporte y es consistente con el dia de la semana
 que este menciona (miercoles). Rol y sala quedaron anotados en por-verificar.md.
 Ninguna busqueda devolvio novedades posteriores al 05-09-2026 en este caso.
+
+27-09-2026: tampoco hoy hay noticia del dia. Lo incorporado es un hecho de
+marzo de 2025 que faltaba en la ficha: el juicio de cuentas a Crisostomo.
+Entra porque lo publican tres medios establecidos el mismo dia (BioBioChile,
+con URL fechada 2025/03/20, Ex-Ante y La Discusion) y porque es la unica via
+de restitucion con procedimiento formal abierto en todo el caso. No se leyo el
+texto de ninguna nota: ladiscusion.cl devolvio EGRESS_BLOCKED y los demas
+dominios siguen bloqueados, asi que falta el numero del informe de Contraloria
+y el rol del juicio de cuentas. Queda fuera, por fuente insuficiente, la
+respuesta del gobernador (que lo calificaria de proceso administrativo en
+etapa de descargos y sostendria que el proyecto se ejecuto correctamente): el
+extracto no permite atribuirla a un medio determinado. Anotado en
+por-verificar.md. Ninguna busqueda devolvio novedades posteriores al
+10-09-2026 en la causa penal.
 -->
 
