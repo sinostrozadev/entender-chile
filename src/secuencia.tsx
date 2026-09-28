@@ -345,7 +345,24 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
   // ya se veía.
   // El titular se desvanece cuando el locutor termina de decirlo: ese instante
   // es lleno[0], que el plan calcula desde la entrada hablada.
-  const opTitulo = lleno ? interpolate(f, rango([lleno[0], lleno[1]]), [1, 0], sv) : 0;
+  // EL TITULAR SE VA ANTES DE QUE ENTRE LA PRIMERA TARJETA (28-09-2026). En la
+  // primera edicion al aire con este formato, el titular de la noticia
+  // principal quedo escrito ENCIMA del texto de la tarjeta, las dos frases
+  // superpuestas y las dos ilegibles.
+  //
+  // Fue un error mio del 27-09, y de los que ensenan algo: le quite al barrido
+  // el tope del aire disponible, con un motivo correcto ("oscurecer el fondo no
+  // tapa nada, porque la tarjeta se dibuja encima"), pero el titular usa LOS
+  // MISMOS numeros que el barrido, asi que se quedo sin tope tambien. Y el
+  // titular si tapa. Un cambio bueno para una pieza aplicado sin mirar a quien
+  // mas le llegaba.
+  //
+  // Ahora el limite es del titular y no del plan: se calcula aca, contra la
+  // primera tarjeta que de verdad va a entrar, asi que ninguna cuenta de
+  // secuencia-plan puede volver a superponerlos.
+  const primeraTarjeta = tarjetas.length ? Math.min(...tarjetas.map((c) => c.from)) : Infinity;
+  const finTitulo = lleno ? Math.min(lleno[1], primeraTarjeta - 3) : 0;
+  const opTitulo = lleno ? interpolate(f, rango([Math.min(lleno[0], finTitulo - 6), finTitulo]), [1, 0], sv) : 0;
 
   // LA SALIDA (27-09-2026). Santiago: "antes de terminar cada sección se ve
   // como si parpadeara... quitémoslo, para que se vea natural la salida, ahí
@@ -417,42 +434,21 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
   );
 };
 
-// EL GRANO (27-09-2026). Es lo que usan los documentales para que un cuadro
-// quieto no se sienta muerto: una capa de textura finisima que se mueve sola.
-// Va ARRIBA DE TODO y cubre el video entero, no una pieza: asi no puede
-// delatar ningun empalme, que es el riesgo de cualquier efecto que este de un
-// lado de un corte y no del otro.
+// EL GRANO SE FUE (28-09-2026), despues de un dia al aire. Santiago: "quitemos
+// el grano urgente". Lo que costaba, medido contra las ediciones anteriores:
+// el informe paso de 57,6 MB a 227,6 MB, cuatro veces, porque el ruido no se
+// comprime y cada cuadro pasa a ser unico para el codificador. El render subio
+// de unos 26 a 35,9 minutos y la subida a YouTube de 6,7 a 12,8.
 //
-// No se desliza, SALTA: cambia de posicion cada tres cuadros a un punto
-// distinto de una lista fija. Un grano que se desliza se lee como suciedad en
-// el lente; un grano que salta se lee como grano de pelicula, que es lo que
-// el ojo espera de algo filmado. La lista es fija a proposito: el render
-// tiene que dar el mismo video dos veces.
-// CUANTO GRANO. La primera version iba en 0,045 y no se veia NADA, y eso se
-// puede calcular en vez de renderizar para mirarlo: el modo overlay sobre una
-// base oscura (#15171A, que en luz es 0,09) da 2*base*ruido, o sea un maximo
-// de 0,18, y a 0,045 de opacidad el pixel se mueve entre 21,9 y 24,0 de 255.
-// Dos niveles. Invisible. Este video es casi todo oscuro, asi que el grano
-// necesita mas de lo que necesitaria sobre material claro: a 0,18 el pixel se
-// mueve entre 18,8 y 27,1, un swing de 8 niveles, que es lo que se lee como
-// grano sin ensuciar la imagen.
-const GRANO_OP = 0.18;
-const SALTOS = [[0, 0], [17, 9], [5, 23], [28, 3], [11, 31], [23, 14], [3, 19], [31, 27]];
-const RUIDO = "data:image/svg+xml;utf8," + encodeURIComponent(
-  '<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140">' +
-  '<filter id="r"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/>' +
-  '<feColorMatrix type="saturate" values="0"/></filter>' +
-  '<rect width="140" height="140" filter="url(#r)"/></svg>');
-
-const Grano: React.FC = () => {
-  const f = useCurrentFrame();
-  const [dx, dy] = SALTOS[Math.floor(f / 3) % SALTOS.length];
-  return (
-    <AbsoluteFill style={{ backgroundImage: `url("${RUIDO}")`, backgroundRepeat: "repeat",
-      backgroundPosition: `${dx}px ${dy}px`, opacity: GRANO_OP, mixBlendMode: "overlay",
-      pointerEvents: "none" }} />
-  );
-};
+// Y la duda de fondo nunca se resolvio a favor: YouTube reencoda, y el grano
+// fino es lo primero que cualquier codificador destruye, asi que lo mas
+// probable es que se estuviera pagando cuatro veces el peso por algo que el
+// espectador no llegaba a ver. El codigo esta en el historial (commits bd676e2
+// y c734bc5) por si alguna vez se retoma con material mas claro, donde el
+// grano necesita menos opacidad y pesa menos.
+//
+// El respiro que SI queda es el zoom lento de la portada y de las imagenes de
+// seccion: es movimiento, no textura, y sobrevive a cualquier compresion.
 
 // ── el informe entero ────────────────────────────────────────────────────
 export type PropsSecuencia = {
@@ -527,9 +523,6 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
           </Sequence>
         );
       })}
-
-      {/* el grano va al final del arbol: encima de todo lo demas */}
-      <Grano />
 
       {tl.meta.cierre ? (
         <Sequence from={Math.max(0, f(tl.meta.duracionSeg - 3.2))}>
