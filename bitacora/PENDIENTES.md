@@ -141,6 +141,20 @@ pudo; silencio cuando GPT cumplió.
       aparece otra: **el 35% de los párrafos lleva una cifra** y la firma del
       canal exige toda cifra visible con su fuente, así que la imagen reemplaza
       la prosa y nunca el dato.
+      **APROBADA y empezada el 28-09.** Los 20 conceptos con sus 40 prompts
+      están en `contenido/biblioteca/PROMPTS-CONCEPTOS.md` (20 cubren el 89%,
+      no 40). La prueba de composición (`src/prueba-parrafo.tsx`) dejó dos
+      cosas: el párrafo CON cifra se puede hacer **hoy y sin imágenes nuevas**,
+      y el párrafo sin texto queda vacío con las imágenes de sección, así que
+      las de biblioteca van con el motivo centrado ocupando el cuadro. Falta:
+      (a) que Santiago genere las 40; (b) la pantalla Biblioteca en el taller;
+      (c) cómo elige el video qué imagen va en cada párrafo.
+- [ ] **EL ARCHIVO DE PROMPTS DE SECCIÓN MIENTE (28-09).**
+      `contenido/secciones/PROMPTS-PARA-PEGAR.md` describe en su bloque fijo
+      versión 3 un fondo de color apagado con el motivo en blanco hueso, y las
+      imágenes que están al aire son papel casi blanco con el dibujo oscuro
+      (medido: #F1F0F1, #EAEBE8, #ECEDE9). Quien pegue ese prompt genera algo
+      que no calza. Arreglarlo es media hora. **Dueño: el día.**
 - [ ] **QUÉ MÁS DEBE SER CONFIGURABLE (28-09).** Inventario completo con
       archivo y línea en `taller/PARAMETROS.md`, ordenado por las dos
       pantallas del taller. Las tres primeras, en orden: (1) que los cuatro
