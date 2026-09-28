@@ -724,6 +724,14 @@ referencia:
       `prompts/guion-informe.md` el 23-09 no cerró el problema de fondo,
       solo cubrió el caso puntual de esa sigla: sigue faltando una lista de
       exentas o una regla general para cualquier sigla nueva.
+      **28-09: sexto día, y la superficie cambió.** Hoy `contenido/revisiones/2026-09-28.md`
+      marca SAG y CONAF sin expandir, pero ya no en `[FUENTE]`/`[DATO]`
+      (lo que cubre la regla del 23-09) sino en el titular de la línea 118
+      del guion: un titular no incumple la letra del prompt aunque se pinta
+      en pantalla igual, así que la revisión no bloqueó por una razón de
+      forma. La propia revisión de hoy dice textual: "o entra a la lista de
+      exentas o empieza a bloquear". Auditoría del 28-09
+      (`bitacora/2026-09-28-auditoria.md`).
 
 - [ ] **23-09, HOY: tope al cierre de cautela repetido ("queda para
       verificar/en seguimiento/pendiente") — más de una semana sin corregirse

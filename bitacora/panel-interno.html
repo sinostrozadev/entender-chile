@@ -122,161 +122,161 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 27-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-09-27-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON OBSERVACIONES — HOY: la carátula de hoy se generó bien y se</div>
+    <p class="eyebrow">Auditoría de la mañana · 28-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-09-28-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:#8A6F3F;margin-bottom:10px">ESTADO: CON OBSERVACIONES — la cadena de la madrugada corrió completa, sin</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON OBSERVACIONES — HOY: la carátula de hoy se generó bien y se
-perdió igual, porque el conector de esa ejecución no admite binarios y la
-ruta queda en un scratch que se borra.
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON OBSERVACIONES — la cadena de la madrugada corrió completa, sin
+fallas técnicas (todas las corridas de GitHub Actions sobre `main` de hoy,
+`conclusion: success`, verificado con `mcp__github__actions_list`) y por
+delante del horario en cada eslabón (compuerta cerrada a las 02:36 de Chile,
+casi una hora antes de la prevista de las 03:30). No hay `HOY`: lo único que
+se repite es un hallazgo de forma ya anotado desde el 23-09 y que hoy
+cambió de superficie (ahora también en titulares), y tres hallazgos nuevos
+de un solo día que van a MIRAR.
 
 ## Qué salió y a qué hora
 
-| Pieza | Hora real (Chile) | Hora esperada | Nota |
+| Pieza | Hora real (Chile) | Hora esperada (`contenido/estado/2026-09-28.md`) | Nota |
 |---|---|---|---|
-| Barrido | 01:40 (reloj) → 01:40 (workflow) | 01:30 | 10 min de margen, dentro de tolerancia |
-| Preselección (GPT) | aprobada antes de las 02:01 | ~01:35 en adelante | veredicto vuelta 1; su propia corrección no queda en el historial de hoy (ver nota abajo) |
-| Observatorio plata pública | 02:01 | 01:45 | dos casos movidos (ProCultura, Maipú), ocho sin novedad |
-| Informe (GPT + validación) | aprobado 02:24 (vuelta 2) | poco después de la preselección | 2 vueltas: CORREGIR a las 02:09 y a las 02:19 |
-| Guion del informe (GPT + validación) | aprobado 02:51 (vuelta 1) | — | 1 vuelta: CORREGIR a las 02:38 |
-| Carátula | NO llegó (ver Qué falló) | tras el guion (02:27) | generada, no subida |
-| Revisión (compuerta) | 02:51, cierre efectivo 02:48 según su propio texto | antes de las 03:30 | VEREDICTO: APROBADA |
-| Edición diaria (voz, render, subida) | dispara 02:52 → `videos_listos` 03:27 | ~04:00 | adelantada, sin incidentes |
-| Podcast y descripciones | 03:20–03:26 | tras el render | ok |
-| Web | republicada 03:27 | tras la revisión | ok |
-| Métricas | reloj 05:15, workflow 05:15 | 05:00 | mismo margen que ayer (05-09-26 también fue 05:15); no es un atraso nuevo |
-| Semana 39, candidatos de la Clave | ya en el repo (domingo) | — | `contenido/claves/semana/2026-W39-candidatos.md` existe, semana 21 al 26-09 |
+| Barrido | 01:40 (reloj) → 01:40 (workflow, API confirma `conclusion: success`) | 01:40 | en punto |
+| Preselección (GPT + validación) | aprobada, vuelta 1 | 02:10 | `contenido/veredictos/2026-09-28-preseleccion.md` |
+| Informe (GPT + validación) | aprobado 02:02, vuelta 1 | 02:40 | sin corrección |
+| Guion del informe (GPT + validación) | aprobado 02:35, vuelta 2 | 03:10 | 1 vuelta de corrección, ver abajo |
+| Revisión (compuerta, `contenido/revisiones/2026-09-28.md`) | 02:36 | 03:30 | VEREDICTO: APROBADA |
+| Edición diaria (voz, render, subida) | `videos_listos` 03:15 (API: push 02:36 → completado 03:29) | 05:15 | adelantada, sin incidentes |
+| Carátula | subió, `contenido/caratulas/2026-09-28.png` | tras el guion | tercer día con carátula nueva tras dos `NO-PUDE` (25 y 26-09) |
+| Podcast (`contenido/podcast/episodios.json`) | 601 s = 10:01 min, episodio del informe | "~10 min, 12-13 en día cargado" | dentro de la promesa, dato medido del json, no estimado |
+| Métricas | reloj 05:16 → workflow 05:17 | 05:00 | 16-17 min de margen, dentro de tolerancia |
+| Clave | no corrió | — | correcto: CLAVE 4 no es diaria, hoy no es domingo |
 
-Nota sobre horas: la historia de git de esta mañana antes de las 02:01
-Chile quedó comprimida en un solo commit muy grande (`abe130f`, con cientos
-de archivos), así que no pude sacar de ahí la hora exacta de la
-preselección ni de su propia vuelta de corrección; la referencia confiable
-de esta madrugada es la secuencia de commits del validador y de
-`estado.yml` desde las 02:01, que sí es consistente minuto a minuto, y la
-API de GitHub Actions para el Barrido. No es un hallazgo de la cadena, es
-una limitante de esta auditoría puntual.
-
-La Clave no corrió hoy (domingo), y con razón: CLAVE 4 no es diaria. No hay
-entrega sin guion que reportar.
+La única vuelta de corrección del día fue del guion del informe
+(`contenido/veredictos/2026-09-28-guion_informe.md`, VUELTA: 2): la tercera
+carátula repetía el giro de la segunda en vez de aportar un tercer enfoque
+distinto, y se corrigió en la vuelta siguiente. Preselección e informe
+cerraron a la primera.
 
 ## Qué falló
 
-1. **La carátula del 27-09 se generó y se perdió.** El conector de la
-   ejecución que la generó solo escribe texto UTF-8, no admite subir el PNG,
-   y la imagen quedó en `/workspace/scratch/3b1551457c46/generated_images/
-   exec-0721fc9f-3416-44d6-a26c-21c8e115aa7e.png`, una ruta que no
-   sobrevive. Evidencia: `contenido/caratulas/2026-09-27-NO-PUDE.md`. Es
-   distinto del 25 y 26-09 (`contenido/caratulas/2026-09-25-NO-PUDE.md` y
-   `2026-09-26-NO-PUDE.md`: ahí no había generador en el entorno); hoy sí
-   generó y aun así se perdió. La propia revisión del día
-   (`contenido/revisiones/2026-09-27.md`) lo marca "PARA SANTIAGO" y dice
-   que es la segunda cosa del día que se detiene por el mismo motivo. La
-   edición siguió con la carátula de respaldo, como manda el prompt, así
-   que no bloqueó el video de hoy.
+Sin fallas técnicas. `node scripts/validar-tarjetas.js --fecha 2026-09-28`
+no dejó avisos (variedad OK, cuota de tipos de tarjeta cumplida). Los puntos
+siguientes son de calidad editorial, ninguno bloqueó la publicación:
 
-2. **Siglas en pantalla sin expandir, quinto día con la misma observación.**
-   SEC, Senapred y DW se pintan en el pie de las tarjetas antes de que la
-   narración las traduzca (`contenido/revisiones/2026-09-27.md`). El 26-09
-   ya era "cuarto día seguido" (`contenido/revisiones/2026-09-26.md`), y
-   viene desde el 21-09 según `contenido/revisiones/2026-09-23.md`. La
-   regla que se agregó a `prompts/guion-informe.md` el 23-09 cubrió el caso
-   de "DMC" pero no un mecanismo general: nuevas siglas siguen entrando sin
-   expandir.
+1. **Siglas sin expandir, ahora en los titulares — sexto día con la misma
+   observación.** `contenido/revisiones/2026-09-28.md` marca "PARA
+   SANTIAGO": SAG y CONAF se pintan sin expandir en el titular de la línea
+   118 del guion (`contenido/guiones/informe/2026-09-28.md`). No bloqueó
+   porque, según la propia revisión, la regla de siglas de
+   `prompts/guion-informe.md` (agregada el 23-09) rige para las marcas
+   `[FUENTE]` y el pie de los `[DATO]`, no para los titulares, así que un
+   titular no incumple la letra del prompt aunque sí se pinta en pantalla.
+   Es el mismo hallazgo que lleva desde el 23-09 en
+   `bitacora/PENDIENTES.md` (línea 705), pero hoy aparece en una superficie
+   nueva que la corrección del 23-09 no cubría.
 
-3. **El volumen de titulares llegó a un máximo nuevo.** 45 titulares sobre
-   48 noticias `[C]` son el 27% de las palabras narradas, sobre el 23% que
-   el 02-09-2026 motivó el tope de doce palabras por titular
-   (`contenido/revisiones/2026-09-27.md`). El guion ya comprime al máximo
-   permitido; el problema está aguas arriba, en el volumen de la olla.
+2. **La URL de la candidata de Interferencia sigue mal formada, y hoy esa
+   noticia salió al aire.** `contenido/barrido/2026-09-28.md:743` trae
+   `https://interferencia.cl/%3Ca%20href%3D%22/articulos/ministra-lincolao...`,
+   un ancla HTML codificada en vez de un enlace, y la noticia de la
+   ministra Lincolao entró como titular del informe de hoy
+   (`contenido/revisiones/2026-09-28.md`, hallazgos). Primer día que se
+   anota en las revisiones (no aparece en 25, 26 ni 27-09), así que no es
+   todavía el patrón de tres días que obliga a proponer un arreglo de
+   código: queda a MIRAR si se repite.
 
-4. **Dos reglas de uso estable sin escribir, tres días repitiéndose.** El
-   prompt no dice dónde cae la marca "EN SEGUIMIENTO" cuando una historia
-   con dossier no se desarrolla ese día, ni cuál es el orden real de las
-   secciones del informe con "Plata pública" incluida
-   (`contenido/revisiones/2026-09-27.md`, "PARA SANTIAGO"). Ninguna de las
-   dos se cuenta como incumplimiento porque el uso ya es estable, y por eso
-   mismo corresponde escribirlas.
+3. **El rastro del descarte de la preselección trae catorce líneas que
+   describen segundas entradas de noticias que sí entraron a la cadena.**
+   No bloquea (lo dice la propia revisión), pero ensucia la evidencia que
+   distingue un descarte deliberado de un punto ciego. Primer día que se
+   anota.
 
-5. **Detalles menores del informe, no bloqueantes**, que el validador ya
-   señaló para cuando se retoque la pieza: la autoverificación interna
-   declara una escala de empleo que ya no está en el cuerpo y un cierre de
-   cautela "no consumido" que sí se consumió, la línea 137 cita el mismo
-   medio dos veces ("Ex-Ante, Ex-ante"), y hay medios grafiados de dos
-   formas entre el cuerpo y la lista de fuentes ("El Mostrador" / "elmostrador.cl",
-   "SoyChile" / "SoyChile.cl", "Radio Universidad de Chile" / "Radio U. de Chile").
+4. **"Dato curioso" ausente, segundo día seguido.** Ni el informe ni el
+   guion de hoy la traen; tampoco la de ayer. No es incumplimiento (el
+   guion no debe inventar la sección si el informe no la trae), pero es una
+   de las pocas secciones de color del canal.
 
 ## Propuestas
 
-1. **Carátula (archivo: `prompts/guion-informe.md`, sección "LA IMAGEN DE
-   LA CARÁTULA", paso 4, línea ~168).** Agregar un tercer camino además de
-   "generador topado o falla": si el conector de la sesión no admite
-   escribir binarios, codificar el PNG en base64 y dejarlo en
-   `contenido/caratulas/FECHA.png.b64` (texto plano, lo acepta cualquier
-   conector), con un paso nuevo en `scripts/dia.js` o en
-   `edicion-diaria.yml` que lo decodifique antes de armar
-   `miniatura-3.png`. Decisión de fondo pendiente: qué conector o tipo de
-   sesión conviene usar para esta tarea.
+1. **Siglas en titulares (archivo: `prompts/guion-informe.md`, la regla de
+   siglas agregada el 23-09, la misma que ya cubre `[FUENTE]` y `[DATO]`).**
+   Extender la regla para que alcance también a las marcas de titular en
+   pantalla, no solo a `[FUENTE]` y el pie de `[DATO]`; o, como la propia
+   revisión de hoy lo plantea, cerrar de una vez la lista de exentas para
+   que la validación deje de tener que decidir caso a caso. Esta es la
+   propuesta que ya está en `bitacora/PENDIENTES.md` desde el 23-09: hoy
+   solo se le agrega el conteo y la superficie nueva, sin duplicarla.
 
-2. **Siglas (archivo: `prompts/guion-informe.md`, la regla del 23-09 sobre
-   siglas en pantalla).** Cambiar de "expandir DMC" a una regla general:
-   toda sigla en una marca que se pinta en pantalla va expandida la primera
-   vez, salvo una lista explícita de exentas (agregar ahí SEC, Senapred y
-   DW si el uso ya las hace corrientes, o dejar que la regla general las
-   cubra).
+2. **URL de Interferencia (archivo: por confirmar; el candidato es el
+   parser RSS de `scripts/barrido.js`, la fuente `interferencia` en
+   `contenido/barrido/fuentes.json:31-34`).** Si se repite un segundo día,
+   revisar si el `&lt;link>` del feed `https://interferencia.cl/rss.xml` trae
+   la entidad HTML sin decodificar y si el parser de `scripts/barrido.js`
+   necesita un paso de `decodeURIComponent`/limpieza de anclas para esa
+   fuente. Hoy no alcanza el umbral de tres días para bajarlo como tarea.
 
-3. **Titulares (archivo: `prompts/seleccion.md` o `prompts/informe.md`,
-   donde se cuenta o agrupa la olla).** Agregar una regla que agrupe los
-   `[C]` equivalentes (por ejemplo varios recortes regionales del mismo
-   temporal) en una sola entrada antes de que lleguen al guion, en vez de
-   dejar decenas de líneas sueltas que después hay que comprimir a la
-   fuerza en el guion.
-
-4. **EN SEGUIMIENTO y orden de secciones (archivo: `prompts/informe.md`,
-   junto a la definición de "EN SEGUIMIENTO" y junto a la lista de
-   secciones).** Escribir las dos reglas que el uso ya fijó: dónde cae la
-   marca cuando la historia no se desarrolla ese día, y el orden real de
-   las secciones incluyendo "Plata pública".
+No hay propuesta para el punto 3 ni el 4: son de un solo día, no ameritan
+tocar código todavía.
 
 ## Triage
 
-- **HOY**: propuesta 1 (carátula). Se pierde un archivo ya generado cada
-  vez que pasa, y ya lleva tres mañanas sin carátula nueva por motivos
-  distintos cada vez. Bajada a `bitacora/PENDIENTES.md`, sección "Dependen
-  de Santiago", con la decisión de arquitectura que hace falta.
-- **AGUANTA**: propuestas 2, 3 y 5. Molestan y cuestan vueltas de revisión,
-  pero no rompen la edición de mañana ni se publican como defecto visible.
-  La de siglas (propuesta 2) ya estaba en `bitacora/PENDIENTES.md` desde el
-  23-09; se le agregó una línea con el conteo de hoy (quinto día), sin
-  duplicar la entrada.
-- **MIRAR**: propuesta 4. Es una tendencia (documentación que no alcanza a
-  escribirse) más que un problema hoy; si sigue sin decidirse varios días
-  más, sube a AGUANTA.
+- **HOY**: ninguno.
+- **AGUANTA**: hallazgo 1 (siglas en titulares). Ya estaba en
+  `bitacora/PENDIENTES.md` desde el 23-09; se le agregó la línea de hoy
+  (sexto día, ver abajo) sin duplicar la entrada. Sigue sin bloquear la
+  edición, pero la propia revisión ya lo plantea como una decisión que no
+  puede seguir postergándose: si mañana se repite una séptima vez, sube a
+  `HOY`.
+- **MIRAR**: hallazgos 2, 3 y 4. Ninguno tiene todavía un segundo día
+  registrado; se vuelven a mirar mañana antes de proponer nada.
+
+## Baja a PENDIENTES
+
+Se agregó una línea a la entrada existente de siglas
+(`bitacora/PENDIENTES.md`, sección "Para la sesión de la noche", la que
+empieza "23-09, HOY: expandir siglas que se pintan en pantalla"), dejando
+constancia de que hoy es el sexto día seguido y que el defecto ya alcanzó
+los titulares, no solo `[FUENTE]`/`[DATO]`. No se creó ninguna entrada
+nueva: los otros tres hallazgos son de un solo día.
+
+## Los números
+
+`bitacora/metricas/2026-09-28.md` contra `2026-09-27.md`:
+
+- Suscriptores: 21 (+0) hoy, contra +1 los dos días previos. Plano, no es
+  una caída, solo no sumó.
+- Vistas totales del canal: +574 hoy, +523 ayer, +476 antes de ayer. Sigue
+  creciendo el ritmo de vistas tres días seguidos.
+- **Retención de los videos largos (lo único que suma para las 4.000
+  horas):** 27.0 horas vistas acumuladas (30 días) contra 26.1 ayer y 25.1
+  antier: +0.9 h cada uno de los últimos dos días, crecimiento sostenido.
+  La retención media ponderada bajó de 35.8% (ayer) a 32.4% (hoy), pero
+  venía de 31.6% antier: sube y baja dentro de un rango normal, no hay
+  tendencia que marcar todavía.
+- Los Shorts se anotan y no se celebran: sin novedad que valga la pena
+  registrar aparte hoy.
 
 ## Comparación con ayer
 
 **Mejoró:**
-- Se restableció la separación de manos: GPT escribió las tres piezas y
-  Claude solo validó. Ayer, con GPT caído por tercer día, la misma sesión
-  escribía las reparaciones y firmaba los veredictos.
-- La cadena cerró a tiempo (02:48–02:51, antes de las 03:30 previstas).
-  Ayer cerró pasadas las 14:00 por la caída de GPT.
-- Retención real de los videos largos subió: 25.1 → 26.1 horas vistas (30
-  días), retención media ponderada 31.6% → 35.4%.
+- Cero vueltas de corrección en preselección e informe (ayer también
+  cerraron limpios, pero el guion de ayer se corrigió en una vuelta y hoy
+  en dos, así que en ese punto empató, no mejoró).
+- La cadena cerró a las 02:36, más temprano que las 02:48-02:51 de ayer.
+- La carátula subió por segundo día seguido tras los dos `NO-PUDE`
+  consecutivos del 25 y 26-09.
 
 **Sigue igual:**
-- La carátula sigue sin subir, tercer día consecutivo (aunque hoy cambió la
-  causa: antes no había generador, hoy el conector no admite el binario).
-- Las siglas sin expandir en pantalla, ahora en su quinto día.
+- Las siglas sin expandir en pantalla, ahora en su sexto día (ayer,
+  quinto).
+- La retención de los largos sigue subiendo al mismo ritmo que los últimos
+  dos días (+0.9 h).
 
 **Nuevo hoy:**
-- El volumen de titulares llegó a su porcentaje más alto registrado (27%
-  de las palabras narradas), por encima del umbral que en 02-09 motivó el
-  tope de doce palabras.
-- La sesión de noche/día construyó y probó un rediseño grande del flujo de
-  la Clave (pauta antes de GPT, con aprobación de Santiago primero, y una
-  Bandeja de avisos nueva). No toca la cadena diaria y no lo audito en
-  detalle porque no es su alcance, pero queda registrado en
-  `bitacora/2026-09-27.md` para quien retome el hilo.
+- La superficie del hallazgo de siglas se movió de las tarjetas
+  (`[FUENTE]`/`[DATO]`) a los titulares, que la regla del 23-09 no cubre.
+- Los tres hallazgos de un solo día: la URL rota de Interferencia que salió
+  al aire, el rastro del descarte con líneas de ruido, y la ausencia de
+  "Dato curioso" el segundo día seguido.
 </pre>
     </details>
     <!--AUDITORIA-FIN-->
