@@ -402,5 +402,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-27-informe.mp3",
     "bytes": 17237376,
     "durSeg": 718
+  },
+  {
+    "fecha": "2026-09-28",
+    "tipo": "informe",
+    "titulo": "28-09-2026 · Pérez Mackenna enfrenta interpelación por el Escudo de las Américas",
+    "descripcion": "El canciller Francisco Pérez Mackenna enfrenta una interpelación por la incorporación de Chile al Escudo de las Américas. También revisamos la muerte de un carabinero en Lo Espejo, la nueva actividad de Nevados de Chillán, el malestar por el empleo y el futuro del tren Santiago a Melipilla.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-28-informe.mp3",
+    "bytes": 14413248,
+    "durSeg": 601
   }
 ]
