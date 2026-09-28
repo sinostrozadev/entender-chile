@@ -15,6 +15,7 @@
 const { execFileSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const { entornoDe } = require("./pausas.js");
 const { miniaturas } = require("./miniaturas.js");
 
 // sincronizar con lo que generó la automatización (best-effort)
@@ -58,8 +59,8 @@ if (!fs.existsSync(guion)) {
 const etiqueta = esClave ? "clave" : "informe";
 const OUT = path.join("out", fecha) + path.sep;
 fs.mkdirSync(OUT, { recursive: true });
-const run = (script, extra = []) =>
-  execFileSync("node", [path.join("scripts", script), ...extra], { stdio: "inherit" });
+const run = (script, extra = [], env = {}) =>
+  execFileSync("node", [path.join("scripts", script), ...extra], { stdio: "inherit", env: { ...process.env, ...env } });
 const capturar = (script, extra = []) =>
   execFileSync("node", [path.join("scripts", script), ...extra], { encoding: "utf8" });
 
@@ -83,7 +84,10 @@ if (conVoz) {
     process.exit(1);
   }
   console.log(`(proveedor de voz: ${proveedor})`);
-  run(proveedor, [path.join(OUT, "narracion.txt"), OUT]);
+  // Las pausas de esta pieza se pasan explícitas, como las del Short y las del
+  // exprés: que cada una diga cuánto calla es lo que evita que un cambio
+  // pensado para el informe vuelva a llegarle sola a las otras (28-09-2026).
+  run(proveedor, [path.join(OUT, "narracion.txt"), OUT], entornoDe(etiqueta));
   audio = `${fecha}-${etiqueta}.mp3`;
   fs.mkdirSync("public", { recursive: true });
   fs.copyFileSync(path.join(OUT, "narracion.mp3"), path.join("public", audio));

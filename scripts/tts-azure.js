@@ -42,12 +42,18 @@ const RATE = process.env.AZURE_RATE || "-10%";
 // y vuelta al mosaico duraba poco más de un segundo y Santiago lo dijo dos
 // veces seguidas: "se movió muy rápido el cambio de sección, no se aprecia
 // nada". El tiempo del juego sale de acá o no sale de ninguna parte.
-const PAUSA_SECCION_MS = 3000;
+// LOS NUMEROS NO SON DE ESTE ARCHIVO (28-09-2026). Estaban escritos aca, y
+// este sintetizador lo usan TODAS las piezas: el informe, la Clave, el Short y
+// el expres. Asi que la pausa larga que el informe necesita para su viaje de
+// camara se la comieron tambien los verticales, que no tienen viaje ninguno, y
+// el Short del 28-09 salio con 20,2 s de silencio sobre 40 s de voz. Quien
+// llama dice cuanto calla su pieza; el reparto vive en scripts/pausas.js.
+const PAUSA_SECCION_MS = Number(process.env.PAUSA_SECCION_MS) || 3000;
 // La PRIMERA pausa es mas larga: ahi va la presentacion del canal, el mosaico
 // entero con su melodia, y con 3 s la melodia quedaba cortada a la mitad
 // (Santiago, 27-09-2026: "la apertura empezo tan rapido que no alcanzo a
 // terminar la melodia de apertura"). Pasa una sola vez en todo el video.
-const PAUSA_INTRO_MS = 5200;
+const PAUSA_INTRO_MS = Number(process.env.PAUSA_INTRO_MS) || 5200;
 const msDe = (chunk) => (chunk.intro ? PAUSA_INTRO_MS : PAUSA_SECCION_MS);
 const LIMITE = 5000; // caracteres por request; Azure corta el audio en 10 min por solicitud
 

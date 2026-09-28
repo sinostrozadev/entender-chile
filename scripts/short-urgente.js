@@ -16,6 +16,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const { entornoDe } = require("./pausas.js");
 const { execFileSync } = require("child_process");
 
 const args = process.argv.slice(2);
@@ -46,7 +47,13 @@ const run = (script, extra, env = {}) =>
 // pipeline de siempre
 run("parse.js", [path.join(OUT, "guion.md"), OUT + "/"]);
 const azure = process.env.AZURE_SPEECH_KEY && process.env.AZURE_SPEECH_REGION;
-if (conVoz && azure) run("tts-azure.js", [path.join(OUT, "narracion.txt"), OUT + "/"]);
+// EL VERTICAL NO ESPERA A NADIE (28-09-2026). Sus pausas de seccion son
+// suyas y no las del informe: no tiene viaje de camara ni melodia de
+// apertura que aguantar, el corte entre bloques es seco. Se pasan
+// explicitas para que ningun cambio en el sintetizador vuelva a
+// alargarle los silencios sin que nadie lo pida (paso el 27-09 y el
+// Short del 28 salio con 20,2 s de silencio sobre 40 s de voz).
+if (conVoz && azure) run("tts-azure.js", [path.join(OUT, "narracion.txt"), OUT + "/"], entornoDe("expres"));
 else {
   if (conVoz) console.log("(sin AZURE_SPEECH_KEY/REGION: voz simulada)");
   run("mock-tts.js", [path.join(OUT, "narracion.txt"), path.join(OUT, "alignment.json")]);
