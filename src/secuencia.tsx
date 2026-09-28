@@ -491,9 +491,30 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
         const dela = tarjetas.filter((c) => c.seccion === b.texto);
         return (
           <Sequence key={"bl" + i} from={f(b.from)} durationInFrames={Math.max(1, f(b.to) - f(b.from))}>
-            <Bloque b={b} dur={Math.max(1, f(b.to) - f(b.from))} tarjetas={dela.map((c) => ({ ev: c,
-              from: Math.max(0, f(c.from) - f(b.from)),
-              dur: f(c.to) - f(c.from) + HOLD }))} />
+            <Bloque b={b} dur={Math.max(1, f(b.to) - f(b.from))} tarjetas={dela.map((c, k) => {
+              const desde = Math.max(0, f(c.from) - f(b.from));
+              // LA COLA NO PUEDE PISAR A LA TARJETA SIGUIENTE (28-09-2026).
+              //
+              // HOLD son 0,3 s que cada tarjeta se queda de mas para que no
+              // haya un hueco entre una y otra. En el montaje viejo eso no se
+              // veia, porque cada tarjeta traia su propio papel opaco y la que
+              // entraba tapaba a la que salia. Aca las tarjetas son
+              // TRANSPARENTES sobre la imagen de la seccion, asi que durante
+              // esos 0,3 s se leen las DOS, una encima de la otra.
+              //
+              // Santiago lo vio tres veces y la tercera dio el dato que lo
+              // resolvio: "el titular de la noticia principal aparece despues,
+              // entonces cuando aparece el texto del desarrollo del tema, se
+              // superponen". No era la cabecera de seccion, que es lo que yo
+              // habia mirado dos veces: son dos tarjetas del mismo bloque.
+              //
+              // La cola se conserva solo en la ULTIMA de cada bloque, que es
+              // donde de verdad hace falta y donde no hay nadie a quien pisar.
+              const siguiente = dela[k + 1];
+              const tope = siguiente ? Math.max(0, f(siguiente.from) - f(b.from)) : Infinity;
+              const dur = Math.min(f(c.to) - f(c.from) + HOLD, tope - desde);
+              return { ev: c, from: desde, dur: Math.max(1, dur) };
+            })} />
           </Sequence>
         );
       })}
