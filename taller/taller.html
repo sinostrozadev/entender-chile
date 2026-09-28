@@ -211,6 +211,32 @@
   }
   .guardar[disabled] { opacity: 0.45; cursor: not-allowed; }
 
+  /* la vista previa de una pieza: cómo se ve de verdad, rendida con el motor */
+  .vista {
+    background: #15171A;
+    border: 1px solid var(--linea);
+    cursor: zoom-in;
+    display: block;
+    max-height: 200px;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  .vista:focus-visible { outline: 2px solid var(--patina); outline-offset: 2px; }
+  .alternar { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .alternar-op {
+    appearance: none;
+    background: none;
+    border: 1px solid var(--linea);
+    color: var(--grafito);
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .alternar-op:hover { border-color: var(--patina); color: var(--patina); }
+  .alternar-op.puesto { background: var(--patina-suave); border-color: var(--patina); color: var(--tinta); }
+  .alternar-op:focus-visible { outline: 2px solid var(--patina); outline-offset: 2px; }
+
   /* la miniatura de la carátula, en la ficha de cada sección */
   .mini {
     background: var(--papel);
@@ -370,6 +396,7 @@
     <button class="volver" id="volver" type="button">Volver a los trabajos</button>
     <h1 id="detalle-nombre">...</h1>
     <p class="bajada" id="detalle-que"></p>
+    <div id="detalle-vista"></div>
 
     <div class="rotulo">Cómo se hace, paso a paso</div>
     <p class="bajada chica" id="detalle-nota"></p>
@@ -399,12 +426,22 @@
 
   var db = null;
   var puedeEscribir = null;      // null = todavía no se sabe
-  var datos = { trabajos: [], secciones: [], ajustes: [], bloques: [], estilos: [], caratulas: [] };
-  var cargado = { trabajos: false, secciones: false, ajustes: false, bloques: false, estilos: false, caratulas: false };
+  var datos = { trabajos: [], secciones: [], ajustes: [], bloques: [], estilos: [], caratulas: [], vistas: [] };
+  var cargado = { trabajos: false, secciones: false, ajustes: false, bloques: false, estilos: false, caratulas: false, vistas: false };
   // las carátulas del estilo que rige: se escuchan aparte porque cuelgan de él
   // (estilos/<id>/caratulas) y hay que soltarlas si el estilo activo cambia
   var estiloEscuchado = null;
   var sueltaCaratulas = null;
+  // LAS VISTAS PREVIAS. Viven en vistas/<trabajo>-<estilo>, en una colección
+  // plana y no colgando de cada trabajo: la lista de trabajos las necesita
+  // TODAS a la vez para dibujar sus miniaturas, y once suscripciones para
+  // pintar una lista sería pagar caro lo mismo.
+  //
+  // `mirando` es el estilo que se está mirando en el taller, que NO es el que
+  // rige en el video: alternar acá es para comparar, y cambiar el que rige es
+  // el botón del estilo. Confundir las dos cosas sería lo peor que podría
+  // hacer esta pantalla.
+  var mirando = null;
   var editando = null;           // {coleccion, id|null}
   // el trabajo abierto: null = la lista, "<id>" = su pantalla propia. Las dos
   // sublistas (ajustes y bloques) viven colgando de él en la base, en
@@ -489,6 +526,25 @@
     acc.appendChild(boton("Eliminar", function () { borrar("trabajos", t.id, t.nombre); }, "peligro"));
     f.appendChild(acc);
     if (t.que) f.appendChild(nodo("div", "ficha-que", t.que));
+    var v = vistaDe(t.id);
+    if (v && v.url) {
+      var caja = nodo("div", null);
+      caja.style.gridColumn = "1 / -1";
+      caja.style.marginTop = "10px";
+      var img = document.createElement("img");
+      img.className = "vista";
+      img.src = v.url;
+      img.alt = "Cómo se ve " + texto(t.nombre);
+      img.loading = "lazy";
+      img.tabIndex = 0;
+      var abrir = function () { abrirVisor(v.url, texto(t.nombre) + (v.pie ? " · " + v.pie : "")); };
+      img.addEventListener("click", abrir);
+      img.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); abrir(); } });
+      caja.appendChild(img);
+      var alt = alternador(t.id);
+      if (alt) caja.appendChild(alt);
+      f.appendChild(caja);
+    }
     var ds = nodo("div", "ficha-datos");
     ds.appendChild(dato("Escribe:", t.quien));
     ds.appendChild(dato("Cuándo:", t.cuando));
@@ -539,6 +595,48 @@
       return img;
     }
     return nodo("div", "mini-falta", "sin imagen");
+  }
+
+  // Qué estilo se está MIRANDO: el elegido a mano, o el que rige, o el primero
+  // que tenga vistas. Nunca queda en nada si hay algo que enseñar.
+  function estiloMirado() {
+    if (mirando) return mirando;
+    var rige = datos.estilos.filter(function (e) { return e.activo; })[0];
+    if (rige) return rige.id;
+    return datos.estilos.length ? datos.estilos[0].id : null;
+  }
+
+  // la vista de un trabajo en el estilo que se está mirando. Las piezas cuyo
+  // aspecto no depende del estilo (el vertical no lleva imagen de sección)
+  // guardan una sola vista con estilo "todas", y esa sirve siempre.
+  function vistaDe(trabajoId) {
+    var est = estiloMirado();
+    var propia = null, comun = null;
+    datos.vistas.forEach(function (v) {
+      if (v.trabajo !== trabajoId) return;
+      if (v.estilo === "todas") comun = v;
+      else if (v.estilo === est) propia = v;
+    });
+    return propia || comun;
+  }
+
+  // la fila de botones para alternar: solo aparece si de verdad hay más de un
+  // estilo con vista de esta pieza, porque un selector de una sola opción es
+  // un adorno que ocupa lugar
+  function alternador(trabajoId) {
+    var conVista = {};
+    datos.vistas.forEach(function (v) { if (v.trabajo === trabajoId && v.estilo !== "todas") conVista[v.estilo] = true; });
+    var opciones = datos.estilos.filter(function (e) { return conVista[e.id]; });
+    if (opciones.length < 2) return null;
+    var fila = nodo("div", "alternar");
+    var est = estiloMirado();
+    opciones.forEach(function (e) {
+      var b = nodo("button", "alternar-op" + (e.id === est ? " puesto" : ""), texto(e.nombre) || e.id);
+      b.type = "button";
+      b.addEventListener("click", function () { mirando = e.id; pintar(); });
+      fila.appendChild(b);
+    });
+    return fila;
   }
 
   var PASOS = { "1-guardia": "1 · Buscar", "2-guion": "2 · Escribir el guion", "3-voz": "3 · La voz",
@@ -909,6 +1007,24 @@
     var t = datos.trabajos.filter(function (x) { return x.id === dentro; })[0];
     el("detalle-nombre").textContent = t ? (texto(t.nombre) || t.id) : dentro;
     el("detalle-que").textContent = t ? texto(t.que) : "";
+    var caja = el("detalle-vista");
+    caja.textContent = "";
+    var v = vistaDe(dentro);
+    if (v && v.url) {
+      var img = document.createElement("img");
+      img.className = "vista";
+      img.style.maxHeight = "340px";
+      img.src = v.url;
+      img.alt = "Cómo se ve " + (t ? texto(t.nombre) : dentro);
+      img.tabIndex = 0;
+      var abrir = function () { abrirVisor(v.url, (t ? texto(t.nombre) : dentro) + (v.pie ? " · " + v.pie : "")); };
+      img.addEventListener("click", abrir);
+      img.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); abrir(); } });
+      caja.appendChild(img);
+      if (v.pie) caja.appendChild(nodo("div", "bajada chica", v.pie));
+      var alt = alternador(dentro);
+      if (alt) caja.appendChild(alt);
+    }
     var faltan = datos.ajustes.filter(function (a) { return !a.manda; }).length;
     el("detalle-nota").textContent = faltan
       ? "Ojo: " + faltan + " de estos " + datos.ajustes.length + " todavía no mandan sobre la pieza. Los marcados \u201cya manda\u201d sí: lo que escribas acá cambia el video."
@@ -1054,6 +1170,7 @@
     escuchar("trabajos");
     escuchar("secciones");
     escuchar("estilos");
+    escuchar("vistas");
     pintar();
   })();
 

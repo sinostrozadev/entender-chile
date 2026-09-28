@@ -49,3 +49,16 @@ carpeta no existe, se avisa y se usan las de `contenido/secciones/`.
 
 `SECCIONES_DIR` sigue mandando por encima del estilo: es el modo de prueba y
 tiene que poder mirar cualquier carpeta sin tocar lo que está al aire.
+
+Un estilo **sin imágenes** es una carpeta que existe y está vacía, como
+`contenido/secciones/color/`: el video ya sabe qué hacer cuando no encuentra
+nada, pinta cada sección con su color y su pictograma. No hizo falta escribir
+código para que ese estilo existiera.
+
+## Las vistas previas
+
+El taller muestra cómo se ve cada pieza, y esas imágenes las rinde
+`scripts/vistas-taller.js` con el MISMO motor que produce el video. Una vista
+previa dibujada a mano miente desde el primer cambio de diseño; ésta se rehace
+con un comando. Subirlas al taller y anotarlas en su base lo hace la sesión de
+día.
