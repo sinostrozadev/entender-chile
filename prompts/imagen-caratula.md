@@ -34,6 +34,29 @@ tiene que quedar la imagen. Entonces:
 3. Súbela al repo, rama `main`, en la ruta EXACTA de `salida=`. El nombre y
    la extensión importan: `scripts/dia.js` busca `contenido/caratulas/FECHA`
    con extensión png, jpg, jpeg o webp, y no busca en ninguna otra parte.
+
+3 bis. **COMPRUEBA QUE LLEGÓ ENTERA, y si no, vuelve a subirla.** Subir no es
+   lo mismo que haber llegado. Después de subir, lee de vuelta el archivo
+   desde `main` y confirma dos cosas: que el TAMAÑO EN BYTES es el mismo que
+   el de la imagen que generaste, y que el archivo termina donde tiene que
+   terminar (un PNG cierra con el bloque `IEND`; un JPEG, con los bytes
+   `FF D9`). Si el tamaño no calza, o no puedes leerlo de vuelta, o no
+   termina bien: **súbela de nuevo**, hasta tres veces. Si a la tercera sigue
+   sin calzar, deja el `-NO-PUDE.md` diciendo exactamente eso, con los dos
+   tamaños, el que enviaste y el que quedó.
+
+   El 28-09-2026 esto no se hacía y pasó lo que tenía que pasar: la carátula
+   quedó en el repo con 786.444 bytes pero incompleta, sin su bloque de
+   cierre y con solo un cuarto de los datos de imagen. Nadie se dio cuenta
+   porque el navegador que dibuja el video es tolerante: pinta lo que puede y
+   deja el resto vacío, así que el render no falló. Salió al aire, en la
+   portada del video y en la miniatura de YouTube, la ilustración cortada al
+   cuarto. Una imagen a medias es peor que ninguna, porque ninguna tiene
+   respaldo y una a medias se publica.
+
+   Desde ese día `scripts/imagen-entera.js` también lo comprueba de este lado
+   y descarta la imagen rota, así que si no la vuelves a subir el video sale
+   sin ilustración. Comprobarlo tú es lo que evita las dos cosas.
 4. Si por lo que sea no puedes subir la imagen al repo, NO lo dejes en
    silencio: escribe `<salida sin extensión>-NO-PUDE.md`. Y ahí manda esta
    regla, que costó un día entero: **un reporte de falla no es evidencia de
