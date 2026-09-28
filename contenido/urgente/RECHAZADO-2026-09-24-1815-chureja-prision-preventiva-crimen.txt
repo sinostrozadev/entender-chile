@@ -1,6 +1,0 @@
-RECHAZADO 2026-09-26T11:19:40.292Z
-guion: contenido/urgente/GUION-2026-09-24-1815-chureja-prision-preventiva-crimen.md
-
-- la cifra "120" no aparece en el material capturado, ni en el informe de hoy, ni en las citas de FUENTE-2026-09-24-1815-chureja-prision-preventiva-crimen.md (regla del 07-09: cada cifra sale del material permitido, nunca de memoria ni de informes viejos)
-
-El Short NO se produjo. Corrige el guion y vuelve a pushearlo, o descártalo.
