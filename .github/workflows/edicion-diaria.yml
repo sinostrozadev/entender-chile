@@ -168,6 +168,20 @@ jobs:
           # sección, oscurecida, texto encima) entra a producción por decisión
           # de Santiago tras ver el video de prueba. Vacío = montaje anterior.
           SECUENCIA: "2409"
+          # (28-09) El formato completo entra al aire, aprobado por Santiago
+          # viendo la muestra con voz real: "quiero que el video del informe de
+          # mas rato salga con este formato".
+          #
+          # ENTRADA_VOZ: el locutor lee el titular de cada seccion antes de
+          # entrar. No es adorno: es lo que le da tiempo a la cabecera, que sin
+          # esto no alcanzaba a mostrarse (el informe del 27-09 salio sin un
+          # solo titulo en pantalla).
+          #
+          # FONDO_MOSAICO: el salon con el nombre del canal detras del mosaico,
+          # en vez del negro liso. Vale "aire" para la otra imagen o vacio para
+          # volver al negro.
+          ENTRADA_VOZ: "1"
+          FONDO_MOSAICO: "sala"
         if: env.SALTAR != '1' && env.HAY_INFORME != '1'
         run: |
           if { [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; } || { [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; }; then VOZ="--voz"; else VOZ=""; echo "Sin secrets de voz: video mudo de prueba."; fi

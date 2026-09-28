@@ -82,7 +82,15 @@ const miniaturas = ({ parsed, fecha, esClave = false, OUT }) => {
   // viejos, que es lo que fallaba el 59% de las veces (medido el 24-09)
   const catPortada = (parsed.eventos.find((e) => e.tipo === "seccion" && e.texto === bloquePortada) || {}).categoria || null;
   const img = esClave ? null : imagenDe(`${bloquePortada || ""} ${parsed.titulo || ""}`, catPortada);
-  const imagen = img ? `fondos/seccion-${img}.jpg` : esClave ? "fondos/fondo-clave-vertical.png" : "fondos/seccion-regiones.jpg";
+  // Y se COMPRUEBA que ese archivo exista (28-09-2026). public/fondos/ tiene
+  // diez de las doce secciones: le faltan emergencia y deporte, porque
+  // emergencia nacio el 26-09 al separarla de clima y nadie le hizo su fondo.
+  // Una portada de emergencia, que es de lejos la categoria mas frecuente,
+  // apuntaba a un archivo inexistente y la tercera miniatura no salia. No
+  // rompia la edicion, solo se perdia en silencio.
+  const conArchivo = (slug) => slug && fs.existsSync(path.join("public", "fondos", `seccion-${slug}.jpg`));
+  const imagen = conArchivo(img) ? `fondos/seccion-${img}.jpg`
+    : esClave ? "fondos/fondo-clave-vertical.png" : "fondos/seccion-regiones.jpg";
   const fechaVisible = fecha.split("-").reverse().join("-");
   // REMOTION_BROWSER_EXECUTABLE deja probar las carátulas sin que Remotion
   // baje su propio Chromium, que es lo que impedía verificarlas fuera de
