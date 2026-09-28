@@ -66,11 +66,16 @@ const rango = (xs: number[]) => {
 
 // ── el plan que llega en meta.secuencia ──────────────────────────────────
 export type Baldosa = { texto: string; categoria?: string | null; imagen?: string | null };
+// La ventana de UNA tarjeta dentro de su bloque, en segundos desde el inicio
+// del bloque. `ev` es su posición en tl.eventos. Las calcula el plan
+// (scripts/secuencia-plan.js) y acá solo se leen: ver el porqué allá.
+export type VentanaTarjeta = { ev: number; desde: number; hasta: number };
 export type BloqueP = {
   texto: string; categoria?: string | null; imagen?: string | null;
   from: number; to: number;            // segundos absolutos
   titulo?: string | null;              // si lo trae, lleva cabecera
   lleno?: [number, number];            // segundos desde el inicio del bloque: el barrido de la mitad al final
+  tarjetas?: VentanaTarjeta[];         // qué tarjeta se ve y desde cuándo hasta cuándo
 };
 export type Paseo = {
   from: number; dur: number;           // segundos
@@ -313,6 +318,29 @@ const Sello: React.FC<{ fecha?: string; serie?: string; dur: number }> = ({ fech
 };
 
 // ── un bloque: la imagen manda toda la sección ───────────────────────────
+// EL RELEVO ENTRE UNA TARJETA Y LA SIGUIENTE (28-09-2026).
+//
+// Recortar la cola para que no se superpongan deja el problema contrario: la
+// tarjeta que sale desaparece de golpe, con el texto todavia encendido del
+// todo, y la que entra tarda su entrada en hacerse legible. Un corte seco
+// sobre un fondo que no cambia, que es justo el parpadeo que Santiago habia
+// pedido sacar en las salidas de seccion ("se lee, se apaga, se va").
+//
+// Asi que el ultimo tramo de cada tarjeta lo usa para apagarse. Medido a 24
+// cuadros: la entrada de la tarjeta siguiente llega a 0,35 en tres cuadros y
+// a 0,71 en seis, asi que RELEVO_SEG tiene que ser de ese orden; con esto la
+// que sale llega a cero en el mismo cuadro en que la otra nace en cero y
+// nunca hay dos textos legibles a la vez, que es lo unico que no se puede
+// volver a romper.
+const RELEVO_SEG = 0.25;
+const Relevo: React.FC<{ dur: number; apaga: boolean; children: React.ReactNode }> = ({ dur, apaga, children }) => {
+  const f = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const tramo = Math.min(Math.round(fps * RELEVO_SEG), Math.max(1, Math.floor(dur / 3)));
+  const op = apaga ? interpolate(f, rango([dur - tramo, dur]), [1, 0], sv) : 1;
+  return <AbsoluteFill style={{ opacity: op }}>{children}</AbsoluteFill>;
+};
+
 export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number; dur: number }[]; dur: number }> =
 ({ b, tarjetas, dur }) => {
   const f = useCurrentFrame();
@@ -426,7 +454,14 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
       <FondoTarjetaContext.Provider value={{ modo: "transparente", secciones: [] }}>
         <AbsoluteFill style={{ opacity: apagado }}>
           {tarjetas.map((t, i) => (
-            <Sequence key={i} from={t.from} durationInFrames={Math.max(1, t.dur)}><Tarjeta ev={t.ev} /></Sequence>
+            <Sequence key={i} from={t.from} durationInFrames={Math.max(1, t.dur)}>
+              {/* la última no se apaga acá: la apaga el bloque entero, con
+                  `apagado`, que además le deja el respiro de imagen sola antes
+                  del viaje de la cámara */}
+              <Relevo dur={Math.max(1, t.dur)} apaga={i < tarjetas.length - 1}>
+                <Tarjeta ev={t.ev} />
+              </Relevo>
+            </Sequence>
           ))}
         </AbsoluteFill>
       </FondoTarjetaContext.Provider>
@@ -469,6 +504,35 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
   const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte && !e.muda);
   const HOLD = Math.round(fps * 0.3);
 
+  // QUIÉN DECIDE CUÁNDO SE VE CADA TARJETA: el plan, no este archivo
+  // (28-09-2026). El cálculo vivía acá y por eso el defecto que Santiago
+  // reportó tres veces (dos textos superpuestos al empezar cada sección) no se
+  // podía ver en ningún JSON: había que rendir el video para enterarse. El
+  // porqué completo está en scripts/secuencia-plan.js, que es donde ahora se
+  // calcula. Acá solo se traduce de segundos a cuadros.
+  //
+  // Se redondean `desde` y `hasta` por separado, nunca una duración: así el
+  // último cuadro de una tarjeta es exactamente el primero de la siguiente y
+  // el redondeo no puede volver a superponerlas.
+  //
+  // El camino de abajo es para los timelines viejos, que no traen ventanas:
+  // ahí se calcula como antes, para que un JSON guardado siga rindiendo.
+  const ventanas = (b: BloqueP, dela: Evento[]) => {
+    const base = f(b.from);
+    if (b.tarjetas && b.tarjetas.length) {
+      return b.tarjetas.map((v) => {
+        const desde = f(v.desde);
+        return { ev: tl.eventos[v.ev], from: desde, dur: Math.max(1, f(v.hasta) - desde) };
+      }).filter((t) => !!t.ev);
+    }
+    return dela.map((c, k) => {
+      const desde = Math.max(0, f(c.from) - base);
+      const siguiente = dela[k + 1];
+      const tope = siguiente ? Math.max(0, f(siguiente.from) - base) : Infinity;
+      return { ev: c, from: desde, dur: Math.max(1, Math.min(f(c.to) - f(c.from) + HOLD, tope - desde)) };
+    });
+  };
+
   return (
     <AbsoluteFill style={{ backgroundColor: "#15171A" }}>
       {tl.audio ? (
@@ -491,30 +555,7 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
         const dela = tarjetas.filter((c) => c.seccion === b.texto);
         return (
           <Sequence key={"bl" + i} from={f(b.from)} durationInFrames={Math.max(1, f(b.to) - f(b.from))}>
-            <Bloque b={b} dur={Math.max(1, f(b.to) - f(b.from))} tarjetas={dela.map((c, k) => {
-              const desde = Math.max(0, f(c.from) - f(b.from));
-              // LA COLA NO PUEDE PISAR A LA TARJETA SIGUIENTE (28-09-2026).
-              //
-              // HOLD son 0,3 s que cada tarjeta se queda de mas para que no
-              // haya un hueco entre una y otra. En el montaje viejo eso no se
-              // veia, porque cada tarjeta traia su propio papel opaco y la que
-              // entraba tapaba a la que salia. Aca las tarjetas son
-              // TRANSPARENTES sobre la imagen de la seccion, asi que durante
-              // esos 0,3 s se leen las DOS, una encima de la otra.
-              //
-              // Santiago lo vio tres veces y la tercera dio el dato que lo
-              // resolvio: "el titular de la noticia principal aparece despues,
-              // entonces cuando aparece el texto del desarrollo del tema, se
-              // superponen". No era la cabecera de seccion, que es lo que yo
-              // habia mirado dos veces: son dos tarjetas del mismo bloque.
-              //
-              // La cola se conserva solo en la ULTIMA de cada bloque, que es
-              // donde de verdad hace falta y donde no hay nadie a quien pisar.
-              const siguiente = dela[k + 1];
-              const tope = siguiente ? Math.max(0, f(siguiente.from) - f(b.from)) : Infinity;
-              const dur = Math.min(f(c.to) - f(c.from) + HOLD, tope - desde);
-              return { ev: c, from: desde, dur: Math.max(1, dur) };
-            })} />
+            <Bloque b={b} dur={Math.max(1, f(b.to) - f(b.from))} tarjetas={ventanas(b, dela)} />
           </Sequence>
         );
       })}

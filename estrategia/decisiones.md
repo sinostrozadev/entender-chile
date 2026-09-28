@@ -510,3 +510,34 @@ exacta, y así se conserva (inventarles fecha sería falsear el registro).
   no como mejora estética. (archivo/IMPLEMENTAR.md, política YouTube
   15-jul-2025; corregida por la decisión del 27-08 de dos voces, y hoy es
   la disputa 2 de REGLAS-DURAS.md)
+
+---
+
+## 2026-09-28 - Los tiempos del video se deciden en el plan, no en el que dibuja
+
+**Qué**: el cálculo de cuándo se ve cada tarjeta se saca de `src/secuencia.tsx`
+y pasa a `scripts/secuencia-plan.js`, que lo publica dentro del timeline
+(`bloques[].tarjetas`, con `desde` y `hasta` en segundos desde el inicio del
+bloque). El video ya no calcula ningún tiempo: los lee. Y el titular de sección
+queda acotado contra la primera tarjeta, que es la otra cuenta que se hacía en
+el que dibuja.
+
+**Por qué**: Santiago reportó tres veces que al empezar cada sección se leían
+dos textos superpuestos, y las tres veces el defecto llegó a YouTube. No era un
+error de cálculo: era que la cuenta vivía en el único lugar donde no se puede
+revisar sin rendir doce minutos de video. Eran además DOS defectos con la misma
+cara, las tarjetas pisándose entre sí y el titular pisando a la primera, y por
+eso arreglar uno no cerraba el reporte. Había una segunda razón para que no se
+viera: la voz simulada de las pruebas separa las tarjetas casi medio segundo y
+la voz real de Azure las deja pegadas, así que el defecto solo existía en
+producción. Con los tiempos en el JSON, `scripts/validar-solapes.js` los revisa
+en cada edición antes del render y sin rendir nada.
+
+**Decisión de NO hacer**: el guardián avisa y NO bloquea la edición. Parar la
+corrida por un traspaso feo cuesta el video entero de esa noche, cuando no hay
+nadie mirando; el aviso queda en el log y se corrige al día siguiente. Si algún
+día un solape vuelve a llegar al aire habiendo sido avisado, se revisa.
+
+**Evidencia**: medido sobre la edición del 27-09-2026 con las tarjetas pegadas
+como las deja la voz real: 34 pares superpuestos, 257 cuadros, más el titular
+pidiendo 1,03 s de más en las diez secciones. Después del cambio, ninguno.

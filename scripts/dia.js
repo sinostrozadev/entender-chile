@@ -137,6 +137,13 @@ run("build-timeline.js", [
   path.join(OUT, "timeline.json"),
   ...(audio ? [audio] : []),
 ]);
+// EL GUARDIAN DE LOS TEXTOS SUPERPUESTOS (28-09-2026). Corre ACA, entre el
+// timeline y el render, porque es el unico momento en que el aviso sirve: los
+// tiempos ya son los de la voz de verdad y el video todavia no se rindio.
+// Avisa y no bloquea: parar la edicion por un traspaso feo cuesta el video
+// entero, y el aviso queda escrito en el log de la corrida, que es donde se
+// mira cuando algo salio raro. El porque esta en scripts/validar-solapes.js.
+run("validar-solapes.js", [path.join(OUT, "timeline.json")]);
 
 console.log("── 4/4 · Capítulos y descripción ─────────────────");
 const capitulos = capturar("chapters.js", [path.join(OUT, "timeline.json")]);

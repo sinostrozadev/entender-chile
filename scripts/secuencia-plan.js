@@ -32,6 +32,9 @@ const TITULO_SEG = 3.83;
 const BARRIDO_SEG = 1.67;
 const AIRE_SEG = 0.33;
 const PREAMBULO_SEG = TITULO_SEG + BARRIDO_SEG + AIRE_SEG;
+// LO QUE CADA TARJETA SE QUEDA DE MAS, en segundos, para que no haya un hueco
+// negro entre una y la siguiente mientras la voz encadena dos frases.
+const COLA_SEG = 0.3;
 // SIEMPRE HAY TÍTULO (27-09-2026, Santiago: "dejemos siempre el título").
 // Antes la cabecera se saltaba cuando la voz no dejaba 1,6 s de aire, y el
 // resultado era que unas secciones se presentaban y otras no, sin que el
@@ -65,6 +68,12 @@ const CABECERA_MIN = 0.5;
 // tener por lo menos 1 s el titular de minimo en vista, se ve mal que aparezca
 // y desaparezca rapido").
 const TITULO_MIN = 1.0;
+// EL RESPIRO ENTRE EL TITULAR Y LA PRIMERA TARJETA, en segundos: el titular
+// tiene que haberse apagado del todo ANTES de que entre el texto, nunca al
+// mismo tiempo. Ver el porque donde se calcula `lleno`.
+const RESPIRO_SEG = 0.12;
+// Lo que el titular necesita como minimo para apagarse sin parecer un corte.
+const FUNDIDO_MIN = 0.25;
 // Y este sigue siendo un mínimo real, pero para OTRA cosa: lo que el viaje de
 // la cámara no puede comerse del bloque. Un bloque sin nada de preámbulo
 // entraría con el texto ya encima.
@@ -172,7 +181,7 @@ const planear = (tl, opciones = {}) => {
     // render en el cuadro 308. Bajo este mínimo la sección entra ya oscura,
     // sin título. Es el gate viejo, pero en 0,5 s en vez de 1,6: con el
     // reparto del silencio, la cabecera ya casi siempre lo supera.
-    const cabecera = i > 0 && aire >= CABECERA_MIN;
+    const cabecera = i > 0 && aire >= CABECERA_MIN + RESPIRO_SEG;
 
     // EL BARRIDO ESPERA A QUE TERMINE DE LEERSE EL TITULAR (27-09-2026,
     // Santiago: "desde el momento en que venga de vuelta la seccion puede
@@ -187,25 +196,106 @@ const planear = (tl, opciones = {}) => {
     // pantalla: un titular que aparece y desaparece se ve peor que no ponerlo.
     const dicha = (tl.eventos || []).find((e) => e.muda && e.seccion === b.ov.texto);
     const leido = dicha ? Math.max(TITULO_MIN, dicha.to - desde) : TITULO_SEG;
+    // LAS VENTANAS DE LAS TARJETAS LAS DECIDE EL PLAN (28-09-2026).
+    //
+    // Estaban en src/secuencia.tsx, que es el que dibuja, y por eso el defecto
+    // que Santiago reporto tres veces (dos textos superpuestos al empezar cada
+    // seccion) no se podia ver en ningun JSON: habia que rendir el video para
+    // enterarse. Es exactamente lo que la cabecera de este archivo dice que no
+    // se haga, "el plan decide cuando y secuencia.tsx solo dibuja", y la
+    // excepcion costo una edicion al aire.
+    //
+    // El defecto en si: COLA_SEG son los 0,3 s que cada tarjeta se queda de
+    // mas para que no quede un hueco entre una frase y la siguiente. En el
+    // montaje viejo no se veia, porque cada tarjeta traia su propio papel
+    // opaco y la que entraba tapaba a la que salia; aca las tarjetas son
+    // TRANSPARENTES sobre la imagen de la seccion, asi que durante esos 0,3 s
+    // se leen las dos, una encima de la otra.
+    //
+    // Por que no aparecia en las pruebas locales: la voz simulada separa las
+    // tarjetas casi medio segundo y la voz de verdad las deja pegadas (el
+    // final de una frase es el comienzo de la otra), asi que la cola solo
+    // pisa con voz real. Medido sobre la edicion del 27-09 con las tarjetas
+    // pegadas como las deja Azure: 34 pares superpuestos, 257 cuadros.
+    //
+    // La cola se conserva entera solo en la ULTIMA de cada bloque, que es
+    // donde de verdad hace falta y donde no hay nadie a quien pisar. Se
+    // publican `desde` y `hasta` (y no una duracion) para que el `hasta` de
+    // una sea el mismo numero que el `desde` de la siguiente: asi tampoco el
+    // redondeo a cuadros puede volver a solaparlas.
+    const conVentana = [];
+    (tl.eventos || []).forEach((c, idx) => {
+      if (c.overlay || c.soporte || c.muda) return;
+      if ((c.seccion || "") !== (b.ov.texto || "")) return;
+      conVentana.push({ idx, c });
+    });
+    conVentana.sort((x, y) => x.c.from - y.c.from);
+    const ventanas = conVentana.map(({ idx, c }, k) => {
+      const abre = Math.max(0, c.from - desde);
+      const sig = conVentana[k + 1];
+      const tope = sig ? Math.max(0, sig.c.from - desde) : Infinity;
+      const cierra = Math.min(c.to - desde + COLA_SEG, tope);
+      // un minimo para que ninguna dure cero, pero sin pasarse de la siguiente
+      // ni siquiera por eso: si dos tarjetas arrancan en el mismo instante (lo
+      // permite el reparto de los DATO dentro de su parrafo), la de atras sale
+      // con ventana vacia y el guardian la denuncia, que es mejor que dejarla
+      // pisando un cuadro sin que nadie se entere.
+      const minimo = Math.min(abre + 0.05, tope);
+      return {
+        ev: idx,
+        desde: Number(abre.toFixed(3)),
+        hasta: Number(Math.max(minimo, cierra).toFixed(3)),
+      };
+    });
     bloques.push({
       texto: b.ov.texto || "",
       categoria: b.ov.categoria || null,
       imagen: i === 0 ? portada : imagenDeSeccion(tl, b.ov.categoria),
       from: Number(desde.toFixed(3)),
       to: Number(Math.max(desde + 0.5, b.hasta).toFixed(3)),
+      tarjetas: ventanas,
       ...(cabecera ? {
         titulo: b.ov.texto || "",
-        // el barrido, en segundos desde el inicio del bloque: arranca cuando se
-        // termino de decir el titular y no puede pasarse del aire que hay (si
-        // se pasara, taparia la primera tarjeta)
-        // El barrido arranca cuando se termino de decir el titular, punto. NO se
-        // lo acota al aire: oscurecer el fondo no tapa nada, porque la tarjeta
-        // se dibuja encima, asi que puede terminar de agrandarse sobre la
-        // entrada de la primera tarjeta. Acotarlo era lo que lo hacia empezar
-        // antes de que el locutor terminara la frase.
+        // EL TITULAR SE APAGA ANTES DE QUE ENTRE LA PRIMERA TARJETA
+        // (28-09-2026). `lleno`, en segundos desde el inicio del bloque, marca
+        // cuando el titular empieza a irse (lo manda el locutor: es el fin de
+        // su entrada hablada) y cuando termino de irse. Salia SIN tope, y en
+        // la edicion del 27-09
+        // pedia quedarse 1,03 s de mas en las DIEZ secciones: el titular
+        // seguia escrito encima del texto de la tarjeta, las dos frases
+        // superpuestas y las dos ilegibles. Es el segundo de los dos textos
+        // que Santiago reporto (el otro son dos tarjetas pisandose).
+        //
+        // El tope se habia quitado el 27-09 a proposito y con un motivo que
+        // entonces era cierto: `lleno` movia TAMBIEN el barrido del velo, y
+        // oscurecer el fondo no tapa nada porque la tarjeta se dibuja encima.
+        // Pero ese mismo dia el velo dejo de moverse (Santiago: "dejemoslo
+        // siempre oscurecida, que no haya transiciones"), asi que hoy `lleno`
+        // solo manda sobre el titular, que si tapa. La razon para no acotarlo
+        // se murio y el destope quedo vivo.
+        //
+        // Y nunca [x, x]: un titular que desaparece de golpe es el parpadeo
+        // que Santiago ya habia pedido sacar, asi que se le reserva FUNDIDO_MIN
+        // para apagarse aunque haya que empezar antes de que termine de
+        // decirse. Si ni eso cabe, el titular arranca ya yendose (ini en 0),
+        // que sigue siendo mejor que un corte.
+        //
+        // TITULO_MIN no entra aca de piso, y es a proposito. Pedia 1 s de
+        // titular en pantalla (Santiago, 27-09) y como piso devolveria al
+        // titular encima de la tarjeta cuando el aire no llega a 1,12 s, que
+        // es justo lo que se esta arreglando. Entre las dos reglas manda la
+        // que el reporto tres veces: en un corte apretado el titular dura
+        // menos de lo pedido, pero no se superpone nunca.
+        //
+        // El tope se aplica TAMBIEN en la muestra, aunque ahi hoy no cambie
+        // nada (el aire de la muestra es PREAMBULO_SEG, de sobra): tener una
+        // sola cuenta es lo que hace que la regla valga siempre, y una rama
+        // exenta es exactamente como se colo este defecto la primera vez.
         lleno: (() => {
-          const ini = opciones.holgado ? TITULO_SEG : Math.max(TITULO_MIN, leido);
-          return [Number(ini.toFixed(3)), Number((ini + BARRIDO_SEG).toFixed(3))];
+          const fin = aire - RESPIRO_SEG;
+          const pedido = opciones.holgado ? TITULO_SEG : Math.max(TITULO_MIN, leido);
+          const ini = Math.max(0, Math.min(pedido, fin - FUNDIDO_MIN));
+          return [Number(ini.toFixed(3)), Number(Math.min(ini + BARRIDO_SEG, fin).toFixed(3))];
         })(),
       } : {}),
     });
