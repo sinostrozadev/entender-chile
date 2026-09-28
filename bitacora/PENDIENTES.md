@@ -89,6 +89,18 @@ pudo; silencio cuando GPT cumplió.
       (cronograma viejo, propuestas ya ejecutadas), y las secciones de esta
       lista que ya no aplican.
 - [ ] **Preparar el Taller**: fase 1 publicada el 20-09 (https://claude.ai/artifact/2WH2fioUJK7tQHrKbXtBfw); ver TALLER 3.
+- [ ] **TALLER NUEVO (28-09, pedido de Santiago: el anterior no se entendía).**
+      Se arma pantalla por pantalla. Publicado en
+      https://claude.ai/artifact/1R4oBLvc2YsVZPKbCYsbB8, fuente en
+      `taller/taller.html`, datos en la base del artefacto. Listas las dos
+      primeras: Trabajos (nueve piezas) y Secciones (doce), las dos con
+      agregar, editar y eliminar. **Dueño: el día.** Falta:
+      (a) que el código LEA de ahí en vez de sus listas propias, que es el
+      punto de todo: hoy una sección se configura en tres archivos a la vez
+      (`scripts/imagenes-secciones.js:5` las claves y el slug, `src/tema.ts:60`
+      el color, `src/pictogramas.tsx:22` el dibujo) y ninguno obliga a los
+      otros a estar al día;
+      (b) las pantallas que Santiago pida después, de a una.
 ## LO QUE APARECIÓ AL UNIFICAR LOS PENDIENTES (13-09)
 
 - [ ] **Revisar qué MÁS depende de un push del bot.** El 14-09 se descubrió que
