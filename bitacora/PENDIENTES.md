@@ -116,6 +116,21 @@ pudo; silencio cuando GPT cumplió.
       **Decide Santiago:** si `parse.js` pasa a leer la lista del taller (que
       es el paso pendiente de todo lo demás) o si por ahora se tapa el agujero
       ampliando el regex. **Dueño: el día.**
+      **Y no son dos archivos, son cuatro** (28-09, inventario en
+      `taller/PARAMETROS.md`): `parse.js:31` decide qué no se anuncia con voz,
+      `short.js:66` qué no entra al Short, `guion-corto.js:39-41` qué va en la
+      muestra corta, y ninguno habla con los otros. El de `short.js` **no está
+      anclado y ya falla**: descarta el titular de noticia "Cierre de Orionx"
+      porque contiene la palabra cierre.
+- [ ] **QUÉ MÁS DEBE SER CONFIGURABLE (28-09).** Inventario completo con
+      archivo y línea en `taller/PARAMETROS.md`, ordenado por las dos
+      pantallas del taller. Las tres primeras, en orden: (1) que los cuatro
+      archivos lean el tipo de sección del taller, que es lo único que ya
+      falla en producción; (2) la pantalla de Trabajos con los tiempos,
+      empezando por las pausas de voz, que es el caso probado; (3) las horas
+      de publicación, que ya son configurables pero viven en las variables de
+      GitHub, donde Santiago no entra. **Decide Santiago** cuál se hace y en
+      qué orden. **Dueño: el día.**
 ## LO QUE APARECIÓ AL UNIFICAR LOS PENDIENTES (13-09)
 
 - [ ] **Revisar qué MÁS depende de un push del bot.** El 14-09 se descubrió que
