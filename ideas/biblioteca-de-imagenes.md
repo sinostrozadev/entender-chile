@@ -74,6 +74,77 @@ siguen sin representar ninguna noticia.
 Si con eso el video deja de verse repetido, la biblioteca no hace falta. Si no,
 la biblioteca se construye sabiendo que el problema era otro.
 
+---
+
+# Corrección: yo medí el blanco equivocado
+
+Santiago, sobre lo de arriba: *"no es solo para secciones, es para hacer otras
+cosas, poner imágenes en vez de texto mientras habla Lorenzo por ejemplo"*.
+Tiene razón y lo de arriba responde a una pregunta más chica que la suya. El
+fondo de sección ya estaba resuelto; lo que no está resuelto es **qué se ve
+mientras el locutor lee un párrafo**.
+
+## Lo que se ve hoy mientras habla
+
+Medido sobre la edición del 27-09, 12,8 minutos:
+
+| qué se ve | tarjetas | segundos | % del video |
+|---|---|---|---|
+| **un párrafo de texto** | 18 | 259 | **34%** |
+| la lista de titulares | 11 | 214 | 28% |
+| un gráfico o una cifra | 9 | 150 | 20% |
+| el titular de la sección | 10 | 66 | 9% |
+| un esquema | 2 | 32 | 4% |
+
+**Un tercio del video es el espectador leyendo exactamente lo que está
+oyendo.** Son 4,3 minutos de 12,8, en tarjetas de 14 segundos de media y hasta
+24. Ese es el espacio que la biblioteca vendría a ocupar, y es mucho más grande
+que el del fondo de sección.
+
+## La cobertura para ESE uso, que es otra
+
+Sobre los 879 párrafos narrados de los 36 guiones (unos 24 por edición),
+filtrando los numerales que la voz escribe en palabras y los conectores:
+
+| biblioteca de | párrafos con un concepto de la lista |
+|---|---|
+| 20 conceptos | 64% |
+| **40 conceptos** | **77%** |
+| 80 conceptos | 89% |
+| 120 conceptos | 93% |
+
+Y los conceptos son de verdad, no ruido: gobierno 77, seguridad 48,
+investigación 44, presidente 40, ministerio 39, fiscalía 35, proyecto 33,
+región 33, congreso 25, tribunal 24, contraloría 24, cobre 23, mercado 23,
+reforma 23.
+
+## La objeción editorial se cae, y aparece otra
+
+**Se cae la mía**: una imagen de "el presupuesto" mientras habla del
+presupuesto ilustra un concepto, no documenta un hecho. Eso es justo lo que la
+regla 29 permite y lo que el canal ya hace con los pictogramas. El problema era
+el volcán al lado del volcán, no la biblioteca.
+
+**Aparece otra, y es la que hay que resolver antes de construir nada.** La
+firma del canal (`estrategia/decisiones.md`) es *"toda cifra con fuente visible
+en pantalla"*. Si el párrafo se va, la cifra se va con él:
+
+- **35% de los párrafos narrados llevan una cifra** (12% un porcentaje).
+- **65% no llevan ninguna**: esos se pueden tapar enteros sin perder nada.
+
+O sea: la imagen reemplaza la **prosa**, nunca el dato. Dos tercios de los
+párrafos se pueden convertir en imagen tal cual; el tercio con cifra necesita
+que el número y su fuente sigan en pantalla, encima de la imagen.
+
+## Qué más se podría hacer con la misma biblioteca
+
+- **La carátula del día.** Hoy depende de que GPT genere una imagen cada
+  madrugada, y eso ya falló: el 28-09 llegó truncada al cuarto de su alto y
+  salió así al aire. Una carátula compuesta desde la biblioteca no depende de
+  nadie a las tres de la mañana.
+- **El fondo del vertical**, que hoy es plano.
+- **En titulares**, que es el 28% del video y es una lista que se enciende.
+
 ## Si se hace, qué habría que construir
 
 - Una pantalla **Biblioteca** que unifique lo que hoy está repartido: las

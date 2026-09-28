@@ -132,6 +132,15 @@ pudo; silencio cuando GPT cumplió.
       caminos: (a) el barato primero, tres variantes por sección, 36 imágenes,
       sin máquina nueva y sin cruzar la regla 29; (b) la biblioteca de
       conceptos, 80 imágenes; (c) no hacerla. **Dueño: el día.**
+      **CORREGIDO el mismo día**: Santiago apuntó que el uso no es el fondo de
+      sección sino **poner imágenes donde hoy va texto mientras habla el
+      locutor**, y ahí los números son otros y favorables. El 34% del video (4,3
+      min de 12,8) es el espectador leyendo lo que está oyendo, y con 40
+      conceptos se cubre el 77% de los 879 párrafos narrados. La objeción
+      editorial se cae (ilustrar un concepto no es documentar un hecho) y
+      aparece otra: **el 35% de los párrafos lleva una cifra** y la firma del
+      canal exige toda cifra visible con su fuente, así que la imagen reemplaza
+      la prosa y nunca el dato.
 - [ ] **QUÉ MÁS DEBE SER CONFIGURABLE (28-09).** Inventario completo con
       archivo y línea en `taller/PARAMETROS.md`, ordenado por las dos
       pantallas del taller. Las tres primeras, en orden: (1) que los cuatro
