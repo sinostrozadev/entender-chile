@@ -71,9 +71,40 @@ const DESTINO_PRUEBA = "secciones-prueba";
 // la recibe por meta.seccionesDir (ver src/Informe.tsx)
 const carpetaPublica = () => (process.env.SECCIONES_DIR ? DESTINO_PRUEBA : "secciones");
 
+const RUTA_ESTILO = path.join(__dirname, "..", "contenido", "config", "estilo.json");
+const BASE_SECCIONES = path.join("contenido", "secciones");
+const carpetaDelEstilo = () => {
+  try {
+    const activo = String(JSON.parse(fs.readFileSync(RUTA_ESTILO, "utf8")).activo || "").trim();
+    // solo un nombre de carpeta, nunca una ruta: un ".." acá sacaría las
+    // imágenes del repo sin que nadie lo note
+    if (!activo || !/^[a-z0-9][a-z0-9_-]*$/i.test(activo)) return BASE_SECCIONES;
+    const dir = path.join(BASE_SECCIONES, activo);
+    if (!fs.existsSync(dir)) {
+      console.warn(`estilo "${activo}": no existe ${dir}, uso ${BASE_SECCIONES}.`);
+      return BASE_SECCIONES;
+    }
+    return dir;
+  } catch (e) {
+    if (e.code !== "ENOENT") console.warn(`estilo: no pude leer ${RUTA_ESTILO} (${e.message}), uso ${BASE_SECCIONES}.`);
+    return BASE_SECCIONES;
+  }
+};
+
 const copiarSecciones = () => {
   const prueba = !!process.env.SECCIONES_DIR;
-  const origen = prueba ? process.env.SECCIONES_DIR : path.join("contenido", "secciones");
+  // EL ESTILO MANDA DE DÓNDE SALEN (28-09-2026, pedido de Santiago: "guardemos
+  // estilos, para que tengamos diferentes estilos, por ejemplo estilo sobrio
+  // con una serie de carátulas para las secciones, estilo clásico y otra
+  // serie"). Cada estilo es una carpeta bajo contenido/secciones/ con una
+  // imagen por sección, y cuál rige hoy lo dice contenido/config/estilo.json,
+  // que baja del taller.
+  //
+  // Vacío o sin archivo = contenido/secciones/ a secas, que es donde estaban
+  // desde siempre: un estilo mal escrito no puede dejar al video sin imágenes.
+  // SECCIONES_DIR sigue mandando sobre todo: es el modo de prueba y tiene que
+  // poder mirar cualquier carpeta sin tocar el estilo que está al aire.
+  const origen = prueba ? process.env.SECCIONES_DIR : carpetaDelEstilo();
   const destino = path.join("public", carpetaPublica());
   if (!fs.existsSync(origen)) return [];
   // En prueba se vacía el destino primero: una imagen que quedó de una corrida
@@ -93,4 +124,4 @@ const copiarSecciones = () => {
   return conImagen;
 };
 
-module.exports = { imagenDe, SECCIONES, copiarSecciones, carpetaPublica };
+module.exports = { imagenDe, SECCIONES, copiarSecciones, carpetaPublica, carpetaDelEstilo };

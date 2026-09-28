@@ -211,6 +211,80 @@
   }
   .guardar[disabled] { opacity: 0.45; cursor: not-allowed; }
 
+  /* la miniatura de la carátula, en la ficha de cada sección */
+  .mini {
+    background: var(--papel);
+    border: 1px solid var(--linea);
+    cursor: zoom-in;
+    display: block;
+    height: 54px;
+    object-fit: cover;
+    padding: 0;
+    width: 96px;
+  }
+  .mini:focus-visible { outline: 2px solid var(--patina); outline-offset: 2px; }
+  .mini-falta {
+    align-items: center;
+    background: var(--papel);
+    border: 1px dashed var(--linea);
+    color: var(--grafito);
+    display: flex;
+    font-family: var(--mono);
+    font-size: 10px;
+    height: 54px;
+    justify-content: center;
+    width: 96px;
+  }
+  .tira { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .tira figure { margin: 0; }
+  .tira figcaption {
+    color: var(--grafito);
+    font-family: var(--mono);
+    font-size: 10px;
+    margin-top: 3px;
+    max-width: 96px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .visor {
+    align-items: center;
+    background: rgba(10, 11, 13, 0.92);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    inset: 0;
+    justify-content: center;
+    padding: 24px 16px;
+    position: fixed;
+    z-index: 50;
+  }
+  .visor[hidden] { display: none !important; }
+  .visor img { max-width: min(100%, 1100px); max-height: 76vh; object-fit: contain; }
+  .visor-pie { color: #DDDDD5; font-family: var(--mono); font-size: 12px; text-align: center; }
+  .visor-cerrar {
+    align-self: flex-end;
+    appearance: none;
+    background: none;
+    border: 1px solid rgba(221, 221, 213, 0.5);
+    color: #F2F2EF;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: 14px;
+    padding: 6px 14px;
+  }
+
+  .activo-si {
+    background: var(--patina);
+    color: #FBFBF9;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    padding: 3px 8px;
+    text-transform: uppercase;
+  }
+
   .volver {
     appearance: none;
     background: none;
@@ -263,6 +337,7 @@
     <div class="pestanas" role="tablist">
       <button class="pestana" id="tab-trabajos" role="tab" aria-selected="true" aria-controls="panel-trabajos">Trabajos</button>
       <button class="pestana" id="tab-secciones" role="tab" aria-selected="false" aria-controls="panel-secciones">Secciones</button>
+      <button class="pestana" id="tab-estilos" role="tab" aria-selected="false" aria-controls="panel-estilos">Estilos</button>
     </div>
   </div>
 </div>
@@ -284,6 +359,13 @@
     <button class="agregar" id="nueva-seccion" disabled>Agregar una sección</button>
   </section>
 
+  <section id="panel-estilos" role="tabpanel" aria-labelledby="tab-estilos" hidden>
+    <h1>Los estilos</h1>
+    <p class="bajada">Cada estilo es una serie completa de imágenes de sección: sobrio, clásico, el que venga. Solo uno rige a la vez, y cambiarlo cambia el fondo de todas las secciones del video siguiente.</p>
+    <div id="lista-estilos" class="lista"><p class="cargando">Cargando los estilos...</p></div>
+    <button class="agregar" id="nuevo-estilo" disabled>Agregar un estilo</button>
+  </section>
+
   <section id="panel-detalle" role="tabpanel" hidden>
     <button class="volver" id="volver" type="button">Volver a los trabajos</button>
     <h1 id="detalle-nombre">...</h1>
@@ -303,14 +385,26 @@
   <p class="pie" id="pie">Taller de Entender Chile.</p>
 </main>
 
+<!-- el visor de la imagen de sección: capa suelta sobre todo, para poder mirar
+     una carátula grande sin salir del taller -->
+<div class="visor" id="visor" hidden>
+  <button class="visor-cerrar" id="visor-cerrar" type="button">Cerrar</button>
+  <img id="visor-img" alt="">
+  <div class="visor-pie" id="visor-pie"></div>
+</div>
+
 <script>
 (function () {
   "use strict";
 
   var db = null;
   var puedeEscribir = null;      // null = todavía no se sabe
-  var datos = { trabajos: [], secciones: [], ajustes: [], bloques: [] };
-  var cargado = { trabajos: false, secciones: false, ajustes: false, bloques: false };
+  var datos = { trabajos: [], secciones: [], ajustes: [], bloques: [], estilos: [], caratulas: [] };
+  var cargado = { trabajos: false, secciones: false, ajustes: false, bloques: false, estilos: false, caratulas: false };
+  // las carátulas del estilo que rige: se escuchan aparte porque cuelgan de él
+  // (estilos/<id>/caratulas) y hay que soltarlas si el estilo activo cambia
+  var estiloEscuchado = null;
+  var sueltaCaratulas = null;
   var editando = null;           // {coleccion, id|null}
   // el trabajo abierto: null = la lista, "<id>" = su pantalla propia. Las dos
   // sublistas (ajustes y bloques) viven colgando de él en la base, en
@@ -332,7 +426,8 @@
   // ---- pestañas ----------------------------------------------------------
   function mostrar(cual) {
     el("panel-detalle").hidden = true;
-    var pares = [["trabajos", "tab-trabajos", "panel-trabajos"], ["secciones", "tab-secciones", "panel-secciones"]];
+    var pares = [["trabajos", "tab-trabajos", "panel-trabajos"], ["secciones", "tab-secciones", "panel-secciones"],
+                 ["estilos", "tab-estilos", "panel-estilos"]];
     pares.forEach(function (p) {
       var activa = p[0] === cual;
       el(p[1]).setAttribute("aria-selected", activa ? "true" : "false");
@@ -343,6 +438,7 @@
   }
   el("tab-trabajos").addEventListener("click", function () { salir(); mostrar("trabajos"); });
   el("tab-secciones").addEventListener("click", function () { salir(); mostrar("secciones"); });
+  el("tab-estilos").addEventListener("click", function () { salir(); mostrar("estilos"); });
 
   function entrar(id) {
     salir();
@@ -403,6 +499,48 @@
     return f;
   }
 
+  // ---- el visor de una carátula -------------------------------------------
+  function abrirVisor(url, pie) {
+    el("visor-img").src = url;
+    el("visor-img").alt = pie || "";
+    el("visor-pie").textContent = pie || "";
+    el("visor").hidden = false;
+    el("visor-cerrar").focus();
+  }
+  function cerrarVisor() {
+    el("visor").hidden = true;
+    el("visor-img").removeAttribute("src");
+  }
+  el("visor-cerrar").addEventListener("click", cerrarVisor);
+  el("visor").addEventListener("click", function (ev) { if (ev.target === el("visor")) cerrarVisor(); });
+  document.addEventListener("keydown", function (ev) { if (ev.key === "Escape" && !el("visor").hidden) cerrarVisor(); });
+
+  // la carátula que el estilo que rige le da a esta sección
+  function caratulaDe(slug) {
+    for (var i = 0; i < datos.caratulas.length; i++) {
+      if (datos.caratulas[i].id === slug || datos.caratulas[i].seccion === slug) return datos.caratulas[i];
+    }
+    return null;
+  }
+
+  // la miniatura, o el hueco si esa sección no tiene imagen en este estilo
+  function mini(c, nombre) {
+    if (c && c.url) {
+      var img = document.createElement("img");
+      img.className = "mini";
+      img.src = c.url;
+      img.alt = nombre || "";
+      img.loading = "lazy";
+      img.tabIndex = 0;
+      img.title = "Abrir " + (texto(c.archivo) || nombre || "");
+      var abrir = function () { abrirVisor(c.url, (nombre ? nombre + " · " : "") + texto(c.archivo)); };
+      img.addEventListener("click", abrir);
+      img.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); abrir(); } });
+      return img;
+    }
+    return nodo("div", "mini-falta", "sin imagen");
+  }
+
   var PASOS = { "1-guardia": "1 · Buscar", "2-guion": "2 · Escribir el guion", "3-voz": "3 · La voz",
                 "4-montaje": "4 · El montaje", "5-subida": "5 · La subida" };
 
@@ -442,6 +580,42 @@
     return f;
   }
 
+  function fichaEstilo(e) {
+    var f = nodo("div", "ficha");
+    var nom = nodo("div", "ficha-nombre", texto(e.nombre) || e.id);
+    if (e.activo) {
+      var m = nodo("span", "activo-si", "rige hoy");
+      m.style.marginLeft = "10px";
+      nom.appendChild(m);
+    }
+    f.appendChild(nom);
+    var acc = nodo("div", "acciones");
+    if (!e.activo) acc.appendChild(boton("Usar este", function () { activar(e.id); }));
+    acc.appendChild(boton("Editar", function () { editando = { coleccion: "estilos", id: e.id }; pintar(); }));
+    acc.appendChild(boton("Eliminar", function () { borrar("estilos", e.id, e.nombre); }, "peligro"));
+    f.appendChild(acc);
+    if (e.que) f.appendChild(nodo("div", "ficha-que", e.que));
+    var ds = nodo("div", "ficha-datos");
+    ds.appendChild(dato("carpeta:", e.carpeta));
+    f.appendChild(ds);
+    // la tira de carátulas solo se ve en el estilo que rige: las de los demás
+    // viven en su propia sublista y traerlas todas sería cargar cuatro series
+    // para mirar una
+    if (e.activo) {
+      var tira = nodo("div", "tira");
+      var orden = datos.caratulas.slice().sort(function (a, b) { return texto(a.id).localeCompare(texto(b.id)); });
+      if (!orden.length) tira.appendChild(nodo("span", "dato", cargado.caratulas ? "Este estilo todavía no tiene carátulas cargadas." : "Cargando las carátulas..."));
+      orden.forEach(function (c) {
+        var fig = document.createElement("figure");
+        fig.appendChild(mini(c, texto(c.seccion) || c.id));
+        fig.appendChild(nodo("figcaption", null, texto(c.seccion) || c.id));
+        tira.appendChild(fig);
+      });
+      f.appendChild(tira);
+    }
+    return f;
+  }
+
   function fichaSeccion(s) {
     var estructura = s.tipo === "estructura";
     var f = nodo("div", "ficha");
@@ -451,6 +625,16 @@
     acc.appendChild(boton("Eliminar", function () { borrar("secciones", s.id, s.nombre || s.slug); }, "peligro"));
     f.appendChild(acc);
     if (s.que) f.appendChild(nodo("div", "ficha-que", s.que));
+
+    // la miniatura del estilo que rige, antes que cualquier dato: una imagen
+    // dice de un vistazo lo que tres líneas de texto no
+    if (!estructura) {
+      var envoltura = nodo("div", null);
+      envoltura.style.gridColumn = "1 / -1";
+      envoltura.style.marginTop = "10px";
+      envoltura.appendChild(mini(caratulaDe(s.slug || s.id), texto(s.nombre)));
+      f.appendChild(envoltura);
+    }
 
     var ds = nodo("div", "ficha-datos");
     if (!estructura) {
@@ -465,10 +649,14 @@
     // la estructura va en el gris del canal a propósito: que no tenga imagen
     // ni pictograma no es una falta, así que no se marca como tal
     if (!estructura) {
-      var img = nodo("span", "dato");
-      img.appendChild(document.createTextNode("Imagen "));
-      img.appendChild(nodo("b", s.imagen ? "marca-si" : "marca-no", s.imagen ? texto(s.imagen) : "falta"));
-      ds.appendChild(img);
+      // el nombre del archivo solo se escribe cuando NO hay miniatura: si la
+      // hay, la imagen ya lo dice y repetirlo es ruido
+      if (!caratulaDe(s.slug || s.id)) {
+        var img = nodo("span", "dato");
+        img.appendChild(document.createTextNode("Imagen "));
+        img.appendChild(nodo("b", "marca-no", "falta en este estilo"));
+        ds.appendChild(img);
+      }
       var pic = nodo("span", "dato");
       pic.appendChild(document.createTextNode("Pictograma "));
       pic.appendChild(nodo("b", s.pictograma ? "marca-si" : "marca-no", s.pictograma ? "sí" : "falta"));
@@ -508,6 +696,11 @@
       { k: "prompt", etiqueta: "Prompt", mono: true, ayuda: "Ruta en el repositorio, si tiene." },
       { k: "workflow", etiqueta: "Workflow", mono: true, ayuda: "Archivo de .github/workflows, si tiene." },
       { k: "activo", etiqueta: "Activo", tipo: "casilla", ayuda: "Apagado deja de producirse, sin borrar nada." }
+    ],
+    estilos: [
+      { k: "nombre", etiqueta: "Nombre", ayuda: "Como lo llamas tú: Sobrio, Clásico, Papel." },
+      { k: "carpeta", etiqueta: "Carpeta de sus imágenes", mono: true, ayuda: "Una carpeta bajo contenido/secciones, sin barras: papel, sobrio. Vacío = las que están sueltas en contenido/secciones." },
+      { k: "que", etiqueta: "Cómo se ve", tipo: "textarea", ayuda: "Una frase: en qué se distingue de los otros." }
     ],
     ajustes: [
       { k: "nombre", etiqueta: "Qué se ajusta", ayuda: "En palabras tuyas: \"cuánto calla entre bloques\"." },
@@ -635,7 +828,9 @@
   // dónde vive de verdad cada colección: las dos sublistas cuelgan del trabajo
   // que esté abierto
   function rutaDe(coleccion) {
-    return (coleccion === "ajustes" || coleccion === "bloques") ? "trabajos/" + dentro + "/" + coleccion : coleccion;
+    if (coleccion === "ajustes" || coleccion === "bloques") return "trabajos/" + dentro + "/" + coleccion;
+    if (coleccion === "caratulas") return "estilos/" + estiloEscuchado + "/caratulas";
+    return coleccion;
   }
 
   function escribir(coleccion, id, cuerpo, boton_) {
@@ -655,6 +850,24 @@
       if (boton_) { boton_.disabled = false; boton_.textContent = "Guardar"; }
       pintar();
     });
+  }
+
+  // CAMBIAR DE ESTILO SON DOS ESCRITURAS, no una: apagar el que regía y
+  // encender el nuevo. Se hacen en ese orden a propósito, porque si la segunda
+  // falla es mejor quedar sin ninguno marcado (y el código cae a las imágenes
+  // de siempre) que con dos, donde nadie sabría cuál manda.
+  function activar(id) {
+    if (!db) { aviso("No se puede cambiar el estilo en esta vista."); return; }
+    var antes = datos.estilos.filter(function (e) { return e.activo && e.id !== id; });
+    aviso("Cambiando de estilo...");
+    Promise.all(antes.map(function (e) { return db.collection("estilos").doc(e.id).update({ activo: false }); }))
+      .then(function () { return db.collection("estilos").doc(id).update({ activo: true }); })
+      .then(function () {
+        aviso("Estilo cambiado. Ojo: todavía no baja solo al repositorio, hay que pedirlo para que el video siguiente lo use.");
+      })
+      .catch(function (e) {
+        aviso("No se pudo cambiar el estilo: " + ((e && e.message) || "error") + ".");
+      });
   }
 
   var porBorrar = null;
@@ -713,6 +926,10 @@
 
   function pintar() {
     if (dentro) { pintarDetalle(); return; }
+    lista("estilos", el("lista-estilos"),
+      function (a, b) { return (b.activo ? 1 : 0) - (a.activo ? 1 : 0) || texto(a.nombre).localeCompare(texto(b.nombre)); },
+      fichaEstilo, "Todavía no hay estilos guardados.", null);
+    el("nuevo-estilo").disabled = puedeEscribir === false || !db;
     ["trabajos", "secciones"].forEach(function (col) {
       var caja = el("lista-" + col);
       if (!caja) return;
@@ -765,6 +982,9 @@
   el("nueva-seccion").addEventListener("click", function () {
     editando = { coleccion: "secciones", id: null }; porBorrar = null; aviso(""); pintar();
   });
+  el("nuevo-estilo").addEventListener("click", function () {
+    editando = { coleccion: "estilos", id: null }; porBorrar = null; aviso(""); pintar();
+  });
   el("nuevo-ajuste").addEventListener("click", function () {
     editando = { coleccion: "ajustes", id: null }; porBorrar = null; aviso(""); pintar();
   });
@@ -776,6 +996,20 @@
   // `col` es el cajón donde se guardan los datos en memoria; `ruta` es dónde
   // viven en la base. Las sublistas de un trabajo cuelgan de él
   // (trabajos/<id>/ajustes), así que las dos cosas no coinciden.
+  // Cuando cambia cuál estilo rige, hay que soltar las carátulas del anterior y
+  // escuchar las del nuevo. Se hace acá y no al arrancar porque cuál rige es un
+  // dato que llega por la misma suscripción y puede cambiar en vivo.
+  function seguirCaratulas() {
+    var activo = datos.estilos.filter(function (e) { return e.activo; })[0];
+    var id = activo ? activo.id : null;
+    if (id === estiloEscuchado) return;
+    if (sueltaCaratulas) { try { sueltaCaratulas(); } catch (e) {} sueltaCaratulas = null; }
+    datos.caratulas = [];
+    cargado.caratulas = !id;
+    estiloEscuchado = id;
+    if (id && db) sueltaCaratulas = escuchar("caratulas", "estilos/" + id + "/caratulas");
+  }
+
   function escuchar(col, ruta) {
     return db.collection(ruta || col).onSnapshot(function (snap) {
       datos[col] = snap.docs.map(function (d) {
@@ -785,6 +1019,7 @@
         return copia;
       });
       cargado[col] = true;
+      if (col === "estilos") seguirCaratulas();
       pintar();
     }, function (e) {
       cargado[col] = true;
@@ -818,6 +1053,7 @@
     } catch (e) { /* sin dato: se deja escribir y manda lo que responda el guardado */ }
     escuchar("trabajos");
     escuchar("secciones");
+    escuchar("estilos");
     pintar();
   })();
 

@@ -33,3 +33,19 @@ edición del día.
 | Archivo | Qué manda | Quién lo lee |
 |---|---|---|
 | `trabajos.json` | las pausas de voz de cada pieza | `scripts/pausas.js` |
+| `estilo.json` | qué serie de imágenes de sección rige | `scripts/imagenes-secciones.js` |
+
+## Los estilos
+
+Un estilo es una **carpeta bajo `contenido/secciones/`** con una imagen por
+sección. `estilo.json` dice cuál rige, y cambiarlo cambia el fondo de todas las
+secciones del video siguiente. Hoy hay uno completo, `papel`, que son las once
+que están al aire.
+
+El nombre se valida antes de usarlo: solo letras, números, guiones y guión
+bajo. Nada de barras ni de `..`, porque un estilo escrito con una ruta podría
+sacar las imágenes de fuera del repositorio sin que nadie lo note. Si la
+carpeta no existe, se avisa y se usan las de `contenido/secciones/`.
+
+`SECCIONES_DIR` sigue mandando por encima del estilo: es el modo de prueba y
+tiene que poder mirar cualquier carpeta sin tocar lo que está al aire.
