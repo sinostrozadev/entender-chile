@@ -1,0 +1,590 @@
+<title>Taller Entender Chile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --papel: #F2F2EF;
+    --superficie: #FBFBF9;
+    --tinta: #17191C;
+    --grafito: #6B6E6A;
+    --linea: #DDDDD5;
+    --patina: #2F7263;
+    --patina-suave: #E4EEEA;
+    --cobre: #D08A5B;
+    --alerta: #8A4A3C;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", "Courier New", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --papel: #15171A;
+      --superficie: #1C1F23;
+      --tinta: #EDEDE8;
+      --grafito: #8E918C;
+      --linea: #2A2D31;
+      --patina: #5BA391;
+      --patina-suave: #1E2A27;
+      --cobre: #D08A5B;
+      --alerta: #C2705C;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --papel: #15171A;
+    --superficie: #1C1F23;
+    --tinta: #EDEDE8;
+    --grafito: #8E918C;
+    --linea: #2A2D31;
+    --patina: #5BA391;
+    --patina-suave: #1E2A27;
+    --cobre: #D08A5B;
+    --alerta: #C2705C;
+  }
+
+  body {
+    background: var(--papel);
+    color: var(--tinta);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+  }
+  * { box-sizing: border-box; }
+
+  .barra {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+    background: var(--papel);
+    border-bottom: 1px solid var(--linea);
+  }
+  .barra-dentro {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 14px 16px 0;
+  }
+  .marca {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--grafito);
+  }
+  .pestanas { display: flex; gap: 4px; margin-top: 10px; }
+  .pestana {
+    appearance: none;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: var(--grafito);
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 12px 10px;
+  }
+  .pestana[aria-selected="true"] { color: var(--tinta); border-bottom-color: var(--patina); }
+  .pestana:focus-visible { outline: 2px solid var(--patina); outline-offset: 2px; border-radius: 3px; }
+
+  main { max-width: 880px; margin: 0 auto; padding-block: 22px 72px; padding-left: 16px; padding-right: 16px; }
+
+  h1 { font-family: var(--serif); font-weight: 600; font-size: 28px; line-height: 1.15; margin: 0 0 6px; text-wrap: balance; }
+  .bajada { color: var(--grafito); margin: 0 0 20px; max-width: 62ch; }
+
+  .aviso {
+    background: var(--patina-suave);
+    border-left: 3px solid var(--patina);
+    color: var(--tinta);
+    font-size: 14px;
+    margin: 0 0 18px;
+    padding: 10px 14px;
+  }
+  .aviso[hidden] { display: none !important; }
+
+  .lista { display: flex; flex-direction: column; gap: 10px; }
+
+  .ficha {
+    background: var(--superficie);
+    border: 1px solid var(--linea);
+    display: grid;
+    gap: 2px 14px;
+    grid-template-columns: 1fr auto;
+    padding: 14px 16px;
+  }
+  .ficha-nombre { font-family: var(--serif); font-size: 19px; font-weight: 600; line-height: 1.2; }
+  .ficha-que { color: var(--grafito); font-size: 14px; grid-column: 1 / -1; margin-top: 2px; }
+  .ficha-datos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    grid-column: 1 / -1;
+    margin-top: 10px;
+  }
+  .dato { font-family: var(--mono); font-size: 12px; color: var(--grafito); }
+  .dato b { color: var(--tinta); font-weight: 500; }
+
+  .acciones { display: flex; gap: 6px; align-items: start; }
+  button.chico {
+    appearance: none;
+    background: none;
+    border: 1px solid var(--linea);
+    color: var(--tinta);
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+  button.chico:hover { border-color: var(--patina); color: var(--patina); }
+  button.chico.peligro:hover { border-color: var(--alerta); color: var(--alerta); }
+  button.chico:focus-visible { outline: 2px solid var(--patina); outline-offset: 2px; }
+  button.chico[disabled] { opacity: 0.45; cursor: not-allowed; }
+
+  .agregar {
+    appearance: none;
+    background: var(--patina);
+    border: 0;
+    color: #FBFBF9;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 16px;
+    padding: 11px 18px;
+  }
+  .agregar:focus-visible { outline: 2px solid var(--tinta); outline-offset: 2px; }
+  .agregar[disabled] { opacity: 0.45; cursor: not-allowed; }
+
+  .chip {
+    border: 1px solid var(--linea);
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 9px 3px 4px;
+  }
+  .muestra { width: 16px; height: 16px; border-radius: 999px; display: inline-block; }
+
+  .marca-si { color: var(--patina); }
+  .marca-no { color: var(--cobre); }
+
+  form.editor {
+    background: var(--superficie);
+    border: 1px solid var(--patina);
+    display: grid;
+    gap: 12px;
+    padding: 16px;
+  }
+  .campo { display: flex; flex-direction: column; gap: 5px; }
+  .campo label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--grafito);
+  }
+  .campo .ayuda { color: var(--grafito); font-size: 12px; }
+  input[type="text"], textarea, select {
+    background: var(--papel);
+    border: 1px solid var(--linea);
+    color: var(--tinta);
+    font-family: var(--sans);
+    font-size: 15px;
+    padding: 9px 10px;
+    width: 100%;
+  }
+  input.mono { font-family: var(--mono); }
+  textarea { min-height: 76px; resize: vertical; }
+  input:focus, textarea:focus, select:focus { outline: 2px solid var(--patina); outline-offset: -1px; }
+  .fila { display: flex; flex-wrap: wrap; gap: 12px; }
+  .fila > .campo { flex: 1 1 200px; }
+  .casilla { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .botones { display: flex; gap: 8px; flex-wrap: wrap; }
+  .guardar {
+    appearance: none; background: var(--patina); border: 0; color: #FBFBF9;
+    cursor: pointer; font-family: var(--sans); font-size: 15px; font-weight: 500; padding: 10px 18px;
+  }
+  .guardar[disabled] { opacity: 0.45; cursor: not-allowed; }
+
+  .vacio { color: var(--grafito); font-style: italic; padding: 18px 0; }
+  .cargando { color: var(--grafito); font-family: var(--mono); font-size: 13px; padding: 18px 0; }
+
+  .pie { border-top: 1px solid var(--linea); color: var(--grafito); font-size: 13px; margin-top: 34px; padding-top: 14px; }
+
+  @media (max-width: 520px) {
+    .ficha { grid-template-columns: 1fr; }
+    .acciones { margin-top: 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="barra">
+  <div class="barra-dentro">
+    <div class="marca">Entender Chile · Taller</div>
+    <div class="pestanas" role="tablist">
+      <button class="pestana" id="tab-trabajos" role="tab" aria-selected="true" aria-controls="panel-trabajos">Trabajos</button>
+      <button class="pestana" id="tab-secciones" role="tab" aria-selected="false" aria-controls="panel-secciones">Secciones</button>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="aviso" id="aviso" hidden></div>
+
+  <section id="panel-trabajos" role="tabpanel" aria-labelledby="tab-trabajos">
+    <h1>Los trabajos del canal</h1>
+    <p class="bajada">Cada tipo de pieza que el canal produce, con quién la escribe y cuándo corre. Lo que cambies acá queda guardado y se lee desde el repositorio.</p>
+    <div id="lista-trabajos" class="lista"><p class="cargando">Cargando los trabajos...</p></div>
+    <button class="agregar" id="nuevo-trabajo" disabled>Agregar un trabajo</button>
+  </section>
+
+  <section id="panel-secciones" role="tabpanel" aria-labelledby="tab-secciones" hidden>
+    <h1>Las secciones</h1>
+    <p class="bajada">Las categorías con que se clasifica cada noticia. El color y el nombre se ven en el video; las claves son las palabras con que el clasificador decide a cuál va una noticia.</p>
+    <div id="lista-secciones" class="lista"><p class="cargando">Cargando las secciones...</p></div>
+    <button class="agregar" id="nueva-seccion" disabled>Agregar una sección</button>
+  </section>
+
+  <p class="pie" id="pie">Taller de Entender Chile.</p>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var db = null;
+  var puedeEscribir = null;      // null = todavía no se sabe
+  var datos = { trabajos: [], secciones: [] };
+  var cargado = { trabajos: false, secciones: false };
+  var editando = null;           // {coleccion, id|null}
+
+  var el = function (id) { return document.getElementById(id); };
+  var texto = function (s) { return (s === undefined || s === null) ? "" : String(s); };
+
+  function aviso(mensaje) {
+    var caja = el("aviso");
+    if (!mensaje) { caja.hidden = true; return; }
+    caja.textContent = mensaje;
+    caja.hidden = false;
+  }
+
+  // ---- pestañas ----------------------------------------------------------
+  function mostrar(cual) {
+    var pares = [["trabajos", "tab-trabajos", "panel-trabajos"], ["secciones", "tab-secciones", "panel-secciones"]];
+    pares.forEach(function (p) {
+      var activa = p[0] === cual;
+      el(p[1]).setAttribute("aria-selected", activa ? "true" : "false");
+      el(p[2]).hidden = !activa;
+    });
+    editando = null;
+    pintar();
+  }
+  el("tab-trabajos").addEventListener("click", function () { mostrar("trabajos"); });
+  el("tab-secciones").addEventListener("click", function () { mostrar("secciones"); });
+
+  // ---- pintado -----------------------------------------------------------
+  function nodo(tag, clase, contenido) {
+    var n = document.createElement(tag);
+    if (clase) n.className = clase;
+    if (contenido !== undefined) n.textContent = contenido;
+    return n;
+  }
+
+  function dato(etiqueta, valor) {
+    var d = nodo("span", "dato");
+    d.appendChild(document.createTextNode(etiqueta + " "));
+    var b = nodo("b", null, texto(valor) || "sin definir");
+    d.appendChild(b);
+    return d;
+  }
+
+  function fichaTrabajo(t) {
+    var f = nodo("div", "ficha");
+    f.appendChild(nodo("div", "ficha-nombre", texto(t.nombre) || t.id));
+    var acc = nodo("div", "acciones");
+    acc.appendChild(boton("Editar", function () { editando = { coleccion: "trabajos", id: t.id }; pintar(); }));
+    acc.appendChild(boton("Eliminar", function () { borrar("trabajos", t.id, t.nombre); }, "peligro"));
+    f.appendChild(acc);
+    if (t.que) f.appendChild(nodo("div", "ficha-que", t.que));
+    var ds = nodo("div", "ficha-datos");
+    ds.appendChild(dato("Escribe:", t.quien));
+    ds.appendChild(dato("Cuándo:", t.cuando));
+    if (t.prompt) ds.appendChild(dato("Prompt:", t.prompt));
+    if (t.workflow) ds.appendChild(dato("Workflow:", t.workflow));
+    ds.appendChild(dato("Estado:", t.activo === false ? "apagado" : "activo"));
+    f.appendChild(ds);
+    return f;
+  }
+
+  function fichaSeccion(s) {
+    var f = nodo("div", "ficha");
+    f.appendChild(nodo("div", "ficha-nombre", texto(s.nombre) || s.slug || s.id));
+    var acc = nodo("div", "acciones");
+    acc.appendChild(boton("Editar", function () { editando = { coleccion: "secciones", id: s.id }; pintar(); }));
+    acc.appendChild(boton("Eliminar", function () { borrar("secciones", s.id, s.nombre || s.slug); }, "peligro"));
+    f.appendChild(acc);
+
+    var ds = nodo("div", "ficha-datos");
+    var chip = nodo("span", "chip");
+    var muestra = nodo("span", "muestra");
+    muestra.style.background = texto(s.color) || "transparent";
+    chip.appendChild(muestra);
+    chip.appendChild(document.createTextNode(texto(s.color) || "sin color"));
+    ds.appendChild(chip);
+    ds.appendChild(dato("slug:", s.slug));
+    var img = nodo("span", "dato");
+    img.appendChild(document.createTextNode("Imagen "));
+    var bi = nodo("b", s.imagen ? "marca-si" : "marca-no", s.imagen ? texto(s.imagen) : "falta");
+    img.appendChild(bi);
+    ds.appendChild(img);
+    var pic = nodo("span", "dato");
+    pic.appendChild(document.createTextNode("Pictograma "));
+    var bp = nodo("b", s.pictograma ? "marca-si" : "marca-no", s.pictograma ? "sí" : "falta");
+    pic.appendChild(bp);
+    ds.appendChild(pic);
+    f.appendChild(ds);
+
+    if (s.claves) {
+      var c = nodo("div", "ficha-que", "Claves: " + s.claves);
+      c.style.fontFamily = "var(--mono)";
+      c.style.fontSize = "12px";
+      f.appendChild(c);
+    }
+    return f;
+  }
+
+  function boton(texto_, alHacer, extra) {
+    var b = nodo("button", "chico" + (extra ? " " + extra : ""), texto_);
+    b.type = "button";
+    b.disabled = puedeEscribir === false;
+    b.addEventListener("click", alHacer);
+    return b;
+  }
+
+  var CAMPOS = {
+    trabajos: [
+      { k: "nombre", etiqueta: "Nombre", ayuda: "Como lo llamas tú: Informe diario, Clave, Exprés." },
+      { k: "que", etiqueta: "Qué es", tipo: "textarea", ayuda: "Una frase: qué pieza es y para qué sirve." },
+      { k: "quien", etiqueta: "Quién la escribe", ayuda: "GPT, Claude o Actions." },
+      { k: "cuando", etiqueta: "Cuándo corre", ayuda: "La hora de Chile o el disparador." },
+      { k: "prompt", etiqueta: "Prompt", mono: true, ayuda: "Ruta en el repositorio, si tiene." },
+      { k: "workflow", etiqueta: "Workflow", mono: true, ayuda: "Archivo de .github/workflows, si tiene." },
+      { k: "activo", etiqueta: "Activo", tipo: "casilla", ayuda: "Apagado deja de producirse, sin borrar nada." }
+    ],
+    secciones: [
+      { k: "nombre", etiqueta: "Nombre", ayuda: "Como se lee en el video: Emergencia, Plata pública." },
+      { k: "slug", etiqueta: "Slug", mono: true, ayuda: "El identificador interno, sin tildes ni espacios: plata-publica." },
+      { k: "color", etiqueta: "Color", mono: true, ayuda: "El color de la sección en hexadecimal: #8A4A3C." },
+      { k: "claves", etiqueta: "Claves del clasificador", tipo: "textarea", mono: true, ayuda: "Palabras separadas por coma. Si una noticia trae alguna, cae en esta sección." },
+      { k: "imagen", etiqueta: "Imagen de fondo", mono: true, ayuda: "Archivo en contenido/secciones. Vacío = sale con su color y el pictograma." },
+      { k: "pictograma", etiqueta: "Tiene pictograma", tipo: "casilla", ayuda: "El dibujo grabado que se usa cuando no hay imagen." }
+    ]
+  };
+
+  function editor(coleccion, actual) {
+    var f = document.createElement("form");
+    f.className = "editor";
+    CAMPOS[coleccion].forEach(function (campo) {
+      var c = nodo("div", "campo");
+      var id = "campo-" + coleccion + "-" + campo.k;
+      var lab = nodo("label", null, campo.etiqueta);
+      lab.setAttribute("for", id);
+      c.appendChild(lab);
+      var ent;
+      if (campo.tipo === "textarea") {
+        ent = document.createElement("textarea");
+        ent.value = texto(actual[campo.k]);
+      } else if (campo.tipo === "casilla") {
+        ent = document.createElement("input");
+        ent.type = "checkbox";
+        ent.checked = actual[campo.k] !== false && actual[campo.k] !== undefined ? !!actual[campo.k] : (campo.k === "activo");
+        var caja = nodo("div", "casilla");
+        caja.appendChild(ent);
+        caja.appendChild(nodo("span", null, campo.ayuda));
+        ent.id = id;
+        c.appendChild(caja);
+        f.appendChild(c);
+        return;
+      } else {
+        ent = document.createElement("input");
+        ent.type = "text";
+        ent.value = texto(actual[campo.k]);
+      }
+      ent.id = id;
+      ent.name = campo.k;
+      if (campo.mono) ent.className = "mono";
+      c.appendChild(ent);
+      if (campo.ayuda) c.appendChild(nodo("div", "ayuda", campo.ayuda));
+      f.appendChild(c);
+    });
+
+    var botones = nodo("div", "botones");
+    var guardar = nodo("button", "guardar", "Guardar");
+    guardar.type = "submit";
+    botones.appendChild(guardar);
+    var cancelar = nodo("button", "chico", "Cancelar");
+    cancelar.type = "button";
+    cancelar.addEventListener("click", function () { editando = null; pintar(); });
+    botones.appendChild(cancelar);
+    f.appendChild(botones);
+
+    f.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var cuerpo = {};
+      CAMPOS[coleccion].forEach(function (campo) {
+        var ent = el("campo-" + coleccion + "-" + campo.k);
+        if (!ent) return;
+        cuerpo[campo.k] = campo.tipo === "casilla" ? !!ent.checked : ent.value.trim();
+      });
+      if (coleccion === "secciones" && !cuerpo.slug) {
+        aviso("La sección necesita un slug: es el nombre con que la busca el código.");
+        return;
+      }
+      if (!cuerpo.nombre) {
+        aviso("Ponle un nombre antes de guardar.");
+        return;
+      }
+      cuerpo.orden = actual.orden !== undefined ? actual.orden : datos[coleccion].length;
+      guardar.disabled = true;
+      guardar.textContent = "Guardando...";
+      escribir(coleccion, actual.id || null, cuerpo, guardar);
+    });
+    return f;
+  }
+
+  function idNuevo(coleccion, cuerpo) {
+    var base = texto(cuerpo.slug || cuerpo.nombre).toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    return base || (coleccion.slice(0, 3) + "-" + Date.now());
+  }
+
+  function escribir(coleccion, id, cuerpo, boton_) {
+    if (!db) { aviso("No se puede guardar en esta vista."); return; }
+    var ref = db.collection(coleccion).doc(id || idNuevo(coleccion, cuerpo));
+    ref.set(cuerpo).then(function () {
+      aviso("");
+      editando = null;
+      pintar();
+    }).catch(function (e) {
+      if (e && e.code === "invalid_argument") {
+        puedeEscribir = false;
+        aviso("Esta vista puede mirar pero no editar. Pídele a Santiago acceso de colaborador.");
+      } else {
+        aviso("No se pudo guardar: " + ((e && e.message) || "error desconocido") + ". Vuelve a intentarlo.");
+      }
+      if (boton_) { boton_.disabled = false; boton_.textContent = "Guardar"; }
+      pintar();
+    });
+  }
+
+  var porBorrar = null;
+  function borrar(coleccion, id, nombre) {
+    if (porBorrar && porBorrar.id === id) {
+      db.collection(coleccion).doc(id).delete().then(function () {
+        porBorrar = null; aviso(""); pintar();
+      }).catch(function (e) {
+        aviso("No se pudo eliminar: " + ((e && e.message) || "error") + ".");
+        porBorrar = null; pintar();
+      });
+      return;
+    }
+    porBorrar = { coleccion: coleccion, id: id };
+    aviso('Para eliminar "' + texto(nombre) + '" toca Eliminar otra vez. Cualquier otra cosa lo cancela.');
+    pintar();
+  }
+
+  function pintar() {
+    ["trabajos", "secciones"].forEach(function (col) {
+      var caja = el("lista-" + col);
+      if (!caja) return;
+      caja.textContent = "";
+      if (!cargado[col]) {
+        caja.appendChild(nodo("p", "cargando", "Cargando..."));
+        return;
+      }
+      var items = datos[col].slice().sort(function (a, b) {
+        var oa = a.orden === undefined ? 999 : a.orden, ob = b.orden === undefined ? 999 : b.orden;
+        return oa - ob || texto(a.nombre).localeCompare(texto(b.nombre));
+      });
+      if (!items.length && !(editando && editando.coleccion === col && !editando.id)) {
+        caja.appendChild(nodo("p", "vacio", col === "trabajos"
+          ? "Todavía no hay trabajos anotados."
+          : "Todavía no hay secciones anotadas."));
+      }
+      items.forEach(function (it) {
+        if (editando && editando.coleccion === col && editando.id === it.id) {
+          caja.appendChild(editor(col, it));
+        } else {
+          caja.appendChild(col === "trabajos" ? fichaTrabajo(it) : fichaSeccion(it));
+        }
+      });
+      if (editando && editando.coleccion === col && !editando.id) {
+        caja.appendChild(editor(col, { id: null }));
+      }
+      var bot = el(col === "trabajos" ? "nuevo-trabajo" : "nueva-seccion");
+      bot.disabled = puedeEscribir === false || !db;
+    });
+  }
+
+  el("nuevo-trabajo").addEventListener("click", function () {
+    editando = { coleccion: "trabajos", id: null }; porBorrar = null; aviso(""); pintar();
+  });
+  el("nueva-seccion").addEventListener("click", function () {
+    editando = { coleccion: "secciones", id: null }; porBorrar = null; aviso(""); pintar();
+  });
+
+  // ---- datos -------------------------------------------------------------
+  function escuchar(col) {
+    return db.collection(col).onSnapshot(function (snap) {
+      datos[col] = snap.docs.map(function (d) {
+        var cuerpo = d.data() || {};
+        var copia = { id: d.id };
+        Object.keys(cuerpo).forEach(function (k) { copia[k] = cuerpo[k]; });
+        return copia;
+      });
+      cargado[col] = true;
+      pintar();
+    }, function (e) {
+      cargado[col] = true;
+      aviso("Se perdió la conexión con los datos (" + ((e && e.code) || "error") + "). Recarga la página.");
+      pintar();
+    });
+  }
+
+  (async function arrancar() {
+    try {
+      db = await claude.use("db");
+    } catch (e) { db = null; }
+    if (!db) {
+      cargado.trabajos = true;
+      cargado.secciones = true;
+      aviso("Esta vista no puede leer los datos del taller. Ábrela desde tu cuenta de claude.ai.");
+      pintar();
+      return;
+    }
+    try {
+      var usuario = await claude.use("user");
+      if (usuario) {
+        var puede = await usuario.can("data.write");
+        if (puede === false) {
+          puedeEscribir = false;
+          aviso("Esta vista puede mirar pero no editar.");
+        } else if (puede === true) {
+          puedeEscribir = true;
+        }
+      }
+    } catch (e) { /* sin dato: se deja escribir y manda lo que responda el guardado */ }
+    escuchar("trabajos");
+    escuchar("secciones");
+    pintar();
+  })();
+
+  pintar();
+})();
+</script>
