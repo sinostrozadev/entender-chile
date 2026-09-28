@@ -211,6 +211,31 @@
   }
   .guardar[disabled] { opacity: 0.45; cursor: not-allowed; }
 
+  .volver {
+    appearance: none;
+    background: none;
+    border: 0;
+    color: var(--patina);
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: 14px;
+    margin: 0 0 14px;
+    padding: 4px 0;
+  }
+  .volver:hover { text-decoration: underline; }
+  .volver:focus-visible { outline: 2px solid var(--patina); outline-offset: 2px; }
+  .bajada.chica { font-size: 14px; margin-bottom: 12px; }
+  .paso {
+    background: var(--patina-suave);
+    color: var(--tinta);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+  }
+  .manda-no { color: var(--cobre); }
+  .valor { font-family: var(--mono); font-size: 17px; font-weight: 500; }
   .rotulo {
     color: var(--grafito);
     font-family: var(--mono);
@@ -259,6 +284,22 @@
     <button class="agregar" id="nueva-seccion" disabled>Agregar una sección</button>
   </section>
 
+  <section id="panel-detalle" role="tabpanel" hidden>
+    <button class="volver" id="volver" type="button">Volver a los trabajos</button>
+    <h1 id="detalle-nombre">...</h1>
+    <p class="bajada" id="detalle-que"></p>
+
+    <div class="rotulo">Cómo se hace, paso a paso</div>
+    <p class="bajada chica" id="detalle-nota"></p>
+    <div id="lista-ajustes" class="lista"><p class="cargando">Cargando...</p></div>
+    <button class="agregar" id="nuevo-ajuste" disabled>Agregar un ajuste</button>
+
+    <div class="rotulo" style="margin-top:34px">Qué bloques lleva el guion</div>
+    <p class="bajada chica">El armazón de esta pieza, en orden. Es lo que el prompt le pide a quien la escribe.</p>
+    <div id="lista-bloques" class="lista"><p class="cargando">Cargando...</p></div>
+    <button class="agregar" id="nuevo-bloque" disabled>Agregar un bloque</button>
+  </section>
+
   <p class="pie" id="pie">Taller de Entender Chile.</p>
 </main>
 
@@ -268,9 +309,15 @@
 
   var db = null;
   var puedeEscribir = null;      // null = todavía no se sabe
-  var datos = { trabajos: [], secciones: [] };
-  var cargado = { trabajos: false, secciones: false };
+  var datos = { trabajos: [], secciones: [], ajustes: [], bloques: [] };
+  var cargado = { trabajos: false, secciones: false, ajustes: false, bloques: false };
   var editando = null;           // {coleccion, id|null}
+  // el trabajo abierto: null = la lista, "<id>" = su pantalla propia. Las dos
+  // sublistas (ajustes y bloques) viven colgando de él en la base, en
+  // trabajos/<id>/ajustes y trabajos/<id>/bloques, así que se suscriben al
+  // entrar y se sueltan al salir
+  var dentro = null;
+  var sueltaHijas = [];
 
   var el = function (id) { return document.getElementById(id); };
   var texto = function (s) { return (s === undefined || s === null) ? "" : String(s); };
@@ -284,6 +331,7 @@
 
   // ---- pestañas ----------------------------------------------------------
   function mostrar(cual) {
+    el("panel-detalle").hidden = true;
     var pares = [["trabajos", "tab-trabajos", "panel-trabajos"], ["secciones", "tab-secciones", "panel-secciones"]];
     pares.forEach(function (p) {
       var activa = p[0] === cual;
@@ -293,8 +341,32 @@
     editando = null;
     pintar();
   }
-  el("tab-trabajos").addEventListener("click", function () { mostrar("trabajos"); });
-  el("tab-secciones").addEventListener("click", function () { mostrar("secciones"); });
+  el("tab-trabajos").addEventListener("click", function () { salir(); mostrar("trabajos"); });
+  el("tab-secciones").addEventListener("click", function () { salir(); mostrar("secciones"); });
+
+  function entrar(id) {
+    salir();
+    dentro = id;
+    editando = null; porBorrar = null; aviso("");
+    el("panel-trabajos").hidden = true;
+    el("panel-secciones").hidden = true;
+    el("panel-detalle").hidden = false;
+    if (db) {
+      cargado.ajustes = false; cargado.bloques = false;
+      sueltaHijas = [escuchar("ajustes", "trabajos/" + id + "/ajustes"),
+                     escuchar("bloques", "trabajos/" + id + "/bloques")];
+    }
+    window.scrollTo(0, 0);
+    pintar();
+  }
+  function salir() {
+    sueltaHijas.forEach(function (f) { try { f(); } catch (e) {} });
+    sueltaHijas = [];
+    datos.ajustes = []; datos.bloques = [];
+    dentro = null;
+    el("panel-detalle").hidden = true;
+  }
+  el("volver").addEventListener("click", function () { salir(); mostrar("trabajos"); });
 
   // ---- pintado -----------------------------------------------------------
   function nodo(tag, clase, contenido) {
@@ -316,6 +388,7 @@
     var f = nodo("div", "ficha");
     f.appendChild(nodo("div", "ficha-nombre", texto(t.nombre) || t.id));
     var acc = nodo("div", "acciones");
+    acc.appendChild(boton("Abrir", function () { entrar(t.id); }));
     acc.appendChild(boton("Editar", function () { editando = { coleccion: "trabajos", id: t.id }; pintar(); }));
     acc.appendChild(boton("Eliminar", function () { borrar("trabajos", t.id, t.nombre); }, "peligro"));
     f.appendChild(acc);
@@ -327,6 +400,45 @@
     if (t.workflow) ds.appendChild(dato("Workflow:", t.workflow));
     ds.appendChild(dato("Estado:", t.activo === false ? "apagado" : "activo"));
     f.appendChild(ds);
+    return f;
+  }
+
+  var PASOS = { "1-guardia": "1 · Buscar", "2-guion": "2 · Escribir el guion", "3-voz": "3 · La voz",
+                "4-montaje": "4 · El montaje", "5-subida": "5 · La subida" };
+
+  function fichaAjuste(a) {
+    var f = nodo("div", "ficha");
+    f.appendChild(nodo("div", "ficha-nombre", texto(a.nombre) || a.id));
+    var acc = nodo("div", "acciones");
+    acc.appendChild(boton("Editar", function () { editando = { coleccion: "ajustes", id: a.id }; pintar(); }));
+    acc.appendChild(boton("Eliminar", function () { borrar("ajustes", a.id, a.nombre); }, "peligro"));
+    f.appendChild(acc);
+    if (a.que) f.appendChild(nodo("div", "ficha-que", a.que));
+    var ds = nodo("div", "ficha-datos");
+    var v = nodo("span", "valor", texto(a.valor) + (a.unidad ? " " + a.unidad : ""));
+    ds.appendChild(v);
+    if (a.donde) ds.appendChild(dato("vive en:", a.donde));
+    var m = nodo("span", "dato");
+    m.appendChild(document.createTextNode("El taller "));
+    m.appendChild(nodo("b", a.manda ? "marca-si" : "manda-no", a.manda ? "ya manda" : "todavía no manda"));
+    ds.appendChild(m);
+    f.appendChild(ds);
+    return f;
+  }
+
+  function fichaBloque(b) {
+    var f = nodo("div", "ficha");
+    f.appendChild(nodo("div", "ficha-nombre", (b.orden ? b.orden + ". " : "") + (texto(b.nombre) || b.id)));
+    var acc = nodo("div", "acciones");
+    acc.appendChild(boton("Editar", function () { editando = { coleccion: "bloques", id: b.id }; pintar(); }));
+    acc.appendChild(boton("Eliminar", function () { borrar("bloques", b.id, b.nombre); }, "peligro"));
+    f.appendChild(acc);
+    if (b.que) f.appendChild(nodo("div", "ficha-que", b.que));
+    if (b.obligatorio === false) {
+      var ds = nodo("div", "ficha-datos");
+      ds.appendChild(nodo("span", "dato", "Puede faltar"));
+      f.appendChild(ds);
+    }
     return f;
   }
 
@@ -396,6 +508,23 @@
       { k: "prompt", etiqueta: "Prompt", mono: true, ayuda: "Ruta en el repositorio, si tiene." },
       { k: "workflow", etiqueta: "Workflow", mono: true, ayuda: "Archivo de .github/workflows, si tiene." },
       { k: "activo", etiqueta: "Activo", tipo: "casilla", ayuda: "Apagado deja de producirse, sin borrar nada." }
+    ],
+    ajustes: [
+      { k: "nombre", etiqueta: "Qué se ajusta", ayuda: "En palabras tuyas: \"cuánto calla entre bloques\"." },
+      { k: "paso", etiqueta: "En qué paso", tipo: "opciones",
+        opciones: [["1-guardia", "1 · Buscar"], ["2-guion", "2 · Escribir el guion"], ["3-voz", "3 · La voz"], ["4-montaje", "4 · El montaje"], ["5-subida", "5 · La subida"]],
+        ayuda: "Para verlos en el orden en que ocurren y no como una lista suelta." },
+      { k: "valor", etiqueta: "Valor", mono: true, ayuda: "El número o el texto que rige hoy." },
+      { k: "unidad", etiqueta: "Unidad", mono: true, ayuda: "ms, segundos, palabras, píxeles. Vacío si no lleva." },
+      { k: "que", etiqueta: "Qué hace", tipo: "textarea", ayuda: "Para qué sirve y qué pasa si se cambia." },
+      { k: "donde", etiqueta: "Dónde vive en el código", mono: true, ayuda: "Archivo y línea. Es lo que hay que tocar para que el cambio llegue al video." },
+      { k: "manda", etiqueta: "El taller ya manda sobre esto", tipo: "casilla", ayuda: "Marcado = lo que escribas acá cambia el video. Sin marcar = el código todavía lleva el suyo." }
+    ],
+    bloques: [
+      { k: "nombre", etiqueta: "Nombre del bloque", ayuda: "Como se escribe en el guion: Última hora, Lo que se supo." },
+      { k: "orden", etiqueta: "Posición", ayuda: "1, 2, 3. Es el orden en que van en la pieza." },
+      { k: "que", etiqueta: "Qué va en ese bloque", tipo: "textarea", ayuda: "Lo que el prompt le pide a quien escribe la pieza." },
+      { k: "obligatorio", etiqueta: "Siempre va", tipo: "casilla", ayuda: "Sin marcar, es un bloque que puede faltar." }
     ],
     secciones: [
       { k: "nombre", etiqueta: "Nombre", ayuda: "Como se lee en el video: Emergencia, Plata pública." },
@@ -482,7 +611,13 @@
         aviso("Ponle un nombre antes de guardar.");
         return;
       }
-      cuerpo.orden = actual.orden !== undefined ? actual.orden : datos[coleccion].length;
+      // el orden se calcula solo, salvo donde es un campo que se escribe a mano
+      // (los bloques de un guion van en un orden que lo dice el prompt)
+      if (!CAMPOS[coleccion].some(function (c) { return c.k === "orden"; })) {
+        cuerpo.orden = actual.orden !== undefined ? actual.orden : datos[coleccion].length;
+      } else {
+        cuerpo.orden = Number(cuerpo.orden) || (datos[coleccion].length + 1);
+      }
       guardar.disabled = true;
       guardar.textContent = "Guardando...";
       escribir(coleccion, actual.id || null, cuerpo, guardar);
@@ -497,9 +632,15 @@
     return base || (coleccion.slice(0, 3) + "-" + Date.now());
   }
 
+  // dónde vive de verdad cada colección: las dos sublistas cuelgan del trabajo
+  // que esté abierto
+  function rutaDe(coleccion) {
+    return (coleccion === "ajustes" || coleccion === "bloques") ? "trabajos/" + dentro + "/" + coleccion : coleccion;
+  }
+
   function escribir(coleccion, id, cuerpo, boton_) {
     if (!db) { aviso("No se puede guardar en esta vista."); return; }
-    var ref = db.collection(coleccion).doc(id || idNuevo(coleccion, cuerpo));
+    var ref = db.collection(rutaDe(coleccion)).doc(id || idNuevo(coleccion, cuerpo));
     ref.set(cuerpo).then(function () {
       aviso("");
       editando = null;
@@ -519,7 +660,7 @@
   var porBorrar = null;
   function borrar(coleccion, id, nombre) {
     if (porBorrar && porBorrar.id === id) {
-      db.collection(coleccion).doc(id).delete().then(function () {
+      db.collection(rutaDe(coleccion)).doc(id).delete().then(function () {
         porBorrar = null; aviso(""); pintar();
       }).catch(function (e) {
         aviso("No se pudo eliminar: " + ((e && e.message) || "error") + ".");
@@ -532,7 +673,46 @@
     pintar();
   }
 
+  function lista(col, caja, orden, ficha, vacio, rotulo) {
+    caja.textContent = "";
+    if (!cargado[col]) { caja.appendChild(nodo("p", "cargando", "Cargando...")); return; }
+    var items = datos[col].slice().sort(orden);
+    if (!items.length && !(editando && editando.coleccion === col && !editando.id)) {
+      caja.appendChild(nodo("p", "vacio", vacio));
+    }
+    var anterior = null;
+    items.forEach(function (it) {
+      if (rotulo) {
+        var r = rotulo(it);
+        if (r && r !== anterior) { caja.appendChild(nodo("div", "rotulo", r)); anterior = r; }
+      }
+      if (editando && editando.coleccion === col && editando.id === it.id) caja.appendChild(editor(col, it));
+      else caja.appendChild(ficha(it));
+    });
+    if (editando && editando.coleccion === col && !editando.id) caja.appendChild(editor(col, { id: null }));
+  }
+
+  function pintarDetalle() {
+    var t = datos.trabajos.filter(function (x) { return x.id === dentro; })[0];
+    el("detalle-nombre").textContent = t ? (texto(t.nombre) || t.id) : dentro;
+    el("detalle-que").textContent = t ? texto(t.que) : "";
+    var faltan = datos.ajustes.filter(function (a) { return !a.manda; }).length;
+    el("detalle-nota").textContent = faltan
+      ? "Ojo: " + faltan + " de estos " + datos.ajustes.length + " todavía no mandan sobre la pieza. Los marcados \u201cya manda\u201d sí: lo que escribas acá cambia el video."
+      : "Todos estos ya mandan sobre la pieza: lo que escribas acá cambia el video.";
+    lista("ajustes", el("lista-ajustes"),
+      function (a, b) { return texto(a.paso).localeCompare(texto(b.paso)) || texto(a.nombre).localeCompare(texto(b.nombre)); },
+      fichaAjuste, "Este trabajo todavía no tiene ajustes anotados.",
+      function (a) { return PASOS[a.paso] || "Sin paso"; });
+    lista("bloques", el("lista-bloques"),
+      function (a, b) { return (Number(a.orden) || 99) - (Number(b.orden) || 99); },
+      fichaBloque, "Este trabajo todavía no tiene bloques anotados.", null);
+    el("nuevo-ajuste").disabled = puedeEscribir === false || !db;
+    el("nuevo-bloque").disabled = puedeEscribir === false || !db;
+  }
+
   function pintar() {
+    if (dentro) { pintarDetalle(); return; }
     ["trabajos", "secciones"].forEach(function (col) {
       var caja = el("lista-" + col);
       if (!caja) return;
@@ -585,10 +765,19 @@
   el("nueva-seccion").addEventListener("click", function () {
     editando = { coleccion: "secciones", id: null }; porBorrar = null; aviso(""); pintar();
   });
+  el("nuevo-ajuste").addEventListener("click", function () {
+    editando = { coleccion: "ajustes", id: null }; porBorrar = null; aviso(""); pintar();
+  });
+  el("nuevo-bloque").addEventListener("click", function () {
+    editando = { coleccion: "bloques", id: null }; porBorrar = null; aviso(""); pintar();
+  });
 
   // ---- datos -------------------------------------------------------------
-  function escuchar(col) {
-    return db.collection(col).onSnapshot(function (snap) {
+  // `col` es el cajón donde se guardan los datos en memoria; `ruta` es dónde
+  // viven en la base. Las sublistas de un trabajo cuelgan de él
+  // (trabajos/<id>/ajustes), así que las dos cosas no coinciden.
+  function escuchar(col, ruta) {
+    return db.collection(ruta || col).onSnapshot(function (snap) {
       datos[col] = snap.docs.map(function (d) {
         var cuerpo = d.data() || {};
         var copia = { id: d.id };

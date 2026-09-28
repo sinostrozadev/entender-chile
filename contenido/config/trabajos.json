@@ -1,0 +1,9 @@
+{
+  "_": "Lo que el taller manda sobre cada pieza. Ver contenido/config/README.md. Si este archivo falta o está roto, el código usa sus propios valores y la edición sigue igual.",
+  "_taller": "https://claude.ai/artifact/1R4oBLvc2YsVZPKbCYsbB8",
+  "_bajado": "2026-09-28",
+  "expres": { "pausaSeccionMs": 1200, "pausaIntroMs": 1200 },
+  "short": { "pausaSeccionMs": 1200, "pausaIntroMs": 1200 },
+  "informe": { "pausaSeccionMs": 3000, "pausaIntroMs": 5200 },
+  "clave": { "pausaSeccionMs": 3000, "pausaIntroMs": 5200 }
+}
