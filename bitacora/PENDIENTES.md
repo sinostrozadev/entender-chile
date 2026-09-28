@@ -122,6 +122,16 @@ pudo; silencio cuando GPT cumplió.
       muestra corta, y ninguno habla con los otros. El de `short.js` **no está
       anclado y ya falla**: descarta el titular de noticia "Cierre de Orionx"
       porque contiene la palabra cierre.
+- [ ] **LA BIBLIOTECA DE IMÁGENES POR PALABRA (28-09, idea de Santiago).**
+      Medida antes de opinar sobre los 36 guiones, 408 bloques: solo el **2%**
+      tiene dos palabras dibujables, así que componer pares estaría apagado casi
+      siempre ("volcán" aparece 1 vez y "nieve" ninguna). La medición, la
+      contrapropuesta (una imagen por bloque indexada por CONCEPTO, que con 40
+      palabras toca el 75% de los bloques) y la objeción editorial están en
+      `ideas/biblioteca-de-imagenes.md`. **Decide Santiago** entre tres
+      caminos: (a) el barato primero, tres variantes por sección, 36 imágenes,
+      sin máquina nueva y sin cruzar la regla 29; (b) la biblioteca de
+      conceptos, 80 imágenes; (c) no hacerla. **Dueño: el día.**
 - [ ] **QUÉ MÁS DEBE SER CONFIGURABLE (28-09).** Inventario completo con
       archivo y línea en `taller/PARAMETROS.md`, ordenado por las dos
       pantallas del taller. Las tres primeras, en orden: (1) que los cuatro
