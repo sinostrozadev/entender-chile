@@ -28,6 +28,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const { entera } = require("./imagen-entera.js");
 
 const FECHA = process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
   timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
@@ -41,8 +42,11 @@ const fin = (msg) => { console.log(msg); process.exit(0); };
 if (!fs.existsSync(guion)) fin(`sin guion del informe de ${FECHA}: no hay nada que ilustrar todavía.`);
 
 // La imagen vale con cualquiera de las extensiones que busca scripts/dia.js.
+// Y tiene que estar COMPLETA: una imagen rota es una imagen que no esta
+// (28-09-2026). Asi el reintento cubre tambien el caso en que el archivo llego
+// pero llego truncado, que es lo que paso ese dia y salio al aire.
 const yaEsta = ["png", "jpg", "jpeg", "webp"]
-  .map((e) => path.join("contenido", "caratulas", `${FECHA}.${e}`)).find((p) => fs.existsSync(p));
+  .map((e) => path.join("contenido", "caratulas", `${FECHA}.${e}`)).find((p) => entera(p));
 if (yaEsta) fin(`la carátula de ${FECHA} ya está en ${yaEsta}: sin pedido.`);
 
 if (fs.existsSync(pedido)) fin(`el pedido de la carátula de ${FECHA} ya está abierto: no se repite.`);

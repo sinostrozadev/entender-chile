@@ -8,6 +8,7 @@
 const fs = require("fs");
 const path = require("path");
 const { copiarSecciones, imagenDe, carpetaPublica } = require("./imagenes-secciones.js");
+const { entera } = require("./imagen-entera.js");
 
 const [, , parsedPath, alignPath, salida = "out/timeline.json", audioFile = null] = process.argv;
 if (!parsedPath || !alignPath) {
@@ -234,6 +235,14 @@ if (SECUENCIA === "2409") {
     const fechaDia = timeline.meta.fecha;
     for (const ext of ["png", "jpg", "jpeg", "webp"]) {
       const orig = path.join("contenido", "caratulas", `${fechaDia}.${ext}`);
+      // ...y que este COMPLETA. Una imagen rota se trata como una que no esta
+      // (28-09-2026, ver scripts/imagen-entera.js): el 28 la caratula llego
+      // truncada al cuarto de su alto, Chromium pinto lo que pudo y eso salio
+      // en la portada del video y en la miniatura, a YouTube.
+      if (fs.existsSync(orig) && !entera(orig)) {
+        console.warn(`portada: ${orig} esta ROTA (archivo incompleto): la edicion sigue sin ilustracion.`);
+        continue;
+      }
       if (fs.existsSync(orig)) {
         fs.mkdirSync(path.join("public", "caratulas"), { recursive: true });
         fs.copyFileSync(orig, path.join("public", "caratulas", path.basename(orig)));

@@ -12,6 +12,7 @@
 const { execFileSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const { entera } = require("./imagen-entera.js");
 
 // Miniatura (1280x720, src/marca.tsx): la cifra principal del día + el título.
 // Cifra = el primer [DATO] que eligió el guion (no los automáticos). No bloquea.
@@ -88,7 +89,7 @@ const miniaturas = ({ parsed, fecha, esClave = false, OUT }) => {
   // Una portada de emergencia, que es de lejos la categoria mas frecuente,
   // apuntaba a un archivo inexistente y la tercera miniatura no salia. No
   // rompia la edicion, solo se perdia en silencio.
-  const conArchivo = (slug) => slug && fs.existsSync(path.join("public", "fondos", `seccion-${slug}.jpg`));
+  const conArchivo = (slug) => slug && entera(path.join("public", "fondos", `seccion-${slug}.jpg`));
   const imagen = conArchivo(img) ? `fondos/seccion-${img}.jpg`
     : esClave ? "fondos/fondo-clave-vertical.png" : "fondos/seccion-regiones.jpg";
   const fechaVisible = fecha.split("-").reverse().join("-");
