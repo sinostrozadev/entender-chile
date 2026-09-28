@@ -22,14 +22,14 @@ no se entiende, y eso ya pasó una vez.
 
 ## Lo que las dos pantallas NO cubren
 
-Las dos vistas de hoy son Trabajos y Secciones. Hay un tercer grupo que no es
+Las dos vistas de hoy son Formatos y Secciones. Hay un tercer grupo que no es
 de un trabajo ni de una sección: **es del canal entero.** La voz, la paleta,
 las horas de publicación. Hoy no tiene dónde ir. Son pocos y no urgen, pero
 conviene decidirlo antes de repartirlos a la fuerza en las dos que hay.
 
 ---
 
-## PANTALLA TRABAJOS: lo que cambia de una pieza a otra
+## PANTALLA FORMATOS: lo que cambia de una pieza a otra
 
 Es la que más falta hace, y la que habría evitado los dos errores del 28-09.
 
@@ -156,7 +156,7 @@ las dos actuales.
 1. **Que los cuatro archivos lean el tipo de sección del taller** en vez de
    llevar cada uno su regex. Es lo único de esta lista que YA está fallando en
    producción, y el dato ya existe en la base desde hoy.
-2. **La pantalla de Trabajos con los tiempos**, empezando por las pausas de
+2. **La pantalla de Formatos con los tiempos**, empezando por las pausas de
    voz, que es el caso probado, y siguiendo por los del video. Es lo que
    habría evitado los dos errores del 28-09.
 3. **Las horas de publicación**, que es lo más barato: ya son configurables,

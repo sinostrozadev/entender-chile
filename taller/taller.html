@@ -211,6 +211,40 @@
   }
   .guardar[disabled] { opacity: 0.45; cursor: not-allowed; }
 
+  /* el texto de un prompt: se lee, no se edita acá. La fuente de verdad es el
+     archivo del repositorio, que es donde queda con fecha, autor y diff */
+  .texto-prompt {
+    background: var(--papel);
+    border: 1px solid var(--linea);
+    font-family: var(--mono);
+    font-size: 12px;
+    grid-column: 1 / -1;
+    line-height: 1.55;
+    margin: 12px 0 0;
+    max-height: 460px;
+    overflow: auto;
+    padding: 14px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .notas {
+    background: var(--patina-suave);
+    border-left: 3px solid var(--patina);
+    font-size: 14px;
+    grid-column: 1 / -1;
+    margin-top: 10px;
+    padding: 10px 14px;
+    white-space: pre-wrap;
+  }
+  .notas-rotulo {
+    color: var(--grafito);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
   /* la vista previa de una pieza: cómo se ve de verdad, rendida con el motor */
   .vista {
     background: #15171A;
@@ -361,7 +395,7 @@
   <div class="barra-dentro">
     <div class="marca">Entender Chile · Taller</div>
     <div class="pestanas" role="tablist">
-      <button class="pestana" id="tab-trabajos" role="tab" aria-selected="true" aria-controls="panel-trabajos">Trabajos</button>
+      <button class="pestana" id="tab-trabajos" role="tab" aria-selected="true" aria-controls="panel-trabajos">Formatos</button>
       <button class="pestana" id="tab-secciones" role="tab" aria-selected="false" aria-controls="panel-secciones">Secciones</button>
       <button class="pestana" id="tab-estilos" role="tab" aria-selected="false" aria-controls="panel-estilos">Estilos</button>
     </div>
@@ -372,10 +406,10 @@
   <div class="aviso" id="aviso" hidden></div>
 
   <section id="panel-trabajos" role="tabpanel" aria-labelledby="tab-trabajos">
-    <h1>Los trabajos del canal</h1>
-    <p class="bajada">Cada tipo de pieza que el canal produce, con quién la escribe y cuándo corre. Lo que cambies acá queda guardado y se lee desde el repositorio.</p>
+    <h1>Los formatos del canal</h1>
+    <p class="bajada">Cada cosa distinta que el canal produce: el informe diario, la Clave, los verticales, la web. Entra a uno para ver cómo se hace y ajustarlo.</p>
     <div id="lista-trabajos" class="lista"><p class="cargando">Cargando los trabajos...</p></div>
-    <button class="agregar" id="nuevo-trabajo" disabled>Agregar un trabajo</button>
+    <button class="agregar" id="nuevo-trabajo" disabled>Agregar un formato</button>
   </section>
 
   <section id="panel-secciones" role="tabpanel" aria-labelledby="tab-secciones" hidden>
@@ -393,7 +427,7 @@
   </section>
 
   <section id="panel-detalle" role="tabpanel" hidden>
-    <button class="volver" id="volver" type="button">Volver a los trabajos</button>
+    <button class="volver" id="volver" type="button">Volver a los formatos</button>
     <h1 id="detalle-nombre">...</h1>
     <p class="bajada" id="detalle-que"></p>
     <div id="detalle-vista"></div>
@@ -402,6 +436,10 @@
     <p class="bajada chica" id="detalle-nota"></p>
     <div id="lista-ajustes" class="lista"><p class="cargando">Cargando...</p></div>
     <button class="agregar" id="nuevo-ajuste" disabled>Agregar un ajuste</button>
+
+    <div class="rotulo" style="margin-top:34px">Con qué prompts se escribe</div>
+    <p class="bajada chica">El texto con el que trabaja quien escribe esta pieza. Se lee acá y se mejora acá: lo que anotes baja al repositorio en un commit, que es donde vive y desde donde lo leen GPT y Claude.</p>
+    <div id="lista-prompts" class="lista"><p class="cargando">Cargando...</p></div>
 
     <div class="rotulo" style="margin-top:34px">Qué bloques lleva el guion</div>
     <p class="bajada chica">El armazón de esta pieza, en orden. Es lo que el prompt le pide a quien la escribe.</p>
@@ -426,8 +464,11 @@
 
   var db = null;
   var puedeEscribir = null;      // null = todavía no se sabe
-  var datos = { trabajos: [], secciones: [], ajustes: [], bloques: [], estilos: [], caratulas: [], vistas: [] };
-  var cargado = { trabajos: false, secciones: false, ajustes: false, bloques: false, estilos: false, caratulas: false, vistas: false };
+  var datos = { trabajos: [], secciones: [], ajustes: [], bloques: [], estilos: [], caratulas: [], vistas: [], prompts: [] };
+  var cargado = { trabajos: false, secciones: false, ajustes: false, bloques: false, estilos: false, caratulas: false, vistas: false, prompts: false };
+  // qué prompt está desplegado: uno a la vez, porque el más largo son 285
+  // líneas y dos abiertos a la vez no se leen, se hojean
+  var abierto = null;
   // las carátulas del estilo que rige: se escuchan aparte porque cuelgan de él
   // (estilos/<id>/caratulas) y hay que soltarlas si el estilo activo cambia
   var estiloEscuchado = null;
@@ -486,8 +527,10 @@
     el("panel-detalle").hidden = false;
     if (db) {
       cargado.ajustes = false; cargado.bloques = false;
+      cargado.prompts = false;
       sueltaHijas = [escuchar("ajustes", "trabajos/" + id + "/ajustes"),
-                     escuchar("bloques", "trabajos/" + id + "/bloques")];
+                     escuchar("bloques", "trabajos/" + id + "/bloques"),
+                     escuchar("prompts", "trabajos/" + id + "/prompts")];
     }
     window.scrollTo(0, 0);
     pintar();
@@ -495,7 +538,8 @@
   function salir() {
     sueltaHijas.forEach(function (f) { try { f(); } catch (e) {} });
     sueltaHijas = [];
-    datos.ajustes = []; datos.bloques = [];
+    datos.ajustes = []; datos.bloques = []; datos.prompts = [];
+    abierto = null;
     dentro = null;
     el("panel-detalle").hidden = true;
   }
@@ -678,6 +722,40 @@
     return f;
   }
 
+  function fichaPrompt(pr) {
+    var f = nodo("div", "ficha");
+    f.appendChild(nodo("div", "ficha-nombre", texto(pr.nombre) || pr.id));
+    var acc = nodo("div", "acciones");
+    var desplegado = abierto === pr.id;
+    acc.appendChild(boton(desplegado ? "Ocultar" : "Leerlo", function () {
+      abierto = desplegado ? null : pr.id; pintar();
+      if (!desplegado) { var n = el("texto-" + pr.id); if (n) n.scrollIntoView({ block: "nearest" }); }
+    }));
+    acc.appendChild(boton("Anotar", function () { editando = { coleccion: "prompts", id: pr.id }; pintar(); }));
+    f.appendChild(acc);
+    if (pr.que) f.appendChild(nodo("div", "ficha-que", pr.que));
+
+    var ds = nodo("div", "ficha-datos");
+    ds.appendChild(dato("archivo:", pr.ruta));
+    if (pr.lineas) ds.appendChild(dato("largo:", pr.lineas + " líneas"));
+    f.appendChild(ds);
+
+    // lo anotado se ve SIEMPRE, sin desplegar nada: es lo que hay que hacer
+    // con este prompt, y esconderlo detrás de un clic lo vuelve invisible
+    if (pr.notas) {
+      var n = nodo("div", "notas");
+      n.appendChild(nodo("div", "notas-rotulo", "Por mejorar"));
+      n.appendChild(nodo("div", null, pr.notas));
+      f.appendChild(n);
+    }
+    if (desplegado) {
+      var caja = nodo("pre", "texto-prompt", texto(pr.texto));
+      caja.id = "texto-" + pr.id;
+      f.appendChild(caja);
+    }
+    return f;
+  }
+
   function fichaEstilo(e) {
     var f = nodo("div", "ficha");
     var nom = nodo("div", "ficha-nombre", texto(e.nombre) || e.id);
@@ -794,6 +872,12 @@
       { k: "prompt", etiqueta: "Prompt", mono: true, ayuda: "Ruta en el repositorio, si tiene." },
       { k: "workflow", etiqueta: "Workflow", mono: true, ayuda: "Archivo de .github/workflows, si tiene." },
       { k: "activo", etiqueta: "Activo", tipo: "casilla", ayuda: "Apagado deja de producirse, sin borrar nada." }
+    ],
+    prompts: [
+      { k: "nombre", etiqueta: "Nombre", ayuda: "Cómo lo llamas tú: La pauta, El guion del video." },
+      { k: "que", etiqueta: "Para qué sirve", tipo: "textarea", ayuda: "Qué escribe este prompt y en qué momento entra." },
+      { k: "notas", etiqueta: "Por mejorar", tipo: "textarea",
+        ayuda: "Lo que hay que cambiarle. Esto es lo que baja al repositorio como un cambio de verdad, con su commit y su porqué." }
     ],
     estilos: [
       { k: "nombre", etiqueta: "Nombre", ayuda: "Como lo llamas tú: Sobrio, Clásico, Papel." },
@@ -923,10 +1007,17 @@
     return base || (coleccion.slice(0, 3) + "-" + Date.now());
   }
 
-  // dónde vive de verdad cada colección: las dos sublistas cuelgan del trabajo
-  // que esté abierto
+  // dónde vive de verdad cada colección: las sublistas cuelgan del formato que
+  // esté abierto.
+  //
+  // EL NOMBRE INTERNO SIGUE SIENDO "trabajos" (28-09-2026). En pantalla se
+  // llaman formatos, que es como se llaman en televisión y es lo que Santiago
+  // pidió buscar, pero la colección de la base y contenido/config/trabajos.json
+  // conservan el nombre viejo: renombrarlos obliga a mover los documentos y
+  // sus dos sublistas, y a tocar el puente que hoy manda sobre el video, todo
+  // para cambiar un nombre que nadie ve. Es una deuda anotada, no un descuido.
   function rutaDe(coleccion) {
-    if (coleccion === "ajustes" || coleccion === "bloques") return "trabajos/" + dentro + "/" + coleccion;
+    if (coleccion === "ajustes" || coleccion === "bloques" || coleccion === "prompts") return "trabajos/" + dentro + "/" + coleccion;
     if (coleccion === "caratulas") return "estilos/" + estiloEscuchado + "/caratulas";
     return coleccion;
   }
@@ -934,7 +1025,13 @@
   function escribir(coleccion, id, cuerpo, boton_) {
     if (!db) { aviso("No se puede guardar en esta vista."); return; }
     var ref = db.collection(rutaDe(coleccion)).doc(id || idNuevo(coleccion, cuerpo));
-    ref.set(cuerpo).then(function () {
+    // EDITAR MEZCLA, NO REEMPLAZA (28-09-2026). Con `set` el formulario
+    // borraría todo campo que él no dibuja, y el caso donde eso duele es el
+    // prompt: anotarle una mejora habría borrado su texto entero, que son
+    // hasta 285 líneas. Un formulario nunca conoce todos los campos de lo que
+    // edita, así que solo pisa los suyos.
+    var guardado = id ? ref.update(cuerpo) : ref.set(cuerpo);
+    guardado.then(function () {
       aviso("");
       editando = null;
       pintar();
@@ -1031,11 +1128,14 @@
       : "Todos estos ya mandan sobre la pieza: lo que escribas acá cambia el video.";
     lista("ajustes", el("lista-ajustes"),
       function (a, b) { return texto(a.paso).localeCompare(texto(b.paso)) || texto(a.nombre).localeCompare(texto(b.nombre)); },
-      fichaAjuste, "Este trabajo todavía no tiene ajustes anotados.",
+      fichaAjuste, "Este formato todavía no tiene ajustes anotados.",
       function (a) { return PASOS[a.paso] || "Sin paso"; });
+    lista("prompts", el("lista-prompts"),
+      function (a, b) { return (Number(a.orden) || 99) - (Number(b.orden) || 99) || texto(a.nombre).localeCompare(texto(b.nombre)); },
+      fichaPrompt, "Esta pieza no se escribe con un prompt: la arma un script.", null);
     lista("bloques", el("lista-bloques"),
       function (a, b) { return (Number(a.orden) || 99) - (Number(b.orden) || 99); },
-      fichaBloque, "Este trabajo todavía no tiene bloques anotados.", null);
+      fichaBloque, "Este formato todavía no tiene bloques anotados.", null);
     el("nuevo-ajuste").disabled = puedeEscribir === false || !db;
     el("nuevo-bloque").disabled = puedeEscribir === false || !db;
   }
@@ -1061,7 +1161,7 @@
       });
       if (!items.length && !(editando && editando.coleccion === col && !editando.id)) {
         caja.appendChild(nodo("p", "vacio", col === "trabajos"
-          ? "Todavía no hay trabajos anotados."
+          ? "Todavía no hay formatos anotados."
           : "Todavía no hay secciones anotadas."));
       }
       var grupoAnterior = null;

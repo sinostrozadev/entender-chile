@@ -541,3 +541,39 @@ día un solape vuelve a llegar al aire habiendo sido avisado, se revisa.
 **Evidencia**: medido sobre la edición del 27-09-2026 con las tarjetas pegadas
 como las deja la voz real: 34 pares superpuestos, 257 cuadros, más el titular
 pidiendo 1,03 s de más en las diez secciones. Después del cambio, ninguno.
+
+---
+
+## 2026-09-28 - Se llaman FORMATOS, y los prompts se leen en el taller pero mandan desde el repo
+
+**Qué**: lo que el taller llamaba "trabajos" pasa a llamarse **formatos**: el
+informe diario, la Clave, los dos verticales, la web, la carátula. Y cada
+formato muestra los prompts con que se escribe, con su texto completo, más un
+campo "Por mejorar" donde se anota qué cambiarles.
+
+**Por qué ese nombre**: "trabajo" no dice nada (el trabajo del día es otra
+cosa). Se descartaron los dos candidatos obvios porque ya están ocupados:
+**pieza** aparece 1.029 veces en el repo y significa dos cosas distintas, el
+paso de la cadena (`PIEZAS` en `scripts/estado.js`) y el tipo de salida
+(`pausas.js`); **serie** es el campo que identifica la pieza en YouTube
+(`SERIE = "short-clave"`). Formato es la palabra de la televisión para
+exactamente esto y no chocaba con nada del sistema: el único uso previo era
+"formato de salida" y "formato de fecha", que son genéricos. Se renombró el
+único ajuste que colisionaba, "formato del video", a "tamaño del video".
+
+**Decisión de NO hacer, y es la importante**: el texto de los prompts **no se
+edita en el taller**. Se lee ahí, y lo que se edita es la nota de qué hay que
+cambiarle; el cambio real lo hace un commit en `prompts/`. El motivo es el de
+`prompts/README.md`, que dice que esa carpeta es la única fuente de verdad:
+editar un prompt es cambiar el comportamiento del canal desde la corrida
+siguiente, y un cambio así sin diff, sin fecha y sin porqué es exactamente la
+clase de error que costó dos ediciones el 28-09. Si el paso de la nota al
+commit se hace pesado, se revisa.
+
+**Decisión de NO hacer, menor**: la colección en la base y
+`contenido/config/trabajos.json` conservan el nombre "trabajos". Renombrarlas
+obliga a mover 77 documentos y a tocar el puente que hoy manda sobre el video,
+para cambiar un nombre que nadie ve.
+
+**Evidencia**: conteo de usos en el repo (pieza 1.029, serie 334, formato 213,
+producción 254); `scripts/estado.js:46`, `scripts/pausas.js`, `scripts/short.js:50`.
