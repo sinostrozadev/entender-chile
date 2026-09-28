@@ -1,0 +1,45 @@
+name: Privacidad de un video
+
+# Cambia la privacidad de un video YA SUBIDO. Nace el 28-09-2026: esa edición
+# salió con la carátula truncada y un titular encima del texto, se arregló y
+# hubo que subir una versión nueva, porque YouTube no deja reemplazar el
+# archivo de un video publicado. Retirar el viejo se hacía a mano en Studio.
+#
+# No borra nada: un video privado se puede volver a publicar y conserva sus
+# comentarios y estadísticas. Borrar es irreversible y esa decisión no la toma
+# un workflow.
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        description: "Id del video de YouTube (el de la URL, ej: VE8jCx9CVO8)"
+        required: true
+      privacidad:
+        description: "private | unlisted | public"
+        required: false
+        default: "private"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: privacidad
+  cancel-in-progress: false
+
+jobs:
+  cambiar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Instalar solo googleapis
+        run: npm install --no-save googleapis
+      - name: Cambiar la privacidad
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: node scripts/youtube-privacidad.js --id "${{ inputs.id }}" --privacidad "${{ inputs.privacidad }}"
