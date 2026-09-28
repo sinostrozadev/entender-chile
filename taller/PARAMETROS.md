@@ -71,7 +71,11 @@ son noticia:
 | `scripts/parse.js:31` | cuáles no se anuncian con voz | regex anclado |
 | `scripts/short.js:66` | cuáles no entran al Short | regex **sin anclar** |
 | `scripts/guion-corto.js:39-41` | cuáles van en la muestra corta | tres regex |
-| `contenido/guiones/*.md` | lo que GPT escribe | prosa libre |
+| `scripts/build-timeline.js:121` | dónde cae la tarjeta de titulares | el nombre `"En titulares"` escrito a mano |
+
+(Los nombres en sí los escribe GPT en `contenido/guiones/*.md`, en prosa
+libre. Ese no es un archivo que pueda leer el taller: es el origen de los
+nombres y por eso existe el campo de alias.)
 
 El de `short.js` no está anclado y ya descarta un titular de noticia real:
 **"Cierre de Orionx"** (el cierre de una empresa) se descarta porque contiene
