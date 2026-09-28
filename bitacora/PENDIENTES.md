@@ -101,6 +101,21 @@ pudo; silencio cuando GPT cumplió.
       el color, `src/pictogramas.tsx:22` el dibujo) y ninguno obliga a los
       otros a estar al día;
       (b) las pantallas que Santiago pida después, de a una.
+- [ ] **EL ARMAZÓN NO ES UNA LISTA, ES UN REGEX CON AGUJEROS (28-09).**
+      `scripts/parse.js:31` decide con un regex escrito a mano cuáles bloques
+      son estructura (Apertura, Cierre, Agenda, En titulares, La noticia del
+      día, ¿En qué quedó?) y por lo tanto no se anuncian con voz ni llevan
+      color de tema. Está anclado, que es correcto, pero deja fuera variantes
+      que los guiones YA escribieron: `Agenda de hoy` (4 guiones de agosto) y
+      toda la familia `En qué quedó...` con el caso pegado atrás (4 más). Un
+      bloque del armazón leído como tema sale con color de sección y, desde el
+      28-09 con `ENTRADA_VOZ`, **el locutor lo anuncia en voz alta**. No ha
+      salido al aire porque esos guiones son anteriores a la voz de entrada,
+      pero nada lo impide la próxima vez que GPT escriba una de esas variantes.
+      Los seis y sus alias ya están en el taller.
+      **Decide Santiago:** si `parse.js` pasa a leer la lista del taller (que
+      es el paso pendiente de todo lo demás) o si por ahora se tapa el agujero
+      ampliando el regex. **Dueño: el día.**
 ## LO QUE APARECIÓ AL UNIFICAR LOS PENDIENTES (13-09)
 
 - [ ] **Revisar qué MÁS depende de un push del bot.** El 14-09 se descubrió que

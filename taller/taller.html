@@ -211,6 +211,15 @@
   }
   .guardar[disabled] { opacity: 0.45; cursor: not-allowed; }
 
+  .rotulo {
+    color: var(--grafito);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 14px;
+  }
+  .lista > .rotulo:first-child { margin-top: 0; }
   .vacio { color: var(--grafito); font-style: italic; padding: 18px 0; }
   .cargando { color: var(--grafito); font-family: var(--mono); font-size: 13px; padding: 18px 0; }
 
@@ -245,7 +254,7 @@
 
   <section id="panel-secciones" role="tabpanel" aria-labelledby="tab-secciones" hidden>
     <h1>Las secciones</h1>
-    <p class="bajada">Las categorías con que se clasifica cada noticia. El color y el nombre se ven en el video; las claves son las palabras con que el clasificador decide a cuál va una noticia.</p>
+    <p class="bajada">Todo lo que puede ser un bloque del video. Los temas son las categorías con que se clasifica cada noticia, con su color, su imagen y las palabras con que el clasificador decide a cuál va. El armazón es lo que lleva toda edición, va en el gris del canal y el locutor no lo anuncia.</p>
     <div id="lista-secciones" class="lista"><p class="cargando">Cargando las secciones...</p></div>
     <button class="agregar" id="nueva-seccion" disabled>Agregar una sección</button>
   </section>
@@ -322,31 +331,37 @@
   }
 
   function fichaSeccion(s) {
+    var estructura = s.tipo === "estructura";
     var f = nodo("div", "ficha");
     f.appendChild(nodo("div", "ficha-nombre", texto(s.nombre) || s.slug || s.id));
     var acc = nodo("div", "acciones");
     acc.appendChild(boton("Editar", function () { editando = { coleccion: "secciones", id: s.id }; pintar(); }));
     acc.appendChild(boton("Eliminar", function () { borrar("secciones", s.id, s.nombre || s.slug); }, "peligro"));
     f.appendChild(acc);
+    if (s.que) f.appendChild(nodo("div", "ficha-que", s.que));
 
     var ds = nodo("div", "ficha-datos");
-    var chip = nodo("span", "chip");
-    var muestra = nodo("span", "muestra");
-    muestra.style.background = texto(s.color) || "transparent";
-    chip.appendChild(muestra);
-    chip.appendChild(document.createTextNode(texto(s.color) || "sin color"));
-    ds.appendChild(chip);
+    if (!estructura) {
+      var chip = nodo("span", "chip");
+      var muestra = nodo("span", "muestra");
+      muestra.style.background = texto(s.color) || "transparent";
+      chip.appendChild(muestra);
+      chip.appendChild(document.createTextNode(texto(s.color) || "sin color"));
+      ds.appendChild(chip);
+    }
     ds.appendChild(dato("slug:", s.slug));
-    var img = nodo("span", "dato");
-    img.appendChild(document.createTextNode("Imagen "));
-    var bi = nodo("b", s.imagen ? "marca-si" : "marca-no", s.imagen ? texto(s.imagen) : "falta");
-    img.appendChild(bi);
-    ds.appendChild(img);
-    var pic = nodo("span", "dato");
-    pic.appendChild(document.createTextNode("Pictograma "));
-    var bp = nodo("b", s.pictograma ? "marca-si" : "marca-no", s.pictograma ? "sí" : "falta");
-    pic.appendChild(bp);
-    ds.appendChild(pic);
+    // la estructura va en el gris del canal a propósito: que no tenga imagen
+    // ni pictograma no es una falta, así que no se marca como tal
+    if (!estructura) {
+      var img = nodo("span", "dato");
+      img.appendChild(document.createTextNode("Imagen "));
+      img.appendChild(nodo("b", s.imagen ? "marca-si" : "marca-no", s.imagen ? texto(s.imagen) : "falta"));
+      ds.appendChild(img);
+      var pic = nodo("span", "dato");
+      pic.appendChild(document.createTextNode("Pictograma "));
+      pic.appendChild(nodo("b", s.pictograma ? "marca-si" : "marca-no", s.pictograma ? "sí" : "falta"));
+      ds.appendChild(pic);
+    }
     f.appendChild(ds);
 
     if (s.claves) {
@@ -354,6 +369,12 @@
       c.style.fontFamily = "var(--mono)";
       c.style.fontSize = "12px";
       f.appendChild(c);
+    }
+    if (s.alias) {
+      var a = nodo("div", "ficha-que", "También se escribe: " + s.alias);
+      a.style.fontFamily = "var(--mono)";
+      a.style.fontSize = "12px";
+      f.appendChild(a);
     }
     return f;
   }
@@ -378,9 +399,12 @@
     ],
     secciones: [
       { k: "nombre", etiqueta: "Nombre", ayuda: "Como se lee en el video: Emergencia, Plata pública." },
+      { k: "tipo", etiqueta: "Qué es", tipo: "opciones", opciones: [["tema", "Tema (lleva color e imagen propios)"], ["estructura", "Estructura (va en el gris del canal, sin anunciar)"]],
+        ayuda: "Un tema es una noticia clasificada. La estructura es el armazón de toda edición: la apertura, los titulares, el cierre." },
       { k: "slug", etiqueta: "Slug", mono: true, ayuda: "El identificador interno, sin tildes ni espacios: plata-publica." },
-      { k: "color", etiqueta: "Color", mono: true, ayuda: "El color de la sección en hexadecimal: #8A4A3C." },
+      { k: "color", etiqueta: "Color", mono: true, ayuda: "El color de la sección en hexadecimal: #8A4A3C. La estructura no lleva: va en el gris." },
       { k: "claves", etiqueta: "Claves del clasificador", tipo: "textarea", mono: true, ayuda: "Palabras separadas por coma. Si una noticia trae alguna, cae en esta sección." },
+      { k: "alias", etiqueta: "Otros nombres que usa el guion", tipo: "textarea", mono: true, ayuda: "Separados por coma. Es lo que hoy falta: un guion que escribe \"Agenda de hoy\" en vez de \"Agenda\" deja de reconocerse como estructura." },
       { k: "imagen", etiqueta: "Imagen de fondo", mono: true, ayuda: "Archivo en contenido/secciones. Vacío = sale con su color y el pictograma." },
       { k: "pictograma", etiqueta: "Tiene pictograma", tipo: "casilla", ayuda: "El dibujo grabado que se usa cuando no hay imagen." }
     ]
@@ -399,6 +423,15 @@
       if (campo.tipo === "textarea") {
         ent = document.createElement("textarea");
         ent.value = texto(actual[campo.k]);
+      } else if (campo.tipo === "opciones") {
+        ent = document.createElement("select");
+        campo.opciones.forEach(function (op) {
+          var o = document.createElement("option");
+          o.value = op[0];
+          o.textContent = op[1];
+          ent.appendChild(o);
+        });
+        ent.value = texto(actual[campo.k]) || campo.opciones[0][0];
       } else if (campo.tipo === "casilla") {
         ent = document.createElement("input");
         ent.type = "checkbox";
@@ -509,15 +542,29 @@
         return;
       }
       var items = datos[col].slice().sort(function (a, b) {
+        var ga = a.tipo === "estructura" ? 1 : 0, gb = b.tipo === "estructura" ? 1 : 0;
         var oa = a.orden === undefined ? 999 : a.orden, ob = b.orden === undefined ? 999 : b.orden;
-        return oa - ob || texto(a.nombre).localeCompare(texto(b.nombre));
+        return ga - gb || oa - ob || texto(a.nombre).localeCompare(texto(b.nombre));
       });
       if (!items.length && !(editando && editando.coleccion === col && !editando.id)) {
         caja.appendChild(nodo("p", "vacio", col === "trabajos"
           ? "Todavía no hay trabajos anotados."
           : "Todavía no hay secciones anotadas."));
       }
+      var grupoAnterior = null;
       items.forEach(function (it) {
+        // las secciones vienen en dos grupos y conviene verlos separados: los
+        // temas son las noticias clasificadas y la estructura es el armazón
+        // que lleva TODA edición
+        if (col === "secciones") {
+          var grupo = it.tipo === "estructura" ? "estructura" : "tema";
+          if (grupo !== grupoAnterior) {
+            caja.appendChild(nodo("div", "rotulo", grupo === "estructura"
+              ? "El armazón de cada edición"
+              : "Los temas"));
+            grupoAnterior = grupo;
+          }
+        }
         if (editando && editando.coleccion === col && editando.id === it.id) {
           caja.appendChild(editor(col, it));
         } else {
