@@ -126,6 +126,22 @@ aunque el prompt pedía una sola tinta.
    Chile la propia imagen está protegida, y una cara generada al lado de una
    noticia afirma algo que ninguna fuente dijo. Una figura de espaldas y sin
    rasgos sí se puede.
+
+   **Y solo donde la persona ES el hecho** (29-09-2026, idea de Santiago para
+   anuncio, criterio puesto antes de usarla por primera vez). Un anuncio es
+   alguien hablando, una marcha es gente caminando: ahí sacar a la persona es
+   dibujar otra cosa. En el resto no entra, ni para llenar un lugar que se ve
+   vacío ni para dar escala, y no se hereda por parecido: cada concepto que la
+   quiera se decide aparte. El riesgo es de acumulación: una figura de espaldas
+   es defendible una vez, treinta llenan el canal de personas generadas.
+
+   **Y NO se pide como silueta, que es la trampa técnica.** Una silueta es una
+   forma oscura contra un fondo claro, y el entintado lleva cada píxel a su
+   luminancia por la tinta, así que lo oscuro queda oscuro y sobre el video
+   `#15171A` desaparece. Está medido con temporal, que a 91 de luminancia ya se
+   hundía. Lo que sirve es una figura de espaldas dibujada con el MISMO
+   achurado y la misma tinta clara que el resto: no tiene cara porque le vemos
+   la espalda, no porque esté a contraluz.
 2. **Sin bandera a color**, ni la chilena ni ninguna. La identidad del canal
    dice "sin bandera" porque es apolítico y no patriotero. Si la escena la
    pide, va en la misma tinta que todo lo demás.

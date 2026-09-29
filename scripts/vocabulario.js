@@ -64,6 +64,22 @@
 // Y ya no hay un solo objeto: el estilo sin fondo permite escena, color,
 // volumen y luz, así que el motivo puede pedir lo que de verdad se ve.
 //
+// LA FIGURA ENTRA SOLO DONDE LA PERSONA ES EL HECHO (29-09-2026, idea de
+// Santiago). La regla 29 siempre permitió "una figura anónima de espaldas y sin
+// rasgos", y hasta hoy no se había usado: los seis dibujos de la biblioteca son
+// lugares desocupados. Anuncio es el primero que la usa, porque un anuncio es
+// alguien hablando y una sala de prensa vacía es otra cosa, un mueble.
+//
+// El límite se puso ANTES de usarla, no después: no entra para llenar un lugar
+// que se ve vacío ni para dar escala, y no se hereda por parecido. El riesgo es
+// de acumulación, no de imagen: una figura de espaldas es defendible una vez, y
+// treinta llenan el canal de personas generadas, que es lo que la 29 evita.
+//
+// Y se pide de espaldas, NUNCA como silueta: el entintado lleva cada píxel a su
+// luminancia por la tinta, así que una forma oscura queda oscura y sobre el
+// video casi negro desaparece. La cara no se ve porque miramos la espalda, no
+// porque haya contraluz.
+//
 // La MATERIA es para los fondos, y es otra cosa que el motivo, no un resumen
 // de él. Santiago: "los fondos que no tengan motivos, que sean con texturas".
 // Un fondo con el objeto dibujado compite con el texto que va encima y además
@@ -140,7 +156,7 @@ const CATEGORIAS = [
     // es el hecho que le ocurre.
     terminos: [
       ["anuncio", ["anuncio", "anuncia", "anunciaron", "presento un proyecto", "dio a conocer", "informo que"],
-        "una sala de prensa vacía minutos antes de la conferencia: un atril con varios micrófonos apiñados y las sillas alineadas todavía sin nadie",
+        "una sala de prensa en el momento del anuncio, vista desde atrás del atril: en primer plano y de espaldas, la figura de quien habla, y más allá el racimo de micrófonos y las sillas de la sala",
         "tela acústica de panel de sala de prensa, en retícula fina y parejo"],
       ["investigacion", ["investigacion", "investiga", "indaga", "sumario", "peritaje", "auditoria"],
         "un escritorio de noche visto desde arriba, con carpetas abiertas y desordenadas, papeles subrayados, una lupa apoyada encima y el cono de luz de una lámpara cayendo sobre ellos",

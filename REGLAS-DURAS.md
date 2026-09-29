@@ -170,6 +170,17 @@ archivos de criterio del repositorio.
     video. Una figura anónima de espaldas y sin rasgos no es una persona
     reconocible y sí se puede.
 
+    **Y esa excepción tiene su propio límite, puesto el 29-09-2026 antes de
+    usarla por primera vez: la figura entra SOLO donde la persona es el
+    hecho.** Un anuncio es alguien hablando, una marcha es gente caminando,
+    una votación es gente votando: ahí sacar a la persona es dibujar otra
+    cosa. En todo lo demás no entra, ni para llenar un lugar que se ve vacío
+    ni para dar escala. El motivo es de acumulación y no de imagen: una
+    figura de espaldas es defendible una vez, y si empieza a aparecer en
+    treinta conceptos el canal termina lleno de personas generadas, que es
+    exactamente lo que esta regla evita. La excepción no se hereda por
+    parecido: cada concepto que la quiera se decide aparte.
+
     **LUGARES E INSTITUCIONES: sí, con dos condiciones** (29-09-2026). Esto
     corrige la frase "en ningún caso lugares identificables", que venía del
     03-09 y contradecía el criterio que esta misma regla adoptó el 23-09: la

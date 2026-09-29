@@ -639,3 +639,38 @@ para este caso".
 **Evidencia**: las dos imágenes de congreso pasan la vara entera y ninguna
 sirve; la testera despejada en `congreso-1`. Detalle en `bitacora/2026-09-29.md`
 y el porqué largo en `contenido/biblioteca/ESTILOS.md`, regla 6.
+
+## 2026-09-29 - La figura de espaldas entra, y solo donde la persona es el hecho
+
+**La decisión**: la biblioteca puede usar una figura humana anónima, de espaldas
+y sin rasgos, y el primer concepto que la usa es anuncio. No es una relajación
+de la regla 29: esa excepción ya estaba escrita desde siempre y nunca se había
+usado. Lo que se decide hoy es su límite.
+
+**El límite**: la figura entra SOLO donde la persona es el hecho. Un anuncio es
+alguien hablando, una marcha es gente caminando, una votación es gente votando;
+ahí sacar a la persona es dibujar otra cosa. En todo el resto no entra, ni para
+llenar un lugar que se ve vacío ni para dar escala, y no se hereda por parecido:
+cada concepto que la quiera se decide aparte.
+
+**Por qué el límite va antes del primer uso y no después**: el riesgo es de
+acumulación y no de imagen. Una figura de espaldas es defendible una vez; treinta
+llenan el canal de personas generadas, que es exactamente lo que la regla 29
+existe para evitar. Un límite puesto después del décimo caso ya no frena nada.
+
+**Y no se pide como silueta**, que era la palabra con la que salió la idea. El
+entintado lleva cada píxel a su luminancia multiplicada por la tinta, así que una
+forma oscura queda oscura y sobre el video, que es #15171A, desaparece. Está
+medido con temporal, que a 91 de luminancia ya se hundía. Lo que sirve es una
+figura de espaldas dibujada con el mismo achurado y la misma tinta clara que el
+resto: no tiene cara porque le vemos la espalda, no porque esté a contraluz.
+
+**Lo que NO se decidió**: no se abre la figura a los otros 85 conceptos, ni
+siquiera a los que también son salas con gente (congreso, tribunales). Esos
+quedan como están, desocupados.
+
+**Quién**: Santiago, 29-09-2026, "y una silueta dando el anuncio?", y después
+"dale, déjalo escrito".
+
+**Evidencia**: regla 29 en `REGLAS-DURAS.md`, criterio en
+`contenido/biblioteca/ESTILOS.md` regla 1, motivo en `scripts/vocabulario.js`.
