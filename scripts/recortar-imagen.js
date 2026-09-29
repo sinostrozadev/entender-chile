@@ -269,6 +269,40 @@ const entintar = (px, hex) => {
   return px;
 };
 
+// DESVANECER EL PIE (29-09-2026). Una escena con suelo (una explanada, una
+// calle, un piso) termina donde termina el cuadro, y sobre el video oscuro ese
+// corte recto se ve: parece que la imagen quedó mal recortada. La solución no
+// es pedirle otra al generador, es disolver el alfa en la franja de abajo, que
+// es lo que hace sola una escena bien encuadrada.
+//
+// Se hace sobre el ALFA y no sobre el color: el dibujo no cambia, solo deja de
+// existir de a poco. Y va con curva suave, no lineal, para que el arranque del
+// desvanecido no se note como una línea.
+const desvanecerPie = (px, ancho, alto, porcentaje) => {
+  const franja = Math.max(1, Math.round(alto * (porcentaje / 100)));
+  const desde = alto - franja;
+  // el suelo no solo llega abajo: una explanada en perspectiva se sale también
+  // por los dos lados, y ahí el corte recto se ve igual. Los costados se
+  // disuelven solo en la zona del suelo, para no tocar el motivo de arriba.
+  const sueloDesde = Math.max(0, alto - Math.round(franja * 2.4));
+  const lado = Math.max(1, Math.round(franja * 1.1));
+  for (let y = 0; y < alto; y++) {
+    const kAbajo = y < desde ? 1 : 1 - ((y - desde) / franja) ** 2;
+    const enSuelo = y >= sueloDesde;
+    for (let x = 0; x < ancho; x++) {
+      let k = kAbajo;
+      if (enSuelo) {
+        const d = Math.min(x, ancho - 1 - x);
+        if (d < lado) k *= 1 - ((lado - d) / lado) ** 2;
+      }
+      if (k >= 1) continue;
+      const o = (y * ancho + x) * 4;
+      px[o + 3] = Math.round(px[o + 3] * Math.max(0, k));
+    }
+  }
+  return px;
+};
+
 const recortar = (entrada, salida, opciones = {}) => {
   // PISO 0,18 Y NO 0,10, medido: el fondo de los PNG generados no es parejo,
   // trae una viñeta muy suave, y con el piso bajo esa viñeta sobrevivía como
@@ -303,6 +337,7 @@ const recortar = (entrada, salida, opciones = {}) => {
         }
       }
       if (opciones.entintar) entintar(px, opciones.entintar);
+      if (opciones.desvanecer) desvanecerPie(px, png.ancho, png.alto, opciones.desvanecer);
       fs.writeFileSync(salida, escribirRGBA(png.ancho, png.alto, px));
       return { ancho: png.ancho, alto: png.alto, estilo: "ya venía recortada" + (opciones.entintar ? ", entintada" : ""),
         cubre: Number(((opacos / (png.ancho * png.alto)) * 100).toFixed(1)) };
@@ -312,6 +347,7 @@ const recortar = (entrada, salida, opciones = {}) => {
   if (opciones.modo === "borde") {
     const r = recortarPorBorde(png, plano, canales, paso, opciones);
     if (opciones.entintar) entintar(r.px, opciones.entintar);
+    if (opciones.desvanecer) desvanecerPie(r.px, png.ancho, png.alto, opciones.desvanecer);
     fs.writeFileSync(salida, escribirRGBA(png.ancho, png.alto, r.px));
     return { ancho: png.ancho, alto: png.alto, estilo: "borde",
       fondo: r.fondos.map((f) => "#" + f.map((c) => c.toString(16).padStart(2, "0")).join("")).join(" y "),
@@ -353,7 +389,7 @@ const recortar = (entrada, salida, opciones = {}) => {
     estilo: invertir ? "papel" : "oscuro" };
 };
 
-module.exports = { recortar, entintar, leerPNG, desfiltrar };
+module.exports = { recortar, entintar, desvanecerPie, leerPNG, desfiltrar };
 
 if (require.main === module) {
   const args = process.argv.slice(2);
@@ -364,6 +400,7 @@ if (require.main === module) {
     invertir: args.includes("--invertir") ? true : args.includes("--no-invertir") ? false : undefined,
     modo: valor("--modo", "luz"),
     forzar: args.includes("--forzar"),
+    desvanecer: Number(valor("--desvanecer", 0)) || 0,
     entintar: args.includes("--entintar") ? (valor("--entintar", "E8E7E1") || "E8E7E1").replace(/^#/, "") : null,
     duro: Number(valor("--duro", 0.05)), suave: Number(valor("--suave", 0.20)),
   };
