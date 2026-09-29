@@ -242,6 +242,33 @@ const recortarPorBorde = (png, plano, canales, paso, opciones) => {
   return { px, opacos, fondos };
 };
 
+// ENTINTAR: dejar el dibujo en UNA tinta, conservando su alfa (29-09-2026).
+//
+// Para qué: los generadores devuelven el grabado en sepia y con las luces en
+// ámbar, por mucho que el prompt pida hueso frío. Se le pidió tres veces y
+// tres veces volvió cálido, así que dejó de ser un problema de prompt.
+//
+// En un dibujo de una sola tinta el color no lleva información: la lleva la
+// CLARIDAD, que es la densidad del achurado. Entonces se puede tirar el matiz
+// entero sin perder nada: cada píxel se lleva a su luminancia y esa luminancia
+// se pinta con la tinta del canal. Una ventana ámbar y una ventana hueso del
+// mismo brillo son el mismo dibujo; en un grabado la luz es ausencia de
+// rayado, no un color.
+//
+// Esto NO se puede hacer con una foto ni con una imagen de varios colores: ahí
+// el matiz sí informa. Por eso es una opción y no el comportamiento normal.
+const entintar = (px, hex) => {
+  const [tr, tg, tb] = [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  for (let o = 0; o < px.length; o += 4) {
+    if (px[o + 3] === 0) continue;
+    const luz = (0.2126 * px[o] + 0.7152 * px[o + 1] + 0.0722 * px[o + 2]) / 255;
+    px[o] = Math.min(255, Math.round(tr * luz));
+    px[o + 1] = Math.min(255, Math.round(tg * luz));
+    px[o + 2] = Math.min(255, Math.round(tb * luz));
+  }
+  return px;
+};
+
 const recortar = (entrada, salida, opciones = {}) => {
   // PISO 0,18 Y NO 0,10, medido: el fondo de los PNG generados no es parejo,
   // trae una viñeta muy suave, y con el piso bajo esa viñeta sobrevivía como
@@ -275,14 +302,16 @@ const recortar = (entrada, salida, opciones = {}) => {
           if (plano[i + 3] > 128) opacos++;
         }
       }
+      if (opciones.entintar) entintar(px, opciones.entintar);
       fs.writeFileSync(salida, escribirRGBA(png.ancho, png.alto, px));
-      return { ancho: png.ancho, alto: png.alto, estilo: "ya venía recortada",
+      return { ancho: png.ancho, alto: png.alto, estilo: "ya venía recortada" + (opciones.entintar ? ", entintada" : ""),
         cubre: Number(((opacos / (png.ancho * png.alto)) * 100).toFixed(1)) };
     }
   }
 
   if (opciones.modo === "borde") {
     const r = recortarPorBorde(png, plano, canales, paso, opciones);
+    if (opciones.entintar) entintar(r.px, opciones.entintar);
     fs.writeFileSync(salida, escribirRGBA(png.ancho, png.alto, r.px));
     return { ancho: png.ancho, alto: png.alto, estilo: "borde",
       fondo: r.fondos.map((f) => "#" + f.map((c) => c.toString(16).padStart(2, "0")).join("")).join(" y "),
@@ -324,7 +353,7 @@ const recortar = (entrada, salida, opciones = {}) => {
     estilo: invertir ? "papel" : "oscuro" };
 };
 
-module.exports = { recortar, leerPNG, desfiltrar };
+module.exports = { recortar, entintar, leerPNG, desfiltrar };
 
 if (require.main === module) {
   const args = process.argv.slice(2);
@@ -335,6 +364,7 @@ if (require.main === module) {
     invertir: args.includes("--invertir") ? true : args.includes("--no-invertir") ? false : undefined,
     modo: valor("--modo", "luz"),
     forzar: args.includes("--forzar"),
+    entintar: args.includes("--entintar") ? (valor("--entintar", "E8E7E1") || "E8E7E1").replace(/^#/, "") : null,
     duro: Number(valor("--duro", 0.05)), suave: Number(valor("--suave", 0.20)),
   };
   const carpeta = valor("--carpeta", null);
