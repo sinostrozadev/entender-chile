@@ -1560,3 +1560,12 @@ referencia:
 
 Palabra del día · canal de WhatsApp · Ko-fi. (Los indicadores del país
 dejaron de estar diferidos: son DATOS 1.)
+
+- [ ] **El escudo de la testera de congreso, por imagen a imagen**. `congreso-a.png`
+      tiene el hemiciclo correcto y la testera vacía: le falta el escudo nacional
+      de mármol de Francisco Torres y los motivos de cobre de Mario Vásquez, que
+      son lo único que distingue esa sala de cualquier parlamento moderno. Dos
+      pedidos por texto no lo trajeron (evidencia en `bitacora/2026-09-29.md`,
+      "Entra congreso"). La vía es la que tiene el único acierto medido: pasarle
+      una foto real de la sala y pedir imagen a imagen. Dueño: Santiago, porque
+      hay que conseguir la foto. Sin urgencia, la imagen actual ya sirve.
