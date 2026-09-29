@@ -10,7 +10,7 @@ medida y deja de necesitar decisión).
 
 ---
 
-## CANAL DE AVISOS BARRIDO→CHATGPT — CONSTRUIDO (04-09, diseño de Santiago)
+## CANAL DE AVISOS BARRIDO→CHATGPT: CONSTRUIDO (04-09, diseño de Santiago)
 
 **PR permanente #2** (rama `automatizacion/barrido-listo` → main, etiqueta
 `barrido-listo`, NO se fusiona). Al final del workflow Barrido, cuando el
@@ -35,12 +35,12 @@ a UTC-3) y MIGRACIÓN de los 2 guiones a Claude: rutinas
 prompts/guion-*.md + contrato (los prompts son agnósticos del modelo),
 dedup silencioso, escritura verificada, push solo en fallo.
 **LIMITACIÓN DESCUBIERTA del webhook (create_webhook_trigger): dispara con
-CUALQUIER push del repo — la API no acepta filtro por rutas ni ramas.** Se
+CUALQUIER push del repo: la API no acepta filtro por rutas ni ramas.** Se
 neutralizó con guardas de salida-en-segundos (dedup + ventana horaria
 03:20-04:25) y la Clave quedó sin webhook (esperadora pura). Además no hay
 API para BORRAR un webhook ya creado: si mete ruido, el remedio es
 desactivar la rutina o pedir el filtro. **LADO DE SANTIAGO: APAGAR las 2
-tareas de GPT de guiones (04:00 y 04:15)** — si corren igual, solo
+tareas de GPT de guiones (04:00 y 04:15)**: si corren igual, solo
 duplican (pisan el guion de Claude con uno equivalente), no rompen.
 El plan original, para referencia: GPT queda solo donde su navegación vale (preselección ya
 por evento ✓; migrar informe y claves a escucha de evento); Claude toma los
@@ -50,9 +50,9 @@ la entrega → guion clave; create_webhook_trigger de la API), con prompt
 vivo en prompts/. Además, NUEVA CONVENCIÓN para las tareas de GPT: el texto
 en ChatGPT es solo el arranque de 3 líneas y las indicaciones viven en
 prompts/ (las validaciones del evento viven como PASO CERO dentro de
-prompts/seleccion.md — un archivo por tarea, corrección de Santiago; su
+prompts/seleccion.md, un archivo por tarea, corrección de Santiago; su
 tarea corta de ChatGPT apunta a seleccion.md como siempre). Límite real
-de Claude: no es el número de rutinas, es la cuota compartida (five_hour) —
+de Claude: no es el número de rutinas, es la cuota compartida (five_hour):
 los guiones van en Sonnet, por evento (sin relojes) y fuera de la ventana
 crítica 01:30-01:45.
 **CADENA POR EVENTOS COMPLETA (noche del 05-09):** tres PR permanentes:
@@ -70,7 +70,7 @@ sobre el tablero; criterio amarrado en prompts + generador + validador.
 **Red de seguridad creada y luego DESACTIVADA a pedido de Santiago** (la
 prueba funcionó): rutina
 `trig_01CVyy1m21cpCGHk9sKfVY9r` a las **02:30 Chile** (`30 6 * * *`; entra
-en la lista del cambio de hora del 6-09) — si no hay
+en la lista del cambio de hora del 6-09): si no hay
 `contenido/preseleccion/FECHA.md` en main, la hace Claude leyendo AHORA
 `prompts/seleccion.md` + contrato (prompt vivo:
 `prompts/respaldo-preseleccion.md`); si tampoco hay barrido, lo despierta y
@@ -250,7 +250,7 @@ pudo; silencio cuando GPT cumplió.
       `bitacora/metricas/FECHA.md`: "De dónde vienen los minutos" y "Dónde se
       va la gente"; la auditoría puede leerla desde mañana.
 
-## URGENTE — con plazo
+## URGENTE, con plazo
 
 - [ ] **Suscripción de Claude vencida = todas las rutinas caen (04-09).**
       Desde las 16:06 del 04-09 la guardia falló en cada corrida (cuatro
@@ -277,7 +277,7 @@ pudo; silencio cuando GPT cumplió.
       Razonamiento completo: `docs/auditoria-api/DECISION-07-09.md`. El plazo
       se deja expirar; nada cambia en la operación.
 
-## EL AGENTE DE GUARDIA — LUZ VERDE (02-09 noche, con la condición resuelta)
+## EL AGENTE DE GUARDIA: LUZ VERDE (02-09 noche, con la condición resuelta)
 
 Santiago aprobó la corrida cada 2-3 horas con una condición: que el hecho de
 que GPT navega y Claude no, no complique. **Resuelto por arquitectura**: quien
@@ -323,7 +323,7 @@ original, para referencia:
 6. El guardia también ALIMENTA `datos/series/` (disputa 9): cada dato macro
    que ve publicado lo anota en la serie.
 
-**✅ PROYECTO DE LA NOCHE — HECHO (noche del 03→04-09): la fase 2 está
+**✅ PROYECTO DE LA NOCHE, HECHO (noche del 03→04-09): la fase 2 está
 construida y probada end-to-end con el caso real de la tasa.** Piezas:
 `scripts/short-urgente.js` + workflow `short-expres.yml` (guion → voz →
 render vertical piel VINO → subida privada, ~5 min de Actions) + modo
@@ -335,7 +335,7 @@ antes de subir); corregido y re-subido en la segunda. **Feedback de Santiago (04
 qué está hablando, no tiene contexto... que sea una noticia wow y que se
 entienda, tienes 50 seg".** → **Formato v2 aplicado la misma noche**: plantilla
 gancho + contexto + qué significa (90-120 palabras, ~45-50 s), la PRUEBA DEL
-ÁNGULO ("¿por qué le importa a una persona común?" — sin ángulo no se fuerza
+ÁNGULO ("¿por qué le importa a una persona común?"; sin ángulo no se fuerza
 el Short, se notifica para decisión humana), y la regla de cifras afinada (una
 publicación oficial citada por la prensa SÍ habilita la cifra nombrando a la
 institución). Rutina v4 cargada; el Short de la tasa se reescribió con las
@@ -344,7 +344,7 @@ cifras reales de la EOF (TPM 4,5%, sin cambios a 24 meses, inflación esperada
 en Studio los DOS videos viejos de la prueba: `AZpTnPoPg2I` (deformado) y
 `GMSTAx1-62o` (formato corto sin contexto).**
 Patrón nuevo (04-09, pedido de Santiago): **el prompt vivo de la guardia ES
-`prompts/guardia-reloj.md`** — la rutina solo sincroniza y lee el archivo en
+`prompts/guardia-reloj.md`**: la rutina solo sincroniza y lee el archivo en
 cada corrida; editarlo es cambiar la guardia sin tocar la API. Pendiente:
 aplicar el mismo patrón prompt-vivo a las demás rutinas (barrido,
 observatorio, revisión, guardián, métricas, auditoría) cuando toque
@@ -356,10 +356,10 @@ YouTube automáticos en la descripción; link directo Short→video largo;
 vuelta 3 de carátulas según feedback de los bocetos.
 Pendiente fase 2.1 (no esta noche): que guardia.js (Actions, que SÍ alcanza
 la web) capture también el cuerpo de la fuente primaria en el archivo del
-hallazgo — la rutina redactora no navega, hoy escribe con el material + el
+hallazgo: la rutina redactora no navega, hoy escribe con el material + el
 informe. Y alimentar `datos/series/` (disputa 9). Otro cabo: al PUBLICAR un
 video nadie escribe `contenido/videos/` (por eso la web estuvo sin embeds
-30-08→03-09; esta noche se rellenaron a mano los 10 ids) — el reloj de
+30-08→03-09; esta noche se rellenaron a mano los 10 ids): el reloj de
 métricas podría detectar el paso a público y escribir el archivo solo. El caso que motivó todo, para
 referencia:
 
@@ -428,7 +428,7 @@ referencia:
       miércoles 30-09.
 
 - [x] **26-09, HOY: la corrección del informe de hoy lleva 3+ horas
-      atascada — GPT no respondió ni una pieza en toda la madrugada, segunda
+      atascada: GPT no respondió ni una pieza en toda la madrugada, segunda
       noche seguida.** Auditoría del 26-09 (`bitacora/2026-09-26-auditoria.md`).
       Los commits de preselección, informe y guion de hoy dicen literalmente
       en el cuerpo "recuperación a mano de la edición del 26-09-2026, segunda
@@ -532,7 +532,7 @@ referencia:
       26-09, con dos días acumulados.
 
 - [ ] **23-09, HOY: el video del informe de hoy publica a las 07:30 con dos
-      datos mal atribuidos — decidir si se corrige antes de esa hora.**
+      datos mal atribuidos: decidir si se corrige antes de esa hora.**
       Auditoría del 23-09 (`bitacora/2026-09-23-auditoria.md`, puntos 1 y 2).
       El guion ya aprobado y renderizado (`contenido/guiones/informe/2026-09-23.md`)
       tiene: (1) línea 22, la tarjeta `[DATO comparacion | DMC vía BioBioChile,
@@ -548,11 +548,11 @@ referencia:
       cerca de 2 horas antes de que salga de "private". Primera vez que se
       marca: 23-09-2026.
 
-- [ ] **22-09, HOY: la cadena se congeló en el informe — revisar/relanzar la
+- [ ] **22-09, HOY: la cadena se congeló en el informe, revisar/relanzar la
       tarea "Despachador Entender Chile" de ChatGPT.** `estado.yml` avisó bien
       a las 01:58:50 (commit `35e98cb` en el PR #6, `pieza=informe`,
       `prompt=prompts/informe.md`) que le tocaba el informe a GPT, con la
-      preselección ya aprobada. A las 05:38 —3h40 después— no había respuesta:
+      preselección ya aprobada. A las 05:38 (3h40 después) no había respuesta:
       ni informe, ni guion, ni revisión, ni banco de temas, ni videos de hoy.
       Es la misma falla de fondo que "GPT 1" (15-09, más abajo en esta
       sección) dejó sin cerrar: nada en el repo distingue "GPT no responde" de
@@ -641,7 +641,7 @@ referencia:
       apuntando a los README de cada subcarpeta.
 
 - [x] **25-09, HOY: GPT se atascó en la preselección y `reintento.yml` no
-      corrió ni una vez dentro de su ventana — segundo día seguido.**
+      corrió ni una vez dentro de su ventana, segundo día seguido.**
       Auditoría del 25-09 (`bitacora/2026-09-25-auditoria.md`). El aviso a
       GPT se emitió bien (`automatizacion/estado`, `04:41:11Z`, etapa
       `preseleccion`), pero a las 08:36 UTC (235 min después,
@@ -671,7 +671,7 @@ referencia:
       bitacora/2026-09-26.md.
 
 - [ ] **24-09, HOY: el despertador del barrido corrió a horario y dejó un
-      commit vacío — la cadena entera de hoy no arrancó.** Auditoría del
+      commit vacío: la cadena entera de hoy no arrancó.** Auditoría del
       24-09 (`bitacora/2026-09-24-auditoria.md`). El commit `98abc93`
       ("despertador 2026-09-24 [reloj]", 2026-09-24 04:40:16 UTC) no tiene
       ningún archivo cambiado; `contenido/barrido/despertador.txt` quedó con
@@ -681,7 +681,7 @@ referencia:
       el workflow nunca corrió. Las dos redes de respaldo tampoco dispararon
       ni una vez hoy: los crons de `barrido.yml:23-24` (04:50 y 05:20 UTC) y
       el de `reintento.yml` (cada 20 min, 04:00-09:59 UTC) llevan cero
-      corridas en todo el día según `mcp__github__actions_list` — y aunque
+      corridas en todo el día según `mcp__github__actions_list`, y aunque
       `reintento.yml` hubiera corrido, su chequeo de la línea 53-54 exige
       que ya exista `contenido/estado/$FECHA.md`, que nunca se creó porque
       el barrido nunca puso nada en main: no cubre este caso. Consecuencia:
@@ -692,12 +692,12 @@ referencia:
       inmediata**: retocar `contenido/barrido/despertador.txt` con la hora
       actual y pushear (a mano o re-disparando `trig_01W5KE`), o disparar
       `barrido.yml` por `workflow_dispatch`, para arrancar la cadena hoy
-      aunque sea tarde — cada hora que pasa achica el margen antes de la
+      aunque sea tarde: cada hora que pasa achica el margen antes de la
       hora de publicación del informe (06:30 Chile). Propuesta de fondo (no
       urgente): en `.github/workflows/reintento.yml`, antes de la línea 53,
       agregar un chequeo previo que, si pasan las ~02:00 Chile sin
       `contenido/barrido/$FECHA.md` ni estado del día y el despertador del
-      barrido no trae la fecha de hoy, lo retoque y pushee él mismo — la
+      barrido no trae la fecha de hoy, lo retoque y pushee él mismo, con la
       misma receta de despertador-que-dispara-workflow que ya usan barrido,
       métricas y guardia, aplicada a esta falla en vez de solo a "GPT no
       responde". Primera vez que se marca: 24-09-2026.
@@ -777,7 +777,7 @@ referencia:
       palabra. Queda verificado en la madrugada del 24 si las dos reglas
       nuevas evitan la repetición.
 
-- [ ] **23-09, HOY: expandir siglas que se pintan en pantalla — la "DMC" lleva
+- [ ] **23-09, HOY: expandir siglas que se pintan en pantalla: la "DMC" lleva
       3 días repitiéndose sin corregirse ni anotarse.** Auditoría del 23-09
       (`bitacora/2026-09-23-auditoria.md`, punto 3). Las marcas `[FUENTE DMC
       vía ...]` y `[DATO ... DMC ...]` de `prompts/guion-informe.md` pintan la
@@ -821,7 +821,7 @@ referencia:
       (`bitacora/2026-09-29-auditoria.md`).
 
 - [ ] **23-09, HOY: tope al cierre de cautela repetido ("queda para
-      verificar/en seguimiento/pendiente") — más de una semana sin corregirse
+      verificar/en seguimiento/pendiente"), más de una semana sin corregirse
       ni anotarse, y ya cruzó del informe al guion.** Auditoría del 23-09
       (`bitacora/2026-09-23-auditoria.md`, punto 4). `bitacora/2026-09-20-auditoria.md`
       y `bitacora/2026-09-21-auditoria.md` ya registran "cuarto día seguido"
@@ -1502,7 +1502,7 @@ referencia:
       atrás entre sesiones.** La causa de datos ya se corrigió (todo se
       dibuja desde HIST); queda que el artifact es una copia que solo se
       republica desde una sesión. Salidas: (a) republicar en cada sesión de
-      la mañana; (b) servirlo desde la web pública en ruta no enlazada —
+      la mañana; (b) servirlo desde la web pública en ruta no enlazada,
       recomendada por la sesión de día, PERO ojo de la noche: el panel
       trae ids de rutinas, horarios internos y pendientes; en una web
       pública "no enlazada" es seguridad por oscuridad. Si se toma la b,
