@@ -34,6 +34,12 @@ archivo.
 
 ## fiscalia
 
+- **`fiscalia-d.png`** El tercer intento y **el mejor de los tres**: el pórtico de
+  pilares altos, el atrio vidriado al fondo y el emblema en el pilar derecho. Es
+  el que se muestra mientras no llegue la carpeta. Llegó con la zona
+  transparente pintada de oscuro, que se ve en la vista previa y desaparece al
+  usarla, porque el alfa de esos píxeles es cero: el recortador no tuvo que
+  hacer nada.
 - **`fiscalia-b.png`** y **`fiscalia-c.png`** El edificio, dos encuadres. **No se
   puede afirmar ni descartar que sea el edificio real** de Catedral 1437:
   la fachada sur con el jardín colgante y el entorno de la Iglesia Santa Ana no
