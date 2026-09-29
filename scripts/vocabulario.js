@@ -42,6 +42,13 @@
 // Entonces: para una cosa real con nombre, el motivo la nombra y se calla. La
 // descripción larga sirve para lo inventado, no para lo que existe.
 //
+// Y LO QUE FALTABA NO ERA UNA PALABRA SINO UN ORDEN (29-09-2026, noche): para
+// una cosa real, primero la IDENTIDAD y después el estilo. El bloque del estilo
+// Grabado lo dice ahora con la frase que lo resume: la referencia manda sobre
+// el estilo, el estilo solo cambia cómo se dibuja y nunca qué se dibuja. Eso
+// vale para cualquier cosa identificable, no solo para un edificio: un
+// monumento, un vehículo, un animal.
+//
 // Y ya no hay un solo objeto: el estilo sin fondo permite escena, color,
 // volumen y luz, así que el motivo puede pedir lo que de verdad se ve.
 //
