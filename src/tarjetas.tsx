@@ -356,23 +356,69 @@ export const TarjetaTesis: React.FC<{ ev: Evento }> = ({ ev }) => {
 // La imagen ocupa el cuadro entero, no un recuadro dentro de la tarjeta: si
 // se deja enmarcada compite con la imagen de sección que ya está detrás y se
 // leen dos fondos a la vez. Acá reemplaza al párrafo y punto.
+// EL MOTIVO SE ACHICA Y SE MUEVE (29-09-2026). La primera versión ocupaba el
+// cuadro entero y Santiago lo vio de inmediato: leía como una portada, no como
+// una imagen que acompaña a alguien que está hablando. Tres portadas seguidas
+// pesan. Acá el dibujo baja a poco más de la mitad del alto y el resto es aire.
+//
+// Y el aire no está vacío: debajo sigue la imagen de la SECCIÓN, que ya estaba
+// ahí. Eso es lo que permite el movimiento que pedía Santiago ("que se muevan
+// entre ellas"): son dos capas a distinta velocidad, el fondo va hacia un lado
+// y el motivo hacia el otro, y esa diferencia es la que se lee como
+// profundidad. Un solo plano moviéndose no da efecto, da deriva.
+//
+// EL FONDO DEL PNG NO SE RECORTA: se funde. Las imágenes vienen con su propio
+// fondo (#23262A), así que puestas encima dejarían un rectángulo. `screen`
+// hace que lo oscuro no pinte y solo queden los trazos claros, y la máscara
+// redonda apaga el borde del rectángulo.
+//
+// PERO SCREEN SOLO NO ALCANZA (primer intento, 29-09): sobre el fondo de la
+// sección dejaba un halo claro con forma de elipse alrededor del motivo, y
+// encima chocaba con el GRABADO, el pictograma enorme de la sección, que es
+// otro dibujo de línea. Quedaban dos dibujos a la vez y ninguno se leía.
+// Por eso va antes un velo oscuro redondo: apaga el grabado justo donde va el
+// motivo y deja la base negra, y sobre negro el `screen` no levanta nada.
+const ALTO_MOTIVO = 0.56;      // del alto del cuadro: el resto es aire
+const PASEO_SEG = 20;          // lo que dura el párrafo más largo que se ha visto
+const CLAMP = { extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
+
 export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  // solo opacidad en la entrada: un translateY deja ver el borde del cuadro
   const op = spring({ frame, fps, config: { damping: 200 } });
-  const escala = 1.02 + Math.min(frame, 900) * 0.00008;
+  // entra subiendo y creciendo apenas: un fundido seco delata la estampa
+  const sube = interpolate(op, [0, 1], [22, 0]);
+  const nace = interpolate(op, [0, 1], [0.955, 1]);
+  // el paralaje: el fondo del bloque deriva unos 6 px hacia un lado en veinte
+  // segundos, así que el motivo tiene que ir al otro y tres veces más lejos
+  // para que la diferencia se note sin que nadie la vea moverse
+  const paseoX = interpolate(frame, [0, fps * PASEO_SEG], [24, -28], CLAMP);
+  const paseoY = interpolate(frame, [0, fps * PASEO_SEG], [-6, 10], CLAMP);
+  const respira = 1 + Math.min(frame, fps * PASEO_SEG) * 0.00013;
+  const mascara = "radial-gradient(ellipse 62% 58% at 50% 50%, #000 58%, rgba(0,0,0,0) 82%)";
+  // el velo va PAREJO, no redondo: un óvalo oscuro sobre un fondo de sección
+  // claro se lee como una mancha (segundo intento, 29-09). Parejo se lee como
+  // que bajan las luces, que es lo que uno quiere cuando aparece un dibujo.
+  const velado = interpolate(op, [0, 1], [0, 0.74], CLAMP);
   return (
-    <AbsoluteFill style={{ opacity: op }}>
-      <Img src={staticFile(ev.imagen as string)} style={{ position: "absolute", inset: 0,
-        width: "100%", height: "100%", objectFit: "cover", transform: `scale(${escala})` }} />
-      {/* el pie necesita piso: el dibujo es oscuro pero no parejo */}
-      <AbsoluteFill style={{ background: "linear-gradient(0deg, rgba(21,23,26,0.82) 0%, rgba(21,23,26,0) 30%)" }} />
+    <AbsoluteFill style={{ opacity: op, justifyContent: "center", alignItems: "center" }}>
+      <AbsoluteFill style={{ backgroundColor: `rgba(16,18,21,${velado.toFixed(3)})` }} />
+      <Img
+        src={staticFile(ev.imagen as string)}
+        style={{
+          height: `${Math.round(ALTO_MOTIVO * 100)}%`, width: "auto", objectFit: "contain",
+          transform: `translate(${paseoX}px, ${sube + paseoY}px) scale(${nace * respira})`,
+          mixBlendMode: "screen",
+          // el trazo tiene que ganarle al fondo de sección que queda debajo
+          filter: "contrast(1.14) brightness(1.06)",
+          maskImage: mascara, WebkitMaskImage: mascara,
+        } as React.CSSProperties}
+      />
       <div style={{ position: "absolute", left: 56, top: 150, bottom: 150, width: 8, borderRadius: 4,
         backgroundColor: colorDeSeccion(ev.categoria || ev.seccion), opacity: 0.95 }} />
       {ev.imagenPie ? (
         <div style={{ position: "absolute", left: tema.margen, right: tema.margen, bottom: 84,
-          fontFamily: tema.mono, fontSize: 30, letterSpacing: "0.06em", color: "#E8E7E1" }}>
+          fontFamily: tema.mono, fontSize: 30, letterSpacing: "0.06em", color: "#E8E7E1", opacity: 0.88 }}>
           {ev.imagenPie}
         </div>
       ) : null}
