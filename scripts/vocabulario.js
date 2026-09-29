@@ -11,7 +11,7 @@
 // una organización, un hecho, a veces un objeto. "PDI" mas "muerte" es
 // organización mas hecho, y son dos dibujos, no uno.
 //
-// Cada entrada es [nombre, variantes, motivo].
+// Cada entrada es [nombre, variantes, motivo, materia].
 //
 // Las VARIANTES existen porque el guion habla en prosa: "la PDI", "la Policía
 // de Investigaciones" y "detectives" son el mismo dibujo. Se comparan sobre el
@@ -37,6 +37,18 @@
 // Y ya no hay un solo objeto: el estilo sin fondo permite escena, color,
 // volumen y luz, así que el motivo puede pedir lo que de verdad se ve.
 //
+// La MATERIA es para los fondos, y es otra cosa que el motivo, no un resumen
+// de él. Santiago: "los fondos que no tengan motivos, que sean con texturas".
+// Un fondo con el objeto dibujado compite con el texto que va encima y además
+// repite lo que el icono ya dice. Entonces el fondo no pide el objeto: pide la
+// SUPERFICIE donde ese objeto vive. Gobierno no es un palacio, es la piedra de
+// su fachada. Temporal no es la calle inundada, es el agua bajando por un
+// vidrio. Se reconoce sin dibujar nada, que es lo que uno quiere detrás de un
+// párrafo.
+//
+// Los conceptos sin materia todavía caen a una textura abstracta: el fondo
+// sale igual, solo que sin vínculo con el tema.
+//
 // Se cuenta UNA VEZ POR PÁRRAFO, no por aparición: lo que importa es en
 // cuántos párrafos se podría poner ese dibujo, no cuántas veces se dice la
 // palabra.
@@ -50,13 +62,17 @@ const CATEGORIAS = [
     // un objeto propio (un atril, una placa, una balanza).
     terminos: [
       ["gobierno", ["gobierno", "la moneda", "el ejecutivo", "ministerio", "ministra", "ministro", "subsecretar"],
-        "la fachada de un palacio de gobierno neoclásico al caer la tarde, con su patio de honor, columnas, una bandera izada sin emblema y las ventanas encendidas"],
+        "la fachada de un palacio de gobierno neoclásico al caer la tarde, con su patio de honor, columnas, una bandera izada sin emblema y las ventanas encendidas",
+        "piedra clara de fachada pulida, con la veta del bloque y la junta fina entre los sillares"],
       ["congreso", ["congreso", "senado", "camara de diputados", "senador", "diputad", "parlament"],
-        "una hilera de escaños curva vista desde arriba, con un estrado al centro"],
+        "la sala de un hemiciclo vista desde lo alto, con las filas curvas de escaños vacíos, el estrado al centro y las luces ya encendidas",
+        "terciopelo de tapiz de escaño, con el tejido a la vista y el desgaste del respaldo"],
       ["tribunales", ["tribunal", "corte suprema", "corte de apelaciones", "juzgado", "poder judicial", "magistrad"],
-        "una balanza de dos platos, uno más bajo que el otro"],
+        "una sala de audiencias vacía vista desde el estrado: el mesón alto del juez, la baranda de madera y las bancas alineadas atrás",
+        "madera oscura encerada de mobiliario de tribunal, con la veta abierta y el brillo del uso"],
       ["fiscalia", ["fiscalia", "ministerio publico", "fiscal nacional", "fiscal regional"],
-        "una carpeta cerrada con un cordel cruzado y un sello circular en la esquina"],
+        "una pila de cajas de evidencia selladas con cinta, apiladas contra la pared de un pasillo, con las etiquetas en blanco",
+        "cinta plástica de sitio del suceso repetida en diagonal, arrugada y sin texto legible"],
       ["contraloria", ["contraloria", "contralor"],
         "una lupa apoyada sobre una columna de cifras alineadas"],
       ["carabineros", ["carabineros", "carabinero", "general director"],
@@ -97,9 +113,11 @@ const CATEGORIAS = [
     // es el hecho que le ocurre.
     terminos: [
       ["anuncio", ["anuncio", "anuncia", "anunciaron", "presento un proyecto", "dio a conocer", "informo que"],
-        "un megáfono de bocina ancha con tres arcos de sonido saliendo"],
+        "una sala de prensa vacía minutos antes de la conferencia: un atril con varios micrófonos apiñados y las sillas alineadas todavía sin nadie",
+        "tela acústica de panel de sala de prensa, en retícula fina y parejo"],
       ["investigacion", ["investigacion", "investiga", "indaga", "sumario", "peritaje", "auditoria"],
-        "una lupa grande apoyada en diagonal sobre una carpeta abierta"],
+        "un escritorio de noche visto desde arriba, con carpetas abiertas y desordenadas, papeles subrayados, una lupa apoyada encima y el cono de luz de una lámpara cayendo sobre ellos",
+        "papel de expediente envejecido, con marcas de dobleces, subrayados que se transparentan y el óvalo borroso de un timbre"],
       ["denuncia", ["denuncia", "denuncio", "querella", "reclamo formal"],
         "una mano levantando un papel doblado por una esquina"],
       ["acusacion", ["acusacion", "acuso", "imputa", "cargos contra", "formaliz"],
@@ -125,7 +143,8 @@ const CATEGORIAS = [
       ["incendio", ["incendio", "fuego", "llamas", "quemad", "siniestro"],
         "tres lenguas de fuego saliendo de una línea de base quebrada"],
       ["temporal", ["temporal", "lluvia", "sistema frontal", "nevazon", "viento", "marejada", "inundacion", "aluvion"],
-        "una nube gruesa con cinco trazos de lluvia inclinados por el viento"],
+        "una calle anegada al anochecer, con el agua cubriendo media rueda de los autos detenidos y la lluvia rayando la luz de los focos",
+        "agua de lluvia corriendo sobre un vidrio, con las gotas gruesas y los regueros bajando"],
       ["sismo", ["sismo", "terremoto", "temblor", "magnitud richter", "escala de mercalli"],
         "una línea de sismógrafo con un pico alto al centro sobre papel milimetrado"],
       ["robo", ["robo", "hurto", "asalto", "portonazo", "encerrona", "saqueo"],
@@ -175,7 +194,8 @@ const CATEGORIAS = [
       ["exportacion", ["exportacion", "exporta", "embarque", "comercio exterior", "importacion"],
         "un contenedor rectangular con puertas y una grúa sobre él"],
       ["empleo", ["empleo", "desempleo", "cesantia", "puestos de trabajo", "contratacion", "despido"],
-        "un casco de obra apoyado sobre una caja de herramientas"],
+        "una fila larga de personas de espaldas esperando frente a una puerta cerrada, vistas desde atrás y sin rasgos",
+        "cartón corrugado de carpeta de currículum, gastado en los cantos y con la onda a la vista"],
       ["pension", ["pension", "jubilacion", "afp", "cotizacion previsional"],
         "un reloj de arena con la arena casi toda abajo"],
       ["multa", ["multa", "sancion economica", "reparo", "indemnizacion"],
@@ -189,7 +209,8 @@ const CATEGORIAS = [
     titulo: "Territorio y lugares",
     terminos: [
       ["region", ["region", "regional", "regiones"],
-        "un mapa largo y angosto con una franja destacada al centro"],
+        "una vista aérea de un valle con un pueblo chico, su plaza, el camino de tierra que lo cruza y los cerros cerrándolo al fondo",
+        "curvas de nivel de una carta topográfica, con sus cotas y el trazo de un camino cruzando"],
       ["comuna", ["comuna", "localidad", "poblado", "sector de"],
         "tres casas de distinto alto alineadas sobre una calle"],
       ["ciudad", ["ciudad", "urbano", "centro de la ciudad"],
@@ -235,7 +256,8 @@ const CATEGORIAS = [
       ["documento", ["documento", "informe", "oficio", "acta", "expediente", "titulo profesional"],
         "una hoja con dobleces y tres líneas de texto insinuadas"],
       ["ley", ["ley ", "proyecto de ley", "reforma", "normativa", "reglamento", "decreto"],
-        "un libro abierto por la mitad con una cinta marcadora"],
+        "un tomo grueso de código legal abierto sobre un atril de lectura, las hojas finas separadas por una cinta, y detrás un estante lleno de tomos iguales",
+        "papel biblia de código legal, con columnas de texto fuera de foco y la numeración al margen"],
       ["contrato", ["contrato", "contratacion de", "convenio marco", "trato directo"],
         "un papel con una firma trazada y un lápiz cruzado encima"],
       ["arma", ["arma ", "armamento", "municion", "pistola", "fusil"],

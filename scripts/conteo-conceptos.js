@@ -125,9 +125,10 @@ md += `\nEl juego de **mezclar dos dibujos** (la organización mas el hecho) sol
 md += `sirve donde hay dos categorías o más. Ese número está arriba.\n`;
 
 for (const cat of CATEGORIAS) {
-  const filas = cat.terminos.map(([n, , m]) => [n, cuenta[n].parrafos, m]).sort((a, b) => b[1] - a[1]);
-  md += `\n## ${cat.titulo}\n\n| concepto | párrafos | del total | motivo |\n|---|---:|---:|---|\n`;
-  for (const [n, v, m] of filas) md += `| ${n} | ${v} | ${pc(v)} | ${m} |\n`;
+  const filas = cat.terminos.map(([n, , m, mat]) => [n, cuenta[n].parrafos, m, mat])
+    .sort((a, b) => b[1] - a[1]);
+  md += `\n## ${cat.titulo}\n\n| concepto | párrafos | del total | motivo (icono) | materia (fondo) |\n|---|---:|---:|---|---|\n`;
+  for (const [n, v, m, mat] of filas) md += `| ${n} | ${v} | ${pc(v)} | ${m} | ${mat || "-"} |\n`;
 }
 
 const json = {
@@ -135,7 +136,7 @@ const json = {
   guiones: archivos.length, parrafos: total, conAlguno: conAlguno.size,
   categorias: CATEGORIAS.map((c) => ({
     clave: c.clave, titulo: c.titulo,
-    terminos: c.terminos.map(([n, v, motivo]) => ({ nombre: n, parrafos: cuenta[n].parrafos, motivo, variantes: v }))
+    terminos: c.terminos.map(([n, v, motivo, materia]) => ({ nombre: n, parrafos: cuenta[n].parrafos, motivo, materia, variantes: v }))
       .sort((a, b) => b.parrafos - a.parrafos),
   })),
 };

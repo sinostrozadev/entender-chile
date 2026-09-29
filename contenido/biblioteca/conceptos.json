@@ -12,6 +12,7 @@
      "nombre": "gobierno",
      "parrafos": 188,
      "motivo": "la fachada de un palacio de gobierno neoclásico al caer la tarde, con su patio de honor, columnas, una bandera izada sin emblema y las ventanas encendidas",
+     "materia": "piedra clara de fachada pulida, con la veta del bloque y la junta fina entre los sillares",
      "variantes": [
       "gobierno",
       "la moneda",
@@ -25,7 +26,8 @@
     {
      "nombre": "congreso",
      "parrafos": 69,
-     "motivo": "una hilera de escaños curva vista desde arriba, con un estrado al centro",
+     "motivo": "la sala de un hemiciclo vista desde lo alto, con las filas curvas de escaños vacíos, el estrado al centro y las luces ya encendidas",
+     "materia": "terciopelo de tapiz de escaño, con el tejido a la vista y el desgaste del respaldo",
      "variantes": [
       "congreso",
       "senado",
@@ -38,7 +40,8 @@
     {
      "nombre": "tribunales",
      "parrafos": 58,
-     "motivo": "una balanza de dos platos, uno más bajo que el otro",
+     "motivo": "una sala de audiencias vacía vista desde el estrado: el mesón alto del juez, la baranda de madera y las bancas alineadas atrás",
+     "materia": "madera oscura encerada de mobiliario de tribunal, con la veta abierta y el brillo del uso",
      "variantes": [
       "tribunal",
       "corte suprema",
@@ -51,7 +54,8 @@
     {
      "nombre": "fiscalia",
      "parrafos": 58,
-     "motivo": "una carpeta cerrada con un cordel cruzado y un sello circular en la esquina",
+     "motivo": "una pila de cajas de evidencia selladas con cinta, apiladas contra la pared de un pasillo, con las etiquetas en blanco",
+     "materia": "cinta plástica de sitio del suceso repetida en diagonal, arrugada y sin texto legible",
      "variantes": [
       "fiscalia",
       "ministerio publico",
@@ -250,7 +254,8 @@
     {
      "nombre": "investigacion",
      "parrafos": 79,
-     "motivo": "una lupa grande apoyada en diagonal sobre una carpeta abierta",
+     "motivo": "un escritorio de noche visto desde arriba, con carpetas abiertas y desordenadas, papeles subrayados, una lupa apoyada encima y el cono de luz de una lámpara cayendo sobre ellos",
+     "materia": "papel de expediente envejecido, con marcas de dobleces, subrayados que se transparentan y el óvalo borroso de un timbre",
      "variantes": [
       "investigacion",
       "investiga",
@@ -263,7 +268,8 @@
     {
      "nombre": "temporal",
      "parrafos": 58,
-     "motivo": "una nube gruesa con cinco trazos de lluvia inclinados por el viento",
+     "motivo": "una calle anegada al anochecer, con el agua cubriendo media rueda de los autos detenidos y la lluvia rayando la luz de los focos",
+     "materia": "agua de lluvia corriendo sobre un vidrio, con las gotas gruesas y los regueros bajando",
      "variantes": [
       "temporal",
       "lluvia",
@@ -278,7 +284,8 @@
     {
      "nombre": "anuncio",
      "parrafos": 49,
-     "motivo": "un megáfono de bocina ancha con tres arcos de sonido saliendo",
+     "motivo": "una sala de prensa vacía minutos antes de la conferencia: un atril con varios micrófonos apiñados y las sillas alineadas todavía sin nadie",
+     "materia": "tela acústica de panel de sala de prensa, en retícula fina y parejo",
      "variantes": [
       "anuncio",
       "anuncia",
@@ -578,7 +585,8 @@
     {
      "nombre": "empleo",
      "parrafos": 47,
-     "motivo": "un casco de obra apoyado sobre una caja de herramientas",
+     "motivo": "una fila larga de personas de espaldas esperando frente a una puerta cerrada, vistas desde atrás y sin rasgos",
+     "materia": "cartón corrugado de carpeta de currículum, gastado en los cantos y con la onda a la vista",
      "variantes": [
       "empleo",
       "desempleo",
@@ -750,7 +758,8 @@
     {
      "nombre": "region",
      "parrafos": 76,
-     "motivo": "un mapa largo y angosto con una franja destacada al centro",
+     "motivo": "una vista aérea de un valle con un pueblo chico, su plaza, el camino de tierra que lo cruza y los cerros cerrándolo al fondo",
+     "materia": "curvas de nivel de una carta topográfica, con sus cotas y el trazo de un camino cruzando",
      "variantes": [
       "region",
       "regional",
@@ -882,7 +891,8 @@
     {
      "nombre": "ley",
      "parrafos": 78,
-     "motivo": "un libro abierto por la mitad con una cinta marcadora",
+     "motivo": "un tomo grueso de código legal abierto sobre un atril de lectura, las hojas finas separadas por una cinta, y detrás un estante lleno de tomos iguales",
+     "materia": "papel biblia de código legal, con columnas de texto fuera de foco y la numeración al margen",
      "variantes": [
       "ley ",
       "proyecto de ley",

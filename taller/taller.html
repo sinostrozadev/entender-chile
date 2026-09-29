@@ -1280,10 +1280,21 @@
     return null;
   }
 
+  // UN FONDO NO PIDE EL OBJETO (29-09-2026, Santiago: "los fondos que no
+  // tengan motivos, que sean con texturas"). Un fondo con el dibujo adentro
+  // compite con el texto que va encima y repite lo que el icono ya dice. Pide
+  // la MATERIA: la superficie donde ese objeto vive. Gobierno no es un
+  // palacio, es la piedra de su fachada.
   function promptDe(termino, estilo) {
-    return 'Imagen para un canal de noticias chileno, del concepto "' + termino.nombre + '".\n' +
-      "El motivo: " + termino.motivo + ".\n\n" +
-      (texto(estilo.prompt) || BLOQUE_POR_DEFECTO);
+    var cabeza = 'Imagen para un canal de noticias chileno, del concepto "' + termino.nombre + '".\n';
+    if (estilo.tipo === "fondo") {
+      cabeza += termino.materia
+        ? "La materia: " + termino.materia + ".\nNO dibujes el objeto del concepto: solo su superficie.\n"
+        : "Este concepto todavía no tiene materia escrita: haz una textura abstracta,\nsin ningún objeto reconocible.\n";
+    } else {
+      cabeza += "El motivo: " + termino.motivo + ".\n";
+    }
+    return cabeza + "\n" + (texto(estilo.prompt) || BLOQUE_POR_DEFECTO);
   }
 
   // copiar sin depender del portapapeles moderno: en algunos navegadores
@@ -1432,7 +1443,7 @@
         if (falta) faltantes++;
         if (bibFiltro.faltan && !falta) return false;
         if (busca) {
-          var plano = (t.nombre + " " + t.motivo).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+          var plano = (t.nombre + " " + t.motivo + " " + (t.materia || "")).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
           if (plano.indexOf(busca) < 0) return false;
         }
         return true;
@@ -1454,7 +1465,7 @@
         tr.appendChild(nodo("td", "bib-parrafos", String(t.parrafos)));
         cols.forEach(function (e) {
           var c = document.createElement("td");
-          c.appendChild(celdaBiblioteca({ nombre: t.nombre, motivo: t.motivo, categoria: cat.clave }, e));
+          c.appendChild(celdaBiblioteca({ nombre: t.nombre, motivo: t.motivo, materia: t.materia, categoria: cat.clave }, e));
           tr.appendChild(c);
         });
         cuerpo.appendChild(tr);
