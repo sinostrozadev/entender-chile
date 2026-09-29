@@ -137,7 +137,23 @@ aunque el prompt pedía una sola tinta.
    genérica. (Regla 29, partida en personas y lugares el 29-09-2026.)
 5. **Sin texto dentro de la imagen.** Lo pone el video, que sabe el tamaño, el
    color y la palabra exacta, y los generadores además lo escriben mal.
-6. **Ninguna marca ni logotipo ajeno.**
+6. **Los emblemas del lugar SÍ se dibujan** (29-09-2026, decisión de Santiago:
+   "levantemos la prohibición, para todo"). La regla decía "ninguna marca ni
+   logotipo ajeno", con el acento en *ajeno*, pero en el prompt quedó escrita a
+   secas y el generador la leyó como una prohibición total. El costo se vio
+   entero en congreso: la sala volvió con la testera despejada, sin el escudo
+   nacional ni los motivos de cobre, que son justamente lo que distingue esa
+   sala de cualquier parlamento moderno. Le habíamos prohibido lo único que la
+   identificaba. Ahora la línea es afirmativa y no negativa, porque quitar la
+   prohibición solo deja al generador neutral: hay que pedirlo.
+
+   **Lo que queda es un criterio de revisión, no una prohibición del prompt.**
+   Si vuelve una imagen con la marca comercial de un tercero, se muestra y
+   decide Santiago. El riesgo es real y conviene tenerlo escrito: una imagen de
+   la biblioteca se reusa en muchas noticias distintas, así que un logo de
+   empresa la convierte en un aval o en una acusación sobre alguien que esa
+   noticia puede ni siquiera mencionar. Un escudo de una institución pública no
+   tiene ese problema, porque el concepto ES esa institución.
 
 ## Lo que el recorte agrega a los dos
 

@@ -604,3 +604,38 @@ centrado ocupando el cuadro.
 **Evidencia**: `contenido/biblioteca/pruebas/gobierno-papel.png` y
 `gobierno-oscuro.png`, montadas con `src/muestra-biblioteca.tsx`. Prompts en
 `contenido/biblioteca/PROMPTS-CONCEPTOS.md`.
+
+## 2026-09-29 - Los emblemas del lugar se dibujan, y la línea es afirmativa
+
+**La decisión**: en los prompts de la biblioteca se levanta la prohibición de
+marcas y logotipos, para todos los conceptos y no solo para los lugares reales
+nombrados. Y no se levanta quitando la línea: se reemplaza por una afirmativa,
+porque quitar una prohibición deja al generador neutral y lo que hace falta es
+que dibuje el emblema.
+
+    LOS EMBLEMAS, ESCUDOS E INSIGNIAS QUE SON PARTE DEL LUGAR SÍ SE DIBUJAN:
+    son lo que lo hace ESE lugar y no uno parecido.
+
+**Por qué**: la regla siempre dijo, en `ESTILOS.md`, "ninguna marca ni logotipo
+ajeno", con el acento en ajeno. Al bajarla al prompt quedó a secas y el
+generador la leyó como total. Se midió el costo en congreso: la Sala de la
+Cámara volvió con la testera despejada, sin el escudo nacional de mármol ni los
+motivos de cobre, que son lo único que la distingue de cualquier parlamento
+moderno del mundo. Le habíamos prohibido al generador lo único que hacía
+identificable el lugar que le estábamos pidiendo identificar.
+
+**Lo que NO se decidió, y queda escrito para que no se vuelva a proponer**: no
+se prohíbe la marca comercial de un tercero en el prompt. Pasa a ser criterio de
+revisión, que es donde corresponde bajo la regla 19: si vuelve una, se muestra y
+decide Santiago. El riesgo que justifica mirarlo con cuidado es concreto y no es
+pudor: una imagen de la biblioteca se reusa en muchas noticias distintas, así
+que un logo de empresa la convierte en un aval o en una acusación sobre alguien
+que esa noticia puede ni siquiera mencionar. Un escudo de institución pública no
+tiene ese problema, porque el concepto ES esa institución.
+
+**Quién**: Santiago, 29-09-2026, "levantemos la prohibición, para todo, no solo
+para este caso".
+
+**Evidencia**: las dos imágenes de congreso pasan la vara entera y ninguna
+sirve; la testera despejada en `congreso-1`. Detalle en `bitacora/2026-09-29.md`
+y el porqué largo en `contenido/biblioteca/ESTILOS.md`, regla 6.
