@@ -406,6 +406,11 @@
     background: var(--patina-suave); color: var(--tinta); font-family: var(--mono);
     font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
   }
+  .bib-grupo-col {
+    border-bottom: 2px solid var(--patina) !important;
+    color: var(--patina) !important;
+    text-align: center !important;
+  }
   .bib-nombre { font-weight: 600; }
   .bib-motivo { color: var(--grafito); font-size: 12px; margin-top: 3px; max-width: 38ch; }
   .bib-parrafos { color: var(--grafito); font-family: var(--mono); font-size: 12px; white-space: nowrap; }
@@ -942,6 +947,9 @@
     ],
     estilos: [
       { k: "nombre", etiqueta: "Nombre", ayuda: "Como lo llamas tú: Sobrio, Clásico, Papel." },
+      { k: "tipo", etiqueta: "Qué produce", tipo: "opciones",
+        opciones: [["icono", "Icono (el motivo y nada más)"], ["fondo", "Fondo (pantalla completa, el motivo apenas insinuado)"]],
+        ayuda: "Decide en qué grupo de columnas sale en la Biblioteca. No son lo mismo: hasta el prompt cambia." },
       { k: "carpeta", etiqueta: "Carpeta de sus imágenes", mono: true, ayuda: "Una carpeta bajo contenido/secciones, sin barras: papel, sobrio. Vacío = las que están sueltas en contenido/secciones." },
       { k: "que", etiqueta: "Cómo se ve", tipo: "textarea", ayuda: "Una frase: en qué se distingue de los otros." },
       { k: "prompt", etiqueta: "Bloque de prompt", tipo: "textarea", mono: true,
@@ -1239,16 +1247,35 @@
       .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
   }
 
-  function estilosBiblioteca() {
-    return datos.estilos.filter(function (e) { return e.biblioteca !== false; })
-      .sort(function (a, b) { return texto(a.nombre).localeCompare(texto(b.nombre)); });
+  // DOS GRUPOS DE COLUMNAS (29-09-2026, pedido de Santiago): primero los
+  // FONDOS, que son tres por concepto (claro, oscuro y el color del canal), y
+  // después los ICONOS, uno por estilo. No son lo mismo y no se pueden mezclar
+  // en una sola lista: un fondo ocupa la pantalla entera y el motivo va apenas
+  // insinuado, un icono es el motivo y nada más. Hasta el prompt cambia.
+  //
+  // Los dos viven en la colección `estilos`, que ya existía, separados por su
+  // campo `tipo`. Una colección nueva habría significado un editor nuevo para
+  // guardar exactamente los mismos cuatro campos.
+  function columnasDe(tipo) {
+    return datos.estilos.filter(function (e) {
+      if (e.biblioteca === false) return false;
+      return (e.tipo === "fondo" ? "fondo" : "icono") === tipo;
+    }).sort(function (a, b) {
+      return (Number(a.orden) || 99) - (Number(b.orden) || 99) ||
+        texto(a.nombre).localeCompare(texto(b.nombre));
+    });
   }
 
-  function imagenBib(concepto, estiloId) {
-    var clave = estiloId + "__" + bibId(concepto);
+  function imagenBib(concepto, columna) {
+    var tipo = columna.tipo === "fondo" ? "fondo" : "icono";
+    var clave = tipo + "__" + columna.id + "__" + bibId(concepto);
+    // el segundo nombre es el de antes de que existieran los fondos: los
+    // documentos viejos se llamaban <estilo>__<concepto>, sin el tipo adelante
+    var viejo = columna.id + "__" + bibId(concepto);
     for (var i = 0; i < datos.biblioteca.length; i++) {
       var d = datos.biblioteca[i];
-      if (d.id === clave || (d.concepto === concepto && d.estilo === estiloId)) return d;
+      if (d.id === clave || d.id === viejo) return d;
+      if (d.concepto === concepto && d.estilo === columna.id && (d.tipo || "icono") === tipo) return d;
     }
     return null;
   }
@@ -1291,8 +1318,9 @@
     if (!db) { aviso("No se puede guardar en esta vista."); return; }
     control.textContent = "Subiendo...";
     bienes.upload(archivo).then(function (r) {
-      return db.collection("biblioteca").doc(estilo.id + "__" + bibId(termino.nombre)).set({
-        concepto: termino.nombre, estilo: estilo.id, url: r.url,
+      var tipo = estilo.tipo === "fondo" ? "fondo" : "icono";
+      return db.collection("biblioteca").doc(tipo + "__" + estilo.id + "__" + bibId(termino.nombre)).set({
+        concepto: termino.nombre, estilo: estilo.id, tipo: tipo, url: r.url,
         archivo: archivo.name, categoria: termino.categoria || ""
       });
     }).then(function () {
@@ -1318,7 +1346,7 @@
 
   function celdaBiblioteca(termino, estilo) {
     var c = nodo("div", "bib-celda");
-    var img = imagenBib(termino.nombre, estilo.id);
+    var img = imagenBib(termino.nombre, estilo);
     if (img && img.url) {
       var i = document.createElement("img");
       i.className = "bib-mini";
@@ -1356,7 +1384,9 @@
       caja.appendChild(nodo("p", "vacio", "No se pudo leer la lista de conceptos (conceptos.js). Vuelve a publicar el taller."));
       return;
     }
-    var cols = estilosBiblioteca();
+    var fondos = columnasDe("fondo");
+    var iconos = columnasDe("icono");
+    var cols = fondos.concat(iconos);
     if (!cargado.estilos) { caja.appendChild(nodo("p", "cargando", "Cargando...")); return; }
 
     // el selector de categorías se llena una sola vez, con lo que traiga el dato
@@ -1373,6 +1403,19 @@
     var tabla = document.createElement("table");
     tabla.className = "bib-tabla";
     var thead = document.createElement("thead");
+    // dos filas de cabecera: la de arriba dice de qué grupo es cada columna,
+    // porque "Oscuro" a secas aparece en los dos y no se sabría cuál es cuál
+    var trg = document.createElement("tr");
+    var hueco = nodo("th", null, "");
+    hueco.colSpan = 2;
+    trg.appendChild(hueco);
+    [[fondos.length, "Fondos"], [iconos.length, "Iconos"]].forEach(function (g) {
+      if (!g[0]) return;
+      var th = nodo("th", "bib-grupo-col", g[1]);
+      th.colSpan = g[0];
+      trg.appendChild(th);
+    });
+    thead.appendChild(trg);
     var trh = document.createElement("tr");
     ["Concepto", "Párrafos"].forEach(function (t) { trh.appendChild(nodo("th", null, t)); });
     cols.forEach(function (e) { trh.appendChild(nodo("th", null, texto(e.nombre) || e.id)); });
@@ -1385,7 +1428,7 @@
       if (bibFiltro.categoria && cat.clave !== bibFiltro.categoria) return;
       var filas = cat.terminos.filter(function (t) {
         total++;
-        var falta = cols.some(function (e) { return !imagenBib(t.nombre, e.id); });
+        var falta = cols.some(function (e) { return !imagenBib(t.nombre, e); });
         if (falta) faltantes++;
         if (bibFiltro.faltan && !falta) return false;
         if (busca) {
@@ -1420,8 +1463,8 @@
     tabla.appendChild(cuerpo);
     if (!mostrados) caja.appendChild(nodo("p", "vacio", "Nada calza con ese filtro."));
     else caja.appendChild(tabla);
-    el("bib-cuenta").textContent = total + " conceptos · " + faltantes + " con algún estilo sin imagen · " +
-      cols.length + (cols.length === 1 ? " estilo" : " estilos");
+    el("bib-cuenta").textContent = total + " conceptos · " + faltantes + " con alguna columna sin imagen · " +
+      fondos.length + " fondos y " + iconos.length + " iconos";
   }
 
   el("bib-buscar").addEventListener("input", function () { bibFiltro.texto = this.value; pintarBiblioteca(); });
@@ -1434,8 +1477,12 @@
     // aunque la pestaña esté escondida es trabajo tirado
     if (!el("panel-biblioteca").hidden) pintarBiblioteca();
     lista("estilos", el("lista-estilos"),
-      function (a, b) { return (b.activo ? 1 : 0) - (a.activo ? 1 : 0) || texto(a.nombre).localeCompare(texto(b.nombre)); },
-      fichaEstilo, "Todavía no hay estilos guardados.", null);
+      function (a, b) {
+        var ga = a.tipo === "fondo" ? 1 : 0, gb = b.tipo === "fondo" ? 1 : 0;
+        return ga - gb || (b.activo ? 1 : 0) - (a.activo ? 1 : 0) || texto(a.nombre).localeCompare(texto(b.nombre));
+      },
+      fichaEstilo, "Todavía no hay estilos guardados.",
+      function (e) { return e.tipo === "fondo" ? "Fondos" : "Iconos y series de sección"; });
     el("nuevo-estilo").disabled = puedeEscribir === false || !db;
     ["trabajos", "secciones"].forEach(function (col) {
       var caja = el("lista-" + col);

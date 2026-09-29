@@ -22,6 +22,24 @@
 // por canal, color 2 (RGB) o 6 (RGBA), sin entrelazar, que es lo que entregan
 // los generadores.
 //
+// DOS MODOS, porque hay dos clases de imagen y lo que sirve para una arruina
+// la otra:
+//
+//   --modo luz     (el de siempre) para dibujos de línea de un solo color: el
+//                  alfa sale de la luminancia y el color se reemplaza por una
+//                  tinta plana. Un trazo a medio tono queda a medio alfa.
+//   --modo borde   para imágenes con color y volumen, como la que devolvió GPT
+//                  el 29-09 con el atril de madera. Acá el color se CONSERVA y
+//                  el fondo se encuentra desde los bordes del cuadro hacia
+//                  adentro, como un balde de pintura. Es la única forma de no
+//                  agujerear lo que es blanco DENTRO del motivo: el modo luz
+//                  habría borrado los reflejos del metal.
+//
+// En modo borde el color se despega del fondo además de recortarse: un píxel
+// del borde es una mezcla del motivo y del blanco, y si se deja tal cual queda
+// una aureola clara que sobre el video oscuro se ve. La cuenta que la saca es
+// la de siempre: color = (visto - fondo * (1 - alfa)) / alfa.
+//
 // Uso:  node scripts/recortar-imagen.js entrada.png salida.png [--piso 0.10]
 //                                       [--techo 0.45] [--tinta E8E7E1]
 //       node scripts/recortar-imagen.js --carpeta contenido/biblioteca/pruebas
@@ -120,6 +138,72 @@ const escribirRGBA = (ancho, alto, pixeles) => {
   ]);
 };
 
+// el fondo, medido y no supuesto: la mediana de los píxeles del borde del
+// cuadro. Con la mediana un motivo que toca un borde no corre el resultado.
+const fondoDelBorde = (plano, ancho, alto, paso, canales) => {
+  const muestras = [[], [], []];
+  const anotar = (x, y) => {
+    const i = y * paso + x * canales;
+    for (let k = 0; k < 3; k++) muestras[k].push(plano[i + k]);
+  };
+  for (let x = 0; x < ancho; x++) { anotar(x, 0); anotar(x, alto - 1); }
+  for (let y = 0; y < alto; y++) { anotar(0, y); anotar(ancho - 1, y); }
+  return muestras.map((m) => { m.sort((a, b) => a - b); return m[m.length >> 1]; });
+};
+
+const recortarPorBorde = (png, plano, canales, paso, opciones) => {
+  const { ancho, alto } = png;
+  const duro = opciones.duro ?? 0.05;     // igual al fondo hasta acá: transparente
+  const suave = opciones.suave ?? 0.20;   // de acá en adelante: motivo entero
+  const fondo = fondoDelBorde(plano, ancho, alto, paso, canales);
+  const dist = (i) => Math.max(
+    Math.abs(plano[i] - fondo[0]), Math.abs(plano[i + 1] - fondo[1]), Math.abs(plano[i + 2] - fondo[2])) / 255;
+
+  // el balde de pintura entra por los cuatro bordes. Se usa una pila propia y
+  // no recursión: un cuadro de 1920x1080 desborda la pila de node enseguida
+  const visto = new Uint8Array(ancho * alto);
+  const pila = [];
+  const meter = (x, y) => {
+    if (x < 0 || y < 0 || x >= ancho || y >= alto) return;
+    const n = y * ancho + x;
+    if (visto[n]) return;
+    if (dist(y * paso + x * canales) > suave) return;
+    visto[n] = 1;
+    pila.push(n);
+  };
+  for (let x = 0; x < ancho; x++) { meter(x, 0); meter(x, alto - 1); }
+  for (let y = 0; y < alto; y++) { meter(0, y); meter(ancho - 1, y); }
+  while (pila.length) {
+    const n = pila.pop();
+    const x = n % ancho, y = (n - x) / ancho;
+    meter(x - 1, y); meter(x + 1, y); meter(x, y - 1); meter(x, y + 1);
+  }
+
+  const px = Buffer.alloc(ancho * alto * 4);
+  let opacos = 0;
+  for (let y = 0; y < alto; y++) {
+    for (let x = 0; x < ancho; x++) {
+      const i = y * paso + x * canales, o = (y * ancho + x) * 4;
+      let a = 1;
+      if (visto[y * ancho + x]) {
+        const d = dist(i);
+        a = d <= duro ? 0 : (d - duro) / Math.max(0.001, suave - duro);
+        if (a > 1) a = 1;
+      }
+      if (a <= 0) { px[o + 3] = 0; continue; }
+      for (let k = 0; k < 3; k++) {
+        // despegar del fondo: sin esto el borde se queda con la mezcla y deja
+        // una aureola del color del fondo, que sobre el video oscuro se ve
+        const v = a >= 0.98 ? plano[i + k] : (plano[i + k] - fondo[k] * (1 - a)) / a;
+        px[o + k] = v < 0 ? 0 : v > 255 ? 255 : Math.round(v);
+      }
+      px[o + 3] = Math.round(a * 255);
+      if (a > 0.5) opacos++;
+    }
+  }
+  return { px, opacos, fondo };
+};
+
 const recortar = (entrada, salida, opciones = {}) => {
   // PISO 0,18 Y NO 0,10, medido: el fondo de los PNG generados no es parejo,
   // trae una viñeta muy suave, y con el piso bajo esa viñeta sobrevivía como
@@ -132,6 +216,40 @@ const recortar = (entrada, salida, opciones = {}) => {
 
   const png = leerPNG(fs.readFileSync(entrada));
   const { canales, paso, salida: plano } = desfiltrar(png);
+
+  // SI YA VIENE RECORTADA, NO SE TOCA (29-09-2026). Resultó que GPT sí
+  // entrega PNG con canal alfa cuando se le pide: el atril del 29-09 llegó con
+  // 82% del cuadro transparente y el borde ya suavizado. Volver a calcular el
+  // alfa encima de eso solo puede empeorarlo, así que se copia tal cual.
+  if (canales === 4 && !opciones.forzar) {
+    let transparentes = 0;
+    for (let y = 0; y < png.alto; y++) {
+      for (let x = 0; x < png.ancho; x++) if (plano[y * paso + x * canales + 3] < 8) transparentes++;
+    }
+    const cuota = transparentes / (png.ancho * png.alto);
+    if (cuota > 0.05) {
+      const px = Buffer.alloc(png.ancho * png.alto * 4);
+      let opacos = 0;
+      for (let y = 0; y < png.alto; y++) {
+        for (let x = 0; x < png.ancho; x++) {
+          const i = y * paso + x * canales, o = (y * png.ancho + x) * 4;
+          for (let k = 0; k < 4; k++) px[o + k] = plano[i + k];
+          if (plano[i + 3] > 128) opacos++;
+        }
+      }
+      fs.writeFileSync(salida, escribirRGBA(png.ancho, png.alto, px));
+      return { ancho: png.ancho, alto: png.alto, estilo: "ya venía recortada",
+        cubre: Number(((opacos / (png.ancho * png.alto)) * 100).toFixed(1)) };
+    }
+  }
+
+  if (opciones.modo === "borde") {
+    const r = recortarPorBorde(png, plano, canales, paso, opciones);
+    fs.writeFileSync(salida, escribirRGBA(png.ancho, png.alto, r.px));
+    return { ancho: png.ancho, alto: png.alto, estilo: "borde",
+      fondo: "#" + r.fondo.map((c) => c.toString(16).padStart(2, "0")).join(""),
+      cubre: Number(((r.opacos / (png.ancho * png.alto)) * 100).toFixed(1)) };
+  }
 
   // OSCURO O PAPEL, sin que nadie lo diga: se mira el borde del cuadro, que
   // siempre es fondo. Si el borde es claro, el dibujo es lo oscuro y el alfa
@@ -177,6 +295,9 @@ if (require.main === module) {
     piso: Number(valor("--piso", 0.18)), techo: Number(valor("--techo", 0.50)),
     tinta: valor("--tinta", "E8E7E1"),
     invertir: args.includes("--invertir") ? true : args.includes("--no-invertir") ? false : undefined,
+    modo: valor("--modo", "luz"),
+    forzar: args.includes("--forzar"),
+    duro: Number(valor("--duro", 0.05)), suave: Number(valor("--suave", 0.20)),
   };
   const carpeta = valor("--carpeta", null);
   if (carpeta) {
@@ -191,6 +312,7 @@ if (require.main === module) {
     const [entrada, salida] = args.filter((a) => !a.startsWith("--") && !/^[\d.]+$/.test(a) && a !== opciones.tinta);
     if (!entrada || !salida) { console.error("uso: node scripts/recortar-imagen.js entrada.png salida.png"); process.exit(1); }
     const r = recortar(entrada, salida, opciones);
-    console.log(`${salida}  ${r.ancho}x${r.alto}  trazo ${r.cubre}% del cuadro`);
+    console.log(`${salida}  ${r.ancho}x${r.alto}  ${r.estilo}` +
+      (r.fondo ? `  fondo ${r.fondo}` : "") + `  motivo ${r.cubre}% del cuadro`);
   }
 }
