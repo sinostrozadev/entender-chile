@@ -51,7 +51,7 @@ sirve donde hay dos categorías o más. Ese número está arriba.
 |---|---:|---:|---|---|
 | investigacion | 79 | 6.7% | un escritorio de noche visto desde arriba, con carpetas abiertas y desordenadas, papeles subrayados, una lupa apoyada encima y el cono de luz de una lámpara cayendo sobre ellos | papel de expediente envejecido, con marcas de dobleces, subrayados que se transparentan y el óvalo borroso de un timbre |
 | temporal | 58 | 4.9% | una calle anegada al anochecer, con el agua cubriendo media rueda de los autos detenidos y la lluvia rayando la luz de los focos | agua de lluvia corriendo sobre un vidrio, con las gotas gruesas y los regueros bajando |
-| anuncio | 49 | 4.1% | una sala de prensa en el momento del anuncio, vista desde atrás del atril: en primer plano y de espaldas, la figura de quien habla, y más allá el racimo de micrófonos y las sillas de la sala | tela acústica de panel de sala de prensa, en retícula fina y parejo |
+| anuncio | 49 | 4.1% | varios micrófonos de distintos canales apiñados sobre un atril, vistos de cerca y de frente, sin nadie detrás | tela acústica de panel de sala de prensa, en retícula fina y parejo |
 | reunion | 33 | 2.8% | una mesa ovalada vista desde arriba con seis sillas alrededor | - |
 | acuerdo | 30 | 2.5% | dos manos estrechándose, vistas de perfil y sin brazos | - |
 | juicio | 29 | 2.5% | un mazo de juez apoyado sobre su taco redondo | - |

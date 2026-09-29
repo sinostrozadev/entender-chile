@@ -64,6 +64,26 @@
 // Y ya no hay un solo objeto: el estilo sin fondo permite escena, color,
 // volumen y luz, así que el motivo puede pedir lo que de verdad se ve.
 //
+// UN CONCEPTO SE DIBUJA CONTRA SUS PÁRRAFOS, NO CONTRA SU PALABRA (29-09-2026,
+// pregunta de Santiago: "anuncio se va a usar para cualquier tipo de anuncio?").
+// El motivo era una sala de prensa con alguien hablando, y al revisar contra qué
+// párrafos se activa de verdad salieron estos: "Canadá anunció aranceles de
+// represalia", "una feria laboral en Atacama anunció más de seiscientas
+// vacantes", "el Ministerio de Minería anunció que trabaja en acelerar
+// permisos". Ninguno es una conferencia de prensa. La feria laboral no dio
+// ninguna, y ponerle un hombre en un atril AFIRMA UN HECHO QUE NO OCURRIÓ, que
+// es lo mismo que la regla 29 evita por el lado de la cara, ahora por el lado de
+// la escena.
+//
+// Entonces el motivo es el objeto y no el evento: el racimo de micrófonos dice
+// "esto se dijo en público" y sirve igual para un arancel, una feria y un
+// ministerio. La sala de prensa con la figura quedó en anuncio-b.png, para
+// cuando la noticia SÍ es una conferencia.
+//
+// El megáfono, que fue la otra idea, se descartó por lo mismo al revés: lee
+// protesta, y "el Ministerio de Minería anunció" con un megáfono insinúa
+// movilización donde hubo un comunicado. Cambiaba un error por otro más cargado.
+//
 // LA FIGURA ENTRA SOLO DONDE LA PERSONA ES EL HECHO (29-09-2026, idea de
 // Santiago). La regla 29 siempre permitió "una figura anónima de espaldas y sin
 // rasgos", y hasta hoy no se había usado: los seis dibujos de la biblioteca son
@@ -156,7 +176,7 @@ const CATEGORIAS = [
     // es el hecho que le ocurre.
     terminos: [
       ["anuncio", ["anuncio", "anuncia", "anunciaron", "presento un proyecto", "dio a conocer", "informo que"],
-        "una sala de prensa en el momento del anuncio, vista desde atrás del atril: en primer plano y de espaldas, la figura de quien habla, y más allá el racimo de micrófonos y las sillas de la sala",
+        "varios micrófonos de distintos canales apiñados sobre un atril, vistos de cerca y de frente, sin nadie detrás",
         "tela acústica de panel de sala de prensa, en retícula fina y parejo"],
       ["investigacion", ["investigacion", "investiga", "indaga", "sumario", "peritaje", "auditoria"],
         "un escritorio de noche visto desde arriba, con carpetas abiertas y desordenadas, papeles subrayados, una lupa apoyada encima y el cono de luz de una lámpara cayendo sobre ellos",
