@@ -28,3 +28,15 @@ Justicia, que es de 1905 y es de madera y molduras, así que una sala de madera 
 la sala correcta para el caso dominante. El defecto real de este archivo es otro:
 no tiene el escudo y está muy plano, casi un alzado, sin la profundidad que sí
 tiene el que entró.
+
+- **`fiscalia-edificio-sin-verificar.png`** (29-09-2026). Pasa la vara entera
+  después del entintado y cae dentro de la familia (144 de luminancia, 64%
+  opaco, 30% de relleno claro). No entra por un motivo de la regla 29, condición
+  1: no es ese edificio. El real está en Catedral 1437, es de Luis Corvalán,
+  Sebastián Baraona y Christian Yutronic, y lo que lo distingue es una fachada
+  principal de cristal serigrafiado, una fachada sur doble en los dos últimos
+  pisos con un jardín colgante entremedio, y el diálogo con la Iglesia Santa Ana.
+  El dibujo no tiene ninguna de esas tres cosas: es un edificio institucional
+  moderno cualquiera, con un atrio de vidrio y bandas de ventanas.
+  Además lleva un emblema en el pilar izquierdo que no se pudo verificar, y un
+  emblema inventado en una fachada es peor que ninguno, porque parece oficial.
