@@ -64,6 +64,22 @@
 // Y ya no hay un solo objeto: el estilo sin fondo permite escena, color,
 // volumen y luz, así que el motivo puede pedir lo que de verdad se ve.
 //
+// Y EL EDIFICIO SE PROBÓ DOS VECES Y SE DESCARTÓ (29-09-2026, esa misma noche).
+// Yo mismo había propuesto el edificio, y estaba mal por una razón que ignoré:
+// La Moneda la reconoce cualquiera y el edificio de la Fiscalía no lo reconoce
+// nadie. Le pedíamos al generador una precisión cara que, aunque la acertara, no
+// rendía nada. Y no la acertó: el real está en Catedral 1437 y lo distinguen el
+// cristal serigrafiado de la fachada principal, la fachada sur doble con jardín
+// colgante en los dos últimos pisos y el diálogo con la Iglesia Santa Ana. Las
+// dos vueltas devolvieron un edificio institucional moderno cualquiera, con el
+// mismo atrio de vidrio y el mismo emblema sin verificar.
+//
+// La carpeta CERRADA es lo que distingue fiscalía de investigación, y la
+// diferencia es semántica antes que visual: investigación tiene las carpetas
+// ABIERTAS bajo una lámpara, o sea todavía buscando; fiscalía la tiene cerrada,
+// o sea el caso armado. Además no necesita verificar nada, que es lo que hizo
+// caer al edificio.
+//
 // FISCALIA ES UN SUJETO QUE ACTÚA, NO UNA BODEGA (29-09-2026, primer motivo
 // escrito con el conteo por delante en vez de por detrás). El motivo eran cajas
 // de evidencia selladas. Corriendo scripts/frases-concepto.js salieron 61
@@ -151,7 +167,7 @@ const CATEGORIAS = [
         "una sala de audiencias vacía vista desde el estrado: el mesón alto del juez, la baranda de madera y las bancas alineadas atrás",
         "madera oscura encerada de mobiliario de tribunal, con la veta abierta y el brillo del uso"],
       ["fiscalia", ["fiscalia", "ministerio publico", "fiscal nacional", "fiscal regional"],
-        "el edificio de la Fiscalía Nacional del Ministerio Público de Chile, en Santiago, visto desde la vereda de enfrente",
+        "una carpeta de investigación gruesa, cerrada y atada con elásticos, sobre un mesón vacío",
         "cinta plástica de sitio del suceso repetida en diagonal, arrugada y sin texto legible"],
       ["contraloria", ["contraloria", "contralor"],
         "una lupa apoyada sobre una columna de cifras alineadas"],

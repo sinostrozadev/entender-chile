@@ -40,3 +40,11 @@ tiene el que entró.
   moderno cualquiera, con un atrio de vidrio y bandas de ventanas.
   Además lleva un emblema en el pilar izquierdo que no se pudo verificar, y un
   emblema inventado en una fachada es peor que ninguno, porque parece oficial.
+
+- **`fiscalia-edificio-sin-verificar-b.png`** (29-09-2026, segunda vuelta). Pasa
+  la vara y mide 153 de luminancia, 67% opaco, 29% de relleno claro. Es el mismo
+  edificio de la vuelta anterior con otro encuadre: el mismo atrio de vidrio, el
+  mismo emblema sin verificar, y otra vez sin ninguna de las tres cosas que
+  distinguen al real. Dos vueltas seguidas devolviendo lo mismo es lo que cerró
+  la discusión: el motivo pasó a ser la carpeta cerrada, que no necesita
+  verificar nada.
