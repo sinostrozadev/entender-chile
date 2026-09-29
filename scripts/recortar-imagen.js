@@ -324,7 +324,7 @@ const recortar = (entrada, salida, opciones = {}) => {
     estilo: invertir ? "papel" : "oscuro" };
 };
 
-module.exports = { recortar };
+module.exports = { recortar, leerPNG, desfiltrar };
 
 if (require.main === module) {
   const args = process.argv.slice(2);
