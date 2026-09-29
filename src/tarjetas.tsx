@@ -2,6 +2,7 @@ import React, { createContext, useContext } from "react";
 import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { tema, estiloEyebrow, estiloFuente, colorDeSeccion } from "./tema";
 import { Fondo, useFondos } from "./fondos";
+import { FondoBiblioteca, tramaDe } from "./fondo-biblioteca";
 
 // ---------- tipos ----------
 export type Tendencia = { dir: "sube" | "baja" | "igual" | null; sentido: "bien" | "mal" | null };
@@ -40,6 +41,7 @@ export type Evento = {
   // Santiago para ver si veinte dibujos parecidos cansan en movimiento.
   imagen?: string;             // ruta dentro de public/
   imagenPie?: string;          // rótulo corto al pie, no el párrafo entero
+  imagenOrden?: number;        // el lugar que ocupa entre las imágenes seguidas: decide la pose
   rotulo?: string;             // rótulo discreto de esa comparación ("papel" / "imagen")
   // También solo en --comparar, y solo en el evento de sección: en qué tramos
   // se parte su banner. La tarjeta de abajo cambia de fondo a mitad de la
@@ -361,11 +363,12 @@ export const TarjetaTesis: React.FC<{ ev: Evento }> = ({ ev }) => {
 // una imagen que acompaña a alguien que está hablando. Tres portadas seguidas
 // pesan. Acá el dibujo baja a poco más de la mitad del alto y el resto es aire.
 //
-// Y el aire no está vacío: debajo sigue la imagen de la SECCIÓN, que ya estaba
-// ahí. Eso es lo que permite el movimiento que pedía Santiago ("que se muevan
-// entre ellas"): son dos capas a distinta velocidad, el fondo va hacia un lado
-// y el motivo hacia el otro, y esa diferencia es la que se lee como
-// profundidad. Un solo plano moviéndose no da efecto, da deriva.
+// Y el aire no está vacío: ahí van las tres capas que dan la profundidad, cada
+// una a su paso. Al fondo la foto de la SECCIÓN, que deriva unos 6 px y ya
+// casi no se ve bajo el velo. Encima la TRAMA de la biblioteca, que va al
+// mismo lado que el motivo pero a un tercio de su paso. Y adelante el motivo.
+// Un solo plano moviéndose no da efecto, da deriva: lo que se lee como
+// profundidad es la diferencia entre los pasos.
 //
 // EL FONDO DEL PNG NO SE RECORTA: se funde. Las imágenes vienen con su propio
 // fondo (#23262A), así que puestas encima dejarían un rectángulo. `screen`
@@ -378,39 +381,82 @@ export const TarjetaTesis: React.FC<{ ev: Evento }> = ({ ev }) => {
 // otro dibujo de línea. Quedaban dos dibujos a la vez y ninguno se leía.
 // Por eso va antes un velo oscuro redondo: apaga el grabado justo donde va el
 // motivo y deja la base negra, y sobre negro el `screen` no levanta nada.
-const ALTO_MOTIVO = 0.56;      // del alto del cuadro: el resto es aire
 const PASEO_SEG = 20;          // lo que dura el párrafo más largo que se ha visto
 const CLAMP = { extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
+
+// LAS POSES (29-09-2026, tercera versión). Lo que no convencía no era el
+// tamaño ni la velocidad: era que las tres imágenes seguidas eran la misma
+// imagen. Mismo alto, mismo centro, mismo viaje. Tres veces la misma
+// composición se lee como una sola repetida, por distintos que sean los
+// dibujos, y ahí no hay silueta que salve.
+//
+// Así que la pose rota: a la derecha y chica, a la izquierda y mediana, al
+// centro y grande. Y el viaje va alternado, porque de eso se trata el RELEVO
+// que pidió Santiago: si la primera termina yéndose hacia la izquierda, la
+// segunda entra por la izquierda y sigue hacia la derecha. No se lee como un
+// corte entre dos láminas, se lee como que la cámara nunca paró.
+type Pose = { x: number; alto: number; viaje: number; sube: number };
+const POSES: Pose[] = [
+  { x: 0.58, alto: 0.52, viaje: -86, sube: 0.46 },
+  { x: 0.42, alto: 0.47, viaje: 86, sube: 0.52 },
+  { x: 0.50, alto: 0.60, viaje: -54, sube: 0.48 },
+];
+
+// el orden lo pone quien arma el timeline; si no lo pone nadie, se reparte por
+// el nombre del archivo, que al menos garantiza que dos conceptos distintos
+// casi nunca caen en la misma pose
+const poseDe = (ev: Evento): Pose => {
+  if (typeof ev.imagenOrden === "number") return POSES[Math.abs(ev.imagenOrden) % POSES.length];
+  const clave = ev.imagen || "";
+  let n = 0;
+  for (let i = 0; i < clave.length; i++) n = (n * 31 + clave.charCodeAt(i)) % 9973;
+  return POSES[n % POSES.length];
+};
 
 export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const op = spring({ frame, fps, config: { damping: 200 } });
-  // entra subiendo y creciendo apenas: un fundido seco delata la estampa
-  const sube = interpolate(op, [0, 1], [22, 0]);
+  const pose = poseDe(ev);
+  const trama = tramaDe(ev.imagen || "");
+  const avance = interpolate(frame, [0, fps * PASEO_SEG], [0, 1], CLAMP);
+
+  // EL VIAJE. El motivo cruza `pose.viaje` píxeles en veinte segundos, y empieza
+  // desplazado media distancia hacia atrás: así entra ya en movimiento y no
+  // arranca desde la quietud, que es lo que hacía que pareciera una estampa.
+  const viaje = interpolate(avance, [0, 1], [-pose.viaje / 2, pose.viaje / 2]);
+  const entra = interpolate(op, [0, 1], [26, 0]);
   const nace = interpolate(op, [0, 1], [0.955, 1]);
-  // el paralaje: el fondo del bloque deriva unos 6 px hacia un lado en veinte
-  // segundos, así que el motivo tiene que ir al otro y tres veces más lejos
-  // para que la diferencia se note sin que nadie la vea moverse
-  const paseoX = interpolate(frame, [0, fps * PASEO_SEG], [24, -28], CLAMP);
-  const paseoY = interpolate(frame, [0, fps * PASEO_SEG], [-6, 10], CLAMP);
-  const respira = 1 + Math.min(frame, fps * PASEO_SEG) * 0.00013;
+  const respira = 1 + avance * 0.055;
+
+  // TRES VELOCIDADES, que es lo que da profundidad de verdad: la foto de la
+  // sección deriva unos 6 px (eso lo hace el bloque), la trama de la
+  // biblioteca va al MISMO lado que el motivo pero a un tercio de su paso, y
+  // el motivo manda. Si la trama fuera al revés se pelearía con el motivo en
+  // vez de quedarse atrás.
+  const tramaX = -viaje * 0.34 + avance * 26;
+  const tramaY = avance * 14;
+
   const mascara = "radial-gradient(ellipse 62% 58% at 50% 50%, #000 58%, rgba(0,0,0,0) 82%)";
-  // el velo va PAREJO, no redondo: un óvalo oscuro sobre un fondo de sección
-  // claro se lee como una mancha (segundo intento, 29-09). Parejo se lee como
-  // que bajan las luces, que es lo que uno quiere cuando aparece un dibujo.
-  const velado = interpolate(op, [0, 1], [0, 0.74], CLAMP);
+  const velado = interpolate(op, [0, 1], [0, 0.8], CLAMP);
   return (
-    <AbsoluteFill style={{ opacity: op, justifyContent: "center", alignItems: "center" }}>
+    <AbsoluteFill style={{ opacity: op }}>
       <AbsoluteFill style={{ backgroundColor: `rgba(16,18,21,${velado.toFixed(3)})` }} />
+      <FondoBiblioteca trama={trama} dx={tramaX} dy={tramaY} opacidad={op * 0.13} />
       <Img
         src={staticFile(ev.imagen as string)}
         style={{
-          height: `${Math.round(ALTO_MOTIVO * 100)}%`, width: "auto", objectFit: "contain",
-          transform: `translate(${paseoX}px, ${sube + paseoY}px) scale(${nace * respira})`,
+          position: "absolute", height: `${Math.round(pose.alto * 100)}%`, width: "auto",
+          objectFit: "contain",
+          left: `${pose.x * 100}%`, top: `${pose.sube * 100}%`,
+          transform: `translate(-50%, -50%) translate(${viaje}px, ${entra}px) scale(${nace * respira})`,
           mixBlendMode: "screen",
-          // el trazo tiene que ganarle al fondo de sección que queda debajo
-          filter: "contrast(1.14) brightness(1.06)",
+          // CONTRASTE ALTO, y no es por gusto: el `screen` levanta el fondo
+          // propio del PNG y deja un resplandor con forma de elipse alrededor
+          // del motivo. Subiendo el contraste ese fondo cae casi a negro (no
+          // levanta nada) y el trazo se va a blanco. El halo desaparece sin
+          // recortar ninguna imagen a mano.
+          filter: "contrast(1.38)",
           maskImage: mascara, WebkitMaskImage: mascara,
         } as React.CSSProperties}
       />
