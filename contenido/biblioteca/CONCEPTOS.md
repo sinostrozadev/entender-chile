@@ -80,7 +80,7 @@ sirve donde hay dos categorías o más. Ese número está arriba.
 
 | concepto | párrafos | del total | motivo (icono) | materia (fondo) |
 |---|---:|---:|---|---|
-| empleo | 47 | 4.0% | una fila larga de personas de espaldas esperando frente a una puerta cerrada, vistas desde atrás y sin rasgos | cartón corrugado de carpeta de currículum, gastado en los cantos y con la onda a la vista |
+| empleo | 47 | 4.0% | un reloj control de entrada con su casillero de tarjetas al lado, montados en el muro de una entrada de personal, vistos de cerca y de frente | cartón corrugado de carpeta de currículum, gastado en los cantos y con la onda a la vista |
 | precio | 42 | 3.6% | una etiqueta colgante con un hilo y un círculo vacío | - |
 | inversion | 29 | 2.5% | una flecha ascendente apoyada en tres barras crecientes | - |
 | dinero publico | 25 | 2.1% | tres pilas de monedas de distinto alto sobre una misma línea de base | - |

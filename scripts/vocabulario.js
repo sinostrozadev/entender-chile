@@ -80,6 +80,24 @@
 // o sea el caso armado. Además no necesita verificar nada, que es lo que hizo
 // caer al edificio.
 //
+// EMPLEO ES UN INDICADOR Y NO UNA ESCENA (29-09-2026). El motivo era "una fila
+// larga de personas de espaldas esperando frente a una puerta cerrada", y estaba
+// mal por dos razones distintas.
+//
+// La primera: TOMA PARTIDO. Una fila frente a una puerta cerrada es cesantía,
+// pero los párrafos van en los dos sentidos: "Mercado Libre proyecta más de dos
+// mil quinientos empleos" y "el sector metalúrgico reportó una pérdida de
+// cuarenta mil puestos". Esa imagen encima de una noticia de expansión la
+// convierte en penuria. Es peor que afirmar un hecho que no ocurrió: le pone
+// tono.
+//
+// La segunda: usaba la figura humana, y el criterio escrito ese mismo día dice
+// que entra solo donde la persona es el hecho. Acá el hecho es un número.
+//
+// El reloj control con su casillero de tarjetas es un objeto, existe solo en un
+// lugar de trabajo, y no toma partido: una tarjeta puesta o sacada no dice si el
+// empleo sube o baja.
+//
 // FISCALIA ES UN SUJETO QUE ACTÚA, NO UNA BODEGA (29-09-2026, primer motivo
 // escrito con el conteo por delante en vez de por detrás). El motivo eran cajas
 // de evidencia selladas. Corriendo scripts/frases-concepto.js salieron 61
@@ -290,7 +308,7 @@ const CATEGORIAS = [
       ["exportacion", ["exportacion", "exporta", "embarque", "comercio exterior", "importacion"],
         "un contenedor rectangular con puertas y una grúa sobre él"],
       ["empleo", ["empleo", "desempleo", "cesantia", "puestos de trabajo", "contratacion", "despido"],
-        "una fila larga de personas de espaldas esperando frente a una puerta cerrada, vistas desde atrás y sin rasgos",
+        "un reloj control de entrada con su casillero de tarjetas al lado, montados en el muro de una entrada de personal, vistos de cerca y de frente",
         "cartón corrugado de carpeta de currículum, gastado en los cantos y con la onda a la vista"],
       ["pension", ["pension", "jubilacion", "afp", "cotizacion previsional"],
         "un reloj de arena con la arena casi toda abajo"],
