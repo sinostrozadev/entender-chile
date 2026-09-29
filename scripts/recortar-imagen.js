@@ -138,26 +138,62 @@ const escribirRGBA = (ancho, alto, pixeles) => {
   ]);
 };
 
-// el fondo, medido y no supuesto: la mediana de los píxeles del borde del
-// cuadro. Con la mediana un motivo que toca un borde no corre el resultado.
-const fondoDelBorde = (plano, ancho, alto, paso, canales) => {
-  const muestras = [[], [], []];
+// LOS COLORES DEL FONDO, medidos y no supuestos: los dos más repetidos en el
+// borde del cuadro, no la mediana.
+//
+// Son DOS y no uno por el damero (29-09-2026). Los generadores entregan a
+// veces la transparencia PINTADA: un damero gris de dos tonos dibujado como
+// si fuera el fondo de un editor. Con un solo color de referencia la mediana
+// cae justo entre los dos grises del damero y no se parece a ninguno, así que
+// el recorte dejaba la mitad de los cuadritos puestos. Con los dos modos del
+// borde, el damero se va entero.
+const coloresDelBorde = (plano, ancho, alto, paso, canales) => {
+  const cuenta = new Map();
   const anotar = (x, y) => {
     const i = y * paso + x * canales;
-    for (let k = 0; k < 3; k++) muestras[k].push(plano[i + k]);
+    // se agrupa de a 8 niveles: un degradado suave no genera mil colores
+    const k = (plano[i] >> 3) * 1024 + (plano[i + 1] >> 3) * 32 + (plano[i + 2] >> 3);
+    const v = cuenta.get(k) || { n: 0, r: 0, g: 0, b: 0 };
+    v.n++; v.r += plano[i]; v.g += plano[i + 1]; v.b += plano[i + 2];
+    cuenta.set(k, v);
   };
   for (let x = 0; x < ancho; x++) { anotar(x, 0); anotar(x, alto - 1); }
   for (let y = 0; y < alto; y++) { anotar(0, y); anotar(ancho - 1, y); }
-  return muestras.map((m) => { m.sort((a, b) => a - b); return m[m.length >> 1]; });
+  const orden = [...cuenta.values()].sort((a, b) => b.n - a.n);
+  const total = 2 * (ancho + alto);
+  const salida = [];
+  for (const v of orden) {
+    const c = [Math.round(v.r / v.n), Math.round(v.g / v.n), Math.round(v.b / v.n)];
+    // un color que se parece a uno ya aceptado es el mismo con otro nombre:
+    // un degradado suave reparte el mismo fondo en varios cajones
+    if (salida.some((f) => Math.max(Math.abs(f[0] - c[0]), Math.abs(f[1] - c[1]), Math.abs(f[2] - c[2])) <= 20)) continue;
+    // el primero entra siempre; los demás solo si ocupan un pedazo real del
+    // marco, para no confundir una esquina del motivo con el fondo
+    if (salida.length && v.n / total < 0.04) break;
+    salida.push(c);
+    if (salida.length === 3) break;
+  }
+  return salida;
 };
 
 const recortarPorBorde = (png, plano, canales, paso, opciones) => {
   const { ancho, alto } = png;
   const duro = opciones.duro ?? 0.05;     // igual al fondo hasta acá: transparente
   const suave = opciones.suave ?? 0.20;   // de acá en adelante: motivo entero
-  const fondo = fondoDelBorde(plano, ancho, alto, paso, canales);
-  const dist = (i) => Math.max(
-    Math.abs(plano[i] - fondo[0]), Math.abs(plano[i + 1] - fondo[1]), Math.abs(plano[i + 2] - fondo[2])) / 255;
+  const fondos = coloresDelBorde(plano, ancho, alto, paso, canales);
+  const fondo = fondos[0];
+  // la distancia es al MÁS PARECIDO de los colores de fondo, no al primero
+  const distA = (i, f) => Math.max(
+    Math.abs(plano[i] - f[0]), Math.abs(plano[i + 1] - f[1]), Math.abs(plano[i + 2] - f[2])) / 255;
+  const cerca = (i) => {
+    let mejor = fondos[0], d = distA(i, fondos[0]);
+    for (let k = 1; k < fondos.length; k++) {
+      const e = distA(i, fondos[k]);
+      if (e < d) { d = e; mejor = fondos[k]; }
+    }
+    return { d, f: mejor };
+  };
+  const dist = (i) => cerca(i).d;
 
   // el balde de pintura entra por los cuatro bordes. Se usa una pila propia y
   // no recursión: un cuadro de 1920x1080 desborda la pila de node enseguida
@@ -185,23 +221,25 @@ const recortarPorBorde = (png, plano, canales, paso, opciones) => {
     for (let x = 0; x < ancho; x++) {
       const i = y * paso + x * canales, o = (y * ancho + x) * 4;
       let a = 1;
+      let suyo = fondo;
       if (visto[y * ancho + x]) {
-        const d = dist(i);
-        a = d <= duro ? 0 : (d - duro) / Math.max(0.001, suave - duro);
+        const c = cerca(i);
+        suyo = c.f;
+        a = c.d <= duro ? 0 : (c.d - duro) / Math.max(0.001, suave - duro);
         if (a > 1) a = 1;
       }
       if (a <= 0) { px[o + 3] = 0; continue; }
       for (let k = 0; k < 3; k++) {
         // despegar del fondo: sin esto el borde se queda con la mezcla y deja
         // una aureola del color del fondo, que sobre el video oscuro se ve
-        const v = a >= 0.98 ? plano[i + k] : (plano[i + k] - fondo[k] * (1 - a)) / a;
+        const v = a >= 0.98 ? plano[i + k] : (plano[i + k] - suyo[k] * (1 - a)) / a;
         px[o + k] = v < 0 ? 0 : v > 255 ? 255 : Math.round(v);
       }
       px[o + 3] = Math.round(a * 255);
       if (a > 0.5) opacos++;
     }
   }
-  return { px, opacos, fondo };
+  return { px, opacos, fondos };
 };
 
 const recortar = (entrada, salida, opciones = {}) => {
@@ -247,7 +285,7 @@ const recortar = (entrada, salida, opciones = {}) => {
     const r = recortarPorBorde(png, plano, canales, paso, opciones);
     fs.writeFileSync(salida, escribirRGBA(png.ancho, png.alto, r.px));
     return { ancho: png.ancho, alto: png.alto, estilo: "borde",
-      fondo: "#" + r.fondo.map((c) => c.toString(16).padStart(2, "0")).join(""),
+      fondo: r.fondos.map((f) => "#" + f.map((c) => c.toString(16).padStart(2, "0")).join("")).join(" y "),
       cubre: Number(((r.opacos / (png.ancho * png.alto)) * 100).toFixed(1)) };
   }
 
