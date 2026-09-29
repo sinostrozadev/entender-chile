@@ -411,5 +411,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-28-informe.mp3",
     "bytes": 14413248,
     "durSeg": 601
+  },
+  {
+    "fecha": "2026-09-29",
+    "tipo": "informe",
+    "titulo": "29-09-2026 · Chile Despega moviliza $1,3 billones y proyecta más de 100 mil empleos",
+    "descripcion": "El Gobierno presentó Chile Despega, un plan que combina obras, subsidios y garantías para enfrentar el desempleo. Además, Fiscalía y la PDI desarticularon una célula del PCC, Argentina anunció acciones por vuelos a las Malvinas y fuertes vientos dejaron daños en Mulchén. Cerramos con el resto de la jornada, la agenda y el pronóstico.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-29-informe.mp3",
+    "bytes": 16046208,
+    "durSeg": 669
   }
 ]
