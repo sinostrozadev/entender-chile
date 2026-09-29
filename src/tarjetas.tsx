@@ -42,6 +42,7 @@ export type Evento = {
   imagen?: string;             // ruta dentro de public/
   imagenPie?: string;          // rótulo corto al pie, no el párrafo entero
   imagenOrden?: number;        // el lugar que ocupa entre las imágenes seguidas: decide la pose
+  imagenSola?: boolean;        // sin el texto al lado: el dibujo se queda con el cuadro entero
   rotulo?: string;             // rótulo discreto de esa comparación ("papel" / "imagen")
   // También solo en --comparar, y solo en el evento de sección: en qué tramos
   // se parte su banner. La tarjeta de abajo cambia de fondo a mitad de la
@@ -395,12 +396,61 @@ const CLAMP = { extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as 
 // que pidió Santiago: si la primera termina yéndose hacia la izquierda, la
 // segunda entra por la izquierda y sigue hacia la derecha. No se lee como un
 // corte entre dos láminas, se lee como que la cámara nunca paró.
-type Pose = { x: number; alto: number; viaje: number; sube: number };
+type Pose = { x: number; alto: number; viaje: number; sube: number; dibujoA: "izq" | "der" };
 const POSES: Pose[] = [
-  { x: 0.58, alto: 0.52, viaje: -86, sube: 0.46 },
-  { x: 0.42, alto: 0.47, viaje: 86, sube: 0.52 },
-  { x: 0.50, alto: 0.60, viaje: -54, sube: 0.48 },
+  { x: 0.58, alto: 0.52, viaje: -86, sube: 0.46, dibujoA: "der" },
+  { x: 0.42, alto: 0.47, viaje: 86, sube: 0.52, dibujoA: "izq" },
+  { x: 0.50, alto: 0.60, viaje: -54, sube: 0.48, dibujoA: "der" },
 ];
+
+// EL TEXTO QUE APARECE (29-09-2026, idea de Santiago: "y si dejas el dibujo a
+// una orilla y en la otra dejas un texto, y que vaya apareciendo el texto? Lo
+// que quiero es ver movimiento, no se ve movimiento").
+//
+// Tenía razón y el número lo dice: el motivo recorre 86 píxeles en veinte
+// segundos, o sea cuatro píxeles por segundo. Eso no se ve. Nadie percibe
+// cuatro píxeles por segundo, y subirlo hasta que se note sería una imagen
+// deslizándose, que es peor.
+//
+// El movimiento que SÍ se ve es el que cambia el cuadro todo el tiempo, y
+// además no es decorativo: las palabras apareciendo a medida que se hablan.
+// Quince segundos de párrafo son unas cuarenta apariciones.
+//
+// CUÁNDO APARECE CADA PALABRA: por ahora, proporcional a los caracteres que
+// lleva el párrafo. El habla es bastante pareja, así que la palabra número 20
+// de 40 cae muy cerca de la mitad del párrafo. Los tiempos REALES existen (la
+// alineación de Azure viene carácter por carácter, en alignment.json), y
+// cablearlos hasta el evento es trabajo de otro día: acá se aproxima, y se
+// nota nada.
+//
+// Se dibujan TODAS las palabras desde el primer cuadro, las que aún no tocan
+// con opacidad cero. Si se fueran agregando, el bloque crecería y el texto
+// saltaría en cada palabra.
+const ADELANTO_SEG = 0.25;     // la palabra aparece un pelo antes de oírse
+const PALABRA_SEG = 0.32;      // lo que tarda en entrar
+
+const Palabras: React.FC<{ texto: string; dur: number }> = ({ texto, dur }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const t = frame / fps + ADELANTO_SEG;
+  const piezas = texto.split(/(\s+)/).filter((p) => p.length > 0);
+  const total = Math.max(1, texto.length);
+  let recorrido = 0;
+  return (
+    <>
+      {piezas.map((p, i) => {
+        const inicio = (recorrido / total) * dur;
+        recorrido += p.length;
+        if (/^\s+$/.test(p)) return <span key={i}> </span>;
+        const avance = interpolate(t, [inicio, inicio + PALABRA_SEG], [0, 1], CLAMP);
+        return (
+          <span key={i} style={{ display: "inline-block", opacity: avance,
+            transform: `translateY(${((1 - avance) * 10).toFixed(2)}px)` }}>{p}</span>
+        );
+      })}
+    </>
+  );
+};
 
 // el orden lo pone quien arma el timeline; si no lo pone nadie, se reparte por
 // el nombre del archivo, que al menos garantiza que dos conceptos distintos
@@ -419,6 +469,12 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
   const op = spring({ frame, fps, config: { damping: 200 } });
   const pose = poseDe(ev);
   const trama = tramaDe(ev.imagen || "");
+  const texto = ev.textoPantalla ?? ev.texto ?? "";
+  // con texto al lado el dibujo se va a SU mitad y se achica para caber en
+  // ella: 46% de 1920 son 883 px, y un 16:9 de 466 px de alto mide 830 de ancho
+  const conTexto = !ev.imagenSola && texto.length > 0;
+  const equis = conTexto ? (pose.dibujoA === "der" ? 0.755 : 0.245) : pose.x;
+  const alto = conTexto ? 0.42 : pose.alto;
   const avance = interpolate(frame, [0, fps * PASEO_SEG], [0, 1], CLAMP);
 
   // EL VIAJE. El motivo cruza `pose.viaje` píxeles en veinte segundos, y empieza
@@ -438,7 +494,10 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
   const tramaY = avance * 14;
 
   const mascara = "radial-gradient(ellipse 62% 58% at 50% 50%, #000 58%, rgba(0,0,0,0) 82%)";
-  const velado = interpolate(op, [0, 1], [0, 0.8], CLAMP);
+  // con texto al lado el velo sube: el GRABADO de la sección, que es enorme,
+  // cae justo detrás de la columna de texto la mitad de las veces y ahí no se
+  // puede leer contra un dibujo
+  const velado = interpolate(op, [0, 1], [0, conTexto ? 0.88 : 0.8], CLAMP);
   return (
     <AbsoluteFill style={{ opacity: op }}>
       <AbsoluteFill style={{ backgroundColor: `rgba(16,18,21,${velado.toFixed(3)})` }} />
@@ -446,9 +505,9 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
       <Img
         src={staticFile(ev.imagen as string)}
         style={{
-          position: "absolute", height: `${Math.round(pose.alto * 100)}%`, width: "auto",
+          position: "absolute", height: `${Math.round(alto * 100)}%`, width: "auto",
           objectFit: "contain",
-          left: `${pose.x * 100}%`, top: `${pose.sube * 100}%`,
+          left: `${equis * 100}%`, top: `${pose.sube * 100}%`,
           transform: `translate(-50%, -50%) translate(${viaje}px, ${entra}px) scale(${nace * respira})`,
           mixBlendMode: "screen",
           // CONTRASTE ALTO, y no es por gusto: el `screen` levanta el fondo
@@ -460,12 +519,25 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
           maskImage: mascara, WebkitMaskImage: mascara,
         } as React.CSSProperties}
       />
+      {conTexto ? (
+        <AbsoluteFill style={{ padding: `0 ${tema.margen}px`, alignItems: "center",
+          flexDirection: pose.dibujoA === "der" ? "row" : "row-reverse", justifyContent: "space-between" }}>
+          <div style={{ width: "46%", fontFamily: tema.sans, fontSize: 40, lineHeight: 1.5,
+            color: "#E8E7E1", paddingBottom: 60 }}>
+            <Palabras texto={texto} dur={Math.max(1, ev.to - ev.from)} />
+          </div>
+          <div style={{ width: "46%" }} />
+        </AbsoluteFill>
+      ) : null}
       <div style={{ position: "absolute", left: 56, top: 150, bottom: 150, width: 8, borderRadius: 4,
         backgroundColor: colorDeSeccion(ev.categoria || ev.seccion), opacity: 0.95 }} />
-      {ev.imagenPie ? (
+      {/* con el párrafo en pantalla el rótulo sobra: diría lo mismo dos veces.
+          Ahí abajo va la fuente, que es lo que corresponde. */}
+      {(conTexto ? ev.fuenteSeccion : ev.imagenPie) ? (
         <div style={{ position: "absolute", left: tema.margen, right: tema.margen, bottom: 84,
-          fontFamily: tema.mono, fontSize: 30, letterSpacing: "0.06em", color: "#E8E7E1", opacity: 0.88 }}>
-          {ev.imagenPie}
+          fontFamily: tema.mono, fontSize: conTexto ? 24 : 30, letterSpacing: "0.06em",
+          color: "#E8E7E1", opacity: conTexto ? 0.62 : 0.88 }}>
+          {conTexto ? ev.fuenteSeccion : ev.imagenPie}
         </div>
       ) : null}
     </AbsoluteFill>
