@@ -141,6 +141,11 @@ const json = {
   })),
 };
 
+// El que lee los párrafos se exporta porque frases-concepto.js necesita
+// EXACTAMENTE el mismo recorte: si uno de los dos contara las líneas de fuentes
+// y el otro no, las frases de ejemplo no serían las mismas que se contaron.
+module.exports = { parrafosDe };
+
 if (process.argv.includes("--ver")) {
   console.log(md);
 } else {
