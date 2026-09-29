@@ -1,10 +1,10 @@
 {
-  "actualizado": "2026-09-28",
+  "actualizado": "2026-09-29",
   "job": "512e38a3-6714-4fdd-b6bc-0a4a375117b3",
   "tipo": "channel_reach_basic_a1",
   "ventanaDias": 30,
-  "desde": "2026-08-29",
-  "hasta": "2026-09-28",
+  "desde": "2026-08-30",
+  "hasta": "2026-09-29",
   "videos": {
     "0BNQR6diTNI": {
       "impresiones": 17,
@@ -57,9 +57,9 @@
       "ctr": 0
     },
     "GJMefzqOaqk": {
-      "impresiones": 118,
+      "impresiones": 119,
       "clics": 6,
-      "ctr": 5.08
+      "ctr": 5.04
     },
     "HnWm9lwFw8w": {
       "impresiones": 91,
@@ -422,7 +422,7 @@
       "ctr": 2.7
     },
     "3QhDzy_gUKk": {
-      "impresiones": 1055,
+      "impresiones": 1056,
       "clics": 0,
       "ctr": 0
     },
@@ -532,9 +532,9 @@
       "ctr": 0
     },
     "9Eb-1KD5BqE": {
-      "impresiones": 556,
+      "impresiones": 561,
       "clics": 68,
-      "ctr": 12.23
+      "ctr": 12.12
     },
     "ml6Yj5G-1_I": {
       "impresiones": 36,
@@ -547,9 +547,9 @@
       "ctr": 2.08
     },
     "01xPihe7hz0": {
-      "impresiones": 118,
+      "impresiones": 119,
       "clics": 2,
-      "ctr": 1.69
+      "ctr": 1.68
     },
     "DQl1ZQPx51o": {
       "impresiones": 217,
@@ -689,8 +689,8 @@
       "ctr": 6.44
     },
     "2026-09-24": {
-      "impresiones": 784,
-      "ctr": 4.21
+      "impresiones": 792,
+      "ctr": 4.17
     },
     "2026-09-25": {
       "impresiones": 1311,
