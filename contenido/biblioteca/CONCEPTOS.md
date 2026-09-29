@@ -28,7 +28,7 @@ sirve donde hay dos categorías o más. Ese número está arriba.
 | gobierno | 188 | 15.9% | el Palacio de La Moneda visto de frente desde la Plaza de la Constitución, al caer la tarde, con la explanada empedrada delante | piedra clara de fachada pulida, con la veta del bloque y la junta fina entre los sillares |
 | congreso | 69 | 5.8% | la Sala de la Cámara de Diputados del Congreso Nacional de Chile, en Valparaíso, vista desde la tribuna alta, con los escaños vacíos | terciopelo de tapiz de escaño, con el tejido a la vista y el desgaste del respaldo |
 | tribunales | 58 | 4.9% | una sala de audiencias vacía vista desde el estrado: el mesón alto del juez, la baranda de madera y las bancas alineadas atrás | madera oscura encerada de mobiliario de tribunal, con la veta abierta y el brillo del uso |
-| fiscalia | 58 | 4.9% | una pila de cajas de evidencia selladas con cinta, apiladas contra la pared de un pasillo, con las etiquetas en blanco | cinta plástica de sitio del suceso repetida en diagonal, arrugada y sin texto legible |
+| fiscalia | 58 | 4.9% | el edificio de la Fiscalía Nacional del Ministerio Público de Chile, en Santiago, visto desde la vereda de enfrente | cinta plástica de sitio del suceso repetida en diagonal, arrugada y sin texto legible |
 | banco central | 39 | 3.3% | una fachada con cuatro columnas y un frontón triangular | - |
 | contraloria | 34 | 2.9% | una lupa apoyada sobre una columna de cifras alineadas | - |
 | carabineros | 32 | 2.7% | una gorra de plato vista de perfil, sin insignia | - |

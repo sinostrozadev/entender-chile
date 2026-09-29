@@ -64,6 +64,23 @@
 // Y ya no hay un solo objeto: el estilo sin fondo permite escena, color,
 // volumen y luz, así que el motivo puede pedir lo que de verdad se ve.
 //
+// FISCALIA ES UN SUJETO QUE ACTÚA, NO UNA BODEGA (29-09-2026, primer motivo
+// escrito con el conteo por delante en vez de por detrás). El motivo eran cajas
+// de evidencia selladas. Corriendo scripts/frases-concepto.js salieron 61
+// párrafos y un patrón nítido: "la Fiscalía investiga", "la Fiscalía atribuye",
+// "la Fiscalía calificó", "la Fiscalía deberá determinar", "el Ministerio
+// Público investiga". Casi siempre es un sujeto que actúa.
+//
+// Las cajas son el RESIDUO de un caso y no el acto: dicen bodega. Y encima
+// chocaban con investigación, que ya es carpetas y papeles bajo una lámpara. El
+// conteo lo confirmó por donde no se veía a simple vista: los verbos de los dos
+// conceptos son los mismos.
+//
+// Cuando una institución es el sujeto de la frase, su edificio es la manera de
+// nombrarla sin afirmar nada del caso. Se distingue de investigación (un
+// escritorio) y de tribunales (una sala) por ser un exterior, que además es el
+// segundo de la biblioteca después de La Moneda.
+//
 // UN CONCEPTO SE DIBUJA CONTRA SUS PÁRRAFOS, NO CONTRA SU PALABRA (29-09-2026,
 // pregunta de Santiago: "anuncio se va a usar para cualquier tipo de anuncio?").
 // El motivo era una sala de prensa con alguien hablando, y al revisar contra qué
@@ -134,7 +151,7 @@ const CATEGORIAS = [
         "una sala de audiencias vacía vista desde el estrado: el mesón alto del juez, la baranda de madera y las bancas alineadas atrás",
         "madera oscura encerada de mobiliario de tribunal, con la veta abierta y el brillo del uso"],
       ["fiscalia", ["fiscalia", "ministerio publico", "fiscal nacional", "fiscal regional"],
-        "una pila de cajas de evidencia selladas con cinta, apiladas contra la pared de un pasillo, con las etiquetas en blanco",
+        "el edificio de la Fiscalía Nacional del Ministerio Público de Chile, en Santiago, visto desde la vereda de enfrente",
         "cinta plástica de sitio del suceso repetida en diagonal, arrugada y sin texto legible"],
       ["contraloria", ["contraloria", "contralor"],
         "una lupa apoyada sobre una columna de cifras alineadas"],
