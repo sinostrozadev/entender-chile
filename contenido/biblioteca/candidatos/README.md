@@ -19,3 +19,12 @@ tira mientras la decisión siga abierta.
   dibuja" vive dentro del párrafo condicional de los lugares reales con nombre,
   y tribunales no lo es, así que no le aplicaba. Se está probando con la frase
   subida antes del estilo y sin condición.
+
+**CORRECCIÓN (29-09-2026, más tarde).** Lo de arriba dice que el defecto era la
+época, y eso era un error mío. Contando contra los guiones, este concepto nombra
+"corte suprema" en 33 párrafos y "corte de apelaciones" en 10, contra 2 que
+nombran "tribunal oral". Las Cortes sesionan en el Palacio de los Tribunales de
+Justicia, que es de 1905 y es de madera y molduras, así que una sala de madera es
+la sala correcta para el caso dominante. El defecto real de este archivo es otro:
+no tiene el escudo y está muy plano, casi un alzado, sin la profundidad que sí
+tiene el que entró.
