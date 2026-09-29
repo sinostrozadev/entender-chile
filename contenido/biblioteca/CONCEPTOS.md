@@ -1,21 +1,21 @@
 # La biblioteca: qué aparece de verdad en el informe
 
-Generado por `scripts/conteo-conceptos.js` sobre 36 guiones (2026-08-24.md a 2026-09-28.md), 1154 párrafos narrados.
+Generado por `scripts/conteo-conceptos.js` sobre 37 guiones (2026-08-24.md a 2026-09-29.md), 1183 párrafos narrados.
 No se edita a mano: se vuelve a correr.
 
-Aparte quedan 797 titulares, que también se narran pero duran
+Aparte quedan 824 titulares, que también se narran pero duran
 cuatro segundos cada uno: ahí no cabe una imagen que dure un párrafo.
 
 Se cuenta **una vez por párrafo**, no por aparición: la pregunta es en cuántos párrafos se podría poner ese dibujo, no cuántas veces se dice la palabra.
 
 ## Lo que importa antes de la lista
 
-- **887 de 1154 párrafos (76.9%)** tocan al menos un concepto de esta lista.
-- párrafos que tocan 0 categorías: 267 (23.1%)
-- párrafos que tocan 1 categoría: 393 (34.1%)
-- párrafos que tocan 2 categorías: 323 (28.0%)
-- párrafos que tocan 3 categorías: 136 (11.8%)
-- párrafos que tocan 4 categorías: 33 (2.9%)
+- **912 de 1183 párrafos (77.1%)** tocan al menos un concepto de esta lista.
+- párrafos que tocan 0 categorías: 271 (22.9%)
+- párrafos que tocan 1 categoría: 400 (33.8%)
+- párrafos que tocan 2 categorías: 337 (28.5%)
+- párrafos que tocan 3 categorías: 140 (11.8%)
+- párrafos que tocan 4 categorías: 33 (2.8%)
 - párrafos que tocan 5 categorías: 2 (0.2%)
 
 El juego de **mezclar dos dibujos** (la organización mas el hecho) solo
@@ -23,121 +23,121 @@ sirve donde hay dos categorías o más. Ese número está arriba.
 
 ## Organizaciones e instituciones
 
-| concepto | párrafos | del total |
-|---|---:|---:|
-| gobierno | 183 | 15.9% |
-| congreso | 67 | 5.8% |
-| tribunales | 58 | 5.0% |
-| fiscalia | 56 | 4.9% |
-| banco central | 39 | 3.4% |
-| contraloria | 33 | 2.9% |
-| carabineros | 31 | 2.7% |
-| servicio publico | 25 | 2.2% |
-| partido | 23 | 2.0% |
-| organismo internacional | 23 | 2.0% |
-| empresa | 22 | 1.9% |
-| pdi | 20 | 1.7% |
-| municipio | 17 | 1.5% |
-| universidad | 10 | 0.9% |
-| gobierno regional | 9 | 0.8% |
-| colegio | 9 | 0.8% |
-| sindicato | 7 | 0.6% |
-| hospital | 5 | 0.4% |
-| medios | 3 | 0.3% |
+| concepto | párrafos | del total | motivo |
+|---|---:|---:|---|
+| gobierno | 188 | 15.9% | un atril vacío visto de frente, con un micrófono delgado inclinado sobre él |
+| congreso | 69 | 5.8% | una hilera de escaños curva vista desde arriba, con un estrado al centro |
+| tribunales | 58 | 4.9% | una balanza de dos platos, uno más bajo que el otro |
+| fiscalia | 58 | 4.9% | una carpeta cerrada con un cordel cruzado y un sello circular en la esquina |
+| banco central | 39 | 3.3% | una fachada con cuatro columnas y un frontón triangular |
+| contraloria | 34 | 2.9% | una lupa apoyada sobre una columna de cifras alineadas |
+| carabineros | 32 | 2.7% | una gorra de plato vista de perfil, sin insignia |
+| servicio publico | 25 | 2.1% | un mesón de atención con una ventanilla y un timbre encima |
+| empresa | 24 | 2.0% | tres torres de oficinas de distinto alto, alineadas en una misma base |
+| partido | 24 | 2.0% | dos banderines triangulares en astas cruzadas |
+| organismo internacional | 23 | 1.9% | un globo terráqueo con dos ramas de laurel abiertas a los lados |
+| pdi | 21 | 1.8% | una placa ovalada colgando de una cadena corta |
+| municipio | 17 | 1.4% | un edificio bajo de tres arcos con un reloj sobre la puerta |
+| universidad | 12 | 1.0% | un birrete visto en tres cuartos, con la borla caída |
+| gobierno regional | 10 | 0.8% | un mapa alargado dividido en franjas horizontales, con una franja destacada |
+| colegio | 9 | 0.8% | un pupitre con una silla y un libro abierto encima |
+| sindicato | 7 | 0.6% | tres figuras de bastón tomadas del hombro, vistas de espalda |
+| hospital | 5 | 0.4% | una cruz gruesa dentro de un círculo, con una línea de pulso cruzándola |
+| medios | 3 | 0.3% | un micrófono de mano con un cable enroscado que cae |
 
 ## Hechos y eventos
 
-| concepto | párrafos | del total |
-|---|---:|---:|
-| investigacion | 75 | 6.5% |
-| temporal | 56 | 4.9% |
-| anuncio | 48 | 4.2% |
-| reunion | 32 | 2.8% |
-| juicio | 28 | 2.4% |
-| acuerdo | 28 | 2.4% |
-| homicidio | 26 | 2.3% |
-| votacion | 24 | 2.1% |
-| fiscalizacion | 24 | 2.1% |
-| detencion | 21 | 1.8% |
-| denuncia | 16 | 1.4% |
-| viaje | 16 | 1.4% |
-| incendio | 11 | 1.0% |
-| protesta | 10 | 0.9% |
-| secuestro | 10 | 0.9% |
-| acusacion | 9 | 0.8% |
-| rescate | 6 | 0.5% |
-| eleccion | 4 | 0.3% |
-| sismo | 4 | 0.3% |
-| renuncia | 2 | 0.2% |
-| accidente | 2 | 0.2% |
-| robo | 2 | 0.2% |
-| balacera | 2 | 0.2% |
-| incautacion | 2 | 0.2% |
-| nombramiento | 0 | 0.0% |
-| inauguracion | 0 | 0.0% |
+| concepto | párrafos | del total | motivo |
+|---|---:|---:|---|
+| investigacion | 79 | 6.7% | una lupa grande apoyada en diagonal sobre una carpeta abierta |
+| temporal | 58 | 4.9% | una nube gruesa con cinco trazos de lluvia inclinados por el viento |
+| anuncio | 49 | 4.1% | un megáfono de bocina ancha con tres arcos de sonido saliendo |
+| reunion | 33 | 2.8% | una mesa ovalada vista desde arriba con seis sillas alrededor |
+| acuerdo | 30 | 2.5% | dos manos estrechándose, vistas de perfil y sin brazos |
+| juicio | 29 | 2.5% | un mazo de juez apoyado sobre su taco redondo |
+| homicidio | 26 | 2.2% | una silueta de cinta en el suelo, apenas insinuada por su contorno |
+| fiscalizacion | 25 | 2.1% | una tabla con pinza y una lista de casillas, dos marcadas |
+| votacion | 24 | 2.0% | una urna con una ranura y una papeleta entrando |
+| detencion | 21 | 1.8% | un par de esposas abiertas, una argolla sobre la otra |
+| denuncia | 16 | 1.4% | una mano levantando un papel doblado por una esquina |
+| viaje | 16 | 1.4% | una maleta rígida de cantos redondeados con un asa arriba |
+| protesta | 11 | 0.9% | tres carteles en palo, de distinto alto, vistos desde abajo |
+| incendio | 11 | 0.9% | tres lenguas de fuego saliendo de una línea de base quebrada |
+| secuestro | 10 | 0.8% | una cuerda anudada que cruza el cuadro en diagonal |
+| acusacion | 9 | 0.8% | un dedo índice apuntando desde el borde hacia el centro, con tres líneas de énfasis |
+| rescate | 6 | 0.5% | un arnés con mosquetón colgando de una cuerda tensa |
+| eleccion | 4 | 0.3% | una papeleta doblada con una cruz marcada en un recuadro |
+| sismo | 4 | 0.3% | una línea de sismógrafo con un pico alto al centro sobre papel milimetrado |
+| renuncia | 3 | 0.3% | una silla de oficina vacía, girada hacia un costado |
+| accidente | 2 | 0.2% | un triángulo de emergencia parado sobre el asfalto, con la línea del camino detrás |
+| robo | 2 | 0.2% | una puerta entreabierta con la chapa forzada y una palanca apoyada |
+| balacera | 2 | 0.2% | un vidrio estrellado, con las grietas saliendo de un punto |
+| incautacion | 2 | 0.2% | tres bultos apilados con una cinta de precinto cruzada |
+| nombramiento | 0 | 0.0% | una cinta cortada con una tijera, los dos extremos cayendo |
+| inauguracion | 0 | 0.0% | una cinta con un lazo tendida entre dos postes |
 
 ## Dinero y economía
 
-| concepto | párrafos | del total |
-|---|---:|---:|
-| empleo | 42 | 3.6% |
-| precio | 41 | 3.6% |
-| inversion | 26 | 2.3% |
-| dinero publico | 24 | 2.1% |
-| subsidio | 19 | 1.6% |
-| inflacion | 17 | 1.5% |
-| dolar | 16 | 1.4% |
-| corrupcion | 14 | 1.2% |
-| sueldo | 8 | 0.7% |
-| deuda | 8 | 0.7% |
-| pension | 8 | 0.7% |
-| multa | 5 | 0.4% |
-| exportacion | 4 | 0.3% |
-| impuesto | 0 | 0.0% |
+| concepto | párrafos | del total | motivo |
+|---|---:|---:|---|
+| empleo | 47 | 4.0% | un casco de obra apoyado sobre una caja de herramientas |
+| precio | 42 | 3.6% | una etiqueta colgante con un hilo y un círculo vacío |
+| inversion | 29 | 2.5% | una flecha ascendente apoyada en tres barras crecientes |
+| dinero publico | 25 | 2.1% | tres pilas de monedas de distinto alto sobre una misma línea de base |
+| subsidio | 21 | 1.8% | una mano abierta recibiendo una moneda que cae |
+| inflacion | 17 | 1.4% | un globo inflado atado a una piedra |
+| dolar | 17 | 1.4% | una moneda de canto sobre una línea quebrada ascendente |
+| corrupcion | 14 | 1.2% | un maletín entreabierto con un sobre asomando |
+| sueldo | 10 | 0.8% | un sobre abierto con un fajo de billetes asomando |
+| deuda | 8 | 0.7% | una cadena de tres eslabones, el del medio estirado |
+| pension | 8 | 0.7% | un reloj de arena con la arena casi toda abajo |
+| multa | 5 | 0.4% | una boleta perforada con un sello circular encima |
+| exportacion | 4 | 0.3% | un contenedor rectangular con puertas y una grúa sobre él |
+| impuesto | 0 | 0.0% | un papel con una tabla de dos columnas y un porcentaje grande |
 
 ## Territorio y lugares
 
-| concepto | párrafos | del total |
-|---|---:|---:|
-| region | 73 | 6.3% |
-| cordillera | 20 | 1.7% |
-| mar | 16 | 1.4% |
-| comuna | 13 | 1.1% |
-| rio | 12 | 1.0% |
-| frontera | 11 | 1.0% |
-| carretera | 10 | 0.9% |
-| barrio | 8 | 0.7% |
-| desierto | 8 | 0.7% |
-| ciudad | 4 | 0.3% |
-| campo | 4 | 0.3% |
+| concepto | párrafos | del total | motivo |
+|---|---:|---:|---|
+| region | 76 | 6.4% | un mapa largo y angosto con una franja destacada al centro |
+| cordillera | 20 | 1.7% | tres cumbres de distinto alto con nieve insinuada en la más alta |
+| mar | 16 | 1.4% | tres olas superpuestas con una boya asomando |
+| comuna | 14 | 1.2% | tres casas de distinto alto alineadas sobre una calle |
+| rio | 12 | 1.0% | un cauce que serpentea hacia el horizonte entre dos riberas |
+| frontera | 11 | 0.9% | una barrera a rayas levantada con un poste a cada lado |
+| carretera | 10 | 0.8% | una ruta en perspectiva que se angosta hacia el horizonte, con línea discontinua |
+| barrio | 8 | 0.7% | dos casas bajas con un árbol entre ellas y una reja adelante |
+| desierto | 8 | 0.7% | tres dunas superpuestas con una línea de horizonte alta |
+| ciudad | 4 | 0.3% | una fila de edificios de distinto alto vistos de frente, sin ventanas |
+| campo | 4 | 0.3% | cuatro surcos paralelos que se angostan, con una espiga adelante |
 
 ## Objetos e infraestructura
 
-| concepto | párrafos | del total |
-|---|---:|---:|
-| ley | 77 | 6.7% |
-| vivienda | 42 | 3.6% |
-| salud | 29 | 2.5% |
-| transporte | 25 | 2.2% |
-| documento | 24 | 2.1% |
-| obra | 12 | 1.0% |
-| contrato | 12 | 1.0% |
-| educacion | 12 | 1.0% |
-| energia | 11 | 1.0% |
-| agua | 11 | 1.0% |
-| auto | 7 | 0.6% |
-| avion | 7 | 0.6% |
-| droga | 5 | 0.4% |
-| tecnologia | 4 | 0.3% |
-| arma | 1 | 0.1% |
+| concepto | párrafos | del total | motivo |
+|---|---:|---:|---|
+| ley | 78 | 6.6% | un libro abierto por la mitad con una cinta marcadora |
+| vivienda | 43 | 3.6% | una casa de dos aguas con una llave grande apoyada en la puerta |
+| salud | 30 | 2.5% | un estetoscopio formando un lazo abierto |
+| transporte | 25 | 2.1% | un vagón visto de frente sobre dos rieles que se alejan |
+| documento | 24 | 2.0% | una hoja con dobleces y tres líneas de texto insinuadas |
+| contrato | 14 | 1.2% | un papel con una firma trazada y un lápiz cruzado encima |
+| obra | 12 | 1.0% | una grúa torre vista de perfil con un bloque colgando |
+| agua | 12 | 1.0% | una llave de paso con una gota cayendo |
+| educacion | 12 | 1.0% | tres libros apilados con un lápiz apoyado en diagonal |
+| energia | 11 | 0.9% | un poste de alta tensión con tres líneas cruzando el cuadro |
+| auto | 7 | 0.6% | un automóvil de perfil, contorno simple y ruedas grandes |
+| avion | 7 | 0.6% | un avión visto desde abajo con dos estelas cortas detrás |
+| droga | 5 | 0.4% | una bolsa sellada con cierre, vista de frente |
+| tecnologia | 4 | 0.3% | una placa de circuito con tres pistas saliendo hacia los bordes |
+| arma | 1 | 0.1% | un casquillo de bala de pie sobre su base |
 
 ## Tiempo, medida y proceso
 
-| concepto | párrafos | del total |
-|---|---:|---:|
-| caida | 39 | 3.4% |
-| aumento | 27 | 2.3% |
-| etapa | 25 | 2.2% |
-| comparacion | 24 | 2.1% |
-| espera | 22 | 1.9% |
-| plazo | 19 | 1.6% |
+| concepto | párrafos | del total | motivo |
+|---|---:|---:|---|
+| caida | 40 | 3.4% | una flecha que baja en tres escalones |
+| aumento | 27 | 2.3% | una flecha que sube en tres escalones |
+| etapa | 26 | 2.2% | cuatro círculos unidos por una línea, el segundo relleno |
+| comparacion | 25 | 2.1% | dos barras verticales de distinto alto lado a lado, unidas por una llave |
+| espera | 24 | 2.0% | una fila de cinco figuras de bastón, una detrás de otra |
+| plazo | 19 | 1.6% | un calendario de hoja suelta con un día encerrado en círculo |

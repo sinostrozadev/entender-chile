@@ -388,8 +388,46 @@
     .ficha { grid-template-columns: 1fr; }
     .acciones { margin-top: 10px; }
   }
+  /* LA TABLA DE LA BIBLIOTECA. Conceptos en filas, estilos en columnas, y en
+     cada cruce la imagen si existe o el botón que copia su prompt si falta.
+     Es una tabla y no una lista de fichas porque lo que se viene a hacer acá
+     es comparar de un vistazo qué falta, y eso una lista no lo deja hacer. */
+  .bib-controles { align-items: center; display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .bib-controles input[type="text"], .bib-controles select { min-width: 190px; width: auto; }
+  .bib-cuenta-total { color: var(--grafito); font-family: var(--mono); font-size: 12px; }
+  .bib-marco { overflow-x: auto; }
+  .bib-tabla { border-collapse: collapse; font-size: 14px; width: 100%; }
+  .bib-tabla th, .bib-tabla td { border-bottom: 1px solid var(--linea); padding: 9px 12px; text-align: left; vertical-align: top; }
+  .bib-tabla thead th {
+    color: var(--grafito); font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .bib-grupo td {
+    background: var(--patina-suave); color: var(--tinta); font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .bib-nombre { font-weight: 600; }
+  .bib-motivo { color: var(--grafito); font-size: 12px; margin-top: 3px; max-width: 38ch; }
+  .bib-parrafos { color: var(--grafito); font-family: var(--mono); font-size: 12px; white-space: nowrap; }
+  .bib-celda { align-items: flex-start; display: flex; flex-direction: column; gap: 6px; }
+  .bib-mini {
+    background: var(--papel); border: 1px solid var(--linea); cursor: zoom-in;
+    display: block; height: 50px; object-fit: cover; width: 88px;
+  }
+  .bib-mini:focus-visible { outline: 2px solid var(--patina); outline-offset: 2px; }
+  .bib-subir { color: var(--grafito); cursor: pointer; font-family: var(--mono); font-size: 11px; }
+  .bib-subir:hover { color: var(--patina); }
+  .bib-subir input { display: none; }
+  /* la biblioteca necesita más ancho que el resto: son cuatro columnas */
+  body.ancho main { max-width: 1180px; }
+
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 </style>
+<!-- los conceptos y sus motivos, generados por scripts/conteo-conceptos.js
+     desde los guiones del repositorio. El taller vive en claude.ai y no puede
+     leer el repositorio, así que el dato viaja como archivo publicado al lado
+     de esta página. -->
+<script src="conceptos.js"></script>
 
 <div class="barra">
   <div class="barra-dentro">
@@ -398,6 +436,7 @@
       <button class="pestana" id="tab-trabajos" role="tab" aria-selected="true" aria-controls="panel-trabajos">Formatos</button>
       <button class="pestana" id="tab-secciones" role="tab" aria-selected="false" aria-controls="panel-secciones">Secciones</button>
       <button class="pestana" id="tab-estilos" role="tab" aria-selected="false" aria-controls="panel-estilos">Estilos</button>
+      <button class="pestana" id="tab-biblioteca" role="tab" aria-selected="false" aria-controls="panel-biblioteca">Biblioteca</button>
     </div>
   </div>
 </div>
@@ -424,6 +463,18 @@
     <p class="bajada">Cada estilo es una serie completa de imágenes de sección: sobrio, clásico, el que venga. Solo uno rige a la vez, y cambiarlo cambia el fondo de todas las secciones del video siguiente.</p>
     <div id="lista-estilos" class="lista"><p class="cargando">Cargando los estilos...</p></div>
     <button class="agregar" id="nuevo-estilo" disabled>Agregar un estilo</button>
+  </section>
+
+  <section id="panel-biblioteca" role="tabpanel" aria-labelledby="tab-biblioteca" hidden>
+    <h1>La biblioteca de imágenes</h1>
+    <p class="bajada">Los conceptos que de verdad aparecen en el informe, contados sobre los guiones. Cada fila es un dibujo que hace falta; cada columna, un estilo. Donde hay imagen se ve la miniatura; donde falta, el botón copia el prompt listo para pegar en el generador y después se sube acá.</p>
+    <div class="bib-controles">
+      <input type="text" id="bib-buscar" placeholder="Buscar un concepto" aria-label="Buscar un concepto">
+      <select id="bib-categoria" aria-label="Categoría"><option value="">Todas las categorías</option></select>
+      <label class="casilla"><input type="checkbox" id="bib-faltan"> Solo los que faltan</label>
+      <span class="bib-cuenta-total" id="bib-cuenta"></span>
+    </div>
+    <div class="bib-marco"><div id="tabla-biblioteca"><p class="cargando">Cargando la biblioteca...</p></div></div>
   </section>
 
   <section id="panel-detalle" role="tabpanel" hidden>
@@ -464,8 +515,12 @@
 
   var db = null;
   var puedeEscribir = null;      // null = todavía no se sabe
-  var datos = { trabajos: [], secciones: [], ajustes: [], bloques: [], estilos: [], caratulas: [], vistas: [], prompts: [] };
-  var cargado = { trabajos: false, secciones: false, ajustes: false, bloques: false, estilos: false, caratulas: false, vistas: false, prompts: false };
+  var datos = { trabajos: [], secciones: [], ajustes: [], bloques: [], estilos: [], caratulas: [], vistas: [], prompts: [], biblioteca: [] };
+  var cargado = { trabajos: false, secciones: false, ajustes: false, bloques: false, estilos: false, caratulas: false, vistas: false, prompts: false, biblioteca: false };
+  // el almacén de archivos del artefacto: es lo que deja subir una imagen
+  // desde acá sin pasar por el repositorio
+  var bienes = null;
+  var bibFiltro = { texto: "", categoria: "", faltan: false };
   // qué prompt está desplegado: uno a la vez, porque el más largo son 285
   // líneas y dos abiertos a la vez no se leen, se hojean
   var abierto = null;
@@ -505,18 +560,22 @@
   function mostrar(cual) {
     el("panel-detalle").hidden = true;
     var pares = [["trabajos", "tab-trabajos", "panel-trabajos"], ["secciones", "tab-secciones", "panel-secciones"],
-                 ["estilos", "tab-estilos", "panel-estilos"]];
+                 ["estilos", "tab-estilos", "panel-estilos"], ["biblioteca", "tab-biblioteca", "panel-biblioteca"]];
     pares.forEach(function (p) {
       var activa = p[0] === cual;
       el(p[1]).setAttribute("aria-selected", activa ? "true" : "false");
       el(p[2]).hidden = !activa;
     });
+    // la biblioteca es la única que necesita más ancho: cuatro columnas no
+    // caben en los 880 px que le vienen bien a todo lo demás
+    document.body.classList.toggle("ancho", cual === "biblioteca");
     editando = null;
     pintar();
   }
   el("tab-trabajos").addEventListener("click", function () { salir(); mostrar("trabajos"); });
   el("tab-secciones").addEventListener("click", function () { salir(); mostrar("secciones"); });
   el("tab-estilos").addEventListener("click", function () { salir(); mostrar("estilos"); });
+  el("tab-biblioteca").addEventListener("click", function () { salir(); mostrar("biblioteca"); });
 
   function entrar(id) {
     salir();
@@ -524,6 +583,8 @@
     editando = null; porBorrar = null; aviso("");
     el("panel-trabajos").hidden = true;
     el("panel-secciones").hidden = true;
+    el("panel-biblioteca").hidden = true;
+    document.body.classList.remove("ancho");
     el("panel-detalle").hidden = false;
     if (db) {
       cargado.ajustes = false; cargado.bloques = false;
@@ -882,7 +943,11 @@
     estilos: [
       { k: "nombre", etiqueta: "Nombre", ayuda: "Como lo llamas tú: Sobrio, Clásico, Papel." },
       { k: "carpeta", etiqueta: "Carpeta de sus imágenes", mono: true, ayuda: "Una carpeta bajo contenido/secciones, sin barras: papel, sobrio. Vacío = las que están sueltas en contenido/secciones." },
-      { k: "que", etiqueta: "Cómo se ve", tipo: "textarea", ayuda: "Una frase: en qué se distingue de los otros." }
+      { k: "que", etiqueta: "Cómo se ve", tipo: "textarea", ayuda: "Una frase: en qué se distingue de los otros." },
+      { k: "prompt", etiqueta: "Bloque de prompt", tipo: "textarea", mono: true,
+        ayuda: "Lo que se pega al final de CUALQUIER prompt de este estilo: fondo, trazo, tamaño y las prohibiciones. El motivo lo pone cada concepto; esto es todo lo demás." },
+      { k: "biblioteca", etiqueta: "Tiene biblioteca de conceptos", tipo: "casilla",
+        ayuda: "Marcado = sale como columna en la Biblioteca. Sin marcar = es un estilo de secciones y nada más, como Color, que a propósito no lleva imágenes." }
     ],
     ajustes: [
       { k: "nombre", etiqueta: "Qué se ajusta", ayuda: "En palabras tuyas: \"cuánto calla entre bloques\"." },
@@ -1140,8 +1205,226 @@
     el("nuevo-bloque").disabled = puedeEscribir === false || !db;
   }
 
+  // ---- la biblioteca -----------------------------------------------------
+  //
+  // De dónde sale cada cosa, porque son tres fuentes distintas y conviene
+  // tenerlo claro al leer esto:
+  //
+  //   las FILAS      de conceptos.js, que genera scripts/conteo-conceptos.js
+  //                  contando los guiones del repositorio. No se editan acá:
+  //                  se vuelve a correr el script y se vuelve a publicar.
+  //   las COLUMNAS   de la colección `estilos`, la misma que ya edita la
+  //                  pestaña Estilos. Un estilo sale como columna solo si
+  //                  tiene marcada su biblioteca.
+  //   las IMÁGENES   de la colección `biblioteca`, que se llena subiéndolas
+  //                  acá. Es lo único de esta pantalla que se escribe.
+  //
+  // El prompt no se guarda en ninguna parte: se arma en el momento con el
+  // motivo del concepto mas el bloque del estilo. Guardarlo sería tener dos
+  // versiones de la misma frase y que una envejezca.
+  var BLOQUE_POR_DEFECTO = "16:9, 1920 x 1080. Un solo motivo, centrado, con aire alrededor.\n" +
+    "Sin texto, sin letras, sin números, sin marcos, sin logos, sin marca de agua.\n" +
+    "Nada reconocible: ningún lugar identificable ni persona real.";
+
+  function bibId(nombre) {
+    return texto(nombre).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
+
+  function estilosBiblioteca() {
+    return datos.estilos.filter(function (e) { return e.biblioteca !== false; })
+      .sort(function (a, b) { return texto(a.nombre).localeCompare(texto(b.nombre)); });
+  }
+
+  function imagenBib(concepto, estiloId) {
+    var clave = estiloId + "__" + bibId(concepto);
+    for (var i = 0; i < datos.biblioteca.length; i++) {
+      var d = datos.biblioteca[i];
+      if (d.id === clave || (d.concepto === concepto && d.estilo === estiloId)) return d;
+    }
+    return null;
+  }
+
+  function promptDe(termino, estilo) {
+    return 'Ilustración de línea para un canal de noticias, del concepto "' + termino.nombre + '".\n' +
+      "Un solo motivo, centrado: " + termino.motivo + ".\n\n" +
+      (texto(estilo.prompt) || BLOQUE_POR_DEFECTO);
+  }
+
+  // copiar sin depender del portapapeles moderno: en algunos navegadores
+  // dentro de un marco la promesa se rechaza sin decir por qué, y quedarse sin
+  // el prompt es justamente lo que esta pantalla viene a evitar
+  function copiar(txt, boton_) {
+    var listo = function () {
+      var antes = boton_.textContent;
+      boton_.textContent = "Copiado";
+      setTimeout(function () { boton_.textContent = antes; }, 1400);
+    };
+    var aMano = function () {
+      var ta = document.createElement("textarea");
+      ta.value = txt;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      var bien = false;
+      try { bien = document.execCommand("copy"); } catch (e) { bien = false; }
+      document.body.removeChild(ta);
+      if (bien) listo(); else aviso("No se pudo copiar solo. Abre el prompt y cópialo a mano.");
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(listo).catch(aMano);
+    } else { aMano(); }
+  }
+
+  function subirImagen(termino, estilo, archivo, control) {
+    if (!bienes) { aviso("Esta vista no puede subir archivos. Ábrela desde tu cuenta de claude.ai."); return; }
+    if (!db) { aviso("No se puede guardar en esta vista."); return; }
+    control.textContent = "Subiendo...";
+    bienes.upload(archivo).then(function (r) {
+      return db.collection("biblioteca").doc(estilo.id + "__" + bibId(termino.nombre)).set({
+        concepto: termino.nombre, estilo: estilo.id, url: r.url,
+        archivo: archivo.name, categoria: termino.categoria || ""
+      });
+    }).then(function () {
+      // OJO, y es una deuda real: esto la deja en el taller, no en el
+      // repositorio. El video lee de contenido/biblioteca, así que después hay
+      // que bajarla. Mientras no exista ese puente, decirlo es lo mínimo.
+      aviso("Subida. Ojo: queda en el taller, todavía no baja sola al repositorio.");
+    }).catch(function (e) {
+      aviso("No se pudo subir: " + ((e && e.message) || "error") + ".");
+      control.textContent = "Subir imagen";
+    });
+  }
+
+  // el botón de copiar NO usa boton(), que se deshabilita solo cuando la vista
+  // es de solo lectura: copiar un prompt no escribe nada y tiene que servirle
+  // a cualquiera que abra el taller
+  function botonCopiar(termino, estilo) {
+    var b = nodo("button", "chico", "Copiar prompt");
+    b.type = "button";
+    b.addEventListener("click", function () { copiar(promptDe(termino, estilo), b); });
+    return b;
+  }
+
+  function celdaBiblioteca(termino, estilo) {
+    var c = nodo("div", "bib-celda");
+    var img = imagenBib(termino.nombre, estilo.id);
+    if (img && img.url) {
+      var i = document.createElement("img");
+      i.className = "bib-mini";
+      i.src = img.url;
+      i.alt = termino.nombre + " en " + texto(estilo.nombre);
+      i.loading = "lazy";
+      i.tabIndex = 0;
+      var abrir = function () { abrirVisor(img.url, termino.nombre + " · " + texto(estilo.nombre)); };
+      i.addEventListener("click", abrir);
+      i.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); abrir(); } });
+      c.appendChild(i);
+      c.appendChild(botonCopiar(termino, estilo));
+      return c;
+    }
+    c.appendChild(botonCopiar(termino, estilo));
+    if (puedeEscribir !== false) {
+      var lab = nodo("label", "bib-subir", "Subir imagen");
+      var ent = document.createElement("input");
+      ent.type = "file";
+      ent.accept = "image/*";
+      ent.addEventListener("change", function () {
+        if (ent.files && ent.files[0]) subirImagen(termino, estilo, ent.files[0], lab);
+      });
+      lab.appendChild(ent);
+      c.appendChild(lab);
+    }
+    return c;
+  }
+
+  function pintarBiblioteca() {
+    var caja = el("tabla-biblioteca");
+    caja.textContent = "";
+    var fuente = window.CONCEPTOS;
+    if (!fuente || !fuente.categorias) {
+      caja.appendChild(nodo("p", "vacio", "No se pudo leer la lista de conceptos (conceptos.js). Vuelve a publicar el taller."));
+      return;
+    }
+    var cols = estilosBiblioteca();
+    if (!cargado.estilos) { caja.appendChild(nodo("p", "cargando", "Cargando...")); return; }
+
+    // el selector de categorías se llena una sola vez, con lo que traiga el dato
+    var sel = el("bib-categoria");
+    if (sel.options.length <= 1) {
+      fuente.categorias.forEach(function (cat) {
+        var o = document.createElement("option");
+        o.value = cat.clave; o.textContent = cat.titulo;
+        sel.appendChild(o);
+      });
+    }
+
+    var busca = bibFiltro.texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    var tabla = document.createElement("table");
+    tabla.className = "bib-tabla";
+    var thead = document.createElement("thead");
+    var trh = document.createElement("tr");
+    ["Concepto", "Párrafos"].forEach(function (t) { trh.appendChild(nodo("th", null, t)); });
+    cols.forEach(function (e) { trh.appendChild(nodo("th", null, texto(e.nombre) || e.id)); });
+    thead.appendChild(trh);
+    tabla.appendChild(thead);
+    var cuerpo = document.createElement("tbody");
+
+    var total = 0, faltantes = 0, mostrados = 0;
+    fuente.categorias.forEach(function (cat) {
+      if (bibFiltro.categoria && cat.clave !== bibFiltro.categoria) return;
+      var filas = cat.terminos.filter(function (t) {
+        total++;
+        var falta = cols.some(function (e) { return !imagenBib(t.nombre, e.id); });
+        if (falta) faltantes++;
+        if (bibFiltro.faltan && !falta) return false;
+        if (busca) {
+          var plano = (t.nombre + " " + t.motivo).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+          if (plano.indexOf(busca) < 0) return false;
+        }
+        return true;
+      });
+      if (!filas.length) return;
+      var gr = document.createElement("tr");
+      gr.className = "bib-grupo";
+      var gtd = nodo("td", null, cat.titulo);
+      gtd.colSpan = 2 + cols.length;
+      gr.appendChild(gtd);
+      cuerpo.appendChild(gr);
+      filas.forEach(function (t) {
+        mostrados++;
+        var tr = document.createElement("tr");
+        var td = document.createElement("td");
+        td.appendChild(nodo("div", "bib-nombre", t.nombre));
+        td.appendChild(nodo("div", "bib-motivo", t.motivo));
+        tr.appendChild(td);
+        tr.appendChild(nodo("td", "bib-parrafos", String(t.parrafos)));
+        cols.forEach(function (e) {
+          var c = document.createElement("td");
+          c.appendChild(celdaBiblioteca({ nombre: t.nombre, motivo: t.motivo, categoria: cat.clave }, e));
+          tr.appendChild(c);
+        });
+        cuerpo.appendChild(tr);
+      });
+    });
+    tabla.appendChild(cuerpo);
+    if (!mostrados) caja.appendChild(nodo("p", "vacio", "Nada calza con ese filtro."));
+    else caja.appendChild(tabla);
+    el("bib-cuenta").textContent = total + " conceptos · " + faltantes + " con algún estilo sin imagen · " +
+      cols.length + (cols.length === 1 ? " estilo" : " estilos");
+  }
+
+  el("bib-buscar").addEventListener("input", function () { bibFiltro.texto = this.value; pintarBiblioteca(); });
+  el("bib-categoria").addEventListener("change", function () { bibFiltro.categoria = this.value; pintarBiblioteca(); });
+  el("bib-faltan").addEventListener("change", function () { bibFiltro.faltan = this.checked; pintarBiblioteca(); });
+
   function pintar() {
     if (dentro) { pintarDetalle(); return; }
+    // son noventa y un conceptos por estilo: dibujar la tabla en cada snapshot
+    // aunque la pestaña esté escondida es trabajo tirado
+    if (!el("panel-biblioteca").hidden) pintarBiblioteca();
     lista("estilos", el("lista-estilos"),
       function (a, b) { return (b.activo ? 1 : 0) - (a.activo ? 1 : 0) || texto(a.nombre).localeCompare(texto(b.nombre)); },
       fichaEstilo, "Todavía no hay estilos guardados.", null);
@@ -1255,6 +1538,7 @@
       pintar();
       return;
     }
+    try { bienes = await claude.use("assets"); } catch (e) { bienes = null; }
     try {
       var usuario = await claude.use("user");
       if (usuario) {
@@ -1271,6 +1555,7 @@
     escuchar("secciones");
     escuchar("estilos");
     escuchar("vistas");
+    escuchar("biblioteca");
     pintar();
   })();
 

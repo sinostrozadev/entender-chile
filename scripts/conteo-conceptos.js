@@ -32,6 +32,9 @@ const { CATEGORIAS } = require("./vocabulario.js");
 const GUIONES = path.join("contenido", "guiones", "informe");
 const SALIDA_MD = path.join("contenido", "biblioteca", "CONCEPTOS.md");
 const SALIDA_JSON = path.join("contenido", "biblioteca", "conceptos.json");
+// el mismo dato, como archivo suelto que el Taller publica junto a su página:
+// el taller vive en claude.ai y no puede leer el repositorio
+const SALIDA_TALLER = path.join("taller", "conceptos.js");
 
 const sinTildes = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
@@ -122,9 +125,9 @@ md += `\nEl juego de **mezclar dos dibujos** (la organización mas el hecho) sol
 md += `sirve donde hay dos categorías o más. Ese número está arriba.\n`;
 
 for (const cat of CATEGORIAS) {
-  const filas = cat.terminos.map(([n]) => [n, cuenta[n].parrafos]).sort((a, b) => b[1] - a[1]);
-  md += `\n## ${cat.titulo}\n\n| concepto | párrafos | del total |\n|---|---:|---:|\n`;
-  for (const [n, v] of filas) md += `| ${n} | ${v} | ${pc(v)} |\n`;
+  const filas = cat.terminos.map(([n, , m]) => [n, cuenta[n].parrafos, m]).sort((a, b) => b[1] - a[1]);
+  md += `\n## ${cat.titulo}\n\n| concepto | párrafos | del total | motivo |\n|---|---:|---:|---|\n`;
+  for (const [n, v, m] of filas) md += `| ${n} | ${v} | ${pc(v)} | ${m} |\n`;
 }
 
 const json = {
@@ -132,7 +135,7 @@ const json = {
   guiones: archivos.length, parrafos: total, conAlguno: conAlguno.size,
   categorias: CATEGORIAS.map((c) => ({
     clave: c.clave, titulo: c.titulo,
-    terminos: c.terminos.map(([n, v]) => ({ nombre: n, parrafos: cuenta[n].parrafos, variantes: v }))
+    terminos: c.terminos.map(([n, v, motivo]) => ({ nombre: n, parrafos: cuenta[n].parrafos, motivo, variantes: v }))
       .sort((a, b) => b.parrafos - a.parrafos),
   })),
 };
@@ -142,7 +145,10 @@ if (process.argv.includes("--ver")) {
 } else {
   fs.writeFileSync(SALIDA_MD, md);
   fs.writeFileSync(SALIDA_JSON, JSON.stringify(json, null, 1));
+  fs.writeFileSync(SALIDA_TALLER,
+    "// GENERADO por scripts/conteo-conceptos.js. No se edita a mano.\n" +
+    "window.CONCEPTOS = " + JSON.stringify(json) + ";\n");
   console.log(`${total} párrafos de ${archivos.length} guiones`);
   console.log(`${conAlguno.size} tocan algún concepto (${pc(conAlguno.size)})`);
-  console.log(`escritos ${SALIDA_MD} y ${SALIDA_JSON}`);
+  console.log(`escritos ${SALIDA_MD}, ${SALIDA_JSON} y ${SALIDA_TALLER}`);
 }

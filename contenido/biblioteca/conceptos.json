@@ -1,8 +1,8 @@
 {
  "generado": "2026-09-29",
- "guiones": 36,
- "parrafos": 1154,
- "conAlguno": 887,
+ "guiones": 37,
+ "parrafos": 1183,
+ "conAlguno": 912,
  "categorias": [
   {
    "clave": "organizaciones",
@@ -10,7 +10,8 @@
    "terminos": [
     {
      "nombre": "gobierno",
-     "parrafos": 183,
+     "parrafos": 188,
+     "motivo": "un atril vacío visto de frente, con un micrófono delgado inclinado sobre él",
      "variantes": [
       "gobierno",
       "la moneda",
@@ -23,7 +24,8 @@
     },
     {
      "nombre": "congreso",
-     "parrafos": 67,
+     "parrafos": 69,
+     "motivo": "una hilera de escaños curva vista desde arriba, con un estrado al centro",
      "variantes": [
       "congreso",
       "senado",
@@ -36,6 +38,7 @@
     {
      "nombre": "tribunales",
      "parrafos": 58,
+     "motivo": "una balanza de dos platos, uno más bajo que el otro",
      "variantes": [
       "tribunal",
       "corte suprema",
@@ -47,7 +50,8 @@
     },
     {
      "nombre": "fiscalia",
-     "parrafos": 56,
+     "parrafos": 58,
+     "motivo": "una carpeta cerrada con un cordel cruzado y un sello circular en la esquina",
      "variantes": [
       "fiscalia",
       "ministerio publico",
@@ -58,6 +62,7 @@
     {
      "nombre": "banco central",
      "parrafos": 39,
+     "motivo": "una fachada con cuatro columnas y un frontón triangular",
      "variantes": [
       "banco central",
       "banco estado",
@@ -66,7 +71,8 @@
     },
     {
      "nombre": "contraloria",
-     "parrafos": 33,
+     "parrafos": 34,
+     "motivo": "una lupa apoyada sobre una columna de cifras alineadas",
      "variantes": [
       "contraloria",
       "contralor"
@@ -74,7 +80,8 @@
     },
     {
      "nombre": "carabineros",
-     "parrafos": 31,
+     "parrafos": 32,
+     "motivo": "una gorra de plato vista de perfil, sin insignia",
      "variantes": [
       "carabineros",
       "carabinero",
@@ -84,6 +91,7 @@
     {
      "nombre": "servicio publico",
      "parrafos": 25,
+     "motivo": "un mesón de atención con una ventanilla y un timbre encima",
      "variantes": [
       "superintendencia",
       "senapred",
@@ -99,8 +107,21 @@
      ]
     },
     {
+     "nombre": "empresa",
+     "parrafos": 24,
+     "motivo": "tres torres de oficinas de distinto alto, alineadas en una misma base",
+     "variantes": [
+      "empresa",
+      "compania",
+      "holding",
+      "sociedad anonima",
+      "firma "
+     ]
+    },
+    {
      "nombre": "partido",
-     "parrafos": 23,
+     "parrafos": 24,
+     "motivo": "dos banderines triangulares en astas cruzadas",
      "variantes": [
       "partido",
       "republicanos",
@@ -115,6 +136,7 @@
     {
      "nombre": "organismo internacional",
      "parrafos": 23,
+     "motivo": "un globo terráqueo con dos ramas de laurel abiertas a los lados",
      "variantes": [
       "naciones unidas",
       "onu",
@@ -127,19 +149,9 @@
      ]
     },
     {
-     "nombre": "empresa",
-     "parrafos": 22,
-     "variantes": [
-      "empresa",
-      "compania",
-      "holding",
-      "sociedad anonima",
-      "firma "
-     ]
-    },
-    {
      "nombre": "pdi",
-     "parrafos": 20,
+     "parrafos": 21,
+     "motivo": "una placa ovalada colgando de una cadena corta",
      "variantes": [
       "pdi",
       "policia de investigaciones",
@@ -149,6 +161,7 @@
     {
      "nombre": "municipio",
      "parrafos": 17,
+     "motivo": "un edificio bajo de tres arcos con un reloj sobre la puerta",
      "variantes": [
       "municipalidad",
       "municipio",
@@ -160,7 +173,8 @@
     },
     {
      "nombre": "universidad",
-     "parrafos": 10,
+     "parrafos": 12,
+     "motivo": "un birrete visto en tres cuartos, con la borla caída",
      "variantes": [
       "universidad",
       "casa de estudios",
@@ -169,7 +183,8 @@
     },
     {
      "nombre": "gobierno regional",
-     "parrafos": 9,
+     "parrafos": 10,
+     "motivo": "un mapa alargado dividido en franjas horizontales, con una franja destacada",
      "variantes": [
       "gobierno regional",
       "gobernador",
@@ -181,6 +196,7 @@
     {
      "nombre": "colegio",
      "parrafos": 9,
+     "motivo": "un pupitre con una silla y un libro abierto encima",
      "variantes": [
       "colegio",
       "escuela",
@@ -192,6 +208,7 @@
     {
      "nombre": "sindicato",
      "parrafos": 7,
+     "motivo": "tres figuras de bastón tomadas del hombro, vistas de espalda",
      "variantes": [
       "sindicato",
       "gremio",
@@ -203,6 +220,7 @@
     {
      "nombre": "hospital",
      "parrafos": 5,
+     "motivo": "una cruz gruesa dentro de un círculo, con una línea de pulso cruzándola",
      "variantes": [
       "hospital",
       "cesfam",
@@ -214,6 +232,7 @@
     {
      "nombre": "medios",
      "parrafos": 3,
+     "motivo": "un micrófono de mano con un cable enroscado que cae",
      "variantes": [
       "prensa",
       "periodista",
@@ -230,7 +249,8 @@
    "terminos": [
     {
      "nombre": "investigacion",
-     "parrafos": 75,
+     "parrafos": 79,
+     "motivo": "una lupa grande apoyada en diagonal sobre una carpeta abierta",
      "variantes": [
       "investigacion",
       "investiga",
@@ -242,7 +262,8 @@
     },
     {
      "nombre": "temporal",
-     "parrafos": 56,
+     "parrafos": 58,
+     "motivo": "una nube gruesa con cinco trazos de lluvia inclinados por el viento",
      "variantes": [
       "temporal",
       "lluvia",
@@ -256,7 +277,8 @@
     },
     {
      "nombre": "anuncio",
-     "parrafos": 48,
+     "parrafos": 49,
+     "motivo": "un megáfono de bocina ancha con tres arcos de sonido saliendo",
      "variantes": [
       "anuncio",
       "anuncia",
@@ -268,7 +290,8 @@
     },
     {
      "nombre": "reunion",
-     "parrafos": 32,
+     "parrafos": 33,
+     "motivo": "una mesa ovalada vista desde arriba con seis sillas alrededor",
      "variantes": [
       "reunion",
       "cumbre",
@@ -278,8 +301,21 @@
      ]
     },
     {
+     "nombre": "acuerdo",
+     "parrafos": 30,
+     "motivo": "dos manos estrechándose, vistas de perfil y sin brazos",
+     "variantes": [
+      "acuerdo",
+      "convenio",
+      "pacto",
+      "firmaron",
+      "entendimiento"
+     ]
+    },
+    {
      "nombre": "juicio",
-     "parrafos": 28,
+     "parrafos": 29,
+     "motivo": "un mazo de juez apoyado sobre su taco redondo",
      "variantes": [
       "juicio",
       "condena",
@@ -290,19 +326,9 @@
      ]
     },
     {
-     "nombre": "acuerdo",
-     "parrafos": 28,
-     "variantes": [
-      "acuerdo",
-      "convenio",
-      "pacto",
-      "firmaron",
-      "entendimiento"
-     ]
-    },
-    {
      "nombre": "homicidio",
      "parrafos": 26,
+     "motivo": "una silueta de cinta en el suelo, apenas insinuada por su contorno",
      "variantes": [
       "homicidio",
       "asesinato",
@@ -315,8 +341,21 @@
      ]
     },
     {
+     "nombre": "fiscalizacion",
+     "parrafos": 25,
+     "motivo": "una tabla con pinza y una lista de casillas, dos marcadas",
+     "variantes": [
+      "fiscalizacion",
+      "fiscalizo",
+      "control ",
+      "inspeccion",
+      "sumario sanitario"
+     ]
+    },
+    {
      "nombre": "votacion",
      "parrafos": 24,
+     "motivo": "una urna con una ranura y una papeleta entrando",
      "variantes": [
       "votacion",
       "voto",
@@ -327,19 +366,9 @@
      ]
     },
     {
-     "nombre": "fiscalizacion",
-     "parrafos": 24,
-     "variantes": [
-      "fiscalizacion",
-      "fiscalizo",
-      "control ",
-      "inspeccion",
-      "sumario sanitario"
-     ]
-    },
-    {
      "nombre": "detencion",
      "parrafos": 21,
+     "motivo": "un par de esposas abiertas, una argolla sobre la otra",
      "variantes": [
       "detencion",
       "detenido",
@@ -352,6 +381,7 @@
     {
      "nombre": "denuncia",
      "parrafos": 16,
+     "motivo": "una mano levantando un papel doblado por una esquina",
      "variantes": [
       "denuncia",
       "denuncio",
@@ -362,6 +392,7 @@
     {
      "nombre": "viaje",
      "parrafos": 16,
+     "motivo": "una maleta rígida de cantos redondeados con un asa arriba",
      "variantes": [
       "viaje",
       "gira",
@@ -371,19 +402,9 @@
      ]
     },
     {
-     "nombre": "incendio",
-     "parrafos": 11,
-     "variantes": [
-      "incendio",
-      "fuego",
-      "llamas",
-      "quemad",
-      "siniestro"
-     ]
-    },
-    {
      "nombre": "protesta",
-     "parrafos": 10,
+     "parrafos": 11,
+     "motivo": "tres carteles en palo, de distinto alto, vistos desde abajo",
      "variantes": [
       "protesta",
       "manifestacion",
@@ -394,8 +415,21 @@
      ]
     },
     {
+     "nombre": "incendio",
+     "parrafos": 11,
+     "motivo": "tres lenguas de fuego saliendo de una línea de base quebrada",
+     "variantes": [
+      "incendio",
+      "fuego",
+      "llamas",
+      "quemad",
+      "siniestro"
+     ]
+    },
+    {
      "nombre": "secuestro",
      "parrafos": 10,
+     "motivo": "una cuerda anudada que cruza el cuadro en diagonal",
      "variantes": [
       "secuestro",
       "secuestrad",
@@ -405,6 +439,7 @@
     {
      "nombre": "acusacion",
      "parrafos": 9,
+     "motivo": "un dedo índice apuntando desde el borde hacia el centro, con tres líneas de énfasis",
      "variantes": [
       "acusacion",
       "acuso",
@@ -416,6 +451,7 @@
     {
      "nombre": "rescate",
      "parrafos": 6,
+     "motivo": "un arnés con mosquetón colgando de una cuerda tensa",
      "variantes": [
       "rescate",
       "rescatad",
@@ -428,6 +464,7 @@
     {
      "nombre": "eleccion",
      "parrafos": 4,
+     "motivo": "una papeleta doblada con una cruz marcada en un recuadro",
      "variantes": [
       "eleccion",
       "elecciones",
@@ -439,6 +476,7 @@
     {
      "nombre": "sismo",
      "parrafos": 4,
+     "motivo": "una línea de sismógrafo con un pico alto al centro sobre papel milimetrado",
      "variantes": [
       "sismo",
       "terremoto",
@@ -449,7 +487,8 @@
     },
     {
      "nombre": "renuncia",
-     "parrafos": 2,
+     "parrafos": 3,
+     "motivo": "una silla de oficina vacía, girada hacia un costado",
      "variantes": [
       "renuncia",
       "renuncio",
@@ -461,6 +500,7 @@
     {
      "nombre": "accidente",
      "parrafos": 2,
+     "motivo": "un triángulo de emergencia parado sobre el asfalto, con la línea del camino detrás",
      "variantes": [
       "accidente",
       "choque",
@@ -472,6 +512,7 @@
     {
      "nombre": "robo",
      "parrafos": 2,
+     "motivo": "una puerta entreabierta con la chapa forzada y una palanca apoyada",
      "variantes": [
       "robo",
       "hurto",
@@ -484,6 +525,7 @@
     {
      "nombre": "balacera",
      "parrafos": 2,
+     "motivo": "un vidrio estrellado, con las grietas saliendo de un punto",
      "variantes": [
       "balacera",
       "disparo",
@@ -495,6 +537,7 @@
     {
      "nombre": "incautacion",
      "parrafos": 2,
+     "motivo": "tres bultos apilados con una cinta de precinto cruzada",
      "variantes": [
       "incautacion",
       "incauto",
@@ -506,6 +549,7 @@
     {
      "nombre": "nombramiento",
      "parrafos": 0,
+     "motivo": "una cinta cortada con una tijera, los dos extremos cayendo",
      "variantes": [
       "nombramiento",
       "designo",
@@ -517,6 +561,7 @@
     {
      "nombre": "inauguracion",
      "parrafos": 0,
+     "motivo": "una cinta con un lazo tendida entre dos postes",
      "variantes": [
       "inauguracion",
       "inauguro",
@@ -532,7 +577,8 @@
    "terminos": [
     {
      "nombre": "empleo",
-     "parrafos": 42,
+     "parrafos": 47,
+     "motivo": "un casco de obra apoyado sobre una caja de herramientas",
      "variantes": [
       "empleo",
       "desempleo",
@@ -544,7 +590,8 @@
     },
     {
      "nombre": "precio",
-     "parrafos": 41,
+     "parrafos": 42,
+     "motivo": "una etiqueta colgante con un hilo y un círculo vacío",
      "variantes": [
       "precio",
       "alza ",
@@ -556,7 +603,8 @@
     },
     {
      "nombre": "inversion",
-     "parrafos": 26,
+     "parrafos": 29,
+     "motivo": "una flecha ascendente apoyada en tres barras crecientes",
      "variantes": [
       "inversion",
       "invertir",
@@ -566,7 +614,8 @@
     },
     {
      "nombre": "dinero publico",
-     "parrafos": 24,
+     "parrafos": 25,
+     "motivo": "tres pilas de monedas de distinto alto sobre una misma línea de base",
      "variantes": [
       "dinero publico",
       "recursos publicos",
@@ -578,7 +627,8 @@
     },
     {
      "nombre": "subsidio",
-     "parrafos": 19,
+     "parrafos": 21,
+     "motivo": "una mano abierta recibiendo una moneda que cae",
      "variantes": [
       "subsidio",
       "bono ",
@@ -590,6 +640,7 @@
     {
      "nombre": "inflacion",
      "parrafos": 17,
+     "motivo": "un globo inflado atado a una piedra",
      "variantes": [
       "inflacion",
       "ipc",
@@ -599,7 +650,8 @@
     },
     {
      "nombre": "dolar",
-     "parrafos": 16,
+     "parrafos": 17,
+     "motivo": "una moneda de canto sobre una línea quebrada ascendente",
      "variantes": [
       "dolar",
       "tipo de cambio",
@@ -610,6 +662,7 @@
     {
      "nombre": "corrupcion",
      "parrafos": 14,
+     "motivo": "un maletín entreabierto con un sobre asomando",
      "variantes": [
       "corrupcion",
       "fraude",
@@ -621,7 +674,8 @@
     },
     {
      "nombre": "sueldo",
-     "parrafos": 8,
+     "parrafos": 10,
+     "motivo": "un sobre abierto con un fajo de billetes asomando",
      "variantes": [
       "sueldo",
       "salario",
@@ -632,6 +686,7 @@
     {
      "nombre": "deuda",
      "parrafos": 8,
+     "motivo": "una cadena de tres eslabones, el del medio estirado",
      "variantes": [
       "deuda",
       "moroso",
@@ -643,6 +698,7 @@
     {
      "nombre": "pension",
      "parrafos": 8,
+     "motivo": "un reloj de arena con la arena casi toda abajo",
      "variantes": [
       "pension",
       "jubilacion",
@@ -653,6 +709,7 @@
     {
      "nombre": "multa",
      "parrafos": 5,
+     "motivo": "una boleta perforada con un sello circular encima",
      "variantes": [
       "multa",
       "sancion economica",
@@ -663,6 +720,7 @@
     {
      "nombre": "exportacion",
      "parrafos": 4,
+     "motivo": "un contenedor rectangular con puertas y una grúa sobre él",
      "variantes": [
       "exportacion",
       "exporta",
@@ -674,6 +732,7 @@
     {
      "nombre": "impuesto",
      "parrafos": 0,
+     "motivo": "un papel con una tabla de dos columnas y un porcentaje grande",
      "variantes": [
       "impuesto",
       "tributar",
@@ -690,7 +749,8 @@
    "terminos": [
     {
      "nombre": "region",
-     "parrafos": 73,
+     "parrafos": 76,
+     "motivo": "un mapa largo y angosto con una franja destacada al centro",
      "variantes": [
       "region",
       "regional",
@@ -700,6 +760,7 @@
     {
      "nombre": "cordillera",
      "parrafos": 20,
+     "motivo": "tres cumbres de distinto alto con nieve insinuada en la más alta",
      "variantes": [
       "cordillera",
       "montana",
@@ -711,6 +772,7 @@
     {
      "nombre": "mar",
      "parrafos": 16,
+     "motivo": "tres olas superpuestas con una boya asomando",
      "variantes": [
       "mar ",
       "costa",
@@ -722,7 +784,8 @@
     },
     {
      "nombre": "comuna",
-     "parrafos": 13,
+     "parrafos": 14,
+     "motivo": "tres casas de distinto alto alineadas sobre una calle",
      "variantes": [
       "comuna",
       "localidad",
@@ -733,6 +796,7 @@
     {
      "nombre": "rio",
      "parrafos": 12,
+     "motivo": "un cauce que serpentea hacia el horizonte entre dos riberas",
      "variantes": [
       "rio ",
       "lago",
@@ -744,6 +808,7 @@
     {
      "nombre": "frontera",
      "parrafos": 11,
+     "motivo": "una barrera a rayas levantada con un poste a cada lado",
      "variantes": [
       "frontera",
       "paso fronterizo",
@@ -754,6 +819,7 @@
     {
      "nombre": "carretera",
      "parrafos": 10,
+     "motivo": "una ruta en perspectiva que se angosta hacia el horizonte, con línea discontinua",
      "variantes": [
       "carretera",
       "ruta ",
@@ -764,6 +830,7 @@
     {
      "nombre": "barrio",
      "parrafos": 8,
+     "motivo": "dos casas bajas con un árbol entre ellas y una reja adelante",
      "variantes": [
       "barrio",
       "poblacion ",
@@ -775,6 +842,7 @@
     {
      "nombre": "desierto",
      "parrafos": 8,
+     "motivo": "tres dunas superpuestas con una línea de horizonte alta",
      "variantes": [
       "desierto",
       "atacama",
@@ -785,6 +853,7 @@
     {
      "nombre": "ciudad",
      "parrafos": 4,
+     "motivo": "una fila de edificios de distinto alto vistos de frente, sin ventanas",
      "variantes": [
       "ciudad",
       "urbano",
@@ -794,6 +863,7 @@
     {
      "nombre": "campo",
      "parrafos": 4,
+     "motivo": "cuatro surcos paralelos que se angostan, con una espiga adelante",
      "variantes": [
       "agricola",
       "agricultura",
@@ -811,7 +881,8 @@
    "terminos": [
     {
      "nombre": "ley",
-     "parrafos": 77,
+     "parrafos": 78,
+     "motivo": "un libro abierto por la mitad con una cinta marcadora",
      "variantes": [
       "ley ",
       "proyecto de ley",
@@ -823,7 +894,8 @@
     },
     {
      "nombre": "vivienda",
-     "parrafos": 42,
+     "parrafos": 43,
+     "motivo": "una casa de dos aguas con una llave grande apoyada en la puerta",
      "variantes": [
       "vivienda",
       "casa",
@@ -835,7 +907,8 @@
     },
     {
      "nombre": "salud",
-     "parrafos": 29,
+     "parrafos": 30,
+     "motivo": "un estetoscopio formando un lazo abierto",
      "variantes": [
       "salud",
       "enfermedad",
@@ -848,6 +921,7 @@
     {
      "nombre": "transporte",
      "parrafos": 25,
+     "motivo": "un vagón visto de frente sobre dos rieles que se alejan",
      "variantes": [
       "transporte",
       "metro ",
@@ -860,6 +934,7 @@
     {
      "nombre": "documento",
      "parrafos": 24,
+     "motivo": "una hoja con dobleces y tres líneas de texto insinuadas",
      "variantes": [
       "documento",
       "informe",
@@ -870,8 +945,20 @@
      ]
     },
     {
+     "nombre": "contrato",
+     "parrafos": 14,
+     "motivo": "un papel con una firma trazada y un lápiz cruzado encima",
+     "variantes": [
+      "contrato",
+      "contratacion de",
+      "convenio marco",
+      "trato directo"
+     ]
+    },
+    {
      "nombre": "obra",
      "parrafos": 12,
+     "motivo": "una grúa torre vista de perfil con un bloque colgando",
      "variantes": [
       "obra ",
       "construccion",
@@ -881,18 +968,21 @@
      ]
     },
     {
-     "nombre": "contrato",
+     "nombre": "agua",
      "parrafos": 12,
+     "motivo": "una llave de paso con una gota cayendo",
      "variantes": [
-      "contrato",
-      "contratacion de",
-      "convenio marco",
-      "trato directo"
+      "agua ",
+      "sanitari",
+      "alcantarillado",
+      "sequia",
+      "potable"
      ]
     },
     {
      "nombre": "educacion",
      "parrafos": 12,
+     "motivo": "tres libros apilados con un lápiz apoyado en diagonal",
      "variantes": [
       "educacion",
       "matricula",
@@ -904,6 +994,7 @@
     {
      "nombre": "energia",
      "parrafos": 11,
+     "motivo": "un poste de alta tensión con tres líneas cruzando el cuadro",
      "variantes": [
       "energia",
       "electricidad",
@@ -913,19 +1004,9 @@
      ]
     },
     {
-     "nombre": "agua",
-     "parrafos": 11,
-     "variantes": [
-      "agua ",
-      "sanitari",
-      "alcantarillado",
-      "sequia",
-      "potable"
-     ]
-    },
-    {
      "nombre": "auto",
      "parrafos": 7,
+     "motivo": "un automóvil de perfil, contorno simple y ruedas grandes",
      "variantes": [
       "automovil",
       "vehiculo",
@@ -938,6 +1019,7 @@
     {
      "nombre": "avion",
      "parrafos": 7,
+     "motivo": "un avión visto desde abajo con dos estelas cortas detrás",
      "variantes": [
       "avion",
       "aerea",
@@ -948,6 +1030,7 @@
     {
      "nombre": "droga",
      "parrafos": 5,
+     "motivo": "una bolsa sellada con cierre, vista de frente",
      "variantes": [
       "droga",
       "marihuana",
@@ -959,6 +1042,7 @@
     {
      "nombre": "tecnologia",
      "parrafos": 4,
+     "motivo": "una placa de circuito con tres pistas saliendo hacia los bordes",
      "variantes": [
       "tecnologia",
       "inteligencia artificial",
@@ -971,6 +1055,7 @@
     {
      "nombre": "arma",
      "parrafos": 1,
+     "motivo": "un casquillo de bala de pie sobre su base",
      "variantes": [
       "arma ",
       "armamento",
@@ -987,7 +1072,8 @@
    "terminos": [
     {
      "nombre": "caida",
-     "parrafos": 39,
+     "parrafos": 40,
+     "motivo": "una flecha que baja en tres escalones",
      "variantes": [
       "caida",
       "baja ",
@@ -1000,6 +1086,7 @@
     {
      "nombre": "aumento",
      "parrafos": 27,
+     "motivo": "una flecha que sube en tres escalones",
      "variantes": [
       "aumento",
       "incremento",
@@ -1010,7 +1097,8 @@
     },
     {
      "nombre": "etapa",
-     "parrafos": 25,
+     "parrafos": 26,
+     "motivo": "cuatro círculos unidos por una línea, el segundo relleno",
      "variantes": [
       "etapa",
       "tramite",
@@ -1021,7 +1109,8 @@
     },
     {
      "nombre": "comparacion",
-     "parrafos": 24,
+     "parrafos": 25,
+     "motivo": "dos barras verticales de distinto alto lado a lado, unidas por una llave",
      "variantes": [
       "en comparacion",
       "respecto de",
@@ -1032,7 +1121,8 @@
     },
     {
      "nombre": "espera",
-     "parrafos": 22,
+     "parrafos": 24,
+     "motivo": "una fila de cinco figuras de bastón, una detrás de otra",
      "variantes": [
       "espera",
       "demora",
@@ -1044,6 +1134,7 @@
     {
      "nombre": "plazo",
      "parrafos": 19,
+     "motivo": "un calendario de hoja suelta con un día encerrado en círculo",
      "variantes": [
       "plazo",
       "fecha limite",
