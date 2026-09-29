@@ -2,15 +2,15 @@
   "fecha": "2026-09-29",
   "canal": {
     "suscriptores": 23,
-    "vistas": 8287,
-    "videos": 116
+    "vistas": 8867,
+    "videos": 118
   },
   "videos": {
     "uU6CHrWEn_Q": {
       "titulo": "Chile Despega moviliza recursos públicos para crear más de c",
       "publicado": "2026-09-29",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 44
@@ -18,8 +18,8 @@
     "YZZwXm6XMMw": {
       "titulo": "Chile Despega moviliza $1,3 billones y proyecta más de 100 m",
       "publicado": "2026-09-29",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 669
@@ -37,8 +37,8 @@
       "titulo": "¿Por qué hay paro nacional el jueves 1 de octubre? Esto pide",
       "publicado": "2026-09-28",
       "estado": "public",
-      "vistas": 12,
-      "meGusta": 0,
+      "vistas": 22,
+      "meGusta": 1,
       "comentarios": 0,
       "durSeg": 45
     },
@@ -73,7 +73,7 @@
       "titulo": "El canciller deberá explicar ante la Cámara cómo Chile ingre",
       "publicado": "2026-09-28",
       "estado": "public",
-      "vistas": 30,
+      "vistas": 34,
       "meGusta": 1,
       "comentarios": 1,
       "durSeg": 58
@@ -82,8 +82,8 @@
       "titulo": "El canciller deberá explicar ante la Cámara cómo Chile ingre",
       "publicado": "2026-09-28",
       "estado": "public",
-      "vistas": 89,
-      "meGusta": 6,
+      "vistas": 105,
+      "meGusta": 7,
       "comentarios": 1,
       "durSeg": 58
     },
@@ -91,7 +91,7 @@
       "titulo": "El crimen del carabinero en Renca suma un segundo detenido: ",
       "publicado": "2026-09-28",
       "estado": "public",
-      "vistas": 451,
+      "vistas": 529,
       "meGusta": 25,
       "comentarios": 0,
       "durSeg": 56
@@ -100,7 +100,7 @@
       "titulo": "Pérez Mackenna enfrenta interpelación por el Escudo de las A",
       "publicado": "2026-09-28",
       "estado": "public",
-      "vistas": 5,
+      "vistas": 6,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 601
@@ -118,7 +118,7 @@
       "titulo": "Temporal deja más de 12 mil personas aisladas en el centro-s",
       "publicado": "2026-09-27",
       "estado": "public",
-      "vistas": 75,
+      "vistas": 78,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 51
@@ -127,7 +127,7 @@
       "titulo": "Temporal deja más de 12 mil personas aisladas en el centro-s",
       "publicado": "2026-09-27",
       "estado": "public",
-      "vistas": 3,
+      "vistas": 5,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 719
@@ -136,7 +136,7 @@
       "titulo": "Curarrehue aislada: 7.850 personas sin paso y un puente caíd",
       "publicado": "2026-09-26",
       "estado": "public",
-      "vistas": 177,
+      "vistas": 179,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 46
@@ -145,7 +145,7 @@
       "titulo": "Curarrehue aislada: 7.850 personas sin paso y un puente caíd",
       "publicado": "2026-09-26",
       "estado": "public",
-      "vistas": 77,
+      "vistas": 79,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 677
@@ -154,7 +154,7 @@
       "titulo": "87% de los chilenos cree que el país vive una emergencia lab",
       "publicado": "2026-09-26",
       "estado": "public",
-      "vistas": 522,
+      "vistas": 523,
       "meGusta": 9,
       "comentarios": 1,
       "durSeg": 48
@@ -550,7 +550,7 @@
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 16,
+      "vistas": 17,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 680
@@ -3897,24 +3897,24 @@
         "ctr": 11.76
       },
       "1CAMSAuZzug": {
-        "impresiones": 377,
+        "impresiones": 378,
         "clics": 9,
-        "ctr": 2.39
+        "ctr": 2.38
       },
       "22gwMpPnCxY": {
-        "impresiones": 61,
+        "impresiones": 62,
         "clics": 1,
-        "ctr": 1.64
+        "ctr": 1.61
       },
       "8WNkdRrmI9U": {
-        "impresiones": 109,
+        "impresiones": 110,
         "clics": 2,
-        "ctr": 1.83
+        "ctr": 1.82
       },
       "9Le8uCfDRA4": {
-        "impresiones": 316,
+        "impresiones": 556,
         "clics": 3,
-        "ctr": 0.95
+        "ctr": 0.54
       },
       "A2mhFpZpbzo": {
         "impresiones": 37,
@@ -3942,19 +3942,19 @@
         "ctr": 0
       },
       "GJMefzqOaqk": {
-        "impresiones": 119,
+        "impresiones": 120,
         "clics": 6,
-        "ctr": 5.04
+        "ctr": 5
       },
       "HnWm9lwFw8w": {
-        "impresiones": 91,
+        "impresiones": 93,
         "clics": 4,
-        "ctr": 4.4
+        "ctr": 4.3
       },
       "MRG9fw8e5P8": {
-        "impresiones": 64,
+        "impresiones": 65,
         "clics": 6,
-        "ctr": 9.38
+        "ctr": 9.23
       },
       "MzrT56tga7w": {
         "impresiones": 89,
@@ -3982,9 +3982,9 @@
         "ctr": 2.94
       },
       "REcC_ZuhrPY": {
-        "impresiones": 69,
+        "impresiones": 78,
         "clics": 1,
-        "ctr": 1.45
+        "ctr": 1.28
       },
       "RPWexIZS3d0": {
         "impresiones": 64,
@@ -3992,14 +3992,14 @@
         "ctr": 4.69
       },
       "TeKnIIGAMUw": {
-        "impresiones": 119,
+        "impresiones": 120,
         "clics": 5,
-        "ctr": 4.2
+        "ctr": 4.17
       },
       "XRzll3-Hbyw": {
-        "impresiones": 386,
+        "impresiones": 389,
         "clics": 6,
-        "ctr": 1.55
+        "ctr": 1.54
       },
       "XVIxe4EJZbM": {
         "impresiones": 200,
@@ -4007,7 +4007,7 @@
         "ctr": 2.5
       },
       "Yoli64YxjuM": {
-        "impresiones": 65,
+        "impresiones": 66,
         "clics": 0,
         "ctr": 0
       },
@@ -4017,9 +4017,9 @@
         "ctr": 4.88
       },
       "bfhNo31wIFI": {
-        "impresiones": 257,
+        "impresiones": 267,
         "clics": 1,
-        "ctr": 0.39
+        "ctr": 0.37
       },
       "ei1OUk3ZvAI": {
         "impresiones": 30,
@@ -4027,7 +4027,7 @@
         "ctr": 6.67
       },
       "fUYEskTWdGc": {
-        "impresiones": 77,
+        "impresiones": 89,
         "clics": 0,
         "ctr": 0
       },
@@ -4047,19 +4047,19 @@
         "ctr": 4.71
       },
       "nvG_C4evsL8": {
-        "impresiones": 1414,
+        "impresiones": 1450,
         "clics": 26,
-        "ctr": 1.84
+        "ctr": 1.79
       },
       "oCEw0HwkUyg": {
-        "impresiones": 105,
+        "impresiones": 109,
         "clics": 3,
-        "ctr": 2.86
+        "ctr": 2.75
       },
       "pGzRumCBjg0": {
-        "impresiones": 32,
+        "impresiones": 37,
         "clics": 1,
-        "ctr": 3.13
+        "ctr": 2.7
       },
       "qvSZvD8PiGk": {
         "impresiones": 65,
@@ -4067,9 +4067,9 @@
         "ctr": 1.54
       },
       "qzn2RJefxic": {
-        "impresiones": 511,
-        "clics": 34,
-        "ctr": 6.65
+        "impresiones": 524,
+        "clics": 35,
+        "ctr": 6.68
       },
       "rYoBCZmEipg": {
         "impresiones": 61,
@@ -4082,7 +4082,7 @@
         "ctr": 2
       },
       "sCdoxJs4Ea8": {
-        "impresiones": 16,
+        "impresiones": 24,
         "clics": 0,
         "ctr": 0
       },
@@ -4107,14 +4107,14 @@
         "ctr": 0.83
       },
       "xYaG4nx-IkI": {
-        "impresiones": 3025,
+        "impresiones": 3027,
         "clics": 33,
         "ctr": 1.09
       },
       "9SxSCiC8ZTs": {
-        "impresiones": 275,
+        "impresiones": 276,
         "clics": 20,
-        "ctr": 7.27
+        "ctr": 7.25
       },
       "xCeMIDevwsE": {
         "impresiones": 143,
@@ -4127,9 +4127,9 @@
         "ctr": 0.56
       },
       "UyW1kuLY37E": {
-        "impresiones": 685,
+        "impresiones": 687,
         "clics": 27,
-        "ctr": 3.94
+        "ctr": 3.93
       },
       "urU9RKHTg1g": {
         "impresiones": 149,
@@ -4147,7 +4147,7 @@
         "ctr": 0.56
       },
       "Wd9_JFdie-k": {
-        "impresiones": 230,
+        "impresiones": 231,
         "clics": 2,
         "ctr": 0.87
       },
@@ -4277,9 +4277,9 @@
         "ctr": 0
       },
       "i31AWVLW6qg": {
-        "impresiones": 77,
+        "impresiones": 79,
         "clics": 1,
-        "ctr": 1.3
+        "ctr": 1.27
       },
       "24scU14vvcg": {
         "impresiones": 42,
@@ -4307,9 +4307,9 @@
         "ctr": 2.7
       },
       "3QhDzy_gUKk": {
-        "impresiones": 1056,
-        "clics": 0,
-        "ctr": 0
+        "impresiones": 1543,
+        "clics": 1,
+        "ctr": 0.06
       },
       "4a0tM4wBa8c": {
         "impresiones": 24,
@@ -4327,9 +4327,9 @@
         "ctr": 7.27
       },
       "w8IPmwGoq3w": {
-        "impresiones": 71,
+        "impresiones": 81,
         "clics": 1,
-        "ctr": 1.41
+        "ctr": 1.23
       },
       "5GyUYE2Goj8": {
         "impresiones": 118,
@@ -4337,7 +4337,7 @@
         "ctr": 2.54
       },
       "WjXgunaHKjs": {
-        "impresiones": 29,
+        "impresiones": 30,
         "clics": 0,
         "ctr": 0
       },
@@ -4347,17 +4347,17 @@
         "ctr": 0
       },
       "RgyxBISTZ9Y": {
-        "impresiones": 262,
+        "impresiones": 265,
         "clics": 12,
-        "ctr": 4.58
+        "ctr": 4.53
       },
       "uzbivsRi_cE": {
-        "impresiones": 97,
-        "clics": 7,
-        "ctr": 7.22
+        "impresiones": 111,
+        "clics": 8,
+        "ctr": 7.21
       },
       "LjpVaF71JbQ": {
-        "impresiones": 26,
+        "impresiones": 28,
         "clics": 0,
         "ctr": 0
       },
@@ -4367,12 +4367,12 @@
         "ctr": 2.63
       },
       "-QmnmBnT1Ng": {
-        "impresiones": 70,
+        "impresiones": 71,
         "clics": 0,
         "ctr": 0
       },
       "0zRRrvdLUac": {
-        "impresiones": 47,
+        "impresiones": 49,
         "clics": 0,
         "ctr": 0
       },
@@ -4382,9 +4382,9 @@
         "ctr": 0
       },
       "NgutmEp2__Y": {
-        "impresiones": 75,
+        "impresiones": 81,
         "clics": 2,
-        "ctr": 2.67
+        "ctr": 2.47
       },
       "U__vg19xHW8": {
         "impresiones": 21,
@@ -4392,7 +4392,7 @@
         "ctr": 4.76
       },
       "XX1upDjWWx0": {
-        "impresiones": 63,
+        "impresiones": 65,
         "clics": 0,
         "ctr": 0
       },
@@ -4402,74 +4402,84 @@
         "ctr": 4.55
       },
       "hrufcYlaUSM": {
-        "impresiones": 46,
-        "clics": 1,
-        "ctr": 2.17
-      },
-      "-phNJeYXTLA": {
-        "impresiones": 43,
-        "clics": 1,
-        "ctr": 2.33
-      },
-      "5rhKCFnA-Mc": {
-        "impresiones": 16,
-        "clics": 0,
-        "ctr": 0
-      },
-      "9Eb-1KD5BqE": {
-        "impresiones": 561,
-        "clics": 68,
-        "ctr": 12.12
-      },
-      "ml6Yj5G-1_I": {
-        "impresiones": 36,
-        "clics": 0,
-        "ctr": 0
-      },
-      "n8N1z4-124E": {
         "impresiones": 48,
         "clics": 1,
         "ctr": 2.08
       },
+      "-phNJeYXTLA": {
+        "impresiones": 47,
+        "clics": 1,
+        "ctr": 2.13
+      },
+      "5rhKCFnA-Mc": {
+        "impresiones": 17,
+        "clics": 0,
+        "ctr": 0
+      },
+      "9Eb-1KD5BqE": {
+        "impresiones": 622,
+        "clics": 71,
+        "ctr": 11.41
+      },
+      "ml6Yj5G-1_I": {
+        "impresiones": 38,
+        "clics": 0,
+        "ctr": 0
+      },
+      "n8N1z4-124E": {
+        "impresiones": 54,
+        "clics": 1,
+        "ctr": 1.85
+      },
       "01xPihe7hz0": {
-        "impresiones": 119,
+        "impresiones": 120,
         "clics": 2,
-        "ctr": 1.68
+        "ctr": 1.67
       },
       "DQl1ZQPx51o": {
-        "impresiones": 217,
+        "impresiones": 223,
         "clics": 2,
-        "ctr": 0.92
+        "ctr": 0.9
       },
       "EFWY7D3NJso": {
-        "impresiones": 18,
+        "impresiones": 23,
         "clics": 0,
         "ctr": 0
       },
       "38xMuHE47eI": {
-        "impresiones": 27,
+        "impresiones": 54,
         "clics": 2,
-        "ctr": 7.41
+        "ctr": 3.7
       },
       "RGSENsGCBKA": {
-        "impresiones": 1956,
-        "clics": 24,
-        "ctr": 1.23
+        "impresiones": 2282,
+        "clics": 27,
+        "ctr": 1.18
       },
       "5gCnr5z-5_4": {
-        "impresiones": 209,
-        "clics": 4,
-        "ctr": 1.91
+        "impresiones": 2987,
+        "clics": 42,
+        "ctr": 1.41
       },
       "MHEFCy1o6nw": {
-        "impresiones": 10,
+        "impresiones": 17,
         "clics": 0,
         "ctr": 0
       },
       "iJvu555lINQ": {
-        "impresiones": 66,
-        "clics": 1,
-        "ctr": 1.52
+        "impresiones": 144,
+        "clics": 4,
+        "ctr": 2.78
+      },
+      "4SzkhEkMdEI": {
+        "impresiones": 41,
+        "clics": 0,
+        "ctr": 0
+      },
+      "lidq_pTvTlo": {
+        "impresiones": 20,
+        "clics": 0,
+        "ctr": 0
       }
     },
     "dias": {
@@ -4584,6 +4594,10 @@
       "2026-09-26": {
         "impresiones": 2600,
         "ctr": 1.12
+      },
+      "2026-09-27": {
+        "impresiones": 4250,
+        "ctr": 1.18
       }
     },
     "desde": "2026-08-30",
