@@ -31,20 +31,31 @@ tiene el que entró.
 
 - **`fiscalia-edificio-sin-verificar.png`** (29-09-2026). Pasa la vara entera
   después del entintado y cae dentro de la familia (144 de luminancia, 64%
-  opaco, 30% de relleno claro). No entra por un motivo de la regla 29, condición
-  1: no es ese edificio. El real está en Catedral 1437, es de Luis Corvalán,
-  Sebastián Baraona y Christian Yutronic, y lo que lo distingue es una fachada
-  principal de cristal serigrafiado, una fachada sur doble en los dos últimos
-  pisos con un jardín colgante entremedio, y el diálogo con la Iglesia Santa Ana.
-  El dibujo no tiene ninguna de esas tres cosas: es un edificio institucional
-  moderno cualquiera, con un atrio de vidrio y bandas de ventanas.
-  Además lleva un emblema en el pilar izquierdo que no se pudo verificar, y un
-  emblema inventado en una fachada es peor que ninguno, porque parece oficial.
+  opaco, 30% de relleno claro). El real está en Catedral 1437, es de Luis
+  Corvalán, Sebastián Baraona y Christian Yutronic, y de él se sabe que tiene
+  una fachada principal de cristal serigrafiado, una fachada sur doble en los
+  dos últimos pisos con un jardín colgante entremedio, y que dialoga con la
+  Iglesia Santa Ana.
+  **NO SE PUEDE AFIRMAR NI DESCARTAR QUE SEA ESE EDIFICIO** (corregido el
+  29-09-2026, más tarde, después de que Santiago dijera "me suena mucho a
+  haberlo visto así"). La primera versión de esta ficha decía que el dibujo no
+  tenía ninguna de las tres cosas, y ese juicio estaba mal hecho: la fachada sur
+  y el entorno de Santa Ana no pueden aparecer en una vista de esquina de otra
+  cara, así que su ausencia no prueba nada, y el paño de vidrio con retícula del
+  centro podría ser el cristal serigrafiado. Se trató "no se ve" como "no está".
+  Hay además un indicio A FAVOR que no se anotó: una de las fuentes es de Hunter
+  Douglas, que fabrica quiebrasoles, y el dibujo tiene un ala entera de lamas
+  horizontales.
+  Queda en candidatos por otra razón, que sí se sostiene: **aunque sea exacto,
+  ese edificio no lo reconoce nadie**, a diferencia de La Moneda. El emblema del
+  pilar tampoco se pudo verificar, y eso sigue pendiente.
 
 - **`fiscalia-edificio-sin-verificar-b.png`** (29-09-2026, segunda vuelta). Pasa
   la vara y mide 153 de luminancia, 67% opaco, 29% de relleno claro. Es el mismo
   edificio de la vuelta anterior con otro encuadre: el mismo atrio de vidrio, el
   mismo emblema sin verificar, y otra vez sin ninguna de las tres cosas que
-  distinguen al real. Dos vueltas seguidas devolviendo lo mismo es lo que cerró
-  la discusión: el motivo pasó a ser la carpeta cerrada, que no necesita
-  verificar nada.
+  distinguen al real. Vale la misma corrección de arriba: dos de esas tres cosas
+  no podían verse desde este ángulo, así que "no las tiene" era un juicio mal
+  hecho. Lo que cerró la discusión fue el argumento de que ese edificio no lo
+  reconoce nadie, y el motivo pasó a ser la carpeta cerrada, que además no
+  necesita verificar nada.
