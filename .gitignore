@@ -28,3 +28,8 @@ public/caratulas-prueba/
 # videos del taller: se rinden, se miran y se botan
 taller-*.mp4
 .claude/worktrees/
+
+# lo mismo para la biblioteca de conceptos: el original vive en
+# contenido/biblioteca/, y acá solo se copia lo que una muestra necesita
+# servir. Se rearma copiando desde contenido/biblioteca/<estilo>/
+public/biblioteca/
