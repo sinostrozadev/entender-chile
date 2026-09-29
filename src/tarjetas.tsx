@@ -34,6 +34,12 @@ export type Evento = {
   // sección dos veces seguidas, primero sobre papel y después sobre su imagen,
   // que es la única manera de compararlas sin rendir dos videos.
   fondo?: ModoFondo;
+  // PRUEBA DE BIBLIOTECA (29-09-2026): una imagen de concepto en lugar del
+  // párrafo, mientras la voz sigue. Hoy no lo escribe nadie, así que ninguna
+  // edición al aire cambia por esto: solo lo pone a mano la muestra que pidió
+  // Santiago para ver si veinte dibujos parecidos cansan en movimiento.
+  imagen?: string;             // ruta dentro de public/
+  imagenPie?: string;          // rótulo corto al pie, no el párrafo entero
   rotulo?: string;             // rótulo discreto de esa comparación ("papel" / "imagen")
   // También solo en --comparar, y solo en el evento de sección: en qué tramos
   // se parte su banner. La tarjeta de abajo cambia de fondo a mitad de la
@@ -347,8 +353,36 @@ export const TarjetaTesis: React.FC<{ ev: Evento }> = ({ ev }) => {
   );
 };
 
+// La imagen ocupa el cuadro entero, no un recuadro dentro de la tarjeta: si
+// se deja enmarcada compite con la imagen de sección que ya está detrás y se
+// leen dos fondos a la vez. Acá reemplaza al párrafo y punto.
+export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  // solo opacidad en la entrada: un translateY deja ver el borde del cuadro
+  const op = spring({ frame, fps, config: { damping: 200 } });
+  const escala = 1.02 + Math.min(frame, 900) * 0.00008;
+  return (
+    <AbsoluteFill style={{ opacity: op }}>
+      <Img src={staticFile(ev.imagen as string)} style={{ position: "absolute", inset: 0,
+        width: "100%", height: "100%", objectFit: "cover", transform: `scale(${escala})` }} />
+      {/* el pie necesita piso: el dibujo es oscuro pero no parejo */}
+      <AbsoluteFill style={{ background: "linear-gradient(0deg, rgba(21,23,26,0.82) 0%, rgba(21,23,26,0) 30%)" }} />
+      <div style={{ position: "absolute", left: 56, top: 150, bottom: 150, width: 8, borderRadius: 4,
+        backgroundColor: colorDeSeccion(ev.categoria || ev.seccion), opacity: 0.95 }} />
+      {ev.imagenPie ? (
+        <div style={{ position: "absolute", left: tema.margen, right: tema.margen, bottom: 84,
+          fontFamily: tema.mono, fontSize: 30, letterSpacing: "0.06em", color: "#E8E7E1" }}>
+          {ev.imagenPie}
+        </div>
+      ) : null}
+    </AbsoluteFill>
+  );
+};
+
 export const TarjetaParrafo: React.FC<{ ev: Evento }> = ({ ev }) => {
   const st = useEntrada();
+  if (ev.imagen) return <TarjetaImagen ev={ev} />;
   return (
     <Marco seccion={ev.seccion} categoria={ev.categoria} abajo={<PieFuente fuente={ev.fuenteSeccion} />}>
       <div style={{ ...st }}>

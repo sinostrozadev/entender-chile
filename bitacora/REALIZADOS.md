@@ -100,3 +100,4 @@ editorial y técnico humano del proyecto.
 - 29-08 · Voz Azure operativa (es-CL, pausada) + primer video con voz
 - 29-08 · Informe sin tope + "En titulares" + cifras con criterio + fuente en cada tarjeta
 - 29-08 · Barrido con corroboración por tema y palabras de alarma (el tornado que se escapó)
+- 29-09-2026: muestra en movimiento de la biblioteca de imágenes, con los cinco conceptos montados sobre la edición real del 28-09 y rendidos en dos tramos.
