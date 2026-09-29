@@ -69,6 +69,46 @@ if (chars.length !== parsed.cleanText.length) {
 }
 
 const esBlanco = (c) => c === " " || c === "\n" || c === "\t";
+
+// EL RITMO DEL PÁRRAFO (29-09-2026). Para qué: cuando el video muestra el
+// texto apareciendo palabra por palabra, necesita saber CUÁNDO se dice cada
+// una. Repartir el párrafo en partes iguales se acerca, porque el habla es
+// pareja, pero se desarma en cuanto hay una pausa, un nombre largo o una
+// cifra leída despacio, y ahí el texto va medio segundo adelantado o atrasado
+// justo en la palabra que importa.
+//
+// Qué entrega: una curva de anclas [fracción del párrafo, segundos desde que
+// empieza]. Una por palabra hablada. El video ubica su palabra en la curva e
+// interpola entre dos anclas.
+//
+// POR QUÉ UNA CURVA Y NO LOS TIEMPOS DE CADA PALABRA: lo que se escucha y lo
+// que se lee no son el mismo texto. La voz dice "doce mil" y la pantalla
+// muestra "12.000", así que las palabras no se corresponden una a una y no
+// hay a qué amarrarlas. La curva sí se corresponde, porque las dos versiones
+// avanzan por el mismo párrafo: al 40% del texto hablado y al 40% del texto
+// en pantalla se está diciendo lo mismo.
+const MAX_ANCLAS = 48;
+function ritmoDe(charStart, charEnd, desde) {
+  const fin = Math.min(charEnd, chars.length);
+  const largo = fin - charStart;
+  if (largo <= 1) return null;
+  const crudo = [];
+  let enPalabra = false;
+  for (let i = charStart; i < fin; i++) {
+    const blanco = esBlanco(chars[i]);
+    if (!blanco && !enPalabra && starts[i] != null) {
+      crudo.push([(i - charStart) / largo, Number((starts[i] + INICIO - desde).toFixed(3))]);
+    }
+    enPalabra = !blanco;
+  }
+  if (crudo.length < 2) return null;
+  if (crudo.length <= MAX_ANCLAS) return crudo;
+  // párrafos muy largos: se muestrea parejo y se conservan los extremos
+  const paso = (crudo.length - 1) / (MAX_ANCLAS - 1);
+  const salida = [];
+  for (let k = 0; k < MAX_ANCLAS; k++) salida.push(crudo[Math.round(k * paso)]);
+  return salida;
+}
 function rangoTiempo(charStart, charEnd) {
   let i = charStart, j = Math.min(charEnd, chars.length) - 1;
   while (i <= j && esBlanco(chars[i])) i++;
@@ -106,6 +146,12 @@ parsed.eventos.forEach((ev, idx) => {
       // tarjeta (27-09-2026)
       if (ev.tipo === "entrada") out.muda = true;
       if (ev.tipo === "cita") { out.autor = ev.autor; out.fuente = ev.fuente; }
+      // solo donde puede servir: la narración es lo único que se muestra
+      // palabra por palabra. En un titular de cuatro segundos sobra.
+      if (ev.tipo === "narracion") {
+        const r2 = ritmoDe(ev.charStart, ev.charEnd, r.from);
+        if (r2) out.ritmo = r2;
+      }
       porIndice.set(idx, out);
       eventos.push(out);
     }

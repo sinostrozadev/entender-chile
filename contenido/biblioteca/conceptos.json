@@ -1,0 +1,1058 @@
+{
+ "generado": "2026-09-29",
+ "guiones": 36,
+ "parrafos": 1154,
+ "conAlguno": 887,
+ "categorias": [
+  {
+   "clave": "organizaciones",
+   "titulo": "Organizaciones e instituciones",
+   "terminos": [
+    {
+     "nombre": "gobierno",
+     "parrafos": 183,
+     "variantes": [
+      "gobierno",
+      "la moneda",
+      "el ejecutivo",
+      "ministerio",
+      "ministra",
+      "ministro",
+      "subsecretar"
+     ]
+    },
+    {
+     "nombre": "congreso",
+     "parrafos": 67,
+     "variantes": [
+      "congreso",
+      "senado",
+      "camara de diputados",
+      "senador",
+      "diputad",
+      "parlament"
+     ]
+    },
+    {
+     "nombre": "tribunales",
+     "parrafos": 58,
+     "variantes": [
+      "tribunal",
+      "corte suprema",
+      "corte de apelaciones",
+      "juzgado",
+      "poder judicial",
+      "magistrad"
+     ]
+    },
+    {
+     "nombre": "fiscalia",
+     "parrafos": 56,
+     "variantes": [
+      "fiscalia",
+      "ministerio publico",
+      "fiscal nacional",
+      "fiscal regional"
+     ]
+    },
+    {
+     "nombre": "banco central",
+     "parrafos": 39,
+     "variantes": [
+      "banco central",
+      "banco estado",
+      "banco "
+     ]
+    },
+    {
+     "nombre": "contraloria",
+     "parrafos": 33,
+     "variantes": [
+      "contraloria",
+      "contralor"
+     ]
+    },
+    {
+     "nombre": "carabineros",
+     "parrafos": 31,
+     "variantes": [
+      "carabineros",
+      "carabinero",
+      "general director"
+     ]
+    },
+    {
+     "nombre": "servicio publico",
+     "parrafos": 25,
+     "variantes": [
+      "superintendencia",
+      "senapred",
+      "servel",
+      "sernac",
+      "sii ",
+      "aduana",
+      "tesoreria",
+      "registro civil",
+      "direccion del trabajo",
+      "seremi",
+      "onemi"
+     ]
+    },
+    {
+     "nombre": "partido",
+     "parrafos": 23,
+     "variantes": [
+      "partido",
+      "republicanos",
+      "renovacion nacional",
+      "udi",
+      "frente amplio",
+      "democracia cristiana",
+      "oficialismo",
+      "oposicion"
+     ]
+    },
+    {
+     "nombre": "organismo internacional",
+     "parrafos": 23,
+     "variantes": [
+      "naciones unidas",
+      "onu",
+      "ocde",
+      "fmi",
+      "banco mundial",
+      "union europea",
+      "mercosur",
+      "corte internacional"
+     ]
+    },
+    {
+     "nombre": "empresa",
+     "parrafos": 22,
+     "variantes": [
+      "empresa",
+      "compania",
+      "holding",
+      "sociedad anonima",
+      "firma "
+     ]
+    },
+    {
+     "nombre": "pdi",
+     "parrafos": 20,
+     "variantes": [
+      "pdi",
+      "policia de investigaciones",
+      "detectives"
+     ]
+    },
+    {
+     "nombre": "municipio",
+     "parrafos": 17,
+     "variantes": [
+      "municipalidad",
+      "municipio",
+      "alcaldia",
+      "alcalde",
+      "alcaldesa",
+      "concejo municipal"
+     ]
+    },
+    {
+     "nombre": "universidad",
+     "parrafos": 10,
+     "variantes": [
+      "universidad",
+      "casa de estudios",
+      "rector"
+     ]
+    },
+    {
+     "nombre": "gobierno regional",
+     "parrafos": 9,
+     "variantes": [
+      "gobierno regional",
+      "gobernador",
+      "delegado presidencial",
+      "consejo regional",
+      "core "
+     ]
+    },
+    {
+     "nombre": "colegio",
+     "parrafos": 9,
+     "variantes": [
+      "colegio",
+      "escuela",
+      "liceo",
+      "establecimiento educacional",
+      "jardin infantil"
+     ]
+    },
+    {
+     "nombre": "sindicato",
+     "parrafos": 7,
+     "variantes": [
+      "sindicato",
+      "gremio",
+      "colegio de profesores",
+      "central unitaria",
+      "asociacion de funcionarios"
+     ]
+    },
+    {
+     "nombre": "hospital",
+     "parrafos": 5,
+     "variantes": [
+      "hospital",
+      "cesfam",
+      "consultorio",
+      "servicio de salud",
+      "posta"
+     ]
+    },
+    {
+     "nombre": "medios",
+     "parrafos": 3,
+     "variantes": [
+      "prensa",
+      "periodista",
+      "medio de comunicacion",
+      "radio ",
+      "television"
+     ]
+    }
+   ]
+  },
+  {
+   "clave": "hechos",
+   "titulo": "Hechos y eventos",
+   "terminos": [
+    {
+     "nombre": "investigacion",
+     "parrafos": 75,
+     "variantes": [
+      "investigacion",
+      "investiga",
+      "indaga",
+      "sumario",
+      "peritaje",
+      "auditoria"
+     ]
+    },
+    {
+     "nombre": "temporal",
+     "parrafos": 56,
+     "variantes": [
+      "temporal",
+      "lluvia",
+      "sistema frontal",
+      "nevazon",
+      "viento",
+      "marejada",
+      "inundacion",
+      "aluvion"
+     ]
+    },
+    {
+     "nombre": "anuncio",
+     "parrafos": 48,
+     "variantes": [
+      "anuncio",
+      "anuncia",
+      "anunciaron",
+      "presento un proyecto",
+      "dio a conocer",
+      "informo que"
+     ]
+    },
+    {
+     "nombre": "reunion",
+     "parrafos": 32,
+     "variantes": [
+      "reunion",
+      "cumbre",
+      "encuentro bilateral",
+      "audiencia",
+      "sesion "
+     ]
+    },
+    {
+     "nombre": "juicio",
+     "parrafos": 28,
+     "variantes": [
+      "juicio",
+      "condena",
+      "sentencia",
+      "fallo ",
+      "absolucion",
+      "veredicto"
+     ]
+    },
+    {
+     "nombre": "acuerdo",
+     "parrafos": 28,
+     "variantes": [
+      "acuerdo",
+      "convenio",
+      "pacto",
+      "firmaron",
+      "entendimiento"
+     ]
+    },
+    {
+     "nombre": "homicidio",
+     "parrafos": 26,
+     "variantes": [
+      "homicidio",
+      "asesinato",
+      "muerte",
+      "murio",
+      "fallecio",
+      "fallecid",
+      "cadaver",
+      "femicidio"
+     ]
+    },
+    {
+     "nombre": "votacion",
+     "parrafos": 24,
+     "variantes": [
+      "votacion",
+      "voto",
+      "aprobo",
+      "rechazo el proyecto",
+      "quorum",
+      "escrutinio"
+     ]
+    },
+    {
+     "nombre": "fiscalizacion",
+     "parrafos": 24,
+     "variantes": [
+      "fiscalizacion",
+      "fiscalizo",
+      "control ",
+      "inspeccion",
+      "sumario sanitario"
+     ]
+    },
+    {
+     "nombre": "detencion",
+     "parrafos": 21,
+     "variantes": [
+      "detencion",
+      "detenido",
+      "detuvieron",
+      "arresto",
+      "prision preventiva",
+      "capturad"
+     ]
+    },
+    {
+     "nombre": "denuncia",
+     "parrafos": 16,
+     "variantes": [
+      "denuncia",
+      "denuncio",
+      "querella",
+      "reclamo formal"
+     ]
+    },
+    {
+     "nombre": "viaje",
+     "parrafos": 16,
+     "variantes": [
+      "viaje",
+      "gira",
+      "visita oficial",
+      "aterrizo",
+      "delegacion"
+     ]
+    },
+    {
+     "nombre": "incendio",
+     "parrafos": 11,
+     "variantes": [
+      "incendio",
+      "fuego",
+      "llamas",
+      "quemad",
+      "siniestro"
+     ]
+    },
+    {
+     "nombre": "protesta",
+     "parrafos": 10,
+     "variantes": [
+      "protesta",
+      "manifestacion",
+      "marcha ",
+      "paro ",
+      "huelga",
+      "movilizacion"
+     ]
+    },
+    {
+     "nombre": "secuestro",
+     "parrafos": 10,
+     "variantes": [
+      "secuestro",
+      "secuestrad",
+      "privacion de libertad"
+     ]
+    },
+    {
+     "nombre": "acusacion",
+     "parrafos": 9,
+     "variantes": [
+      "acusacion",
+      "acuso",
+      "imputa",
+      "cargos contra",
+      "formaliz"
+     ]
+    },
+    {
+     "nombre": "rescate",
+     "parrafos": 6,
+     "variantes": [
+      "rescate",
+      "rescatad",
+      "evacuacion",
+      "evacuad",
+      "socorro",
+      "busqueda de"
+     ]
+    },
+    {
+     "nombre": "eleccion",
+     "parrafos": 4,
+     "variantes": [
+      "eleccion",
+      "elecciones",
+      "candidat",
+      "campana electoral",
+      "primarias"
+     ]
+    },
+    {
+     "nombre": "sismo",
+     "parrafos": 4,
+     "variantes": [
+      "sismo",
+      "terremoto",
+      "temblor",
+      "magnitud richter",
+      "escala de mercalli"
+     ]
+    },
+    {
+     "nombre": "renuncia",
+     "parrafos": 2,
+     "variantes": [
+      "renuncia",
+      "renuncio",
+      "dejo el cargo",
+      "salida del gabinete",
+      "destitu"
+     ]
+    },
+    {
+     "nombre": "accidente",
+     "parrafos": 2,
+     "variantes": [
+      "accidente",
+      "choque",
+      "colision",
+      "volcamiento",
+      "atropello"
+     ]
+    },
+    {
+     "nombre": "robo",
+     "parrafos": 2,
+     "variantes": [
+      "robo",
+      "hurto",
+      "asalto",
+      "portonazo",
+      "encerrona",
+      "saqueo"
+     ]
+    },
+    {
+     "nombre": "balacera",
+     "parrafos": 2,
+     "variantes": [
+      "balacera",
+      "disparo",
+      "tiroteo",
+      "herido a bala",
+      "arma de fuego"
+     ]
+    },
+    {
+     "nombre": "incautacion",
+     "parrafos": 2,
+     "variantes": [
+      "incautacion",
+      "incauto",
+      "decomiso",
+      "allanamiento",
+      "operativo policial"
+     ]
+    },
+    {
+     "nombre": "nombramiento",
+     "parrafos": 0,
+     "variantes": [
+      "nombramiento",
+      "designo",
+      "asumio el cargo",
+      "nuevo ministro",
+      "nueva ministra"
+     ]
+    },
+    {
+     "nombre": "inauguracion",
+     "parrafos": 0,
+     "variantes": [
+      "inauguracion",
+      "inauguro",
+      "puso en marcha",
+      "entrega de obras"
+     ]
+    }
+   ]
+  },
+  {
+   "clave": "dinero",
+   "titulo": "Dinero y economía",
+   "terminos": [
+    {
+     "nombre": "empleo",
+     "parrafos": 42,
+     "variantes": [
+      "empleo",
+      "desempleo",
+      "cesantia",
+      "puestos de trabajo",
+      "contratacion",
+      "despido"
+     ]
+    },
+    {
+     "nombre": "precio",
+     "parrafos": 41,
+     "variantes": [
+      "precio",
+      "alza ",
+      "encarec",
+      "costo ",
+      "tarifa",
+      "valor del"
+     ]
+    },
+    {
+     "nombre": "inversion",
+     "parrafos": 26,
+     "variantes": [
+      "inversion",
+      "invertir",
+      "capital ",
+      "cartera de proyectos"
+     ]
+    },
+    {
+     "nombre": "dinero publico",
+     "parrafos": 24,
+     "variantes": [
+      "dinero publico",
+      "recursos publicos",
+      "presupuesto",
+      "erario",
+      "fondos publicos",
+      "gasto fiscal"
+     ]
+    },
+    {
+     "nombre": "subsidio",
+     "parrafos": 19,
+     "variantes": [
+      "subsidio",
+      "bono ",
+      "beneficio estatal",
+      "ayuda estatal",
+      "transferencia directa"
+     ]
+    },
+    {
+     "nombre": "inflacion",
+     "parrafos": 17,
+     "variantes": [
+      "inflacion",
+      "ipc",
+      "costo de la vida",
+      "canasta basica"
+     ]
+    },
+    {
+     "nombre": "dolar",
+     "parrafos": 16,
+     "variantes": [
+      "dolar",
+      "tipo de cambio",
+      "divisa",
+      "moneda extranjera"
+     ]
+    },
+    {
+     "nombre": "corrupcion",
+     "parrafos": 14,
+     "variantes": [
+      "corrupcion",
+      "fraude",
+      "malversacion",
+      "cohecho",
+      "soborno",
+      "coima"
+     ]
+    },
+    {
+     "nombre": "sueldo",
+     "parrafos": 8,
+     "variantes": [
+      "sueldo",
+      "salario",
+      "remuneracion",
+      "ingreso minimo"
+     ]
+    },
+    {
+     "nombre": "deuda",
+     "parrafos": 8,
+     "variantes": [
+      "deuda",
+      "moroso",
+      "credito impago",
+      "cae ",
+      "endeudamiento"
+     ]
+    },
+    {
+     "nombre": "pension",
+     "parrafos": 8,
+     "variantes": [
+      "pension",
+      "jubilacion",
+      "afp",
+      "cotizacion previsional"
+     ]
+    },
+    {
+     "nombre": "multa",
+     "parrafos": 5,
+     "variantes": [
+      "multa",
+      "sancion economica",
+      "reparo",
+      "indemnizacion"
+     ]
+    },
+    {
+     "nombre": "exportacion",
+     "parrafos": 4,
+     "variantes": [
+      "exportacion",
+      "exporta",
+      "embarque",
+      "comercio exterior",
+      "importacion"
+     ]
+    },
+    {
+     "nombre": "impuesto",
+     "parrafos": 0,
+     "variantes": [
+      "impuesto",
+      "tributar",
+      "iva ",
+      "contribuciones",
+      "recaudacion"
+     ]
+    }
+   ]
+  },
+  {
+   "clave": "territorio",
+   "titulo": "Territorio y lugares",
+   "terminos": [
+    {
+     "nombre": "region",
+     "parrafos": 73,
+     "variantes": [
+      "region",
+      "regional",
+      "regiones"
+     ]
+    },
+    {
+     "nombre": "cordillera",
+     "parrafos": 20,
+     "variantes": [
+      "cordillera",
+      "montana",
+      "volcan",
+      "nieve",
+      "andes"
+     ]
+    },
+    {
+     "nombre": "mar",
+     "parrafos": 16,
+     "variantes": [
+      "mar ",
+      "costa",
+      "puerto",
+      "caleta",
+      "maritimo",
+      "oceano"
+     ]
+    },
+    {
+     "nombre": "comuna",
+     "parrafos": 13,
+     "variantes": [
+      "comuna",
+      "localidad",
+      "poblado",
+      "sector de"
+     ]
+    },
+    {
+     "nombre": "rio",
+     "parrafos": 12,
+     "variantes": [
+      "rio ",
+      "lago",
+      "embalse",
+      "cuenca",
+      "napas"
+     ]
+    },
+    {
+     "nombre": "frontera",
+     "parrafos": 11,
+     "variantes": [
+      "frontera",
+      "paso fronterizo",
+      "limite con",
+      "control migratorio"
+     ]
+    },
+    {
+     "nombre": "carretera",
+     "parrafos": 10,
+     "variantes": [
+      "carretera",
+      "ruta ",
+      "camino",
+      "autopista"
+     ]
+    },
+    {
+     "nombre": "barrio",
+     "parrafos": 8,
+     "variantes": [
+      "barrio",
+      "poblacion ",
+      "villa ",
+      "vecindario",
+      "junta de vecinos"
+     ]
+    },
+    {
+     "nombre": "desierto",
+     "parrafos": 8,
+     "variantes": [
+      "desierto",
+      "atacama",
+      "salar",
+      "norte grande"
+     ]
+    },
+    {
+     "nombre": "ciudad",
+     "parrafos": 4,
+     "variantes": [
+      "ciudad",
+      "urbano",
+      "centro de la ciudad"
+     ]
+    },
+    {
+     "nombre": "campo",
+     "parrafos": 4,
+     "variantes": [
+      "agricola",
+      "agricultura",
+      "cultivo",
+      "cosecha",
+      "ganader",
+      "rural"
+     ]
+    }
+   ]
+  },
+  {
+   "clave": "cosas",
+   "titulo": "Objetos e infraestructura",
+   "terminos": [
+    {
+     "nombre": "ley",
+     "parrafos": 77,
+     "variantes": [
+      "ley ",
+      "proyecto de ley",
+      "reforma",
+      "normativa",
+      "reglamento",
+      "decreto"
+     ]
+    },
+    {
+     "nombre": "vivienda",
+     "parrafos": 42,
+     "variantes": [
+      "vivienda",
+      "casa",
+      "departamento",
+      "hogar",
+      "campamento",
+      "arriendo"
+     ]
+    },
+    {
+     "nombre": "salud",
+     "parrafos": 29,
+     "variantes": [
+      "salud",
+      "enfermedad",
+      "virus",
+      "vacuna",
+      "licencia medica",
+      "tratamiento medico"
+     ]
+    },
+    {
+     "nombre": "transporte",
+     "parrafos": 25,
+     "variantes": [
+      "transporte",
+      "metro ",
+      "tren",
+      "bus ",
+      "micro ",
+      "locomocion"
+     ]
+    },
+    {
+     "nombre": "documento",
+     "parrafos": 24,
+     "variantes": [
+      "documento",
+      "informe",
+      "oficio",
+      "acta",
+      "expediente",
+      "titulo profesional"
+     ]
+    },
+    {
+     "nombre": "obra",
+     "parrafos": 12,
+     "variantes": [
+      "obra ",
+      "construccion",
+      "edificacion",
+      "faena",
+      "licitacion"
+     ]
+    },
+    {
+     "nombre": "contrato",
+     "parrafos": 12,
+     "variantes": [
+      "contrato",
+      "contratacion de",
+      "convenio marco",
+      "trato directo"
+     ]
+    },
+    {
+     "nombre": "educacion",
+     "parrafos": 12,
+     "variantes": [
+      "educacion",
+      "matricula",
+      "gratuidad",
+      "prueba de acceso",
+      "curriculum escolar"
+     ]
+    },
+    {
+     "nombre": "energia",
+     "parrafos": 11,
+     "variantes": [
+      "energia",
+      "electricidad",
+      "suministro electrico",
+      "apagon",
+      "generacion electrica"
+     ]
+    },
+    {
+     "nombre": "agua",
+     "parrafos": 11,
+     "variantes": [
+      "agua ",
+      "sanitari",
+      "alcantarillado",
+      "sequia",
+      "potable"
+     ]
+    },
+    {
+     "nombre": "auto",
+     "parrafos": 7,
+     "variantes": [
+      "automovil",
+      "vehiculo",
+      "auto ",
+      "camioneta",
+      "camion",
+      "conductor"
+     ]
+    },
+    {
+     "nombre": "avion",
+     "parrafos": 7,
+     "variantes": [
+      "avion",
+      "aerea",
+      "aeropuerto",
+      "vuelo"
+     ]
+    },
+    {
+     "nombre": "droga",
+     "parrafos": 5,
+     "variantes": [
+      "droga",
+      "marihuana",
+      "cocaina",
+      "ketamina",
+      "narcotrafico"
+     ]
+    },
+    {
+     "nombre": "tecnologia",
+     "parrafos": 4,
+     "variantes": [
+      "tecnologia",
+      "inteligencia artificial",
+      "plataforma digital",
+      "software",
+      "internet",
+      "aplicacion movil"
+     ]
+    },
+    {
+     "nombre": "arma",
+     "parrafos": 1,
+     "variantes": [
+      "arma ",
+      "armamento",
+      "municion",
+      "pistola",
+      "fusil"
+     ]
+    }
+   ]
+  },
+  {
+   "clave": "tiempo",
+   "titulo": "Tiempo, medida y proceso",
+   "terminos": [
+    {
+     "nombre": "caida",
+     "parrafos": 39,
+     "variantes": [
+      "caida",
+      "baja ",
+      "disminucion",
+      "reduccion",
+      "recorte",
+      "descenso"
+     ]
+    },
+    {
+     "nombre": "aumento",
+     "parrafos": 27,
+     "variantes": [
+      "aumento",
+      "incremento",
+      "subio",
+      "creci",
+      "al alza"
+     ]
+    },
+    {
+     "nombre": "etapa",
+     "parrafos": 25,
+     "variantes": [
+      "etapa",
+      "tramite",
+      "proceso ",
+      "en curso",
+      "primera fase"
+     ]
+    },
+    {
+     "nombre": "comparacion",
+     "parrafos": 24,
+     "variantes": [
+      "en comparacion",
+      "respecto de",
+      "frente a",
+      "mas que el",
+      "menos que el"
+     ]
+    },
+    {
+     "nombre": "espera",
+     "parrafos": 22,
+     "variantes": [
+      "espera",
+      "demora",
+      "retraso",
+      "lista de espera",
+      "pendiente desde"
+     ]
+    },
+    {
+     "nombre": "plazo",
+     "parrafos": 19,
+     "variantes": [
+      "plazo",
+      "fecha limite",
+      "vence ",
+      "hasta el proximo",
+      "cronograma"
+     ]
+    }
+   ]
+  }
+ ]
+}

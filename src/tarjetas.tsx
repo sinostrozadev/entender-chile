@@ -43,6 +43,9 @@ export type Evento = {
   imagenPie?: string;          // rótulo corto al pie, no el párrafo entero
   imagenOrden?: number;        // el lugar que ocupa entre las imágenes seguidas: decide la pose
   imagenSola?: boolean;        // sin el texto al lado: el dibujo se queda con el cuadro entero
+  // la curva de anclas [fracción del párrafo, segundos desde su inicio] que
+  // arma scripts/build-timeline.js con la alineación real de la voz
+  ritmo?: [number, number][];
   rotulo?: string;             // rótulo discreto de esa comparación ("papel" / "imagen")
   // También solo en --comparar, y solo en el evento de sección: en qué tramos
   // se parte su banner. La tarjeta de abajo cambia de fondo a mitad de la
@@ -416,12 +419,17 @@ const POSES: Pose[] = [
 // además no es decorativo: las palabras apareciendo a medida que se hablan.
 // Quince segundos de párrafo son unas cuarenta apariciones.
 //
-// CUÁNDO APARECE CADA PALABRA: por ahora, proporcional a los caracteres que
-// lleva el párrafo. El habla es bastante pareja, así que la palabra número 20
-// de 40 cae muy cerca de la mitad del párrafo. Los tiempos REALES existen (la
-// alineación de Azure viene carácter por carácter, en alignment.json), y
-// cablearlos hasta el evento es trabajo de otro día: acá se aproxima, y se
-// nota nada.
+// CUÁNDO APARECE CADA PALABRA: con la voz real. `ev.ritmo` trae una curva de
+// anclas que arma build-timeline.js desde la alineación de Azure, y acá se
+// interpola: la palabra que está al 40% del párrafo aparece en el segundo en
+// que la voz iba al 40% del párrafo, no en el 40% del reloj.
+//
+// La diferencia entre las dos cosas no es teórica. Repartir en partes iguales
+// se desarma en cuanto hay una pausa, un nombre largo o una cifra leída
+// despacio, que es justo donde la palabra importa.
+//
+// Sin `ritmo` (timelines viejos, o un evento que no es narración) se reparte
+// parejo, que es lo que había antes y sigue sirviendo de red.
 //
 // Se dibujan TODAS las palabras desde el primer cuadro, las que aún no tocan
 // con opacidad cero. Si se fueran agregando, el bloque crecería y el texto
@@ -429,7 +437,25 @@ const POSES: Pose[] = [
 const ADELANTO_SEG = 0.25;     // la palabra aparece un pelo antes de oírse
 const PALABRA_SEG = 0.32;      // lo que tarda en entrar
 
-const Palabras: React.FC<{ texto: string; dur: number }> = ({ texto, dur }) => {
+// en qué segundo iba la voz cuando llevaba la fracción `f` del párrafo
+const enCurva = (ritmo: [number, number][] | undefined, f: number, dur: number): number => {
+  if (!ritmo || ritmo.length < 2) return f * dur;
+  if (f <= ritmo[0][0]) return ritmo[0][1];
+  for (let i = 1; i < ritmo.length; i++) {
+    const [f1, t1] = ritmo[i];
+    if (f <= f1) {
+      const [f0, t0] = ritmo[i - 1];
+      const k = f1 === f0 ? 0 : (f - f0) / (f1 - f0);
+      return t0 + k * (t1 - t0);
+    }
+  }
+  // después del último ancla queda la cola del párrafo: se estira hasta el fin
+  const [fu, tu] = ritmo[ritmo.length - 1];
+  const resto = Math.max(0.001, 1 - fu);
+  return tu + ((f - fu) / resto) * Math.max(0, dur - tu);
+};
+
+const Palabras: React.FC<{ texto: string; dur: number; ritmo?: [number, number][] }> = ({ texto, dur, ritmo }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = frame / fps + ADELANTO_SEG;
@@ -439,7 +465,7 @@ const Palabras: React.FC<{ texto: string; dur: number }> = ({ texto, dur }) => {
   return (
     <>
       {piezas.map((p, i) => {
-        const inicio = (recorrido / total) * dur;
+        const inicio = enCurva(ritmo, recorrido / total, dur);
         recorrido += p.length;
         if (/^\s+$/.test(p)) return <span key={i}> </span>;
         const avance = interpolate(t, [inicio, inicio + PALABRA_SEG], [0, 1], CLAMP);
@@ -494,14 +520,25 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
   const tramaY = avance * 14;
 
   const mascara = "radial-gradient(ellipse 62% 58% at 50% 50%, #000 58%, rgba(0,0,0,0) 82%)";
-  // con texto al lado el velo sube: el GRABADO de la sección, que es enorme,
-  // cae justo detrás de la columna de texto la mitad de las veces y ahí no se
-  // puede leer contra un dibujo
-  const velado = interpolate(op, [0, 1], [0, conTexto ? 0.88 : 0.8], CLAMP);
+  // EL VELO NO ES PAREJO CUANDO HAY TEXTO (29-09-2026). Parejo y alto dejaba
+  // legible la columna pero mataba el fondo de sección entero, y con él lo
+  // único del cuadro que hace zoom. Ahora tapa fuerte del lado del texto (que
+  // es donde el GRABADO de la sección, que es enorme, cae encima de las
+  // letras) y afloja del lado del dibujo, que es donde el acercamiento lento
+  // de la foto sí se puede ver. Es el mismo velo haciendo dos trabajos.
+  const tapa = interpolate(op, [0, 1], [0, 0.94], CLAMP).toFixed(3);
+  const suelta = interpolate(op, [0, 1], [0, 0.58], CLAMP).toFixed(3);
+  const velado = interpolate(op, [0, 1], [0, 0.8], CLAMP);
+  const cortina = conTexto
+    ? `linear-gradient(${pose.dibujoA === "der" ? 90 : 270}deg, rgba(16,18,21,${tapa}) 0%, rgba(16,18,21,${tapa}) 44%, rgba(16,18,21,${suelta}) 82%, rgba(16,18,21,${suelta}) 100%)`
+    : `rgba(16,18,21,${velado.toFixed(3)})`;
   return (
     <AbsoluteFill style={{ opacity: op }}>
-      <AbsoluteFill style={{ backgroundColor: `rgba(16,18,21,${velado.toFixed(3)})` }} />
-      <FondoBiblioteca trama={trama} dx={tramaX} dy={tramaY} opacidad={op * 0.13} />
+      <AbsoluteFill style={{ background: cortina }} />
+      {/* la trama también se acerca, y más que la foto: son dos zooms a
+          distinta velocidad, que es lo que hace que se noten los dos */}
+      <FondoBiblioteca trama={trama} dx={tramaX} dy={tramaY} opacidad={op * 0.13}
+        escala={1 + avance * 0.075} />
       <Img
         src={staticFile(ev.imagen as string)}
         style={{
@@ -524,7 +561,7 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
           flexDirection: pose.dibujoA === "der" ? "row" : "row-reverse", justifyContent: "space-between" }}>
           <div style={{ width: "46%", fontFamily: tema.sans, fontSize: 40, lineHeight: 1.5,
             color: "#E8E7E1", paddingBottom: 60 }}>
-            <Palabras texto={texto} dur={Math.max(1, ev.to - ev.from)} />
+            <Palabras texto={texto} dur={Math.max(1, ev.to - ev.from)} ritmo={ev.ritmo} />
           </div>
           <div style={{ width: "46%" }} />
         </AbsoluteFill>
