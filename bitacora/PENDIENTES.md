@@ -1566,6 +1566,8 @@ dejaron de estar diferidos: son DATOS 1.)
       de mármol de Francisco Torres y los motivos de cobre de Mario Vásquez, que
       son lo único que distingue esa sala de cualquier parlamento moderno. Dos
       pedidos por texto no lo trajeron (evidencia en `bitacora/2026-09-29.md`,
-      "Entra congreso"). La vía es la que tiene el único acierto medido: pasarle
-      una foto real de la sala y pedir imagen a imagen. Dueño: Santiago, porque
-      hay que conseguir la foto. Sin urgencia, la imagen actual ya sirve.
+      "Entra congreso"). Desde la corrección del bloque la vía es más barata: el
+      párrafo de la cosa real ahora dice BUSCA una fotografía real, que es la
+      línea con la que salió la sala correcta, así que la referencia la consigue
+      el generador y no hay que pasarle nada a mano. Es una vuelta más de
+      pedido. Sin urgencia, la imagen actual ya sirve.

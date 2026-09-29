@@ -135,6 +135,18 @@ aunque el prompt pedía una sola tinta.
    identificable tiene que ser ESE edificio. Quien nos sigue lo hace porque
    somos precisos, y una versión casi correcta cuesta más credibilidad que una
    genérica. (Regla 29, partida en personas y lugares el 29-09-2026.)
+
+   **Y la instrucción es un VERBO, no una preferencia** (29-09-2026, noche,
+   aporte de Santiago). El bloque decía "usa una fotografía real de referencia",
+   que describe un estado deseado y no manda hacer nada. Santiago sacó la única
+   sala de la Cámara correcta de todo el día con una línea suya: "busca la
+   imagen del congreso y básate en esa". Ahora el bloque dice BUSCA, que es una
+   acción que la herramienta sí puede ejecutar.
+
+   Esto explica de paso todo el historial de La Moneda: lo único que acertó fue
+   cuando el generador tuvo una referencia real delante. Siete intentos
+   describiendo, ninguno; uno con la imagen al lado, ese sí. Lo que faltaba no
+   era una palabra mejor sino mandarlo a buscarla.
 5. **Sin texto dentro de la imagen.** Lo pone el video, que sabe el tamaño, el
    color y la palabra exacta, y los generadores además lo escriben mal.
 6. **Los emblemas del lugar SÍ se dibujan** (29-09-2026, decisión de Santiago:
