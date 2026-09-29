@@ -33,7 +33,8 @@ habla.
 de sección, mezclas de dos conceptos). Es el estilo por defecto.
 
 **Dónde NO sirve**: en la web y en las carátulas, que viven sobre fondo claro y
-donde este trazo se pierde.
+donde este trazo se pierde. Y no sirve para mezclar dos conceptos en una
+imagen: para eso está el estilo sin fondo.
 
     Fondo de un gris azulado muy oscuro y parejo (#23262A), sin textura,
     sin viñeta y sin degradado. Trazo hueso (#E8E7E1), grueso y de grosor
@@ -67,6 +68,40 @@ salto de luz se nota: ahí el salto es la intención.
     Un solo motivo, centrado, con aire alrededor. 16:9, 1920 x 1080.
     Sin texto, sin letras, sin números, sin marcos, sin logos, sin marca de
     agua. Nada reconocible: ningún lugar identificable ni persona real.
+
+## Estilo SIN FONDO (desde el 29-09-2026)
+
+| | |
+|---|---|
+| fondo | ninguno: PNG con canal alfa de verdad |
+| trazo | libre: volumen, sombra, textura, color, grosor variable |
+| formato | 1920 x 1080, el motivo con aire alrededor |
+| dónde vive | `contenido/biblioteca/sin-fondo/<concepto>-a.png` |
+
+**Premisa**: Santiago, el 29-09-2026, "quiero que los prompt tengan más
+libertad para pedir, que no tengan límites". Los dos estilos anteriores le
+dictan al generador hasta el grosor del trazo, y eso sirve para que veinte
+dibujos parezcan una familia, pero también le impide entregar algo mejor de lo
+que uno supo pedir. Acá se le pide el motivo y se le suelta la mano.
+
+**Y es el estilo que hace posible mezclar dos imágenes**, que es lo que
+buscaba: sin transparencia un rectángulo tapa al otro, y la PDI mas la muerte
+no se pueden superponer.
+
+**Las dos únicas restricciones que quedan, y por qué no se sueltan**:
+
+1. **Nada reconocible.** Es la regla dura 29 y no es estética: una persona real
+   o un lugar identificable en una imagen generada es un problema de derechos
+   y de veracidad, no de gusto. El canal no puede ilustrar una noticia con una
+   cara que se parezca a alguien.
+2. **Sin texto dentro de la imagen.** El texto lo pone el video, que sabe el
+   tamaño, el color y la palabra exacta. Una palabra horneada en el PNG no se
+   puede corregir ni cambiar de tipografía, y los generadores además la
+   escriben mal.
+
+Todo lo demás se soltó: un solo motivo, el trazo parejo, la ausencia de
+sombras, el fondo plano, la prohibición de color. Si el generador entrega algo
+mejor con tres elementos y luz dura, que lo entregue.
 
 ## Lo que el recorte agrega a los dos
 

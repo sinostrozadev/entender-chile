@@ -1222,9 +1222,17 @@
   // El prompt no se guarda en ninguna parte: se arma en el momento con el
   // motivo del concepto mas el bloque del estilo. Guardarlo sería tener dos
   // versiones de la misma frase y que una envejezca.
-  var BLOQUE_POR_DEFECTO = "16:9, 1920 x 1080. Un solo motivo, centrado, con aire alrededor.\n" +
-    "Sin texto, sin letras, sin números, sin marcos, sin logos, sin marca de agua.\n" +
-    "Nada reconocible: ningún lugar identificable ni persona real.";
+  //
+  // QUÉ MEDIO ES LA IMAGEN LO DICE EL ESTILO, NO ESTA PÁGINA (29-09-2026).
+  // Antes acá se escribía "Ilustración de línea (...) un solo motivo,
+  // centrado" delante de cada motivo, y eso amarraba los 91 prompts a un
+  // dibujo de línea aunque el estilo pidiera otra cosa. Santiago: "quiero que
+  // los prompt tengan más libertad para pedir, que no tengan límites". El
+  // armado quedó en lo mínimo que no puede cambiar (de qué concepto es y cuál
+  // es el motivo) y todo lo demás lo pone el bloque del estilo.
+  var BLOQUE_POR_DEFECTO = "1920 x 1080.\n" +
+    "Nada reconocible: ninguna persona real, ningún lugar identificable, ninguna marca.\n" +
+    "Sin texto dentro de la imagen.";
 
   function bibId(nombre) {
     return texto(nombre).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
@@ -1246,8 +1254,8 @@
   }
 
   function promptDe(termino, estilo) {
-    return 'Ilustración de línea para un canal de noticias, del concepto "' + termino.nombre + '".\n' +
-      "Un solo motivo, centrado: " + termino.motivo + ".\n\n" +
+    return 'Imagen para un canal de noticias chileno, del concepto "' + termino.nombre + '".\n' +
+      "El motivo: " + termino.motivo + ".\n\n" +
       (texto(estilo.prompt) || BLOQUE_POR_DEFECTO);
   }
 
