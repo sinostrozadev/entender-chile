@@ -18,11 +18,24 @@
 // texto SIN TILDES y en minúsculas, así que se escriben sin tildes acá.
 //
 // El MOTIVO es la única frase que cambia entre un prompt y otro: el resto del
-// prompt lo pone el estilo. Está escrito para que se entienda achicado al
-// tamaño de un pulgar y para que no muestre nada reconocible (regla 29): un
-// atril, no La Moneda; una gorra de plato sin insignia, no un carabinero. Y
-// nunca una escena: un solo objeto, porque dos objetos cuentan una historia
-// que la noticia quizás no dice.
+// prompt lo pone el estilo.
+//
+// LO PRIMERO QUE SE LE VIENE A LA CABEZA A UNO, Y NO LO SEGUNDO (29-09-2026).
+// Santiago, mirando el atril: "por qué pides ese púlpito para gobierno?
+// Estamos sin límites, si digo gobierno, qué es lo primero que se viene a la
+// cabeza?". Tenía razón y la culpa era de un atajo mío: la regla 29 prohíbe lo
+// reconocible, lo primero que se le viene a la cabeza a un chileno es La
+// Moneda, y en vez de decirlo me fui al objeto vecino que sí podía pedir. El
+// atril no es lo que uno piensa cuando oye "gobierno": es lo que yo podía
+// dibujar sin problemas.
+//
+// La regla sigue siendo la misma, pero se aplica al revés: primero lo que uno
+// piensa, y después la versión genérica de eso. Un palacio de gobierno
+// neoclásico con su bandera, no La Moneda. Una gorra de plato sin insignia, no
+// un carabinero. Es lo que hace cualquier gráfica de noticias.
+//
+// Y ya no hay un solo objeto: el estilo sin fondo permite escena, color,
+// volumen y luz, así que el motivo puede pedir lo que de verdad se ve.
 //
 // Se cuenta UNA VEZ POR PÁRRAFO, no por aparición: lo que importa es en
 // cuántos párrafos se podría poner ese dibujo, no cuántas veces se dice la
@@ -37,7 +50,7 @@ const CATEGORIAS = [
     // un objeto propio (un atril, una placa, una balanza).
     terminos: [
       ["gobierno", ["gobierno", "la moneda", "el ejecutivo", "ministerio", "ministra", "ministro", "subsecretar"],
-        "un atril vacío visto de frente, con un micrófono delgado inclinado sobre él"],
+        "la fachada de un palacio de gobierno neoclásico al caer la tarde, con su patio de honor, columnas, una bandera izada sin emblema y las ventanas encendidas"],
       ["congreso", ["congreso", "senado", "camara de diputados", "senador", "diputad", "parlament"],
         "una hilera de escaños curva vista desde arriba, con un estrado al centro"],
       ["tribunales", ["tribunal", "corte suprema", "corte de apelaciones", "juzgado", "poder judicial", "magistrad"],

@@ -25,7 +25,7 @@ sirve donde hay dos categorías o más. Ese número está arriba.
 
 | concepto | párrafos | del total | motivo |
 |---|---:|---:|---|
-| gobierno | 188 | 15.9% | un atril vacío visto de frente, con un micrófono delgado inclinado sobre él |
+| gobierno | 188 | 15.9% | la fachada de un palacio de gobierno neoclásico al caer la tarde, con su patio de honor, columnas, una bandera izada sin emblema y las ventanas encendidas |
 | congreso | 69 | 5.8% | una hilera de escaños curva vista desde arriba, con un estrado al centro |
 | tribunales | 58 | 4.9% | una balanza de dos platos, uno más bajo que el otro |
 | fiscalia | 58 | 4.9% | una carpeta cerrada con un cordel cruzado y un sello circular en la esquina |
