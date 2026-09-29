@@ -33,11 +33,17 @@ producción, su color promedio es **#F1F0F1, #EAEBE8 y #ECEDE9**, o sea papel
 casi blanco con el dibujo oscuro encima. El bloque de acá abajo describe lo que
 de verdad se está viendo, no lo que dice ese archivo.
 
-## PRIMERO ESTO: la prueba de estilo (29-09-2026)
+## La prueba de estilo: RESUELTA el 29-09-2026
 
-**No generes los cuarenta todavía.** Estos dos son el mismo concepto y el mismo
-motivo, y lo único que cambia es el estilo. Con los dos al lado se decide, y
-con esa decisión se reescriben los cuarenta de abajo.
+**Ganó el oscuro.** Se generaron las dos, se montaron en un cuadro real del
+informe (`src/muestra-biblioteca.tsx`) y se midieron. Queda escrito lo que se
+probó, para no volver a discutirlo: el video tiene un brillo medio de 77, la de
+papel llega a **228** sin velo, y con el velo del video el brillo calza en 72
+pero el dibujo se vuelve un fantasma. La oscura queda en **51** y se lee
+entera. Las dos imágenes están en `contenido/biblioteca/pruebas/`.
+
+Los dos prompts quedan abajo tal como se pidieron, porque son la evidencia de
+qué se comparó.
 
 El concepto es **gobierno**, que es el que más aparece: 152 de los 879 párrafos
 narrados. Si el estilo funciona ahí, funciona.
@@ -110,23 +116,88 @@ fondo desparejo, no es que el estilo no sirva: hay que volver a pedirla.
 
 ## El bloque fijo: va al final de TODOS los pedidos
 
+**Estilo decidido el 29-09-2026**, después de generar las dos pruebas y
+montarlas en un cuadro real del informe. Gana el oscuro, y no por gusto: el
+video tiene un brillo medio de 77, la imagen de papel llega a 228 y encendería
+la pantalla veinticuatro veces por edición; bajo el velo el brillo calza en 72
+pero el dibujo desaparece. La oscura queda en 51 y se lee entera.
+
     Fijo para todas:
-    - 16:9, 1920 x 1080. Ilustración plana de líneas, como un grabado de
-      manual antiguo. NADA de fotografía, realismo, 3D, render ni collage.
-      Nada dramático ni fantástico.
-    - Fondo de papel claro y parejo, color hueso (#EFEFEC), con una textura
-      de fibra apenas perceptible. El motivo dibujado ENCIMA en línea gris
-      oscura (#3A3D42), de trazo fino y parejo, sin relleno macizo, sin
-      degradados y sin sombras.
+    - 16:9, 1920 x 1080. Dibujo de contorno, sin relleno, como un grabado
+      antiguo pero de trazo GRUESO y parejo. NADA de fotografía, realismo,
+      3D, render, acuarela ni collage. Nada dramático ni fantástico.
+    - Fondo de un gris azulado muy oscuro y parejo (#23262A), sin textura,
+      sin degradado, sin viñeta, sin manchas.
+    - El motivo en línea color hueso claro (#E8E7E1), de trazo grueso y
+      uniforme, sin relleno macizo, sin sombras y sin degradados.
     - El motivo va CENTRADO y ocupa el cuadro: casi todo el alto y buena
       parte del ancho, con aire parejo a los cuatro lados. Nada de dejar una
       mitad vacía.
     - Sin letras, sin números, sin logos, sin banderas, sin marcas.
     - Sin personas, sin caras, sin siluetas humanas, sin lugares
       reconocibles, sin edificios existentes.
-    - Contraste medio: el papel nunca blanco puro, la línea nunca negra.
-    - NO representa ningún hecho: es el concepto, no la noticia del día. Si
+    - No representa ningún hecho: es el concepto, no la noticia del día. Si
       se puede decir "esa es la foto de tal cosa que pasó", está mal.
+
+## Los cuatro siguientes: la prueba de que no cansan
+
+Con gobierno ya hecho, estos cuatro son los que más se repiten después:
+investigación (137 párrafos), anuncio (132), dinero público (127) y transporte
+(126). Entre los cinco cubren la mitad de los párrafos narrados.
+
+**Los motivos están elegidos para ser lo más distintos posible entre sí**,
+porque lo que esta tanda prueba no es el estilo, que ya se decidió, sino si
+veinte dibujos del mismo tipo cansan puestos uno tras otro. El atril es
+simétrico y cerrado; estos cuatro son una diagonal, una radiación, una pila
+baja y una perspectiva. Si con cinco siluetas tan distintas el video igual se
+ve monótono, el problema no se arregla con más conceptos.
+
+### Investigación
+
+Guardar en: `contenido/biblioteca/pruebas/investigacion-oscuro.png`
+
+    Ilustración de línea para un canal de noticias, del concepto
+    "investigación". Un solo motivo, centrado: una lupa grande apoyada en
+    diagonal sobre una carpeta abierta, con el mango cruzando hacia la
+    esquina inferior derecha y el aro de la lupa sobre las hojas. La
+    composición es claramente diagonal, no simétrica.
+
+    (pegar acá el bloque "Fijo para todas")
+
+### Anuncio
+
+Guardar en: `contenido/biblioteca/pruebas/anuncio-oscuro.png`
+
+    Ilustración de línea para un canal de noticias, del concepto "anuncio".
+    Un solo motivo, centrado: un megáfono de bocina ancha apuntando hacia
+    arriba y a la derecha, con tres arcos concéntricos de sonido saliendo de
+    la boca. El motivo irradia desde una esquina hacia la contraria.
+
+    (pegar acá el bloque "Fijo para todas")
+
+### Dinero público
+
+Guardar en: `contenido/biblioteca/pruebas/dinero-publico-oscuro.png`
+
+    Ilustración de línea para un canal de noticias, del concepto "dinero
+    público". Un solo motivo, centrado: tres pilas de monedas vistas de
+    canto, de alturas distintas, apoyadas en una misma línea de base, con la
+    moneda de más arriba de una de las pilas apenas corrida. Es una
+    composición BAJA y ancha, que se extiende a lo largo y no a lo alto.
+
+    (pegar acá el bloque "Fijo para todas")
+
+### Transporte
+
+Guardar en: `contenido/biblioteca/pruebas/transporte-oscuro.png`
+
+    Ilustración de línea para un canal de noticias, del concepto
+    "transporte". Un solo motivo, centrado: una ruta vista desde el suelo
+    que se angosta hacia un punto de fuga en el horizonte, con la línea
+    discontinua del medio y un poste a cada lado, más alto el de adelante.
+    Es una composición en PERSPECTIVA, con profundidad.
+
+    (pegar acá el bloque "Fijo para todas")
 
 ## Cómo saber si sirve, antes de guardarla
 

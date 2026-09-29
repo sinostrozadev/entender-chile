@@ -577,3 +577,30 @@ para cambiar un nombre que nadie ve.
 
 **Evidencia**: conteo de usos en el repo (pieza 1.029, serie 334, formato 213,
 producción 254); `scripts/estado.js:46`, `scripts/pausas.js`, `scripts/short.js:50`.
+
+---
+
+## 2026-09-29 - Las imágenes de la biblioteca van oscuras, no en papel
+
+**Qué**: la biblioteca de conceptos (las imágenes que reemplazan el texto
+mientras habla el locutor) se dibuja en **línea hueso de trazo grueso sobre un
+gris azulado muy oscuro y parejo**, y no en el papel claro de las imágenes de
+sección.
+
+**Por qué**: se generaron las dos y se montaron en un cuadro real del informe.
+El video tiene un brillo medio de 77. La de papel sin velo llega a **228**, tres
+veces más, y encendería la pantalla unas veinticuatro veces por edición; con el
+velo que el video le pone a toda imagen el brillo calza en 72, pero entonces el
+dibujo se apaga junto con la imagen y queda como un fantasma, que es lo que hoy
+le pasa a las de sección y está bien para un fondo detrás del texto pero no
+para lo único que hay en pantalla. La oscura queda en **51**, sin salto, y el
+dibujo se lee entero.
+
+**Lo que esto implica**: son **dos familias de imagen y no se pueden
+intercambiar**. La de sección convive con el texto, va en papel claro y deja la
+mitad izquierda libre. La de biblioteca lo reemplaza, va oscura y su motivo va
+centrado ocupando el cuadro.
+
+**Evidencia**: `contenido/biblioteca/pruebas/gobierno-papel.png` y
+`gobierno-oscuro.png`, montadas con `src/muestra-biblioteca.tsx`. Prompts en
+`contenido/biblioteca/PROMPTS-CONCEPTOS.md`.
