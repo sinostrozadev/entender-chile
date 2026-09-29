@@ -81,7 +81,7 @@ sirve donde hay dos categorías o más. Ese número está arriba.
 | concepto | párrafos | del total | motivo (icono) | materia (fondo) |
 |---|---:|---:|---|---|
 | empleo | 47 | 4.0% | un reloj control de entrada con su casillero de tarjetas al lado, montados en el muro de una entrada de personal, vistos de cerca y de frente | cartón corrugado de carpeta de currículum, gastado en los cantos y con la onda a la vista |
-| precio | 42 | 3.6% | una etiqueta colgante con un hilo y un círculo vacío | - |
+| precio | 42 | 3.6% | un juego de pesas de bronce de balanza, ordenadas de mayor a menor sobre un mesón, vistas de cerca | - |
 | inversion | 29 | 2.5% | una flecha ascendente apoyada en tres barras crecientes | - |
 | dinero publico | 25 | 2.1% | tres pilas de monedas de distinto alto sobre una misma línea de base | - |
 | subsidio | 21 | 1.8% | una mano abierta recibiendo una moneda que cae | - |
@@ -116,7 +116,7 @@ sirve donde hay dos categorías o más. Ese número está arriba.
 | concepto | párrafos | del total | motivo (icono) | materia (fondo) |
 |---|---:|---:|---|---|
 | ley | 78 | 6.6% | un tomo grueso de código legal abierto sobre un atril de lectura, las hojas finas separadas por una cinta, y detrás un estante lleno de tomos iguales | papel biblia de código legal, con columnas de texto fuera de foco y la numeración al margen |
-| vivienda | 43 | 3.6% | una casa de dos aguas con una llave grande apoyada en la puerta | - |
+| vivienda | 43 | 3.6% | una hilera de casas pareadas iguales, recién construidas, vista desde la vereda | - |
 | salud | 30 | 2.5% | un estetoscopio formando un lazo abierto | - |
 | transporte | 25 | 2.1% | un vagón visto de frente sobre dos rieles que se alejan | - |
 | documento | 24 | 2.0% | una hoja con dobleces y tres líneas de texto insinuadas | - |

@@ -65,3 +65,17 @@ archivo.
   puerta. Es la primera imagen del día en la que un emblema llegó donde se pidió.
 - **`tribunales-b.png`** Sala frontal, casi un alzado, sin escudo y sin
   profundidad. Pasa la vara y mide dentro de la familia.
+
+## precio
+
+- **`precio-a.png`** Las pesas de bronce de balanza. Es una **metáfora** y no la
+  cosa literal, que es la excepción del conjunto: los micrófonos de anuncio y el
+  reloj control de empleo existen en la escena de la noticia, las pesas no. Se
+  aceptan porque precio es una magnitud y no tiene escena propia, no porque la
+  regla haya cambiado.
+
+## vivienda
+
+- **`vivienda-a.png`** La hilera de casas pareadas. Dice conjunto y programa, que
+  es de lo que hablan los párrafos: cinco mil viviendas comprometidas, dos mil
+  millones para dinamizar la vivienda, cientos de viviendas con daños.

@@ -80,6 +80,31 @@
 // o sea el caso armado. Además no necesita verificar nada, que es lo que hizo
 // caer al edificio.
 //
+// PRECIO ES MACRO, NO VITRINA (29-09-2026). El motivo era "una etiqueta
+// colgante con un hilo y un círculo vacío", que es retail, y el círculo vacío
+// era un parche para no poner texto. Los párrafos son el precio internacional
+// de los hidrocarburos, el costo de producción del cobre, el alza real del
+// presupuesto y el precio pagado por organismos públicos en el catálogo estatal.
+// Nada de eso pasa en una tienda.
+//
+// Las pesas de balanza son una METÁFORA y no la cosa literal, que es una
+// excepción a lo que veníamos haciendo y conviene decirlo: los micrófonos y el
+// reloj control existen en la escena de la noticia, las pesas no. Se aceptan
+// porque precio es una magnitud y no tiene escena propia, no porque la regla
+// haya cambiado.
+//
+// VIVIENDA ES POLITICA Y ES STOCK, NO UNA COMPRA (29-09-2026). El motivo era
+// "una casa de dos aguas con una llave grande apoyada en la puerta", que es la
+// escena de comprarse una casa y además el cliché de un aviso inmobiliario. Los
+// párrafos hablan de otra cosa: "dos mil millones de dólares para dinamizar la
+// vivienda", "la reducción de cinco mil viviendas comprometidas para
+// Antofagasta", "cientos de viviendas con daños". Es conjunto y es programa, no
+// una compra.
+//
+// Ojo también con la variante "departamento", que se activa con "el Departamento
+// del Tesoro estadounidense". Misma clase de falso positivo que los ministerios
+// en gobierno, y está anotado como pendiente.
+//
 // EMPLEO ES UN INDICADOR Y NO UNA ESCENA (29-09-2026). El motivo era "una fila
 // larga de personas de espaldas esperando frente a una puerta cerrada", y estaba
 // mal por dos razones distintas.
@@ -300,7 +325,7 @@ const CATEGORIAS = [
       ["subsidio", ["subsidio", "bono ", "beneficio estatal", "ayuda estatal", "transferencia directa"],
         "una mano abierta recibiendo una moneda que cae"],
       ["precio", ["precio", "alza ", "encarec", "costo ", "tarifa", "valor del"],
-        "una etiqueta colgante con un hilo y un círculo vacío"],
+        "un juego de pesas de bronce de balanza, ordenadas de mayor a menor sobre un mesón, vistas de cerca"],
       ["inflacion", ["inflacion", "ipc", "costo de la vida", "canasta basica"],
         "un globo inflado atado a una piedra"],
       ["dolar", ["dolar", "tipo de cambio", "divisa", "moneda extranjera"],
@@ -358,7 +383,7 @@ const CATEGORIAS = [
       ["avion", ["avion", "aerea", "aeropuerto", "vuelo"],
         "un avión visto desde abajo con dos estelas cortas detrás"],
       ["vivienda", ["vivienda", "casa", "departamento", "hogar", "campamento", "arriendo"],
-        "una casa de dos aguas con una llave grande apoyada en la puerta"],
+        "una hilera de casas pareadas iguales, recién construidas, vista desde la vereda"],
       ["obra", ["obra ", "construccion", "edificacion", "faena", "licitacion"],
         "una grúa torre vista de perfil con un bloque colgando"],
       ["energia", ["energia", "electricidad", "suministro electrico", "apagon", "generacion electrica"],
