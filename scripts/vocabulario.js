@@ -49,6 +49,18 @@
 // vale para cualquier cosa identificable, no solo para un edificio: un
 // monumento, un vehículo, un animal.
 //
+// CONGRESO ERA LA EXCEPCIÓN QUE SOBRABA (29-09-2026, noche). Su motivo decía
+// "un hemiciclo", a secas, y era el único de los conceptos con cosa real que
+// no la nombraba. Quedó así de antes y no lo revisé cuando se arregló
+// gobierno. Genérico sale a la primera, pero dibuja una sala que no es la
+// nuestra, y el canal habla de ESTE Congreso. Santiago eligió nombrarlo.
+//
+// Se asume el costo: nombrar puede traer el problema de La Moneda, que son
+// muchos intentos hasta que la arquitectura sale. Lo que NO se hace es lo que
+// ya se probó y falló: describir la sala para ayudar. No se puede verificar
+// desde acá contra una foto y, aunque se pudiera, describir es justamente lo
+// que tapa lo que el generador ya sabe.
+//
 // Y ya no hay un solo objeto: el estilo sin fondo permite escena, color,
 // volumen y luz, así que el motivo puede pedir lo que de verdad se ve.
 //
@@ -80,7 +92,7 @@ const CATEGORIAS = [
         "el Palacio de La Moneda visto de frente desde la Plaza de la Constitución, al caer la tarde, con la explanada empedrada delante",
         "piedra clara de fachada pulida, con la veta del bloque y la junta fina entre los sillares"],
       ["congreso", ["congreso", "senado", "camara de diputados", "senador", "diputad", "parlament"],
-        "la sala de un hemiciclo vista desde lo alto, con las filas curvas de escaños vacíos, el estrado al centro y las luces ya encendidas",
+        "la Sala de la Cámara de Diputados del Congreso Nacional de Chile, en Valparaíso, vista desde la tribuna alta, con los escaños vacíos",
         "terciopelo de tapiz de escaño, con el tejido a la vista y el desgaste del respaldo"],
       ["tribunales", ["tribunal", "corte suprema", "corte de apelaciones", "juzgado", "poder judicial", "magistrad"],
         "una sala de audiencias vacía vista desde el estrado: el mesón alto del juez, la baranda de madera y las bancas alineadas atrás",
