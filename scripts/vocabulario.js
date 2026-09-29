@@ -30,9 +30,17 @@
 // dibujar sin problemas.
 //
 // La regla sigue siendo la misma, pero se aplica al revés: primero lo que uno
-// piensa, y después la versión genérica de eso. Un palacio de gobierno
-// neoclásico con su bandera, no La Moneda. Una gorra de plato sin insignia, no
-// un carabinero. Es lo que hace cualquier gráfica de noticias.
+// piensa, y después la versión genérica de eso, salvo que se pueda nombrar.
+//
+// Y SI SE PUEDE NOMBRAR, SE NOMBRA Y PUNTO (29-09-2026, tarde). El motivo de
+// gobierno llegó a tener seis líneas describiendo la fachada de La Moneda:
+// plana, con almohadillado, con los frontones alternados, con balaustrada. Se
+// probó contra la versión corta y salió PEOR. El generador conoce La Moneda;
+// describírsela por partes le tapa lo que ya sabe y termina armando un palacio
+// genérico con esas piezas.
+//
+// Entonces: para una cosa real con nombre, el motivo la nombra y se calla. La
+// descripción larga sirve para lo inventado, no para lo que existe.
 //
 // Y ya no hay un solo objeto: el estilo sin fondo permite escena, color,
 // volumen y luz, así que el motivo puede pedir lo que de verdad se ve.
@@ -62,7 +70,7 @@ const CATEGORIAS = [
     // un objeto propio (un atril, una placa, una balanza).
     terminos: [
       ["gobierno", ["gobierno", "la moneda", "el ejecutivo", "ministerio", "ministra", "ministro", "subsecretar"],
-        "el Palacio de La Moneda visto de frente desde la Plaza de la Constitución, al caer la tarde, con las ventanas encendidas. Fachada neoclásica austera de dos pisos, larga y PLANA, de color hueso: sin pórtico de columnas que sobresalga y sin frontón coronando el techo. Planta baja con almohadillado, los sillares marcados por juntas. Portal central con columnas pareadas que sostienen un balcón. En el piso alto las ventanas ALTERNAN frontón triangular y frontón curvo. Remate con balaustrada y jarrones de piedra sobre pilastras, a lo largo de toda la fachada. Delante, la explanada empedrada en perspectiva, sin autos ni gente. ENCUADRE: el palacio ocupa la mitad superior del cuadro y la explanada la mitad inferior, de modo que el conjunto llene un 16:9 y el edificio no quede como una franja. La bandera chilena izada sobre el portal, dibujada en la misma tinta que el resto y nunca en color",
+        "el Palacio de La Moneda visto de frente desde la Plaza de la Constitución, al caer la tarde, con la explanada empedrada delante",
         "piedra clara de fachada pulida, con la veta del bloque y la junta fina entre los sillares"],
       ["congreso", ["congreso", "senado", "camara de diputados", "senador", "diputad", "parlament"],
         "la sala de un hemiciclo vista desde lo alto, con las filas curvas de escaños vacíos, el estrado al centro y las luces ya encendidas",

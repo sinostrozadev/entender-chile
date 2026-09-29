@@ -94,6 +94,27 @@ y un acento verde cobre.
 buscaba: sin transparencia un rectángulo tapa al otro, y la PDI mas la muerte
 no se pueden superponer.
 
+## El prompt va CORTO, y los porqués viven acá
+
+Medido el 29-09-2026, y es contraintuitivo. El bloque de estilo llegó a tener 45
+líneas, con la explicación de cada regla adentro para que no se perdieran. La
+misma imagen pedida con el prompt largo en una conversación nueva salió PEOR que
+la pedida con tres líneas en una conversación donde ya se había iterado.
+
+Dos razones distintas, y conviene no confundirlas:
+
+1. **Describir una cosa real le tapa al generador lo que ya sabe.** El motivo de
+   gobierno llegó a tener seis líneas sobre la fachada de La Moneda: plana, con
+   almohadillado, con los frontones alternados, con balaustrada. El generador
+   conoce La Moneda; al describírsela por partes, armó un palacio genérico con
+   esas piezas. **Si la cosa se puede nombrar, se nombra y se calla.** La
+   descripción larga sirve para lo inventado, no para lo que existe.
+2. **Un prompt largo diluye.** Pasado cierto punto el generador empieza a soltar
+   instrucciones del medio, y las que suelta no son las que uno elegiría.
+
+Entonces el reparto quedó así: **el prompt lleva la instrucción, este archivo
+lleva el porqué.** Lo de abajo es para leerlo nosotros, no para pegarlo.
+
 ## Las reglas que van en TODOS los prompts, con su porqué
 
 Desde el 29-09-2026 estas seis líneas van al final de cada bloque de estilo, con
