@@ -150,7 +150,7 @@ archivos de criterio del repositorio.
     Content ID bloquea la monetización del video entero). Las imágenes
     GENERADAS propias se permiten SOLO como identificadores de serie y de
     sección: cortinas de 1,1 s, pieles de los Shorts, carátulas, cabeceras
-    de la web. **Pueden ser fotorrealistas cuando son AMBIENTE U OBJETO**
+    de la web y los dibujos de la biblioteca de conceptos. **Pueden ser fotorrealistas cuando son AMBIENTE U OBJETO**
     (un paraguas bajo la lluvia, una calle desenfocada de noche, una
     alcancía, un vaso que se desborda): esas no afirman nada sobre la
     noticia, y la versión ilustrada se probó y no compite como carátula.
@@ -160,8 +160,40 @@ archivos de criterio del repositorio.
     imagen así es un registro falso de algo que nadie fotografió: obliga a
     la etiqueta de contenido sintético, la política de contenido inauténtico
     la persigue, y si alguien la pilla se lleva puesta la credibilidad de
-    todas las cifras del canal, que es lo único que tenemos. En ningún caso
-    lugares identificables ni personas reconocibles. Nunca son el
+    todas las cifras del canal, que es lo único que tenemos.
+
+    **PERSONAS: nunca, y esta no se relaja.** Ni reales, ni reconocibles, ni
+    parecidas a alguien. No es el mismo caso que un edificio: en Chile la
+    propia imagen está protegida, una cara generada al lado de la palabra
+    "investigación" afirma algo que ninguna fuente dijo, y el castigo de la
+    política de contenido sintético cae sobre el canal entero y no sobre el
+    video. Una figura anónima de espaldas y sin rasgos no es una persona
+    reconocible y sí se puede.
+
+    **LUGARES E INSTITUCIONES: sí, con dos condiciones** (29-09-2026). Esto
+    corrige la frase "en ningún caso lugares identificables", que venía del
+    03-09 y contradecía el criterio que esta misma regla adoptó el 23-09: la
+    línea no es el estilo sino si la imagen pretende ser el registro del
+    hecho. Un grabado de un edificio permanente no pretende registrar nada y
+    va a seguir siendo cierto mañana. Prohibirlo obligaba a pedir el objeto
+    vecino (un atril) en vez de la cosa que uno piensa (el palacio), y eso
+    salió a la luz cuando Santiago preguntó por qué se pedía ese púlpito
+    para "gobierno".
+    1. **Tiene que estar bien dibujado.** Si es La Moneda, es La Moneda: la
+       fachada plana, el almohadillado, los frontones que alternan. Una
+       versión casi correcta la nota justamente quien nos sigue por ser
+       precisos con las cifras, y ahí el costo es la credibilidad, no el
+       detalle.
+    2. **Tiene que ser de esa noticia.** La Moneda en una nota que no es del
+       gobierno insinúa que el gobierno está metido. El edificio afirma
+       cosas.
+
+    **Y la mitigación no es un detalle decorativo: lo que hace defendible
+    mostrar un lugar real es que se vea que es un dibujo.** El día que la
+    biblioteca vuelva al fotorrealismo, esta autorización se cae con ella y
+    hay que volver a lo genérico.
+
+    Nunca son el
     contenido: las tarjetas de datos siguen siendo tipográficas y ninguna
     cifra grande lleva textura detrás. Y llevan VARIACIÓN DIARIA POR CÓDIGO
     (encuadre, desplazamiento y tinte sembrados con la fecha), porque el
@@ -171,7 +203,8 @@ archivos de criterio del repositorio.
     del 27-08; ampliada el 23-09 por Santiago en el taller de carátulas:
     el "nada realista" original dejaba fuera la única dirección que
     funcionaba, y la línea correcta no es el estilo sino si la imagen
-    pretende ser el registro del hecho)
+    pretende ser el registro del hecho; partida en personas y lugares el
+    29-09-2026, ver arriba)
 30. **La música se genera por código y es puntuación, no cama.** Silencio
     bajo la narración; sello, cortinas de 1,1 segundos y cierre, nada más.
     Nada descargado de ningún banco. (decisión 27-08)

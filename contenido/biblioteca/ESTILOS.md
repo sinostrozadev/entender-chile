@@ -69,39 +69,54 @@ salto de luz se nota: ahí el salto es la intención.
     Sin texto, sin letras, sin números, sin marcos, sin logos, sin marca de
     agua. Nada reconocible: ningún lugar identificable ni persona real.
 
-## Estilo SIN FONDO (desde el 29-09-2026)
+## Estilo GRABADO, sin fondo (desde el 29-09-2026)
 
 | | |
 |---|---|
 | fondo | ninguno: PNG con canal alfa de verdad |
-| trazo | libre: volumen, sombra, textura, color, grosor variable |
+| trazo | de pluma, firme y de grosor variable; el volumen se hace con ACHURADO |
+| tinta | una sola, hueso `#E8E7E1`, sin viraje sepia ni cálido |
 | formato | 1920 x 1080, el motivo con aire alrededor |
 | dónde vive | `contenido/biblioteca/sin-fondo/<concepto>-a.png` |
 
-**Premisa**: Santiago, el 29-09-2026, "quiero que los prompt tengan más
-libertad para pedir, que no tengan límites". Los dos estilos anteriores le
-dictan al generador hasta el grosor del trazo, y eso sirve para que veinte
-dibujos parezcan una familia, pero también le impide entregar algo mejor de lo
-que uno supo pedir. Acá se le pide el motivo y se le suelta la mano.
+**Premisa**: la ilustración de diario del siglo XIX, antes de que existiera la
+fotografía impresa. Se soltó todo lo que era una restricción de gusto (un solo
+objeto, sin escena, sin profundidad) y se apretó lo que es sistema: una sola
+tinta y nada que parezca una cámara.
+
+Por qué esta dirección y no el fotorrealismo, que es la alternativa real: una
+foto convincente de algo que nadie fotografió es justo lo que el canal promete
+no hacer, y un render envejece mal mientras que un grabado no tiene fecha. La
+identidad, decidida el 25-08-2026, ya lo dice: sobriedad radical, papel, tinta
+y un acento verde cobre.
 
 **Y es el estilo que hace posible mezclar dos imágenes**, que es lo que
 buscaba: sin transparencia un rectángulo tapa al otro, y la PDI mas la muerte
 no se pueden superponer.
 
-**Las dos únicas restricciones que quedan, y por qué no se sueltan**:
+## Las reglas que van en TODOS los prompts, con su porqué
 
-1. **Nada reconocible.** Es la regla dura 29 y no es estética: una persona real
-   o un lugar identificable en una imagen generada es un problema de derechos
-   y de veracidad, no de gusto. El canal no puede ilustrar una noticia con una
-   cara que se parezca a alguien.
-2. **Sin texto dentro de la imagen.** El texto lo pone el video, que sabe el
-   tamaño, el color y la palabra exacta. Una palabra horneada en el PNG no se
-   puede corregir ni cambiar de tipografía, y los generadores además la
-   escriben mal.
+Desde el 29-09-2026 estas seis líneas van al final de cada bloque de estilo, con
+la explicación incluida. Van explicadas y no a secas porque cada una se perdió
+al menos una vez: la bandera a color apareció en la segunda prueba de gobierno
+aunque el prompt pedía una sola tinta.
 
-Todo lo demás se soltó: un solo motivo, el trazo parejo, la ausencia de
-sombras, el fondo plano, la prohibición de color. Si el generador entrega algo
-mejor con tres elementos y luz dura, que lo entregue.
+1. **Sin personas.** Ni reales, ni reconocibles, ni parecidas a alguien. En
+   Chile la propia imagen está protegida, y una cara generada al lado de una
+   noticia afirma algo que ninguna fuente dijo. Una figura de espaldas y sin
+   rasgos sí se puede.
+2. **Sin bandera a color**, ni la chilena ni ninguna. La identidad del canal
+   dice "sin bandera" porque es apolítico y no patriotero. Si la escena la
+   pide, va en la misma tinta que todo lo demás.
+3. **Una sola tinta.** El canal tiene un acento único y es un verde frío:
+   cualquier segunda familia de color rompe el sistema entero.
+4. **Un lugar real se dibuja bien o no se dibuja.** Si es un edificio
+   identificable tiene que ser ESE edificio. Quien nos sigue lo hace porque
+   somos precisos, y una versión casi correcta cuesta más credibilidad que una
+   genérica. (Regla 29, partida en personas y lugares el 29-09-2026.)
+5. **Sin texto dentro de la imagen.** Lo pone el video, que sabe el tamaño, el
+   color y la palabra exacta, y los generadores además lo escriben mal.
+6. **Ninguna marca ni logotipo ajeno.**
 
 ## Lo que el recorte agrega a los dos
 
