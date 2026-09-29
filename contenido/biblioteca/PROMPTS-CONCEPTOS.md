@@ -33,6 +33,81 @@ producción, su color promedio es **#F1F0F1, #EAEBE8 y #ECEDE9**, o sea papel
 casi blanco con el dibujo oscuro encima. El bloque de acá abajo describe lo que
 de verdad se está viendo, no lo que dice ese archivo.
 
+## PRIMERO ESTO: la prueba de estilo (29-09-2026)
+
+**No generes los cuarenta todavía.** Estos dos son el mismo concepto y el mismo
+motivo, y lo único que cambia es el estilo. Con los dos al lado se decide, y
+con esa decisión se reescriben los cuarenta de abajo.
+
+El concepto es **gobierno**, que es el que más aparece: 152 de los 879 párrafos
+narrados. Si el estilo funciona ahí, funciona.
+
+### Prueba 1: trazo grueso sobre oscuro (mi recomendación)
+
+Guardar en: `contenido/biblioteca/pruebas/gobierno-oscuro.png`
+
+    Ilustración de línea para un canal de noticias, del concepto "gobierno".
+    Un solo motivo, centrado: un atril vacío visto de frente, con un
+    micrófono delgado inclinado sobre él. Dibujo de contorno, sin relleno,
+    como un grabado antiguo pero de trazo GRUESO y parejo.
+
+    - 16:9, 1920 x 1080.
+    - Fondo de un gris azulado muy oscuro y parejo (#23262A), sin textura,
+      sin degradado, sin viñeta.
+    - El motivo en línea color hueso claro (#E8E7E1), de trazo grueso y
+      uniforme, sin relleno macizo, sin sombras y sin degradados.
+    - El motivo va CENTRADO y ocupa el cuadro: casi todo el alto y buena
+      parte del ancho, con aire parejo a los cuatro lados. Nada de dejar una
+      mitad vacía.
+    - Sin letras, sin números, sin logos, sin banderas, sin marcas.
+    - Sin personas, sin caras, sin siluetas humanas, sin lugares
+      reconocibles, sin edificios existentes.
+    - NADA de fotografía, realismo, 3D, render, acuarela ni collage. Nada
+      dramático ni fantástico.
+    - No representa ningún hecho: es el concepto, no la noticia del día.
+
+### Prueba 2: trazo fino sobre papel
+
+Guardar en: `contenido/biblioteca/pruebas/gobierno-papel.png`
+
+    Ilustración de línea para un canal de noticias, del concepto "gobierno".
+    Un solo motivo, centrado: un atril vacío visto de frente, con un
+    micrófono delgado inclinado sobre él. Dibujo de contorno, sin relleno,
+    como un grabado de manual antiguo, de trazo fino y parejo.
+
+    - 16:9, 1920 x 1080.
+    - Fondo de papel claro y parejo, color hueso (#EFEFEC), con una textura
+      de fibra apenas perceptible.
+    - El motivo en línea gris oscura (#3A3D42), de trazo fino y uniforme,
+      sin relleno macizo, sin sombras y sin degradados.
+    - El motivo va CENTRADO y ocupa el cuadro: casi todo el alto y buena
+      parte del ancho, con aire parejo a los cuatro lados. Nada de dejar una
+      mitad vacía.
+    - Sin letras, sin números, sin logos, sin banderas, sin marcas.
+    - Sin personas, sin caras, sin siluetas humanas, sin lugares
+      reconocibles, sin edificios existentes.
+    - NADA de fotografía, realismo, 3D, render, acuarela ni collage. Nada
+      dramático ni fantástico.
+    - No representa ningún hecho: es el concepto, no la noticia del día.
+
+### Qué se está comparando, y qué mirar
+
+Medido sobre el tablero (`src/tablero-estilos.tsx`): el video tiene un brillo
+medio de **77**. El papel sin velo queda en **236**, tres veces más, y
+encendería la pantalla veinticuatro veces por edición. Bajo el velo el brillo
+calza en 74 pero el dibujo se despega solo **35** del fondo. El oscuro queda en
+**43** de brillo y el dibujo se despega **193**.
+
+Los números favorecen al oscuro, pero están medidos sobre un dibujo que hice yo
+en código, no sobre arte de verdad. Por eso vale generar los dos.
+
+Con las dos imágenes acá las monto en un cuadro real del informe, donde hoy va
+un párrafo, y se ven en su contexto antes de decidir.
+
+**Aviso**: los modelos de imagen suelen ensuciar los fondos oscuros, con
+manchas o degradados que el prompt no pidió. Si la prueba 1 sale sucia o con el
+fondo desparejo, no es que el estilo no sirva: hay que volver a pedirla.
+
 ## El bloque fijo: va al final de TODOS los pedidos
 
     Fijo para todas:
