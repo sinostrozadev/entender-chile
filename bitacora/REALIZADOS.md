@@ -101,3 +101,4 @@ editorial y técnico humano del proyecto.
 - 29-08 · Informe sin tope + "En titulares" + cifras con criterio + fuente en cada tarjeta
 - 29-08 · Barrido con corroboración por tema y palabras de alarma (el tornado que se escapó)
 - 29-09-2026: muestra en movimiento de la biblioteca de imágenes, con los cinco conceptos montados sobre la edición real del 28-09 y rendidos en dos tramos.
+- 29-09 · Biblioteca: entra temporal (contenido/biblioteca/grabado/temporal-a.png), la cuarta. Primera que pasa la vara sin entintar. Se le igualó el brillo a la familia con el nuevo --brillo del recortador (91 a 148 de luminancia media), y de paso se corrigió un defecto de revisar-imagen.js que se comía el primer argumento

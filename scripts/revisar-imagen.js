@@ -189,7 +189,10 @@ if (require.main === module) {
     console.error(`estilo no reconocido: "${estilo}". Son: ${Object.keys(PERFILES).join(", ")}`);
     process.exit(1);
   }
-  const args = todos.filter((a, i) => !a.startsWith("--") && i !== iEstilo + 1);
+  // iEstilo vale -1 cuando no viene --estilo, y entonces iEstilo + 1 es 0: el
+  // filtro se comía el primer argumento, que es justo la imagen. Por eso hay
+  // que preguntar antes si la bandera existe.
+  const args = todos.filter((a, i) => !a.startsWith("--") && (iEstilo < 0 || i !== iEstilo + 1));
   const objetivo = args[0];
   if (!objetivo) { console.error("uso: node scripts/revisar-imagen.js <imagen.png | carpeta>"); process.exit(1); }
   const lista = fs.statSync(objetivo).isDirectory()

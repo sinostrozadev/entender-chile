@@ -44,6 +44,7 @@
 //                                       [--techo 0.45] [--tinta E8E7E1]
 //       node scripts/recortar-imagen.js --carpeta contenido/biblioteca/pruebas
 //       ... y --invertir para el estilo papel, donde el dibujo es lo oscuro
+//       ... y --brillo 140 para dejar la luminancia media donde la familia
 const fs = require("fs");
 const path = require("path");
 const zlib = require("zlib");
@@ -269,6 +270,52 @@ const entintar = (px, hex) => {
   return px;
 };
 
+// IGUALAR EL BRILLO DE LA FAMILIA (29-09-2026, tarde). Cuatro dibujos que
+// pasan la vara uno por uno pueden no funcionar juntos: el de la calle
+// inundada de noche medía 91 de luminancia media y los otros tres 116, 143 y
+// 172. Sobre el video, que es casi negro, esa diferencia no se lee como "esta
+// escena es de noche", se lee como que la imagen se hundió. Al verlas de a una
+// no se nota; al hilarlas en el mismo video, sí.
+//
+// La corrección NO es subir la tinta: eso aclara igual el trazo denso y el
+// papel, y aplasta el grabado. Se corrige con una curva sobre la luz, o sea
+// una gamma: el negro sigue negro, el blanco sigue blanco y lo que sube es el
+// medio tono, que es donde vive el achurado. El dibujo no cambia, cambia
+// cuánta luz deja pasar.
+//
+// La gamma no se elige a ojo, se despeja: se busca por bisección la que deja
+// la luminancia media de los píxeles opacos en el objetivo. Así el número que
+// se escribe en la línea de comandos es el que se mide después, y dos personas
+// distintas en dos días distintos llegan a la misma imagen.
+const igualarBrillo = (px, objetivo) => {
+  const medir = (g) => {
+    let suma = 0, n = 0;
+    for (let o = 0; o < px.length; o += 4) {
+      if (px[o + 3] === 0) continue;
+      const luz = (0.2126 * px[o] + 0.7152 * px[o + 1] + 0.0722 * px[o + 2]) / 255;
+      suma += 255 * Math.pow(luz, g);
+      n++;
+    }
+    return n ? suma / n : 0;
+  };
+  // gamma menor que 1 aclara, mayor que 1 oscurece; la media es monótona en g
+  let bajo = 0.05, alto = 6;
+  if (medir(bajo) < objetivo || medir(alto) > objetivo) return { gamma: null, antes: medir(1), despues: medir(1) };
+  const antes = medir(1);
+  for (let i = 0; i < 40; i++) {
+    const medio = (bajo + alto) / 2;
+    if (medir(medio) > objetivo) bajo = medio; else alto = medio;
+  }
+  const gamma = (bajo + alto) / 2;
+  for (let o = 0; o < px.length; o += 4) {
+    if (px[o + 3] === 0) continue;
+    for (let c = 0; c < 3; c++) {
+      px[o + c] = Math.min(255, Math.round(255 * Math.pow(px[o + c] / 255, gamma)));
+    }
+  }
+  return { gamma, antes, despues: medir(1) };
+};
+
 // DESVANECER EL PIE (29-09-2026). Una escena con suelo (una explanada, una
 // calle, un piso) termina donde termina el cuadro, y sobre el video oscuro ese
 // corte recto se ve: parece que la imagen quedó mal recortada. La solución no
@@ -337,6 +384,7 @@ const recortar = (entrada, salida, opciones = {}) => {
         }
       }
       if (opciones.entintar) entintar(px, opciones.entintar);
+      if (opciones.brillo) igualarBrillo(px, opciones.brillo);
       if (opciones.desvanecer) desvanecerPie(px, png.ancho, png.alto, opciones.desvanecer);
       fs.writeFileSync(salida, escribirRGBA(png.ancho, png.alto, px));
       return { ancho: png.ancho, alto: png.alto, estilo: "ya venía recortada" + (opciones.entintar ? ", entintada" : ""),
@@ -347,6 +395,7 @@ const recortar = (entrada, salida, opciones = {}) => {
   if (opciones.modo === "borde") {
     const r = recortarPorBorde(png, plano, canales, paso, opciones);
     if (opciones.entintar) entintar(r.px, opciones.entintar);
+    if (opciones.brillo) igualarBrillo(r.px, opciones.brillo);
     if (opciones.desvanecer) desvanecerPie(r.px, png.ancho, png.alto, opciones.desvanecer);
     fs.writeFileSync(salida, escribirRGBA(png.ancho, png.alto, r.px));
     return { ancho: png.ancho, alto: png.alto, estilo: "borde",
@@ -389,7 +438,7 @@ const recortar = (entrada, salida, opciones = {}) => {
     estilo: invertir ? "papel" : "oscuro" };
 };
 
-module.exports = { recortar, entintar, desvanecerPie, leerPNG, desfiltrar };
+module.exports = { recortar, entintar, igualarBrillo, desvanecerPie, leerPNG, desfiltrar };
 
 if (require.main === module) {
   const args = process.argv.slice(2);
@@ -401,6 +450,7 @@ if (require.main === module) {
     modo: valor("--modo", "luz"),
     forzar: args.includes("--forzar"),
     desvanecer: Number(valor("--desvanecer", 0)) || 0,
+    brillo: Number(valor("--brillo", 0)) || 0,
     entintar: args.includes("--entintar") ? (valor("--entintar", "E8E7E1") || "E8E7E1").replace(/^#/, "") : null,
     duro: Number(valor("--duro", 0.05)), suave: Number(valor("--suave", 0.20)),
   };
