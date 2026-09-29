@@ -35,6 +35,12 @@
 //                  agujerear lo que es blanco DENTRO del motivo: el modo luz
 //                  habría borrado los reflejos del metal.
 //
+// OJO CON --invertir SOBRE ALGO YA RECORTADO (29-09-2026): invertir la
+// luminancia de una zona transparente la vuelve opaca, porque un píxel con
+// alfa cero suele venir con el color en negro y el negro invertido es opaco.
+// O sea, reconstruye el fondo que la imagen ya traía quitado. --invertir es
+// para imágenes SIN canal alfa, donde el dibujo es lo oscuro.
+//
 // En modo borde el color se despega del fondo además de recortarse: un píxel
 // del borde es una mezcla del motivo y del blanco, y si se deja tal cual queda
 // una aureola clara que sobre el video oscuro se ve. La cuenta que la saca es
