@@ -374,17 +374,23 @@ export const TarjetaTesis: React.FC<{ ev: Evento }> = ({ ev }) => {
 // Un solo plano moviéndose no da efecto, da deriva: lo que se lee como
 // profundidad es la diferencia entre los pasos.
 //
-// EL FONDO DEL PNG NO SE RECORTA: se funde. Las imágenes vienen con su propio
-// fondo (#23262A), así que puestas encima dejarían un rectángulo. `screen`
-// hace que lo oscuro no pinte y solo queden los trazos claros, y la máscara
-// redonda apaga el borde del rectángulo.
+// SE FUERON EL SCREEN, LA MÁSCARA Y EL CONTRASTE (29-09-2026, tarde). Los tres
+// eran parches para esconder el fondo propio de un PNG que no venía recortado.
+// Desde que la biblioteca entrega PNG con canal alfa de verdad, y la puerta
+// (scripts/revisar-imagen.js) no deja pasar uno que no lo traiga, los tres
+// estorban:
 //
-// PERO SCREEN SOLO NO ALCANZA (primer intento, 29-09): sobre el fondo de la
-// sección dejaba un halo claro con forma de elipse alrededor del motivo, y
-// encima chocaba con el GRABADO, el pictograma enorme de la sección, que es
-// otro dibujo de línea. Quedaban dos dibujos a la vez y ninguno se leía.
-// Por eso va antes un velo oscuro redondo: apaga el grabado justo donde va el
-// motivo y deja la base negra, y sobre negro el `screen` no levanta nada.
+//   la MÁSCARA elíptica cortaba el dibujo en un óvalo. Con el PNG recortado no
+//   hay rectángulo que esconder, así que lo único que hacía era comerse las
+//   esquinas de la escena: en la primera prueba de La Moneda le cortó la
+//   explanada y los dos extremos del edificio.
+//   el SCREEN ya no hace falta porque no hay fondo que anular, y encima aclara
+//   el trazo contra lo que haya debajo.
+//   el CONTRASTE a 1,38 aplastaba el achurado, que es justamente donde el
+//   grabado guarda su volumen.
+//
+// Si alguien pone acá un PNG sin recortar, ahora se le va a ver el rectángulo.
+// Eso es lo correcto: es la señal de que esa imagen no pasó por la puerta.
 const PASEO_SEG = 20;          // lo que dura el párrafo más largo que se ha visto
 const CLAMP = { extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
 
@@ -519,7 +525,6 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
   const tramaX = -viaje * 0.34 + avance * 26;
   const tramaY = avance * 14;
 
-  const mascara = "radial-gradient(ellipse 62% 58% at 50% 50%, #000 58%, rgba(0,0,0,0) 82%)";
   // EL VELO NO ES PAREJO CUANDO HAY TEXTO (29-09-2026). Parejo y alto dejaba
   // legible la columna pero mataba el fondo de sección entero, y con él lo
   // único del cuadro que hace zoom. Ahora tapa fuerte del lado del texto (que
@@ -527,7 +532,10 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
   // letras) y afloja del lado del dibujo, que es donde el acercamiento lento
   // de la foto sí se puede ver. Es el mismo velo haciendo dos trabajos.
   const tapa = interpolate(op, [0, 1], [0, 0.94], CLAMP).toFixed(3);
-  const suelta = interpolate(op, [0, 1], [0, 0.58], CLAMP).toFixed(3);
+  // 0,78 y no 0,58 del lado del dibujo (29-09, tarde): cuando el motivo es a su
+  // vez arquitectura, como La Moneda, la foto de la sección que asoma detrás se
+  // lee como un SEGUNDO edificio. Con dibujos de objeto no molestaba.
+  const suelta = interpolate(op, [0, 1], [0, 0.78], CLAMP).toFixed(3);
   const velado = interpolate(op, [0, 1], [0, 0.8], CLAMP);
   const cortina = conTexto
     ? `linear-gradient(${pose.dibujoA === "der" ? 90 : 270}deg, rgba(16,18,21,${tapa}) 0%, rgba(16,18,21,${tapa}) 44%, rgba(16,18,21,${suelta}) 82%, rgba(16,18,21,${suelta}) 100%)`
@@ -546,14 +554,6 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
           objectFit: "contain",
           left: `${equis * 100}%`, top: `${pose.sube * 100}%`,
           transform: `translate(-50%, -50%) translate(${viaje}px, ${entra}px) scale(${nace * respira})`,
-          mixBlendMode: "screen",
-          // CONTRASTE ALTO, y no es por gusto: el `screen` levanta el fondo
-          // propio del PNG y deja un resplandor con forma de elipse alrededor
-          // del motivo. Subiendo el contraste ese fondo cae casi a negro (no
-          // levanta nada) y el trazo se va a blanco. El halo desaparece sin
-          // recortar ninguna imagen a mano.
-          filter: "contrast(1.38)",
-          maskImage: mascara, WebkitMaskImage: mascara,
         } as React.CSSProperties}
       />
       {conTexto ? (
