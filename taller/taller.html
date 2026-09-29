@@ -420,6 +420,22 @@
     display: block; height: 50px; object-fit: cover; width: 88px;
   }
   .bib-mini:focus-visible { outline: 2px solid var(--patina); outline-offset: 2px; }
+  /* LA TIRA DE VARIANTES (29-09-2026, pedido de Santiago: "muestra las que
+     hayan por concepto, así hay más de dónde agarrar de acuerdo al contexto").
+     Van todas a la vista y no escondidas tras un clic, porque el punto es
+     COMPARARLAS: una lista que hay que abrir para ver no sirve para elegir. */
+  .bib-tira { display: flex; flex-wrap: wrap; gap: 4px; }
+  .bib-var { position: relative; }
+  /* la de por defecto se marca con el borde del canal, no con un rótulo: un
+     rótulo por celda llenaría la tabla de texto que nadie lee dos veces */
+  .bib-var.es-defecto .bib-mini { border-color: var(--patina); border-width: 2px; }
+  .bib-var .bib-mini { height: 44px; width: 78px; }
+  .bib-letra {
+    background: var(--papel); border: 1px solid var(--linea); bottom: 0;
+    color: var(--grafito); font-family: var(--mono); font-size: 10px;
+    line-height: 1; padding: 1px 3px; position: absolute; right: 0;
+  }
+  .bib-var.no-vara .bib-mini { border-style: dashed; opacity: .75; }
   .bib-subir { color: var(--grafito); cursor: pointer; font-family: var(--mono); font-size: 11px; }
   .bib-subir:hover { color: var(--patina); }
   .bib-subir input { display: none; }
@@ -1330,9 +1346,20 @@
     control.textContent = "Subiendo...";
     bienes.upload(archivo).then(function (r) {
       var tipo = estilo.tipo === "fondo" ? "fondo" : "icono";
+      // SUBIR AGREGA, NO REEMPLAZA (29-09-2026). Desde que un concepto puede
+      // tener varias imágenes, un `set` con los campos de la nueva borraría la
+      // lista entera de variantes, que es justo lo que se acaba de construir
+      // para no perder ninguna. La nueva entra al final: la primera de la lista
+      // es la que usa el video y cambiarla es una decisión, no un efecto de
+      // haber subido un archivo.
+      var previo = imagenBib(termino.nombre, estilo) || {};
+      var lista = (previo.variantes && previo.variantes.length) ? previo.variantes.slice()
+        : (previo.url ? [{ archivo: previo.archivo, url: previo.url, nota: "" }] : []);
+      lista.push({ archivo: archivo.name, url: r.url, nota: "" });
       return db.collection("biblioteca").doc(tipo + "__" + estilo.id + "__" + bibId(termino.nombre)).set({
-        concepto: termino.nombre, estilo: estilo.id, tipo: tipo, url: r.url,
-        archivo: archivo.name, categoria: termino.categoria || ""
+        concepto: termino.nombre, estilo: estilo.id, tipo: tipo,
+        url: previo.url || r.url, archivo: previo.archivo || archivo.name,
+        categoria: termino.categoria || previo.categoria || "", variantes: lista
       });
     }).then(function () {
       // OJO, y es una deuda real: esto la deja en el taller, no en el
@@ -1359,16 +1386,42 @@
     var c = nodo("div", "bib-celda");
     var img = imagenBib(termino.nombre, estilo);
     if (img && img.url) {
-      var i = document.createElement("img");
-      i.className = "bib-mini";
-      i.src = img.url;
-      i.alt = termino.nombre + " en " + texto(estilo.nombre);
-      i.loading = "lazy";
-      i.tabIndex = 0;
-      var abrir = function () { abrirVisor(img.url, termino.nombre + " · " + texto(estilo.nombre)); };
-      i.addEventListener("click", abrir);
-      i.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); abrir(); } });
-      c.appendChild(i);
+      // un concepto puede tener varias imágenes y la primera es la que usa el
+      // video; el resto están para elegir según la noticia. Los documentos
+      // viejos no traen `variantes`, así que se arma una de una sola entrada.
+      var lista = (img.variantes && img.variantes.length) ? img.variantes
+        : [{ archivo: img.archivo, url: img.url, nota: "" }];
+      var tira = nodo("div", "bib-tira");
+      lista.forEach(function (v, n) {
+        if (!v || !v.url) return;
+        var caja = nodo("div", "bib-var" + (n === 0 ? " es-defecto" : "") +
+          (v.pasaVara === false ? " no-vara" : ""));
+        var i = document.createElement("img");
+        i.className = "bib-mini";
+        i.src = v.url;
+        i.loading = "lazy";
+        i.tabIndex = 0;
+        // el pie del visor lleva la nota, que es lo único que dice CUÁNDO usar
+        // cada una: sin eso la tira es un montón de dibujos parecidos
+        var pie = termino.nombre + " · " + texto(v.archivo) +
+          (n === 0 ? " (la que usa el video)" : "") +
+          (v.pasaVara === false ? " · NO pasa la vara" : "") +
+          (v.nota ? " · " + v.nota : "");
+        i.alt = pie;
+        i.title = pie;
+        var abrir = function () { abrirVisor(v.url, pie); };
+        i.addEventListener("click", abrir);
+        i.addEventListener("keydown", function (ev) {
+          if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); abrir(); }
+        });
+        caja.appendChild(i);
+        if (lista.length > 1) {
+          var letra = texto(v.archivo).replace(/^.*-([a-z])\.png$/, "$1");
+          caja.appendChild(nodo("span", "bib-letra", letra.length === 1 ? letra : String(n + 1)));
+        }
+        tira.appendChild(caja);
+      });
+      c.appendChild(tira);
       c.appendChild(botonCopiar(termino, estilo));
       return c;
     }
