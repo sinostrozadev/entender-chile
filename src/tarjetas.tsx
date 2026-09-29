@@ -551,6 +551,13 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
         src={staticFile(ev.imagen as string)}
         style={{
           position: "absolute", height: `${Math.round(alto * 100)}%`, width: "auto",
+          // EL ANCHO TAMBIÉN SE LIMITA (29-09-2026). El dibujo se escala por su
+          // ALTO, así que un motivo muy apaisado (La Moneda llegó en 2000x750,
+          // que es 2,67 a 1) se pasaba de su mitad e invadía la columna del
+          // texto. Con el tope de ancho, una imagen ancha simplemente queda más
+          // baja, que es lo correcto: se achica sola en vez de romper el
+          // cuadro.
+          maxWidth: conTexto ? "46%" : "92%",
           objectFit: "contain",
           left: `${equis * 100}%`, top: `${pose.sube * 100}%`,
           transform: `translate(-50%, -50%) translate(${viaje}px, ${entra}px) scale(${nace * respira})`,

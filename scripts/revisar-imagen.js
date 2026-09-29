@@ -42,6 +42,12 @@ const LIMITES = {
   vivos: 0.05,          // % de píxeles de color vivo tolerado
   borde: 2,             // % de píxeles opacos tolerado en el marco de 8 px
   anchoMin: 1200,
+  // NO SE EXIGE 16:9 (29-09-2026). Lo que importa no es la proporción del
+  // archivo sino que el dibujo quepa en su mitad de pantalla sin quedar
+  // diminuto. La Moneda llegó en 2000x750, que es 2,67 a 1: cabe, pero se ve
+  // como una franja. Más allá de 2 a 1 el motivo ya no se lee.
+  proporcionMax: 2.0,
+  proporcionMin: 0.7,
   contraste: 34,        // desviación de luminancia tolerada en un fondo
 };
 
@@ -165,8 +171,10 @@ const revisar = (archivo, opciones = {}) => {
   // claridad, no el matiz
   anota("contraste bajo", m.contraste <= LIMITES.contraste,
     `desviación de luminancia ${m.contraste}`);
-  anota("medidas", m.ancho >= LIMITES.anchoMin && Math.abs(m.ancho / m.alto - 16 / 9) < 0.04,
-    `${m.ancho}x${m.alto}`);
+  const prop = m.ancho / m.alto;
+  anota("medidas", m.ancho >= LIMITES.anchoMin && prop <= LIMITES.proporcionMax && prop >= LIMITES.proporcionMin,
+    `${m.ancho}x${m.alto}, proporción ${prop.toFixed(2)} a 1` +
+    (prop > LIMITES.proporcionMax ? " (muy apaisada: va a verse como una franja)" : ""));
 
   return { medidas: m, pruebas, estilo: perfil.nombre, pasa: pruebas.every((p) => p.bien) };
 };
