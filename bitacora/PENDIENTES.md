@@ -807,6 +807,18 @@ referencia:
       forma. La propia revisión de hoy dice textual: "o entra a la lista de
       exentas o empieza a bloquear". Auditoría del 28-09
       (`bitacora/2026-09-28-auditoria.md`).
+      **29-09: sube a HOY, tercera superficie.** Hoy `contenido/revisiones/2026-09-29.md`
+      marca "Fogape" sin expandir dentro de un `[ESQUEMA]` de
+      `contenido/guiones/informe/2026-09-29.md` (ni `[FUENTE]`/`[DATO]` ni
+      titular). Causa encontrada en `prompts/guion-informe.md`: la regla de
+      la línea 211-212 restringe el alcance a "(en esta marca o en el pie de
+      un [DATO])", pero el checklist ítem 17b (línea 273) pide lo mismo sin
+      esa restricción, así que la validación se queda con la lectura más
+      estrecha. Propuesta: en `prompts/guion-informe.md`, líneas 211-212,
+      quitar la restricción entre paréntesis y dejar la regla igual de
+      ancha que el ítem 17b, para cualquier marca del guion (titulares,
+      [TESIS], [ESQUEMA], [FUENTE], pie de [DATO]). Auditoría del 29-09
+      (`bitacora/2026-09-29-auditoria.md`).
 
 - [ ] **23-09, HOY: tope al cierre de cautela repetido ("queda para
       verificar/en seguimiento/pendiente") — más de una semana sin corregirse
