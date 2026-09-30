@@ -106,6 +106,30 @@
   .abierto { border-left: 2px solid var(--cobre); font-size: 14px; padding-left: 10px; }
   .abierto .meta { color: var(--grafito); font-family: var(--mono); font-size: 11px; }
 
+  /* El bloque de la decisión abierta: la ranura de narración. */
+  .decision { border: 1px solid var(--cobre); margin: 22px 0 8px; }
+  .decision > h2 { margin: 0; padding: 14px 18px 0; }
+  .decision > p { padding-inline: 18px; }
+  .candidatas { display: grid; gap: 1px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    background: var(--linea); border-block: 1px solid var(--linea); margin-top: 8px; }
+  .candidata { background: var(--superficie); padding: 12px 14px; }
+  .candidata img, .candidata video { aspect-ratio: 16 / 9; background: var(--video); display: block;
+    margin-bottom: 8px; object-fit: cover; width: 100%; }
+  .candidata b { display: block; font-size: 15px; }
+  .candidata span { color: var(--grafito); font-size: 13px; }
+  .guardas { border-collapse: collapse; font-size: 14px; margin: 14px 18px; width: calc(100% - 36px); }
+  .guardas th { border-bottom: 1px solid var(--linea); color: var(--grafito); font-family: var(--mono);
+    font-size: 11px; font-weight: 400; letter-spacing: 0.1em; padding: 6px 8px 6px 0; text-align: left;
+    text-transform: uppercase; }
+  .guardas td { border-bottom: 1px solid var(--linea); padding: 8px 8px 8px 0; vertical-align: top; }
+  .guardas td:last-child { color: var(--grafito); font-family: var(--mono); font-size: 13px;
+    text-align: right; white-space: nowrap; }
+  .cifras { display: grid; gap: 1px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    background: var(--linea); border-block: 1px solid var(--linea); }
+  .cifra { background: var(--superficie); padding: 12px 14px; }
+  .cifra b { display: block; font-family: var(--serif); font-size: 30px; font-weight: 600; line-height: 1.1; }
+  .cifra span { color: var(--grafito); font-size: 13px; }
+
   .pie { border-top: 1px solid var(--linea); color: var(--grafito); font-size: 14px; margin-top: 52px; padding-top: 16px; }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
@@ -130,6 +154,7 @@
   </div>
 
   <div id="ranuras"></div>
+  <div id="decision"></div>
   <div id="lista"><p class="dicho">Cargando...</p></div>
 
   <p class="pie">Los cuadros de las tarjetas son renders reales, no maquetas. Ocho salen de la edición del 24-09-2026; los cinco que esa edición no usó (cita, cambio, barras, tabla y marcador) se rindieron con datos de muestra, que es la única manera de verlos, porque llevan días sin aparecer en una edición. Los seis clips de fondo son de la misma edición.</p>
@@ -389,6 +414,99 @@
     return caja;
   }
 
+  // LA RANURA ABIERTA. Las tres candidatas juntas y lo que produciría la regla
+  // sobre los guiones que ya existen, porque elegir entre ellas mirando una
+  // sola edición es elegir con la impresión de uno. Los números salen de
+  // scripts/ranura-narracion.js y llegan por datos.js.
+  var GUARDAS = [
+    ["Nunca donde hay una cifra que mostrar",
+     "La firma del canal exige toda cifra visible con su fuente, así que la imagen reemplaza la prosa y nunca el dato. Regla del 28-09.",
+     "de 15 a 10 por edición"],
+    ["Nunca dos párrafos seguidos",
+     "Sin esta guarda hay ediciones con ocho dibujos pegados uno tras otro, que es cuando el recurso deja de acompañar y se vuelve el formato.",
+     "de 10 a 8 por edición"],
+    ["Un concepto, tantas veces como variantes tenga",
+     "Sin esta guarda el mismo dibujo sale hasta nueve veces en una edición. Con ella, gobierno puede salir dos veces porque tiene dos variantes, y ley una sola.",
+     "de 8 a 6 por edición"],
+    ["Nunca en un titular",
+     "Un titular dura cuatro segundos. Ahí no cabe un dibujo que dura un párrafo.",
+     "ya estaba fuera del conteo"]
+  ];
+
+  function pintarDecision(mapa) {
+    var caja = el("decision");
+    caja.textContent = "";
+    var R = window.RANURA;
+    var candidatas = mapa["narracion"] || [];
+    if (!R || candidatas.length < 2) return;
+
+    var d = nodo("div", "decision");
+    d.appendChild(nodo("h2", null, "La ranura que hay que decidir"));
+    d.appendChild(nodo("p", "bajada",
+      "Narración es el 83% del video y tiene tres tarjetas candidatas. Hoy gana siempre la primera porque el switch no elige: por eso los " +
+      R.dibujosDisponibles + " dibujos de la biblioteca no aparecen en ningún video publicado."));
+
+    var fila = nodo("div", "candidatas");
+    candidatas.forEach(function (t) {
+      var c = nodo("div", "candidata");
+      if (t.dibujo) {
+        var v = document.createElement("video");
+        v.src = "modo-" + t.id + ".mp4"; v.muted = true; v.loop = true; v.playsInline = true;
+        v.controls = true; v.preload = "metadata";
+        c.appendChild(v);
+      } else {
+        var img = document.createElement("img");
+        img.src = "tarjeta-" + t.id + ".jpg"; img.alt = "La tarjeta " + t.nombre; img.loading = "lazy";
+        c.appendChild(img);
+      }
+      c.appendChild(nodo("b", null, t.nombre));
+      c.appendChild(nodo("span", null, t.dibujo ? "lleva dibujo de la biblioteca" : "solo texto, es la que gana hoy"));
+      fila.appendChild(c);
+    });
+    d.appendChild(fila);
+
+    var cifras = nodo("div", "cifras");
+    [[R.parrafos, "párrafos narrados medidos, en " + R.guiones + " guiones"],
+     [Math.round(R.conConcepto * 100 / R.parrafos) + "%", "tiene un concepto que ya tiene dibujo"],
+     [R.crudo.mediana, "dibujos por edición con la sola guarda de la cifra (hasta " + R.crudo.max + ")"],
+     [R.conGuardas.mediana, "dibujos por edición con las tres guardas (de " + R.conGuardas.min + " a " + R.conGuardas.max + ")"]
+    ].forEach(function (par) {
+      var c = nodo("div", "cifra");
+      c.appendChild(nodo("b", null, String(par[0])));
+      c.appendChild(nodo("span", null, par[1]));
+      cifras.appendChild(c);
+    });
+    d.appendChild(cifras);
+
+    var t = document.createElement("table");
+    t.className = "guardas";
+    var thead = document.createElement("thead");
+    var tr = document.createElement("tr");
+    ["la guarda", "por qué", "lo que cuesta"].forEach(function (h) {
+      var th = document.createElement("th"); th.textContent = h; tr.appendChild(th);
+    });
+    thead.appendChild(tr); t.appendChild(thead);
+    var tb = document.createElement("tbody");
+    GUARDAS.forEach(function (g) {
+      var f = document.createElement("tr");
+      var a = document.createElement("td"); a.appendChild(nodo("b", null, g[0])); f.appendChild(a);
+      var b = document.createElement("td"); b.textContent = g[1]; f.appendChild(b);
+      var c = document.createElement("td"); c.textContent = g[2]; f.appendChild(c);
+      tb.appendChild(f);
+    });
+    t.appendChild(tb);
+    d.appendChild(t);
+
+    d.appendChild(nodo("p", "bajada",
+      "Falta decidir dos cosas: quién escribe la elección (el guion con una marca, o el sistema al ver el párrafo) y si dibujo solo entra ahora o después de ver una edición con dibujos. Escríbelo acá y queda anotado."));
+    var pedido = fichaPedido({ id: "ranura-narracion", nombre: "la ranura de narración" });
+    pedido.style.paddingInline = "18px";
+    pedido.style.paddingBottom = "16px";
+    d.appendChild(pedido);
+
+    caja.appendChild(d);
+  }
+
   function pintar() {
     var caja = el("lista");
     var T = window.TARJETAS, F = window.FONDOS;
@@ -409,6 +527,8 @@
         ? "Solo " + conAlternativa.join(" y ") + " tiene más de una, así que es la única donde hay algo que elegir. En las otras el video no decide: pinta la que hay."
         : "Ninguna tiene más de una, así que el video no elige nada: pinta la que hay.")));
     el("ranuras").appendChild(res);
+
+    pintarDecision(mapa);
 
     caja.appendChild(nodo("h2", null, "Las " + T.tarjetas.length + " tarjetas"));
     caja.appendChild(nodo("p", "bajada", "Acá se decide qué se ve. Es donde entran las imágenes de la biblioteca y donde nacen las tarjetas nuevas."));

@@ -21,12 +21,17 @@ const leer = (n) => JSON.parse(fs.readFileSync(path.join("contenido", "config", 
 
 const tarjetas = leer("tarjetas.json");
 const fondos = leer("fondos.json");
+// La medición de la ranura de narración, que la página muestra al lado de las
+// tres tarjetas que se la disputan: sin los números al lado, elegir entre ellas
+// es elegir con la impresión de uno.
+const ranura = leer("ranura-narracion.json");
 
 fs.writeFileSync(SALIDA,
   "// GENERADO por scripts/datos-taller.js desde contenido/config/tarjetas.json\n" +
   "// y contenido/config/fondos.json. No se edita a mano.\n" +
   "window.TARJETAS = " + JSON.stringify(tarjetas) + ";\n" +
-  "window.FONDOS = " + JSON.stringify(fondos) + ";\n");
+  "window.FONDOS = " + JSON.stringify(fondos) + ";\n" +
+  "window.RANURA = " + JSON.stringify(ranura) + ";\n");
 
 // Cuántas tarjetas puede pintar cada ranura: mientras sea 1 en todas, el switch
 // de src/tarjetas.tsx no elige nada y no hay decisión que tomar.

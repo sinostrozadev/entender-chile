@@ -1,0 +1,288 @@
+{
+  "generado": "2026-09-30",
+  "guiones": 38,
+  "parrafos": 1205,
+  "conCifra": 355,
+  "conConcepto": 574,
+  "dibujosDisponibles": 15,
+  "variantes": 23,
+  "crudo": {
+    "mediana": 10,
+    "min": 3,
+    "max": 24
+  },
+  "conGuardas": {
+    "mediana": 6,
+    "min": 3,
+    "max": 12
+  },
+  "conceptosPorEdicion": 4,
+  "ediciones": [
+    {
+      "fecha": "2026-08-24",
+      "parrafos": 46,
+      "crudo": 13,
+      "conGuardas": 7,
+      "conceptos": 6
+    },
+    {
+      "fecha": "2026-08-25",
+      "parrafos": 36,
+      "crudo": 11,
+      "conGuardas": 6,
+      "conceptos": 5
+    },
+    {
+      "fecha": "2026-08-26",
+      "parrafos": 31,
+      "crudo": 9,
+      "conGuardas": 5,
+      "conceptos": 4
+    },
+    {
+      "fecha": "2026-08-27",
+      "parrafos": 27,
+      "crudo": 4,
+      "conGuardas": 3,
+      "conceptos": 3
+    },
+    {
+      "fecha": "2026-08-28",
+      "parrafos": 24,
+      "crudo": 5,
+      "conGuardas": 3,
+      "conceptos": 2
+    },
+    {
+      "fecha": "2026-08-29",
+      "parrafos": 35,
+      "crudo": 3,
+      "conGuardas": 3,
+      "conceptos": 3
+    },
+    {
+      "fecha": "2026-08-30",
+      "parrafos": 32,
+      "crudo": 13,
+      "conGuardas": 6,
+      "conceptos": 5
+    },
+    {
+      "fecha": "2026-08-31",
+      "parrafos": 35,
+      "crudo": 9,
+      "conGuardas": 7,
+      "conceptos": 7
+    },
+    {
+      "fecha": "2026-09-01",
+      "parrafos": 30,
+      "crudo": 6,
+      "conGuardas": 5,
+      "conceptos": 4
+    },
+    {
+      "fecha": "2026-09-02",
+      "parrafos": 25,
+      "crudo": 8,
+      "conGuardas": 6,
+      "conceptos": 4
+    },
+    {
+      "fecha": "2026-09-03",
+      "parrafos": 32,
+      "crudo": 9,
+      "conGuardas": 5,
+      "conceptos": 4
+    },
+    {
+      "fecha": "2026-09-04",
+      "parrafos": 32,
+      "crudo": 8,
+      "conGuardas": 5,
+      "conceptos": 3
+    },
+    {
+      "fecha": "2026-09-05",
+      "parrafos": 33,
+      "crudo": 10,
+      "conGuardas": 7,
+      "conceptos": 5
+    },
+    {
+      "fecha": "2026-09-06",
+      "parrafos": 30,
+      "crudo": 12,
+      "conGuardas": 7,
+      "conceptos": 5
+    },
+    {
+      "fecha": "2026-09-07",
+      "parrafos": 40,
+      "crudo": 13,
+      "conGuardas": 6,
+      "conceptos": 5
+    },
+    {
+      "fecha": "2026-09-08",
+      "parrafos": 23,
+      "crudo": 15,
+      "conGuardas": 7,
+      "conceptos": 4
+    },
+    {
+      "fecha": "2026-09-09",
+      "parrafos": 29,
+      "crudo": 10,
+      "conGuardas": 5,
+      "conceptos": 4
+    },
+    {
+      "fecha": "2026-09-10",
+      "parrafos": 25,
+      "crudo": 13,
+      "conGuardas": 9,
+      "conceptos": 7
+    },
+    {
+      "fecha": "2026-09-11",
+      "parrafos": 62,
+      "crudo": 24,
+      "conGuardas": 12,
+      "conceptos": 9
+    },
+    {
+      "fecha": "2026-09-12",
+      "parrafos": 35,
+      "crudo": 16,
+      "conGuardas": 6,
+      "conceptos": 4
+    },
+    {
+      "fecha": "2026-09-13",
+      "parrafos": 22,
+      "crudo": 8,
+      "conGuardas": 5,
+      "conceptos": 3
+    },
+    {
+      "fecha": "2026-09-14",
+      "parrafos": 31,
+      "crudo": 12,
+      "conGuardas": 6,
+      "conceptos": 5
+    },
+    {
+      "fecha": "2026-09-15",
+      "parrafos": 38,
+      "crudo": 14,
+      "conGuardas": 11,
+      "conceptos": 8
+    },
+    {
+      "fecha": "2026-09-16",
+      "parrafos": 29,
+      "crudo": 13,
+      "conGuardas": 6,
+      "conceptos": 4
+    },
+    {
+      "fecha": "2026-09-17",
+      "parrafos": 32,
+      "crudo": 10,
+      "conGuardas": 5,
+      "conceptos": 4
+    },
+    {
+      "fecha": "2026-09-18",
+      "parrafos": 35,
+      "crudo": 10,
+      "conGuardas": 6,
+      "conceptos": 6
+    },
+    {
+      "fecha": "2026-09-19",
+      "parrafos": 30,
+      "crudo": 10,
+      "conGuardas": 8,
+      "conceptos": 7
+    },
+    {
+      "fecha": "2026-09-20",
+      "parrafos": 29,
+      "crudo": 7,
+      "conGuardas": 5,
+      "conceptos": 4
+    },
+    {
+      "fecha": "2026-09-21",
+      "parrafos": 35,
+      "crudo": 7,
+      "conGuardas": 4,
+      "conceptos": 3
+    },
+    {
+      "fecha": "2026-09-22",
+      "parrafos": 37,
+      "crudo": 9,
+      "conGuardas": 6,
+      "conceptos": 5
+    },
+    {
+      "fecha": "2026-09-23",
+      "parrafos": 31,
+      "crudo": 9,
+      "conGuardas": 5,
+      "conceptos": 4
+    },
+    {
+      "fecha": "2026-09-24",
+      "parrafos": 32,
+      "crudo": 19,
+      "conGuardas": 8,
+      "conceptos": 6
+    },
+    {
+      "fecha": "2026-09-25",
+      "parrafos": 29,
+      "crudo": 14,
+      "conGuardas": 6,
+      "conceptos": 5
+    },
+    {
+      "fecha": "2026-09-26",
+      "parrafos": 25,
+      "crudo": 14,
+      "conGuardas": 3,
+      "conceptos": 2
+    },
+    {
+      "fecha": "2026-09-27",
+      "parrafos": 29,
+      "crudo": 10,
+      "conGuardas": 6,
+      "conceptos": 5
+    },
+    {
+      "fecha": "2026-09-28",
+      "parrafos": 28,
+      "crudo": 11,
+      "conGuardas": 6,
+      "conceptos": 4
+    },
+    {
+      "fecha": "2026-09-29",
+      "parrafos": 29,
+      "crudo": 15,
+      "conGuardas": 8,
+      "conceptos": 8
+    },
+    {
+      "fecha": "2026-09-30",
+      "parrafos": 22,
+      "crudo": 9,
+      "conGuardas": 6,
+      "conceptos": 4
+    }
+  ]
+}
