@@ -149,6 +149,26 @@ pudo; silencio cuando GPT cumplió.
       las de biblioteca van con el motivo centrado ocupando el cuadro. Falta:
       (a) que Santiago genere las 40; (b) la pantalla Biblioteca en el taller;
       (c) cómo elige el video qué imagen va en cada párrafo.
+      **AL DÍA 30-09**: (a) van 14 conceptos con imagen, 58% de los párrafos
+      cubiertos; (b) hecha, y además la pantalla de tarjetas
+      (https://claude.ai/artifact/KWxSLBrQUfE5yjAb2uTGfR). (c) sigue abierta y
+      ahora tiene nombre: es la RANURA. Se separaron los tres niveles (evento,
+      tarjeta, fondo) y quedó a la vista que `src/tarjetas.tsx:942` es un switch
+      de una sola salida. La única ranura con más de una tarjeta es narración:
+      párrafo, dibujo y texto, dibujo solo. Tres candidatas y nada que elija.
+      Santiago dijo el 30-09 que la elección debe ser **por párrafo**.
+
+- [ ] **QUIÉN ELIGE LA TARJETA DE CADA PÁRRAFO (30-09).** Hoy nadie: el switch
+      de `src/tarjetas.tsx:942` pinta la única que hay, y el único interruptor
+      que existe (`FONDO_TARJETA` en `scripts/build-timeline.js`) elige un FONDO
+      para toda la edición, no una tarjeta por párrafo, y solo deja dos de los
+      seis. Los catorce dibujos de la biblioteca no aparecen en ningún video
+      publicado por esto y nada más. Medido en la edición del 24-09: narración
+      ocupa 507 de 614 s (el 83%) con una sola tarjeta, mientras las siete de
+      dato se reparten 73 s. Lo que hay que decidir: con qué criterio un párrafo
+      sale como texto, como dibujo con texto o como dibujo solo, y quién lo
+      escribe (el guion con una marca, o el sistema al ver que el párrafo tiene
+      un concepto de la biblioteca y no lleva cifra). **Dueño: el día.**
 - [ ] **EL ARCHIVO DE PROMPTS DE SECCIÓN MIENTE (28-09).**
       `contenido/secciones/PROMPTS-PARA-PEGAR.md` describe en su bloque fijo
       versión 3 un fondo de color apagado con el motivo en blanco hueso, y las
