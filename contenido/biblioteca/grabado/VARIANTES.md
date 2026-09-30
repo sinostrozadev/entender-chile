@@ -112,3 +112,10 @@ acá.
 - **`banco-central-b.png`** Pilastras corintias, balaustrada en la cornisa,
   rejas en las ventanas bajas, fachada más larga (que calzaría con la ampliación
   de los cuarenta). Luminancia 131, 74% opaco.
+
+## contraloria
+
+- **`contraloria-a.png`** El timbre y su tampón abierto, **sin letras en la
+  goma**, que era lo único que había que revisar: un timbre pide letras casi por
+  definición y los generadores las escriben mal. Reemplaza a la lupa del motivo
+  viejo, que chocaba con investigación.
