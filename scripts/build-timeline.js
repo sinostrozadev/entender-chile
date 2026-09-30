@@ -137,6 +137,13 @@ const FECHA = process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
 // dos seguidos, y un concepto tantas veces como variantes tenga); el porqué de
 // cada guarda está en scripts/dibujo-parrafo.js.
 const dibujos = repartidor();
+// Los párrafos que ya tienen un dato o un esquema anclado: su tarjeta se reparte
+// el intervalo entero del párrafo, así que un dibujo ahí quedaría debajo y no se
+// vería. Se calcula antes del recorrido porque el ancla apunta hacia atrás.
+const conTarjetaEncima = new Set(
+  parsed.eventos.filter((e) => (e.tipo === "dato" || e.tipo === "esquema") && e.anchor != null)
+    .map((e) => e.anchor)
+);
 parsed.eventos.forEach((ev, idx) => {
   if (ev.tipo === "seccion") {
     seccionActual = ev.texto;
@@ -165,7 +172,8 @@ parsed.eventos.forEach((ev, idx) => {
         const r2 = ritmoDe(ev.charStart, ev.charEnd, r.from);
         if (r2) out.ritmo = r2;
         // el veto del guion viaja en ev.sinDibujo; el repartidor decide el resto
-        const d = dibujos.dar({ texto: ev.texto, seccion: ev._seccion, sinDibujo: ev.sinDibujo });
+        const d = dibujos.dar({ texto: ev.texto, seccion: ev._seccion, sinDibujo: ev.sinDibujo,
+          tapado: conTarjetaEncima.has(idx) });
         if (d) { out.imagen = d.ruta; out.imagenPie = d.concepto; }
       }
       porIndice.set(idx, out);

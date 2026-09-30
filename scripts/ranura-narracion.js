@@ -12,6 +12,13 @@
 // No toca el video ni el timeline: solo cuenta y escribe el JSON que lee el
 // taller.
 //
+// LO QUE ESTA MEDICIÓN NO PUEDE APLICAR, y conviene saberlo al leer los
+// números: la quinta guarda, que saca los párrafos con un [DATO] o un [ESQUEMA]
+// encima. Esa tarjeta se reparte el intervalo entero del párrafo y taparía el
+// dibujo, pero eso depende de cómo el timeline reparte el tiempo y no del
+// texto, así que solo se puede aplicar en build-timeline. Los números de acá
+// son entonces un TECHO: la edición real pone esa cantidad o menos.
+//
 // Uso:  node scripts/ranura-narracion.js          (escribe el JSON)
 //       node scripts/ranura-narracion.js --ver    (solo muestra)
 const fs = require("fs");

@@ -28,12 +28,21 @@
 //   2. nunca dos párrafos seguidos                      8
 //   3. un concepto, tantas veces como variantes tenga   6
 //   4. nunca en las secciones de estructura             6
+//   5. nunca en un párrafo con dato o esquema encima     (ver abajo)
 //
 // La primera no es de ritmo sino de la firma del canal: toda cifra visible va
 // con su fuente, así que la imagen reemplaza la prosa y nunca el dato (regla
 // del 28-09). La cuarta salió de mirar los párrafos que la regla elegía: en
 // Apertura y Cierre caían dibujos sobre el índice del día y sobre el resumen,
 // que no hablan de un hecho. Cuesta un dibujo por edición y saca dos errores.
+//
+// LA QUINTA salió de rendir la muestra, no de medir. Un [DATO] o un [ESQUEMA]
+// se anclan a un párrafo y se reparten SU intervalo entero (ver el agrupado por
+// ancla en build-timeline), así que su tarjeta cubre el párrafo de punta a
+// punta. Un dibujo ahí no se ve jamás, y encima gasta una variante y dispara la
+// guarda de no dos seguidos para el párrafo que sigue: el dibujo se perdía dos
+// veces. Ninguna medición sobre el texto podía encontrarlo, porque el choque no
+// está en el guion sino en cómo el timeline reparte el tiempo.
 //
 // APAGADO POR DEFECTO. Es un cambio en lo que se VE, y lo que se ve lo elige
 // Santiago (regla 19). DIBUJOS_PARRAFO=1 lo enciende. Sin la variable el
@@ -118,8 +127,10 @@ const repartidor = () => {
   const puestos = new Set();
   let anterior = false;
 
-  const dar = ({ texto, seccion, sinDibujo }) => {
+  const dar = ({ texto, seccion, sinDibujo, tapado }) => {
     if (!activo()) return null;
+    // un dato o un esquema anclado a este párrafo ocupa su intervalo entero
+    if (tapado) { anterior = false; return null; }
     // el veto del guion manda sobre todo lo demás, incluso sobre la racha: un
     // párrafo tachado no cuenta como dibujo puesto y el siguiente sigue libre
     if (sinDibujo) { anterior = false; return null; }

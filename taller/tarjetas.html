@@ -130,6 +130,14 @@
   .cifra b { display: block; font-family: var(--serif); font-size: 30px; font-weight: 600; line-height: 1.1; }
   .cifra span { color: var(--grafito); font-size: 13px; }
 
+  /* La muestra en movimiento: el mismo tramo con la regla apagada y encendida. */
+  .muestra { display: grid; gap: 1px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    background: var(--linea); border-block: 1px solid var(--linea); }
+  .lado { background: var(--superficie); padding: 12px 14px; }
+  .lado video { aspect-ratio: 16 / 9; background: var(--video); display: block; margin-bottom: 8px; width: 100%; }
+  .lado b { display: block; font-size: 15px; }
+  .lado span { color: var(--grafito); font-size: 13px; }
+
   /* El tablero: lo que la regla puso en una edición real. */
   .tablero { display: flex; flex-direction: column; gap: 1px; background: var(--linea);
     border-block: 1px solid var(--linea); }
@@ -511,6 +519,30 @@
 
     var TB = window.TABLERO;
     if (TB && TB.cuadros && TB.cuadros.length) {
+      var enMov = nodo("h3", null, "El mismo tramo, apagada y encendida");
+      enMov.style.padding = "16px 18px 0";
+      d.appendChild(enMov);
+      d.appendChild((function () {
+        var p = nodo("p", "bajada", "48 segundos de la edición del 24-09-2026, con su ritmo de voz real. " +
+          "Sin sonido: la muestra es de lo que se ve. A la derecha entran dos dibujos del mismo concepto, " +
+          "con un párrafo normal en medio.");
+        p.style.paddingInline = "18px";
+        return p;
+      })());
+      var par = nodo("div", "muestra");
+      [["muestra-antes.mp4", "como sale hoy", "la regla apagada: los 48 segundos completos en texto"],
+       ["muestra-despues.mp4", "con la regla encendida", "congreso-a a los 7 s y congreso-b a los 29 s"]
+      ].forEach(function (m) {
+        var c = nodo("div", "lado");
+        var v = document.createElement("video");
+        v.src = m[0]; v.controls = true; v.muted = true; v.loop = true; v.playsInline = true; v.preload = "metadata";
+        c.appendChild(v);
+        c.appendChild(nodo("b", null, m[1]));
+        c.appendChild(nodo("span", null, m[2]));
+        par.appendChild(c);
+      });
+      d.appendChild(par);
+
       var titulo = nodo("h3", null, "Lo que puso en la edición del " + TB.fecha.split("-").reverse().join("-"));
       titulo.style.padding = "16px 18px 0";
       d.appendChild(titulo);
