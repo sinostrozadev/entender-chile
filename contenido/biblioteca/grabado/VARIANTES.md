@@ -89,3 +89,23 @@ archivo.
   con bocallave grande, barrotes redondos gruesos y piso de losas partidas. Se
   guarda porque mide bien y porque es la evidencia del caso limpio de
   contaminación de época.
+
+## banco central
+
+Las dos son verosímiles y **decide Santiago cuál queda de por defecto**. Lo que
+sí se pudo verificar del edificio real, en Agustinas 1180, monumento histórico
+desde 2016: es neoclásico ecléctico en la tradición de los bancos ingleses, su
+fachada está compuesta por **pilastras a gran escala**, es de Alberto Cruz Montt
+(1927 a 1928) y fue ampliado en los años cuarenta duplicando la fachada de
+Agustinas. Su elemento más reconocido es **la gran puerta recubierta en bronce,
+de 6,2 por 3,5 metros y seis toneladas**.
+
+Las dos imágenes traen las dos cosas nombradas: pilastras a gran escala y una
+puerta de bronce grande y labrada. Por eso no se puede elegir entre ellas desde
+acá.
+
+- **`banco-central-a.png`** Pilastras jónicas, ático liso sobre la cornisa.
+  Luminancia 147, 78% opaco.
+- **`banco-central-b.png`** Pilastras corintias, balaustrada en la cornisa,
+  rejas en las ventanas bajas, fachada más larga (que calzaría con la ampliación
+  de los cuarenta). Luminancia 131, 74% opaco.
