@@ -1,18 +1,10 @@
 {
   "fecha": "2026-09-30",
-  "etapa": "reparar_preseleccion",
+  "etapa": "validar_preseleccion",
   "veredicto": "pendiente",
   "vuelta": 2,
-  "actualizado": "2026-09-30 02:00",
-  "reparar": {
-    "piezas": [
-      "preseleccion"
-    ],
-    "pieza": "preseleccion",
-    "dueno": "GPT (despachador)",
-    "motivo": "contenido/veredictos/2026-09-30-preseleccion.md",
-    "vuelta": 2
-  },
+  "actualizado": "2026-09-30 02:02",
+  "reparar": null,
   "piezas": [
     {
       "id": "barrido",
@@ -31,7 +23,7 @@
       "id": "preseleccion",
       "etiqueta": "Preselección",
       "hay": true,
-      "situacion": "reparar",
+      "situacion": "por_validar",
       "prompt": "prompts/seleccion.md",
       "hora": "01:44",
       "esperada": "02:10",
