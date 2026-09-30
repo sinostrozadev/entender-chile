@@ -79,3 +79,13 @@ archivo.
 - **`vivienda-a.png`** La hilera de casas pareadas. Dice conjunto y programa, que
   es de lo que hablan los párrafos: cinco mil viviendas comprometidas, dos mil
   millones para dinamizar la vivienda, cientos de viviendas con daños.
+
+## juicio
+
+- **`juicio-b.png`** La puerta de celda, primera vuelta. Pasa la vara (120 de
+  luminancia, 39% opaco, 21% de relleno claro), la puerta está cerrada y no hay
+  nadie detrás, que eran dos de las tres cosas a revisar. Falla la tercera: es
+  una **mazmorra**, no un penal chileno. Sillares de piedra, cerrojo de hierro
+  con bocallave grande, barrotes redondos gruesos y piso de losas partidas. Se
+  guarda porque mide bien y porque es la evidencia del caso limpio de
+  contaminación de época.
