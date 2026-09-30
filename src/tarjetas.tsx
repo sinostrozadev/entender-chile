@@ -4,6 +4,22 @@ import { tema, estiloEyebrow, estiloFuente, colorDeSeccion } from "./tema";
 import { Fondo, useFondos } from "./fondos";
 import { FondoBiblioteca, tramaDe } from "./fondo-biblioteca";
 
+// LOS MODOS SON DATOS Y NO CÓDIGO (30-09-2026, decisión de Santiago). Cada uno
+// de estos números vivía como literal enterrado en este archivo, así que
+// moverlo costaba una sesión de trabajo. Ahora salen de
+// contenido/config/modos.json, que el taller también lee: cambiar cuánto mide
+// un dibujo o cuánto tapa su velo deja de ser programar y pasa a ser editar.
+//
+// Se importa y no se lee en tiempo de render porque Remotion empaqueta el
+// bundle: el JSON queda dentro y no hace falta que viaje en el timeline.
+import MODOS from "../contenido/config/modos.json";
+const COMUN = MODOS.comunDibujo;
+const modoPorId = (id: string) =>
+  MODOS.modos.find((m) => m.id === id) as unknown as Record<string, number>;
+const DIBUJO_TEXTO = modoPorId("dibujo-texto");
+const DIBUJO_SOLO = modoPorId("dibujo-solo");
+
+
 // ---------- tipos ----------
 export type Tendencia = { dir: "sube" | "baja" | "igual" | null; sentido: "bien" | "mal" | null };
 export type Serie = { etiqueta: string; num: number | null; unidad: string; raw: string; tendencia?: Tendencia };
@@ -404,7 +420,7 @@ export const TarjetaTesis: React.FC<{ ev: Evento }> = ({ ev }) => {
 //
 // Si alguien pone acá un PNG sin recortar, ahora se le va a ver el rectángulo.
 // Eso es lo correcto: es la señal de que esa imagen no pasó por la puerta.
-const PASEO_SEG = 20;          // lo que dura el párrafo más largo que se ha visto
+const PASEO_SEG = COMUN.paseoSeg;        // lo que dura el párrafo más largo que se ha visto
 const CLAMP = { extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
 
 // LAS POSES (29-09-2026, tercera versión). Lo que no convencía no era el
@@ -419,11 +435,7 @@ const CLAMP = { extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as 
 // segunda entra por la izquierda y sigue hacia la derecha. No se lee como un
 // corte entre dos láminas, se lee como que la cámara nunca paró.
 type Pose = { x: number; alto: number; viaje: number; sube: number; dibujoA: "izq" | "der" };
-const POSES: Pose[] = [
-  { x: 0.58, alto: 0.52, viaje: -86, sube: 0.46, dibujoA: "der" },
-  { x: 0.42, alto: 0.47, viaje: 86, sube: 0.52, dibujoA: "izq" },
-  { x: 0.50, alto: 0.60, viaje: -54, sube: 0.48, dibujoA: "der" },
-];
+const POSES: Pose[] = COMUN.poses as Pose[];
 
 // EL TEXTO QUE APARECE (29-09-2026, idea de Santiago: "y si dejas el dibujo a
 // una orilla y en la otra dejas un texto, y que vaya apareciendo el texto? Lo
@@ -453,8 +465,8 @@ const POSES: Pose[] = [
 // Se dibujan TODAS las palabras desde el primer cuadro, las que aún no tocan
 // con opacidad cero. Si se fueran agregando, el bloque crecería y el texto
 // saltaría en cada palabra.
-const ADELANTO_SEG = 0.25;     // la palabra aparece un pelo antes de oírse
-const PALABRA_SEG = 0.32;      // lo que tarda en entrar
+const ADELANTO_SEG = COMUN.adelantoSeg;   // la palabra aparece un pelo antes de oírse
+const PALABRA_SEG = COMUN.palabraSeg;     // lo que tarda en entrar
 
 // en qué segundo iba la voz cuando llevaba la fracción `f` del párrafo
 const enCurva = (ritmo: [number, number][] | undefined, f: number, dur: number): number => {
@@ -518,25 +530,25 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
   // con texto al lado el dibujo se va a SU mitad y se achica para caber en
   // ella: 46% de 1920 son 883 px, y un 16:9 de 466 px de alto mide 830 de ancho
   const conTexto = !ev.imagenSola && texto.length > 0;
-  const equis = conTexto ? (pose.dibujoA === "der" ? 0.755 : 0.245) : pose.x;
-  const alto = conTexto ? 0.42 : pose.alto;
+  const equis = conTexto ? (pose.dibujoA === "der" ? DIBUJO_TEXTO.equisDer : DIBUJO_TEXTO.equisIzq) : pose.x;
+  const alto = conTexto ? DIBUJO_TEXTO.alto : pose.alto;
   const avance = interpolate(frame, [0, fps * PASEO_SEG], [0, 1], CLAMP);
 
   // EL VIAJE. El motivo cruza `pose.viaje` píxeles en veinte segundos, y empieza
   // desplazado media distancia hacia atrás: así entra ya en movimiento y no
   // arranca desde la quietud, que es lo que hacía que pareciera una estampa.
   const viaje = interpolate(avance, [0, 1], [-pose.viaje / 2, pose.viaje / 2]);
-  const entra = interpolate(op, [0, 1], [26, 0]);
-  const nace = interpolate(op, [0, 1], [0.955, 1]);
-  const respira = 1 + avance * 0.055;
+  const entra = interpolate(op, [0, 1], [COMUN.entra, 0]);
+  const nace = interpolate(op, [0, 1], [COMUN.nace, 1]);
+  const respira = 1 + avance * COMUN.respira;
 
   // TRES VELOCIDADES, que es lo que da profundidad de verdad: la foto de la
   // sección deriva unos 6 px (eso lo hace el bloque), la trama de la
   // biblioteca va al MISMO lado que el motivo pero a un tercio de su paso, y
   // el motivo manda. Si la trama fuera al revés se pelearía con el motivo en
   // vez de quedarse atrás.
-  const tramaX = -viaje * 0.34 + avance * 26;
-  const tramaY = avance * 14;
+  const tramaX = -viaje * COMUN.tramaPaso + avance * COMUN.tramaDeriva;
+  const tramaY = avance * COMUN.tramaCaida;
 
   // EL VELO NO ES PAREJO CUANDO HAY TEXTO (29-09-2026). Parejo y alto dejaba
   // legible la columna pero mataba el fondo de sección entero, y con él lo
@@ -544,12 +556,12 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
   // es donde el GRABADO de la sección, que es enorme, cae encima de las
   // letras) y afloja del lado del dibujo, que es donde el acercamiento lento
   // de la foto sí se puede ver. Es el mismo velo haciendo dos trabajos.
-  const tapa = interpolate(op, [0, 1], [0, 0.94], CLAMP).toFixed(3);
+  const tapa = interpolate(op, [0, 1], [0, DIBUJO_TEXTO.veloTexto], CLAMP).toFixed(3);
   // 0,78 y no 0,58 del lado del dibujo (29-09, tarde): cuando el motivo es a su
   // vez arquitectura, como La Moneda, la foto de la sección que asoma detrás se
   // lee como un SEGUNDO edificio. Con dibujos de objeto no molestaba.
-  const suelta = interpolate(op, [0, 1], [0, 0.78], CLAMP).toFixed(3);
-  const velado = interpolate(op, [0, 1], [0, 0.8], CLAMP);
+  const suelta = interpolate(op, [0, 1], [0, DIBUJO_TEXTO.veloDibujo], CLAMP).toFixed(3);
+  const velado = interpolate(op, [0, 1], [0, DIBUJO_SOLO.velo], CLAMP);
   const cortina = conTexto
     ? `linear-gradient(${pose.dibujoA === "der" ? 90 : 270}deg, rgba(16,18,21,${tapa}) 0%, rgba(16,18,21,${tapa}) 44%, rgba(16,18,21,${suelta}) 82%, rgba(16,18,21,${suelta}) 100%)`
     : `rgba(16,18,21,${velado.toFixed(3)})`;
@@ -558,8 +570,8 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
       <AbsoluteFill style={{ background: cortina }} />
       {/* la trama también se acerca, y más que la foto: son dos zooms a
           distinta velocidad, que es lo que hace que se noten los dos */}
-      <FondoBiblioteca trama={trama} dx={tramaX} dy={tramaY} opacidad={op * 0.13}
-        escala={1 + avance * 0.075} />
+      <FondoBiblioteca trama={trama} dx={tramaX} dy={tramaY} opacidad={op * COMUN.tramaOpacidad}
+        escala={1 + avance * COMUN.tramaEscala} />
       <Img
         src={staticFile(ev.imagen as string)}
         style={{
@@ -570,7 +582,7 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
           // texto. Con el tope de ancho, una imagen ancha simplemente queda más
           // baja, que es lo correcto: se achica sola en vez de romper el
           // cuadro.
-          maxWidth: conTexto ? "46%" : "92%",
+          maxWidth: `${(conTexto ? DIBUJO_TEXTO.anchoMax : DIBUJO_SOLO.anchoMax) * 100}%`,
           objectFit: "contain",
           left: `${equis * 100}%`, top: `${pose.sube * 100}%`,
           transform: `translate(-50%, -50%) translate(${viaje}px, ${entra}px) scale(${nace * respira})`,

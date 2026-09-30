@@ -1,0 +1,99 @@
+{
+  "_": "GENERADO A MANO, y es la fuente de verdad de los modos de cuadro. Lo lee src/tarjetas.tsx al compilar y scripts/modos.js lo copia al taller. Cambiar un número acá cambia el video sin tocar código, que es el punto: antes cada uno de estos valores era un literal enterrado en el .tsx y moverlo costaba una sesión.",
+  "version": 1,
+  "modos": [
+    {
+      "id": "papel",
+      "nombre": "papel",
+      "familia": "fondo",
+      "que": "Sin imagen detrás: el texto sobre el papel del canal. Es adonde caen todos los demas cuando la seccion no tiene imagen, asi que ademas de un modo es la red de seguridad.",
+      "fuente": "ninguna",
+      "enProduccion": true
+    },
+    {
+      "id": "columna",
+      "nombre": "columna",
+      "familia": "fondo",
+      "que": "La imagen se queda a la derecha y a la izquierda se apaga para que el texto se lea.",
+      "fuente": "seccion",
+      "enProduccion": false,
+      "banda": 15,
+      "alfa": 0.76
+    },
+    {
+      "id": "oscurecer",
+      "nombre": "oscurecer",
+      "familia": "fondo",
+      "que": "La imagen queda entera de fondo y baja de brillo pareja.",
+      "fuente": "seccion",
+      "enProduccion": false
+    },
+    {
+      "id": "tv",
+      "nombre": "tv",
+      "familia": "fondo",
+      "que": "La imagen queda entera y el texto va dentro de un cuadro propio.",
+      "fuente": "seccion",
+      "enProduccion": false
+    },
+    {
+      "id": "transparente",
+      "nombre": "transparente",
+      "familia": "fondo",
+      "que": "Sin fondo propio: se ve lo que haya debajo. El unico que no consulta si la seccion tiene imagen.",
+      "fuente": "ninguna",
+      "enProduccion": false
+    },
+    {
+      "id": "imagen",
+      "nombre": "imagen",
+      "familia": "fondo",
+      "que": "La imagen de la seccion manda y el texto va sobre un velo en la mitad izquierda. Si la seccion no tiene imagen cae a papel y no a la ilustracion del dia.",
+      "fuente": "seccion",
+      "enProduccion": true
+    },
+    {
+      "id": "dibujo-texto",
+      "nombre": "dibujo y texto",
+      "familia": "dibujo",
+      "que": "El dibujo se queda en una orilla y el parrafo aparece palabra por palabra en la otra, sincronizado con la voz.",
+      "fuente": "biblioteca",
+      "enProduccion": true,
+      "alto": 0.42,
+      "anchoMax": 0.46,
+      "equisDer": 0.755,
+      "equisIzq": 0.245,
+      "veloTexto": 0.94,
+      "veloDibujo": 0.78
+    },
+    {
+      "id": "dibujo-solo",
+      "nombre": "dibujo solo",
+      "familia": "dibujo",
+      "que": "El dibujo se queda con el cuadro entero y el texto solo se oye. Al pie va el nombre del concepto.",
+      "fuente": "biblioteca",
+      "enProduccion": true,
+      "anchoMax": 0.92,
+      "velo": 0.8
+    }
+  ],
+  "_comunDibujo": "Lo que comparten los dos modos de dibujo: no es de uno ni de otro, es como se comporta un dibujo en pantalla.",
+  "comunDibujo": {
+    "paseoSeg": 20,
+    "entra": 26,
+    "nace": 0.955,
+    "respira": 0.055,
+    "tramaPaso": 0.34,
+    "tramaDeriva": 26,
+    "tramaCaida": 14,
+    "tramaEscala": 0.075,
+    "tramaOpacidad": 0.13,
+    "adelantoSeg": 0.25,
+    "palabraSeg": 0.32,
+    "poses": [
+      { "x": 0.58, "alto": 0.52, "viaje": -86, "sube": 0.46, "dibujoA": "der" },
+      { "x": 0.42, "alto": 0.47, "viaje": 86, "sube": 0.52, "dibujoA": "izq" },
+      { "x": 0.50, "alto": 0.60, "viaje": -54, "sube": 0.48, "dibujoA": "der" }
+    ]
+  }
+}
