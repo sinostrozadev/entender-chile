@@ -1,0 +1,196 @@
+<title>Los modos del cuadro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  /* Una ficha por puesta, en una columna de lectura: cada una con su video
+     real arriba y sus datos abajo. Los mismos tokens del Taller, porque es la
+     misma herramienta vista por otra ventana. */
+  :root {
+    color-scheme: light;
+    --papel: #F2F2EF;
+    --superficie: #FBFBF9;
+    --tinta: #17191C;
+    --grafito: #6B6E6A;
+    --linea: #DDDDD5;
+    --patina: #2F7263;
+    --patina-suave: #E4EEEA;
+    --cobre: #D08A5B;
+    --video: #15171A;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", "Courier New", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --papel: #15171A; --superficie: #1C1F23; --tinta: #EDEDE8;
+      --grafito: #8E918C; --linea: #2A2D31; --patina: #5BA391;
+      --patina-suave: #1E2A27; --cobre: #D08A5B; --video: #0E1013;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --papel: #15171A; --superficie: #1C1F23; --tinta: #EDEDE8;
+    --grafito: #8E918C; --linea: #2A2D31; --patina: #5BA391;
+    --patina-suave: #1E2A27; --cobre: #D08A5B; --video: #0E1013;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--papel); color: var(--tinta);
+    font-family: var(--sans); font-size: 16px; line-height: 1.55; margin: 0;
+  }
+  main { margin: 0 auto; max-width: 780px; padding-block: 30px 80px; padding-left: 20px; padding-right: 20px; }
+
+  .marca { color: var(--grafito); font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; }
+  h1 { font-family: var(--serif); font-size: clamp(30px, 6vw, 42px); font-weight: 600; line-height: 1.1; margin: 8px 0 14px; text-wrap: balance; }
+  .bajada { color: var(--grafito); margin: 0 0 8px; max-width: 62ch; }
+  .bajada strong { color: var(--tinta); font-weight: 500; }
+
+  h2 { font-family: var(--serif); font-size: 25px; font-weight: 600; margin: 52px 0 6px; }
+  h3 { font-family: var(--sans); font-size: 19px; font-weight: 600; margin: 0; }
+  p { margin: 0 0 12px; max-width: 64ch; }
+
+  .puesta { background: var(--superficie); border: 1px solid var(--linea); margin-top: 18px; padding: 0 0 18px; }
+  .puesta > * { padding-left: 18px; padding-right: 18px; }
+  .puesta video { display: block; padding: 0; width: 100%; background: var(--video); border-bottom: 1px solid var(--linea); }
+  .cabeza { align-items: baseline; display: flex; flex-wrap: wrap; gap: 6px 12px; padding-top: 16px; }
+  .estado {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; padding: 2px 8px; text-transform: uppercase;
+  }
+  .es-vivo { background: var(--patina); color: #FBFBF9; }
+  .es-idea { border: 1px dashed var(--cobre); color: var(--cobre); }
+  .es-no { border: 1px solid var(--linea); color: var(--grafito); }
+  .puesta p { margin-top: 10px; }
+
+  dl { display: grid; gap: 2px 16px; grid-template-columns: max-content 1fr; margin: 14px 0 0; }
+  dt { color: var(--grafito); font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; padding-top: 3px; text-transform: uppercase; }
+  dd { font-size: 15px; margin: 0; min-width: 0; }
+  dd b { font-family: var(--mono); font-weight: 500; }
+
+  table { border-collapse: collapse; font-size: 15px; margin-top: 14px; width: 100%; }
+  th, td { border-bottom: 1px solid var(--linea); padding: 8px 10px 8px 0; text-align: left; vertical-align: top; }
+  th { color: var(--grafito); font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  .marco { overflow-x: auto; }
+
+  .nota { background: var(--patina-suave); border-left: 3px solid var(--patina); font-size: 15px; margin-top: 16px; padding: 12px 16px; }
+  .nota p:last-child { margin-bottom: 0; }
+  .pie { border-top: 1px solid var(--linea); color: var(--grafito); font-size: 14px; margin-top: 56px; padding-top: 16px; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<main>
+  <div class="marca">Entender Chile · Taller</div>
+  <h1>Los modos del cuadro</h1>
+  <p class="bajada"><strong>Un modo es cómo se compone un cuadro</strong>: qué hay detrás del texto y, cuando lo hay, dónde va el dibujo de la biblioteca. Hoy son ocho, y un evento lleva uno solo.</p>
+  <p class="bajada">Los videos son renders de verdad, con el motor que hace el video del canal, sobre la edición del 24-09-2026.</p>
+
+  <div class="nota">
+    <p>Esta pantalla empezó separando los modos de fondo de las maneras de poner un dibujo, como si fueran dos sistemas. En el código no lo son: cuando un evento trae imagen, la tarjeta se salta el sistema de modos completo y arma el cuadro ella misma. <strong>Uno reemplaza al otro, así que es una sola lista.</strong></p>
+  </div>
+
+  <h2>Los seis que deciden el fondo</h2>
+  <p>Todos llevan el texto del párrafo en el mismo lugar y solo cambian qué pasa detrás. Los seis clips muestran el mismo párrafo con la imagen de la sección de clima, para que la diferencia sea el modo y nada más.</p>
+
+  <div class="puesta">
+    <video src="modo-papel.mp4" controls muted loop playsinline preload="metadata"></video>
+    <div class="cabeza"><h3>papel</h3><span class="estado es-vivo">en el video</span></div>
+    <p>Sin imagen detrás: el texto sobre el papel del canal. Es adonde caen todos los demás cuando la sección no tiene imagen, así que además de un modo es la red de seguridad.</p>
+  </div>
+
+  <div class="puesta">
+    <video src="modo-columna.mp4" controls muted loop playsinline preload="metadata"></video>
+    <div class="cabeza"><h3>columna</h3><span class="estado es-vivo">en el video</span></div>
+    <p>La imagen se queda a la derecha y a la izquierda se apaga para que el texto se lea. El borde no es recto: lleva una banda de difuminado del 15% del ancho, porque un filo duro se lee como transición de presentación y no como luz que avanza.</p>
+  </div>
+
+  <div class="puesta">
+    <video src="modo-oscurecer.mp4" controls muted loop playsinline preload="metadata"></video>
+    <div class="cabeza"><h3>oscurecer</h3><span class="estado es-vivo">en el video</span></div>
+    <p>La imagen queda entera de fondo y baja de brillo pareja. Es el más simple y el que menos compite con el texto, a costa de perder casi toda la imagen.</p>
+  </div>
+
+  <div class="puesta">
+    <video src="modo-tv.mp4" controls muted loop playsinline preload="metadata"></video>
+    <div class="cabeza"><h3>tv</h3><span class="estado es-vivo">en el video</span></div>
+    <p>La imagen queda entera y el texto va dentro de un cuadro propio. El nombre viene de que es como lo resuelve la televisión: en vez de tapar la imagen, se le pone un zócalo encima.</p>
+  </div>
+
+  <div class="puesta">
+    <video src="modo-transparente.mp4" controls muted loop playsinline preload="metadata"></video>
+    <div class="cabeza"><h3>transparente</h3><span class="estado es-vivo">en el video</span></div>
+    <p>Sin fondo propio: se ve lo que haya debajo en el video. Es el único que no consulta si la sección tiene imagen, porque no la usa.</p>
+  </div>
+
+  <div class="puesta">
+    <video src="modo-imagen.mp4" controls muted loop playsinline preload="metadata"></video>
+    <div class="cabeza"><h3>imagen</h3><span class="estado es-vivo">rige hoy</span></div>
+    <p>La imagen de la sección manda y el texto va sobre un velo en la mitad izquierda. Es el modo que rige desde el 27-09-2026.</p>
+    <p>Tiene una regla propia que los otros no: si la sección no tiene imagen, cae a papel y no a la ilustración del día. Un bloque sin imagen propia (Apertura, Titulares, Agenda, Cierre) se queda sobre papel a propósito.</p>
+  </div>
+
+  <h2>Los dos que ponen un dibujo delante</h2>
+  <p>Estos dos aparecen cuando el evento trae una imagen de la biblioteca. Arman el cuadro completo: su propio velo, su propia trama de fondo y la posición del dibujo.</p>
+
+  <div class="puesta">
+    <video src="modo-dibujo-texto.mp4" controls muted loop playsinline preload="metadata"></video>
+    <div class="cabeza"><h3>dibujo y texto</h3><span class="estado es-vivo">en el video</span></div>
+    <p>El dibujo se queda en una orilla y el párrafo aparece palabra por palabra en la otra, sincronizado con la voz. Nació de una idea de Santiago el 29-09, cuando el movimiento de la imagen sola no se veía: el motivo recorre 86 píxeles en veinte segundos, cuatro por segundo, y eso nadie lo percibe. Lo que se mueve de verdad es el texto.</p>
+    <p>La pose rota cada vez: a la derecha y chica, a la izquierda y mediana, al centro y grande, con el viaje alternado. En el clip se ven tres seguidas: gobierno, congreso y tribunales.</p>
+    <dl>
+      <dt>poses</dt><dd><b>3</b>, por el orden de la imagen en la tanda</dd>
+      <dt>alto</dt><dd><b>42%</b> del cuadro</dd>
+      <dt>ancho</dt><dd>tope <b>46%</b>, para que un dibujo apaisado no invada la columna</dd>
+      <dt>velo</dt><dd>asimétrico: <b>0,94</b> del lado del texto, <b>0,78</b> del lado del dibujo</dd>
+      <dt>al pie</dt><dd>la fuente de la sección</dd>
+    </dl>
+  </div>
+
+  <div class="puesta">
+    <video src="modo-dibujo-solo.mp4" controls muted loop playsinline preload="metadata"></video>
+    <div class="cabeza"><h3>dibujo solo</h3><span class="estado es-vivo">en el video</span></div>
+    <p>El dibujo se queda con el cuadro entero y el texto solo se oye. Al pie va el nombre del concepto.</p>
+    <p>Es el modo más débil de los ocho, y conviene decirlo: sin texto en pantalla, veinte segundos de una imagen casi quieta se hacen largos. Sirve en tramos cortos, no como norma.</p>
+    <dl>
+      <dt>alto</dt><dd>de <b>47%</b> a <b>60%</b> según la pose</dd>
+      <dt>ancho</dt><dd>tope <b>92%</b></dd>
+      <dt>al pie</dt><dd>el nombre del concepto</dd>
+    </dl>
+  </div>
+
+  <h2>Qué falta decidir antes de cablear</h2>
+  <p>Los ocho modos viven en la tarjeta del párrafo hablado. El video tiene otras cinco clases de tarjeta y <strong>ninguna admite un dibujo de la biblioteca</strong>. Son 107 segundos de cada edición.</p>
+  <div class="marco">
+    <table>
+      <thead><tr><th>Tarjeta</th><th class="num">En la edición del 24-09</th><th>Qué se podría hacer</th></tr></thead>
+      <tbody>
+        <tr><td>Narración</td><td class="num">64 · 507 s</td><td>Es la única que hoy admite dibujo</td></tr>
+        <tr><td>Titulares</td><td class="num">8 · 151 s</td><td>Cuatro segundos por titular. Un dibujo por línea, entrando y saliendo con ella</td></tr>
+        <tr><td>Dato</td><td class="num">6 · 73 s</td><td>Cifras, barras, comparaciones. El dibujo como silueta detrás del número</td></tr>
+        <tr><td>Tesis</td><td class="num">11 · 58 s</td><td>La frase que abre cada bloque. El dibujo detrás y muy bajado, en vez de la trama</td></tr>
+        <tr><td>Esquema</td><td class="num">2 · 18 s</td><td>Pasos de un proceso. Un dibujo por paso</td></tr>
+        <tr><td>Cita</td><td class="num">0</td><td>No apareció en esta edición</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Propuestos y sin construir</h2>
+
+  <div class="puesta" style="padding-top: 16px">
+    <div class="cabeza" style="padding-top:0"><h3>mezcla de dos dibujos</h3><span class="estado es-idea">idea</span></div>
+    <p>La idea original de Santiago el 29-09: dos dibujos superpuestos que se relevan, uno entrando mientras el otro sale. El recorte con transparencia lo hace posible, porque dos PNG sin fondo se superponen sin que uno tape al otro con su rectángulo.</p>
+  </div>
+
+  <div class="puesta" style="padding-top: 16px">
+    <div class="cabeza" style="padding-top:0"><h3>teñido por sección</h3><span class="estado es-idea">idea</span></div>
+    <p>El recorte guarda la forma y no el color, así que el mismo dibujo se puede teñir del color de su sección. Hoy el entintado usa una sola tinta para todos.</p>
+  </div>
+
+  <div class="nota">
+    <p><strong>Con catorce dibujos, 36 de las 64 narraciones de la edición del 24-09 tendrían imagen</strong>: 330 segundos, el 54% del video entero. Ese número cuenta solo los dos modos con dibujo. Las otras tarjetas suman 107 segundos más que hoy no tienen dónde ponerlo.</p>
+  </div>
+
+  <p class="pie">Los ocho videos son renders reales a media resolución de la edición del 24-09-2026. Los seis modos de fondo usan la imagen de la sección de clima sobre un párrafo de otra sección, para que la única diferencia entre ellos sea el modo.</p>
+</main>
