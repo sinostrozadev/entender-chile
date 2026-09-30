@@ -819,6 +819,20 @@ referencia:
       ancha que el ítem 17b, para cualquier marca del guion (titulares,
       [TESIS], [ESQUEMA], [FUENTE], pie de [DATO]). Auditoría del 29-09
       (`bitacora/2026-09-29-auditoria.md`).
+      **30-09: séptima mañana, y esta vez NO es un hueco de la regla.**
+      `contenido/revisiones/2026-09-30.md` marca "Confusam" (línea 67 del
+      guion) y "CIPER" (línea 73) sin expandir en el pie de dos tarjetas
+      `[FUENTE]`, la marca exacta que la regla del 23-09 ya cubre. La causa
+      hoy no es de alcance: el validador no lo revisó en su propia vuelta 1,
+      y `prompts/validador.md:158` ("Convergencia") le impidió sumarlo en la
+      vuelta 2, así que llegó al aire. Propuesta nueva, distinta de la del
+      29-09: en `prompts/validador.md`, línea 157 (entre "Antes de afirmar
+      que algo falta…" y "Convergencia"), agregar un punto propio: "Siglas en
+      pantalla: revisa en la vuelta 1, sin excepción, cada marca [FUENTE] y
+      el pie de cada [DATO] contra la regla de siglas del prompt de la pieza
+      que estés validando; no dependas de notarlo por casualidad." Auditoría
+      del 30-09 (`bitacora/2026-09-30-auditoria.md`). La propuesta del 29-09
+      sobre `prompts/guion-informe.md:211-212` sigue sin aplicarse.
 
 - [ ] **23-09, HOY: tope al cierre de cautela repetido ("queda para
       verificar/en seguimiento/pendiente"), más de una semana sin corregirse

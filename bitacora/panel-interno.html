@@ -122,207 +122,225 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 29-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-09-29-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON OBSERVACIONES — la cadena corrió sin fallas técnicas, con `conclusion:</div>
+    <p class="eyebrow">Auditoría de la mañana · 30-09-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-09-30-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON OBSERVACIONES — la cadena corrió sin fallas técnicas, con</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON OBSERVACIONES — la cadena corrió sin fallas técnicas, con `conclusion:
-success` en Barrido, Edición diaria, Métricas y Web (verificado con
-`mcp__github__actions_list`), y adelantada al horario en cada eslabón (compuerta
-cerrada a las 02:39, casi una hora antes de la prevista de las 03:30). Hay un
-`HOY`: las siglas sin expandir en pantalla llegan hoy a una tercera superficie
-distinta ([ESQUEMA], con "Fogape") después de las marcas [FUENTE]/[DATO] y los
-titulares, y la auditoría de ayer (`bitacora/2026-09-28-auditoria.md`) ya dejó
-dicho que una repetición más subía el hallazgo a HOY.
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON OBSERVACIONES — la cadena corrió sin fallas técnicas, con
+`conclusion: success` en Barrido, Edición diaria, Métricas, Web y Estado del
+día (verificado con `mcp__github__actions_list`), y adelantada al horario en
+cada eslabón (compuerta cerrada a las 02:51, casi 40 minutos antes de la
+prevista de las 03:30). Hay un `HOY`: "Confusam" y "CIPER" salieron sin
+expandir en el pie de dos tarjetas [FUENTE] del video publicado
+(`contenido/guiones/informe/2026-09-30.md`, líneas 67 y 73), y esta vez no es
+un hueco de la regla como en días anteriores (la regla de siglas SÍ cubre esa
+marca): el validador no lo marcó en la vuelta 1 y la regla de convergencia le
+impidió sumarlo en la vuelta 2, así que llegó al aire. Séptimo día seguido con
+la familia de las siglas en los hallazgos.
 
 ## Qué salió y a qué hora
 
-| Pieza | Hora real (Chile) | Hora esperada (`contenido/estado/2026-09-29.md`) | Nota |
+| Pieza | Hora real (Chile) | Hora esperada (`contenido/estado/2026-09-30.md`) | Nota |
 |---|---|---|---|
-| Barrido | 01:41 (API: `conclusion: success`, `run_started_at` 04:40 UTC) | 01:40 | en punto |
-| Preselección (GPT + validación) | aprobada 01:53, vuelta 2 | 02:10 | 1 vuelta de corrección |
-| Informe (GPT + validación) | aprobado 02:04 (veredicto 02:13), vuelta 1 | 02:40 | sin corrección |
-| Guion del informe (GPT + validación) | aprobado 02:23 (veredicto 02:32), vuelta 1 | 03:10 | sin corrección |
-| Revisión (compuerta, `contenido/revisiones/2026-09-29.md`) | 02:39 | 03:30 | VEREDICTO: APROBADA |
-| Edición diaria (voz, render, subida) | `videos_listos` (API: push 05:39 UTC → completado 06:20 UTC = 02:39→03:20 Chile) | 05:15 | adelantada, sin incidentes |
-| Carátula | subió, `contenido/caratulas/2026-09-29.jpg`, verificada entera con `scripts/imagen-entera.js` (lo dice la revisión) | tras el guion | segundo día seguido con carátula sana |
-| Podcast (`contenido/podcast/episodios.json`) | 669 s = 11:09 min, episodio del informe | "~10 min, 12-13 en día cargado" | dentro de la promesa, dato medido del json |
-| Métricas | reloj y workflow 08:15-08:16 UTC = 05:15 Chile | 05:00 | 15 min de margen, dentro de tolerancia |
+| Barrido | 01:40 (API: `conclusion: success`, `run_started_at` 04:40:12 UTC) | 01:40 | en punto |
+| Preselección (GPT + validación) | aprobada 02:05, vuelta 2 | 02:10 | 1 corrección (URL de Google News cortada en tres bloques) |
+| Informe (GPT + validación) | aprobado 02:23 (veredicto 02:23:25), vuelta 1 | 02:40 | 1 corrección (seis incumplimientos de verificación y fuentes) |
+| Guion del informe (GPT + validación) | aprobado 02:49 (veredicto 02:48:59), vuelta 1 | 03:10 | 1 corrección (seis incumplimientos de forma) |
+| Revisión (compuerta, `contenido/revisiones/2026-09-30.md`) | 02:51 | 03:30 | VEREDICTO: APROBADA |
+| Edición diaria (voz, render, subida) | `videos_listos` (API: push 05:51:09 UTC → completado 06:28:41 UTC = 02:51→03:28 Chile) | 05:15 | muy adelantada, sin incidentes |
+| Carátula | subió, `contenido/caratulas/2026-09-30.png`, verificada completa con `scripts/imagen-entera.js` (dice "completa") | tras el guion | tercer día seguido con carátula sana (28, 29 y 30-09) |
+| Podcast (`contenido/podcast/episodios.json`) | 617 s = 10:17 min, episodio del informe | "~10 min, 12-13 en día cargado" | dentro de la promesa, dato medido del json |
+| Métricas | reloj y workflow 08:15:34-08:16:20 UTC = 05:15 Chile | 05:00 | 15 min de margen, dentro de tolerancia (mismo margen que ayer) |
 | Clave | no corrió | — | correcto: CLAVE 4 no es diaria; no es domingo, no toca `semana/` |
 
-Único costo de vueltas: la preselección necesitó una corrección (vuelta 2). El
-informe y el guion cerraron a la primera. Ningún atraso pasa los 20 minutos
-contra lo esperado; todo llegó antes.
+Costo de vueltas: las tres piezas necesitaron una corrección cada una (la
+preselección la segunda vuelta de su propio proceso, informe y guion su
+primera). Ningún atraso pasa los 20 minutos contra lo esperado; todo llegó
+antes, la mayoría por más de media hora.
 
 ## Qué falló
 
-Sin fallas técnicas: las cuatro corridas de Actions de hoy sobre `main`
-(Barrido run 90, Edición diaria runs 149-151, Métricas run 90, Web runs
-239-241) tienen `conclusion: success`. `node scripts/validar-tarjetas.js
---fecha 2026-09-29` dejó un solo aviso, no bloqueante: "edición con 11 bloques
-de noticia y ninguna barras/tabla/comparacion" (cuota de variedad, cifra:3 ·
-esquema:2 · cambio:1). Los puntos siguientes son de calidad editorial y
-ninguno detuvo la publicación:
+Sin fallas técnicas: las corridas de Actions de hoy sobre `main` (Barrido run
+93, Edición diaria runs 153-155, Métricas run 93, Web runs 245-249, Estado del
+día runs 387-401) tienen `conclusion: success` (las tres cancelaciones del Web,
+runs 243-245, son de pushes de informe superados en menos de un minuto por el
+siguiente, concurrencia normal, no error). `node scripts/validar-tarjetas.js
+--fecha 2026-09-30` no dejó avisos de formato: "variedad OK: ninguna cuota
+rota, ninguna marca malformada" (aunque sí hay un aviso de tipos, ver punto 3
+abajo). Los puntos siguientes son de calidad editorial y ninguno detuvo la
+publicación:
 
-1. **Siglas sin expandir en pantalla, tercera superficie distinta y sin
-   corregir desde el 21-09.** `contenido/revisiones/2026-09-29.md` (hallazgos,
-   primer punto "PARA SANTIAGO"): "Fogape" queda sin expandir dentro de un
-   `[ESQUEMA]` de `contenido/guiones/informe/2026-09-29.md`, una línea antes
-   de que la narración sí diga "Fondo de Garantía para Pequeños
-   Empresarios". Verificado en `prompts/guion-informe.md:211-217`: la regla
-   de siglas que se agregó el 23-09 dice textualmente "toda sigla que se
-   PINTE EN PANTALLA **(en esta marca o en el pie de un [DATO])**", una
-   restricción explícita a las marcas `[FUENTE]` y `[DATO]`. El checklist
-   del mismo prompt, ítem 17b (línea 273), en cambio dice "Ninguna sigla se
-   pinta en pantalla sin haber sido expandida antes", sin esa restricción:
-   las dos líneas del mismo archivo no dicen lo mismo, y la validación se
-   queda con la más estrecha. Esto ya pasó con titulares el 28-09
-   (`contenido/revisiones/2026-09-28.md`, SAG y CONAF en la línea 118 del
-   guion) y con SEC/Senapred/DW el 27-09. El hallazgo entero está anotado en
-   `bitacora/PENDIENTES.md` desde el 23-09 (línea 780) y la propia auditoría
-   de ayer fijó el umbral: "si mañana se repite una séptima vez, sube a
-   HOY".
-
-2. **La URL de la candidata de Interferencia sigue mal formada, segundo día
-   consecutivo confirmado en la revisión final.** Verificado directamente en
-   `contenido/barrido/2026-09-29.md:659` y `:755`: el campo URL trae
-   `https://interferencia.cl/%3Ca%20href%3D%22/articulos/...%3C/a%3E`, es
-   decir, un `&lt;a href="...">Título&lt;/a>` completo con sus símbolos
-   porcentaje-codificados (`%3C`=`&lt;`, `%3D`=`=`, `%3E`=`>`) en vez de una URL
-   plana. `contenido/revisiones/2026-09-29.md` lo repite ("sigue rota... es
-   la quinta vez") y ya estaba en `contenido/revisiones/2026-09-28.md`. Con
-   dos días seguidos confirmados en la revisión final (28 y 29-09), se
-   cumple la condición que la auditoría de ayer puso para investigar el
-   origen: revisé `scripts/barrido.js` y la causa es concreta. La función
-   `desescapar` (línea 40-44) decodifica entidades HTML (`&amp;lt;`, `&amp;gt;`...) y
-   recién después quita etiquetas con `.replace(/&lt;[^>]+>/g, "")`; pero el
-   feed de Interferencia no manda entidades HTML sino el símbolo `&lt;`
-   porcentaje-codificado (`%3C`), que ninguna de las dos reglas reconoce
-   porque no es ni una entidad ni una etiqueta literal. `campo(b, "link")`
-   en la línea 94 le aplica `desescapar` igual que a cualquier campo de
-   texto, así que el resultado queda con el ancla entera adentro de la URL.
-
-3. **"Dato curioso" ausente, tercer día seguido (27, 28 y 29-09).**
-   `contenido/revisiones/2026-09-29.md` lo confirma como tercer día. Ni el
-   informe ni el guion inventaron la sección, que es lo correcto cuando no
-   hay material, pero es una de las pocas secciones de color del canal y
-   lleva tres días apagada sin que ningún prompt la pida de forma explícita.
-
-4. **La edición volvió a quedar con solo dos tipos de tarjeta (cifra y
-   cambio), bajo la cuota de variedad, segundo día seguido (28 y 29-09).**
-   No es incumplimiento: el prompt pone el árbol de tipos por encima de la
-   cuota y hoy los dos valores de la única `comparacion` candidata no
-   compartían unidad. Coincide con el aviso del validador de tarjetas citado
-   arriba.
-
-5. **La olla de la preselección bajó a 38 candidatas**, dentro del rango
-   35-60 pero la más baja de la semana (57 el 26-09, 60 el 27-09, 53 el
-   28-09, 38 hoy), con un barrido de 280 noticias con señal. No bloquea.
-
-6. **Marcas `PENDIENTE DE CIERRE`**: la de ayer ("contenido definitivo y
-   costo fiscal del plan laboral de emergencia", vencía 28-09) quedó cerrada
-   por el propio informe de hoy ("El anuncio cierra la deuda dejada por la
-   edición anterior", `contenido/informes/2026-09-29.md:17`). La nueva marca
-   de hoy ("variación oficial de precios de combustibles", vence 01-10) no
-   está vencida todavía.
+1. **Siglas sin expandir en pantalla, esta vez SIN hueco de regla: el
+   validador no lo marcó en su propia vuelta 1.** `contenido/revisiones/2026-09-30.md`
+   (hallazgos, primer punto "PARA SANTIAGO"): "Confusam" (línea 67 del guion) y
+   "CIPER" (línea 73) se pintan en el pie de dos tarjetas `[FUENTE]` sin
+   expandirse en ninguna parte de la pieza. Verificado en
+   `prompts/guion-informe.md:211-217`: la regla de siglas cubre exactamente esa
+   marca ("en esta marca o en el pie de un [DATO]"), a diferencia del 29-09
+   (`Fogape` en un `[ESQUEMA]`, fuera del alcance literal de la regla) y del
+   28-09 (`SAG`/`CONAF` en un titular). O sea: no es que la regla no llegue,
+   es que la vuelta 1 del validador no la aplicó esta vez, y
+   `prompts/validador.md:158` ("Convergencia") prohíbe sumar en la vuelta 2 un
+   hallazgo sobre una parte que la vuelta anterior no marcó, así que quedó sin
+   corregir y salió al aire. Más blando, mismo problema: "RCEP" (líneas 84 y
+   86) se narra sin explicarse. Es la séptima mañana seguida con la familia de
+   las siglas en los hallazgos (23, 27, 28, 29 y hoy 30-09, contando las
+   fechas que dejaron rastro en `bitacora/PENDIENTES.md` línea 780).
+2. **La edición quedó con solo dos tipos de tarjeta (comparacion y cifra),
+   bajo la cuota de variedad, tercer día seguido (28, 29 y 30-09).** No es
+   incumplimiento (el prompt pone el árbol de tipos sobre la cuota, que es
+   alarma y no obligación), y hoy tiene causa confirmada con tres días de
+   datos: de las diez noticias narradas, solo una trae dos valores de la
+   misma unidad. El informe no está entregando material graficable en
+   familias comparables (un antes y un después del mismo indicador, o dos
+   cifras de la misma unidad); mientras no lo haga, el guion no tiene con qué
+   variar sin inventar.
+3. **Seis hechos del barrido no entraron nunca a la olla y el informe los
+   rescató a mano con líneas "FUERA DE LA OLLA", segundo día seguido (cinco
+   el 29-09, seis hoy).** `contenido/veredictos/2026-09-30-preseleccion.md`
+   los lista uno por uno (Cancillería y el Escudo de las Américas, Suseso,
+   pueblo tribal afrodescendiente en la Corte IDH, Greenpeace e incendios,
+   alcalde de Punta Arenas, sondeo de licencias médicas). El rescate del
+   informe funcionó (los seis sonaron en el video), pero depender de que el
+   informe rescate lo que la preselección descarta es depender de suerte: el
+   arreglo, si el patrón sigue, es del filtro de la preselección, no del
+   informe.
+4. **La URL de Interferencia sigue mal formada, tercer día consecutivo
+   confirmado.** Verificado directamente en `contenido/barrido/2026-09-30.md`
+   líneas 80, 623 y 674: el campo URL trae un `&lt;a href="...">Título&lt;/a>`
+   completo porcentaje-codificado (`%3Ca%20href%3D%22...%3E...%3C/a%3E`) en
+   vez de una URL plana, el mismo defecto que el 28 y el 29-09 con causa ya
+   diagnosticada en `bitacora/2026-09-29-auditoria.md` (función `desescapar`
+   de `scripts/barrido.js`, líneas 40-44, no reconoce el símbolo `&lt;`
+   porcentaje-codificado). No bloquea ni sale al aire (es un campo interno de
+   trazabilidad, no llega al guion ni a "Fuentes:"), pero ya tiene propuesta
+   concreta desde el 29-09 y sigue sin estar en `bitacora/PENDIENTES.md`.
+5. **"Clima de carátula: grave" (línea 6 del guion) convive con un bloque de
+   portada declarado `[clima]` (línea 17), tonos que el prompt define como
+   opuestos.** No bloquea (la palabra queda al criterio de quien escribe) y no
+   es una racha: es la segunda vez que aparece esta tensión clima/emergencia
+   en las revisiones (28-09 con "Tormentas sobre zonas afectadas", hoy con el
+   cierre de Los Libertadores), no tres días seguidos.
+6. Marcas `PENDIENTE DE CIERRE`: no hay ninguna nueva hoy (verificado con
+   búsqueda en el informe completo). La única pendiente, la variación oficial
+   de precios de combustibles que dejó el informe del 29-09, vence el
+   01-10-2026 y todavía no está vencida.
 
 ## Propuestas
 
-1. **Siglas en pantalla (archivo `prompts/guion-informe.md`, líneas
-   211-212).** Cambiar "toda sigla que se PINTE EN PANTALLA (en esta marca o
-   en el pie de un [DATO])" por una formulación sin esa restricción, por
-   ejemplo "toda sigla que se pinte en pantalla, en cualquier marca del
-   guion (titulares, [TESIS], [ESQUEMA], [FUENTE], pie de [DATO], etc.)",
-   para que la regla quede igual de ancha que el checklist 17b (línea 273),
-   que ya no tiene la restricción y es la que de hecho describe lo que
-   Santiago pide. Así deja de depender de en qué marca caiga la sigla del
-   día.
+1. **Siglas en pantalla, falla del proceso de validación (archivo
+   `prompts/validador.md`, línea 157, entre "Antes de afirmar que algo falta…"
+   y "Convergencia").** Agregar un punto propio: "Siglas en pantalla: revisa
+   en la vuelta 1, sin excepción, cada marca `[FUENTE]` y el pie de cada
+   `[DATO]` contra la regla de siglas del prompt de la pieza que estés
+   validando; no dependas de notarlo por casualidad." Así deja de depender de
+   que el validador se acuerde, que es lo que la propia revisión de hoy pide
+   textualmente. Esto es aparte de la propuesta ya anotada del 29-09 (ampliar
+   el alcance de la regla en `prompts/guion-informe.md:211-212`), que sigue
+   sin aplicarse: hoy el fallo no fue de alcance, fue de que la vuelta 1 no
+   revisó lo que la regla ya cubre.
+2. **Tipos de tarjeta bajo cuota (archivo `prompts/informe.md`, cerca de la
+   definición de pesos [A]/[B]/[C]).** Pedir explícitamente que, cuando el
+   barrido traiga un indicador con dos momentos comparables (un antes y un
+   después, o dos cifras de la misma unidad), el informe lo señale como tal
+   en vez de dejarlo como una cifra suelta: eso es lo que le falta al guion
+   para variar sin inventar. Sin propuesta de línea exacta todavía: conviene
+   que la sesión de día mida sobre una semana de informes cuántas veces hay
+   material comparable disponible y no se marcó como tal, antes de escribir
+   la regla.
+3. **URL de Interferencia (archivo `scripts/barrido.js`, función `desescapar`,
+   líneas 40-44, o `parsear`, línea 94).** Repite la propuesta del 29-09: antes
+   de asignar `url = campo(b, "link")`, si el valor contiene un ancla
+   porcentaje-codificada (`url.includes("%3C")`), aplicar
+   `decodeURIComponent(url)` y extraer el `href` real con una regex en vez de
+   usar el valor completo como URL.
 
-2. **URL de Interferencia (archivo `scripts/barrido.js`, función `parsear`,
-   línea 94, o la propia `desescapar`, líneas 40-44).** Antes de asignar
-   `url = campo(b, "link")`, si el valor contiene un ancla porcentaje
-   codificada (patrón `/%3Ca(%20|\s)/i` o, más simple, `url.includes("%3C")`),
-   aplicar `decodeURIComponent(url)` y extraer el `href` real con una regex
-   (`/href%3D%22([^%"]+)/i` sobre el valor crudo, o sobre el decodificado
-   `/href="([^"]+)"/i`) en vez de usar el valor completo como URL.
-
-3. **Dato curioso (archivo `prompts/informe.md`).** Pedir explícitamente que
-   el informe declare si hay o no hay material para "Dato curioso" ese día,
-   en vez de dejar la sección implícita; así se distingue "no hay dato hoy"
-   de "nadie la miró".
-
-No hay propuesta para los puntos 4, 5 y 6: son de forma, no bloquean y no
-alcanzan el umbral de tres días sin cambio (4 lleva dos, 5 es una cifra
-suelta, 6 ya se cerró sola).
+No hay propuesta para los puntos 3 (rescate de la preselección, un patrón de
+dos días que conviene mirar una vez más antes de tocar el filtro) ni 5 (clima
+de carátula, segunda vez y no tres): no alcanzan el umbral de tres días sin
+cambio.
 
 ## Triage
 
-- **HOY**: propuesta 1 (siglas en pantalla). Va también en la primera línea
-  de este archivo. Motivo: ya está publicado con un defecto visible en
-  pantalla ("Fogape" sin expandir) y la propia auditoría de ayer fijó que una
-  repetición más subía el hallazgo a HOY; hoy se repitió en una tercera
-  superficie.
-- **AGUANTA**: propuesta 2 (URL de Interferencia). Molesta la trazabilidad de
-  fuentes pero no bloquea ni sale al aire de forma visible; ya tiene causa y
-  arreglo concretos, va a la lista de la noche siguiente.
-- **MIRAR**: hallazgo 3 (dato curioso, tercer día, sin propuesta de código
-  todavía porque conviene ver si un solo prompt lo resuelve), hallazgo 4
-  (dos tipos de tarjeta, segundo día) y hallazgo 5 (la olla en su punto más
-  bajo de la semana, a ver si sigue bajando mañana).
+- **HOY**: propuesta 1 (siglas, falla de proceso en `prompts/validador.md`).
+  Va también en la primera línea de este archivo. Motivo: ya está publicado
+  con un defecto visible en pantalla ("Confusam" y "CIPER" sin expandir) y,
+  a diferencia de los días anteriores, esta vez la regla ya cubría el caso:
+  lo que falló fue que la vuelta 1 no la aplicó.
+- **AGUANTA**: propuesta 3 (URL de Interferencia). Molesta la trazabilidad de
+  fuentes pero no bloquea ni sale al aire de forma visible; tercer día
+  consecutivo con causa y arreglo concretos ya diagnosticados, y sigue sin
+  bajar a `bitacora/PENDIENTES.md` pese a dos auditorías seguidas
+  marcándolo AGUANTA.
+- **MIRAR**: hallazgo 2 (dos tipos de tarjeta, tercer día seguido, con
+  propuesta 2 arriba pero sin línea exacta todavía), hallazgo 3 (rescate de
+  seis hechos "FUERA DE LA OLLA", segundo día seguido) y hallazgo 5 (tensión
+  clima/emergencia en la carátula, segunda vez, no consecutiva).
 
 ## Baja a PENDIENTES
 
 Se agregó una línea a la entrada existente de siglas en
 `bitacora/PENDIENTES.md`, sección "Para la sesión de la noche (código y
 prompts)" (la que empieza "23-09, HOY: expandir siglas que se pintan en
-pantalla"), con la fecha de hoy, la tercera superficie ([ESQUEMA]) y la
-propuesta concreta de la línea 211-212. No se creó ninguna entrada nueva:
+pantalla"), con la fecha de hoy y la propuesta nueva sobre
+`prompts/validador.md:157`. No se creó ninguna entrada nueva:
 `estrategia/decisiones.md` no registra ninguna decisión de NO tocar esto, y
-`bitacora/REALIZADOS.md` no la da por cerrada. La URL de Interferencia y el
-dato curioso quedan en AGUANTA/MIRAR y no bajan a PENDIENTES todavía, tal
-como manda el contrato para lo que no es HOY.
+`bitacora/REALIZADOS.md` no la da por cerrada. La URL de Interferencia, los
+tipos de tarjeta, el rescate de la preselección y el clima de carátula quedan
+en AGUANTA/MIRAR y no bajan a PENDIENTES todavía, tal como manda el contrato
+para lo que no es HOY.
 
 ## Los números
 
-`bitacora/metricas/2026-09-29.md` contra `2026-09-28.md`:
+`bitacora/metricas/2026-09-30.md` contra `2026-09-29.md`:
 
-- Suscriptores: 23 (+2) hoy, contra +0 ayer y +1 los dos días previos.
-  Recupera el ritmo.
-- Vistas totales del canal: +600 hoy, +574 ayer, +523 antier. Sigue creciendo
-  el ritmo de vistas, tercer día seguido.
+- Suscriptores: 23 (+0) hoy, contra +2 ayer. Vuelve a quedar plano.
+- Vistas totales del canal: +412 hoy, contra +750 ayer y +600 antier. El
+  ritmo de vistas se cortó a poco más de la mitad, primer freno después de
+  tres días subiendo.
 - **Retención de los videos largos (lo único que suma para las 4.000
-  horas):** 28.0 horas vistas acumuladas (30 días) contra 27.0 ayer y 26.1
-  antier: +1.0 h hoy, +0.9 h los dos días previos. Crecimiento sostenido, al
-  mismo ritmo. La retención media ponderada bajó de 32.4% (ayer) a 31.4%
-  (hoy), que sigue dentro del rango 31-36% de los últimos tres días: no hay
-  tendencia que marcar.
+  horas):** 29.3 horas vistas acumuladas (30 días) contra 28.0 ayer y 27.0
+  antier: +1.3 h hoy, +1.0 h ayer. Sigue creciendo y hoy incluso acelera.
+  La retención media ponderada bajó de 31.4% (ayer) a 30.3% (hoy), dentro
+  del rango 30-36% de los últimos días: no hay tendencia que marcar todavía.
+- Carátulas (30 días): 30822 impresiones (+2237) con CTR medio 1.65% (bajó de
+  1.75% ayer). Sigue dentro de ruido normal.
 - Los Shorts se anotan y no se celebran: sin novedad que valga la pena
   registrar aparte hoy.
 
 ## Comparación con ayer
 
 **Mejoró:**
-- Suscriptores volvieron a sumar (+2) después de un día plano.
-- La carátula subió por tercer día seguido sin incidentes.
-- El informe cerró su propia marca `PENDIENTE DE CIERRE` de ayer en vez de
-  dejarla vencer.
+- El informe cerró en 1 sola vuelta de corrección (ayer también 1), y el
+  guion también en 1 (ayer también 1): sin cambio en el costo de vueltas
+  aguas abajo, pero la preselección de hoy necesitó su propia segunda vuelta
+  por un motivo más simple (URLs cortadas) que el de ayer.
+- La retención de los largos aceleró (+1.3 h contra +1.0 h ayer y +0.9 h
+  antier), tercer día de crecimiento sostenido y hoy el mejor incremento de
+  los tres.
+- La carátula sube por tercer día seguido sin incidentes (era "segundo día"
+  ayer).
 
 **Sigue igual:**
-- Las siglas sin expandir en pantalla, ahora con tres superficies distintas
-  en tres días seguidos (titular el 28-09, [ESQUEMA] hoy): es la razón de que
-  hoy suba a HOY, como ya avisaba la auditoría de ayer.
-- La cadena sigue cerrando adelantada (02:39 hoy contra 02:36 ayer, ambas
-  casi una hora antes de la hora prevista).
-- La retención de los largos sube al mismo ritmo que los dos días previos
-  (+1.0 h contra +0.9 h y +0.9 h).
-- Dos tipos de tarjeta bajo cuota, segundo día seguido (ayer también).
+- Las siglas sin expandir en pantalla siguen en los hallazgos por séptima
+  mañana seguida, aunque hoy cambió la causa (falla de la vuelta 1 del
+  validador, no hueco de la regla).
+- La cadena sigue cerrando adelantada (02:51 hoy contra 02:39 ayer, ambas
+  bien antes de la hora prevista).
+- Dos tipos de tarjeta bajo cuota, ahora tercer día seguido (era "segundo"
+  ayer).
+- La URL de Interferencia sigue rota, ahora tercer día seguido (era
+  "segundo" ayer) y sigue sin bajar a PENDIENTES pese a tener causa y
+  arreglo concretos desde ayer.
 
 **Nuevo hoy:**
-- La URL de Interferencia confirmó su segundo día seguido en la revisión
-  final, lo que activó la investigación de causa: es `scripts/barrido.js`,
-  con propuesta concreta de arreglo.
-- "Dato curioso" llega a su tercer día ausente.
-- La olla de la preselección tocó su mínimo de la semana (38 candidatas).
+- El rescate "FUERA DE LA OLLA" del informe repite por segunda vez seguida
+  (cinco hechos ayer, seis hoy): empieza a ser un patrón de la preselección,
+  no un evento aislado.
+- Suscriptores y vistas totales frenaron su ritmo después de varios días
+  subiendo (+0 y +412 contra +2 y +750 ayer).
+- La tensión clima/emergencia en la marca de portada reaparece (era del
+  28-09, sobre un bloque distinto).
 </pre>
     </details>
     <!--AUDITORIA-FIN-->
