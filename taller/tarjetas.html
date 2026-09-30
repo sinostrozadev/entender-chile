@@ -1,0 +1,465 @@
+<title>Las tarjetas del video</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  /* Una ficha por tarjeta en columna de lectura: el cuadro arriba, los números
+     editables al medio y el pedido abajo. Los mismos tokens del Taller, porque
+     es la misma herramienta por otra ventana. */
+  :root {
+    color-scheme: light;
+    --papel: #F2F2EF; --superficie: #FBFBF9; --tinta: #17191C; --grafito: #6B6E6A;
+    --linea: #DDDDD5; --patina: #2F7263; --patina-suave: #E4EEEA; --cobre: #D08A5B;
+    --cobre-suave: #F7EBE1; --video: #15171A;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", "Courier New", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --papel: #15171A; --superficie: #1C1F23; --tinta: #EDEDE8; --grafito: #8E918C;
+      --linea: #2A2D31; --patina: #5BA391; --patina-suave: #1E2A27; --cobre: #D08A5B;
+      --cobre-suave: #2B2119; --video: #0E1013;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --papel: #15171A; --superficie: #1C1F23; --tinta: #EDEDE8; --grafito: #8E918C;
+    --linea: #2A2D31; --patina: #5BA391; --patina-suave: #1E2A27; --cobre: #D08A5B;
+    --cobre-suave: #2B2119; --video: #0E1013;
+  }
+
+  * { box-sizing: border-box; }
+  body { background: var(--papel); color: var(--tinta); font-family: var(--sans);
+    font-size: 16px; line-height: 1.55; margin: 0; }
+  main { margin: 0 auto; max-width: 840px; padding-block: 28px 80px; padding-left: 20px; padding-right: 20px; }
+
+  .marca { color: var(--grafito); font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; }
+  h1 { font-family: var(--serif); font-size: clamp(30px, 6vw, 42px); font-weight: 600; line-height: 1.1; margin: 8px 0 12px; text-wrap: balance; }
+  h2 { font-family: var(--serif); font-size: 25px; font-weight: 600; margin: 52px 0 2px; }
+  h2 + .bajada { margin-bottom: 14px; }
+  h3 { font-family: var(--sans); font-size: 19px; font-weight: 600; margin: 0; }
+  p { margin: 0 0 12px; max-width: 64ch; }
+  .bajada { color: var(--grafito); margin: 0 0 8px; max-width: 64ch; }
+  .bajada strong { color: var(--tinta); font-weight: 500; }
+  code { background: var(--patina-suave); font-family: var(--mono); font-size: 0.88em; padding: 1px 5px; }
+
+  .aviso { background: var(--patina-suave); border-left: 3px solid var(--patina); font-size: 15px; margin: 16px 0; padding: 12px 16px; }
+  .aviso p:last-child { margin-bottom: 0; }
+  .aviso[hidden] { display: none !important; }
+
+  /* Los tres niveles, que es lo que esta pantalla vino a separar. */
+  .niveles { border: 1px solid var(--linea); display: grid; font-size: 15px; gap: 0;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin: 18px 0 8px; }
+  .nivel { border-right: 1px solid var(--linea); padding: 12px 14px; }
+  .nivel:last-child { border-right: none; }
+  .nivel b { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    margin-bottom: 4px; text-transform: uppercase; }
+  .nivel.aqui { background: var(--patina-suave); }
+  .nivel.aqui b { color: var(--patina); }
+  .nivel span { color: var(--grafito); }
+
+  .tarjeta { background: var(--superficie); border: 1px solid var(--linea); margin-top: 18px; }
+  .tarjeta.tocado { border-color: var(--cobre); }
+  .tarjeta video, .tarjeta img { background: var(--video); border-bottom: 1px solid var(--linea);
+    display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  .cuerpo { display: flex; flex-direction: column; gap: 14px; padding: 16px 18px 18px; }
+  .cabeza { align-items: baseline; display: flex; flex-wrap: wrap; gap: 6px 12px; }
+  .etiqueta { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; padding: 2px 8px; text-transform: uppercase; }
+  .et-vivo { background: var(--patina); color: #FBFBF9; }
+  .et-taller { border: 1px solid var(--linea); color: var(--grafito); }
+  .et-tocado { border: 1px dashed var(--cobre); color: var(--cobre); }
+  .et-dibujo { background: var(--cobre-suave); color: var(--cobre); }
+  .que { color: var(--grafito); font-size: 15px; margin: 0; }
+
+  .ranura { border-top: 1px solid var(--linea); color: var(--grafito); font-size: 13px;
+    font-family: var(--mono); padding-top: 10px; }
+  .ranura .sola { color: var(--cobre); }
+  .ranura b { color: var(--tinta); font-weight: 500; }
+
+  .numeros { display: grid; gap: 10px 18px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin: 0; }
+  .numero { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .numero label { color: var(--grafito); font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .fila-num { align-items: center; display: flex; gap: 8px; }
+  .fila-num input[type="range"] { flex: 1 1 auto; min-width: 0; accent-color: var(--patina); }
+  .fila-num output { font-family: var(--mono); font-size: 14px; font-variant-numeric: tabular-nums; min-width: 4.5ch; text-align: right; }
+  .fila-num output.cambio { color: var(--cobre); font-weight: 500; }
+  .desde { color: var(--grafito); font-family: var(--mono); font-size: 11px; }
+
+  .pedido { border-top: 1px solid var(--linea); display: flex; flex-direction: column; gap: 8px; padding-top: 14px; }
+  textarea { background: var(--papel); border: 1px solid var(--linea); color: var(--tinta);
+    font-family: var(--sans); font-size: 15px; min-height: 68px; padding: 9px 10px; resize: vertical; width: 100%; }
+  textarea:focus, select:focus, input:focus { outline: 2px solid var(--patina); outline-offset: -1px; }
+  .pedido-pie { align-items: center; display: flex; flex-wrap: wrap; gap: 10px; }
+  select { background: var(--papel); border: 1px solid var(--linea); color: var(--tinta);
+    font-family: var(--sans); font-size: 14px; padding: 6px 8px; }
+  button { appearance: none; background: none; border: 1px solid var(--linea); color: var(--tinta);
+    cursor: pointer; font-family: var(--sans); font-size: 14px; padding: 6px 12px; }
+  button:hover:not([disabled]) { border-color: var(--patina); color: var(--patina); }
+  button[disabled] { cursor: not-allowed; opacity: 0.45; }
+  button.principal { background: var(--patina); border-color: var(--patina); color: #FBFBF9; }
+  button.principal:hover:not([disabled]) { color: #FBFBF9; opacity: 0.9; }
+  .dicho { color: var(--grafito); font-family: var(--mono); font-size: 12px; }
+
+  .abiertos { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .abierto { border-left: 2px solid var(--cobre); font-size: 14px; padding-left: 10px; }
+  .abierto .meta { color: var(--grafito); font-family: var(--mono); font-size: 11px; }
+
+  .pie { border-top: 1px solid var(--linea); color: var(--grafito); font-size: 14px; margin-top: 52px; padding-top: 16px; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+<script src="datos.js"></script>
+
+<main>
+  <div class="marca">Entender Chile · Taller</div>
+  <h1>Las tarjetas del video</h1>
+  <p class="bajada"><strong>Una tarjeta decide qué se ve y cómo se compone</strong>: el párrafo, la cifra grande, el esquema con flechas, el dibujo de la biblioteca. Es el nivel donde se crean cosas nuevas y por donde entran las imágenes.</p>
+
+  <div class="niveles">
+    <div class="nivel"><b>el evento</b><span>Qué hay que contar. Lo escribe GPT con las marcas del guion.</span></div>
+    <div class="nivel aqui"><b>la tarjeta</b><span>Qué se ve y cómo se compone. Esta pantalla.</span></div>
+    <div class="nivel"><b>el fondo</b><span>Qué hay detrás del texto. Lo mismo para todas.</span></div>
+  </div>
+  <p class="bajada">Se separaron el 30-09-2026. Antes las trece tarjetas y los seis fondos vivían en una sola lista llamada modos, y esa mezcla escondía justo la pregunta que importa: qué define lo que el video muestra.</p>
+
+  <div class="aviso" id="aviso" hidden></div>
+
+  <div class="aviso">
+    <p><strong>Esta pantalla anota, no aplica.</strong> Las tarjetas viven en <code>contenido/config/tarjetas.json</code> y los fondos en <code>contenido/config/fondos.json</code>, que el video lee al compilar. El taller no puede escribir en el repositorio: lo que muevas acá queda guardado como pendiente y baja después.</p>
+  </div>
+
+  <div id="ranuras"></div>
+  <div id="lista"><p class="dicho">Cargando...</p></div>
+
+  <p class="pie">Los cuadros de las tarjetas son renders reales, no maquetas. Ocho salen de la edición del 24-09-2026; los cinco que esa edición no usó (cita, cambio, barras, tabla y marcador) se rindieron con datos de muestra, que es la única manera de verlos, porque llevan días sin aparecer en una edición. Los seis clips de fondo son de la misma edición.</p>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var db = null;
+  var cambios = {};      // id -> {campo: valor} guardados en la base
+  var pedidos = [];      // los pedidos abiertos
+
+  var el = function (id) { return document.getElementById(id); };
+  var texto = function (s) { return (s === undefined || s === null) ? "" : String(s); };
+
+  function aviso(m) {
+    var c = el("aviso");
+    if (!m) { c.hidden = true; return; }
+    c.textContent = m; c.hidden = false;
+  }
+
+  function nodo(tag, clase, contenido) {
+    var n = document.createElement(tag);
+    if (clase) n.className = clase;
+    if (contenido !== undefined) n.textContent = contenido;
+    return n;
+  }
+
+  // QUÉ NÚMEROS TIENE CADA FICHA. El rango y el paso no son decoración: son lo
+  // que evita pedir un velo de 3 o una letra de 900, que el video aceptaría y
+  // rompería el cuadro sin avisar. Los tamaños de letra están medidos sobre
+  // 1920x1080, así que un 42 es 42 px en ese cuadro y no en esta pantalla.
+  var LETRA = function (k, etiqueta, max) {
+    return { k: k, etiqueta: etiqueta, min: 12, max: max || 120, paso: 1, sufijo: " px" };
+  };
+  var FRAC = function (k, etiqueta, min, max, paso) {
+    return { k: k, etiqueta: etiqueta, min: min, max: max, paso: paso || 0.01 };
+  };
+  var PIX = function (k, etiqueta, min, max) {
+    return { k: k, etiqueta: etiqueta, min: min, max: max, paso: 10, sufijo: " px" };
+  };
+
+  var CAMPOS = {
+    "parrafo": [LETRA("texto", "tamaño del texto", 90), FRAC("interlinea", "interlínea", 1, 2.2)],
+    "tesis": [LETRA("texto", "tamaño de la idea", 160), FRAC("interlinea", "interlínea", 1, 2.2),
+      PIX("rotuloAbajo", "aire bajo el rótulo", 0, 120)],
+    "cita": [LETRA("texto", "tamaño de la cita", 120), FRAC("interlinea", "interlínea", 1, 2.2),
+      LETRA("autor", "tamaño del autor", 60), PIX("autorArriba", "aire sobre el autor", 0, 120)],
+    "dato-cifra": [LETRA("valor", "tamaño de la cifra", 300), LETRA("etiquetaGrande", "cifra sin número", 240),
+      LETRA("etiqueta", "tamaño de la etiqueta", 90), PIX("etiquetaArriba", "aire sobre la etiqueta", 0, 100)],
+    "dato-comparacion": [LETRA("valor", "tamaño de las cifras", 240), LETRA("etiqueta", "tamaño de la etiqueta", 90),
+      PIX("etiquetaArriba", "aire sobre la etiqueta", 0, 100)],
+    "dato-cambio": [LETRA("valor", "tamaño normal", 300), LETRA("valorLargo", "tamaño si son largas", 300),
+      LETRA("etiqueta", "tamaño de la etiqueta", 90), PIX("etiquetaArriba", "aire sobre la etiqueta", 0, 100)],
+    "dato-barras": [LETRA("etiqueta", "tamaño de la etiqueta", 90), PIX("anchoEtiqueta", "ancho de la etiqueta", 200, 900),
+      PIX("anchoBarra", "largo de la barra", 300, 1300), PIX("altoBarra", "grosor de la barra", 10, 120),
+      LETRA("valor", "tamaño del valor", 90)],
+    "dato-tabla": [LETRA("numero", "tamaño del número", 60), PIX("anchoNumero", "ancho del número", 20, 160),
+      LETRA("nombre", "tamaño del nombre", 90), LETRA("valor", "tamaño del valor", 90)],
+    "dato-marcador": [LETRA("equipo", "tamaño de los nombres", 140), LETRA("marcador", "tamaño del marcador", 260)],
+    "esquema": [LETRA("elemento", "tamaño del paso", 90), LETRA("flecha", "tamaño de la flecha", 120),
+      PIX("tituloAbajo", "aire bajo el título", 0, 120), PIX("separacion", "aire entre pasos", 0, 100),
+      { k: "retardo", etiqueta: "retardo entre pasos", min: 0, max: 30, paso: 1, sufijo: " cuadros" }],
+    "titulares": [LETRA("titular", "tamaño del titular", 90), FRAC("interlinea", "interlínea", 1, 2.2),
+      PIX("anchoMax", "ancho máximo", 600, 1800)],
+    "dibujo-texto": [FRAC("alto", "alto del dibujo", 0.15, 0.9), FRAC("anchoMax", "ancho máximo", 0.2, 0.9),
+      FRAC("equisDer", "centro a la derecha", 0.5, 0.95, 0.005), FRAC("equisIzq", "centro a la izquierda", 0.05, 0.5, 0.005),
+      FRAC("veloTexto", "velo del lado del texto", 0, 1), FRAC("veloDibujo", "velo del lado del dibujo", 0, 1)],
+    "dibujo-solo": [FRAC("anchoMax", "ancho máximo", 0.3, 1), FRAC("velo", "cuánto tapa el velo", 0, 1)],
+    "columna": [{ k: "banda", etiqueta: "banda de difuminado", min: 0, max: 40, paso: 1, sufijo: "%" },
+      FRAC("alfa", "cuánto tapa", 0, 1), PIX("anchoTexto", "ancho del texto", 400, 1800)],
+    "tv": [PIX("anchoTexto", "ancho del texto", 400, 1800)],
+    "imagen": [PIX("anchoTexto", "ancho del texto", 400, 1800)]
+  };
+
+  var DIFICULTAD = [
+    ["sencillo", "Sencillo: mover, renombrar, ajustar"],
+    ["pensarlo", "Hay que pensarlo: comportamiento nuevo"]
+  ];
+
+  // De dónde sale cada número: una tarjeta los guarda bajo numeros y un fondo
+  // los tiene sueltos en la raíz. Se resuelve acá y no en cada lugar que lee.
+  function base(ficha, campo) {
+    var origen = ficha.numeros || ficha;
+    return Number(origen[campo]);
+  }
+
+  function valorDe(ficha, campo) {
+    var puesto = cambios[ficha.id];
+    if (puesto && puesto[campo] !== undefined && puesto[campo] !== null) return Number(puesto[campo]);
+    return base(ficha, campo);
+  }
+
+  function guardarCambio(ficha, campo, valor) {
+    if (!db) { aviso("Esta vista no puede guardar. Ábrela desde tu cuenta de claude.ai."); return; }
+    var cuerpo = {};
+    cuerpo[campo] = valor;
+    cuerpo.ficha = ficha.id;
+    db.collection("tarjetas").doc(ficha.id).set(cuerpo, { merge: true }).catch(function (e) {
+      aviso("No se pudo guardar: " + ((e && e.message) || "error") + ".");
+    });
+  }
+
+  function fichaNumero(ficha, campo) {
+    var caja = nodo("div", "numero");
+    var id = "n-" + ficha.id + "-" + campo.k;
+    var deVideo = base(ficha, campo.k);
+    var actual = valorDe(ficha, campo.k);
+
+    var lab = nodo("label", null, campo.etiqueta);
+    lab.setAttribute("for", id);
+    caja.appendChild(lab);
+
+    var fila = nodo("div", "fila-num");
+    var rango = document.createElement("input");
+    rango.type = "range"; rango.id = id;
+    rango.min = campo.min; rango.max = campo.max; rango.step = campo.paso;
+    rango.value = actual;
+    var salida = document.createElement("output");
+    salida.htmlFor = id;
+    var pinta = function (v) {
+      salida.textContent = v + (campo.sufijo || "");
+      salida.className = Number(v) !== deVideo ? "cambio" : "";
+    };
+    pinta(actual);
+    rango.addEventListener("input", function () { pinta(rango.value); });
+    rango.addEventListener("change", function () { guardarCambio(ficha, campo.k, Number(rango.value)); });
+    fila.appendChild(rango);
+    fila.appendChild(salida);
+    caja.appendChild(fila);
+
+    caja.appendChild(nodo("div", "desde", "en el video: " + deVideo + (campo.sufijo || "")));
+    return caja;
+  }
+
+  function fichaPedido(ficha) {
+    var caja = nodo("div", "pedido");
+    var ta = document.createElement("textarea");
+    ta.id = "p-" + ficha.id;
+    ta.placeholder = "Qué quieres que cambie acá, o qué tarjeta nueva nace de esta";
+    caja.appendChild(ta);
+
+    var pie = nodo("div", "pedido-pie");
+    var sel = document.createElement("select");
+    sel.id = "d-" + ficha.id;
+    sel.setAttribute("aria-label", "Qué tan pesado es el cambio");
+    DIFICULTAD.forEach(function (d) {
+      var o = document.createElement("option");
+      o.value = d[0]; o.textContent = d[1];
+      sel.appendChild(o);
+    });
+    pie.appendChild(sel);
+
+    var b = nodo("button", "principal", "Anotar el pedido");
+    b.type = "button";
+    b.addEventListener("click", function () {
+      var t = ta.value.trim();
+      if (!t) { aviso("Escribe qué quieres cambiar antes de anotarlo."); return; }
+      if (!db) { aviso("Esta vista no puede guardar. Ábrela desde tu cuenta de claude.ai."); return; }
+      b.disabled = true; b.textContent = "Anotando...";
+      var id = ficha.id + "-" + Date.now();
+      db.collection("pedidos").doc(id).set({
+        ficha: ficha.id, texto: t, dificultad: sel.value,
+        cuando: new Date().toISOString().slice(0, 16).replace("T", " "), estado: "abierto"
+      }).then(function () {
+        ta.value = ""; aviso("");
+        b.disabled = false; b.textContent = "Anotar el pedido";
+      }).catch(function (e) {
+        aviso("No se pudo anotar: " + ((e && e.message) || "error") + ".");
+        b.disabled = false; b.textContent = "Anotar el pedido";
+      });
+    });
+    pie.appendChild(b);
+    caja.appendChild(pie);
+
+    var abiertos = pedidos.filter(function (p) { return p.ficha === ficha.id && p.estado !== "hecho"; });
+    if (abiertos.length) {
+      var lista = nodo("div", "abiertos");
+      abiertos.forEach(function (p) {
+        var a = nodo("div", "abierto");
+        a.appendChild(nodo("div", null, texto(p.texto)));
+        a.appendChild(nodo("div", "meta", texto(p.cuando) + " · " + texto(p.dificultad)));
+        lista.appendChild(a);
+      });
+      caja.appendChild(lista);
+    }
+    return caja;
+  }
+
+  // La ranura no es el evento a secas: las seis tarjetas de dato pintan el
+  // mismo evento pero no compiten, porque el guion ya dijo cuál con el tipo del
+  // [DATO]. Compiten las que caen en la misma ranura evento + gráfico, y hoy
+  // eso pasa en una sola.
+  function ranuraDe(t) { return t.grafico ? t.pinta[0] + "/" + t.grafico : t.pinta[0]; }
+
+  function porRanura(tarjetas) {
+    var m = {};
+    tarjetas.forEach(function (t) { (m[ranuraDe(t)] = m[ranuraDe(t)] || []).push(t); });
+    return m;
+  }
+
+  function lineaRanura(t, mapa) {
+    var hermanas = (mapa[ranuraDe(t)] || []).filter(function (o) { return o.id !== t.id; });
+    var caja = nodo("div", "ranura");
+    caja.appendChild(nodo("span", null, "pinta "));
+    caja.appendChild(nodo("b", null, ranuraDe(t)));
+    if (hermanas.length) {
+      caja.appendChild(nodo("span", null, " · comparte ranura con " +
+        hermanas.map(function (o) { return o.nombre; }).join(" y ") + ", y hoy nada elige entre ellas"));
+    } else {
+      caja.appendChild(nodo("span", "sola", " · única tarjeta de su ranura"));
+    }
+    return caja;
+  }
+
+  function ficha(f, opciones) {
+    var campos = CAMPOS[f.id] || [];
+    var movido = campos.some(function (c) { return valorDe(f, c.k) !== base(f, c.k); });
+    var caja = nodo("div", "tarjeta" + (movido ? " tocado" : ""));
+
+    if (opciones.clip) {
+      var v = document.createElement("video");
+      v.src = opciones.clip;
+      v.controls = true; v.muted = true; v.loop = true; v.playsInline = true; v.preload = "metadata";
+      caja.appendChild(v);
+    } else if (opciones.cuadro) {
+      var img = document.createElement("img");
+      img.src = opciones.cuadro; img.alt = "Cómo se ve la tarjeta " + f.nombre + " en el video";
+      img.loading = "lazy";
+      caja.appendChild(img);
+    }
+
+    var cuerpo = nodo("div", "cuerpo");
+    var cabeza = nodo("div", "cabeza");
+    cabeza.appendChild(nodo("h3", null, f.nombre));
+    cabeza.appendChild(nodo("span", "etiqueta " + (f.enProduccion ? "et-vivo" : "et-taller"),
+      f.enProduccion ? "en producción" : "solo en el taller"));
+    if (f.dibujo) cabeza.appendChild(nodo("span", "etiqueta et-dibujo", "lleva dibujo"));
+    if (movido) cabeza.appendChild(nodo("span", "etiqueta et-tocado", "con cambios sin bajar"));
+    cuerpo.appendChild(cabeza);
+    cuerpo.appendChild(nodo("p", "que", f.que));
+
+    if (opciones.ranura) cuerpo.appendChild(opciones.ranura);
+
+    if (campos.length) {
+      var nums = nodo("div", "numeros");
+      campos.forEach(function (c) { nums.appendChild(fichaNumero(f, c)); });
+      cuerpo.appendChild(nums);
+    } else {
+      cuerpo.appendChild(nodo("p", "dicho",
+        "Sin números sueltos: su composición es código. Lo que quieras cambiarle, pídelo acá abajo."));
+    }
+
+    cuerpo.appendChild(fichaPedido(f));
+    caja.appendChild(cuerpo);
+    return caja;
+  }
+
+  function pintar() {
+    var caja = el("lista");
+    var T = window.TARJETAS, F = window.FONDOS;
+    caja.textContent = "";
+    el("ranuras").textContent = "";
+    if (!T || !T.tarjetas || !F || !F.fondos) {
+      caja.appendChild(nodo("p", "dicho", "No se pudo leer datos.js. Vuelve a publicar el taller."));
+      return;
+    }
+
+    var mapa = porRanura(T.tarjetas);
+    var ranuras = Object.keys(mapa);
+    var conAlternativa = ranuras.filter(function (r) { return mapa[r].length > 1; });
+    var res = nodo("div", "aviso");
+    res.appendChild(nodo("p", null,
+      T.tarjetas.length + " tarjetas repartidas en " + ranuras.length + " ranuras. " +
+      (conAlternativa.length
+        ? "Solo " + conAlternativa.join(" y ") + " tiene más de una, así que es la única donde hay algo que elegir. En las otras el video no decide: pinta la que hay."
+        : "Ninguna tiene más de una, así que el video no elige nada: pinta la que hay.")));
+    el("ranuras").appendChild(res);
+
+    caja.appendChild(nodo("h2", null, "Las " + T.tarjetas.length + " tarjetas"));
+    caja.appendChild(nodo("p", "bajada", "Acá se decide qué se ve. Es donde entran las imágenes de la biblioteca y donde nacen las tarjetas nuevas."));
+    T.tarjetas.forEach(function (t) {
+      caja.appendChild(ficha(t, {
+        clip: t.dibujo ? "modo-" + t.id + ".mp4" : null,
+        cuadro: t.dibujo ? null : "tarjeta-" + t.id + ".jpg",
+        ranura: lineaRanura(t, mapa)
+      }));
+    });
+
+    caja.appendChild(nodo("h2", null, "Los " + F.fondos.length + " fondos"));
+    caja.appendChild(nodo("p", "bajada", "Acá se decide qué hay detrás. Cualquier tarjeta puede llevar cualquiera, y hoy la edición entera lleva uno solo."));
+    F.fondos.forEach(function (f) {
+      caja.appendChild(ficha(f, { clip: "modo-" + f.id + ".mp4" }));
+    });
+  }
+
+  function escuchar(col, alGuardar) {
+    return db.collection(col).onSnapshot(function (snap) {
+      alGuardar(snap.docs.map(function (d) {
+        var cuerpo = d.data() || {};
+        var copia = { id: d.id };
+        Object.keys(cuerpo).forEach(function (k) { copia[k] = cuerpo[k]; });
+        return copia;
+      }));
+      pintar();
+    }, function (e) {
+      aviso("Se perdió la conexión con los datos (" + ((e && e.code) || "error") + "). Recarga la página.");
+    });
+  }
+
+  pintar();
+
+  (async function arrancar() {
+    try { db = await claude.use("db"); } catch (e) { db = null; }
+    if (!db) {
+      aviso("Esta vista puede mirar pero no guardar. Ábrela desde tu cuenta de claude.ai.");
+      return;
+    }
+    escuchar("tarjetas", function (filas) {
+      cambios = {};
+      filas.forEach(function (f) {
+        var c = {};
+        Object.keys(f).forEach(function (k) {
+          if (k !== "id" && k !== "ficha") c[k] = f[k];
+        });
+        cambios[f.id] = c;
+      });
+    });
+    escuchar("pedidos", function (filas) { pedidos = filas; });
+  })();
+})();
+</script>
