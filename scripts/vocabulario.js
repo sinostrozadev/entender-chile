@@ -80,6 +80,21 @@
 // o sea el caso armado. Además no necesita verificar nada, que es lo que hizo
 // caer al edificio.
 //
+// CONTRALORIA NO PUEDE LLEVAR LUPA, PORQUE LA LUPA ES DE INVESTIGACION
+// (30-09-2026). Su motivo era "una lupa apoyada sobre una columna de cifras", y
+// el de investigación es un escritorio con carpetas, papeles y UNA LUPA. Dos
+// conceptos con el mismo objeto es un choque, y los dos son de los más usados.
+//
+// El timbre es lo propio de esta institución y de ninguna otra: la toma de razón
+// es un trámite chileno que solo hace la Contraloría. Y por lo aprendido con los
+// micrófonos y el reloj control, un objeto único aguanta mejor el pulgar que
+// cualquier escena.
+//
+// No se pidió el edificio, aunque la coincidencia es limpia (94%) y la
+// institución es el sujeto que actúa, igual que el Banco Central. La diferencia
+// es la de siempre: el del Banco Central se reconoce y el de Contraloría no,
+// así que acertarlo no rendiría, que es justo lo que se concluyó con fiscalía.
+//
 // EL BANCO CENTRAL SÍ VALE NOMBRARLO, Y LA FISCALÍA NO (30-09-2026). El motivo
 // era "una fachada con cuatro columnas y un frontón triangular", que es
 // cualquier banco del mundo y además un pictograma de la era anterior.
@@ -242,7 +257,7 @@ const CATEGORIAS = [
         "una carpeta de investigación gruesa, cerrada y atada con elásticos, sobre un mesón vacío",
         "cinta plástica de sitio del suceso repetida en diagonal, arrugada y sin texto legible"],
       ["contraloria", ["contraloria", "contralor"],
-        "una lupa apoyada sobre una columna de cifras alineadas"],
+        "un timbre de goma con mango de madera, apoyado sobre su tampón abierto, visto de cerca"],
       ["carabineros", ["carabineros", "carabinero", "general director"],
         "una gorra de plato vista de perfil, sin insignia"],
       ["pdi", ["pdi", "policia de investigaciones", "detectives"],

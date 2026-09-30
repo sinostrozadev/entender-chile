@@ -31,7 +31,7 @@ sirve donde hay dos categorías o más. Ese número está arriba.
 | fiscalia | 61 | 5.2% | una carpeta de investigación gruesa, cerrada y atada con elásticos, sobre un mesón vacío | cinta plástica de sitio del suceso repetida en diagonal, arrugada y sin texto legible |
 | empresa | 41 | 3.5% | tres torres de oficinas de distinto alto, alineadas en una misma base | - |
 | banco central | 39 | 3.3% | el edificio del Banco Central de Chile, en Santiago, visto desde la vereda de enfrente | - |
-| contraloria | 35 | 3.0% | una lupa apoyada sobre una columna de cifras alineadas | - |
+| contraloria | 35 | 3.0% | un timbre de goma con mango de madera, apoyado sobre su tampón abierto, visto de cerca | - |
 | carabineros | 32 | 2.7% | una gorra de plato vista de perfil, sin insignia | - |
 | municipio | 26 | 2.2% | un edificio bajo de tres arcos con un reloj sobre la puerta | - |
 | servicio publico | 25 | 2.1% | un mesón de atención con una ventanilla y un timbre encima | - |
