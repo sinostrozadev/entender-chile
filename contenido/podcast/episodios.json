@@ -420,5 +420,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-29-informe.mp3",
     "bytes": 16046208,
     "durSeg": 669
+  },
+  {
+    "fecha": "2026-09-30",
+    "tipo": "informe",
+    "titulo": "30-09-2026 · Sistema frontal cierra Los Libertadores y mantiene varias regiones bajo vigilancia",
+    "descripcion": "El sistema frontal con río atmosférico obliga a cerrar preventivamente Los Libertadores. También revisamos la fiscalización por el Escudo de las Américas, la condena vinculada al caso Barriga y las principales noticias de este miércoles en Chile.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-30-informe.mp3",
+    "bytes": 14800320,
+    "durSeg": 617
   }
 ]
