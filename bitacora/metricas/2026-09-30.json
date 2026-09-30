@@ -2,15 +2,24 @@
   "fecha": "2026-09-30",
   "canal": {
     "suscriptores": 23,
-    "vistas": 8867,
-    "videos": 118
+    "vistas": 9786,
+    "videos": 121
   },
   "videos": {
+    "dHAHtOdLuf8": {
+      "titulo": "¿Por qué el gobierno estudia retirar su propia reforma de se",
+      "publicado": "2026-09-30",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 47
+    },
     "ybLb8PCGerY": {
       "titulo": "El sistema frontal cerró Los Libertadores y mantiene varias…",
       "publicado": "2026-09-30",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 42
@@ -18,8 +27,8 @@
     "QHL1wY5Fpls": {
       "titulo": "Sistema frontal cierra Los Libertadores y mantiene varias re",
       "publicado": "2026-09-30",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 617
@@ -28,16 +37,16 @@
       "titulo": "Chile Despega moviliza recursos públicos para crear más de c",
       "publicado": "2026-09-29",
       "estado": "public",
-      "vistas": 55,
-      "meGusta": 1,
-      "comentarios": 0,
+      "vistas": 92,
+      "meGusta": 4,
+      "comentarios": 1,
       "durSeg": 44
     },
     "YZZwXm6XMMw": {
       "titulo": "Chile Despega moviliza $1,3 billones y proyecta más de 100 m",
       "publicado": "2026-09-29",
       "estado": "public",
-      "vistas": 7,
+      "vistas": 10,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 669
@@ -55,7 +64,7 @@
       "titulo": "¿Por qué hay paro nacional el jueves 1 de octubre? Esto pide",
       "publicado": "2026-09-28",
       "estado": "public",
-      "vistas": 71,
+      "vistas": 74,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 45
@@ -100,7 +109,7 @@
       "titulo": "El canciller deberá explicar ante la Cámara cómo Chile ingre",
       "publicado": "2026-09-28",
       "estado": "public",
-      "vistas": 144,
+      "vistas": 153,
       "meGusta": 7,
       "comentarios": 1,
       "durSeg": 58
@@ -109,7 +118,7 @@
       "titulo": "El crimen del carabinero en Renca suma un segundo detenido: ",
       "publicado": "2026-09-28",
       "estado": "public",
-      "vistas": 712,
+      "vistas": 737,
       "meGusta": 26,
       "comentarios": 0,
       "durSeg": 56
@@ -145,7 +154,7 @@
       "titulo": "Temporal deja más de 12 mil personas aisladas en el centro-s",
       "publicado": "2026-09-27",
       "estado": "public",
-      "vistas": 6,
+      "vistas": 7,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 719
@@ -172,7 +181,7 @@
       "titulo": "87% de los chilenos cree que el país vive una emergencia lab",
       "publicado": "2026-09-26",
       "estado": "public",
-      "vistas": 529,
+      "vistas": 527,
       "meGusta": 9,
       "comentarios": 1,
       "durSeg": 48
@@ -226,7 +235,7 @@
       "titulo": "Muere un trabajador en Minera Escondida mientras hacía mante",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 300,
+      "vistas": 301,
       "meGusta": 3,
       "comentarios": 1,
       "durSeg": 42
@@ -361,7 +370,7 @@
       "titulo": "Tren Melipilla partirá desde Lo Errázuriz, y otras 4 cosas d",
       "publicado": "2026-09-18",
       "estado": "public",
-      "vistas": 78,
+      "vistas": 79,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 47
@@ -397,7 +406,7 @@
       "titulo": "Falla en la PGU afecta a cerca de 53 mil pensionados",
       "publicado": "2026-09-17",
       "estado": "public",
-      "vistas": 17,
+      "vistas": 23,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 627
@@ -446,15 +455,6 @@
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 28
-    },
-    "nvG_C4evsL8": {
-      "titulo": "¿Quién fue Patricio Guzmán, el documentalista que despide Ch",
-      "publicado": "2026-09-15",
-      "estado": "public",
-      "vistas": 287,
-      "meGusta": 10,
-      "comentarios": 0,
-      "durSeg": 44
     },
     "sCdoxJs4Ea8": {
       "titulo": "Eliminar no es erradicar: cómo leer una certificación sanita",
@@ -568,7 +568,7 @@
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 21,
+      "vistas": 24,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 680
@@ -604,7 +604,7 @@
       "titulo": "Corte Suprema remueve a once jueces por viajar con licencia ",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 19,
+      "vistas": 20,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 709
@@ -685,7 +685,7 @@
       "titulo": "Banco Central reduce a menos de uno por ciento su proyección",
       "publicado": "2026-09-10",
       "estado": "public",
-      "vistas": 9,
+      "vistas": 14,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 694
@@ -820,7 +820,7 @@
       "titulo": "La disputa por el Estrecho golpea la imagen de Argentina en ",
       "publicado": "2026-09-07",
       "estado": "public",
-      "vistas": 11,
+      "vistas": 12,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 850
@@ -1072,7 +1072,7 @@
       "titulo": "¿Por qué el mercado de capitales influye en tu hipotecario?",
       "publicado": "2026-08-31",
       "estado": "public",
-      "vistas": 22,
+      "vistas": 24,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 791
