@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { tema, estiloEyebrow } from "./tema";
-import { Tarjeta, SeccionBanner, CortinaSeccion, Evento, FondoTarjetaContext, ModoFondo } from "./tarjetas";
+import { Tarjeta, SeccionBanner, CortinaSeccion, Evento, FondoTarjetaContext, ModoCuadro } from "./tarjetas";
 import { TransicionMosaico, Baldosa } from "./mosaico";
 import { FondosContext } from "./fondos";
 import { PortadaPrueba } from "./portada-prueba";
@@ -26,7 +26,7 @@ export type Timeline = {
     portada?: string | null;     // SOLO en el video de prueba: carátula a pantalla completa al abrir (src/portada-prueba.tsx)
     portadaSeg?: number;         // cuánto dura esa portada de prueba
     caratula?: string | null;    // la ilustración del día, ej. "caratulas/2026-09-24.png"
-    fondoTarjeta?: ModoFondo;    // cómo va el fondo de las tarjetas: imagen | columna | oscurecer | tv | papel
+    fondoTarjeta?: ModoCuadro;    // cómo va el fondo de las tarjetas: imagen | columna | oscurecer | tv | papel
     // LA SECUENCIA DEL 24-09 (ver src/secuencia.tsx). Si el timeline trae el
     // plan, el informe se dibuja entero de esa otra manera y nada de lo de
     // abajo se monta. El timeline de producción no lo trae salvo que se pida
@@ -142,7 +142,7 @@ const InformeTarjetas: React.FC<Timeline> = (tl) => {
   // El video de prueba puede pedir otro para UNA tarjeta (ev.fondo): así la
   // muestra --comparar pone la misma sección sobre papel y enseguida sobre su
   // imagen, en un solo render, que es la única forma de compararlas de verdad.
-  const fondoBase = { modo: (tl.meta.fondoTarjeta ?? "papel") as ModoFondo,
+  const fondoBase = { modo: (tl.meta.fondoTarjeta ?? "papel") as ModoCuadro,
     caratula: tl.meta.caratula ?? null, secciones: tl.meta.secciones ?? [],
     dir: tl.meta.seccionesDir ?? "secciones" };
 

@@ -34,7 +34,7 @@ export type Evento = {
   // tarjeta, por encima de meta.fondoTarjeta. Es lo que deja poner la misma
   // sección dos veces seguidas, primero sobre papel y después sobre su imagen,
   // que es la única manera de compararlas sin rendir dos videos.
-  fondo?: ModoFondo;
+  fondo?: ModoCuadro;
   // PRUEBA DE BIBLIOTECA (29-09-2026): una imagen de concepto en lugar del
   // párrafo, mientras la voz sigue. Hoy no lo escribe nadie, así que ninguna
   // edición al aire cambia por esto: solo lo pone a mano la muestra que pidió
@@ -51,7 +51,7 @@ export type Evento = {
   // se parte su banner. La tarjeta de abajo cambia de fondo a mitad de la
   // sección y el banner vive en su propia capa, así que sin esto se quedaría
   // con el color del primer pase y en el segundo no se leería.
-  pases?: { from: number; to: number; fondo: ModoFondo }[];
+  pases?: { from: number; to: number; fondo: ModoCuadro }[];
   from: number;
   to: number;
 };
@@ -91,9 +91,22 @@ const useEntrada = () => {
 // transparente: la tarjeta no dibuja fondo. Lo pone el BLOQUE, que es quien
 // maneja el barrido, porque el oscurecido es de la sección entera y no de
 // cada tarjeta: si cada tarjeta barriera, la sección barrería cuatro veces.
-export type ModoFondo = "columna" | "oscurecer" | "tv" | "papel" | "transparente" | "imagen";
+// SE LLAMA MODO DE CUADRO Y NO DE FONDO (30-09-2026). Se llamaba ModoFondo
+// porque cuando nació solo decidía qué pasaba DETRÁS del texto. Hoy decide el
+// cuadro entero: cuando el evento trae un dibujo de la biblioteca, TarjetaImagen
+// no usa Marco ni consulta este modo, arma su propio velo y su propia trama y
+// coloca el dibujo. O sea que un modo no es una capa que convive con otra cosa,
+// es la composición completa, y el dibujo es un modo más y no otro sistema.
+//
+// Lo notó Santiago mirando la pantalla de los modos: "pero no es un modo más?
+// por qué lo separaste?".
+//
+// `meta.fondoTarjeta` en el timeline NO se renombró a propósito: es un dato que
+// viaja en los JSON ya generados, y cambiarlo rompería el re-render de las
+// ediciones viejas a cambio de nada.
+export type ModoCuadro = "columna" | "oscurecer" | "tv" | "papel" | "transparente" | "imagen";
 export type Fondo = {
-  modo: ModoFondo; caratula?: string | null; secciones: string[];
+  modo: ModoCuadro; caratula?: string | null; secciones: string[];
   // De qué carpeta de public/ salen las imágenes de sección. "secciones" es
   // la de producción; el video de prueba (scripts/prueba-video.js) manda
   // "secciones-prueba" para no pisarlas mientras Santiago decide.
@@ -121,7 +134,7 @@ export const rutaDeFondo = (fondo: Fondo, categoria?: string | null): string | n
   // hicieron, y por eso la regla no se toca para ellos.
   return fondo.modo === "imagen" ? null : fondo.caratula || null;
 };
-export const modoDeFondo = (fondo: Fondo, categoria?: string | null): ModoFondo =>
+export const modoDeCuadro = (fondo: Fondo, categoria?: string | null): ModoCuadro =>
   fondo.modo === "transparente" ? "transparente"
     : rutaDeFondo(fondo, categoria) && fondo.modo !== "papel" ? fondo.modo : "papel";
 
@@ -202,7 +215,7 @@ const Marco: React.FC<{ children: React.ReactNode; abajo?: React.ReactNode; secc
   // edición entera y no de un tema. La regla completa está en rutaDeFondo.
   const ruta = rutaDeFondo(fondo, categoria);
   const url = ruta ? staticFile(ruta) : null;
-  const modo = modoDeFondo(fondo, categoria);
+  const modo = modoDeCuadro(fondo, categoria);
   const oscuro = modo !== "papel";
 
   // imagen viva: el acercamiento lentísimo que ya estaba probado. Nunca se
@@ -806,7 +819,7 @@ export const TarjetaTitulares: React.FC<{ ev: Evento }> = ({ ev }) => {
   );
 };
 
-export const SeccionBanner: React.FC<{ texto: string; categoria?: string | null; fondo?: ModoFondo }> =
+export const SeccionBanner: React.FC<{ texto: string; categoria?: string | null; fondo?: ModoCuadro }> =
 ({ texto, categoria, fondo }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -819,7 +832,7 @@ export const SeccionBanner: React.FC<{ texto: string; categoria?: string | null;
   // resuelve nada y terminaba en negro: daba igual sobre papel y desaparecía
   // sobre la imagen. El fondo suelto es el de la muestra --comparar, donde la
   // sección cambia de fondo a la mitad.
-  const oscuro = modoDeFondo(fondo ? { ...ctx, modo: fondo } : ctx, categoria) !== "papel";
+  const oscuro = modoDeCuadro(fondo ? { ...ctx, modo: fondo } : ctx, categoria) !== "papel";
   return (
     <div style={{ position: "absolute", top: 64, left: tema.margen }}>
       <div

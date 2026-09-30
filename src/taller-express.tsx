@@ -18,7 +18,7 @@
 import React from "react";
 import { AbsoluteFill, Composition, Img, Sequence, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { tema } from "./tema";
-import { Tarjeta, Evento, FondoTarjetaContext, ModoFondo } from "./tarjetas";
+import { Tarjeta, Evento, FondoTarjetaContext, ModoCuadro } from "./tarjetas";
 import { TransicionMosaico, Baldosa } from "./mosaico";
 
 const COBRE = "#D08A5B";
@@ -70,7 +70,7 @@ const TRAMO = {
 };
 const LARGO = 284;
 
-const Tramo: React.FC<{ modo: ModoFondo }> = ({ modo }) => (
+const Tramo: React.FC<{ modo: ModoCuadro }> = ({ modo }) => (
   <FondoTarjetaContext.Provider value={{ modo, caratula: CARATULA, secciones: ["clima.png"] }}>
     <AbsoluteFill style={{ backgroundColor: "#15171A" }}>
       <Sequence from={TRAMO.portada.from} durationInFrames={TRAMO.portada.dur}><Portada /></Sequence>
@@ -90,7 +90,7 @@ const Tramo: React.FC<{ modo: ModoFondo }> = ({ modo }) => (
   </FondoTarjetaContext.Provider>
 );
 
-const MODOS: { modo: ModoFondo; nombre: string; nota: string }[] = [
+const MODOS: { modo: ModoCuadro; nombre: string; nota: string }[] = [
   { modo: "columna", nombre: "1 · columna", nota: "la imagen se deshace en bloques hacia la izquierda" },
   { modo: "oscurecer", nombre: "2 · oscurecer", nota: "la imagen entera, más oscura" },
   { modo: "tv", nombre: "3 · cuadro", nota: "la imagen entera y el texto adentro de un cuadro" },
