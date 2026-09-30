@@ -158,17 +158,20 @@ pudo; silencio cuando GPT cumplió.
       párrafo, dibujo y texto, dibujo solo. Tres candidatas y nada que elija.
       Santiago dijo el 30-09 que la elección debe ser **por párrafo**.
 
-- [ ] **QUIÉN ELIGE LA TARJETA DE CADA PÁRRAFO (30-09).** Hoy nadie: el switch
-      de `src/tarjetas.tsx:942` pinta la única que hay, y el único interruptor
-      que existe (`FONDO_TARJETA` en `scripts/build-timeline.js`) elige un FONDO
-      para toda la edición, no una tarjeta por párrafo, y solo deja dos de los
-      seis. Los catorce dibujos de la biblioteca no aparecen en ningún video
-      publicado por esto y nada más. Medido en la edición del 24-09: narración
-      ocupa 507 de 614 s (el 83%) con una sola tarjeta, mientras las siete de
-      dato se reparten 73 s. Lo que hay que decidir: con qué criterio un párrafo
-      sale como texto, como dibujo con texto o como dibujo solo, y quién lo
-      escribe (el guion con una marca, o el sistema al ver que el párrafo tiene
-      un concepto de la biblioteca y no lleva cifra). **Dueño: el día.**
+- [ ] **ENCENDER LA REGLA DE DIBUJOS (30-09).** Está escrita, medida y probada
+      (`scripts/dibujo-parrafo.js`), pero APAGADA: falta que Santiago mire el
+      tablero de seis cuadros en la pantalla de tarjetas
+      (https://claude.ai/artifact/KWxSLBrQUfE5yjAb2uTGfR) y diga si van. Para
+      encenderla hay que: (a) su visto bueno; (b) agregar `DIBUJOS_PARRAFO=1` al
+      workflow de la edición; (c) confirmar que `public/biblioteca/` se llena en
+      la nube, porque está en el .gitignore y hasta hoy nadie la copiaba en CI
+      (lo hace `dibujos.copiar()` desde `build-timeline`, pero eso todavía no
+      corrió una noche de verdad). **Dueño: la noche para (b) y (c).**
+      Lo que queda abierto aparte: si `dibujo solo` (sin texto en pantalla)
+      entra o no. Se dejó fuera a propósito hasta ver una edición con dibujos:
+      quitar el texto toca justo el 34% del video que es el espectador leyendo
+      lo que oye.
+
 - [ ] **EL ARCHIVO DE PROMPTS DE SECCIÓN MIENTE (28-09).**
       `contenido/secciones/PROMPTS-PARA-PEGAR.md` describe en su bloque fijo
       versión 3 un fondo de color apagado con el motivo en blanco hueso, y las
