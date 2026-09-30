@@ -431,4 +431,37 @@ const CATEGORIAS = [
   },
 ];
 
-module.exports = { CATEGORIAS };
+// UNA INSTITUCIÓN AJENA NO ES ESTE CONCEPTO (30-09-2026). Las variantes de
+// gobierno incluyen "ministerio", "ministro" y "ministra", y esas palabras se
+// activaban con "el Gobierno peruano declaró estado de emergencia" y "el
+// Ministerio de Defensa boliviano". Poner La Moneda sobre una noticia de Perú o
+// de Bolivia no es un desajuste de matiz: es una afirmación falsa, y en el
+// concepto más usado de todos, 253 párrafos.
+//
+// LA REGLA ES DE ADYACENCIA Y NO DE MENCIÓN, y eso importa. Se probó primero lo
+// obvio, descartar todo párrafo que nombre otro país y no nombre Chile, y sacaba
+// siete donde cuatro eran chilenos de cabo a rabo: la Cancillería citando al
+// embajador de Estados Unidos, el ministro de Hacienda explicando el alza del
+// petróleo por un conflicto afuera. Hablar de otro país no vuelve ajena a la
+// institución. Lo que la vuelve ajena es el gentilicio o el país PEGADO a ella.
+//
+// Con la ventana de 60 caracteres salen los cuatro casos reales y ninguno más.
+//
+// LO QUE NO ATRAPA, y hay que saberlo: una institución ajena nombrada lejos de
+// su país, como "el Departamento del Tesoro" si el "estadounidense" quedara tres
+// oraciones más allá. Se prefiere así: un falso negativo deja una imagen de más,
+// un falso positivo la saca de párrafos que sí son nuestros.
+const AJENO = /\b(peruan|bolivian|argentin|brasile|colombian|venezolan|ecuatorian|mexican|estadounidens|norteamerican|espanol|frances|aleman|britanic|chino|china|irani|israeli|ruso|rusa|ucranian|uruguay|paraguay|haitian|cuban|panamen|nepales|boliviano)/;
+const PAIS_DE = /\b(de|del)\s+(peru|bolivia|argentina|brasil|colombia|venezuela|ecuador|mexico|estados unidos|espana|francia|alemania|china|iran|israel|rusia|ucrania|uruguay|paraguay|haiti|cuba|panama|nepal)\b/;
+const VENTANA = 60;
+
+// `plano` es el texto ya sin tildes y en minúsculas; `desde` es donde empieza la
+// variante que coincidió. Mira solo hacia adelante porque el gentilicio va
+// SIEMPRE después en castellano: el gobierno peruano, el ministerio de defensa
+// boliviano.
+const institucionAjena = (plano, desde) => {
+  const cerca = plano.slice(desde, desde + VENTANA);
+  return AJENO.test(cerca) || PAIS_DE.test(cerca);
+};
+
+module.exports = { CATEGORIAS, institucionAjena };

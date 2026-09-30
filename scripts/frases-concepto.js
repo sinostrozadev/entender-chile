@@ -21,7 +21,7 @@
 const path = require("path");
 const fs = require("fs");
 const { CATEGORIAS } = require("./vocabulario.js");
-const { parrafosDe } = require("./conteo-conceptos.js");
+const { parrafosDe, encaja } = require("./conteo-conceptos.js");
 
 const GUIONES = path.join("contenido", "guiones", "informe");
 const sinTildes = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
@@ -51,8 +51,11 @@ for (const archivo of fs.readdirSync(GUIONES).filter((f) => f.endsWith(".md"))) 
   for (const p of parrafosDe(texto)) {
     if (p.titular) continue;                 // un titular dura cuatro segundos: ahí no cabe un dibujo
     const n = sinTildes(p.texto);
-    // la PRIMERA variante que aparece, para que un párrafo cuente una sola vez
-    const cual = variantes.find((v) => n.includes(sinTildes(v)));
+    // se usa el MISMO encaja del contador, no un includes propio (30-09-2026):
+    // antes esto contaba por substring y sin el filtro de institución ajena, así
+    // que las frases de ejemplo no eran las mismas que el conteo. Dos maneras de
+    // contar lo mismo es tener dos verdades.
+    const cual = variantes.find((v) => encaja(n, sinTildes(v)) >= 0);
     if (!cual) continue;
     total++;
     porVariante[cual] = (porVariante[cual] || 0) + 1;
