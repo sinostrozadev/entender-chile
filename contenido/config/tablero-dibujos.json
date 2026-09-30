@@ -1,0 +1,44 @@
+{
+  "_": "El tablero de la regla de dibujos: qué puso en la edición del 29-09-2026, para mirarlo antes de encenderla. Lo genera a mano el día que se rinde; no lo lee el video, solo el taller.",
+  "fecha": "2026-09-29",
+  "parrafos": 56,
+  "puestos": 6,
+  "cuadros": [
+    {
+      "archivo": "regla-fiscalia-d.jpg",
+      "concepto": "fiscalia",
+      "seccion": "Célula del PCC en Chile",
+      "texto": "Fiscalía y la Policía de Investigaciones informaron el 28 de septiembre que desarticularon una célula instalada en Chile del Primer Comando de la Capital, organización criminal de origen brasileño."
+    },
+    {
+      "archivo": "regla-tribunales-a.jpg",
+      "concepto": "tribunales",
+      "seccion": "Célula del PCC en Chile",
+      "texto": "Las diligencias continuarán a cargo de Fiscalía y los tribunales deberán decidir las medidas cautelares respecto de los imputados. Las responsabilidades individuales se resolverán en el proceso judicial."
+    },
+    {
+      "archivo": "regla-temporal-a.jpg",
+      "concepto": "temporal",
+      "seccion": "Daños por viento en Mulchén",
+      "texto": "Los vientos registrados el 28 de septiembre dejaron daños materiales concentrados en inmuebles de la comuna. Testimonios y videos publicados en Biobío hablaron de un posible tornado, pero esa calificación requiere confirmación técnica."
+    },
+    {
+      "archivo": "regla-gobierno-a.jpg",
+      "concepto": "gobierno",
+      "seccion": "Proyectos de seguridad",
+      "texto": "El Gobierno decretó duelo nacional por el carabinero asesinado en Lo Espejo. Después del crimen, el presidente Kast pidió acelerar la agenda legislativa."
+    },
+    {
+      "archivo": "regla-congreso-a.jpg",
+      "concepto": "congreso",
+      "seccion": "Escudo de las Américas",
+      "texto": "La Cámara realizó una interpelación inédita al canciller Francisco Pérez Mackenna por el Escudo de las Américas. Durante la sesión, parlamentarios pidieron su renuncia y volvió la disputa sobre si el acuerdo debía pasar por el Congreso."
+    },
+    {
+      "archivo": "regla-precio-a.jpg",
+      "concepto": "precio",
+      "seccion": "Dólar e importaciones",
+      "texto": "La divisa estadounidense llegó al nivel más alto en más de un año, en medio de las tensiones en Medio Oriente. El movimiento encarece en pesos las importaciones y los productos cuyo precio está vinculado al dólar."
+    }
+  ]
+}

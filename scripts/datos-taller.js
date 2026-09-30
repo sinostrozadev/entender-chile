@@ -25,13 +25,16 @@ const fondos = leer("fondos.json");
 // tres tarjetas que se la disputan: sin los números al lado, elegir entre ellas
 // es elegir con la impresión de uno.
 const ranura = leer("ranura-narracion.json");
+// El tablero: qué puso la regla en una edición real. Va al taller y no al video.
+const tablero = leer("tablero-dibujos.json");
 
 fs.writeFileSync(SALIDA,
   "// GENERADO por scripts/datos-taller.js desde contenido/config/tarjetas.json\n" +
   "// y contenido/config/fondos.json. No se edita a mano.\n" +
   "window.TARJETAS = " + JSON.stringify(tarjetas) + ";\n" +
   "window.FONDOS = " + JSON.stringify(fondos) + ";\n" +
-  "window.RANURA = " + JSON.stringify(ranura) + ";\n");
+  "window.RANURA = " + JSON.stringify(ranura) + ";\n" +
+  "window.TABLERO = " + JSON.stringify(tablero) + ";\n");
 
 // Cuántas tarjetas puede pintar cada ranura: mientras sea 1 en todas, el switch
 // de src/tarjetas.tsx no elige nada y no hay decisión que tomar.

@@ -1,0 +1,7 @@
+{
+  "_": "Cuál variante usa el video primero, cuando un concepto tiene varias. Sin entrada acá manda el orden alfabético, que es el que pone la -a adelante como dice VARIANTES.md. Acá van SOLO las excepciones.",
+  "_porque": "El 30-09-2026 la regla de dibujos salió con una rotación por fecha que repartía las variantes como si fueran equivalentes, y no lo son: VARIANTES.md dice desde el 29-09 que la -a es la de por defecto y que las demás están para elegir según el contexto. La rotación puso congreso-b, que el propio archivo describe como peor que la -a. Se sacó la rotación y quedó el orden, con este archivo para los casos donde el alfabético no acierta.",
+  "orden": {
+    "fiscalia": ["fiscalia-d.png", "fiscalia-c.png", "fiscalia-b.png"]
+  }
+}

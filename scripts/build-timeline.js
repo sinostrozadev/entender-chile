@@ -8,6 +8,7 @@
 const fs = require("fs");
 const path = require("path");
 const { copiarSecciones, imagenDe, carpetaPublica } = require("./imagenes-secciones.js");
+const { repartidor } = require("./dibujo-parrafo.js");
 const { entera } = require("./imagen-entera.js");
 
 const [, , parsedPath, alignPath, salida = "out/timeline.json", audioFile = null] = process.argv;
@@ -124,6 +125,18 @@ let seccionActual = null;
 // fondo de cada tarjeta (24-09, Santiago: el contenido no va sobre blanco,
 // va sobre la imagen de su sección).
 let categoriaActual = null;
+// La fecha local de Chile del día de producción. Salió de meta a una constante
+// cuando el repartidor de dibujos la necesitó: con ella decide con qué variante
+// empieza, así gobierno no sale siempre con el mismo dibujo.
+const FECHA = process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
+  timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
+}).format(new Date());
+// EL DIBUJO DEL PÁRRAFO (30-09-2026). Apagado salvo con DIBUJOS_PARRAFO=1: es
+// un cambio en lo que se ve y lo que se ve lo elige Santiago (regla 19). El
+// repartidor es uno por edición porque dos de sus guardas tienen memoria (no
+// dos seguidos, y un concepto tantas veces como variantes tenga); el porqué de
+// cada guarda está en scripts/dibujo-parrafo.js.
+const dibujos = repartidor();
 parsed.eventos.forEach((ev, idx) => {
   if (ev.tipo === "seccion") {
     seccionActual = ev.texto;
@@ -151,6 +164,9 @@ parsed.eventos.forEach((ev, idx) => {
       if (ev.tipo === "narracion") {
         const r2 = ritmoDe(ev.charStart, ev.charEnd, r.from);
         if (r2) out.ritmo = r2;
+        // el veto del guion viaja en ev.sinDibujo; el repartidor decide el resto
+        const d = dibujos.dar({ texto: ev.texto, seccion: ev._seccion, sinDibujo: ev.sinDibujo });
+        if (d) { out.imagen = d.ruta; out.imagenPie = d.concepto; }
       }
       porIndice.set(idx, out);
       eventos.push(out);
@@ -226,9 +242,7 @@ const timeline = {
     titulo: parsed.titulo || "",
     descripcion: parsed.descripcion || "",
     // fecha local de Chile del día de producción (para el sello de inicio)
-    fecha: process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
-      timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
-    }).format(new Date()),
+    fecha: FECHA,
     serie: process.env.SERIE || "informe",          // informe | clave (lo fija dia.js)
     inicioNarracion: audioFile ? INICIO : 0,        // la voz entra después del sello
     // Fondos por sección ENCENDIDOS (03-09, disputa 1 cerrada): imágenes
@@ -238,6 +252,12 @@ const timeline = {
     // se pintan con su color y su pictograma, que es el mosaico v3 aprobado.
     // Van llegando de a una y el video no espera a tenerlas todas.
     secciones: copiarSecciones(),
+    // Los dibujos usados se copian a public/ recién acá, cuando ya se sabe
+    // cuáles salieron: copiar los 23 cuando salen 6 es cargar el bundle de
+    // Remotion con archivos que nadie va a pedir. La clave solo viaja cuando
+    // hay alguno, para que una edición con la regla apagada produzca el mismo
+    // archivo byte por byte que antes de que la regla existiera.
+    ...(dibujos.copiar() ? { dibujos: dibujos.puestos.length } : {}),
     // De qué carpeta de public/ salen esas imágenes. Solo se escribe en el
     // modo de prueba (SECCIONES_DIR): en producción la clave no existe y el
     // video usa public/secciones/ como siempre, así el timeline del día sale

@@ -149,10 +149,16 @@ function parseGuion(md) {
   let buffer = null; // párrafo narrado en construcción
   let seccionNombre = "";
   let nEntradas = 0;
+  // La marca [SIN DIBUJO] va en su propia línea ANTES del párrafo, así que
+  // cuando se lee todavía no existe el evento al que pertenece. Queda acá
+  // esperando y se gasta en el primer párrafo narrado que llegue.
+  let vetoPendiente = false;
 
   const flush = () => {
     if (buffer && buffer.lineas.length) {
-      eventos.push({ ...buffer, texto: buffer.lineas.join(" ").replace(/\s+/g, " ").trim(), _seccionNombre: seccionNombre });
+      const ev = { ...buffer, texto: buffer.lineas.join(" ").replace(/\s+/g, " ").trim(), _seccionNombre: seccionNombre };
+      if (vetoPendiente && ev.tipo === "narracion") { ev.sinDibujo = true; vetoPendiente = false; }
+      eventos.push(ev);
     }
     buffer = null;
   };
@@ -202,6 +208,9 @@ function parseGuion(md) {
       const texto = (m ? m[1] : bruto).trim();
       const categoria = m ? m[2].toLowerCase() : null;
       eventos.push({ tipo: "seccion", texto, ...(categoria ? { categoria } : {}) });
+      // un veto que nadie gastó muere acá: tacha el párrafo que le sigue en SU
+      // bloque, nunca el primero del siguiente
+      vetoPendiente = false;
       // LA ENTRADA HABLADA (27-09-2026, decisión de Santiago: "que lo lea con
       // una entrada... que no lo lea textual, pero sí que mencione el cambio").
       //
@@ -278,6 +287,19 @@ function parseGuion(md) {
     if ((m = linea.match(/^\[CITA\s*\|\s*([^|]+)\|\s*([^\]]+)\]\s*(.*)$/i))) {
       flush();
       buffer = { tipo: "cita", autor: m[1].trim(), fuente: m[2].trim(), lineas: [m[3]] };
+      continue;
+    }
+    // EL VETO DEL GUION (30-09-2026). El dibujo del párrafo lo pone el sistema
+    // mirando el texto (scripts/dibujo-parrafo.js), no el guion: si el guion lo
+    // eligiera habría que llevarle el catálogo entero dentro del prompt y
+    // actualizarlo con cada PNG nuevo. Pero una regla reconoce el párrafo y no
+    // lo entiende, así que se equivoca donde hace falta criterio: sobre un
+    // duelo nacional por un carabinero asesinado pondría el Palacio de La
+    // Moneda. Para eso está esta marca, y solo para eso. Tachar es barato
+    // (no nombra ningún dibujo, no necesita saber cuáles existen); elegir no.
+    if (/^\[SIN DIBUJO\]\s*$/i.test(linea)) {
+      flush();
+      vetoPendiente = true;
       continue;
     }
     // línea de texto normal: continúa el párrafo actual o abre uno nuevo

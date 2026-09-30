@@ -871,8 +871,8 @@ export const TarjetaTitulares: React.FC<{ ev: Evento }> = ({ ev }) => {
   );
 };
 
-export const SeccionBanner: React.FC<{ texto: string; categoria?: string | null; fondo?: ModoFondo }> =
-({ texto, categoria, fondo }) => {
+export const SeccionBanner: React.FC<{ texto: string; categoria?: string | null; fondo?: ModoFondo; claro?: boolean }> =
+({ texto, categoria, fondo, claro }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const ctx = useContext(FondoTarjetaContext);
@@ -884,7 +884,10 @@ export const SeccionBanner: React.FC<{ texto: string; categoria?: string | null;
   // resuelve nada y terminaba en negro: daba igual sobre papel y desaparecía
   // sobre la imagen. El fondo suelto es el de la muestra --comparar, donde la
   // sección cambia de fondo a la mitad.
-  const oscuro = modoDeFondo(fondo ? { ...ctx, modo: fondo } : ctx, categoria) !== "papel";
+  // claro lo fuerza desde arriba: es el tramo que cae sobre una tarjeta de
+  // dibujo, que arma su cuadro oscuro sin pasar por el modo de fondo y por eso
+  // no se puede deducir preguntando acá.
+  const oscuro = claro || modoDeFondo(fondo ? { ...ctx, modo: fondo } : ctx, categoria) !== "papel";
   return (
     <div style={{ position: "absolute", top: 64, left: tema.margen }}>
       <div

@@ -131,6 +131,34 @@ const InformeTarjetas: React.FC<Timeline> = (tl) => {
 
   const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte && !e.muda);
   const overlays = tl.eventos.filter((e) => e.overlay);
+  // EL BANNER SOBRE UN DIBUJO (30-09-2026). El banner es UNA capa por sección y
+  // decide su color preguntando sobre qué cae, pero la tarjeta de dibujo arma
+  // un cuadro oscuro sin pasar por el modo de fondo, así que la pregunta le
+  // contestaba "papel" y el rótulo salía tinta oscura sobre fondo oscuro:
+  // ilegible. Se vio en el primer tablero de la regla de dibujos, en la sección
+  // Célula del PCC en Chile.
+  //
+  // No se puede arreglar por sección porque dentro de una misma sección unos
+  // párrafos llevan dibujo y otros no. Así que el banner se corta en tramos,
+  // con el mismo mecanismo que ya usaba la muestra --comparar: los tramos que
+  // caen sobre un dibujo piden tinta clara y los demás quedan como estaban. Una
+  // sección sin dibujos produce un solo tramo, igual que antes.
+  const tramosDeBanner = (sec: Evento) => {
+    const conDibujo = tl.eventos
+      .filter((e) => e.imagen && e.from < sec.to && e.to > sec.from)
+      .map((e) => ({ from: Math.max(e.from, sec.from), to: Math.min(e.to, sec.to) }))
+      .sort((a, b) => a.from - b.from);
+    if (!conDibujo.length) return [{ from: sec.from, to: sec.to, fondo: undefined, claro: false }];
+    const tramos: { from: number; to: number; fondo: undefined; claro: boolean }[] = [];
+    let cursor = sec.from;
+    for (const d of conDibujo) {
+      if (d.from > cursor) tramos.push({ from: cursor, to: d.from, fondo: undefined, claro: false });
+      tramos.push({ from: d.from, to: d.to, fondo: undefined, claro: true });
+      cursor = d.to;
+    }
+    if (cursor < sec.to) tramos.push({ from: cursor, to: sec.to, fondo: undefined, claro: false });
+    return tramos;
+  };
   // Las baldosas del mosaico son las secciones del día, en el orden del
   // guion. La fila se BARAJA con la fecha adentro del componente; el orden de
   // lectura, que es este, no se toca.
@@ -184,9 +212,9 @@ const InformeTarjetas: React.FC<Timeline> = (tl) => {
           sección y el banner tiene que cambiar con ella. En la edición real no
           hay pases y sale una sola capa por sección, como siempre. */}
       {overlays.flatMap((ev, i) =>
-        (ev.pases ?? [{ from: ev.from, to: ev.to, fondo: undefined }]).map((p, k) => (
+        (ev.pases ?? tramosDeBanner(ev)).map((p, k) => (
           <Sequence key={"ov" + i + "-" + k} from={f(p.from)} durationInFrames={Math.max(1, f(p.to) - f(p.from))}>
-            <SeccionBanner texto={ev.texto ?? ""} categoria={ev.categoria} fondo={p.fondo} />
+            <SeccionBanner texto={ev.texto ?? ""} categoria={ev.categoria} fondo={p.fondo} claro={p.claro} />
           </Sequence>
         )))}
       {/* TRANSICIÓN DE SECCIÓN. Con meta.mosaico encendido, la cámara se aleja
