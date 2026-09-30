@@ -53,3 +53,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-09-27 | Indemnizaciones del estallido con testigos falsos
 - 2026-09-27 | Contratación de asesor de Presidencia
 - 2026-09-29 | ProEmpleo Biobío
+- 2026-09-30 | fraude municipal de Maipú
