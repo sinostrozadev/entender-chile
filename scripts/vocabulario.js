@@ -80,6 +80,20 @@
 // o sea el caso armado. Además no necesita verificar nada, que es lo que hizo
 // caer al edificio.
 //
+// JUICIO ES LA CONDENA, Y EN CHILE NO HAY MAZO (30-09-2026). El motivo era "un
+// mazo de juez apoyado sobre su taco redondo", y los tribunales chilenos no usan
+// mazo: es un objeto de película, el mismo error por la misma vía que la sala de
+// audiencias gringa que devolvió el generador en la primera vuelta de
+// tribunales.
+//
+// Y la acepción dominante no es el juicio sino la CONDENA: 48% de los párrafos
+// dicen "condena" contra 26% que dicen "juicio". "Fue condenado a veintiún años
+// y un día de presidio efectivo", "la normativa no opera retroactivamente sobre
+// condenas", "el indulto puede reducir o perdonar una pena".
+//
+// La puerta de celda dice condena sin mazo y no compite con tribunales, que es
+// la sala. Es imagen dura a propósito: una condena lo es.
+//
 // PRECIO ES MACRO, NO VITRINA (29-09-2026). El motivo era "una etiqueta
 // colgante con un hilo y un círculo vacío", que es retail, y el círculo vacío
 // era un parche para no poner texto. Los párrafos son el precio internacional
@@ -264,7 +278,7 @@ const CATEGORIAS = [
       ["detencion", ["detencion", "detenido", "detuvieron", "arresto", "prision preventiva", "capturad"],
         "un par de esposas abiertas, una argolla sobre la otra"],
       ["juicio", ["juicio", "condena", "sentencia", "fallo ", "absolucion", "veredicto"],
-        "un mazo de juez apoyado sobre su taco redondo"],
+        "una puerta de celda cerrada, vista de frente desde el pasillo"],
       ["renuncia", ["renuncia", "renuncio", "dejo el cargo", "salida del gabinete", "destitu"],
         "una silla de oficina vacía, girada hacia un costado"],
       ["nombramiento", ["nombramiento", "designo", "asumio el cargo", "nuevo ministro", "nueva ministra"],

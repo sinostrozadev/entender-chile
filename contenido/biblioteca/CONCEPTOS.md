@@ -54,7 +54,7 @@ sirve donde hay dos categorías o más. Ese número está arriba.
 | anuncio | 51 | 4.3% | varios micrófonos de distintos canales apiñados sobre un atril, vistos de cerca y de frente, sin nadie detrás | tela acústica de panel de sala de prensa, en retícula fina y parejo |
 | homicidio | 45 | 3.8% | una silueta de cinta en el suelo, apenas insinuada por su contorno | - |
 | acusacion | 42 | 3.6% | un dedo índice apuntando desde el borde hacia el centro, con tres líneas de énfasis | - |
-| juicio | 42 | 3.6% | un mazo de juez apoyado sobre su taco redondo | - |
+| juicio | 42 | 3.6% | una puerta de celda cerrada, vista de frente desde el pasillo | - |
 | acuerdo | 41 | 3.5% | dos manos estrechándose, vistas de perfil y sin brazos | - |
 | reunion | 38 | 3.2% | una mesa ovalada vista desde arriba con seis sillas alrededor | - |
 | votacion | 31 | 2.6% | una urna con una ranura y una papeleta entrando | - |
