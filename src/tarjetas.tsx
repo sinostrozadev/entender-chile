@@ -4,20 +4,57 @@ import { tema, estiloEyebrow, estiloFuente, colorDeSeccion } from "./tema";
 import { Fondo, useFondos } from "./fondos";
 import { FondoBiblioteca, tramaDe } from "./fondo-biblioteca";
 
-// LOS MODOS SON DATOS Y NO CÓDIGO (30-09-2026, decisión de Santiago). Cada uno
-// de estos números vivía como literal enterrado en este archivo, así que
-// moverlo costaba una sesión de trabajo. Ahora salen de
-// contenido/config/modos.json, que el taller también lee: cambiar cuánto mide
-// un dibujo o cuánto tapa su velo deja de ser programar y pasa a ser editar.
+// LAS TARJETAS Y LOS FONDOS SON DATOS Y NO CÓDIGO (30-09-2026, decisión de
+// Santiago). Cada uno de estos números vivía como literal enterrado en este
+// archivo, así que moverlo costaba una sesión de trabajo. Ahora salen de
+// contenido/config/tarjetas.json y contenido/config/fondos.json, que el taller
+// también lee: cambiar cuánto mide un dibujo o de qué tamaño sale una cifra
+// deja de ser programar y pasa a ser editar.
 //
-// Se importa y no se lee en tiempo de render porque Remotion empaqueta el
+// SON DOS ARCHIVOS Y NO UNO, y esa es la corrección del día. Nacieron juntos en
+// modos.json esa misma mañana, con ocho entradas que parecían del mismo tipo.
+// No lo eran: seis decidían qué hay DETRÁS del texto (una propiedad de Marco,
+// que envuelve a todas las tarjetas por igual) y dos armaban el cuadro entero
+// sin pasar por Marco. O sea que esas dos no eran modos sino tarjetas, y
+// meterlas en la misma lista escondía justo la pregunta que importa: qué
+// decide lo que el video muestra. Lo decide la TARJETA. El fondo es otra cosa.
+//
+// Se importan y no se leen en tiempo de render porque Remotion empaqueta el
 // bundle: el JSON queda dentro y no hace falta que viaje en el timeline.
-import MODOS from "../contenido/config/modos.json";
-const COMUN = MODOS.comunDibujo;
-const modoPorId = (id: string) =>
-  MODOS.modos.find((m) => m.id === id) as unknown as Record<string, number>;
-const DIBUJO_TEXTO = modoPorId("dibujo-texto");
-const DIBUJO_SOLO = modoPorId("dibujo-solo");
+import TARJETAS from "../contenido/config/tarjetas.json";
+import FONDOS from "../contenido/config/fondos.json";
+const COMUN = TARJETAS.comunDibujo;
+type Numeros = Record<string, number>;
+// n() y no un acceso directo: si un id se escribe mal, un undefined silencioso
+// se convierte en un NaN que Remotion arrastra hasta un interpolate y mata el
+// render a los diez minutos. Acá revienta al compilar, que es cuando hay
+// alguien mirando.
+const nums = (id: string): Numeros => {
+  const t = TARJETAS.tarjetas.find((x) => x.id === id);
+  if (!t) throw new Error(`tarjeta desconocida: ${id}`);
+  return (t as unknown as { numeros: Numeros }).numeros;
+};
+const fondoNums = (id: string): Numeros => {
+  const f = FONDOS.fondos.find((x) => x.id === id);
+  if (!f) throw new Error(`fondo desconocido: ${id}`);
+  return f as unknown as Numeros;
+};
+const DIBUJO_TEXTO = nums("dibujo-texto");
+const DIBUJO_SOLO = nums("dibujo-solo");
+const N_PARRAFO = nums("parrafo");
+const N_TESIS = nums("tesis");
+const N_CITA = nums("cita");
+const N_CIFRA = nums("dato-cifra");
+const N_COMPARACION = nums("dato-comparacion");
+const N_CAMBIO = nums("dato-cambio");
+const N_BARRAS = nums("dato-barras");
+const N_TABLA = nums("dato-tabla");
+const N_MARCADOR = nums("dato-marcador");
+const N_ESQUEMA = nums("esquema");
+const N_TITULARES = nums("titulares");
+const F_COLUMNA = fondoNums("columna");
+const F_TV = fondoNums("tv");
+const F_IMAGEN = fondoNums("imagen");
 
 
 // ---------- tipos ----------
@@ -50,7 +87,7 @@ export type Evento = {
   // tarjeta, por encima de meta.fondoTarjeta. Es lo que deja poner la misma
   // sección dos veces seguidas, primero sobre papel y después sobre su imagen,
   // que es la única manera de compararlas sin rendir dos videos.
-  fondo?: ModoCuadro;
+  fondo?: ModoFondo;
   // PRUEBA DE BIBLIOTECA (29-09-2026): una imagen de concepto en lugar del
   // párrafo, mientras la voz sigue. Hoy no lo escribe nadie, así que ninguna
   // edición al aire cambia por esto: solo lo pone a mano la muestra que pidió
@@ -67,7 +104,7 @@ export type Evento = {
   // se parte su banner. La tarjeta de abajo cambia de fondo a mitad de la
   // sección y el banner vive en su propia capa, así que sin esto se quedaría
   // con el color del primer pase y en el segundo no se leería.
-  pases?: { from: number; to: number; fondo: ModoCuadro }[];
+  pases?: { from: number; to: number; fondo: ModoFondo }[];
   from: number;
   to: number;
 };
@@ -107,22 +144,25 @@ const useEntrada = () => {
 // transparente: la tarjeta no dibuja fondo. Lo pone el BLOQUE, que es quien
 // maneja el barrido, porque el oscurecido es de la sección entera y no de
 // cada tarjeta: si cada tarjeta barriera, la sección barrería cuatro veces.
-// SE LLAMA MODO DE CUADRO Y NO DE FONDO (30-09-2026). Se llamaba ModoFondo
-// porque cuando nació solo decidía qué pasaba DETRÁS del texto. Hoy decide el
-// cuadro entero: cuando el evento trae un dibujo de la biblioteca, TarjetaImagen
-// no usa Marco ni consulta este modo, arma su propio velo y su propia trama y
-// coloca el dibujo. O sea que un modo no es una capa que convive con otra cosa,
-// es la composición completa, y el dibujo es un modo más y no otro sistema.
+// VOLVIÓ A LLAMARSE ModoFondo (30-09-2026, la tarde del mismo día en que se
+// había renombrado a ModoCuadro). El renombre de la mañana salió de una
+// conclusión equivocada: como TarjetaImagen no pasa por Marco y arma su cuadro
+// entero, se dio por hecho que un modo era la composición completa y que el
+// dibujo era un modo más. Es al revés. El dibujo no usa Marco justamente
+// porque NO es un modo: es una tarjeta, y por eso nunca calzó en esta lista.
+// Lo que sí es un modo son estas seis ramas, y las seis solo deciden qué hay
+// detrás del texto, que es lo que el nombre viejo decía bien.
 //
-// Lo notó Santiago mirando la pantalla de los modos: "pero no es un modo más?
-// por qué lo separaste?".
+// Lo destrabó Santiago preguntando qué define lo que muestra el video. Al ir a
+// mirarlo aparece que once tarjetas se envuelven en Marco y consultan esto, y
+// que TarjetaImagen no. Esa asimetría era la pista y se había leído al revés.
 //
 // `meta.fondoTarjeta` en el timeline NO se renombró a propósito: es un dato que
 // viaja en los JSON ya generados, y cambiarlo rompería el re-render de las
 // ediciones viejas a cambio de nada.
-export type ModoCuadro = "columna" | "oscurecer" | "tv" | "papel" | "transparente" | "imagen";
+export type ModoFondo = "columna" | "oscurecer" | "tv" | "papel" | "transparente" | "imagen";
 export type Fondo = {
-  modo: ModoCuadro; caratula?: string | null; secciones: string[];
+  modo: ModoFondo; caratula?: string | null; secciones: string[];
   // De qué carpeta de public/ salen las imágenes de sección. "secciones" es
   // la de producción; el video de prueba (scripts/prueba-video.js) manda
   // "secciones-prueba" para no pisarlas mientras Santiago decide.
@@ -150,13 +190,13 @@ export const rutaDeFondo = (fondo: Fondo, categoria?: string | null): string | n
   // hicieron, y por eso la regla no se toca para ellos.
   return fondo.modo === "imagen" ? null : fondo.caratula || null;
 };
-export const modoDeCuadro = (fondo: Fondo, categoria?: string | null): ModoCuadro =>
+export const modoDeFondo = (fondo: Fondo, categoria?: string | null): ModoFondo =>
   fondo.modo === "transparente" ? "transparente"
     : rutaDeFondo(fondo, categoria) && fondo.modo !== "papel" ? fondo.modo : "papel";
 
 // Borde suave de 15% del ancho: un filo recto se lee como transición de
 // presentación, no como luz que avanza.
-const BANDA = 15;
+const BANDA = F_COLUMNA.banda;
 // EL DIFUMINADO EMPIEZA DONDE TERMINA LO OSCURO (27-09-2026, Santiago: "la
 // mitad izquierda oscurecida sin difuminado y recién ahí empieza el
 // difuminado"). Antes la banda quedaba CENTRADA en el avance, así que al 50%
@@ -164,7 +204,7 @@ const BANDA = 15;
 // sobraba por la derecha: "el título queda más ancho que lo oscuro". Ahora el
 // avance marca el borde de lo macizo y la banda sale desde ahí hacia afuera,
 // que es lo que se pidió y de paso deja al título siempre dentro.
-export const velo = (avance: number, retirando: boolean, alfa = 0.76) => {
+export const velo = (avance: number, retirando: boolean, alfa = F_COLUMNA.alfa) => {
   const v = Math.max(0, Math.min(1, avance));
   const oscuro = `rgba(21,23,26,${alfa})`;
   if (retirando) {
@@ -188,7 +228,7 @@ const VELO_IMAGEN = "linear-gradient(90deg, rgba(21,23,26,0.62) 0%, rgba(21,23,2
 
 // El texto se queda en la mitad izquierda, que es la que la imagen deja vacía.
 // Con tema.anchoTexto (1340) una tesis larga cruzaba por encima del motivo.
-const ANCHO_TEXTO_IMAGEN = 900;
+const ANCHO_TEXTO_IMAGEN = F_IMAGEN.anchoTexto;
 
 const CLARO = { "--ec-tinta": "#17191C", "--ec-gris": "#6B6E6A", "--ec-linea": "#DDDDD5",
   "--ec-acento": "#2F7263", "--ec-fondo": "#F2F2EF", "--ec-elevado": "#FCFCFA" } as React.CSSProperties;
@@ -231,7 +271,7 @@ const Marco: React.FC<{ children: React.ReactNode; abajo?: React.ReactNode; secc
   // edición entera y no de un tema. La regla completa está en rutaDeFondo.
   const ruta = rutaDeFondo(fondo, categoria);
   const url = ruta ? staticFile(ruta) : null;
-  const modo = modoDeCuadro(fondo, categoria);
+  const modo = modoDeFondo(fondo, categoria);
   const oscuro = modo !== "papel";
 
   // imagen viva: el acercamiento lentísimo que ya estaba probado. Nunca se
@@ -279,7 +319,7 @@ const Marco: React.FC<{ children: React.ReactNode; abajo?: React.ReactNode; secc
         ancho de siempre se cruzaba sobre la imagen justo donde más clara es */}
     {/* en modo imagen, lo mismo pero por el lado del dibujo: la mitad
         izquierda está vacía a propósito y el texto no puede invadir el motivo */}
-    <div style={{ maxWidth: modo === "tv" ? 1180 : modo === "columna" ? 980
+    <div style={{ maxWidth: modo === "tv" ? F_TV.anchoTexto : modo === "columna" ? F_COLUMNA.anchoTexto
       : modo === "imagen" ? ANCHO_TEXTO_IMAGEN : tema.anchoTexto, position: "relative",
       ...(modo === "tv" ? {
         backgroundColor: "rgba(17,19,22,0.88)", padding: "64px 72px", borderRadius: 4,
@@ -379,8 +419,8 @@ export const TarjetaTesis: React.FC<{ ev: Evento }> = ({ ev }) => {
   return (
     <Marco seccion={ev.seccion} categoria={ev.categoria} abajo={<PieFuente fuente={ev.fuenteSeccion} />}>
       <div style={{ ...st }}>
-        <div style={{ ...estiloEyebrow, marginBottom: 30 }}>La idea</div>
-        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: tamanoProsa(ev.textoPantalla ?? ev.texto ?? "", 76), lineHeight: 1.14, color: "var(--ec-tinta)" }}>
+        <div style={{ ...estiloEyebrow, marginBottom: N_TESIS.rotuloAbajo }}>La idea</div>
+        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: tamanoProsa(ev.textoPantalla ?? ev.texto ?? "", N_TESIS.texto), lineHeight: N_TESIS.interlinea, color: "var(--ec-tinta)" }}>
           {ev.textoPantalla ?? ev.texto}
         </div>
       </div>
@@ -620,7 +660,7 @@ export const TarjetaParrafo: React.FC<{ ev: Evento }> = ({ ev }) => {
     <Marco seccion={ev.seccion} categoria={ev.categoria} abajo={<PieFuente fuente={ev.fuenteSeccion} />}>
       <div style={{ ...st }}>
         {ev.etiqueta ? <div><Chip etiqueta={ev.etiqueta} /></div> : null}
-        <div style={{ fontFamily: tema.sans, fontSize: 42, lineHeight: 1.5, color: "var(--ec-tinta)" }}>{ev.textoPantalla ?? ev.texto}</div>
+        <div style={{ fontFamily: tema.sans, fontSize: N_PARRAFO.texto, lineHeight: N_PARRAFO.interlinea, color: "var(--ec-tinta)" }}>{ev.textoPantalla ?? ev.texto}</div>
       </div>
     </Marco>
   );
@@ -631,10 +671,10 @@ export const TarjetaCita: React.FC<{ ev: Evento }> = ({ ev }) => {
   return (
     <Marco seccion={ev.seccion} categoria={ev.categoria} abajo={<PieFuente fuente={ev.fuente} />}>
       <div style={{ ...st }}>
-        <div style={{ fontFamily: tema.serif, fontStyle: "italic", fontSize: 58, lineHeight: 1.3, color: "var(--ec-tinta)" }}>
+        <div style={{ fontFamily: tema.serif, fontStyle: "italic", fontSize: N_CITA.texto, lineHeight: N_CITA.interlinea, color: "var(--ec-tinta)" }}>
           “{ev.textoPantalla ?? ev.texto}”
         </div>
-        <div style={{ fontFamily: tema.mono, fontSize: 28, color: "var(--ec-acento)", marginTop: 40 }}>- {ev.autor}</div>
+        <div style={{ fontFamily: tema.mono, fontSize: N_CITA.autor, color: "var(--ec-acento)", marginTop: N_CITA.autorArriba }}>- {ev.autor}</div>
       </div>
     </Marco>
   );
@@ -674,13 +714,13 @@ export const TarjetaDatoBarras: React.FC<{ ev: Evento }> = ({ ev }) => {
           const destacada = i === 0;
           return (
             <div key={i} style={{ display: "flex", alignItems: "center", gap: 36 }}>
-              <div style={{ width: 470, fontFamily: tema.sans, fontSize: 32, color: "var(--ec-tinta)", textAlign: "right" }}>
+              <div style={{ width: N_BARRAS.anchoEtiqueta, fontFamily: tema.sans, fontSize: N_BARRAS.etiqueta, color: "var(--ec-tinta)", textAlign: "right" }}>
                 {s.etiqueta}
               </div>
-              <div style={{ width: 800, height: 46, backgroundColor: "var(--ec-linea)", borderRadius: 8, overflow: "hidden" }}>
+              <div style={{ width: N_BARRAS.anchoBarra, height: N_BARRAS.altoBarra, backgroundColor: "var(--ec-linea)", borderRadius: 8, overflow: "hidden" }}>
                 <div style={{ width: w, height: "100%", backgroundColor: destacada ? "var(--ec-acento)" : "var(--ec-tinta)", borderRadius: 8 }} />
               </div>
-              <div style={{ fontFamily: tema.mono, fontSize: 36, color: "var(--ec-tinta)", opacity: e }}>{s.raw}</div>
+              <div style={{ fontFamily: tema.mono, fontSize: N_BARRAS.valor, color: "var(--ec-tinta)", opacity: e }}>{s.raw}</div>
             </div>
           );
         })}
@@ -701,12 +741,12 @@ export const TarjetaDatoComparacion: React.FC<{ ev: Evento }> = ({ ev }) => {
           return (
             <div key={i} style={{ opacity: e, transform: `translateY(${interpolate(e, [0, 1], [24, 0])}px)` }}>
               <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-                <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: tamanoValor(s.raw, 132), lineHeight: 1.05, color: (s.num ?? 0) < 0 ? "var(--ec-tinta)" : "var(--ec-acento)", maxWidth: 480 }}>
+                <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: tamanoValor(s.raw, N_COMPARACION.valor), lineHeight: 1.05, color: (s.num ?? 0) < 0 ? "var(--ec-tinta)" : "var(--ec-acento)", maxWidth: 480 }}>
                   {s.raw}
                 </div>
                 <Indicador t={s.tendencia} size={72} />
               </div>
-              <div style={{ fontFamily: tema.sans, fontSize: 32, color: "var(--ec-gris)", marginTop: 18, maxWidth: 420 }}>{s.etiqueta}</div>
+              <div style={{ fontFamily: tema.sans, fontSize: N_COMPARACION.etiqueta, color: "var(--ec-gris)", marginTop: N_COMPARACION.etiquetaArriba, maxWidth: 420 }}>{s.etiqueta}</div>
             </div>
           );
         })}
@@ -725,13 +765,13 @@ export const TarjetaDatoCifra: React.FC<{ ev: Evento }> = ({ ev }) => {
       <div style={{ ...st }}>
         {soloSenal ? (
           <div style={{ display: "flex", alignItems: "center", gap: 40 }}>
-            <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 120, lineHeight: 1.05, color: "var(--ec-tinta)", maxWidth: 1100 }}>{s.etiqueta}</div>
+            <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: N_CIFRA.etiquetaGrande, lineHeight: 1.05, color: "var(--ec-tinta)", maxWidth: 1100 }}>{s.etiqueta}</div>
             <Indicador t={s.tendencia} size={150} />
           </div>
         ) : (
           <>
             <div style={{ display: "flex", alignItems: "center", gap: 34 }}>
-              <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: tamanoValor(s.raw, 210), lineHeight: 1.05, color: "var(--ec-tinta)" }}>{s.raw}</div>
+              <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: tamanoValor(s.raw, N_CIFRA.valor), lineHeight: 1.05, color: "var(--ec-tinta)" }}>{s.raw}</div>
               <Indicador t={s.tendencia} size={110} />
             </div>
             {s.etiqueta ? <div style={{ fontFamily: tema.sans, fontSize: 40, color: "var(--ec-gris)", marginTop: 26 }}>{s.etiqueta}</div> : null}
@@ -749,7 +789,7 @@ export const TarjetaDatoCambio: React.FC<{ ev: Evento }> = ({ ev }) => {
   const s = ev.series ?? [];
   const antes = s[0], despues = s[1];
   if (!antes || !despues) return <TarjetaDatoCifra ev={ev} />;
-  const base = Math.max(antes.raw.length, despues.raw.length) > 8 ? 120 : 190;
+  const base = Math.max(antes.raw.length, despues.raw.length) > 8 ? N_CAMBIO.valorLargo : N_CAMBIO.valor;
   return (
     <Marco seccion={ev.seccion} categoria={ev.categoria} abajo={<PieFuente fuente={ev.fuente ?? ev.fuenteSeccion} caption={ev.caption} />}>
       <div style={{ ...st }}>
@@ -773,14 +813,14 @@ export const TarjetaEsquema: React.FC<{ ev: Evento }> = ({ ev }) => {
   const elems = ev.elementos ?? [];
   return (
     <Marco seccion={ev.seccion} categoria={ev.categoria} abajo={<PieFuente fuente={ev.fuenteSeccion} caption={ev.caption} />}>
-      <div style={{ ...estiloEyebrow, marginBottom: 44 }}>{ev.titulo}</div>
+      <div style={{ ...estiloEyebrow, marginBottom: N_ESQUEMA.tituloAbajo }}>{ev.titulo}</div>
       <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 26 }}>
         {elems.map((el, i) => {
           const e = spring({ frame: frame - i * 8, fps, config: { damping: 200 } });
           return (
             <React.Fragment key={i}>
               {i > 0 ? (
-                <div style={{ fontFamily: tema.mono, fontSize: 44, color: "var(--ec-acento)", opacity: e }}>→</div>
+                <div style={{ fontFamily: tema.mono, fontSize: N_ESQUEMA.flecha, color: "var(--ec-acento)", opacity: e }}>→</div>
               ) : null}
               <div
                 style={{
@@ -822,7 +862,7 @@ export const TarjetaTitulares: React.FC<{ ev: Evento }> = ({ ev }) => {
           return (
             <div key={i} style={{ display: "flex", gap: 30, alignItems: "flex-start", opacity: activa ? 1 : 0.38, transition: "opacity 120ms" }}>
               <div style={{ width: 10, alignSelf: "stretch", borderRadius: 5, backgroundColor: activa ? "var(--ec-acento)" : "var(--ec-linea)", flexShrink: 0 }} />
-              <div style={{ fontFamily: tema.sans, fontSize: 38, lineHeight: 1.35, color: "var(--ec-tinta)", maxWidth: 1280 }}>{it.texto}</div>
+              <div style={{ fontFamily: tema.sans, fontSize: N_TITULARES.titular, lineHeight: N_TITULARES.interlinea, color: "var(--ec-tinta)", maxWidth: N_TITULARES.anchoMax }}>{it.texto}</div>
             </div>
           );
         })}
@@ -831,7 +871,7 @@ export const TarjetaTitulares: React.FC<{ ev: Evento }> = ({ ev }) => {
   );
 };
 
-export const SeccionBanner: React.FC<{ texto: string; categoria?: string | null; fondo?: ModoCuadro }> =
+export const SeccionBanner: React.FC<{ texto: string; categoria?: string | null; fondo?: ModoFondo }> =
 ({ texto, categoria, fondo }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -844,7 +884,7 @@ export const SeccionBanner: React.FC<{ texto: string; categoria?: string | null;
   // resuelve nada y terminaba en negro: daba igual sobre papel y desaparecía
   // sobre la imagen. El fondo suelto es el de la muestra --comparar, donde la
   // sección cambia de fondo a la mitad.
-  const oscuro = modoDeCuadro(fondo ? { ...ctx, modo: fondo } : ctx, categoria) !== "papel";
+  const oscuro = modoDeFondo(fondo ? { ...ctx, modo: fondo } : ctx, categoria) !== "papel";
   return (
     <div style={{ position: "absolute", top: 64, left: tema.margen }}>
       <div
@@ -872,11 +912,11 @@ export const TarjetaMarcador: React.FC<{ ev: Evento }> = ({ ev }) => {
   return (
     <Marco seccion={ev.seccion} categoria={ev.categoria} abajo={<PieFuente fuente={ev.fuente ?? ev.fuenteSeccion} caption={ev.caption} />}>
       <div style={{ ...st, display: "flex", alignItems: "baseline", gap: 48, flexWrap: "wrap" }}>
-        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 66, color: "var(--ec-tinta)" }}>{local.etiqueta}</div>
-        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 120, color: colorDeSeccion(ev.seccion) }}>
+        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: N_MARCADOR.equipo, color: "var(--ec-tinta)" }}>{local.etiqueta}</div>
+        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: N_MARCADOR.marcador, color: colorDeSeccion(ev.seccion) }}>
           {local.raw}<span style={{ color: "var(--ec-gris)", padding: "0 22px" }}>-</span>{visita.raw}
         </div>
-        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 66, color: "var(--ec-tinta)" }}>{visita.etiqueta}</div>
+        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: N_MARCADOR.equipo, color: "var(--ec-tinta)" }}>{visita.etiqueta}</div>
       </div>
     </Marco>
   );
@@ -905,11 +945,11 @@ export const TarjetaTabla: React.FC<{ ev: Evento }> = ({ ev }) => {
                 borderBottom: i < series.length - 1 ? `2px solid ${"var(--ec-linea)"}` : "none",
               }}
             >
-              <div style={{ fontFamily: tema.mono, fontSize: 30, color: "var(--ec-gris)", width: 56 }}>{i + 1}</div>
-              <div style={{ fontFamily: tema.sans, fontSize: 40, fontWeight: lider ? 600 : 400, color: "var(--ec-tinta)", flex: 1 }}>
+              <div style={{ fontFamily: tema.mono, fontSize: N_TABLA.numero, color: "var(--ec-gris)", width: N_TABLA.anchoNumero }}>{i + 1}</div>
+              <div style={{ fontFamily: tema.sans, fontSize: N_TABLA.nombre, fontWeight: lider ? 600 : 400, color: "var(--ec-tinta)", flex: 1 }}>
                 {s.etiqueta}
               </div>
-              <div style={{ fontFamily: tema.mono, fontSize: 40, color: lider ? colorDeSeccion(ev.seccion) : "var(--ec-tinta)" }}>
+              <div style={{ fontFamily: tema.mono, fontSize: N_TABLA.valor, color: lider ? colorDeSeccion(ev.seccion) : "var(--ec-tinta)" }}>
                 {s.raw}
               </div>
             </div>

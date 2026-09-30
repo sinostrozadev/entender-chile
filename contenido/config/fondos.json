@@ -1,0 +1,54 @@
+{
+  "_": "GENERADO A MANO, y es la fuente de verdad de los FONDOS: lo que hay DETRÁS del texto. Un fondo no decide qué se muestra, solo sobre qué se muestra, y por eso cualquier tarjeta puede llevar cualquiera. Lo lee src/tarjetas.tsx al compilar y scripts/datos-taller.js lo copia al taller.",
+  "_porque": "Nació como modos.json el 30-09-2026 con ocho entradas, dos de las cuales (dibujo y texto, dibujo solo) no eran fondos sino tarjetas: no pasan por Marco, arman su propio cuadro. Se separaron el mismo día cuando Santiago preguntó qué define lo que muestra el video. El que decide qué se ve es la TARJETA (contenido/config/tarjetas.json); el fondo es una propiedad del Marco que las envuelve a todas.",
+  "version": 2,
+  "fondos": [
+    {
+      "id": "papel",
+      "nombre": "papel",
+      "que": "Sin imagen detrás: el texto sobre el papel del canal. Es adonde caen todos los demás cuando la sección no tiene imagen, así que además de un fondo es la red de seguridad.",
+      "fuente": "ninguna",
+      "enProduccion": true
+    },
+    {
+      "id": "columna",
+      "nombre": "columna",
+      "que": "La imagen se queda a la derecha y a la izquierda se apaga para que el texto se lea.",
+      "fuente": "seccion",
+      "enProduccion": false,
+      "banda": 15,
+      "alfa": 0.76,
+      "anchoTexto": 980
+    },
+    {
+      "id": "oscurecer",
+      "nombre": "oscurecer",
+      "que": "La imagen queda entera de fondo y baja de brillo pareja.",
+      "fuente": "seccion",
+      "enProduccion": false
+    },
+    {
+      "id": "tv",
+      "nombre": "tv",
+      "que": "La imagen queda entera y el texto va dentro de un cuadro propio.",
+      "fuente": "seccion",
+      "enProduccion": false,
+      "anchoTexto": 1180
+    },
+    {
+      "id": "transparente",
+      "nombre": "transparente",
+      "que": "Sin fondo propio: se ve lo que haya debajo. El único que no consulta si la sección tiene imagen, porque el barrido lo maneja el bloque y no la tarjeta.",
+      "fuente": "ninguna",
+      "enProduccion": false
+    },
+    {
+      "id": "imagen",
+      "nombre": "imagen",
+      "que": "La imagen de la sección manda y el texto va sobre un velo en la mitad izquierda. Si la sección no tiene imagen cae a papel y no a la ilustración del día.",
+      "fuente": "seccion",
+      "enProduccion": true,
+      "anchoTexto": 900
+    }
+  ]
+}
