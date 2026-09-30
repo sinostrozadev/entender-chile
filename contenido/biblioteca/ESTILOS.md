@@ -115,6 +115,40 @@ Dos razones distintas, y conviene no confundirlas:
 Entonces el reparto quedó así: **el prompt lleva la instrucción, este archivo
 lleva el porqué.** Lo de abajo es para leerlo nosotros, no para pegarlo.
 
+## La época la pone el motivo, no el estilo
+
+Entró al bloque el 30-09-2026, arriba del estilo, después de una prueba limpia.
+
+**El problema.** El estilo dice "grabado de prensa del siglo XIX", y cuando el
+motivo es genérico el generador lee eso como la época de la ESCENA y no como la
+técnica del dibujo. Pasó dos veces: "un hemiciclo" volvió como un salón
+neoclásico con faroles de gas, y "una puerta de celda" volvió como una mazmorra
+de sillares con cerrojo de bocallave.
+
+**El mecanismo, que es lo que permite arreglarlo.** Los dos fallos tienen motivo
+genérico y los tres aciertos de arquitectura tienen motivo que nombra una cosa
+real. Cuando se nombra, la fotografía de referencia ancla la época; cuando no se
+nombra, no hay nada que la ancle y la pone el estilo.
+
+**La prueba.** Se pidió la misma celda dos veces, mismo motivo y mismo estilo, y
+lo único que cambió fue esta línea. Sin ella: mazmorra. Con ella: puerta de
+plancha metálica con reja, muro de hormigón pintado y cerradura moderna
+empotrada. Las dos imágenes están guardadas como `juicio-b.png` y `juicio-a.png`,
+que es la comparación completa.
+
+**Y va subordinada a la referencia**, porque si no pelearían: La Moneda es de
+1805 y el Palacio de los Tribunales de 1905, y ahí la época correcta es la del
+edificio. Por eso la línea empieza con "salvo que el motivo nombre una cosa
+real" y el párrafo de la referencia dice ahora que manda sobre el estilo Y sobre
+la época.
+
+**Una nota de método que se pagó cara.** Esta línea se había probado el 29-09 en
+tribunales, no pareció servir y se jubiló. Después se descubrió que en tribunales
+la época no estaba mal, porque las Cortes sesionan en un palacio de 1905: se
+retiró juzgándola en el único caso donde el problema que venía a resolver no
+existía. Antes de descartar algo hay que mirar si el caso de prueba tenía el
+problema.
+
 ## Las reglas que van en TODOS los prompts, con su porqué
 
 Desde el 29-09-2026 estas seis líneas van al final de cada bloque de estilo, con

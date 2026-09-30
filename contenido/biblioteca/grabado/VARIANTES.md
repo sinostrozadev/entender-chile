@@ -82,6 +82,9 @@ archivo.
 
 ## juicio
 
+- **`juicio-a.png`** La puerta de plancha metálica con reja, muro de hormigón
+  pintado y cerradura moderna empotrada. Salió con la línea de época, que entró
+  al bloque gracias a esta prueba.
 - **`juicio-b.png`** La puerta de celda, primera vuelta. Pasa la vara (120 de
   luminancia, 39% opaco, 21% de relleno claro), la puerta está cerrada y no hay
   nadie detrás, que eran dos de las tres cosas a revisar. Falla la tercera: es

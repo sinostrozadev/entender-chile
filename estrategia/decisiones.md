@@ -674,3 +674,38 @@ quedan como están, desocupados.
 
 **Evidencia**: regla 29 en `REGLAS-DURAS.md`, criterio en
 `contenido/biblioteca/ESTILOS.md` regla 1, motivo en `scripts/vocabulario.js`.
+
+## 2026-09-30 - La época la pone el motivo, no el estilo
+
+**La decisión**: el bloque del estilo Grabado lleva ahora, arriba del estilo, una
+línea que fija la época en el presente, subordinada a la referencia.
+
+    LA ÉPOCA ES HOY. Salvo que el motivo nombre una cosa real, en cuyo caso manda
+    la referencia, todo lo que se dibuje es de ahora. Lo único del siglo XIX es
+    la TÉCNICA del dibujo, nunca lo que está dibujado.
+
+**Por qué**: el estilo dice "grabado del siglo XIX", y con motivos genéricos el
+generador leía eso como la época de la escena. "Un hemiciclo" volvió neoclásico
+con faroles de gas; "una puerta de celda" volvió mazmorra. Los dos fallos tienen
+motivo genérico y los tres aciertos de arquitectura tienen motivo que nombra una
+cosa real: cuando se nombra, la foto de referencia ancla la época.
+
+**La evidencia es una prueba controlada**, no una impresión: la misma celda
+pedida dos veces, mismo motivo y mismo estilo, cambiando solo esta línea. Sin
+ella, mazmorra; con ella, puerta de plancha metálica y hormigón pintado. Las dos
+quedaron guardadas (`juicio-b.png` y `juicio-a.png`).
+
+**Importa más allá de una imagen**: de los 79 conceptos que faltan, la mayoría
+tiene motivo genérico, así que esto evita el mismo error decenas de veces.
+
+**Lo que NO se decidió**: no se toca la regla de nombrar y callar. Para una cosa
+real sigue prohibido describirla, porque describir le tapa al generador lo que ya
+sabe. Describir la época solo corre donde no hay cosa real que nombrar.
+
+**Y queda anotado un error de método**: esta línea se probó el 29-09 en
+tribunales, no pareció servir y se jubiló; después se supo que ahí la época no
+estaba mal, porque las Cortes sesionan en un palacio de 1905. Se descartó
+juzgándola en el único caso donde el problema que venía a resolver no existía.
+Antes de descartar algo hay que mirar si el caso de prueba tenía el problema.
+
+**Quién**: Santiago aprobó volver a probarla, 30-09-2026.
