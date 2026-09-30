@@ -277,5 +277,14 @@
     "vistasLargos": 1111,
     "vistasShorts": 8544,
     "horasEst": 86.55
+  },
+  {
+    "fecha": "2026-09-30",
+    "subs": 23,
+    "vistasTotales": 10090,
+    "vistasCanal": 8867,
+    "vistasLargos": 1179,
+    "vistasShorts": 8888,
+    "horasEst": 91.38
   }
 ]
