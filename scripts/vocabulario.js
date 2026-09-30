@@ -80,6 +80,21 @@
 // o sea el caso armado. Además no necesita verificar nada, que es lo que hizo
 // caer al edificio.
 //
+// EL BANCO CENTRAL SÍ VALE NOMBRARLO, Y LA FISCALÍA NO (30-09-2026). El motivo
+// era "una fachada con cuatro columnas y un frontón triangular", que es
+// cualquier banco del mundo y además un pictograma de la era anterior.
+//
+// La pregunta es la misma que con fiscalía y la respuesta es al revés. Ahí el
+// argumento para descartar el edificio fue que nadie lo reconoce, así que
+// acertarlo no rendía. El del Banco Central sí se reconoce: está más cerca de
+// La Moneda que de unas oficinas. Y la coincidencia es limpia, 85% "banco
+// central", con la institución como sujeto que actúa: define la tasa, publica
+// el IPoM.
+//
+// Se nombra y se calla, como manda la regla desde La Moneda: ni la calle ni las
+// columnas, que es describir lo que no se puede verificar desde acá. El BUSCA
+// hace el resto, que es la vía con los dos únicos aciertos de arquitectura.
+//
 // JUICIO ES LA CONDENA, Y EN CHILE NO HAY MAZO (30-09-2026). El motivo era "un
 // mazo de juez apoyado sobre su taco redondo", y los tribunales chilenos no usan
 // mazo: es un objeto de película, el mismo error por la misma vía que la sala de
@@ -239,7 +254,7 @@ const CATEGORIAS = [
       ["empresa", ["empresa", "compania", "holding", "sociedad anonima", "firma "],
         "tres torres de oficinas de distinto alto, alineadas en una misma base"],
       ["banco central", ["banco central", "banco estado", "banco "],
-        "una fachada con cuatro columnas y un frontón triangular"],
+        "el edificio del Banco Central de Chile, en Santiago, visto desde la vereda de enfrente"],
       ["universidad", ["universidad", "casa de estudios", "rector"],
         "un birrete visto en tres cuartos, con la borla caída"],
       ["colegio", ["colegio", "escuela", "liceo", "establecimiento educacional", "jardin infantil"],
