@@ -429,5 +429,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-09-30-informe.mp3",
     "bytes": 14800320,
     "durSeg": 617
+  },
+  {
+    "fecha": "2026-10-01",
+    "tipo": "informe",
+    "titulo": "01-10-2026 · Desempleo llega a 9,6%: el nivel más alto desde 2021",
+    "descripcion": "El desempleo chileno alcanzó su mayor nivel desde 2021 y ya roza el millón de personas. También revisamos el Presupuesto 2027, las nuevas alzas de combustibles, la negociación en Escondida y las alertas que deja el sistema frontal.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-01-informe.mp3",
+    "bytes": 15734592,
+    "durSeg": 656
   }
 ]
