@@ -191,6 +191,51 @@ for (const ev of parsed.eventos) {
   eventos.push({ tipo: "titulares", items, seccion: "En titulares", from: Number((items[0].from - 0.1).toFixed(3)), to: items[items.length - 1].to });
 }
 
+// CUÁNDO LA VOZ DICE CADA PIEZA DE UNA TARJETA (01-10-2026, pedido de Santiago:
+// "haz el cambio para que sea por palabra").
+//
+// Las piezas de una tarjeta de cifra (la etiqueta, la referencia) no son
+// palabras del párrafo: son textos que escribió el guion. Pero casi siempre
+// COMPARTEN palabras con él, porque describen lo mismo. Así que se busca el
+// tramo del párrafo hablado donde más palabras de la pieza aparecen juntas, y
+// de ahí sale el segundo en que la voz llega a esa idea.
+//
+// Si no hay coincidencia suficiente devuelve null y la tarjeta cae a su retardo
+// fijo: una pieza que nadie dice no puede esperar a que la digan.
+const sinTildes = (x) => x.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const VACIAS = new Set(["el","la","los","las","un","una","de","del","en","y","a","que","su","sus","con","por","para","se","es","al","lo"]);
+function cuandoSeDice(pieza, hablado, ritmo) {
+  if (!pieza || !hablado || !ritmo || ritmo.length < 2) return null;
+  const buscadas = sinTildes(pieza).split(/[^a-z0-9]+/).filter((w) => w.length > 2 && !VACIAS.has(w));
+  if (!buscadas.length) return null;
+  const palabras = [];
+  const re = /[^\s]+/g;
+  let m;
+  const plano = sinTildes(hablado);
+  while ((m = re.exec(plano))) palabras.push({ w: m[0].replace(/[^a-z0-9]/g, ""), i: m.index });
+  if (!palabras.length) return null;
+  // la ventana del largo de la pieza que contiene más de sus palabras
+  const ancho = Math.max(3, buscadas.length);
+  let mejor = -1, mejorN = 0;
+  for (let i = 0; i < palabras.length; i++) {
+    let n = 0;
+    for (let k = i; k < Math.min(palabras.length, i + ancho); k++) if (buscadas.includes(palabras[k].w)) n++;
+    if (n > mejorN) { mejorN = n; mejor = i; }
+  }
+  // menos de la mitad de las palabras es una coincidencia de azar, no la idea
+  if (mejor < 0 || mejorN * 2 < buscadas.length) return null;
+  const frac = palabras[mejor].i / plano.length;
+  // interpolar el segundo entre las dos anclas que rodean esa fracción
+  for (let k = 1; k < ritmo.length; k++) {
+    if (ritmo[k][0] >= frac) {
+      const [f0, t0] = ritmo[k - 1], [f1, t1] = ritmo[k];
+      const p = f1 === f0 ? 0 : (frac - f0) / (f1 - f0);
+      return Number((t0 + (t1 - t0) * p).toFixed(3));
+    }
+  }
+  return ritmo[ritmo.length - 1][1];
+}
+
 // agrupar dato/esquema por ancla para repartirse el intervalo del párrafo
 const grupos = new Map();
 parsed.eventos.forEach((ev) => {
@@ -209,7 +254,23 @@ for (const [anchor, grupo] of grupos) {
     const base = { seccion: ev._seccion, ...(ev._categoria ? { categoria: ev._categoria } : {}), caption: ev.caption, from: Number(from.toFixed(3)), to: Number(to.toFixed(3)) };
     if (ev.fuenteSeccion) base.fuenteSeccion = ev.fuenteSeccion;
     if (ev.automatico) base.automatico = true;
-    if (ev.tipo === "dato") eventos.push({ tipo: "dato", grafico: ev.grafico, fuente: ev.fuente, series: ev.series, ...base });
+    if (ev.tipo === "dato") {
+      // CUÁNDO ENTRA CADA PIEZA. La tarjeta de dato no trae ritmo propio (es el
+      // párrafo el que se habla), así que se lo pide prestado a su ancla.
+      const pasos = {};
+      if (ancla.ritmo && ev.grafico === "cifra") {
+        const hablado = porIndice.get(anchor) ? parsed.eventos[anchor].texto : null;
+        const et = (ev.series || [])[0] && ev.series[0].etiqueta;
+        const cuando = (txt) => cuandoSeDice(txt, hablado, ancla.ritmo);
+        const aEtiqueta = cuando(et);
+        const aRef = cuando(ev.referencia);
+        if (aEtiqueta != null) pasos.etiqueta = Math.max(0, aEtiqueta - from + ancla.from);
+        if (aRef != null) pasos.referencia = Math.max(0, aRef - from + ancla.from);
+      }
+      eventos.push({ tipo: "dato", grafico: ev.grafico, fuente: ev.fuente, series: ev.series,
+        ...(ev.referencia ? { referencia: ev.referencia } : {}),
+        ...(Object.keys(pasos).length ? { pasos } : {}), ...base });
+    }
     else eventos.push({ tipo: "esquema", titulo: ev.titulo, elementos: ev.elementos, ...base });
   });
 }

@@ -185,8 +185,13 @@ final. La prueba: si al verla alguien piensa "ah, buena", sirve; si piensa
 
 - **Sin texto.** Ni letras ni números ni cifras dentro de la imagen: eso lo
   pinta el código encima. Una imagen con texto generado se descarta.
-- **Sin personas reconocibles**, sin caras de figuras públicas, sin logos,
-  marcas ni banderas.
+- **Sin personas reconocibles**, sin caras de figuras públicas. En Chile la
+  propia imagen está protegida y el castigo de la política de contenido
+  sintético cae sobre el canal entero, no sobre el video.
+  Los **logos, marcas y banderas dejaron de estar prohibidos** (01-10-2026,
+  decisión de Santiago): se prohibieron por prudencia y no por una política, y
+  quitaban del cuadro cosas que la gente reconoce de un vistazo, que es
+  justamente lo que una carátula necesita.
 - **Nada que parezca una fotografía DEL HECHO.** Regla 29: la imagen es un
   identificador de ambiente, nunca el registro de lo que pasó. Puede verse
   fotográfica si muestra un objeto o un ambiente genérico; no puede mostrar
@@ -201,16 +206,22 @@ final. La prueba: si al verla alguien piensa "ah, buena", sirve; si piensa
   derecha, contraluz, profundidad de campo real. Se permite que parezca una
   fotografía, con su luz, su textura y su grano, porque lo que se muestra es
   AMBIENTE U OBJETO y no afirma nada sobre la noticia.
-- **El límite que no se cruza**: la imagen NUNCA representa el hecho
-  noticioso. Un paraguas bajo la lluvia, sí; el río desbordado de hoy, el
-  choque, la marcha o el edificio del que habla la nota, JAMÁS. Eso sería un
-  registro falso de algo que nadie fotografió. Y en ningún caso lugares
-  identificables ni personas reconocibles.
-- **El cobre NO va en la imagen.** El acento cobre queda reservado para el
-  banner del texto, que es donde tiene que pegar. La ilustración va en azul
-  noche, grafito y blanco frío, con las luces cálidas al mínimo. Si la
-  imagen también es cobre, el banner deja de resaltar y la carátula se
-  aplana (probado el 23-09 con el paraguas).
+- **El límite que no se cruza**: la imagen NUNCA representa el HECHO
+  noticioso. El río desbordado de hoy, el choque, la marcha: JAMÁS. Eso sería
+  un registro falso de algo que nadie fotografió, obliga a la etiqueta de
+  contenido sintético y la política de contenido inauténtico lo persigue.
+  Las personas reconocibles siguen fuera por lo mismo.
+  **Los lugares identificables ya se pueden** (01-10-2026, decisión de
+  Santiago): La Moneda, el Congreso, una plaza conocida, una cordillera.
+  Reconocer el lugar no afirma nada sobre el hecho, y un lugar que el
+  espectador ubica da más razón para entrar que un ambiente genérico. El
+  límite se corrió del lugar a la ESCENA: el edificio sí, el edificio con la
+  marcha de hoy frente a él no.
+- **El cobre dejó de estar prohibido en la imagen** (01-10-2026). Se prohibió
+  el 23-09 porque el banner dejaba de resaltar, pero eso salió de una prueba
+  con una imagen apagada: con más contraste el banner resalta igual. Si en una
+  carátula concreta el banner se pierde, se baja el cobre de ESA imagen y no
+  de todas.
 - **Formato 16:9**, mínimo 1280 x 720.
 - **Paleta de la imagen: la que diga el CLIMA** (tabla de la regla 7). No hay
   una paleta fija: eso es lo que hacía que todas salieran de noche. Lo único
@@ -232,11 +243,14 @@ final. La prueba: si al verla alguien piensa "ah, buena", sirve; si piensa
 
 > Imagen fotorrealista en 16:9 (1280x720) para la carátula de un
 > video de noticias de Chile. Tema: <la noticia de portada en una frase>.
-> Quiero una METÁFORA VISUAL ingeniosa, no la escena literal. Fondo
-> atmosférico DESENFOCADO a la izquierda y el sujeto NÍTIDO arriba a la
-> derecha, con contraluz y profundidad de campo. Puede parecer una
-> fotografía. Clima: <grave | institucional | cotidiano | bueno | curioso |
-> deporte>, con la luz y la paleta que ese clima pide (solo `grave` es de
-> noche; los demás son de día). Nada de cobre ni naranjo en la imagen. La MITAD INFERIOR IZQUIERDA queda oscura y despejada, ahí va
-> el texto. SIN texto, sin letras ni números. Sin personas reconocibles, sin
-> lugares identificables, sin logos, sin banderas.
+> Quiero MÁXIMO IMPACTO visual, algo que dé ganas de entrar: puede ser el
+> objeto o el LUGAR del que habla la noticia, o una metáfora potente, lo que
+> pegue más fuerte. Fondo atmosférico DESENFOCADO a la izquierda y el sujeto
+> NÍTIDO arriba a la derecha, con contraluz fuerte, mucho contraste y
+> profundidad de campo. Puede parecer una fotografía. Clima: <grave |
+> institucional | cotidiano | bueno | curioso | deporte>, con la luz y la
+> paleta que ese clima pide (solo `grave` es de noche; los demás son de día).
+> La MITAD INFERIOR IZQUIERDA queda oscura y despejada, ahí va el texto. SIN
+> texto, sin letras ni números. Sin personas reconocibles ni caras. Nada de
+> sangre, cuerpos, armas apuntando ni sufrimiento explícito. Y no la escena
+> del hecho: el lugar sí, lo que pasó ahí hoy no.

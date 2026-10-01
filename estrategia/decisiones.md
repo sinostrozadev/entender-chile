@@ -709,3 +709,46 @@ juzgándola en el único caso donde el problema que venía a resolver no existí
 Antes de descartar algo hay que mirar si el caso de prueba tenía el problema.
 
 **Quién**: Santiago aprobó volver a probarla, 30-09-2026.
+
+## 01-10-2026 · Las carátulas se liberan hasta donde se puede, y la regla 29 SIGUE
+
+Santiago pidió carátulas sin restricciones y con más impacto, y dijo "la regla
+29 ya no existe". Al leerla entera apareció que son TRES reglas distintas y que
+cada una cita su propia consecuencia:
+
+1. fotos ajenas jamás: "un reclamo de Content ID bloquea la monetización del
+   video entero".
+2. nada fotorrealista DEL HECHO: "obliga a la etiqueta de contenido sintético,
+   la política de contenido inauténtico la persigue".
+3. personas nunca: "en Chile la propia imagen está protegida" y "el castigo de
+   la política de contenido sintético cae sobre el canal entero".
+
+Con eso a la vista, Santiago decidió: **la regla 29 se queda**. Lo que se libera
+es lo que se había prohibido por prudencia y no por una política.
+
+**Se liberó**: lugares identificables (La Moneda, el Congreso, una plaza), logos,
+marcas y banderas, el cobre dentro de la imagen, y la obligación de que fuera
+una metáfora y no el objeto de la noticia. El prompt pide ahora máximo impacto y
+mucho contraste.
+
+**Se mantiene**: sin texto en la imagen, sin personas reconocibles, nada
+morboso, fotos ajenas jamás, y la escena del hecho jamás. El límite se corrió
+del LUGAR a la ESCENA: el edificio sí, el edificio con la marcha de hoy no.
+
+**Por qué queda escrito acá**: para que la auditoría no vuelva a proponer ni
+borrar la regla 29 ni reponer las prohibiciones liberadas. Las dos cosas se
+discutieron con el texto de la regla delante.
+
+## 01-10-2026 · La cifra gana una referencia, y no una tarjeta nueva
+
+Mirando el primer párrafo del informe del 01-10 apareció que el árbol del [DATO]
+elige por la FORMA del dato y nunca pregunta qué lo hace noticia: un número que
+rompe una marca de cinco años y uno rutinario salían con la misma tarjeta.
+
+Se decidió NO crear una tarjeta nueva. Una fila más en el árbol obligaría a GPT
+a elegir entre cifra e hito, que es la decisión cara que se viene evitando desde
+que se midió que la cuota de variedad falla sola. En su lugar, `dato-cifra` gana
+un campo opcional: la referencia.
+
+Se llama referencia y no marca a propósito: en este proyecto la marca es el
+canal.

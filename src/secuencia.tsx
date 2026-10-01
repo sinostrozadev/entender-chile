@@ -435,7 +435,7 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
           hace que igual se lea como sección y no como un color suelto */}
       {b.imagen ? (
         <Img src={staticFile(b.imagen)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%",
-          objectFit: "cover", transform: `scale(${1.04 + f * 0.00009}) translateX(${deriva * f * 0.012}px)` }} />
+          objectFit: "cover", transform: `scale(${1.04 + f * 0.00009 * ZOOM}) translateX(${deriva * f * 0.012 * ZOOM}px)` }} />
       ) : (
         // el mismo gris de estructura que usa la baldosa: Apertura, En
         // titulares, Agenda y Cierre no son un tema, así que no pueden llevar
@@ -499,6 +499,16 @@ export type PropsSecuencia = {
   audio: string | null;
   eventos: Evento[];
 };
+
+// CUÁNTO RESPIRA EL FONDO (01-10-2026, elegido por Santiago viendo las dos
+// muestras: "deja el exagerado"). El respiro nació el 27-09 en 1, y a ese valor
+// el zoom es un 2% en diez segundos: existe en el código y no se percibe en
+// pantalla. Santiago pidió verlo exagerado para comprobar que se reproducía, y
+// al verlo eligió ese. En 14 el fondo crece un 30% en diez segundos, que es lo
+// que se ve en el video, no en el número.
+//
+// Queda como variable para poder moverlo sin tocar el componente.
+const ZOOM = Number(process.env.REMOTION_ZOOM_FONDO ?? "14") || 14;
 
 export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
   const { fps } = useVideoConfig();

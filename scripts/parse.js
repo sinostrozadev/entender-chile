@@ -247,7 +247,17 @@ function parseGuion(md) {
     if ((m = linea.match(/^\[DATO\s+(\w+)\s*\|\s*([^\]]+)\]\s*(.*)$/i))) {
       flush();
       const grafico = m[1].toLowerCase();
-      let series = m[3].split(";").map(par => {
+      // LA REFERENCIA (01-10-2026, borrador): contra qué se mide la cifra, en
+      // un sufijo " | ref: ...". Va al final para no tocar el formato de las
+      // series, que es lo que ya escriben todos los guiones. Solo sirve en
+      // cifra: en las demás tarjetas la comparación ya está en el gráfico.
+      let referencia = null;
+      let cuerpo = m[3];
+      {
+        const r = cuerpo.match(/\|\s*ref\s*:\s*(.+)$/i);
+        if (r) { referencia = r[1].trim(); cuerpo = cuerpo.slice(0, r.index); }
+      }
+      let series = cuerpo.split(";").map(par => {
         const i = par.indexOf(":");
         const etiqueta = i >= 0 ? par.slice(0, i).trim() : par.trim();
         const valor = i >= 0 ? par.slice(i + 1).trim() : "";
@@ -261,7 +271,8 @@ function parseGuion(md) {
         const dir = t?.dir || (a.num != null && d.num != null ? (d.num > a.num ? "sube" : d.num < a.num ? "baja" : "igual") : null);
         series = [{ etiqueta: series[0].etiqueta, ...a }, { etiqueta: "", ...d, tendencia: { dir, sentido: t?.sentido || null } }];
       }
-      eventos.push({ tipo: "dato", grafico, fuente: m[2].trim(), series });
+      eventos.push({ tipo: "dato", grafico, fuente: m[2].trim(), series,
+        ...(referencia && grafico === "cifra" ? { referencia } : {}) });
       continue;
     }
     if ((m = linea.match(/^\[ESQUEMA\s*\|\s*([^\]]+)\]\s*(.*)$/i))) {

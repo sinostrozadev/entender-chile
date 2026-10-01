@@ -95,6 +95,13 @@ export type Evento = {
   imagen?: string;             // ruta dentro de public/
   imagenPie?: string;          // rótulo corto al pie, no el párrafo entero
   imagenOrden?: number;        // el lugar que ocupa entre las imágenes seguidas: decide la pose
+  // BORRADOR 01-10, párrafo sin cerrar: contra qué se mide la cifra (qué marca
+  // rompe, de cuándo viene). Se llama referencia y no "marca" porque en este
+  // proyecto la marca es el canal.
+  referencia?: string;
+  // cuándo la voz dice cada pieza, en segundos desde el inicio de la tarjeta
+  // (lo calcula scripts/build-timeline.js con el ritmo del párrafo ancla)
+  pasos?: { etiqueta?: number; referencia?: number };
   imagenSola?: boolean;        // sin el texto al lado: el dibujo se queda con el cuadro entero
   // la curva de anclas [fracción del párrafo, segundos desde su inicio] que
   // arma scripts/build-timeline.js con la alineación real de la voz
@@ -110,6 +117,26 @@ export type Evento = {
 };
 
 // ---------- utilidades ----------
+// LA ENTRADA ESCALONADA (01-10-2026, pedido de Santiago: "que esos datos se
+// vayan mostrando a medida que avanza la voz, con efectos suaves, pero que haya
+// movimiento"). Cada pieza de la tarjeta entra en su segundo, no todas juntas:
+// la voz dice la cifra, después qué es, después contra qué se mide, y la
+// pantalla la sigue en ese orden en vez de mostrarlo todo antes de que se diga.
+//
+// Los retardos son en SEGUNDOS y fijos, no atados a las palabras. El ritmo
+// palabra por palabra existe (ev.ritmo) pero solo viaja en los eventos de
+// narración, y la tarjeta de dato es otro evento: atarla pediría llevarle el
+// ritmo de su párrafo ancla, que es un cambio aparte.
+const usePaso = (retardoSeg: number) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const e = spring({ frame: frame - Math.round(retardoSeg * fps), fps, config: { damping: 200 } });
+  return {
+    opacity: e,
+    transform: `translateY(${interpolate(e, [0, 1], [22, 0])}px)`,
+  };
+};
+
 const useEntrada = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -360,17 +387,23 @@ const Chip: React.FC<{ etiqueta: "hecho" | "interpretacion" }> = ({ etiqueta }) 
   );
 };
 
-const PieFuente: React.FC<{ fuente?: string; caption?: string }> = ({ fuente, caption }) => (
-  <div>
-    {caption ? (
-      <div style={{ fontFamily: tema.sans, fontSize: 28, lineHeight: 1.4, color: "var(--ec-gris)",
-        maxWidth: "var(--ec-ancho-leyenda, 1200px)", marginBottom: 18 }}>
-        {caption}
-      </div>
-    ) : null}
-    {fuente ? <div style={estiloFuente}>FUENTE · {fuente}</div> : null}
-  </div>
-);
+const PieFuente: React.FC<{ fuente?: string; caption?: string; retardo?: number }> =
+({ fuente, caption, retardo }) => {
+  // El párrafo al pie entra DESPUÉS de que la voz dijo la cifra: así no es
+  // leer lo que uno está oyendo, es confirmar lo que acaba de oír.
+  const st = usePaso(retardo ?? 0);
+  return (
+    <div>
+      {caption ? (
+        <div style={{ ...(retardo ? st : {}), fontFamily: tema.sans, fontSize: 28, lineHeight: 1.4,
+          color: "var(--ec-gris)", maxWidth: "var(--ec-ancho-leyenda, 1200px)", marginBottom: 18 }}>
+          {caption}
+        </div>
+      ) : null}
+      {fuente ? <div style={estiloFuente}>FUENTE · {fuente}</div> : null}
+    </div>
+  );
+};
 
 // Indicador junto a una cifra: flecha arriba/abajo, igual, visto o alerta.
 // Dibujado en SVG (sin depender de que la fuente traiga el glifo). Verde =
@@ -757,11 +790,26 @@ export const TarjetaDatoComparacion: React.FC<{ ev: Evento }> = ({ ev }) => {
 
 export const TarjetaDatoCifra: React.FC<{ ev: Evento }> = ({ ev }) => {
   const st = useEntrada();
+  // el orden en que la voz dice las cosas: la cifra, la flecha, qué es, y al
+  // final contra qué se mide
+  // LOS RETARDOS SALEN DEL TIMELINE cuando la voz dice esas palabras
+  // (ev.pasos). Los números de abajo son la red para cuando no las dice: una
+  // pieza que nadie nombra no puede esperar a que la nombren.
+  const paso = {
+    flecha: usePaso(0.45),
+    etiqueta: usePaso(ev.pasos?.etiqueta ?? 0.8),
+    referencia: usePaso(ev.pasos?.referencia ?? 1.9),
+  };
   const s = (ev.series ?? [])[0];
   if (!s) return null;
   const soloSenal = !s.raw; // "Empleo formal: (baja mal)" -> la etiqueta grande con la flecha
   return (
-    <Marco seccion={ev.seccion} categoria={ev.categoria} abajo={<PieFuente fuente={ev.fuente ?? ev.fuenteSeccion} caption={ev.caption} />}>
+    <Marco seccion={ev.seccion} categoria={ev.categoria}
+      // SIN EL PÁRRAFO AL PIE (01-10-2026, decisión de Santiago). Esta tarjeta
+      // ya cuenta las tres cosas (la cifra, qué es y contra qué se mide), así
+      // que el párrafo de abajo repetía en chico lo que la pantalla decía
+      // grande. La fuente se queda: es la firma del canal.
+      abajo={<PieFuente fuente={ev.fuente ?? ev.fuenteSeccion} />}>
       <div style={{ ...st }}>
         {soloSenal ? (
           <div style={{ display: "flex", alignItems: "center", gap: 40 }}>
@@ -772,9 +820,25 @@ export const TarjetaDatoCifra: React.FC<{ ev: Evento }> = ({ ev }) => {
           <>
             <div style={{ display: "flex", alignItems: "center", gap: 34 }}>
               <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: tamanoValor(s.raw, N_CIFRA.valor), lineHeight: 1.05, color: "var(--ec-tinta)" }}>{s.raw}</div>
-              <Indicador t={s.tendencia} size={110} />
+              <div style={{ ...paso.flecha }}><Indicador t={s.tendencia} size={110} /></div>
             </div>
-            {s.etiqueta ? <div style={{ fontFamily: tema.sans, fontSize: 40, color: "var(--ec-gris)", marginTop: 26 }}>{s.etiqueta}</div> : null}
+            {s.etiqueta ? (
+              <div style={{ ...paso.etiqueta, fontFamily: tema.sans, fontSize: 40, color: "var(--ec-gris)", marginTop: 26 }}>
+                {s.etiqueta}
+              </div>
+            ) : null}
+            {/* LA REFERENCIA: contra qué se mide la cifra. El árbol del [DATO]
+                elige por la FORMA del dato y nunca pregunta qué lo hace
+                noticia, así que un número que es récord y uno rutinario salen
+                igual. Esta línea es lo único que los distingue. */}
+            {ev.referencia ? (
+              <div style={{ ...paso.referencia, alignItems: "center", display: "flex", gap: 14, marginTop: 30 }}>
+                <div style={{ backgroundColor: "var(--ec-acento)", height: 3, width: 46 }} />
+                <div style={{ fontFamily: tema.serif, fontStyle: "italic", fontSize: N_CIFRA.referencia, color: "var(--ec-tinta)" }}>
+                  {ev.referencia}
+                </div>
+              </div>
+            ) : null}
           </>
         )}
       </div>

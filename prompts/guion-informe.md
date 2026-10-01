@@ -237,6 +237,29 @@ no salió jamás puede frenar un informe.
       ETIQUETA CON CONTEXTO (obligatorio): la etiqueta dice QUÉ es la cifra y EN QUÉ SITUACIÓN, en 3 a 8 palabras, de modo que la tarjeta se entienda con el video en silencio: "sin cobrar a becarios que incumplieron", no "monto"; "buques por día en Ormuz", no "buques"; "cupos de bonificación a la contratación", no "cupos".
       REGLA DE PANTALLA CON DOS INDICADORES (obligatorio; nació del 01-09, cuando la tarjeta del índice industrial quedó pegada a una tesis que hablaba del Imacec y todos leyeron "Imacec 5,1%"): en un bloque donde conviven dos indicadores, la tarjeta grande no puede llevar la cifra de uno mientras la [TESIS] nombra al otro. O la tesis nombra el MISMO indicador que la cifra, o el nombre del indicador va pegado al número dentro de la tesis ("el índice industrial cayó 5,1%"). El espectador junta el número grande con el nombre que tiene más cerca, diga lo que diga la narración.
       VARIEDAD (capa aparte, DESPUÉS del árbol y nunca encima de él): nunca más de dos [DATO cifra] seguidas en el guion; nunca dos tarjetas del mismo tipo seguidas dentro del mismo bloque; con 8 o más noticias en la edición, al menos un [ESQUEMA] y al menos una de barras, tabla o comparacion; al menos tres tipos distintos por edición. Si una cuota se rompe, primero revisa si aplicaste mal el árbol (la causa más común); si el árbol está bien aplicado, deja la cifra sobrante en la narración. Y la regla que protege a todas: la variedad NUNCA justifica un dato que no está en el informe ni una tarjeta forzada; la cuota es una alarma, no una obligación. Antes que inventar con qué variar, se repite el tipo o se deja el párrafo sin marca.
+      REFERENCIA (opcional, SOLO en cifra, al final de la línea tras un " | "):
+      " | ref: contra qué se mide esta cifra", en 3 a 8 palabras. En pantalla sale
+      en cursiva bajo la etiqueta, y entra cuando la voz dice esas palabras.
+      CUÁNDO PONERLA, y es lo único que la justifica: cuando lo que hace NOTICIA
+      al dato no es su tamaño sino contra qué se mide. Un récord ("el nivel más
+      alto desde 2021"), un mínimo, un umbral que se cruza ("el primero sobre
+      los mil"). Si el dato es noticia por su tamaño y nada más, NO la pongas:
+      la tarjeta sale igual que siempre.
+      POR QUÉ EXISTE (01-10-2026): el árbol de arriba elige por la FORMA del
+      dato y nunca pregunta qué lo hace noticia, así que un número que rompe una
+      marca de cinco años y uno rutinario salían con la misma tarjeta. Esta
+      línea es lo único que los distingue.
+      ESCRÍBELA CON LAS PALABRAS DEL PÁRRAFO que la narra. No es cosmética: el
+      video la hace entrar en el segundo en que la voz dice esas palabras,
+      buscándolas en el párrafo hablado. Si no las encuentra, la línea entra con
+      un retardo fijo y se pierde la sincronía.
+      Ej: [DATO cifra | INE, 30 sep] desempleo en Chile, 989.400 personas: 9,6% (sube mal) | ref: el nivel más alto desde 2021
+      LA CIFRA GRANDE ES LA DEL TÍTULO (01-10-2026): si el título del video dice
+      un número, la tarjeta de "La noticia del día" muestra ESE número grande y
+      el otro va en la etiqueta. El 01-10 el título decía 9,6% y la pantalla
+      mostraba 989.400: quien llegó por el título no encontró lo que fue a
+      buscar. Las dos cifras del mismo hecho caben, una grande y otra en la
+      etiqueta, separadas por " · ".
       INDICADOR (opcional, entre paréntesis después del valor): "(sube)", "(baja)", "(igual)", "(bien)", "(mal)", o combinados "(sube mal)", "(baja bien)". En pantalla se dibuja una flecha o un visto de color: subir se pinta verde y bajar rojo, salvo que digas lo contrario (el desempleo que sube es "(sube mal)"; la inflación que baja es "(baja bien)"). Un valor puede ser SOLO el indicador cuando no hay cifra pero sí una dirección clara: "empleo formal: (baja mal)" muestra la etiqueta grande con la flecha roja. Úsalo cuando la dirección sea parte de la noticia, no como adorno.
   [ESQUEMA | título] elemento -> elemento -> elemento
       Para procesos, jerarquías, niveles o líneas de tiempo simples que el informe describa. Máximo seis elementos, texto breve por elemento. No se narra. Cero a dos por edición, y OBLIGATORIO al menos uno cuando el día tenga una noticia de proceso (un trámite legislativo, una etapa judicial, un cronograma, quién decide qué y en qué orden), que es casi todos los días: un esquema animado es la ventaja de este formato sobre un conductor explicando con las manos. Es condicional, no cuota: si ninguna noticia del informe describe una estructura o secuencia real, no lo fuerces.

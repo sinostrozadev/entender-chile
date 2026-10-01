@@ -158,6 +158,21 @@ pudo; silencio cuando GPT cumplió.
       párrafo, dibujo y texto, dibujo solo. Tres candidatas y nada que elija.
       Santiago dijo el 30-09 que la elección debe ser **por párrafo**.
 
+- [ ] **UN PÁRRAFO CON DOS TEMAS (01-10, anotado por Santiago).** La tarjeta de
+      un párrafo dura todo el párrafo. Si el párrafo es largo y trae otra idea a
+      la mitad, la pantalla se queda mostrando lo mismo mientras la voz ya pasó a
+      otra cosa. Santiago lo dejó anotado para cuando lleguemos a un párrafo así:
+      no resolverlo antes de verlo. Las salidas posibles: partir el párrafo en
+      el guion, que la tarjeta cambie a mitad, o que el [DATO] se ancle a media
+      frase. **Dueño: el día, cuando aparezca el caso.**
+
+- [ ] **EL SKILL DEL MÉTODO PÁRRAFO A PÁRRAFO (01-10, pedido de Santiago).**
+      Destilar en un skill todo lo que se usó para cerrar el primer párrafo:
+      cómo se abre, cómo se itera con muestras rendidas, qué se propone, dónde
+      se guardan las ideas mientras el párrafo está abierto (parche en el
+      scratchpad, repositorio intacto), y qué se toca al cerrar (código, datos,
+      prompts, artefactos, bitácora, decisiones). **Dueño: el día.**
+
 - [ ] **ELEGIR LA TRANSICIÓN POR CORTE (01-10).** Hoy no se puede: el video las
       decide con dos banderas del timeline (`meta.mosaico` y `meta.cortinas`),
       una para TODA la edición, así que no hay manera de pedir una distinta
