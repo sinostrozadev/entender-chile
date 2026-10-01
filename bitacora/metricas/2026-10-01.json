@@ -2,24 +2,42 @@
   "fecha": "2026-10-01",
   "canal": {
     "suscriptores": 23,
-    "vistas": 10189,
-    "videos": 121
+    "vistas": 10537,
+    "videos": 125
   },
   "videos": {
+    "AWrhkCZUQ6k": {
+      "titulo": "La economía chilena frena en agosto: ¿qué significa para tu ",
+      "publicado": "2026-10-01",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 51
+    },
     "nTuiXTn2ZEY": {
       "titulo": "El desempleo creció porque aumentó la fuerza laboral y cayó…",
       "publicado": "2026-10-01",
-      "estado": "private",
+      "estado": "public",
       "vistas": 0,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 44
     },
+    "W1wDcuuG7tI": {
+      "titulo": "La economía chilena no logra repuntar: el Imacec cayó otra v",
+      "publicado": "2026-10-01",
+      "estado": "public",
+      "vistas": 3,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 46
+    },
     "Bzw_X8-ubdo": {
       "titulo": "Desempleo llega a 9,6%: el nivel más alto desde 2021",
       "publicado": "2026-10-01",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 4,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 656
@@ -82,7 +100,7 @@
       "titulo": "¿Por qué hay paro nacional el jueves 1 de octubre? Esto pide",
       "publicado": "2026-09-28",
       "estado": "public",
-      "vistas": 159,
+      "vistas": 186,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 45
@@ -100,7 +118,7 @@
       "titulo": "Muere un carabinero en Lo Espejo: Kast decreta duelo y acele",
       "publicado": "2026-09-28",
       "estado": "public",
-      "vistas": 8,
+      "vistas": 9,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 47
@@ -172,7 +190,7 @@
       "titulo": "Temporal deja más de 12 mil personas aisladas en el centro-s",
       "publicado": "2026-09-27",
       "estado": "public",
-      "vistas": 8,
+      "vistas": 10,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 719
@@ -190,7 +208,7 @@
       "titulo": "Curarrehue aislada: 7.850 personas sin paso y un puente caíd",
       "publicado": "2026-09-26",
       "estado": "public",
-      "vistas": 79,
+      "vistas": 80,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 677
@@ -253,7 +271,7 @@
       "titulo": "Muere un trabajador en Minera Escondida mientras hacía mante",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 311,
+      "vistas": 313,
       "meGusta": 3,
       "comentarios": 1,
       "durSeg": 42
@@ -487,7 +505,7 @@
       "titulo": "Eliminar no es erradicar: cómo leer una certificación sanita",
       "publicado": "2026-09-15",
       "estado": "public",
-      "vistas": 4,
+      "vistas": 5,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 721
@@ -595,7 +613,7 @@
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 26,
+      "vistas": 27,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 680
@@ -1063,7 +1081,7 @@
       "titulo": "¿Cómo leer el Imacec sin confundir señal con ruido?",
       "publicado": "2026-09-01",
       "estado": "public",
-      "vistas": 19,
+      "vistas": 21,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 724
@@ -1221,7 +1239,7 @@
       "pct": 21.3
     },
     "38xMuHE47eI": {
-      "vistas": 439,
+      "vistas": 437,
       "minutos": 94,
       "segProm": 30,
       "pct": 70.3
@@ -1245,7 +1263,7 @@
       "pct": 16.2
     },
     "EFWY7D3NJso": {
-      "vistas": 290,
+      "vistas": 287,
       "minutos": 76,
       "segProm": 37,
       "pct": 80.7
@@ -1299,7 +1317,7 @@
       "pct": 58.3
     },
     "DQl1ZQPx51o": {
-      "vistas": 259,
+      "vistas": 258,
       "minutos": 61,
       "segProm": 24,
       "pct": 49.4
@@ -1623,7 +1641,7 @@
       "pct": 50.8
     },
     "-phNJeYXTLA": {
-      "vistas": 64,
+      "vistas": 65,
       "minutos": 8,
       "segProm": 18,
       "pct": 43.3
