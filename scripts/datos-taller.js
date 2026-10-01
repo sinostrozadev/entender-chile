@@ -27,6 +27,8 @@ const fondos = leer("fondos.json");
 const ranura = leer("ranura-narracion.json");
 // El tablero: qué puso la regla en una edición real. Va al taller y no al video.
 const tablero = leer("tablero-dibujos.json");
+const transiciones = leer("transiciones.json");
+const eventos = leer("eventos.json");
 
 fs.writeFileSync(SALIDA,
   "// GENERADO por scripts/datos-taller.js desde contenido/config/tarjetas.json\n" +
@@ -34,7 +36,9 @@ fs.writeFileSync(SALIDA,
   "window.TARJETAS = " + JSON.stringify(tarjetas) + ";\n" +
   "window.FONDOS = " + JSON.stringify(fondos) + ";\n" +
   "window.RANURA = " + JSON.stringify(ranura) + ";\n" +
-  "window.TABLERO = " + JSON.stringify(tablero) + ";\n");
+  "window.TABLERO = " + JSON.stringify(tablero) + ";\n" +
+  "window.TRANSICIONES = " + JSON.stringify(transiciones) + ";\n" +
+  "window.EVENTOS = " + JSON.stringify(eventos) + ";\n");
 
 // Cuántas tarjetas puede pintar cada ranura: mientras sea 1 en todas, el switch
 // de src/tarjetas.tsx no elige nada y no hay decisión que tomar.
@@ -52,7 +56,7 @@ for (const t of tarjetas.tarjetas)
 const conAlternativa = Object.entries(porRanura).filter(([, ids]) => ids.length > 1)
   .map(([r, ids]) => `${r} (${ids.join(", ")})`);
 
-console.log(`${tarjetas.tarjetas.length} tarjetas y ${fondos.fondos.length} fondos escritos en ${SALIDA}`);
+console.log(`${tarjetas.tarjetas.length} tarjetas, ${fondos.fondos.length} fondos, ${transiciones.transiciones.length} transiciones y ${eventos.eventos.length} eventos escritos en ${SALIDA}`);
 console.log(conAlternativa.length
   ? `ranuras con más de una tarjeta: ${conAlternativa.join(" · ")}`
   : "ninguna ranura tiene alternativa todavía: el switch no elige nada");

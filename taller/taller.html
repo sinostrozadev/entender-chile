@@ -74,21 +74,23 @@
     text-transform: uppercase;
     color: var(--grafito);
   }
-  .pestanas { display: flex; gap: 4px; margin-top: 10px; }
-  .pestana {
-    appearance: none;
-    background: none;
-    border: 0;
-    border-bottom: 2px solid transparent;
-    color: var(--grafito);
-    cursor: pointer;
-    font-family: var(--sans);
-    font-size: 15px;
-    font-weight: 500;
-    padding: 8px 12px 10px;
-  }
-  .pestana[aria-selected="true"] { color: var(--tinta); border-bottom-color: var(--patina); }
-  .pestana:focus-visible { outline: 2px solid var(--patina); outline-offset: 2px; border-radius: 3px; }
+  /* EL MENÚ (01-10-2026). Reemplazó a la fila de pestañas sueltas cuando el
+     taller pasó a tener dos páginas: las pantallas del video traen clips y
+     cuadros pesados y no pueden vivir en la misma página que la biblioteca,
+     pero para quien lo usa tiene que leerse como un solo taller. La lista es
+     una sola y vive en menu.js, que pintan las dos páginas igual. */
+  .menu { display: flex; flex-wrap: wrap; gap: 6px 28px; margin-top: 10px; }
+  .menu-titulo { color: var(--grafito); font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.2em; margin-bottom: 3px; text-transform: uppercase; }
+  .menu-grupo.aqui .menu-titulo { color: var(--patina); }
+  .menu-fila { display: flex; flex-wrap: wrap; gap: 2px; }
+  .menu-item { appearance: none; background: none; border: none; border-bottom: 2px solid transparent;
+    color: var(--grafito); cursor: pointer; font-family: var(--sans); font-size: 15px;
+    padding: 4px 9px; text-decoration: none; }
+  .menu-item:hover { color: var(--tinta); }
+  .menu-item.activa { border-bottom-color: var(--patina); color: var(--tinta); font-weight: 500; }
+  .menu-item:focus-visible { outline: 2px solid var(--patina); outline-offset: 2px; }
+
 
   main { max-width: 880px; margin: 0 auto; padding-block: 22px 72px; padding-left: 16px; padding-right: 16px; }
 
@@ -449,44 +451,41 @@
      leer el repositorio, así que el dato viaja como archivo publicado al lado
      de esta página. -->
 <script src="conceptos.js"></script>
+<script src="menu.js"></script>
 
 <div class="barra">
   <div class="barra-dentro">
     <div class="marca">Entender Chile · Taller</div>
-    <div class="pestanas" role="tablist">
-      <button class="pestana" id="tab-trabajos" role="tab" aria-selected="true" aria-controls="panel-trabajos">Formatos</button>
-      <button class="pestana" id="tab-secciones" role="tab" aria-selected="false" aria-controls="panel-secciones">Secciones</button>
-      <button class="pestana" id="tab-estilos" role="tab" aria-selected="false" aria-controls="panel-estilos">Estilos</button>
-      <button class="pestana" id="tab-biblioteca" role="tab" aria-selected="false" aria-controls="panel-biblioteca">Biblioteca</button>
-    </div>
+    <nav class="menu" id="menu" aria-label="Las pantallas del taller"></nav>
   </div>
 </div>
 
 <main>
   <div class="aviso" id="aviso" hidden></div>
 
-  <section id="panel-trabajos" role="tabpanel" aria-labelledby="tab-trabajos">
+  <section id="panel-trabajos">
     <h1>Los formatos del canal</h1>
-    <p class="bajada">Cada cosa distinta que el canal produce: el informe diario, la Clave, los verticales, la web. Entra a uno para ver cómo se hace y ajustarlo.</p>
+    <p class="bajada">Cada cosa distinta que el canal produce: el informe diario, la Clave, los verticales, la web. Entra a uno para ver cómo se hace y ajustarlo, incluida la transición entre sus secciones.</p>
+    <p class="bajada">Las transiciones mismas, con su clip y sus números, se trabajan en <a href="https://claude.ai/artifact/KWxSLBrQUfE5yjAb2uTGfR#transiciones">El video / Transiciones</a>.</p>
     <div id="lista-trabajos" class="lista"><p class="cargando">Cargando los trabajos...</p></div>
     <button class="agregar" id="nuevo-trabajo" disabled>Agregar un formato</button>
   </section>
 
-  <section id="panel-secciones" role="tabpanel" aria-labelledby="tab-secciones" hidden>
+  <section id="panel-secciones" hidden>
     <h1>Las secciones</h1>
     <p class="bajada">Todo lo que puede ser un bloque del video. Los temas son las categorías con que se clasifica cada noticia, con su color, su imagen y las palabras con que el clasificador decide a cuál va. El armazón es lo que lleva toda edición, va en el gris del canal y el locutor no lo anuncia.</p>
     <div id="lista-secciones" class="lista"><p class="cargando">Cargando las secciones...</p></div>
     <button class="agregar" id="nueva-seccion" disabled>Agregar una sección</button>
   </section>
 
-  <section id="panel-estilos" role="tabpanel" aria-labelledby="tab-estilos" hidden>
+  <section id="panel-estilos" hidden>
     <h1>Los estilos</h1>
     <p class="bajada">Cada estilo es una serie completa de imágenes de sección: sobrio, clásico, el que venga. Solo uno rige a la vez, y cambiarlo cambia el fondo de todas las secciones del video siguiente.</p>
     <div id="lista-estilos" class="lista"><p class="cargando">Cargando los estilos...</p></div>
     <button class="agregar" id="nuevo-estilo" disabled>Agregar un estilo</button>
   </section>
 
-  <section id="panel-biblioteca" role="tabpanel" aria-labelledby="tab-biblioteca" hidden>
+  <section id="panel-biblioteca" hidden>
     <h1>La biblioteca de imágenes</h1>
     <p class="bajada">Los conceptos que de verdad aparecen en el informe, contados sobre los guiones. Cada fila es un dibujo que hace falta; cada columna, un estilo. Donde hay imagen se ve la miniatura; donde falta, el botón copia el prompt listo para pegar en el generador y después se sube acá.</p>
     <div class="bib-controles">
@@ -580,23 +579,28 @@
   // ---- pestañas ----------------------------------------------------------
   function mostrar(cual) {
     el("panel-detalle").hidden = true;
-    var pares = [["trabajos", "tab-trabajos", "panel-trabajos"], ["secciones", "tab-secciones", "panel-secciones"],
-                 ["estilos", "tab-estilos", "panel-estilos"], ["biblioteca", "tab-biblioteca", "panel-biblioteca"]];
-    pares.forEach(function (p) {
-      var activa = p[0] === cual;
-      el(p[1]).setAttribute("aria-selected", activa ? "true" : "false");
-      el(p[2]).hidden = !activa;
+    ["trabajos", "secciones", "estilos", "biblioteca"].forEach(function (p) {
+      el("panel-" + p).hidden = p !== cual;
     });
+    if (window.pintarMenu) {
+      window.pintarMenu(el("menu"), "canal", cual, function (otra) { salir(); mostrar(otra); });
+    }
     // la biblioteca es la única que necesita más ancho: cuatro columnas no
     // caben en los 880 px que le vienen bien a todo lo demás
     document.body.classList.toggle("ancho", cual === "biblioteca");
     editando = null;
     pintar();
   }
-  el("tab-trabajos").addEventListener("click", function () { salir(); mostrar("trabajos"); });
-  el("tab-secciones").addEventListener("click", function () { salir(); mostrar("secciones"); });
-  el("tab-estilos").addEventListener("click", function () { salir(); mostrar("estilos"); });
-  el("tab-biblioteca").addEventListener("click", function () { salir(); mostrar("biblioteca"); });
+  // El ancla de la URL elige la pantalla: así el menú de la otra página puede
+  // enlazar directo a una de acá.
+  window.addEventListener("hashchange", function () {
+    var h = window.location.hash.slice(1);
+    if (h) { salir(); mostrar(h); }
+  });
+  {
+    var deAncla = window.location.hash.slice(1);
+    mostrar(["trabajos", "secciones", "estilos", "biblioteca"].indexOf(deAncla) >= 0 ? deAncla : "trabajos");
+  }
 
   function entrar(id) {
     salir();
@@ -953,6 +957,9 @@
       { k: "cuando", etiqueta: "Cuándo corre", ayuda: "La hora de Chile o el disparador." },
       { k: "prompt", etiqueta: "Prompt", mono: true, ayuda: "Ruta en el repositorio, si tiene." },
       { k: "workflow", etiqueta: "Workflow", mono: true, ayuda: "Archivo de .github/workflows, si tiene." },
+      { k: "transicion", etiqueta: "Transición entre secciones", tipo: "opciones",
+        opciones: [["mosaico", "El viaje del mosaico"], ["cortina", "La cortina"], ["nada", "Sin transición"]],
+        ayuda: "Cómo pasa de una sección a la siguiente. Se ven las tres, con su clip, en El video / Transiciones. Ojo: el video todavía la elige con dos banderas del timeline y no por este campo, así que acá queda anotada y no manda." },
       { k: "activo", etiqueta: "Activo", tipo: "casilla", ayuda: "Apagado deja de producirse, sin borrar nada." }
     ],
     prompts: [

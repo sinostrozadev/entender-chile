@@ -1,0 +1,53 @@
+{
+  "_": "Las maneras de pasar de una sección a la siguiente. Lo lee el taller; el video todavía las elige con dos banderas de meta (mosaico y cortinas), no por id.",
+  "_porque": "Se escribieron el 01-10-2026, cuando Santiago pidió una pantalla para trabajarlas y dijo que no recordaba cuáles había. No las había en ninguna parte: vivían como dos banderas en el timeline y tres constantes sueltas en src/Informe.tsx, así que la pregunta de cuántas hay no tenía dónde contestarse.",
+  "version": 1,
+  "transiciones": [
+    {
+      "id": "mosaico",
+      "nombre": "el viaje del mosaico",
+      "que": "La cámara se aleja del bloque que termina, cruza la fila con todas las secciones del día y entra en el que empieza. Una sola toma, sin cortes.",
+      "comoSeElige": "meta.mosaico encendido",
+      "enProduccion": true,
+      "musica": false,
+      "numeros": {
+        "maxSeg": 2.4,
+        "anticipoSeg": 1.0,
+        "colaSeg": 1.0,
+        "afuera": 0.22
+      },
+      "notas": [
+        "Nunca dura más que el silencio real del corte (ev.pausaDur): pisar voz es peor que un viaje apurado.",
+        "Arranca un segundo ANTES de la pausa, porque esa tarjeta ya se leyó, y se queda un segundo DESPUÉS, que es como entra un titular en televisión. Así dura 3,2 s sobre una pausa de 1,2 sin alargar el audio.",
+        "El movimiento se siembra con la fecha: dos días no se mueven igual y dos renders del mismo día sí.",
+        "No necesita música para existir, y por eso reemplazó a la cortina."
+      ]
+    },
+    {
+      "id": "cortina",
+      "nombre": "la cortina",
+      "que": "Un cartel a pantalla completa con el nombre de la sección, una línea que la cruza y la tesis difuminada al lado. Necesita una melodía corta.",
+      "comoSeElige": "meta.mosaico apagado y meta.cortinas con melodías",
+      "enProduccion": false,
+      "musica": true,
+      "numeros": { "duracionSeg": 1.1 },
+      "notas": [
+        "Es lo único del video que no aporta información, así que tiene un presupuesto de tiempo duro: si hay que recortar el video, se recorta acá primero.",
+        "Requiere que la narración calle en ese punto. Sin pausa en la voz tapa contenido hablado y hay que dejarla apagada.",
+        "Las melodías se alternan (cortina-a, cortina-b) para que no suene igual cada vez."
+      ]
+    },
+    {
+      "id": "nada",
+      "nombre": "sin transición",
+      "que": "El corte seco: termina una sección y empieza la otra. Solo cambia el rótulo de arriba.",
+      "comoSeElige": "meta.mosaico apagado y sin cortinas",
+      "enProduccion": false,
+      "musica": false,
+      "numeros": {},
+      "notas": [
+        "No es una opción de diseño sino lo que queda cuando las otras dos están apagadas. Vale tenerlo medido igual: es la referencia contra la que se juzga si una transición aporta."
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-<title>Las tarjetas del video</title>
+<title>El video</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -44,6 +44,21 @@
   .bajada { color: var(--grafito); margin: 0 0 8px; max-width: 64ch; }
   .bajada strong { color: var(--tinta); font-weight: 500; }
   code { background: var(--patina-suave); font-family: var(--mono); font-size: 0.88em; padding: 1px 5px; }
+
+  /* El menú: dos grupos, el de esta página con pestañas y el otro con enlaces
+     a la otra. Se pinta desde menu.js para que las dos páginas digan lo mismo. */
+  .menu { border-bottom: 1px solid var(--linea); display: flex; flex-wrap: wrap; gap: 8px 28px;
+    margin-bottom: 22px; padding-bottom: 12px; }
+  .menu-titulo { color: var(--grafito); font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.2em; margin-bottom: 4px; text-transform: uppercase; }
+  .menu-grupo.aqui .menu-titulo { color: var(--patina); }
+  .menu-fila { display: flex; flex-wrap: wrap; gap: 2px; }
+  .menu-item { appearance: none; background: none; border: none; border-bottom: 2px solid transparent;
+    color: var(--grafito); cursor: pointer; font-family: var(--sans); font-size: 15px;
+    padding: 4px 9px; text-decoration: none; }
+  .menu-item:hover { color: var(--tinta); }
+  .menu-item.activa { border-bottom-color: var(--patina); color: var(--tinta); font-weight: 500; }
+  .menu-item:focus-visible { outline: 2px solid var(--patina); outline-offset: 2px; }
 
   .aviso { background: var(--patina-suave); border-left: 3px solid var(--patina); font-size: 15px; margin: 16px 0; padding: 12px 16px; }
   .aviso p:last-child { margin-bottom: 0; }
@@ -153,31 +168,61 @@
   .pie { border-top: 1px solid var(--linea); color: var(--grafito); font-size: 14px; margin-top: 52px; padding-top: 16px; }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
+<script src="menu.js"></script>
 <script src="datos.js"></script>
 
 <main>
   <div class="marca">Entender Chile · Taller</div>
-  <h1>Las tarjetas del video</h1>
-  <p class="bajada"><strong>Una tarjeta decide qué se ve y cómo se compone</strong>: el párrafo, la cifra grande, el esquema con flechas, el dibujo de la biblioteca. Es el nivel donde se crean cosas nuevas y por donde entran las imágenes.</p>
-
-  <div class="niveles">
-    <div class="nivel"><b>el evento</b><span>Qué hay que contar. Lo escribe GPT con las marcas del guion.</span></div>
-    <div class="nivel aqui"><b>la tarjeta</b><span>Qué se ve y cómo se compone. Esta pantalla.</span></div>
-    <div class="nivel"><b>el fondo</b><span>Qué hay detrás del texto. Lo mismo para todas.</span></div>
-  </div>
-  <p class="bajada">Se separaron el 30-09-2026. Antes las trece tarjetas y los seis fondos vivían en una sola lista llamada modos, y esa mezcla escondía justo la pregunta que importa: qué define lo que el video muestra.</p>
+  <nav class="menu" id="menu" aria-label="Las pantallas del taller"></nav>
 
   <div class="aviso" id="aviso" hidden></div>
 
-  <div class="aviso">
-    <p><strong>Esta pantalla anota, no aplica.</strong> Las tarjetas viven en <code>contenido/config/tarjetas.json</code> y los fondos en <code>contenido/config/fondos.json</code>, que el video lee al compilar. El taller no puede escribir en el repositorio: lo que muevas acá queda guardado como pendiente y baja después.</p>
-  </div>
+  <section id="p-tarjetas" hidden>
+    <h1>Las tarjetas</h1>
+    <p class="bajada"><strong>Una tarjeta decide qué se ve y cómo se compone</strong>: el párrafo, la cifra grande, el esquema con flechas, el dibujo de la biblioteca. Es el nivel donde se crean cosas nuevas y por donde entran las imágenes.</p>
+    <div class="niveles">
+      <div class="nivel"><b>el evento</b><span>Qué hay que contar. Lo escribe GPT con las marcas del guion.</span></div>
+      <div class="nivel aqui"><b>la tarjeta</b><span>Qué se ve y cómo se compone. Esta pantalla.</span></div>
+      <div class="nivel"><b>el fondo</b><span>Qué hay detrás del texto. Lo mismo para todas.</span></div>
+    </div>
+    <div class="aviso">
+      <p><strong>Esta pantalla anota, no aplica.</strong> Las tarjetas viven en <code>contenido/config/tarjetas.json</code>, que el video lee al compilar. El taller no puede escribir en el repositorio: lo que muevas acá queda guardado como pendiente y baja después.</p>
+    </div>
+    <div id="ranuras"></div>
+    <div id="decision"></div>
+    <div id="lista-tarjetas"><p class="dicho">Cargando...</p></div>
+    <p class="pie">Los cuadros son renders reales, no maquetas. Ocho salen de la edición del 24-09-2026; los cinco que esa edición no usó (cita, cambio, barras, tabla y marcador) se rindieron con datos de muestra, que es la única manera de verlos.</p>
+  </section>
 
-  <div id="ranuras"></div>
-  <div id="decision"></div>
-  <div id="lista"><p class="dicho">Cargando...</p></div>
+  <section id="p-fondos" hidden>
+    <h1>Los fondos</h1>
+    <p class="bajada"><strong>Un fondo decide qué hay detrás del texto</strong>, y nada más. Cualquier tarjeta puede llevar cualquiera, porque el fondo es una propiedad del marco que las envuelve a todas.</p>
+    <div class="aviso">
+      <p>Hoy la edición entera lleva uno solo, el que diga <code>FONDO_TARJETA</code>, y de los seis solo <strong>papel</strong> e <strong>imagen</strong> se alcanzan desde producción. Los otros cuatro existen en el video pero solo se ven desde el taller.</p>
+    </div>
+    <div id="lista-fondos"><p class="dicho">Cargando...</p></div>
+    <p class="pie">Los seis clips son de la edición del 24-09-2026, todos sobre el mismo párrafo y la misma imagen de sección, para que lo único distinto entre ellos sea el fondo.</p>
+  </section>
 
-  <p class="pie">Los cuadros de las tarjetas son renders reales, no maquetas. Ocho salen de la edición del 24-09-2026; los cinco que esa edición no usó (cita, cambio, barras, tabla y marcador) se rindieron con datos de muestra, que es la única manera de verlos, porque llevan días sin aparecer en una edición. Los seis clips de fondo son de la misma edición.</p>
+  <section id="p-eventos" hidden>
+    <h1>Los eventos</h1>
+    <p class="bajada"><strong>Un evento es lo que el guion dice que hay que contar</strong>, antes de decidir cómo se ve. Los escribe GPT con las marcas, y es el único lugar donde se decide si algo va a existir en el video: si el guion no pone la marca, la tarjeta nunca se pinta.</p>
+    <div class="aviso">
+      <p>Las veces por edición están medidas sobre las <strong>últimas veinte ediciones reales</strong>. Un cero no quiere decir que el video no sepa pintarlo: quiere decir que el guion no lo pide nunca.</p>
+    </div>
+    <div id="lista-eventos"><p class="dicho">Cargando...</p></div>
+    <p class="pie">Las marcas y su árbol de decisión viven en <code>prompts/guion-informe.md</code>; el parser que las lee, en <code>scripts/parse.js</code>.</p>
+  </section>
+
+  <section id="p-transiciones" hidden>
+    <h1>Las transiciones</h1>
+    <p class="bajada"><strong>Cómo se pasa de una sección a la siguiente.</strong> Hay tres y solo una está al aire; las tres se ven acá sobre el mismo corte de la misma edición, así lo único distinto entre los tres clips es la transición.</p>
+    <div class="aviso">
+      <p><strong>Hoy no se eligen por nombre.</strong> El video las decide con dos banderas del timeline (<code>meta.mosaico</code> y <code>meta.cortinas</code>), una para toda la edición, así que no se puede pedir una distinta entre dos secciones. Darles id y poder elegirlas por corte es el trabajo que sigue.</p>
+    </div>
+    <div id="lista-transiciones"><p class="dicho">Cargando...</p></div>
+    <p class="pie">Los tres clips son el mismo corte de la edición del 24-09-2026, el paso a Proyecto Antibarricadas a los 135 segundos. Sin sonido, también la cortina, que en el video sí lleva una melodía corta.</p>
+  </section>
 </main>
 
 <script>
@@ -248,7 +293,16 @@
     "columna": [{ k: "banda", etiqueta: "banda de difuminado", min: 0, max: 40, paso: 1, sufijo: "%" },
       FRAC("alfa", "cuánto tapa", 0, 1), PIX("anchoTexto", "ancho del texto", 400, 1800)],
     "tv": [PIX("anchoTexto", "ancho del texto", 400, 1800)],
-    "imagen": [PIX("anchoTexto", "ancho del texto", 400, 1800)]
+    "imagen": [PIX("anchoTexto", "ancho del texto", 400, 1800)],
+    "mosaico": [
+      { k: "maxSeg", etiqueta: "lo más que puede durar", min: 0.5, max: 6, paso: 0.1, sufijo: " s" },
+      { k: "anticipoSeg", etiqueta: "cuánto arranca antes", min: 0, max: 3, paso: 0.1, sufijo: " s" },
+      { k: "colaSeg", etiqueta: "cuánto se queda después", min: 0, max: 3, paso: 0.1, sufijo: " s" },
+      FRAC("afuera", "qué tan lejos se aleja", 0.05, 0.6, 0.01)
+    ],
+    "cortina": [
+      { k: "duracionSeg", etiqueta: "cuánto dura", min: 0.4, max: 4, paso: 0.1, sufijo: " s" }
+    ]
   };
 
   var DIFICULTAD = [
@@ -274,7 +328,7 @@
     var cuerpo = {};
     cuerpo[campo] = valor;
     cuerpo.ficha = ficha.id;
-    db.collection("tarjetas").doc(ficha.id).set(cuerpo, { merge: true }).catch(function (e) {
+    db.collection("ajustes").doc(ficha.id).set(cuerpo, { merge: true }).catch(function (e) {
       aviso("No se pudo guardar: " + ((e && e.message) || "error") + ".");
     });
   }
@@ -579,7 +633,7 @@
   }
 
   function pintar() {
-    var caja = el("lista");
+    var caja = el("lista-tarjetas");
     var T = window.TARJETAS, F = window.FONDOS;
     caja.textContent = "";
     el("ranuras").textContent = "";
@@ -601,8 +655,6 @@
 
     pintarDecision(mapa);
 
-    caja.appendChild(nodo("h2", null, "Las " + T.tarjetas.length + " tarjetas"));
-    caja.appendChild(nodo("p", "bajada", "Acá se decide qué se ve. Es donde entran las imágenes de la biblioteca y donde nacen las tarjetas nuevas."));
     T.tarjetas.forEach(function (t) {
       caja.appendChild(ficha(t, {
         clip: t.dibujo ? "modo-" + t.id + ".mp4" : null,
@@ -611,10 +663,115 @@
       }));
     });
 
-    caja.appendChild(nodo("h2", null, "Los " + F.fondos.length + " fondos"));
-    caja.appendChild(nodo("p", "bajada", "Acá se decide qué hay detrás. Cualquier tarjeta puede llevar cualquiera, y hoy la edición entera lleva uno solo."));
+    var cf = el("lista-fondos");
+    cf.textContent = "";
     F.fondos.forEach(function (f) {
-      caja.appendChild(ficha(f, { clip: "modo-" + f.id + ".mp4" }));
+      cf.appendChild(ficha(f, { clip: "modo-" + f.id + ".mp4" }));
+    });
+
+    pintarEventos();
+    pintarTransiciones();
+  }
+
+  // LOS EVENTOS. No se editan desde acá: lo que un evento es lo decide la marca
+  // del guion, que vive en el prompt, y el parser que la lee. Acá se ve qué hay,
+  // con qué marca se pide, cuántas veces sale de verdad y qué tarjeta lo pinta.
+  function pintarEventos() {
+    var caja = el("lista-eventos");
+    var E = window.EVENTOS;
+    caja.textContent = "";
+    if (!E || !E.eventos) { caja.appendChild(nodo("p", "dicho", "No se pudo leer datos.js.")); return; }
+    E.eventos.forEach(function (e) {
+      var c = nodo("div", "tarjeta");
+      var cuerpo = nodo("div", "cuerpo");
+      var cabeza = nodo("div", "cabeza");
+      cabeza.appendChild(nodo("h3", null, e.nombre));
+      var cuantas = e.porEdicion;
+      cabeza.appendChild(nodo("span", "etiqueta " + (cuantas >= 1 ? "et-vivo" : "et-taller"),
+        cuantas >= 1 ? cuantas + " por edición" : (cuantas > 0 ? "1 cada " + Math.round(1 / cuantas) + " ediciones" : "nunca")));
+      cuerpo.appendChild(cabeza);
+      cuerpo.appendChild(nodo("p", "que", e.que));
+
+      var marca = nodo("div", "ranura");
+      marca.appendChild(nodo("span", null, "se pide con "));
+      var code = document.createElement("code");
+      code.textContent = e.marca;
+      marca.appendChild(code);
+      cuerpo.appendChild(marca);
+
+      if (e.porGrafico) {
+        var gr = nodo("div", "numeros");
+        Object.keys(e.porGrafico).forEach(function (g) {
+          var n = e.porGrafico[g];
+          var caja2 = nodo("div", "numero");
+          caja2.appendChild(nodo("label", null, g));
+          var v = nodo("div", "desde", n > 0 ? n + " por edición" : "el guion no lo pide nunca");
+          if (!n) v.style.color = "var(--cobre)";
+          caja2.appendChild(v);
+          gr.appendChild(caja2);
+        });
+        cuerpo.appendChild(gr);
+      }
+
+      var pintan = (e.tarjetas || []);
+      cuerpo.appendChild(nodo("div", "ranura", pintan.length
+        ? "lo pinta: " + pintan.join(", ")
+        : "no se pinta: pone el fondo, el color y el pictograma del bloque"));
+
+      cuerpo.appendChild(fichaPedido({ id: "evento-" + e.id, nombre: e.nombre }));
+      c.appendChild(cuerpo);
+      caja.appendChild(c);
+    });
+  }
+
+  // LAS TRANSICIONES. Mismo trato que los fondos: clip real, números editables
+  // donde los hay, y las notas, que acá importan más que en ningún otro lado
+  // porque casi todas son reglas que se pagaron con un error.
+  function pintarTransiciones() {
+    var caja = el("lista-transiciones");
+    var TR = window.TRANSICIONES;
+    caja.textContent = "";
+    if (!TR || !TR.transiciones) { caja.appendChild(nodo("p", "dicho", "No se pudo leer datos.js.")); return; }
+    TR.transiciones.forEach(function (t) {
+      var campos = CAMPOS[t.id] || [];
+      var movido = campos.some(function (c) { return valorDe(t, c.k) !== base(t, c.k); });
+      var c = nodo("div", "tarjeta" + (movido ? " tocado" : ""));
+
+      var v = document.createElement("video");
+      v.src = "trans-" + t.id + ".mp4";
+      v.controls = true; v.muted = true; v.loop = true; v.playsInline = true; v.preload = "metadata";
+      c.appendChild(v);
+
+      var cuerpo = nodo("div", "cuerpo");
+      var cabeza = nodo("div", "cabeza");
+      cabeza.appendChild(nodo("h3", null, t.nombre));
+      cabeza.appendChild(nodo("span", "etiqueta " + (t.enProduccion ? "et-vivo" : "et-taller"),
+        t.enProduccion ? "al aire" : "apagada"));
+      if (t.musica) cabeza.appendChild(nodo("span", "etiqueta et-dibujo", "necesita música"));
+      if (movido) cabeza.appendChild(nodo("span", "etiqueta et-tocado", "con cambios sin bajar"));
+      cuerpo.appendChild(cabeza);
+      cuerpo.appendChild(nodo("p", "que", t.que));
+      cuerpo.appendChild(nodo("div", "ranura", "se enciende con " + t.comoSeElige));
+
+      if (campos.length) {
+        var nums = nodo("div", "numeros");
+        campos.forEach(function (campo) { nums.appendChild(fichaNumero(t, campo)); });
+        cuerpo.appendChild(nums);
+      }
+
+      if (t.notas && t.notas.length) {
+        var ns = nodo("div", "abiertos");
+        t.notas.forEach(function (n) {
+          var a = nodo("div", "abierto");
+          a.appendChild(nodo("div", null, n));
+          ns.appendChild(a);
+        });
+        cuerpo.appendChild(ns);
+      }
+
+      cuerpo.appendChild(fichaPedido({ id: "transicion-" + t.id, nombre: t.nombre }));
+      c.appendChild(cuerpo);
+      caja.appendChild(c);
     });
   }
 
@@ -632,6 +789,29 @@
     });
   }
 
+  // EL ROUTER. La pantalla viaja en el ancla de la URL, así el menú de la otra
+  // página puede enlazar directo a una de acá (menu.js arma esos enlaces) y así
+  // recargar no devuelve siempre a la primera.
+  var PANTALLAS = ["tarjetas", "fondos", "eventos", "transiciones"];
+  var actual = null;
+
+  function mostrar(id, empujar) {
+    if (PANTALLAS.indexOf(id) < 0) id = PANTALLAS[0];
+    actual = id;
+    PANTALLAS.forEach(function (p) {
+      var sec = el("p-" + p);
+      if (sec) sec.hidden = p !== id;
+    });
+    if (window.pintarMenu) window.pintarMenu(el("menu"), "video", id, function (otra) { mostrar(otra, true); });
+    if (empujar && window.location.hash.slice(1) !== id) {
+      window.history.replaceState(null, "", "#" + id);
+    }
+    window.scrollTo(0, 0);
+  }
+
+  window.addEventListener("hashchange", function () { mostrar(window.location.hash.slice(1), false); });
+
+  mostrar(window.location.hash.slice(1), false);
   pintar();
 
   (async function arrancar() {
@@ -640,7 +820,7 @@
       aviso("Esta vista puede mirar pero no guardar. Ábrela desde tu cuenta de claude.ai.");
       return;
     }
-    escuchar("tarjetas", function (filas) {
+    escuchar("ajustes", function (filas) {
       cambios = {};
       filas.forEach(function (f) {
         var c = {};

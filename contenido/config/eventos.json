@@ -1,0 +1,73 @@
+{
+  "_": "Los tipos de evento del guion: lo que GPT puede pedir con una marca y lo que el video sabe pintar. Es el nivel de arriba de los tres (evento, tarjeta, fondo).",
+  "_porque": "Se escribieron el 01-10-2026 junto con la pantalla. Hasta entonces la lista vivía en el tipo de Evento (src/tarjetas.tsx) y las marcas en scripts/parse.js, y para saber qué podía pedir un guion había que leer los dos.",
+  "_frecuencia": "Veces por edición, medido sobre las últimas 20 ediciones reales. Un cero no quiere decir que el video no sepa pintarlo: quiere decir que el guion no lo pide nunca.",
+  "version": 1,
+  "medido": { "ediciones": 20, "hasta": "2026-09-30" },
+  "eventos": [
+    {
+      "id": "narracion",
+      "nombre": "narración",
+      "marca": "texto suelto, o [HECHO] / [INTERPRETACIÓN]",
+      "que": "El párrafo que el locutor lee. Es la mayor parte del video con diferencia.",
+      "porEdicion": 60.8,
+      "tarjetas": ["parrafo", "dibujo-texto", "dibujo-solo"]
+    },
+    {
+      "id": "seccion",
+      "nombre": "sección",
+      "marca": "## Título [categoria]",
+      "que": "Abre un bloque. No es una tarjeta: pone la imagen de fondo, el color y el pictograma, y es entre secciones donde va la transición.",
+      "porEdicion": 16.2,
+      "tarjetas": []
+    },
+    {
+      "id": "tesis",
+      "nombre": "tesis",
+      "marca": "[TESIS] frase",
+      "que": "La idea central del bloque, obligatoria en bloques con noticias A y B. Máximo 18 palabras.",
+      "porEdicion": 10.8,
+      "tarjetas": ["tesis"]
+    },
+    {
+      "id": "titulares",
+      "nombre": "titulares",
+      "marca": "lo arma el parser con las líneas de la sección En titulares",
+      "que": "El barrido rápido de lo que no se narró. Una frase por noticia, máximo 12 palabras, y el parser las reparte en tarjetas de 4 a 6.",
+      "porEdicion": 7.6,
+      "tarjetas": ["titulares"]
+    },
+    {
+      "id": "dato",
+      "nombre": "dato",
+      "marca": "[DATO tipo | fuente] etiqueta: valor ; etiqueta: valor",
+      "que": "Una cifra en pantalla con su fuente. El tipo lo decide la forma del dato y no el gusto: el prompt tiene un árbol y gana la primera fila que calza.",
+      "porEdicion": 7.2,
+      "tarjetas": ["dato-cifra", "dato-comparacion", "dato-cambio", "dato-barras", "dato-tabla", "dato-marcador"],
+      "porGrafico": {
+        "cifra": 4.4,
+        "comparacion": 1.6,
+        "barras": 0.7,
+        "cambio": 0.5,
+        "tabla": 0,
+        "marcador": 0
+      }
+    },
+    {
+      "id": "esquema",
+      "nombre": "esquema",
+      "marca": "[ESQUEMA | título] A -> B -> C",
+      "que": "La cadena de pasos de un trámite o un proceso. No se narra: es la ventaja del formato sobre alguien explicando con las manos.",
+      "porEdicion": 1.5,
+      "tarjetas": ["esquema"]
+    },
+    {
+      "id": "cita",
+      "nombre": "cita",
+      "marca": "[CITA | nombre, cargo | fuente] texto",
+      "que": "Una cita textual del informe. Sale una vez cada dos ediciones.",
+      "porEdicion": 0.5,
+      "tarjetas": ["cita"]
+    }
+  ]
+}
