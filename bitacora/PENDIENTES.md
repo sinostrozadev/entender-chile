@@ -158,6 +158,24 @@ pudo; silencio cuando GPT cumplió.
       párrafo, dibujo y texto, dibujo solo. Tres candidatas y nada que elija.
       Santiago dijo el 30-09 que la elección debe ser **por párrafo**.
 
+- [ ] **ELEGIR LA TRANSICIÓN POR CORTE (01-10).** Hoy no se puede: el video las
+      decide con dos banderas del timeline (`meta.mosaico` y `meta.cortinas`),
+      una para TODA la edición, así que no hay manera de pedir una distinta
+      entre dos secciones. Las tres que existen ya están como datos en
+      `contenido/config/transiciones.json` y se ven con su clip en El video /
+      Transiciones. Falta: (a) que el timeline lleve el id de la transición por
+      corte y no dos banderas globales; (b) que `src/Informe.tsx` elija por ese
+      id; (c) que el campo del formato en el taller mande de verdad, que hoy
+      anota y no manda. **Dueño: el día.**
+
+- [ ] **DOS GRÁFICOS QUE EL GUION NO PIDE NUNCA (01-10).** Medido sobre las
+      últimas 20 ediciones: `tabla` y `marcador` salen **cero** veces. El video
+      sabe pintarlos (están en `src/tarjetas.tsx` y se ven en El video /
+      Tarjetas, rendidos con datos de muestra) y `prompts/guion-informe.md` los
+      tiene en su árbol. O el árbol nunca llega a esas filas, o las noticias que
+      los justificarían no aparecen. Hay que mirar el árbol antes de opinar.
+      **Dueño: el día.**
+
 - [ ] **ENCENDER LA REGLA DE DIBUJOS (30-09).** Está escrita, medida y probada
       (`scripts/dibujo-parrafo.js`), pero APAGADA: falta que Santiago mire el
       tablero de seis cuadros en la pantalla de tarjetas
