@@ -180,8 +180,15 @@ jobs:
           # FONDO_MOSAICO: el salon con el nombre del canal detras del mosaico,
           # en vez del negro liso. Vale "aire" para la otra imagen o vacio para
           # volver al negro.
+          #
+          # ENTRADA_MARCA (01-10): la portada del canal y la apertura pasan a ser
+          # un solo movimiento, y de paso saca el mosaico de presentacion que
+          # habia entre el inicio y la apertura. Aprobado por Santiago viendo la
+          # muestra sobre este mismo montaje: "si me gusta, sube ese cambio, que
+          # manana salga de esa forma".
           ENTRADA_VOZ: "1"
           FONDO_MOSAICO: "sala"
+          ENTRADA_MARCA: "1"
         if: env.SALTAR != '1' && env.HAY_INFORME != '1'
         run: |
           if { [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; } || { [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; }; then VOZ="--voz"; else VOZ=""; echo "Sin secrets de voz: video mudo de prueba."; fi

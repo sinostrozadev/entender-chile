@@ -35,6 +35,7 @@ import { tema, colorDeSeccion } from "./tema";
 import { Tarjeta, Evento, FondoTarjetaContext, velo } from "./tarjetas";
 import { Picto } from "./pictogramas";
 import { PortadaPrueba } from "./portada-prueba";
+import { EntradaDeMarca } from "./entrada";
 
 const COBRE = "#D08A5B";
 // Gris de estructura (el mismo de src/mosaico.tsx): Apertura, En titulares,
@@ -492,6 +493,8 @@ export type PropsSecuencia = {
     logo?: string | null; musica?: string | null; cortinas?: string[] | null; cierre?: string | null;
     inicioNarracion?: number; duracionSeg: number;
     secuencia?: Plan;
+    // la entrada de marca reemplaza a la presentación y a la apertura (01-10)
+    entrada?: boolean;
   };
   audio: string | null;
   eventos: Evento[];
@@ -503,6 +506,36 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
   const plan = tl.meta.secuencia as Plan;
   const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte && !e.muda);
   const HOLD = Math.round(fps * 0.3);
+
+  // LA ENTRADA DE MARCA (01-10-2026, dictada por Santiago). Reemplaza al paseo
+  // de PRESENTACIÓN y al bloque de apertura, que hasta hoy eran dos cosas
+  // seguidas: el mosaico viajaba con el sello encima y después la apertura
+  // entraba como una sección más. Santiago lo pidió como un solo movimiento,
+  // de la portada del canal al párrafo de apertura. Ver src/entrada.tsx.
+  //
+  // Se arma del plan y no de una lista a mano: la apertura es el bloque que
+  // viene DESPUÉS de la presentación, sea cual sea su nombre. Si una edición no
+  // tiene presentación o no tiene bloque después (una Clave, un urgente), esto
+  // queda en null y el montaje sale como siempre.
+  const entrada = (() => {
+    if (!tl.meta.entrada) return null;
+    const pres = plan.paseos.find((p) => p.presentacion);
+    if (!pres) return null;
+    const bloque = plan.bloques.find((b) => b.from >= pres.from - 0.01);
+    if (!bloque) return null;
+    const suya = (bloque.tarjetas ?? []).map((v) => ({ ...v, ev: tl.eventos[v.ev] }))
+      .find((v) => v.ev && v.ev.tipo === "narracion");
+    if (!suya) return null;
+    return {
+      bloque,
+      desde: pres.from,
+      // el paseo arranca ANTES del bloque, así que la entrada cubre los dos y
+      // el párrafo entra cuando entraba su voz
+      vozEn: Math.max(0, bloque.from + suya.desde - pres.from),
+      durSeg: bloque.to - pres.from,
+      texto: suya.ev.textoPantalla ?? suya.ev.texto ?? "",
+    };
+  })();
 
   // QUIÉN DECIDE CUÁNDO SE VE CADA TARJETA: el plan, no este archivo
   // (28-09-2026). El cálculo vivía acá y por eso el defecto que Santiago
@@ -551,7 +584,7 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
 
       {/* 2 y 4 · los bloques: cada sección con su imagen durante toda la
           sección, y las tarjetas transparentes encima */}
-      {plan.bloques.map((b, i) => {
+      {plan.bloques.filter((b) => !(entrada && b === entrada.bloque)).map((b, i) => {
         const dela = tarjetas.filter((c) => c.seccion === b.texto);
         return (
           <Sequence key={"bl" + i} from={f(b.from)} durationInFrames={Math.max(1, f(b.to) - f(b.from))}>
@@ -562,7 +595,7 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
 
       {/* 3 · el mosaico: presentación después de la principal, y recorrido
           entre una sección y la siguiente */}
-      {plan.paseos.map((p, i) => {
+      {plan.paseos.filter((p) => !(entrada && p.presentacion)).map((p, i) => {
         const dur = f(p.dur);
         // en la presentación la cámara se aleja, la fila avanza y recién al
         // final entra en la sección; en un recorrido corto solo se aleja y
@@ -585,6 +618,17 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
           </Sequence>
         );
       })}
+
+      {/* LA ENTRADA DE MARCA. Va después de los bloques y de los paseos: ocupa
+          el cuadro entero mientras dura y el sello sonoro de la presentación,
+          que ya no tiene mosaico donde sonar, suena acá. */}
+      {entrada ? (
+        <Sequence from={f(entrada.desde)} durationInFrames={Math.max(1, f(entrada.durSeg))}>
+          {tl.meta.logo ? <Audio src={staticFile(tl.meta.logo)} volume={0.6} /> : null}
+          <EntradaDeMarca fecha={tl.meta.fecha} serie={tl.meta.serie} texto={entrada.texto}
+            vozEn={entrada.vozEn} durSeg={entrada.durSeg} />
+        </Sequence>
+      ) : null}
 
       {tl.meta.cierre ? (
         <Sequence from={Math.max(0, f(tl.meta.duracionSeg - 3.2))}>
