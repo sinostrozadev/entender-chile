@@ -3,6 +3,7 @@ import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useCurrentFrame
 import { tema, estiloEyebrow } from "./tema";
 import { Tarjeta, SeccionBanner, CortinaSeccion, Evento, FondoTarjetaContext, ModoFondo } from "./tarjetas";
 import { TransicionMosaico, Baldosa } from "./mosaico";
+import { EntradaDeMarca } from "./entrada";
 import { FondosContext } from "./fondos";
 import { PortadaPrueba } from "./portada-prueba";
 import { SecuenciaInforme, Plan } from "./secuencia";
@@ -33,6 +34,10 @@ export type Timeline = {
     // con SECUENCIA, así que la edición del día sigue saliendo como siempre.
     secuencia?: Plan;
     selloEn?: number;            // segundos en que entra el sello; 0 = al inicio (apertura en frío: después de la noticia)
+    // LA ENTRADA DE MARCA (01-10-2026): el sello y la apertura dejan de ser dos
+    // cosas seguidas y pasan a ser un solo movimiento. Ver src/entrada.tsx.
+    // Apagada deja el sello de siempre y el video no cambia un píxel.
+    entrada?: boolean;
     fps: number;
     width: number;
     height: number;
@@ -129,8 +134,37 @@ const InformeTarjetas: React.FC<Timeline> = (tl) => {
   const f = (s: number) => Math.round(s * fps);
   const HOLD = Math.round(fps * 0.3); // pequeña cola para que no haya huecos entre tarjetas
 
-  const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte && !e.muda);
   const overlays = tl.eventos.filter((e) => e.overlay);
+  // LA ENTRADA DE MARCA (01-10-2026). Se arma del timeline y no de una lista a
+  // mano: la apertura es el bloque que viene DESPUÉS del sello, y su párrafo es
+  // el que cae dentro de él. Si una edición no tiene apertura (una Clave, un
+  // urgente), esto queda en null y el video monta el sello de siempre.
+  const entrada = (() => {
+    const selloEn0 = tl.meta.selloEn ?? 0;
+    if (!tl.meta.entrada || !selloEn0) return null;
+    const bloque = overlays.find((e) => e.from >= selloEn0 - 1.5 && e.from <= selloEn0 + 1.5);
+    if (!bloque) return null;
+    const parrafo = tl.eventos.find((e) => e.tipo === "narracion" && !e.muda
+      && e.from >= bloque.from - 0.5 && e.from < bloque.to);
+    if (!parrafo) return null;
+    return {
+      bloque,
+      texto: parrafo.textoPantalla ?? parrafo.texto ?? "",
+      vozEn: Math.max(0, parrafo.from - selloEn0),
+      // dura hasta donde termine lo último de la apertura: el bloque o su
+      // párrafo, que a veces se pasa unas décimas del cierre del bloque
+      // termina DONDE TERMINA EL BLOQUE y no donde termina su párrafo: a partir
+      // de ahí manda el mosaico, y si la entrada se estirara unas décimas de más
+      // se quedaría encima de él.
+      durSeg: bloque.to - selloEn0,
+    };
+  })();
+
+  // El párrafo de la apertura lo pinta la entrada, así que su tarjeta normal no
+  // se monta: si se montaran las dos, al desvanecerse la entrada el texto
+  // saltaría de su 70% a la izquierda al centro del cuadro.
+  const tarjetas = tl.eventos.filter((e) => !e.overlay && !e.soporte && !e.muda
+    && !(entrada && e.tipo === "narracion" && e.from >= entrada.bloque.from - 0.5 && e.from < entrada.bloque.to));
   // EL BANNER SOBRE UN DIBUJO (30-09-2026). El banner es UNA capa por sección y
   // decide su color preguntando sobre qué cae, pero la tarjeta de dibujo arma
   // un cuadro oscuro sin pasar por el modo de fondo, así que la pregunta le
@@ -227,6 +261,16 @@ const InformeTarjetas: React.FC<Timeline> = (tl) => {
           lleva, porque ahí ya está el sello. La diferencia es que la cortina
           necesitaba una melodía para existir y el mosaico no: la música es
           opcional, el viaje es el que cuenta. */}
+      {/* LA ENTRADA DE MARCA. Va ANTES del mosaico en el montaje a propósito: la
+          entrada termina donde empieza el viaje del mosaico y los dos se cruzan
+          por unas décimas, y en ese cruce tiene que ganar el mosaico, que es el
+          que lleva al bloque siguiente. */}
+      {entrada ? (
+        <Sequence from={f(selloEn)} durationInFrames={Math.max(1, f(entrada.durSeg))}>
+          <EntradaDeMarca fecha={tl.meta.fecha} serie={tl.meta.serie} texto={entrada.texto}
+            vozEn={entrada.vozEn} durSeg={entrada.durSeg} />
+        </Sequence>
+      ) : null}
       {tl.meta.mosaico
         ? overlays
             .map((ev, i) => ({ ev, i }))
@@ -270,9 +314,11 @@ const InformeTarjetas: React.FC<Timeline> = (tl) => {
           <Audio src={staticFile(tl.meta.cierre)} volume={0.6} />
         </Sequence>
       ) : null}
-      <Sequence from={f(selloEn)} durationInFrames={Math.round(SELLO_SEG * fps)}>
-        <Sello fecha={tl.meta.fecha} serie={tl.meta.serie} />
-      </Sequence>
+      {entrada ? null : (
+        <Sequence from={f(selloEn)} durationInFrames={Math.round(SELLO_SEG * fps)}>
+          <Sello fecha={tl.meta.fecha} serie={tl.meta.serie} />
+        </Sequence>
+      )}
       {/* Portada de prueba: solo cuando el timeline la trae (lo hace
           scripts/prueba-video.js). En la edición real meta.portada no existe
           y acá no se monta nada. */}

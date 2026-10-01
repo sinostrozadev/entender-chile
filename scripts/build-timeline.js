@@ -277,6 +277,11 @@ const timeline = {
     // El mosaico como transición de sección (24-09, aprobado por Santiago en
     // el taller). MOSAICO=0 vuelve a la cortina de siempre.
     mosaico: process.env.MOSAICO !== "0",
+    // LA ENTRADA DE MARCA (01-10-2026). Apagada salvo con ENTRADA_MARCA=1: es un
+    // cambio en lo que se ve y lo que se ve lo elige Santiago. La clave solo
+    // viaja cuando está encendida, para que una edición sin ella produzca el
+    // mismo archivo byte por byte que antes de que existiera.
+    ...(process.env.ENTRADA_MARCA === "1" ? { entrada: true } : {}),
     // apertura en frío: el sello suena en la pausa que cierra la primera
     // sección (banners[1].from ya apunta al inicio de ese silencio)
     selloEn: enFrio && banners[1] ? Number(Math.max(0, banners[1].from - 0.05).toFixed(2)) : 0,
