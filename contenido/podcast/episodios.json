@@ -438,5 +438,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-01-informe.mp3",
     "bytes": 15734592,
     "durSeg": 656
+  },
+  {
+    "fecha": "2026-10-02",
+    "tipo": "informe",
+    "titulo": "02-10-2026 · Imacec cae 1%: la minería arrastra la economía",
+    "descripcion": "La actividad económica retrocedió en agosto por la fuerte caída de la minería, mientras el desempleo llegó a 9,6%. También revisamos la formalización de la primera célula del PCC detectada en Chile, el Presupuesto 2027 y las Reglas de Uso de la Fuerza.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-02-informe.mp3",
+    "bytes": 14041728,
+    "durSeg": 585
   }
 ]
