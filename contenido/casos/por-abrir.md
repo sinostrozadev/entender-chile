@@ -55,3 +55,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-09-29 | ProEmpleo Biobío
 - 2026-09-30 | fraude municipal de Maipú
 - 2026-10-01 | corrupción en compras públicas de Atacama
+- 2026-10-02 | Edificio nuevo del Servicio Médico Legal
