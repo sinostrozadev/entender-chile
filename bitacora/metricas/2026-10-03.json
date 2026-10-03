@@ -3,9 +3,18 @@
   "canal": {
     "suscriptores": 26,
     "vistas": 10937,
-    "videos": 130
+    "videos": 131
   },
   "videos": {
+    "cxeqV3WKGnI": {
+      "titulo": "El Presupuesto 2027 elimina la beca con que el Estado entreg",
+      "publicado": "2026-10-03",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 48
+    },
     "fLF9y7DIPFM": {
       "titulo": "El Presupuesto 2027 elimina la beca de computadores escolare",
       "publicado": "2026-10-03",
@@ -14,15 +23,6 @@
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 835
-    },
-    "cxeqV3WKGnI": {
-      "titulo": "El Presupuesto 2027 elimina la beca con que el Estado entreg",
-      "publicado": "2026-10-03",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 48
     },
     "_ivLCorYqqg": {
       "titulo": "La caída minera convirtió en retroceso un mes que, y otras 4",
