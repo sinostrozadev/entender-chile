@@ -691,6 +691,24 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **03-10, HOY: la carátula del 03-10-2026 no se generó y tampoco quedó
+      declarada ausente.** Auditoría del 03-10
+      (`bitacora/2026-10-03-auditoria.md`). El plan B quedó activo desde las
+      02:35 (`contenido/estado/plan-b.txt`) y el suplente escribió el guion
+      completo del informe, pero `prompts/guion-informe.md:150-174` manda
+      generar la imagen de portada o, si falla, dejar
+      `contenido/caratulas/FECHA-NO-PUDE.md`: no pasó ninguna de las dos.
+      Verificado listando `contenido/caratulas/` (de octubre solo
+      `2026-10-01.png` y `2026-10-02.png`) y buscando `*-NO-PUDE.md` (solo
+      existen los del 25 y 26-09). El video ya está en `videos_listos` con la
+      carátula de respaldo, a la espera de que Santiago lo publique.
+      Propuesta de la auditoría: (1) generar ahora
+      `contenido/caratulas/2026-10-03.png` con los datos de
+      `contenido/guiones/informe/2026-10-03.md:3-6`, o dejar el
+      `NO-PUDE.md` si no hay generador; (2) agregar a `prompts/suplente.md`,
+      después de la línea 107, una diferencia nueva que lo obligue a
+      declarar `NO-PUDE.md` en vez de omitir el paso en silencio.
+
 - [ ] **26-09: `contenido/README.md` describe el flujo viejo** (veredicto de la
       revisión editorial, Clave diaria). La limpieza del 26-09 reescribió los
       README de las subcarpetas pero no este mapa. Reescribirlo corto,
