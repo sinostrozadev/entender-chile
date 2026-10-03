@@ -447,5 +447,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-02-informe.mp3",
     "bytes": 14041728,
     "durSeg": 585
+  },
+  {
+    "fecha": "2026-10-03",
+    "tipo": "informe",
+    "titulo": "03-10-2026 · El Presupuesto 2027 elimina la beca de computadores escolares",
+    "descripcion": "El proyecto de Ley de Presupuestos 2027 pone fin al programa que entrega computadores a estudiantes de colegios públicos, y el ministro de Hacienda admitió que el ajuste puede costar puestos de trabajo docentes. También revisamos el giro del Gobierno con su reforma de seguridad, los más de siete mil doscientos funcionarios que salieron del país con licencia médica durante 2025 y el sistema frontal que deja avisos en once regiones.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-03-informe.mp3",
+    "bytes": 20036160,
+    "durSeg": 835
   }
 ]
