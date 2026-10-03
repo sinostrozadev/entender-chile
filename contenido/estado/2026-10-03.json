@@ -1,9 +1,9 @@
 {
   "fecha": "2026-10-03",
-  "etapa": "barrido_listo",
+  "etapa": "validar_preseleccion",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-10-03 01:40",
+  "actualizado": "2026-10-03 02:54",
   "reparar": null,
   "piezas": [
     {
@@ -22,13 +22,15 @@
     {
       "id": "preseleccion",
       "etiqueta": "Preselección",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "por_validar",
       "prompt": "prompts/seleccion.md",
-      "hora": "",
+      "hora": "02:53",
       "esperada": "02:10",
       "dueno": "GPT · prompts/seleccion.md",
-      "rutas": []
+      "rutas": [
+        "contenido/preseleccion/2026-10-03.md"
+      ]
     },
     {
       "id": "informe",
@@ -75,5 +77,12 @@
       "rutas": []
     }
   ],
-  "atrasos": []
+  "atrasos": [
+    {
+      "id": "informe",
+      "etiqueta": "Informe",
+      "atraso": 14,
+      "dueno": "GPT · prompts/informe.md"
+    }
+  ]
 }
