@@ -4,7 +4,7 @@ Slug: disciplina-remocion-jueces-chile
 
 ## La noticia que abrió esta pregunta - 11 de septiembre de 2026
 
-El informe diario registró que el pleno de la Corte Suprema resolvió el 10 de septiembre los primeros 25 expedientes abiertos contra integrantes del escalafón primario del Poder Judicial que viajaron fuera de Chile mientras tenían licencia médica. Según ese informe, tres jueces fueron removidos y 25 personas resultaron absueltas en esta primera etapa, varias porque acreditaron enfermedad o una justificación compatible con el reposo indicado. Los expedientes restantes seguían pendientes al 11 de septiembre de 2026 y cada decisión era individual (Poder Judicial, 2-10 sep 2026; Informe diario de Entender Chile, 11 sep 2026).
+El informe diario registró que el pleno de la Corte Suprema resolvió el 10 de septiembre los primeros 25 expedientes abiertos contra integrantes del escalafón primario del Poder Judicial que viajaron fuera de Chile mientras tenían licencia médica. Según ese informe, tres jueces fueron removidos y los otros 22 casos no terminaron en remoción, varios porque el juez acreditó enfermedad o una justificación compatible con el reposo indicado y otros por no reunir el quórum legal exigido. Los expedientes restantes seguían pendientes al 11 de septiembre de 2026 y cada decisión era individual (Poder Judicial, 2-10 sep 2026; Informe diario de Entender Chile, 11 sep 2026).
 
 El caso plantea una pregunta que va mucho más allá de esas licencias: ¿cómo puede el sistema exigir responsabilidad a quienes juzgan sin transformar la disciplina en una forma de presión sobre sus fallos?
 
@@ -100,7 +100,7 @@ Finalmente, hay que evitar el lenguaje penal cuando no corresponde. "Investigado
 
 ## Aplicado al caso de hoy - 11 de septiembre de 2026
 
-El dato relevante del informe no es sólo que tres jueces fueron removidos. También informa que la Corte Suprema examinó expedientes separados, absolvió a 25 personas en la primera etapa y consideró explicaciones relacionadas con enfermedad o compatibilidad del viaje con el reposo. Eso muestra por qué la evaluación individual es parte central del mecanismo y por qué viajar durante una licencia no puede tratarse, sin más antecedentes, como una prueba automática de mala conducta (Informe diario de Entender Chile, 11 sep 2026).
+El dato relevante del informe no es sólo que tres jueces fueron removidos. También informa que la Corte Suprema examinó expedientes separados, que en los otros 22 casos de esa primera etapa no hubo remoción, por falta de quórum o por explicaciones relacionadas con enfermedad o compatibilidad del viaje con el reposo. Eso muestra por qué la evaluación individual es parte central del mecanismo y por qué viajar durante una licencia no puede tratarse, sin más antecedentes, como una prueba automática de mala conducta (Informe diario de Entender Chile, 11 sep 2026).
 
 Al 11 de septiembre de 2026 quedaban expedientes pendientes. No era correcto proyectar el resultado de los ya resueltos sobre los restantes. Tampoco correspondía presentar las remociones como condenas penales: cualquier investigación administrativa, civil o penal tenía un objeto propio y debía avanzar conforme a sus reglas (Poder Judicial, 10 sep 2026; Informe diario de Entender Chile, 11 sep 2026).
 
