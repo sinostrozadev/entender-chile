@@ -2,10 +2,37 @@
   "fecha": "2026-10-04",
   "canal": {
     "suscriptores": 28,
-    "vistas": 11234,
-    "videos": 132
+    "vistas": 11840,
+    "videos": 135
   },
   "videos": {
+    "wmUEAj_EQO8": {
+      "titulo": "¿Sabías que hoy también se vota por Brasil en Santiago? #Sho",
+      "publicado": "2026-10-04",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 52
+    },
+    "1O2sYbmslnA": {
+      "titulo": "¿Por qué la deuda de Brasil puede pesar más que los candidat",
+      "publicado": "2026-10-04",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 51
+    },
+    "Z3YHx4hd1YI": {
+      "titulo": "La ministra de Educación dejó en el Congreso el fin de la be",
+      "publicado": "2026-10-04",
+      "estado": "public",
+      "vistas": 1,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 48
+    },
     "QjRp0EJZ20M": {
       "titulo": "El fin de la beca de computadores queda en manos del Congres",
       "publicado": "2026-10-04",
@@ -15,21 +42,12 @@
       "comentarios": 0,
       "durSeg": 809
     },
-    "Z3YHx4hd1YI": {
-      "titulo": "La ministra de Educación dejó en el Congreso el fin de la be",
-      "publicado": "2026-10-04",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 48
-    },
     "cxeqV3WKGnI": {
       "titulo": "El Presupuesto 2027 elimina la beca con que el Estado entreg",
       "publicado": "2026-10-03",
       "estado": "public",
-      "vistas": 3,
-      "meGusta": 0,
+      "vistas": 4,
+      "meGusta": 1,
       "comentarios": 0,
       "durSeg": 48
     },
@@ -46,7 +64,7 @@
       "titulo": "La caída minera convirtió en retroceso un mes que, y otras 4",
       "publicado": "2026-10-02",
       "estado": "public",
-      "vistas": 730,
+      "vistas": 754,
       "meGusta": 18,
       "comentarios": 2,
       "durSeg": 47
@@ -55,7 +73,7 @@
       "titulo": "Imacec cae 1%: la minería arrastra la economía",
       "publicado": "2026-10-02",
       "estado": "public",
-      "vistas": 13,
+      "vistas": 15,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 585
@@ -478,7 +496,7 @@
       "titulo": "Tren Melipilla partirá desde Lo Errázuriz, y otras 4 cosas d",
       "publicado": "2026-09-18",
       "estado": "public",
-      "vistas": 79,
+      "vistas": 80,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 47
@@ -685,7 +703,7 @@
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 62,
+      "vistas": 61,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 680
@@ -982,7 +1000,7 @@
       "titulo": "Chile cierra el duelo oficial por Camilo Escalona",
       "publicado": "2026-09-06",
       "estado": "public",
-      "vistas": 13,
+      "vistas": 14,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 659
