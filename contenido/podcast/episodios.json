@@ -456,5 +456,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-03-informe.mp3",
     "bytes": 20036160,
     "durSeg": 835
+  },
+  {
+    "fecha": "2026-10-04",
+    "tipo": "informe",
+    "titulo": "04-10-2026 · El fin de la beca de computadores queda en manos del Congreso",
+    "descripcion": "La ministra de Educación remitió al Congreso la decisión sobre el programa Yo elijo mi PC, que el proyecto de Presupuesto 2027 deja fuera, y el rechazo al recorte suma a Evelyn Matthei, a la UDI, al PS y al PDG. Revisamos además el respaldo de Eduardo Frei al Escudo de las Américas, la querella por el femicidio número veintinueve del año, el desglose regional de los viajes al extranjero con licencia médica y la elección presidencial que Brasil vota hoy.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-04-informe.mp3",
+    "bytes": 19405440,
+    "durSeg": 809
   }
 ]
