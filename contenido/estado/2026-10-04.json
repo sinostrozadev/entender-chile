@@ -1,9 +1,9 @@
 {
   "fecha": "2026-10-04",
-  "etapa": "preseleccion_lista",
+  "etapa": "validar_informe",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-10-04 02:51",
+  "actualizado": "2026-10-04 03:13",
   "reparar": null,
   "piezas": [
     {
@@ -35,13 +35,15 @@
     {
       "id": "informe",
       "etiqueta": "Informe",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "por_validar",
       "prompt": "prompts/informe.md",
-      "hora": "",
+      "hora": "03:13",
       "esperada": "02:40",
       "dueno": "GPT · prompts/informe.md",
-      "rutas": []
+      "rutas": [
+        "contenido/informes/2026-10-04.md"
+      ]
     },
     {
       "id": "guion_informe",
@@ -79,10 +81,10 @@
   ],
   "atrasos": [
     {
-      "id": "informe",
-      "etiqueta": "Informe",
-      "atraso": 11,
-      "dueno": "GPT · prompts/informe.md"
+      "id": "guion_informe",
+      "etiqueta": "Guion del informe",
+      "atraso": 3,
+      "dueno": "GPT · prompts/guion-informe.md"
     }
   ]
 }
