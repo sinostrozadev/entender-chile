@@ -708,6 +708,12 @@ referencia:
       `NO-PUDE.md` si no hay generador; (2) agregar a `prompts/suplente.md`,
       después de la línea 107, una diferencia nueva que lo obligue a
       declarar `NO-PUDE.md` en vez de omitir el paso en silencio.
+      **04-10: van dos mañanas marcada.** Auditoría del 04-10
+      (`bitacora/2026-10-04-auditoria.md`): ninguna de las dos propuestas se
+      aplicó (`prompts/suplente.md` sigue sin la palabra "carátula",
+      verificado con búsqueda explícita), el plan B volvió a cubrir el día
+      entero y hoy falta TAMBIÉN la carátula del 04-10-2026, no solo la del
+      03-10. Quedan dos imágenes por generar o declarar `NO-PUDE.md`.
 
 - [ ] **26-09: `contenido/README.md` describe el flujo viejo** (veredicto de la
       revisión editorial, Clave diaria). La limpieza del 26-09 reescribió los
