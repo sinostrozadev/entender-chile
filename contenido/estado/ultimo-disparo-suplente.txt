@@ -1,1 +1,1 @@
-2026-10-04 barrido_listo 0
+2026-10-04 preseleccion_lista 0
