@@ -1,0 +1,870 @@
+{
+  "semana": "2026-W40",
+  "lunes": "2026-09-28",
+  "sabado": "2026-10-03",
+  "dias": [
+    "2026-09-28",
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-02",
+    "2026-10-03"
+  ],
+  "dias_con_informe": [
+    "2026-09-28",
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-02",
+    "2026-10-03"
+  ],
+  "generado": "2026-10-04",
+  "noticias": 250,
+  "temas": 183,
+  "pesos": {
+    "A": 3,
+    "B": 2,
+    "C": 1,
+    "seguimiento": 1.5,
+    "dia_extra": 1,
+    "dossier": 2
+  },
+  "ranking": [
+    {
+      "puesto": 1,
+      "puntaje": 24.5,
+      "dias": [
+        "2026-09-28",
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01",
+        "2026-10-03"
+      ],
+      "niveles": [
+        "B",
+        "C",
+        "C",
+        "B",
+        "B",
+        "B",
+        "B",
+        "C",
+        "C",
+        "A"
+      ],
+      "secciones": [
+        "Ciencia y tecnología",
+        "Además, hoy",
+        "Economía",
+        "Salud",
+        "Plata pública"
+      ],
+      "seguimiento": true,
+      "noticias": 10,
+      "terminos": [
+        "licencia",
+        "medica",
+        "artificial",
+        "inteligencia",
+        "fiscalizar",
+        "funcionario",
+        "obtener",
+        "sondeo"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-28",
+          "nivel": "B",
+          "titular": "Un estudio examina brechas de género en la cobertura periodística de inteligencia artificial",
+          "seccion": "Ciencia y tecnología"
+        },
+        {
+          "fecha": "2026-09-29",
+          "nivel": "B",
+          "titular": "Suseso estrena VigIA para fiscalizar licencias médicas",
+          "seccion": "Ciencia y tecnología"
+        },
+        {
+          "fecha": "2026-09-30",
+          "nivel": "B",
+          "titular": "La minería prueba inteligencia artificial para elevar la producción de cobre",
+          "seccion": "Economía"
+        },
+        {
+          "fecha": "2026-10-01",
+          "nivel": "C",
+          "titular": "Un sondeo registra que persiste la percepción de facilidad para obtener licencias médicas pese a los controles recientes",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-03",
+          "nivel": "A",
+          "titular": "La Contraloría cuenta 7.207 funcionarios que salieron del país con licencia médica en 2025",
+          "seccion": "Plata pública"
+        }
+      ],
+      "dossier": {
+        "slug": "fonasa-licencias-falsas",
+        "titulo": "Caso: FONASA, megafraude de licencias médicas falsas"
+      },
+      "explicado": null
+    },
+    {
+      "puesto": 2,
+      "puntaje": 13,
+      "dias": [
+        "2026-09-28",
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01"
+      ],
+      "niveles": [
+        "A",
+        "B",
+        "A",
+        "B"
+      ],
+      "secciones": [
+        "Política"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "america",
+        "escudo",
+        "antecedent",
+        "camara",
+        "control",
+        "critico",
+        "diputado",
+        "enfrenta"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-28",
+          "nivel": "A",
+          "titular": "Pérez Mackenna enfrenta una interpelación inédita por el Escudo de las Américas",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-09-29",
+          "nivel": "B",
+          "titular": "Diputados llevan el Escudo de las Américas a Contraloría",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-09-30",
+          "nivel": "A",
+          "titular": "La Cámara exige los antecedentes del Escudo de las Américas",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-10-01",
+          "nivel": "B",
+          "titular": "El Escudo de las Américas suma preguntas por minerales críticos y control parlamentario",
+          "seccion": "Política"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 3,
+      "puntaje": 12,
+      "dias": [
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01",
+        "2026-10-02"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "A",
+        "B"
+      ],
+      "secciones": [
+        "Mercados y bolsillo",
+        "Economía"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "alcanza",
+        "nivel",
+        "dolar",
+        "desempleo",
+        "sube"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-29",
+          "nivel": "B",
+          "titular": "El dólar alcanza su mayor nivel en más de un año",
+          "seccion": "Mercados y bolsillo"
+        },
+        {
+          "fecha": "2026-09-30",
+          "nivel": "B",
+          "titular": "El dólar alcanza su mayor nivel en más de un año",
+          "seccion": "Economía"
+        },
+        {
+          "fecha": "2026-10-01",
+          "nivel": "A",
+          "titular": "El desempleo sube a 9,6% y alcanza su mayor nivel en más de cinco años",
+          "seccion": "Economía"
+        },
+        {
+          "fecha": "2026-10-02",
+          "nivel": "B",
+          "titular": "El dólar alcanza su mayor nivel en más de un año",
+          "seccion": "Economía"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 4,
+      "puntaje": 11.5,
+      "dias": [
+        "2026-09-28",
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-02"
+      ],
+      "niveles": [
+        "B",
+        "C",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Mercados y bolsillo",
+        "Además, hoy",
+        "Economía"
+      ],
+      "seguimiento": true,
+      "noticias": 4,
+      "terminos": [
+        "alza",
+        "combustibl",
+        "camionero",
+        "absorber",
+        "advierten",
+        "ante",
+        "bono",
+        "diesel"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-28",
+          "nivel": "B",
+          "titular": "Camioneros advierten que no pueden absorber otra alza de combustibles",
+          "seccion": "Mercados y bolsillo"
+        },
+        {
+          "fecha": "2026-09-29",
+          "nivel": "C",
+          "titular": "Gremios de camioneros emplazaron al Gobierno por el alza del diésel, antes de la variación oficial que regirá desde el 01-10-2026",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-09-30",
+          "nivel": "B",
+          "titular": "Gobierno extiende bonos por el alza de combustibles",
+          "seccion": "Mercados y bolsillo"
+        },
+        {
+          "fecha": "2026-10-02",
+          "nivel": "B",
+          "titular": "El alza de combustibles abre una disputa por su impacto en los hogares",
+          "seccion": "Economía"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 5,
+      "puntaje": 11,
+      "dias": [
+        "2026-09-30",
+        "2026-10-01",
+        "2026-10-02",
+        "2026-10-03"
+      ],
+      "niveles": [
+        "A",
+        "B",
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Actualidad",
+        "Medioambiente y clima",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "region",
+        "frontal",
+        "sistema",
+        "alerta",
+        "preventiva",
+        "viento",
+        "antofagasta",
+        "aviso"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-30",
+          "nivel": "A",
+          "titular": "Sistema frontal obliga a cerrar Los Libertadores y pone a varias regiones bajo vigilancia",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-10-01",
+          "nivel": "B",
+          "titular": "Biobío mantiene alerta preventiva y el viento se extenderá por siete regiones",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-10-02",
+          "nivel": "C",
+          "titular": "Un sistema frontal llevó chubascos y viento a la Región de Valparaíso",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-03",
+          "nivel": "B",
+          "titular": "El sistema frontal deja avisos en once regiones y alertas preventivas en Coquimbo y Antofagasta",
+          "seccion": "Medioambiente y clima"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 6,
+      "puntaje": 10.5,
+      "dias": [
+        "2026-09-30",
+        "2026-10-01"
+      ],
+      "niveles": [
+        "A",
+        "B"
+      ],
+      "secciones": [
+        "Seguridad y Justicia",
+        "Plata pública"
+      ],
+      "seguimiento": true,
+      "noticias": 2,
+      "terminos": [
+        "condenan",
+        "exfuncionaria",
+        "fisco",
+        "fraude",
+        "maipu",
+        "barriga",
+        "vinculada"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-30",
+          "nivel": "A",
+          "titular": "Condenan por fraude al fisco a exfuncionaria de Maipú vinculada al caso Barriga",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-10-01",
+          "nivel": "B",
+          "titular": "Condenan a exfuncionaria de Maipú por fraude al fisco",
+          "seccion": "Plata pública"
+        }
+      ],
+      "dossier": {
+        "slug": "maipu-cathy-barriga",
+        "titulo": "Caso: Municipalidad de Maipú (causa Cathy Barriga)"
+      },
+      "explicado": null
+    },
+    {
+      "puesto": 7,
+      "puntaje": 9,
+      "dias": [
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "B",
+        "C"
+      ],
+      "secciones": [
+        "Seguridad y Justicia",
+        "Plata pública",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "hermosilla",
+        "judicial",
+        "nombramiento",
+        "declara",
+        "luis",
+        "pago",
+        "antecedente",
+        "continua"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-29",
+          "nivel": "B",
+          "titular": "Hermosilla declara sobre influencias en nombramientos judiciales",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-09-30",
+          "nivel": "B",
+          "titular": "Hermosilla declara sobre pagos y redes para nombramientos judiciales",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-10-01",
+          "nivel": "B",
+          "titular": "Pagos relatados por Luis Hermosilla abren una hipótesis de fraude fiscal",
+          "seccion": "Plata pública"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 8,
+      "puntaje": 8,
+      "dias": [
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Salud"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "confirma",
+        "importado",
+        "sarampion",
+        "tercer"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-29",
+          "nivel": "B",
+          "titular": "Chile confirma un nuevo caso importado de sarampión",
+          "seccion": "Salud"
+        },
+        {
+          "fecha": "2026-09-30",
+          "nivel": "B",
+          "titular": "Chile confirma el tercer caso importado de sarampión de 2026",
+          "seccion": "Salud"
+        },
+        {
+          "fecha": "2026-10-01",
+          "nivel": "B",
+          "titular": "Chile confirma un tercer caso importado de sarampión",
+          "seccion": "Salud"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 9,
+      "puntaje": 8,
+      "dias": [
+        "2026-09-28",
+        "2026-09-29",
+        "2026-10-01"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "C",
+        "C"
+      ],
+      "secciones": [
+        "Medioambiente y clima",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "electrica",
+        "tormenta",
+        "aviso",
+        "valparaiso",
+        "alcanzan",
+        "anticipo",
+        "biobio",
+        "chubasco"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-28",
+          "nivel": "B",
+          "titular": "Avisos por tormentas eléctricas alcanzan al sur y a Valparaíso",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-09-29",
+          "nivel": "B",
+          "titular": "Biobío enfrenta lluvias y tormentas eléctricas",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-10-01",
+          "nivel": "C",
+          "titular": "El aviso nacional de viento incluye la cordillera de Valparaíso, como se detalla en Medioambiente y clima",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 10,
+      "puntaje": 8,
+      "dias": [
+        "2026-09-29",
+        "2026-10-02",
+        "2026-10-03"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Educación",
+        "Política",
+        "Seguridad y Justicia"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "recort",
+        "movilizacion",
+        "presupuestario",
+        "confech",
+        "debate",
+        "denuncia",
+        "deriva",
+        "educacion"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-29",
+          "nivel": "B",
+          "titular": "La Confech prepara movilización por recortes presupuestarios",
+          "seccion": "Educación"
+        },
+        {
+          "fecha": "2026-10-02",
+          "nivel": "B",
+          "titular": "La protesta estudiantil instala los recortes educativos en el debate presupuestario",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-10-03",
+          "nivel": "B",
+          "titular": "La movilización por los recortes en educación deriva en una denuncia penal y en una petición de mesa",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    }
+  ],
+  "fuera_por_ya_explicado": [
+    {
+      "puntaje": 19,
+      "dias": [
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01",
+        "2026-10-02",
+        "2026-10-03"
+      ],
+      "niveles": [
+        "A",
+        "B",
+        "B",
+        "A",
+        "C",
+        "C",
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Trabajo y empleo",
+        "Gobierno, aliados y oposición",
+        "Además, hoy",
+        "Chile en regiones"
+      ],
+      "seguimiento": false,
+      "noticias": 8,
+      "terminos": [
+        "despega",
+        "plan",
+        "gasto",
+        "presupuesto",
+        "proyecta",
+        "aumento",
+        "antofagasta",
+        "billon"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-29",
+          "nivel": "A",
+          "titular": "Chile Despega compromete $1,3 billones y proyecta más de 100 mil empleos",
+          "seccion": "Trabajo y empleo"
+        },
+        {
+          "fecha": "2026-09-30",
+          "nivel": "B",
+          "titular": "Presupuesto 2027 proyecta un aumento del gasto cercano al 1,5%",
+          "seccion": "Gobierno, aliados y oposición"
+        },
+        {
+          "fecha": "2026-10-01",
+          "nivel": "A",
+          "titular": "El Gobierno ingresa el Presupuesto 2027 con un aumento de gasto de 1,5%",
+          "seccion": "Gobierno, aliados y oposición"
+        },
+        {
+          "fecha": "2026-10-02",
+          "nivel": "C",
+          "titular": "Conapyme pidió que las medidas del plan Chile Despega lleguen efectivamente a las micro, pequeñas y medianas empresas",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-03",
+          "nivel": "B",
+          "titular": "El plan Chile Despega parte en Antofagasta y Magallanes",
+          "seccion": "Chile en regiones"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "ley-presupuestos-chile",
+        "titulo": "Ley de Presupuestos en Chile: quién decide el gasto, qué puede cambiar el Congreso y qué ocurre si no hay acuerdo"
+      }
+    },
+    {
+      "puntaje": 6,
+      "dias": [
+        "2026-10-01",
+        "2026-10-03"
+      ],
+      "niveles": [
+        "B",
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Economía",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "banco",
+        "caida",
+        "central",
+        "imacec",
+        "agosto",
+        "ante",
+        "automatizacion",
+        "cierra"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-01",
+          "nivel": "B",
+          "titular": "El Banco Central vincula la debilidad laboral con costos y automatización",
+          "seccion": "Economía"
+        },
+        {
+          "fecha": "2026-10-03",
+          "nivel": "B",
+          "titular": "El Gobierno responde a la caída del Imacec y pide mover la inversión",
+          "seccion": "Economía"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "como-leer-ipom",
+        "titulo": "Cómo leer el IPoM: proyecciones, supuestos y riesgos detrás de las decisiones del Banco Central"
+      }
+    },
+    {
+      "puntaje": 3,
+      "dias": [
+        "2026-10-01"
+      ],
+      "niveles": [
+        "B"
+      ],
+      "secciones": [
+        "Seguridad y Justicia"
+      ],
+      "seguimiento": true,
+      "noticias": 1,
+      "terminos": [
+        "atacama",
+        "compra",
+        "corrupcion",
+        "funcionario",
+        "preventiva",
+        "prision",
+        "publica"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-01",
+          "nivel": "B",
+          "titular": "Tres funcionarios quedan en prisión preventiva por corrupción en compras públicas de Atacama",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "prision-preventiva-chile",
+        "titulo": "Prisión preventiva en Chile: cuándo puede ordenarse y por qué no equivale a una condena"
+      }
+    },
+    {
+      "puntaje": 2,
+      "dias": [
+        "2026-09-30"
+      ],
+      "niveles": [
+        "B"
+      ],
+      "secciones": [
+        "Mercados y bolsillo"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "afiliado",
+        "conocen",
+        "fondo",
+        "generacional",
+        "poco"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-09-30",
+          "nivel": "B",
+          "titular": "Siete de cada diez afiliados conocen poco los fondos generacionales",
+          "seccion": "Mercados y bolsillo"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "fondos-generacionales-ciclo-de-vida",
+        "titulo": "Fondos generacionales: cómo el ciclo de vida cambia el riesgo de los ahorros previsionales"
+      }
+    },
+    {
+      "puntaje": 2,
+      "dias": [
+        "2026-10-03"
+      ],
+      "niveles": [
+        "B"
+      ],
+      "secciones": [
+        "Seguridad y Justicia"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "comienza",
+        "juicio",
+        "megaincendio",
+        "oral",
+        "quilpue",
+        "valparaiso"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-03",
+          "nivel": "B",
+          "titular": "Comienza el juicio oral por el megaincendio de Valparaíso y Quilpué de 2024",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "acusacion-preparacion-juicio-oral",
+        "titulo": "De la acusación al juicio oral: qué se decide antes de juzgar un delito en Chile"
+      }
+    },
+    {
+      "puntaje": 1,
+      "dias": [
+        "2026-10-02"
+      ],
+      "niveles": [
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "camara",
+        "capital",
+        "comision",
+        "general",
+        "hacienda",
+        "mercado",
+        "reforma",
+        "supera"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-02",
+          "nivel": "C",
+          "titular": "Reforma al mercado de capitales supera su votación general en la Comisión de Hacienda de la Cámara",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "mercado-capitales-credito-hipotecario",
+        "titulo": "Mercado de capitales y crédito hipotecario: por qué el costo de financiar a los bancos termina influyendo en la tasa de una vivienda"
+      }
+    }
+  ]
+}
