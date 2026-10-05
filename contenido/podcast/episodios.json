@@ -465,5 +465,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-04-informe.mp3",
     "bytes": 19405440,
     "durSeg": 809
+  },
+  {
+    "fecha": "2026-10-05",
+    "tipo": "informe",
+    "titulo": "05-10-2026 · Brasil va a segunda vuelta con Flávio Bolsonaro primero y Lula a menos de dos puntos",
+    "descripcion": "Brasil definirá su presidencia en segunda vuelta después de una elección estrecha. En Chile, revisamos la formalización de la primera célula local atribuida al PCC, el nuevo consolidado de Contraloría, la discusión presupuestaria y los avisos de lluvia para la zona central.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-05-informe.mp3",
+    "bytes": 16702848,
+    "durSeg": 696
   }
 ]
