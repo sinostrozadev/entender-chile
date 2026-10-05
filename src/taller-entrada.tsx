@@ -14,10 +14,15 @@ import { EntradaDeMarca } from "./entrada";
 const TEXTO = "Brasil decidirá su presidencia en segunda vuelta el 25 de octubre, después de que ninguno de los dos candidatos llegara a la mayoría absoluta.";
 const DUR = 8;
 
-const Pantalla: React.FC = () => (
-  <EntradaDeMarca fecha="2026-10-05" serie="informe" texto={TEXTO} vozEn={2.2} durSeg={DUR} />
+// `texto` vacío sirve para MEDIR: deja la zona del párrafo con el fondo y el
+// velo y sin letras encima, que es lo único contra lo que tiene sentido medir
+// el contraste. Medirlo con el texto puesto da 1:1, porque el píxel más
+// parecido al texto es el texto.
+const Pantalla: React.FC<{ texto: string }> = ({ texto }) => (
+  <EntradaDeMarca fecha="2026-10-05" serie="informe" texto={texto} vozEn={2.2} durSeg={DUR} />
 );
 
 registerRoot(() => (
-  <Composition id="Entrada" component={Pantalla} width={1920} height={1080} fps={24} durationInFrames={24 * DUR} />
+  <Composition id="Entrada" component={Pantalla} width={1920} height={1080} fps={24}
+    durationInFrames={24 * DUR} defaultProps={{ texto: TEXTO }} />
 ));

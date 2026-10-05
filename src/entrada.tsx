@@ -38,19 +38,24 @@ import React from "react";
 import { AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { tema, estiloEyebrow } from "./tema";
 import { Fondo } from "./fondos";
+import { paletaDe, Respaldo, type Tono } from "./legible";
+import configEntrada from "../contenido/config/entrada.json";
 
-// La imagen de fondo de la entrada. Vale la ruta dentro de public/.
-const FONDO_ENTRADA = "fondos/entrada.png";
-
-// EL TEXTO SE INVIRTIÓ CON EL FONDO (05-10-2026). Hasta ayer esta pantalla era
-// papel crema con tinta encima; la imagen nueva es azul noche, así que el mismo
-// texto en tinta habría quedado invisible. Ahora va en papel sobre el azul.
-// El verde pátina del canal (#2F7263) tampoco sobrevive sobre oscuro: se aclara
-// a este, que es el mismo verde con más luz y sigue siendo el acento de la
-// casa. La sombra es suave y solo está para despegar el texto de las zonas
-// donde la imagen tiene brillo.
-const PATINA_CLARA = "#6FC9AE";
-const SOMBRA = "0 2px 18px rgba(10,14,22,0.55)";
+// EL FONDO Y SU TONO SALEN DE UN DATO, no de acá (05-10-2026). El mismo día la
+// pantalla cambió de clara a oscura y de vuelta a clara, y cada vuelta costó
+// invertir cuatro colores a mano. Ahora el fondo declara si es claro u oscuro y
+// la paleta del texto se arma sola, con el velo que lo hace legible aunque la
+// imagen tenga una mancha justo donde cae una palabra. El porqué completo está
+// en src/legible.tsx.
+const ELEGIDO = (() => {
+  const activo = String(configEntrada.activo || "claro");
+  const lista = (configEntrada.fondos || []) as Array<{ id: string; imagen: string; tono: Tono; fuerza?: number }>;
+  return lista.find((f) => f.id === activo) || lista[0];
+})();
+const FONDO_ENTRADA = ELEGIDO?.imagen || "fondos/entrada.png";
+const TONO: Tono = ELEGIDO?.tono || "claro";
+const FUERZA_VELO = typeof ELEGIDO?.fuerza === "number" ? ELEGIDO.fuerza : 0.62;
+const PALETA = paletaDe(TONO);
 
 // Lo mínimo que la portada se queda quieta antes de empezar a irse. La apertura
 // a veces arranca su voz muy pegada al sello, y sin este piso la marca entraría
@@ -146,8 +151,12 @@ export const EntradaDeMarca: React.FC<{
   const textoSube = interpolate(viaje, [0.5, 1], [26, 0], suave);
 
   return (
-    <AbsoluteFill style={{ backgroundColor: tema.tinta, opacity: Math.min(entrada, salida) }}>
+    <AbsoluteFill style={{ backgroundColor: TONO === "oscuro" ? tema.tinta : tema.papel, opacity: Math.min(entrada, salida) }}>
       <FondoDeEntrada />
+      {/* el velo va DESPUÉS de la imagen y ANTES del texto: en la portada
+          arranca del centro, que es donde está la marca, y en la apertura del
+          borde izquierdo, que es adonde se fue el texto */}
+      <Respaldo tono={TONO} lado={viaje < 0.5 ? "centro" : "izquierda"} hasta={ANCHO_APERTURA} fuerza={FUERZA_VELO} />
 
       {/* el párrafo de la apertura, a la izquierda y en su 70% */}
       <div
@@ -162,8 +171,8 @@ export const EntradaDeMarca: React.FC<{
           fontFamily: tema.sans,
           fontSize: 42,
           lineHeight: 1.5,
-          color: tema.papel,
-          textShadow: SOMBRA,
+          color: PALETA.texto,
+          textShadow: PALETA.sombra,
         }}
       >
         {texto}
@@ -181,15 +190,15 @@ export const EntradaDeMarca: React.FC<{
           position: "absolute", left: 0, right: 0, textAlign: "center",
           top: `calc(50% - ${MEDIA_MARCA + SEPARA}px)`, transform: "translateY(-100%)",
         }}>
-          <div style={{ ...estiloEyebrow, color: PATINA_CLARA }}>{rotulo}</div>
+          <div style={{ ...estiloEyebrow, color: PALETA.acento }}>{rotulo}</div>
         </div>
         <div style={{
           position: "absolute", left: 0, right: 0, textAlign: "center",
           top: `calc(50% + ${MEDIA_MARCA + SEPARA}px)`,
         }}>
-          <div style={{ width: rayaAncho, height: 4, backgroundColor: PATINA_CLARA, margin: "0 auto 34px" }} />
+          <div style={{ width: rayaAncho, height: 4, backgroundColor: PALETA.acento, margin: "0 auto 34px" }} />
           {fechaLarga ? (
-            <div style={{ fontFamily: tema.mono, fontSize: 30, letterSpacing: "0.08em", color: "rgba(242,242,239,0.72)" }}>
+            <div style={{ fontFamily: tema.mono, fontSize: 30, letterSpacing: "0.08em", color: PALETA.suave }}>
               {fechaLarga}
             </div>
           ) : null}
@@ -210,8 +219,8 @@ export const EntradaDeMarca: React.FC<{
           fontSize: marcaTam,
           fontWeight: 600,
           lineHeight: 1.05,
-          color: tema.papel,
-          textShadow: SOMBRA,
+          color: PALETA.texto,
+          textShadow: PALETA.sombra,
           opacity: interpolate(viaje, [0.6, 1], [1, 0.62], suave),
         }}
       >

@@ -1,0 +1,24 @@
+{
+  "_": "GENERADO A MANO, y es la fuente de verdad del FONDO DE LA PANTALLA DE ENTRADA: la imagen que va detrás de la portada del canal y del párrafo de apertura. Lo lee src/entrada.tsx al compilar y scripts/datos-taller.js lo copia al taller. CADA FONDO DECLARA SU `fuerza`: cuánto tapa el velo que va detrás del texto. Se mide, no se estima (ver src/legible.tsx).",
+  "_porque": "Nació el 05-10-2026, cuando Santiago cambió el fondo azul por uno claro y dijo que el azul 'no va con el estilo claro, es otro estilo'. Hasta ese momento la imagen y los colores del texto estaban escritos dentro de src/entrada.tsx, así que cambiar de fondo obligaba a tocar código y a acordarse de invertir cuatro colores. Ahora el fondo declara su TONO y el texto se arma solo.",
+  "version": 1,
+  "activo": "claro",
+  "fondos": [
+    {
+      "id": "claro",
+      "nombre": "lámina clara",
+      "imagen": "fondos/entrada.png",
+      "tono": "claro",
+      "que": "Papel cuadriculado hueso con la lámina de una portada de diario dibujada a línea en la mitad derecha, y una barra verde pátina. La mitad izquierda queda limpia, que es donde viven la marca y el párrafo de apertura. Es la que calza con el estilo papel, que es el que rige en las imágenes de sección.",
+      "fuerza": 0.62
+    },
+    {
+      "id": "oscuro",
+      "nombre": "diagonales oscuras",
+      "imagen": "fondos/entrada-oscuro.png",
+      "tono": "oscuro",
+      "que": "Azul noche con diagonales y un acento verde agua a la derecha. Estuvo al aire unas horas el 05-10-2026 y salió: no es del mismo estilo que las imágenes de sección, que son claras y a línea. Queda guardada para cuando exista un estilo oscuro completo.",
+      "fuerza": 0.9
+    }
+  ]
+}
