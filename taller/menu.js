@@ -30,6 +30,7 @@ window.MENU = {
       nombre: "El video",
       url: "https://claude.ai/artifact/KWxSLBrQUfE5yjAb2uTGfR",
       pantallas: [
+        { id: "entrada", nombre: "Entrada" },
         { id: "tarjetas", nombre: "Tarjetas" },
         { id: "fondos", nombre: "Fondos" },
         { id: "eventos", nombre: "Eventos" },

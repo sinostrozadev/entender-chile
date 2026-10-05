@@ -177,6 +177,28 @@
 
   <div class="aviso" id="aviso" hidden></div>
 
+  <section id="p-entrada" hidden>
+    <h1>La entrada</h1>
+    <p class="bajada"><strong>Lo primero que se ve.</strong> La portada del canal, la marca bajando en diagonal a la esquina y el párrafo de apertura entrando en su 70%, todo en un solo movimiento. Reemplazó al sello suelto y a la transición de mosaico que había entre el inicio y la apertura.</p>
+    <div class="aviso">
+      <p><strong>Desde el 05-10-2026 el fondo es una imagen</strong>, <code>public/fondos/entrada.png</code>, y ya no la textura dibujada en código. Eso obligó a invertir el texto: la pantalla era papel crema con tinta y ahora es azul noche con papel, y el verde pátina de la casa se aclaró para que se lea sobre oscuro.</p>
+    </div>
+    <div class="muestra">
+      <div class="lado">
+        <video src="entrada-antes.mp4" controls muted loop playsinline preload="metadata"></video>
+        <b>hasta el 04-10</b>
+        <span>la textura dibujada en código sobre papel crema, con el texto en tinta</span>
+      </div>
+      <div class="lado">
+        <video src="entrada-despues.mp4" controls muted loop playsinline preload="metadata"></video>
+        <b>desde el 05-10</b>
+        <span>la imagen azul que entregó Santiago, con el texto invertido</span>
+      </div>
+    </div>
+    <div id="pedido-entrada"></div>
+    <p class="pie">Los dos clips son los mismos ocho segundos, con el mismo párrafo de apertura de una edición real, para que lo único distinto entre ellos sea el fondo. Sin sonido. La pantalla vive en <code>src/entrada.tsx</code> y se enciende con <code>ENTRADA_MARCA</code>, que está al aire desde el 01-10-2026.</p>
+  </section>
+
   <section id="p-tarjetas" hidden>
     <h1>Las tarjetas</h1>
     <p class="bajada"><strong>Una tarjeta decide qué se ve y cómo se compone</strong>: el párrafo, la cifra grande, el esquema con flechas, el dibujo de la biblioteca. Es el nivel donde se crean cosas nuevas y por donde entran las imágenes.</p>
@@ -671,6 +693,14 @@
 
     pintarEventos();
     pintarTransiciones();
+
+    // la entrada no tiene números sueltos ni ficha: su composición es código.
+    // Lo único que ofrece esta pantalla es el pedido, que es como se cambia.
+    var pe = el("pedido-entrada");
+    if (pe) {
+      pe.textContent = "";
+      pe.appendChild(fichaPedido({ id: "entrada", nombre: "la entrada" }));
+    }
   }
 
   // LOS EVENTOS. No se editan desde acá: lo que un evento es lo decide la marca
@@ -792,7 +822,7 @@
   // EL ROUTER. La pantalla viaja en el ancla de la URL, así el menú de la otra
   // página puede enlazar directo a una de acá (menu.js arma esos enlaces) y así
   // recargar no devuelve siempre a la primera.
-  var PANTALLAS = ["tarjetas", "fondos", "eventos", "transiciones"];
+  var PANTALLAS = ["entrada", "tarjetas", "fondos", "eventos", "transiciones"];
   var actual = null;
 
   function mostrar(id, empujar) {
