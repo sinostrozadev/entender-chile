@@ -181,7 +181,8 @@
     <h1>La entrada</h1>
     <p class="bajada"><strong>Lo primero que se ve.</strong> La portada del canal, la marca bajando en diagonal a la esquina y el párrafo de apertura entrando en su 70%, todo en un solo movimiento. Reemplazó al sello suelto y a la transición de mosaico que había entre el inicio y la apertura.</p>
     <div class="aviso">
-      <p><strong>Desde el 05-10-2026 el fondo es una imagen</strong>, <code>public/fondos/entrada.png</code>, y ya no la textura dibujada en código. Eso obligó a invertir el texto: la pantalla era papel crema con tinta y ahora es azul noche con papel, y el verde pátina de la casa se aclaró para que se lea sobre oscuro.</p>
+      <p><strong>Desde el 05-10-2026 el fondo es una imagen y es un dato</strong>, no código: vive en <code>contenido/config/entrada.json</code> con su <strong>tono</strong> (claro u oscuro) y la fuerza de su velo. El texto se arma solo a partir del tono, así que cambiar de fondo ya no obliga a invertir colores a mano.</p>
+      <p><strong>El velo</strong> va entre la imagen y el texto, del color del fondo, y llega hasta donde llega el texto. No es decoración: medido bajo el párrafo de apertura, el contraste mínimo pasó de 4,04 a 7,94 a 1 sobre la lámina clara, y de 1,00 a 3,98 sobre la azul. Un 1,00 a 1 es texto invisible.</p>
     </div>
     <div class="muestra">
       <div class="lado">
@@ -190,9 +191,14 @@
         <span>la textura dibujada en código sobre papel crema, con el texto en tinta</span>
       </div>
       <div class="lado">
+        <video src="entrada-azul.mp4" controls muted loop playsinline preload="metadata"></video>
+        <b>la azul, unas horas del 05-10</b>
+        <span>salió porque no es del mismo estilo que las imágenes de sección, que son claras y a línea. Queda guardada como variante oscura</span>
+      </div>
+      <div class="lado">
         <video src="entrada-despues.mp4" controls muted loop playsinline preload="metadata"></video>
-        <b>desde el 05-10</b>
-        <span>la imagen azul que entregó Santiago, con el texto invertido</span>
+        <b>al aire desde el 05-10</b>
+        <span>la lámina clara, con el velo atado al ancho del párrafo. Es el estilo Lámina, que está en la biblioteca</span>
       </div>
     </div>
     <div id="pedido-entrada"></div>
