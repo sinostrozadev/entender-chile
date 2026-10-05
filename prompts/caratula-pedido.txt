@@ -1,0 +1,327 @@
+Crea una CARÁTULA DE YOUTUBE 16:9 para un canal de noticias y actualidad.
+
+DATOS QUE YO ENTREGO:
+
+CLIMA DE LA CARÁTULA:
+{{CLIMA}}
+
+GANCHO QUE VA ENCIMA:
+{{GANCHO}}
+
+NOTICIA DE PORTADA:
+{{NOTICIA}}
+
+A partir de esos tres datos, TÚ TOMAS TODAS LAS DECISIONES CREATIVAS.
+
+OBJETIVO PRINCIPAL:
+Crear la carátula con mayor potencial de CTR posible sin sacrificar credibilidad periodística.
+
+No quiero una simple ilustración de la noticia. Quiero una miniatura concebida específicamente para detener el scroll, despertar una pregunta inmediata en la mente del espectador y hacer que quiera entrar al video para comprender qué ocurrió, qué significa o qué puede ocurrir después.
+
+ANTES DE DISEÑAR, interpreta la noticia y encuentra por tu cuenta:
+
+- cuál es el elemento visual más potente;
+- cuál es el conflicto central;
+- qué consecuencia despierta más curiosidad;
+- qué objeto, lugar, persona, acción o símbolo permite entender la noticia en menos de un segundo;
+- qué información debe mostrarse y cuál conviene deliberadamente NO resolver en la miniatura;
+- qué composición funcionará mejor cuando la imagen se vea pequeña en un teléfono.
+
+NO ME PIDAS decisiones adicionales.
+Tú eres el director creativo.
+
+PRINCIPIO FUNDAMENTAL
+
+La miniatura NO debe contar toda la noticia.
+
+Debe crear una BRECHA DE CURIOSIDAD entre lo que el espectador ve y lo que necesita descubrir entrando al video.
+
+El GANCHO y la IMAGEN deben complementarse.
+
+NO conviertas el texto de la noticia en un titular largo dentro de la imagen.
+
+NO repitas visualmente exactamente lo mismo que dice el gancho.
+
+La imagen debe aportar la segunda mitad de la idea.
+
+Ejemplo conceptual:
+
+Texto:
+"¿QUÉ CAMBIA AHORA?"
+
+Imagen:
+una urna, un edificio institucional, una decisión visualmente evidente o una escena que haga comprender qué está en juego.
+
+El espectador debe pensar:
+"Quiero saber la respuesta."
+
+JERARQUÍA VISUAL
+
+Debe existir UN protagonista visual inequívoco.
+
+Después, como máximo:
+
+- un segundo elemento que explique el contexto;
+- un fondo que sitúe la noticia.
+
+Evita composiciones con cinco o seis cosas compitiendo.
+
+La miniatura debe poder entenderse aproximadamente así:
+
+0,5 segundos: tema general.
+1 segundo: conflicto.
+2 segundos: pregunta o curiosidad.
+
+Usa profundidad clara:
+
+PRIMER PLANO:
+el elemento emocional o conceptual decisivo.
+
+SEGUNDO PLANO:
+contexto indispensable.
+
+FONDO:
+lugar, institución, ciudad, paisaje o atmósfera relacionada con la noticia.
+
+Cuando corresponda, utiliza escala exagerada, encuadres cercanos, diagonales, contraste de tamaños, profundidad y separación clara de planos.
+
+EL GANCHO
+
+EL GANCHO NO VA DENTRO DE LA IMAGEN. Lo pinta el código encima, con la
+tipografía del canal y la ortografía exacta. Tú recibes el texto del gancho
+para saber QUÉ va a decir y componer la imagen que lo complementa, no para
+escribirlo.
+
+Entonces: la imagen sale SIN texto, sin letras y sin números.
+
+Y deja la MITAD INFERIOR IZQUIERDA oscura y despejada, porque ahí se pinta el
+gancho. Si pones ahí el sujeto, el texto queda ilegible y la carátula se
+descarta.
+
+Todo lo demás de esta sección sigue valiendo: el gancho y la imagen se
+complementan, la imagen aporta la segunda mitad de la idea, y menos es mejor.
+Nunca llenes la miniatura de explicaciones.
+
+COMPOSICIÓN
+
+Diseña pensando primero en una pantalla de teléfono.
+
+Usa zonas grandes y reconocibles.
+
+Evita detalles pequeños importantes.
+
+Evita colocar información crítica junto a los bordes.
+
+Mantén libre la zona inferior derecha de información esencial porque YouTube puede colocar ahí la duración del video.
+
+No hagas una composición perfectamente simétrica salvo que la noticia lo justifique.
+
+Prefiere tensión visual controlada:
+
+- sujeto desplazado;
+- diagonales;
+- dirección de mirada;
+- objetos entrando al cuadro;
+- espacio negativo;
+- contraste entre masas.
+
+Debe sentirse diseñada por un director de arte, no generada mediante una plantilla automática.
+
+CLIMA
+
+El valor indicado en CLIMA DE LA CARÁTULA define la emoción dominante.
+
+Ese valor es SIEMPRE una de estas seis palabras, y cada una fija la LUZ:
+
+grave: NOCHE. Azul noche, contraluz duro, casi monocromo.
+institucional: DÍA nublado. Gris piedra y azul acero, luz de ventana de lado.
+cotidiano: DÍA claro. Grises cálidos y beige, luz natural, sombras suaves.
+bueno: MAÑANA. Luz cálida y dorada, fondo claro, aire limpio.
+curioso: DÍA. Colores limpios y saturados, fondo claro, luz pareja.
+deporte: Luz de estadio o exterior, alto contraste, verdes o azules saturados.
+
+SOLO grave es de noche. Los otros cinco son de día, con luz. El 24-09-2026
+salió una carátula nocturna para una noticia declarada institucional, y la
+mayoría de los días el clima es institucional o cotidiano: si todas salen en
+penumbra, el canal entero se ve igual a la semana.
+
+Dentro de esa luz, interprétalo creativamente. Estos vocabularios son para el
+TIPO de noticia, y se combinan con la luz de arriba:
+
+INSTITUCIONAL:
+autoridad, edificios públicos, decisiones, documentos, votación, poder, sobriedad, arquitectura, símbolos oficiales, iluminación periodística.
+
+URGENTE:
+tensión, movimiento, contraste, instante crítico, acción inmediata.
+
+ECONÓMICO:
+dinero, precios, mercados, documentos, comercio, objetos cotidianos afectados, cifras solo cuando sean esenciales.
+
+POLICIAL/JUDICIAL:
+evidencia, expedientes, tribunales, investigación, espacios institucionales, tensión contenida.
+
+HUMANO:
+rostros, gestos, consecuencias sobre personas, cercanía emocional.
+
+INTERNACIONAL:
+escala geopolítica, territorio, instituciones, fronteras, líderes o símbolos nacionales.
+
+No conviertas automáticamente "urgente" en rojo ni "institucional" en aburrido.
+Busca una solución visual propia para cada noticia.
+
+VERACIDAD
+
+Si la noticia menciona una persona real, edificio real, institución real, objeto oficial, infraestructura conocida, bandera, mapa, monumento o lugar identificable:
+
+REPRESÉNTALO CORRECTAMENTE.
+
+No inventes arquitectura.
+No mezcles instituciones.
+No inventes uniformes, insignias, escudos ni documentos oficiales.
+
+Cuando no puedas garantizar un detalle específico, usa una representación visual más general antes que inventar información.
+
+La espectacularidad nunca debe modificar el hecho periodístico.
+
+No muestres como ocurrido algo que la noticia solo plantea como posibilidad.
+
+CLICKBAIT: SÍ A LA CURIOSIDAD, NO AL ENGAÑO
+
+Puedes usar:
+
+- dramatización visual;
+- contraste;
+- encuadres cinematográficos;
+- escala;
+- iluminación;
+- suspenso;
+- expectativa;
+- símbolos;
+- proximidad;
+- una acción congelada justo antes de resolverse.
+
+No puedes inventar:
+
+- catástrofes;
+- explosiones;
+- violencia;
+- resultados electorales;
+- culpables;
+- dinero;
+- documentos;
+- arrestos;
+- declaraciones;
+- reacciones;
+- consecuencias que la noticia no sustente.
+
+Haz que el espectador quiera entrar porque la presentación es irresistible, no porque fue engañado.
+
+ESTÉTICA
+
+Calidad editorial premium.
+
+Puede combinar fotografía periodística realista, composición cinematográfica y diseño gráfico contemporáneo cuando eso mejore la miniatura.
+
+Alto contraste perceptual, pero buen gusto.
+
+Iluminación con intención.
+
+Excelente separación entre texto y fondo.
+
+Color coordinado con la noticia.
+
+Evita el aspecto genérico de banco de imágenes.
+
+Evita:
+
+- collage barato;
+- flechas rojas gigantes por defecto;
+- círculos rojos sin propósito;
+- emojis;
+- signos de interrogación enormes sin necesidad;
+- bordes fluorescentes;
+- exceso de glow;
+- cinco tipografías;
+- saturación extrema;
+- caras artificialmente horrorizadas;
+- estética de canal conspirativo.
+
+La miniatura debe competir por clics con canales grandes sin perder la identidad de un medio serio.
+
+PERSONAS
+
+Cuando una persona sea realmente el centro de la noticia, dale protagonismo.
+
+Un rostro reconocible puede ocupar aproximadamente entre un tercio y la mitad del cuadro si eso mejora la historia.
+
+Busca expresión o gesto coherente con el hecho.
+
+NO inventes expresiones extremas.
+
+Si la persona no es importante para entender la noticia, no agregues una cara solo porque las caras generan clics.
+
+COLOR
+
+Construye una paleta específica para la noticia.
+
+Usa normalmente:
+
+- un color dominante;
+- un color de apoyo;
+- un color de acento.
+
+El color de acento debe llevar el ojo hacia el elemento principal o el gancho.
+
+Cuando corresponda a un país, organismo o institución, puedes tomar colores reconocibles de su identidad, pero úsalos de forma editorial, no decorativa.
+
+PRUEBA MENTAL DE MINIATURA
+
+Antes de finalizar, evalúa silenciosamente:
+
+1. ¿Entiendo el tema sin leer?
+2. ¿La mitad inferior izquierda quedó oscura y despejada, para que el gancho se pueda leer en un teléfono cuando el código lo pinte encima?
+3. ¿Hay un solo punto de entrada visual?
+4. ¿Existe una pregunta implícita?
+5. ¿La imagen revela demasiado?
+6. ¿Algo puede eliminarse?
+7. ¿Hay información pequeña que no sobrevivirá al tamaño thumbnail?
+8. ¿La esquina inferior derecha conserva información no esencial?
+9. ¿Parece una noticia específica o una plantilla genérica?
+10. Si apareciera junto a veinte videos, ¿qué elemento detendría el dedo?
+
+Corrige cualquier problema antes de generar.
+
+REGLA FINAL
+
+No sigas una plantilla visual fija entre noticias.
+
+Cada portada debe encontrar SU PROPIA IDEA.
+
+Mantén consistencia de calidad y criterio editorial, pero cambia composición, encuadre, concepto, escala, paleta y recursos según la historia.
+
+Prioriza en este orden:
+
+1. CURIOSIDAD
+2. CLARIDAD INSTANTÁNEA
+3. FUERZA VISUAL
+4. CREDIBILIDAD
+5. BELLEZA
+
+Resultado final:
+UNA SOLA CARÁTULA terminada, 16:9, SIN TEXTO, con la mitad inferior izquierda despejada para el gancho que pinta el código, y una composición diseñada específicamente para maximizar el deseo de hacer clic.
+
+LÍMITES DEL CANAL
+
+(Este bloque no lo escribió el director creativo: son las dos reglas que
+Santiago decidió mantener el 01-10-2026 después de leerlas enteras, porque
+cada una cita su propia consecuencia en YouTube. Si decide soltarlas, se
+borra este bloque y nada más.)
+
+- Sin personas reconocibles ni caras de figuras públicas. En Chile la propia
+  imagen está protegida y el castigo de la política de contenido sintético cae
+  sobre el canal entero, no sobre el video. Donde el prompt de arriba habla de
+  rostros, usa a la persona de espaldas, de lejos, o el objeto que la
+  reemplaza.
+- Nada morboso: sin sangre, sin cuerpos, sin armas apuntando, sin sufrimiento
+  explícito. La monetización se revisa y esto la rompe.
+- Mínimo 1280 x 720. Formato PNG o JPG.

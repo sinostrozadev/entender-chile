@@ -155,18 +155,29 @@ tú. Va después de todo lo demás, en este orden exacto:
 1. **Primero commitea el guion.** Sin excepción. El guion es lo que la
    edición está esperando y lo que Claude valida; la imagen viene después,
    en su propio commit.
-2. Después lee COMPLETO `prompts/imagen-caratula.md` y genera la imagen de
-   la noticia de portada siguiendo su fórmula: dos capas (fondo de contexto
-   desenfocado y anónimo, objeto nítido arriba a la derecha), la figura que
-   corresponda (ausencia, desborde, desequilibrio o umbral), el detalle
-   exagerado y arriba, la mitad inferior izquierda oscura y libre, sin texto
-   y sin el hecho noticioso.
-3. La LUZ de la imagen la manda el `Clima de carátula:` que acabas de
-   declarar. Ese archivo tiene la tabla: `grave` es azul noche y contraluz
-   duro; `cotidiano`, luz de día neutra; `bueno`, luz cálida de mañana; y
-   así. Una imagen sombría para una noticia que declaraste `bueno` está mal.
-4. Déjala en `contenido/caratulas/FECHA.png` (la fecha de Chile del día).
+2. **El prompt ya está escrito: no lo inventes.** Abre
+   `prompts/caratula-pedido.txt`, reemplaza sus tres marcadores por los datos
+   que acabas de escribir en el encabezado, y manda ESE TEXTO ENTERO, tal
+   cual, al generador de imágenes:
+
+   | marcador | con qué lo reemplazas |
+   |---|---|
+   | `{{CLIMA}}` | la palabra de tu línea `Clima de carátula:` |
+   | `{{GANCHO}}` | tu línea `Carátula sugerida:` completa |
+   | `{{NOTICIA}}` | el `[TESIS]` de la primera sección de noticia |
+
+   No lo reescribas, no lo resumas, no le quites las secciones que te parezcan
+   largas y no mezcles instrucciones de otro archivo. Ese texto ya trae el
+   objetivo, la composición, la paleta, los límites del canal y la prueba
+   mental. Hasta el 05-10-2026 acá vivía una fórmula en prosa que había que
+   interpretar, y el prompt que de verdad se mandaba no quedaba escrito en
+   ninguna parte: cuando una carátula salía mal no se podía saber si falló la
+   fórmula, la descripción del día o el generador.
+3. Déjala en `contenido/caratulas/FECHA.png` (la fecha de Chile del día).
    Esa ruta exacta: `scripts/dia.js` no busca en ninguna otra parte.
+4. **Deja también el prompt que mandaste**, tal cual, en
+   `contenido/caratulas/FECHA-prompt.txt`. Sin eso no se puede mejorar lo que
+   no se ve, y esa es la razón por la que ahora el prompt vive en un archivo.
 
 **Si el generador de imágenes está topado o falla, NO detengas nada**: deja
 `contenido/caratulas/FECHA-NO-PUDE.md` con el motivo y termina. La edición

@@ -222,7 +222,7 @@ if (existe(guionHoy) && !hayCaratula) {
       : `El turno del guion terminó sin dejarla y sin explicar por qué. ${reintento}`,
     desde: desdeDe(guionHoy),
     archivo: rutaCaratula,
-    acciones: [{ texto: "Abrir el prompt de la carátula", href: urlVer("prompts/imagen-caratula.md") }],
+    acciones: [{ texto: "Abrir el prompt de la carátula", href: urlVer("prompts/caratula-pedido.txt") }],
   });
 }
 

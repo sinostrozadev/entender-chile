@@ -21,7 +21,8 @@ qué pieza le toca y con qué prompt. Nada de esto corre por reloj.
 | `seleccion.md` | etapa `barrido_listo` (y el PR #2 del barrido) | `contenido/preseleccion/FECHA.md`, la olla de candidatas |
 | `informe.md` | etapa `preseleccion_lista` | `contenido/informes/FECHA.md`, la edición completa que publica la web |
 | `guion-informe.md` | etapa `informe_listo` | `contenido/guiones/informe/FECHA.md`, y en el mismo turno la carátula del día |
-| `imagen-caratula.md` | dentro del turno del guion del informe, o un pedido `tarea=imagen` | `contenido/caratulas/FECHA.png` |
+| `caratula-pedido.txt` | **es el prompt que se manda al generador, tal cual**, con tres marcadores que rellena quien lo usa | la carátula del día |
+| `imagen-caratula.md` | dentro del turno del guion del informe, o un pedido `tarea=imagen`; dice de dónde salen los tres datos y adónde va la imagen, no cómo se dibuja | `contenido/caratulas/FECHA.png` y `FECHA-prompt.txt` |
 | `investigacion-clave.md` | etapa `pauta_aprobada` de un flujo de la Clave | `contenido/claves/flujo/<slug>/investigacion.md`, el dossier con fuentes |
 | `claves.md` (MODO FLUJO) | etapa `investigacion_lista` (camino nuevo) o `idea_aprobada` (camino viejo) | `contenido/claves/FECHA-<slug>.md`, la entrega |
 | `guion-claves.md` | etapa `entrega_lista` | `contenido/guiones/claves/FECHA-<slug>.md` |
