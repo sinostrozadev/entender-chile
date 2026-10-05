@@ -18,3 +18,12 @@ Versión 2 (30-08-2026, generadas con Gemini a partir de `ideas/fondos-prompts.m
   central más oscura donde va el nombre (1376x768; YouTube lo escala a
   2560x1440). Se compone con `npx remotion still src/marca.tsx Banner
   out/marca/banner.png --props='{"fondo":"fondos/banner-fondo.png"}'`.
+
+- `entrada.png` (05-10-2026, entregado por Santiago): azul noche con diagonales
+  y un acento verde agua a la derecha, la mitad izquierda despejada. Es el
+  fondo de la PANTALLA DE ENTRADA (`src/entrada.tsx`): la portada del canal y
+  el párrafo de apertura. Reemplaza a la textura dibujada en código que había
+  ahí desde el 01-10. La zona limpia de la izquierda es la que deja leer la
+  marca y el párrafo, así que si alguna vez se cambia por otra imagen, esa es
+  la condición que tiene que cumplir. Viene en 1672x941 y el video es
+  1920x1080: se escala un 15%, que en un fondo así no se nota.

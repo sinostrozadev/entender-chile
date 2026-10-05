@@ -20,18 +20,37 @@
 // Santiago dijo que el texto "se baje", y porque arriba a la izquierda vive el
 // banner de sección: dos rótulos a la misma altura compiten.
 //
-// EL FONDO DE TEXTURAS es el que ya existe (src/fondos.tsx), no uno nuevo. Se
-// le pide con un nombre que no mapea a ninguna lámina de sección, así que cae a
-// la textura dibujada en código, que es la que Santiago llama "las texturas que
-// tenemos".
+// EL FONDO: desde el 05-10-2026 es una IMAGEN, public/fondos/entrada.png, que
+// entregó Santiago. Hasta entonces era la textura dibujada en código
+// (src/fondos.tsx), pedida con un nombre que no mapea a ninguna lámina de
+// sección para que cayera a la procedural. La imagen tiene la mitad izquierda
+// despejada, que es justo donde viven la marca en la portada y el párrafo de
+// apertura en su 70%, así que el texto no pelea con el dibujo.
+//
+// Si el archivo no estuviera, la pantalla NO se cae: vuelve sola a la textura
+// de código. Un fondo que falta no puede frenar un informe, y este archivo es
+// el único de la entrada que vive fuera del código.
 //
 // APAGADA POR DEFECTO: meta.entrada la enciende. Es un cambio en lo que se ve y
 // lo que se ve lo elige Santiago (regla 19). Sin la bandera, el video monta el
 // sello de siempre y no cambia un píxel.
 import React from "react";
-import { AbsoluteFill, Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { tema, estiloEyebrow } from "./tema";
 import { Fondo } from "./fondos";
+
+// La imagen de fondo de la entrada. Vale la ruta dentro de public/.
+const FONDO_ENTRADA = "fondos/entrada.png";
+
+// EL TEXTO SE INVIRTIÓ CON EL FONDO (05-10-2026). Hasta ayer esta pantalla era
+// papel crema con tinta encima; la imagen nueva es azul noche, así que el mismo
+// texto en tinta habría quedado invisible. Ahora va en papel sobre el azul.
+// El verde pátina del canal (#2F7263) tampoco sobrevive sobre oscuro: se aclara
+// a este, que es el mismo verde con más luz y sigue siendo el acento de la
+// casa. La sombra es suave y solo está para despegar el texto de las zonas
+// donde la imagen tiene brillo.
+const PATINA_CLARA = "#6FC9AE";
+const SOMBRA = "0 2px 18px rgba(10,14,22,0.55)";
 
 // Lo mínimo que la portada se queda quieta antes de empezar a irse. La apertura
 // a veces arranca su voz muy pegada al sello, y sin este piso la marca entraría
@@ -59,6 +78,21 @@ const SEPARA = 44;
 const ANCHO_APERTURA = 0.7;
 
 const suave = { easing: Easing.inOut(Easing.ease), extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
+
+// El fondo, con su red de seguridad: si la imagen no carga (no está en
+// public/, o el render no la encuentra), queda debajo la textura de código y la
+// pantalla sigue viéndose como antes en vez de quedar en negro.
+const FondoDeEntrada: React.FC = () => {
+  const [falla, setFalla] = React.useState(false);
+  if (falla) return <Fondo seccion="Entender Chile" fuerza={1.4} tono="tinta" />;
+  return (
+    <Img
+      src={staticFile(FONDO_ENTRADA)}
+      onError={() => setFalla(true)}
+      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+    />
+  );
+};
 
 export const EntradaDeMarca: React.FC<{
   fecha?: string;
@@ -112,8 +146,8 @@ export const EntradaDeMarca: React.FC<{
   const textoSube = interpolate(viaje, [0.5, 1], [26, 0], suave);
 
   return (
-    <AbsoluteFill style={{ backgroundColor: tema.papel, opacity: Math.min(entrada, salida) }}>
-      <Fondo seccion="Entender Chile" fuerza={1.4} tono="tinta" />
+    <AbsoluteFill style={{ backgroundColor: tema.tinta, opacity: Math.min(entrada, salida) }}>
+      <FondoDeEntrada />
 
       {/* el párrafo de la apertura, a la izquierda y en su 70% */}
       <div
@@ -128,7 +162,8 @@ export const EntradaDeMarca: React.FC<{
           fontFamily: tema.sans,
           fontSize: 42,
           lineHeight: 1.5,
-          color: tema.tinta,
+          color: tema.papel,
+          textShadow: SOMBRA,
         }}
       >
         {texto}
@@ -146,15 +181,15 @@ export const EntradaDeMarca: React.FC<{
           position: "absolute", left: 0, right: 0, textAlign: "center",
           top: `calc(50% - ${MEDIA_MARCA + SEPARA}px)`, transform: "translateY(-100%)",
         }}>
-          <div style={estiloEyebrow}>{rotulo}</div>
+          <div style={{ ...estiloEyebrow, color: PATINA_CLARA }}>{rotulo}</div>
         </div>
         <div style={{
           position: "absolute", left: 0, right: 0, textAlign: "center",
           top: `calc(50% + ${MEDIA_MARCA + SEPARA}px)`,
         }}>
-          <div style={{ width: rayaAncho, height: 4, backgroundColor: tema.patina, margin: "0 auto 34px" }} />
+          <div style={{ width: rayaAncho, height: 4, backgroundColor: PATINA_CLARA, margin: "0 auto 34px" }} />
           {fechaLarga ? (
-            <div style={{ fontFamily: tema.mono, fontSize: 30, letterSpacing: "0.08em", color: tema.gris }}>
+            <div style={{ fontFamily: tema.mono, fontSize: 30, letterSpacing: "0.08em", color: "rgba(242,242,239,0.72)" }}>
               {fechaLarga}
             </div>
           ) : null}
@@ -175,7 +210,8 @@ export const EntradaDeMarca: React.FC<{
           fontSize: marcaTam,
           fontWeight: 600,
           lineHeight: 1.05,
-          color: tema.tinta,
+          color: tema.papel,
+          textShadow: SOMBRA,
           opacity: interpolate(viaje, [0.6, 1], [1, 0.62], suave),
         }}
       >
