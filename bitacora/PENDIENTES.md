@@ -449,6 +449,25 @@ referencia:
 
 ## Dependen de Santiago
 
+- [ ] **27-09, HOY: la idea de la Clave de la semana 39
+      (acuerdo-internacional-sin-tratado) lleva nueve mañanas sin que
+      Santiago la apruebe o pida cambios, y nunca había quedado anotada
+      acá.** Auditoría del 05-10 (`bitacora/2026-10-05-auditoria.md`).
+      Evidencia: `contenido/estado/clave-acuerdo-internacional-sin-tratado.md`
+      dice `ETAPA: idea_lista`, `TURNO: Santiago: aprobar o pedir cambios`,
+      `ACTUALIZADO: 2026-09-27 00:31`. El tema se eligió el 26-09 para salir
+      el miércoles 30-09 (`bitacora/REALIZADOS.md:21`); hoy son nueve
+      mañanas después de esa fecha. Las auditorías del 03-10 y el 04-10 ya
+      la mencionaron (como "séptima" y "octava mañana", triage MIRAR) y la
+      del 04-10 afirmó que ya estaba anotada acá, pero no lo estaba
+      (verificado leyendo completa esta sección): es el mismo error que
+      perdió la cifra del 11-09. Además bloquea la semana 40:
+      `contenido/claves/semana/2026-W40-candidatos.md` (generado el 04-10)
+      descarta su mejor candidato porque el flujo de la semana 39 sigue
+      abierto. Se aprueba o se pide cambio con `node scripts/clave.js
+      aprobar acuerdo-internacional-sin-tratado` o `clave.js cambiar
+      acuerdo-internacional-sin-tratado`; no hay nada que tocar en código.
+
 - [ ] **27-09, HOY: la carátula que SÍ se genera se pierde, porque el
       conector de esa ejecución no admite binarios y la ruta queda en un
       scratch que se borra.** Auditoría del 27-09
@@ -691,6 +710,21 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **22-09, HOY: contradicción de prompt en `prompts/guion-informe.md`
+      entre el ejemplo de `comparacion` (línea 229, etiquetas de una
+      palabra, "fallecidos: 797 ; desaparecidos: 3048") y el piso de 3 a 8
+      palabras de la ETIQUETA CON CONTEXTO (línea 237), en su sexta
+      aparición sin anotarse.** Auditoría del 05-10
+      (`bitacora/2026-10-05-auditoria.md`). Vista en 22-09, 26-09, 02-10,
+      03-10 y 04-10 (esta última la clasificó AGUANTA en
+      `bitacora/2026-10-04-auditoria.md`, propuesta 3, y por eso nunca bajó
+      acá) y hoy de nuevo: las tres tarjetas `comparacion` del guion de hoy
+      quedaron con etiquetas de una palabra. Nunca bloqueó un veredicto.
+      Arreglo de una línea: en `prompts/guion-informe.md:237` o
+      inmediatamente después, decir si el piso de 3 a 8 palabras rige por
+      cada lado de una `comparacion` o solo para la etiqueta única de una
+      tarjeta `cifra` o `cambio`.
+
 - [ ] **03-10, HOY: la carátula del 03-10-2026 no se generó y tampoco quedó
       declarada ausente.** Auditoría del 03-10
       (`bitacora/2026-10-03-auditoria.md`). El plan B quedó activo desde las
@@ -714,6 +748,14 @@ referencia:
       verificado con búsqueda explícita), el plan B volvió a cubrir el día
       entero y hoy falta TAMBIÉN la carátula del 04-10-2026, no solo la del
       03-10. Quedan dos imágenes por generar o declarar `NO-PUDE.md`.
+      **05-10: van tres mañanas marcada.** Auditoría del 05-10
+      (`bitacora/2026-10-05-auditoria.md`): la del 03-10-2026 por fin entró,
+      en diferido (commit de esta madrugada, verificado listando
+      `contenido/caratulas/`: ya existe `2026-10-03.png`), pero la del
+      04-10-2026 sigue sin generarse y sin `NO-PUDE.md`, y
+      `prompts/suplente.md` sigue sin la palabra "carátula" (verificado de
+      nuevo, cero resultados). Queda una sola imagen por generar o declarar
+      ausente: la del 04-10.
 
 - [ ] **26-09: `contenido/README.md` describe el flujo viejo** (veredicto de la
       revisión editorial, Clave diaria). La limpieza del 26-09 reescribió los
