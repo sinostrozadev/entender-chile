@@ -10,12 +10,12 @@ aparte: eso gastaría un despertar más de una cuota que ya se agotó una vez.
 El canal de pedidos (`tarea=imagen`) queda para las pruebas y los extras del
 taller, cuando la edición del día ya está cerrada.
 
-**LA LUZ LA MANDA EL CLIMA.** El guion declara `Clima de carátula:` y esa
-palabra decide la luz de esta imagen, igual que decide el color de la
-carátula de pictograma. La tabla de las seis palabras y su luz vive ahora
-dentro de `prompts/caratula-pedido.txt`, en su sección CLIMA, para que viaje
-con el prompt. Una imagen sombría para una noticia declarada `bueno` está mal
-aunque la metáfora sea perfecta.
+**EL CLIMA LO DECLARA EL GUION.** La línea `Clima de carátula:` del guion de
+hoy trae una palabra, y esa palabra define la emoción dominante de esta
+imagen, y además decide el color de la carátula de pictograma. Las seis palabras que valen (`institucional`,
+`urgente`, `economico`, `policial`, `humano`, `internacional`) son las que
+reconoce la sección CLIMA de `prompts/caratula-pedido.txt`, y están listadas
+en `prompts/guion-informe.md`, que es quien las escribe.
 
 Dónde queda: `contenido/caratulas/FECHA.png` (o .jpg). `scripts/dia.js` la
 copia sola a `public/caratulas/` y la usa para `miniatura-3.png`. Si el día no
@@ -146,23 +146,24 @@ Cuando el reintento automático te abre un pedido
 adentro de ese archivo, con los datos pegados: ahí no tienes que abrir nada
 más.
 
-### Lo que sigue valiendo de la época anterior
+### NO LE AGREGUES NADA A ESE ARCHIVO
 
-De todo lo que había acá, solo estos dos límites se mantienen, y están al final
-del propio `caratula-pedido.txt` para que viajen con el prompt:
+Lo de arriba no es una manera de hablar: el prompt es EL TEXTO DE SANTIAGO y se
+manda entero, sin recortes y sin añadidos. El 05-10-2026, al montar esto, acá
+mismo se le habían agregado tres cosas con buena intención (que el gancho no
+fuera dentro de la imagen, una tabla de climas propia y un bloque de límites del
+canal al final). Santiago las sacó todas: "déjalo como te lo pasé". Lo que haya
+que ajustar se ajusta de ESTE lado, en el código, no en el prompt.
 
-- **Sin personas reconocibles ni caras.** En Chile la propia imagen está
-  protegida y el castigo de la política de contenido sintético cae sobre el
-  canal entero, no sobre el video.
-- **Nada morboso.** La monetización se revisa y esto la rompe.
+### El gancho va DENTRO de la imagen, y lo escribe GPT
 
-Santiago los revisó el 01-10-2026 con el texto completo delante y decidió
-mantenerlos. Lo demás (los lugares identificables, los logos, las banderas, el
-cobre, la metáfora obligatoria) se liberó ese mismo día.
+Desde el 05-10-2026 el prompt pide el texto del gancho escrito en la imagen,
+con la tipografía y la composición que GPT decida. Por eso `MiniaturaV5` dejó
+de pintarle encima el velo, el rótulo y los dos banners: lo único que hace ahora
+es normalizar la ilustración a un PNG de 1280x720, porque llega en el tamaño
+que el generador quiera (las de octubre, 1672x941 y hasta 1,9 MB) y YouTube no
+acepta miniaturas de más de 2 MB.
 
-### Y el gancho no va dentro de la imagen
-
-`scripts/miniaturas.js` pinta el gancho encima con la tipografía del canal, en
-la mitad inferior izquierda. Si la imagen trae su propio texto, el gancho sale
-dos veces. Por eso el prompt le pide a GPT una imagen sin letras y con esa zona
-despejada.
+La que sí sigue pintando el texto es la carátula de respaldo (`MiniaturaV4`, el
+pictograma), que es la que sale cuando la ilustración no llegó. Ahí el gancho lo
+pone el código porque no hay imagen sobre la que escribirlo.

@@ -34,9 +34,22 @@ const mezclarHex = (a: string, b: string, t: number) => {
 //     oliva embarrado. El humor tiene que mandar; de la sección queda un
 //     resto, que basta para que dos secciones no salgan idénticas.
 //   picto: color del pictograma
+//
+// VOCABULARIO NUEVO (05-10-2026): las seis palabras ya no son las que inventó
+// este archivo, son las seis de prompts/caratula-pedido.txt, porque el guion
+// declara una sola palabra y esa misma palabra viaja al generador. Tener dos
+// listas obligaba a GPT a traducir, que es justo lo que se quitó hoy. Las seis
+// viejas quedan como alias para que los guiones de septiembre sigan rindiendo.
 const CLIMAS: Record<string, { haciaTinta: number; tinte?: string; peso?: number; picto: string }> = {
-  grave: { haciaTinta: 0.82, picto: COBRE },
   institucional: { haciaTinta: 0.68, picto: COBRE },
+  urgente: { haciaTinta: 0.82, picto: COBRE },
+  economico: { haciaTinta: 0.52, tinte: "#8C8578", peso: 0.7, picto: "#F4F1EA" },
+  "económico": { haciaTinta: 0.52, tinte: "#8C8578", peso: 0.7, picto: "#F4F1EA" },
+  policial: { haciaTinta: 0.74, tinte: "#5A2E33", peso: 0.6, picto: COBRE },
+  humano: { haciaTinta: 0.30, tinte: "#C08A2E", peso: 0.88, picto: "#FFF8E8" },
+  internacional: { haciaTinta: 0.34, tinte: "#2F7263", peso: 0.88, picto: "#FFF1CC" },
+  // alias de las seis de septiembre
+  grave: { haciaTinta: 0.82, picto: COBRE },
   cotidiano: { haciaTinta: 0.52, tinte: "#8C8578", peso: 0.7, picto: "#F4F1EA" },
   bueno: { haciaTinta: 0.30, tinte: "#C08A2E", peso: 0.88, picto: "#FFF8E8" },
   curioso: { haciaTinta: 0.34, tinte: "#2F7263", peso: 0.88, picto: "#FFF1CC" },
@@ -173,7 +186,7 @@ const MiniaturaV2: React.FC<MiniaturaV2Props> = ({ gancho, imagen, cifra, fecha,
   // lleva fecha; la Clave es serie: SIEMPRE su verde, con etiqueta LA CLAVE.
   const esClave = serie === "clave";
   if (modo === "papel") {
-    // claro: mitad papel con tinta, imagen a la derecha sin velo — destaca
+    // claro: mitad papel con tinta, imagen a la derecha sin velo, destaca
     // entre parrillas oscuras justamente por no ser oscura.
     return (
       <AbsoluteFill style={{ backgroundColor: tema.papel }}>
@@ -304,29 +317,27 @@ const MiniaturaV4: React.FC<MiniaturaV4Props> = ({ linea1, linea2, cifra, etique
 
 // MiniaturaV5 (23-09, CARÁTULA 5, opción 3): la imagen la genera GPT y la
 // deja en contenido/caratulas/FECHA.*; dia.js la copia a public/ y la pasa
-// acá. Va a sangre, con un velo en diagonal para que los banners se lean
-// sobre cualquier imagen. Ojo: la imagen es ILUSTRACIÓN, nunca una foto ni
-// algo que parezca registro de los hechos (regla 29).
-type MiniaturaV5Props = { linea1: string; linea2?: string; imagen: string };
-const MiniaturaV5: React.FC<MiniaturaV5Props> = ({ linea1, linea2, imagen }) => {
-  const banner = (s: string, bg: string, tx: string): React.CSSProperties => ({
-    display: "inline-block", background: bg, color: tx, fontFamily: tema.sans, fontWeight: 600,
-    fontSize: tallaLinea(s, 1060, 96), lineHeight: 1, padding: "10px 26px 14px",
-    textTransform: "uppercase", letterSpacing: "-0.015em", whiteSpace: "nowrap",
-    boxShadow: "0 16px 44px rgba(0,0,0,0.45)",
-  });
-  return (
-    <AbsoluteFill style={{ backgroundColor: tema.tinta }}>
-      <Img src={staticFile(imagen)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-      <AbsoluteFill style={{ background: "linear-gradient(15deg, rgba(23,25,28,0.86) 18%, rgba(23,25,28,0.25) 58%, rgba(23,25,28,0) 78%)" }} />
-      <div style={{ position: "absolute", left: 44, top: 38, padding: "8px 16px 10px", background: "rgba(23,25,28,0.7)", fontFamily: tema.mono, fontSize: 22, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(242,242,239,0.85)" }}>Entender Chile</div>
-      <div style={{ position: "absolute", left: 46, bottom: 52, display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 10 }}>
-        <div style={banner(linea1, COBRE, tema.tinta)}>{linea1}</div>
-        {linea2 ? <div style={banner(linea2, "#F7F6F2", tema.tinta)}>{linea2}</div> : null}
-      </div>
-    </AbsoluteFill>
-  );
-};
+// acá.
+//
+// LA IMAGEN SE MUESTRA COMO SALE (05-10-2026, decisión de Santiago: "cómo
+// sale la imagen se muestra"). Hasta hoy esta carátula le pintaba encima tres
+// cosas: un velo en diagonal, el rótulo "Entender Chile" arriba a la
+// izquierda y los dos banners del gancho abajo. Esos tres existían porque el
+// prompt pedía una imagen SIN texto y el gancho lo ponía el código. Desde hoy
+// el prompt le pide a GPT el gancho escrito DENTRO de la imagen, con su
+// tipografía y su composición, así que pintarlo acá lo duplicaba y el velo
+// solo le tapaba el diseño.
+//
+// Entonces por qué sigue existiendo esta composición y no se copia el archivo:
+// porque normaliza. La ilustración llega en lo que el generador quiera (las de
+// octubre vienen en 1672x941 y pesan hasta 1,9 MB) y YouTube pide 16:9 y no
+// acepta miniaturas de más de 2 MB. Acá sale siempre un PNG de 1280x720.
+type MiniaturaV5Props = { imagen: string };
+const MiniaturaV5: React.FC<MiniaturaV5Props> = ({ imagen }) => (
+  <AbsoluteFill style={{ backgroundColor: tema.tinta }}>
+    <Img src={staticFile(imagen)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+  </AbsoluteFill>
+);
 
 const RootMarca: React.FC = () => (
   <>
@@ -367,7 +378,7 @@ const RootMarca: React.FC = () => (
       height={720}
       fps={1}
       durationInFrames={1}
-      defaultProps={{ linea1: "", linea2: "", imagen: "fondos/seccion-economia.jpg" }}
+      defaultProps={{ imagen: "fondos/seccion-economia.jpg" }}
     />
     <Composition
       id="Miniatura"

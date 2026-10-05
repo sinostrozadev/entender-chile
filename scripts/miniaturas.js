@@ -116,6 +116,11 @@ const miniaturas = ({ parsed, fecha, esClave = false, OUT }) => {
     //   miniatura.png   = V5, la ilustración de GPT (la que sale al aire desde
     //                     el 24-09, decisión de Santiago). Si no llegó, cae a
     //                     la V4 y la edición sigue igual.
+    //                     DESDE EL 05-10-2026 la V5 no le pinta nada encima:
+    //                     el gancho lo escribe GPT dentro de la imagen, así
+    //                     que linea1 y linea2 ya no se le pasan. Siguen
+    //                     calculándose porque las usan la V4 (el respaldo) y
+    //                     la V3 (miniatura-3), que sí pintan texto.
     //   miniatura-2.png = V4, pictograma dibujado por código
     //   miniatura-3.png = V3, la que veníamos usando hasta el 23-09
     const ganchos = (parsed.caratulas && parsed.caratulas.length ? parsed.caratulas : [(parsed.caratula || "").trim()]).filter(Boolean);
@@ -155,7 +160,7 @@ const miniaturas = ({ parsed, fecha, esClave = false, OUT }) => {
     const pictograma = { linea1, linea2, cifra, etiqueta, seccion: img || "", semilla, clima };
     const planes = [
       imagenGpt
-        ? ["miniatura.png", "MiniaturaV5", { linea1, linea2, imagen: imagenGpt }, `ilustración de GPT (${imagenGpt}), clima ${clima}`]
+        ? ["miniatura.png", "MiniaturaV5", { imagen: imagenGpt }, `ilustración de GPT (${imagenGpt}) tal como salió, clima ${clima}`]
         : ["miniatura.png", "MiniaturaV4", pictograma, `SIN ilustración de GPT: sale el pictograma de respaldo, clima ${clima}`],
       imagenGpt
         ? ["miniatura-2.png", "MiniaturaV4", pictograma, `pictograma${cifra ? ` + cifra ${cifra}` : ""}, clima ${clima}`]

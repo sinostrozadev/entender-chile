@@ -133,19 +133,27 @@ FORMATO DE SALIDA:
 
   Cada carátula son DOS líneas separadas por " / ", de MÁXIMO CUATRO PALABRAS cada una (se pintan en mayúsculas, grandes, sobre cajas: más palabras no caben). La carátula tiene que dar la RAZÓN PARA ENTRAR, no contar la conclusión: el título ya dice el hecho. Está escrita desde el espectador (qué le pasa a él, qué tiene en juego), con una tensión o una pregunta que el video responde. Las tres son enfoques distintos: la primera, una PREGUNTA; la segunda, una CONTRADICCIÓN o un giro; la tercera, una CIFRA CON REFERENCIA (solo si la cifra se entiende en un segundo sin contexto) o un segundo giro si no hay cifra. La primera es la que sale al aire; las otras dos van a la prueba A/B de YouTube. PRUEBA DEL GANCHO: si un desconocido necesita preguntarte "¿qué?" o "¿de quién?", no es gancho. Prohibido subir el gancho con indignación, morbo, daño a personas o sospecha sin fallo (rompe la revisión de monetización). Ninguna se narra: son solo para la carátula, que se genera sola.
 - Sexta línea: "Clima de carátula:" seguido de UNA de estas seis palabras, la
-  que corresponda al tono de la noticia de portada. Decide la luz y el color
-  de la carátula (regla de Santiago, 23-09: "si la noticia es alegre, estilo
-  alegre"; hasta ese día todas salían con la misma penumbra):
+  que corresponda a la noticia de portada. Esta palabra VIAJA TAL CUAL al
+  generador de la imagen (es el dato `CLIMA DE LA CARÁTULA` de
+  `prompts/caratula-pedido.txt`) y ahí define la emoción dominante de la
+  carátula, así que tiene que ser una de las seis que ese prompt reconoce, en
+  una sola palabra y sin barras:
 
     Clima de carátula: institucional
 
-  `grave` (emergencia, tragedia, crisis) · `institucional` (leyes,
-  votaciones, gobierno) · `cotidiano` (economía, bolsillo, trabajo, lo que
-  pasa sin drama) · `bueno` (un logro, una cifra que mejora, algo que parte)
-  · `curioso` (dato curioso, ciencia, cultura) · `deporte`.
-  La mayoría de los días es `institucional` o `cotidiano`, y está bien: una
-  noticia mala con luz de mañana se ve falsa. No fuerces `bueno`. Si no
+  `institucional` (leyes, votaciones, gobierno, autoridad) · `urgente`
+  (emergencia, tragedia, crisis, el instante crítico) · `economico`
+  (precios, bolsillo, mercados, trabajo) · `policial` (delito, fiscalía,
+  tribunales, investigación) · `humano` (la consecuencia sobre personas,
+  lo que le pasa a alguien) · `internacional` (fuera de Chile, geopolítica).
+  La mayoría de los días es `institucional` o `economico`, y está bien. Si no
   escribes la línea, el sistema usa `institucional`.
+
+  Hasta el 05-10-2026 acá iban otras seis (`grave`, `cotidiano`, `bueno`,
+  `curioso`, `deporte`) que describían LUZ, no tema. El código las sigue
+  aceptando, pero no las uses: eran una segunda lista que el generador no
+  conocía y lo obligaba a traducir, que es justo lo que se quitó al dejarle el
+  prompt armado.
 
 ## LA IMAGEN DE LA CARÁTULA, AL FINAL Y SIN BLOQUEAR NADA
 
