@@ -34,7 +34,7 @@ import { AbsoluteFill, Audio, Easing, Img, Sequence, interpolate, staticFile, us
 import { tema, colorDeSeccion } from "./tema";
 import { Tarjeta, Evento, FondoTarjetaContext, velo } from "./tarjetas";
 import { Picto } from "./pictogramas";
-import { PortadaPrueba } from "./portada-prueba";
+import { Portada } from "./portada";
 import { EntradaDeMarca } from "./entrada";
 
 const COBRE = "#D08A5B";
@@ -585,10 +585,14 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
       ) : null}
       {tl.meta.musica ? <Audio src={staticFile(tl.meta.musica)} volume={tl.audio ? 0.1 : 0.3} loop /> : null}
 
-      {/* 1 · la portada: la ilustración del día a sangre con el gancho encima */}
-      {plan.portada ? (
+      {/* 1 · la portada: el título del día sobre el fondo de pantallas.json.
+          Se monta aunque el plan no mande imagen, porque desde el 05-10-2026 el
+          fondo lo resuelve el componente y ya no depende de que haya llegado la
+          ilustración del día. `plan.portada` solo llega desde el video de
+          prueba, que sí quiere ver la ilustración a pantalla completa. */}
+      {(plan.portadaSeg ?? 0) > 0 ? (
         <Sequence durationInFrames={Math.max(1, f(plan.portadaSeg ?? 3.5))}>
-          <PortadaPrueba imagen={plan.portada} titulo={tl.meta.titulo} fecha={tl.meta.fecha} />
+          <Portada imagen={plan.portada} titulo={tl.meta.titulo} fecha={tl.meta.fecha} />
         </Sequence>
       ) : null}
 

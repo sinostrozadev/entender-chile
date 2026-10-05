@@ -5,7 +5,7 @@ import { Tarjeta, SeccionBanner, CortinaSeccion, Evento, FondoTarjetaContext, Mo
 import { TransicionMosaico, Baldosa } from "./mosaico";
 import { EntradaDeMarca } from "./entrada";
 import { FondosContext } from "./fondos";
-import { PortadaPrueba } from "./portada-prueba";
+import { Portada } from "./portada";
 import { SecuenciaInforme, Plan } from "./secuencia";
 
 export type Timeline = {
@@ -24,7 +24,7 @@ export type Timeline = {
     mosaico?: boolean;           // el mosaico como transición de sección (24-09); apagado = la cortina de siempre
     secciones?: string[];        // qué secciones tienen imagen propia hoy, ej. ["clima.png"]; el resto va a color
     seccionesDir?: string;       // carpeta de public/ con esas imágenes; solo la escribe el modo de prueba (secciones-prueba)
-    portada?: string | null;     // SOLO en el video de prueba: carátula a pantalla completa al abrir (src/portada-prueba.tsx)
+    portada?: string | null;     // el fondo de los primeros 3,5 s, con el título encima (src/portada.tsx)
     portadaSeg?: number;         // cuánto dura esa portada de prueba
     caratula?: string | null;    // la ilustración del día, ej. "caratulas/2026-09-24.png"
     fondoTarjeta?: ModoFondo;    // cómo va el fondo de las tarjetas: imagen | columna | oscurecer | tv | papel
@@ -324,7 +324,7 @@ const InformeTarjetas: React.FC<Timeline> = (tl) => {
           y acá no se monta nada. */}
       {tl.meta.portada ? (
         <Sequence durationInFrames={Math.max(1, f(tl.meta.portadaSeg ?? 3.5))}>
-          <PortadaPrueba imagen={tl.meta.portada} titulo={tl.meta.titulo} fecha={tl.meta.fecha} />
+          <Portada imagen={tl.meta.portada} titulo={tl.meta.titulo} fecha={tl.meta.fecha} />
         </Sequence>
       ) : null}
     </AbsoluteFill>

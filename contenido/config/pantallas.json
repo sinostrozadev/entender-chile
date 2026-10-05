@@ -1,0 +1,41 @@
+{
+  "_": "GENERADO A MANO, y es la fuente de verdad de los FONDOS DE LAS PANTALLAS: lo que va detrás del texto en la portada del video y en la entrada de marca. Cada fondo declara su TONO (claro u oscuro), de donde sale la paleta del texto, y su `fuerza`: cuanto tapa el velo que va detrás del texto. La fuerza se mide, no se estima (ver src/legible.tsx). Lo leen src/entrada.tsx y src/portada.tsx al compilar.",
+  "_porque": "Nació el 05-10-2026 como entrada.json, cuando Santiago cambió el fondo azul por uno claro y dijo que el azul 'no va con el estilo claro, es otro estilo'. Hasta ese momento la imagen y los colores del texto estaban escritos dentro de src/entrada.tsx, así que cambiar de fondo obligaba a tocar código y a acordarse de invertir cuatro colores. El mismo día creció a esto, cuando las carátulas pasaron a traer su propio texto adentro y dejaron de servir como fondo de la portada y del bloque principal: dos pantallas con el mismo problema piden el mismo dato.",
+  "version": 2,
+  "pantallas": {
+    "entrada": {
+      "activo": "claro",
+      "fondos": [
+        {
+          "id": "claro",
+          "nombre": "lámina clara",
+          "imagen": "fondos/entrada.png",
+          "tono": "claro",
+          "que": "Papel cuadriculado hueso con la lámina de una portada de diario dibujada a línea en la mitad derecha, y una barra verde pátina. La mitad izquierda queda limpia, que es donde viven la marca y el párrafo de apertura. Es la que calza con el estilo papel, que es el que rige en las imágenes de sección.",
+          "fuerza": 0.62
+        },
+        {
+          "id": "oscuro",
+          "nombre": "diagonales oscuras",
+          "imagen": "fondos/entrada-oscuro.png",
+          "tono": "oscuro",
+          "que": "Azul noche con diagonales y un acento verde agua a la derecha. Estuvo al aire unas horas el 05-10-2026 y salió: no es del mismo estilo que las imágenes de sección, que son claras y a línea. Queda guardada para cuando exista un estilo oscuro completo.",
+          "fuerza": 0.9
+        }
+      ]
+    },
+    "portada": {
+      "activo": "lamina",
+      "fondos": [
+        {
+          "id": "lamina",
+          "nombre": "lámina clara",
+          "imagen": "fondos/entrada.png",
+          "tono": "claro",
+          "fuerza": 0.72,
+          "que": "La misma lámina de la entrada, mientras la portada no tenga una propia. Encadena bien porque la entrada viene justo después: el video abre sobre una superficie y se queda en ella. El título va abajo a la izquierda, que es la zona limpia."
+        }
+      ]
+    }
+  }
+}

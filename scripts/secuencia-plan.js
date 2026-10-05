@@ -9,8 +9,8 @@
  * informe completo usan EL MISMO plan, en vez de dos cálculos que se separan.
  *
  * Lo que arma, en este orden (bitacora/taller/VISUAL.md, 3b):
- *   1. la portada con la ilustración del día;
- *   2. la noticia principal completa sobre esa misma imagen, SIN cabecera
+ *   1. la portada, con el título del día sobre el fondo de pantallas.json;
+ *   2. la noticia principal completa sobre SU IMAGEN DE SECCIÓN, SIN cabecera
  *      (Santiago, 24-09: "la principal, no la quiero con cabecera, esa abre");
  *   3. el mosaico como PRESENTACIÓN, recién después de la principal;
  *   4. el recorrido: cada sección con su imagen toda la sección, y el viaje
@@ -104,8 +104,43 @@ const planear = (tl, opciones = {}) => {
   const overlays = (tl.eventos || []).filter((e) => e.overlay);
   if (overlays.length < 2) return null;
   const tarjetas = (tl.eventos || []).filter((e) => !e.overlay && !e.soporte && !e.muda);
-  const portada = opciones.portada || tl.meta.portada || tl.meta.caratula || null;
-  const portadaSeg = portada ? (opciones.portadaSeg ?? tl.meta.portadaSeg ?? 3.5) : 0;
+  // LA PORTADA YA NO ES LA CARÁTULA (05-10-2026, Santiago: "falta un fondo para
+  // la sección principal, ya que ahora la carátula trae letras, no nos sirve").
+  //
+  // La ilustración del día se usaba en DOS lugares: de fondo acá, en los 3,5
+  // segundos de portada, y de fondo del bloque principal durante toda su
+  // duración. Servía mientras la ilustración venía sin texto. Desde que el
+  // prompt le pide a GPT el gancho escrito DENTRO de la imagen, las dos
+  // pantallas quedan con dos titulares de la misma noticia, uno encima de otro
+  // y en dos tipografías.
+  //
+  // Ahora el fondo de la portada lo decide contenido/config/pantallas.json (lo
+  // lee src/portada.tsx, así que acá va en null y el componente resuelve), y el
+  // bloque principal usa su imagen de sección como cualquier otro bloque. La
+  // carátula sigue siendo la miniatura de YouTube, que es para lo que se hizo.
+  //
+  // `opciones.portada` y `tl.meta.portada` se respetan porque son lo que manda
+  // el video de prueba (scripts/prueba-video.js), que SÍ quiere ver la
+  // ilustración a pantalla completa: es lo que va a juzgar.
+  const portada = opciones.portada || tl.meta.portada || null;
+
+  // EL BLOQUE PRINCIPAL NO TIENE IMAGEN PROPIA, y no se vio hasta sacarle la
+  // carátula: "La noticia del día" es un bloque de resumen y el guion no le
+  // pone categoría entre corchetes, así que imagenDeSeccion devuelve null. Lo
+  // único que lo vestía era la ilustración del día.
+  //
+  // Queda SIN IMAGEN, que es el mismo estado en que ya sale cualquier sección
+  // cuyo PNG no existe todavía: el video lo sabe pintar (ALFA_SIN_IMAGEN en
+  // src/secuencia.tsx) y pasa todos los días. No es lo que queremos, es lo que
+  // no rompe nada mientras llega su fondo.
+  //
+  // Se probó darle el fondo de la portada y se descartó con el render delante:
+  // el velo de los bloques está calculado para imágenes OSCURAS, y sobre la
+  // lámina clara la deja de un gris sucio que no se parece a nada del canal.
+  // Para que un fondo claro sirva acá hay que hacer ese velo consciente del
+  // tono, como ya lo es el de la portada y el de la entrada (src/legible.tsx).
+  const imagenDeBloque = (categoria) => imagenDeSeccion(tl, categoria);
+  const portadaSeg = opciones.portadaSeg ?? tl.meta.portadaSeg ?? 3.5;
   const paseoSeg = opciones.paseoSeg ?? PASEO_SEG;
   const presentacionSeg = opciones.presentacionSeg ?? PRESENTACION_SEG;
   const fin = tl.meta.duracionSeg;
@@ -117,7 +152,7 @@ const planear = (tl, opciones = {}) => {
   const baldosas = overlays.map((ov, i) => ({
     texto: ov.texto || "",
     categoria: ov.categoria || null,
-    imagen: i === 0 ? portada : imagenDeSeccion(tl, ov.categoria),
+    imagen: imagenDeBloque(ov.categoria),
   }));
 
   // los bordes de cada bloque: de su overlay al siguiente. El primero arranca
@@ -250,7 +285,7 @@ const planear = (tl, opciones = {}) => {
     bloques.push({
       texto: b.ov.texto || "",
       categoria: b.ov.categoria || null,
-      imagen: i === 0 ? portada : imagenDeSeccion(tl, b.ov.categoria),
+      imagen: imagenDeBloque(b.ov.categoria),
       from: Number(desde.toFixed(3)),
       to: Number(Math.max(desde + 0.5, b.hasta).toFixed(3)),
       tarjetas: ventanas,
@@ -307,7 +342,9 @@ const planear = (tl, opciones = {}) => {
   // muro. Vacio = el negro liso de siempre.
   const cual = (process.env.FONDO_MOSAICO || "").trim().toLowerCase();
   const fondo = cual && cual !== "0" ? `fondos/mosaico-${cual}.png` : null;
-  return { ...(portada ? { portada, portadaSeg } : {}), ...(fondo ? { fondo } : {}), baldosas, bloques, paseos };
+  // la portada se monta SIEMPRE: su fondo ya no depende de que haya llegado la
+  // ilustración del día, así que no hay edición que se quede sin ella
+  return { ...(portada ? { portada } : {}), portadaSeg, ...(fondo ? { fondo } : {}), baldosas, bloques, paseos };
 };
 
 module.exports = { planear, PREAMBULO_SEG, PASEO_SEG, PRESENTACION_SEG };

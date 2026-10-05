@@ -39,7 +39,7 @@ import { AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame, us
 import { tema, estiloEyebrow } from "./tema";
 import { Fondo } from "./fondos";
 import { paletaDe, Respaldo, type Tono } from "./legible";
-import configEntrada from "../contenido/config/entrada.json";
+import pantallas from "../contenido/config/pantallas.json";
 
 // EL FONDO Y SU TONO SALEN DE UN DATO, no de acá (05-10-2026). El mismo día la
 // pantalla cambió de clara a oscura y de vuelta a clara, y cada vuelta costó
@@ -48,9 +48,9 @@ import configEntrada from "../contenido/config/entrada.json";
 // imagen tenga una mancha justo donde cae una palabra. El porqué completo está
 // en src/legible.tsx.
 const ELEGIDO = (() => {
-  const activo = String(configEntrada.activo || "claro");
-  const lista = (configEntrada.fondos || []) as Array<{ id: string; imagen: string; tono: Tono; fuerza?: number }>;
-  return lista.find((f) => f.id === activo) || lista[0];
+  const p = pantallas.pantallas.entrada;
+  const lista = (p.fondos || []) as Array<{ id: string; imagen: string; tono: Tono; fuerza?: number }>;
+  return lista.find((f) => f.id === String(p.activo)) || lista[0];
 })();
 const FONDO_ENTRADA = ELEGIDO?.imagen || "fondos/entrada.png";
 const TONO: Tono = ELEGIDO?.tono || "claro";
