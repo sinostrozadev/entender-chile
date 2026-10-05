@@ -22,6 +22,7 @@ qué pieza le toca y con qué prompt. Nada de esto corre por reloj.
 | `informe.md` | etapa `preseleccion_lista` | `contenido/informes/FECHA.md`, la edición completa que publica la web |
 | `guion-informe.md` | etapa `informe_listo` | `contenido/guiones/informe/FECHA.md`, y en el mismo turno la carátula del día |
 | `caratula-pedido.txt` | **es el prompt que se manda al generador, tal cual**, con tres marcadores que rellena quien lo usa | la carátula del día |
+| `caratula-pedido-corta.txt` | NO SE USA. Es la versión resumida que Santiago dejó junto al prompt del 05-10-2026, guardada tal cual por si algún día conviene la corta. Nada la lee | nada |
 | `imagen-caratula.md` | dentro del turno del guion del informe, o un pedido `tarea=imagen`; dice de dónde salen los tres datos y adónde va la imagen, no cómo se dibuja | `contenido/caratulas/FECHA.png` y `FECHA-prompt.txt` |
 | `investigacion-clave.md` | etapa `pauta_aprobada` de un flujo de la Clave | `contenido/claves/flujo/<slug>/investigacion.md`, el dossier con fuentes |
 | `claves.md` (MODO FLUJO) | etapa `investigacion_lista` (camino nuevo) o `idea_aprobada` (camino viejo) | `contenido/claves/FECHA-<slug>.md`, la entrega |

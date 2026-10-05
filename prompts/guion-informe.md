@@ -171,7 +171,7 @@ tú. Va después de todo lo demás, en este orden exacto:
    | marcador | con qué lo reemplazas |
    |---|---|
    | `{{CLIMA}}` | la palabra de tu línea `Clima de carátula:` |
-   | `{{GANCHO}}` | tu línea `Carátula sugerida:` completa |
+   | `{{GANCHO}}` | tu línea `Carátula sugerida:` completa, pero cambiando el `/` por un salto de línea: la barra es la marca con que se parte en dos, no un signo que haya que dibujar |
    | `{{NOTICIA}}` | el `[TESIS]` de la primera sección de noticia |
 
    No lo reescribas, no lo resumas, no le quites las secciones que te parezcan

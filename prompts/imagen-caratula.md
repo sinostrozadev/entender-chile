@@ -12,10 +12,11 @@ taller, cuando la edición del día ya está cerrada.
 
 **EL CLIMA LO DECLARA EL GUION.** La línea `Clima de carátula:` del guion de
 hoy trae una palabra, y esa palabra define la emoción dominante de esta
-imagen, y además decide el color de la carátula de pictograma. Las seis palabras que valen (`institucional`,
-`urgente`, `economico`, `policial`, `humano`, `internacional`) son las que
-reconoce la sección CLIMA de `prompts/caratula-pedido.txt`, y están listadas
-en `prompts/guion-informe.md`, que es quien las escribe.
+imagen, y además decide el color de la carátula de pictograma. Las seis que
+valen (`institucional`, `urgente`, `economico`, `policial`, `humano`,
+`internacional`) son las de la sección CLIMA DE LA CARÁTULA de
+`prompts/caratula-pedido.txt`, y están listadas en `prompts/guion-informe.md`,
+que es quien las escribe.
 
 Dónde queda: `contenido/caratulas/FECHA.png` (o .jpg). `scripts/dia.js` la
 copia sola a `public/caratulas/` y la usa para `miniatura-3.png`. Si el día no

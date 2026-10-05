@@ -1,0 +1,23 @@
+Crea una carátula de YouTube 16:9 para un canal de noticias.
+Datos que yo entrego:
+CLIMA DE LA CARÁTULA: [pegar]
+GANCHO QUE VA ENCIMA: [pegar]
+NOTICIA DE PORTADA: [pegar]
+Tu tarea es diseñar una miniatura de alto CTR, seria y periodística, que detenga el scroll y haga que el usuario quiera entrar al video.
+Regla central: la carátula debe combinar contexto inmediato + curiosidad real.
+La noticia de portada no tiene que aparecer completa ni literal, pero su contexto esencial no puede perderse. No la copies completa: comprímela.
+Jerarquía:
+GANCHO = texto principal, grande y dominante, escrito exactamente como fue entregado.
+CONTEXTO = frase breve que explique el acontecimiento.
+DATO CLAVE = fecha, cifra o condición, solo si suma claridad.
+Debe existir un solo protagonista visual fuerte, un apoyo contextual y un fondo.
+Composición clara, lectura rápida en celular, contraste potente, sin exceso de elementos y dejando libre la esquina inferior derecha.
+Si la noticia involucra personas, edificios, instituciones o símbolos reales, represéntalos correctamente. No inventes resultados ni consecuencias no confirmadas.
+Estética editorial premium: moderna, cinematográfica, creíble, atractiva, no genérica. Evita exceso de texto, collage barato, flechas por defecto, emojis y estética sensacionalista vulgar.
+Antes de terminar, verifica:
+¿se entiende el tema en un segundo?
+¿el gancho se lee bien?
+¿hay contexto suficiente?
+¿sigue habiendo curiosidad?
+¿la miniatura parece específica y no genérica?
+Entrega una sola carátula final 16:9 lista para YouTube.

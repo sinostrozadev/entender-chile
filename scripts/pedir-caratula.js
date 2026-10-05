@@ -79,9 +79,15 @@ const noPude = fs.existsSync(path.join("contenido", "caratulas", `${FECHA}-NO-PU
 // datos ya pegados. GPT copia y manda. Y el texto exacto queda guardado al
 // lado de la imagen, que es lo que faltaba para poder iterarlo.
 const plantilla = fs.readFileSync(path.join("prompts", "caratula-pedido.txt"), "utf8");
+// LA BARRA DEL GANCHO ES NUESTRA, NO SUYA (05-10-2026). El guion escribe el
+// gancho como "linea uno / linea dos" porque así lo parten las carátulas que
+// dibuja el código. El prompt le pide a GPT escribirlo EXACTO, signos
+// incluidos, así que mandarle la barra le haría pintar una barra en medio del
+// titular. Va como dos líneas, que es lo que la barra significaba.
+const enDosLineas = (g) => String(g).split(/\s*\/\s*/).map((s) => s.trim()).filter(Boolean).join("\n");
 const armado = plantilla
   .replace("{{CLIMA}}", clima)
-  .replace("{{GANCHO}}", gancho || "(el guion no dejó gancho: usa el título del video)")
+  .replace("{{GANCHO}}", gancho ? enDosLineas(gancho) : "(el guion no dejó gancho: usa el título del video)")
   .replace("{{NOTICIA}}", tesis || "(el guion no dejó tesis: léela de la primera sección del guion)");
 
 const cuerpo = [
