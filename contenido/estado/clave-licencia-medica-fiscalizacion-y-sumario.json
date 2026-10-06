@@ -2,11 +2,11 @@
   "flujo": "clave",
   "slug": "licencia-medica-fiscalizacion-y-sumario",
   "camino": "pauta",
-  "etapa": "pauta_aprobada",
+  "etapa": "validar_investigacion",
   "vuelta": 0,
-  "turno": "GPT",
+  "turno": "Claude",
   "fecha_produccion": "2026-10-07",
-  "actualizado": "2026-10-05 23:10",
+  "actualizado": "2026-10-05 23:19",
   "concepto": "qué controla el Estado cuando fiscaliza una licencia médica y qué arriesga el funcionario que no cumple el reposo",
   "pieza": {
     "id": "investigacion",
@@ -22,7 +22,7 @@
     },
     {
       "id": "investigacion",
-      "situacion": "falta",
+      "situacion": "por_validar",
       "archivo": "contenido/claves/flujo/licencia-medica-fiscalizacion-y-sumario/investigacion.md"
     },
     {
