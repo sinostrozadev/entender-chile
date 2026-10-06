@@ -111,6 +111,27 @@ CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 
 - REGLA DE CRÉDITO TOTAL (03-09, hallazgo repetido en 3 de 4 revisiones): toda fuente mencionada en la prosa del guion ("el Informe diario señalaba", "según X") va TAMBIÉN en el bloque Fuentes: final, incluida la propia entrega y el Informe diario cuando se citan.
 
+LOS PROMPTS DE IMAGEN (06-10-2026, decisión de Santiago). Además del guion,
+entrega un archivo aparte, `contenido/guiones/claves/FECHA-<slug>-imagenes.md`,
+con un prompt de imagen POR SECCIÓN del guion, numerados y en el mismo orden,
+más uno para la CARÁTULA al principio. Un prompt por sección, no por párrafo.
+
+Los escribes TÚ y las decisiones visuales son TUYAS: qué se dibuja, con qué
+técnica, con qué luz, con qué paleta. No hay reglas editoriales que cumplir en
+estas imágenes y no te las vamos a dar: Santiago quiere ver qué haces con
+rienda suelta, y las evaluamos después.
+
+Lo único que no es creativo y necesitas saber, porque es dónde va a vivir la
+imagen y si no lo sabes se pierde la mitad:
+
+- Cada imagen va a ocupar MEDIA PANTALLA, a un costado, con el texto de la
+  sección avanzando palabra por palabra en la otra mitad. Una imagen pensada
+  para 16:9 completo se recorta por los lados y pierde el sujeto.
+- Van a verse en un video de 1920x1080.
+
+Y encabeza cada prompt con una línea `## N. <nombre de la sección>` para poder
+pedirlos de a uno sin perder cuál es cuál.
+
 CONTRATO DE ARCHIVOS: aplica el contrato de prompts/contrato-archivos.md del
 mismo repositorio. Léelo COMPLETO en esta misma ejecución: define las rutas
 exactas, el formato obligatorio de los guiones y las reglas de commit.
