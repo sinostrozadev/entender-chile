@@ -153,6 +153,21 @@ jobs:
           EMITIR=1
           echo "$ETAPA" | grep -Eq '^(barrido_listo|[a-z_]+_lista|[a-z_]+_listo|reparar_[a-z_]+)$' \
             || { echo "etapa $ETAPA no es turno de GPT: no se toca el PR #6"; EMITIR=0; }
+          # EL REPARTO PERMANENTE (06-10-2026): contenido/estado/reparto.txt
+          # dice qué etapas son de Claude SIEMPRE, no por plan B. La cuota de
+          # GPT se agotaba al quinto día de siete con 8,3 turnos diarios, y la
+          # preselección no necesita lo único que GPT hace y Claude no, que es
+          # entrar a las páginas. Una etapa del reparto no despierta a GPT.
+          REPARTO=$(grep -m1 '^claude:' contenido/estado/reparto.txt 2>/dev/null | cut -d' ' -f2- || true)
+          ES_DE_CLAUDE=0
+          if [ -n "$REPARTO" ]; then
+            RE_R="^($(echo "$REPARTO" | sed 's/\*/[a-z_]+/g; s/  */|/g'))$"
+            if echo "$ETAPA" | grep -Eq "$RE_R"; then
+              ES_DE_CLAUDE=1
+              echo "etapa $ETAPA: del reparto permanente de Claude, no se despierta a GPT"
+              EMITIR=0
+            fi
+          fi
           # dedup por fecha, etapa Y vuelta: el día tiene varias etapas y cada
           # una necesita su aviso; y con el bucle de corrección la misma etapa
           # (reparar) vuelve a ocurrir en cada vuelta y hay que volver a avisar.
@@ -263,14 +278,24 @@ jobs:
           PLANB=$(grep -m1 '^hasta:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
           TURNOS=$(grep -m1 '^turnos:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
           RE_T="^($(echo "$TURNOS" | sed 's/\*/[a-z_]+/g; s/  */|/g'))$"
-          if [ -n "$PLANB" ] && [ -n "$TURNOS" ] && [ "$PLANB" \> "$FECHA" -o "$PLANB" = "$FECHA" ] \
-             && echo "$ETAPA" | grep -Eq "$RE_T" \
+          # Dos motivos distintos para despertar a Claude en la silla de GPT, y
+          # conviene que se distingan en el mensaje: el PLAN B es temporal y
+          # vence mañana, el REPARTO es permanente y se edita a mano.
+          TOCA_SUPLENTE=0; MOTIVO=""
+          if [ -n "$PLANB" ] && [ -n "$TURNOS" ] && { [ "$PLANB" \> "$FECHA" ] || [ "$PLANB" = "$FECHA" ]; } \
+             && echo "$ETAPA" | grep -Eq "$RE_T"; then
+            TOCA_SUPLENTE=1; MOTIVO="PLAN B (GPT no responde, contenido/estado/plan-b.txt)"
+          fi
+          if [ "$ES_DE_CLAUDE" = 1 ]; then
+            TOCA_SUPLENTE=1; MOTIVO="REPARTO PERMANENTE (esta etapa es tuya, contenido/estado/reparto.txt)"
+          fi
+          if [ "$TOCA_SUPLENTE" = 1 ] \
              && [ -n "$REVISION_ID" ] && [ -n "$REVISION_TOKEN" ]; then
             MARCA_S="contenido/estado/ultimo-disparo-suplente.txt"
             git checkout -q main 2>/dev/null || true; git fetch -q origin main && git reset -q --hard origin/main
             if [ "$(cat "$MARCA_S" 2>/dev/null)" = "$FECHA $ETAPA $VUELTA" ]; then echo "suplente ya despertado para $ETAPA (vuelta $VUELTA)"; else
               echo "$FECHA $ETAPA $VUELTA" > "$MARCA_S"; git add "$MARCA_S"; git commit -q -m "disparo al suplente $FECHA: $ETAPA (vuelta $VUELTA) [bot]"; git push -q origin main || echo "::warning::marca del suplente no pusheada; se dispara igual"
-              BODY=$(printf '{"text":"Entender Chile, PLAN B (GPT sin cuota, contenido/estado/plan-b.txt): %s, etapa %s, vuelta %s. Haz el turno de GPT como SUPLENTE segun prompts/suplente.md. La verdad es contenido/estado/%s.md."}' "$FECHA" "$ETAPA" "$VUELTA" "$FECHA")
+              BODY=$(printf '{"text":"Entender Chile, %s: %s, etapa %s, vuelta %s. Haz ese turno segun prompts/suplente.md. La verdad es contenido/estado/%s.md."}' "$MOTIVO" "$FECHA" "$ETAPA" "$VUELTA" "$FECHA")
               CODIGO=$(curl -sS -o /tmp/fire-s.json -w '%{http_code}' -X POST "https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire" \
                 -H "Authorization: Bearer $REVISION_TOKEN" -H "anthropic-beta: experimental-cc-routine-2026-04-01" -H "anthropic-version: 2023-06-01" -H "content-type: application/json" -d "$BODY" || echo 000)
               case "$CODIGO" in 2*) echo "SUPLENTE despertado por API para $ETAPA: $(head -c 200 /tmp/fire-s.json)";; *) echo "::warning::no se pudo despertar al suplente (HTTP $CODIGO)";; esac

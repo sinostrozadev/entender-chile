@@ -14,7 +14,18 @@ siguiente el archivo está vencido, el mismo workflow lo borra y GPT vuelve a se
 el primero. Una persona también puede escribirlo a mano con el mismo formato: la
 línea `activado:` dice quién lo encendió (`por reintento.yml`, o la sesión).
 
-**Cuándo existe este modo:** solo mientras `contenido/estado/plan-b.txt`
+**Desde el 06-10-2026 este prompt tiene DOS motivos de disparo**, y conviene no
+confundirlos. El plan B es temporal: GPT se cayó, vence mañana. El REPARTO
+PERMANENTE (`contenido/estado/reparto.txt`, línea `claude:`) es una decisión de
+Santiago para bajarle la carga a GPT, cuya cuota se agotaba al quinto día de
+siete: esas etapas son tuyas siempre, GPT no las ve, y si tú no las haces no
+las hace nadie. Hoy son la preselección (`barrido_listo`) y su reparación. El
+motivo de la preselección: es el único turno que no necesita lo único que GPT
+hace y tú no, que es entrar a las páginas; selecciona del barrido, que ya está
+en el repo. Probado sin querer el 03, el 04 y el 06-10, cuando la hiciste tú
+por plan B y pasó la validación igual.
+
+**Cuándo existe el modo PLAN B:** solo mientras `contenido/estado/plan-b.txt`
 exista con `hasta:` hoy o después. Su línea `turnos:` dice en qué etapas te
 despiertan `estado.yml` y `estado-clave.yml` (el `*` es comodín). Es la ÚNICA
 lista: la leen los dos workflows y la rutina. Cuando GPT vuelve, ese archivo
@@ -37,9 +48,19 @@ GPT, ni más ni menos, y con las mismas reglas.
 ## 0. Confirma que te toca
 
 1. `git fetch origin main && git checkout main 2>/dev/null; git reset --hard origin/main`.
-2. `contenido/estado/plan-b.txt` tiene que existir con `hasta:` igual o
-   posterior a hoy (fecha de Chile). Si no: "Plan B inactivo, no soy
-   suplente." y terminas.
+2. Te toca por UNO de dos motivos, y son distintos:
+   - **REPARTO PERMANENTE** (06-10-2026): la etapa calza con la línea `claude:`
+     de `contenido/estado/reparto.txt`. Entonces esa etapa es TUYA siempre, haya
+     plan B o no, y GPT ni siquiera fue despertado. Hoy son `barrido_listo`
+     (que es la etapa en que se ESCRIBE la preselección) y
+     `reparar_preseleccion`. No esperes a GPT ni le dejes nada: nadie más va a
+     hacer ese turno.
+   - **PLAN B**: `contenido/estado/plan-b.txt` existe con `hasta:` igual o
+     posterior a hoy (fecha de Chile) Y la etapa calza con su línea `turnos:`.
+     Esto es temporal, GPT está caído, y mañana vuelve a ser suyo.
+   Si no se cumple ninguno: "No me toca esta etapa" y terminas. El mensaje que
+   te despertó dice cuál de los dos motivos es, pero la verdad son los archivos,
+   no el mensaje.
 3. El estado: `contenido/estado/FECHA.md` (cadena diaria) o, si el disparo
    nombró un flujo de Clave, `contenido/estado/clave-<slug>.md`. Su `ETAPA`
    tiene que calzar con un patrón de la línea `turnos:` de `plan-b.txt`. Si

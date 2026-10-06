@@ -172,6 +172,55 @@ jobs:
           echo "$ETAPA" | grep -Eq '^(barrido_listo|[a-z_]+_lista|[a-z_]+_listo|reparar_[a-z_]+)$' || {
             echo "etapa $ETAPA: no es turno de GPT, nada que reintentar"; exit 0; }
 
+          # (06-10-2026) LAS ETAPAS DEL REPARTO NO SON DE GPT, y sin esto se
+          # caían por un hueco: la regla 20 y 20 de más abajo mira el evento del
+          # PR #6, y estado.yml ya no emite evento para ellas, así que este
+          # workflow salía diciendo "no me toca" y NADIE las reintentaba. O sea:
+          # si la preselección se colgaba, la noche entera moría en silencio en
+          # la primera pieza. Acá se reintentan despertando OTRA VEZ al suplente,
+          # con su propia marca y su propio contador, porque en estas etapas no
+          # hay a quién más llamar: no existe un plan B del plan B.
+          REPARTO=$(grep -m1 '^claude:' contenido/estado/reparto.txt 2>/dev/null | cut -d' ' -f2- || true)
+          if [ -n "$REPARTO" ] && echo "$ETAPA" | grep -Eq "^($(echo "$REPARTO" | sed 's/\*/[a-z_]+/g; s/  */|/g'))$"; then
+            if [ -z "$REVISION_ID" ] || [ -z "$REVISION_TOKEN" ]; then
+              echo "etapa $ETAPA es del reparto, pero sin secrets no puedo despertar al suplente; su reloj de las 02:20 lo cubre"; exit 0
+            fi
+            ACT=$(grep -m1 '^ACTUALIZADO:' "$VISTA" | sed 's/^ACTUALIZADO: *//; s/ (hora.*//')
+            EDAD_R=$(( ( $(date -u +%s) - $(TZ=America/Santiago date -d "$ACT" +%s 2>/dev/null || date -u +%s) ) / 60 ))
+            if [ "$EDAD_R" -lt "$ESPERA_MIN" ]; then
+              echo "etapa $ETAPA (del reparto) lleva $EDAD_R min: aún en gracia (los $ESPERA_MIN)"; exit 0
+            fi
+            MARCA_R="contenido/estado/ultimo-reintento-reparto.txt"
+            PREV=$(cat "$MARCA_R" 2>/dev/null || echo "")
+            NR=0
+            case "$PREV" in "$FECHA $ETAPA $VUELTA "*) NR=${PREV##* } ;; esac
+            # Dos reintentos y basta: a la tercera hay algo roto que no se
+            # arregla insistiendo, y el vigía de las 02:15 y 05:15 avisa al
+            # teléfono. Insistir sin tope gastaría turnos de Claude en vano.
+            if [ "$NR" -ge 2 ]; then
+              echo "::warning::$ETAPA (del reparto) lleva $EDAD_R min y ya se reintentó $NR veces: no insisto más, lo levanta el vigía"; exit 0
+            fi
+            NR=$((NR+1))
+            echo "$ETAPA (del reparto) lleva $EDAD_R min sin respuesta: despierto al suplente otra vez (reintento $NR de 2)"
+            escribir "$MARCA_R" "$FECHA $ETAPA $VUELTA $NR"
+            hacer git add "$MARCA_R"
+            hacer git commit -q -m "reintento del reparto $FECHA: $ETAPA (vuelta $VUELTA, intento $NR) [bot]"
+            hacer git push -q origin main || echo "::warning::marca del reintento no pusheada; se dispara igual"
+            BODY=$(printf '{"text":"Entender Chile, REPARTO PERMANENTE (esta etapa es tuya, contenido/estado/reparto.txt): %s, etapa %s, vuelta %s. Lleva %s min sin respuesta y nadie mas la va a hacer. Haz ese turno segun prompts/suplente.md. La verdad es contenido/estado/%s.md."}' "$FECHA" "$ETAPA" "$VUELTA" "$EDAD_R" "$FECHA")
+            if [ "$SIMULAR" = 1 ]; then
+              echo "  despertaría al suplente para $ETAPA (reintento $NR)"
+            else
+              CODIGO=$(curl -sS -o /tmp/fire-r.json -w '%{http_code}' -X POST "https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire" \
+                -H "Authorization: Bearer $REVISION_TOKEN" -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
+                -H "anthropic-version: 2023-06-01" -H "content-type: application/json" -d "$BODY" || echo 000)
+              case "$CODIGO" in
+                2*) echo "suplente redespertado para $ETAPA: $(head -c 200 /tmp/fire-r.json)" ;;
+                *) echo "::warning::no se pudo redespertar al suplente (HTTP $CODIGO); su reloj de las 02:20 lo cubre" ;;
+              esac
+            fi
+            exit 0
+          fi
+
           git fetch -q origin automatizacion/estado || { echo "sin rama de eventos"; exit 0; }
           EV=$(git show FETCH_HEAD:contenido/estado/ultimo-evento.txt 2>/dev/null || echo "")
           campo() { echo "$EV" | grep -m1 "^$1=" | cut -d= -f2-; }

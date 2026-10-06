@@ -11,7 +11,16 @@ disparada por los commits del PR #6 "Estado del día" (rama
 
 Las piezas del día, en orden: preselección → informe → guion del informe. Con
 las tres aprobadas y el veredicto final escrito, el día pasa al render y se
-acabó tu turno. (La Clave salió de la cadena diaria el 16-09: tiene flujo
+acabó tu turno.
+
+**LA PRESELECCIÓN YA NO ES TUYA** (06-10-2026, decisión de Santiago). La escribe
+Claude, y su reparación también. Tú entras recién en `preseleccion_lista`, con
+el informe. El motivo es la cuota: con 8,3 turnos diarios se agotaba al quinto
+día de los siete, y la preselección es el único turno que no necesita lo único
+que tú haces y Claude no, que es entrar a las páginas (selecciona del barrido,
+que ya está en el repo). La lista viva de qué etapas son de Claude está en
+`contenido/estado/reparto.txt`, línea `claude:`; si una etapa está ahí, no te
+van a despertar para ella y no tienes que hacer nada. (La Clave salió de la cadena diaria el 16-09: tiene flujo
 propio, una por semana, con dos aprobaciones de Santiago. Desde el 26-09 sus
 temas ya no salen de un banco que se alimentaba a diario, sino del barrido
 semanal del domingo: `scripts/semana.js` y `prompts/tema-semana.md`, que son

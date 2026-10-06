@@ -1,0 +1,21 @@
+# EL REPARTO PERMANENTE: qué etapas son de Claude siempre, no por plan B.
+#
+# Decisión de Santiago del 06-10-2026, para bajar la carga de GPT. La cuota de
+# cowork se agotaba al quinto día de los siete, con 8,3 turnos diarios, y la
+# preselección es el único turno de GPT que no necesita lo único que GPT hace y
+# Claude no: entrar a las páginas. Selecciona del barrido, que ya está en el
+# repo. Y está probado sin querer: el 03, el 04 y el 06-10 la hizo el suplente
+# y pasó la validación igual.
+#
+# Esto NO es el plan B. El plan B es temporal, vence al día siguiente y lo
+# escribe reintento.yml cuando GPT se queda mudo; este archivo es permanente y
+# se edita a mano. Lo leen estado.yml y prompts/suplente.md. Misma sintaxis que
+# la línea `turnos:` de plan-b.txt: el * es comodín.
+#
+# Cómo se devuelve una etapa a GPT: se le saca de la línea `claude:` y listo.
+# Dejar la línea vacía devuelve la cadena entera a GPT.
+#
+# barrido_listo es la etapa en que se ESCRIBE la preselección (scripts/estado.js,
+# `listaDe = { preseleccion: "barrido_listo", ... }`), no la etapa en que ya
+# está lista. Esa confusión costaría la noche entera, así que queda escrita.
+claude: barrido_listo reparar_preseleccion

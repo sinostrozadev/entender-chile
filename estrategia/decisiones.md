@@ -752,3 +752,36 @@ un campo opcional: la referencia.
 
 Se llama referencia y no marca a propósito: en este proyecto la marca es el
 canal.
+
+## 06-10-2026: la preselección pasa a Claude, y por qué solo ella
+
+La cuota de cowork de GPT se agotaba al quinto día de los siete. Medido sobre
+los disparos del repo: **8,3 turnos diarios** (preselección, informe, guion,
+carátula, más 4,3 vueltas de corrección), o sea 58 a la semana del informe y
+unos 64 con la Clave. La cuota muere alrededor del turno 45.
+
+De todo lo que le pedimos a GPT, **la preselección es el único turno que no
+necesita lo único que GPT hace y Claude no**, que es entrar a las páginas.
+Selecciona del barrido, y el barrido ya está en el repo. Y estaba probado sin
+que nadie lo probara a propósito: el 03, el 04 y el 06-10 la escribió el
+suplente por plan B y pasó la validación igual.
+
+Se decidió **NO** mover el informe ni el guion, aunque serían el ahorro grande.
+Los dos necesitan abrir fuentes para verificar, y ese es exactamente el trabajo
+que Claude no puede hacer desde la nube: el proxy de salida bloquea la web
+abierta. Moverlos convertiría un problema de cuota en un problema de precisión,
+y la precisión es el único activo del canal.
+
+Se decidió **NO** usar el plan B para esto, aunque la máquina ya existía. El
+plan B es temporal por diseño: vence al día siguiente y reintento.yml lo borra
+para que GPT vuelva a ser el primero. Colgar una decisión permanente de un
+archivo que se autodestruye cada mañana habría durado exactamente una noche. De
+ahí `contenido/estado/reparto.txt`, que es permanente y se edita a mano.
+
+Y una cosa que casi se nos pasa, anotada porque es el tipo de hueco que mata una
+noche entera en silencio: la regla 20 y 20 de `reintento.yml` detecta que un
+turno se colgó **mirando el evento del PR #6**, y las etapas del reparto ya no
+emiten evento. Sin tocar eso, una preselección colgada no la habría reintentado
+nadie y la cadena habría muerto en la primera pieza. Las etapas del reparto
+tienen ahora su propio reintento, con tope de dos, porque en ellas no hay a
+quién más llamar: no existe un plan B del plan B.
