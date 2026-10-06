@@ -1,0 +1,28 @@
+Veredictos CORREGIR de los últimos 14 días: 47 vueltas, 197 correcciones.
+Promedio: 4.2 correcciones por vuelta.
+
+Vueltas por pieza:
+   17  informe
+   14  guion_informe
+    9  preseleccion
+    3  investigacion
+    2  entrega
+    1  guion
+    1  idea
+
+Reglas que más se repiten (una regla arriba es un prompt que no aterriza):
+    8  "Toda referencia temporal relativa ('ayer', 'esta semana', 'esta madru
+    6  "CIERRE DE CAUTELA, TOPE DURO: como MÁXIMO UNA noticia [B] o [C] de to
+    5  prompts/investigacion-clave.md, "Cada afirmación con su fuente: medio 
+    5  "ETIQUETA CON CONTEXTO (obligatorio): la etiqueta dice QUÉ es la cifra
+    5  "Las citas textuales van entrecomilladas, con nombre y cargo de quien 
+    4  "Escala humana: en las noticias [A] económicas o sociales, traduce la 
+    3  "Convierte cifras, monedas, porcentajes, fechas y abreviaturas a una f
+    3  "La FECHA EXACTA manda: si el informe da la fecha de un hecho, nunca l
+    3  "lista una línea por cada fuente de las marcas [DATO] y [CITA] Y por c
+    2  "REGLA DE REDONDEO EN VOZ ... Tope: TRES cifras significativas hablada
+    2  "Al final, bajo 'Fuentes:', lista una línea por cada fuente de las mar
+    2  "Nunca sitios de apuestas, agregadores estadísticos de apuestas ni nom
+    2  "Al final del reporte, ANTES de 'Fuentes consultadas', incluye una sec
+    2  "deja una línea por CADA noticia de la preselección que no entró al in
+    2  "REGLA DE REDONDEO EN VOZ (Santiago, 04-09): las cifras grandes se nar

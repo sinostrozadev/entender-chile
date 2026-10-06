@@ -315,6 +315,15 @@ PERSISTENCIA:
 La ÚNICA persistencia es el repositorio, en la ruta exacta que define el contrato de archivos. No guardes copias en la Biblioteca de ChatGPT. Guarda el guion ÍNTEGRO y sin reformular. Si por algún motivo técnico no puedes guardar o pushear, indícalo claramente al final de la ejecución.
 
 CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
+0. LA QUE MÁS FALLA, y por eso va primero y se responde CONTANDO. Medido sobre
+   los veredictos del 22-09 al 06-10-2026: la ETIQUETA CON CONTEXTO de las
+   marcas [DATO] se corrigió CINCO veces en dos semanas, y cada corrección costó
+   una vuelta entera. La regla ya está escrita más arriba; el problema es que
+   se firma sin mirar. Así que no te preguntes si la cumpliste: LISTA tus marcas
+   [DATO] una por una y escribe al lado la etiqueta de cada una. Una etiqueta
+   que no diga QUÉ es la cifra Y EN QUÉ SITUACIÓN, en 3 a 8 palabras, está mal:
+   "monto" está mal, "sin cobrar a becarios que incumplieron" está bien. La
+   prueba es si la tarjeta se entiende con el video en silencio.
 1. Verifica noticia por noticia: ninguna [A] omitida; cada [B] narrada o en "En titulares"; cada [C] en "En titulares"; ninguna agregada. Nada del informe queda sin sonar.
 2. Verifica que la extensión de cada noticia corresponde a su peso [A], [B] o [C].
 3. Verifica que no hay ningún tema narrado dos veces.

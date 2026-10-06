@@ -117,15 +117,38 @@ ESTILO ANTI-PLANTILLA (para que no se lea como texto generado):
 - Incisos con comas o paréntesis, nunca con guiones ni rayas.
 
 CONTROL ANTES DE ENTREGAR:
-0b. Como máximo UNA [B] o [C] cierra diciendo lo que falta por saber; las demás cierran con lo que sí se sabe.
+
+LAS CUATRO QUE MÁS FALLAN, y por eso van primero y se responden CONTANDO, no
+confirmando. Medido sobre los veredictos del 22-09 al 06-10-2026: estas cuatro
+reglas explican 21 de las correcciones de esas dos semanas, y cada corrección
+te costó una vuelta entera. Están todas escritas más arriba; el problema nunca
+fue que faltaran, fue que se firman sin mirar. Así que no te preguntes si las
+cumpliste: cuenta.
+
+ A. Recorre tus [B] y [C] y CUENTA cuántas terminan diciendo lo que falta por
+    saber ("falta esclarecer", "queda por conocer", "habrá que ver" y sus
+    variantes). El tope es UNA en toda la edición. Si te dio dos o más, elige
+    cuál conservas y reescribe los cierres de las otras. (6 correcciones)
+ B. Recorre tus comillas, una por una. Cada cita textual tiene que traer el
+    NOMBRE y el CARGO de quien la dijo, no solo la institución. Si una comilla
+    no tiene las dos cosas, o le pones las dos o la sacas de comillas y la
+    cuentas como paráfrasis. (5 correcciones)
+ C. Lista tus noticias [A] económicas y sociales, y al lado de cada una el
+    ejemplo a escala humana que lleva. Una [A] económica o social sin ejemplo
+    concreto para una persona está incompleta. (4 correcciones)
+ D. Busca en TODO el texto "ayer", "anteayer", "anoche", "esta semana", "esta
+    madrugada", "este lunes" y cualquier otra referencia relativa. Cada una
+    lleva su fecha absoluta en la misma frase, en DD-MM-AAAA. Ninguna puede
+    quedar colgando. (6 correcciones, y es regla dura 35)
+
+Y el resto:
 1. Toda noticia tiene peso [A], [B] o [C]; hasta 4 [A]. Sin tope de [B] ni de [C]. Toda [A] responde la pauta de cinco preguntas (u omite en silencio las que no tienen respuesta verificable). Toda preseleccionada verificable está en el informe, aunque sea como [C].
 2. Ningún tema aparece desarrollado en dos secciones.
 3. Toda cifra y cita tiene fuente y fecha.
 4. No hay secciones vacías ni frases que informen ausencia de noticias.
 5. "Análisis" está separado y etiquetado; nada interpretativo aparece como hecho.
-6. Las referencias temporales relativas tienen fecha absoluta.
 7. El texto está completo en español y limpio de residuos.
-8. La edición incluye "Agenda de hoy" solo con hitos relevantes, sin relleno; y toda noticia [A] económica o social trae su ejemplo a escala humana.
+8. La edición incluye "Agenda de hoy" solo con hitos relevantes, sin relleno.
 9. Las fuentes cumplen el estándar de calidad: organismos oficiales y medios establecidos; Dirección Meteorológica de Chile para meteorología; sin sitios de apuestas ni nombres de procesos internos como fuente.
 
 CONTRATO DE ARCHIVOS: aplica el contrato de prompts/contrato-archivos.md del

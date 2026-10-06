@@ -59,6 +59,20 @@ Todo lo que escribas acá tiene que poder citarse.
   material en "Lo confirmado", o aparece en "Lo que NO se pudo averiguar". Un
   silencio no se distingue de un olvido, y el validador lo mira.
 
+## Antes de entregar, cuenta
+
+LA QUE MÁS FALLA, y se responde CONTANDO, no confirmando. Medido sobre los
+veredictos del 22-09 al 06-10-2026: "cada afirmación con su fuente" se corrigió
+CINCO veces en dos semanas, y cada corrección costó una vuelta entera. La regla
+ya está escrita arriba; se firma sin mirar.
+
+Así que recorre tu entrega afirmación por afirmación y CUENTA cuántas no llevan
+medio o institución, fecha y enlace. El número tiene que ser cero. Si no lo es,
+o le pones la fuente a cada una o borras la afirmación: una afirmación sin
+fuente no es un dato, es un recuerdo, y acá no sirve. Cuenta también las que
+llevan enlace pero no fecha, y las que citan una fuente para una frase que dice
+más que lo que esa fuente sostiene.
+
 ## Formato de salida
 
     # <tema>
