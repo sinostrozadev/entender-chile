@@ -1,1 +1,1 @@
-2026-10-04 informe_listo 0
+2026-10-06 reparar_preseleccion 1
