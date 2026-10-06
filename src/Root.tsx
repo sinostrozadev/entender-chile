@@ -2,9 +2,28 @@ import React from "react";
 import { Composition } from "remotion";
 import { InformeVideo, Timeline } from "./Informe";
 import timelineEjemplo from "../ejemplos/timeline.ejemplo.json";
+// MUESTRA del formato de la Clave (06-10-2026): no es producción, es para
+// poder MIRAR las imágenes de sección en movimiento antes de encargar las
+// catorce. Se puede borrar sin romper nada.
+import { ClaveMuestra, SeccionMuestra } from "./clave-muestra";
+import claveMuestra from "../ejemplos/clave-muestra.json";
 
 export const Root: React.FC = () => {
   return (
+    <>
+    <Composition
+      id="ClaveMuestra"
+      component={ClaveMuestra}
+      defaultProps={claveMuestra as { secciones: SeccionMuestra[] }}
+      fps={24}
+      width={1920}
+      height={1080}
+      calculateMetadata={({ props }) => ({
+        durationInFrames: Math.ceil(
+          (props as { secciones: SeccionMuestra[] }).secciones.reduce((a, s) => a + s.seg, 0) * 24
+        ),
+      })}
+    />
     <Composition
       id="Informe"
       component={InformeVideo}
@@ -20,5 +39,6 @@ export const Root: React.FC = () => {
         };
       }}
     />
+    </>
   );
 };
