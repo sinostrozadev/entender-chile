@@ -57,7 +57,40 @@ const Velo: React.FC<{ fuerza?: number }> = ({ fuerza = 1 }) => (
   }} />
 );
 
-const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: number; frame: number }> = ({ b, dur, frame }) => {
+// EL RÓTULO SE TECLEA, y es el único texto del video que puede hacerlo
+// (06-10-2026, idea de Santiago). La razón no es estética: el nombre de la
+// sección es lo único que la VOZ nunca va a decir, así que es el único lugar
+// donde un sonido por letra no choca con nada. En el párrafo narrado sería
+// insoportable y además pelearía con el locutor.
+//
+// Tres muestras alternadas y no una: una sola repetida suena a metrónomo y el
+// oído la caza en la tercera letra. Es el truco de los pasos en el cine.
+const RITMO_TECLA = 2.2; // cuadros por letra, a 24 fps son 11 letras por segundo
+
+const Rotulo: React.FC<{ texto: string }> = ({ texto }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const inicio = Math.round(fps * 0.25);
+  const letras = Array.from(texto);
+  const escritas = Math.max(0, Math.min(letras.length, Math.floor((frame - inicio) / RITMO_TECLA)));
+  return (
+    <div style={{ fontFamily: tema.mono, fontSize: 22, letterSpacing: 3, textTransform: "uppercase", color: tema.patina, marginBottom: 26, minHeight: 30 }}>
+      {letras.slice(0, escritas).join("")}
+      {/* el cursor existe solo mientras se escribe: después estorba */}
+      {escritas < letras.length && frame > inicio ? <span style={{ opacity: 0.55 }}>_</span> : null}
+      {letras.map((c, i) =>
+        c === " " ? null : (
+          <Sequence key={i} from={inicio + Math.round(i * RITMO_TECLA)} durationInFrames={4}>
+            <Audio src={staticFile(`sonidos/tecla-${(i % 3) + 1}.wav`)} volume={0.5} />
+          </Sequence>
+        )
+      )}
+    </div>
+  );
+};
+
+const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: number }> = ({ b, dur }) => {
+  const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const letras = Array.from(b.texto);
   const avance = interpolate(frame, [fps * 0.25, dur - fps * 0.9], [0, letras.length], {
@@ -66,11 +99,7 @@ const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: numbe
   const salida = interpolate(frame, [dur - fps * 0.45, dur], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <AbsoluteFill style={{ padding: `${tema.margen}px`, width: "52%", justifyContent: "center", opacity: salida }}>
-      {b.rotulo ? (
-        <div style={{ fontFamily: tema.mono, fontSize: 22, letterSpacing: 3, textTransform: "uppercase", color: tema.patina, marginBottom: 26 }}>
-          {b.rotulo}
-        </div>
-      ) : null}
+      {b.rotulo ? <Rotulo texto={b.rotulo} /> : null}
       <div style={{ fontFamily: tema.serif, fontSize: 48, lineHeight: 1.4, color: tema.papel, textShadow: "0 2px 20px rgba(10,14,22,0.8)" }}>
         {letras.map((c, i) => (
           <span key={i} style={{ opacity: Math.max(0, Math.min(1, (avance - i) / 4)) }}>{c}</span>
@@ -82,7 +111,8 @@ const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: numbe
 
 // EL DATO COMO PLANO. El número entra creciendo apenas (1.06 a 1.0): no es un
 // efecto, es lo que hace que el ojo lo lea como que llegó y se quedó.
-const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number; frame: number }> = ({ b, dur, frame }) => {
+const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number }> = ({ b, dur }) => {
+  const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const entra = interpolate(frame, [0, fps * 0.7], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const sale = interpolate(frame, [dur - fps * 0.5, dur], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
@@ -168,9 +198,20 @@ export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paso, viaj
       ) : null}
       <Velo fuerza={esDato ? 1 - apagado : 1} />
       <AbsoluteFill style={{ backgroundColor: "rgba(10,12,16,0.55)", opacity: apagado }} />
-      {enViaje ? null : esDato
-        ? <BloqueDato b={actual as Extract<Bloque, { tipo: "dato" }>} dur={dur - viaje * (hayViaje ? 1 : 0)} frame={frame - desde - (hayViaje ? viaje : 0)} key={desde} />
-        : <BloqueTexto b={actual as Extract<Bloque, { tipo?: "texto" }>} dur={dur - viaje * (hayViaje ? 1 : 0)} frame={frame - desde - (hayViaje ? viaje : 0)} key={desde} />}
+      {/* TODO EL BLOQUE VA DENTRO DE UNA Sequence, y no es un detalle: sin ella
+          useCurrentFrame() devuelve el cuadro de la composición entera y los
+          Sequence de adentro cuentan desde el segundo cero del video. Eso ya
+          costó dos bugs hoy: los bloques salieron invisibles la primera vez, y
+          el tecleo del rótulo sonó entero al principio en vez de en cada
+          sección. Con la Sequence, todo lo de adentro cuenta desde que el
+          bloque empieza, que es lo único que tiene sentido. */}
+      {enViaje ? null : (
+        <Sequence from={desde + (hayViaje ? viaje : 0)} durationInFrames={dur - (hayViaje ? viaje : 0)}>
+          {esDato
+            ? <BloqueDato b={actual as Extract<Bloque, { tipo: "dato" }>} dur={dur - (hayViaje ? viaje : 0)} />
+            : <BloqueTexto b={actual as Extract<Bloque, { tipo?: "texto" }>} dur={dur - (hayViaje ? viaje : 0)} />}
+        </Sequence>
+      )}
     </AbsoluteFill>
   );
 };
