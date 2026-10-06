@@ -33,13 +33,22 @@ import React from "react";
 import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { tema } from "./tema";
 
+// `parada` dice EN QUÉ TRAMO DEL MURAL se lee este bloque. Dos bloques con la
+// misma parada se leen sin que la cámara se mueva; cuando cambia, la cámara
+// viaja hasta el tramo nuevo y vuelve a quedarse quieta.
 export type Bloque =
-  | { tipo?: "texto"; rotulo?: string; texto: string; seg: number }
-  | { tipo: "dato"; etiqueta: string; de?: string; a: string; fuente: string; seg: number };
+  | { tipo?: "texto"; rotulo?: string; texto: string; seg: number; parada: number }
+  | { tipo: "dato"; etiqueta: string; de?: string; a: string; fuente: string; seg: number; parada: number };
 
-export type GuionMural = { mural: string; anchoMural: number; bloques: Bloque[] };
+export type GuionMural = {
+  mural: string; anchoMural: number; paso: number; viajeSeg?: number; bloques: Bloque[];
+};
 
-const suave = (t: number) => t * t * (3 - 2 * t); // arranque y llegada sin tirón
+const suave = (t: number) => t * t * (3 - 2 * t);
+// Para el viaje hace falta una curva MÁS marcada que la anterior: arranca casi
+// de cero, cruza rápido y llega frenando. Es la diferencia entre una cámara que
+// se desplaza y un carrete que se arrastra.
+const viajeSuave = (t: number) => t * t * t * (t * (t * 6 - 15) + 10);
 
 const Velo: React.FC<{ fuerza?: number }> = ({ fuerza = 1 }) => (
   <AbsoluteFill style={{
@@ -100,22 +109,40 @@ const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number; 
   );
 };
 
-export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, bloques }) => {
+export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paso, viajeSeg, bloques }) => {
   const frame = useCurrentFrame();
-  const { fps, width, durationInFrames } = useVideoConfig();
-  // LA CÁMARA NO SE DETIENE NUNCA, ni en el plano del dato. Si se detuviera, el
-  // video volvería a tener cortes: un corte es exactamente un cambio sin
-  // movimiento que lo explique.
-  const recorrido = anchoMural - width;
-  const x = -recorrido * suave(frame / durationInFrames);
-
-  // qué bloque toca, y cuánto lleva corriendo
-  let t = 0, actual = bloques[0], desde = 0, dur = 1;
-  for (const b of bloques) {
-    const d = Math.round(b.seg * fps);
-    if (frame >= t && frame < t + d) { actual = b; desde = t; dur = d; break; }
-    t += d;
+  const { fps, width } = useVideoConfig();
+  // LA CÁMARA SE MUEVE ENTRE IDEAS Y DESCANSA SOBRE LA IDEA (06-10-2026, idea
+  // de Santiago, y es la que endereza todo el formato). La primera versión
+  // paneaba sin parar nunca y no servía para ninguna de las dos cosas: con
+  // movimiento permanente el ojo nunca se instala a leer, y como nada se
+  // detiene tampoco se siente que haya pasado algo. Ahora el viaje ES el signo
+  // de puntuación: se lee quieto, se viaja al tramo siguiente, se vuelve a
+  // leer quieto. El movimiento dejó de ser decoración.
+  // El redondeo por bloque suma un poco menos que durationInFrames, así que los
+  // últimos cuadros se caían fuera de todo bloque y quedaban con dur=1, lo que
+  // reventaba el render en el cuadro 1636. Si no calza ninguno, manda el
+  // último: un video no puede terminar en un estado que no existe.
+  let t = 0, indice = bloques.length - 1, desde = 0, dur = Math.round(bloques[indice].seg * fps);
+  let acum = 0;
+  for (let i = 0; i < bloques.length; i++) {
+    const d = Math.round(bloques[i].seg * fps);
+    if (frame >= acum && frame < acum + d) { indice = i; desde = acum; dur = d; break; }
+    acum += d;
+    if (i === bloques.length - 1) desde = acum - d;   // el último, para los cuadros de cola
   }
+  const actual = bloques[indice];
+  t = desde;
+  const paradaAnterior = indice > 0 ? bloques[indice - 1].parada : actual.parada;
+  const viaje = Math.round((viajeSeg ?? 1.4) * fps);
+  const hayViaje = actual.parada !== paradaAnterior;
+  const avanceViaje = hayViaje ? Math.min(1, (frame - desde) / viaje) : 1;
+  const xDe = -paradaAnterior * paso;
+  const xA = -actual.parada * paso;
+  const x = Math.max(-(anchoMural - width), xDe + (xA - xDe) * viajeSuave(avanceViaje));
+  // mientras la cámara viaja no hay texto: el viaje es el acontecimiento, y si
+  // además hubiera que leer, no se mira ninguna de las dos cosas
+  const enViaje = hayViaje && avanceViaje < 1;
   const esDato = actual.tipo === "dato";
   // durante el dato el mural se apaga y pierde color, pero sigue moviéndose
   const apagado = esDato
@@ -129,9 +156,9 @@ export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, bloques })
       </AbsoluteFill>
       <Velo fuerza={esDato ? 1 - apagado : 1} />
       <AbsoluteFill style={{ backgroundColor: "rgba(10,12,16,0.55)", opacity: apagado }} />
-      {esDato
-        ? <BloqueDato b={actual as Extract<Bloque, { tipo: "dato" }>} dur={dur} frame={frame - desde} key={desde} />
-        : <BloqueTexto b={actual as Extract<Bloque, { tipo?: "texto" }>} dur={dur} frame={frame - desde} key={desde} />}
+      {enViaje ? null : esDato
+        ? <BloqueDato b={actual as Extract<Bloque, { tipo: "dato" }>} dur={dur - viaje * (hayViaje ? 1 : 0)} frame={frame - desde - (hayViaje ? viaje : 0)} key={desde} />
+        : <BloqueTexto b={actual as Extract<Bloque, { tipo?: "texto" }>} dur={dur - viaje * (hayViaje ? 1 : 0)} frame={frame - desde - (hayViaje ? viaje : 0)} key={desde} />}
     </AbsoluteFill>
   );
 };

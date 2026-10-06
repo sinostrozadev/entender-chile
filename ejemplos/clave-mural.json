@@ -1,19 +1,24 @@
 {
   "mural": "claves/licencia-medica/mural.jpg",
   "anchoMural": 9420,
+  "paso": 1500,
+  "viajeSeg": 1.4,
   "bloques": [
     {
       "rotulo": "Gancho",
       "texto": "El dos de octubre de dos mil veintiséis se",
-      "seg": 4.48
+      "parada": 0,
+      "seg": 4.37
     },
     {
       "texto": "informó que más de siete mil doscientos servidores públicos",
-      "seg": 4.48
+      "parada": 0,
+      "seg": 4.37
     },
     {
       "texto": "viajaron fuera de Chile mientras tenían licencia médica durante",
-      "seg": 4.48
+      "parada": 0,
+      "seg": 4.37
     },
     {
       "tipo": "dato",
@@ -21,52 +26,63 @@
       "de": "19.963",
       "a": "7.207",
       "fuente": "Contraloría vía Cooperativa, 02-10-2026",
-      "seg": 4.6
+      "parada": 0,
+      "seg": 4.8
     },
     {
       "rotulo": "Promesa",
       "texto": "Al terminar este video vas a poder distinguir quién",
-      "seg": 4.48
+      "parada": 1,
+      "seg": 5.77
     },
     {
       "texto": "autoriza la licencia, quién paga, qué permite el reposo",
-      "seg": 4.48
+      "parada": 1,
+      "seg": 4.37
     },
     {
       "rotulo": "De dónde viene",
       "texto": "El punto de partida no es el último cruce",
-      "seg": 4.48
+      "parada": 2,
+      "seg": 5.77
     },
     {
       "texto": "de datos. Desde mil novecientos ochenta y cuatro,",
-      "seg": 4.359999999999999
+      "parada": 2,
+      "seg": 4.24
     },
     {
       "rotulo": "Los hitos",
       "texto": "El veintinueve de septiembre de dos mil veintiséis apareció",
-      "seg": 4.48
+      "parada": 3,
+      "seg": 5.77
     },
     {
       "texto": "VigIA, una herramienta de la Superintendencia de Seguridad Social",
-      "seg": 4.48
+      "parada": 3,
+      "seg": 4.37
     },
     {
       "rotulo": "Qué es una licencia",
       "texto": "La emite un profesional habilitado porque considera necesario que",
-      "seg": 4.48
+      "parada": 4,
+      "seg": 5.77
     },
     {
       "texto": "una persona se ausente o reduzca su jornada.",
-      "seg": 4.359999999999999
+      "parada": 4,
+      "seg": 4.24
     },
     {
       "rotulo": "Quién paga",
       "texto": "Si la enfermedad o el accidente es común,",
-      "seg": 4.359999999999999
+      "parada": 5,
+      "seg": 5.640000000000001
     },
     {
       "texto": "una persona de Fonasa puede recibir el pago desde",
-      "seg": 4.48
+      "parada": 5,
+      "seg": 4.37
     }
   ]
 }
