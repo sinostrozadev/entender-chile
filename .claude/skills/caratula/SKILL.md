@@ -84,3 +84,69 @@ Separado en tres montones, y en este orden:
 Y una cosa que nunca se hace: dar por buena una carátula porque "se ve
 profesional". El diseño no es el riesgo. El riesgo es la cifra, la comparación
 y el lugar.
+
+## Después de informar: la vuelta al prompt
+
+Instrucción de Santiago del 06-10-2026: "cada vez que veamos un detalle en la
+carátula recorremos el prompt y ajustamos, si puedes encontrar mejoras lo mismo.
+Así vamos auto mejorando el prompt hasta obtener el prompt perfecto".
+
+Una revisión no termina en el informe. Termina en el prompt. Cada defecto que se
+ve en una imagen es casi siempre un hueco del prompt, no una falla del
+generador: el generador hizo exactamente lo que se le pidió, y lo que no se le
+pidió lo inventó. Así que después de informar se abre el prompt que produjo esa
+imagen (`prompts/caratula-pedido.txt` para la carátula del informe, el
+`PROMPT-*.md` de la sección para los fondos, el archivo de prompts de la Clave
+para sus imágenes) y se corrige.
+
+**El norte, y lo decide todo lo demás:** una carátula WOW, que el usuario quiera
+entrar. Un prompt que produce imágenes seguras y aburridas falló. Lo único que
+el norte cede es la desmonetización, y solo cuando está comprobada.
+
+### La regla que gobierna qué se puede agregar
+
+Esta es la regla dura del 06-10-2026, y es más fuerte que cualquier instinto de
+prudencia:
+
+> "No prohíbas cosas por si acaso, solo prohíbe si infringe una regla de
+> YouTube, verifica contra la regla, y ponlo en el informe que me darás. Si no
+> hay nada no se hace nada."
+
+En la práctica, cada cambio que se quiera hacer al prompt pasa por esta puerta:
+
+- **¿Le quita libertad al generador?** (una prohibición, un "nunca", un límite,
+  una lista de lo que no se puede). Entonces hay que **citar la regla de YouTube
+  que se infringe**, haberla verificado en la fuente, y escribirla en el
+  informe. Sin regla citada, el cambio no entra. Una prohibición "por si acaso"
+  es la forma más cara de empeorar una carátula, porque el costo (todas las
+  imágenes futuras, más pobres) no se ve nunca y el beneficio no existía.
+- **¿Es una mejora que le da al generador algo que antes no tenía?** (un encuadre
+  medido, un porqué, un ejemplo, una precisión de composición, un formato).
+  Entonces entra directo, sin pedir permiso a ninguna regla. Acá es donde está
+  casi todo el rendimiento.
+- **Si la revisión no encontró nada**, el prompt no se toca. "Si no hay nada no
+  se hace nada" también significa que no hay que inventar una mejora para tener
+  algo que entregar.
+
+Y una distinción que ya costó una confusión: un problema de **precisión
+editorial** (una cifra, una base de comparación mal elegida) no se arregla
+prohibiendo nada en el prompt de la carátula. Se arregla donde nace, que es el
+prompt del guion. La carátula solo repite lo que el guion decidió.
+
+### Cómo queda escrito
+
+En el mismo archivo del prompt, al final, una sección **Vueltas**: una entrada
+por vuelta, con la fecha, qué se vio en la imagen, qué línea se agregó y qué
+defecto la pagó. Sin ese registro la vuelta siguiente vuelve a discutir lo
+mismo, y el prompt deja de mejorar y empieza a oscilar.
+
+### Y el informe para Santiago
+
+Siempre, aunque el cambio sea de una línea. Tres cosas:
+
+1. Qué se vio en la imagen.
+2. Qué se cambió en el prompt y por qué.
+3. **Qué se prohibió y contra qué regla de YouTube**, con el enlace. Si no se
+   prohibió nada, se dice así de claro: "contra reglas de YouTube, nada que
+   corregir". Esa línea no se omite nunca, porque su ausencia se lee como que no
+   se miró.
