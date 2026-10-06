@@ -7,7 +7,7 @@ Guion:
 [TESIS] Una caída en los casos detectados no cerró la discusión sobre las licencias médicas.
 
 [DATO comparacion | Cooperativa, 02-10-2026] servidores 2023: 19963 ; servidores 2025: 7207
-El dos de octubre de dos mil veintiséis se informó que siete mil doscientos siete servidores públicos viajaron fuera de Chile mientras tenían licencia médica durante dos mil veinticinco. Era un sesenta y tres por ciento menos que en dos mil veintitrés. Pero más de cuatro mil quinientas personas aparecieron en dos de los tres años revisados, y quinientas sesenta y seis, en los tres. Entonces la pregunta no es solo cuántos viajaron. Es esta: ¿qué controla realmente el Estado cuando fiscaliza una licencia médica, y qué puede pasar si no se cumple el reposo?
+El dos de octubre de dos mil veintiséis se informó que más de siete mil doscientos servidores públicos viajaron fuera de Chile mientras tenían licencia médica durante dos mil veinticinco. Era un sesenta y tres por ciento menos que en dos mil veintitrés. Pero más de cuatro mil quinientas personas aparecieron en dos de los tres años revisados, y quinientas sesenta y seis, en los tres. Entonces la pregunta no es solo cuántos viajaron. Es esta: ¿qué controla realmente el Estado cuando fiscaliza una licencia médica, y qué puede pasar si no se cumple el reposo?
 
 ## Promesa
 [TESIS] Entender el sistema exige separar decisiones que suelen mezclarse.
@@ -77,7 +77,7 @@ En una empresa privada, el rechazo de la licencia y la restitución del subsidio
 [TESIS] La baja agregada convive con reincidencia y con miles de procedimientos todavía pendientes.
 
 [DATO tabla | Dipres, 05-02-2026] sumarios totales: 25352 ; en curso: 21098 ; cerrados: 1543
-El séptimo balance consolidado de la Dirección de Presupuestos, fechado el cinco de febrero de dos mil veintiséis, informó más de veinticinco mil sumarios. Más de veintiún mil seguían en curso y mil quinientos cuarenta y tres estaban cerrados con resolución ejecutoriada. Eso explica por qué una disminución del sesenta y tres por ciento no cerró la noticia: bajó el universo detectado, pero persistieron casos repetidos y una gran cantidad de procesos aún no terminaba.
+El séptimo balance consolidado de la Dirección de Presupuestos, fechado el cinco de febrero de dos mil veintiséis, informó más de veinticinco mil sumarios. Más de veintiún mil seguían en curso y más de mil quinientos estaban cerrados con resolución ejecutoriada. Eso explica por qué una disminución del sesenta y tres por ciento no cerró la noticia: bajó el universo detectado, pero persistieron casos repetidos y una gran cantidad de procesos aún no terminaba.
 
 Los más de treinta y seis mil millones de pesos estimados por la Dirección de Presupuestos tampoco son fraude probado ni dinero recuperado. La institución calculó esa suma usando remuneraciones promedio y períodos de licencia del universo que sería sumariado. Es un monto asociado a personas investigadas, no la demostración de que cada peso fuera indebido.
 
@@ -86,7 +86,7 @@ Los más de treinta y seis mil millones de pesos estimados por la Dirección de 
 
 Entre dos mil veinte y dos mil veintidós, una red que operó mediante dieciséis sociedades médicas de fachada emitió más de sesenta mil licencias fraudulentas. Fonasa pagó más de cincuenta mil. El veintitrés de junio de dos mil veintiséis, un tribunal declaró culpables a los diecisiete acusados. La sentencia se dictó el treinta y uno de agosto.
 
-[DATO comparacion | Fiscalía y La Tercera, 31-08-2026] perjuicio informado: 31571798643 ; demanda civil acogida: 26000000000
+[DATO comparacion | Emol, 31-08-2026] perjuicio informado: 31571798643 ; demanda civil acogida: 26000000000
 La Fiscalía informó un perjuicio de más de treinta y un mil quinientos millones de pesos, y se acogió una demanda civil por cerca de veintiséis mil millones. Pero al cinco de octubre de dos mil veintiséis no se encontró constancia oficial de dinero efectivamente ingresado al Fisco. Tampoco se encontró una fuente que acreditara la ejecución del fallo o explicara una causa documentada para esa falta de recuperación. La respuesta honesta es esa: condena, cobro y recuperación son momentos distintos.
 
 ## Qué está en juego
@@ -114,6 +114,7 @@ Fuentes:
 - Biblioteca del Congreso Nacional, Ley 20.585: https://www.bcn.cl/leychile/Navegar?idNorma=1039952
 - Biblioteca del Congreso Nacional, DFL 29 de 2004: https://www.bcn.cl/leychile/navegar?idNorma=236392
 - SUSESO, Circular 3868: https://www.suseso.gob.cl/612/articles-758844_archivo_01.pdf
+- SUSESO, Circular 3906: https://www.suseso.gob.cl/612/w3-article-785452.html
 - SUSESO, Circular 3890: https://www.suseso.gob.cl/622/w3-propertyvalue-774967.html
 - SUSESO, Subsidios por incapacidad laboral: https://www.suseso.gob.cl/606/w3-propertyvalue-568.html
 - SUSESO, régimen SIL y Compendio: https://www.suseso.gob.cl/609/w3-propertyvalue-31040.html
