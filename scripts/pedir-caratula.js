@@ -25,6 +25,30 @@
  * Es barato y acotado: no hace nada si no hay guion, si la imagen ya está, o
  * si el pedido de hoy ya se abrió. Como mucho, un despertar de GPT al día, y
  * solo los días en que faltó la imagen.
+ *
+ * LA GRACIA (06-10-2026). Durante nueve días seguidos este pedido se abrió
+ * TODOS los días, y no porque la carátula faltara: porque preguntábamos
+ * demasiado pronto. estado.yml corre con el push del guion, y este script
+ * miraba 15 segundos después de que el guion aterrizaba, cuando GPT todavía
+ * estaba generando la imagen en el mismo turno. La imagen llegaba entre 1 y 5
+ * minutos más tarde, siempre. Medido en UTC sobre los commits:
+ *
+ *     28-09  guion 05:17:55  pedido 05:18:10  carátula 05:20:24
+ *     29-09  guion 05:23:08  pedido 05:23:23  carátula 05:24:45
+ *     02-10  guion 05:42:42  pedido 05:42:57  carátula 05:44:47
+ *     05-10  guion 05:30:09  pedido 05:30:26  carátula 05:32:42
+ *     06-10  guion 07:55:13  pedido 07:55:28  carátula 08:00:16
+ *
+ * O sea: un turno de GPT regalado por día, el 12% de todo lo que le pedimos en
+ * una semana, por no esperar tres minutos. Desde hoy el pedido no se abre hasta
+ * que el guion lleve GRACIA_CARATULA_MIN minutos en main (15 por defecto, tres
+ * veces la peor demora observada). La edad del guion se lee de su commit, no de
+ * la fecha del archivo, porque el workflow hace `git reset --hard` y todos los
+ * archivos quedan con la hora del checkout.
+ *
+ * Y si la edad no se puede calcular (checkout shallow, sin historia del
+ * archivo), el script se comporta como antes y abre el pedido: ante la duda,
+ * mejor un turno de más que un video sin portada.
  */
 const fs = require("fs");
 const path = require("path");
@@ -54,6 +78,23 @@ const yaEsta = ["png", "jpg", "jpeg", "webp"]
 if (yaEsta) fin(`la carátula de ${FECHA} ya está en ${yaEsta}: sin pedido.`);
 
 if (fs.existsSync(pedido)) fin(`el pedido de la carátula de ${FECHA} ya está abierto: no se repite.`);
+
+// LA GRACIA: cuántos minutos lleva el guion en main. Ver la cabecera.
+const GRACIA_MIN = Number(process.env.GRACIA_CARATULA_MIN || 15);
+const edadDelGuionMin = () => {
+  try {
+    const t = require("child_process")
+      .execFileSync("git", ["log", "-1", "--format=%ct", "--", guion], { encoding: "utf8" })
+      .trim();
+    if (!t) return null;              // sin historia del archivo: no sabemos
+    return (Date.now() / 1000 - Number(t)) / 60;
+  } catch { return null; }            // sin git: tampoco sabemos
+};
+const edad = edadDelGuionMin();
+if (edad !== null && edad < GRACIA_MIN) {
+  fin(`el guion de ${FECHA} tiene ${edad.toFixed(1)} min y la gracia es de ${GRACIA_MIN}: ` +
+      "la carátula se genera en ese mismo turno y suele llegar entre 1 y 5 minutos después. Sin pedido todavía.");
+}
 
 // El contexto sale del guion, que es donde el propio prompt de la carátula
 // manda leerlo. Si falta una línea, el pedido igual sirve: el prompt de GPT

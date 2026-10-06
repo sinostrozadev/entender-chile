@@ -108,6 +108,16 @@ mismo con `pauta_lista` e `idea_lista`, que son de Santiago.
 
 ## 2. Verifica requisito por requisito
 
+**Antes de leer nada, corre `node scripts/revisar-mecanico.js <archivo de la
+pieza>`** y suma lo que encuentre a tus INCUMPLE, con el número de línea que te
+da. Son las comprobaciones que no necesitan criterio y que a vos se te escapan
+justamente por eso: en los catorce días anteriores al 06-10-2026 pasaron a
+pantalla CINCO referencias temporales relativas ("este lunes", "esta semana",
+"ayer") en piezas que vos habías aprobado, y la regla 35 es dura. El script no
+reemplaza nada de lo que sigue: solo te libera la atención de contar palabras y
+buscar literales. Si no encuentra nada, imprime "sin hallazgos mecánicos" y
+sigues igual.
+
 Recorre el prompt y anota TODO lo que exige: formato y secciones, marcas y su
 sintaxis, reglas de datos y fuentes, topes y pisos de extensión, el control
 interno o checklist que el propio prompt trae al final, y las reglas del

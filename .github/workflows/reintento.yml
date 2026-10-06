@@ -298,3 +298,31 @@ jobs:
               esac
             fi
           fi
+
+      # (06-10-2026) La red del pedido de carátula. estado.yml también lo
+      # intenta, pero solo corre cuando llega una pieza: el día que el guion se
+      # aprueba a la primera puede no haber ningún push posterior, y entonces
+      # nadie vuelve a mirar si la imagen llegó. Acá sí, porque este workflow
+      # corre cada 20 minutos toda la ventana. Con la gracia de 15 minutos del
+      # script, el pedido se abre entre 15 y 35 minutos después del guion los
+      # días en que la carátula de verdad faltó, y nunca los días en que solo
+      # venía en camino, que eran todos hasta hoy.
+      - name: Si falta la carátula del día, abrir el pedido a GPT (red del de estado.yml)
+        env:
+          SIMULAR: ${{ inputs.simular && '1' || '0' }}
+        run: |
+          # el checkout de este workflow es shallow y el script necesita la
+          # fecha del COMMIT del guion para medir su edad: sin historia, el
+          # script se comporta como antes y abre el pedido igual
+          git fetch -q --deepen=200 origin main 2>/dev/null || true
+          git fetch -q origin main
+          git reset -q --hard origin/main
+          node scripts/pedir-caratula.js
+          git add contenido/urgente/ || true
+          git diff --cached --quiet && exit 0
+          if [ "$SIMULAR" = 1 ]; then echo "simulación: acá se abriría el pedido de carátula"; exit 0; fi
+          FECHA=$(TZ=America/Santiago date +%F)
+          git config user.name "estado-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git commit -q -m "pedido $FECHA: carátula (reintento automático) [bot]"
+          git push -q origin main || echo "::warning::el pedido de carátula no se pudo pushear; se reintenta en el próximo reintento"

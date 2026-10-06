@@ -100,10 +100,21 @@ jobs:
 
       # (27-09-2026) La carátula del día se genera dentro del turno del guion y
       # no tiene reintento: si ese turno falla, el video sale sin portada y no
-      # se entera nadie. Pasó tres días seguidos. El script no hace nada salvo
-      # que haya guion, falte la imagen y el pedido de hoy no esté abierto, así
-      # que como mucho gasta un despertar de GPT al día. El push a
+      # se entera nadie. Pasó tres días seguidos. El push a
       # contenido/urgente/PEDIDO-* dispara pedido-gpt.yml, que es quien emite.
+      #
+      # (06-10-2026) Este paso corre con el push del guion, o sea QUINCE
+      # SEGUNDOS después de que el guion aterriza, cuando GPT todavía está
+      # generando la imagen en ese mismo turno. Resultado: el pedido se abrió
+      # los nueve días seguidos que llevaba vivo, y la imagen llegó igual entre
+      # uno y cinco minutos más tarde, siempre. Un turno de GPT regalado por
+      # día. La gracia de 15 minutos vive dentro de pedir-caratula.js, con los
+      # tiempos medidos; acá el paso queda tal cual porque ahora el script se
+      # calla solo. La red que garantiza que el pedido SÍ se abra los días en
+      # que la imagen de verdad faltó está en reintento.yml, que corre cada
+      # veinte minutos: este workflow solo corre cuando llega una pieza, y el
+      # día que el guion se aprueba a la primera puede no haber ningún push
+      # posterior que vuelva a mirar.
       - name: Si falta la carátula del día, abrir el pedido a GPT
         run: |
           git fetch -q origin main
