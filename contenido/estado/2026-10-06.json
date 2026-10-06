@@ -1,18 +1,10 @@
 {
   "fecha": "2026-10-06",
-  "etapa": "reparar_preseleccion",
+  "etapa": "validar_preseleccion",
   "veredicto": "pendiente",
   "vuelta": 1,
-  "actualizado": "2026-10-06 02:05",
-  "reparar": {
-    "piezas": [
-      "preseleccion"
-    ],
-    "pieza": "preseleccion",
-    "dueno": "GPT (despachador)",
-    "motivo": "contenido/veredictos/2026-10-06-preseleccion.md",
-    "vuelta": 1
-  },
+  "actualizado": "2026-10-06 03:26",
+  "reparar": null,
   "piezas": [
     {
       "id": "barrido",
@@ -31,7 +23,7 @@
       "id": "preseleccion",
       "etiqueta": "Preselección",
       "hay": true,
-      "situacion": "reparar",
+      "situacion": "por_validar",
       "prompt": "prompts/seleccion.md",
       "hora": "01:56",
       "esperada": "02:10",
@@ -85,5 +77,18 @@
       "rutas": []
     }
   ],
-  "atrasos": []
+  "atrasos": [
+    {
+      "id": "informe",
+      "etiqueta": "Informe",
+      "atraso": 46,
+      "dueno": "GPT · prompts/informe.md"
+    },
+    {
+      "id": "guion_informe",
+      "etiqueta": "Guion del informe",
+      "atraso": 16,
+      "dueno": "GPT · prompts/guion-informe.md"
+    }
+  ]
 }
