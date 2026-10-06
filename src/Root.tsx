@@ -7,10 +7,24 @@ import timelineEjemplo from "../ejemplos/timeline.ejemplo.json";
 // catorce. Se puede borrar sin romper nada.
 import { ClaveMuestra, SeccionMuestra } from "./clave-muestra";
 import claveMuestra from "../ejemplos/clave-muestra.json";
+// EL MURAL (06-10-2026): la Clave sin un solo corte. Ver src/clave-mural.tsx.
+import { ClaveMural, GuionMural } from "./clave-mural";
+import claveMural from "../ejemplos/clave-mural.json";
 
 export const Root: React.FC = () => {
   return (
     <>
+    <Composition
+      id="ClaveMural"
+      component={ClaveMural}
+      defaultProps={claveMural as GuionMural}
+      fps={24}
+      width={1920}
+      height={1080}
+      calculateMetadata={({ props }) => ({
+        durationInFrames: Math.ceil((props as GuionMural).bloques.reduce((a, b) => a + b.seg, 0) * 24),
+      })}
+    />
     <Composition
       id="ClaveMuestra"
       component={ClaveMuestra}
