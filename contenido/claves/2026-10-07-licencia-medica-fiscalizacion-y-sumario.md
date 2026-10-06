@@ -127,6 +127,7 @@ Fuentes:
 - SUSESO, Circular 3868: https://www.suseso.gob.cl/612/articles-758844_archivo_01.pdf
 - SUSESO, Circular 3890: https://www.suseso.gob.cl/622/w3-propertyvalue-774967.html
 - SUSESO, Subsidios por incapacidad laboral: https://www.suseso.gob.cl/606/w3-propertyvalue-568.html
+- SUSESO, régimen SIL y Compendio: https://www.suseso.gob.cl/609/w3-propertyvalue-31040.html
 - SUSESO, Subsidio de origen laboral: https://www.suseso.gob.cl/606/w3-article-19067.html
 - SUSESO, VigIA, 21-08-2026: https://www.suseso.gob.cl/605/w3-article-788234.html
 - Universidad de Chile, lanzamiento de VigIA, 29-09-2026: https://portaluchile.uchile.cl/noticias/245040/suseso-lanza-vigia-plataforma-que-apoya-fiscalizacion-de-licencias-medicas
