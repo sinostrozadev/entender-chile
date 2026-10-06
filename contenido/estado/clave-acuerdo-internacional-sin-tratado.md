@@ -5,7 +5,7 @@ ETAPA: idea_lista
 VUELTA: 1
 TURNO: Santiago: aprobar o pedir cambios (scripts/clave.js aprobar | cambiar)
 FECHA_PRODUCCION: (la fija Santiago al aprobar la idea)
-ACTUALIZADO: 2026-10-05 23:36 (hora de Chile)
+ACTUALIZADO: 2026-10-05 23:37 (hora de Chile)
 PIEZA: idea
 PROMPT: prompts/clave-idea.md
 ARCHIVO: contenido/claves/flujo/acuerdo-internacional-sin-tratado/idea.md
