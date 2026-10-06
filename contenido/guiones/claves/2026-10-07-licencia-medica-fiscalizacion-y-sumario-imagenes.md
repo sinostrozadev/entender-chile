@@ -65,3 +65,61 @@ Imagen editorial para media pantalla. En la mitad derecha, tres elementos espera
 ## 14. Cierre
 
 Imagen de síntesis para media pantalla. En la mitad derecha, cuatro objetos perfectamente separados forman un círculo ordenado: estetoscopio, sello de autorización, tarjeta de pago y carpeta sancionatoria. En el centro queda una licencia médica limpia. Paleta azul noche, hueso y verde pátina, luz serena, composición estable. Mitad izquierda vacía. Sin texto, números ni marcas.
+
+---
+
+## Vueltas de las carátulas
+
+**Vuelta 1, 06-10-2026.** Las tres generadas y miradas con el skill `caratula`.
+Lo que sigue es medido, no apreciado.
+
+**Qué produjo cada prompt.** Carátula 1 dio el documento con la sombra del
+timbre entre la cama vacía y la puerta de embarque. Carátula 2 dio las tres
+manos sobre la licencia. Carátula 3 dio el laberinto visto desde arriba.
+
+**La prueba de los 168 píxeles** (reducidas de verdad, no estimadas):
+
+- Carátula 1: pasa. El documento blanco es una sola forma dominante y se lee
+  entero.
+- Carátula 2: pasa, y es la que mejor se lee. El amarillo de la segunda línea
+  mide 15,13:1 de contraste contra el fondo.
+- Carátula 3: **no pasa**. El laberinto se convierte en ruido, la silueta
+  central desaparece y los cuatro iconos de las esquinas no se distinguen. El
+  prompt pedía "formas grandes, sin detalles diminutos" y el generador hizo lo
+  contrario: la trama del laberinto es detalle diminuto repetido.
+
+**El reloj de duración de YouTube**, que se superpuso y se miró:
+
+- Carátula 1: el texto va abajo a la IZQUIERDA. El reloj cae sobre suelo vacío.
+- Carátula 2: el texto llega justo al borde del reloj. Pasa raspando.
+- Carátula 3: **el reloj se come "REPOSO?"**. En la grilla se lee "¿QUIÉN
+  DECIDE TU REPOS" con una caja negra encima. El gancho pierde su palabra final,
+  que además es la que lleva la pregunta.
+
+**Las manos de la carátula 2.** La mano derecha, la que sostiene la tarjeta,
+tiene SEIS dedos: cinco abiertos en abanico más el pulgar que afirma la tarjeta.
+Contados en el recorte ampliado. A 168 píxeles no se nota; en pantalla grande
+sí, y es el defecto que marca una imagen como generada.
+
+**El color del acento.** Medido en la banda inferior de cada una: el amarillo de
+la carátula 2 da 15,13:1 y el rojo de la 1 da 4,96:1. El rojo de la 3 da 4,06:1.
+Los tres pasan el mínimo de 3:1 que corresponde a texto grande, pero el amarillo
+rinde tres veces más y eso se nota justo en el tamaño donde se decide el clic.
+
+**Lo técnico.** Las tres llegaron en 1672x941 PNG. Las tres están completas. La
+3 pesa 2,31 MB y la 2 pesa 2,04 MB, sobre el tope de 2 MB de una miniatura de
+YouTube; se resuelve guardando en JPEG, que es lo que habría que hacer igual.
+
+**Contra reglas de YouTube: NO VERIFICADO, y por eso no se prohíbe nada.** El
+rojo salpicado de la carátula 3 parece sangre a tamaño grande, y la política de
+miniaturas de YouTube tiene un ítem sobre imágenes con sangre. No pude abrir la
+fuente: el proxy de salida de esta sesión bloquea `support.google.com` entero,
+comprobado hoy. Sin leer la regla no afirmo que la infrinja, y la regla del
+06-10 es clara: solo se prohíbe contra una regla verificada. Queda como la
+única pregunta abierta de esta vuelta, para que la revise quien no esté detrás
+del proxy: https://support.google.com/youtube/answer/9229980
+
+**Qué se cambió en los prompts.** Nada de estos tres, porque la rienda suelta
+sigue en pie y Santiago elige mirando. Lo único que bajó a `prompts/guion-claves.md`
+es el dato físico del reloj de duración, que no es una regla editorial sino
+dónde vive la imagen, junto al dato de los 168 píxeles que ya estaba ahí.

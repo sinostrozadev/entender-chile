@@ -76,7 +76,7 @@ El guion incluye las siguientes marcas, y solo estas, cada una en su propia lín
       Para procesos, jerarquías, niveles o líneas de tiempo simples. No se narra. Úsalo entre una y tres veces por guion, en los momentos donde la entrega describe una estructura.
       **MÁXIMO TRES ELEMENTOS, de hasta cuatro palabras cada uno** (corregido el
       08-09: la regla decía seis y el 08-09 un esquema de CUATRO nodos se
-      desbordó a una segunda fila y quedó tapado por el párrafo — captura en
+      desbordó a una segunda fila y quedó tapado por el párrafo, captura en
       archivo/capturas/capturas-2026-09-08-clave-esquema-superpuesto.jpg). El esquema se
       dibuja en UNA fila horizontal de 1340 px: tres cajas cortas caben, cuatro
       no. Si el proceso tiene más pasos, agrupa ("Solicitud" en vez de
@@ -92,7 +92,7 @@ Todo párrafo sin marca es narración normal. Sin URLs, emojis ni paréntesis fu
 FORMATO DE SALIDA:
 - Primera línea: "Título sugerido:" con el título de la entrega ajustado a máximo setenta caracteres, atemporal, sin fechas ni referencias coyunturales, formulado como pregunta o promesa de conocimiento, sin clickbait.
 - Segunda sección: "Descripción sugerida:" con dos a cuatro frases que resuman qué aprenderá el espectador. NO incluyas la lista de fuentes aquí: el sistema la agrega automáticamente al final de la descripción del video.
-- Tercera línea: "Carátula sugerida:" con el GANCHO de la miniatura (regla de Santiago, 05-09): 3 a 5 palabras que reformulen la pregunta de la Clave en lenguaje llano, sin jerga — la carátula no puede usar el término que el video viene a explicar ("¿Cuánto puede gastar el Estado?" sí; "¿Qué es el balance estructural?" no). PRUEBA DEL GANCHO: si un desconocido necesita preguntar "¿qué?" o "¿de quién?", no es gancho. Cifra solo si se entiende en un segundo sin contexto. No se narra; es solo para la carátula, que se genera sola.
+- Tercera línea: "Carátula sugerida:" con el GANCHO de la miniatura (regla de Santiago, 05-09): 3 a 5 palabras que reformulen la pregunta de la Clave en lenguaje llano, sin jerga: la carátula no puede usar el término que el video viene a explicar ("¿Cuánto puede gastar el Estado?" sí; "¿Qué es el balance estructural?" no). PRUEBA DEL GANCHO: si un desconocido necesita preguntar "¿qué?" o "¿de quién?", no es gancho. Cifra solo si se entiende en un segundo sin contexto. No se narra; es solo para la carátula, que se genera sola.
 - Después: "Guion:" con el texto narrable y sus marcas.
 - Al final: "Fuentes:" con una línea por cada fuente de las marcas [DATO] y [CITA] Y por cada fuente de la entrega cuyo contenido narraste, tal como aparecen en la entrega. Una fuente cuyo contenido se narró no puede quedar sin crédito: la lista alimenta la descripción del video y la transparencia de fuentes es marca del canal (hallazgo GRAVE de la revisión del 31-08: quedaron 5 de 7 sin acreditar). NUNCA listes archivos internos del sistema; cita la fuente pública original.
 
@@ -139,6 +139,12 @@ si no lo sabes se pierde la mitad del trabajo:
   sujeto. Van en un video de 1920x1080.
 - Las CARÁTULAS son 16:9 completo y se ven a 168 píxeles de ancho en un
   teléfono, que es el tamaño real en que se decide el clic.
+- En la grilla de YouTube, la ESQUINA INFERIOR DERECHA de la carátula queda
+  tapada por la caja negra con la duración del video: alrededor del 11% del
+  ancho y el 10% del alto, pegada a ese vértice. Nada que haga falta leer
+  puede vivir ahí. No es una regla editorial, es dónde vive la imagen: el
+  06-10-2026 una de las tres carátulas de la primera Clave perdió la última
+  palabra de su gancho debajo de esa caja, y el gancho era una pregunta.
 
 Encabeza cada prompt con una línea propia, `## Carátula 1`, `## Carátula 2`,
 `## Carátula 3` y después `## N. <nombre de la sección>`, para poder pedirlos
