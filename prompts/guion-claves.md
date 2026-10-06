@@ -111,26 +111,38 @@ CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 
 - REGLA DE CRÉDITO TOTAL (03-09, hallazgo repetido en 3 de 4 revisiones): toda fuente mencionada en la prosa del guion ("el Informe diario señalaba", "según X") va TAMBIÉN en el bloque Fuentes: final, incluida la propia entrega y el Informe diario cuando se citan.
 
-LOS PROMPTS DE IMAGEN (06-10-2026, decisión de Santiago). Además del guion,
-entrega un archivo aparte, `contenido/guiones/claves/FECHA-<slug>-imagenes.md`,
-con un prompt de imagen POR SECCIÓN del guion, numerados y en el mismo orden,
-más uno para la CARÁTULA al principio. Un prompt por sección, no por párrafo.
+LOS PROMPTS DE LAS CARÁTULAS Y DE LAS IMÁGENES DE SECCIÓN (06-10-2026,
+decisión de Santiago). Además del guion, entrega un archivo aparte,
+`contenido/guiones/claves/FECHA-<slug>-imagenes.md`, con DOS cosas:
+
+1. **Tres prompts de CARÁTULA**, uno por cada enfoque, al principio del
+   archivo. Son tres y no uno porque Santiago elige mirándolas al lado: el
+   05-10-2026 la portada del informe se decidió así, comparando dos. El gancho
+   que cada una tiene que decir es el de la línea "Carátula sugerida:" del
+   guion; los tres enfoques, la misma pregunta resuelta de tres maneras
+   distintas.
+
+2. **Un prompt de IMAGEN DE SECCIÓN por cada sección del guion**, numerados y
+   en el mismo orden que las secciones. Uno por sección, no por párrafo.
 
 Los escribes TÚ y las decisiones visuales son TUYAS: qué se dibuja, con qué
 técnica, con qué luz, con qué paleta. No hay reglas editoriales que cumplir en
 estas imágenes y no te las vamos a dar: Santiago quiere ver qué haces con
 rienda suelta, y las evaluamos después.
 
-Lo único que no es creativo y necesitas saber, porque es dónde va a vivir la
-imagen y si no lo sabes se pierde la mitad:
+Lo único que no es creativo y necesitas saber, porque es dónde van a vivir y
+si no lo sabes se pierde la mitad del trabajo:
 
-- Cada imagen va a ocupar MEDIA PANTALLA, a un costado, con el texto de la
-  sección avanzando palabra por palabra en la otra mitad. Una imagen pensada
-  para 16:9 completo se recorta por los lados y pierde el sujeto.
-- Van a verse en un video de 1920x1080.
+- Las IMÁGENES DE SECCIÓN van a ocupar MEDIA PANTALLA, a un costado, con el
+  texto de la sección avanzando palabra por palabra en la otra mitad. Una
+  imagen compuesta para 16:9 completo se recorta por los lados y pierde el
+  sujeto. Van en un video de 1920x1080.
+- Las CARÁTULAS son 16:9 completo y se ven a 168 píxeles de ancho en un
+  teléfono, que es el tamaño real en que se decide el clic.
 
-Y encabeza cada prompt con una línea `## N. <nombre de la sección>` para poder
-pedirlos de a uno sin perder cuál es cuál.
+Encabeza cada prompt con una línea propia, `## Carátula 1`, `## Carátula 2`,
+`## Carátula 3` y después `## N. <nombre de la sección>`, para poder pedirlos
+de a uno sin perder cuál es cuál.
 
 CONTRATO DE ARCHIVOS: aplica el contrato de prompts/contrato-archivos.md del
 mismo repositorio. Léelo COMPLETO en esta misma ejecución: define las rutas
