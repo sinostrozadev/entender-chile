@@ -61,6 +61,35 @@ Correcciones:
    y en contenido/casos: aparece solo en esa línea, y las tres fuentes que la
    acompañan (CIC por Cooperativa, Dipres y SUSESO) no traen ese número.
 
+4. Dónde: "[CIC N°26, 02-10-2026](https://linktr.ee/contraloriacl)" y las otras
+   cinco menciones del mismo enlace, entre ellas la cifra que abre la Clave,
+   los 7.207 funcionarios · Regla: prompts/investigacion-clave.md, "Cada
+   afirmación con su fuente: medio o institución + fecha + enlace", y la propia
+   pieza declara en "Lo que NO se pudo averiguar" que no pudo descargar el PDF
+   del Consolidado · Debe quedar: el dato acreditado con la publicación de
+   prensa que lo cubrió, nombrada como tal, o con la URL directa del documento
+   de Contraloría si se consigue. Un linktr.ee es un agregador de enlaces: no
+   acredita nada, su contenido cambia sin aviso y presentarlo como "enlace
+   institucional" le da al dato una firmeza que no tiene.
+
+5. Dónde: en "Las preguntas de la pauta", la respuesta 7, "¿Por qué no se
+   recuperó dinero pese a las condenas?", acreditada con "[BioBioChile,
+   03-09-2026](...corte-suprema-acoge-amparo-y-revoca-prision-preventiva...)" ·
+   Regla: prompts/investigacion-clave.md, la fuente citada tiene que sostener
+   lo que se afirma · Debe quedar: la afirmación de que condenar y cobrar son
+   etapas distintas, con una fuente que trate de la ejecución del fallo o del
+   cobro; o sin enlace y declarado que no se encontró fuente. La nota citada
+   trata de una prisión preventiva revocada, que es otro asunto.
+
+6. Dónde: la Circular 3890, citada en la cronología como
+   "suseso.gob.cl/612/w3-article-767521.html" y en las otras cuatro menciones,
+   incluida la lista de Fuentes, como
+   "suseso.gob.cl/622/w3-propertyvalue-774967.html" · Regla: una fuente, una
+   dirección; el lector que sigue la cronología tiene que llegar al mismo
+   documento que el que sigue las Fuentes · Debe quedar: las cinco menciones
+   apuntando al mismo documento, o dicho cuál es la circular y cuál el
+   compendio, si de verdad son dos.
+
 Observaciones:
 - Para la pieza siguiente: la pauta pide en su sección 7 el Consolidado N°26 "el
   documento y no la nota de prensa", y el dossier declara en "Lo que NO se pudo
@@ -136,3 +165,14 @@ Verificado y conforme:
 - Convergencia: esta es la vuelta 1 y acá quedan TODOS los incumplimientos que
   encontré, revisadas las 145 líneas del archivo. En las vueltas siguientes solo
   pueden volver estos tres y lo que la corrección introduzca.
+
+- Estas correcciones 4, 5 y 6 las agregó la sesión de día después de que la
+  rutina escribiera el veredicto, y no se pisan con las tres primeras: son seis
+  hallazgos distintos sobre la misma pieza. Se suman acá en vez de abrir una
+  vuelta aparte para que GPT las arregle todas de una.
+- Lo que NO se pudo comprobar de esta pieza, dicho en vez de darlo por bueno:
+  ninguno de sus 17 enlaces abre desde el contenedor de la sesión de día,
+  porque la red de salida bloquea bcn.cl, suseso.gob.cl, dipres.gob.cl y
+  linktr.ee. Se validó coherencia interna, cobertura de la pauta y calce de
+  cada cita con lo que afirma; NO que las páginas existan ni que digan lo que
+  se les atribuye.
