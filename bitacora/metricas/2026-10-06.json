@@ -2,15 +2,33 @@
   "fecha": "2026-10-06",
   "canal": {
     "suscriptores": 32,
-    "vistas": 12246,
-    "videos": 138
+    "vistas": 12424,
+    "videos": 140
   },
   "videos": {
+    "K3F1aDloh6Q": {
+      "titulo": "El Congreso comienza a revisar cuánto endeudamiento podrá us",
+      "publicado": "2026-10-06",
+      "estado": "public",
+      "vistas": 10,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 48
+    },
+    "L1VjRH8XTno": {
+      "titulo": "Presupuesto 2027 pide autorización para US$25 mil millones d",
+      "publicado": "2026-10-06",
+      "estado": "public",
+      "vistas": 2,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 703
+    },
     "x42q1499zPo": {
       "titulo": "¿Por qué Chile decretó duelo nacional por un carabinero ases",
       "publicado": "2026-10-05",
       "estado": "public",
-      "vistas": 979,
+      "vistas": 984,
       "meGusta": 41,
       "comentarios": 3,
       "durSeg": 40
@@ -19,7 +37,7 @@
       "titulo": "Brasil decidirá su presidencia en segunda vuelta el veintici",
       "publicado": "2026-10-05",
       "estado": "public",
-      "vistas": 102,
+      "vistas": 108,
       "meGusta": 3,
       "comentarios": 0,
       "durSeg": 42
@@ -46,7 +64,7 @@
       "titulo": "¿Por qué la deuda de Brasil puede pesar más que los candidat",
       "publicado": "2026-10-04",
       "estado": "public",
-      "vistas": 22,
+      "vistas": 23,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 51
@@ -55,7 +73,7 @@
       "titulo": "La ministra de Educación dejó en el Congreso el fin de la be",
       "publicado": "2026-10-04",
       "estado": "public",
-      "vistas": 53,
+      "vistas": 55,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 48
@@ -82,7 +100,7 @@
       "titulo": "El Presupuesto 2027 elimina la beca de computadores escolare",
       "publicado": "2026-10-03",
       "estado": "public",
-      "vistas": 53,
+      "vistas": 54,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 835
@@ -100,7 +118,7 @@
       "titulo": "Imacec cae 1%: la minería arrastra la economía",
       "publicado": "2026-10-02",
       "estado": "public",
-      "vistas": 22,
+      "vistas": 26,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 585
@@ -118,7 +136,7 @@
       "titulo": "¿Por qué el dólar llegó hoy a su nivel más alto en año y med",
       "publicado": "2026-10-01",
       "estado": "public",
-      "vistas": 27,
+      "vistas": 29,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 43
@@ -559,7 +577,7 @@
       "titulo": "Falla en la PGU afecta a cerca de 53 mil pensionados",
       "publicado": "2026-09-17",
       "estado": "public",
-      "vistas": 12,
+      "vistas": 13,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 627
@@ -613,7 +631,7 @@
       "titulo": "¿Quién fue Patricio Guzmán, el documentalista que despide Ch",
       "publicado": "2026-09-15",
       "estado": "public",
-      "vistas": 297,
+      "vistas": 298,
       "meGusta": 10,
       "comentarios": 0,
       "durSeg": 44
@@ -730,7 +748,7 @@
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 81,
+      "vistas": 83,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 680
@@ -1171,7 +1189,7 @@
       "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 116,
+      "vistas": 117,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 682
