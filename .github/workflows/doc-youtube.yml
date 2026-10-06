@@ -1,0 +1,43 @@
+name: Doc de YouTube (mensual)
+
+# (06-10-2026) El proxy de salida de las sesiones de Claude bloquea
+# support.google.com entero: una revisión de carátula se quedó sin poder
+# verificar el ítem de sangre de la política de miniaturas, y la regla de
+# Santiago es que sin la regla delante no se prohíbe nada. GPT sí puede abrir
+# esas páginas, así que una vez al mes las trae y quedan en el repo con fecha.
+#
+# Acá el cron de GitHub SÍ sirve como reloj, al revés que en la cadena de la
+# madrugada (regla del 31-08: nunca es reloj principal, porque llegó con diez y
+# once horas de atraso). Para un pedido mensual, llegar diez horas tarde no
+# cambia nada, y así no gastamos una rutina de Claude en apretar un botón.
+on:
+  schedule:
+    # el día 1 de cada mes, 12:00 UTC (09:00 de Chile en verano)
+    - cron: "0 12 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: doc-youtube
+  cancel-in-progress: false
+
+jobs:
+  pedir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Abrir el pedido del mes si falta la doc
+        run: |
+          node scripts/pedir-doc-youtube.js
+          git add contenido/urgente/ || true
+          git diff --cached --quiet && exit 0
+          MES=$(TZ=America/Santiago date +%Y-%m)
+          git config user.name "estado-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git commit -q -m "pedido $MES: doc de políticas de YouTube [bot]"
+          # el push a contenido/urgente/PEDIDO-* dispara pedido-gpt.yml, que
+          # es quien despierta a GPT por el PR #6
+          git push -q origin main

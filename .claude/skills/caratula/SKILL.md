@@ -30,6 +30,16 @@ más que cualquier error del cuerpo.
 Si la red de salida bloquea la fuente, **dilo**: "no pude abrir X". Una cifra no
 verificada se reporta como no verificada, nunca como correcta.
 
+Y para las reglas de YouTube hay un atajo que evita ese callejón: el proxy
+bloquea `support.google.com`, así que desde el 06-10-2026 GPT trae las
+políticas una vez al mes y quedan en `contenido/referencia/youtube/`, un
+archivo por mes, transcritas y con fecha. **Esa es la fuente que se cita**, con
+el mes del archivo al lado, porque de ahí se sabe qué edad tiene. Si la sección
+que necesitas dice `NO SE PUDO ABRIR`, esa política NO está verificada: se
+informa como no verificada y no se prohíbe nada contra ella. Si no hay ningún
+archivo todavía, se puede adelantar el pedido desde Actions, workflow "Doc de
+YouTube (mensual)".
+
 ### 2. La comparación, que es donde se esconde el sesgo
 
 Este es el control que más rinde y el que nadie hace. Una cifra puede ser cierta
