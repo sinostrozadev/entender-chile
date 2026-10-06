@@ -23,6 +23,8 @@ El sistema separa cuatro funciones: el profesional emite la indicación; la COMP
 
 En enfermedad o accidente común, si la persona está en FONASA y su empleador se encuentra afiliado a una Caja de Compensación, paga la CCAF. Cuando no corresponde una caja, paga la COMPIN a través de la Subsecretaría de Salud Pública. Para una persona afiliada a una Isapre, paga la propia Isapre. Si el reposo deriva de un accidente laboral o una enfermedad profesional, paga la mutualidad, el Instituto de Seguridad Laboral o la empresa con administración delegada (SUSESO, régimen SIL y seguro laboral, consulta 05-10-2026).
 
+Los subsidios por incapacidad laboral y sus cotizaciones se financian con cargo al régimen de salud (SUSESO, régimen SIL y Compendio, consulta 05-10-2026).
+
 En enfermedad común también importa la duración. Una licencia superior a diez días se paga desde el primero. Una de diez días o menos se paga desde el cuarto. Si licencias continuadas por el mismo diagnóstico suman más de diez días, se reliquida el subsidio y se incluyen los tres primeros. Las cotizaciones previsionales se pagan durante todo el período autorizado (SUSESO, pago del subsidio y cotizaciones, consulta 05-10-2026).
 
 ## Reposo no significa encierro absoluto
@@ -69,11 +71,15 @@ Las publicaciones sobre el CIC N.º 26 informaron 7.207 servidores públicos con
 
 Estas cifras se atribuyen a publicaciones de prensa. La investigación no consiguió descargar el CIC N.º 26 íntegro, por lo que no presenta como verificados el desglose por servicio ni sus notas metodológicas literales.
 
+Como reacción oficial difundida el 03-10-2026, el subsecretario del Interior, Máximo Pavez, afirmó que los funcionarios recibirían la sanción que correspondiera. El Gobierno comprometió apurar los sumarios y examinar también lo ocurrido antes de 2022 (BioBioChile y La Tercera, 02-10-2026).
+
 El séptimo balance de Dipres informó 25.352 sumarios: 21.098 seguían en curso, 4.254 tenían resolución del jefe de servicio, 2.711 aguardaban cierre o ejecución y 1.543 estaban cerrados con resolución ejecutoriada. Entre estos últimos hubo 577 absoluciones o sobreseimientos, 584 censuras, 262 destituciones, 65 suspensiones y 55 multas (Dipres, 2026, consultado 05-10-2026).
 
 Los $36.876 millones informados por Dipres no son fraude probado ni dinero recuperado. La institución los estimó a partir de remuneraciones promedio y períodos de licencia del universo que sería sumariado. La cifra describe remuneraciones asociadas al universo investigado, no acredita que cada peso fuera indebido. La nota pública tampoco identifica una fecha contable única para atribuir el total a un gasto de 2026 (Dipres, 2026).
 
 ## Condena y recuperación no son el mismo dato
+
+Entre 2020 y 2022, una red que operó mediante 16 sociedades médicas de fachada emitió más de 60.000 licencias fraudulentas, de las cuales FONASA pagó más de 50.000. El 23-06-2026, el 7.º Tribunal de Juicio Oral en lo Penal de Santiago declaró culpables a los 17 acusados (Poder Judicial, 23-06-2026).
 
 En el caso de fraude a FONASA, el tribunal dictó sentencia el 31-08-2026. La Fiscalía informó un perjuicio de $31.571.798.643 y se acogió una demanda civil por cerca de $26.000 millones (Emol y La Tercera, 31-08-2026).
 
@@ -132,3 +138,11 @@ Fuentes:
 - BioBioChile, persistencia de casos, 04-10-2026: https://www.biobiochile.cl/noticias/nacional/chile/2026/10/04/caso-licencias-bajan-casos-pero-aumenta-reincidencia-y-exministros-de-salud-piden-cambios-al-sistema.shtml
 - Emol, sentencia y perjuicio informado, 31-08-2026: https://www.emol.com/noticias/Nacional/2026/08/31/1210078/condenan-medicos-extranjeros-fraude-fonasa.html
 - La Tercera, demanda civil acogida, 31-08-2026: https://www.latercera.com/nacional/noticia/tribunal-fija-penas-de-carcel-y-multas-de-miles-de-millones-a-medicos-colombianos-condenados-por-red-de-licencias-falsas/
+- SUSESO, Circular 3906: https://www.suseso.gob.cl/612/w3-article-785452.html
+- SUSESO, pago del subsidio: https://www.suseso.gob.cl/622/w3-propertyvalue-768471.html
+- SUSESO, pago de cotizaciones: https://www.suseso.gob.cl/612/w3-article-766938.html
+- SUSESO, dictamen O-01-DFS-02925-2026: https://www.suseso.gob.cl/612/w3-article-785448.html
+- Cámara de Diputadas y Diputados, oficio sobre CIC N.º 9: https://www.camara.cl/verdoc.aspx?DESTINOID=247531&prmID=290663&prmTIPO=OFICIO
+- Poder Judicial, veredicto contra 17 acusados, 23-06-2026: https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/146208
+- BioBioChile, reacción del Gobierno, 02-10-2026: https://www.biobiochile.cl/noticias/nacional/chile/2026/10/02/pavez-por-funcionarios-que-viajaron-con-licencia-van-a-pagar-con-la-sancion-que-corresponda.shtml
+- La Tercera, reacción del Gobierno, 02-10-2026: https://www.latercera.com/politica/noticia/licencias-medicas-irregulares-gobierno-afirma-que-esta-empenado-en-apurar-sumarios-y-examinar-periodo-previo-a-2022/
