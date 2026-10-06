@@ -2,11 +2,11 @@
   "flujo": "clave",
   "slug": "licencia-medica-fiscalizacion-y-sumario",
   "camino": "pauta",
-  "etapa": "pautar",
+  "etapa": "pauta_lista",
   "vuelta": 0,
-  "turno": "Claude: escribe la pauta (prompts/pauta-clave.md)",
+  "turno": "Santiago: aprobar o pedir cambios (scripts/clave.js aprobar | cambiar)",
   "fecha_produccion": null,
-  "actualizado": "2026-10-05 22:35",
+  "actualizado": "2026-10-05 22:39",
   "concepto": "qué controla el Estado cuando fiscaliza una licencia médica y qué arriesga el funcionario que no cumple el reposo",
   "pieza": {
     "id": "pauta",
@@ -17,7 +17,7 @@
   "piezas": [
     {
       "id": "pauta",
-      "situacion": "falta",
+      "situacion": "lista",
       "archivo": "contenido/claves/flujo/licencia-medica-fiscalizacion-y-sumario/pauta.md"
     },
     {
