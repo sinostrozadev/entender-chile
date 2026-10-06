@@ -1,16 +1,15 @@
 FLUJO: clave
 SLUG: licencia-medica-fiscalizacion-y-sumario
 CAMINO: pauta
-ETAPA: validar_entrega
-VUELTA: 2
-TURNO: Claude
+ETAPA: entrega_lista
+VUELTA: 0
+TURNO: GPT
 FECHA_PRODUCCION: 2026-10-07
-ACTUALIZADO: 2026-10-06 00:05 (hora de Chile)
-PIEZA: entrega
-PROMPT: prompts/claves.md
-ARCHIVO: contenido/claves/2026-10-07-licencia-medica-fiscalizacion-y-sumario.md
-ARCHIVO_ENTRADA: contenido/claves/flujo/licencia-medica-fiscalizacion-y-sumario/investigacion.md
-VEREDICTO_PIEZA: CORREGIR (vuelta 2, en contenido/veredictos/clave-licencia-medica-fiscalizacion-y-sumario-entrega.md)
+ACTUALIZADO: 2026-10-06 00:08 (hora de Chile)
+PIEZA: guion
+PROMPT: prompts/guion-claves.md
+ARCHIVO: contenido/guiones/claves/2026-10-07-licencia-medica-fiscalizacion-y-sumario.md
+ARCHIVO_ENTRADA: contenido/claves/2026-10-07-licencia-medica-fiscalizacion-y-sumario.md
 
 Tema: qué controla el Estado cuando fiscaliza una licencia médica y qué arriesga el funcionario que no cumple el reposo
 Noticia de origen: 28-09: Un estudio examina brechas de género en la cobertura periodística de inteligencia artificial | 29-09: Suseso estrena VigIA para fiscalizar licencias médicas | 30-09: La minería prueba inteligencia artificial para elevar la producción de cobre | 01-10: Un sondeo registra que persiste la percepción de facilidad para obtener licencias médicas pese a los controles recientes | 03-10: La Contraloría cuenta 7.207 funcionarios que salieron del país con licencia médica en 2025 (tema de la semana 2026-W40)
@@ -24,6 +23,6 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 | Pauta | escrita | 22:39 | Claude |
 | Aprobación de Santiago | aprobada | 23:10 | Santiago |
 | Investigación | aprobada | 23:37 | GPT, valida Claude |
-| Entrega escrita | por validar | 00:05 | GPT, valida Claude |
+| Entrega escrita | aprobada | 00:05 | GPT, valida Claude |
 | Guion | falta |  | GPT, valida Claude |
 | Video | falta |  | Actions |
