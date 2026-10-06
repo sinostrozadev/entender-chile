@@ -1,9 +1,9 @@
 {
   "fecha": "2026-10-06",
-  "etapa": "validar_preseleccion",
+  "etapa": "preseleccion_lista",
   "veredicto": "pendiente",
-  "vuelta": 1,
-  "actualizado": "2026-10-06 03:26",
+  "vuelta": 0,
+  "actualizado": "2026-10-06 03:29",
   "reparar": null,
   "piezas": [
     {
@@ -23,7 +23,7 @@
       "id": "preseleccion",
       "etiqueta": "Preselección",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "lista",
       "prompt": "prompts/seleccion.md",
       "hora": "01:56",
       "esperada": "02:10",
@@ -81,13 +81,13 @@
     {
       "id": "informe",
       "etiqueta": "Informe",
-      "atraso": 46,
+      "atraso": 49,
       "dueno": "GPT · prompts/informe.md"
     },
     {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "atraso": 16,
+      "atraso": 19,
       "dueno": "GPT · prompts/guion-informe.md"
     }
   ]
