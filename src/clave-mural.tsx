@@ -30,7 +30,7 @@
 //   de texto. En un canal que se llama "el resumen sin gritos" el recurso de
 //   énfasis no puede ser el volumen.
 import React from "react";
-import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { tema } from "./tema";
 
 // `parada` dice EN QUÉ TRAMO DEL MURAL se lee este bloque. Dos bloques con la
@@ -154,6 +154,18 @@ export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paso, viaj
       <AbsoluteFill style={{ transform: `translateX(${x}px)`, width: anchoMural, filter: `saturate(${1 - 0.75 * apagado}) brightness(${1 - 0.45 * apagado})` }}>
         <Img src={staticFile(mural)} style={{ width: anchoMural, height: "100%", objectFit: "cover" }} />
       </AbsoluteFill>
+      {/* EL SONIDO DEL VIAJE (06-10-2026). Suena SOLO mientras la cámara se
+          mueve, y su amplitud sigue la velocidad de la cámara y no el reloj:
+          nace de cero, revienta en la mitad del recorrido y vuelve a cero al
+          llegar. Por eso no se oye como un efecto encima del movimiento sino
+          como el movimiento mismo. Antes, con el paneo continuo, cualquier
+          sonido molestaba porque tapaba un corte que no se podía tapar; ahora
+          tiene un acontecimiento real de 1,4 s que acompañar. */}
+      {hayViaje ? (
+        <Sequence from={desde} durationInFrames={viaje}>
+          <Audio src={staticFile("sonidos/viaje.wav")} volume={0.55} />
+        </Sequence>
+      ) : null}
       <Velo fuerza={esDato ? 1 - apagado : 1} />
       <AbsoluteFill style={{ backgroundColor: "rgba(10,12,16,0.55)", opacity: apagado }} />
       {enViaje ? null : esDato

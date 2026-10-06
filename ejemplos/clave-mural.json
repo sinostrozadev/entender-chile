@@ -6,19 +6,14 @@
   "bloques": [
     {
       "rotulo": "Gancho",
-      "texto": "El dos de octubre de dos mil veintiséis se",
+      "texto": "El dos de octubre de dos mil veintiséis se informó que más de siete mil doscientos servidores públicos viajaron fuera de Chile mientras tenían licencia médica durante dos mil veinticinco.",
       "parada": 0,
-      "seg": 4.37
+      "seg": 10.200000000000001
     },
     {
-      "texto": "informó que más de siete mil doscientos servidores públicos",
+      "texto": "Era un sesenta y tres por ciento menos que en dos mil veintitrés.",
       "parada": 0,
-      "seg": 4.37
-    },
-    {
-      "texto": "viajaron fuera de Chile mientras tenían licencia médica durante",
-      "parada": 0,
-      "seg": 4.37
+      "seg": 5.779999999999999
     },
     {
       "tipo": "dato",
@@ -31,58 +26,53 @@
     },
     {
       "rotulo": "Promesa",
-      "texto": "Al terminar este video vas a poder distinguir quién",
+      "texto": "Al terminar este video vas a poder distinguir quién autoriza la licencia, quién paga, qué permite el reposo y cuándo un mismo antecedente puede abrir una revisión sanitaria, una consecuencia laboral, un sumario o una investigación penal.",
       "parada": 1,
-      "seg": 5.77
-    },
-    {
-      "texto": "autoriza la licencia, quién paga, qué permite el reposo",
-      "parada": 1,
-      "seg": 4.37
+      "seg": 13.420000000000002
     },
     {
       "rotulo": "De dónde viene",
-      "texto": "El punto de partida no es el último cruce",
+      "texto": "El punto de partida no es el último cruce de datos.",
       "parada": 2,
-      "seg": 5.77
+      "seg": 6.66
     },
     {
-      "texto": "de datos. Desde mil novecientos ochenta y cuatro,",
+      "texto": "Desde mil novecientos ochenta y cuatro, el Decreto Supremo número tres regula cómo se emite, autoriza, revisa, rechaza o invalida una licencia.",
       "parada": 2,
-      "seg": 4.24
+      "seg": 8.120000000000001
     },
     {
       "rotulo": "Los hitos",
-      "texto": "El veintinueve de septiembre de dos mil veintiséis apareció",
+      "texto": "El veintinueve de septiembre de dos mil veintiséis apareció VigIA, una herramienta de la Superintendencia de Seguridad Social para priorizar investigaciones sobre emisores.",
       "parada": 3,
-      "seg": 5.77
+      "seg": 9.780000000000001
     },
     {
-      "texto": "VigIA, una herramienta de la Superintendencia de Seguridad Social",
+      "texto": "El dos de octubre se conoció el nuevo cruce de viajes y licencias de dos mil veinticinco.",
       "parada": 3,
-      "seg": 4.37
+      "seg": 6.82
     },
     {
       "rotulo": "Qué es una licencia",
-      "texto": "La emite un profesional habilitado porque considera necesario que",
+      "texto": "La emite un profesional habilitado porque considera necesario que una persona se ausente o reduzca su jornada.",
       "parada": 4,
-      "seg": 5.77
+      "seg": 8.22
     },
     {
-      "texto": "una persona se ausente o reduzca su jornada.",
+      "texto": "Pero quien la autoriza, reduce o rechaza es la Comisión de Medicina Preventiva e Invalidez, conocida como COMPIN, o la Isapre, según el régimen de salud.",
       "parada": 4,
-      "seg": 4.24
+      "seg": 9.16
     },
     {
       "rotulo": "Quién paga",
-      "texto": "Si la enfermedad o el accidente es común,",
+      "texto": "Si la enfermedad o el accidente es común, una persona de Fonasa puede recibir el pago desde una Caja de Compensación o desde la COMPIN, según corresponda.",
       "parada": 5,
-      "seg": 5.640000000000001
+      "seg": 10.82
     },
     {
-      "texto": "una persona de Fonasa puede recibir el pago desde",
+      "texto": "En una Isapre, paga la propia Isapre.",
       "parada": 5,
-      "seg": 4.37
+      "seg": 4.22
     }
   ]
 }
