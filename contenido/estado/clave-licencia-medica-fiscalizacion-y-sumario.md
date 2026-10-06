@@ -5,7 +5,7 @@ ETAPA: pauta_aprobada
 VUELTA: 0
 TURNO: GPT
 FECHA_PRODUCCION: 2026-10-07
-ACTUALIZADO: 2026-10-05 23:09 (hora de Chile)
+ACTUALIZADO: 2026-10-05 23:10 (hora de Chile)
 PIEZA: investigacion
 PROMPT: prompts/investigacion-clave.md
 ARCHIVO: contenido/claves/flujo/licencia-medica-fiscalizacion-y-sumario/investigacion.md
@@ -21,7 +21,7 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 |---|---|---|---|
 | Tema elegido | listo | 22:35 | Santiago |
 | Pauta | escrita | 22:39 | Claude |
-| Aprobación de Santiago | aprobada | 23:09 | Santiago |
+| Aprobación de Santiago | aprobada | 23:10 | Santiago |
 | Investigación | falta |  | GPT, valida Claude |
 | Entrega escrita | falta |  | GPT, valida Claude |
 | Guion | falta |  | GPT, valida Claude |
