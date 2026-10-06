@@ -123,3 +123,61 @@ del proxy: https://support.google.com/youtube/answer/9229980
 sigue en pie y Santiago elige mirando. Lo único que bajó a `prompts/guion-claves.md`
 es el dato físico del reloj de duración, que no es una regla editorial sino
 dónde vive la imagen, junto al dato de los 168 píxeles que ya estaba ahí.
+
+**Vuelta 2, 06-10-2026. Elegida la carátula 1, con el lado derecho corregido.**
+
+Queda en `contenido/caratulas/claves/2026-10-07-licencia-medica-fiscalizacion-y-sumario.jpg`,
+1920x1080, 0,50 MB, completa. Las tres candidatas se conservan con sufijo 1, 2 y 3.
+
+**El defecto que se midió.** Las dos mitades de la imagen eran el mismo lugar:
+la cama daba 76 de luz media y el aeropuerto 86, las dos en azul frío. La
+oposición "reposo contra viaje", que es toda la idea de la carátula, no existía
+visualmente. Santiago lo vio antes de que yo lo midiera.
+
+**Lo que se pidió y lo que dio.** Solo la mitad derecha, de azul nocturno a luz
+cálida de atardecer, sin mover ni un objeto. Resultado: el aeropuerto pasó de
+86 a **139** de luz y de (69,88,111) a (169,135,94), o sea de azul a ámbar. La
+cama quedó en 77. Ahora son casi el doble de luz y temperaturas opuestas.
+
+**Lo que se descartó, y vale anotarlo porque va a volver a proponerse.**
+
+1. **Una playa en vez del aeropuerto**, propuesta de Santiago para que el lado
+   derecho dijera "vacaciones". Se descartó contra nuestra propia
+   investigación, que dice textual que "salida del país" es una coincidencia
+   entre un registro fronterizo y un período con licencia, "no una sentencia de
+   fraude", y que lista entre los mitos a desarmar "que todo viaje implica
+   automáticamente fraude". Una playa afirma el mito que la Clave viene a
+   corregir, y además borra los casos en que viajar está permitido (reposo
+   prenatal y postnatal, tratamiento médico acreditado en el extranjero). El
+   argumento que cerró la discusión no fue el moral sino el de retención: el
+   que entra esperando indignación se va cuando llega el matiz, y lo que falta
+   para monetizar son horas de video largo, no clics.
+2. **El texto de la segunda línea en amarillo.** Medido sobre el mismo fondo
+   negro de esta carátula: el rojo que usa (#F90B0A) da 5,05:1 y el amarillo de
+   la carátula 2 (#F5CD14) daría 13,55:1, contra los 20,36:1 del blanco de la
+   primera línea. El amarillo gana por lejos en contraste. Se descartó igual,
+   por un efecto del cambio anterior: con la mitad derecha ya en ámbar, el
+   amarillo deja de ser lo único cálido del cuadro y pierde justo lo que lo
+   hacía funcionar. Queda abierto para una carátula de fondo frío.
+
+**El título, "¿QUIÉN DECIDE TU REPOSO?", se conserva.** Tres razones medidas o
+verificables: no repite la imagen sino que la completa (la foto ya dice "cama o
+aeropuerto", el título agrega que hay alguien decidiendo); "reposo" evita que
+"tu licencia" se lea como licencia de conducir, que es la primera lectura en
+Chile; y es pregunta en segunda persona, el formato que en nuestros propios
+números rinde 3,91% de CTR y 40% de retención contra 0,95% y 15% de los
+afirmativos. Se evaluaron tres alternativas más intrigantes ("¿QUIÉN SABE QUE
+SALISTE?", "¿QUIÉN TE VIGILA CON LICENCIA?", "¿CUÁNTO PUEDES SALIR CON
+LICENCIA?") y la primera se descartó por lo mismo que la playa: promete un
+secreto que el video no revela.
+
+**Pruebas finales, con la imagen elegida delante.** A 168 píxeles se lee entera
+y la oposición frío-cálido entra de un golpe. El reloj de duración cae a la
+derecha del signo de interrogación sin tocarlo: pasa, con poco margen, y por eso
+queda escrito que cualquier segunda línea más larga que "TU REPOSO?" se lo come.
+
+**Contra reglas de YouTube: nada que corregir.** Sin personas, sin marcas, sin
+lugares reales identificables, sin material de terceros. Queda pendiente, de la
+vuelta 1, verificar el ítem de sangre de la política de miniaturas contra la
+fuente, porque el proxy la bloquea; no afecta a esta carátula, que no tiene rojo
+fuera del texto.
