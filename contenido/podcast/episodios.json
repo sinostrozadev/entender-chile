@@ -474,5 +474,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-05-informe.mp3",
     "bytes": 16702848,
     "durSeg": 696
+  },
+  {
+    "fecha": "2026-10-06",
+    "tipo": "informe",
+    "titulo": "06-10-2026 · Presupuesto 2027 pide autorización para US$25 mil millones de deuda",
+    "descripcion": "El Presupuesto 2027 abre su tramitación con una solicitud de endeudamiento por hasta veinticinco mil millones de dólares. Revisamos también la investigación vinculada con el Primer Comando da Capital, las alertas por el sistema frontal, el movimiento del dólar, la mediación en Escondida y las demás noticias que marcan este martes en Chile y el mundo.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-06-informe.mp3",
+    "bytes": 16862400,
+    "durSeg": 703
   }
 ]
