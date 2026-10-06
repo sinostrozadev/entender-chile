@@ -10,6 +10,79 @@ medida y deja de necesitar decisión).
 
 ---
 
+## PARA LA SESIÓN DE LA NOCHE: lo que el día NO puede hacer (06-10-2026)
+
+Santiago, 06-10-2026: "deja todas las indicaciones de lo que no puedes hacer
+para la sesión de la noche, anota por ahí para que él las vea, y pide también
+los secretos para que tú tengas acceso".
+
+### 1. Apagar el "Informe de la mañana" de las 06:00. HECHO A MEDIAS
+
+Decisión de Santiago del 06-10: **"el informe de la mañana no lo veo, dámelo tú
+en la revisión de la mañana. Y quita el otro."** La revisión ya existe como
+skill (`.claude/skills/revision/SKILL.md`, creado hoy).
+
+La sesión de día lo intentó y **no puede**: `update_trigger` devuelve "this
+routine was created via http_api, not by an agent. Agents can only update
+routines they created". La rutina es
+`trig_01DHmsrrShT2Mnj8WDg4CQ42` ("Informe de la mañana Entender Chile (06:00)",
+cron `0 9 * * *`). `bitacora/rutinas.md` dice que las creadas desde `http_api`
+sí se editan desde la sesión local: **la noche la apaga**, o Santiago en
+https://claude.ai/code/routines/trig_01DHmsrrShT2Mnj8WDg4CQ42
+
+Al apagarla, `prompts/guardian.md` queda sin rutina que lo lea. No borrarlo: su
+sección 2 (la comprobación de si la Edición diaria sigue `in_progress` antes de
+declarar que faltan videos) es un método que vale y que la revisión del día
+debería heredar.
+
+### 2. Las notificaciones de las rutinas de reloj. NO SE PUEDE POR API
+
+Entre la 01:00 y las 06:00 disparan **~46 sesiones de rutina**, y 15 de ellas
+son los relojes del reintento, que solo responden "OK 02:10" tras apretar un
+botón. Santiago recibe ese ruido y no lo lee.
+
+**El día no lo puede arreglar**: la herramienta `update_trigger` acepta nombre,
+horario, modelo, prompt y encendido, pero **no acepta el campo `notifications`**.
+Solo `create_trigger` lo acepta, al crear. Comprobado hoy contra el esquema de
+la herramienta, no supuesto.
+
+Las dos salidas, las dos de la noche o de Santiago:
+- Apagar las notificaciones en la interfaz, una por una (no pierde historial).
+- Borrarlas y recrearlas con `notifications: {}` (pierde el historial de
+  corridas de cada una; no recomendado).
+
+Qué apagar: relojes del reintento A (`trig_016JsVfFwrJFut5vy2f4c8TS`), B
+(`trig_01E8tyJPqyfNdVTog477sf6Z`) y C (`trig_01RevKvPn6mufpcUCK9fii2X`), reloj
+del barrido (`trig_01W5KEjHbr5wWPsmmJ4ygNEh`), reloj de métricas
+(`trig_01MxzGdh2P489TmgkUi9spWd`), observatorio
+(`trig_01MzKjYwnyH8PfJfCBrtJvv4`) y el validador/suplente
+(`trig_01B8tLFaXe7h1YBCciFE2iKf`, 17 disparos el 06-10).
+Qué DEJAR: el vigía (`trig_01LUtn4fSJjBsCzqdoWeVviH`, que solo avisa cuando hay
+algo atrasado y nunca un "todo bien") y la guardia
+(`trig_01HLSWkJ8VpVFPuxQ51YiG4d`, que ya tiene `push: false`).
+
+### 3. Lo que el día PIDE, y lo que pide NO tener
+
+Santiago autorizó pedir lo que falte. El día pide dos cosas, y las dos son de
+acceso, no de secretos:
+
+- **Abrir la red de salida** a `suseso.gob.cl`, `bcn.cl`, `dipres.gob.cl` y
+  `support.google.com`. Son las fuentes de las que dependen la Clave y la
+  revisión de carátulas, y hoy el proxy las bloquea enteras: por eso la
+  política de miniaturas de YouTube tuvo que delegarse a GPT
+  (`.github/workflows/doc-youtube.yml`, creado hoy) y por eso una revisión del
+  06-10 quedó sin verificar. Es política de red del entorno, no un secreto.
+- **Que la noche haga los dos arreglos de arriba**, o que recree esas rutinas
+  con `create_trigger` para que queden editables desde el día.
+
+Y lo que el día **NO quiere tener, a propósito**: los tokens de Azure, de
+YouTube ni el `AUDIO_TOKEN`. El día no renderiza, no sube y no publica; la regla
+19 dice que el clic de publicación es de Santiago y la 23 que los tokens viven
+en los secrets de GitHub. Tenerlos a mano agregaría riesgo sin agregar
+capacidad. Si algún día el día necesita uno, se pide ESE, con el motivo.
+
+---
+
 ## CANAL DE AVISOS BARRIDO→CHATGPT: CONSTRUIDO (04-09, diseño de Santiago)
 
 **PR permanente #2** (rama `automatizacion/barrido-listo` → main, etiqueta
