@@ -22,3 +22,4 @@
 2026-09-14 | ley-presupuestos-chile | Ley de Presupuestos en Chile: quién decide el gasto, qué puede cambiar el Congreso y qué ocurre si no hay acuerdo
 2026-09-15 | eliminacion-enfermedad-salud-publica | Eliminar una enfermedad como problema de salud pública: qué significa y por qué no equivale a erradicarla
 2026-09-16 | acusacion-preparacion-juicio-oral | De la acusación al juicio oral: qué se decide antes de juzgar un delito en Chile
+2026-10-07 | licencia-medica-fiscalizacion-y-sumario | Licencia médica en Chile: quién decide, quién paga y qué ocurre si no se cumple el reposo
