@@ -467,6 +467,9 @@ referencia:
       abierto. Se aprueba o se pide cambio con `node scripts/clave.js
       aprobar acuerdo-internacional-sin-tratado` o `clave.js cambiar
       acuerdo-internacional-sin-tratado`; no hay nada que tocar en código.
+      **06-10: van diez mañanas marcada**, verificado de nuevo en
+      `contenido/estado/clave-acuerdo-internacional-sin-tratado.md` (sigue
+      `ETAPA: idea_lista`, `TURNO: Santiago: aprobar o pedir cambios`).
 
 - [ ] **27-09, HOY: la carátula que SÍ se genera se pierde, porque el
       conector de esa ejecución no admite binarios y la ruta queda en un
@@ -709,6 +712,40 @@ referencia:
       despierten.
 
 ## Para la sesión de la noche (código y prompts)
+
+- [ ] **06-10, HOY: `scripts/gate.js:52` elige el archivo equivocado para
+      la Clave y va a bloquear la edición completa (informe y Clave) del
+      07-10-2026.** Auditoría del 06-10 (`bitacora/2026-10-06-auditoria.md`).
+      Desde que `prompts/guion-claves.md:116` agregó el archivo compañero
+      `contenido/guiones/claves/FECHA-<slug>-imagenes.md`, la línea
+      `fs.readdirSync(dirGC).find((f) => f.startsWith(fecha) &&
+      f.endsWith(".md"))` puede devolver ese archivo de prompts de imagen en
+      vez del guion real, porque los dos empiezan igual y `.find()` se queda
+      con el primero que calce. Reproducido hoy: para
+      `FECHA=2026-10-07`, `readdirSync` devuelve primero
+      `2026-10-07-licencia-medica-fiscalizacion-y-sumario-imagenes.md` (sin
+      marcas de guion) y el propio `scripts/gate.js` lo cuenta con "0
+      secciones" y "0 caracteres", que hace fallar la corrida entera
+      (`exit 1` en la línea 97, que no distingue error de informe de error
+      de Clave). Evidencia real: la corrida
+      `https://github.com/sinostrozadev/entender-chile/actions/runs/37409042997`
+      (disparada a las 00:27 del 06-10 por `estado-clave.yml` para
+      `FECHA_EDICION=2026-10-07`) falló con exactamente ese mensaje, mientras
+      el guion real (`contenido/guiones/claves/2026-10-07-licencia-medica-fiscalizacion-y-sumario.md`,
+      138 líneas, con sus catorce secciones) existe y está aprobado
+      (`VEREDICTO: APROBADA` en
+      `contenido/veredictos/clave-licencia-medica-fiscalizacion-y-sumario-guion.md`).
+      Hoy no bloqueó la edición del propio 06-10 porque el disparo fue
+      prematuro (el informe del 07-10 todavía no existía, así que esa
+      corrida habría fallado de todos modos por esa otra razón), pero la
+      corrida normal de mañana (el push de la revisión del 07-10, con
+      `FECHA` por defecto igual a hoy) sí va a tener el informe y el guion
+      de la Clave listos, y va a pisar el mismo bug: la Clave con
+      "0 secciones" tira `exit 1` y tira abajo también el informe, que
+      está bien. Arreglo de una línea: en `scripts/gate.js:52`, agregar
+      `&& !f.endsWith("-imagenes.md")` al `.find()` (o excluir explícitamente
+      los archivos que terminan en `-imagenes.md`) para que solo pueda
+      elegir el guion real.
 
 - [ ] **22-09, HOY: contradicción de prompt en `prompts/guion-informe.md`
       entre el ejemplo de `comparacion` (línea 229, etiquetas de una

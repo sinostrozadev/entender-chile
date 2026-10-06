@@ -122,179 +122,185 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 05-10-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-10-05-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON OBSERVACIONES — HOY: la idea de la Clave de la semana 39 lleva</div>
+    <p class="eyebrow">Auditoría de la mañana · 06-10-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-10-06-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS — HOY: `scripts/gate.js:52` elige el archivo equivocado</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0"># Auditoría matinal · 05-10-2026
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0"># Auditoría matinal · 06-10-2026
 
-ESTADO: CON OBSERVACIONES — HOY: la idea de la Clave de la semana 39 lleva
-nueve mañanas sin que Santiago la apruebe o pida cambios y nunca quedó
-anotada en PENDIENTES; sigue faltando la carátula del 04-10-2026 (tercera
-mañana); y una contradicción de prompt en `guion-informe.md` va en su sexta
-aparición sin registrarse en ningún lado.
+ESTADO: CON FALLAS — HOY: `scripts/gate.js:52` elige el archivo equivocado
+cuando existe un `-imagenes.md` junto al guion de la Clave, y mañana
+(07-10-2026) esa corrida va a tirar "0 secciones" sobre un guion que sí
+existe y ya está aprobado, con `exit 1` en la línea 97 que bloquea también
+el informe. Reproducido hoy en una corrida real
+(`https://github.com/sinostrozadev/entender-chile/actions/runs/37409042997`).
+También HOY, de nuevo: la idea de la Clave de la semana 39 cumple diez
+mañanas sin que Santiago la apruebe o pida cambios.
 
 ## Qué salió y a qué hora
 
-Todas las piezas de hoy llegaron, varias con margen amplio sobre lo
-esperado (`contenido/estado/2026-10-05.md`). No hubo plan B:
-`contenido/estado/plan-b.txt` no existe y los tres commits de piezas llevan
-el mensaje normal de edición, no el de recuperación a mano.
+Todas las piezas de la cadena diaria llegaron y la edición quedó en
+`videos_listos`, pero con un atraso grande en el tramo intermedio: GPT dejó
+de responder el turno de reparación de la preselección y el plan B tuvo que
+intervenir antes de que la cadena pudiera seguir.
 
 | Pieza | Hora real (Chile) | Hora esperada | Diferencia |
 |---|---|---|---|
-| Barrido | 01:40 | 01:40 | a tiempo |
-| Preselección (GPT, vuelta 0) | 01:45 | 02:10 | 25 min antes |
-| Veredicto preselección | 02:02 | — | APROBADA vuelta 0 |
-| Informe (GPT, vuelta 1) | 02:11 | 02:40 | 29 min antes |
-| Veredicto informe | 02:19 | — | APROBADA vuelta 1 |
-| Guion del informe (GPT, vuelta 1) | 02:30 | 03:10 | 40 min antes |
-| Veredicto guion | 02:38 | — | APROBADA vuelta 1 |
-| Revisión (compuerta, `contenido/revisiones/2026-10-05.md`) | 02:48 | 03:30 | 42 min antes |
-| Edición diaria (voz, render, subida, podcast, carátula) | `videos_listos` 03:29 | 05:15 | 106 min antes |
-| Carátula propia | `contenido/caratulas/2026-10-05.png` generada | — | sí, a tiempo |
-| Podcast (`episodios.json`) | 696 s = 11,6 min | "~10 min, 12-13 en día cargado" | dentro del rango |
-| Reloj de métricas (despertador) | push 05:17 | 05:00 | 17 min, dentro de la tolerancia de 20 |
-| Métricas (`bitacora/metricas/2026-10-05.md`) | 05:18 | — | OK |
-| Auditoría matinal (esta) | ~05:3x | 05:30 | a tiempo |
-| Guardia | no corrió entre 04:00 y 09:00 UTC | correcto, su ventana es 08:00-22:00 Chile | sin novedad |
-| Clave | no corrió | correcto, no es diaria | ver hallazgo 2 |
-| GitHub Actions (todas las corridas de hoy) | Barrido, Edición diaria (3), Estado del día (17), Web (4), Métricas, Reintento del despertador (13) | — | **todas `success`, ninguna se reintentó** (verificado con `mcp__github__actions_list`) |
+| Barrido | 01:49 | 01:40 | +9 min |
+| Preselección (GPT, vuelta 0) | 01:56 | 02:10 | 14 min antes |
+| Veredicto preselección vuelta 1 | 02:05 (CORREGIR, una línea de fecha) | — | — |
+| Reparación de la preselección | GPT no respondió en 47 min; plan B activado 03:22; suplente corrigió 03:25; veredicto APROBADA 03:28 | — | GPT ausente ~80 min |
+| Informe (aprobado, vuelta 2) | 04:50 | 02:40 | ~130 min después |
+| Guion del informe (aprobado, vuelta 2) | 05:20 | 03:10 | ~130 min después |
+| Revisión (compuerta final) | 05:20 | 03:30 | ~110 min después |
+| Edición diaria (voz, render, subida, podcast) | push 05:20, `videos_listos` 06:07 (47 min de corrida) | 05:15 | 52 min después (arrastre de arriba, no del render en sí) |
+| Carátula propia | `contenido/caratulas/2026-10-06.png`, generada hoy por GPT | — | a tiempo |
+| Podcast (`episodios.json`) | 703 s = 11,7 min | "~10 min, 12-13 en día cargado" | dentro del rango |
+| Reloj de métricas | push 05:19 | ~05:00 | 19 min, dentro de la tolerancia de 20 |
+| Métricas (`bitacora/metricas/2026-10-06.md`) | 05:20 | — | OK |
+| Clave licencia-medica-fiscalizacion-y-sumario | tema→guion completos entre 22:35 (05-10) y 00:22 (hoy); `FECHA_PRODUCCION: 2026-10-07`; video `falta` | — | en curso, no es diaria |
+| GitHub Actions (todas las corridas de hoy) | una sola `failure`: el disparo prematuro del render de la Clave para 2026-10-07 (00:27, ver hallazgo 1); el resto, incluida la Edición diaria 183, `success` | — | ver hallazgo 1 |
 
-`node scripts/validar-tarjetas.js --fecha 2026-10-05`: "variedad OK: ninguna
-cuota rota, ninguna marca malformada" (11 tarjetas: 4 cifra, 3 comparacion, 3
-cambio, 2 esquema).
+`node scripts/validar-tarjetas.js --fecha 2026-10-06`: un aviso, línea 5,
+"cifra exacta en voz (1.241)" (ver hallazgo 3; es un falso positivo del
+validador, no de la pieza).
 
 ## Qué falló
 
-1. **La carátula del 04-10-2026 sigue sin generarse y sin `NO-PUDE.md`,
-   ahora la tercera mañana.** Verificado listando `contenido/caratulas/`: de
-   octubre están `2026-10-01.png`, `2026-10-02.png`, `2026-10-03.png` (esta
-   última entró HOY, en diferido: el commit es de esta madrugada aunque es
-   la carátula del 03-10) y `2026-10-05.png`. Sigue faltando
-   `2026-10-04.png`, y buscando `*-NO-PUDE.md` solo existen los del 25 y
-   26-09-2026. `prompts/suplente.md` sigue sin la palabra "carátula"
-   (verificado con búsqueda explícita sobre el archivo completo: cero
-   resultados), así que ninguna de las dos propuestas de las auditorías del
-   03-10 y el 04-10 se aplicó. El video del 04-10 quedó en `videos_listos`
-   con carátula de respaldo, a la espera del clic de Santiago.
+1. **`scripts/gate.js:52` va a bloquear la edición completa del
+   07-10-2026 (informe y Clave), no solo la Clave.** Desde que
+   `prompts/guion-claves.md:116` agregó el archivo compañero
+   `contenido/guiones/claves/FECHA-&lt;slug>-imagenes.md`, la línea
+   `fs.readdirSync(dirGC).find((f) => f.startsWith(fecha) &amp;&amp;
+   f.endsWith(".md"))` puede elegir ese archivo de prompts de imagen en vez
+   del guion real, porque los dos nombres empiezan igual y `.find()` se
+   queda con el primero que calza en el orden de `readdirSync`. Lo
+   reproduje en esta misma corrida con Node: para `FECHA=2026-10-07`,
+   `readdirSync` devuelve primero
+   `2026-10-07-licencia-medica-fiscalizacion-y-sumario-imagenes.md` (son
+   descripciones de imágenes, sin ninguna marca de guion) y
+   `scripts/gate.js` lo cuenta con "0 secciones" y "0 caracteres de
+   narración", lo que dispara los errores
+   `clave: solo 0 secciones - YouTube exige ≥3 capítulos` y
+   `clave: narración de 0 caracteres`, y la línea 97
+   (`if (errores.length) { ...; process.exit(1); }`) no distingue error de
+   informe de error de Clave: sale con `exit 1` y no renderiza nada.
+   Evidencia real, no solo reproducción local: la corrida
+   `https://github.com/sinostrozadev/entender-chile/actions/runs/37409042997`,
+   disparada a las 00:27 de hoy por `estado-clave.yml` para
+   `FECHA_EDICION=2026-10-07`, falló con exactamente ese mensaje en los
+   logs. El guion real existe y está aprobado: 138 líneas con sus catorce
+   secciones en
+   `contenido/guiones/claves/2026-10-07-licencia-medica-fiscalizacion-y-sumario.md`,
+   `VEREDICTO: APROBADA` en
+   `contenido/veredictos/clave-licencia-medica-fiscalizacion-y-sumario-guion.md`.
+   Hoy esa corrida concreta no le costó nada a la edición del 06-10 porque
+   el disparo fue prematuro (el informe del 07-10 todavía no existe, así
+   que de todas formas no había nada que renderizar), pero **la corrida de
+   mañana sí va a tener el informe y el guion de la Clave del 07-10 listos
+   y aprobados, y con `FECHA` por defecto igual a la fecha de hoy
+   (`.github/workflows/edicion-diaria.yml:66-67`), va a pisar el mismo
+   bug**: la Clave sale con "0 secciones" y tira abajo también el informe,
+   que sí está bien.
 
-2. **La idea de la Clave de la semana 39 lleva nueve mañanas sin decisión de
-   Santiago, y nunca quedó anotada en PENDIENTES.** Verificado en
-   `contenido/estado/clave-acuerdo-internacional-sin-tratado.md`: `ETAPA:
-   idea_lista`, `TURNO: Santiago: aprobar o pedir cambios`, `ACTUALIZADO:
-   2026-09-27 00:31`. El tema se eligió el 26-09
-   (`bitacora/REALIZADOS.md:21`) para salir el miércoles 30-09; hoy son
-   nueve mañanas después de esa fecha sin aprobación ni cambios. La
-   auditoría del 04-10 (`bitacora/2026-10-04-auditoria.md`, hallazgo 6) dijo
-   "ya está en `bitacora/PENDIENTES.md` (sección 'Dependen de Santiago'); no
-   se duplica", pero leída completa esa sección (líneas 450 a 691) hoy, no
-   hay ninguna entrada sobre esta idea: la única entrada de Clave ahí es la
-   de elegir el tema de la semana 39 (27-09), que ya está resuelta y
-   obsoleta. Es exactamente el caso que esta auditoría está hecha para
-   evitar: un hallazgo que se repite (visto en al menos 3 auditorías
-   anteriores como "MIRAR" u "octava mañana") y que nunca llegó a la lista
-   viva. Además esto bloquea aguas abajo: `contenido/claves/semana/2026-W40-candidatos.md`
-   ya existe (generado el 04-10) pero excluye su mejor candidato (el Escudo
-   de las Américas, puntaje 13) precisamente porque el flujo de la semana 39
-   sigue abierto; la semana 40 no puede avanzar mientras la 39 no se cierre.
+2. **La idea de la Clave de la semana 39
+   (acuerdo-internacional-sin-tratado) cumple diez mañanas sin que Santiago
+   la apruebe o pida cambios.** Verificado de nuevo en
+   `contenido/estado/clave-acuerdo-internacional-sin-tratado.md`: sigue
+   `ETAPA: idea_lista`, `TURNO: Santiago: aprobar o pedir cambios`,
+   `ACTUALIZADO: 2026-10-06 00:27`, sin cambios desde que la auditoría del
+   05-10 contó nueve mañanas. Ya está en `bitacora/PENDIENTES.md`, sección
+   "Dependen de Santiago" (se agregó ahí el 05-10); hoy le agregué una
+   línea con el conteo, como pide el contrato, sin duplicar la entrada.
 
-3. **Contradicción de prompt en `prompts/guion-informe.md` en su sexta
-   aparición, nunca anotada.** `contenido/revisiones/2026-10-05.md` repite
-   el hallazgo de que el piso de 3 a 8 palabras de la ETIQUETA CON CONTEXTO
-   (línea 237) choca con el propio ejemplo que el prompt da para
-   `comparacion` en la línea 229 ("fallecidos: 797 ; desaparecidos: 3048",
-   etiquetas de una palabra): hoy las tres etiquetas de las tarjetas
-   `comparacion` del guion quedaron con una palabra ("Flávio Bolsonaro",
-   "Lula", "prisión preventiva") mientras las de `cifra` y `cambio` sí se
-   corrigieron a 3-8 palabras. Mismo hallazgo del 22-09, 26-09, 02-10,
-   03-10 y 04-10 (este último lo clasificó AGUANTA en
-   `bitacora/2026-10-04-auditoria.md`, propuesta 3, y por ser AGUANTA nunca
-   se bajó a PENDIENTES). Verificado con búsqueda explícita en
-   `bitacora/PENDIENTES.md`: no hay ninguna línea con "ETIQUETA CON
-   CONTEXTO" ni con "fallecidos: 797". Nunca bloqueó un veredicto, pero son
-   seis mañanas sin que el prompt diga qué corresponde.
-
-4. **Tarjetas mal tipificadas, una vez, ya corregidas.** El guion de hoy
-   traía dos tarjetas con el tipo leído por el nombre del dato y no por su
-   forma (una `cambio` con dos indicadores distintos de un valor cada uno, y
-   una `comparacion` entre pesos y puestos de trabajo). Se corrigieron en la
-   vuelta 1 y no bloquearon. Primera vez que se ve este patrón concreto
-   (verificado: no aparece en `contenido/revisiones/2026-10-0{2,3,4}.md`),
-   así que no es todavía un hallazgo repetido.
-
-5. **Fuentes institucionales sin feed, tercer día seguido con el mismo
-   costo.** El Consolidado N° 26 de la Contraloría y los avisos de la
-   Dirección Meteorológica volvieron a entrar por los medios que los
-   recogieron, no por la fuente directa: `contenido/barrido/fuentes.json`
-   documenta esto desde el 27-08-2026 como diseño ("institucionales_sin_feed",
-   "las revisa la tarea de GPT, no el script"), y el guion igual acredita a
-   ambas instituciones. Mismo hallazgo del 03-10 y el 04-10
-   (`contenido/revisiones/2026-10-0{3,4}.md`). No pierde información (el
-   informe y el guion citan la fuente igual) y no bloquea, así que no sube a
-   HOY; si aparece una cuarta vez sin que nadie decida si conviene usar el
-   lector automático (`lector.yml`) contra esas páginas, correspondería
-   escribirlo en PENDIENTES para que lo mire la sesión de día.
+3. **`scripts/validar-tarjetas.js` cuenta como "voz" texto que nunca se
+   narra: las líneas de carátula sugerida, de la cabecera del archivo.** El
+   aviso de hoy, "línea 5: cifra exacta en voz (1.241)", apunta a
+   `Carátula 3: US$1.241 por persona / ¿Qué significa realmente?`, que es
+   una sugerencia de texto para la miniatura, no parte de `Guion:`. Lo
+   mismo que escribe esa cifra en el guion real
+   (`[DATO cifra | INE, 28 ene] techo por habitante proyectado: US$1.241`,
+   línea 29) queda correctamente afuera del chequeo porque empieza con
+   `[`. La causa es que `narrables` (línea 84) corta el archivo en
+   `Fuentes:` pero nunca en `Guion:`, así que arrastra también el título,
+   la descripción y las cuatro líneas de carátula del encabezado. No
+   bloquea nada (el script nunca sale con código distinto de 0 salvo con
+   `--estricto`, que nadie pasa hoy) y es la primera vez que una carátula
+   trae un número de cuatro o más cifras, así que no es un hallazgo que se
+   repita todavía.
 
 ## Propuestas
 
-1. Para la carátula del 04-10: generar ahora
-   `contenido/caratulas/2026-10-04.png` con los datos de
-   `contenido/guiones/informe/2026-10-04.md`, o dejar
-   `contenido/caratulas/2026-10-04-NO-PUDE.md` si no hay generador
-   disponible; y en `prompts/suplente.md`, después de la línea 107, agregar
-   la diferencia sobre carátulas (declarar `NO-PUDE.md` en vez de omitir el
-   paso en silencio). Misma propuesta del 03-10 y el 04-10, ahora urgente
-   porque ya son tres ediciones.
+1. En `scripts/gate.js:52`, cambiar
+   `.find((f) => f.startsWith(fecha) &amp;&amp; f.endsWith(".md"))` por
+   `.find((f) => f.startsWith(fecha) &amp;&amp; f.endsWith(".md") &amp;&amp;
+   !f.endsWith("-imagenes.md"))`, para que nunca pueda elegir el archivo de
+   prompts de imagen en lugar del guion.
 
-2. Para la idea de la Clave: nada que tocar en código. Es una decisión de
-   Santiago (aprobar o pedir cambios con `node scripts/clave.js aprobar
-   acuerdo-internacional-sin-tratado` o `clave.js cambiar`), pero hay que
-   escribirla en PENDIENTES para que no se pierda una décima mañana.
+2. Nada que tocar en código: se aprueba o se pide cambio con
+   `node scripts/clave.js aprobar acuerdo-internacional-sin-tratado` o
+   `clave.js cambiar acuerdo-internacional-sin-tratado`.
 
-3. Para la contradicción de etiquetas: en `prompts/guion-informe.md`, en la
-   línea 237 o inmediatamente después, agregar una frase que diga si el piso
-   de 3 a 8 palabras rige por cada lado de una `comparacion` (como su propio
-   ejemplo de la línea 229 no cumple) o solo para la etiqueta única de una
-   tarjeta `cifra` o `cambio`. Edición de una línea, sin riesgo.
+3. En `scripts/validar-tarjetas.js`, junto a la línea 83
+   (`corteFuentes = ...`), agregar `corteGuion =
+   lineas.findIndex((l) => /^Guion:/.test(l.trim()))` y, en la línea 84,
+   cortar `narrables` desde `corteGuion + 1` (si existe) en vez de desde el
+   principio del archivo, para que el encabezado (título, descripción,
+   carátulas) deje de contarse como texto narrado.
 
 ## Triage
 
-- **HOY**: hallazgo 1 (carátula del 04-10, tercera mañana) → propuesta 1.
-  Ya en PENDIENTES; se le agrega la escalada.
-- **HOY**: hallazgo 2 (idea de la Clave, nueve mañanas, nunca anotada) →
-  propuesta 2. Nueva entrada en PENDIENTES, sección "Dependen de Santiago".
-- **HOY**: hallazgo 3 (contradicción de etiquetas, sexta vez, nunca
-  anotada) → propuesta 3. Nueva entrada en PENDIENTES, sección "Para la
-  sesión de la noche". Se marca HOY no porque rompa nada, sino porque
-  escribirla ahora es lo único que evita una séptima mañana sin registro,
-  que es exactamente el patrón que esta auditoría existe para cortar.
-- **AGUANTA**: hallazgo 4 (tarjetas mal tipificadas), ya corregido en la
-  vuelta de hoy, sin propuesta porque es un caso aislado todavía.
-- **AGUANTA**: hallazgo 5 (fuentes institucionales sin feed, tercer día) →
-  sin escribir en PENDIENTES todavía; sube si aparece una cuarta vez.
+- **HOY**: hallazgo 1 (`scripts/gate.js:52`, bloquea la edición del
+  07-10-2026) → propuesta 1. Nueva entrada en `bitacora/PENDIENTES.md`,
+  sección "Para la sesión de la noche (código y prompts)". Se marca HOY
+  porque rompe la edición de mañana si no se corrige antes de que la
+  cadena del 07-10 llegue a la compuerta.
+- **HOY**: hallazgo 2 (idea de la Clave, décima mañana) → propuesta 2. Ya
+  estaba en PENDIENTES desde el 05-10; se le agregó el conteo, sin
+  duplicar.
+- **AGUANTA**: hallazgo 3 (validar-tarjetas.js cuenta la carátula como
+  voz) → propuesta 3. Es la primera vez que ocurre y el script nunca
+  bloquea nada; no se escribe en PENDIENTES todavía, sube si se repite.
+- **MIRAR**: GPT dejó de responder un turno por tercera vez en cuatro
+  días de producción (03-10 y 04-10 en `barrido_listo`, hoy en
+  `reparar_preseleccion`, un turno distinto), y el plan B lo cubrió las
+  tres veces sin pérdida de datos ni de calidad. El diseño ya contempla
+  `reparar_*` en `contenido/estado/plan-b.txt`, así que no hay nada que
+  tocar en código hoy, pero si la frecuencia sube conviene que alguien
+  mire el lado de la interfaz de GPT, como ya propuso la auditoría del
+  04-10.
+- **MIRAR**: en el guion de hoy, la categoría `[clima]` del bloque del
+  sistema frontal (línea 84) convive con una alerta declarada de Senapred
+  en el mismo bloque (línea 88), y la regla del prompt manda `[emergencia]`
+  cuando hay alerta declarada. No bloqueó (la revisión lo dejó pasar y lo
+  anotó para que la sesión de día resuelva el criterio) y es la primera vez
+  que aparece esta combinación exacta (verificado: ningún
+  `contenido/revisiones/*.md` anterior menciona "alerta declarada" ni
+  "[emergencia]").
 
 ## Comparación con ayer
 
-- **Mejoró**: GPT volvió a tomar sus turnos directo, sin plan B, por
-  primera vez desde el 02-10 (dos días de plan B el 03 y el 04-10); todas
-  las piezas llegaron con margen amplio (25 a 106 minutos antes de lo
-  esperado), al revés de ayer, donde todas llegaron tarde (20 a 36 minutos
-  después). El podcast volvió al rango prometido (11,6 min, contra 13,5 el
-  04-10 y 13,9 el 03-10, los dos días sobre el rango). La carátula del
-  03-10-2026 por fin entró (en diferido), aunque la del 04-10 sigue
-  faltando. Las horas vistas en los largos dejaron de caer: 21,0 horas hoy,
-  igual que ayer, después de cinco días seguidos de baja (-30,5% acumulado
-  desde el 30-09).
-- **Sigue igual**: la retención media de los largos sigue bajando despacio
-  (26,6% ayer → 25,6% hoy). La idea de la Clave sigue sin aprobación
-  (novena mañana). Las fuentes institucionales sin feed vuelven a entrar
-  por los medios (tercer día).
-- **Nuevo hoy**: la contradicción de etiquetas y la idea de la Clave sin
-  anotar se escriben por primera vez en PENDIENTES, pese a no ser hallazgos
-  nuevos.
-- **Peor que ayer**: nada medible; es la mejor madrugada de la semana en
-  horarios y sin incidentes de GitHub Actions.
+- **Mejoró**: las carátulas de octubre ya no tienen huecos (01 al 06-10
+  completas); la del 04-10, que llevaba tres mañanas marcada HOY, se cerró
+  el 05-10 por la tarde (`contenido/caratulas/2026-10-04.png`, commit de
+  las 16:22-16:23). La retención media de los largos subió un poco después
+  de varios días de baja: 25,4% ayer (`bitacora/metricas/2026-10-05.md`) →
+  25,6% hoy. Suscriptores +4, vistas totales del canal +1.150.
+- **Peor que ayer**: las horas vistas en los largos volvieron a bajar,
+  21,4 ayer → 20,4 hoy (-1,0 h, -4,7%; la ventana de Analytics es móvil de
+  30 días, así que un día que sale de la ventana pesa tanto como uno que
+  entra). El atraso de la cadena fue mucho mayor que ayer: hoy GPT estuvo
+  ausente unos 80 minutos en un turno de reparación y el informe, el guion
+  y la revisión llegaron entre 110 y 130 minutos después de lo esperado,
+  contra ningún plan B el 05-10.
+- **Sigue igual**: la idea de la Clave de la semana 39 sigue sin
+  aprobación (décima mañana). `prompts/suplente.md` sigue sin la palabra
+  "carátula" (verificado de nuevo, cero resultados), aunque hoy no hizo
+  falta porque GPT no llegó a tomar el turno completo del suplente.
+- **Nuevo hoy**: el bug de `scripts/gate.js` con los archivos
+  `-imagenes.md` (hallazgo 1, nunca antes posible porque es la primera vez
+  que existe ese archivo compañero) y el falso positivo de
+  `validar-tarjetas.js` sobre las líneas de carátula (hallazgo 3).
 </pre>
     </details>
     <!--AUDITORIA-FIN-->
