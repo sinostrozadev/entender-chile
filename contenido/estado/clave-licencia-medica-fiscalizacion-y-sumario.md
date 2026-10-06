@@ -5,7 +5,7 @@ ETAPA: pautar
 VUELTA: 0
 TURNO: Claude: escribe la pauta (prompts/pauta-clave.md)
 FECHA_PRODUCCION: (la fija Santiago al aprobar la pauta)
-ACTUALIZADO: 2026-10-05 22:36 (hora de Chile)
+ACTUALIZADO: 2026-10-05 22:35 (hora de Chile)
 PIEZA: pauta
 PROMPT: prompts/pauta-clave.md
 ARCHIVO: contenido/claves/flujo/licencia-medica-fiscalizacion-y-sumario/pauta.md
