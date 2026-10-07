@@ -208,3 +208,75 @@ const barra = (f, sr, seg, { tipo = "madera", cola = 1.1, mazo = 0.7 } = {}) => 
 };
 
 module.exports.barra = barra;
+
+// CUERDA FROTADA CORTA. Es lo que Santiago pidió para la base el 07-10-2026:
+// "violín corto, armónico". Una cuerda frotada da la serie armónica completa
+// con amplitud 1/k, que es por qué un arco suena más rico que una cuerda
+// pulsada: el arco inyecta energía TODO el rato en vez de una sola vez.
+//
+// Dos modos. "arco" es el golpe de arco corto, con su ruido de crin al entrar y
+// una caída rápida. "armonico" es el armónico de cuerda, el dedo apoyado sin
+// pisar: suena solo un parcial y sus múltiplos, así que queda purísimo y
+// flautado, y es lo que la gente llama "etéreo" sin saber por qué.
+//
+// Sin vibrato a propósito. El vibrato es el gesto que dice "siente esto", y
+// este canal promete no decirlo.
+const cuerdaArco = (f, sr, seg, { tipo = "arco", ataque = 0.018, cola = 0.42, brillo = 0.55 } = {}) => {
+  const n = Math.round(seg * sr), out = new Float32Array(n);
+  const K = tipo === "armonico" ? [1, 2, 3, 4, 6] : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const peso = (k) => (tipo === "armonico" ? Math.pow(k, -1.9) : Math.pow(k, -1.0) * Math.pow(brillo, k * 0.25));
+  const A = Math.max(2, Math.round(ataque * sr));
+  K.forEach((k) => {
+    const fk = f * k;
+    if (fk > sr * 0.45) return;
+    const w = 2 * Math.PI * fk / sr;
+    let fase = azar() * 0.3;
+    for (let i = 0; i < n; i++) {
+      const cae = Math.exp(-i / (sr * cola));
+      if (cae < 1e-5) break;
+      fase += w;
+      out[i] += Math.sin(fase) * peso(k) * cae * Math.min(1, i / A);
+    }
+  });
+  // el ruido de la crin agarrando la cuerda: pocos milisegundos, y es lo que
+  // delata que hay un arco y no un oscilador
+  let crin = 0;
+  for (let i = 0; i < Math.min(n, Math.round(0.06 * sr)); i++) {
+    crin = crin * 0.82 + azar() * 0.18;
+    out[i] += crin * (tipo === "armonico" ? 0.06 : 0.16) * Math.exp(-i / (sr * 0.016));
+  }
+  let p = 0; for (let i = 0; i < n; i++) if (Math.abs(out[i]) > p) p = Math.abs(out[i]);
+  if (p > 0) for (let i = 0; i < n; i++) out[i] /= p;
+  return out;
+};
+
+module.exports.cuerdaArco = cuerdaArco;
+
+// SECCIÓN DE CUERDAS. Santiago lo describió como "violín corto, armónico" y
+// después aclaró: "es como sonido de orquesta, aunque no sé distinguirlo".
+// Eso cambia todo, porque lo que separa un violín de una ORQUESTA no es el
+// instrumento: son muchos tocando lo mismo.
+//
+// Y lo que hace que doce violines suenen a sección y no a uno fuerte son dos
+// cosas, las dos imperfecciones: ninguno afina exactamente igual (unos pocos
+// cents de diferencia) y ninguno entra exactamente a tiempo (unos pocos
+// milisegundos). Eso ensancha el sonido y le saca el filo. Es el mismo
+// fenómeno que las tres cuerdas por nota del piano, pero a lo grande.
+//
+// Afinar y cuadrar a todos los músicos deja un sonido delgado y eléctrico, que
+// es el error clásico cuando se imita una orquesta con una máquina.
+const seccionCuerdas = (f, sr, seg, { musicos = 9, cents = 7, desfase = 0.018, tipo = "arco", cola = 0.35, ataque = 0.016, brillo = 0.5 } = {}) => {
+  const n = Math.round(seg * sr), out = new Float32Array(n);
+  for (let m = 0; m < musicos; m++) {
+    const d = (m / (musicos - 1 || 1)) * 2 - 1;             // repartidos, no al azar puro
+    const fm = f * Math.pow(2, (d * cents + azar() * 2) / 1200);
+    const retardo = Math.round(Math.abs(d * desfase + azar() * 0.004) * sr);
+    const uno = cuerdaArco(fm, sr, seg, { tipo, cola: cola * (1 + d * 0.12), ataque: ataque * (1 + Math.abs(d) * 0.4), brillo });
+    for (let i = 0; i + retardo < n && i < uno.length; i++) out[i + retardo] += uno[i] / musicos;
+  }
+  let p = 0; for (let i = 0; i < n; i++) if (Math.abs(out[i]) > p) p = Math.abs(out[i]);
+  if (p > 0) for (let i = 0; i < n; i++) out[i] /= p;
+  return out;
+};
+
+module.exports.seccionCuerdas = seccionCuerdas;
