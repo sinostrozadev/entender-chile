@@ -143,6 +143,24 @@ const celda = (largo, desfase) => {
   return Array.from({ length: largo }, (_, k) => [0, 2, 4, 2, 3, 1, 0, 2][k % 8]);
 };
 
+// LOS TONOS CAMBIAN CON LA SECCIÓN (07-10-2026, lo pidió Santiago: era lo que
+// más le gustaba de la primera versión y lo había perdido al pasar a dórico).
+// Cada sección tiene su centro, y los centros se eligen entre los grados
+// estables del modo, nunca una tercera: así la armonía SE MUEVE con la cámara
+// pero sigue sin dar veredicto. Y termina volviendo a casa.
+const CENTROS = (() => {
+  const estables = [0, 4, 3, 6, 1];
+  const out = [0];
+  for (let i = 1; i < secciones.length; i++) {
+    const prev = estables.indexOf(out[i - 1]);
+    const d = [1, -1, 2, -2][Math.floor(dado() * 4)];
+    out.push(estables[((prev + d) % 5 + 5) % 5]);
+  }
+  out[out.length - 1] = 0; // el cierre vuelve a re
+  return out;
+})();
+const centroDe = (i) => gradoA(DORICO, CENTROS[Math.min(i, CENTROS.length - 1)]);
+
 // LAS VOCES ENTRAN DE A UNA. Cada una tiene su largo de célula, primo con las
 // otras, así que se desfasan y nunca vuelven a sonar igual dentro de la pieza.
 // Los niveles están puestos para que las CÉLULAS sean el evento principal y el
@@ -168,7 +186,7 @@ const poner = (onda, t0, niv) => {
 // único que sostiene, y va en piano de fieltro porque abajo la barra no tiene
 // cuerpo. Quintas y cuartas, nunca una tercera.
 secciones.forEach((s, i) => {
-  const st = (i % 2 === 0 ? 0 : 7) - 12;
+  const st = centroDe(i) - 12;
   [st, st + 7].forEach((v, k) => {
     poner(pianoFieltro(nota(v), SR, 9, { fieltro: 1.2, cuerdas: 3, cola: 4.2 }), s.t + k * 0.06, (k ? 0.20 : 0.34) * 0.5);
   });
@@ -182,16 +200,40 @@ for (let t = 0.2; t < TOTAL; t += PULSO, paso++) {
     if (sec + 1 < v.desde || sec + 1 > v.hasta) return;
     if (paso % v.cada !== 0) return;
     const g = v.patron[Math.floor(paso / v.cada) % v.patron.length];
-    const f = nota(gradoA(DORICO, g) + v.oct);
+    const f = nota(gradoA(DORICO, g) + v.oct + centroDe(sec));
     poner(barra(f, SR, v.cola * 3, { tipo: v.tipo, cola: v.cola, mazo: v.mazo }), t, v.niv * 0.5);
   });
+}
+
+// EL SUB QUE GLISA. Es lo único frotado de toda la pieza y va 20 dB bajo el
+// resto, casi en el límite de lo que se oye. Está porque el GLISADO del cambio
+// de centro era lo que a Santiago le gustaba de la primera versión, y una nota
+// golpeada no puede glisar: aparece ya afinada. Esto le pone al cambio de
+// sección el movimiento que la barra no puede dar, sin romper la gramática.
+{
+  let fase = 0;
+  for (let i = 0; i < n; i++) {
+    const t = i / SR;
+    const g = puerta(t) * bordes(t);
+    if (g <= 0) continue;
+    const sec = seccionEn(t);
+    let st = centroDe(sec) - 24;
+    const ini = secciones[sec].t;
+    if (sec > 0 && t < ini + viaje) {
+      const a = centroDe(sec - 1) - 24;
+      st = a + (st - a) * suave((t - ini) / viaje);
+    }
+    fase += nota(st) / SR;
+    if (fase > 1) fase -= 1;
+    seco[i] += Math.sin(2 * Math.PI * fase) * 0.030 * g * (0.7 + 0.3 * bultoViaje(t));
+  }
 }
 
 // LA MARCA DE SECCIÓN: una sola nota en pentatónica, que no puede chocar con
 // nada porque la escala no tiene semitonos.
 secciones.forEach((s, i) => {
   if (i === 0) return;
-  const g = gradoA(PENTA, [0, 2, 4, 1, 3][i % 5]) + 24;
+  const g = gradoA(PENTA, [0, 2, 4, 1, 3][i % 5]) + 24 + centroDe(i);
   poner(barra(nota(g), SR, 5, { tipo: "metal", cola: 2.2, mazo: 0.8 }), s.t + 0.1, 0.30);
 });
 
