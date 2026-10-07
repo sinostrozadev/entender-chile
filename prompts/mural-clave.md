@@ -41,6 +41,20 @@ empieza el siguiente.
 - La parada de cada sección se calcula para que su motivo quede centrado en el
   lado derecho del cuadro.
 
+## Dos límites conocidos
+
+**GPT entrega como máximo 10 imágenes por solicitud** (lo dijo él mismo el
+07-10-2026, al pedirle los 14 paneles). Así que una Clave de 14 secciones se
+pide en dos tandas. El corte NO es arbitrario: la tanda 2 se pide recién
+después de medir la franja de entrega del último panel de la tanda 1, y esos
+colores van dentro de su prompt. Es exactamente lo que hizo que el panel 2
+calzara con el 1 a un 3,1% de desviación. Pedir las dos tandas a ciegas, una
+detrás de otra, es lo único que puede romper la cadena.
+
+Conviene además que el corte caiga en una juntura de poco contraste (dos
+superficies oscuras parecidas) y no en un salto de luz grande, porque esa es la
+juntura más difícil de reproducir de memoria entre dos conversaciones.
+
 ## Un riesgo conocido
 
 Con 14 paneles el mural pasa de 29.000 píxeles de ancho y puede superar el tope
