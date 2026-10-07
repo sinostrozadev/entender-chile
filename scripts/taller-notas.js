@@ -189,3 +189,87 @@ console.log("DOS COMPASES: notas de la 11 y de la 8, en tu rítmica");
   });
   escribir("dos-compases.wav", conSala(x, 0.28));
 }
+
+// ===== 5. LA FRASE DE CUATRO COMPASES =====
+// Santiago la dictó nota por nota el 07-10-2026:
+//   compás 1  re4 re4 la4 re5
+//   compás 2  re4 re4 re5 la4   ...o do5, que corrigió después: "creo que la
+//             bajada es re4 re4 re5 do5". Van las dos.
+//   compás 3  igual que el 1
+//   compás 4  las notas de la 10 con el remate, que son re la re MI
+// y agregó "la base creo que siguen las notas principales", así que el ostinato
+// deja de quedarse en re y la: cada par sigue la nota de la melodía que le toca,
+// con su quinta encima.
+//
+// LA BASE BUSCA LA OCTAVA MÁS CERCANA a donde venía, y no la misma siempre. Sin
+// eso, cuando la melodía baja de re5 a do5, que es un paso, el bajo saltaba una
+// séptima PARA ARRIBA: el oído lo lee como lo contrario de lo que pasa arriba.
+// Un bajo se mueve por el camino corto, siempre.
+const BAJO_MIN = -14, BAJO_MAX = -2;
+const raizCerca = (mel, previa) => {
+  let r = (((mel % 12) + 12) % 12) - 12;
+  let mejor = r, dist = Infinity;
+  for (let o = -1; o <= 1; o++) {
+    const c = r + 12 * o;
+    if (c < BAJO_MIN || c > BAJO_MAX) continue;
+    const d = Math.abs(c - previa);
+    if (d < dist) { dist = d; mejor = c; }
+  }
+  return mejor;
+};
+
+const C1 = [12, 12, 19, 24];   // re4 re4 la4 re5
+const C3 = [12, 12, 19, 24];   // igual que el 1
+const C4 = [12, 19, 24, 26];   // re4 la4 re5 mi5, la 10 con su remate
+const BAJADAS = [
+  { n: "A la bajada cierra en la4", c2: [12, 12, 24, 19], por: "re4 re4 re5 la4. Baja a la quinta: firme" },
+  { n: "B la bajada cierra en do5", c2: [12, 12, 24, 22], por: "re4 re4 re5 do5. Baja un solo paso, a la séptima del dórico. Es la que corregiste" },
+];
+// el compás 4 en la rítmica de la 10: tres largas y un golpecito corto
+const T_DIEZ = [0, NEGRA * 2, NEGRA * 4, NEGRA * 4 + CORCHEA];
+const CIERRES = [
+  { n: "en tu rítmica", t4: MEL_T, largo4: 3.8, vel4: [1.0, 0.6, 0.62, 0.95] },
+  { n: "cerrando con el remate de la 10", t4: T_DIEZ, largo4: 3.4, vel4: [0.95, 0.9, 1.0, 0.45] },
+];
+
+console.log("");
+console.log("LA FRASE DE CUATRO COMPASES");
+{
+  const U = COMPAS * 4 + 3;
+  const casos = [];
+  CIERRES.forEach((ci) => BAJADAS.forEach((ba) => casos.push({ ba, ci })));
+  const x = lienzo(casos.length * U + 3);
+  casos.forEach((caso, i) => {
+    const t0 = 0.5 + i * U;
+    const compases = [C1, caso.ba.c2, C3, C4];
+    let previa = -12;
+    compases.forEach((mel, c) => {
+      const tb = t0 + c * COMPAS;
+      const ultimo = c === 3;
+      mel.forEach((m, k) => {
+        previa = raizCerca(m, previa);
+        poner(x, seccionCuerdas(nota(previa), SR, 1.2, { musicos: 9, cola: 0.26, ataque: 0.014, brillo: 0.46 }), tb + BASE_T[k * 2], 0.55);
+        poner(x, seccionCuerdas(nota(previa + 7), SR, 1.2, { musicos: 9, cola: 0.24, ataque: 0.014, brillo: 0.46 }), tb + BASE_T[k * 2 + 1], 0.40);
+      });
+      const tiempos = ultimo ? caso.ci.t4 : MEL_T;
+      const vels = ultimo ? caso.ci.vel4 : [1.0, 0.6, 0.62, 0.95];
+      mel.forEach((st, k) => {
+        const largo = k === 3 ? (ultimo ? caso.ci.largo4 : 2.6) : (ultimo ? 2.2 : 1.6);
+        poner(x, barra(nota(st), SR, largo + 1.5, { tipo: "metal", cola: largo, mazo: 0.78 }), tb + tiempos[k], vels[k]);
+      });
+      poner(x, pianoFieltro(nota(-24), SR, 6, { fieltro: 1.2, cuerdas: 3, cola: 3.2 }), tb, 0.26);
+    });
+    console.log("     " + t0.toFixed(1) + "s  " + caso.ba.n + ", " + caso.ci.n);
+    console.log("            " + caso.ba.por);
+  });
+  escribir("frase-4.wav", conSala(x, 0.28));
+  console.log("");
+  BAJADAS.forEach((ba) => {
+    console.log("  " + ba.n);
+    let previa = -12;
+    [C1, ba.c2, C3, C4].forEach((m, c) => {
+      const base = m.map((q) => { previa = raizCerca(q, previa); return nombreDe(previa) + "+" + nombreDe(previa + 7); }).join("  ");
+      console.log("     compás " + (c + 1) + "   melodía: " + m.map(nombreDe).join(" ").padEnd(20) + "base: " + base);
+    });
+  });
+}
