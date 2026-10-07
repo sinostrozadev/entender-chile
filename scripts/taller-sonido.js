@@ -216,3 +216,85 @@ console.log("MELODÍAS, SEGUNDA TANDA: VARÍA EL RITMO");
   escribir("melodias-ritmo.wav", x);
   RITMOS.forEach((m, i) => console.log("     " + String(0.6 + i * unidad).padStart(5) + "s  " + m.nombre + ": " + m.por));
 }
+
+// ================= TERCERA TANDA: LAS CUATRO FINALISTAS =================
+// Santiago eligió la 7 (anacrusa), la 8 (puntillo), la 9 (síncopa), la 10 (dos
+// largas), la 11 (silencio adentro) y la 12 (hemiola). Tres lecturas de cada una:
+// se mantiene la FIGURA, que es
+// lo que eligió, y se mueve lo demás. Así se converge dentro de la familia en
+// vez de volver a empezar.
+//
+// [tiempo, grado, velocidad, cola opcional]
+const FINALISTAS = [
+  {
+    familia: "7 ANACRUSA", variantes: [
+      { n: "7a tal cual", por: "la si re. Cierra en la tónica: afirma", notas: [[0, -5, 0.5], [0.13, -3, 0.55], [0.30, 0, 1.0, 3.2]] },
+      { n: "7b abierta", por: "igual pero salta a la quinta y queda sin resolver: dice hay más", notas: [[0, -5, 0.5], [0.13, -3, 0.55], [0.30, 7, 1.0, 3.2]] },
+      { n: "7c doble empuje", por: "dos anacrusas encadenadas, desde más abajo. Es la misma figura con más carrera", notas: [[0, -12, 0.4], [0.13, -10, 0.45], [0.30, -5, 0.6], [0.43, -3, 0.65], [0.60, 0, 1.0, 3.2]] },
+    ],
+  },
+  {
+    familia: "8 PUNTILLO", variantes: [
+      { n: "8a tal cual", por: "sube y vuelve al do, la séptima del dórico", notas: [[0, -12, 0.95], [0.38, -5, 0.45], [0.50, -5, 0.8], [0.88, 0, 0.5], [1.0, -2, 0.9, 3.0]] },
+      { n: "8b al revés", por: "la misma cojera pero bajando. Es la versión que sirve para cerrar el video", notas: [[0, 0, 0.95], [0.38, -2, 0.45], [0.50, -2, 0.8], [0.88, -5, 0.5], [1.0, -12, 0.9, 3.4]] },
+      { n: "8c arriba y sostenida", por: "una octava más arriba y la última aguanta el doble: más brillo, más aire", notas: [[0, 0, 0.9], [0.38, 7, 0.45], [0.50, 7, 0.8], [0.88, 12, 0.5], [1.0, 10, 1.0, 4.2]] },
+    ],
+  },
+  {
+    familia: "9 SÍNCOPA", variantes: [
+      { n: "9a tal cual", por: "el acento en el 620", notas: [[0, -12, 0.6], [0.25, -7, 0.35], [0.62, -5, 1.0], [1.0, -12, 0.45], [1.25, 0, 0.7, 3.0]] },
+      { n: "9b más corrida", por: "el acento se va todavía más atrás. Cuesta más de pillar y por eso engancha más", notas: [[0, -12, 0.6], [0.25, -7, 0.35], [0.78, -5, 1.0], [1.05, -12, 0.45], [1.32, 0, 0.7, 3.0]] },
+      { n: "9c con el pulso puesto", por: "una voz grave marcando el pulso derecho debajo. Recién ahí se OYE que la de arriba está corrida", notas: [[0, -24, 0.55], [0.5, -24, 0.4], [1.0, -24, 0.45], [0, -12, 0.5], [0.25, -7, 0.3], [0.62, -5, 0.95], [1.0, -12, 0.4], [1.25, 0, 0.65, 3.0]] },
+    ],
+  },
+  {
+    familia: "10 DOS LARGAS Y REMATE", variantes: [
+      { n: "10a tal cual", por: "dos sostenidas y un golpecito corto arriba al final", notas: [[0, -12, 0.9, 3.4], [0.62, -5, 0.85, 3.4], [1.24, 0, 0.95, 3.4], [1.40, 2, 0.4]] },
+      { n: "10b remate abajo", por: "el remate cae en vez de subir, y queda más abajo. Afirma más y pregunta menos", notas: [[0, -12, 0.9, 3.4], [0.62, -5, 0.85, 3.4], [1.24, 0, 0.95, 3.4], [1.42, -5, 0.45, 3.6]] },
+      { n: "10c más lenta, remate doble", por: "las dos largas aguantan casi un segundo cada una y el remate son dos notas. Más ceremonia", notas: [[0, -12, 0.9, 4.0], [0.90, -5, 0.85, 4.0], [1.80, 0, 0.95, 4.0], [1.98, 2, 0.4], [2.12, 3, 0.35]] },
+    ],
+  },
+  {
+    familia: "11 SILENCIO ADENTRO", variantes: [
+      { n: "11a tal cual", por: "una nota, 780 ms de hueco, y dos juntas", notas: [[0, -12, 1.0, 3.2], [0.78, -5, 0.7], [0.93, 0, 0.85, 3.2]] },
+      { n: "11b hueco más largo", por: "el hueco sube a 1,1 s. Es más riesgoso y por eso se recuerda más: el que escucha alcanza a preguntarse si se cortó", notas: [[0, -12, 1.0, 3.2], [1.10, -5, 0.7], [1.25, 0, 0.85, 3.2]] },
+      { n: "11c el hueco sostenido", por: "el hueco NO está vacío: queda una nota grave muy baja aguantándolo. El silencio se sostiene en vez de morirse, que es la diferencia entre una pausa y un corte", notas: [[0, -12, 1.0, 3.2], [0.05, -24, 0.22, 4.5], [0.78, -5, 0.7], [0.93, 0, 0.85, 3.2]] },
+    ],
+  },
+  {
+    familia: "12 HEMIOLA", variantes: [
+      { n: "12a tal cual", por: "grave en seis, aguda en tres", notas: [[0, -12, 1.0], [0.25, -5, 0.4], [0.50, -5, 0.45], [0.75, 0, 0.9], [1.0, -5, 0.4], [1.25, -5, 0.45], [0, 7, 0.7], [0.50, 5, 0.65], [1.0, 7, 0.7, 3.2]] },
+      { n: "12b dada vuelta", por: "ahora la de tres va abajo y la de seis arriba. El mismo cruce, al revés", notas: [[0, 12, 0.6], [0.25, 7, 0.3], [0.50, 7, 0.35], [0.75, 10, 0.55], [1.0, 7, 0.3], [1.25, 7, 0.35], [0, -12, 0.95], [0.50, -7, 0.8], [1.0, -12, 0.9, 3.4]] },
+      { n: "12c que se arma", por: "primero una voz sola y después entra la otra. El cruce no está: APARECE, que es el proceso aditivo del canal en dos segundos", notas: [[0, -12, 0.9], [0.25, -5, 0.4], [0.50, -5, 0.45], [0.75, 0, 0.8], [1.0, -5, 0.4], [1.25, -5, 0.45], [1.50, -12, 0.9], [1.75, -5, 0.4], [2.0, -5, 0.45], [2.25, 0, 0.8], [1.50, 7, 0.7], [2.0, 5, 0.65], [2.50, 7, 0.75, 3.2]] },
+    ],
+  },
+];
+
+console.log("");
+console.log("LAS FINALISTAS, tres lecturas cada una");
+{
+  // seis segundos por variante y no cuatro y medio: la 10c dura 2,1 s y la 12c 2,5,
+  // y con colas de tres segundos se montaban encima de la siguiente
+  const unidad = 6, hueco = 2;
+  let total = 1;
+  FINALISTAS.forEach((f) => { total += f.variantes.length * unidad + hueco; });
+  const x = lienzo(total + 2);
+  let t = 0.6;
+  const marcas = [];
+  FINALISTAS.forEach((f) => {
+    f.variantes.forEach((v) => {
+      marcas.push([t, f.familia + "  " + v.n, v.por]);
+      v.notas.forEach(([dt, st, vel, cola]) => poner(x, campana(st, cola ? cola + 2 : 5, cola || 2.6), t + dt, vel));
+      poner(x, pianoFieltro(nota(-24), SR, 6, { fieltro: 1.2, cuerdas: 3, cola: 3.4 }), t, 0.28);
+      t += unidad;
+    });
+    t += hueco;
+  });
+  const rev = sala(x, SR, 1, 0.78);
+  for (let i = 0; i < x.length; i++) x[i] = x[i] * 0.72 + rev[i] * 0.28 * 1.9;
+  escribir("finalistas.wav", x);
+  marcas.forEach(([tt, n, por]) => {
+    const m = Math.floor(tt / 60), s2 = (tt % 60).toFixed(0).padStart(2, "0");
+    console.log("     " + m + ":" + s2 + "  " + n.padEnd(34) + por);
+  });
+}
