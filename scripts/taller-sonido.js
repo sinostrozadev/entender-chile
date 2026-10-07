@@ -146,3 +146,73 @@ console.log("AIRE DEL VIAJE, tres intensidades (el de hoy medía 21 dB sobre la 
   for (let i = 0; i < a.length; i++) x[i] = a[i];
   escribir(n, x, 0.42);
 });
+
+// ================= SEGUNDA TANDA: EL RITMO COMO VARIABLE =================
+// Las seis primeras eran la misma rítmica con distintas notas, todas negras
+// parejas y todas al mismo volumen, o sea seis versiones de una. El ritmo es
+// por lo menos la mitad de la identidad de una melodía, y el acento la otra:
+// sin acentos, hasta un buen ritmo suena a máquina de escribir. Acá cada
+// candidata trae su figura y su velocidad por nota.
+//
+// [tiempo en segundos, grado del dórico, velocidad de 0 a 1]
+const RITMOS = [
+  {
+    nombre: "7 anacrusa",
+    por: "dos notas cortas empujando hacia una larga: ta-ta-TAAA. Es la figura de sello más vieja que existe porque funciona",
+    notas: [[0, -5, 0.5], [0.13, -3, 0.55], [0.30, 0, 1.0]],
+  },
+  {
+    nombre: "8 con puntillo",
+    por: "corchea con puntillo y semicorchea, la figura que cojea. Insiste sin acelerar",
+    notas: [[0, -12, 0.95], [0.38, -5, 0.45], [0.50, -5, 0.8], [0.88, 0, 0.5], [1.0, -2, 0.9]],
+  },
+  {
+    nombre: "9 síncopa",
+    por: "el acento cae FUERA del pulso. Da inclinación hacia adelante sin apurar nada",
+    notas: [[0, -12, 0.6], [0.25, -7, 0.35], [0.62, -5, 1.0], [1.0, -12, 0.45], [1.25, 0, 0.7]],
+  },
+  {
+    nombre: "10 dos largas y un remate",
+    por: "dos notas sostenidas y un golpecito corto al final. Afirma y después deja una marca",
+    notas: [[0, -12, 0.9], [0.62, -5, 0.85], [1.24, 0, 0.95], [1.40, 2, 0.4]],
+  },
+  {
+    nombre: "11 con silencio adentro",
+    por: "una nota, un hueco de medio segundo, y dos juntas. El hueco es lo que se recuerda, y casi ningún sello lo usa",
+    notas: [[0, -12, 1.0], [0.78, -5, 0.7], [0.93, 0, 0.85]],
+  },
+  {
+    nombre: "12 hemiola chilena",
+    por: "seis por ocho contra tres por cuatro, el cruce de la cueca. Es chileno sin bandera Y es literalmente dos mecanismos engranados, que es de lo que habla el canal",
+    notas: [
+      [0, -12, 1.0], [0.25, -5, 0.4], [0.50, -5, 0.45], [0.75, 0, 0.9], [1.0, -5, 0.4], [1.25, -5, 0.45],
+      [0, 7, 0.7], [0.50, 5, 0.65], [1.0, 7, 0.7],
+    ],
+  },
+  {
+    nombre: "13 que acelera",
+    por: "las notas se van juntando: el mecanismo tomando revoluciones",
+    notas: [[0, -12, 0.95], [0.52, -7, 0.7], [0.88, -5, 0.65], [1.14, -3, 0.6], [1.30, -2, 0.55], [1.40, 0, 0.9]],
+  },
+  {
+    nombre: "14 que frena",
+    por: "las notas se van separando: algo que llega y se estaciona. Es el gesto del final, no el de la apertura",
+    notas: [[0, -12, 0.9], [0.14, -7, 0.5], [0.36, -5, 0.6], [0.70, -2, 0.7], [1.18, 0, 1.0]],
+  },
+];
+
+console.log("");
+console.log("MELODÍAS, SEGUNDA TANDA: VARÍA EL RITMO");
+{
+  const unidad = 5;
+  const x = lienzo(RITMOS.length * unidad + 2);
+  RITMOS.forEach((m, i) => {
+    const t0 = 0.6 + i * unidad;
+    m.notas.forEach(([dt, st, vel]) => poner(x, campana(st, 5, 2.6), t0 + dt, vel));
+    poner(x, pianoFieltro(nota(-24), SR, 6, { fieltro: 1.2, cuerdas: 3, cola: 3.4 }), t0, 0.30);
+  });
+  const rev = sala(x, SR, 1, 0.78);
+  for (let i = 0; i < x.length; i++) x[i] = x[i] * 0.72 + rev[i] * 0.28 * 1.9;
+  escribir("melodias-ritmo.wav", x);
+  RITMOS.forEach((m, i) => console.log("     " + String(0.6 + i * unidad).padStart(5) + "s  " + m.nombre + ": " + m.por));
+}
