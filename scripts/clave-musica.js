@@ -50,7 +50,7 @@ const MOJADO = Number(arg("sala", 0.30));
 // nada, y ese fue mi error: el archivo se normaliza por pico al final, así que
 // subirlas todas reparte exactamente lo mismo. Lo que había que cambiar era la
 // PROPORCIÓN entre ellas.
-const N_BASE = Number(arg("base", 9.2));
+const N_BASE = Number(arg("base", 13));
 const N_MEL = Number(arg("nivel-melodia", 3.2));
 // La tensión la bajé primero a 4,6 pensando que lo que le faltaba era distancia
 // respecto de la base y no nivel propio. Medido, el arco completo quedó en 4,1
@@ -113,7 +113,9 @@ const nota = (st) => RE * Math.pow(2, st / 12);
 const ESCALA = [0, 2, 3, 5, 7, 8, 10];
 const gradoA = (esc, g) => esc[((g % esc.length) + esc.length) % esc.length] + 12 * Math.floor(g / esc.length);
 
-const BPM = 132, NEGRA = 60 / BPM, CORCHEA = NEGRA / 2, COMPAS = NEGRA * 8;
+// 150 y no 132: Santiago dijo "sigue muy despacio". Queda como perilla porque
+// el tempo cambia el carácter entero y es de las cosas que se deciden oyendo.
+const BPM = Number(arg("bpm", 150)), NEGRA = 60 / BPM, CORCHEA = NEGRA / 2, COMPAS = NEGRA * 8;
 const BASE_T = []; for (let c = 0; c < 4; c++) { BASE_T.push(c * NEGRA * 2); BASE_T.push(c * NEGRA * 2 + CORCHEA); }
 const MEL_T = [0, NEGRA, NEGRA + CORCHEA, NEGRA + CORCHEA * 2];
 // CUATRO compases, no ocho. Santiago lo preguntó y tiene razón: cuando decidió
@@ -171,11 +173,16 @@ for (let i = 1; i < secciones.length; i++) {
 CENTROS[CENTROS.length - 1] = 0;
 const centroDe = (i) => gradoA(ESCALA, CENTROS[Math.min(i, CENTROS.length - 1)]);
 
-const seco = new Float32Array(n);
-const poner = (onda, t0, niv) => {
+// TRES PISTAS SEPARADAS, no una. Con --stems se escribe cada capa en su propio
+// archivo, que es lo que necesita un tablero donde se muevan los volúmenes y se
+// escuche al momento: mezclar en vivo solo se puede si las capas llegan sueltas.
+const PISTAS = { base: new Float32Array(n), melodia: new Float32Array(n), tension: new Float32Array(n) };
+const seco = PISTAS.base;
+const poner = (onda, t0, niv, pista = "base") => {
+  const dest = PISTAS[pista];
   const i0 = Math.round(t0 * SR);
   if (i0 < 0 || i0 >= n) return;
-  for (let k = 0; k < onda.length && i0 + k < n; k++) seco[i0 + k] += onda[k] * niv;
+  for (let k = 0; k < onda.length && i0 + k < n; k++) dest[i0 + k] += onda[k] * niv;
 };
 
 const BAJO_MIN = -14, BAJO_MAX = -2;
@@ -209,7 +216,16 @@ for (let tb = 0.4; tb < TOTAL; tb += COMPAS, compas++) {
   const g = puerta(tb) * bordes(tb);
   if (g <= 0) continue;
   for (let k = 0; k < 4; k++) {
-    if (k === 0) previa = raizCerca(mel[k] + tr, previa);
+    // LA RAÍZ SALE DE LA NOTA EN QUE ATERRIZA EL COMPÁS, no de la primera.
+    // Acá estaba el bug que Santiago oyó como "bajaste el tono de la base": los
+    // cuatro compases EMPIEZAN en re4, así que tomar la primera nota dejaba la
+    // raíz clavada en re2 para siempre. La base se volvió un dron: nunca subía a
+    // la2 con su quinta en mi3, y por eso el centro de gravedad bajó de 144 Hz
+    // a 115. La nota que caracteriza un compás es en la que ATERRIZA: A cae en
+    // re, B en do y C en mi, o sea la base ahora camina re do re mi, que es
+    // exactamente lo que él pidió cuando dijo "la base sigue las notas
+    // principales".
+    if (k === 0) previa = raizCerca(mel[3] + tr, previa);
     // la base sube 3 dB respecto de ayer: Santiago pidió "subirle un poco a la
     // cama", y como ahora puede quedarse sola hay secciones donde es TODO lo
     // que suena
@@ -219,7 +235,7 @@ for (let tb = 0.4; tb < TOTAL; tb += COMPAS, compas++) {
   if (hayMelodia(sec)) {
     mel.forEach((st, k) => {
       const largo = k === 3 ? (compas % 4 === 3 ? 3.4 : 2.6) : 1.6;
-      poner(barra(nota(st + tr), SR, largo + 1.5, { tipo: "metal", cola: largo, mazo: 0.78 }), tb + MEL_T[k], [1.0, 0.6, 0.62, 0.95][k] * g * PICO * N_MEL);
+      poner(barra(nota(st + tr), SR, largo + 1.5, { tipo: "metal", cola: largo, mazo: 0.78 }), tb + MEL_T[k], [1.0, 0.6, 0.62, 0.95][k] * g * PICO * N_MEL, "melodia");
     });
   }
   poner(pianoFieltro(nota(-24 + tr), SR, 6, { fieltro: 1.2, cuerdas: 3, cola: 3.2 }), tb, 0.26 * g * PICO * N_BASE);
@@ -305,14 +321,40 @@ if (RANGO.length) {
         for (let k = 0; k < onda.length && i0 + k < n; k++) {
           const t = (i0 + k) / SR;
           const global = t >= clima ? 1 : 0.30 + 0.70 * Math.pow((t - t0) / dur, 1.6);
-          seco[i0 + k] += onda[k] * niv * global * PICO * N_TENSION * bordes(t) * puerta(t);
+          PISTAS.tension[i0 + k] += onda[k] * niv * global * PICO * N_TENSION * bordes(t) * puerta(t);
         }
       });
   }
 }
 
-for (let i = 0; i < n; i++) { const g = puerta(i / SR); if (g < 1) seco[i] *= g; }
+for (const k of Object.keys(PISTAS)) {
+  const a = PISTAS[k];
+  for (let i = 0; i < n; i++) { const g = puerta(i / SR); if (g < 1) a[i] *= g; }
+}
 
+const escribirWav = (ruta, x, ganancia = 1) => {
+  const m2 = new Int16Array(x.length);
+  for (let i = 0; i < x.length; i++) m2[i] = Math.max(-32768, Math.min(32767, Math.round(x[i] * ganancia * 32767)));
+  const b2 = Buffer.from(m2.buffer), c2 = Buffer.alloc(44);
+  c2.write("RIFF", 0); c2.writeUInt32LE(36 + b2.length, 4); c2.write("WAVE", 8); c2.write("fmt ", 12);
+  c2.writeUInt32LE(16, 16); c2.writeUInt16LE(1, 20); c2.writeUInt16LE(1, 22); c2.writeUInt32LE(SR, 24);
+  c2.writeUInt32LE(SR * 2, 28); c2.writeUInt16LE(2, 32); c2.writeUInt16LE(16, 34); c2.write("data", 36); c2.writeUInt32LE(b2.length, 40);
+  fs.mkdirSync(path.dirname(ruta), { recursive: true });
+  fs.writeFileSync(ruta, Buffer.concat([c2, b2]));
+};
+const STEMS = arg("stems", "");
+if (STEMS) {
+  // cada pista con su propia sala, para que suene igual sola que en la mezcla
+  for (const k of Object.keys(PISTAS)) {
+    const x = PISTAS[k], r = sala(x, SR, 1, 0.80);
+    const y = new Float32Array(n);
+    for (let i = 0; i < n; i++) y[i] = x[i] * (1 - MOJADO) + r[i] * MOJADO * 1.9;
+    escribirWav(path.join(STEMS, k + ".wav"), y, 3.0);
+    console.log("  pista " + k);
+  }
+}
+
+for (let i = 0; i < n; i++) seco[i] += PISTAS.melodia[i] + PISTAS.tension[i];
 const cuerpo = caja(seco, SR);
 for (let i = 0; i < n; i++) seco[i] += cuerpo[i] * 0.16;
 const rev = sala(seco, SR, 1, 0.80);
