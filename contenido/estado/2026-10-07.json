@@ -1,0 +1,98 @@
+{
+  "fecha": "2026-10-07",
+  "etapa": "validar_guion_informe",
+  "veredicto": "pendiente",
+  "vuelta": 1,
+  "actualizado": "2026-10-07 08:51",
+  "reparar": null,
+  "piezas": [
+    {
+      "id": "barrido",
+      "etiqueta": "Barrido",
+      "hay": true,
+      "situacion": "listo",
+      "prompt": null,
+      "hora": "01:49",
+      "esperada": "01:40",
+      "dueno": "Actions · barrido.yml",
+      "rutas": [
+        "contenido/barrido/2026-10-07.md"
+      ]
+    },
+    {
+      "id": "preseleccion",
+      "etiqueta": "Preselección",
+      "hay": true,
+      "situacion": "lista",
+      "prompt": "prompts/seleccion.md",
+      "hora": "02:03",
+      "esperada": "02:10",
+      "dueno": "GPT · prompts/seleccion.md",
+      "rutas": [
+        "contenido/preseleccion/2026-10-07.md"
+      ]
+    },
+    {
+      "id": "informe",
+      "etiqueta": "Informe",
+      "hay": true,
+      "situacion": "lista",
+      "prompt": "prompts/informe.md",
+      "hora": "02:25",
+      "esperada": "02:40",
+      "dueno": "GPT · prompts/informe.md",
+      "rutas": [
+        "contenido/informes/2026-10-07.md"
+      ]
+    },
+    {
+      "id": "guion_informe",
+      "etiqueta": "Guion del informe",
+      "hay": true,
+      "situacion": "por_validar",
+      "prompt": "prompts/guion-informe.md",
+      "hora": "02:44",
+      "esperada": "03:10",
+      "dueno": "GPT · prompts/guion-informe.md",
+      "rutas": [
+        "contenido/guiones/informe/2026-10-07.md"
+      ]
+    },
+    {
+      "id": "revision",
+      "etiqueta": "Revisión (veredicto final)",
+      "hay": false,
+      "situacion": "falta",
+      "prompt": null,
+      "hora": "",
+      "esperada": "03:30",
+      "dueno": "Claude · prompts/validador.md",
+      "rutas": []
+    },
+    {
+      "id": "videos",
+      "etiqueta": "Videos y descripciones",
+      "hay": false,
+      "situacion": "falta",
+      "prompt": null,
+      "hora": "",
+      "esperada": "05:15",
+      "dueno": "Actions · edicion-diaria.yml",
+      "rutas": []
+    }
+  ],
+  "atrasos": [
+    {
+      "id": "revision",
+      "etiqueta": "Revisión (veredicto final)",
+      "atraso": 321,
+      "dueno": "Claude · prompts/validador.md"
+    },
+    {
+      "id": "videos",
+      "etiqueta": "Videos y descripciones",
+      "atraso": 216,
+      "dueno": "Actions · edicion-diaria.yml"
+    }
+  ]
+}
