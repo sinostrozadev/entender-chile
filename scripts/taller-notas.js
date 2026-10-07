@@ -140,3 +140,52 @@ console.log("TU IDEA, TOCADA. Base en sección de cuerdas corta, melodía en cam
   });
   escribir("tu-idea.wav", conSala(x, 0.28));
 }
+
+// ===== 4. DOS COMPASES: LAS NOTAS DEL 11 Y LAS DEL 8, EN SU RITMO =====
+// Santiago pidió exactamente esto el 07-10-2026: su rítmica de dos capas, con
+// las notas de la candidata 11 en el primer compás y las de la 8 en el segundo.
+//
+// Las notas de la 11 son re la re, que resultan ser el sello del canal desde el
+// 27-08. Las de la 8 son re la la re do, o sea la misma subida pero volviendo
+// al do, que es la séptima del dórico.
+//
+// Su melodía tiene CUATRO golpes (negra, corchea, corchea, corchea sostenida) y
+// la 11 tiene tres notas, así que la cuarta hay que decidirla. Es la única
+// decisión que queda abierta, y por eso es lo único que cambia entre las tres
+// versiones de abajo: todo lo demás está fijo.
+//
+// La base se queda en re y la los dos compases a propósito. Si bajara a do en
+// el segundo, el do de la melodía aterrizaría sobre su propia base y la frase
+// cerraría; quedándose en re, ese do es la séptima y la frase sigue pidiendo.
+const SUSPENDIDAS = [
+  { n: "1 cierra arriba en la", st: 31, por: "salta a la octava de la segunda nota. Queda arriba y abierta, es la más luminosa" },
+  { n: "2 cierra en mi", st: 26, por: "un grado sobre el re, o sea la novena. La más suspendida de las tres: casi pide la siguiente" },
+  { n: "3 cierra abajo en sol", st: 17, por: "se devuelve a la cuarta en vez de seguir subiendo. La suspensión clásica, y contrasta con la subida" },
+];
+
+console.log("");
+console.log("DOS COMPASES: notas de la 11 y de la 8, en tu rítmica");
+{
+  const C1 = [12, 19, 24];                // re4 la4 re5, las notas de la 11
+  const C2 = [12, 19, 24, 22];            // re4 la4 re5 do5, las notas de la 8
+  const BASE = [-12, -5, -12, -5, -12, -5, -12, -5];
+  const U = COMPAS * 2 + 2.5;
+  const x = lienzo(SUSPENDIDAS.length * U + 3);
+  SUSPENDIDAS.forEach((s, i) => {
+    const t0 = 0.5 + i * U;
+    [0, 1].forEach((compas) => {
+      const tb = t0 + compas * COMPAS;
+      BASE_T.forEach((dt, k) => poner(x, seccionCuerdas(nota(BASE[k]), SR, 1.2, { musicos: 9, cola: 0.26, ataque: 0.014, brillo: 0.46 }), tb + dt, k % 2 === 0 ? 0.55 : 0.40));
+      const mel = compas === 0 ? [...C1, s.st] : C2;
+      mel.forEach((st, k) => {
+        const largo = k === 3 ? (compas === 0 ? 3.0 : 3.8) : 1.6;
+        poner(x, barra(nota(st), SR, largo + 1.5, { tipo: "metal", cola: largo, mazo: 0.78 }), tb + MEL_T[k], [1.0, 0.6, 0.62, 0.95][k]);
+      });
+      poner(x, pianoFieltro(nota(-24), SR, 6, { fieltro: 1.2, cuerdas: 3, cola: 3.2 }), tb, 0.3);
+    });
+    console.log("     " + t0.toFixed(1) + "s  " + s.n);
+    console.log("            " + s.por);
+    console.log("            compás 1: " + [...C1, s.st].map(nombreDe).join(" ") + "   |   compás 2: " + C2.map(nombreDe).join(" "));
+  });
+  escribir("dos-compases.wav", conSala(x, 0.28));
+}
