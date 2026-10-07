@@ -62,6 +62,9 @@ export type GuionMural = {
   // por sección. Si falta, se reparte parejo, que es lo que había antes y lo
   // que estaba mal.
   paradas?: number[]; paso?: number;
+  // cuánto velo necesita cada parada, calculado por scripts/mural-velos.js
+  // midiendo el mural de verdad. 1 es el velo de siempre.
+  velos?: number[];
   bloques: Bloque[];
 };
 
@@ -78,10 +81,26 @@ const viajeSuave = (t: number) => t * t * t * (t * (t * 6 - 15) + 10);
 // mayor salto entre columnas vecinas era 0,017, puro borde de letra. Es banda
 // de Mach, el ojo inventa el filo donde se quiebra la pendiente. Por eso ahora
 // hay dos paradas más repartiendo la bajada: no se quiebra, no hay filo.
-const Velo: React.FC<{ fuerza?: number }> = ({ fuerza = 1 }) => (
+//
+// Y EL VELO DEJA DE SER UNA CONSTANTE (07-10-2026, lo cazó Santiago mirando el
+// cuadro del segundo 167). Se había diseñado contra paneles oscuros. El panel 5
+// es claro y además rompe la regla 2 del mural, su motivo no está en la mitad
+// derecha sino en todo el cuadro, así que el párrafo caía sobre unos papeles
+// blancos. Medido daba 4,47:1, que CUMPLE la norma para texto de 48 px y aun
+// así se ve mal: la norma mide contraste y no mide que haya un dibujo debajo de
+// las letras. Ahora cada parada trae su propia fuerza, calculada midiendo el
+// mural, y el objetivo pasa de 4,5:1 a 7:1.
+//
+// La forma no cambia, solo se empuja hacia el negro con 1-(1-alfa)^k. Con k=1
+// queda el velo de siempre y k nunca saca el alfa de 1, así que no hay tope que
+// inventar.
+const PARADAS_VELO: Array<[number, number]> = [[0, 0.93], [34, 0.88], [50, 0.5], [58, 0.26], [68, 0.08], [80, 0]];
+
+const Velo: React.FC<{ fuerza?: number; k?: number }> = ({ fuerza = 1, k = 1 }) => (
   <AbsoluteFill style={{
-    background:
-      `linear-gradient(90deg, rgba(10,12,16,${0.93 * fuerza}) 0%, rgba(10,12,16,${0.88 * fuerza}) 34%, rgba(10,12,16,${0.5 * fuerza}) 50%, rgba(10,12,16,${0.26 * fuerza}) 58%, rgba(10,12,16,${0.08 * fuerza}) 68%, rgba(10,12,16,0) 80%)`,
+    background: `linear-gradient(90deg, ${PARADAS_VELO
+      .map(([x, a]) => `rgba(10,12,16,${(1 - Math.pow(1 - a, k)) * fuerza}) ${x}%`)
+      .join(", ")})`,
   }} />
 );
 
@@ -189,7 +208,7 @@ const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number }
   );
 };
 
-export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paradas, paso, viajeSeg, musica, bloques }) => {
+export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paradas, paso, velos, viajeSeg, musica, bloques }) => {
   const trozos = Array.isArray(mural) ? mural : [mural];
   const frame = useCurrentFrame();
   const { fps, width } = useVideoConfig();
@@ -258,7 +277,7 @@ export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paradas, p
           <Audio src={staticFile("sonidos/viaje.wav")} volume={0.55} />
         </Sequence>
       ) : null}
-      <Velo fuerza={esDato ? 1 - apagado : 1} />
+      <Velo fuerza={esDato ? 1 - apagado : 1} k={velos?.[actual.parada] ?? 1} />
       <AbsoluteFill style={{ backgroundColor: "rgba(10,12,16,0.55)", opacity: apagado }} />
       {/* TODO EL BLOQUE VA DENTRO DE UNA Sequence, y no es un detalle: sin ella
           useCurrentFrame() devuelve el cuadro de la composición entera y los

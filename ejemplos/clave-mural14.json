@@ -23,6 +23,22 @@
     23880,
     25500
   ],
+  "velos": [
+    1,
+    1,
+    1.4,
+    1,
+    1.5,
+    1,
+    1,
+    1,
+    1,
+    1.1,
+    1.4,
+    1,
+    1.1,
+    1.4
+  ],
   "bloques": [
     {
       "texto": "El dos de octubre de dos mil veintiséis se informó que más de siete mil doscientos servidores públicos viajaron fuera de Chile mientras tenían licencia médica durante dos mil veinticinco.",

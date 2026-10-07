@@ -72,3 +72,85 @@ const sala = (x, sr, tam = 1, realim = 0.82) => {
 };
 
 module.exports = { seno, azar, pulsar, sala };
+
+// PIANO DE FIELTRO. Un piano es una cuerda GOLPEADA, no pulsada, y uno de
+// fieltro es uno con el macillo amortiguado: el golpe pierde los agudos y queda
+// el cuerpo. NO se puede hacer con Karplus y Strong como la cuerda de arriba, y
+// ese fue el primer intento del 07-10-2026: un retardo da armónicos EXACTOS por
+// construcción, y medido no había nada fuera de 880 Hz. Un piano vive justo de
+// lo contrario.
+//
+// Va sumando parciales, que permite controlar las tres cosas que hacen a un
+// piano y que ninguna cuerda pulsada tiene:
+//
+// 1. INARMONICIDAD ALTA. Las cuerdas de piano son gruesas y tensas, así que sus
+//    agudos se van ARRIBA de donde deberían. Por eso un piano afinado
+//    matemáticamente suena desafinado, y por eso los afinadores estiran las
+//    octavas.
+// 2. CADA PARCIAL MUERE A SU RITMO, y los agudos antes. Eso es lo que hace que
+//    una nota de piano se vaya OSCURECIENDO mientras suena en vez de apagarse
+//    entera. Es la mitad de lo que el oído reconoce como piano.
+// 3. TRES CUERDAS POR NOTA, desafinadas unas diezmilésimas. Un piano de verdad
+//    tiene dos o tres por tecla y nunca afinan idéntico: ese coro mínimo es la
+//    otra mitad.
+const pianoFieltro = (f, sr, seg, { fieltro = 1.7, cuerdas = 3, parciales = 10, cola = 2.6, B = 0.0004 } = {}) => {
+  const n = Math.round(seg * sr);
+  const out = new Float32Array(n);
+  const ATAQUE = Math.max(2, Math.round(0.004 * sr));
+  for (let k = 1; k <= parciales; k++) {
+    const fk = k * f * Math.sqrt(1 + B * k * k);
+    if (fk > sr * 0.45) break;
+    // el fieltro es el exponente: mientras más alto, menos agudos deja pasar el
+    // macillo, y eso es literalmente lo que hace un macillo amortiguado
+    const amp = Math.pow(k, -fieltro);
+    const tau = cola / Math.pow(k, 0.55);
+    for (let c = 0; c < cuerdas; c++) {
+      const desaf = 1 + (c - (cuerdas - 1) / 2) * 0.0006;
+      const w = 2 * Math.PI * fk * desaf / sr;
+      let fase = azar() * 0.4;
+      for (let i = 0; i < n; i++) {
+        // OJO con el corte: tiene que mirar SOLO la caída. Mirando la envolvente
+        // entera cortaba en la muestra cero, porque el ataque arranca en cero, y
+        // la nota duraba 0,3 s en vez de tres segundos.
+        const cae = Math.exp(-i / (sr * tau));
+        if (cae < 1e-5) break;
+        fase += w;
+        out[i] += Math.sin(fase) * amp * cae * Math.min(1, i / ATAQUE) / cuerdas;
+      }
+    }
+  }
+  // el ruido del macillo cayendo: dura milisegundos y es lo que delata que algo
+  // GOLPEÓ. Sin esto la nota aparece en vez de ser tocada.
+  let golpe = 0;
+  for (let i = 0; i < Math.min(n, Math.round(0.05 * sr)); i++) {
+    golpe = golpe * 0.86 + azar() * 0.14;
+    out[i] += golpe * 0.22 * Math.exp(-i / (sr * 0.012));
+  }
+  let pico = 0;
+  for (let i = 0; i < n; i++) if (Math.abs(out[i]) > pico) pico = Math.abs(out[i]);
+  if (pico > 0) for (let i = 0; i < n; i++) out[i] /= pico;
+  return out;
+};
+
+// La caja: resonadores de dos polos en las frecuencias de una tabla armónica.
+// Son siempre las mismas, toque la nota que toque, y por eso todas las notas
+// suenan al mismo instrumento.
+// Los Q van bastante más bajos que en el primer intento: con resonadores muy
+// afilados la caja tardaba casi un segundo en cargarse y la nota SUBÍA en vez
+// de caer, que es exactamente lo contrario de un instrumento golpeado.
+const caja = (x, sr, modos = [[96, 0.988, 0.42], [147, 0.985, 0.3], [233, 0.982, 0.24], [412, 0.978, 0.14]]) => {
+  const out = new Float32Array(x.length);
+  for (const [f, r, g] of modos) {
+    const w = 2 * Math.PI * f / sr, a1 = 2 * r * Math.cos(w), a2 = -r * r;
+    let y1 = 0, y2 = 0;
+    for (let i = 0; i < x.length; i++) {
+      const y = x[i] * (1 - r) + a1 * y1 + a2 * y2;
+      y2 = y1; y1 = y;
+      out[i] += y * g;
+    }
+  }
+  return out;
+};
+
+module.exports.pianoFieltro = pianoFieltro;
+module.exports.caja = caja;
