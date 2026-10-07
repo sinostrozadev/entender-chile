@@ -10,6 +10,31 @@ medida y deja de necesitar decisión).
 
 ---
 
+## EL MURAL DE LA CLAVE: lo que queda abierto (07-10-2026)
+
+- [ ] **PROPUESTA, necesita el sí de Santiago: borrar las pruebas del mural que
+      ya quedaron atrás.** En `public/claves/licencia-medica/` conviven las
+      cuatro etapas: `1.jpg` a `4.jpg` (748 KB, imágenes de sección sueltas, el
+      formato anterior), `mural.jpg` (813 KB, mural sintético), `panel-1.jpg` y
+      `mural-real.jpg` (1,4 MB, la prueba de dos paneles) y `mural6.jpg`
+      (2,1 MB, la de seis). Las primeras cuatro cosas son 3 MB que no se usan
+      más. Borrarlas obliga a sacar también las composiciones `ClaveMuestra`,
+      `ClaveMural` y `ClavePanel` de `src/Root.tsx`, que son las que las
+      apuntan. Propongo dejar `mural6.jpg` hasta que Santiago vea el de catorce
+      y borrar el resto. Alcance: 7 archivos y unas 30 líneas de `src/Root.tsx`.
+      Prueba: render de `ClaveMural14` después de sacarlas.
+
+- [ ] **07-10: arreglar el guion de la Clave con GPT.** Medido sobre esta misma
+      Clave: 3 referencias en segunda persona en 2.051 palabras (una cada 684),
+      12 de 14 secciones nunca le hablan al que mira, 1 solo ejemplo concreto,
+      la sección 12 tiene CERO palabras narradas y el cierre son 261 palabras,
+      el doble de la mediana. El veredicto no es que esté vago: está plano e
+      impersonal. El prompt ya está escrito y entregado a Santiago; falta que
+      GPT lo corra. Evidencia:
+      `contenido/guiones/claves/2026-10-07-licencia-medica-fiscalizacion-y-sumario.md`.
+
+---
+
 ## PARA LA SESIÓN DE LA NOCHE: lo que el día NO puede hacer (06-10-2026)
 
 Santiago, 06-10-2026: "deja todas las indicaciones de lo que no puedes hacer
