@@ -55,6 +55,9 @@ export type GuionMural = {
   // negro. Partido en tres <img> a escala 1:1 no hay costura, porque sin escalado
   // no hay subpíxel que deje una línea entre uno y otro.
   mural: string | string[]; anchoMural: number; viajeSeg?: number;
+  // la cama de música, que la genera scripts/clave-musica.js desde este mismo
+  // guion. Si falta, la Clave suena como antes y no se rompe nada.
+  musica?: string;
   // posición en píxeles del BORDE IZQUIERDO de la cámara en cada parada, una
   // por sección. Si falta, se reparte parejo, que es lo que había antes y lo
   // que estaba mal.
@@ -186,7 +189,7 @@ const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number }
   );
 };
 
-export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paradas, paso, viajeSeg, bloques }) => {
+export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paradas, paso, viajeSeg, musica, bloques }) => {
   const trozos = Array.isArray(mural) ? mural : [mural];
   const frame = useCurrentFrame();
   const { fps, width } = useVideoConfig();
@@ -233,6 +236,11 @@ export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paradas, p
 
   return (
     <AbsoluteFill style={{ backgroundColor: tema.tinta }}>
+      {/* LA CAMA, fuera de toda Sequence porque corre de punta a punta. Ya viene
+          mezclada a unos -28 dBFS desde el generador, once decibeles bajo el
+          sonido del viaje, así que no hay que bajarla acá: lo que suena fuerte
+          tiene que ser el movimiento, no el fondo. */}
+      {musica ? <Audio src={staticFile(musica)} /> : null}
       <AbsoluteFill style={{ transform: `translateX(${x}px)`, width: anchoMural, display: "flex", flexDirection: "row", filter: `saturate(${1 - 0.75 * apagado}) brightness(${1 - 0.45 * apagado})` }}>
         {trozos.map((t) => (
           <Img key={t} src={staticFile(t)} style={{ height: "100%", width: "auto", flexShrink: 0, display: "block" }} />

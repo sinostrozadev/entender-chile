@@ -54,10 +54,28 @@ for (const linea of cuerpo.split("\n")) {
 const oraciones = (t) =>
   t.replace(/([.?!])\s+(?=[¿¡A-ZÁÉÍÓÚÑ])/g, "$1\u0001").split("\u0001").map((s) => s.trim()).filter(Boolean);
 
+// EL DATO VA DESPUÉS DEL PÁRRAFO QUE ACOMPAÑA, no antes. En el guion la línea
+// [DATO] va pegada arriba del párrafo que ilustra, porque ahí es su etiqueta.
+// Respetar ese orden al pie hacía que la Clave ABRIERA con un número pelado,
+// antes de que nadie supiera de qué era el número. Y de paso dejaba los
+// primeros cinco segundos sin música, porque el dato va en silencio.
+const ordenar = (partes) => {
+  const salida = [];
+  for (let i = 0; i < partes.length; i++) {
+    if (partes[i].tipo !== "dato") { salida.push(partes[i]); continue; }
+    const prosa = partes.findIndex((x, k) => k > i && x.tipo === "prosa");
+    if (prosa === -1) { salida.push(partes[i]); continue; }
+    salida.push(partes[prosa]);
+    salida.push(partes[i]);
+    partes.splice(prosa, 1);
+  }
+  return salida;
+};
+
 const bloques = [];
 secciones.forEach((sec, i) => {
   let primera = true;
-  for (const p of sec.partes) {
+  for (const p of ordenar(sec.partes)) {
     if (p.tipo === "dato") {
       // "servidores 2023: 19963 ; servidores 2025: 7207"
       const pares = p.crudo.split(";").map((x) => x.trim());

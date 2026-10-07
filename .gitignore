@@ -33,3 +33,4 @@ taller-*.mp4
 # contenido/biblioteca/, y acá solo se copia lo que una muestra necesita
 # servir. Se rearma copiando desde contenido/biblioteca/<estilo>/
 public/biblioteca/
+public/sonidos/cama-clave.wav

@@ -6,6 +6,7 @@
   ],
   "anchoMural": 27580,
   "viajeSeg": 1.5,
+  "musica": "sonidos/cama-clave.wav",
   "paradas": [
     440,
     2460,
@@ -24,19 +25,10 @@
   ],
   "bloques": [
     {
-      "tipo": "dato",
-      "etiqueta": "servidores",
-      "a": "7207",
-      "fuente": "Cooperativa, 02-10-2026",
-      "parada": 0,
-      "seg": 4.8,
-      "de": "19963",
-      "rotulo": "Gancho"
-    },
-    {
       "texto": "El dos de octubre de dos mil veintiséis se informó que más de siete mil doscientos servidores públicos viajaron fuera de Chile mientras tenían licencia médica durante dos mil veinticinco.",
       "parada": 0,
-      "seg": 10.8
+      "seg": 10.8,
+      "rotulo": "Gancho"
     },
     {
       "texto": "Era un sesenta y tres por ciento menos que en dos mil veintitrés.",
@@ -57,6 +49,15 @@
       "texto": "Es esta: ¿qué controla realmente el Estado cuando fiscaliza una licencia médica, y qué puede pasar si no se cumple el reposo?",
       "parada": 0,
       "seg": 8.44
+    },
+    {
+      "tipo": "dato",
+      "etiqueta": "servidores",
+      "a": "7207",
+      "fuente": "Cooperativa, 02-10-2026",
+      "parada": 0,
+      "seg": 4.8,
+      "de": "19963"
     },
     {
       "texto": "Al terminar este video vas a poder distinguir quién autoriza la licencia, quién paga, qué permite el reposo y cuándo un mismo antecedente puede abrir una revisión sanitaria, una consecuencia laboral, un sumario o una investigación penal.",
@@ -332,19 +333,10 @@
       "seg": 8.15
     },
     {
-      "tipo": "dato",
-      "etiqueta": "sumarios totales",
-      "a": "1543",
-      "fuente": "Dipres, 05-02-2026",
-      "parada": 9,
-      "seg": 4.8,
-      "de": "25352",
-      "rotulo": "Por qué el caso sigue abierto"
-    },
-    {
       "texto": "El séptimo balance consolidado de la Dirección de Presupuestos, fechado el cinco de febrero de dos mil veintiséis, informó más de veinticinco mil sumarios.",
       "parada": 9,
-      "seg": 9.03
+      "seg": 9.03,
+      "rotulo": "Por qué el caso sigue abierto"
     },
     {
       "texto": "Más de veintiún mil seguían en curso y más de mil quinientos estaban cerrados con resolución ejecutoriada.",
@@ -355,6 +347,15 @@
       "texto": "Eso explica por qué una disminución del sesenta y tres por ciento no cerró la noticia: bajó el universo detectado, pero persistieron casos repetidos y una gran cantidad de procesos aún no terminaba.",
       "parada": 9,
       "seg": 11.68
+    },
+    {
+      "tipo": "dato",
+      "etiqueta": "sumarios totales",
+      "a": "1543",
+      "fuente": "Dipres, 05-02-2026",
+      "parada": 9,
+      "seg": 4.8,
+      "de": "25352"
     },
     {
       "texto": "Los más de treinta y seis mil millones de pesos estimados por la Dirección de Presupuestos tampoco son fraude probado ni dinero recuperado.",
@@ -393,15 +394,6 @@
       "seg": 4.9
     },
     {
-      "tipo": "dato",
-      "etiqueta": "perjuicio informado",
-      "a": "26000000000",
-      "fuente": "Emol, 31-08-2026",
-      "parada": 10,
-      "seg": 4.8,
-      "de": "31571798643"
-    },
-    {
       "texto": "La Fiscalía informó un perjuicio de más de treinta y un mil quinientos millones de pesos, y se acogió una demanda civil por cerca de veintiséis mil millones.",
       "parada": 10,
       "seg": 10.21
@@ -420,6 +412,15 @@
       "texto": "La respuesta honesta es esa: condena, cobro y recuperación son momentos distintos.",
       "parada": 10,
       "seg": 5.49
+    },
+    {
+      "tipo": "dato",
+      "etiqueta": "perjuicio informado",
+      "a": "26000000000",
+      "fuente": "Emol, 31-08-2026",
+      "parada": 10,
+      "seg": 4.8,
+      "de": "31571798643"
     },
     {
       "texto": "Los procedimientos separados permiten distinguir un indicio, un incumplimiento sanitario, una falta laboral, una responsabilidad administrativa y un delito.",
