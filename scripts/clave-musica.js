@@ -39,7 +39,9 @@ const salida = arg("salida", "public/sonidos/cama-clave.wav");
 const SR = Number(arg("sr", 32000));
 const PICO = Number(arg("pico", 0.085));
 const MOJADO = Number(arg("sala", 0.30));
-const SEC_TENSION = Number(arg("tension", 0)) - 1;
+// qué secciones lleva la tensión, contadas desde 1: "9-13" crece desde el
+// comienzo de la 9 hasta el final de la 13. Una sola, "9", es solo esa.
+const RANGO = String(arg("tension", "")).split("-").map(Number).filter((x) => x > 0);
 const FPS = 24;
 
 const RE = 146.83;
@@ -50,8 +52,14 @@ const gradoA = (esc, g) => esc[((g % esc.length) + esc.length) % esc.length] + 1
 const BPM = 132, NEGRA = 60 / BPM, CORCHEA = NEGRA / 2, COMPAS = NEGRA * 8;
 const BASE_T = []; for (let c = 0; c < 4; c++) { BASE_T.push(c * NEGRA * 2); BASE_T.push(c * NEGRA * 2 + CORCHEA); }
 const MEL_T = [0, NEGRA, NEGRA + CORCHEA, NEGRA + CORCHEA * 2];
-const A = [12, 12, 19, 24], B = [12, 12, 24, 22], C = [12, 12, 24, 26];
-const FRASE = [A, B, A, C, A, B, A, C];
+// CUATRO compases, no ocho. Santiago lo preguntó y tiene razón: cuando decidió
+// que el compás 8 fuera igual al 4, los compases 5 a 8 quedaron idénticos a los
+// 1 a 4. O sea la frase SIEMPRE fue de cuatro, y escribirla de ocho era escribir
+// dos veces lo mismo.
+const A = [12, 12, 19, 24];   // re4 re4 la4 re5
+const B = [12, 12, 24, 22];   // re4 re4 re5 do5
+const C = [12, 12, 24, 26];   // re4 re4 re5 mi5
+const FRASE = [A, B, A, C];
 
 const LUTO = /\b(muert|falleci|asesinat|asesin|homicid|femicid|víctima|victima|duelo|funeral|suicid|masacre|atentado|violaci|abuso sexual|tortur|desaparecid|cadáver|cadaver|herid[oa]s? grave)/i;
 
@@ -151,64 +159,87 @@ for (let tb = 0.4; tb < TOTAL; tb += COMPAS, compas++) {
 // EL AIRE DEL VIAJE. Entre el de antes, que sobresalía 21 dB y tapaba todo, y
 // el del intento pasado, que a 6 dB sencillamente no se oía, el punto está en el
 // medio. Acá apunta a unos 14.
-const aire = (seg, f0 = 240, f1 = 1500) => {
+// EL "FSHU". Santiago lo dijo con la boca y eso es una instrucción exacta, no
+// una metáfora: "fsh" es una fricativa, ruido ancho y AGUDO, y la "u" es una
+// vocal grave y cerrada. O sea el sonido empieza arriba y BAJA.
+//
+// Lo que yo tenía barría hacia arriba y volvía, con una curva simétrica: eso no
+// es un fshu, es un viento. Por eso sonaba mal aunque estuviera al volumen
+// correcto. Ahora entra de golpe en lo agudo y cae hacia lo grave mientras se
+// apaga, que es lo que hace una boca al decirlo.
+const aire = (seg) => {
   const m = Math.round(seg * SR), out = new Float32Array(m);
   let y1 = 0, y2 = 0;
+  const ATAQUE = 0.035;
   for (let i = 0; i < m; i++) {
-    const t = i / m;
-    const env = 30 * t * t * (1 - t) * (1 - t) / 1.875;
-    const w = 2 * Math.PI * (f0 + (f1 - f0) * Math.sin(Math.PI * t)) / SR;
-    const y = azar() * 0.014 + 2 * 0.986 * Math.cos(w) * y1 - 0.986 * 0.986 * y2;
+    const t = i / m, tt = i / SR;
+    // de 3.400 Hz a 420: la "fsh" y la "u"
+    const f = 3400 * Math.pow(420 / 3400, Math.pow(t, 0.62));
+    const q = 0.972;
+    const w = 2 * Math.PI * f / SR;
+    const y = azar() * (1 - q) + 2 * q * Math.cos(w) * y1 - q * q * y2;
     y2 = y1; y1 = y;
+    const env = Math.min(1, tt / ATAQUE) * Math.exp(-Math.pow(t, 1.1) * 3.4);
     out[i] = y * env;
   }
   let p = 0; for (let i = 0; i < m; i++) if (Math.abs(out[i]) > p) p = Math.abs(out[i]);
   if (p > 0) for (let i = 0; i < m; i++) out[i] /= p;
-  // SE COMPRIME. Un golpe de ruido tiene mucho pico y poco cuerpo, así que al
-  // subirlo lo único que sube es el pico: el normalizado de la mezcla se come
-  // la ganancia y el aire sigue sin oírse. Medido, pasar de 2,6 a 9 de amplitud
-  // solo lo movió de 1 a 4 dB sobre la cama. Saturado con tangente hiperbólica
-  // sube el cuerpo sin subir el pico, que es lo que el oído cuenta.
-  const K = 3.2, tope = Math.tanh(K);
+  const K = 2.6, tope = Math.tanh(K);
   for (let i = 0; i < m; i++) out[i] = Math.tanh(out[i] * K) / tope;
   return out;
 };
 secciones.forEach((s, i) => {
   if (i === 0) return;
-  // nivel medido contra la cama, no elegido a ojo: con PICO*2,6 quedaba a 1 dB
-  // sobre ella, o sea invisible. Apunta a unos 12.
-  poner(aire(viaje), s.t, PICO * 9 * bordes(s.t));
+  // nivel medido contra la cama. A 10 dB quedaba fuerte, así que baja a 5.
+  poner(aire(0.95), s.t, PICO * 4.2 * bordes(s.t));
 });
 
-// LA TENSIÓN, ENCIMA DE LA CAMA Y NO EN VEZ DE ELLA. Sube desde el nivel de la
-// cama hasta dominar la sección, y corta en seco al terminarla. El contrabajo va
-// en re2, 73 Hz: re1 son 36,7 y eso está por debajo de la nota más grave de un
-// contrabajo real, así que en la mayoría de los parlantes no da nota, da retumbe.
-let finTension = -1;
-if (SEC_TENSION >= 0 && SEC_TENSION < secciones.length) {
-  const s0 = secciones[SEC_TENSION];
-  const fin = (secciones[SEC_TENSION + 1] ? secciones[SEC_TENSION + 1].t : TOTAL) - 0.9;
-  finTension = fin;
-  const dur = fin - s0.t;
-  [[-12, 0.00, 0.95, 0.38], [0, 0.14, 0.52, 0.42], [7, 0.30, 0.40, 0.48], [19, 0.46, 0.26, 0.54], [24, 0.66, 0.16, 0.58]]
-    .forEach(([st, frac, niv, brillo]) => {
-      const desde = s0.t + dur * frac, largo = fin - desde + 0.2;
-      if (largo < 1) return;
-      const onda = seccionCreciente(nota(st + centroDe(SEC_TENSION)), SR, largo, {
-        musicos: 5, brilloBase: brillo, aspereza: 0.12, parciales: 14,
-        envolvente: (t) => {
-          const abs = desde + t;
-          if (abs >= fin) { const d = (abs - fin) / 0.03; return d >= 1 ? 0 : 1 - d; }
-          return Math.pow(Math.max(0, (abs - desde) / Math.max(0.001, fin - desde)), 1.5);
-        },
+// LA TENSIÓN, ENCIMA DE LA CAMA Y NO EN VEZ DE ELLA, y cruzando VARIAS
+// SECCIONES. Santiago: "debe llegar al clímax antes del cierre y mantenerse
+// arriba, generando esa tensión".
+//
+// Eso cambia la forma por segunda vez. Primero era un riser de 7 segundos,
+// después una cama de una sección, y ahora es un arco que cruza varias: crece
+// durante minutos, llega arriba justo ANTES del cierre y se queda ahí hasta el
+// final. No hay corte en seco: el corte servía cuando la tensión terminaba
+// dentro del video, pero acá no termina, termina el video.
+//
+// El contrabajo va en re2, 73 Hz. Re1 son 36,7, por debajo de la nota más grave
+// de un contrabajo real, y en la mayoría de los parlantes eso no da nota sino
+// retumbe. Lo eligió él comparando cuatro versiones.
+if (RANGO.length) {
+  const iDesde = RANGO[0] - 1;
+  const iHasta = (RANGO[1] || RANGO[0]) - 1;
+  if (iDesde >= 0 && iDesde < secciones.length) {
+    const t0 = secciones[iDesde].t;
+    // el clímax cae donde termina la última sección del rango, que es justo
+    // antes de que empiece la siguiente
+    const clima = secciones[iHasta + 1] ? secciones[iHasta + 1].t : TOTAL;
+    const dur = clima - t0;
+    [[-12, 0.00, 0.95, 0.38], [0, 0.10, 0.52, 0.42], [7, 0.26, 0.40, 0.48],
+     [19, 0.46, 0.26, 0.54], [24, 0.68, 0.16, 0.58]]
+      .forEach(([st, frac, niv, brillo]) => {
+        const desde = t0 + dur * frac, largo = TOTAL - desde;
+        if (largo < 1) return;
+        const onda = seccionCreciente(nota(st + centroDe(iDesde)), SR, largo, {
+          musicos: 5, brilloBase: brillo, aspereza: 0.12, parciales: 14,
+          envolvente: (t) => {
+            const abs = desde + t;
+            // crece hasta el clímax y DE AHÍ SE QUEDA: la tensión que se
+            // mantiene arriba es más incómoda que la que sigue subiendo,
+            // porque ya no promete que vaya a pasar algo
+            if (abs >= clima) return 1;
+            return Math.pow(Math.max(0, (abs - desde) / Math.max(0.001, clima - desde)), 1.5);
+          },
+        });
+        const i0 = Math.round(desde * SR);
+        for (let k = 0; k < onda.length && i0 + k < n; k++) {
+          const t = (i0 + k) / SR;
+          const global = t >= clima ? 1 : 0.30 + 0.70 * Math.pow((t - t0) / dur, 1.6);
+          seco[i0 + k] += onda[k] * niv * global * PICO * 3.0 * bordes(t) * puerta(t);
+        }
       });
-      const i0 = Math.round(desde * SR);
-      for (let k = 0; k < onda.length && i0 + k < n; k++) {
-        const t = (i0 + k) / SR;
-        const global = t >= fin ? 0 : 0.52 + 0.48 * Math.pow((t - s0.t) / dur, 1.7);
-        seco[i0 + k] += onda[k] * niv * global * PICO * 3.5 * bordes(t) * puerta(t);
-      }
-    });
+  }
 }
 
 for (let i = 0; i < n; i++) { const g = puerta(i / SR); if (g < 1) seco[i] *= g; }
@@ -216,15 +247,6 @@ for (let i = 0; i < n; i++) { const g = puerta(i / SR); if (g < 1) seco[i] *= g;
 const cuerpo = caja(seco, SR);
 for (let i = 0; i < n; i++) seco[i] += cuerpo[i] * 0.16;
 const rev = sala(seco, SR, 1, 0.80);
-// la sala también se corta al terminar la tensión: si la cola sobrevive, el
-// corte deja de ser corte
-if (finTension > 0) {
-  for (let i = Math.round(finTension * SR); i < Math.round((finTension + 0.9) * SR) && i < n; i++) {
-    const d = (i / SR - finTension) / 0.14;
-    rev[i] *= d >= 1 ? 0 : 1 - d;
-  }
-}
-
 let pico = 0;
 for (let i = 0; i < n; i++) { const v = seco[i] * (1 - MOJADO) + rev[i] * MOJADO * 1.9; if (Math.abs(v) > pico) pico = Math.abs(v); }
 const ajuste = pico > 0 ? PICO / pico : 1;
@@ -243,6 +265,6 @@ let p2 = 0; for (let i = 0; i < n; i++) p2 = Math.max(p2, Math.abs(m[i]));
 console.log(salida, TOTAL.toFixed(1) + "s", (fs.statSync(salida).size / 1048576).toFixed(1) + " MB",
   "| pico " + (20 * Math.log10(p2 / 32768)).toFixed(1) + " dBFS");
 console.log("cama: la frase de 8 compases en loop, " + compas + " compases, transportada por sección");
-console.log((SEC_TENSION >= 0 ? "tensión ENCIMA de la cama en la sección " + (SEC_TENSION + 1) + ", " : "sin tensión, ") +
+console.log((RANGO.length ? "tensión ENCIMA de la cama, secciones " + RANGO.join(" a ") + " y se queda arriba, " : "sin tensión, ") +
   secciones.length + " secciones, " + datos.length + " datos en silencio, " +
   (enLuto.length ? enLuto.length + " apagadas por la regla 28" : "ninguna de duelo"));
