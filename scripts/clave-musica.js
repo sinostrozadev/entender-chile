@@ -39,6 +39,14 @@ const salida = arg("salida", "public/sonidos/cama-clave.wav");
 const SR = Number(arg("sr", 32000));
 const PICO = Number(arg("pico", 0.085));
 const MOJADO = Number(arg("sala", 0.30));
+// NIVELES POR CAPA. Santiago los pidió más arriba: "en el video 1 casi ni se
+// escucha la base", "en el video 2 no se percibe la tensión, está muy bajo".
+// Son perillas separadas justamente porque cada capa se oye distinto contra la
+// voz: la base vive abajo y se tapa fácil, la campana vive arriba y se cuela, y
+// la tensión ocupa todo el registro.
+const N_BASE = Number(arg("base", 5.2));
+const N_MEL = Number(arg("nivel-melodia", 3.2));
+const N_TENSION = Number(arg("nivel-tension", 5.8));
 // qué secciones lleva la tensión, contadas desde 1: "9-13" crece desde el
 // comienzo de la 9 hasta el final de la 13. Una sola, "9", es solo esa.
 const RANGO = String(arg("tension", "")).split("-").map(Number).filter((x) => x > 0);
@@ -53,6 +61,31 @@ const RANGO = String(arg("tension", "")).split("-").map(Number).filter((x) => x 
 // La base corre siempre; las otras dos se encienden por sección. Separarlas así
 // es lo que permite decidir, porque antes eran una sola cosa que solo se podía
 // subir o bajar entera.
+// EL TIPO DE CADA SECCIÓN, deducido de su nombre. Santiago preguntó si sabemos
+// los tipos de sección o si hay que pedirlos: SÍ los sabemos, y están escritos
+// desde antes en prompts/guion-claves.md, que fija la estructura canónica de
+// toda Clave en nueve bloques. Ocho tienen nombre propio y aparecen casi
+// textuales en el guion; el noveno, el DESARROLLO DIDÁCTICO, es el corazón del
+// video y se abre en varias secciones con títulos libres, así que es el caso
+// por defecto: lo que no es ninguno de los otros ocho, es desarrollo.
+//
+// Esto importa más de lo que parece: significa que el reparto de capas se
+// decide UNA VEZ por tipo y vale para todas las Claves que vengan, en vez de
+// configurarse a mano en cada una.
+const TIPOS = [
+  [/^gancho/i, "gancho"],
+  [/^promesa/i, "promesa"],
+  [/d[óo]nde viene/i, "origen"],
+  [/^los hitos|^hitos/i, "hitos"],
+  [/qu[ée] est[áa] en juego/i, "juego"],
+  [/qu[ée] mirar/i, "mirar"],
+  [/^cierre|qu[ée] conviene recordar/i, "cierre"],
+];
+const tipoDe = (rotulo) => {
+  for (const [re, t] of TIPOS) if (re.test(rotulo || "")) return t;
+  return "desarrollo";
+};
+
 const MELODIA = (() => {
   const v = String(arg("melodia", "todas")).trim();
   if (v === "todas") return null;              // null = en todas
@@ -167,16 +200,16 @@ for (let tb = 0.4; tb < TOTAL; tb += COMPAS, compas++) {
     // la base sube 3 dB respecto de ayer: Santiago pidió "subirle un poco a la
     // cama", y como ahora puede quedarse sola hay secciones donde es TODO lo
     // que suena
-    poner(cuerda(previa), tb + BASE_T[k * 2], 0.55 * g * PICO * 3.4);
-    poner(cuerda(previa + 7), tb + BASE_T[k * 2 + 1], 0.40 * g * PICO * 3.4);
+    poner(cuerda(previa), tb + BASE_T[k * 2], 0.55 * g * PICO * N_BASE);
+    poner(cuerda(previa + 7), tb + BASE_T[k * 2 + 1], 0.40 * g * PICO * N_BASE);
   }
   if (hayMelodia(sec)) {
     mel.forEach((st, k) => {
       const largo = k === 3 ? (compas % 4 === 3 ? 3.4 : 2.6) : 1.6;
-      poner(barra(nota(st + tr), SR, largo + 1.5, { tipo: "metal", cola: largo, mazo: 0.78 }), tb + MEL_T[k], [1.0, 0.6, 0.62, 0.95][k] * g * PICO * 2.4);
+      poner(barra(nota(st + tr), SR, largo + 1.5, { tipo: "metal", cola: largo, mazo: 0.78 }), tb + MEL_T[k], [1.0, 0.6, 0.62, 0.95][k] * g * PICO * N_MEL);
     });
   }
-  poner(pianoFieltro(nota(-24 + tr), SR, 6, { fieltro: 1.2, cuerdas: 3, cola: 3.2 }), tb, 0.26 * g * PICO * 3.4);
+  poner(pianoFieltro(nota(-24 + tr), SR, 6, { fieltro: 1.2, cuerdas: 3, cola: 3.2 }), tb, 0.26 * g * PICO * N_BASE);
 }
 
 // EL AIRE DEL VIAJE. Entre el de antes, que sobresalía 21 dB y tapaba todo, y
@@ -259,7 +292,7 @@ if (RANGO.length) {
         for (let k = 0; k < onda.length && i0 + k < n; k++) {
           const t = (i0 + k) / SR;
           const global = t >= clima ? 1 : 0.30 + 0.70 * Math.pow((t - t0) / dur, 1.6);
-          seco[i0 + k] += onda[k] * niv * global * PICO * 3.0 * bordes(t) * puerta(t);
+          seco[i0 + k] += onda[k] * niv * global * PICO * N_TENSION * bordes(t) * puerta(t);
         }
       });
   }
@@ -288,6 +321,8 @@ let p2 = 0; for (let i = 0; i < n; i++) p2 = Math.max(p2, Math.abs(m[i]));
 console.log(salida, TOTAL.toFixed(1) + "s", (fs.statSync(salida).size / 1048576).toFixed(1) + " MB",
   "| pico " + (20 * Math.log10(p2 / 32768)).toFixed(1) + " dBFS");
 console.log("base: la frase de 4 compases en loop, " + compas + " compases, transportada por sección");
+const rotuloDe = (i) => { for (const b of guion.bloques) if (b.parada === secciones[i].parada && b.rotulo) return b.rotulo; return ""; };
+console.log("tipos de sección: " + secciones.map((s2, i) => (i + 1) + "=" + tipoDe(rotuloDe(i))).join(" "));
 console.log("melodía en: " + (MELODIA === null ? "todas las secciones" : MELODIA.size ? [...MELODIA].join(", ") : "ninguna"));
 console.log((RANGO.length ? "tensión ENCIMA de la cama, secciones " + RANGO.join(" a ") + " y se queda arriba, " : "sin tensión, ") +
   secciones.length + " secciones, " + datos.length + " datos en silencio, " +
