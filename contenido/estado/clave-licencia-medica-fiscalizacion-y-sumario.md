@@ -5,7 +5,7 @@ ETAPA: reparar_guion
 VUELTA: 2
 TURNO: GPT
 FECHA_PRODUCCION: 2026-10-07
-ACTUALIZADO: 2026-10-07 19:24 (hora de Chile)
+ACTUALIZADO: 2026-10-07 19:36 (hora de Chile)
 PIEZA: guion
 PROMPT: prompts/guion-claves.md
 ARCHIVO: contenido/guiones/claves/2026-10-07-licencia-medica-fiscalizacion-y-sumario.md
@@ -24,8 +24,8 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 |---|---|---|---|
 | Tema elegido | listo | 22:35 | Santiago |
 | Pauta | escrita | 22:39 | Claude |
-| Aprobación de Santiago | aprobada | 23:09 | Santiago |
-| Investigación | aprobada | 00:00 | GPT, valida Claude |
-| Entrega escrita | aprobada | 06:46 | GPT, valida Claude |
-| Guion | devuelta a GPT | 06:46 | GPT, valida Claude |
+| Aprobación de Santiago | aprobada | 23:10 | Santiago |
+| Investigación | aprobada | 23:37 | GPT, valida Claude |
+| Entrega escrita | aprobada | 00:05 | GPT, valida Claude |
+| Guion | devuelta a GPT | 00:22 | GPT, valida Claude |
 | Video | falta |  | Actions |
