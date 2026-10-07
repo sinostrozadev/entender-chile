@@ -99,3 +99,22 @@ altura del mesón. Medida en el mural crudo, sin velo, da el mismo salto: es el
 canto del mesón que dibujó GPT, no una costura. **Cuando la medición y el ojo
 discrepan, se mira más de cerca antes de decidir, y a veces el que se equivoca
 es el ojo.**
+
+## Cómo se arma el guion, y dos cosas que se comía
+
+`scripts/mural-guion.js` convierte el guion de la Clave en los bloques del
+mural, uno por oración. Dos agujeros aparecieron recién al mirar la Clave
+entera renderizada, no antes:
+
+- **Las líneas marcadas con corchete no son todas de servicio.** `[TESIS]` y
+  `[ESQUEMA]` no se narran, pero `[HECHO]` e `[INTERPRETACIÓN]` SÍ, y además
+  llevan la firma del canal: hecho en chip sólido, interpretación en chip de
+  contorno. Saltárselas dejó la sección 12 completa sin una sola palabra y la
+  cámara pasó de largo por su panel. Ahora entran con su marca.
+- **Las fuentes no van en el video, van en la descripción.** Leídas como prosa,
+  las 28 URLs del pie se comían 110 segundos recitando enlaces en pantalla, un
+  cuarto de la Clave. El armador corta en `Fuentes:`.
+
+Las dos se vieron porque se midió la duración por sección del render terminado.
+Vale la pena hacerlo siempre: una sección sin bloques y un cierre de 146
+segundos saltan a la vista en esa tabla y en ninguna otra parte.

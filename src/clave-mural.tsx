@@ -46,7 +46,7 @@ import { tema } from "./tema";
 // píxel del mural vive su motivo, y el mural se encarga de GPT para que ese
 // motivo esté ahí.
 export type Bloque =
-  | { tipo?: "texto"; rotulo?: string; texto: string; seg: number; parada: number }
+  | { tipo?: "texto"; rotulo?: string; marca?: "hecho" | "interpretacion"; texto: string; seg: number; parada: number }
   | { tipo: "dato"; etiqueta: string; de?: string; a: string; fuente: string; seg: number; parada: number };
 
 export type GuionMural = {
@@ -114,6 +114,27 @@ const Rotulo: React.FC<{ texto: string }> = ({ texto }) => {
   );
 };
 
+// EL CHIP DE HECHO O INTERPRETACIÓN. Es la firma del canal y no un adorno:
+// `src/tema.ts` lo dice desde el principio, HECHO va sólido en tinta e
+// INTERPRETACIÓN va de contorno en pátina. El 07-10-2026 el armador del guion
+// se comía las líneas que empezaban con corchete y por eso la sección 12 salía
+// SIN UNA SOLA PALABRA: toda su prosa venía marcada. Se perdía el texto y, peor,
+// se perdía la distinción, que es justo lo que el canal promete.
+const Marca: React.FC<{ marca: "hecho" | "interpretacion" }> = ({ marca }) => {
+  const esHecho = marca === "hecho";
+  return (
+    <div style={{
+      fontFamily: tema.mono, fontSize: 20, letterSpacing: 3, textTransform: "uppercase",
+      alignSelf: "flex-start", marginBottom: 20, padding: "6px 16px", borderRadius: 4,
+      color: esHecho ? tema.papel : tema.patina,
+      backgroundColor: esHecho ? "rgba(47,114,99,0.9)" : "transparent",
+      border: esHecho ? "1px solid rgba(47,114,99,0.9)" : `1px solid ${tema.patina}`,
+    }}>
+      {esHecho ? "hecho" : "interpretación"}
+    </div>
+  );
+};
+
 const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: number }> = ({ b, dur }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -125,6 +146,7 @@ const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: numbe
   return (
     <AbsoluteFill style={{ padding: `${tema.margen}px`, width: "52%", justifyContent: "center", opacity: salida }}>
       {b.rotulo ? <Rotulo texto={b.rotulo} /> : null}
+      {b.marca ? <Marca marca={b.marca} /> : null}
       <div style={{ fontFamily: tema.serif, fontSize: 48, lineHeight: 1.4, color: tema.papel, textShadow: "0 2px 20px rgba(10,14,22,0.8)" }}>
         {letras.map((c, i) => (
           <span key={i} style={{ opacity: Math.max(0, Math.min(1, (avance - i) / 4)) }}>{c}</span>

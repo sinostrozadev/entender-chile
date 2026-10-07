@@ -422,6 +422,24 @@
       "seg": 5.49
     },
     {
+      "texto": "Los procedimientos separados permiten distinguir un indicio, un incumplimiento sanitario, una falta laboral, una responsabilidad administrativa y un delito.",
+      "parada": 11,
+      "seg": 7.56,
+      "marca": "hecho",
+      "rotulo": "Qué está en juego"
+    },
+    {
+      "texto": "Una lectura posible es que el control protege el dinero destinado a quien realmente necesita reposo.",
+      "parada": 11,
+      "seg": 6.67,
+      "marca": "interpretacion"
+    },
+    {
+      "texto": "El riesgo aparece cuando un viaje, una salida del domicilio o una marca algorítmica se tratan como conclusión antes de revisar la explicación y la prueba.",
+      "parada": 11,
+      "seg": 9.62
+    },
+    {
       "texto": "Conviene seguir la evolución de los más de veintiún mil sumarios que continuaban abiertos, la eventual publicación íntegra del informe de Contraloría sobre dos mil veinticinco y la información de la Superintendencia sobre resultados, tasas de error y mecanismos de revisión de VigIA.",
       "parada": 12,
       "seg": 14.63,
@@ -467,146 +485,6 @@
       "texto": "El resumen sin gritos.",
       "parada": 13,
       "seg": 3.13
-    },
-    {
-      "texto": "Fuentes:",
-      "parada": 13,
-      "seg": 2.25
-    },
-    {
-      "texto": "- Biblioteca del Congreso Nacional, Ley 21.746: https://www.bcn.cl/leychile/Navegar?idNorma=1213603",
-      "parada": 13,
-      "seg": 4.31
-    },
-    {
-      "texto": "- Biblioteca del Congreso Nacional, DS 3 de 1984: https://www.bcn.cl/leychile/Navegar?idNorma=7281",
-      "parada": 13,
-      "seg": 4.9
-    },
-    {
-      "texto": "- Biblioteca del Congreso Nacional, Ley 20.585: https://www.bcn.cl/leychile/Navegar?idNorma=1039952",
-      "parada": 13,
-      "seg": 4.31
-    },
-    {
-      "texto": "- Biblioteca del Congreso Nacional, DFL 29 de 2004: https://www.bcn.cl/leychile/navegar?idNorma=236392",
-      "parada": 13,
-      "seg": 4.9
-    },
-    {
-      "texto": "- SUSESO, Circular 3868: https://www.suseso.gob.cl/612/articles-758844_archivo_01.pdf",
-      "parada": 13,
-      "seg": 3.43
-    },
-    {
-      "texto": "- SUSESO, Circular 3906: https://www.suseso.gob.cl/612/w3-article-785452.html",
-      "parada": 13,
-      "seg": 3.43
-    },
-    {
-      "texto": "- SUSESO, Circular 3890: https://www.suseso.gob.cl/622/w3-propertyvalue-774967.html",
-      "parada": 13,
-      "seg": 3.43
-    },
-    {
-      "texto": "- SUSESO, Subsidios por incapacidad laboral: https://www.suseso.gob.cl/606/w3-propertyvalue-568.html",
-      "parada": 13,
-      "seg": 4.01
-    },
-    {
-      "texto": "- SUSESO, régimen SIL y Compendio: https://www.suseso.gob.cl/609/w3-propertyvalue-31040.html",
-      "parada": 13,
-      "seg": 4.01
-    },
-    {
-      "texto": "- SUSESO, pago del subsidio: https://www.suseso.gob.cl/622/w3-propertyvalue-768471.html",
-      "parada": 13,
-      "seg": 3.72
-    },
-    {
-      "texto": "- SUSESO, pago de cotizaciones: https://www.suseso.gob.cl/612/w3-article-766938.html",
-      "parada": 13,
-      "seg": 3.72
-    },
-    {
-      "texto": "- SUSESO, subsidio de origen laboral: https://www.suseso.gob.cl/606/w3-article-19067.html",
-      "parada": 13,
-      "seg": 4.01
-    },
-    {
-      "texto": "- SUSESO, dictamen O-01-DFS-02925-2026: https://www.suseso.gob.cl/612/w3-article-785448.html",
-      "parada": 13,
-      "seg": 3.43
-    },
-    {
-      "texto": "- SUSESO, VigIA, 21-08-2026: https://www.suseso.gob.cl/605/w3-article-788234.html",
-      "parada": 13,
-      "seg": 3.43
-    },
-    {
-      "texto": "- Universidad de Chile, lanzamiento de VigIA, 29-09-2026: https://portaluchile.uchile.cl/noticias/245040/suseso-lanza-vigia-plataforma-que-apoya-fiscalizacion-de-licencias-medicas",
-      "parada": 13,
-      "seg": 4.6
-    },
-    {
-      "texto": "- Dirección del Trabajo, artículo 160 N.º 7: https://www.dt.gob.cl/portal/1628/w3-article-60511.html",
-      "parada": 13,
-      "seg": 4.6
-    },
-    {
-      "texto": "- Cámara de Diputadas y Diputados, boletín 17.914-13: https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmBOLETIN=17914-13&prmID=18571",
-      "parada": 13,
-      "seg": 4.6
-    },
-    {
-      "texto": "- Cámara de Diputadas y Diputados, oficio sobre CIC N.º 9: https://www.camara.cl/verdoc.aspx?DESTINOID=247531&prmID=290663&prmTIPO=OFICIO",
-      "parada": 13,
-      "seg": 5.49
-    },
-    {
-      "texto": "- Dipres, séptimo balance de sumarios: https://www.dipres.gob.cl/598/w3-article-404440.html",
-      "parada": 13,
-      "seg": 4.01
-    },
-    {
-      "texto": "- Cooperativa, CIC N.º 26, 02-10-2026: https://www.cooperativa.cl/noticias/pais/salud/licencias-medicas/contraloria-7-207-empleados-publicos-viajaron-al-extranjero-con/2026-10-02/110636.html",
-      "parada": 13,
-      "seg": 4.01
-    },
-    {
-      "texto": "- ADN Radio, CIC N.º 26, 02-10-2026: https://prisachile-adn-radio-prod.web.arc-cdn.net/2026/10/02/contraloria-detecta-a-mas-de-7-mil-funcionarios-publicos-que-viajaron-al-extranjero-con-licencia-medica-en-2025/",
-      "parada": 13,
-      "seg": 4.31
-    },
-    {
-      "texto": "- BioBioChile, persistencia de casos, 04-10-2026: https://www.biobiochile.cl/noticias/nacional/chile/2026/10/04/caso-licencias-bajan-casos-pero-aumenta-reincidencia-y-exministros-de-salud-piden-cambios-al-sistema.shtml",
-      "parada": 13,
-      "seg": 4.01
-    },
-    {
-      "texto": "- BioBioChile, reacción del Gobierno, 02-10-2026: https://www.biobiochile.cl/noticias/nacional/chile/2026/10/02/pavez-por-funcionarios-que-viajaron-con-licencia-van-a-pagar-con-la-sancion-que-corresponda.shtml",
-      "parada": 13,
-      "seg": 4.01
-    },
-    {
-      "texto": "- La Tercera, reacción del Gobierno, 02-10-2026: https://www.latercera.com/politica/noticia/licencias-medicas-irregulares-gobierno-afirma-que-esta-empenado-en-apurar-sumarios-y-examinar-periodo-previo-a-2022/",
-      "parada": 13,
-      "seg": 4.31
-    },
-    {
-      "texto": "- Poder Judicial, veredicto contra 17 acusados, 23-06-2026: https://www.pjud.cl/prensa-y-comunicaciones/noticias-del-poder-judicial/146208",
-      "parada": 13,
-      "seg": 4.6
-    },
-    {
-      "texto": "- Emol, sentencia y perjuicio informado, 31-08-2026: https://www.emol.com/noticias/Nacional/2026/08/31/1210078/condenan-medicos-extranjeros-fraude-fonasa.html",
-      "parada": 13,
-      "seg": 4.31
-    },
-    {
-      "texto": "- La Tercera, demanda civil acogida, 31-08-2026: https://www.latercera.com/nacional/noticia/tribunal-fija-penas-de-carcel-y-multas-de-miles-de-millones-a-medicos-colombianos-condenados-por-red-de-licencias-falsas/",
-      "parada": 13,
-      "seg": 4.31
     }
   ]
 }
