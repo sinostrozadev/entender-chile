@@ -50,7 +50,11 @@ export type Bloque =
   | { tipo: "dato"; etiqueta: string; de?: string; a: string; fuente: string; seg: number; parada: number };
 
 export type GuionMural = {
-  mural: string; anchoMural: number; viajeSeg?: number;
+  // uno o varios trozos contiguos. Catorce paneles cosidos dan 27.580 px y los
+  // navegadores topan la textura en 16.384: Chromium no avisa, deja el fondo
+  // negro. Partido en tres <img> a escala 1:1 no hay costura, porque sin escalado
+  // no hay subpíxel que deje una línea entre uno y otro.
+  mural: string | string[]; anchoMural: number; viajeSeg?: number;
   // posición en píxeles del BORDE IZQUIERDO de la cámara en cada parada, una
   // por sección. Si falta, se reparte parejo, que es lo que había antes y lo
   // que estaba mal.
@@ -64,10 +68,17 @@ const suave = (t: number) => t * t * (3 - 2 * t);
 // se desplaza y un carrete que se arrastra.
 const viajeSuave = (t: number) => t * t * t * (t * (t * 6 - 15) + 10);
 
+// EL VELO TERMINA EN COLA LARGA (07-10-2026). Antes iba de 0,5 a cero entre el
+// 50% y el 64% del ancho y ahí se acababa. Con un panel oscuro no se notaba,
+// pero en el panel 5, que es claro, aparecía una línea vertical de arriba abajo
+// justo donde el degradado dejaba de bajar. Medida, esa línea no existe: el
+// mayor salto entre columnas vecinas era 0,017, puro borde de letra. Es banda
+// de Mach, el ojo inventa el filo donde se quiebra la pendiente. Por eso ahora
+// hay dos paradas más repartiendo la bajada: no se quiebra, no hay filo.
 const Velo: React.FC<{ fuerza?: number }> = ({ fuerza = 1 }) => (
   <AbsoluteFill style={{
     background:
-      `linear-gradient(90deg, rgba(10,12,16,${0.93 * fuerza}) 0%, rgba(10,12,16,${0.88 * fuerza}) 36%, rgba(10,12,16,${0.5 * fuerza}) 50%, rgba(10,12,16,0) 64%)`,
+      `linear-gradient(90deg, rgba(10,12,16,${0.93 * fuerza}) 0%, rgba(10,12,16,${0.88 * fuerza}) 34%, rgba(10,12,16,${0.5 * fuerza}) 50%, rgba(10,12,16,${0.26 * fuerza}) 58%, rgba(10,12,16,${0.08 * fuerza}) 68%, rgba(10,12,16,0) 80%)`,
   }} />
 );
 
@@ -154,6 +165,7 @@ const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number }
 };
 
 export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paradas, paso, viajeSeg, bloques }) => {
+  const trozos = Array.isArray(mural) ? mural : [mural];
   const frame = useCurrentFrame();
   const { fps, width } = useVideoConfig();
   // LA CÁMARA SE MUEVE ENTRE IDEAS Y DESCANSA SOBRE LA IDEA (06-10-2026, idea
@@ -199,8 +211,10 @@ export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paradas, p
 
   return (
     <AbsoluteFill style={{ backgroundColor: tema.tinta }}>
-      <AbsoluteFill style={{ transform: `translateX(${x}px)`, width: anchoMural, filter: `saturate(${1 - 0.75 * apagado}) brightness(${1 - 0.45 * apagado})` }}>
-        <Img src={staticFile(mural)} style={{ width: anchoMural, height: "100%", objectFit: "cover" }} />
+      <AbsoluteFill style={{ transform: `translateX(${x}px)`, width: anchoMural, display: "flex", flexDirection: "row", filter: `saturate(${1 - 0.75 * apagado}) brightness(${1 - 0.45 * apagado})` }}>
+        {trozos.map((t) => (
+          <Img key={t} src={staticFile(t)} style={{ height: "100%", width: "auto", flexShrink: 0, display: "block" }} />
+        ))}
       </AbsoluteFill>
       {/* EL SONIDO DEL VIAJE (06-10-2026). Suena SOLO mientras la cámara se
           mueve, y su amplitud sigue la velocidad de la cámara y no el reloj:

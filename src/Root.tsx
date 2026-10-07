@@ -12,10 +12,25 @@ import { ClaveMural, GuionMural } from "./clave-mural";
 import claveMural from "../ejemplos/clave-mural.json";
 // EL PANEL REAL de GPT (07-10-2026), para ver si el mural funciona de verdad.
 import clavePanel from "../ejemplos/clave-panel.json";
+// LA CLAVE ENTERA (07-10-2026): catorce paneles, catorce secciones, un mural
+// de 27.580 px partido en tres. Esta es la de producción; las de arriba son
+// las pruebas que llevaron hasta acá y se pueden borrar.
+import claveMural14 from "../ejemplos/clave-mural14.json";
 
 export const Root: React.FC = () => {
   return (
     <>
+    <Composition
+      id="ClaveMural14"
+      component={ClaveMural}
+      defaultProps={claveMural14 as GuionMural}
+      fps={24}
+      width={1920}
+      height={1080}
+      calculateMetadata={({ props }) => ({
+        durationInFrames: Math.ceil((props as GuionMural).bloques.reduce((a, b) => a + b.seg, 0) * 24),
+      })}
+    />
     <Composition
       id="ClavePanel"
       component={ClaveMural}
