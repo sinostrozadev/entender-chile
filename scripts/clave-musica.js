@@ -44,9 +44,19 @@ const MOJADO = Number(arg("sala", 0.30));
 // Son perillas separadas justamente porque cada capa se oye distinto contra la
 // voz: la base vive abajo y se tapa fácil, la campana vive arriba y se cuela, y
 // la tensión ocupa todo el registro.
-const N_BASE = Number(arg("base", 5.2));
+// 9,2 y no 5,2. Medido contra la voz de Lorenzo, la base sola quedaba 26 dB por
+// debajo cuando la referencia para narración son 15 a 20, y por eso Santiago
+// dijo "casi ni se escucha la base". Subir las TRES capas a la vez no servía de
+// nada, y ese fue mi error: el archivo se normaliza por pico al final, así que
+// subirlas todas reparte exactamente lo mismo. Lo que había que cambiar era la
+// PROPORCIÓN entre ellas.
+const N_BASE = Number(arg("base", 9.2));
 const N_MEL = Number(arg("nivel-melodia", 3.2));
-const N_TENSION = Number(arg("nivel-tension", 5.8));
+// y la tensión BAJA un poco, aunque él la pidió más fuerte: lo que necesitaba
+// no era más tensión sino más distancia respecto de la base, y al subir la base
+// el arco completo pasa de 10 dB de recorrido a 6, que es un rango que cabe
+// debajo de una voz sin taparla en el clímax.
+const N_TENSION = Number(arg("nivel-tension", 4.6));
 // qué secciones lleva la tensión, contadas desde 1: "9-13" crece desde el
 // comienzo de la 9 hasta el final de la 13. Una sola, "9", es solo esa.
 const RANGO = String(arg("tension", "")).split("-").map(Number).filter((x) => x > 0);
