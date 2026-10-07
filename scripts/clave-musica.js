@@ -55,7 +55,7 @@ const N_BASE = Number(arg("base", 13));
 // 07-10-2026: base -15, melodía -20 y tensión -15 decibeles bajo la voz. Lo que
 // manda acá son las PROPORCIONES entre capas, porque el nivel general lo fija
 // la mezcla con la voz: melodía cinco decibeles bajo la base, tensión a la par.
-const N_MEL = Number(arg("nivel-melodia", 2.3));
+const N_MEL = Number(arg("nivel-melodia", 2.46));
 // La tensión la bajé primero a 4,6 pensando que lo que le faltaba era distancia
 // respecto de la base y no nivel propio. Medido, el arco completo quedó en 4,1
 // dB de recorrido cuando el objetivo eran 6: o sea me pasé para el otro lado y
@@ -63,7 +63,14 @@ const N_MEL = Number(arg("nivel-melodia", 2.3));
 //
 // Seis decibeles de recorrido no es un número arbitrario: es lo que cabe debajo
 // de una voz sin taparla en el clímax y sin desaparecer en el arranque.
-const N_TENSION = Number(arg("nivel-tension", 4.2));
+// 8,71 y no 4,2. Al traducir lo que Santiago eligió en la mesa restó mal: él
+// subió la BASE de -22 a -15, y yo leí eso como que la tensión bajaba cinco
+// decibeles respecto de ella. Pero él también subió la tensión, de -17 a -15, y
+// al dejarlas iguales lo que pidió es que la tensión quede A LA PAR de la base,
+// no debajo. Medido sobre las pistas sueltas, que es lo que el tablero mide:
+// la tensión estaba a -1,3 dB de la base, así que había que SUBIRLA 1,3, no
+// bajarla cinco.
+const N_TENSION = Number(arg("nivel-tension", 8.71));
 // qué secciones lleva la tensión, contadas desde 1: "9-13" crece desde el
 // comienzo de la 9 hasta el final de la 13. Una sola, "9", es solo esa.
 const RANGO = String(arg("tension", "")).split("-").map(Number).filter((x) => x > 0);
