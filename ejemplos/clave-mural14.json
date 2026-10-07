@@ -6,7 +6,6 @@
   ],
   "anchoMural": 27580,
   "viajeSeg": 1.5,
-  "musica": "sonidos/cama-clave.wav",
   "paradas": [
     440,
     2460,
@@ -62,9 +61,9 @@
       "seg": 4.31
     },
     {
-      "texto": "Es esta: ¿qué controla realmente el Estado cuando fiscaliza una licencia médica, y qué puede pasar si no se cumple el reposo?",
+      "texto": "Si a ti te rechazan una licencia, la pregunta es directa: ¿qué controla realmente el Estado y qué puede pasarte si no cumples el reposo?",
       "parada": 0,
-      "seg": 8.44
+      "seg": 9.32
     },
     {
       "tipo": "dato",
@@ -96,6 +95,11 @@
       "texto": "En dos mil doce, la Ley 20.585 agregó procedimientos para investigar y sancionar licencias emitidas sin fundamento médico.",
       "parada": 2,
       "seg": 7.26
+    },
+    {
+      "texto": "Si hoy te rechazan una licencia, esas normas ordenan quién puede revisarla y con qué atribuciones.",
+      "parada": 2,
+      "seg": 6.67
     },
     {
       "texto": "El ciclo más reciente comenzó el veinte de mayo de dos mil veinticinco.",
@@ -139,6 +143,11 @@
       "seg": 9.03
     },
     {
+      "texto": "Si tu licencia aparece en un cruce de datos, esos hitos abren revisiones distintas, no convierten la alerta en una condena.",
+      "parada": 3,
+      "seg": 8.15
+    },
+    {
       "texto": "Hay un tercer antecedente mencionado durante esa semana, un sondeo sobre la facilidad para obtener licencias.",
       "parada": 3,
       "seg": 6.67
@@ -154,18 +163,23 @@
       "seg": 5.19
     },
     {
-      "texto": "La emite un profesional habilitado porque considera necesario que una persona se ausente o reduzca su jornada.",
+      "texto": "Imagina que un profesional te indica siete días de reposo por una enfermedad común.",
       "parada": 4,
-      "seg": 6.97,
+      "seg": 6.08,
       "rotulo": "Qué es una licencia"
     },
     {
-      "texto": "Pero quien la autoriza, reduce o rechaza es la Comisión de Medicina Preventiva e Invalidez, conocida como COMPIN, o la Isapre, según el régimen de salud.",
+      "texto": "Esa indicación permite que te ausentes o reduzcas tu jornada, pero todavía debe resolverse.",
+      "parada": 4,
+      "seg": 6.08
+    },
+    {
+      "texto": "Quien autoriza, reduce o rechaza tu licencia es la Comisión de Medicina Preventiva e Invalidez, conocida como COMPIN, o la Isapre, según tu régimen de salud.",
       "parada": 4,
       "seg": 9.62
     },
     {
-      "texto": "El empleador la tramita y debe respetar el reposo, pero no decide por sí solo si existe fundamento médico.",
+      "texto": "Tu empleador la tramita y debe respetar el reposo, pero no decide por sí solo si existe fundamento médico.",
       "parada": 4,
       "seg": 7.56
     },
@@ -175,9 +189,14 @@
       "seg": 5.49
     },
     {
-      "texto": "Esa separación importa: una cosa es la indicación profesional, otra la decisión sobre la licencia individual y otra la fiscalización del sistema.",
+      "texto": "Esa separación importa cuando cuestionan tu licencia: una cosa es la indicación profesional, otra la decisión sobre tu caso y otra la fiscalización del sistema.",
       "parada": 4,
-      "seg": 8.44
+      "seg": 9.32
+    },
+    {
+      "texto": "Hasta aquí, quédate con este mapa: el profesional indica, la COMPIN o la Isapre decide y tu empleador tramita.",
+      "parada": 4,
+      "seg": 7.56
     },
     {
       "texto": "Si la enfermedad o el accidente es común, una persona de Fonasa puede recibir el pago desde una Caja de Compensación o desde la COMPIN, según corresponda.",
@@ -201,58 +220,63 @@
       "seg": 5.79
     },
     {
-      "texto": "También cambia el día desde el que se paga.",
+      "texto": "Sigamos con tu licencia común de siete días.",
       "parada": 5,
-      "seg": 4.6
+      "seg": 4.31
     },
     {
-      "texto": "Una licencia común superior a diez días se paga desde el primero.",
+      "texto": "Si trabajas en el sector privado y cumples los requisitos, el subsidio se paga desde el cuarto día, porque el reposo dura diez días o menos.",
       "parada": 5,
-      "seg": 5.49
+      "seg": 9.62
     },
     {
-      "texto": "Si dura diez días o menos, se paga desde el cuarto.",
+      "texto": "Si una licencia común supera los diez días, se paga desde el primero.",
       "parada": 5,
-      "seg": 5.19
-    },
-    {
-      "texto": "Cuando licencias continuadas por el mismo diagnóstico superan en conjunto los diez días, el subsidio se reliquida e incluye los tres primeros.",
-      "parada": 5,
-      "seg": 8.44
-    },
-    {
-      "texto": "En el sector público, el funcionario sujeto a estatuto conserva su remuneración, y la entidad pagadora reembolsa al empleador público cuando corresponde.",
-      "parada": 5,
-      "seg": 8.44
-    },
-    {
-      "texto": "La regulación admite salidas justificadas para controles, exámenes, compra de medicamentos o alimentos, cobro del subsidio, votación obligatoria, fuerza mayor o cambio del domicilio informado para favorecer la recuperación.",
-      "parada": 6,
-      "seg": 10.51,
-      "rotulo": "Qué permite el reposo"
-    },
-    {
-      "texto": "Asistir a un tratamiento ambulatorio prescrito y acreditado tampoco constituye incumplimiento.",
-      "parada": 6,
-      "seg": 5.19
-    },
-    {
-      "texto": "Y una visita domiciliaria sin respuesta no basta por sí sola para probarlo.",
-      "parada": 6,
       "seg": 5.79
     },
     {
-      "texto": "En una licencia psiquiátrica, salir de la vivienda dentro de Chile tampoco es incumplimiento por sí mismo.",
+      "texto": "Y si varias licencias continuadas por el mismo diagnóstico superan juntas ese límite, el subsidio se reliquida e incluye los tres primeros días.",
+      "parada": 5,
+      "seg": 8.74
+    },
+    {
+      "texto": "En el sector público, conservas tu remuneración si estás sujeto a estatuto, y la entidad pagadora reembolsa al empleador público cuando corresponde.",
+      "parada": 5,
+      "seg": 8.44
+    },
+    {
+      "texto": "La idea de este bloque es simple: quién paga depende de tu régimen, del origen del reposo y de cuántos días dura.",
+      "parada": 5,
+      "seg": 8.44
+    },
+    {
+      "texto": "Con esa misma licencia de siete días, puedes salir para un control, un examen, comprar medicamentos o alimentos, cobrar el subsidio, votar obligatoriamente o atender una fuerza mayor.",
+      "parada": 6,
+      "seg": 10.21,
+      "rotulo": "Qué permite el reposo"
+    },
+    {
+      "texto": "También puedes asistir a un tratamiento ambulatorio prescrito y acreditado.",
+      "parada": 6,
+      "seg": 4.9
+    },
+    {
+      "texto": "Y si una visita domiciliaria no te encuentra, eso no basta por sí solo para probar un incumplimiento.",
+      "parada": 6,
+      "seg": 7.26
+    },
+    {
+      "texto": "En una licencia psiquiátrica, salir de tu vivienda dentro de Chile tampoco es incumplimiento por sí mismo.",
       "parada": 6,
       "seg": 6.97
     },
     {
-      "texto": "Viajar fuera del país durante el reposo sí incumple como regla general, porque impide el control de la autoridad.",
+      "texto": "Pero si durante esos siete días viajas fuera del país, incumples como regla general porque impides el control de la autoridad.",
       "parada": 6,
-      "seg": 7.56
+      "seg": 8.15
     },
     {
-      "texto": "La excepción es un tratamiento médico en el extranjero, vinculado con la recuperación y debidamente acreditado.",
+      "texto": "La excepción es un tratamiento médico en el extranjero, vinculado con tu recuperación y debidamente acreditado.",
       "parada": 6,
       "seg": 6.67
     },
@@ -273,9 +297,9 @@
       "rotulo": "Cómo se fiscaliza"
     },
     {
-      "texto": "No autoriza ni rechaza una licencia, no declara fraude y no reemplaza la revisión humana.",
+      "texto": "Si el profesional que emitió tu licencia queda priorizado, la herramienta no rechaza tu caso, no declara fraude y no reemplaza la revisión humana.",
       "parada": 7,
-      "seg": 6.38
+      "seg": 9.03
     },
     {
       "texto": "Al corte informado por la Superintendencia, doscientas once de cuatrocientas dieciséis investigaciones iniciadas en dos mil veintiséis surgieron de esta herramienta, y sesenta y dos terminaron con sanciones a emisores.",
@@ -298,15 +322,20 @@
       "seg": 8.74
     },
     {
-      "texto": "La primera consecuencia puede ser sanitaria: rechazo o invalidación de la licencia y devolución de remuneraciones o subsidios percibidos indebidamente.",
+      "texto": "En simple: una señal puede ordenar qué se revisa primero, pero todavía no decide qué pasó contigo.",
+      "parada": 7,
+      "seg": 6.97
+    },
+    {
+      "texto": "Si incumples el reposo, la primera consecuencia puede ser sanitaria: rechazo o invalidación de tu licencia y devolución de remuneraciones o subsidios percibidos indebidamente.",
       "parada": 8,
-      "seg": 7.85,
+      "seg": 9.03,
       "rotulo": "Qué consecuencias puede haber"
     },
     {
-      "texto": "En el Estado, la responsabilidad se determina mediante investigación sumaria o sumario.",
+      "texto": "Si trabajas en el Estado, tu responsabilidad se determina mediante investigación sumaria o sumario.",
       "parada": 8,
-      "seg": 5.49
+      "seg": 6.08
     },
     {
       "texto": "Las medidas van desde censura y multa hasta suspensión o destitución, según la gravedad y las circunstancias.",
@@ -344,9 +373,14 @@
       "seg": 4.9
     },
     {
-      "texto": "Para una consecuencia penal debe probarse un delito, como falsificación, obtención fraudulenta de prestaciones, fraude de subvenciones o lavado de activos.",
+      "texto": "Para que enfrentes una consecuencia penal debe probarse un delito, como falsificación, obtención fraudulenta de prestaciones, fraude de subvenciones o lavado de activos.",
       "parada": 8,
-      "seg": 8.15
+      "seg": 8.74
+    },
+    {
+      "texto": "Quédate con este corte: una licencia rechazada, una sanción laboral, un sumario y una causa penal no son lo mismo.",
+      "parada": 8,
+      "seg": 7.85
     },
     {
       "texto": "El séptimo balance consolidado de la Dirección de Presupuestos, fechado el cinco de febrero de dos mil veintiséis, informó más de veinticinco mil sumarios.",
@@ -360,9 +394,14 @@
       "seg": 6.97
     },
     {
-      "texto": "Eso explica por qué una disminución del sesenta y tres por ciento no cerró la noticia: bajó el universo detectado, pero persistieron casos repetidos y una gran cantidad de procesos aún no terminaba.",
+      "texto": "Si trabajas en un servicio público y apareces en el cruce, la baja agregada no resuelve tu caso.",
       "parada": 9,
-      "seg": 11.68
+      "seg": 7.26
+    },
+    {
+      "texto": "Bajó el universo detectado, pero persistieron casos repetidos y una gran cantidad de procesos aún no terminaba.",
+      "parada": 9,
+      "seg": 6.97
     },
     {
       "tipo": "dato",
@@ -425,9 +464,9 @@
       "seg": 8.15
     },
     {
-      "texto": "La respuesta honesta es esa: condena, cobro y recuperación son momentos distintos.",
+      "texto": "Si escuchas que hubo condena, no lo leas como plata ya devuelta: para ti, como contribuyente, condena, cobro y recuperación son momentos distintos.",
       "parada": 10,
-      "seg": 5.49
+      "seg": 8.74
     },
     {
       "tipo": "dato",
@@ -452,15 +491,20 @@
       "marca": "interpretacion"
     },
     {
-      "texto": "El riesgo aparece cuando un viaje, una salida del domicilio o una marca algorítmica se tratan como conclusión antes de revisar la explicación y la prueba.",
+      "texto": "Si estás legítimamente enfermo y tienes una excepción justificada, el riesgo aparece cuando un viaje, una salida del domicilio o una marca algorítmica se tratan como conclusión antes de revisar tu explicación y la prueba.",
       "parada": 11,
-      "seg": 9.62
+      "seg": 12.27
     },
     {
-      "texto": "Conviene seguir la evolución de los más de veintiún mil sumarios que continuaban abiertos, la eventual publicación íntegra del informe de Contraloría sobre dos mil veinticinco y la información de la Superintendencia sobre resultados, tasas de error y mecanismos de revisión de VigIA.",
+      "texto": "Si quieres saber si el control mejora de verdad, conviene seguir la evolución de los más de veintiún mil sumarios que continuaban abiertos.",
       "parada": 12,
-      "seg": 14.63,
+      "seg": 8.74,
       "rotulo": "Qué mirar después"
+    },
+    {
+      "texto": "También importa la eventual publicación íntegra del informe de Contraloría sobre dos mil veinticinco y la información de la Superintendencia sobre resultados, tasas de error y mecanismos de revisión de VigIA.",
+      "parada": 12,
+      "seg": 11.1
     },
     {
       "texto": "Esos datos permitirán medir avances sin anticipar si la herramienta funcionará o fallará.",
