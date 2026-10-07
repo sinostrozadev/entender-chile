@@ -52,11 +52,14 @@ const MOJADO = Number(arg("sala", 0.30));
 // PROPORCIÓN entre ellas.
 const N_BASE = Number(arg("base", 9.2));
 const N_MEL = Number(arg("nivel-melodia", 3.2));
-// y la tensión BAJA un poco, aunque él la pidió más fuerte: lo que necesitaba
-// no era más tensión sino más distancia respecto de la base, y al subir la base
-// el arco completo pasa de 10 dB de recorrido a 6, que es un rango que cabe
-// debajo de una voz sin taparla en el clímax.
-const N_TENSION = Number(arg("nivel-tension", 4.6));
+// La tensión la bajé primero a 4,6 pensando que lo que le faltaba era distancia
+// respecto de la base y no nivel propio. Medido, el arco completo quedó en 4,1
+// dB de recorrido cuando el objetivo eran 6: o sea me pasé para el otro lado y
+// la corrección correcta era solo la de la base. Vuelve arriba, a 7,5.
+//
+// Seis decibeles de recorrido no es un número arbitrario: es lo que cabe debajo
+// de una voz sin taparla en el clímax y sin desaparecer en el arranque.
+const N_TENSION = Number(arg("nivel-tension", 7.5));
 // qué secciones lleva la tensión, contadas desde 1: "9-13" crece desde el
 // comienzo de la 9 hasta el final de la 13. Una sola, "9", es solo esa.
 const RANGO = String(arg("tension", "")).split("-").map(Number).filter((x) => x > 0);
