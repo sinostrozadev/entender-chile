@@ -36,12 +36,26 @@ import { tema } from "./tema";
 // `parada` dice EN QUÉ TRAMO DEL MURAL se lee este bloque. Dos bloques con la
 // misma parada se leen sin que la cámara se mueva; cuando cambia, la cámara
 // viaja hasta el tramo nuevo y vuelve a quedarse quieta.
+//
+// Y `paradas` (abajo, en el guion) dice DÓNDE está cada tramo, en píxeles. Eso
+// no es un detalle de implementación: es la diferencia entre un mural y un
+// fondo. Hasta el 07-10-2026 las paradas se calculaban repartiendo el ancho en
+// partes iguales, así que la cámara se detenía donde caía la cuenta y no donde
+// estaba el motivo del que se hablaba. Santiago lo cazó mirando: "la imagen
+// debería ir aportando a lo que se lee". Ahora cada sección declara en qué
+// píxel del mural vive su motivo, y el mural se encarga de GPT para que ese
+// motivo esté ahí.
 export type Bloque =
   | { tipo?: "texto"; rotulo?: string; texto: string; seg: number; parada: number }
   | { tipo: "dato"; etiqueta: string; de?: string; a: string; fuente: string; seg: number; parada: number };
 
 export type GuionMural = {
-  mural: string; anchoMural: number; paso: number; viajeSeg?: number; bloques: Bloque[];
+  mural: string; anchoMural: number; viajeSeg?: number;
+  // posición en píxeles del BORDE IZQUIERDO de la cámara en cada parada, una
+  // por sección. Si falta, se reparte parejo, que es lo que había antes y lo
+  // que estaba mal.
+  paradas?: number[]; paso?: number;
+  bloques: Bloque[];
 };
 
 const suave = (t: number) => t * t * (3 - 2 * t);
@@ -139,7 +153,7 @@ const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number }
   );
 };
 
-export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paso, viajeSeg, bloques }) => {
+export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paradas, paso, viajeSeg, bloques }) => {
   const frame = useCurrentFrame();
   const { fps, width } = useVideoConfig();
   // LA CÁMARA SE MUEVE ENTRE IDEAS Y DESCANSA SOBRE LA IDEA (06-10-2026, idea
@@ -167,8 +181,12 @@ export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paso, viaj
   const viaje = Math.round((viajeSeg ?? 1.4) * fps);
   const hayViaje = actual.parada !== paradaAnterior;
   const avanceViaje = hayViaje ? Math.min(1, (frame - desde) / viaje) : 1;
-  const xDe = -paradaAnterior * paso;
-  const xA = -actual.parada * paso;
+  // dónde para la cámara en cada sección: la lista explícita manda, y el
+  // reparto parejo queda solo como respaldo
+  const dondePara = (i: number) =>
+    paradas && paradas[i] !== undefined ? paradas[i] : i * (paso ?? 0);
+  const xDe = -dondePara(paradaAnterior);
+  const xA = -dondePara(actual.parada);
   const x = Math.max(-(anchoMural - width), xDe + (xA - xDe) * viajeSuave(avanceViaje));
   // mientras la cámara viaja no hay texto: el viaje es el acontecimiento, y si
   // además hubiera que leer, no se mira ninguna de las dos cosas
