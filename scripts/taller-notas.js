@@ -314,3 +314,64 @@ console.log("EL CUARTO COMPÁS: cinco finales");
   });
   escribir("compas-4.wav", conSala(x, 0.28));
 }
+
+// ===== 7. LA FRASE DE OCHO COMPASES, Y CUÁNTO SE MUEVE LA BASE =====
+// Santiago cerró las notas el 07-10-2026: compás 4 termina en re5 mi5 y compás
+// 8 en re5 sol5. Queda un período de ocho: los cuatro primeros preguntan y
+// aterrizan en la novena, los cuatro segundos repiten y aterrizan en la cuarta
+// de arriba, que abre todavía más. Los dos finales quedan sin resolver, así que
+// el sello entero no cierra nunca: pide que empiece el video.
+//
+// Y dijo "la base juega mucho, que sea más seria con las notas". Tenía razón:
+// cambiarla en los cuatro golpes del compás la vuelve una contramelodía y le
+// come la seriedad. Van dos densidades para elegir cuánta es la justa.
+const OCHO = [
+  [12, 12, 19, 24],  // 1  re4 re4 la4 re5
+  [12, 12, 24, 22],  // 2  re4 re4 re5 do5
+  [12, 12, 19, 24],  // 3  igual al 1
+  [12, 12, 24, 26],  // 4  re4 re4 re5 mi5
+  [12, 12, 19, 24],  // 5  igual al 1
+  [12, 12, 24, 22],  // 6  igual al 2
+  [12, 12, 19, 24],  // 7  igual al 1
+  [12, 12, 24, 29],  // 8  re4 re4 re5 sol5
+];
+const DENSIDADES = [
+  { n: "1 la base cambia UNA vez por compás", cada: 4, por: "toma la nota que manda en el compás y se queda ahí. Es la más seria de las tres" },
+  { n: "2 la base cambia DOS veces por compás", cada: 2, por: "se mueve en la mitad del compás. Término medio" },
+];
+
+console.log("");
+console.log("OCHO COMPASES, con dos densidades de base");
+{
+  const cacheSec = new Map();
+  const sec = (st) => {
+    if (!cacheSec.has(st)) cacheSec.set(st, seccionCuerdas(nota(st), SR, 1.2, { musicos: 9, cola: 0.26, ataque: 0.014, brillo: 0.46 }));
+    return cacheSec.get(st);
+  };
+  const U = COMPAS * 8 + 3;
+  const x = lienzo(DENSIDADES.length * U + 3);
+  DENSIDADES.forEach((d, i) => {
+    const t0 = 0.5 + i * U;
+    let previa = -12;
+    OCHO.forEach((mel, c) => {
+      const tb = t0 + c * COMPAS;
+      for (let k = 0; k < 4; k++) {
+        // la base solo se entera de la melodía cada d.cada golpes
+        if (k % d.cada === 0) previa = raizCerca(mel[k], previa);
+        poner(x, sec(previa), tb + BASE_T[k * 2], 0.55);
+        poner(x, sec(previa + 7), tb + BASE_T[k * 2 + 1], 0.40);
+      }
+      const ultimo = c === 7;
+      mel.forEach((st, k) => {
+        const largo = k === 3 ? (ultimo ? 4.4 : (c === 3 ? 3.4 : 2.6)) : 1.6;
+        poner(x, barra(nota(st), SR, largo + 1.5, { tipo: "metal", cola: largo, mazo: 0.78 }), tb + MEL_T[k], [1.0, 0.6, 0.62, 0.95][k]);
+      });
+      poner(x, pianoFieltro(nota(-24), SR, 6, { fieltro: 1.2, cuerdas: 3, cola: 3.2 }), tb, 0.26);
+    });
+    console.log("     " + t0.toFixed(1) + "s  " + d.n);
+    console.log("            " + d.por);
+  });
+  escribir("ocho-compases.wav", conSala(x, 0.28));
+  console.log("");
+  OCHO.forEach((m, c) => console.log("     compás " + (c + 1) + "   " + m.map(nombreDe).join(" ")));
+}

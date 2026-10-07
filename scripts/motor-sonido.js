@@ -321,3 +321,66 @@ const seccionLarga = (f, sr, seg, { musicos = 9, cents = 7, brillo = 0.5 } = {})
 
 module.exports.cuerdaLarga = cuerdaLarga;
 module.exports.seccionLarga = seccionLarga;
+
+// CUERDA QUE CRECE DE VERDAD. Santiago cazó el defecto del primer intento: "es
+// como si ya todas las notas están tocadas y se sube el volumen". Era
+// exactamente eso: yo generaba el tono entero y lo multiplicaba por una rampa
+// de volumen, que es mover una perilla, no tocar más fuerte.
+//
+// Una cuerda tocada más fuerte no suena igual pero más alto: suena MÁS BRILLANTE.
+// Más presión de arco mete más energía en los armónicos agudos, y bastante más
+// rápido que en el grave. Por eso un violín fortissimo raspa y uno pianissimo
+// es casi un seno. Acá cada parcial tiene su propia curva: el grave crece casi
+// derecho y los agudos crecen tarde y de golpe, con exponente 1 + 0,38k.
+//
+// Y el ruido de la crin crece todavía más rápido que los parciales, porque la
+// presión que mete los armónicos es la misma que hace raspar el arco. Eso es lo
+// que se oye como esfuerzo, y el esfuerzo es lo que hace que un crescendo
+// suene a crescendo y no a perilla.
+const cuerdaCreciente = (f, sr, seg, { envolvente, parciales = 14, brilloBase = 0.5, aspereza = 0.1 } = {}) => {
+  const n = Math.round(seg * sr), out = new Float32Array(n);
+  const env = new Float32Array(n);
+  for (let i = 0; i < n; i++) env[i] = Math.max(0, Math.min(1, envolvente(i / sr)));
+  for (let k = 1; k <= parciales; k++) {
+    const fk = f * k;
+    if (fk > sr * 0.45) break;
+    const amp = Math.pow(k, -1.05) * Math.pow(brilloBase, k * 0.12);
+    const exp = 1 + 0.38 * (k - 1);
+    const w = 2 * Math.PI * fk / sr;
+    let fase = azar() * Math.PI;
+    for (let i = 0; i < n; i++) {
+      fase += w;
+      if (env[i] > 0) out[i] += Math.sin(fase) * amp * Math.pow(env[i], exp);
+    }
+  }
+  let ruido = 0;
+  for (let i = 0; i < n; i++) {
+    ruido = ruido * 0.88 + azar() * 0.12;
+    out[i] += ruido * aspereza * Math.pow(env[i], 3.2);
+  }
+  let p = 0; for (let i = 0; i < n; i++) if (Math.abs(out[i]) > p) p = Math.abs(out[i]);
+  if (p > 0) for (let i = 0; i < n; i++) out[i] /= p;
+  return out;
+};
+
+// y en sección: nueve, desafinados y a destiempo, cada uno creciendo solo
+const seccionCreciente = (f, sr, seg, { musicos = 7, cents = 7, ...resto } = {}) => {
+  const n = Math.round(seg * sr), out = new Float32Array(n);
+  for (let m = 0; m < musicos; m++) {
+    const d = (m / (musicos - 1 || 1)) * 2 - 1;
+    // cada músico aprieta un poco distinto y un poco a destiempo: ni siquiera
+    // el crescendo lo hacen todos igual, y eso ensancha más todavía
+    const retraso = Math.abs(d) * 0.25 + Math.abs(azar()) * 0.1;
+    const uno = cuerdaCreciente(f * Math.pow(2, (d * cents + azar() * 2) / 1200), sr, seg, {
+      ...resto,
+      envolvente: (t) => resto.envolvente(t - retraso * (1 - t / seg)),
+    });
+    for (let i = 0; i < n; i++) out[i] += uno[i] / musicos;
+  }
+  let p = 0; for (let i = 0; i < n; i++) if (Math.abs(out[i]) > p) p = Math.abs(out[i]);
+  if (p > 0) for (let i = 0; i < n; i++) out[i] /= p;
+  return out;
+};
+
+module.exports.cuerdaCreciente = cuerdaCreciente;
+module.exports.seccionCreciente = seccionCreciente;

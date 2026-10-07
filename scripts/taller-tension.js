@@ -22,7 +22,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { sala, seccionLarga } = require("./motor-sonido");
+const { sala, seccionCreciente } = require("./motor-sonido");
 
 const SR = 32000;
 const DESTINO = process.argv[2] || "public/sonidos/taller";
@@ -45,23 +45,30 @@ const envolvente = (t) => {
   return Math.pow(x, 2.2);
 };
 
-const voz = (dest, st, desde, niv, { brillo = 0.5, desliz = 0 } = {}) => {
-  const dur = CORTE - desde + 0.1;
-  if (dur <= 0.2) return;
-  const onda = seccionLarga(nota(st), SR, dur, { musicos: 9, brillo });
-  // el deslizamiento de la versión A: el violín trepa un semitono, que es LA
-  // señal de amenaza del cine. Se hace releyendo la onda a paso variable.
+// Cada voz entra en su momento y crece sola. Lo que la hace sonar a crescendo
+// y no a perilla está en seccionCreciente: los parciales agudos entran tarde y
+// de golpe, y el ruido del arco crece más rápido que todos. Eso es lo que el
+// oído lee como ESFUERZO.
+const voz = (dest, st, desde, niv, { brillo = 0.5 } = {}) => {
+  const dur = CORTE - desde + 0.2;
+  if (dur <= 0.3) return;
+  const onda = seccionCreciente(nota(st), SR, dur, {
+    musicos: 7, brilloBase: brillo, aspereza: 0.12,
+    envolvente: (t) => {
+      const abs = desde + t;
+      if (abs >= CORTE) { const d = (abs - CORTE) / 0.025; return d >= 1 ? 0 : 1 - d; }
+      const x = Math.max(0, (abs - desde) / Math.max(0.001, CORTE - desde));
+      // cada voz hace su propio recorrido de pianissimo a fortissimo
+      return Math.pow(x, 1.9);
+    },
+  });
   const i0 = Math.round(desde * SR);
-  let lectura = 0;
-  for (let i = 0; i0 + i < Math.round(CORTE * SR) + Math.round(0.05 * SR) && i < onda.length * 2; i++) {
+  // y encima de eso, la pieza entera crece: una voz que entra tarde entra
+  // fuerte, no desde cero, porque la orquesta ya venía apretando
+  for (let i = 0; i < onda.length && i0 + i < dest.length; i++) {
     const t = (i0 + i) / SR;
-    const prog = Math.min(1, (t - desde) / Math.max(0.001, CORTE - desde));
-    const paso = desliz ? Math.pow(2, (desliz * suave(prog)) / 12) : 1;
-    lectura += paso;
-    const k = Math.floor(lectura);
-    if (k >= onda.length) break;
-    const entra = Math.min(1, (t - desde) / 0.8);
-    dest[i0 + i] += onda[k] * niv * envolvente(t) * entra;
+    const global = t >= CORTE ? 0 : 0.25 + 0.75 * Math.pow(t / CORTE, 1.4);
+    dest[i0 + i] += onda[i] * niv * global;
   }
 };
 
@@ -87,26 +94,25 @@ const escribir = (nombre, x) => {
   console.log("  " + nombre.padEnd(18), (x.length / SR).toFixed(1) + "s, corte en " + CORTE + "s");
 };
 
-// A: como lo pidió, con el idioma completo
+// Santiago escuchó las dos y se quedó con la B, la que no usa el idioma del
+// suspenso. Así que la A ya no se genera: lo que queda son dos densidades de la
+// B, para ver cuánta orquesta es la justa.
 {
   const x = new Float32Array(n);
-  voz(x, -24, 0.0, 0.95, { brillo: 0.40 });            // contrabajo, el piso
-  voz(x, -12, 0.8, 0.50, { brillo: 0.42 });            // contrabajo octava arriba
-  voz(x, 7, 2.0, 0.42, { brillo: 0.50 });              // chelo en la
-  voz(x, 24, 3.4, 0.30, { brillo: 0.58, desliz: 1 });  // violín que TREPA un semitono
-  voz(x, 31, 5.0, 0.20, { brillo: 0.62, desliz: 1 });
-  escribir("tension-A.wav", x);
-}
-
-// B: el mismo gesto, sin el idioma. Nadie se mueve, todo en quintas y octavas,
-// y la tensión viene de que se va llenando el registro.
-{
-  const x = new Float32Array(n);
-  voz(x, -24, 0.0, 0.95, { brillo: 0.38 });   // contrabajo
+  voz(x, -24, 0.0, 0.95, { brillo: 0.38 });   // contrabajo, el que va al piso
   voz(x, -12, 1.2, 0.52, { brillo: 0.40 });   // su octava
   voz(x, 0, 2.6, 0.40, { brillo: 0.46 });     // chelo en re
   voz(x, 7, 3.8, 0.34, { brillo: 0.50 });     // chelo en la
   voz(x, 19, 5.0, 0.24, { brillo: 0.56 });    // violín en la
   voz(x, 24, 6.0, 0.18, { brillo: 0.60 });    // violín en re
-  escribir("tension-B.wav", x);
+  escribir("tension-B2.wav", x);
+}
+
+// la misma, con menos voces: entra menos orquesta y crece más desnuda
+{
+  const x = new Float32Array(n);
+  voz(x, -24, 0.0, 0.95, { brillo: 0.38 });
+  voz(x, 0, 2.4, 0.46, { brillo: 0.46 });
+  voz(x, 19, 4.6, 0.28, { brillo: 0.56 });
+  escribir("tension-B3.wav", x);
 }
