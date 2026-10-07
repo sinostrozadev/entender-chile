@@ -42,6 +42,24 @@ const MOJADO = Number(arg("sala", 0.30));
 // qué secciones lleva la tensión, contadas desde 1: "9-13" crece desde el
 // comienzo de la 9 hasta el final de la 13. Una sola, "9", es solo esa.
 const RANGO = String(arg("tension", "")).split("-").map(Number).filter((x) => x > 0);
+// EN QUÉ SECCIONES SUENA LA MELODÍA. La arquitectura la fijó Santiago el
+// 07-10-2026: la cama no es una cosa sino CUATRO recursos que se combinan.
+//
+//   base sola                      el fondo de cuando habla la voz
+//   base + melodía                 cuando se quiere que la sección tenga cara
+//   base + tensión                 cuando hay algo en juego y la voz manda
+//   base + melodía + tensión       el punto más alto
+//
+// La base corre siempre; las otras dos se encienden por sección. Separarlas así
+// es lo que permite decidir, porque antes eran una sola cosa que solo se podía
+// subir o bajar entera.
+const MELODIA = (() => {
+  const v = String(arg("melodia", "todas")).trim();
+  if (v === "todas") return null;              // null = en todas
+  if (v === "ninguna" || v === "") return new Set();
+  return new Set(v.split(",").map((x) => Number(x.trim())).filter(Boolean));
+})();
+const hayMelodia = (i) => MELODIA === null || MELODIA.has(i + 1);
 const FPS = 24;
 
 const RE = 146.83;
@@ -146,14 +164,19 @@ for (let tb = 0.4; tb < TOTAL; tb += COMPAS, compas++) {
   if (g <= 0) continue;
   for (let k = 0; k < 4; k++) {
     if (k === 0) previa = raizCerca(mel[k] + tr, previa);
-    poner(cuerda(previa), tb + BASE_T[k * 2], 0.55 * g * PICO * 2.4);
-    poner(cuerda(previa + 7), tb + BASE_T[k * 2 + 1], 0.40 * g * PICO * 2.4);
+    // la base sube 3 dB respecto de ayer: Santiago pidió "subirle un poco a la
+    // cama", y como ahora puede quedarse sola hay secciones donde es TODO lo
+    // que suena
+    poner(cuerda(previa), tb + BASE_T[k * 2], 0.55 * g * PICO * 3.4);
+    poner(cuerda(previa + 7), tb + BASE_T[k * 2 + 1], 0.40 * g * PICO * 3.4);
   }
-  mel.forEach((st, k) => {
-    const largo = k === 3 ? (compas % 4 === 3 ? 3.4 : 2.6) : 1.6;
-    poner(barra(nota(st + tr), SR, largo + 1.5, { tipo: "metal", cola: largo, mazo: 0.78 }), tb + MEL_T[k], [1.0, 0.6, 0.62, 0.95][k] * g * PICO * 2.4);
-  });
-  poner(pianoFieltro(nota(-24 + tr), SR, 6, { fieltro: 1.2, cuerdas: 3, cola: 3.2 }), tb, 0.26 * g * PICO * 2.4);
+  if (hayMelodia(sec)) {
+    mel.forEach((st, k) => {
+      const largo = k === 3 ? (compas % 4 === 3 ? 3.4 : 2.6) : 1.6;
+      poner(barra(nota(st + tr), SR, largo + 1.5, { tipo: "metal", cola: largo, mazo: 0.78 }), tb + MEL_T[k], [1.0, 0.6, 0.62, 0.95][k] * g * PICO * 2.4);
+    });
+  }
+  poner(pianoFieltro(nota(-24 + tr), SR, 6, { fieltro: 1.2, cuerdas: 3, cola: 3.2 }), tb, 0.26 * g * PICO * 3.4);
 }
 
 // EL AIRE DEL VIAJE. Entre el de antes, que sobresalía 21 dB y tapaba todo, y
@@ -264,7 +287,8 @@ fs.writeFileSync(salida, Buffer.concat([cab, buf]));
 let p2 = 0; for (let i = 0; i < n; i++) p2 = Math.max(p2, Math.abs(m[i]));
 console.log(salida, TOTAL.toFixed(1) + "s", (fs.statSync(salida).size / 1048576).toFixed(1) + " MB",
   "| pico " + (20 * Math.log10(p2 / 32768)).toFixed(1) + " dBFS");
-console.log("cama: la frase de 8 compases en loop, " + compas + " compases, transportada por sección");
+console.log("base: la frase de 4 compases en loop, " + compas + " compases, transportada por sección");
+console.log("melodía en: " + (MELODIA === null ? "todas las secciones" : MELODIA.size ? [...MELODIA].join(", ") : "ninguna"));
 console.log((RANGO.length ? "tensión ENCIMA de la cama, secciones " + RANGO.join(" a ") + " y se queda arriba, " : "sin tensión, ") +
   secciones.length + " secciones, " + datos.length + " datos en silencio, " +
   (enLuto.length ? enLuto.length + " apagadas por la regla 28" : "ninguna de duelo"));
