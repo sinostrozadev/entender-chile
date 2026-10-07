@@ -273,3 +273,44 @@ console.log("LA FRASE DE CUATRO COMPASES");
     });
   });
 }
+
+// ===== 6. EL CUARTO COMPÁS: QUÉ DOS NOTAS =====
+// La frase quedó fija en re4 re4 X Y los cuatro compases, y falta decidir las
+// dos últimas del cuarto. Santiago sospecha re y mi, y su sospecha es la
+// primera de la lista. Van cinco, todas en contexto: la frase entera, no la
+// nota suelta, porque una nota sola no se puede elegir.
+const C4_OPCIONES = [
+  { n: "1 re5 mi5", notas: [12, 12, 24, 26], por: "tu sospecha. Pasa de largo la octava y aterriza en la novena: la más abierta, el sello queda preguntando" },
+  { n: "2 mi5 re5", notas: [12, 12, 26, 24], por: "toca la novena y se devuelve a la octava. Suspira y cierra" },
+  { n: "3 do5 mi5", notas: [12, 12, 22, 26], por: "retoma el do del compás 2 y lo empuja al mi. Amarra los cuatro compases entre sí" },
+  { n: "4 la4 mi5", notas: [12, 12, 19, 26], por: "un salto grande al final, de la quinta a la novena. El más dramático de los cinco" },
+  { n: "5 re5 sol5", notas: [12, 12, 24, 29], por: "sigue subiendo hasta la cuarta de arriba. Abre todavía más que la novena, pero se va lejos" },
+];
+
+console.log("");
+console.log("EL CUARTO COMPÁS: cinco finales");
+{
+  const CC1 = [12, 12, 19, 24], CC2 = [12, 12, 24, 22], CC3 = [12, 12, 19, 24];
+  const U = COMPAS * 4 + 3;
+  const x = lienzo(C4_OPCIONES.length * U + 3);
+  C4_OPCIONES.forEach((op, i) => {
+    const t0 = 0.5 + i * U;
+    let previa = -12;
+    [CC1, CC2, CC3, op.notas].forEach((mel, c) => {
+      const tb = t0 + c * COMPAS;
+      mel.forEach((m, k) => {
+        previa = raizCerca(m, previa);
+        poner(x, seccionCuerdas(nota(previa), SR, 1.2, { musicos: 9, cola: 0.26, ataque: 0.014, brillo: 0.46 }), tb + BASE_T[k * 2], 0.55);
+        poner(x, seccionCuerdas(nota(previa + 7), SR, 1.2, { musicos: 9, cola: 0.24, ataque: 0.014, brillo: 0.46 }), tb + BASE_T[k * 2 + 1], 0.40);
+      });
+      mel.forEach((st, k) => {
+        const largo = k === 3 ? (c === 3 ? 4.0 : 2.6) : 1.6;
+        poner(x, barra(nota(st), SR, largo + 1.5, { tipo: "metal", cola: largo, mazo: 0.78 }), tb + MEL_T[k], [1.0, 0.6, 0.62, 0.95][k]);
+      });
+      poner(x, pianoFieltro(nota(-24), SR, 6, { fieltro: 1.2, cuerdas: 3, cola: 3.2 }), tb, 0.26);
+    });
+    console.log("     " + t0.toFixed(1) + "s  compás 4 = re4 re4 " + op.n.slice(2));
+    console.log("            " + op.por);
+  });
+  escribir("compas-4.wav", conSala(x, 0.28));
+}

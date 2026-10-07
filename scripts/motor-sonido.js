@@ -280,3 +280,44 @@ const seccionCuerdas = (f, sr, seg, { musicos = 9, cents = 7, desfase = 0.018, t
 };
 
 module.exports.seccionCuerdas = seccionCuerdas;
+
+// CUERDA SOSTENIDA. La de arriba es un golpe de arco que se apaga solo; esta se
+// mantiene mientras el arco siga andando, que es lo que hace falta para un
+// acorde que crece. La envolvente va POR FUERA: el instrumento solo entrega el
+// tono, y quien lo usa decide cómo sube y cómo para.
+const cuerdaLarga = (f, sr, seg, { brillo = 0.5, parciales = 12, aspereza = 0.012 } = {}) => {
+  const n = Math.round(seg * sr), out = new Float32Array(n);
+  for (let k = 1; k <= parciales; k++) {
+    const fk = f * k;
+    if (fk > sr * 0.45) break;
+    const amp = Math.pow(k, -1.0) * Math.pow(brillo, k * 0.22);
+    const w = 2 * Math.PI * fk / sr;
+    let fase = azar() * Math.PI;
+    for (let i = 0; i < n; i++) { fase += w; out[i] += Math.sin(fase) * amp; }
+  }
+  // la crin raspando: un arco sostenido nunca es un tono limpio, y ese ruido
+  // continuo es la mitad de lo que hace que suene a cuerda y no a órgano
+  let ruido = 0;
+  for (let i = 0; i < n; i++) { ruido = ruido * 0.9 + azar() * 0.1; out[i] += ruido * aspereza * 8; }
+  let p = 0; for (let i = 0; i < n; i++) if (Math.abs(out[i]) > p) p = Math.abs(out[i]);
+  if (p > 0) for (let i = 0; i < n; i++) out[i] /= p;
+  return out;
+};
+
+// y la sección sostenida: los mismos nueve, cada uno desafinado y entrando a
+// destiempo, que es lo que lo vuelve orquesta
+const seccionLarga = (f, sr, seg, { musicos = 9, cents = 7, brillo = 0.5 } = {}) => {
+  const n = Math.round(seg * sr), out = new Float32Array(n);
+  for (let m = 0; m < musicos; m++) {
+    const d = (m / (musicos - 1 || 1)) * 2 - 1;
+    const uno = cuerdaLarga(f * Math.pow(2, (d * cents + azar() * 2) / 1200), sr, seg, { brillo });
+    const r = Math.round(Math.abs(d * 0.03 + azar() * 0.01) * sr);
+    for (let i = 0; i + r < n; i++) out[i + r] += uno[i] / musicos;
+  }
+  let p = 0; for (let i = 0; i < n; i++) if (Math.abs(out[i]) > p) p = Math.abs(out[i]);
+  if (p > 0) for (let i = 0; i < n; i++) out[i] /= p;
+  return out;
+};
+
+module.exports.cuerdaLarga = cuerdaLarga;
+module.exports.seccionLarga = seccionLarga;
