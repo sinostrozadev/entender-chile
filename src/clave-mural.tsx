@@ -265,18 +265,13 @@ export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paradas, p
           <Img key={t} src={staticFile(t)} style={{ height: "100%", width: "auto", flexShrink: 0, display: "block" }} />
         ))}
       </AbsoluteFill>
-      {/* EL SONIDO DEL VIAJE (06-10-2026). Suena SOLO mientras la cámara se
-          mueve, y su amplitud sigue la velocidad de la cámara y no el reloj:
-          nace de cero, revienta en la mitad del recorrido y vuelve a cero al
-          llegar. Por eso no se oye como un efecto encima del movimiento sino
-          como el movimiento mismo. Antes, con el paneo continuo, cualquier
-          sonido molestaba porque tapaba un corte que no se podía tapar; ahora
-          tiene un acontecimiento real de 1,4 s que acompañar. */}
-      {hayViaje ? (
-        <Sequence from={desde} durationInFrames={viaje}>
-          <Audio src={staticFile("sonidos/viaje.wav")} volume={0.55} />
-        </Sequence>
-      ) : null}
+      {/* EL SONIDO DEL VIAJE YA NO VIVE ACÁ (07-10-2026). Vivía como un Audio
+          suelto por viaje, y suelto no se puede mezclar: medido, sonaba 21 dB
+          POR ENCIMA de la música, que es lo primero que Santiago reclamó al
+          escuchar. Ahora el aire de cada viaje va escrito dentro de la misma
+          pista que la cama, en scripts/clave-musica.js, que conoce los tiempos
+          exactos de cada parada y puede decidir el nivel mirando la cama que ya
+          puso. Un sonido que tiene que convivir con otro no puede nacer aparte. */}
       <Velo fuerza={esDato ? 1 - apagado : 1} k={velos?.[actual.parada] ?? 1} />
       <AbsoluteFill style={{ backgroundColor: "rgba(10,12,16,0.55)", opacity: apagado }} />
       {/* TODO EL BLOQUE VA DENTRO DE UNA Sequence, y no es un detalle: sin ella

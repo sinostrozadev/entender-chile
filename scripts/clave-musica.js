@@ -51,7 +51,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { azar, sala, barra, pianoFieltro, caja } = require("./motor-sonido");
+const { azar, sala, barra, pianoFieltro, caja, seccionCuerdas, seccionCreciente } = require("./motor-sonido");
 
 const arg = (n, d) => { const i = process.argv.indexOf("--" + n); return i > -1 && process.argv[i + 1] ? process.argv[i + 1] : d; };
 const guion = JSON.parse(fs.readFileSync(arg("guion"), "utf8"));
@@ -60,6 +60,10 @@ const SR = Number(arg("sr", 32000));
 const PICO = Number(arg("pico", 0.085));
 const MOJADO = Number(arg("sala", 0.32));
 const PULSO = Number(arg("pulso", 0.75));
+// la sección que lleva la cama de tensión en vez de la cama normal, contada
+// desde 1. Sin esto, ninguna.
+const SEC_TENSION = Number(arg("tension", 0)) - 1;
+const CON_SELLO = arg("sello", "1") !== "0";
 const FPS = 24;
 
 const RE = 146.83;                       // re3, la raíz del sello del canal
@@ -89,6 +93,9 @@ const enLuto = secciones.filter((s) => LUTO.test(s.texto));
 
 const suave = (x) => x * x * (3 - 2 * x);
 const seccionEn = (t) => { let i = 0; while (i + 1 < secciones.length && secciones[i + 1].t <= t) i++; return i; };
+// durante la sección de tensión la cama se calla: la tensión ES la cama de esa
+// sección, y las dos juntas solo embarran.
+const enTension = (t) => SEC_TENSION >= 0 && seccionEn(t) === SEC_TENSION;
 
 const CAIDA = 0.5;
 const puerta = (t) => {
@@ -173,11 +180,31 @@ const VOCES = [
   { desde: 9, hasta: 12, largo: 8, oct: 36, cada: 3, tipo: "metal", cola: 2.6, niv: 0.34, mazo: 0.86 },
 ].map((v, i) => ({ ...v, patron: celda(v.largo, i) }));
 
+// EL AIRE DEL VIAJE VA DENTRO DE ESTA PISTA y ya no como un Audio suelto en el
+// componente. Así los tiempos calzan exactos con la cámara, y sobre todo así se
+// puede MEZCLAR: suelto, medía 21 dB por encima de la música, que es lo que
+// Santiago reclamó. Acá entra a un nivel que se decide mirando la cama.
+const aire = (seg, f0 = 240, f1 = 1300) => {
+  const m = Math.round(seg * SR), out = new Float32Array(m);
+  let y1 = 0, y2 = 0;
+  for (let i = 0; i < m; i++) {
+    const t = i / m;
+    const env = 30 * t * t * (1 - t) * (1 - t) / 1.875;
+    const w = 2 * Math.PI * (f0 + (f1 - f0) * Math.sin(Math.PI * t)) / SR;
+    const y = azar() * 0.014 + 2 * 0.986 * Math.cos(w) * y1 - 0.986 * 0.986 * y2;
+    y2 = y1; y1 = y;
+    out[i] = y * env;
+  }
+  let p = 0; for (let i = 0; i < m; i++) if (Math.abs(out[i]) > p) p = Math.abs(out[i]);
+  if (p > 0) for (let i = 0; i < m; i++) out[i] /= p;
+  return out;
+};
+
 const seco = new Float32Array(n);
 const poner = (onda, t0, niv) => {
   const i0 = Math.round(t0 * SR);
   const g = puerta(t0), b = bordes(t0);
-  if (g <= 0 || b <= 0) return;
+  if (g <= 0 || b <= 0 || enTension(t0)) return;
   const amp = niv * g * b * (0.78 + 0.22 * bultoViaje(t0));
   for (let k = 0; k < onda.length && i0 + k < n; k++) seco[i0 + k] += onda[k] * amp;
 };
@@ -243,6 +270,92 @@ secciones.forEach((s, i) => {
   poner(barra(nota(st), SR, 6, { tipo: "metal", cola: 2.8, mazo: 0.72 }), 0.5 + dt, [0.5, 0.45, 0.4][k]);
 });
 
+// EL AIRE DE CADA VIAJE. Entra a un nivel medido contra la cama y no suelto:
+// el de antes iba 21 dB por encima de la música y Santiago lo oyó al tiro.
+secciones.forEach((s, i) => {
+  if (i === 0 || puerta(s.t) <= 0) return;
+  const a = aire(viaje);
+  const i0 = Math.round(s.t * SR);
+  for (let k = 0; k < a.length && i0 + k < n; k++) seco[i0 + k] += a[k] * PICO * 0.85 * bordes((i0 + k) / SR);
+});
+
+// LA CAMA DE TENSIÓN de una sección entera. No es un riser: es un fondo que
+// aguanta la sección completa y para en seco al terminarla. La subida es tan
+// lenta que no se nota mientras pasa.
+//
+// El piso arranca ALTO, en 0,4 y no en 0,18: con el piso bajo la cama recién se
+// empezaba a oír al segundo veinte, que es lo que Santiago cazó. Una cama que
+// no se oye durante el primer tercio no está sosteniendo nada.
+//
+// El contrabajo va en re2, 73 Hz, y no en re1: re1 son 36,7 Hz, por debajo de
+// la nota más grave de un contrabajo de verdad, y en la mayoría de los
+// parlantes eso no da nota sino retumbe. Es lo que Santiago eligió al comparar.
+if (SEC_TENSION >= 0 && SEC_TENSION < secciones.length) {
+  const s0 = secciones[SEC_TENSION];
+  const fin = (secciones[SEC_TENSION + 1] ? secciones[SEC_TENSION + 1].t : TOTAL) - 0.9;
+  const dur = fin - s0.t;
+  const VOCES_T = [
+    [-12, 0.00, 0.95, 0.38], [0, 0.14, 0.52, 0.42],
+    [7, 0.30, 0.40, 0.48], [19, 0.46, 0.26, 0.54], [24, 0.66, 0.16, 0.58],
+  ];
+  VOCES_T.forEach(([st, frac, niv, brillo]) => {
+    const desde = s0.t + dur * frac;
+    const largo = fin - desde + 0.2;
+    if (largo < 1) return;
+    const onda = seccionCreciente(nota(st), SR, largo, {
+      musicos: 5, brilloBase: brillo, aspereza: 0.12, parciales: 14,
+      envolvente: (t) => {
+        const abs = desde + t;
+        if (abs >= fin) { const d = (abs - fin) / 0.03; return d >= 1 ? 0 : 1 - d; }
+        return Math.pow(Math.max(0, (abs - desde) / Math.max(0.001, fin - desde)), 1.5);
+      },
+    });
+    const i0 = Math.round(desde * SR);
+    for (let k = 0; k < onda.length && i0 + k < n; k++) {
+      const t = (i0 + k) / SR;
+      const global = t >= fin ? 0 : 0.52 + 0.48 * Math.pow((t - s0.t) / dur, 1.7);
+      // 3,5 y no 1,5: con 1,5 la tensión quedaba POR DEBAJO de la cama normal,
+      // o sea la sección "tensa" sonaba más floja que las otras trece
+      seco[i0 + k] += onda[k] * niv * global * PICO * 3.5 * bordes(t);
+    }
+  });
+}
+
+// EL SELLO DEL CANAL, los ocho compases que dictó Santiago. Va al principio y
+// es lo único que suena idéntico en todas las Claves: un sello es identidad.
+if (CON_SELLO) {
+  const BPM = 132, NEG = 60 / BPM, COR = NEG / 2, CP = NEG * 8;
+  const BT = []; for (let c = 0; c < 4; c++) { BT.push(c * NEG * 2); BT.push(c * NEG * 2 + COR); }
+  const MT = [0, NEG, NEG + COR, NEG + COR * 2];
+  const Aa = [12, 12, 19, 24], Bb = [12, 12, 24, 22], Cc = [12, 12, 24, 26];
+  const CPS = [Aa, Bb, Aa, Cc, Aa, Bb, Aa, Cc];
+  const cerca = (mel, prev) => {
+    const r = (((mel % 12) + 12) % 12) - 12;
+    let mejor = r, dist = Infinity;
+    for (let o = -1; o <= 1; o++) { const c = r + 12 * o; if (c < -14 || c > -2) continue;
+      const d = Math.abs(c - prev); if (d < dist) { dist = d; mejor = c; } }
+    return mejor;
+  };
+  const memo = new Map();
+  const cu = (st) => { if (!memo.has(st)) memo.set(st, seccionCuerdas(nota(st), SR, 1.2, { musicos: 9, cola: 0.26, ataque: 0.014, brillo: 0.46 })); return memo.get(st); };
+  const meter = (onda, t0, niv) => { const i0 = Math.round(t0 * SR);
+    for (let k = 0; k < onda.length && i0 + k < n; k++) seco[i0 + k] += onda[k] * niv * PICO * 2.6; };
+  let prev = -12;
+  CPS.forEach((mel, c) => {
+    const tb = 0.4 + c * CP;
+    for (let k = 0; k < 4; k++) {
+      if (k === 0) prev = cerca(mel[k], prev);
+      meter(cu(prev), tb + BT[k * 2], 0.55);
+      meter(cu(prev + 7), tb + BT[k * 2 + 1], 0.40);
+    }
+    mel.forEach((st, k) => {
+      const largo = k === 3 ? (c === 7 ? 4.6 : (c % 4 === 3 ? 3.4 : 2.6)) : 1.6;
+      meter(barra(nota(st), SR, largo + 1.5, { tipo: "metal", cola: largo, mazo: 0.78 }), tb + MT[k], [1.0, 0.6, 0.62, 0.95][k]);
+    });
+    meter(pianoFieltro(nota(-24), SR, 6, { fieltro: 1.2, cuerdas: 3, cola: 3.2 }), tb, 0.26);
+  });
+}
+
 const cuerpo = caja(seco, SR);
 for (let i = 0; i < n; i++) seco[i] += cuerpo[i] * 0.18;
 
@@ -257,6 +370,19 @@ for (let i = 0; i < n; i++) {
 }
 
 const rev = sala(seco, SR, 1, 0.80);
+// LA SALA TAMBIÉN TIENE QUE CORTARSE. Si la cola sobrevive al corte, el corte
+// deja de ser corte: medido, caía solo 7 dB en medio segundo cuando tenía que
+// desaparecer. El corte brusco es todo el gesto; sin él esto es solo un fondo
+// que se desvanece.
+if (SEC_TENSION >= 0 && SEC_TENSION < secciones.length) {
+  const fin = (secciones[SEC_TENSION + 1] ? secciones[SEC_TENSION + 1].t : TOTAL) - 0.9;
+  for (let i = Math.round(fin * SR); i < n; i++) {
+    const d = (i / SR - fin) / 0.14;
+    if (d >= 1) break;
+    rev[i] *= 1 - d;
+  }
+  for (let i = Math.round((fin + 0.14) * SR); i < Math.round((fin + 0.9) * SR) && i < n; i++) rev[i] = 0;
+}
 let pico = 0;
 for (let i = 0; i < n; i++) { const v = seco[i] * (1 - MOJADO) + rev[i] * MOJADO * 1.9; if (Math.abs(v) > pico) pico = Math.abs(v); }
 const ajuste = pico > 0 ? PICO / pico : 1;
@@ -279,5 +405,6 @@ let p2 = 0; for (let i = 0; i < n; i++) p2 = Math.max(p2, Math.abs(m[i]));
 console.log(salida, TOTAL.toFixed(1) + "s", (fs.statSync(salida).size / 1048576).toFixed(1) + " MB",
   "| pico " + (20 * Math.log10(p2 / 32768)).toFixed(1) + " dBFS");
 console.log("células de esta Clave (grados del dórico):", VOCES.map((v) => v.patron.join(",")).join("  |  "));
-console.log(secciones.length + " secciones, " + datos.length + " datos en silencio, " +
+console.log((CON_SELLO ? "con sello, " : "sin sello, ") + (SEC_TENSION >= 0 ? "tensión en la sección " + (SEC_TENSION + 1) + ", " : "sin tensión, ") +
+  secciones.length + " secciones, " + datos.length + " datos en silencio, " +
   (enLuto.length ? enLuto.length + " en silencio por la regla 28: " + enLuto.map((s) => s.t.toFixed(0) + "s").join(" ") : "ninguna de duelo o violencia"));
