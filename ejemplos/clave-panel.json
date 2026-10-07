@@ -1,8 +1,15 @@
 {
-  "mural": "claves/licencia-medica/mural-real.jpg",
-  "anchoMural": 6060,
-  "paso": 1035,
-  "viajeSeg": 1.4,
+  "mural": "claves/licencia-medica/mural6.jpg",
+  "anchoMural": 12540,
+  "viajeSeg": 1.6,
+  "paradas": [
+    382,
+    2482,
+    4582,
+    6682,
+    8782,
+    10402
+  ],
   "bloques": [
     {
       "rotulo": "Gancho",
@@ -28,13 +35,13 @@
       "rotulo": "Promesa",
       "texto": "Al terminar este video vas a poder distinguir quién autoriza la licencia, quién paga, qué permite el reposo y cuándo un mismo antecedente puede abrir una revisión sanitaria, una consecuencia laboral, un sumario o una investigación penal.",
       "parada": 1,
-      "seg": 13.420000000000002
+      "seg": 13.620000000000001
     },
     {
       "rotulo": "De dónde viene",
       "texto": "El punto de partida no es el último cruce de datos.",
       "parada": 2,
-      "seg": 6.66
+      "seg": 6.859999999999999
     },
     {
       "texto": "Desde mil novecientos ochenta y cuatro, el Decreto Supremo número tres regula cómo se emite, autoriza, revisa, rechaza o invalida una licencia.",
@@ -45,7 +52,7 @@
       "rotulo": "Los hitos",
       "texto": "El veintinueve de septiembre de dos mil veintiséis apareció VigIA, una herramienta de la Superintendencia de Seguridad Social para priorizar investigaciones sobre emisores.",
       "parada": 3,
-      "seg": 9.780000000000001
+      "seg": 9.98
     },
     {
       "texto": "El dos de octubre se conoció el nuevo cruce de viajes y licencias de dos mil veinticinco.",
@@ -56,12 +63,23 @@
       "rotulo": "Qué es una licencia",
       "texto": "La emite un profesional habilitado porque considera necesario que una persona se ausente o reduzca su jornada.",
       "parada": 4,
-      "seg": 8.22
+      "seg": 8.42
     },
     {
       "texto": "Pero quien la autoriza, reduce o rechaza es la Comisión de Medicina Preventiva e Invalidez, conocida como COMPIN, o la Isapre, según el régimen de salud.",
       "parada": 4,
       "seg": 9.16
+    },
+    {
+      "rotulo": "Quién paga",
+      "texto": "Si la enfermedad o el accidente es común, una persona de Fonasa puede recibir el pago desde una Caja de Compensación o desde la COMPIN, según corresponda.",
+      "parada": 5,
+      "seg": 11.02
+    },
+    {
+      "texto": "En una Isapre, paga la propia Isapre.",
+      "parada": 5,
+      "seg": 4.22
     }
   ]
 }
