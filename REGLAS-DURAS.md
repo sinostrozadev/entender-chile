@@ -216,9 +216,16 @@ archivos de criterio del repositorio.
     funcionaba, y la línea correcta no es el estilo sino si la imagen
     pretende ser el registro del hecho; partida en personas y lugares el
     29-09-2026, ver arriba)
-30. **La música se genera por código y es puntuación, no cama.** Silencio
-    bajo la narración; sello, cortinas de 1,1 segundos y cierre, nada más.
-    Nada descargado de ningún banco. (decisión 27-08)
+30. **La música se genera por código, suena a mecanismo y nunca dice qué
+    sentir.** Nada descargado de ningún banco. El sello del canal es siempre el
+    mismo, re - la - re, porque un sello es identidad. La cama sí puede correr
+    bajo la narración, pero con cuatro condiciones duras: sale de los números de
+    la propia pieza y por eso suena distinta en cada una; va en dórico y sin
+    terceras, que es lo que la deja sin veredicto; es golpeada y no frotada,
+    porque una nota golpeada dice y se retira mientras una frotada insiste; y
+    calla entera en los datos y en cualquier sección de duelo o violencia, por
+    la regla 28. Prohibido el lenguaje del suspenso: trémolo, dron grave de
+    amenaza, riser, pulso que acelera. (decisión 27-08, reemplazada el 07-10-26)
 31. **Voz sintética con acento chileno, declarada.** Azure es-CL; toda
     pieza se sube marcando la divulgación de contenido sintético. Dos voces
     solo si el cambio significa algo (narración y citas), nunca alternando

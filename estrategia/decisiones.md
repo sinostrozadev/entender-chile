@@ -74,6 +74,42 @@ pero no como criterio de decisión; sin jerarquía escrita, el primer conflicto
 real se resuelve por instinto. Es además la mitad de la propuesta de valor
 del video frente a los canales de opinión. **Decidió**: Santiago.
 
+## 2026-10-07 - La música de la Clave: mecanismo, no suspenso
+
+**Qué**: se reemplaza la regla dura 30. La cama vuelve a correr bajo la
+narración, de la que se había sacado el 27-08, pero con cuatro condiciones:
+sale de los números de la propia pieza, va en dórico y sin terceras, es
+golpeada y no frotada, y calla entera en los datos y en las secciones de duelo
+o violencia. El sello re - la - re queda igual y es lo único idéntico entre una
+Clave y otra. Queda prohibido el lenguaje del suspenso: trémolo, dron de
+amenaza, riser, pulso que acelera.
+
+**Por qué**: Santiago preguntó qué debería sonar un canal de información
+ciudadana. La respuesta no salió del gusto sino de lo que el canal hace: cada
+Clave le abre la tapa a un mecanismo, el sujeto es siempre un sistema y el
+placer que ofrece es ver los engranajes. El suspenso dice "algo anda mal"; esto
+tiene que decir "así funciona". De ahí sale la forma, que es proceso aditivo
+con células que se desfasan, el sonido de un sistema con partes, y que además
+calza con que la Clave ya es una explicación aditiva.
+
+La escala es dórico y no menor por un motivo editorial, no estético: el menor
+natural tiene la sexta bemol, que es la nota que lo vuelve triste y fatal, y el
+mayor afirma. El dórico es ambiguo respecto del desenlace, o sea el modo mismo
+se niega a editorializar, que es lo que pide la regla 2. Y la armonía va sin
+terceras porque sin tercera no hay mayor ni menor, no hay veredicto: es el mismo
+intervalo que Santiago eligió para el sello el 27-08.
+
+Sobre el riesgo que motivó la regla original, el patrón de contenido
+inauténtico de YouTube, la política apunta a la igualdad ENTRE videos (mismo
+esqueleto, misma biblioteca, misma voz, cambiando el tema) y no a que haya
+música. Un sello de tres segundos repetido es marca; una cama idéntica bajo
+cada video sí es el patrón. Por eso la cama se genera por pieza y el sello no.
+Verificado el 07-10-2026 contra fuentes externas, no contra la memoria del
+repo.
+
+**Decidió**: Santiago. **Detalle**: scripts/clave-musica.js y
+scripts/motor-sonido.js, que llevan el razonamiento completo en sus cabeceras.
+
 ## 2026-08-27 - Voz, imágenes, datos y música
 **Qué**: (1) La voz de prueba es **Azure AI Speech capa F0**: gratis
 permanente, uso comercial permitido y el único proveedor con voces de español

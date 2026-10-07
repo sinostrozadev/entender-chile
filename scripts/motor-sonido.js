@@ -154,3 +154,57 @@ const caja = (x, sr, modos = [[96, 0.988, 0.42], [147, 0.985, 0.3], [233, 0.982,
 
 module.exports.pianoFieltro = pianoFieltro;
 module.exports.caja = caja;
+
+// BARRA PERCUTIDA. Es el timbre que el canal ya eligió el 27-08-2026 para su
+// sello, así que la cama usa el mismo y no uno nuevo: un canal tiene un sonido,
+// no una colección.
+//
+// Una barra libre no da armónicos: da 1, 2,76, 5,40 y 8,93 veces la
+// fundamental, que no son múltiplos enteros de nada. Por eso una marimba suena
+// a madera golpeada y no a nota. Y por eso al constructor de marimbas le toca
+// AFINAR la barra rebajándola por abajo hasta llevar el segundo modo a cuatro
+// veces la fundamental, dos octavas justas. Esos son los números de acá:
+// madera afinada 1 / 3,93 / 9,82, metal 1 / 4 / 10,8 con cola mucho más larga.
+//
+// Los modos agudos mueren mucho antes que el grave, y eso no es un detalle: es
+// lo que hace que un golpe en madera sea un GOLPE y no una nota que aparece.
+const MODOS = {
+  madera: { r: [1, 3.93, 9.82, 16.1], a: [1, 0.30, 0.11, 0.04], cola: [1, 0.30, 0.14, 0.07] },
+  metal: { r: [1, 4.0, 10.8, 19.6], a: [1, 0.42, 0.20, 0.08], cola: [1, 0.62, 0.38, 0.22] },
+};
+
+const barra = (f, sr, seg, { tipo = "madera", cola = 1.1, mazo = 0.7 } = {}) => {
+  const n = Math.round(seg * sr);
+  const out = new Float32Array(n);
+  const M = MODOS[tipo] || MODOS.madera;
+  const ATAQUE = Math.max(2, Math.round(0.0015 * sr));
+  M.r.forEach((rel, k) => {
+    const fk = f * rel;
+    if (fk > sr * 0.45) return;
+    // el mazo blando excita menos los modos agudos, igual que el fieltro del
+    // piano: es el mismo fenómeno, con qué dureza golpeas
+    const amp = M.a[k] * Math.pow(1 - mazo, k * 0.55 + (k ? 0 : 0)) || M.a[k];
+    const tau = cola * M.cola[k];
+    const w = 2 * Math.PI * fk / sr;
+    let fase = 0;
+    for (let i = 0; i < n; i++) {
+      const cae = Math.exp(-i / (sr * tau));
+      if (cae < 1e-5) break;
+      fase += w;
+      out[i] += Math.sin(fase) * amp * cae * Math.min(1, i / ATAQUE);
+    }
+  });
+  // el golpe del mazo: dos milisegundos de ruido. Sin esto la nota aparece en
+  // vez de ser golpeada, y el oído lo nota aunque no sepa qué le falta.
+  let g = 0;
+  for (let i = 0; i < Math.min(n, Math.round(0.02 * sr)); i++) {
+    g = g * 0.7 + azar() * 0.3;
+    out[i] += g * 0.3 * Math.exp(-i / (sr * 0.0035));
+  }
+  let pico = 0;
+  for (let i = 0; i < n; i++) if (Math.abs(out[i]) > pico) pico = Math.abs(out[i]);
+  if (pico > 0) for (let i = 0; i < n; i++) out[i] /= pico;
+  return out;
+};
+
+module.exports.barra = barra;
