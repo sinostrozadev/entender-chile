@@ -3,7 +3,7 @@
   "etapa": "barrido_listo",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-10-08 08:38",
+  "actualizado": "2026-10-08 09:06",
   "reparar": null,
   "piezas": [
     {
@@ -79,31 +79,31 @@
     {
       "id": "preseleccion",
       "etiqueta": "Preselección",
-      "atraso": 388,
+      "atraso": 416,
       "dueno": "GPT · prompts/seleccion.md"
     },
     {
       "id": "informe",
       "etiqueta": "Informe",
-      "atraso": 358,
+      "atraso": 386,
       "dueno": "GPT · prompts/informe.md"
     },
     {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "atraso": 328,
+      "atraso": 356,
       "dueno": "GPT · prompts/guion-informe.md"
     },
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 308,
+      "atraso": 336,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 203,
+      "atraso": 231,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
