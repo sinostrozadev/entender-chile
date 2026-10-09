@@ -10,7 +10,7 @@
       "titulo": "Dos aluviones dejan diez comunas bajo alerta roja y sin clas",
       "publicado": "2026-10-09",
       "estado": "public",
-      "vistas": 1,
+      "vistas": 0,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 43
@@ -28,7 +28,7 @@
       "titulo": "¿En qué comunas no hay clases este viernes por la alerta roj",
       "publicado": "2026-10-09",
       "estado": "public",
-      "vistas": 130,
+      "vistas": 124,
       "meGusta": 3,
       "comentarios": 0,
       "durSeg": 47
@@ -37,8 +37,8 @@
       "titulo": "¿Qué calles evitar en Las Condes tras el aluvión de hoy? #Sh",
       "publicado": "2026-10-08",
       "estado": "public",
-      "vistas": 57,
-      "meGusta": 0,
+      "vistas": 60,
+      "meGusta": 1,
       "comentarios": 0,
       "durSeg": 45
     },
@@ -883,7 +883,7 @@
       "titulo": "Cómo leer el IPoM del Banco Central",
       "publicado": "2026-09-10",
       "estado": "public",
-      "vistas": 9,
+      "vistas": 10,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 351
