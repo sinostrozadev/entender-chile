@@ -1,9 +1,9 @@
 {
   "fecha": "2026-10-09",
-  "etapa": "aprobada",
+  "etapa": "videos_listos",
   "veredicto": "APROBADA",
   "vuelta": 0,
-  "actualizado": "2026-10-09 03:12",
+  "actualizado": "2026-10-09 03:46",
   "reparar": null,
   "piezas": [
     {
@@ -74,13 +74,15 @@
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "listo",
       "prompt": null,
-      "hora": "",
+      "hora": "03:38",
       "esperada": "05:15",
       "dueno": "Actions · edicion-diaria.yml",
-      "rutas": []
+      "rutas": [
+        "contenido/descripciones/2026-10-09-informe.txt"
+      ]
     }
   ],
   "atrasos": []
