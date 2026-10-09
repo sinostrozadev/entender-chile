@@ -23,9 +23,9 @@ Fuera del contador, por no ser comparables (se listan igual, con su etiqueta):
 | JUNAEB-SOSER, raciones no entregadas del Programa de Alimentación Escolar ("onces fantasma") | ACTIVO | $14 mil millones | denunciado | $0 | 2026-10-07 | junaeb-soser-raciones-no-entregadas.md |
 | JUNJI, app "Mi Jardín JUNJI" (pagos por aplicación de escaso uso) | ACTIVO | $458,9 millones | observado-contraloria | $0 | 2026-08-25 | junji-app-mi-jardin.md |
 | JUNJI, licencias médicas sin recuperar (Contraloría 2026) | ACTIVO | $20,9 mil millones | observado-contraloria | $1,7 mil millones | 2026-10-03 | junji-licencias-medicas.md |
-| Licencias médicas de funcionarios públicos (caso nacional y sus sanciones) | ACTIVO | $36,9 mil millones | estimacion | $0 | 2026-10-03 | licencias-medicas-funcionarios.md |
-| Municipalidad de Maipú (causa Cathy Barriga) | JUDICIALIZADO | $32,9 mil millones | perjuicio-acusado | $0 | 2026-09-27 | maipu-cathy-barriga.md |
+| Licencias médicas de funcionarios públicos (caso nacional y sus sanciones) | ACTIVO | $36,9 mil millones | estimacion | $0 | 2026-10-09 | licencias-medicas-funcionarios.md |
+| Municipalidad de Maipú (causa Cathy Barriga) | JUDICIALIZADO | $32,9 mil millones | perjuicio-acusado | $0 | 2026-10-09 | maipu-cathy-barriga.md |
 | ProCultura (transferencias de GORE y servicios a la fundación) | JUDICIALIZADO | $5,9 mil millones | investigado | $0 | 2026-09-27 | procultura.md |
 | Subsidios de arriendo (Minvu / Contraloría 314-2026) | ACTIVO | $239,3 millones | observado-contraloria | $0 | 2026-08-25 | subsidios-arriendo-minvu.md |
 
-10 caso(s) en seguimiento, 10 abierto(s). Última regeneración: 2026-10-08.
+10 caso(s) en seguimiento, 10 abierto(s). Última regeneración: 2026-10-09.
