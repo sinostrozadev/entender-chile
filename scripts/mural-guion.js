@@ -99,14 +99,23 @@ secciones.forEach((sec, i) => {
   }
 });
 
+// NO PISAR LAS CLAVES QUE YA ESTABAN. El 09-10-2026 este armador escribía un
+// objeto fijo sin "musica", así que al rearmar el guion contra la reescritura de
+// GPT la pista de audio desapareció sin aviso y el render de once minutos salió
+// mudo. Lo que este script calcula se sobreescribe; lo demás se conserva.
+const previo = fs.existsSync(destino) ? JSON.parse(fs.readFileSync(destino, "utf8")) : {};
 const guion = {
+  ...previo,
   mural: [1, 2, 3].map((i) => `${base}-${i}.jpg`),
   anchoMural,
   viajeSeg: 1.5,
   paradas,
   bloques,
 };
+// los velos se resuelven contra las paradas, así que un guion nuevo los invalida
+if (previo.velos && previo.velos.length !== paradas.length) delete guion.velos;
 fs.writeFileSync(destino, JSON.stringify(guion, null, 2) + "\n");
+if (!guion.musica) console.log("OJO: el guion no tiene clave musica, el video saldrá mudo");
 const tot = bloques.reduce((a, b) => a + b.seg, 0);
 console.log("secciones:", secciones.length, "| bloques:", bloques.length, "| duración:", Math.floor(tot / 60) + "m" + Math.round(tot % 60) + "s");
 console.log("rótulos:", secciones.map((s) => s.titulo).join(" / "));

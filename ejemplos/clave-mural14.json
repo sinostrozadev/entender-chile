@@ -6,6 +6,7 @@
   ],
   "anchoMural": 27580,
   "viajeSeg": 1.5,
+  "musica": "sonidos/cama-clave.wav",
   "paradas": [
     440,
     2460,
