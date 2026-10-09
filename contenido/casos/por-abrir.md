@@ -58,3 +58,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-10-02 | Edificio nuevo del Servicio Médico Legal
 - 2026-10-06 | fraude al fisco en organismos públicos del Maule
 - 2026-10-06 | pensiones del Caso Bernarda Vera
+- 2026-10-09 | recetas de medicamentos controlados en el Hospital de Talagante
