@@ -3,14 +3,14 @@
   "canal": {
     "suscriptores": 32,
     "vistas": 13859,
-    "videos": 143
+    "videos": 145
   },
   "videos": {
     "tW1C7cXx9D0": {
       "titulo": "Dos aluviones dejan diez comunas bajo alerta roja y sin clas",
       "publicado": "2026-10-09",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 43
@@ -18,8 +18,8 @@
     "3E9EU2YJPC0": {
       "titulo": "Aluviones en Las Condes: diez comunas bajo alerta roja y sin",
       "publicado": "2026-10-09",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 681
@@ -28,7 +28,7 @@
       "titulo": "¿En qué comunas no hay clases este viernes por la alerta roj",
       "publicado": "2026-10-09",
       "estado": "public",
-      "vistas": 76,
+      "vistas": 130,
       "meGusta": 3,
       "comentarios": 0,
       "durSeg": 47
@@ -37,7 +37,7 @@
       "titulo": "¿Qué calles evitar en Las Condes tras el aluvión de hoy? #Sh",
       "publicado": "2026-10-08",
       "estado": "public",
-      "vistas": 34,
+      "vistas": 57,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 45
@@ -145,7 +145,7 @@
       "titulo": "El Presupuesto 2027 elimina la beca de computadores escolare",
       "publicado": "2026-10-03",
       "estado": "public",
-      "vistas": 74,
+      "vistas": 75,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 835
@@ -505,7 +505,7 @@
       "titulo": "Lluvias fuertes e isoterma cero alta entre Maule y Los Lagos",
       "publicado": "2026-09-22",
       "estado": "public",
-      "vistas": 3,
+      "vistas": 4,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 895
@@ -622,7 +622,7 @@
       "titulo": "Falla en la PGU afecta a cerca de 53 mil pensionados",
       "publicado": "2026-09-17",
       "estado": "public",
-      "vistas": 4,
+      "vistas": 5,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 627
@@ -1234,7 +1234,7 @@
       "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 147,
+      "vistas": 149,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 682
@@ -1383,10 +1383,10 @@
       "pct": 60.4
     },
     "lmww6uXgkH4": {
-      "vistas": 532,
+      "vistas": 530,
       "minutos": 213,
       "segProm": 43,
-      "pct": 84.9
+      "pct": 85.4
     },
     "qzn2RJefxic": {
       "vistas": 92,
@@ -1395,7 +1395,7 @@
       "pct": 43.8
     },
     "_ivLCorYqqg": {
-      "vistas": 827,
+      "vistas": 826,
       "minutos": 203,
       "segProm": 32,
       "pct": 68.1
@@ -1437,7 +1437,7 @@
       "pct": 80.7
     },
     "3QhDzy_gUKk": {
-      "vistas": 83,
+      "vistas": 82,
       "minutos": 75,
       "segProm": 75,
       "pct": 11.1
@@ -1574,12 +1574,6 @@
       "segProm": 16,
       "pct": 37.4
     },
-    "Bzw_X8-ubdo": {
-      "vistas": 5,
-      "minutos": 24,
-      "segProm": 295,
-      "pct": 45
-    },
     "U__vg19xHW8": {
       "vistas": 3,
       "minutos": 22,
@@ -1663,6 +1657,12 @@
       "minutos": 13,
       "segProm": 25,
       "pct": 55.3
+    },
+    "Bzw_X8-ubdo": {
+      "vistas": 4,
+      "minutos": 13,
+      "segProm": 205,
+      "pct": 31.3
     },
     "8WNkdRrmI9U": {
       "vistas": 136,
@@ -2148,7 +2148,7 @@
   "fuentes": {
     "canal": {
       "SHORTS": {
-        "vistas": 8326,
+        "vistas": 8327,
         "minutos": 1821
       },
       "YT_SEARCH": {
@@ -2172,7 +2172,7 @@
         "minutos": 102
       },
       "NO_LINK_OTHER": {
-        "vistas": 54,
+        "vistas": 42,
         "minutos": 30
       },
       "YT_OTHER_PAGE": {
@@ -2457,118 +2457,118 @@
           "YT_OTHER_PAGE": 1
         },
         "curva": {
-          "p01": 57,
-          "p03": 32,
-          "p05": 29,
-          "p10": 23,
+          "p01": 59,
+          "p03": 33,
+          "p05": 30,
+          "p10": 24,
           "p25": 13,
           "p50": 7,
           "p75": 7,
           "caidaMayor": {
             "segundo": 0,
-            "puntos": 43
+            "puntos": 41
           },
           "serie": [
             1,
-            0.571,
-            0.375,
-            0.321,
-            0.304,
-            0.286,
-            0.286,
-            0.304,
-            0.304,
-            0.25,
-            0.232,
-            0.196,
-            0.179,
-            0.161,
-            0.161,
-            0.161,
-            0.161,
-            0.161,
-            0.161,
-            0.161,
-            0.161,
-            0.161,
-            0.143,
-            0.125,
-            0.125,
-            0.125,
-            0.143,
-            0.125,
-            0.125,
-            0.125,
-            0.125,
-            0.125,
-            0.125,
-            0.107,
-            0.107,
-            0.107,
-            0.089,
-            0.089,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.089,
-            0.089,
-            0.089,
-            0.089,
-            0.089,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071,
-            0.071
+            0.593,
+            0.389,
+            0.333,
+            0.315,
+            0.296,
+            0.296,
+            0.315,
+            0.315,
+            0.259,
+            0.241,
+            0.204,
+            0.185,
+            0.167,
+            0.167,
+            0.167,
+            0.167,
+            0.167,
+            0.167,
+            0.167,
+            0.167,
+            0.167,
+            0.148,
+            0.13,
+            0.13,
+            0.13,
+            0.148,
+            0.13,
+            0.13,
+            0.13,
+            0.13,
+            0.13,
+            0.13,
+            0.111,
+            0.111,
+            0.111,
+            0.093,
+            0.093,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.093,
+            0.093,
+            0.093,
+            0.093,
+            0.093,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074,
+            0.074
           ]
         }
       },
@@ -3706,7 +3706,7 @@
         "ctr": 1.82
       },
       "9Le8uCfDRA4": {
-        "impresiones": 2074,
+        "impresiones": 2077,
         "clics": 3,
         "ctr": 0.14
       },
@@ -3841,7 +3841,7 @@
         "ctr": 2.22
       },
       "nvG_C4evsL8": {
-        "impresiones": 1641,
+        "impresiones": 1643,
         "clics": 29,
         "ctr": 1.77
       },
@@ -4061,7 +4061,7 @@
         "ctr": 1.59
       },
       "3QhDzy_gUKk": {
-        "impresiones": 4892,
+        "impresiones": 4891,
         "clics": 15,
         "ctr": 0.31
       },
@@ -4321,9 +4321,9 @@
         "ctr": 2.44
       },
       "Bzw_X8-ubdo": {
-        "impresiones": 12,
-        "clics": 1,
-        "ctr": 8.33
+        "impresiones": 10,
+        "clics": 0,
+        "ctr": 0
       },
       "W1wDcuuG7tI": {
         "impresiones": 113,
@@ -4366,7 +4366,7 @@
         "ctr": 0
       },
       "QjRp0EJZ20M": {
-        "impresiones": 30,
+        "impresiones": 29,
         "clics": 0,
         "ctr": 0
       },
@@ -4376,9 +4376,9 @@
         "ctr": 4.76
       },
       "wmUEAj_EQO8": {
-        "impresiones": 70,
+        "impresiones": 68,
         "clics": 1,
-        "ctr": 1.43
+        "ctr": 1.47
       },
       "RyX3hbdy_0Q": {
         "impresiones": 85,
@@ -4513,8 +4513,8 @@
         "ctr": 2.04
       },
       "2026-10-04": {
-        "impresiones": 722,
-        "ctr": 1.39
+        "impresiones": 721,
+        "ctr": 1.25
       },
       "2026-10-05": {
         "impresiones": 733,
