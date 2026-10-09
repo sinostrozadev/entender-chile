@@ -547,6 +547,30 @@ referencia:
 
 ## Dependen de Santiago
 
+- [ ] **09-10, HOY: el 07-10 y el 08-10 la cadena diaria y la propia
+      auditoría de las 05:30 quedaron mudas más de 36 horas porque Claude
+      nunca devolvió veredicto, y nadie se enteró hasta hoy.** Auditoría del
+      09-10 (`bitacora/2026-10-09-auditoria.md`). Evidencia (con la historia
+      completa de git, no el checkout shallow con el que arranca la
+      auditoría): `contenido/estado/2026-10-07.md` quedó en
+      `validar_guion_informe` / `pendiente` desde las 19:38 del 07-10 (el
+      disparo a Claude de la vuelta 1 fue a las 06:00:20 UTC y nunca volvió);
+      `contenido/estado/2026-10-08.md` quedó en `barrido_listo` / `pendiente`
+      desde las 09:06 del 08-10 (el barrido llegó 7 horas tarde y la
+      preselección, turno permanente de Claude desde el 06-10, tampoco
+      respondió). Ningún archivo de la cadena de esos dos días existe después
+      de esos puntos (ni revisión, ni video, ni podcast, ni descripción), y
+      `bitacora/2026-10-07-auditoria.md` y `bitacora/2026-10-08-auditoria.md`
+      no existen (comprobado con `git log --all --diff-filter=A` y `git show
+      main:`, cero resultados los dos). Mismo síntoma que el 04-09
+      ("Suscripción de Claude vencida", más arriba en "URGENTE, con plazo"),
+      pero esta vez el guardián que debía avisarlo es el mismo turno que se
+      quedó mudo, así que no hubo ningún aviso. Necesita que Santiago revise
+      el estado de la cuenta/suscripción de Claude para esas fechas y
+      confirme si ya está resuelto; después, la noche debería hacer que estos
+      turnos fallen de forma ruidosa (un archivo o aviso explícito al agotar
+      los reintentos) en vez de no dejar rastro.
+
 - [ ] **27-09, HOY: la idea de la Clave de la semana 39
       (acuerdo-internacional-sin-tratado) lleva nueve mañanas sin que
       Santiago la apruebe o pida cambios, y nunca había quedado anotada
@@ -844,6 +868,16 @@ referencia:
       `&& !f.endsWith("-imagenes.md")` al `.find()` (o excluir explícitamente
       los archivos que terminan en `-imagenes.md`) para que solo pueda
       elegir el guion real.
+      **09-10: van TRES mañanas marcada (06, 07 y 08-10) y en el medio ya
+      pasó de predicción a hecho.** Auditoría del 09-10
+      (`bitacora/2026-10-09-auditoria.md`). La línea 52 sigue idéntica,
+      verificada en esta corrida, y el bug se reprodujo de verdad en la
+      corrida `https://github.com/sinostrozadev/entender-chile/actions/runs/37642750015`
+      (07-10, 15:18 UTC): el log dice `✓ clave: parsea · 0 secciones` y
+      después `ERROR: clave: solo 0 secciones`, exactamente lo que predijo
+      el 06-10. No le costó nada a esa corrida porque el bloqueo real fue
+      otro (ver el hallazgo de la cadena muda, más abajo en "Dependen de
+      Santiago"), pero el bug en sí sigue sin el arreglo de una línea.
 
 - [ ] **22-09, HOY: contradicción de prompt en `prompts/guion-informe.md`
       entre el ejemplo de `comparacion` (línea 229, etiquetas de una
