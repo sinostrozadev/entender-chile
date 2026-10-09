@@ -483,5 +483,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-06-informe.mp3",
     "bytes": 16862400,
     "durSeg": 703
+  },
+  {
+    "fecha": "2026-10-09",
+    "tipo": "informe",
+    "titulo": "09-10-2026 · Aluviones en Las Condes: diez comunas bajo alerta roja y sin clases",
+    "descripcion": "Dos aluviones golpearon Las Condes y mantienen a diez comunas bajo alerta roja, con clases suspendidas y evaluaciones de daños en curso. Además, revisamos las nuevas reglas de uso de la fuerza, la inflación de septiembre, las recetas irregulares detectadas en Talagante y la orden judicial contra Eduardo Bolsonaro.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-09-informe.mp3",
+    "bytes": 16329600,
+    "durSeg": 680
   }
 ]
