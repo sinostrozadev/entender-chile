@@ -835,6 +835,21 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **10-10, AGUANTA: la ambigüedad de "La noticia del día" (¿el tope de
+      25-35 palabras cuenta la [TESIS] narrada o solo el párrafo?) lleva al
+      menos cuatro ediciones seguidas marcada en las revisiones y nunca había
+      bajado a esta lista.** Auditoría del 10-10
+      (`bitacora/2026-10-10-auditoria.md`). `contenido/revisiones/2026-10-09.md`
+      ya la llama "tercera edición seguida con la misma observación" y hoy
+      `contenido/revisiones/2026-10-10.md` la marca otra vez. Nunca bloqueó un
+      veredicto, pero es exactamente el patrón que esta auditoría debe
+      detectar: un hallazgo que se repite sin bajar a la lista viva no se
+      corrige porque nadie lo ve como tarea. Buscado explícitamente en
+      `estrategia/decisiones.md` y `bitacora/REALIZADOS.md`: no hay ninguna
+      decisión de NO resolverlo. Propuesta: en `prompts/guion-informe.md` o
+      `prompts/informe.md`, fijar explícitamente si el tope de "La noticia
+      del día" cuenta o no la [TESIS] narrada.
+
 - [ ] **06-10, HOY: `scripts/gate.js:52` elige el archivo equivocado para
       la Clave y va a bloquear la edición completa (informe y Clave) del
       07-10-2026.** Auditoría del 06-10 (`bitacora/2026-10-06-auditoria.md`).
@@ -878,6 +893,11 @@ referencia:
       el 06-10. No le costó nada a esa corrida porque el bloqueo real fue
       otro (ver el hallazgo de la cadena muda, más abajo en "Dependen de
       Santiago"), pero el bug en sí sigue sin el arreglo de una línea.
+      **10-10: van CINCO mañanas marcada (06, 07, 08, 09 y 10-10).**
+      Auditoría del 10-10 (`bitacora/2026-10-10-auditoria.md`). La línea 52
+      sigue idéntica, verificada de nuevo en esta corrida; hoy no hay guion
+      de Clave con fecha de hoy (no corresponde Clave), así que no se
+      reprodujo, pero el arreglo de una línea sigue sin aplicarse.
 
 - [ ] **22-09, HOY: contradicción de prompt en `prompts/guion-informe.md`
       entre el ejemplo de `comparacion` (línea 229, etiquetas de una
@@ -1124,6 +1144,14 @@ referencia:
       que estés validando; no dependas de notarlo por casualidad." Auditoría
       del 30-09 (`bitacora/2026-09-30-auditoria.md`). La propuesta del 29-09
       sobre `prompts/guion-informe.md:211-212` sigue sin aplicarse.
+      **10-10: vuelve a aparecer, ahora con "Senapred".**
+      `contenido/revisiones/2026-10-10.md` marca "Senapred" sin expandir en
+      una marca [FUENTE]/[DATO] del guion de hoy (el 09-10 había sido
+      Mineduc/REDIMIN/CIPER). Auditoría del 10-10
+      (`bitacora/2026-10-10-auditoria.md`). La propuesta del 29-09 sobre
+      `prompts/guion-informe.md:211-212` (quitar la restricción de alcance)
+      sigue sin aplicarse y sigue siendo la que resuelve de fondo las dos
+      recurrencias.
 
 - [ ] **23-09, HOY: tope al cierre de cautela repetido ("queda para
       verificar/en seguimiento/pendiente"), más de una semana sin corregirse
