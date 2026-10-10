@@ -182,10 +182,6 @@
         }
       }
     },
-    "2026-08-25": {
-      "reporte": "20487385601",
-      "videos": {}
-    },
     "2026-08-26": {
       "reporte": "17644722528",
       "videos": {}
@@ -7083,8 +7079,189 @@
           "clics": 0
         }
       }
+    },
+    "2026-10-08": {
+      "reporte": "20577934349",
+      "videos": {
+        "-phNJeYXTLA": {
+          "impresiones": 2,
+          "clics": 0
+        },
+        "1O2sYbmslnA": {
+          "impresiones": 4,
+          "clics": 1
+        },
+        "2uHk1abTVRA": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "3PyF0uX9pn0": {
+          "impresiones": 2,
+          "clics": 0
+        },
+        "3QhDzy_gUKk": {
+          "impresiones": 3,
+          "clics": 0
+        },
+        "4rbR0MXU5eU": {
+          "impresiones": 2,
+          "clics": 0
+        },
+        "5gCnr5z-5_4": {
+          "impresiones": 6,
+          "clics": 1
+        },
+        "8TOxaSbK130": {
+          "impresiones": 8,
+          "clics": 0
+        },
+        "9Eb-1KD5BqE": {
+          "impresiones": 19,
+          "clics": 1
+        },
+        "9JjmWDJroLU": {
+          "impresiones": 4,
+          "clics": 0
+        },
+        "AWrhkCZUQ6k": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "DQl1ZQPx51o": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "FI_7V_pOlwQ": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "K3F1aDloh6Q": {
+          "impresiones": 2,
+          "clics": 0
+        },
+        "L1VjRH8XTno": {
+          "impresiones": 448,
+          "clics": 5
+        },
+        "NaMLfrB4nzU": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "QjRp0EJZ20M": {
+          "impresiones": 7,
+          "clics": 0
+        },
+        "REcC_ZuhrPY": {
+          "impresiones": 4,
+          "clics": 0
+        },
+        "RyX3hbdy_0Q": {
+          "impresiones": 3,
+          "clics": 0
+        },
+        "S9lXZ6iXZ3w": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "TR_Oy2yn2Cs": {
+          "impresiones": 12,
+          "clics": 0
+        },
+        "TeKnIIGAMUw": {
+          "impresiones": 4,
+          "clics": 0
+        },
+        "W1wDcuuG7tI": {
+          "impresiones": 2,
+          "clics": 0
+        },
+        "WjXgunaHKjs": {
+          "impresiones": 8,
+          "clics": 0
+        },
+        "YZZwXm6XMMw": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "Z3YHx4hd1YI": {
+          "impresiones": 3,
+          "clics": 0
+        },
+        "_ivLCorYqqg": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "bU-eMEkDcHc": {
+          "impresiones": 2,
+          "clics": 0
+        },
+        "ei1OUk3ZvAI": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "fLF9y7DIPFM": {
+          "impresiones": 11,
+          "clics": 0
+        },
+        "fUYEskTWdGc": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "hrufcYlaUSM": {
+          "impresiones": 3,
+          "clics": 0
+        },
+        "iJvu555lINQ": {
+          "impresiones": 3,
+          "clics": 1
+        },
+        "nvG_C4evsL8": {
+          "impresiones": 6,
+          "clics": 0
+        },
+        "oCEw0HwkUyg": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "qzn2RJefxic": {
+          "impresiones": 17,
+          "clics": 2
+        },
+        "sXrH9G7A6II": {
+          "impresiones": 2,
+          "clics": 0
+        },
+        "tBv9v_TGayw": {
+          "impresiones": 62,
+          "clics": 0
+        },
+        "uzbivsRi_cE": {
+          "impresiones": 6,
+          "clics": 0
+        },
+        "w8IPmwGoq3w": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "x42q1499zPo": {
+          "impresiones": 2,
+          "clics": 0
+        },
+        "xX9kaWw8Byg": {
+          "impresiones": 1,
+          "clics": 0
+        },
+        "xYaG4nx-IkI": {
+          "impresiones": 1,
+          "clics": 1
+        },
+        "ybLb8PCGerY": {
+          "impresiones": 5,
+          "clics": 0
+        }
+      }
     }
   },
-  "actualizado": "2026-10-09",
+  "actualizado": "2026-10-10",
   "job": "512e38a3-6714-4fdd-b6bc-0a4a375117b3"
 }
