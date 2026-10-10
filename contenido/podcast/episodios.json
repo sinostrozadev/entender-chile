@@ -492,5 +492,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-09-informe.mp3",
     "bytes": 16329600,
     "durSeg": 680
+  },
+  {
+    "fecha": "2026-10-10",
+    "tipo": "informe",
+    "titulo": "10-10-2026 · Fiscalía investiga el aluvión de Las Condes",
+    "descripcion": "La Fiscalía investiga el origen del aluvión de San Carlos de Apoquindo y el Estado comenzó el catastro de daños. También revisamos la Ley de Reconstrucción, el terremoto de Panamá, el debate presupuestario y las noticias económicas que marcan la jornada.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-10-informe.mp3",
+    "bytes": 19328256,
+    "durSeg": 805
   }
 ]
