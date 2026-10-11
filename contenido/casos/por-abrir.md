@@ -61,3 +61,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-10-09 | recetas de medicamentos controlados en el Hospital de Talagante
 - 2026-10-10 | causa del senador Miguel Ángel Calisto
 - 2026-10-10 | financiamiento municipal de Brujas de Salamanca SADP
+- 2026-10-11 | fraude al fisco en Talca
