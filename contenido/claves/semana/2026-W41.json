@@ -1,0 +1,858 @@
+{
+  "semana": "2026-W41",
+  "lunes": "2026-10-05",
+  "sabado": "2026-10-10",
+  "dias": [
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-10"
+  ],
+  "dias_con_informe": [
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-09",
+    "2026-10-10"
+  ],
+  "generado": "2026-10-11",
+  "noticias": 206,
+  "temas": 151,
+  "pesos": {
+    "A": 3,
+    "B": 2,
+    "C": 1,
+    "seguimiento": 1.5,
+    "dia_extra": 1,
+    "dossier": 2
+  },
+  "ranking": [
+    {
+      "puesto": 1,
+      "puntaje": 12,
+      "dias": [
+        "2026-10-05",
+        "2026-10-06",
+        "2026-10-07",
+        "2026-10-10"
+      ],
+      "niveles": [
+        "A",
+        "B",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Resumen internacional"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "segunda",
+        "vuelta",
+        "brasil",
+        "bolsonaro",
+        "flavio",
+        "lula",
+        "ante",
+        "apoyan"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-05",
+          "nivel": "A",
+          "titular": "Brasil va a segunda vuelta con Flávio Bolsonaro primero y Lula a menos de dos puntos",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-10-06",
+          "nivel": "B",
+          "titular": "Brasil entra a segunda vuelta y mueve la política y los mercados chilenos",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-10-07",
+          "nivel": "B",
+          "titular": "Dos partidos del gobierno de Lula apoyan a Flávio Bolsonaro en segunda vuelta",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-10-10",
+          "nivel": "B",
+          "titular": "Brasil extendió subsidios a combustibles antes de la segunda vuelta",
+          "seccion": "Resumen internacional"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 2,
+      "puntaje": 10,
+      "dias": [
+        "2026-10-06",
+        "2026-10-07",
+        "2026-10-09",
+        "2026-10-10"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Resumen internacional",
+        "Política",
+        "Gobierno, aliados y oposición"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "bolivia",
+        "kast",
+        "visita",
+        "coordina",
+        "presidente",
+        "auto",
+        "causa",
+        "chuto"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-06",
+          "nivel": "B",
+          "titular": "Bolivia coordina la visita de Kast y reactiva la discusión por autos chutos",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-10-07",
+          "nivel": "B",
+          "titular": "Bolivia coordina en Santiago la visita del presidente Kast",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-10-09",
+          "nivel": "C",
+          "titular": "El Presidente viajará a Bolivia",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-10-10",
+          "nivel": "B",
+          "titular": "La visita de Kast a Bolivia llegará con libre tránsito y una causa pendiente",
+          "seccion": "Gobierno, aliados y oposición"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 3,
+      "puntaje": 10,
+      "dias": [
+        "2026-10-06",
+        "2026-10-07",
+        "2026-10-10"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Seguridad y Justicia"
+      ],
+      "seguimiento": true,
+      "noticias": 3,
+      "terminos": [
+        "calisto",
+        "fisco",
+        "fraude",
+        "senador",
+        "amparo",
+        "avanzar",
+        "causa",
+        "desafuero"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-06",
+          "nivel": "B",
+          "titular": "Diez funcionarios del Maule son detenidos por un fraude al fisco superior a $3.000 millones",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-10-07",
+          "nivel": "B",
+          "titular": "Desafuero del senador Calisto permite avanzar en una causa por fraude al Fisco",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-10-10",
+          "nivel": "B",
+          "titular": "La Suprema volvió a rechazar el amparo del senador Calisto",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 4,
+      "puntaje": 8,
+      "dias": [
+        "2026-10-05",
+        "2026-10-06",
+        "2026-10-09"
+      ],
+      "niveles": [
+        "B",
+        "A",
+        "C"
+      ],
+      "secciones": [
+        "Medioambiente y clima"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "electrica",
+        "tormenta",
+        "central",
+        "lluvia",
+        "viento",
+        "zona",
+        "alerta",
+        "entra"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-05",
+          "nivel": "B",
+          "titular": "La zona central entra en una semana de lluvia, nieve y tormentas eléctricas",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-10-06",
+          "nivel": "A",
+          "titular": "Alertas por lluvia, viento, tormentas eléctricas y trombas marinas en la zona central",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-10-09",
+          "nivel": "C",
+          "titular": "Tormentas eléctricas, granizo y viento siguen bajo vigilancia en cuatro regiones",
+          "seccion": "Medioambiente y clima"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 5,
+      "puntaje": 8,
+      "dias": [
+        "2026-10-05",
+        "2026-10-09"
+      ],
+      "niveles": [
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Seguridad y Justicia",
+        "Economía"
+      ],
+      "seguimiento": true,
+      "noticias": 2,
+      "terminos": [
+        "alimentacion",
+        "escolar",
+        "abierta",
+        "discontinuar",
+        "fiscalia",
+        "hacienda",
+        "investigacion",
+        "irregularidad"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-05",
+          "nivel": "B",
+          "titular": "Fiscalía mantiene abierta una investigación por presuntas irregularidades en alimentación escolar de Junaeb",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-10-09",
+          "nivel": "B",
+          "titular": "Hacienda recomendó discontinuar el Programa de Alimentación Escolar",
+          "seccion": "Economía"
+        }
+      ],
+      "dossier": {
+        "slug": "junaeb-soser-raciones-no-entregadas",
+        "titulo": "Caso: JUNAEB-SOSER, raciones no entregadas del Programa de Alimentación Escolar (\"onces fantasma\")"
+      },
+      "explicado": null
+    },
+    {
+      "puesto": 6,
+      "puntaje": 7,
+      "dias": [
+        "2026-10-05",
+        "2026-10-06",
+        "2026-10-07"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "C"
+      ],
+      "secciones": [
+        "Resumen internacional",
+        "Chile en regiones",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "aumentar",
+        "neuquen",
+        "naturgy",
+        "conversacion",
+        "costo",
+        "dependencia",
+        "efecto",
+        "energetico"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-05",
+          "nivel": "B",
+          "titular": "Neuquén y Naturgy buscan aumentar el envío de gas de Vaca Muerta hacia Chile",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-10-06",
+          "nivel": "B",
+          "titular": "Neuquén busca aumentar las exportaciones de gas a Chile",
+          "seccion": "Chile en regiones"
+        },
+        {
+          "fecha": "2026-10-07",
+          "nivel": "C",
+          "titular": "Neuquén y Naturgy iniciaron conversaciones para aumentar el uso de gasoductos hacia Chile, con potencial efecto sobre el costo energético y la dependencia del gas natural licuado",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 7,
+      "puntaje": 7,
+      "dias": [
+        "2026-10-07",
+        "2026-10-09",
+        "2026-10-10"
+      ],
+      "niveles": [
+        "B",
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Política",
+        "Chile en regiones"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "seguridad",
+        "apoyo",
+        "reforma",
+        "acuerda",
+        "constitucional",
+        "falta",
+        "militar",
+        "montt"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-07",
+          "nivel": "B",
+          "titular": "El Gobierno retira su reforma constitucional de seguridad y acuerda otra vía con senadores",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-10-09",
+          "nivel": "C",
+          "titular": "Puerto Montt propone un plan piloto con apoyo militar para seguridad",
+          "seccion": "Chile en regiones"
+        },
+        {
+          "fecha": "2026-10-10",
+          "nivel": "B",
+          "titular": "El Gobierno retiró su reforma de seguridad por falta de apoyo",
+          "seccion": "Política"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 8,
+      "puntaje": 7,
+      "dias": [
+        "2026-10-09",
+        "2026-10-10"
+      ],
+      "niveles": [
+        "A",
+        "A"
+      ],
+      "secciones": [
+        "Actualidad"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "aluvion",
+        "cond",
+        "activa",
+        "alerta",
+        "ayuda",
+        "clas",
+        "comuna",
+        "estado"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-09",
+          "nivel": "A",
+          "titular": "Aluviones en Las Condes dejan diez comunas bajo alerta roja y sin clases",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-10-10",
+          "nivel": "A",
+          "titular": "Fiscalía investiga el aluvión de Las Condes y el Estado activa la ayuda temprana",
+          "seccion": "Actualidad"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 9,
+      "puntaje": 7,
+      "dias": [
+        "2026-10-06",
+        "2026-10-09"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Salud",
+        "Actualidad",
+        "Ciencia y tecnología"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "cancer",
+        "mama",
+        "publico",
+        "artificial",
+        "aumentan",
+        "banco",
+        "cirugia",
+        "clinico"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-06",
+          "nivel": "B",
+          "titular": "Casos de cáncer de mama aumentan 7,6%",
+          "seccion": "Salud"
+        },
+        {
+          "fecha": "2026-10-09",
+          "nivel": "B",
+          "titular": "La primera cirugía robótica de cáncer de mama en un hospital público marca un hito clínico",
+          "seccion": "Actualidad"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 10,
+      "puntaje": 6,
+      "dias": [
+        "2026-10-05",
+        "2026-10-07",
+        "2026-10-10"
+      ],
+      "niveles": [
+        "C",
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Chile en regiones"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "arena",
+        "punta",
+        "argentina",
+        "malvina",
+        "ruta",
+        "tension",
+        "abrio",
+        "aerea"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-05",
+          "nivel": "C",
+          "titular": "La Fuerza Aérea completó en menos de 24 horas una evacuación médica desde la Antártica hasta Punta Arenas, según el único medio que reportó el operativo del día",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-07",
+          "nivel": "C",
+          "titular": "La navegación comercial entre Punta Arenas y las islas Malvinas abrió una nueva tensión con Argentina por soberanía y rutas marítimas",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-10",
+          "nivel": "B",
+          "titular": "La ruta Punta Arenas-Malvinas aumenta la tensión con Argentina",
+          "seccion": "Chile en regiones"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    }
+  ],
+  "fuera_por_ya_explicado": [
+    {
+      "puntaje": 16.5,
+      "dias": [
+        "2026-10-05",
+        "2026-10-06",
+        "2026-10-07"
+      ],
+      "niveles": [
+        "B",
+        "A",
+        "C",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Seguridad y Justicia",
+        "Plata pública",
+        "Además, hoy"
+      ],
+      "seguimiento": true,
+      "noticias": 5,
+      "terminos": [
+        "licencia",
+        "medica",
+        "investigacion",
+        "regional",
+        "viaj",
+        "armada",
+        "carabinero",
+        "carrera"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-05",
+          "nivel": "A",
+          "titular": "Contraloría detecta 7.207 funcionarios con viajes al extranjero durante licencias médicas en 2025",
+          "seccion": "Plata pública"
+        },
+        {
+          "fecha": "2026-10-06",
+          "nivel": "B",
+          "titular": "El Caso Licencias Médicas suma cifras regionales y una investigación municipal",
+          "seccion": "Plata pública"
+        },
+        {
+          "fecha": "2026-10-07",
+          "nivel": "B",
+          "titular": "La Corte Suprema remueve a otros cuatro jueces por viajes con licencia médica",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": {
+        "slug": "fonasa-licencias-falsas",
+        "titulo": "Caso: FONASA, megafraude de licencias médicas falsas"
+      },
+      "explicado": {
+        "slug": "licencia-medica-fiscalizacion-y-sumario",
+        "titulo": "Licencia médica en Chile: quién decide, quién paga y qué ocurre si no se cumple el reposo"
+      }
+    },
+    {
+      "puntaje": 11,
+      "dias": [
+        "2026-10-07",
+        "2026-10-09",
+        "2026-10-10"
+      ],
+      "niveles": [
+        "C",
+        "C",
+        "B",
+        "B",
+        "B",
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Política",
+        "Gobierno, aliados y oposición",
+        "Economía"
+      ],
+      "seguimiento": false,
+      "noticias": 6,
+      "terminos": [
+        "estado",
+        "unido",
+        "estrecho",
+        "magallan",
+        "negociacion",
+        "acelerar",
+        "america",
+        "arancel"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-07",
+          "nivel": "C",
+          "titular": "La Cámara pidió priorizar los intereses de Chile en el Estrecho de Magallanes, protestar por declaraciones de militares argentinos y acelerar la renovación de aviones de combate",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-09",
+          "nivel": "B",
+          "titular": "La política exterior suma tensión por el Estrecho de Magallanes y el Escudo de las Américas",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-10-10",
+          "nivel": "B",
+          "titular": "El Estrecho de Magallanes abre un conflicto diplomático con Estados Unidos",
+          "seccion": "Gobierno, aliados y oposición"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "estrecho-magallanes-soberania-navegacion",
+        "titulo": "Estrecho de Magallanes: cómo conviven soberanía chilena, libre navegación y obligaciones con Argentina"
+      }
+    },
+    {
+      "puntaje": 5,
+      "dias": [
+        "2026-10-06",
+        "2026-10-09"
+      ],
+      "niveles": [
+        "A",
+        "C"
+      ],
+      "secciones": [
+        "Seguridad y Justicia"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "preventiva",
+        "prision",
+        "causa",
+        "celula",
+        "diecinueve",
+        "homicidio",
+        "imputado",
+        "investigacion"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-06",
+          "nivel": "A",
+          "titular": "Diecinueve imputados quedan en prisión preventiva en investigación por una célula del PCC",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-10-09",
+          "nivel": "C",
+          "titular": "Prisión preventiva en dos causas de homicidio y robo violento",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "prision-preventiva-chile",
+        "titulo": "Prisión preventiva en Chile: cuándo puede ordenarse y por qué no equivale a una condena"
+      }
+    },
+    {
+      "puntaje": 3,
+      "dias": [
+        "2026-10-07"
+      ],
+      "niveles": [
+        "B",
+        "C"
+      ],
+      "secciones": [
+        "Política",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "senado",
+        "tribunal",
+        "ambiental",
+        "aprobo",
+        "candidato",
+        "constitucional",
+        "controversia",
+        "energetico"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-07",
+          "nivel": "B",
+          "titular": "El candidato del Gobierno al Tribunal Constitucional cae en el Senado",
+          "seccion": "Política"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "control-constitucional-proyectos-ley",
+        "titulo": "Tribunal Constitucional y formación de la ley: qué revisa antes de la promulgación y por qué puede frenar una norma aprobada por el Congreso"
+      }
+    },
+    {
+      "puntaje": 2,
+      "dias": [
+        "2026-10-06"
+      ],
+      "niveles": [
+        "B"
+      ],
+      "secciones": [
+        "Seguridad y Justicia"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "aplaza",
+        "cautelar",
+        "juicio",
+        "manuel",
+        "monsalve",
+        "preparacion",
+        "rebaja",
+        "tribunal"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-06",
+          "nivel": "B",
+          "titular": "Tribunal aplaza la preparación del juicio de Manuel Monsalve y rebaja su cautelar",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "acusacion-preparacion-juicio-oral",
+        "titulo": "De la acusación al juicio oral: qué se decide antes de juzgar un delito en Chile"
+      }
+    },
+    {
+      "puntaje": 2,
+      "dias": [
+        "2026-10-09"
+      ],
+      "niveles": [
+        "B"
+      ],
+      "secciones": [
+        "Chile en regiones"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "argentina",
+        "autoridad",
+        "buque",
+        "intercepte",
+        "magallan",
+        "temen"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-09",
+          "nivel": "B",
+          "titular": "Autoridades temen que Argentina intercepte un buque chileno en Magallanes",
+          "seccion": "Chile en regiones"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "estrecho-magallanes-soberania-navegacion",
+        "titulo": "Estrecho de Magallanes: cómo conviven soberanía chilena, libre navegación y obligaciones con Argentina"
+      }
+    },
+    {
+      "puntaje": 1,
+      "dias": [
+        "2026-10-09"
+      ],
+      "niveles": [
+        "C"
+      ],
+      "secciones": [
+        "Seguridad y Justicia"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "argentina",
+        "busqueda",
+        "carpintero",
+        "frontera"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-09",
+          "nivel": "C",
+          "titular": "Sigue la búsqueda de un carpintero chileno en la frontera con Argentina",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "mineria-transfronteriza-chile-argentina",
+        "titulo": "Minería transfronteriza entre Chile y Argentina: cómo un tratado permite operar un yacimiento a ambos lados de la frontera"
+      }
+    }
+  ]
+}
