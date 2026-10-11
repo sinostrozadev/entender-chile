@@ -1,9 +1,9 @@
 {
   "fecha": "2026-10-11",
-  "etapa": "validar_preseleccion",
+  "etapa": "preseleccion_lista",
   "veredicto": "pendiente",
-  "vuelta": 1,
-  "actualizado": "2026-10-11 02:24",
+  "vuelta": 0,
+  "actualizado": "2026-10-11 02:28",
   "reparar": null,
   "piezas": [
     {
@@ -23,7 +23,7 @@
       "id": "preseleccion",
       "etiqueta": "Preselección",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "lista",
       "prompt": "prompts/seleccion.md",
       "hora": "02:12",
       "esperada": "02:10",
