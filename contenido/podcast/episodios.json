@@ -501,5 +501,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-10-informe.mp3",
     "bytes": 19328256,
     "durSeg": 805
+  },
+  {
+    "fecha": "2026-10-11",
+    "tipo": "informe",
+    "titulo": "11-10-2026 · Aluvión en Las Condes: Senapred entrega el primer balance",
+    "descripcion": "Senapred informó el primer balance coincidente del aluvión de San Carlos de Apoquindo, mientras la FIBE se amplió a once comunas. También revisamos la controversia con el embajador de Estados Unidos, la pérdida de empleo formal en Argentina, los avisos meteorológicos y la emergencia en Panamá.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-11-informe.mp3",
+    "bytes": 17951040,
+    "durSeg": 748
   }
 ]
