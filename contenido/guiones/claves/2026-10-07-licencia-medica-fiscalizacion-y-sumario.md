@@ -6,7 +6,7 @@ Guion:
 ## Gancho
 [TESIS] Una caída en los casos detectados no cerró la discusión sobre las licencias médicas.
 
-[DATO comparacion | Cooperativa, 02-10-2026] servidores 2023: 19963 ; servidores 2025: 7207
+[DATO comparacion | Cooperativa, 02-10-2026] servidores públicos que viajaron al extranjero con licencia 2023: 19963 ; servidores públicos que viajaron al extranjero con licencia 2025: 7207
 El dos de octubre de dos mil veintiséis se informó que más de siete mil doscientos servidores públicos viajaron fuera de Chile mientras tenían licencia médica durante dos mil veinticinco. Era un sesenta y tres por ciento menos que en dos mil veintitrés. Pero más de cuatro mil quinientas personas aparecieron en dos de los tres años revisados, y quinientas sesenta y seis, en los tres. Entonces la pregunta no es solo cuántos viajaron. Si a ti te rechazan una licencia, la pregunta es directa: ¿qué controla realmente el Estado y qué puede pasarte si no cumples el reposo?
 
 ## Promesa

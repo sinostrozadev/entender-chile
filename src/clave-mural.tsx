@@ -225,7 +225,15 @@ const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number }
     <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", opacity: entra * sale }}>
       <div style={{ transform: `scale(${zoom})`, textAlign: "center" }}>
         {b.etiqueta ? (
-          <div style={{ fontFamily: tema.mono, fontSize: 26, letterSpacing: 3, textTransform: "uppercase", color: tema.patina, marginBottom: 34 }}>
+          // LA ETIQUETA TIENE QUE EXPLICAR LA CIFRA SOLA (regla 32). "SERVIDORES
+          // 19.963 a 7.207" no dice nada: servidores de qué, contados cómo. Una
+          // etiqueta que de verdad da contexto es larga, así que acá se achica
+          // en vez de desbordarse, que es lo que hacía antes de medirlo.
+          <div style={{
+            fontFamily: tema.mono, fontSize: b.etiqueta.length > 30 ? 21 : 26,
+            letterSpacing: b.etiqueta.length > 30 ? 2 : 3, textTransform: "uppercase",
+            color: tema.patina, marginBottom: 34, maxWidth: 1500, lineHeight: 1.5,
+          }}>
             {b.etiqueta}
           </div>
         ) : null}

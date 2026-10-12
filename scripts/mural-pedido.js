@@ -65,7 +65,7 @@ lineas.push(`Necesito ${hasta - desde + 1} imágenes que son TROZOS DE UN MISMO 
 lineas.push("");
 lineas.push(`Cada panel: 2520 x 1080 píxeles, relación 2,33 a 1. Son los paneles ${desde} al ${hasta} de ${secciones.length}.`);
 lineas.push("");
-lineas.push("TRES REGLAS QUE NO SE NEGOCIAN:");
+lineas.push("CUATRO REGLAS QUE NO SE NEGOCIAN:");
 lineas.push("");
 lineas.push(`1. LA NUMERACIÓN. El panel N es la sección N, siempre y en ese orden. Si vienen`);
 lineas.push(`   desordenados o dos secciones comparten panel, el mural no se puede armar.`);
@@ -78,6 +78,18 @@ lineas.push("3. LAS FRANJAS DE ENTREGA. Los primeros 300 píxeles y los últimos
 lineas.push("   panel son superficie limpia y PAREJA, sin objeto ni borde. Ahí se funden los");
 lineas.push("   paneles entre sí, así que lo que termina un panel tiene que ser exactamente");
 lineas.push("   lo que empieza el siguiente.");
+lineas.push("");
+// El panel 6 del mural de licencias (07-10-2026) volvió como una foto de
+// oficina a plena luz, mucho más clara que los trece restantes. Sobre un panel
+// así el velo que hace legible el texto tiene que apretar tanto que termina en
+// un filo vertical visible, y el plano se lee como una lámina pegada encima en
+// vez de un tramo del mismo mural. La cadena de superficies cuidaba el color
+// del empalme pero nunca dijo nada del brillo.
+lineas.push("4. LA LUZ ES LA MISMA EN LOS CATORCE. Escena nocturna o de interior en");
+lineas.push("   penumbra, fondo oscuro, UNA fuente de luz cálida y baja que roza el motivo.");
+lineas.push("   Ningún panel con cielo, ventana a plena luz, oficina iluminada ni fondo");
+lineas.push("   claro: sobre un panel claro el texto deja de leerse y el plano se ve pegado");
+lineas.push("   encima en vez de ser un tramo del mismo mural.");
 lineas.push("");
 lineas.push("LA CADENA DE SUPERFICIES, que es lo que hace que encajen:");
 lineas.push("");

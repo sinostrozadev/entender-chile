@@ -12,7 +12,7 @@
     2460,
     4480,
     6500,
-    8670,
+    7400,
     10540,
     12560,
     14180,
@@ -28,7 +28,7 @@
     1,
     1.4,
     1,
-    1.5,
+    1,
     1,
     1,
     1,
@@ -94,7 +94,7 @@
       "fuente": "Cooperativa, 02-10-2026",
       "parada": 0,
       "seg": 6,
-      "etiqueta": "servidores"
+      "etiqueta": "servidores públicos que viajaron al extranjero con licencia"
     },
     {
       "texto": "Entender el sistema exige separar decisiones que suelen mezclarse.",
