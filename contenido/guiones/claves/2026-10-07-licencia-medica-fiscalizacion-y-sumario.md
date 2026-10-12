@@ -46,7 +46,7 @@ Hasta aquí, quédate con este mapa: el profesional indica, la COMPIN o la Isapr
 ## Quién paga
 [TESIS] El pagador cambia según el sistema de salud y el origen del reposo.
 
-En enfermedad común de Fonasa, paga una Caja de Compensación o la COMPIN. En Isapre, paga la propia Isapre. Si el origen es laboral, paga el administrador del seguro.
+En enfermedad común de Fonasa, paga una Caja de Compensación o la COMPIN. En Isapre, paga la propia Isapre. Si el origen es laboral, paga el administrador del seguro. Los subsidios y sus cotizaciones se financian con cargo al régimen de salud.
 
 Sigamos con tu licencia común de siete días. Si trabajas en el sector privado y cumples los requisitos, el subsidio se paga desde el cuarto día, porque dura diez días o menos. Si supera los diez días, se paga desde el primero. Si varias licencias continuadas por el mismo diagnóstico superan juntas ese límite, se reliquida e incluye los tres primeros días. En el sector público, conservas tu remuneración si estás sujeto a estatuto.
 
