@@ -570,6 +570,27 @@ referencia:
       confirme si ya está resuelto; después, la noche debería hacer que estos
       turnos fallen de forma ruidosa (un archivo o aviso explícito al agotar
       los reintentos) en vez de no dejar rastro.
+      **12-10: tercera vez, y esta vez la explicación de la suscripción no
+      alcanza.** Auditoría del 12-10 (`bitacora/2026-10-12-auditoria.md`).
+      `bitacora/2026-10-11-auditoria.md` tampoco existe (comprobado con `git
+      log --all --diff-filter=A`, cero resultados), pero esa mañana la
+      cadena SÍ terminó completa y Claude SÍ trabajó: `contenido/estado/2026-10-11.md`
+      dice `ETAPA: videos_listos` / `VEREDICTO: APROBADA`, y los tres
+      veredictos de Claude (`contenido/veredictos/2026-10-11-*.md`) y la
+      revisión (`contenido/revisiones/2026-10-11.md`) existen y están
+      completos. Es decir: el turno de Claude como validador funcionó
+      perfecto ese día, pero el turno de Claude como auditor de las 05:30
+      (`trig_01GDbvJ1Wjzy25bnVRCXgygZ`) no dejó ningún rastro, ni archivo de
+      auditoría ni `bitacora/2026-10-11.md`. `get_trigger` sobre esa rutina
+      solo trae el último disparo (el de hoy); no hay forma desde el repo de
+      saber si el disparo del 11-10 ocurrió y la sesión falló en silencio, o
+      si el disparo mismo no llegó. Necesita que Santiago revise el
+      historial de disparos de esa rutina para el 11-10 (la cuenta de
+      Claude, no solo la suscripción, porque ese día el resto de Claude
+      funcionó bien); después, la noche debería agregar una señal explícita
+      de que la auditoría corrió (aunque sea un commit vacío con hora, antes
+      de escribir el archivo completo) para que su propia ausencia se note
+      sin depender de que otra auditoría la note días después.
 
 - [ ] **27-09, HOY: la idea de la Clave de la semana 39
       (acuerdo-internacional-sin-tratado) lleva nueve mañanas sin que
@@ -835,6 +856,40 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **12-10, AGUANTA: `contenido/casos/hitos.md` registra el mismo hecho
+      dos veces bajo dos dossiers distintos, y el guion de hoy lo narró dos
+      veces hasta que el validador lo fusionó a mano.** Auditoría del 12-10
+      (`bitacora/2026-10-12-auditoria.md`). Líneas 42 y 44 de
+      `contenido/casos/hitos.md`, ambas fechadas 2026-10-11: la 42 (dossier
+      `fonasa-licencias-falsas.md`) y la 44 (dossier
+      `licencias-medicas-funcionarios.md`) cuentan el mismo par de recursos
+      de nulidad contra el juicio de Fonasa, con las mismas fechas y la
+      misma jueza. El informe de hoy los copió como dos entradas de "¿En qué
+      quedó?" y el guion los narró dos veces; el veredicto de la vuelta 1 los
+      fusionó, así que no llegó al aire duplicado, pero si los dos hitos
+      siguen separados en `hitos.md`, el mismo trabajo de fusión se paga de
+      nuevo la próxima vez que alguno de los dos dossiers se actualice.
+      Propuesta: fusionar las líneas 42 y 44 en una sola entrada (el dossier
+      de fondo es `fonasa-licencias-falsas.md`; si se quiere mantener el
+      cruce en `licencias-medicas-funcionarios.md`, dejar ahí una referencia
+      corta en vez de repetir el hecho completo).
+
+- [ ] **12-10, AGUANTA: el barrido lleva tres ediciones seguidas (10, 11 y
+      12-10) sin ninguna noticia de pensiones chilenas, pese a que la
+      consulta ya las incluye.** Auditoría del 12-10
+      (`bitacora/2026-10-12-auditoria.md`). `contenido/revisiones/2026-10-12.md`:
+      "el barrido de hoy no tiene nada de pensiones chilenas (cero
+      coincidencias de 'pensión', 'pensiones', 'cotizacion' y 'jubila'; la
+      única entrada de AFP es un proyecto peruano)"; las revisiones del 10 y
+      11-10 ya lo habían marcado de pasada, sin bajar nunca a esta lista.
+      `contenido/barrido/fuentes.json:65` ya consulta `"Chile (empleo OR
+      salario OR pensiones OR AFP OR sindicato)"`, así que la cobertura cero
+      tres días seguidos no es falta de intención en la consulta. Propuesta:
+      revisar si falta un feed directo de la Superintendencia de Pensiones
+      entre las fuentes institucionales sin feed, o si la consulta OR de la
+      línea 65 está perdiendo resultados por otra razón (orden de términos,
+      límite de resultados de Google News).
+
 - [ ] **10-10, AGUANTA: la ambigüedad de "La noticia del día" (¿el tope de
       25-35 palabras cuenta la [TESIS] narrada o solo el párrafo?) lleva al
       menos cuatro ediciones seguidas marcada en las revisiones y nunca había
@@ -849,6 +904,14 @@ referencia:
       decisión de NO resolverlo. Propuesta: en `prompts/guion-informe.md` o
       `prompts/informe.md`, fijar explícitamente si el tope de "La noticia
       del día" cuenta o no la [TESIS] narrada.
+      **12-10: van al menos seis ediciones marcada (09, 10, 11 y 12-10
+      confirmadas por auditoría o revisión, más las dos anteriores que el
+      10-10 ya contaba).** `contenido/revisiones/2026-10-11.md` y
+      `contenido/revisiones/2026-10-12.md` la vuelven a marcar, ambas como
+      "pregunta que vuelve cada día y conviene cerrar". Auditoría del 12-10
+      (`bitacora/2026-10-12-auditoria.md`). Sigue sin tocarse
+      `prompts/guion-informe.md:94` ("Dos frases, 25 a 35 palabras en total,
+      con su [TESIS] o su [DATO] principal como tarjeta").
 
 - [ ] **06-10, HOY: `scripts/gate.js:52` elige el archivo equivocado para
       la Clave y va a bloquear la edición completa (informe y Clave) del
@@ -898,6 +961,15 @@ referencia:
       sigue idéntica, verificada de nuevo en esta corrida; hoy no hay guion
       de Clave con fecha de hoy (no corresponde Clave), así que no se
       reprodujo, pero el arreglo de una línea sigue sin aplicarse.
+      **12-10: van SEIS mañanas marcada (06, 07, 08, 09, 10 y 12-10; el 11-10
+      no tuvo auditoría propia, pero `git log -- scripts/gate.js` no muestra
+      ningún commit entre el 10-10 y hoy, así que la línea siguió idéntica
+      también ese día).** Auditoría del 12-10
+      (`bitacora/2026-10-12-auditoria.md`). La línea 52 sigue idéntica,
+      verificada de nuevo en esta corrida; no hay Clave hoy, así que no se
+      reprodujo, pero la Clave "acuerdo-internacional-sin-tratado" sigue en
+      `idea_lista` esperando el sí de Santiago, y el día que se apruebe y su
+      producción coincida con la validación de un informe, el bug se repite.
 
 - [ ] **22-09, HOY: contradicción de prompt en `prompts/guion-informe.md`
       entre el ejemplo de `comparacion` (línea 229, etiquetas de una
@@ -1152,6 +1224,15 @@ referencia:
       `prompts/guion-informe.md:211-212` (quitar la restricción de alcance)
       sigue sin aplicarse y sigue siendo la que resuelve de fondo las dos
       recurrencias.
+      **12-10: vuelve a aparecer, ahora con "SHOA" en un titular.**
+      `contenido/revisiones/2026-10-12.md` marca "'SHOA' se pinta en un
+      titular sin expansión previa, fuera del alcance de la regla de siglas,
+      que está escrita para las marcas [FUENTE] y el pie de un [DATO]".
+      Auditoría del 12-10 (`bitacora/2026-10-12-auditoria.md`). La regla
+      sigue en `prompts/guion-informe.md:230` (la línea se corrió de 211-212
+      a 230 porque el archivo creció), todavía con la restricción "(en esta
+      marca o en el pie de un [DATO])" sin generalizar a titulares y
+      [TESIS].
 
 - [ ] **23-09, HOY: tope al cierre de cautela repetido ("queda para
       verificar/en seguimiento/pendiente"), más de una semana sin corregirse
