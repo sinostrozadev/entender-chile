@@ -41,7 +41,7 @@ Santiago, 06-10-2026: "deja todas las indicaciones de lo que no puedes hacer
 para la sesión de la noche, anota por ahí para que él las vea, y pide también
 los secretos para que tú tengas acceso".
 
-### 1. Apagar el "Informe de la mañana" de las 06:00. HECHO A MEDIAS
+### 1. Apagar el "Informe de la mañana" de las 06:00. ✅ HECHO 12-10 (noche): `trig_01DHmsrrShT2Mnj8WDg4CQ42` con `enabled: false`
 
 Decisión de Santiago del 06-10: **"el informe de la mañana no lo veo, dámelo tú
 en la revisión de la mañana. Y quita el otro."** La revisión ya existe como
@@ -60,7 +60,7 @@ sección 2 (la comprobación de si la Edición diaria sigue `in_progress` antes 
 declarar que faltan videos) es un método que vale y que la revisión del día
 debería heredar.
 
-### 2. Las notificaciones de las rutinas de reloj. NO SE PUEDE POR API
+### 2. Las notificaciones de las rutinas de reloj. ✅ HECHO 12-10 (noche): desde la sesión local la API SÍ acepta `notifications`; quedaron en `{email: false, push: false}` las siete de la lista (relojes A, B, C, barrido, métricas, observatorio, validador). Vigía y guardia sin tocar. Duda: verificar mañana que el AVISADOR del validador (PushNotification) siga llegando, porque ahora la rutina tiene las notificaciones de corrida apagadas
 
 Entre la 01:00 y las 06:00 disparan **~46 sesiones de rutina**, y 15 de ellas
 son los relojes del reintento, que solo responden "OK 02:10" tras apretar un
