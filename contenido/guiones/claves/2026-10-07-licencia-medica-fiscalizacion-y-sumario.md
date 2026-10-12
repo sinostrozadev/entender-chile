@@ -15,22 +15,22 @@ El dos de octubre de dos mil veintiséis se informó que más de siete mil dosci
 Al terminar este video vas a poder distinguir quién autoriza la licencia, quién paga, qué permite el reposo y cuándo un mismo antecedente puede abrir una revisión sanitaria, una consecuencia laboral, un sumario o una investigación penal.
 
 ## De dónde viene
-[TESIS] La fiscalización actual se apoya en reglas antiguas y en facultades que se reforzaron con el tiempo.
+[TESIS] La fiscalización se apoya en reglas antiguas y en facultades que se reforzaron con el tiempo.
 
-El punto de partida no es el último cruce de datos. Desde mil novecientos ochenta y cuatro, el Decreto Supremo número tres regula cómo se emite, autoriza, revisa, rechaza o invalida una licencia. En dos mil doce, la Ley 20.585 agregó procedimientos para investigar y sancionar licencias emitidas sin fundamento médico. Si hoy te rechazan una licencia, esas normas ordenan quién puede revisarla y con qué atribuciones.
+El control no comenzó con el último cruce de datos. Desde mil novecientos ochenta y cuatro, el Decreto Supremo número tres regula la emisión, revisión, autorización, rechazo e invalidación de licencias. En dos mil doce, la Ley 20.585 agregó procedimientos para investigar y sancionar emisiones sin fundamento médico. Si hoy te rechazan una licencia, esas normas determinan quién puede revisarla.
 
 [ESQUEMA | Evolución del control] DS 3 de 1984 -> Ley 20.585 -> Ley 21.746
 
-El ciclo más reciente comenzó el veinte de mayo de dos mil veinticinco. Ese día, un informe de la Contraloría identificó a más de veinticinco mil funcionarios con salidas del país durante licencias de dos mil veintitrés y dos mil veinticuatro. Cuatro días después se publicó la Ley 21.746. Esa ley permitió pedir antecedentes clínicos y datos de organismos como la Policía de Investigaciones, el Servicio de Impuestos Internos y Tesorería. También incorporó investigaciones de oficio, alertas tempranas y la obligación de remitir indicios de falsedad al Ministerio Público.
+El ciclo reciente comenzó el veinte de mayo de dos mil veinticinco. Contraloría identificó a más de veinticinco mil funcionarios con salidas del país durante licencias. Cuatro días después se publicó la Ley 21.746, que permitió cruzar datos con otros servicios del Estado y remitir indicios al Ministerio Público.
 
 ## Los hitos
 [TESIS] Cada hito cambió una parte distinta del control, sin convertir una alerta en una condena.
 
-El veintinueve de septiembre de dos mil veintiséis apareció VigIA, una herramienta de la Superintendencia de Seguridad Social para priorizar investigaciones sobre emisores. El dos de octubre se conoció el nuevo cruce de viajes y licencias de dos mil veinticinco. Y el tres de octubre se difundió la reacción del Gobierno: acelerar los sumarios y examinar también lo ocurrido antes de dos mil veintidós. Si tu licencia aparece en un cruce de datos, esos hitos abren revisiones distintas, no convierten la alerta en una condena.
+El veintinueve de septiembre de dos mil veintiséis apareció VigIA, una herramienta para priorizar investigaciones sobre emisores. El dos de octubre se conoció el cruce de viajes y licencias de dos mil veinticinco. Al día siguiente, el Gobierno anunció que aceleraría sumarios y examinaría años anteriores. Si tu licencia aparece en un cruce, se abre una revisión, no se prueba una infracción.
 
 [ESQUEMA | Semana del caso] VigIA -> Nuevo cruce -> Reacción oficial
 
-Hay un tercer antecedente mencionado durante esa semana, un sondeo sobre la facilidad para obtener licencias. Su publicación original y su ficha técnica no pudieron ubicarse. Por eso no se usa aquí como prueba ni como cifra.
+Esa semana también se mencionó un sondeo sobre la facilidad para obtener licencias. Como no se ubicaron la publicación original ni la ficha técnica, aquí no se usa como prueba ni cifra.
 
 ## Qué es una licencia
 [TESIS] Una licencia médica no es un permiso concedido por el jefe.
@@ -46,56 +46,56 @@ Hasta aquí, quédate con este mapa: el profesional indica, la COMPIN o la Isapr
 ## Quién paga
 [TESIS] El pagador cambia según el sistema de salud y el origen del reposo.
 
-Si la enfermedad o el accidente es común, una persona de Fonasa puede recibir el pago desde una Caja de Compensación o desde la COMPIN, según corresponda. En una Isapre, paga la propia Isapre. Si el reposo deriva de un accidente laboral o de una enfermedad profesional, puede pagar una mutualidad, el Instituto de Seguridad Laboral o una empresa con administración delegada. El subsidio y sus cotizaciones se financian con cargo al régimen de salud.
+En enfermedad común de Fonasa, paga una Caja de Compensación o la COMPIN. En Isapre, paga la propia Isapre. Si el origen es laboral, paga el administrador del seguro.
 
-Sigamos con tu licencia común de siete días. Si trabajas en el sector privado y cumples los requisitos, el subsidio se paga desde el cuarto día, porque el reposo dura diez días o menos. Si una licencia común supera los diez días, se paga desde el primero. Y si varias licencias continuadas por el mismo diagnóstico superan juntas ese límite, el subsidio se reliquida e incluye los tres primeros días. En el sector público, conservas tu remuneración si estás sujeto a estatuto, y la entidad pagadora reembolsa al empleador público cuando corresponde.
+Sigamos con tu licencia común de siete días. Si trabajas en el sector privado y cumples los requisitos, el subsidio se paga desde el cuarto día, porque dura diez días o menos. Si supera los diez días, se paga desde el primero. Si varias licencias continuadas por el mismo diagnóstico superan juntas ese límite, se reliquida e incluye los tres primeros días. En el sector público, conservas tu remuneración si estás sujeto a estatuto.
 
-La idea de este bloque es simple: quién paga depende de tu régimen, del origen del reposo y de cuántos días dura.
+La idea es simple: el pago depende del régimen, el origen y la duración.
 
 ## Qué permite el reposo
 [TESIS] Reposo no significa encierro absoluto, pero tampoco libertad para hacer cualquier cosa.
 
-Con esa misma licencia de siete días, puedes salir para un control, un examen, comprar medicamentos o alimentos, cobrar el subsidio, votar obligatoriamente o atender una fuerza mayor. También puedes asistir a un tratamiento ambulatorio prescrito y acreditado. Y si una visita domiciliaria no te encuentra, eso no basta por sí solo para probar un incumplimiento.
+Con esa licencia de siete días, puedes salir para controles, exámenes, comprar medicamentos o alimentos, cobrar el subsidio, votar o atender una fuerza mayor. También puedes asistir a un tratamiento ambulatorio acreditado. Una visita domiciliaria sin respuesta no prueba un incumplimiento.
 
-En una licencia psiquiátrica, salir de tu vivienda dentro de Chile tampoco es incumplimiento por sí mismo. Pero si durante esos siete días viajas fuera del país, incumples como regla general porque impides el control de la autoridad. La excepción es un tratamiento médico en el extranjero, vinculado con tu recuperación y debidamente acreditado.
+En una licencia psiquiátrica, salir dentro de Chile no es incumplimiento por sí mismo. Pero si durante esos siete días viajas fuera del país, incumples como regla general porque impides el control. Se exceptúa un tratamiento médico en el extranjero vinculado con tu recuperación y acreditado.
 
-Hasta acá, la idea es una sola: el contexto importa. Un registro fronterizo puede justificar una revisión, pero no demuestra por sí solo que la persona no estaba enferma, que carecía de una excepción o que cometió fraude.
+Hasta acá, la idea es una sola: el contexto importa. Un registro fronterizo abre una revisión, pero no demuestra fraude ni descarta una excepción.
 
 ## Cómo se fiscaliza
 [TESIS] La analítica selecciona casos para revisar, no decide automáticamente quién es culpable.
 
-VigIA combina reglas, umbrales y aprendizaje de máquina para detectar patrones atípicos y priorizar profesionales. Si el profesional que emitió tu licencia queda priorizado, la herramienta no rechaza tu caso, no declara fraude y no reemplaza la revisión humana. Al corte informado por la Superintendencia, doscientas once de cuatrocientas dieciséis investigaciones iniciadas en dos mil veintiséis surgieron de esta herramienta, y sesenta y dos terminaron con sanciones a emisores.
+VigIA combina reglas, umbrales y aprendizaje de máquina para detectar patrones y priorizar profesionales. Si el emisor de tu licencia queda priorizado, la herramienta no rechaza tu caso, no declara fraude ni reemplaza la revisión humana. De cuatrocientas dieciséis investigaciones iniciadas en dos mil veintiséis, doscientas once surgieron de VigIA y sesenta y dos terminaron con sanciones a emisores.
 
-Esas cifras no representan la proporción de fraude entre todas las licencias. Tampoco permiten medir todavía la precisión completa del sistema. Al cinco de octubre de dos mil veintiséis no estaban publicadas todas sus variables, ponderaciones, umbrales, tasas de falsos positivos ni auditorías externas.
+Esas cifras no miden el fraude entre todas las licencias. Al cinco de octubre tampoco estaban publicadas todas las variables, umbrales, tasas de falsos positivos ni auditorías externas.
 
-En simple: una señal puede ordenar qué se revisa primero, pero todavía no decide qué pasó contigo.
+En simple: una señal ordena qué se revisa primero, pero no decide qué pasó contigo.
 
 ## Qué consecuencias puede haber
 [TESIS] Rechazo sanitario, sanción laboral, sumario y causa penal son caminos distintos.
 
-Si incumples el reposo, la primera consecuencia puede ser sanitaria: rechazo o invalidación de tu licencia y devolución de remuneraciones o subsidios percibidos indebidamente. Si trabajas en el Estado, tu responsabilidad se determina mediante investigación sumaria o sumario. Las medidas van desde censura y multa hasta suspensión o destitución, según la gravedad y las circunstancias. No toda salida produce automáticamente la sanción máxima.
+Si incumples el reposo, pueden rechazar tu licencia y exigir devoluciones. Si trabajas en el Estado, un sumario determina la responsabilidad. La medida puede ser censura, multa, suspensión o destitución. Depende de la gravedad: no toda salida recibe la sanción máxima.
 
-En una empresa privada, el rechazo de la licencia y la restitución del subsidio no equivalen automáticamente a un despido. El empleador debe invocar una causal, y un tribunal puede revisar los hechos y su gravedad. Al cinco de octubre de dos mil veintiséis, el proyecto que buscaba tipificar expresamente este uso indebido como falta de probidad seguía en tramitación.
+En una empresa privada, rechazar la licencia no equivale a despido. El empleador invoca una causal y un tribunal puede revisarla. Al cinco de octubre de dos mil veintiséis, el proyecto para tipificarlo como falta de probidad seguía en trámite.
 
-¿Y la cárcel? Incumplir el reposo, por sí solo, es una causal administrativa. Para que enfrentes una consecuencia penal debe probarse un delito, como falsificación, obtención fraudulenta de prestaciones, fraude de subvenciones o lavado de activos.
+¿Y la cárcel? Incumplir el reposo, por sí solo, es una causal administrativa. Para que enfrentes una consecuencia penal debe probarse un delito.
 
-Quédate con este corte: una licencia rechazada, una sanción laboral, un sumario y una causa penal no son lo mismo.
+Quédate con este corte: rechazo, sanción laboral, sumario y causa penal no son lo mismo.
 
 ## Por qué el caso sigue abierto
 [TESIS] La baja agregada convive con reincidencia y con miles de procedimientos todavía pendientes.
 
 [DATO tabla | Dipres, 05-02-2026] sumarios totales: 25352 ; en curso: 21098 ; cerrados: 1543
-El séptimo balance consolidado de la Dirección de Presupuestos, fechado el cinco de febrero de dos mil veintiséis, informó más de veinticinco mil sumarios. Más de veintiún mil seguían en curso y más de mil quinientos estaban cerrados con resolución ejecutoriada. Si trabajas en un servicio público y apareces en el cruce, la baja agregada no resuelve tu caso. Bajó el universo detectado, pero persistieron casos repetidos y una gran cantidad de procesos aún no terminaba.
+El séptimo balance de la Dirección de Presupuestos informó más de veinticinco mil sumarios. Más de veintiún mil seguían en curso y más de mil quinientos estaban cerrados. Si trabajas en un servicio público y apareces en el cruce, la baja agregada no resuelve tu caso. Persistieron casos repetidos y miles de procesos sin terminar.
 
-Los más de treinta y seis mil millones de pesos estimados por la Dirección de Presupuestos tampoco son fraude probado ni dinero recuperado. La institución calculó esa suma usando remuneraciones promedio y períodos de licencia del universo que sería sumariado. Es un monto asociado a personas investigadas, no la demostración de que cada peso fuera indebido.
+Los más de treinta y seis mil millones de pesos estimados tampoco son fraude probado ni dinero recuperado. La institución los calculó usando remuneraciones promedio y períodos de licencia del universo investigado. Es un monto asociado a personas sumariadas, no prueba que cada peso fuera indebido.
 
 ## Condena no es recuperación
 [TESIS] Una sentencia que ordena pagar no equivale a dinero ya ingresado al Fisco.
 
-Entre dos mil veinte y dos mil veintidós, una red que operó mediante dieciséis sociedades médicas de fachada emitió más de sesenta mil licencias fraudulentas. Fonasa pagó más de cincuenta mil. El veintitrés de junio de dos mil veintiséis, un tribunal declaró culpables a los diecisiete acusados. La sentencia se dictó el treinta y uno de agosto.
+Entre dos mil veinte y dos mil veintidós, dieciséis sociedades médicas emitieron más de sesenta mil licencias fraudulentas. Fonasa pagó más de cincuenta mil. El veintitrés de junio de dos mil veintiséis, un tribunal declaró culpables a diecisiete acusados. La sentencia llegó el treinta y uno de agosto.
 
 [DATO comparacion | Emol, 31-08-2026] perjuicio informado: 31571798643 ; demanda civil acogida: 26000000000
-La Fiscalía informó un perjuicio de más de treinta y un mil quinientos millones de pesos, y se acogió una demanda civil por cerca de veintiséis mil millones. Pero al cinco de octubre de dos mil veintiséis no se encontró constancia oficial de dinero efectivamente ingresado al Fisco. Tampoco se encontró una fuente que acreditara la ejecución del fallo o explicara una causa documentada para esa falta de recuperación. Si escuchas que hubo condena, no lo leas como plata ya devuelta: para ti, como contribuyente, condena, cobro y recuperación son momentos distintos.
+La Fiscalía informó un perjuicio de más de treinta y un mil quinientos millones de pesos, y se acogió una demanda civil por cerca de veintiséis mil millones. Al cinco de octubre no constaban ingresos al Fisco ni ejecución del fallo. Si escuchas que hubo condena, no lo leas como plata devuelta: condena, cobro y recuperación son momentos distintos.
 
 ## Qué está en juego
 [TESIS] Un control útil debe proteger los recursos sin convertir una señal en culpabilidad.
