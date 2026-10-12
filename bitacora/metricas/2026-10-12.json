@@ -1,16 +1,16 @@
 {
   "fecha": "2026-10-12",
   "canal": {
-    "suscriptores": 34,
+    "suscriptores": 35,
     "vistas": 14528,
-    "videos": 155
+    "videos": 156
   },
   "videos": {
     "_DV_RvPYWM4": {
       "titulo": "Dos contratistas murieron en El Teniente y se investiga quié",
       "publicado": "2026-10-12",
       "estado": "public",
-      "vistas": 20,
+      "vistas": 36,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 43
@@ -28,7 +28,7 @@
       "titulo": "¿Por qué había mineros sacando nieve en una zona de riesgo e",
       "publicado": "2026-10-12",
       "estado": "public",
-      "vistas": 142,
+      "vistas": 149,
       "meGusta": 3,
       "comentarios": 0,
       "durSeg": 46
@@ -37,7 +37,7 @@
       "titulo": "¿Por qué cae la aprobación de Kast a su nivel más bajo? #Sho",
       "publicado": "2026-10-11",
       "estado": "public",
-      "vistas": 1011,
+      "vistas": 1014,
       "meGusta": 33,
       "comentarios": 1,
       "durSeg": 44
@@ -46,8 +46,8 @@
       "titulo": "Murió el exlautarista que pidió indulto a Kast seis días ant",
       "publicado": "2026-10-11",
       "estado": "public",
-      "vistas": 515,
-      "meGusta": 8,
+      "vistas": 566,
+      "meGusta": 10,
       "comentarios": 2,
       "durSeg": 43
     },
@@ -55,7 +55,7 @@
       "titulo": "Senapred reportó trescientos ochenta y cuatro damnificados y",
       "publicado": "2026-10-11",
       "estado": "public",
-      "vistas": 74,
+      "vistas": 73,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 46
@@ -64,7 +64,7 @@
       "titulo": "Aluvión en Las Condes: Senapred entrega el primer balance",
       "publicado": "2026-10-11",
       "estado": "public",
-      "vistas": 24,
+      "vistas": 25,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 748
@@ -172,7 +172,7 @@
       "titulo": "¿Por qué Chile decretó duelo nacional por un carabinero ases",
       "publicado": "2026-10-05",
       "estado": "public",
-      "vistas": 1045,
+      "vistas": 1046,
       "meGusta": 45,
       "comentarios": 4,
       "durSeg": 40
@@ -901,7 +901,7 @@
       "titulo": "¿Qué es la prisión preventiva y por qué no es una condena?",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 29,
+      "vistas": 30,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 342
