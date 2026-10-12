@@ -94,7 +94,7 @@ Los más de treinta y seis mil millones de pesos estimados por la Dirección de 
 
 Entre dos mil veinte y dos mil veintidós, una red que operó mediante dieciséis sociedades médicas de fachada emitió más de sesenta mil licencias fraudulentas. Fonasa pagó más de cincuenta mil. El veintitrés de junio de dos mil veintiséis, un tribunal declaró culpables a los diecisiete acusados. La sentencia se dictó el treinta y uno de agosto.
 
-[DATO comparacion | Emol, 31-08-2026] perjuicio informado: 31571798643 ; demanda civil acogida: 26000000000
+[DATO comparacion | Emol, 31-08-2026] perjuicio informado: $31571798643 ; demanda civil acogida: $26000000000
 La Fiscalía informó un perjuicio de más de treinta y un mil quinientos millones de pesos, y se acogió una demanda civil por cerca de veintiséis mil millones. Pero al cinco de octubre de dos mil veintiséis no se encontró constancia oficial de dinero efectivamente ingresado al Fisco. Tampoco se encontró una fuente que acreditara la ejecución del fallo o explicara una causa documentada para esa falta de recuperación. Si escuchas que hubo condena, no lo leas como plata ya devuelta: para ti, como contribuyente, condena, cobro y recuperación son momentos distintos.
 
 ## Qué está en juego

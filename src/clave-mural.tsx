@@ -50,7 +50,7 @@ export type Bloque =
   // `texto` es lo que lee la voz, en palabras; `textoPantalla` es lo mismo con
   // los números en numerales, que es lo que se ve (regla 36). Si no vienen
   // números, el armador no escribe la segunda y se usa la primera.
-  | { tipo?: "texto"; rotulo?: string; marca?: "hecho" | "interpretacion"; texto: string; textoPantalla?: string; seg: number; parada: number }
+  | { tipo?: "texto"; rotulo?: string; marca?: "hecho" | "interpretacion"; tesis?: boolean; fuente?: string; texto: string; textoPantalla?: string; seg: number; parada: number }
   | { tipo: "dato"; rotulo?: string; forma: "flecha" | "lista"; etiqueta?: string; valores: Valor[]; fuente: string; seg: number; parada: number };
 
 export type GuionMural = {
@@ -161,6 +161,16 @@ const Marca: React.FC<{ marca: "hecho" | "interpretacion" }> = ({ marca }) => {
   );
 };
 
+// LA TESIS SE NARRA Y SE VE (12-10-2026). prompts/guion-claves.md:61 dice "Sí
+// se narra" y el armador la descartaba con el resto de los corchetes: catorce
+// frases, el 10% de lo hablado, y justo la idea central de cada sección. Va
+// más grande que el párrafo porque eso es lo que es, el encabezado de la
+// sección, no otra oración más de la fila.
+//
+// LA FUENTE AL PIE donde hay cifra (reglas 6 y 32): la pieza tiene que
+// entenderse con el video en silencio, y una cifra sin fuente a la vista no se
+// entiende, se cree. No va en todos los bloques porque una línea que se repite
+// en cada plano deja de leerse.
 const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: number }> = ({ b, dur }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -169,15 +179,22 @@ const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: numbe
     extrapolateLeft: "clamp", extrapolateRight: "clamp",
   });
   const salida = interpolate(frame, [dur - fps * 0.45, dur], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const pie = interpolate(frame, [fps * 0.9, fps * 1.5], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <AbsoluteFill style={{ padding: `${tema.margen}px`, width: "52%", justifyContent: "center", opacity: salida }}>
       {b.rotulo ? <Rotulo texto={b.rotulo} /> : null}
       {b.marca ? <Marca marca={b.marca} /> : null}
-      <div style={{ fontFamily: tema.serif, fontSize: 48, lineHeight: 1.4, color: tema.papel, textShadow: "0 2px 20px rgba(10,14,22,0.8)" }}>
+      <div style={{
+        fontFamily: tema.serif, fontSize: b.tesis ? 60 : 48, lineHeight: 1.4,
+        color: tema.papel, textShadow: "0 2px 20px rgba(10,14,22,0.8)",
+      }}>
         {letras.map((c, i) => (
           <span key={i} style={{ opacity: Math.max(0, Math.min(1, (avance - i) / 4)) }}>{c}</span>
         ))}
       </div>
+      {b.fuente ? (
+        <div style={{ fontFamily: tema.mono, fontSize: 22, color: tema.gris, marginTop: 28, opacity: pie }}>{b.fuente}</div>
+      ) : null}
     </AbsoluteFill>
   );
 };

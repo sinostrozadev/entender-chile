@@ -14,7 +14,7 @@
 //   node scripts/mural-guion.js --guion contenido/guiones/claves/FECHA-slug.md \
 //     --ancho 27580 --paradas 440,2460,... --trozos claves/slug/mural14 --salida ejemplos/clave-mural14.json
 const fs = require("fs");
-const { aNumerales, formatoCifra } = require("./numerales");
+const { aNumerales, cifraCorta, cifraDeDato } = require("./numerales");
 const arg = (n, d) => { const i = process.argv.indexOf("--" + n); return i > -1 && process.argv[i + 1] ? process.argv[i + 1] : d; };
 const md = fs.readFileSync(arg("guion"), "utf8");
 const anchoMural = Number(arg("ancho"));
@@ -38,7 +38,19 @@ for (const linea of cuerpo.split("\n")) {
   if (!actual) continue;
   const l = linea.trim();
   if (!l) continue;
-  if (l.startsWith("[TESIS]") || l.startsWith("[ESQUEMA")) continue;
+  // LA TESIS SE NARRA. prompts/guion-claves.md:61 lo dice con todas sus
+  // letras ("Sí se narra") y este armador la tiraba junto con el resto de las
+  // marcas: 14 frases, 180 palabras, el 10% de lo narrado, y no cualquier 10%
+  // sino la idea central de cada sección. Es el mismo error que dejó la
+  // sección 12 sin texto el 07-10-2026: tratar todo corchete como marca de
+  // producción sin leer cuáles sí se dicen.
+  const tz = l.match(/^\[TESIS\]\s*(.+)$/);
+  if (tz) { actual.partes.push({ tipo: "prosa", texto: tz[1].trim(), tesis: true }); continue; }
+  // la fuente de la sección va al pie de todo bloque que muestre una cifra
+  // (reglas 6 y 32). Antes esta línea se descartaba en silencio.
+  const fz = l.match(/^\[FUENTE\]\s*(.+)$/);
+  if (fz) { actual.fuente = fz[1].trim(); continue; }
+  if (l.startsWith("[ESQUEMA")) continue;
   // [HECHO] e [INTERPRETACIÓN] SÍ son prosa narrada, con la marca del canal
   // adelante. Saltárselas dejó la sección 12 sin una sola palabra.
   const mk = l.match(/^\[(HECHO|INTERPRETACIÓN)\]\s*(.+)$/);
@@ -76,6 +88,12 @@ const ordenar = (partes) => {
 const bloques = [];
 secciones.forEach((sec, i) => {
   let primera = true;
+  // REGLAS 6 Y 32: ninguna cifra en pantalla sin su fuente al pie, porque la
+  // pieza tiene que entenderse con el video en silencio. El informe ya lo hace
+  // (parse.js, fuenteSeccion); acá 33 bloques de prosa mostraban cifras sin
+  // una sola fuente a la vista. La fuente de la sección es su marca [FUENTE]
+  // y, si no la hay, la del primer [DATO] de esa misma sección.
+  const fuenteSeccion = sec.fuente || (sec.partes.find((x) => x.tipo === "dato") || {}).fuente;
   for (const p of ordenar(sec.partes)) {
     if (p.tipo === "dato") {
       // CADA VALOR CONSERVA SU PROPIO RÓTULO. La primera versión se quedaba con
@@ -87,7 +105,11 @@ secciones.forEach((sec, i) => {
       // desplome que nunca ocurrió, cuando es el desglose de un mismo total.
       const valores = p.crudo.split(";").map((par) => {
         const c = par.lastIndexOf(":");
-        return { rotulo: par.slice(0, c).trim(), valor: formatoCifra(par.slice(c + 1).trim()) };
+        const crudo = par.slice(c + 1).trim();
+        const v = { rotulo: par.slice(0, c).trim(), valor: cifraCorta(crudo) };
+        // el valor exacto no se pierde aunque la pantalla lo abrevie (regla 42)
+        if (v.valor.includes("millones")) v.exacto = crudo;
+        return v;
       });
       // LA FLECHA SIGNIFICA UNA COSA SOLA: lo mismo medido en dos momentos. Si
       // los rótulos no son la misma raíz con años distintos, no hay antes ni
@@ -120,6 +142,8 @@ secciones.forEach((sec, i) => {
         // que tarda.
         const pant = aNumerales(o).trim();
         if (pant !== o) b.textoPantalla = pant;
+        if (p.tesis) b.tesis = true;
+        if (cifraDeDato(pant) && fuenteSeccion) b.fuente = fuenteSeccion;
         // la marca va solo en la primera oración del párrafo marcado: repetirla
         // en cada oración la convierte en ruido y deja de distinguir nada
         if (p.marca && k === 0) b.marca = p.marca;
