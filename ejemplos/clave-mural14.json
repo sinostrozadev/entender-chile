@@ -44,17 +44,20 @@
       "texto": "El dos de octubre de dos mil veintiséis se informó que más de siete mil doscientos servidores públicos viajaron fuera de Chile mientras tenían licencia médica durante dos mil veinticinco.",
       "parada": 0,
       "seg": 10.8,
+      "textoPantalla": "El 2 de octubre de 2026 se informó que más de 7.200 servidores públicos viajaron fuera de Chile mientras tenían licencia médica durante 2025.",
       "rotulo": "Gancho"
     },
     {
       "texto": "Era un sesenta y tres por ciento menos que en dos mil veintitrés.",
       "parada": 0,
-      "seg": 5.79
+      "seg": 5.79,
+      "textoPantalla": "Era un 63% menos que en 2023."
     },
     {
       "texto": "Pero más de cuatro mil quinientas personas aparecieron en dos de los tres años revisados, y quinientas sesenta y seis, en los tres.",
       "parada": 0,
-      "seg": 8.74
+      "seg": 8.74,
+      "textoPantalla": "Pero más de 4.500 personas aparecieron en 2 de los 3 años revisados, y 566, en los 3."
     },
     {
       "texto": "Entonces la pregunta no es solo cuántos viajaron.",
@@ -68,12 +71,21 @@
     },
     {
       "tipo": "dato",
-      "etiqueta": "servidores",
-      "a": "7207",
+      "forma": "flecha",
+      "valores": [
+        {
+          "rotulo": "2023",
+          "valor": "19.963"
+        },
+        {
+          "rotulo": "2025",
+          "valor": "7.207"
+        }
+      ],
       "fuente": "Cooperativa, 02-10-2026",
       "parada": 0,
-      "seg": 4.8,
-      "de": "19963"
+      "seg": 6,
+      "etiqueta": "servidores"
     },
     {
       "texto": "Al terminar este video vas a poder distinguir quién autoriza la licencia, quién paga, qué permite el reposo y cuándo un mismo antecedente puede abrir una revisión sanitaria, una consecuencia laboral, un sumario o una investigación penal.",
@@ -90,12 +102,14 @@
     {
       "texto": "Desde mil novecientos ochenta y cuatro, el Decreto Supremo número tres regula cómo se emite, autoriza, revisa, rechaza o invalida una licencia.",
       "parada": 2,
-      "seg": 8.44
+      "seg": 8.44,
+      "textoPantalla": "Desde 1984, el Decreto Supremo número 3 regula cómo se emite, autoriza, revisa, rechaza o invalida una licencia."
     },
     {
       "texto": "En dos mil doce, la Ley 20.585 agregó procedimientos para investigar y sancionar licencias emitidas sin fundamento médico.",
       "parada": 2,
-      "seg": 7.26
+      "seg": 7.26,
+      "textoPantalla": "En 2012, la Ley 20.585 agregó procedimientos para investigar y sancionar licencias emitidas sin fundamento médico."
     },
     {
       "texto": "Si hoy te rechazan una licencia, esas normas ordenan quién puede revisarla y con qué atribuciones.",
@@ -105,17 +119,20 @@
     {
       "texto": "El ciclo más reciente comenzó el veinte de mayo de dos mil veinticinco.",
       "parada": 2,
-      "seg": 5.79
+      "seg": 5.79,
+      "textoPantalla": "El ciclo más reciente comenzó el 20 de mayo de 2025."
     },
     {
       "texto": "Ese día, un informe de la Contraloría identificó a más de veinticinco mil funcionarios con salidas del país durante licencias de dos mil veintitrés y dos mil veinticuatro.",
       "parada": 2,
-      "seg": 10.21
+      "seg": 10.21,
+      "textoPantalla": "Ese día, un informe de la Contraloría identificó a más de 25.000 funcionarios con salidas del país durante licencias de 2023 y 2024."
     },
     {
       "texto": "Cuatro días después se publicó la Ley 21.746.",
       "parada": 2,
-      "seg": 4.31
+      "seg": 4.31,
+      "textoPantalla": "4 días después se publicó la Ley 21.746."
     },
     {
       "texto": "Esa ley permitió pedir antecedentes clínicos y datos de organismos como la Policía de Investigaciones, el Servicio de Impuestos Internos y Tesorería.",
@@ -131,17 +148,20 @@
       "texto": "El veintinueve de septiembre de dos mil veintiséis apareció VigIA, una herramienta de la Superintendencia de Seguridad Social para priorizar investigaciones sobre emisores.",
       "parada": 3,
       "seg": 8.74,
+      "textoPantalla": "El 29 de septiembre de 2026 apareció VigIA, una herramienta de la Superintendencia de Seguridad Social para priorizar investigaciones sobre emisores.",
       "rotulo": "Los hitos"
     },
     {
       "texto": "El dos de octubre se conoció el nuevo cruce de viajes y licencias de dos mil veinticinco.",
       "parada": 3,
-      "seg": 6.97
+      "seg": 6.97,
+      "textoPantalla": "El 2 de octubre se conoció el nuevo cruce de viajes y licencias de 2025."
     },
     {
       "texto": "Y el tres de octubre se difundió la reacción del Gobierno: acelerar los sumarios y examinar también lo ocurrido antes de dos mil veintidós.",
       "parada": 3,
-      "seg": 9.03
+      "seg": 9.03,
+      "textoPantalla": "Y el 3 de octubre se difundió la reacción del Gobierno: acelerar los sumarios y examinar también lo ocurrido antes de 2022."
     },
     {
       "texto": "Si tu licencia aparece en un cruce de datos, esos hitos abren revisiones distintas, no convierten la alerta en una condena.",
@@ -167,6 +187,7 @@
       "texto": "Imagina que un profesional te indica siete días de reposo por una enfermedad común.",
       "parada": 4,
       "seg": 6.08,
+      "textoPantalla": "Imagina que un profesional te indica 7 días de reposo por una enfermedad común.",
       "rotulo": "Qué es una licencia"
     },
     {
@@ -223,22 +244,26 @@
     {
       "texto": "Sigamos con tu licencia común de siete días.",
       "parada": 5,
-      "seg": 4.31
+      "seg": 4.31,
+      "textoPantalla": "Sigamos con tu licencia común de 7 días."
     },
     {
       "texto": "Si trabajas en el sector privado y cumples los requisitos, el subsidio se paga desde el cuarto día, porque el reposo dura diez días o menos.",
       "parada": 5,
-      "seg": 9.62
+      "seg": 9.62,
+      "textoPantalla": "Si trabajas en el sector privado y cumples los requisitos, el subsidio se paga desde el cuarto día, porque el reposo dura 10 días o menos."
     },
     {
       "texto": "Si una licencia común supera los diez días, se paga desde el primero.",
       "parada": 5,
-      "seg": 5.79
+      "seg": 5.79,
+      "textoPantalla": "Si una licencia común supera los 10 días, se paga desde el primero."
     },
     {
       "texto": "Y si varias licencias continuadas por el mismo diagnóstico superan juntas ese límite, el subsidio se reliquida e incluye los tres primeros días.",
       "parada": 5,
-      "seg": 8.74
+      "seg": 8.74,
+      "textoPantalla": "Y si varias licencias continuadas por el mismo diagnóstico superan juntas ese límite, el subsidio se reliquida e incluye los 3 primeros días."
     },
     {
       "texto": "En el sector público, conservas tu remuneración si estás sujeto a estatuto, y la entidad pagadora reembolsa al empleador público cuando corresponde.",
@@ -254,6 +279,7 @@
       "texto": "Con esa misma licencia de siete días, puedes salir para un control, un examen, comprar medicamentos o alimentos, cobrar el subsidio, votar obligatoriamente o atender una fuerza mayor.",
       "parada": 6,
       "seg": 10.21,
+      "textoPantalla": "Con esa misma licencia de 7 días, puedes salir para un control, un examen, comprar medicamentos o alimentos, cobrar el subsidio, votar obligatoriamente o atender una fuerza mayor.",
       "rotulo": "Qué permite el reposo"
     },
     {
@@ -274,7 +300,8 @@
     {
       "texto": "Pero si durante esos siete días viajas fuera del país, incumples como regla general porque impides el control de la autoridad.",
       "parada": 6,
-      "seg": 8.15
+      "seg": 8.15,
+      "textoPantalla": "Pero si durante esos 7 días viajas fuera del país, incumples como regla general porque impides el control de la autoridad."
     },
     {
       "texto": "La excepción es un tratamiento médico en el extranjero, vinculado con tu recuperación y debidamente acreditado.",
@@ -305,7 +332,8 @@
     {
       "texto": "Al corte informado por la Superintendencia, doscientas once de cuatrocientas dieciséis investigaciones iniciadas en dos mil veintiséis surgieron de esta herramienta, y sesenta y dos terminaron con sanciones a emisores.",
       "parada": 7,
-      "seg": 10.8
+      "seg": 10.8,
+      "textoPantalla": "Al corte informado por la Superintendencia, 211 de 416 investigaciones iniciadas en 2026 surgieron de esta herramienta, y 62 terminaron con sanciones a emisores."
     },
     {
       "texto": "Esas cifras no representan la proporción de fraude entre todas las licencias.",
@@ -320,7 +348,8 @@
     {
       "texto": "Al cinco de octubre de dos mil veintiséis no estaban publicadas todas sus variables, ponderaciones, umbrales, tasas de falsos positivos ni auditorías externas.",
       "parada": 7,
-      "seg": 8.74
+      "seg": 8.74,
+      "textoPantalla": "Al 5 de octubre de 2026 no estaban publicadas todas sus variables, ponderaciones, umbrales, tasas de falsos positivos ni auditorías externas."
     },
     {
       "texto": "En simple: una señal puede ordenar qué se revisa primero, pero todavía no decide qué pasó contigo.",
@@ -361,7 +390,8 @@
     {
       "texto": "Al cinco de octubre de dos mil veintiséis, el proyecto que buscaba tipificar expresamente este uso indebido como falta de probidad seguía en tramitación.",
       "parada": 8,
-      "seg": 9.03
+      "seg": 9.03,
+      "textoPantalla": "Al 5 de octubre de 2026, el proyecto que buscaba tipificar expresamente este uso indebido como falta de probidad seguía en tramitación."
     },
     {
       "texto": "¿Y la cárcel?",
@@ -387,12 +417,14 @@
       "texto": "El séptimo balance consolidado de la Dirección de Presupuestos, fechado el cinco de febrero de dos mil veintiséis, informó más de veinticinco mil sumarios.",
       "parada": 9,
       "seg": 9.03,
+      "textoPantalla": "El séptimo balance consolidado de la Dirección de Presupuestos, fechado el 5 de febrero de 2026, informó más de 25.000 sumarios.",
       "rotulo": "Por qué el caso sigue abierto"
     },
     {
       "texto": "Más de veintiún mil seguían en curso y más de mil quinientos estaban cerrados con resolución ejecutoriada.",
       "parada": 9,
-      "seg": 6.97
+      "seg": 6.97,
+      "textoPantalla": "Más de 21.000 seguían en curso y más de 1.500 estaban cerrados con resolución ejecutoriada."
     },
     {
       "texto": "Si trabajas en un servicio público y apareces en el cruce, la baja agregada no resuelve tu caso.",
@@ -406,17 +438,30 @@
     },
     {
       "tipo": "dato",
-      "etiqueta": "sumarios totales",
-      "a": "1543",
+      "forma": "lista",
+      "valores": [
+        {
+          "rotulo": "sumarios totales",
+          "valor": "25.352"
+        },
+        {
+          "rotulo": "en curso",
+          "valor": "21.098"
+        },
+        {
+          "rotulo": "cerrados",
+          "valor": "1.543"
+        }
+      ],
       "fuente": "Dipres, 05-02-2026",
       "parada": 9,
-      "seg": 4.8,
-      "de": "25352"
+      "seg": 7.2
     },
     {
       "texto": "Los más de treinta y seis mil millones de pesos estimados por la Dirección de Presupuestos tampoco son fraude probado ni dinero recuperado.",
       "parada": 9,
-      "seg": 8.74
+      "seg": 8.74,
+      "textoPantalla": "Los más de 36.000 millones de pesos estimados por la Dirección de Presupuestos tampoco son fraude probado ni dinero recuperado."
     },
     {
       "texto": "La institución calculó esa suma usando remuneraciones promedio y períodos de licencia del universo que sería sumariado.",
@@ -432,32 +477,38 @@
       "texto": "Entre dos mil veinte y dos mil veintidós, una red que operó mediante dieciséis sociedades médicas de fachada emitió más de sesenta mil licencias fraudulentas.",
       "parada": 10,
       "seg": 9.32,
+      "textoPantalla": "Entre 2020 y 2022, una red que operó mediante 16 sociedades médicas de fachada emitió más de 60.000 licencias fraudulentas.",
       "rotulo": "Condena no es recuperación"
     },
     {
       "texto": "Fonasa pagó más de cincuenta mil.",
       "parada": 10,
-      "seg": 3.72
+      "seg": 3.72,
+      "textoPantalla": "Fonasa pagó más de 50.000."
     },
     {
       "texto": "El veintitrés de junio de dos mil veintiséis, un tribunal declaró culpables a los diecisiete acusados.",
       "parada": 10,
-      "seg": 6.67
+      "seg": 6.67,
+      "textoPantalla": "El 23 de junio de 2026, un tribunal declaró culpables a los 17 acusados."
     },
     {
       "texto": "La sentencia se dictó el treinta y uno de agosto.",
       "parada": 10,
-      "seg": 4.9
+      "seg": 4.9,
+      "textoPantalla": "La sentencia se dictó el 31 de agosto."
     },
     {
       "texto": "La Fiscalía informó un perjuicio de más de treinta y un mil quinientos millones de pesos, y se acogió una demanda civil por cerca de veintiséis mil millones.",
       "parada": 10,
-      "seg": 10.21
+      "seg": 10.21,
+      "textoPantalla": "La Fiscalía informó un perjuicio de más de 31.500 millones de pesos, y se acogió una demanda civil por cerca de 26.000 millones."
     },
     {
       "texto": "Pero al cinco de octubre de dos mil veintiséis no se encontró constancia oficial de dinero efectivamente ingresado al Fisco.",
       "parada": 10,
-      "seg": 7.85
+      "seg": 7.85,
+      "textoPantalla": "Pero al 5 de octubre de 2026 no se encontró constancia oficial de dinero efectivamente ingresado al Fisco."
     },
     {
       "texto": "Tampoco se encontró una fuente que acreditara la ejecución del fallo o explicara una causa documentada para esa falta de recuperación.",
@@ -471,12 +522,20 @@
     },
     {
       "tipo": "dato",
-      "etiqueta": "perjuicio informado",
-      "a": "26000000000",
+      "forma": "lista",
+      "valores": [
+        {
+          "rotulo": "perjuicio informado",
+          "valor": "31.571.798.643"
+        },
+        {
+          "rotulo": "demanda civil acogida",
+          "valor": "26.000.000.000"
+        }
+      ],
       "fuente": "Emol, 31-08-2026",
       "parada": 10,
-      "seg": 4.8,
-      "de": "31571798643"
+      "seg": 6
     },
     {
       "texto": "Los procedimientos separados permiten distinguir un indicio, un incumplimiento sanitario, una falta laboral, una responsabilidad administrativa y un delito.",
@@ -500,12 +559,14 @@
       "texto": "Si quieres saber si el control mejora de verdad, conviene seguir la evolución de los más de veintiún mil sumarios que continuaban abiertos.",
       "parada": 12,
       "seg": 8.74,
+      "textoPantalla": "Si quieres saber si el control mejora de verdad, conviene seguir la evolución de los más de 21.000 sumarios que continuaban abiertos.",
       "rotulo": "Qué mirar después"
     },
     {
       "texto": "También importa la eventual publicación íntegra del informe de Contraloría sobre dos mil veinticinco y la información de la Superintendencia sobre resultados, tasas de error y mecanismos de revisión de VigIA.",
       "parada": 12,
-      "seg": 11.1
+      "seg": 11.1,
+      "textoPantalla": "También importa la eventual publicación íntegra del informe de Contraloría sobre 2025 y la información de la Superintendencia sobre resultados, tasas de error y mecanismos de revisión de VigIA."
     },
     {
       "texto": "Esos datos permitirán medir avances sin anticipar si la herramienta funcionará o fallará.",
@@ -516,6 +577,7 @@
       "texto": "Quédate con cuatro ideas.",
       "parada": 13,
       "seg": 3.13,
+      "textoPantalla": "Quédate con 4 ideas.",
       "rotulo": "Cierre"
     },
     {

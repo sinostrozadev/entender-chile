@@ -14,6 +14,7 @@
 //   node scripts/mural-guion.js --guion contenido/guiones/claves/FECHA-slug.md \
 //     --ancho 27580 --paradas 440,2460,... --trozos claves/slug/mural14 --salida ejemplos/clave-mural14.json
 const fs = require("fs");
+const { aNumerales, formatoCifra } = require("./numerales");
 const arg = (n, d) => { const i = process.argv.indexOf("--" + n); return i > -1 && process.argv[i + 1] ? process.argv[i + 1] : d; };
 const md = fs.readFileSync(arg("guion"), "utf8");
 const anchoMural = Number(arg("ancho"));
@@ -77,18 +78,48 @@ secciones.forEach((sec, i) => {
   let primera = true;
   for (const p of ordenar(sec.partes)) {
     if (p.tipo === "dato") {
-      // "servidores 2023: 19963 ; servidores 2025: 7207"
-      const pares = p.crudo.split(";").map((x) => x.trim());
-      const vals = pares.map((x) => x.split(":").pop().trim());
-      const etq = pares[0].split(":")[0].replace(/\s*\d{4}$/, "").trim();
-      const b = { tipo: "dato", etiqueta: etq, a: vals[vals.length - 1], fuente: p.fuente, parada: i, seg: 4.8 };
-      if (vals.length > 1) b.de = vals[0];
+      // CADA VALOR CONSERVA SU PROPIO RÓTULO. La primera versión se quedaba con
+      // el rótulo del primer par, le arrancaba el año y pintaba el primer valor
+      // y el último separados por una flecha. En pantalla eso daba
+      // "SERVIDORES 19963 → 7207", dos números pelados que no se entiende qué
+      // son, y en el dato de tres valores mentía: "sumarios totales: 25352 ;
+      // en curso: 21098 ; cerrados: 1543" salía como 25352 → 1543, o sea un
+      // desplome que nunca ocurrió, cuando es el desglose de un mismo total.
+      const valores = p.crudo.split(";").map((par) => {
+        const c = par.lastIndexOf(":");
+        return { rotulo: par.slice(0, c).trim(), valor: formatoCifra(par.slice(c + 1).trim()) };
+      });
+      // LA FLECHA SIGNIFICA UNA COSA SOLA: lo mismo medido en dos momentos. Si
+      // los rótulos no son la misma raíz con años distintos, no hay antes ni
+      // después que mostrar y va una lista, que no afirma ninguna dirección.
+      const anios = valores.map((v) => (v.rotulo.match(/\s(\d{4})$/) || [])[1]);
+      const raices = valores.map((v) => v.rotulo.replace(/\s*\d{4}$/, "").trim());
+      const flecha = valores.length === 2 && anios.every(Boolean) && raices[0] === raices[1];
+      // 4,8 s estaba medido para un número solo. Leer un rótulo y su valor
+      // cuesta más que leer una cifra, y acá hay dos o tres pares.
+      const b = {
+        tipo: "dato",
+        forma: flecha ? "flecha" : "lista",
+        valores: flecha ? valores.map((v, k) => ({ rotulo: anios[k], valor: v.valor })) : valores,
+        fuente: p.fuente,
+        parada: i,
+        seg: Math.round((3.6 + 1.2 * valores.length) * 100) / 100,
+      };
+      if (flecha) b.etiqueta = raices[0];
       if (primera) { b.rotulo = sec.titulo; primera = false; }
       bloques.push(b);
     } else {
       const os = oraciones(p.texto);
       os.forEach((o, k) => {
         const b = { texto: o, parada: i, seg: dura(o) };
+        // REGLA 36: la voz lee palabras, la pantalla muestra numerales. Está
+        // decidido desde el 29-08-2026 y el informe lo hace en parse.js:324;
+        // este armador nació después y nunca lo aplicó, así que la Clave salió
+        // con "dos mil veintiséis" y "siete mil doscientos" escritos en
+        // pantalla. La duración se calcula sobre el texto narrado, que es el
+        // que tarda.
+        const pant = aNumerales(o).trim();
+        if (pant !== o) b.textoPantalla = pant;
         // la marca va solo en la primera oración del párrafo marcado: repetirla
         // en cada oración la convierte en ruido y deja de distinguir nada
         if (p.marca && k === 0) b.marca = p.marca;

@@ -45,9 +45,13 @@ import { tema } from "./tema";
 // debería ir aportando a lo que se lee". Ahora cada sección declara en qué
 // píxel del mural vive su motivo, y el mural se encarga de GPT para que ese
 // motivo esté ahí.
+export type Valor = { rotulo: string; valor: string };
 export type Bloque =
-  | { tipo?: "texto"; rotulo?: string; marca?: "hecho" | "interpretacion"; texto: string; seg: number; parada: number }
-  | { tipo: "dato"; etiqueta: string; de?: string; a: string; fuente: string; seg: number; parada: number };
+  // `texto` es lo que lee la voz, en palabras; `textoPantalla` es lo mismo con
+  // los números en numerales, que es lo que se ve (regla 36). Si no vienen
+  // números, el armador no escribe la segunda y se usa la primera.
+  | { tipo?: "texto"; rotulo?: string; marca?: "hecho" | "interpretacion"; texto: string; textoPantalla?: string; seg: number; parada: number }
+  | { tipo: "dato"; rotulo?: string; forma: "flecha" | "lista"; etiqueta?: string; valores: Valor[]; fuente: string; seg: number; parada: number };
 
 export type GuionMural = {
   // uno o varios trozos contiguos. Catorce paneles cosidos dan 27.580 px y los
@@ -160,7 +164,7 @@ const Marca: React.FC<{ marca: "hecho" | "interpretacion" }> = ({ marca }) => {
 const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: number }> = ({ b, dur }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const letras = Array.from(b.texto);
+  const letras = Array.from(b.textoPantalla ?? b.texto);
   const avance = interpolate(frame, [fps * 0.25, dur - fps * 0.9], [0, letras.length], {
     extrapolateLeft: "clamp", extrapolateRight: "clamp",
   });
@@ -180,29 +184,59 @@ const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: numbe
 
 // EL DATO COMO PLANO. El número entra creciendo apenas (1.06 a 1.0): no es un
 // efecto, es lo que hace que el ojo lo lea como que llegó y se quedó.
+//
+// CADA NÚMERO CON SU RÓTULO (12-10-2026, lo cazó Santiago mirando el render).
+// Antes esto pintaba dos cifras y una flecha, y la flecha se la ponía a todo:
+// al dato de tres valores lo volvía "25352 → 1543", que es un desplome que no
+// existió, porque esos tres valores son el desglose de un mismo total. Ahora
+// la flecha aparece solo cuando el armador reconoce lo mismo medido en dos
+// años, y esos años se escriben bajo cada cifra. Todo lo demás va en lista,
+// que no afirma ninguna dirección.
 const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number }> = ({ b, dur }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const entra = interpolate(frame, [0, fps * 0.7], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const sale = interpolate(frame, [dur - fps * 0.5, dur], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const zoom = interpolate(suave(Math.min(1, frame / (fps * 0.9))), [0, 1], [1.06, 1]);
-  const o = entra * sale;
+  const flecha = interpolate(frame, [fps * 0.5, fps * 0.9], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const esFlecha = b.forma === "flecha" && b.valores.length === 2;
+  // la lista entra fila por fila: leer tres pares de un golpe no se puede, y
+  // escalonarlas le dice al ojo en qué orden mirarlas
+  const fila = (k: number) =>
+    interpolate(frame, [fps * (0.35 + 0.3 * k), fps * (0.85 + 0.3 * k)], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
-    <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", opacity: o }}>
+    <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", opacity: entra * sale }}>
       <div style={{ transform: `scale(${zoom})`, textAlign: "center" }}>
-        <div style={{ fontFamily: tema.mono, fontSize: 26, letterSpacing: 3, textTransform: "uppercase", color: tema.patina, marginBottom: 34 }}>
-          {b.etiqueta}
-        </div>
-        <div style={{ fontFamily: tema.serif, fontSize: 168, lineHeight: 1, color: tema.papel, display: "flex", alignItems: "center", gap: 46 }}>
-          {b.de ? (
-            <>
-              <span style={{ opacity: 0.38 }}>{b.de}</span>
-              <span style={{ fontSize: 96, color: tema.patina, opacity: interpolate(frame, [fps * 0.5, fps * 0.9], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>→</span>
-            </>
-          ) : null}
-          <span>{b.a}</span>
-        </div>
-        <div style={{ fontFamily: tema.mono, fontSize: 24, color: tema.gris, marginTop: 40 }}>{b.fuente}</div>
+        {b.etiqueta ? (
+          <div style={{ fontFamily: tema.mono, fontSize: 26, letterSpacing: 3, textTransform: "uppercase", color: tema.patina, marginBottom: 34 }}>
+            {b.etiqueta}
+          </div>
+        ) : null}
+        {esFlecha ? (
+          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", gap: 46 }}>
+            {b.valores.map((v, k) => (
+              <React.Fragment key={k}>
+                {k > 0 ? (
+                  <div style={{ fontFamily: tema.serif, fontSize: 96, lineHeight: 1.75, color: tema.patina, opacity: flecha }}>→</div>
+                ) : null}
+                <div>
+                  <div style={{ fontFamily: tema.serif, fontSize: 168, lineHeight: 1, color: tema.papel, opacity: k === 0 ? 0.38 : 1 }}>{v.valor}</div>
+                  <div style={{ fontFamily: tema.mono, fontSize: 30, letterSpacing: 2, color: tema.patina, marginTop: 16, opacity: k === 0 ? 0.6 : 1 }}>{v.rotulo}</div>
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
+        ) : (
+          <div style={{ display: "inline-block", textAlign: "left" }}>
+            {b.valores.map((v, k) => (
+              <div key={k} style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 70, opacity: fila(k), marginBottom: k < b.valores.length - 1 ? 26 : 0 }}>
+                <span style={{ fontFamily: tema.mono, fontSize: 30, letterSpacing: 2, textTransform: "uppercase", color: tema.patina }}>{v.rotulo}</span>
+                <span style={{ fontFamily: tema.serif, fontSize: 86, lineHeight: 1, color: tema.papel }}>{v.valor}</span>
+              </div>
+            ))}
+          </div>
+        )}
+        <div style={{ fontFamily: tema.mono, fontSize: 24, color: tema.gris, marginTop: 44 }}>{b.fuente}</div>
       </div>
     </AbsoluteFill>
   );
