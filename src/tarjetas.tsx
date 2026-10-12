@@ -58,6 +58,10 @@ const F_IMAGEN = fondoNums("imagen");
 
 
 // ---------- tipos ----------
+// un bloque del párrafo: su texto, dónde empieza dentro del párrafo entero (la
+// palabra se ubica en la curva de la voz por esa posición) y el segundo en que
+// entra, contado desde que empieza el párrafo
+export type BloqueTexto = { texto: string; en: number; desde: number };
 export type Tendencia = { dir: "sube" | "baja" | "igual" | null; sentido: "bien" | "mal" | null };
 export type Serie = { etiqueta: string; num: number | null; unidad: string; raw: string; tendencia?: Tendencia };
 export type Evento = {
@@ -103,6 +107,10 @@ export type Evento = {
   // (lo calcula scripts/build-timeline.js con el ritmo del párrafo ancla)
   pasos?: { etiqueta?: number; referencia?: number };
   imagenSola?: boolean;        // sin el texto al lado: el dibujo se queda con el cuadro entero
+  // EL TEXTO EN BLOQUES (12-10-2026): el párrafo partido en bloques de ocho o
+  // nueve palabras que se relevan con la voz. Lo arma scripts/texto-bloques.js
+  // y solo viaja con TEXTO_BLOQUES=1; sin él la tarjeta sale como siempre.
+  bloques?: BloqueTexto[];
   // la curva de anclas [fracción del párrafo, segundos desde su inicio] que
   // arma scripts/build-timeline.js con la alineación real de la voz
   ritmo?: [number, number][];
@@ -582,6 +590,61 @@ const Palabras: React.FC<{ texto: string; dur: number; ritmo?: [number, number][
   );
 };
 
+// EL TEXTO SE REEMPLAZA, NO SE ACUMULA (12-10-2026, decisión de Santiago).
+// Es la regla de la Clave del mural (cabecera de src/clave-mural.tsx) llevada
+// al informe: "un párrafo que crece obliga a leer a nuestra velocidad y el
+// espectador siempre va atrasado". En el informe ni siquiera crecía: salía
+// entero desde el primer cuadro, un muro de hasta sesenta palabras.
+//
+// Lo que se reutiliza y lo que no. De la Clave viene el relevo: un bloque a la
+// vez, que se apaga antes de que entre el siguiente y nunca convive con él. De
+// Palabras, acá arriba, viene CUÁNDO aparece cada palabra: la curva real de la
+// voz, no el reloj parejo con que la Clave revela letras (la Clave no tiene
+// alineación por palabra; el informe sí, y sería un desperdicio no usarla).
+// Dónde se corta cada bloque lo decide scripts/texto-bloques.js.
+//
+// LA CAJA TIENE ALTO FIJO, el de las líneas que cabe el bloque más largo
+// posible (once palabras). Si midiera lo que mide cada bloque, uno de dos
+// líneas después de uno de tres haría subir y bajar todo lo que está encima,
+// el chip de hecho o interpretación incluido, en cada relevo.
+const RELEVO_BLOQUE_SEG = 0.2;
+export const Bloques: React.FC<{ texto: string; bloques: BloqueTexto[]; dur: number; ritmo?: [number, number][];
+  tam: number; interlinea: number; lineas?: number }> = ({ texto, bloques, dur, ritmo, tam, interlinea, lineas = 3 }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const ahora = frame / fps;
+  let k = 0;
+  for (let i = 0; i < bloques.length; i++) if (bloques[i].desde <= ahora) k = i;
+  const b = bloques[k];
+  const sig = bloques[k + 1];
+  // se apaga en el último tramo antes de que entre el siguiente; el tramo nunca
+  // es más largo que un tercio del bloque, para que uno cortísimo alcance a leerse
+  const tramo = sig ? Math.min(RELEVO_BLOQUE_SEG, Math.max(0.04, (sig.desde - b.desde) / 3)) : 0;
+  const sale = sig ? interpolate(ahora, [sig.desde - tramo, sig.desde], [1, 0], CLAMP) : 1;
+  const t = ahora + ADELANTO_SEG;
+  const total = Math.max(1, texto.length);
+  const piezas = b.texto.split(/(\s+)/).filter((p) => p.length > 0);
+  let recorrido = b.en;
+  return (
+    // textWrap balance: sin él, "Uno corresponde a la defensa de Samir Enrique
+    // Rivaldo" llenaba la primera línea y dejaba "Hernández" sola en la
+    // segunda (cuadro del 12-10-2026). El bloque ya no deja palabras huérfanas,
+    // pero el renglón sí podía; repartido parejo, nunca queda una sola abajo.
+    <div style={{ height: Math.ceil(tam * interlinea * lineas), opacity: sale, textWrap: "balance" } as React.CSSProperties}>
+      {piezas.map((p, i) => {
+        const inicio = enCurva(ritmo, recorrido / total, dur);
+        recorrido += p.length;
+        if (/^\s+$/.test(p)) return <span key={i}> </span>;
+        const avance = interpolate(t, [inicio, inicio + PALABRA_SEG], [0, 1], CLAMP);
+        return (
+          <span key={i} style={{ display: "inline-block", opacity: avance,
+            transform: `translateY(${((1 - avance) * 10).toFixed(2)}px)` }}>{p}</span>
+        );
+      })}
+    </div>
+  );
+};
+
 // el orden lo pone quien arma el timeline; si no lo pone nadie, se reparte por
 // el nombre del archivo, que al menos garantiza que dos conceptos distintos
 // casi nunca caen en la misma pose
@@ -666,7 +729,10 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
           flexDirection: pose.dibujoA === "der" ? "row" : "row-reverse", justifyContent: "space-between" }}>
           <div style={{ width: "46%", fontFamily: tema.sans, fontSize: 40, lineHeight: 1.5,
             color: "#E8E7E1", paddingBottom: 60 }}>
-            <Palabras texto={texto} dur={Math.max(1, ev.to - ev.from)} ritmo={ev.ritmo} />
+            {ev.bloques && ev.bloques.length
+              ? <Bloques texto={texto} bloques={ev.bloques} dur={Math.max(1, ev.to - ev.from)} ritmo={ev.ritmo}
+                  tam={40} interlinea={1.5} />
+              : <Palabras texto={texto} dur={Math.max(1, ev.to - ev.from)} ritmo={ev.ritmo} />}
           </div>
           <div style={{ width: "46%" }} />
         </AbsoluteFill>
@@ -686,6 +752,8 @@ export const TarjetaImagen: React.FC<{ ev: Evento }> = ({ ev }) => {
   );
 };
 
+const BLOQUE_TAM = 54;
+const BLOQUE_INTERLINEA = 1.4;
 export const TarjetaParrafo: React.FC<{ ev: Evento }> = ({ ev }) => {
   const st = useEntrada();
   if (ev.imagen) return <TarjetaImagen ev={ev} />;
@@ -693,7 +761,16 @@ export const TarjetaParrafo: React.FC<{ ev: Evento }> = ({ ev }) => {
     <Marco seccion={ev.seccion} categoria={ev.categoria} abajo={<PieFuente fuente={ev.fuenteSeccion} />}>
       <div style={{ ...st }}>
         {ev.etiqueta ? <div><Chip etiqueta={ev.etiqueta} /></div> : null}
-        <div style={{ fontFamily: tema.sans, fontSize: N_PARRAFO.texto, lineHeight: N_PARRAFO.interlinea, color: "var(--ec-tinta)" }}>{ev.textoPantalla ?? ev.texto}</div>
+        {ev.bloques && ev.bloques.length ? (
+          // en bloques la letra sube de 42 a 54: con nueve palabras en pantalla
+          // sobra cuadro, y el bloque tiene que leerse de una mirada
+          <div style={{ fontFamily: tema.sans, fontSize: BLOQUE_TAM, lineHeight: BLOQUE_INTERLINEA, color: "var(--ec-tinta)" }}>
+            <Bloques texto={ev.textoPantalla ?? ev.texto ?? ""} bloques={ev.bloques} dur={Math.max(1, ev.to - ev.from)}
+              ritmo={ev.ritmo} tam={BLOQUE_TAM} interlinea={BLOQUE_INTERLINEA} />
+          </div>
+        ) : (
+          <div style={{ fontFamily: tema.sans, fontSize: N_PARRAFO.texto, lineHeight: N_PARRAFO.interlinea, color: "var(--ec-tinta)" }}>{ev.textoPantalla ?? ev.texto}</div>
+        )}
       </div>
     </Marco>
   );

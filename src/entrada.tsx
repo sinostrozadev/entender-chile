@@ -35,11 +35,12 @@
 // lo que se ve lo elige Santiago (regla 19). Sin la bandera, el video monta el
 // sello de siempre y no cambia un píxel.
 import React from "react";
-import { AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Easing, Img, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { tema, estiloEyebrow } from "./tema";
 import { Fondo } from "./fondos";
 import { paletaDe, Respaldo, type Tono } from "./legible";
 import pantallas from "../contenido/config/pantallas.json";
+import { Bloques, type BloqueTexto } from "./tarjetas";
 
 // EL FONDO Y SU TONO SALEN DE UN DATO, no de acá (05-10-2026). El mismo día la
 // pantalla cambió de clara a oscura y de vuelta a clara, y cada vuelta costó
@@ -107,7 +108,12 @@ export const EntradaDeMarca: React.FC<{
   vozEn: number;
   /** lo que dura toda la entrada, de la portada al final de la apertura */
   durSeg: number;
-}> = ({ fecha, serie, texto, vozEn, durSeg }) => {
+  /** el párrafo en bloques que se relevan (TEXTO_BLOQUES=1, 12-10-2026) y la curva de su voz */
+  bloques?: BloqueTexto[];
+  ritmo?: [number, number][];
+  /** lo que dura el párrafo hablado, para la cola de la curva */
+  vozDur?: number;
+}> = ({ fecha, serie, texto, vozEn, durSeg, bloques, ritmo, vozDur }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const t = frame / fps;
@@ -175,7 +181,16 @@ export const EntradaDeMarca: React.FC<{
           textShadow: PALETA.sombra,
         }}
       >
-        {texto}
+        {/* LA APERTURA TAMBIÉN VA EN BLOQUES (12-10-2026): es el primer párrafo
+            que ve el espectador y era el muro más largo del informe. Los
+            tiempos de los bloques cuentan desde que entra la voz, y esta
+            secuencia empieza antes (con la portada), así que se corren. */}
+        {bloques && bloques.length ? (
+          <Sequence from={Math.round(vozEn * fps)} layout="none">
+            <Bloques texto={texto} bloques={bloques} dur={Math.max(1, vozDur ?? durSeg - vozEn)} ritmo={ritmo}
+              tam={42} interlinea={1.5} />
+          </Sequence>
+        ) : texto}
       </div>
 
       {/* EL RÓTULO Y LA FECHA. Van anclados al centro con un desplazamiento

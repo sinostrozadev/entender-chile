@@ -544,6 +544,8 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
       vozEn: Math.max(0, bloque.from + suya.desde - pres.from),
       durSeg: bloque.to - pres.from,
       texto: suya.ev.textoPantalla ?? suya.ev.texto ?? "",
+      // con TEXTO_BLOQUES=1 el párrafo de apertura también se releva en bloques
+      bloques: suya.ev.bloques, ritmo: suya.ev.ritmo, vozDur: suya.ev.to - suya.ev.from,
     };
   })();
 
@@ -640,7 +642,8 @@ export const SecuenciaInforme: React.FC<PropsSecuencia> = (tl) => {
         <Sequence from={f(entrada.desde)} durationInFrames={Math.max(1, f(entrada.durSeg))}>
           {tl.meta.logo ? <Audio src={staticFile(tl.meta.logo)} volume={0.6} /> : null}
           <EntradaDeMarca fecha={tl.meta.fecha} serie={tl.meta.serie} texto={entrada.texto}
-            vozEn={entrada.vozEn} durSeg={entrada.durSeg} />
+            vozEn={entrada.vozEn} durSeg={entrada.durSeg}
+            bloques={entrada.bloques} ritmo={entrada.ritmo} vozDur={entrada.vozDur} />
         </Sequence>
       ) : null}
 

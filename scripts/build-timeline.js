@@ -10,6 +10,7 @@ const path = require("path");
 const { copiarSecciones, imagenDe, carpetaPublica } = require("./imagenes-secciones.js");
 const { repartidor } = require("./dibujo-parrafo.js");
 const { entera } = require("./imagen-entera.js");
+const { bloquesDe } = require("./texto-bloques.js");
 
 const [, , parsedPath, alignPath, salida = "out/timeline.json", audioFile = null] = process.argv;
 if (!parsedPath || !alignPath) {
@@ -59,6 +60,22 @@ if (SECUENCIA && SECUENCIA !== "2409") {
   console.error(`SECUENCIA no reconocida: "${SECUENCIA}". Valores: (vacío) | 2409.`);
   process.exit(1);
 }
+
+// EL TEXTO EN BLOQUES (12-10-2026, decisión de Santiago: lo de la Clave del
+// mural llevado al informe). TEXTO_BLOQUES=1 parte cada párrafo narrado en
+// bloques de ocho o nueve palabras que se relevan con la voz; el porqué y la
+// manera de partir están en scripts/texto-bloques.js. Sin la variable no se
+// escribe ni un campo nuevo y el timeline sale byte por byte igual que antes
+// de que el interruptor existiera, que es lo que deja encenderlo y apagarlo
+// desde el workflow sin miedo.
+const TEXTO_BLOQUES = (process.env.TEXTO_BLOQUES || "").trim();
+if (TEXTO_BLOQUES && TEXTO_BLOQUES !== "1") {
+  console.error(`TEXTO_BLOQUES no reconocido: "${TEXTO_BLOQUES}". Valores: (vacío) | 1.`);
+  process.exit(1);
+}
+// el mismo adelanto con que el video hace aparecer cada palabra: el bloque
+// entra a la par con su primera palabra y no un pelo después
+const ADELANTO_PALABRA = require("../contenido/config/tarjetas.json").comunDibujo.adelantoSeg;
 
 const enFrio = process.env.EN_FRIO === "1" ||
   /la noticia del d[ií]a/i.test((parsed.eventos.find((e) => e.tipo === "seccion") || {}).texto || "");
@@ -175,6 +192,10 @@ parsed.eventos.forEach((ev, idx) => {
         const d = dibujos.dar({ texto: ev.texto, seccion: ev._seccion, sinDibujo: ev.sinDibujo,
           tapado: conTarjetaEncima.has(idx) });
         if (d) { out.imagen = d.ruta; out.imagenPie = d.concepto; }
+        if (TEXTO_BLOQUES === "1") {
+          const b = bloquesDe(out.textoPantalla ?? out.texto, out.ritmo, r.to - r.from, ADELANTO_PALABRA);
+          if (b && b.length) out.bloques = b;
+        }
       }
       porIndice.set(idx, out);
       eventos.push(out);
@@ -343,6 +364,9 @@ const timeline = {
     // viaja cuando está encendida, para que una edición sin ella produzca el
     // mismo archivo byte por byte que antes de que existiera.
     ...(process.env.ENTRADA_MARCA === "1" ? { entrada: true } : {}),
+    // EL TEXTO EN BLOQUES (12-10-2026): anotado para que el JSON diga con qué
+    // regla salió el video. Solo viaja encendido, por lo mismo que la entrada.
+    ...(TEXTO_BLOQUES === "1" ? { textoBloques: true } : {}),
     // apertura en frío: el sello suena en la pausa que cierra la primera
     // sección (banners[1].from ya apunta al inicio de ese silencio)
     selloEn: enFrio && banners[1] ? Number(Math.max(0, banners[1].from - 0.05).toFixed(2)) : 0,

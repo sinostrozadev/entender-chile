@@ -168,6 +168,13 @@ jobs:
           # sección, oscurecida, texto encima) entra a producción por decisión
           # de Santiago tras ver el video de prueba. Vacío = montaje anterior.
           SECUENCIA: "2409"
+          # (12-10) TEXTO_BLOQUES: el párrafo narrado deja de salir entero y se
+          # releva en bloques de ocho o nueve palabras al ritmo de la voz, como
+          # en la Clave del mural. Decisión de Santiago: "el texto se reemplaza,
+          # no se acumula", porque un párrafo entero obliga a leer a nuestra
+          # velocidad y el espectador siempre va atrasado. Cómo se corta, en
+          # scripts/texto-bloques.js. Vacío = el párrafo entero de antes.
+          TEXTO_BLOQUES: "1"
           # (28-09) El formato completo entra al aire, aprobado por Santiago
           # viendo la muestra con voz real: "quiero que el video del informe de
           # mas rato salga con este formato".
