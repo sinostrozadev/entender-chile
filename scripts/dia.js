@@ -8,6 +8,7 @@
  *   node scripts/dia.js <ruta.md>             → un guion específico
  *   ... --voz                                 → voz real ElevenLabs (ELEVENLABS_API_KEY y VOICE_ID)
  *   ... --render                              → además renderiza el MP4
+ *   CLAVE_FORMATO=mural|clasico               → formato de la Clave (vacío: mural si la Clave lo trae)
  *
  * Pasos: parse → voz → timeline → capítulos (+ descripción) → (render)
  * Salidas del día en out/AAAA-MM-DD/ y descripción lista en contenido/descripciones/.
@@ -64,10 +65,60 @@ const run = (script, extra = [], env = {}) =>
 const capturar = (script, extra = []) =>
   execFileSync("node", [path.join("scripts", script), ...extra], { encoding: "utf8" });
 
+// EL MURAL (12-10-2026, Santiago: "cablea la Clave"). La Clave sale con el
+// mural (src/clave-mural.tsx, scripts/clave-mural.js) cuando su carpeta trae
+// el material, contenido/claves/flujo/<slug>/mural.json; si no, con el formato
+// clásico de siempre. CLAVE_FORMATO es el interruptor:
+//   (vacío)  mural si hay material y calza con el guion; si no, clásico
+//   mural    lo mismo, pero un mural que NO calza con su guion (otra cantidad
+//            de paneles que de secciones, un trozo que falta) detiene la
+//            corrida en vez de caer al clásico: si alguien pidió el mural, un
+//            video con el formato viejo es una sorpresa, no un respaldo
+//   clasico  el formato anterior, aunque haya mural, para volver atrás
+// Una Clave sin material NUNCA se cae: sale clásica, con aviso, porque quedarse
+// sin video de la semana por no haber encargado el mural es peor que el
+// formato viejo. Se valida acá por lo mismo que FONDO_TARJETA: un valor mal
+// escrito en el workflow tiene que caerse y verse.
+const FORMATO_PEDIDO = (process.env.CLAVE_FORMATO || "").trim().toLowerCase();
+if (!["", "mural", "clasico"].includes(FORMATO_PEDIDO)) {
+  console.error(`CLAVE_FORMATO no reconocido: "${process.env.CLAVE_FORMATO}". Valores: (vacío) | mural | clasico.`);
+  process.exit(1);
+}
+let mural = null;
+if (esClave && FORMATO_PEDIDO !== "clasico") {
+  const { materialMural } = require("./clave-mural.js");
+  const mat = materialMural(guion);
+  if (!mat) {
+    console.log(`(Clave sin mural: no hay contenido/claves/flujo/<slug>/mural.json; sale con el formato clásico)`);
+  } else if (mat.problemas.length) {
+    console.error(`El mural de ${mat.slug} no calza con su guion:\n  - ${mat.problemas.join("\n  - ")}`);
+    if (FORMATO_PEDIDO === "mural") process.exit(1);
+    console.warn("(se cae al formato clásico)");
+  } else {
+    mural = mat;
+    console.log(`(formato de la Clave: mural, material en ${mat.ruta})`);
+  }
+}
+
 console.log(`Guion: ${guion}\nSalidas: ${OUT}\n`);
 console.log("── 1/4 · Parseando guion ─────────────────────────");
 run("parse.js", [guion, OUT]);
 
+let capitulosDe = path.join(OUT, "timeline.json");
+if (mural) {
+  // voz, reloj de bloques, cama y capítulos: todo sale de scripts/clave-mural.js
+  console.log("── 2-3/4 · Voz, mural y cama ─────────────────────");
+  if (conVoz && !(process.env.AZURE_SPEECH_KEY && process.env.AZURE_SPEECH_REGION)) {
+    console.error("--voz requiere AZURE_SPEECH_KEY + AZURE_SPEECH_REGION (respaldo: AZURE_SPEECH_KEY2 + AZURE_SPEECH_REGION2).");
+    process.exit(1);
+  }
+  if (!conVoz) console.log("(modo prueba: video sin voz, duraciones estimadas, cero créditos)");
+  const { producirMural } = require("./clave-mural.js");
+  mural.salida = producirMural({ guion, OUT, fecha, conVoz, mat: mural });
+  capitulosDe = mural.salida.rutaCap;
+} else {
+// el formato clásico, tal cual estaba: sin reindentar a propósito, para que el
+// diff muestre que no se tocó una línea del camino del informe
 console.log("── 2/4 · Voz ─────────────────────────────────────");
 let audio = null;
 if (conVoz) {
@@ -158,9 +209,10 @@ run("build-timeline.js", [
 // entero, y el aviso queda escrito en el log de la corrida, que es donde se
 // mira cuando algo salio raro. El porque esta en scripts/validar-solapes.js.
 run("validar-solapes.js", [path.join(OUT, "timeline.json")]);
+}
 
 console.log("── 4/4 · Capítulos y descripción ─────────────────");
-const capitulos = capturar("chapters.js", [path.join(OUT, "timeline.json")]);
+const capitulos = capturar("chapters.js", [capitulosDe]);
 process.stdout.write(capitulos);
 const parsed = JSON.parse(fs.readFileSync(path.join(OUT, "parsed.json"), "utf8"));
 const descripcion = [parsed.descripcion || "", "", "Capítulos:", capitulos.trim(), "",
@@ -181,8 +233,23 @@ if (conRender) {
   console.log("── Render ────────────────────────────────────────");
   // --concurrency=100%: el runner de Actions tiene 4 núcleos y el default de
   // remotion usaba 2; el render de un informe tardaba 55 a 105 min (ACTIONS 1).
-  execFileSync("npx", ["remotion", "render", "Informe", video,
-    `--props=./${path.join(OUT, "timeline.json")}`, "--concurrency=100%"], { stdio: "inherit" });
+  if (mural) {
+    // EL NIVEL VA DESPUÉS DEL RENDER. Un video de narración se nivela contra
+    // la voz, y el objetivo de YouTube es -14 LUFS con pico a -1,5: más fuerte
+    // lo bajan igual, más bajo queda sonando flojo (medido el 07-10-2026, ver
+    // scripts/mezclar-voz.js). Remotion mezcla pero no mide sonoridad, así que
+    // el render sale aparte y el loudnorm escribe el archivo final.
+    const crudo = path.join(OUT, `${fecha}-${etiqueta}-sin-nivelar.mp4`);
+    execFileSync("npx", ["remotion", "render", "ClaveMuralProduccion", crudo,
+      `--props=./${mural.salida.rutaProps}`, "--concurrency=100%"], { stdio: "inherit" });
+    execFileSync("npx", ["remotion", "ffmpeg", "-loglevel", "error", "-i", crudo,
+      "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
+      "-y", video], { stdio: "inherit" });
+    fs.unlinkSync(crudo);
+  } else {
+    execFileSync("npx", ["remotion", "render", "Informe", video,
+      `--props=./${path.join(OUT, "timeline.json")}`, "--concurrency=100%"], { stdio: "inherit" });
+  }
   console.log(`\nListo: ${video}`);
 } else {
   console.log("\nSiguiente paso:");

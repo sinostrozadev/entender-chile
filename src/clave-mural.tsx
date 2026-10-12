@@ -45,9 +45,22 @@ import { tema } from "./tema";
 // debería ir aportando a lo que se lee". Ahora cada sección declara en qué
 // píxel del mural vive su motivo, y el mural se encarga de GPT para que ese
 // motivo esté ahí.
+//
+// CON VOZ (12-10-2026, scripts/clave-mural.js) el bloque de texto trae tres
+// campos más, todos en segundos: `entra` es cuándo arrancan voz y texto dentro
+// del bloque (después del viaje y del tecleo del rótulo), `habla` cuánto dura
+// la oración dicha, y `voz` qué tramo del archivo de narración le toca. El
+// texto aparece al ritmo de la voz y no de un reloj propio: sin esto la última
+// palabra quedaba escrita dos segundos antes o después de oírse. Sin esos
+// campos el bloque se comporta como en el taller.
+//
+// Y el dato puede traer `valores`, uno por columna con su rótulo debajo, y
+// `flecha` cuando es un antes y un después de la misma cosa.
 export type Bloque =
-  | { tipo?: "texto"; rotulo?: string; marca?: "hecho" | "interpretacion"; texto: string; seg: number; parada: number }
-  | { tipo: "dato"; etiqueta: string; de?: string; a: string; fuente: string; seg: number; parada: number };
+  | { tipo?: "texto"; rotulo?: string; marca?: "hecho" | "interpretacion"; texto: string; dicho?: string; seg: number; parada: number;
+      entra?: number; habla?: number; voz?: [number, number] | number[] }
+  | { tipo: "dato"; etiqueta: string; de?: string; a: string; fuente: string; seg: number; parada: number; rotulo?: string;
+      valores?: { rotulo: string; valor: string }[]; flecha?: boolean };
 
 export type GuionMural = {
   // uno o varios trozos contiguos. Catorce paneles cosidos dan 27.580 px y los
@@ -65,6 +78,10 @@ export type GuionMural = {
   // cuánto velo necesita cada parada, calculado por scripts/mural-velos.js
   // midiendo el mural de verdad. 1 es el velo de siempre.
   velos?: number[];
+  // la narración entera (en public/) y cuántos decibeles sube la cama contra
+  // ella; ver scripts/clave-mural.js
+  voz?: string;
+  musicaDb?: number;
   bloques: Bloque[];
 };
 
@@ -157,16 +174,24 @@ const Marca: React.FC<{ marca: "hecho" | "interpretacion" }> = ({ marca }) => {
   );
 };
 
-const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: number }> = ({ b, dur }) => {
+const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: number; voz?: string }> = ({ b, dur, voz }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const letras = Array.from(b.texto);
-  const avance = interpolate(frame, [fps * 0.25, dur - fps * 0.9], [0, letras.length], {
+  const conVoz = voz && b.voz && b.entra !== undefined && b.habla !== undefined;
+  const desdeF = conVoz ? fps * (b.entra as number) : fps * 0.25;
+  const hastaF = conVoz ? fps * ((b.entra as number) + (b.habla as number)) : dur - fps * 0.9;
+  const avance = interpolate(frame, [desdeF, Math.max(desdeF + 1, hastaF)], [0, letras.length], {
     extrapolateLeft: "clamp", extrapolateRight: "clamp",
   });
   const salida = interpolate(frame, [dur - fps * 0.45, dur], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <AbsoluteFill style={{ padding: `${tema.margen}px`, width: "52%", justifyContent: "center", opacity: salida }}>
+      {conVoz ? (
+        <Sequence from={Math.round(desdeF)} durationInFrames={Math.max(1, Math.ceil(((b.voz as number[])[1] - (b.voz as number[])[0]) * fps) + 1)}>
+          <Audio src={staticFile(voz as string)} trimBefore={Math.floor((b.voz as number[])[0] * fps)} trimAfter={Math.ceil((b.voz as number[])[1] * fps)} />
+        </Sequence>
+      ) : null}
       {b.rotulo ? <Rotulo texto={b.rotulo} /> : null}
       {b.marca ? <Marca marca={b.marca} /> : null}
       <div style={{ fontFamily: tema.serif, fontSize: 48, lineHeight: 1.4, color: tema.papel, textShadow: "0 2px 20px rgba(10,14,22,0.8)" }}>
@@ -187,6 +212,44 @@ const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number }
   const sale = interpolate(frame, [dur - fps * 0.5, dur], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const zoom = interpolate(suave(Math.min(1, frame / (fps * 0.9))), [0, 1], [1.06, 1]);
   const o = entra * sale;
+  const aparece = interpolate(frame, [fps * 0.5, fps * 0.9], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  // VARIOS VALORES CON SU RÓTULO (12-10-2026). El plano mostraba "19963 ->
+  // 7207" sin decir de qué año era cada uno, y la tabla de sumarios salía como
+  // un antes y un después que el guion nunca dijo. Cada valor lleva ahora su
+  // rótulo debajo, y el tamaño baja si las cifras no caben: "31.572 millones"
+  // contra "26.000 millones" a 168 px se salía de la pantalla.
+  if (b.valores && b.valores.length > 1) {
+    const n = b.valores.length;
+    const letras = b.valores.reduce((a, v) => a + Array.from(v.valor).length, 0) + (b.flecha ? 2 : 0);
+    const tam = Math.min(168, Math.floor((1640 - 90 * (n - 1)) / (0.62 * letras)));
+    return (
+      <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", opacity: o }}>
+        <div style={{ transform: `scale(${zoom})`, textAlign: "center" }}>
+          {b.etiqueta ? (
+            <div style={{ fontFamily: tema.mono, fontSize: 26, letterSpacing: 3, textTransform: "uppercase", color: tema.patina, marginBottom: 34 }}>
+              {b.etiqueta}
+            </div>
+          ) : null}
+          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", gap: 90 }}>
+            {b.valores.map((v, i) => (
+              <React.Fragment key={i}>
+                {i > 0 && b.flecha ? (
+                  <span style={{ fontFamily: tema.serif, fontSize: tam * 0.57, lineHeight: `${tam}px`, color: tema.patina, opacity: aparece }}>→</span>
+                ) : null}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", opacity: b.flecha && i === 0 ? 0.38 : i === 0 ? 1 : aparece }}>
+                  <div style={{ fontFamily: tema.serif, fontSize: tam, lineHeight: 1, color: tema.papel, whiteSpace: "nowrap" }}>{v.valor}</div>
+                  {v.rotulo ? (
+                    <div style={{ fontFamily: tema.mono, fontSize: 24, letterSpacing: 3, textTransform: "uppercase", color: tema.patina, marginTop: 26 }}>{v.rotulo}</div>
+                  ) : null}
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
+          <div style={{ fontFamily: tema.mono, fontSize: 24, color: tema.gris, marginTop: 48 }}>{b.fuente}</div>
+        </div>
+      </AbsoluteFill>
+    );
+  }
   return (
     <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", opacity: o }}>
       <div style={{ transform: `scale(${zoom})`, textAlign: "center" }}>
@@ -208,7 +271,7 @@ const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number }
   );
 };
 
-export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paradas, paso, velos, viajeSeg, musica, bloques }) => {
+export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paradas, paso, velos, viajeSeg, musica, voz, musicaDb, bloques }) => {
   const trozos = Array.isArray(mural) ? mural : [mural];
   const frame = useCurrentFrame();
   const { fps, width } = useVideoConfig();
@@ -258,8 +321,10 @@ export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paradas, p
       {/* LA CAMA, fuera de toda Sequence porque corre de punta a punta. Ya viene
           mezclada a unos -28 dBFS desde el generador, once decibeles bajo el
           sonido del viaje, así que no hay que bajarla acá: lo que suena fuerte
-          tiene que ser el movimiento, no el fondo. */}
-      {musica ? <Audio src={staticFile(musica)} /> : null}
+          tiene que ser el movimiento, no el fondo. Con voz sube `musicaDb`
+          (4 dB, medido contra la voz en scripts/mezclar-voz.js), y el nivel del
+          conjunto lo fija el loudnorm que corre dia.js después del render. */}
+      {musica ? <Audio src={staticFile(musica)} volume={Math.pow(10, (musicaDb ?? 0) / 20)} /> : null}
       <AbsoluteFill style={{ transform: `translateX(${x}px)`, width: anchoMural, display: "flex", flexDirection: "row", filter: `saturate(${1 - 0.75 * apagado}) brightness(${1 - 0.45 * apagado})` }}>
         {trozos.map((t) => (
           <Img key={t} src={staticFile(t)} style={{ height: "100%", width: "auto", flexShrink: 0, display: "block" }} />
@@ -285,7 +350,7 @@ export const ClaveMural: React.FC<GuionMural> = ({ mural, anchoMural, paradas, p
         <Sequence from={desde + (hayViaje ? viaje : 0)} durationInFrames={dur - (hayViaje ? viaje : 0)}>
           {esDato
             ? <BloqueDato b={actual as Extract<Bloque, { tipo: "dato" }>} dur={dur - (hayViaje ? viaje : 0)} />
-            : <BloqueTexto b={actual as Extract<Bloque, { tipo?: "texto" }>} dur={dur - (hayViaje ? viaje : 0)} />}
+            : <BloqueTexto b={actual as Extract<Bloque, { tipo?: "texto" }>} dur={dur - (hayViaje ? viaje : 0)} voz={voz} />}
         </Sequence>
       )}
     </AbsoluteFill>

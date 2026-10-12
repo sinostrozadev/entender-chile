@@ -118,3 +118,17 @@ entera renderizada, no antes:
 Las dos se vieron porque se midió la duración por sección del render terminado.
 Vale la pena hacerlo siempre: una sección sin bloques y un cierre de 146
 segundos saltan a la vista en esa tabla y en ninguna otra parte.
+
+## En producción, desde el 12-10-2026
+
+`scripts/dia.js --clave` rinde con el mural cuando la carpeta de la Clave trae
+`contenido/claves/flujo/<slug>/mural.json` (trozos, `anchoMural`, `paradas`,
+`velos`, `viajeSeg`). Lo que se mide al coser va ahí y no en el código: así la
+siguiente Clave no hereda las rutas ni los catorce paneles de esta. El número
+de paneles no se declara: son las paradas, y tienen que ser tantas como
+secciones tiene el guion.
+
+Con voz, cada bloque dura lo que Azure tardó en decir su oración (más la
+entrada, el tecleo del rótulo y una cola), la cama se genera desde esos tiempos
+y el conjunto se nivela a -14 LUFS después del render. El interruptor es
+`CLAVE_FORMATO` (vacío, `mural` o `clasico`), y el workflow lo deja en `mural`.

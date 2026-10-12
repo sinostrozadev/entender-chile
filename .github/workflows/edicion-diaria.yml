@@ -218,6 +218,12 @@ jobs:
 
       - name: 4 · Producir video de la Clave (si hubo)
         env:
+          # EL MURAL (12-10-2026): la Clave sale con el mural cuando su carpeta
+          # trae contenido/claves/flujo/<slug>/mural.json, y con el formato
+          # clásico si no lo trae. "mural" hace además que un mural que no calza
+          # con su guion detenga el paso en vez de salir con el formato viejo.
+          # Para volver atrás: "clasico". El detalle está en scripts/dia.js.
+          CLAVE_FORMATO: mural
           AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           AZURE_SPEECH_KEY2: ${{ secrets.AZURE_SPEECH_KEY2 }}

@@ -20,6 +20,21 @@ import claveMural14 from "../ejemplos/clave-mural14.json";
 export const Root: React.FC = () => {
   return (
     <>
+    {/* LA CLAVE DE PRODUCCIÓN (12-10-2026): la que rinde scripts/dia.js --clave
+        cuando la Clave tiene mural. Las props salen siempre de out/FECHA/
+        clave-mural.json, armado por scripts/clave-mural.js con la voz real; el
+        defaultProps es solo para que el estudio abra algo. */}
+    <Composition
+      id="ClaveMuralProduccion"
+      component={ClaveMural}
+      defaultProps={claveMural14 as GuionMural}
+      fps={24}
+      width={1920}
+      height={1080}
+      calculateMetadata={({ props }) => ({
+        durationInFrames: (props as GuionMural).bloques.reduce((a, b) => a + Math.round(b.seg * 24), 0),
+      })}
+    />
     <Composition
       id="ClaveMural14"
       component={ClaveMural}
