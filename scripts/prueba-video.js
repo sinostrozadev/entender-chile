@@ -22,6 +22,15 @@
  *   ... --fondo papel                                  → las tarjetas como salen hoy al aire
  *   ... --comparar (con --corto)                       → cada sección dos veces: papel y después imagen
  *
+ *   ... --bloques                                      → el párrafo en bloques que se relevan (TEXTO_BLOQUES=1)
+ *   ... --parrafo (con --corto)                        → cada sección muestra su párrafo más largo, entero
+ *
+ * --parrafo existe para mirar el TEXTO (12-10-2026, al llevar los bloques de
+ * la Clave al informe): la muestra corta muestra la tesis de cada sección en
+ * cuatro segundos, y en la tesis no hay nada que relevar. Con --parrafo sale
+ * la narración más larga de cada sección con su duración real, que es donde
+ * un muro se nota y donde un relevo mal cortado también.
+ *
  * Con --corto sale la apertura con la carátula y unos cuatro segundos por
  * sección, en el orden real del guion: sirve para ver la FILA de imágenes sin
  * esperar veinte minutos de render. Los segundos por sección se cambian con
@@ -47,6 +56,10 @@ const path = require("path");
 const args = process.argv.slice(2);
 const corto = args.includes("--corto");
 const comparar = args.includes("--comparar");
+const parrafo = args.includes("--parrafo");
+// lo lee build-timeline.js, igual que en producción
+if (args.includes("--bloques")) process.env.TEXTO_BLOQUES = "1";
+const conBloques = process.env.TEXTO_BLOQUES === "1";
 // --fondo se come el argumento que le sigue: si no se descuenta, un
 // "--fondo papel 2026-09-26" tomaría "papel" como fecha y el script se caería
 // diciendo una cosa que no es.
@@ -304,9 +317,12 @@ const construirCortoSecuencia = () => {
     const preambulo = i === 0 ? 0 : PREAMBULO_SEG;
     const desde = t;
     const dela = tarjetas.filter((c) => c.seccion === ov.texto);
-    const card = dela.find((c) => c.tipo === "tesis") || dela[0];
+    const narraciones = dela.filter((c) => c.tipo === "narracion").sort((a, b) => (b.to - b.from) - (a.to - a.from));
+    const card = (parrafo && narraciones[0]) || dela.find((c) => c.tipo === "tesis") || dela[0];
     const entra = desde + previo + preambulo;
-    const sale = entra + SEG;
+    // el párrafo conserva su largo: sus bloques y su ritmo vienen fechados
+    // contra la voz, y estirarlos o apretarlos mostraría otro relevo
+    const sale = entra + (parrafo && card === narraciones[0] ? card.to - card.from : SEG);
     if (card) {
       const copia = { ...card, from: Number(entra.toFixed(3)), to: Number(sale.toFixed(3)) };
       if (copia.items) {
@@ -342,7 +358,7 @@ else if (secuencia) {
   if (!plan) console.log("(esta edición no tiene secciones suficientes para la secuencia: sale el montaje de siempre)");
   else fs.writeFileSync(props, JSON.stringify({ ...tl, meta: { ...tl.meta, secuencia: plan } }, null, 2));
 }
-const video = path.join(OUT, `${fecha}-informe-prueba${corto ? "-corto" : ""}.mp4`);
+const video = path.join(OUT, `${fecha}-informe-prueba${corto ? "-corto" : ""}${parrafo && corto ? "-parrafo" : ""}${conBloques ? "-bloques" : ""}.mp4`);
 const duracion = JSON.parse(fs.readFileSync(props, "utf8")).meta.duracionSeg;
 console.log(`── Render ${corto ? "(muestra corta)" : "(informe completo)"} ─ ${(duracion / 60).toFixed(1)} min de video ─`);
 const arranque = Date.now();

@@ -135,6 +135,16 @@ if (process.env.SECUENCIA && process.env.SECUENCIA !== "2409") {
   process.exit(1);
 }
 if (process.env.SECUENCIA) console.log(`(montaje: secuencia ${process.env.SECUENCIA})`);
+// EL TEXTO EN BLOQUES (12-10-2026, decisión de Santiago: el párrafo deja de
+// salir entero y se releva en bloques de ocho o nueve palabras, como en la
+// Clave del mural). Se valida acá por lo mismo que SECUENCIA: un "si" o un
+// "true" en el workflow no puede apagarlo en silencio.
+process.env.TEXTO_BLOQUES = (process.env.TEXTO_BLOQUES || "").trim();
+if (process.env.TEXTO_BLOQUES && process.env.TEXTO_BLOQUES !== "1") {
+  console.error(`TEXTO_BLOQUES no reconocido: "${process.env.TEXTO_BLOQUES}". Valores: (vacío) | 1.`);
+  process.exit(1);
+}
+if (process.env.TEXTO_BLOQUES) console.log("(texto: en bloques que se relevan)");
 run("build-timeline.js", [
   path.join(OUT, "parsed.json"),
   path.join(OUT, "alignment.json"),
