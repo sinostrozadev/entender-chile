@@ -510,5 +510,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-11-informe.mp3",
     "bytes": 17951040,
     "durSeg": 748
+  },
+  {
+    "fecha": "2026-10-12",
+    "tipo": "informe",
+    "titulo": "12-10-2026 · Dos trabajadores mueren en El Teniente: investigan las labores en zona crítica",
+    "descripcion": "Dos trabajadores contratistas murieron tras un alud en El Teniente y la investigación deberá establecer quién autorizó las labores y con qué medidas de seguridad. También revisamos la baja en la aprobación presidencial, el hospital modular almacenado, el riesgo por una grieta en Arauco y los avisos por lluvias.",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-12-informe.mp3",
+    "bytes": 17730432,
+    "durSeg": 739
   }
 ]
