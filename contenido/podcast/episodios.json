@@ -519,5 +519,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-12-informe.mp3",
     "bytes": 17730432,
     "durSeg": 739
+  },
+  {
+    "fecha": "2026-10-13",
+    "tipo": "informe",
+    "titulo": "13-10-2026 · Autopista Central rebajará el TAG desde enero de 2027",
+    "descripcion": "Autopista Central tendrá rebajas de hasta 25% desde enero de 2027, condicionadas al pago oportuno. El desempleo entre personas con educación superior llegó a 8,3%, mientras Las Condes levantó la evacuación preventiva y mantuvo suspendidas las clases. La edición completa también revisa El Teniente, el Presupuesto 2027, Escondida y las principales noticias internacionales.\n\nEl informe completo de hoy, con todas las noticias del día: https://sinostrozadev.github.io/entender-chile-web/informes/2026-10-13/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-13-informe.mp3",
+    "bytes": 5567616,
+    "durSeg": 232
   }
 ]
