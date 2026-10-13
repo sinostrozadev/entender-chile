@@ -25,6 +25,13 @@
  *   ... --bloques                                      → el párrafo en bloques que se relevan (TEXTO_BLOQUES=1)
  *   ... --parrafo (con --corto)                        → cada sección muestra su párrafo más largo, entero
  *
+ *   ... --guion RUTA                                   → otro guion en vez del publicado de esa fecha
+ *
+ * --guion existe para probar un FORMATO antes de que GPT lo escriba (12-10-2026,
+ * al pasar el informe a 3 o 4 minutos): el guion de prueba se escribe a mano
+ * fuera del repo y se rinde con la fecha de un informe real, sin pisar el
+ * guion publicado de ese día.
+ *
  * --parrafo existe para mirar el TEXTO (12-10-2026, al llevar los bloques de
  * la Clave al informe): la muestra corta muestra la tesis de cada sección en
  * cuatro segundos, y en la tesis no hay nada que relevar. Con --parrafo sale
@@ -69,7 +76,9 @@ if (!["papel", "imagen"].includes(fondo)) {
   console.error(`--fondo no reconocido: "${fondo}". Valores: papel | imagen.`);
   process.exit(1);
 }
-const fecha = args.filter((a, i) => !a.startsWith("--") && args[i - 1] !== "--fondo")[0];
+const iGuion = args.indexOf("--guion");
+const guionPedido = iGuion >= 0 ? args[iGuion + 1] : null;
+const fecha = args.filter((a, i) => !a.startsWith("--") && args[i - 1] !== "--fondo" && args[i - 1] !== "--guion")[0];
 if (!fecha || !/^\d{4}-\d{2}-\d{2}$/.test(fecha)) {
   console.error("Uso: node scripts/prueba-video.js AAAA-MM-DD [--corto] [--sin-secuencia] [--comparar] [--fondo papel|imagen]");
   process.exit(1);
@@ -84,7 +93,7 @@ const secuencia = !args.includes("--sin-secuencia") && !comparar && !(iFondo >= 
 if (comparar && !corto) console.log("(--comparar solo existe en la muestra --corto: se ignora)");
 if (!secuencia && !args.includes("--sin-secuencia")) console.log("(--comparar y --fondo papel son del modo anterior: la secuencia queda apagada)");
 
-const guion = path.join("contenido", "guiones", "informe", `${fecha}.md`);
+const guion = guionPedido || path.join("contenido", "guiones", "informe", `${fecha}.md`);
 if (!fs.existsSync(guion)) {
   console.error(`No existe ${guion}: esta prueba rinde una edición que ya se publicó.`);
   process.exit(1);
@@ -136,13 +145,16 @@ const parsed = JSON.parse(fs.readFileSync(path.join(OUT, "parsed.json"), "utf8")
 // ── 2 · la voz: reutilizar, jamás generar ─────────────────────────────────
 console.log("── 2/4 · Voz (reutilizada, nunca generada) ───────");
 const audioPublico = `${fecha}-informe.mp3`;
-let audio = fs.existsSync(path.join("public", audioPublico)) ? audioPublico : null;
-if (!audio && fs.existsSync(path.join(VIEJO, "narracion.mp3"))) {
+// Con --guion la voz de esa fecha es la de OTRO guion: reutilizarla sincroniza
+// el video con palabras que no dice. Va con la voz simulada, siempre.
+let audio = !guionPedido && fs.existsSync(path.join("public", audioPublico)) ? audioPublico : null;
+if (guionPedido) console.log("(--guion: la voz de esa fecha es de otro guion; va la simulada)");
+if (!guionPedido && !audio && fs.existsSync(path.join(VIEJO, "narracion.mp3"))) {
   fs.copyFileSync(path.join(VIEJO, "narracion.mp3"), path.join("public", audioPublico));
   audio = audioPublico;
   console.log(`audio reutilizado de ${path.join(VIEJO, "narracion.mp3")}`);
 }
-if (!audio) {
+if (!audio && !guionPedido) {
   // el release del día es la memoria de la edición: ahí quedó el mp3
   try {
     execFileSync("gh", ["release", "download", `edicion-${fecha}`, "--pattern", audioPublico,
@@ -158,7 +170,7 @@ if (!audio) {
 // video desincronizado enseña menos que uno mudo.
 let alineacionReal = false;
 for (const f of ["alignment.json", "pausas.json"]) {
-  if (fs.existsSync(path.join(VIEJO, f))) {
+  if (!guionPedido && fs.existsSync(path.join(VIEJO, f))) {
     fs.copyFileSync(path.join(VIEJO, f), path.join(OUT, f));
     if (f === "alignment.json") alineacionReal = true;
   }

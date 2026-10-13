@@ -80,9 +80,14 @@ if (!esClave) {
 // Techo de duración (auditoría 03-09): palabras NARRADAS, o sea antes del
 // bloque "Fuentes:" y sin marcas ni encabezados. Calibrado con audio real
 // del 03-09: 1.590 narradas = 11,9 min → ~135 ppm; 13 min ≈ 1.760.
+// Desde el 12-10-2026 se cuenta solo DESPUÉS de "Guion:": con el informe de
+// 3 a 4 minutos el piso es de 420 palabras, y las carátulas, el clima y la
+// descripción de varias líneas inflaban el conteo en 40 a 80 palabras que la
+// voz no lee, lo bastante para que un guion corto pasara el piso sin tenerlo.
 const corteFuentes = lineas.findIndex((l) => /^Fuentes:/.test(l.trim()));
+const inicioGuion = lineas.findIndex((l) => /^Guion:\s*$/.test(l.trim()));
 const narrables = (corteFuentes >= 0 ? lineas.slice(0, corteFuentes) : lineas);
-const narradas = narrables.filter((l) => l.trim() && !/^(\[|## |#|Título sugerido:|Descripción sugerida:|Guion:)/.test(l.trim()))
+const narradas = narrables.filter((l, i) => i > inicioGuion && l.trim() && !/^(\[|## |#|Título sugerido:|Descripción sugerida:|Guion:)/.test(l.trim()))
   .join(" ").split(/\s+/).filter(Boolean).length;
 const conteo = {};
 for (const t of tarjetas) conteo[t.tipo] = (conteo[t.tipo] || 0) + 1;
@@ -127,8 +132,13 @@ if (fuentes >= 8) {
   if (!conteo.barras && !conteo.tabla && !conteo.comparacion)
     avisos.push(`edición con ${fuentes} bloques de noticia y ninguna barras/tabla/comparacion`);
 }
-if (tarjetas.length >= 3 && Object.keys(conteo).length < 3)
+// Con el informe corto (12-10-2026) caben tres a seis tarjetas en total, y
+// pedir tres tipos obligaba a forzar una tarjeta que el dato no trae, que es
+// justo lo que la regla de variedad prohíbe. La Clave sigue con la de antes.
+if (esClave && tarjetas.length >= 3 && Object.keys(conteo).length < 3)
   avisos.push(`solo ${Object.keys(conteo).length} tipo(s) de tarjeta en ${tarjetas.length} marcas (cuota: al menos tres tipos)`);
+if (!esClave && tarjetas.length >= 4 && Object.keys(conteo).length < 2)
+  avisos.push(`solo un tipo de tarjeta en ${tarjetas.length} marcas (cuota del informe corto: al menos dos tipos)`);
 
 for (const n of circulares)
   avisos.push(`línea ${n}: la marca cita "Informe diario de Entender Chile" como fuente; va la fuente primaria (el informe solo se nombra en la prosa)`);
@@ -164,11 +174,27 @@ for (const n of circulares)
 // palabras narradas. El techo de 13 min sigue rigiendo para las dos series.
 if (esClave && narradas < 1050)
   avisos.push(`guion de ${narradas} palabras narradas (~${(narradas / 135).toFixed(1)} min a 135 ppm reales): bajo el PISO de 8 min de la Clave (1.080)`);
-if (narradas > 1760)
+if (esClave && narradas > 1760)
   avisos.push(`guion de ${narradas} palabras narradas (~${(narradas / 135).toFixed(1)} min a 135 ppm reales): sobre el techo de 13 min de la promesa (1.760)`);
+// El informe pasa a 3 o 4 minutos (Santiago, 12-10-2026): el largo de 10 a 12
+// juntaba 2 a 80 vistas con 10 a 30% visto y la mitad se iba antes del
+// segundo 40. 420 a 600 narradas, a 135 ppm, son 3,1 a 4,4 min de voz. Y el
+// formato son tres noticias, sin el barrido de titulares: una cuarta sección
+// o un "En titulares" es el guionista volviendo al formato largo.
+if (!esClave) {
+  if (narradas < 420)
+    avisos.push(`guion de ${narradas} palabras narradas (~${(narradas / 135).toFixed(1)} min): bajo el piso del informe corto (420, unos 3 min)`);
+  if (narradas > 600)
+    avisos.push(`guion de ${narradas} palabras narradas (~${(narradas / 135).toFixed(1)} min): sobre el techo del informe corto (600, unos 4,4 min)`);
+  const noticias = lineas.filter((l) => /^## .+\[[a-z-]+\]\s*$/.test(l.trim())).length;
+  if (noticias !== 3)
+    avisos.push(`${noticias} secciones de noticia: el informe corto narra exactamente tres`);
+  if (lineas.some((l) => /^## (En titulares|Dato curioso|Agenda|¿En qu[eé] qued[oó]\?)\s*$/i.test(l.trim())))
+    avisos.push(`el guion trae una sección de la cola del formato largo (En titulares, Dato curioso, Agenda o ¿En qué quedó?), retirada el 12-10-2026`);
+}
 
 const resumen = Object.entries(conteo).sort((a, b) => b[1] - a[1]).map(([t, n]) => `${t}: ${n}`).join(" · ") || "sin tarjetas";
-console.log(`tarjetas de ${path.basename(ruta)} (${fuentes} bloques con fuente): ${resumen}`);
+console.log(`tarjetas de ${path.basename(ruta)} (${fuentes} bloques con fuente, ${narradas} palabras narradas, ~${(narradas / 135).toFixed(1)} min): ${resumen}`);
 if (avisos.length) {
   console.log(`AVISOS (${avisos.length}):`);
   for (const a of avisos) console.log(`  - ${a}`);

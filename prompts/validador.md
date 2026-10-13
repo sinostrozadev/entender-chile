@@ -137,6 +137,14 @@ contrato. Para cada requisito, mira en la pieza si se cumple.
   en su entrada, con el mismo sentido y las mismas cifras; una noticia [A] o
   [B] que el prompt obliga a narrar y falta, un dato que cambia, una fuente
   que la entrada no trae: INCUMPLE.
+- **Pieza `guion_informe`, formato corto desde el 12-10-2026** (Santiago:
+  "dejar el informe diario acortado a unos 3 o 4 minutos"): el guion narra
+  TRES noticias y el resto vive solo en la web. Que una [A] o [B] fuera de
+  esas tres no suene en el video NO es INCUMPLE, y la ausencia de "En
+  titulares", Dato curioso, Agenda y "¿En qué quedó?" tampoco: el prompt las
+  retiró. Sí es INCUMPLE una cuarta sección de noticia, la portada fuera del
+  primer bloque, o un largo fuera de 420 a 600 palabras narradas (el número
+  lo da `node scripts/validar-tarjetas.js <archivo>`).
 - Los números en palabras cuentan igual que en cifras ("catorce" = 14).
 - **`validar_investigacion`** (camino `pauta`, desde el 27-09): la pieza es un
   dossier, no un texto publicable, y se valida contra

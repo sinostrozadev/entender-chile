@@ -215,7 +215,15 @@ console.log("── 4/4 · Capítulos y descripción ─────────
 const capitulos = capturar("chapters.js", [capitulosDe]);
 process.stdout.write(capitulos);
 const parsed = JSON.parse(fs.readFileSync(path.join(OUT, "parsed.json"), "utf8"));
-const descripcion = [parsed.descripcion || "", "", "Capítulos:", capitulos.trim(), "",
+// EL ENLACE AL INFORME COMPLETO (12-10-2026). Desde que el video del informe
+// pasó a 3 o 4 minutos con tres noticias, el resto del día vive solo en la web,
+// y el cierre hablado manda "al enlace de la descripción": sin esta línea esa
+// frase apuntaría a nada. Va ANTES de "Capítulos:" porque podcast-subir.js
+// corta ahí y el episodio también tiene que llevarlo. La URL es la misma que
+// usa el feed del podcast (scripts/podcast-subir.js) y la web (web.yml).
+const WEB = (process.env.WEB_URL || "https://sinostrozadev.github.io/entender-chile-web").replace(/\/$/, "");
+const enlaceInforme = esClave ? [] : ["", `El informe completo de hoy, con todas las noticias del día: ${WEB}/informes/${fecha}/`];
+const descripcion = [parsed.descripcion || "", ...enlaceInforme, "", "Capítulos:", capitulos.trim(), "",
   "Fuentes de esta edición:", ...(parsed.fuentes || [])].join("\n");
 const rutaDesc = path.join("contenido", "descripciones", `${fecha}-${etiqueta}.txt`);
 fs.mkdirSync(path.dirname(rutaDesc), { recursive: true });

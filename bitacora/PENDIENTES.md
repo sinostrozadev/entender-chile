@@ -1961,6 +1961,7 @@ referencia:
 
 ## Para la sesión de día (solo análisis)
 
+- [ ] **13-10: revisar el primer informe corto al aire** (duración, retención a los 40 s comparada con el promedio del largo, vistas a las 24 h)
 - [ ] **27-09: revisar el primer video de producción con la secuencia del
       24-09** (imagen de sección toda la sección, oscurecida, texto encima;
       encendida con `SECUENCIA=2409` en edicion-diaria.yml, commit 984a461).

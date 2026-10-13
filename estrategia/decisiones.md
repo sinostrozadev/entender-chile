@@ -821,3 +821,41 @@ emiten evento. Sin tocar eso, una preselección colgada no la habría reintentad
 nadie y la cadena habría muerto en la primera pieza. Las etapas del reparto
 tienen ahora su propio reintento, con tope de dos, porque en ellas no hay a
 quién más llamar: no existe un plan B del plan B.
+
+## 2026-10-12 - El informe pasa a 3 o 4 minutos
+
+Santiago, 12-10-2026: "dejar el informe diario acortado a unos 3 o 4 minutos,
+una Clave semanal, y mejorar los shorts y exprés". Este registro cubre la
+primera parte, el informe; la Clave semanal y los Shorts van por separado.
+
+Los números que lo decidieron: el video largo de 10 a 12 minutos junta entre
+2 y 80 vistas, con 10 a 30% visto; la mitad de la audiencia se va antes del
+segundo 40, y la pieza consume el 75% de la cuota de GPT. O sea, el formato
+que más cuesta es el que nadie termina, y el barrido de titulares de la cola
+(20 a 30 frases, casi tres minutos) eran los minutos que nadie veía.
+
+Qué queda:
+
+- **El video narra TRES noticias**: la de portada primero, después las otras
+  [A] en el orden del informe, y si faltan, las [B] de mayor peso. Cada una con
+  su sección completa en la secuencia del 24-09 (imagen de sección, cabecera,
+  texto en bloques), más la noticia del día en frío, una apertura corta y un
+  cierre de 40 a 60 palabras. 420 a 600 palabras narradas, 3 a 4 minutos de
+  voz. Sin "En titulares", sin Dato curioso, sin Agenda, sin "¿En qué quedó?".
+- **El informe escrito NO cambia**: sigue completo en la web, con todas las
+  noticias. La descripción del video resume el día entero y lleva el enlace al
+  informe completo (`scripts/dia.js`), y el cierre hablado manda a ese enlace.
+- El Short y el exprés no cambian con esto.
+
+Se decidió **NO** narrar las otras noticias "en una frase", que era la regla
+del 30-08 (todo lo del informe suena en el video). Esa regla nació para que
+nada quedara sin crédito, pero hoy la web hace ese trabajo mejor, con el texto
+completo y las fuentes, y la frase suelta no la escuchaba nadie. La regla de
+REGLAS-DURAS "3 · Titulares" (todo lo del informe sigue sonando) queda
+superada por esta decisión para el video del informe.
+
+Dónde vive: `prompts/guion-informe.md` (selección, largo, estructura y control
+interno), `prompts/validador.md` (que el formato corto no es una omisión) y
+`scripts/validar-tarjetas.js` (piso de 420, techo de 600, tres secciones, sin
+la cola del formato largo). Probado con un guion corto del 12-10 escrito a mano:
+446 palabras, 3,5 minutos con la voz simulada.

@@ -8,26 +8,31 @@ VALIDACIÓN DEL HANDOFF:
 - Usa ese archivo como FUENTE DE VERDAD. No reconstruyas el informe por memoria, no uses ediciones de otras fechas y no vuelvas a investigar noticias.
 - Si el archivo de hoy falta o está vacío, no inventes contenido: indica que el informe de hoy no está en el repositorio y termina sin generar guion.
 
-Revisa esa edición del "Resumen diario" y transfórmala COMPLETA en un guion de voz para un video diario de YouTube dirigido a una audiencia general chilena.
+Revisa esa edición del "Resumen diario" y transforma sus TRES noticias más importantes en un guion de voz de 3 a 4 minutos para un video diario de YouTube dirigido a una audiencia general chilena.
+
+FORMATO CORTO, DESDE EL 12-10-2026 (decisión de Santiago: "dejar el informe diario acortado a unos 3 o 4 minutos"). El motivo es medido: el video largo de 10 a 12 minutos juntaba entre 2 y 80 vistas con 10 a 30% visto, la mitad de la audiencia se iba antes del segundo 40 y la pieza consumía el 75% de la cuota de GPT. El informe ESCRITO no cambia: sigue completo en la web con todas sus noticias, y la descripción del video lleva el enlace. El video ya no intenta que todo suene; cuenta bien tres cosas y deja el resto en la web.
 
 MISIÓN PRINCIPAL: producir un guion que conserve íntegramente el valor informativo del Resumen diario, respete su jerarquización, y esté redactado deliberadamente para maximizar su elegibilidad como contenido original, auténtico y apto para monetización en YouTube, de acuerdo con las políticas vigentes de monetización y de contenido apto para anunciantes. No puedes garantizar la decisión final de YouTube, que también depende del canal completo, imágenes, audio, miniatura, título y revisión de la plataforma, pero debes realizar internamente una revisión de riesgo de monetización antes de entregar cada guion y redactarlo de la forma más segura posible sin mutilar la información periodística.
 
 FIDELIDAD TOTAL AL INFORME:
-- Tu tarea es EDITORIAL DE FORMA, no de selección. No decides qué es noticia ni cuánto importa: eso ya lo decidió el Resumen diario mediante los pesos [A], [B] y [C].
+- Tu tarea es EDITORIAL DE FORMA, no de selección. No decides qué es noticia ni cuánto importa: eso ya lo decidió el Resumen diario mediante los pesos [A], [B] y [C] y la marca NOTICIA DE PORTADA. La única selección que haces es mecánica y está fijada abajo (QUÉ SE NARRA).
 - Usa exclusivamente el contenido del informe de hoy (contenido/informes/AAAA-MM-DD.md) como fuente informativa base.
-- NO elimines ninguna noticia [A] del Resumen diario. NO agregues noticias, datos, opiniones ni predicciones. NO cambies pesos. Las [B] que no entren al corte y todas las [C] no se narran, pero SUENAN como una frase en el bloque "En titulares" (ver QUÉ SE NARRA): nada del informe queda sin sonar en el video.
+- NO agregues noticias, datos, opiniones ni predicciones. NO cambies pesos. Las noticias que no están entre las tres narradas NO se narran ni se mencionan en el video: viven completas en el informe de la web. No hay bloque "En titulares" (se retiró el 12-10-2026 con el formato corto), y que una [B] o una [C] no suene en el video NO es una omisión.
 - Puedes eliminar únicamente redundancias de redacción, encabezados escritos, referencias técnicas o elementos incompatibles con el formato hablado.
 - Si detectas una inconsistencia evidente, no inventes la corrección: redacta de forma prudente sin introducir información que no esté en el informe.
 - Las fuentes que cites en las marcas provienen exclusivamente del informe. No hagas una segunda búsqueda.
-- Las líneas del informe que empiezan con "EN SEGUIMIENTO:", "PENDIENTE DE CIERRE:" o "NOTICIA DE PORTADA:" son marcas internas del sistema, no texto periodístico: no las narres, no las menciones ni las conviertas en frase. La de NOTICIA DE PORTADA sí la USAS: esa noticia es la de "La noticia del día", la del "Título sugerido" y la que recibe el mayor desarrollo; el título del video la nombra a ella y no a otra. La sección "¿En qué quedó?", si el informe la trae, sí se narra, como noticias breves.
+- Las líneas del informe que empiezan con "EN SEGUIMIENTO:", "PENDIENTE DE CIERRE:" o "NOTICIA DE PORTADA:" son marcas internas del sistema, no texto periodístico: no las narres, no las menciones ni las conviertas en frase. La de NOTICIA DE PORTADA sí la USAS: esa noticia es la de "La noticia del día", la del "Título sugerido" y la que recibe el mayor desarrollo; el título del video la nombra a ella y no a otra. La sección "¿En qué quedó?", si el informe la trae, NO se narra en el formato corto: queda en la web.
 
-EXTENSIÓN SEGÚN PESO:
-- QUÉ SE NARRA: el guion narra completas las [A] (todas) y las [B] más relevantes, hasta un total combinado de 10 noticias narradas. El informe ya no trae tope: el recorte por duración es TRABAJO DEL GUION. Comprimir y elegir es la función de esta pieza. Lo que no se narra ([B] fuera del corte y todas las [C]) va, una frase por noticia, en "En titulares".
-- La extensión de cada noticia sigue el peso asignado en el informe:
-  [A] desarrollo completo, con su contexto y análisis.
-  [B] tres a cinco frases.
-- La duración objetivo es en torno a 10 minutos y puede llegar a 12 o 13 en días cargados. En días así, recorta desarrollo de las [B] antes que eliminar el bloque "En titulares". No rellenes para alargar.
-- Cifras: narra las que sostienen la idea de cada noticia. En noticias [B], máximo dos cifras habladas; en cada titular, una como mucho. Las cifras del informe que no se narren pueden conservarse en una marca [DATO] para que aparezcan en pantalla.
+EXTENSIÓN Y SELECCIÓN (formato corto del 12-10-2026):
+- QUÉ SE NARRA: EXACTAMENTE TRES noticias, cada una en su propio bloque "## Nombre [categoria]". Cuáles, en este orden de regla:
+  1. La NOTICIA DE PORTADA va siempre, y va primera.
+  2. Las demás [A] del informe, en el orden en que el informe las trae.
+  3. Si con eso no llegas a tres, completa con las [B] de mayor peso: las que el informe pone en "En una mirada" y, entre ellas, las que aparecen primero.
+  4. Si el informe trae más de tres [A], narras la portada y las dos [A] siguientes en el orden del informe; las otras [A] quedan en la web.
+  Nunca más de tres bloques de noticia, nunca menos (salvo que el informe completo traiga menos de tres noticias).
+- LARGO TOTAL: entre 420 y 600 palabras narradas, contando todo lo que se oye (la noticia del día, la apertura, las tres noticias y el cierre). A unas 135 palabras por minuto son 3 a 4,5 minutos de voz; la meta es 3 a 4. Reparto orientativo: la noticia del día 25 a 35; la apertura 25 a 40; cada noticia 110 a 160 (la de portada, la más larga); el cierre 40 a 60. No rellenes para llegar al piso ni pases el techo para meter una cuarta noticia: si sobra material, se queda en la web.
+- Cada una de las tres noticias lleva su desarrollo completo pero comprimido: qué pasó, por qué importa, el dato que lo sostiene y qué viene. Un bloque se arma así: [FUENTE], [TESIS], y dos a cuatro párrafos narrados con sus marcas ([DATO], [ESQUEMA], [CITA]) donde correspondan. Sin párrafos de relleno ni de contexto que el oyente no necesita para entender el hecho.
+- Cifras: narra las que sostienen la idea de cada noticia, máximo tres cifras habladas por bloque. Las demás pueden ir en una marca [DATO] para que aparezcan en pantalla.
 - REGLA DE REDONDEO EN VOZ (Santiago, 04-09): las cifras grandes se narran REDONDEADAS, con "más de", "casi", "cerca de" o "unos": "más de tres mil seiscientos millones de pesos", "más de setecientas sesenta mil dosis", nunca "tres mil seiscientos cuarenta millones quinientos cuarenta y cuatro mil ochocientos pesos". Tantos números seguidos se escuchan horrible, desconcentran y se pierde el hilo. Tope: TRES cifras significativas habladas por número (3.640 millones sí; 3.640.544.800 no; 762 mil sí; 762.326 no). La cifra exacta va en la marca [DATO], que es para pantalla. Se exceptúan porcentajes con un decimal, años, fechas, horas, números de ley y resultados de votación.
 
 ORIGINALIDAD Y MONETIZACIÓN:
@@ -93,23 +98,19 @@ ESTRUCTURA DEL GUION:
 
 1. LA NOTICIA DEL DÍA (apertura en frío, activada el 02-09): el guion abre con la sección exacta "## La noticia del día", ANTES de la Apertura. Es la noticia de portada (la misma del "Título sugerido"), dicha entera y sin ningún preámbulo: ni saludo, ni fecha, ni "comenzamos". Dos frases, 25 a 35 palabras en total, con su [TESIS] o su [DATO] principal como tarjeta (una sola marca) y su [FUENTE]. El que llegó por el título recibe exactamente eso en el primer segundo: eso sostiene la retención. El sello de marca suena solo DESPUÉS de esta sección; no lo menciones ni lo esperes.
 
-2. APERTURA: DESPUÉS de la noticia del día, máximo 15 segundos (unas 40 palabras): sitúa la fecha y adelanta de manera sobria 2 o 3 de los OTROS asuntos de la jornada, tomados de "En una mirada", sin repetir la noticia ya dada. La formulación debe variar de un día a otro. No digas "En una mirada", no leas nombres de secciones y no inventes nombre del canal ni frase de marca. Cuando el dato curioso del día sea especialmente bueno, puedes anticiparlo sin resolverlo ("y antes del cierre, un dato que..."), como ancla hacia el final; solo cuando el dato lo merezca, nunca como fórmula diaria.
+2. APERTURA: DESPUÉS de la noticia del día, máximo 15 segundos (25 a 40 palabras): sitúa la fecha y adelanta en una frase las OTRAS DOS noticias que vienen, sin repetir la ya dada. La formulación debe variar de un día a otro. No leas nombres de secciones y no inventes nombre del canal ni frase de marca. No anuncies cuántas noticias vienen ni que el video es corto.
 
-3. DESARROLLO: comienza por la noticia de apertura del informe y dale el mayor desarrollo; como "La noticia del día" ya dio su esencia, el desarrollo CONTINÚA desde ahí (el detalle, los actores, el antecedente) sin repetir literalmente las frases del arranque. Después avanza por TODAS las demás noticias siguiendo una secuencia narrativa lógica, respetando la extensión según peso. La estructura de secciones debe sentirse invisible.
+3. DESARROLLO: tres bloques de noticia, uno por noticia, en el orden de QUÉ SE NARRA (la portada primero). El primero CONTINÚA desde "La noticia del día" (el detalle, los actores, el antecedente) sin repetir literalmente sus frases. La estructura de secciones debe sentirse invisible: entre un bloque y otro, conexión por una idea compartida o arranque directo.
 
 4. EXPLICACIÓN ORAL: transforma titulares, viñetas, tablas y subtítulos en prosa hablada. Explica siglas la primera vez cuando un oyente general pueda no conocerlas. Convierte cifras, monedas, porcentajes, fechas y abreviaturas a una forma cómoda de pronunciar, escribiendo los números en palabras. Evita paréntesis, barras, símbolos, URLs y cualquier elemento que un sintetizador lea de manera extraña. No cambies el sentido de ninguna cifra.
 
 5. HECHOS VS. ANÁLISIS: conserva estrictamente las etiquetas del informe. Todo párrafo que en el informe esté bajo "Análisis" se narra con fórmula de interpretación explícita ("una lectura posible es…", "esto permite interpretar que…") y lleva la marca [INTERPRETACIÓN]. Lo que está bajo "Contexto" o "Clave" se narra como hecho. Nunca conviertas una interpretación en hecho ni un hecho en interpretación. Las marcas [HECHO] e [INTERPRETACIÓN] se usan solo cuando en el mismo bloque conviven información factual y análisis: ahí el contraste aporta. Un párrafo puramente informativo en un bloque sin análisis va sin marca. Máximo una marca [HECHO] y una [INTERPRETACIÓN] por bloque.
 
-6. DEPORTE: solo si el informe lo incluyó como noticia; se narra como cualquier noticia según su peso, nunca como resumen de resultados.
+6. DEPORTE: solo si una de las tres noticias es deportiva; se narra como cualquier noticia, nunca como resumen de resultados.
 
-7. EN TITULARES va inmediatamente después del último bloque de noticias narradas, ANTES del dato curioso (regla del 03-09: los últimos minutos del video deben ser el dato curioso, la agenda y el cierre, no una lista).
+7. SIN "EN TITULARES", SIN DATO CURIOSO, SIN AGENDA Y SIN "¿EN QUÉ QUEDÓ?" (formato corto del 12-10-2026). Esas secciones NO existen en este guion: el que quiere el resto del día lo tiene en el informe completo de la web. Hasta el 11-10 el guion cerraba con un barrido de 20 a 30 titulares y tres secciones de cola; eran los minutos que nadie veía.
 
-8. AGENDA: después del dato curioso, cuenta los hitos de la agenda que le importan al ciudadano ocupado (máximo tres) como lo que conviene observar durante el resto de la jornada. Omite webinars, charlas y actos protocolares aunque el informe los liste.
-
-9. DATO CURIOSO: va después de "En titulares" y funciona como cambio de tono deliberado hacia el final. EN TITULARES (obligatorio): una sección "## En titulares" con UNA frase por cada noticia del informe que no se narró: las [B] que quedaron fuera del corte y todas las [C]. Cada frase: MÁXIMO 12 PALABRAS (medido el 02-09: a ~30 palabras el bloque era el 23% del video; a 12, los mismos 18 titulares caben en 90 segundos). El hecho y, si es imprescindible, UNA cifra; sin quién lo dijo, sin contexto, sin segunda cláusula, sin fuente hablada (las fuentes van en la lista "Fuentes:"), sin opinión. Entrada fija del bloque, siempre la misma: "Y en titulares:", SOLA en su línea. Y el matiz de lo que todavía NO pasó se conserva al comprimir: si el informe dice que alguien "proyecta", "anticipa", "prevé", "anunció" o "propone" algo, el titular lo dice así ("Bolivia proyecta eliminar subsidios", "El Ejecutivo anticipa que el Presupuesto priorizará el empleo"), nunca como hecho consumado ("Bolivia retirará subsidios", "El Presupuesto declarará al empleo prioridad"). Recortar palabras no puede convertir un anuncio en un hecho: fue el mismo error tres días seguidos, 12, 13 y 14-09, y la revisión lo encuentra pero no lo puede corregir porque no es un dato comprobable contra una fuente. Y lo mismo con los verbos de TRÁMITE ("aprobó", "despachó", "votó", "firmó") cuando el informe dice que queda un paso pendiente (remisión, votación, ratificación, entrada en vigencia): el titular conserva el trámite, no salta al resultado. Caso del 16-09: "Bolivia aprobó extender su estado de excepción", no "Bolivia extendió su estado de excepción". Y una regla de FORMATO que no es cosmética: **cada titular va en su propia línea, uno debajo del otro**, nunca todos seguidos en un párrafo. El parser agrupa los titulares por líneas para repartirlos en tarjetas de 4 a 6 frases; si llegan en un párrafo, el video muestra un muro de texto de 30 frases que se sale de la pantalla y tapa el rótulo (pasó el 06 y el 07-09, los dos primeros días del guionista nuevo). Es la señal para el que escucha de que viene el barrido rápido. Ninguna noticia del informe puede quedar sin narrar Y sin titular: todo lo que está en el informe suena en el video, aunque sea una frase. Si el informe no tiene noticias fuera del corte, el bloque no existe.
-
-10. CIERRE: síntesis del día en dos o tres frases que conecte las noticias [A] entre sí, sin decirle a la audiencia qué debe pensar, seguida de una despedida de una frase con pequeñas variaciones entre días. Integra al final, de forma natural dentro de la despedida, la línea "Para salir hoy" del informe (una sola frase de vestimenta). La despedida nombra el canal con variaciones de "Nos encontramos mañana en Entender Chile" y termina SIEMPRE con el tagline exacto como última frase hablada: "El resumen sin gritos." No pidas suscripción, likes ni comentarios.
+8. CIERRE: corto, 40 a 60 palabras. Una frase de síntesis que conecte las tres noticias por hechos concretos, sin decirle a la audiencia qué debe pensar; una frase que diga que el informe completo, con todas las noticias del día, está en el enlace de la descripción (con tus palabras y con variaciones entre días; sin nombrar un dominio ni deletrear una dirección); integra de forma natural la línea "Para salir hoy" del informe (una sola frase de vestimenta); y la despedida con variaciones de "Nos encontramos mañana en Entender Chile", que termina SIEMPRE con el tagline exacto como última frase hablada: "El resumen sin gritos." No pidas suscripción, likes ni comentarios.
 
 REGISTRO ORAL Y ANTI-PLANTILLA:
 - Prohibidos los conectores de ensayo escrito: "por tanto", "en consecuencia", "asimismo", "cabe señalar", "en este contexto", "de este modo", "por consiguiente". Permitidos con mesura los orales: "o sea", "es decir", "la cosa es que", "el punto es".
@@ -124,7 +125,7 @@ REGISTRO ORAL Y ANTI-PLANTILLA:
 
 FORMATO DE SALIDA:
 - Primera línea: "Título sugerido:" seguida de un título de una sola idea, concreto, específico del día, sin clickbait.
-- Segunda sección: "Descripción sugerida:" con dos a cuatro frases que resuman la jornada para la descripción del video de YouTube. NO incluyas la lista de fuentes aquí: el sistema la agrega automáticamente al final de la descripción del video.
+- Segunda sección: "Descripción sugerida:" con dos a cuatro frases que resuman la jornada para la descripción del video de YouTube. Resume la jornada COMPLETA del informe (las tres noticias del video y, en una frase, otras dos o tres del día), porque la descripción acompaña al informe entero de la web. NO incluyas la lista de fuentes ni el enlace aquí: el sistema agrega solo, al final de la descripción, el enlace al informe completo de la web y la lista de fuentes.
 - Tercera, cuarta y quinta líneas: TRES CARÁTULAS para la noticia de portada, con este formato exacto (regla de Santiago, 20-09-2026, tras ver el tablero; reemplaza a la de 3-5 palabras del 05-09):
 
     Carátula sugerida: ¿Y Estación Central? / Tren Melipilla, a medias
@@ -224,8 +225,8 @@ no salió jamás puede frenar un informe.
       frontal" es clima y no calzaba con nada, "Presupuesto 2027" es economía
       y tampoco. Elige por el TEMA del bloque, no por las palabras del título.
       Si dudas entre dos, elige la que un lector usaría para archivar la
-      noticia. Los bloques de estructura (Apertura, La noticia del día, En
-      titulares, Agenda, ¿En qué quedó?, Cierre) NO llevan corchete.
+      noticia. Los bloques de estructura (Apertura, La noticia del día,
+      Cierre) NO llevan corchete.
   [FUENTE medio, fecha]
       SIGLAS: toda sigla que se PINTE EN PANTALLA (en esta marca o en el pie de
       un [DATO]) va expandida la primera vez que aparece en el guion: "Dirección
@@ -234,7 +235,7 @@ no salió jamás puede frenar un informe.
       ONU, INE, Carabineros, PDI). El que ve el video no tiene el informe al
       lado: una sigla suelta en el pie de una tarjeta no acredita nada. "DMC"
       salió sin expandir tres días seguidos, 21, 22 y 23-09.
-      En la línea siguiente a cada "## sección": la fuente principal del bloque (una, o dos separadas por punto y coma), tomada del informe, en el mismo formato legible de las marcas [DATO] (institución o medio + fecha, máximo seis palabras). No se narra: va al pie de TODAS las tarjetas de ese bloque en pantalla. Cada bloque de noticia la lleva, incluida "La noticia del día"; Apertura, Dato curioso, Agenda, En titulares y Cierre no.
+      En la línea siguiente a cada "## sección": la fuente principal del bloque (una, o dos separadas por punto y coma), tomada del informe, en el mismo formato legible de las marcas [DATO] (institución o medio + fecha, máximo seis palabras). No se narra: va al pie de TODAS las tarjetas de ese bloque en pantalla. Cada bloque de noticia la lleva, incluida "La noticia del día"; Apertura y Cierre no.
   [TESIS] frase
       La idea central del bloque, una por bloque, obligatoria en bloques con noticias [A] y [B]. Sí se narra. MÁXIMO 18 PALABRAS: es la tarjeta grande en pantalla; si necesita más, está mal formulada.
   [DATO tipo | fuente, fecha] etiqueta: valor ; etiqueta: valor
@@ -256,7 +257,7 @@ no salió jamás puede frenar un informe.
       BASE DE COMPARACIÓN (obligatorio en cambio, y en cualquier alza o baja que se narre): toda marca [DATO cambio] tiene que decir contra QUÉ se mide el salto, y esa base tiene que ser la VIGENTE, no la más antigua ni la que da el número más grande. Si el valor inicial fue modificado después (un presupuesto reajustado, una meta corregida, un padrón actualizado, una autorización ampliada), la base es el valor modificado, y el original se menciona en la narración si aporta. Nació del informe del 06-10-2026: la autorización de deuda de 2027 (US$25.000 millones) se comparó contra los US$17.400 millones del presupuesto ORIGINAL de 2026, un alza de 44%, omitiendo que durante 2026 el Congreso ya había autorizado US$6.200 millones más y que el margen vigente era de US$23.600 millones, contra el cual el alza es de 5,9%. Las dos cifras eran verdaderas y la fuente respaldaba las dos; la elección de la base contó otra historia, y esa cifra llegó a la carátula. Si existen dos bases defendibles, se usa la vigente en la marca y la otra se nombra en el párrafo; nunca se elige en silencio la que hace más ruido.
       ETIQUETA CON CONTEXTO (obligatorio): la etiqueta dice QUÉ es la cifra y EN QUÉ SITUACIÓN, en 3 a 8 palabras, de modo que la tarjeta se entienda con el video en silencio: "sin cobrar a becarios que incumplieron", no "monto"; "buques por día en Ormuz", no "buques"; "cupos de bonificación a la contratación", no "cupos".
       REGLA DE PANTALLA CON DOS INDICADORES (obligatorio; nació del 01-09, cuando la tarjeta del índice industrial quedó pegada a una tesis que hablaba del Imacec y todos leyeron "Imacec 5,1%"): en un bloque donde conviven dos indicadores, la tarjeta grande no puede llevar la cifra de uno mientras la [TESIS] nombra al otro. O la tesis nombra el MISMO indicador que la cifra, o el nombre del indicador va pegado al número dentro de la tesis ("el índice industrial cayó 5,1%"). El espectador junta el número grande con el nombre que tiene más cerca, diga lo que diga la narración.
-      VARIEDAD (capa aparte, DESPUÉS del árbol y nunca encima de él): nunca más de dos [DATO cifra] seguidas en el guion; nunca dos tarjetas del mismo tipo seguidas dentro del mismo bloque; con 8 o más noticias en la edición, al menos un [ESQUEMA] y al menos una de barras, tabla o comparacion; al menos tres tipos distintos por edición. Si una cuota se rompe, primero revisa si aplicaste mal el árbol (la causa más común); si el árbol está bien aplicado, deja la cifra sobrante en la narración. Y la regla que protege a todas: la variedad NUNCA justifica un dato que no está en el informe ni una tarjeta forzada; la cuota es una alarma, no una obligación. Antes que inventar con qué variar, se repite el tipo o se deja el párrafo sin marca.
+      VARIEDAD (capa aparte, DESPUÉS del árbol y nunca encima de él): nunca más de dos [DATO cifra] seguidas en el guion; nunca dos tarjetas del mismo tipo seguidas dentro del mismo bloque; con cuatro o más tarjetas en la edición, al menos dos tipos distintos (con tres noticias ya no se pide el [ESQUEMA] ni la barras por cuota: se piden solo si el dato lo trae). Si una cuota se rompe, primero revisa si aplicaste mal el árbol (la causa más común); si el árbol está bien aplicado, deja la cifra sobrante en la narración. Y la regla que protege a todas: la variedad NUNCA justifica un dato que no está en el informe ni una tarjeta forzada; la cuota es una alarma, no una obligación. Antes que inventar con qué variar, se repite el tipo o se deja el párrafo sin marca.
       REFERENCIA (opcional, SOLO en cifra, al final de la línea tras un " | "):
       " | ref: contra qué se mide esta cifra", en 3 a 8 palabras. En pantalla sale
       en cursiva bajo la etiqueta, y entra cuando la voz dice esas palabras.
@@ -282,7 +283,7 @@ no salió jamás puede frenar un informe.
       etiqueta, separadas por " · ".
       INDICADOR (opcional, entre paréntesis después del valor): "(sube)", "(baja)", "(igual)", "(bien)", "(mal)", o combinados "(sube mal)", "(baja bien)". En pantalla se dibuja una flecha o un visto de color: subir se pinta verde y bajar rojo, salvo que digas lo contrario (el desempleo que sube es "(sube mal)"; la inflación que baja es "(baja bien)"). Un valor puede ser SOLO el indicador cuando no hay cifra pero sí una dirección clara: "empleo formal: (baja mal)" muestra la etiqueta grande con la flecha roja. Úsalo cuando la dirección sea parte de la noticia, no como adorno.
   [ESQUEMA | título] elemento -> elemento -> elemento
-      Para procesos, jerarquías, niveles o líneas de tiempo simples que el informe describa. Máximo seis elementos, texto breve por elemento. No se narra. Cero a dos por edición, y OBLIGATORIO al menos uno cuando el día tenga una noticia de proceso (un trámite legislativo, una etapa judicial, un cronograma, quién decide qué y en qué orden), que es casi todos los días: un esquema animado es la ventaja de este formato sobre un conductor explicando con las manos. Es condicional, no cuota: si ninguna noticia del informe describe una estructura o secuencia real, no lo fuerces.
+      Para procesos, jerarquías, niveles o líneas de tiempo simples que el informe describa. Máximo seis elementos, texto breve por elemento. No se narra. Cero a dos por edición, y OBLIGATORIO al menos uno cuando una de las TRES noticias narradas sea de proceso (un trámite legislativo, una etapa judicial, un cronograma, quién decide qué y en qué orden), que es casi todos los días: un esquema animado es la ventaja de este formato sobre un conductor explicando con las manos. Es condicional, no cuota: si ninguna noticia del informe describe una estructura o secuencia real, no lo fuerces.
   [HECHO] párrafo
   [INTERPRETACIÓN] párrafo
       Prefijo del párrafo cuando el informe distingue explícitamente análisis. Se narra el párrafo, no la marca.
@@ -324,8 +325,8 @@ CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
    que no diga QUÉ es la cifra Y EN QUÉ SITUACIÓN, en 3 a 8 palabras, está mal:
    "monto" está mal, "sin cobrar a becarios que incumplieron" está bien. La
    prueba es si la tarjeta se entiende con el video en silencio.
-1. Verifica noticia por noticia: ninguna [A] omitida; cada [B] narrada o en "En titulares"; cada [C] en "En titulares"; ninguna agregada. Nada del informe queda sin sonar.
-2. Verifica que la extensión de cada noticia corresponde a su peso [A], [B] o [C].
+1. Verifica la selección: exactamente tres bloques de noticia, la portada primero, y las otras dos elegidas según QUÉ SE NARRA; ninguna noticia agregada; no hay "## En titulares", ni Dato curioso, ni Agenda, ni "¿En qué quedó?".
+2. CUENTA las palabras narradas (todo lo que se oye, sin marcas ni encabezados): entre 420 y 600. Fuera de ese rango, recorta o completa antes de entregar.
 3. Verifica que no hay ningún tema narrado dos veces.
 4. Verifica que no hay frases que narren ausencia de noticias.
 5. Comprueba que no parezca lectura automática ni formato de producción masiva.
@@ -339,10 +340,10 @@ CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 12. Verifica que cada bloque [A] y [B] tiene su [TESIS], que cada [DATO] y [CITA] tiene fuente y fecha, y que todo párrafo de "Análisis" lleva [INTERPRETACIÓN].
 13. Verifica que el guion quedó guardado y pusheado en la ruta exacta del contrato de archivos, o que el fallo quedó reportado.
 14. Cada [TESIS] tiene 18 palabras o menos.
-15. La línea "Para salir hoy" del informe quedó integrada en la despedida, y el tagline "El resumen sin gritos." cierra el video.
+15. El cierre dice que el informe completo está en el enlace de la descripción, la línea "Para salir hoy" del informe quedó integrada en la despedida, y el tagline "El resumen sin gritos." cierra el video.
 16. Ningún bloque termina en síntesis abstracta y no quedan conectores de ensayo escrito.
 17b. Ninguna sigla se pinta en pantalla sin haber sido expandida antes, salvo las de uso corriente.
-17. Variedad visual: no hay más de dos [DATO cifra] seguidas, y si el día tiene una noticia de proceso hay al menos un [ESQUEMA]. Y ninguna marca lleva un dato que no esté en el informe.
+17. Variedad visual: no hay más de dos [DATO cifra] seguidas, y si una de las tres noticias es de proceso hay al menos un [ESQUEMA]. Y ninguna marca lleva un dato que no esté en el informe.
 17c. Cada [DATO cambio] se mide contra la base VIGENTE del indicador, no contra la original ni contra la que da el salto mayor. Si el valor inicial fue modificado después, la marca usa el modificado.
 18. Solo después de superar estas comprobaciones entrega el título, el guion y las fuentes.
 
