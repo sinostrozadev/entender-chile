@@ -63,3 +63,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-10-10 | financiamiento municipal de Brujas de Salamanca SADP
 - 2026-10-11 | fraude al fisco en Talca
 - 2026-10-12 | hospital modular de $2.000 millones no instalado
+- 2026-10-13 | fraude al fisco y cohecho en Talca
