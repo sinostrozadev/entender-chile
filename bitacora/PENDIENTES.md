@@ -32,6 +32,28 @@ medida y deja de necesitar decisión).
       impersonal. El prompt ya está escrito y entregado a Santiago; falta que
       GPT lo corra. Evidencia:
       `contenido/guiones/claves/2026-10-07-licencia-medica-fiscalizacion-y-sumario.md`.
+      (12-10: GPT lo corrió y el guion quedó APROBADO en la vuelta 4,
+      `contenido/veredictos/clave-licencia-medica-fiscalizacion-y-sumario-guion.md`.
+      No lo cerró esta sesión: lo borra quien lo verifique.)
+
+- [ ] **12-10, Santiago: la última revisión del video final de esta Clave
+      antes de subirlo.** Rendido con el mural, voz de Azure y cama, en
+      `out/clave-final/2026-10-07-licencia-medica/` y copiado a
+      `C:\Users\santi\Downloads\entender-chile-clave\` (10:19, guion
+      APROBADO vuelta 4). Nada se subió. El camino de la Clave genera una
+      sola carátula (`miniatura-clave.png`), no tres: así está en
+      `scripts/miniaturas.js`.
+
+- [ ] **12-10, quedó parametrizado y espera decisión (día o Santiago).** Tres
+      cosas del mural que no son código sino diseño:
+      (1) qué secciones lleva la TENSIÓN: por defecto las cinco anteriores al
+      Cierre (9 a 13 en esta Clave, el ejemplo de `scripts/clave-musica.js`),
+      se cambia con `CLAVE_TENSION` y no hay regla por tipo de sección escrita;
+      (2) las marcas `[ESQUEMA]` y `[TESIS]` no aparecen en el mural (el armador
+      las salta desde el 07-10), aunque el validador cuenta la tesis como
+      narrada; (3) el sello de tres notas no suena en el mural: la cama ya
+      arranca con re, la, re. Evidencia: `scripts/clave-mural.js`
+      (`rangoTension`) y `scripts/mural-guion.js` (`leerSecciones`).
 
 ---
 

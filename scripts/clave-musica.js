@@ -331,7 +331,13 @@ if (RANGO.length) {
         const i0 = Math.round(desde * SR);
         for (let k = 0; k < onda.length && i0 + k < n; k++) {
           const t = (i0 + k) / SR;
-          const global = t >= clima ? 1 : 0.30 + 0.70 * Math.pow((t - t0) / dur, 1.6);
+          // el Math.max no es adorno (12-10-2026): i0 se redondea a la muestra,
+          // así que la primera muestra puede caer una fracción ANTES de t0, y
+          // un negativo elevado a 1,6 es NaN. Ese NaN entraba a la mezcla y la
+          // dejaba muda desde la sección de la tensión hasta el final: en la
+          // primera Clave con voz, cuatro minutos sin cama, y el generador
+          // decía "pico -21 dBFS" como si nada.
+          const global = t >= clima ? 1 : 0.30 + 0.70 * Math.pow(Math.max(0, (t - t0) / dur), 1.6);
           PISTAS.tension[i0 + k] += onda[k] * niv * global * PICO * N_TENSION * bordes(t) * puerta(t);
         }
       });
@@ -366,6 +372,15 @@ if (STEMS) {
 }
 
 for (let i = 0; i < n; i++) seco[i] += PISTAS.melodia[i] + PISTAS.tension[i];
+// UNA MUESTRA ROTA CALLA TODO LO QUE VIENE DESPUÉS: la sala y la caja son
+// filtros con memoria, así que un solo NaN se propaga hasta el final del
+// archivo, y al pasarlo a 16 bits queda como silencio sin ningún error. Si
+// aparece, se corta acá con ruido en vez de entregar una cama muda.
+{
+  let rotas = 0, primera = -1;
+  for (let i = 0; i < n; i++) if (!Number.isFinite(seco[i])) { rotas++; if (primera < 0) primera = i; }
+  if (rotas) { console.error(`clave-musica: ${rotas} muestras no numéricas desde el segundo ${(primera / SR).toFixed(2)}; no escribo una cama muda.`); process.exit(1); }
+}
 const cuerpo = caja(seco, SR);
 for (let i = 0; i < n; i++) seco[i] += cuerpo[i] * 0.16;
 const rev = sala(seco, SR, 1, 0.80);

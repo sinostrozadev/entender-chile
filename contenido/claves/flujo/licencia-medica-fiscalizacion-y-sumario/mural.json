@@ -1,0 +1,42 @@
+{
+  "nota": "Material del mural de esta Clave (lo lee scripts/clave-mural.js). Paneles en contenido/claves/mural/, cosidos el 07-10-2026 con: node scripts/mural-coser.js --paneles contenido/claves/mural --salida public/claves/licencia-medica/mural14 --anchas 7,12,13. Paradas: una por sección, el píxel del borde izquierdo de la cámara. Velos: scripts/mural-velos.js con objetivo 7:1.",
+  "trozos": [
+    "claves/licencia-medica/mural14-1.jpg",
+    "claves/licencia-medica/mural14-2.jpg",
+    "claves/licencia-medica/mural14-3.jpg"
+  ],
+  "anchoMural": 27580,
+  "viajeSeg": 1.5,
+  "paradas": [
+    440,
+    2460,
+    4480,
+    6500,
+    8670,
+    10540,
+    12560,
+    14180,
+    16200,
+    18220,
+    20240,
+    22260,
+    23880,
+    25500
+  ],
+  "velos": [
+    1,
+    1,
+    1.4,
+    1,
+    1.5,
+    1,
+    1,
+    1,
+    1,
+    1.1,
+    1.4,
+    1,
+    1.1,
+    1.4
+  ]
+}

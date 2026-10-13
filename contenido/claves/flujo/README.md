@@ -34,6 +34,15 @@ que ningún archivo sostiene.
     <slug>/aprobacion.md     Santiago aprobó o pidió cambios (clave.js aprobar | cambiar)
     <slug>/investigacion.md  GPT investigó con fuentes       (prompts/investigacion-clave.md) [camino pauta]
     <slug>/idea.md           GPT propuso la idea             (prompts/clave-idea.md)       [camino idea]
+    <slug>/mural.json        el mural cosido y medido        (scripts/clave-mural.js lo lee)
+
+`mural.json` (desde el 12-10-2026) es lo que hace que la Clave salga con EL
+MURAL en vez del formato clásico: los trozos del mural en `public/`, su ancho,
+una parada de cámara por sección y el velo de cada parada. No lo escribe GPT:
+sale de coser y medir los paneles (`scripts/mural-coser.js`,
+`scripts/mural-velos.js`). Sin él, la Clave sale clásica; con él pero sin
+calzar con el guion (otra cantidad de paradas que de secciones), el paso de la
+Clave se detiene. Detalle en `scripts/clave-mural.js` y `scripts/dia.js`.
 
 `aprobacion.md` tiene el mismo formato en los dos caminos (`APROBADA: fecha` o
 `CAMBIAR: nota`) y lo escriben las mismas órdenes: en el camino nuevo aprueba la
