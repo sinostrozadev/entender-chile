@@ -878,6 +878,33 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **12-10: la Clave debe subir con la carátula elegida de GPT**
+      (`contenido/caratulas/claves/FECHA-slug.jpg`), no con la que dibuja
+      `scripts/miniaturas.js`. El 12-10 se cambió a mano en YouTube. Además
+      `scripts/youtube-caratula.js:88` declara `image/png` también para jpg.
+- [ ] **12-10: el validador no se re-despierta si la pieza cambia después de
+      su veredicto** (dedup por etapa y vuelta en `estado-clave.yml`; la Clave
+      del 07-10 quedó cinco días parada en `validar_guion` vuelta 2). Que el
+      dedup incluya el commit de la pieza, o que la reescritura suba la vuelta.
+- [ ] **12-10: shorts y exprés con imagen propia** (plan propuesto a Santiago,
+      falta su sí): el Short del día usa la portada del informe recortada en
+      vertical; cada exprés pide una imagen a GPT con el tema, que sirve de
+      fondo y de carátula, con caída al fondo de sección si no llega; texto en
+      bloques y sonido de la casa en los dos. Ojo con el tope del generador
+      (23-09: seis imágenes en dos horas).
+- [ ] **12-10: decisiones abiertas del informe corto** (reporte del agente):
+      el podcast se acortó a 3 o 4 minutos porque usa el mismo audio;
+      `REGLAS-DURAS.md` todavía dice que todo el informe suena y que la Clave
+      es diaria; el prompt nombra "entenderchile punto cl" pero la web vive en
+      github.io; el Short repite la portada. bitacora/2026-10-12.md.
+- [ ] **12-10: decisiones abiertas del mural** (PENDIENTES del agente, sección
+      del mural): qué secciones llevan tensión, TESIS y ESQUEMA fuera del
+      mural, el sello de tres notas; confirmar la fuente "Dipres, 05-02-2026"
+      que el validador observó.
+- [ ] **12-10: el error de imagen de la Clave que Santiago vio** y que dijo
+      haber corregido con la sesión de día: no se identificó cuál es. Santiago
+      decidió dejarla así; preguntarle el minuto para corregirlo en la próxima.
+
 - [ ] **12-10, AGUANTA: `contenido/casos/hitos.md` registra el mismo hecho
       dos veces bajo dos dossiers distintos, y el guion de hoy lo narró dos
       veces hasta que el validador lo fusionó a mano.** Auditoría del 12-10
