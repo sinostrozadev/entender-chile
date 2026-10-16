@@ -234,7 +234,7 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
 // Las tres carátulas del día. La lógica vive en scripts/miniaturas.js desde
 // el 27-09-2026: el video de prueba rinde las mismas y una sola copia evita
 // que las dos se separen.
-miniaturas({ parsed, fecha, esClave, OUT });
+miniaturas({ parsed, fecha, esClave, OUT, guion });
 
 const video = path.join(OUT, `${fecha}-${etiqueta}.mp4`);
 if (conRender) {
