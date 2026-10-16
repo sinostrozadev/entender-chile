@@ -248,15 +248,24 @@ if (conRender) {
     // scripts/mezclar-voz.js). Remotion mezcla pero no mide sonoridad, así que
     // el render sale aparte y el loudnorm escribe el archivo final.
     const crudo = path.join(OUT, `${fecha}-${etiqueta}-sin-nivelar.mp4`);
+    // REMOTION_BROWSER_EXECUTABLE, igual que en miniaturas.js desde el 24-09:
+    // sin esto Remotion intenta bajar su propio Chromium de remotion.media y el
+    // render no se puede verificar fuera de Actions, que es donde sí hay red.
+    // El 16-10-2026 costó una corrida entera descubrirlo. En Actions la
+    // variable no existe y todo sigue igual.
     execFileSync("npx", ["remotion", "render", "ClaveMuralProduccion", crudo,
-      `--props=./${mural.salida.rutaProps}`, "--concurrency=100%"], { stdio: "inherit" });
+      `--props=./${mural.salida.rutaProps}`, "--concurrency=100%",
+      ...(process.env.REMOTION_BROWSER_EXECUTABLE ? [`--browser-executable=${process.env.REMOTION_BROWSER_EXECUTABLE}`] : []),
+    ], { stdio: "inherit" });
     execFileSync("npx", ["remotion", "ffmpeg", "-loglevel", "error", "-i", crudo,
       "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
       "-y", video], { stdio: "inherit" });
     fs.unlinkSync(crudo);
   } else {
     execFileSync("npx", ["remotion", "render", "Informe", video,
-      `--props=./${path.join(OUT, "timeline.json")}`, "--concurrency=100%"], { stdio: "inherit" });
+      `--props=./${path.join(OUT, "timeline.json")}`, "--concurrency=100%",
+      ...(process.env.REMOTION_BROWSER_EXECUTABLE ? [`--browser-executable=${process.env.REMOTION_BROWSER_EXECUTABLE}`] : []),
+    ], { stdio: "inherit" });
   }
   console.log(`\nListo: ${video}`);
 } else {
