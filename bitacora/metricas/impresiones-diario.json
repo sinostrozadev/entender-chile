@@ -182,43 +182,6 @@
         }
       }
     },
-    "2026-08-31": {
-      "reporte": "20486411597",
-      "videos": {
-        "2uHk1abTVRA": {
-          "impresiones": 67,
-          "clics": 1
-        },
-        "9SxSCiC8ZTs": {
-          "impresiones": 56,
-          "clics": 4
-        },
-        "HnWm9lwFw8w": {
-          "impresiones": 10,
-          "clics": 0
-        },
-        "MRG9fw8e5P8": {
-          "impresiones": 4,
-          "clics": 1
-        },
-        "TeKnIIGAMUw": {
-          "impresiones": 13,
-          "clics": 0
-        },
-        "UyW1kuLY37E": {
-          "impresiones": 80,
-          "clics": 4
-        },
-        "urU9RKHTg1g": {
-          "impresiones": 37,
-          "clics": 1
-        },
-        "xCeMIDevwsE": {
-          "impresiones": 34,
-          "clics": 1
-        }
-      }
-    },
     "2026-09-01": {
       "reporte": "20487540371",
       "videos": {
@@ -1277,7 +1240,7 @@
       }
     },
     "2026-09-10": {
-      "reporte": "20486593138",
+      "reporte": "20627369638",
       "videos": {
         "24scU14vvcg": {
           "impresiones": 14,
@@ -1375,10 +1338,6 @@
           "impresiones": 1,
           "clics": 0
         },
-        "n7CU6xJQ6Zw": {
-          "impresiones": 3,
-          "clics": 0
-        },
         "oCEw0HwkUyg": {
           "impresiones": 19,
           "clics": 0
@@ -1414,7 +1373,7 @@
       }
     },
     "2026-09-11": {
-      "reporte": "20486423856",
+      "reporte": "20626713646",
       "videos": {
         "24scU14vvcg": {
           "impresiones": 7,
@@ -1566,10 +1525,6 @@
         },
         "k_im76N_Is4": {
           "impresiones": 5,
-          "clics": 0
-        },
-        "n7CU6xJQ6Zw": {
-          "impresiones": 1,
           "clics": 0
         },
         "o91xeQhkSv4": {
@@ -7366,10 +7321,10 @@
       }
     },
     "2026-10-10": {
-      "reporte": "20594988119",
+      "reporte": "20627455448",
       "videos": {
         "-kH1IX1N0Gk": {
-          "impresiones": 74,
+          "impresiones": 73,
           "clics": 4
         },
         "0BNQR6diTNI": {
@@ -7378,7 +7333,7 @@
         },
         "3E9EU2YJPC0": {
           "impresiones": 564,
-          "clics": 11
+          "clics": 10
         },
         "3PyF0uX9pn0": {
           "impresiones": 3,
@@ -7453,11 +7408,11 @@
           "clics": 0
         },
         "SLpzQ_hHP_s": {
-          "impresiones": 207,
+          "impresiones": 204,
           "clics": 3
         },
         "TR_Oy2yn2Cs": {
-          "impresiones": 7,
+          "impresiones": 8,
           "clics": 0
         },
         "TeKnIIGAMUw": {
@@ -7465,7 +7420,7 @@
           "clics": 0
         },
         "WjXgunaHKjs": {
-          "impresiones": 13,
+          "impresiones": 14,
           "clics": 0
         },
         "YZZwXm6XMMw": {
@@ -7482,10 +7437,6 @@
         },
         "Zrfm2a7Fxj4": {
           "impresiones": 2,
-          "clics": 0
-        },
-        "bHwxoqomx-M": {
-          "impresiones": 1,
           "clics": 0
         },
         "bO42vVDt5vg": {
@@ -7512,6 +7463,10 @@
           "impresiones": 1,
           "clics": 0
         },
+        "m16ACKSvQ5g": {
+          "impresiones": 1,
+          "clics": 0
+        },
         "nvG_C4evsL8": {
           "impresiones": 10,
           "clics": 0
@@ -7530,6 +7485,10 @@
         },
         "tBv9v_TGayw": {
           "impresiones": 39,
+          "clics": 0
+        },
+        "tW1C7cXx9D0": {
+          "impresiones": 1,
           "clics": 0
         },
         "uU6CHrWEn_Q": {
@@ -8722,6 +8681,6 @@
       }
     }
   },
-  "actualizado": "2026-10-15",
+  "actualizado": "2026-10-16",
   "job": "512e38a3-6714-4fdd-b6bc-0a4a375117b3"
 }
