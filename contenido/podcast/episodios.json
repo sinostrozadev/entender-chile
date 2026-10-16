@@ -528,5 +528,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-13-informe.mp3",
     "bytes": 5567616,
     "durSeg": 232
+  },
+  {
+    "fecha": "2026-10-16",
+    "tipo": "informe",
+    "titulo": "16-10-2026 · Caso Ronald Ojeda: primera sentencia en juicio oral, 20 años de cárcel",
+    "descripcion": "El primer juicio oral por el crimen de Ronald Ojeda terminó con una pena de veinte años para Maickel Villegas. José Antonio Kast viaja a Bolivia para abordar una agenda bilateral y la Comisión Nacional de Energía proyecta una baja promedio de cuatro coma tres por ciento en las cuentas de la luz desde enero. En el informe completo también están la reapertura parcial de consulados chilenos en Venezuela, el acuerdo en Escondida y la propuesta de permiso para familias tras una hospitalización por intento de suicidio.\n\nEl informe completo de hoy, con todas las noticias del día: https://sinostrozadev.github.io/entender-chile-web/informes/2026-10-16/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-16-informe.mp3",
+    "bytes": 5223168,
+    "durSeg": 218
   }
 ]
