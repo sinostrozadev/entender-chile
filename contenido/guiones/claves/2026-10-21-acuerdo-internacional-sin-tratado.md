@@ -6,7 +6,7 @@ Guion:
 ## Gancho
 [TESIS] Sumarse a una iniciativa no responde por sí solo qué obliga a Chile.
 
-[DATO cifra | Ministerio de Relaciones Exteriores, 22-09-2026] países participantes al anuncio de adhesión de Chile: 15 países
+[DATO cifra | The Clinic, T13 y El País, 22-09-2026] países participantes al anuncio de adhesión de Chile: 15 países
 El veintidós de septiembre de dos mil veintiséis Chile se sumó al Escudo de las Américas, una coordinación de quince países. El Gobierno descartó que fuera un tratado o implicara operaciones militares. ¿Qué aceptó Chile?
 
 Verás qué distingue una declaración política de un tratado y qué documento pedir.
@@ -21,7 +21,7 @@ El catorce de septiembre de dos mil veintiséis Chile era observador. El veintid
 ## Los hitos
 [TESIS] El anuncio abrió preguntas distintas sobre política exterior, control y legalidad.
 
-El veintitrés de septiembre de dos mil veintiséis la Cámara preparaba una interpelación. El veinticuatro, Bachelet y Boric pidieron reconsiderar la permanencia; el Senado y la Contraloría entraron en la discusión. El veinticinco, el ministro Arrau dijo que, si fuera tratado, pasaría por el Congreso.
+El veintitrés de septiembre de dos mil veintiséis la Cámara preparaba una interpelación. El veinticuatro, Bachelet y Boric pidieron reconsiderar la permanencia; el Senado agendó una sesión especial y una bancada recurrió a la Contraloría. El veinticinco, el ministro Arrau dijo que, si fuera tratado, pasaría por el Congreso.
 
 ## Qué puede ser un acuerdo
 [TESIS] El nombre de un documento no define su fuerza jurídica.
@@ -73,7 +73,7 @@ Hay una forma sencilla de probar el método: separa tres carpetas imaginarias. E
 ## Aplicado al caso
 [TESIS] Al veinticinco de septiembre de dos mil veintiséis conocemos el anuncio, no todas sus condiciones operativas.
 
-Cancillería habló de coordinación voluntaria y acceso a información. El canciller mencionó intercambio de datos y coordinación policial; la subsecretaria de Seguridad, entrenamiento. Son declaraciones, no el instrumento íntegro.
+Cancillería habló de coordinación voluntaria y acceso a información. El canciller mencionó intercambio de datos y coordinación policial; la subsecretaria Giannini, entrenamiento. Son declaraciones, no el instrumento íntegro.
 
 [INTERPRETACIÓN] Una lectura prudente separa beneficios esperados de obligaciones demostradas. Los informes no reproducen el documento ni acreditan operaciones militares, que el Gobierno descartó. No permiten afirmar obligaciones operativas específicas.
 
@@ -90,6 +90,7 @@ Quédate con estas ideas. El título de un documento no decide si es tratado. «
 Nos encontramos en la próxima Clave. El resumen sin gritos.
 
 Fuentes:
+- Entender Chile, informes del 23, 24, 25 y 26 de septiembre de 2026.
 - Ministerio de Relaciones Exteriores, 22 de septiembre de 2026.
 - Biblioteca del Congreso Nacional, Constitución Política de la República, artículos 6, 7, 32, 52, 53, 54 y 98: https://www.bcn.cl/leychile/navegar?idNorma=242302
 - Biblioteca del Congreso Nacional, Convención de Viena sobre el Derecho de los Tratados, artículos 2 y 11-17: https://www.bcn.cl/leychile/navegar?idNorma=12889
