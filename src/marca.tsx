@@ -332,10 +332,32 @@ const MiniaturaV4: React.FC<MiniaturaV4Props> = ({ linea1, linea2, cifra, etique
 // porque normaliza. La ilustración llega en lo que el generador quiera (las de
 // octubre vienen en 1672x941 y pesan hasta 1,9 MB) y YouTube pide 16:9 y no
 // acepta miniaturas de más de 2 MB. Acá sale siempre un PNG de 1280x720.
-type MiniaturaV5Props = { imagen: string };
-const MiniaturaV5: React.FC<MiniaturaV5Props> = ({ imagen }) => (
+// LA ETIQUETA QUE DISTINGUE INFORME DE CLAVE (16-10-2026, idea de Santiago).
+// Nace de un problema real: en la grilla las dos series se ven iguales y el que
+// busca una abre la otra. La primera idea fue la fecha del día en grande, y se
+// descartó con el dato del propio canal: los largos viven de la búsqueda
+// (13,1% de las vistas) y casi nadie los ve el día que salen (0,7% por
+// notificación), así que una fecha estampada envejece la pieza justo en la
+// superficie donde vive. Una etiqueta fija dice lo mismo y no caduca.
+//
+// Va arriba a la izquierda y en mono: ese rincón está libre en las tres
+// carátulas que hemos usado, y la mono es la voz de las marcas del canal
+// (rótulos, fuentes, etiquetas de dato), así que se lee como sistema y no como
+// adorno. `etiqueta` vacía deja la carátula exactamente como estaba.
+type MiniaturaV5Props = { imagen: string; etiqueta?: string; posicion?: "arriba" | "abajo"; cuerpo?: number };
+const MiniaturaV5: React.FC<MiniaturaV5Props> = ({ imagen, etiqueta = "", posicion = "arriba", cuerpo = 34 }) => (
   <AbsoluteFill style={{ backgroundColor: tema.tinta }}>
     <Img src={staticFile(imagen)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+    {etiqueta ? (
+      <div style={{
+        position: "absolute", left: 40, [posicion === "arriba" ? "top" : "bottom"]: 40,
+        fontFamily: tema.mono, fontSize: cuerpo, letterSpacing: Math.round(cuerpo / 8.5), textTransform: "uppercase",
+        color: tema.papel, backgroundColor: "rgba(23,25,28,0.82)",
+        border: `2px solid ${tema.patina}`, borderRadius: 4, padding: "10px 20px",
+      }}>
+        {etiqueta}
+      </div>
+    ) : null}
   </AbsoluteFill>
 );
 
@@ -378,7 +400,7 @@ const RootMarca: React.FC = () => (
       height={720}
       fps={1}
       durationInFrames={1}
-      defaultProps={{ imagen: "fondos/seccion-economia.jpg" }}
+      defaultProps={{ imagen: "fondos/seccion-economia.jpg", etiqueta: "", posicion: "arriba" as const, cuerpo: 34 }}
     />
     <Composition
       id="Miniatura"
