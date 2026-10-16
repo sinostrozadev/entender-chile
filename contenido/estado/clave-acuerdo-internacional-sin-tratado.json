@@ -2,17 +2,17 @@
   "flujo": "clave",
   "slug": "acuerdo-internacional-sin-tratado",
   "camino": "idea",
-  "etapa": "idea_lista",
-  "vuelta": 1,
-  "turno": "Santiago: aprobar o pedir cambios (scripts/clave.js aprobar | cambiar)",
-  "fecha_produccion": null,
-  "actualizado": "2026-10-16 16:19",
+  "etapa": "validar_entrega",
+  "vuelta": 0,
+  "turno": "Claude",
+  "fecha_produccion": "2026-10-21",
+  "actualizado": "2026-10-16 16:51",
   "concepto": "qué obliga a Chile un acuerdo internacional que no es un tratado",
   "pieza": {
-    "id": "idea",
-    "prompt": "prompts/clave-idea.md",
-    "archivo": "contenido/claves/flujo/acuerdo-internacional-sin-tratado/idea.md",
-    "entrada": "contenido/claves/flujo/acuerdo-internacional-sin-tratado/tema.md"
+    "id": "entrega",
+    "prompt": "prompts/claves.md",
+    "archivo": "contenido/claves/2026-10-21-acuerdo-internacional-sin-tratado.md",
+    "entrada": "contenido/claves/flujo/acuerdo-internacional-sin-tratado/idea.md"
   },
   "piezas": [
     {
@@ -22,13 +22,13 @@
     },
     {
       "id": "entrega",
-      "situacion": "falta",
-      "archivo": ""
+      "situacion": "por_validar",
+      "archivo": "contenido/claves/2026-10-21-acuerdo-internacional-sin-tratado.md"
     },
     {
       "id": "guion",
       "situacion": "falta",
-      "archivo": ""
+      "archivo": "contenido/guiones/claves/2026-10-21-acuerdo-internacional-sin-tratado.md"
     }
   ]
 }
