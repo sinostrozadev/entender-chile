@@ -94,6 +94,46 @@ medición de retención por duración).
 
 ## PARA LA SESIÓN DE LA NOCHE: lo que el día NO puede hacer (06-10-2026)
 
+### 0. HOY, 16-10-2026: rendir de nuevo la Clave de licencias, con voz, y reemplazar la que está en YouTube
+
+**La pieza que está subida no es la que Santiago aprobó.** Se rindió con un
+armador que descartaba las `[TESIS]`, así que salió con 91 bloques y CERO
+tesis narradas: 180 palabras, el 10% de lo hablado, y la idea central de cada
+sección. Está en privado (https://youtu.be/CvRf1NBm_cg), así que no salió al
+aire, pero no se puede publicar así.
+
+**Ya está todo en `main`, no hay que arreglar nada:** la tesis narrada, la
+fuente al pie donde hay cifra de dato, la regla 42 con `cifraCorta` (los
+montos salen "$31.572 millones" y no con once dígitos), la carátula de GPT en
+vez de la generada por código, y `REMOTION_BROWSER_EXECUTABLE` en los dos
+renders de `dia.js`. El día lo verificó corriendo el armador: **105 bloques,
+14 tesis, 10 planos con fuente al pie**, typecheck limpio y `numerales.js` con
+sus 65 casos verdes.
+
+Lo único que falta es la voz, y el día no la tiene: no hay `AZURE_SPEECH_KEY`
+en la sesión de la nube.
+
+```
+node scripts/dia.js contenido/guiones/claves/2026-10-07-licencia-medica-fiscalizacion-y-sumario.md --clave --voz --render
+```
+
+Qué comprobar antes de subir:
+
+1. Que el log diga `Miniatura de la Clave: la carátula de GPT`. Si dice "SIN
+   carátula de GPT" algo se rompió, porque el archivo existe en
+   `contenido/caratulas/claves/`.
+2. Que el video dure claramente más que los 10:20 de la pieza vieja. Con las
+   tesis puestas y la voz real, el día estimó alrededor de 11 minutos.
+3. **Regenerar la descripción**: `contenido/descripciones/2026-10-07-clave.txt`
+   tiene los capítulos de la versión sin tesis y todos se corrieron.
+4. Regla 19: el audio completo lo escucha Santiago antes de publicar.
+
+Y una advertencia que no es menor: **la carátula que está puesta Santiago la
+dio por mala el 16-10 y ya le pidió a GPT que la rehaga.** Si la nueva llegó,
+va esa; si no, la pieza puede esperar. No subir con la vieja dando por hecho
+que estaba aprobada.
+
+
 Santiago, 06-10-2026: "deja todas las indicaciones de lo que no puedes hacer
 para la sesión de la noche, anota por ahí para que él las vea, y pide también
 los secretos para que tú tengas acceso".
