@@ -6,7 +6,7 @@ Guion:
 ## Gancho
 [TESIS] Una caída en los casos detectados no cerró la discusión sobre las licencias médicas.
 
-[DATO comparacion | Cooperativa, 02-10-2026] servidores 2023: 19963 ; servidores 2025: 7207
+[DATO comparacion | Cooperativa, 02-10-2026] servidores públicos que viajaron al extranjero con licencia 2023: 19963 ; servidores públicos que viajaron al extranjero con licencia 2025: 7207
 El dos de octubre de dos mil veintiséis se informó que más de siete mil doscientos servidores públicos viajaron fuera de Chile mientras tenían licencia médica durante dos mil veinticinco. Era un sesenta y tres por ciento menos que en dos mil veintitrés. Pero más de cuatro mil quinientas personas aparecieron en dos de los tres años revisados, y quinientas sesenta y seis, en los tres. Entonces la pregunta no es solo cuántos viajaron. Si a ti te rechazan una licencia, la pregunta es directa: ¿qué controla realmente el Estado y qué puede pasarte si no cumples el reposo?
 
 ## Promesa
@@ -94,7 +94,7 @@ Los más de treinta y seis mil millones de pesos estimados tampoco son fraude pr
 
 Entre dos mil veinte y dos mil veintidós, dieciséis sociedades médicas emitieron más de sesenta mil licencias fraudulentas. Fonasa pagó más de cincuenta mil. El veintitrés de junio de dos mil veintiséis, un tribunal declaró culpables a diecisiete acusados. La sentencia llegó el treinta y uno de agosto.
 
-[DATO comparacion | Emol, 31-08-2026] perjuicio informado: 31571798643 ; demanda civil acogida: 26000000000
+[DATO comparacion | Emol, 31-08-2026] perjuicio informado: $31571798643 ; demanda civil acogida: $26000000000
 La Fiscalía informó un perjuicio de más de treinta y un mil quinientos millones de pesos, y se acogió una demanda civil por cerca de veintiséis mil millones. Al cinco de octubre no constaban ingresos al Fisco ni ejecución del fallo. Si escuchas que hubo condena, no lo leas como plata devuelta: condena, cobro y recuperación son momentos distintos.
 
 ## Qué está en juego

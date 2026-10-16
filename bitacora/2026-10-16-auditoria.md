@@ -1,6 +1,6 @@
 # Auditoría matinal · 16-10-2026
 
-ESTADO: CON FALLAS — HOY: la cadena entera (producción Y auditoría) estuvo
+ESTADO: CON FALLAS. HOY: la cadena entera (producción Y auditoría) estuvo
 muerta DOS días completos, 14 y 15-10-2026, porque los tres relojes del
 reintento (A, B y C) no empujaron ni un solo commit "reintento: despertador"
 en esa ventana, y nadie lo notó hasta que el barrido del 16-10 absorbió el
@@ -20,7 +20,7 @@ La cadena de hoy llegó completa y adelantada en casi todos los tramos:
 | Guion del informe (APROBADA, vuelta 1, 1 corrección) | 02:44 | 03:10 | adelantado 26 min |
 | Revisión (veredicto final) | 03:00 | 03:30 | adelantado 30 min |
 | Videos y descripciones (`edicion-diaria.yml` run 38858794759) | 03:13-03:17 | 05:15 | adelantado ~2 h |
-| Podcast (`episodios.json`, informe, 218 s = 3,6 min) | — | ~3-4 min (decisión 12-10) | dentro de rango |
+| Podcast (`episodios.json`, informe, 218 s = 3,6 min) | sin dato | ~3-4 min (decisión 12-10) | dentro de rango |
 | Métricas | 05:20 | ~05:00 | +20 min |
 
 Fuente: `contenido/estado/2026-10-16.md` (`ETAPA: videos_listos`, `VEREDICTO:
@@ -96,8 +96,8 @@ el Barrido, que también llegaba tarde (el run `38540333574` del 14-10 a las
 06:09 de Chile dice textualmente "no hay barrido de 2026-10-14 y son las 06
 de Chile: relanzando el Barrido"). El barrido relanzado SÍ llegó (06:10 el
 14, 05:43 el 15), pero ahí se acabó la ventana (cierra a las 07:00) sin que
-ninguna corrida alcanzara a notar que la preselección —turno permanente de
-Claude desde el 06-10, sin plan B que lo cubra— se había quedado colgada.
+ninguna corrida alcanzara a notar que la preselección (turno permanente de
+Claude desde el 06-10, sin plan B que lo cubra) se había quedado colgada.
 El "vigía" de las 02:15 y 05:15 (`trig_01LUtn4fSJjBsCzqdoWeVviH`) debería
 haber avisado al teléfono esos dos atrasos; no escribe nada en el repo, así
 que no hay forma de verificar desde acá si avisó y nadie actuó, o si no
@@ -215,3 +215,49 @@ que, por primera vez, el repo deja ver con evidencia completa (no shallow)
 que la causa de un apagón de días fue el silencio simultáneo de los tres
 relojes del reintento, no solo "la cadena se colgó" como en los casos
 anteriores de 07/08 y 11-10.
+
+---
+
+## Corrección de la sesión de día, 16-10-2026: la causa no eran los relojes
+
+La auditoría de esta mañana dio como causa del apagón del 14 y 15-10 "el
+silencio simultáneo de los tres relojes del reintento". Eso es el síntoma.
+
+**La causa la dio Santiago: la cuenta de Claude se quedó sin uso y se restauró
+anoche.** Es un hecho que no está en el repo y que ninguna medición de acá
+podía alcanzar; lo que el repo sí permitía ver, y que apuntaba en esa
+dirección, es que los tres relojes están habilitados, con última corrida
+exitosa hoy, y que callaron exactamente las mismas 48 horas y volvieron
+solos: tres rutinas independientes no se rompen ni se arreglan a la vez por
+configuración.
+
+Lo que esto deja claro, y es más grave que el apagón:
+
+1. **Todos los relojes de la cadena son rutinas de Claude.** Sin cuota no hay
+   reloj del reintento, ni barrido, ni validador, ni suplente. El respaldo que
+   sí corrió, el cron propio de `reintento.yml`, dio 2 corridas el 14 y 2 el
+   15, contra las 15 de un día normal. Medido:
+
+   | día | pushes de los relojes | cron de GitHub | commits del día |
+   |---|---|---|---|
+   | 13-10 | 11 | 1 | 71 |
+   | 14-10 | 0 | 2 | 7 |
+   | 15-10 | 0 | 2 | 9 |
+   | 16-10 | 15 | 1 | 63 |
+
+2. **Un cron de GitHub más denso NO habría salvado esos dos días**, y conviene
+   decirlo porque la sesión de día lo había propuesto antes de saber la causa.
+   Aunque el reloj hubiera empujado cada 20 minutos, la cadena se detiene igual
+   en `validar_*`: el validador y el suplente también son Claude. Sin cuota no
+   hay pieza, con reloj o sin reloj.
+
+3. **Nadie avisó, y esa sí es una falla nuestra.** La vigía de la cadena y la
+   guardia también son rutinas de Claude, y `guardia.yml` ni siquiera tiene
+   cron de respaldo (su cabecera lo dice y lo justifica: "perder una pasada del
+   guardia no pierde nada"). Resultado: el canal estuvo dos días sin publicar y
+   Santiago se enteró el tercero. La alarma no puede vivir en el mismo recurso
+   que puede faltar.
+
+Es la tercera vez que una cuota ajena apaga el canal: GPT cinco días a
+principios de octubre, Claude estos dos. No es un incidente, es la forma del
+sistema.

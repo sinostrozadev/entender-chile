@@ -77,13 +77,24 @@ Una trampa que costó una tanda entera de mediciones: componer con sharp sobre u
 lienzo de 3 canales, usando capas con alfa, devuelve RGBA. Leer ese búfer como
 RGB da una imagen rayada que parece corrupta y manda cualquier medición al tacho.
 
-## El pedido
+## El pedido se arma solo
 
-Se arma con los motivos que el propio GPT escribió para las imágenes de sección
-(`contenido/guiones/claves/FECHA-<slug>-imagenes.md`), más la cadena de
-superficies, que la escribe Claude mirando el guion: tiene que ir de lo frío e
-institucional a lo cálido e histórico y terminar sereno, acompañando el arco de
-la Clave.
+`scripts/mural-pedido.js` lo escribe desde el guion y desde los prompts de
+imagen que el propio GPT redactó para cada sección. Cuenta las secciones del
+guion, que son la verdad del número de paneles, saca el motivo de cada una,
+pone las tres reglas, corta en tandas de diez y, en la segunda, deja el hueco
+para el color medido de la entrega anterior.
+
+Existe por una frase de Santiago del 07-10-2026: si cambia el número de
+secciones, "se pide ajustar los prompts y pedir todo de nuevo, no hay
+problema". Eso solo es cierto si armar el pedido es automático. A mano son
+catorce motivos copiados uno por uno más la cadena de superficies, y hay que
+rehacerlo entero cada vez que una sección se mueve.
+
+Lo único editorial es la CADENA DE SUPERFICIES, con qué termina cada panel y
+con qué empieza el siguiente. El script propone una por defecto siguiendo el
+arco de una Clave (de lo frío e institucional a lo cálido e histórico, y
+terminar sereno) y se pisa con `--cadena`.
 
 ## El velo, ajustado el 07-10-2026
 

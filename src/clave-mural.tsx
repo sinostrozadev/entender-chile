@@ -57,7 +57,7 @@ import { tema } from "./tema";
 // Y el dato puede traer `valores`, uno por columna con su rótulo debajo, y
 // `flecha` cuando es un antes y un después de la misma cosa.
 export type Bloque =
-  | { tipo?: "texto"; rotulo?: string; marca?: "hecho" | "interpretacion"; texto: string; dicho?: string; seg: number; parada: number;
+  | { tipo?: "texto"; rotulo?: string; marca?: "hecho" | "interpretacion"; tesis?: boolean; fuente?: string; texto: string; dicho?: string; seg: number; parada: number;
       entra?: number; habla?: number; voz?: [number, number] | number[] }
   | { tipo: "dato"; etiqueta: string; de?: string; a: string; fuente: string; seg: number; parada: number; rotulo?: string;
       valores?: { rotulo: string; valor: string }[]; flecha?: boolean };
@@ -194,11 +194,25 @@ const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: numbe
       ) : null}
       {b.rotulo ? <Rotulo texto={b.rotulo} /> : null}
       {b.marca ? <Marca marca={b.marca} /> : null}
-      <div style={{ fontFamily: tema.serif, fontSize: 48, lineHeight: 1.4, color: tema.papel, textShadow: "0 2px 20px rgba(10,14,22,0.8)" }}>
+      {/* LA TESIS VA MÁS GRANDE porque eso es lo que es, el encabezado de la
+          sección, no otra oración más de la fila. Y LA FUENTE AL PIE donde hay
+          cifra (reglas 6 y 32): una cifra sin fuente a la vista no se
+          entiende, se cree. No va en todos los bloques porque una línea que se
+          repite en cada plano deja de leerse. */}
+      <div style={{
+        fontFamily: tema.serif, fontSize: b.tesis ? 60 : 48, lineHeight: 1.4,
+        color: tema.papel, textShadow: "0 2px 20px rgba(10,14,22,0.8)",
+      }}>
         {letras.map((c, i) => (
           <span key={i} style={{ opacity: Math.max(0, Math.min(1, (avance - i) / 4)) }}>{c}</span>
         ))}
       </div>
+      {b.fuente ? (
+        <div style={{ fontFamily: tema.mono, fontSize: 22, color: tema.gris, marginTop: 28,
+          opacity: interpolate(frame, [fps * 0.9, fps * 1.5], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+          {b.fuente}
+        </div>
+      ) : null}
     </AbsoluteFill>
   );
 };
@@ -226,7 +240,7 @@ const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number }
       <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", opacity: o }}>
         <div style={{ transform: `scale(${zoom})`, textAlign: "center" }}>
           {b.etiqueta ? (
-            <div style={{ fontFamily: tema.mono, fontSize: 26, letterSpacing: 3, textTransform: "uppercase", color: tema.patina, marginBottom: 34 }}>
+            <div style={{ fontFamily: tema.mono, fontSize: b.etiqueta.length > 30 ? 21 : 26, letterSpacing: b.etiqueta.length > 30 ? 2 : 3, textTransform: "uppercase", color: tema.patina, marginBottom: 34, maxWidth: 1500, lineHeight: 1.5 }}>
               {b.etiqueta}
             </div>
           ) : null}
@@ -253,7 +267,7 @@ const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number }
   return (
     <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", opacity: o }}>
       <div style={{ transform: `scale(${zoom})`, textAlign: "center" }}>
-        <div style={{ fontFamily: tema.mono, fontSize: 26, letterSpacing: 3, textTransform: "uppercase", color: tema.patina, marginBottom: 34 }}>
+        <div style={{ fontFamily: tema.mono, fontSize: b.etiqueta.length > 30 ? 21 : 26, letterSpacing: b.etiqueta.length > 30 ? 2 : 3, textTransform: "uppercase", color: tema.patina, marginBottom: 34, maxWidth: 1500, lineHeight: 1.5 }}>
           {b.etiqueta}
         </div>
         <div style={{ fontFamily: tema.serif, fontSize: 168, lineHeight: 1, color: tema.papel, display: "flex", alignItems: "center", gap: 46 }}>

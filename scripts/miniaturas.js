@@ -16,7 +16,7 @@ const { entera } = require("./imagen-entera.js");
 
 // Miniatura (1280x720, src/marca.tsx): la cifra principal del día + el título.
 // Cifra = el primer [DATO] que eligió el guion (no los automáticos). No bloquea.
-const miniaturas = ({ parsed, fecha, esClave = false, OUT }) => {
+const miniaturas = ({ parsed, fecha, esClave = false, OUT, guion = null }) => {
   // qué ilustración terminó usando la carátula que sale al aire: el video de
   // prueba la muestra a pantalla completa en su apertura (meta.portada)
   let ilustracion = null;
@@ -102,9 +102,39 @@ const miniaturas = ({ parsed, fecha, esClave = false, OUT }) => {
   if (esClave) {
     const gancho = (parsed.caratula || "").trim() || recortar(parsed.titulo || "");
     const mini = path.join(OUT, "miniatura-clave.png");
+    // UN SOLO CAMINO DE MINIATURA (16-10-2026, pedido de Santiago). Esta rama
+    // dibujaba SIEMPRE la portada por código y nunca miraba la carátula que
+    // GPT hizo para esa Clave, aunque estuviera elegida y medida. El 12-10 la
+    // Clave de licencias subió con la generada por código y hubo que
+    // reemplazarla a mano en YouTube: dos caminos para la misma cosa, y ganaba
+    // el que nadie había elegido. La de GPT vive al lado de su guion, con el
+    // mismo nombre, en contenido/caratulas/claves/.
+    //
+    // La fecha no sirve para encontrarla: la edición corre un día y la Clave
+    // puede ser de otro (el 12-10 se produjo la del 07-10). Por eso se busca
+    // por el nombre del guion, que es exacto.
+    let imagenGpt = null;
+    if (guion) {
+      const base = path.basename(guion).replace(/\.md$/, "").replace(/-imagenes$/, "");
+      for (const ext of ["jpg", "png", "jpeg", "webp"]) {
+        const orig = path.join("contenido", "caratulas", "claves", `${base}.${ext}`);
+        if (!fs.existsSync(orig)) continue;
+        const destino = path.join("public", "caratulas", path.basename(orig));
+        fs.mkdirSync(path.dirname(destino), { recursive: true });
+        fs.copyFileSync(orig, destino);
+        imagenGpt = `caratulas/${path.basename(orig)}`;
+        break;
+      }
+    }
     try {
-      still("MiniaturaV2", { gancho, cifra: "", fecha: "", imagen, modo: "velo-seccion", seccion: bloquePortada || "", serie: "clave" }, mini);
-      console.log(`Miniatura de la Clave: ${mini} (gancho: "${gancho}")`);
+      if (imagenGpt) {
+        still("MiniaturaV5", { imagen: imagenGpt }, mini);
+        ilustracion = imagenGpt;
+        console.log(`Miniatura de la Clave: la carátula de GPT (${imagenGpt}), tal como salió`);
+      } else {
+        still("MiniaturaV2", { gancho, cifra: "", fecha: "", imagen, modo: "velo-seccion", seccion: bloquePortada || "", serie: "clave" }, mini);
+        console.log(`Miniatura de la Clave: SIN carátula de GPT, sale la de respaldo por código (gancho: "${gancho}")`);
+      }
     } catch (e) { console.log(`(miniatura no generada: ${e.message.split("\n")[0]})`); }
   } else {
     // TRES DISEÑOS, UN MISMO GANCHO (23-09, decisión de Santiago: "deja 3

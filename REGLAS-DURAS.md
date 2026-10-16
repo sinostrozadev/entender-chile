@@ -283,6 +283,16 @@ archivos de criterio del repositorio.
     `bitacora/README.md`. (estándar del 13-09, tras encontrar pendientes
     repartidos en nueve lugares y un HOY marcado tres mañanas seguidas que
     nunca llegó a la lista)
+42. **Una cifra en pantalla se lee de un golpe, con su unidad.** Hasta
+    999.999 va entera con punto de miles; de ahí para arriba se escribe en
+    millones ("$31.572 millones"), y el valor exacto queda en el guion y en
+    la descripción. En el texto narrado, los números bajo diez van en
+    palabras; en dígitos solo el día de una fecha y el identificador de una
+    norma ("el 2 de octubre", "Decreto Supremo número 3"). Once dígitos
+    seguidos no entran en el ojo en los segundos que dura un plano, y la
+    narración ya dice la magnitud, no el dígito. (12-10-2026, Santiago
+    mirando la Clave de licencias: "es muy grande para ponerlo en pantalla";
+    implementada en scripts/numerales.js con sus casos de regresión)
 
 ---
 
