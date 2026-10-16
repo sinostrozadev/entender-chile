@@ -2,11 +2,11 @@
   "flujo": "clave",
   "slug": "acuerdo-internacional-sin-tratado",
   "camino": "idea",
-  "etapa": "idea_aprobada",
+  "etapa": "validar_entrega",
   "vuelta": 0,
-  "turno": "GPT",
+  "turno": "Claude",
   "fecha_produccion": "2026-10-21",
-  "actualizado": "2026-10-16 16:47",
+  "actualizado": "2026-10-16 16:51",
   "concepto": "qué obliga a Chile un acuerdo internacional que no es un tratado",
   "pieza": {
     "id": "entrega",
@@ -22,7 +22,7 @@
     },
     {
       "id": "entrega",
-      "situacion": "falta",
+      "situacion": "por_validar",
       "archivo": "contenido/claves/2026-10-21-acuerdo-internacional-sin-tratado.md"
     },
     {
