@@ -1,7 +1,7 @@
 # Caso: Democracia Viva (caso Convenios, arista madre)
 
 Estado: JUDICIALIZADO
-Dossier abierto: 2026-08-26 · Última actualización: 2026-08-26
+Dossier abierto: 2026-08-26 · Última actualización: 2026-10-16
 
 <!-- datos
 cuestionado: 426000000
@@ -71,11 +71,11 @@ Advertencia de rigor: todas las personas mencionadas como acusadas mantienen la 
 - 2026-06-25: el 8º Juzgado de Garantía de Santiago (jueza Estefanía Asenjo) se declara incompetente y devuelve la causa a Antofagasta, aplicando la regla del lugar del primer hecho con aptitud penal (convenio con Fusupo del 2022-07-01). Se abre contienda de competencia. (BioBioChile, 2026-06-25; Soychile, 2026-06-25; Fiscalía de Chile; Radio U. de Chile, 2026-06-26)
 - 2026-07-07: el fiscal Cristián Aguilar comunica al tribunal el cierre de la investigación y la decisión de no perseverar contra Giorgio Jackson, Miguel Crispi y Javiera Martínez por no reunir antecedentes suficientes para formalizarlos. (La Tercera, 2026-07; Ex-Ante, 2026-07)
 - 2026-07-20/21: se difunde el cierre de esa arista. Crispi acusa una "operación política". (Emol, 2026-07-20; El Mostrador, 2026-07-21; Radio U. de Chile, 2026-07-21)
-- 2026-08 (agosto de 2026): la Segunda Sala de la Corte Suprema resuelve la contienda de competencia y radica definitivamente la causa en el Juzgado de Garantía de Antofagasta, aplicando los artículos 157 y 159 del Código Orgánico de Tribunales y fijando como primer acto de ejecución el convenio con Fusupo firmado el 2022-07-01 en Antofagasta. (El Periodista, 2026-08; Antofagasta.tv, 2026-08; Puranoticia, 2026-08). Fecha exacta del fallo: sin confirmar. Un snippet de búsqueda la sitúa el 2026-08-21, sin que se haya podido verificar el texto de la resolución ni el rol de la causa.
+- 2026-08-25: se comunica la resolución con que la Segunda Sala de la Corte Suprema zanja la contienda de competencia y radica definitivamente la causa en el Juzgado de Garantía de Antofagasta, aplicando los artículos 157 y 159 del Código Orgánico de Tribunales y fijando como primer acto de ejecución el convenio con Fusupo firmado el 01-07-2022 en Antofagasta. El Ministerio Público lo informa en su propio sitio institucional y precisa que la preparación del juicio oral sigue en curso respecto de las siete personas acusadas por fraude al fisco, dos de ellas también por lavado de activos. Corrección de lo que este dossier publicaba: la fecha figuraba como "agosto de 2026, sin confirmar", con un snippet de búsqueda que la situaba el 21-08-2026; ahora se consigna el 25-08-2026, día en que la informan la Fiscalía de Chile y dos medios con fecha en su dirección web. Ese 25-08-2026 es la fecha de comunicación del fallo: la fecha de la resolución misma, su rol y la sala siguen sin verificarse en el texto. (Fiscalía de Chile, fuente oficial; Radio Paulina, 25-08-2026; G5noticias, 25-08-2026; La Nación; El Periodista, 2026-08; Antofagasta.tv, 2026-08; Puranoticia, 2026-08)
 - 2026-08-21: fecha fijada para la audiencia en que se comunicaría formalmente la decisión de no perseverar respecto de Jackson, Crispi y Martínez. Resultado de esa audiencia: sin confirmar.
 
 ## Próximos hitos conocidos
-1. Fijación de nueva fecha para la audiencia de preparación de juicio oral (APJO) ante el Juzgado de Garantía de Antofagasta. Tras el fallo de la Corte Suprema de agosto de 2026, la causa vuelve a Antofagasta y la APJO debe reagendarse. A la fecha de cierre de este dossier no hay fecha fijada verificable. La APJO ha sido suspendida o refijada al menos cinco veces (2025-09-29, 2025-11-17, 2026-01-19, y las postergaciones derivadas del conflicto de competencia de mayo-agosto de 2026).
+1. Fijación de nueva fecha para la audiencia de preparación de juicio oral (APJO) ante el Juzgado de Garantía de Antofagasta. Tras el fallo de la Corte Suprema comunicado el 25-08-2026, la causa vuelve a Antofagasta y la APJO debe reagendarse; el Ministerio Público consignó ese mismo día que la preparación del juicio oral sigue en curso respecto de los siete acusados. A la fecha de cierre de este dossier no hay fecha fijada verificable. La APJO ha sido suspendida o refijada al menos cinco veces (2025-09-29, 2025-11-17, 2026-01-19, y las postergaciones derivadas del conflicto de competencia de mayo-agosto de 2026).
 2. Formalización del cierre respecto de Jackson, Crispi y Martínez. Audiencia estaba fijada para el 2026-08-21. Falta confirmar si el tribunal aprobó la decisión de no perseverar y si algún querellante particular pidió el forzamiento de la acusación.
 3. Juicio oral ante el Tribunal de Juicio Oral en lo Penal de Antofagasta. Sin fecha. La Fiscalía Regional de Antofagasta estimó públicamente en 2025 que, una vez iniciada la preparación, el juicio podría extenderse entre 3 y 6 meses.
 4. Destino de los $294.957.312 retenidos en la cuenta del tribunal de Antofagasta y estado del juicio civil de restitución del CDE. Sin confirmar.
@@ -97,6 +97,10 @@ Advertencia de rigor: todas las personas mencionadas como acusadas mantienen la 
 - BioBioChile, 2025-11-17: https://www.biobiochile.cl/noticias/nacional/chile/2025/11/17/tribunal-despolitiza-caso-democracia-viva-y-fija-preparacion-de-juicio-para-enero-de-2026.shtml
 - BioBioChile, 2025-10-14: https://www.biobiochile.cl/noticias/nacional/region-de-antofagasta/2025/10/14/democracia-viva-fijan-para-noviembre-preparacion-de-juicio-contra-catalina-perez-y-otros-imputados.shtml
 - El Periodista, 2026-08 (Corte Suprema radica en Antofagasta): https://www.elperiodista.cl/2026/08/corte-suprema-zanja-disputa-de-competencia-y-radica-caso-democracia-viva-en-antofagasta/
+- Fiscalía de Chile (fuente oficial), 2026-08 (la Corte Suprema zanja la contienda de competencia y ratifica que el caso irá a juicio en Antofagasta): https://www.fiscaliadechile.cl/actualidad/noticias/corte-suprema-zanja-contienda-de-competencia-y-ratifica-que-caso-democracia
+- Radio Paulina, 2026-08-25: https://radiopaulina.cl/2026/08/25/suprema-ratifica-que-caso-democracia-viva-ira-a-juicio-en-antofagasta/
+- G5noticias, 2026-08-25: https://g5noticias.cl/2026/08/25/corte-suprema-zanja-contienda-de-competencia-y-ratifica-que-caso-democracia-viva-ira-a-juicio-en-antofagasta/
+- La Nación, 2026-08 (día sin confirmar): https://www.lanacion.cl/corte-suprema-ratifica-que-juicio-del-caso-democracia-viva-sera-en-antofagasta/
 - Antofagasta.tv, 2026-08: https://www.antofagasta.tv/categoria/antofagasta/corte-suprema-define-competencia-ratifica-caso-democracia-viva-volvera-antofagasta
 - Puranoticia, 2026-08: https://puranoticia.pnt.cl/nacional/corte-suprema-define-que-juicio-por-el-caso-democracia-viva-se-realice-en
 - Soychile Antofagasta, 2026-06-25: https://www.soychile.cl/antofagasta/sociedad/2026/06/25/955461/democracia-viva-fiscalia-antofagasta.html
@@ -142,6 +146,7 @@ Nota sobre las fuentes: no se accedió al texto íntegro de las resoluciones jud
 
 ## Registro de actualizaciones del dossier
 - 2026-08-26: dossier creado con investigación inicial. (agente de investigación)
+- 2026-10-16: se fecha el fallo con que la Segunda Sala de la Corte Suprema radicó la causa en el Juzgado de Garantía de Antofagasta, que el dossier consignaba como "agosto de 2026, fecha exacta sin confirmar" y con un snippet que la situaba el 21-08-2026. Corrección de lo publicado: la resolución se comunicó el 25-08-2026, día en que la informan el propio Ministerio Público en su sitio institucional, Radio Paulina y G5noticias (las dos con fecha en su dirección web) y La Nación. Queda dicho que el 25-08-2026 es la fecha de comunicación y no necesariamente la de la resolución, cuyo rol y sala siguen sin verificarse. Entra además, de la misma nota oficial, que la preparación del juicio oral sigue en curso respecto de las siete personas acusadas por fraude al fisco, dos de ellas también por lavado de activos, lo que confirma el estado procesal que la ficha ya describía. Se reescriben la línea de la cronología y el primer próximo hito, y se agregan cuatro fuentes, entre ellas la oficial de la Fiscalía de Chile. Sin cambios en el bloque de datos: los $426 millones acusados siguen iguales, no hay dinero recuperado y los $294.957.312 siguen retenidos en una cuenta del tribunal.
 
 <!-- interno
 Correcciones al barrido de candidatos del 25-08-2026 (base interna, no publicada) y límites de acceso:
@@ -151,5 +156,23 @@ Correcciones al barrido de candidatos del 25-08-2026 (base interna, no publicada
 4. La arista contra Jackson, Crispi y Martínez se cerró en julio de 2026, no antes: cierre comunicado el 2026-07-07 con decisión de no perseverar, con audiencia fijada para el 2026-08-21. Los tres quedan citados como testigos.
 5. Los montos $426 millones y $391.768.516 provienen de fuentes oficiales (acusación del Ministerio Público, resolución de la Seremi de Vivienda y querella o demanda del CDE). Los desgloses por convenio y la cifra agregada de $1.596 millones están reportados por prensa (La Tercera, Timeline.cl, El Diario de Antofagasta, 2025-08).
 6. No se pudo acceder al texto íntegro de ninguna de las resoluciones judiciales ni al rol de la causa: el proxy de red bloquea el acceso directo a los dominios de Poder Judicial, Fiscalía, CDE, La Tercera, BioBioChile, Emol y otros. Todo lo consignado proviene de titulares y extractos de resultados de búsqueda con URL verificada, con un mínimo de dos medios por cifra salvo donde se indica lo contrario.
+
+16-10-2026: lo de hoy no es noticia del dia sino el cierre del punto 3 de esta lista. La fecha del fallo
+de la Corte Suprema queda en el 25-08-2026 porque ese dia la informan cuatro fuentes, una de ellas
+oficial (fiscaliadechile.cl), y dos con la fecha en la direccion web (radiopaulina.cl y g5noticias.cl).
+Se mantiene la distincion entre fecha de comunicacion y fecha de la resolucion, porque no se leyo el
+texto: WebFetch fallo por DNS en fiscaliadechile.cl, soychile.cl y timeline.cl, y curl devolvio 403 en
+el tunel del proxy para todos los dominios chilenos probados. El 21-08-2026 que el dossier citaba sale
+de un solo resumen de buscador y se descarta como fecha, no como posibilidad.
+
+Queda fuera de la ficha, por fuente unica (soychile.cl, 11-10-2026), y anotado en por-verificar.md: que
+hay una audiencia fijada para el 19-10-2026 en esta causa, que el Juzgado de Garantia rechazo la
+solicitud de las defensas de Catalina Perez y Daniel Andrade de comparecer por via telematica, que la
+Corte de Apelaciones declaro inadmisibles sus recursos y que ambos recurrieron a la Corte Suprema. Es el
+movimiento procesal mas reciente del caso y merece confirmarse con un segundo medio.
+
+Tampoco entra, por ser pronostico y no hecho, la nota de Timeline.cl segun la cual un abogado querellante
+preve que el criterio de competencia de la Corte Suprema en esta causa deberia aplicarse a ProCultura si
+se agrupan sus causas.
 -->
 
