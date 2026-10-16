@@ -569,6 +569,29 @@ referencia:
 
 ## Dependen de Santiago
 
+- [ ] **16-10, HOY: la alarma vive en el mismo recurso que se puede caer.** El
+      14 y el 15-10 el canal no publicó nada porque la cuenta de Claude se
+      quedó sin uso (lo dijo Santiago el 16-10; se restauró la noche del
+      15). El apagón en sí es ajeno, pero que nadie se enterara en dos días es
+      nuestro: la vigía y la guardia también son rutinas de Claude, y
+      `.github/workflows/guardia.yml` ni siquiera tiene cron de respaldo. Es la
+      tercera vez que una cuota ajena apaga el canal (GPT cinco días a
+      principios de octubre, Claude estos dos), así que conviene tratarlo como
+      la forma del sistema y no como un incidente.
+      **Lo que NO sirve**: un cron de GitHub más denso en `reintento.yml`. La
+      sesión de día lo propuso antes de saber la causa y está descartado: sin
+      cuota la cadena se detiene igual en `validar_*`, porque el validador y el
+      suplente también son Claude. Medido: el 14 y el 15 el cron propio de
+      `reintento.yml` sí corrió 2 veces cada día y no sirvió de nada.
+      **Propuesta, necesita el sí de Santiago**: un workflow de GitHub Actions
+      con cron propio que a una hora fija mire si existe el video del día y, si
+      no, abra un issue en el repo. Actions no depende de la cuota de Claude y
+      un issue llega al teléfono por las notificaciones de GitHub, sin secrets
+      nuevos. Alcance: un archivo de workflow y unas 30 líneas. Detalle y
+      números en `bitacora/2026-10-16-auditoria.md`, sección de corrección de
+      la sesión de día.
+
+
 - [ ] **09-10, HOY: el 07-10 y el 08-10 la cadena diaria y la propia
       auditoría de las 05:30 quedaron mudas más de 36 horas porque Claude
       nunca devolvió veredicto, y nadie se enteró hasta hoy.** Auditoría del
@@ -651,7 +674,7 @@ referencia:
       Barrido (también tarde: "no hay barrido de 2026-10-14 y son las 06 de
       Chile: relanzando el Barrido", run `38540333574`) y la ventana se
       cerró antes de que ninguna corrida llegara a notar que la preselección
-      —turno permanente de Claude desde el 06-10, sin plan B que lo cubra—
+      (turno permanente de Claude desde el 06-10, sin plan B que lo cubra)
       estaba colgada. El vigía de las 02:15 y 05:15 (`trig_01LUtn4fSJjBsCzqdoWeVviH`)
       no escribe nada en el repo, así que no se puede verificar desde acá si
       avisó al teléfono esos dos días y nadie actuó, o si no avisó.
