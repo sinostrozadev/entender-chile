@@ -16,6 +16,22 @@ const { entera } = require("./imagen-entera.js");
 
 // Miniatura (1280x720, src/marca.tsx): la cifra principal del día + el título.
 // Cifra = el primer [DATO] que eligió el guion (no los automáticos). No bloquea.
+// LA ETIQUETA DE SERIE DEL INFORME (16-10-2026, decisión de Santiago sobre el
+// tablero). En la grilla el informe diario y la Clave se veían iguales, y el
+// que buscaba uno abría el otro. La primera idea fue la fecha del día, y se
+// descartó con el dato del canal: los largos viven de la búsqueda (13,1% de
+// las vistas) y casi nadie los ve el día que salen (0,7% por notificación), así
+// que una fecha los envejece justo donde viven. La etiqueta dice lo mismo y no
+// caduca. No es literal: el informe dura entre 3 y 4 minutos y la etiqueta
+// nombra el formato, no promete el cronómetro (Santiago, 16-10).
+//
+// El cuerpo es 52 y no 34 porque el tablero lo mostró a 168 píxeles, que es el
+// tamaño real en un teléfono: con 34 se leía como una barra gris.
+//
+// LA CLAVE NO LLEVA ETIQUETA, y eso no es un olvido: se reconoce por ausencia.
+// Si algún día la lleva, las dos series vuelven a verse iguales.
+const ETIQUETA_INFORME = { etiqueta: "El día en 3 minutos", posicion: "arriba", cuerpo: 52 };
+
 const miniaturas = ({ parsed, fecha, esClave = false, OUT, guion = null }) => {
   // qué ilustración terminó usando la carátula que sale al aire: el video de
   // prueba la muestra a pantalla completa en su apertura (meta.portada)
@@ -190,7 +206,7 @@ const miniaturas = ({ parsed, fecha, esClave = false, OUT, guion = null }) => {
     const pictograma = { linea1, linea2, cifra, etiqueta, seccion: img || "", semilla, clima };
     const planes = [
       imagenGpt
-        ? ["miniatura.png", "MiniaturaV5", { imagen: imagenGpt }, `ilustración de GPT (${imagenGpt}) tal como salió, clima ${clima}`]
+        ? ["miniatura.png", "MiniaturaV5", { imagen: imagenGpt, ...ETIQUETA_INFORME }, `ilustración de GPT (${imagenGpt}) con la etiqueta "${ETIQUETA_INFORME.etiqueta}", clima ${clima}`]
         : ["miniatura.png", "MiniaturaV4", pictograma, `SIN ilustración de GPT: sale el pictograma de respaldo, clima ${clima}`],
       imagenGpt
         ? ["miniatura-2.png", "MiniaturaV4", pictograma, `pictograma${cifra ? ` + cifra ${cifra}` : ""}, clima ${clima}`]
