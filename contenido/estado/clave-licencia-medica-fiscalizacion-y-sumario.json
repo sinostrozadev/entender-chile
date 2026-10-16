@@ -6,7 +6,7 @@
   "vuelta": 0,
   "turno": "nadie: cerrado",
   "fecha_produccion": "2026-10-07",
-  "actualizado": "2026-10-13 03:01",
+  "actualizado": "2026-10-16 16:19",
   "concepto": "qué controla el Estado cuando fiscaliza una licencia médica y qué arriesga el funcionario que no cumple el reposo",
   "pieza": null,
   "piezas": [
@@ -27,7 +27,7 @@
     },
     {
       "id": "guion",
-      "situacion": "lista",
+      "situacion": "por_validar",
       "archivo": "contenido/guiones/claves/2026-10-07-licencia-medica-fiscalizacion-y-sumario.md"
     }
   ]
