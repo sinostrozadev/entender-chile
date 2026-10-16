@@ -613,6 +613,53 @@ referencia:
       de que la auditoría corrió (aunque sea un commit vacío con hora, antes
       de escribir el archivo completo) para que su propia ausencia se note
       sin depender de que otra auditoría la note días después.
+      **16-10: sexta vez, y esta vez con la causa visible y con la cadena de
+      producción entera muerta dos días, no solo la auditoría.** Auditoría
+      del 16-10 (`bitacora/2026-10-16-auditoria.md`). `bitacora/2026-10-13-auditoria.md`,
+      `2026-10-14-auditoria.md` y `2026-10-15-auditoria.md` tampoco existen
+      (comprobado listando `bitacora/` con `ls`, cero coincidencias). El
+      13-10 la cadena de producción sí había terminado bien ese día (como el
+      11-10), pero el 14 y el 15-10 la cadena ENTERA murió otra vez, como el
+      07 y el 08-10: `contenido/estado/2026-10-14.md` quedó en
+      `ETAPA: barrido_listo` desde las 07:20 del 14-10 con las cinco piezas
+      siguientes en "falta" (Preselección +310 min, Informe +280 min, Guion
+      +250 min, Revisión +230 min, Videos +125 min, medido a esa hora y sin
+      moverse después); `contenido/estado/2026-10-15.md` quedó igual desde
+      las 07:04 del 15-10. No existe un solo archivo con fecha 2026-10-14 ni
+      2026-10-15 en `contenido/preseleccion/`, `contenido/informes/`,
+      `contenido/guiones/informe/`, `contenido/revisiones/` ni
+      `contenido/veredictos/` (comprobado listando cada carpeta). El propio
+      commit que escribió la preselección de hoy (`f7a10fb`) lo confirma sin
+      inferencia: "La cadena quedó detenida tras el 13-10-2026 y el barrido
+      del 16-10-2026 trae dos días de material que el canal nunca contó". Se
+      perdieron dos días de video que no se recuperan: lo que pasó el 14 y
+      el 15 quedó resumido dentro de la edición del 16, pero nunca hubo
+      video largo, Short ni exprés propios de esos dos días.
+      Causa visible esta vez (con historial completo de git, no el shallow
+      con el que arranca la auditoría: hubo que `git fetch --unshallow`):
+      los tres relojes del reintento, A (`trig_016JsVfFwrJFut5vy2f4c8TS`), B
+      (`trig_01E8tyJPqyfNdVTog477sf6Z`) y C (`trig_01RevKvPn6mufpcUCK9fii2X`),
+      que deben tocar `contenido/estado/reintento-despertador.txt` y pushear
+      cada 20 minutos entre la 01:00 y las 07:00 de Chile, no dejaron NINGÚN
+      commit "reintento: despertador" entre el del 13-10 a las 04:51 y el
+      del 16-10 a las 04:10: casi tres días en cero. Sin ellos, el único
+      disparador que quedó fue el cron nativo de GitHub
+      (`*/20 4-9 * * *` de `reintento.yml`), que el propio workflow ya
+      documenta como poco confiable, y que en la práctica corrió solo una o
+      dos veces por día el 14 y el 15 en vez de las ~17 que le tocarían; las
+      pocas veces que corrió dentro de ventana las gastó en relanzar el
+      Barrido (también tarde: "no hay barrido de 2026-10-14 y son las 06 de
+      Chile: relanzando el Barrido", run `38540333574`) y la ventana se
+      cerró antes de que ninguna corrida llegara a notar que la preselección
+      —turno permanente de Claude desde el 06-10, sin plan B que lo cubra—
+      estaba colgada. El vigía de las 02:15 y 05:15 (`trig_01LUtn4fSJjBsCzqdoWeVviH`)
+      no escribe nada en el repo, así que no se puede verificar desde acá si
+      avisó al teléfono esos dos días y nadie actuó, o si no avisó.
+      `get_trigger` sobre los tres relojes del reintento solo trae el último
+      disparo de cada uno (hoy 16-10, los tres `SUCCEEDED`); no hay forma
+      desde el repo de ver el historial del 14 y el 15. Necesita que
+      Santiago revise en la interfaz el historial de corridas de esas tres
+      rutinas para esas dos fechas.
 
 - [ ] **27-09, HOY: la idea de la Clave de la semana 39
       (acuerdo-internacional-sin-tratado) lleva nueve mañanas sin que
@@ -877,6 +924,30 @@ referencia:
       despierten.
 
 ## Para la sesión de la noche (código y prompts)
+
+- [ ] **16-10, AGUANTA: las seis fuentes institucionales sin feed propio
+      nunca entran a la preselección desde que pasó al suplente (06-10), y
+      ya son tres revisiones seguidas que lo marcan sin que nada cambie.**
+      Auditoría del 16-10 (`bitacora/2026-10-16-auditoria.md`). Mismo texto,
+      mismo motivo, en `contenido/revisiones/2026-10-12.md:61`,
+      `2026-10-13.md:73` y `2026-10-16.md` (hallazgo 9): "las seis fuentes
+      institucionales sin feed de `contenido/barrido/fuentes.json` no se
+      abrieron, porque el turno de la preselección fue del suplente y el
+      suplente no navega". Contraloría, Senado, Dirección Meteorológica,
+      Banco Central, Ministerio Público y, según la revisión de hoy, la
+      Cámara de Diputados quedan sin cobertura institucional directa todos
+      los días desde que `contenido/estado/reparto.txt` hizo permanente el
+      cambio. La decisión del 06-10-2026 (`estrategia/decisiones.md:792`)
+      que movió la preselección al suplente se apoyó en que "la preselección
+      es el único turno que no necesita (...) entrar a las páginas (...) el
+      barrido ya está en el repo"; la realidad de tres revisiones seguidas
+      es que hay un residuo que antes sí entraba por la navegación de GPT y
+      hoy no entra por nadie. No es una decisión de no hacer nada (esa
+      decisión no habla de este residuo en particular), así que sigue sin
+      dueño. Propuesta concreta: agregar feed propio (RSS o scraping) para
+      esas fuentes en `contenido/barrido/fuentes.json`, para que entren al
+      barrido sin necesitar navegación, que es exactamente la premisa con la
+      que se decidió el cambio del 06-10.
 
 - [ ] **12-10: la Clave debe subir con la carátula elegida de GPT**
       (`contenido/caratulas/claves/FECHA-slug.jpg`), no con la que dibuja

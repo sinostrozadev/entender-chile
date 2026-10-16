@@ -122,251 +122,227 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 12-10-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-10-12-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS — HOY: la propia auditoría matinal se saltó el 11-10-2026</div>
+    <p class="eyebrow">Auditoría de la mañana · 16-10-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-10-16-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS — HOY: la cadena entera (producción Y auditoría) estuvo</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0"># Auditoría matinal · 12-10-2026
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0"># Auditoría matinal · 16-10-2026
 
-ESTADO: CON FALLAS — HOY: la propia auditoría matinal se saltó el 11-10-2026
-sin dejar rastro ni aviso, por tercera vez en cinco mañanas (06, 07 y 08-10
-ya constaban; ahora se suma el 11-10), y esta vez no se puede culpar a la
-suscripción de Claude porque el validador SÍ trabajó ese día. También HOY:
-`scripts/gate.js:52` sigue exactamente con el bug marcado desde el 06-10 (van
-seis mañanas), y el guion de hoy volvió a pintar una sigla sin expandir en
-pantalla ("SHOA"), publicada tal cual.
+ESTADO: CON FALLAS — HOY: la cadena entera (producción Y auditoría) estuvo
+muerta DOS días completos, 14 y 15-10-2026, porque los tres relojes del
+reintento (A, B y C) no empujaron ni un solo commit "reintento: despertador"
+en esa ventana, y nadie lo notó hasta que el barrido del 16-10 absorbió el
+material de los tres días. Van ya seis mañanas sin auditoría (07, 08, 11, 13,
+14 y 15-10) y dos de ellas (14 y 15) con la producción completa muerta
+además, no solo la auditoría.
 
-## Qué salió y a qué hora (hoy, 12-10-2026)
+## Qué salió hoy y a qué hora
 
-Toda la cadena diaria llegó, se aprobó y corrió adelantada: ningún tramo
-superó los 20 minutos de atraso salvo Métricas.
+La cadena de hoy llegó completa y adelantada en casi todos los tramos:
 
-| Pieza | Hora (Chile) | Esperada | Atraso |
+| Pieza | Llegó (Chile) | Se esperaba | Atraso/adelanto |
 |---|---|---|---|
 | Barrido | 01:50 | 01:40 | +10 min |
-| Preselección (APROBADA, vuelta 0) | 02:05 | 02:10 | adelantado |
-| Informe (APROBADA, vuelta 1, 1 corrección) | 02:18 | 02:40 | adelantado 22 min |
-| Guion del informe (APROBADA, vuelta 1, 1 corrección) | 02:46 | 03:10 | adelantado 24 min |
-| Revisión (veredicto final, APROBADA) | 03:09 | 03:30 | adelantado 21 min |
-| Carátula (`contenido/caratulas/2026-10-12.png` + prompt) | — | — | ok (llegó después de la revisión, no bloqueó) |
-| Descripciones del informe | 03:46 | — | ok |
-| Podcast (`episodios.json`, informe, 739 s = 12,3 min) | 03:56 | ~10 min, 12-13 cargado | dentro de rango |
-| Videos y render (`edicion-diaria.yml` run 38211203583) | 03:09 → 03:56 (47 min) | — | ok |
+| Preselección (APROBADA, vuelta 0, la escribió el suplente) | 02:10 | 02:10 | a tiempo |
+| Informe (APROBADA, vuelta 1, 1 corrección) | 02:25 | 02:40 | adelantado 15 min |
+| Guion del informe (APROBADA, vuelta 1, 1 corrección) | 02:44 | 03:10 | adelantado 26 min |
+| Revisión (veredicto final) | 03:00 | 03:30 | adelantado 30 min |
+| Videos y descripciones (`edicion-diaria.yml` run 38858794759) | 03:13-03:17 | 05:15 | adelantado ~2 h |
+| Podcast (`episodios.json`, informe, 218 s = 3,6 min) | — | ~3-4 min (decisión 12-10) | dentro de rango |
 | Métricas | 05:20 | ~05:00 | +20 min |
 
-Verificado en GitHub Actions: `barrido.yml` run 38205359250 (04:49 UTC = 01:49
-Chile, éxito), `edicion-diaria.yml` runs 206-208 (todos `success`), `web.yml`
-runs 321-324 (todos `success`), `metricas.yml` run 38222950909 (08:20-08:21
-UTC = 05:20-05:21 Chile, éxito). `node scripts/validar-tarjetas.js --fecha
-2026-10-12`: "variedad OK: ninguna cuota rota, ninguna marca malformada". El
-informe de hoy no deja ninguna marca `PENDIENTE DE CIERRE` abierta (buscado
-explícitamente con grep, cero resultados). No hubo Clave hoy (la última
-entrega sigue siendo la de licencias médicas del 07-10); sí corresponde
-revisar el domingo que cerró: `contenido/claves/semana/2026-W41-candidatos.md`
-existe, tiene 106 líneas y contenido real (creado hoy 01:50, por el barrido de
-la madrugada que alimenta el ranking semanal).
+Fuente: `contenido/estado/2026-10-16.md` (`ETAPA: videos_listos`, `VEREDICTO:
+APROBADA`, `FALTA: nada, el día está completo`). `node
+scripts/validar-tarjetas.js --fecha 2026-10-16`: "variedad OK: ninguna cuota
+rota, ninguna marca malformada" (4 bloques con fuente, 434 palabras narradas,
+~3,2 min). No hubo Clave hoy (no es diaria desde el 16-09); no corresponde
+revisar banco semanal porque hoy es viernes, no domingo.
+
+Las tres piezas de hoy las escribió el **suplente** (Claude), no GPT: la
+preselección por reparto permanente (`contenido/estado/reparto.txt`), y el
+informe y el guion con "Tarea: suplente (plan B)" porque no existía
+`plan-b.txt` y el motivo real que declara el propio commit es que la cadena
+llevaba detenida desde el 13-10 y alguien tenía que destrabarla.
 
 ## Qué falló
 
-1. **La auditoría matinal del 11-10-2026 no existe: no corrió, o corrió y no
-   dejó archivo, y nadie se enteró hasta ahora.** Buscado explícitamente con
-   `git log --all --diff-filter=A -- bitacora/2026-10-11-auditoria.md`: cero
-   resultados, nunca existió. Esto es distinto del caso del 07 y 08-10 (que
-   esta misma lista ya tiene anotado en "Dependen de Santiago" con la teoría
-   de la suscripción vencida de Claude): ese día la cadena entera quedó muda.
-   El 11-10 NO: `contenido/estado/2026-10-11.md` dice `ETAPA: videos_listos` /
-   `VEREDICTO: APROBADA` / `FALTA: nada, el día está completo`, y Claude sí
-   escribió sus tres veredictos (`contenido/veredictos/2026-10-11-preseleccion.md`,
-   `-informe.md`, `-guion_informe.md`) y la revisión
-   (`contenido/revisiones/2026-10-11.md`). Es decir: el turno de Claude como
-   validador funcionó perfecto ese día, pero el turno de Claude como auditor
-   de las 05:30 (`trig_01GDbvJ1Wjzy25bnVRCXgygZ`, cron `30 8 * * *`, sin
-   restricción de día de semana) no dejó ningún rastro: ni
-   `bitacora/2026-10-11-auditoria.md`, ni `bitacora/2026-10-11.md` (el archivo
-   del día, tampoco existe). Consultado `get_trigger` sobre esa rutina: solo
-   trae el último disparo (hoy, 12-10), sin historial del 11-10, así que no se
-   puede saber desde acá si el disparo ocurrió y la sesión falló en silencio,
-   o si el disparo mismo no llegó. Es la tercera vez en cinco mañanas (06, 07,
-   08 y ahora 11-10) que un eslabón de Claude queda mudo sin aviso, y la
-   segunda explicación distinta para el mismo síntoma.
+### 1. Dos días completos sin ninguna pieza, 14 y 15-10-2026 (HOY)
 
-2. **`scripts/gate.js:52` sigue exactamente con el bug marcado desde el
-   06-10, van seis mañanas (06, 07, 08, 09, 10 y hoy 12-10; el 11-10 no tuvo
-   auditoría propia, pero el archivo no cambió en ningún commit entre el
-   10-10 y hoy, verificado con `git log -- scripts/gate.js`).** Línea leída
-   en esta corrida: `fs.readdirSync(dirGC).find((f) => f.startsWith(fecha) &amp;&amp;
-   f.endsWith(".md"))`, todavía sin el `&amp;&amp; !f.endsWith("-imagenes.md")` que se
-   propuso el 06-10. Hoy no mordió porque no hay ningún archivo en
-   `contenido/guiones/claves/` que empiece con `2026-10-12` (no hay Clave
-   hoy), pero la Clave "acuerdo-internacional-sin-tratado" sigue en
-   `idea_lista` esperando el sí de Santiago (ver "Dependen de Santiago" en
-   `PENDIENTES.md`): el día que se apruebe y su producción coincida con la
-   validación de un informe, el bug se repite.
+Verificado listando las carpetas, no de memoria:
+`contenido/preseleccion/`, `contenido/informes/`, `contenido/guiones/informe/`,
+`contenido/revisiones/` y `contenido/veredictos/` saltan del 13-10-2026
+directo al 16-10-2026: no existe un solo archivo con fecha 2026-10-14 ni
+2026-10-15 en ninguna de esas cinco carpetas (confirmado con `ls` de cada
+carpeta). `bitacora/metricas/` sí tiene los dos días (el bot de métricas
+corre solo y no depende de la cadena editorial).
 
-3. **El guion de hoy pintó "SHOA" sin expandir en un titular, publicado tal
-   cual.** `contenido/revisiones/2026-10-12.md` lo dice explícito: "'SHOA' se
-   pinta en un titular sin expansión previa, fuera del alcance de la regla de
-   siglas, que está escrita para las marcas [FUENTE] y el pie de un [DATO]".
-   Es la misma causa de fondo que esta auditoría viene marcando desde el
-   23-09 (DMC, luego SEC/Senapred/DW, SAG/CONAF, Fogape, Confusam/CIPER,
-   Mineduc/REDIMIN/CIPER el 09-10, Senapred el 10-10, y ahora SHOA): la regla
-   de `prompts/guion-informe.md:230` sigue restringida a "(en esta marca o en
-   el pie de un [DATO])" y nunca se generalizó a titulares y [TESIS] como
-   pidió la propuesta del 29-09. No bloqueó el veredicto, pero es un defecto
-   ya en el video que salió al aire hoy.
+El estado quedó congelado en el primer peldaño los dos días:
+- `contenido/estado/2026-10-14.md`: `ETAPA: barrido_listo`, `ACTUALIZADO:
+  2026-10-14 07:20`, `FALTA: Preselección, Informe, Guion del informe,
+  Revisión (veredicto final), Videos y descripciones`. El propio archivo
+  calcula los atrasos: Preselección +310 min, Informe +280 min, Guion +250
+  min, Revisión +230 min, Videos +125 min, todos medidos a las 07:20 y
+  ninguno se movió después.
+- `contenido/estado/2026-10-15.md`: mismo cuadro, `ACTUALIZADO: 2026-10-15
+  07:04`, mismas cinco piezas en "falta".
 
-4. **Nuevo hallazgo de hoy: `contenido/casos/hitos.md` registra el mismo
-   hecho dos veces bajo dos dossiers distintos, y el guion lo narró dos veces
-   hasta que el validador lo fusionó a mano.** Líneas 42 y 44 de
-   `contenido/casos/hitos.md`, ambas fechadas 2026-10-11: la línea 42 (dossier
-   `fonasa-licencias-falsas.md`) y la línea 44 (dossier
-   `licencias-medicas-funcionarios.md`) cuentan el mismo par de recursos de
-   nulidad contra el juicio de Fonasa con las mismas fechas y el mismo
-   nombre de jueza. El informe de hoy los copió como dos entradas de "¿En qué
-   quedó?" (según el commit de la revisión, sus líneas 253 y 255) y el guion
-   los narró dos veces; el veredicto de la vuelta 1 los fusionó, así que no
-   llegó al aire duplicado, pero si los dos hitos siguen separados en
-   `hitos.md`, el mismo trabajo de fusión se paga de nuevo mañana.
+El propio commit de hoy que escribió la preselección (`f7a10fb`) lo confirma
+sin que yo tenga que inferirlo: "La cadena quedó detenida tras el
+13-10-2026 y el barrido del 16-10-2026 trae dos días de material que el
+canal nunca contó". Y la revisión de hoy (`contenido/revisiones/2026-10-16.md`,
+hallazgo 3) ya lo deja escrito: "No existen los informes del 14-10-2026 ni
+del 15-10-2026 (...) esta edición hereda dos días de material sin contar y no
+tuvo informe previo contra el que medirse". El formato corto llegó a su
+tercera edición real contando solo tres fechas (12, 13 y 16-10) "porque no
+hay informes del 14 ni del 15".
 
-5. **La cifra del aluvión de San Carlos de Apoquindo lleva tres ediciones
-   seguidas (10, 11 y 12-10) sin una fuente de organismo que cuadre entre
-   medios, y nunca bajó a la lista viva.** `contenido/revisiones/2026-10-12.md`:
-   "Es la tercera advertencia igual, del 10-10-2026 en adelante"; hoy el
-   barrido no trae ninguna cifra de organismo (cero coincidencias de "FIBE" o
-   "damnificad"; lo único de Senapred en el barrido de hoy es la Alerta
-   Temprana Preventiva de Valparaíso, de otro evento), y la única cifra nueva
-   es municipal y de un solo medio. No bloqueó nada (el validador la sigue
-   dejando fuera de cámara), pero es exactamente el patrón que esta auditoría
-   debe detectar: tres mañanas repitiéndose sin que nadie lo anote.
+**Se perdieron dos días de video que no se recuperan**: lo que no se contó
+el 14 y el 15 quedó resumido dentro de la edición del 16, pero no hubo video
+largo, Short ni exprés propios de esos dos días. Eso es media hora de las
+4.000 que no se junta nunca.
 
-6. **El barrido lleva tres ediciones seguidas (10, 11 y 12-10) sin ninguna
-   noticia de pensiones chilenas, pese a que la consulta ya las incluye.**
-   `contenido/revisiones/2026-10-12.md`: "el barrido de hoy no tiene nada de
-   pensiones chilenas (cero coincidencias de 'pensión', 'pensiones',
-   'cotizacion' y 'jubila'; la única entrada de AFP es un proyecto peruano)".
-   `contenido/barrido/fuentes.json:65` ya consulta `"Chile (empleo OR salario
-   OR pensiones OR AFP OR sindicato)"`, así que la cobertura cero tres días
-   seguidos no es falta de intención en la consulta. Las revisiones del 10 y
-   11-10 ya lo marcaron como "información para mejorar el barrido, no un
-   hueco del editor", pero nunca bajó a `PENDIENTES.md` (buscado
-   explícitamente, no hay ninguna entrada con "pension").
+### 2. La causa que el repo sí deja ver: los tres relojes del reintento no empujaron nada esos dos días
 
-Sin otras fallas: preselección, carátula, podcast y render corrieron limpios
-y aprobados.
+`reintento.yml` depende de que alguno de los tres relojes de Claude (A, B y
+C: `trig_016JsVfFwrJFut5vy2f4c8TS`, `trig_01E8tyJPqyfNdVTog477sf6Z`,
+`trig_01RevKvPn6mufpcUCK9fii2X`) toque `contenido/estado/reintento-despertador.txt`
+y pushee cada 20 minutos, porque "el cron de GitHub nunca es reloj
+principal" (así lo dice el propio workflow). Comprobado con `git log`
+sobre el historial completo (el checkout shallow por defecto solo trae 50
+commits y no alcanza a ver esto, hubo que `git fetch --unshallow`): entre el
+último commit "reintento: despertador" del 13-10 (04:51) y el primero del
+16-10 (04:10) no existe NINGÚN commit con ese mensaje. Cero, en casi tres
+días.
+
+Sin esos relojes, el único disparador que quedó fue el cron nativo de
+GitHub (`*/20 4-9 * * *`), que el propio workflow ya documenta como poco
+confiable. Y en la práctica así fue: el log de Actions muestra que
+`reintento.yml` por evento `schedule` corrió solo una o dos veces por día
+el 14 y el 15 (no las ~17 veces que le tocarían en la ventana de 01:00 a
+07:00), y las dos veces que corrió dentro de ventana las gastó en relanzar
+el Barrido, que también llegaba tarde (el run `38540333574` del 14-10 a las
+06:09 de Chile dice textualmente "no hay barrido de 2026-10-14 y son las 06
+de Chile: relanzando el Barrido"). El barrido relanzado SÍ llegó (06:10 el
+14, 05:43 el 15), pero ahí se acabó la ventana (cierra a las 07:00) sin que
+ninguna corrida alcanzara a notar que la preselección —turno permanente de
+Claude desde el 06-10, sin plan B que lo cubra— se había quedado colgada.
+El "vigía" de las 02:15 y 05:15 (`trig_01LUtn4fSJjBsCzqdoWeVviH`) debería
+haber avisado al teléfono esos dos atrasos; no escribe nada en el repo, así
+que no hay forma de verificar desde acá si avisó y nadie actuó, o si no
+avisó.
+
+`get_trigger` sobre los tres relojes solo trae el último disparo de cada
+uno (hoy 16-10, los tres `SUCCEEDED`), no el historial del 14 ni del 15:
+desde el repo no se puede saber si esos días no se dispararon, se
+dispararon y la sesión falló en silencio, o pusharon y el push fue
+rechazado sin reintento. Necesita que Santiago revise el historial de
+corridas de esas tres rutinas para el 14 y el 15-10 desde la interfaz.
+
+### 3. La propia auditoría matinal lleva seis mañanas fallando (no es nueva, ya estaba en PENDIENTES)
+
+`bitacora/2026-10-13-auditoria.md`, `2026-10-14-auditoria.md` y
+`2026-10-15-auditoria.md` no existen (comprobado listando `bitacora/` con
+`ls`, cero coincidencias para esas tres fechas). Esto ya estaba anotado en
+`bitacora/PENDIENTES.md` ("Dependen de Santiago") como tercera vez al
+12-10 (07, 08 y 11-10); con 13, 14 y 15-10 son ya SEIS mañanas. La
+diferencia de esta vez: el 13-10 la cadena de producción SÍ había
+terminado bien ese mismo día (como el 11-10), pero el 14 y el 15 la cadena
+TAMBIÉN murió (como el 07 y el 08-10), así que esta vez el silencio de la
+auditoría coincide con el silencio de todo lo demás, no es un caso aislado
+del turno de auditor.
+
+## Qué siguió igual: la preselección del suplente sigue sin ver seis fuentes institucionales
+
+Hallazgo que se repite sin cambiar nada desde que la preselección pasó de
+forma permanente al suplente (06-10-2026): las seis fuentes institucionales
+de `contenido/barrido/fuentes.json` sin feed propio (Contraloría, Senado,
+Dirección Meteorológica, Banco Central, Ministerio Público y, según la
+revisión de hoy, también la Cámara de Diputados) no se abren nunca, porque
+el suplente no navega. Aparece igual en `contenido/revisiones/2026-10-12.md`
+(línea 61), `2026-10-13.md` (línea 73) y hoy `2026-10-16.md` (hallazgo 9):
+tres veces, mismo texto, mismo motivo, nada cambió. La decisión del
+06-10-2026 (`estrategia/decisiones.md`, línea 792) que movió la preselección
+al suplente se justificó diciendo que "la preselección es el único turno
+que no necesita (...) entrar a las páginas, selecciona del barrido, y el
+barrido ya está en el repo"; la realidad de tres revisiones seguidas es que
+sí hay un residuo que antes entraba por la navegación de GPT y hoy no entra
+por nadie. No es una decisión de no hacer nada (esa decisión no habla de
+este residuo en particular), así que no deja de proponerse: es un hueco sin
+dueño.
+
+## Qué mejoró
+
+- El informe corto (3-4 min, decisión del 12-10) corrió sin fricción en su
+  tercera edición real: 218 s de podcast, dentro de la promesa, sin que la
+  duración se haya estimado por palabras (se leyó directo de
+  `episodios.json`).
+- El cierre pendiente vencido del 13-10 (respuesta del sindicato de
+  supervisores de Escondida) se cerró hoy correctamente, con cifra y fuente,
+  en la primera edición real que tuvo después (`contenido/informes/2026-10-16.md`,
+  línea 64), aunque le costó dos días de atraso por la cadena muerta. Queda
+  una nueva marca `PENDIENTE DE CIERRE` (memorandos de la visita de Kast a
+  Bolivia, línea 30) para la edición del 17-10-2026, correctamente anotada y
+  sin vencer todavía.
+
+## Qué dicen los números (`bitacora/metricas/`, hoy vs 15-10)
+
+Suscriptores: 36 (+0), igual que los últimos cuatro días. Vistas totales por
+suma de video: 18.362 (+812 vs 15-10), pero la cadena estuvo muerta esos dos
+días así que ese delta es tráfico de videos viejos, no de nada nuevo.
+
+**Lo único que cuenta para las 4.000 horas** (horas vistas en LARGOS, 30
+días, Analytics real, no estimado): **23,3 h hoy contra 26,1 h el 15-10,
+-2,8 h**; retención media ponderada de los largos **22,2% contra 29,5%,
+-7,3 puntos**. Es una ventana móvil de 30 días, así que parte de la baja es
+que videos viejos de alta retención salen del promedio, pero el corte
+coincide con los dos días sin ningún video largo nuevo que entrar a esa
+ventana. Las dos piezas largas de hoy (el informe y el Short del caso
+Ronald Ojeda) están en `private` con 0 vistas, esperando el clic de
+publicación de Santiago: no van a mover el número hasta que salgan.
 
 ## Propuestas
 
-1. Pedir a Santiago que revise si la rutina `trig_01GDbvJ1Wjzy25bnVRCXgygZ`
-   (Auditoría matinal) se disparó de verdad el 11-10-2026 y, si lo hizo, qué
-   pasó con esa sesión (la API de rutinas solo guarda el último disparo). Si
-   se confirma que se disparó y la sesión falló en silencio, la noche debería
-   agregar una marca explícita de fallo (un archivo o aviso al agotar el
-   intento) en vez de que la ausencia del archivo sea la única señal, igual
-   que ya se propuso para el caso del 07 y 08-10.
-2. En `scripts/gate.js`, línea 52, cambiar
-   `fs.readdirSync(dirGC).find((f) => f.startsWith(fecha) &amp;&amp; f.endsWith(".md"))`
-   por
-   `fs.readdirSync(dirGC).find((f) => f.startsWith(fecha) &amp;&amp; f.endsWith(".md") &amp;&amp; !f.endsWith("-imagenes.md"))`.
-3. En `prompts/guion-informe.md`, línea 230, quitar la restricción entre
-   paréntesis "(en esta marca o en el pie de un [DATO])" de la regla de
-   siglas, para que cubra cualquier marca del guion (titulares, [TESIS],
-   [ESQUEMA], [FUENTE], pie de [DATO]).
-4. En `contenido/casos/hitos.md`, fusionar las líneas 42 y 44 en una sola
-   entrada (el dossier correcto es `fonasa-licencias-falsas.md`, que es el
-   caso de fondo; si se quiere mantener el cruce en
-   `licencias-medicas-funcionarios.md`, dejar ahí una referencia corta en vez
-   de repetir el hecho completo).
-5. Revisar `contenido/barrido/fuentes.json` y las fuentes institucionales sin
-   feed para ver si falta un feed directo de la Superintendencia de
-   Pensiones o si la consulta OR de la línea 65 está perdiendo resultados por
-   otra razón (orden de términos, límite de resultados de Google News), ya
-   que la cobertura cero de pensiones lleva tres días con la consulta ya
-   incluyéndolas.
-6. Sin propuesta de código para el hallazgo 5 (San Carlos de Apoquindo): es
-   un hueco de fuentes de prensa, no del editor; queda anotado para que no se
-   siga perdiendo la cuenta de cuántos días lleva.
+1. **Reloj del reintento (A, B y C) silencioso dos noches seguidas.**
+   `.github/workflows/reintento.yml` (sin cambio de código posible desde
+   acá: el problema no está en el workflow sino en que las tres rutinas no
+   lo despertaron). Pedir a Santiago que revise en la interfaz el historial
+   de disparos del 14 y 15-10 de `trig_016JsVfFwrJFut5vy2f4c8TS`,
+   `trig_01E8tyJPqyfNdVTog477sf6Z` y `trig_01RevKvPn6mufpcUCK9fii2X`
+   (`get_trigger` desde el repo solo trae el último disparo, hoy, exitoso).
+2. **La auditoría no deja rastro de que corrió antes de fallar.** Ya
+   propuesto en `bitacora/PENDIENTES.md` desde el 12-10: que la rutina de
+   las 05:30 escriba una marca mínima (un commit con hora, aunque sea vacío
+   de contenido) ANTES de armar el archivo completo, para que una auditoría
+   que no llega a terminar se note sola y no dependa de la mañana siguiente.
+3. **Las seis fuentes institucionales sin feed, tres revisiones seguidas sin
+   dueño.** `contenido/barrido/fuentes.json`: agregarles feed propio (RSS o
+   scraping) para que entren al barrido sin necesitar navegación en la
+   preselección, que es exactamente la premisa con la que se decidió mover
+   la preselección al suplente el 06-10.
 
 ## Triage
 
-- **HOY**: hallazgo 1 (auditoría muda del 11-10) → propuesta 1. Tercera vez
-  en cinco mañanas que un turno de Claude queda mudo sin aviso, y esta vez
-  sin la explicación de la suscripción.
-- **HOY**: hallazgo 2 (`scripts/gate.js:52`) → propuesta 2. Sexta mañana
-  marcada.
-- **HOY**: hallazgo 3 (sigla "SHOA" sin expandir, publicada) → propuesta 3.
-  Entrada ya existente desde el 23-09; se le agrega la recurrencia de hoy.
-- **AGUANTA**: hallazgo 4 (hitos.md duplicado) → propuesta 4. No rompió nada
-  hoy porque el validador lo fusionó a mano, pero se vuelve a pagar mañana si
-  no se arregla en la fuente.
-- **AGUANTA**: hallazgo 6 (pensiones ausentes del barrido, tercer día) →
-  propuesta 5.
-- **MIRAR**: hallazgo 5 (cifras del aluvión de San Carlos de Apoquindo sin
-  fuente de organismo, tercera edición) → propuesta 6. No rompe nada porque
-  el validador lo sigue dejando fuera de cámara, pero ya es un patrón de tres
-  días y conviene vigilar que no se convierta en una cifra municipal sola
-  llegando a pantalla por cansancio.
-- **MIRAR**: Métricas sigue llegando ~20 minutos después de lo esperado
-  (~05:00), estable y sin empeorar (20 min el 09 y el 12-10, 21 min el
-  10-10): sigue sin ser una falla, solo conviene no dejar de vigilarlo.
-- **La ambigüedad de "La noticia del día"** (¿el tope de 25-35 palabras de
-  `prompts/guion-informe.md:94` cuenta la [TESIS] narrada o solo el párrafo?)
-  volvió a aparecer en `contenido/revisiones/2026-10-11.md` y
-  `contenido/revisiones/2026-10-12.md`. Ya está en `PENDIENTES.md` desde el
-  10-10 como AGUANTA; se le agrega la recurrencia de hoy, sin volver a
-  proponerla de cero.
+- **HOY**: el apagón de dos días (14 y 15-10) y su causa visible, los tres
+  relojes del reintento mudos. Ya bajado a `bitacora/PENDIENTES.md`
+  ("Dependen de Santiago", ampliando la entrada existente del 09/12-10).
+- **HOY**: la auditoría lleva seis mañanas sin dejar rastro (07, 08, 11, 13,
+  14, 15-10). Misma entrada ampliada.
+- **AGUANTA**: las seis fuentes institucionales sin feed en la preselección
+  del suplente. Nueva entrada en "Para la sesión de la noche".
+- **MIRAR**: la caída de horas vistas en largos (-2,8 h) y de retención
+  (-7,3 pp) en la ventana de 30 días. Puede ser solo el efecto de la
+  ventana móvil perdiendo videos viejos de alta retención; se vuelve a
+  mirar mañana cuando las dos piezas de hoy salgan de privado y empiecen a
+  sumar.
 
-## Bajada a la lista viva
+## Comparación con ayer (15-10)
 
-- Auditoría muda del 11-10: se agregó como nueva línea a la entrada existente
-  del 07 y 08-10 en "Dependen de Santiago" (no se duplicó la entrada, porque
-  es el mismo síntoma con una explicación distinta que hay que resolver
-  junto).
-- `scripts/gate.js:52`: ya existía la entrada en "Para la sesión de la
-  noche" (agregada el 06-10, última actualización el 10-10). Se le agregó la
-  línea de "sexta mañana" con la evidencia de hoy, sin duplicar.
-- Sigla sin expandir en pantalla: ya existía la entrada (misma sección,
-  agregada el 23-09, última actualización el 10-10). Se le agregó la
-  recurrencia de hoy ("SHOA"), sin duplicar.
-- "La noticia del día": ya existía la entrada (agregada el 10-10). Se le
-  agregó la recurrencia del 11 y 12-10, sin duplicar.
-- `contenido/casos/hitos.md` duplicado: buscado explícitamente en
-  `estrategia/decisiones.md` y `bitacora/REALIZADOS.md`, no hay ninguna
-  decisión de NO tocarlo ni evidencia de que ya se haya corregido. No existía
-  ninguna entrada con "hitos.md"; se agregó entrada nueva en "Para la sesión
-  de la noche".
-- Pensiones ausentes del barrido: buscado explícitamente, no existía ninguna
-  entrada con "pension". Se agregó entrada nueva en "Para la sesión de la
-  noche".
-- San Carlos de Apoquindo (MIRAR, no HOY): no se baja todavía, siguiendo la
-  regla de que MIRAR es tendencia a vigilar, no tarea ejecutable; si aparece
-  una cuarta vez, pasa a AGUANTA con entrada propia.
-
-## Comparación con ayer
-
-No hay auditoría del 11-10 para comparar directamente (es, de hecho, el
-hallazgo 1 de hoy); la comparación se hace contra la del 10-10
-(`bitacora/2026-10-10-auditoria.md`), con los datos intermedios del 11-10
-leídos directo de los archivos del repo:
-
-- **Mejoró**: la cadena de hoy costó menos que la de ayer: 2 correcciones
-  en total (informe vuelta 1, guion vuelta 1) contra las 4 del 11-10
-  (preselección vuelta 1, informe vuelta 2, guion vuelta 1). Las vistas
-  totales subieron +1.109 hoy contra +110 el 11-10 y +283 el 10-10, tirado
-  por el aluvión y la muerte de los dos contratistas en El Teniente. Horas
-  vistas en largos subieron de 18,8 (10-10) a 18,9 (11-10) a 19,4 hoy, y la
-  retención media ponderada de los largos saltó de 22,8% (10-10) a 28,3%
-  hoy, la mejor cifra reciente.
-- **Sigue igual**: `scripts/gate.js:52` sin tocar (sexta mañana); la regla de
-  siglas sigue restringida a [FUENTE]/[DATO] y volvió a dejar una sigla sin
-  expandir en pantalla (Senapred el 10-10, ahora SHOA); Métricas sigue
-  llegando ~20 minutos tarde; suscriptores siguen subiendo de a uno por día
-  (32 → 33 → 34).
-- **Nuevo**: la auditoría muda del 11-10 (hallazgo 1); el duplicado de
-  `contenido/casos/hitos.md` (hallazgo 4); la ausencia de pensiones en el
-  barrido pasó de dos días (marcada apenas de pasada el 10 y 11-10) a tres,
-  y hoy se baja por primera vez a la lista viva; las cifras del aluvión de
-  San Carlos de Apoquindo pasan de dos a tres ediciones seguidas sin fuente
-  de organismo.
+Ayer no hay con qué comparar la máquina ni el contenido: no corrió nada.
+Lo nuevo de hoy es que la cadena volvió sola (el suplente la destrabó) y
+que, por primera vez, el repo deja ver con evidencia completa (no shallow)
+que la causa de un apagón de días fue el silencio simultáneo de los tres
+relojes del reintento, no solo "la cadena se colgó" como en los casos
+anteriores de 07/08 y 11-10.
 </pre>
     </details>
     <!--AUDITORIA-FIN-->
