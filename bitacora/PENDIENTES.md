@@ -94,6 +94,29 @@ medición de retención por duración).
 
 ## PARA LA SESIÓN DE LA NOCHE: lo que el día NO puede hacer (06-10-2026)
 
+### 00. EL MODO DE OPERACIÓN DESDE EL 16-10-2026: no gastar en mejoras
+
+Santiago, 16-10-2026: **"me queda poco límite, así que quiero dejar límite para
+los informes y no seguir gastando en mejoras de momento."**
+
+Lo que sigue corriendo: informe corto diario con su Short, los exprés cuando la
+guardia caza algo, y la Clave de la semana que ya está definida. Nada más.
+
+Lo que NO se hace hasta que Santiago lo pida, aunque esté anotado más abajo en
+esta lista y aunque sea barato: el panel 6 del mural, la alarma que no dependa
+de Claude, las mejoras de los shorts, las mejoras visuales del informe corto, la
+etiqueta de serie en la carátula (el tablero está armado y espera su elección,
+https://claude.ai/artifact/NJ2m4cnykMdR8sis3jFpQe), y la música con Gemini.
+Todo eso queda en pausa, no cancelado.
+
+**Dónde se va la cuota, medido el 16-10:** las tres piezas de ese día las
+escribió el SUPLENTE (Claude), no GPT. La preselección es suya de forma
+permanente desde el 06-10, pero el informe y el guion entraron por plan B. Esa
+es la diferencia entre un día barato y uno caro: con GPT escribiendo, Claude
+solo valida; sin GPT, Claude escribe tres piezas con Opus. Si hay que recortar
+algo, eso es lo que hay que mirar primero, no los relojes, que son Haiku y
+aprietan un botón.
+
 ### 0. HOY, 16-10-2026: rendir de nuevo la Clave de licencias, con voz, y reemplazar la que está en YouTube
 
 **La pieza que está subida no es la que Santiago aprobó.** Se rindió con un
