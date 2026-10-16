@@ -16,7 +16,7 @@
 //   node scripts/mural-guion.js --guion contenido/guiones/claves/FECHA-slug.md \
 //     --ancho 27580 --paradas 440,2460,... --trozos claves/slug/mural14 --salida ejemplos/clave-mural14.json
 const fs = require("fs");
-const { aNumerales, formatoCifra } = require("./numerales");
+const { aNumerales, cifraCorta, cifraDeDato } = require("./numerales");
 
 const palabras = (t) => t.trim().split(/\s+/).filter(Boolean).length;
 const dura = (t) => Math.round((1.95 + 0.295 * palabras(t)) * 100) / 100;
@@ -35,7 +35,18 @@ const leerSecciones = (md) => {
     if (!actual) continue;
     const l = linea.trim();
     if (!l) continue;
-    if (l.startsWith("[TESIS]") || l.startsWith("[ESQUEMA")) continue;
+    // LA TESIS SE NARRA. prompts/guion-claves.md:61 lo dice con todas sus
+    // letras ("Sí se narra") y el armador la tiraba junto con las marcas de
+    // producción: 14 frases, 180 palabras, el 10% de lo narrado, y no
+    // cualquier 10% sino la idea central de cada sección. La Clave que subió
+    // el 13-10-2026 salió sin ellas.
+    const tz = l.match(/^\[TESIS\]\s*(.+)$/);
+    if (tz) { actual.partes.push({ tipo: "prosa", texto: tz[1].trim(), tesis: true }); continue; }
+    // la fuente de la sección baja al pie de los planos que muestren una cifra
+    // (reglas 6 y 32). Antes esta línea se descartaba en silencio.
+    const fz = l.match(/^\[FUENTE\]\s*(.+)$/);
+    if (fz) { actual.fuente = fz[1].trim(); continue; }
+    if (l.startsWith("[ESQUEMA")) continue;
     // [HECHO] e [INTERPRETACIÓN] SÍ son prosa narrada, con la marca del canal
     // adelante. Saltárselas dejó la sección 12 sin una sola palabra.
     const mk = l.match(/^\[(HECHO|INTERPRETACI[ÓO]N)\]\s*(.+)$/i);
@@ -80,13 +91,12 @@ const ordenar = (partes) => {
 // lo dice la voz ("más de treinta y un mil quinientos millones"): el plano está
 // para que el número se entienda en un segundo, no para auditarlo, y la cifra
 // exacta queda en la fuente que va abajo.
-const valorDato = (v) => {
-  const limpio = String(v).trim();
-  if (/^\d+$/.test(limpio) && Number(limpio) >= 1e8) {
-    return formatoCifra(String(Math.round(Number(limpio) / 1e6))) + " millones";
-  }
-  return formatoCifra(limpio);
-};
+// Lo resuelve cifraCorta (regla 42): corta en el millón, no en los cien
+// millones, y respeta la unidad pegada al número ("$31571798643" sale
+// "$31.572 millones"). El corte anterior dejaba pasar siete dígitos seguidos,
+// y la unidad se perdía entera porque el número con "$" ni siquiera entraba
+// en la condición.
+const valorDato = (v) => cifraCorta(String(v).trim());
 
 // "servidores 2023: 19963 ; servidores 2025: 7207"
 // EL RÓTULO DE CADA VALOR (12-10-2026). Antes se tomaba la etiqueta del primer
@@ -119,7 +129,12 @@ const armarDato = (p) => {
   // diría que una se convirtió en la otra. El resto (tabla, barras, serie) son
   // columnas que conviven.
   const flecha = pares.length === 2 && (p.forma === "cambio" || (/^comparaci[oó]n$/.test(p.forma) && comun > 0));
-  const b = { tipo: "dato", etiqueta, a: valores[valores.length - 1].valor, fuente: p.fuente, valores, flecha, seg: 4.8 };
+  // 4,8 s estaba medido para un número solo. Leer un rótulo y su valor cuesta
+  // más que leer una cifra, y acá hay dos o tres pares.
+  const seg = Math.round((3.6 + 1.2 * valores.length) * 100) / 100;
+  const b = { tipo: "dato", etiqueta, a: valores[valores.length - 1].valor, fuente: p.fuente, valores, flecha, seg };
+  // el valor exacto no se pierde aunque la pantalla lo abrevie (regla 42)
+  pares.forEach((x, i) => { if (valores[i].valor.includes("millones")) valores[i].exacto = x.valor; });
   if (valores.length > 1) b.de = valores[0].valor;
   return b;
 };
@@ -132,6 +147,10 @@ const armarBloques = (md) => {
   const bloques = [];
   secciones.forEach((sec, i) => {
     let primera = true;
+    // REGLAS 6 Y 32: ninguna cifra en pantalla sin su fuente al pie, porque la
+    // pieza tiene que entenderse con el video en silencio. La fuente de la
+    // sección es su marca [FUENTE] y, si no la hay, la del primer [DATO].
+    const fuenteSeccion = sec.fuente || (sec.partes.find((x) => x.tipo === "dato") || {}).fuente;
     for (const p of ordenar(sec.partes)) {
       if (p.tipo === "dato") {
         const b = { ...armarDato(p), parada: i };
@@ -140,6 +159,11 @@ const armarBloques = (md) => {
       } else {
         oraciones(p.texto).forEach((o, k) => {
           const b = { texto: aNumerales(o), dicho: o, parada: i, seg: dura(o) };
+          if (p.tesis) b.tesis = true;
+          // solo donde hay una cifra DE DATO: una fecha o el número de una ley
+          // no necesitan fuente al pie, y una línea repetida en cada plano
+          // deja de leerse
+          if (cifraDeDato(b.texto) && fuenteSeccion) b.fuente = fuenteSeccion;
           // la marca va solo en la primera oración del párrafo marcado: repetirla
           // en cada oración la convierte en ruido y deja de distinguir nada
           if (p.marca && k === 0) b.marca = p.marca;

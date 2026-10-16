@@ -63,6 +63,9 @@ El guion incluye las siguientes marcas, y solo estas, cada una en su propia lín
   [DATO tipo | fuente, fecha] etiqueta: valor ; etiqueta: valor
       tipo = cifra, barras, lineas, comparacion, marcador (exactamente dos series, local y visita, con el resultado como valor) o tabla (posiciones u ordenamientos).
       Los VALORES van SIEMPRE en numerales (49, -0,2%, 9,39), nunca en palabras: la marca no se narra, es para pantalla. La regla de números en palabras aplica solo al texto narrado.
+      CADA VALOR CON SU UNIDAD, pegada al número: "$31571798643", "47%", "7207 personas", "US$1970 millones". Una cifra sin unidad no se entiende en pantalla, y el rótulo de la etiqueta no siempre la dice ("perjuicio informado: 31571798643" deja al espectador adivinando si son pesos, dólares o licencias). Escribe el monto COMPLETO, sin redondear: el sistema lo abrevia solo para la pantalla, en millones, y guarda el exacto (regla 42).
+      LA ETIQUETA TIENE QUE EXPLICAR LA CIFRA SOLA, sin la narración: es lo que pide la regla 32 ("ninguna cifra en pantalla sin su etiqueta de contexto"). "servidores: 19963" no dice nada, servidores de qué y contados cómo; "servidores públicos que viajaron al extranjero con licencia 2023: 19963" sí. Larga está bien, el sistema la achica; vaga no (12-10-2026, Santiago mirando la Clave: "no hay contexto para entender esos números").
+      CADA VALOR CON SU PROPIO RÓTULO, también cuando comparas: "servidores 2023: 19963 ; servidores 2025: 7207", nunca "servidores: 19963 ; 7207". El sistema dibuja la flecha de antes y después solo cuando reconoce el mismo rótulo con dos años distintos; si los rótulos son de cosas distintas los pinta como lista, porque una flecha entre cosas distintas afirma un cambio que no ocurrió (12-10-2026: "sumarios totales: 25352 ; en curso: 21098 ; cerrados: 1543" salía en pantalla como 25352 flecha 1543, un desplome que nunca pasó).
       Solo valores graficables: cifras, porcentajes, montos, magnitudes. Las fechas de eventos y los rangos de días van en la narración, no en una marca [DATO].
       Fuente: una sola, la principal, con fecha. No se narra. Es la fuente
       PRIMARIA del dato tal como aparece en la entrega (Contraloría, INE,
@@ -87,6 +90,8 @@ El guion incluye las siguientes marcas, y solo estas, cada una en su propia lín
       Prefijo cuando la entrega distingue explícitamente análisis. Se narra el párrafo, no la marca. Estas marcas se usan solo cuando en el mismo bloque conviven información factual y análisis: ahí el contraste aporta. Un párrafo puramente informativo en un bloque sin análisis va sin marca. Máximo una marca [HECHO] y una [INTERPRETACIÓN] por bloque.
   [CITA | nombre, cargo | fuente, fecha] texto
       Solo citas textuales presentes en la entrega. Se narra el texto.
+  [FUENTE] institución o medio, fecha
+      Una por bloque que narre cifras, al principio del bloque. No se narra. Va al pie de cada plano del bloque que muestre una cifra, que es lo que pide la regla 6 ("una cifra sin fuente no entra") y la 32 ("la pieza tiene que entenderse con el video en silencio"). Si el bloque ya trae un [DATO], su fuente sirve para todo el bloque y no hace falta esta marca. Mismo formato legible que la fuente de un [DATO]: institución o medio más fecha, máximo seis palabras ("Contraloría, 20-05-2025"), nunca la URL ni "Informe diario de Entender Chile". Sin esta marca, un párrafo que dice "más de 25.000 funcionarios" o "211 de 416 investigaciones" sale a pantalla sin respaldo a la vista (12-10-2026, cinco planos de la Clave de licencias quedaron así).
 Todo párrafo sin marca es narración normal. Sin URLs, emojis ni paréntesis fuera de las marcas.
 
 FORMATO DE SALIDA:

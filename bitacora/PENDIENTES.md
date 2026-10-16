@@ -3,10 +3,10 @@
 Lista viva. Se actualiza cada día al cerrar. Lo hecho se borra, no se
 tacha: para saber qué pasó están `REALIZADOS.md` y el archivo del día.
 
-Última actualización: 13-09-2026, sesión de la noche (la corrección del
-11-09 queda CERRADA por decisión de Santiago, ver estrategia/decisiones.md;
-entra el bug de medición de metricas.js; la retención de los largos queda
-medida y deja de necesitar decisión).
+Última actualización: 12-10-2026, sesión de día (sale la corrección del guion
+de la Clave, que GPT corrió y Santiago aprobó; entra el encargo del mural al
+pipeline para la noche, el panel 6, las cinco cifras sin fuente al pie y la
+medición de retención por duración).
 
 ---
 
@@ -54,6 +54,41 @@ medida y deja de necesitar decisión).
       narrada; (3) el sello de tres notas no suena en el mural: la cama ya
       arranca con re, la, re. Evidencia: `scripts/clave-mural.js`
       (`rangoTension`) y `scripts/mural-guion.js` (`leerSecciones`).
+- [ ] **12-10, PARA LA NOCHE: conectar el mural al pipeline, con voz, carátula y
+      hora nueva.** El encargo completo, con contexto acotado, lista cerrada de
+      archivos, criterio de terminado y comandos de verificación, está en
+      `bitacora/2026-10-12-encargo-mural-al-pipeline.md`. El día no puede
+      hacerlo: no tiene `AZURE_SPEECH_KEY` ni `YT_REFRESH_TOKEN`. Evidencia del
+      bloqueo: `scripts/dia.js:174` renderiza la composición `Informe` también
+      para la Clave, así que hoy el workflow produciría el formato viejo de
+      tarjetas y no el mural que Santiago aprobó el 12-10-2026.
+
+- [ ] **12-10: el panel 6 del mural de licencias está mal hecho.** Volvió de GPT
+      como una foto de oficina a plena luz, mucho más clara que los otros trece,
+      y sobre ese fondo el velo tiene que apretar a 1,5 (el más alto del mural)
+      y termina en un filo vertical visible. Está ESQUIVADO, no arreglado: la
+      cámara de la sección 5 se movió de 8670 a 7400 y ahora el panel claro solo
+      se cruza durante el viaje. Arreglarlo de verdad es pedirle a GPT que lo
+      rehaga con la cuarta regla nueva de `scripts/mural-pedido.js` (la luz es
+      la misma en los catorce) y volver a coser el mural, que necesita `sharp`.
+
+- [ ] **12-10: cinco planos muestran una cifra sin fuente al pie.** Las
+      secciones 3, 6, 8 y 13 de la Clave de licencias no traen `[FUENTE]` y sus
+      cifras salen sin respaldo a la vista, contra las reglas 6 y 32. El
+      mecanismo ya existe (`scripts/mural-guion.js` baja la fuente de la sección
+      a los planos con cifra) y la marca `[FUENTE]` ya entró al contrato en
+      `prompts/guion-claves.md`. Taparlo en ESTA pieza necesita otra vuelta de
+      GPT; de la próxima en adelante sale solo.
+
+- [ ] **12-10: las Claves sobre 11:30 retienen mal.** Medido sobre
+      `bitacora/metricas/2026-10-06.json`: las seis Claves que duran entre 9:11
+      y 11:26 retienen entre 34% y 50%; las tres que pasan de 11:28 retienen
+      15%, 0,7% y 15%. La de licencias dura 12:53. Son tres videos y está
+      confundido con el tema, así que no es para decidir todavía: es para mirar
+      cuando haya dos o tres Claves de mural publicadas. Lo que sí está medido y
+      no necesita más muestra: la Clave retiene 39,7% mediana contra 20,6% del
+      informe, y convierte mejor (CTR 2,06% contra 1,59%). El problema de la
+      Clave no es la pieza, es la exposición: 1.720 impresiones contra 16.893.
 
 ---
 

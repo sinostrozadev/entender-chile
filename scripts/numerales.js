@@ -27,6 +27,8 @@ const CENTENAS = {
   setecientas: 700, ochocientos: 800, ochocientas: 800, novecientos: 900, novecientas: 900,
 };
 const ARTICULOS = new Set(["un", "uno", "una"]);
+const MESES = /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre)$/;
+const IDENTIFICADORES = /^(número|numero|n°|nº|ley|decreto|artículo|articulo|inciso|capítulo|capitulo|página|pagina|tomo)$/;
 const bajo = (w) => w.toLowerCase();
 const esNumero = (w) => w in UNIDADES || w in DECENAS || w in CENTENAS;
 
@@ -175,6 +177,23 @@ function aNumerales(texto) {
       const s = bajo(ultimo).replace(/[.,;:()"“”]+$/g, "");
       cola = ultimo.slice(s.length);
     }
+    // LOS NÚMEROS CHICOS SE QUEDAN EN PALABRAS (regla 42, 12-10-2026). Lo cazó
+    // Santiago leyendo la Clave de licencias: "aparecieron en 2 de los 3 años
+    // revisados, y 566, en los 3" es correcto y se lee pésimo. Bajo diez, el
+    // dígito no ahorra nada al ojo y rompe la prosa. Dos excepciones, porque
+    // ahí el dígito SÍ es lo que se busca: el día de una fecha ("el 2 de
+    // octubre") y el identificador de una norma ("Decreto Supremo número 3").
+    // "un millón" y "dos millones" NO son números chicos: el dígito lleva la
+    // magnitud que viene detrás, y escribirlo en palabras pierde la cifra.
+    if (/^[1-9]$/.test(textoNum) && !cola.includes("%") && !sigueMillon) {
+      const trasEspacios = (k) => { while (k < tokens.length && /^\s+$/.test(tokens[k])) k++; return k; };
+      const limpio = (k) => (k < tokens.length ? bajo(tokens[k]).replace(/[.,;:()"“”]+$/g, "") : "");
+      const k1 = trasEspacios(j);
+      const esFecha = limpio(k1) === "de" && MESES.test(limpio(trasEspacios(k1 + 1)));
+      let b = i - 1; while (b >= 0 && /^\s+$/.test(tokens[b])) b--;
+      const esIdentificador = IDENTIFICADORES.test(b >= 0 ? limpio(b) : "");
+      if (!esFecha && !esIdentificador) { out.push(tokens.slice(i, j).join("")); i = j; continue; }
+    }
     out.push(textoNum + cola);
     while (j > i && /^\s+$/.test(tokens[j - 1])) j--; // el espacio que sigue al número se conserva
     i = j;
@@ -195,7 +214,48 @@ function formatoCifra(raw) {
   });
 }
 
-module.exports = { aNumerales, formatoCifra };
+// SOBRE EL MILLÓN, LA PANTALLA ESCRIBE EN MILLONES (regla 42, 12-10-2026).
+// "31.571.798.643" es exacto y no se lee: once dígitos no entran en el ojo en
+// los segundos que dura un plano, y la narración ya dice "más de treinta y un
+// mil quinientos millones", o sea la magnitud, no el dígito. El valor exacto
+// no se pierde: queda en el guion y en la descripción del video.
+// Respeta lo que venga pegado al número, que es su unidad ($ adelante,
+// "pesos" o "dólares" atrás): una cifra sin unidad tampoco se entiende.
+function cifraCorta(raw) {
+  if (raw == null) return raw;
+  const str = String(raw).trim();
+  const m = str.match(/^([^\d]*)(\d[\d.]*)(.*)$/);
+  if (!m) return formatoCifra(str);
+  const [, antes, cuerpo, despues] = m;
+  const n = Number(cuerpo.replace(/\./g, ""));
+  if (!Number.isFinite(n) || n < 1e6) return formatoCifra(str);
+  const millones = n / 1e6;
+  const txt = millones >= 1000
+    ? String(Math.round(millones)).replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+    : String(Math.round(millones * 10) / 10).replace(".", ",");
+  // "2.000 millones pesos" no es español: cuando la unidad va detrás y el
+  // número pasó a millones, entre medio va "de".
+  const cola = despues.trim();
+  return `${antes}${txt} millones${cola ? (/^(de|del)\b/.test(cola) ? " " + cola : " de " + cola) : ""}`;
+}
+
+// ¿ESTE TEXTO MUESTRA UNA CIFRA QUE NECESITA FUENTE AL PIE? (reglas 6 y 32).
+// Buscar un dígito cualquiera no sirve: marcaría "Desde 1984", "el 2 de
+// octubre" y "la Ley 21.746", donde el número es una fecha o el nombre de una
+// norma y no un dato que alguien midió. Se descuentan esos tres casos, que son
+// los mismos que el umbral de arriba deja en dígitos, y lo que queda es cifra.
+function cifraDeDato(texto) {
+  if (!texto) return false;
+  const meses = "enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre";
+  return /\d/.test(
+    String(texto)
+      .replace(new RegExp("\\b\\d{1,2}\\s+de\\s+(" + meses + ")\\b", "gi"), " ")
+      .replace(/(?<![\d.,])(19|20)\d{2}(?!\d|[.,]\d)/g, " ")
+      .replace(/\b(ley|decreto|artículo|articulo|inciso|número|numero|n°|nº)\s+(supremo\s+)?(número\s+|numero\s+)?[\d.]+/gi, " ")
+  );
+}
+
+module.exports = { aNumerales, formatoCifra, cifraCorta, cifraDeDato };
 
 if (require.main === module) {
   const casos = [
@@ -205,6 +265,17 @@ if (require.main === module) {
     ["quinientos noventa y tres millones de dólares", "593 millones de dólares"],
     ["sesenta y cinco mil millones de barriles", "65.000 millones de barriles"],
     ["activó una bonificación para empresas", "activó una bonificación para empresas"],
+    // regla 42 (12-10-2026): bajo diez se queda en palabras, salvo fecha e identificador
+    ["aparecieron en dos de los tres años revisados", "aparecieron en dos de los tres años revisados"],
+    ["siete días de reposo", "siete días de reposo"],
+    ["quédate con cuatro ideas", "quédate con cuatro ideas"],
+    ["el dos de octubre de dos mil veintiséis", "el 2 de octubre de 2026"],
+    ["al cinco de febrero", "al 5 de febrero"],
+    ["el Decreto Supremo número tres", "el Decreto Supremo número 3"],
+    ["la ley veinte mil quinientos ochenta y cinco", "la ley 20.585"],
+    ["cinco por ciento menos", "5% menos"],
+    ["un millón de personas", "1 millón de personas"],
+    ["diecisiete acusados y dieciséis sociedades", "17 acusados y 16 sociedades"],
     ["un millón de personas y un tercio", "1 millón de personas y un tercio"],
     ["el veintinueve de agosto de dos mil veintiséis", "el 29 de agosto de 2026"],
     ["subió a veintiséis coma cinco por ciento.", "subió a 26,5%."],
@@ -213,8 +284,8 @@ if (require.main === module) {
     ["cien por ciento de los casos", "100% de los casos"],
     ["dos mil veintiséis fue el año", "2026 fue el año"],
     ["ciento ocho días trabajados", "108 días trabajados"],
-    ["siete buques el jueves, diecisiete el día anterior", "7 buques el jueves, 17 el día anterior"],
-    ["Uno de cada tres hogares", "Uno de cada 3 hogares"],
+    ["siete buques el jueves, diecisiete el día anterior", "siete buques el jueves, 17 el día anterior"],
+    ["Uno de cada tres hogares", "Uno de cada tres hogares"],
     ["treinta y dos coma cuatro por ciento", "32,4%"],
     // compuestos con millones (04-09: la tarjeta del gancho mostró "544.800 pesos")
     ["un perjuicio fiscal de tres mil seiscientos cuarenta millones quinientos cuarenta y cuatro mil ochocientos pesos y formuló", "un perjuicio fiscal de 3.640.544.800 pesos y formuló"],
@@ -236,6 +307,22 @@ if (require.main === module) {
   }
   const f = [["25000", "25.000"], ["US$1970 millones", "US$1.970 millones"], ["2026", "2026"], ["1500", "1.500"], ["9,5%", "9,5%"], ["564.000", "564.000"], ["100 km/h", "100 km/h"], ["US$100000 millones", "US$100.000 millones"]];
   for (const [a, b] of f) if (formatoCifra(a) !== b) { mal++; console.log(`✗ formato ${a} → ${formatoCifra(a)} (esperado ${b})`); }
-  console.log(mal ? `${mal} casos fallan` : `OK: ${casos.length + f.length} casos`);
+  // regla 42: sobre el millón la pantalla escribe en millones, con su unidad
+  const c = [["$31571798643", "$31.572 millones"], ["$26000000000", "$26.000 millones"],
+    ["26000000", "26 millones"], ["1500000", "1,5 millones"], ["25352", "25.352"],
+    ["1543", "1.543"], ["2026", "2026"], ["US$1970 millones", "US$1.970 millones"],
+    ["7207 personas", "7.207 personas"], ["2000000000 pesos", "2.000 millones de pesos"], ["3400000 de dólares", "3,4 millones de dólares"]];
+  for (const [a, b] of c) if (cifraCorta(a) !== b) { mal++; console.log(`✗ corta ${a} → ${cifraCorta(a)} (esperado ${b})`); }
+  const d = [["Desde 1984, el Decreto Supremo número 3 regula cómo se emite.", false],
+    ["En 2012, la Ley 20.585 agregó procedimientos.", false],
+    ["El ciclo más reciente comenzó el 20 de mayo de 2025.", false],
+    ["Al 5 de octubre de 2026 no estaban publicadas.", false],
+    ["Cuatro días después se publicó la Ley 21.746.", false],
+    ["identificó a más de 25.000 funcionarios con salidas del país.", true],
+    ["211 de 416 investigaciones iniciadas en 2026.", true],
+    ["los más de 21.000 sumarios que continúan.", true],
+    ["Si una licencia común supera los 10 días, se paga desde el primero.", true]];
+  for (const [a, b] of d) if (cifraDeDato(a) !== b) { mal++; console.log(`✗ cifraDeDato ${a} → ${cifraDeDato(a)} (esperado ${b})`); }
+  console.log(mal ? `${mal} casos fallan` : `OK: ${casos.length + f.length + c.length + d.length} casos`);
   process.exit(mal ? 1 : 0);
 }
