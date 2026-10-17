@@ -537,5 +537,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-16-informe.mp3",
     "bytes": 5223168,
     "durSeg": 218
+  },
+  {
+    "fecha": "2026-10-17",
+    "tipo": "informe",
+    "titulo": "17-10-2026 · Chile y Bolivia firman cuatro instrumentos y siguen sin embajadores",
+    "descripcion": "Chile y Bolivia cerraron la visita presidencial en La Paz con cuatro instrumentos de cooperación, sin restablecer aún el intercambio de embajadores. También revisamos la libertad condicional de Patricio Maturana y la formalización del alcalde de Chillán por la compra de la medialuna. El informe completo incluye además la caída del Fondo E, la vigilancia ante el sistema frontal y el plazo del Sistema de Admisión Escolar.\n\nEl informe completo de hoy, con todas las noticias del día: https://sinostrozadev.github.io/entender-chile-web/informes/2026-10-17/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-17-informe.mp3",
+    "bytes": 6138432,
+    "durSeg": 256
   }
 ]
