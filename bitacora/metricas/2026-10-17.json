@@ -28,7 +28,7 @@
       "titulo": "¿Kast quiere que Chile y Bolivia vuelvan a tener embajadores",
       "publicado": "2026-10-17",
       "estado": "public",
-      "vistas": 16,
+      "vistas": 17,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 46
@@ -46,7 +46,7 @@
       "titulo": "¿Más empleo más rápido? El MOP acelera contratos en medio de",
       "publicado": "2026-10-16",
       "estado": "public",
-      "vistas": 22,
+      "vistas": 23,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 45
@@ -55,7 +55,7 @@
       "titulo": "El fallo contra Villegas cierra un juicio, y otras 4 cosas d",
       "publicado": "2026-10-16",
       "estado": "public",
-      "vistas": 247,
+      "vistas": 250,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 32
@@ -64,7 +64,7 @@
       "titulo": "¿Qué cambia para el norte de Chile si Kast y Bolivia firman ",
       "publicado": "2026-10-16",
       "estado": "public",
-      "vistas": 204,
+      "vistas": 215,
       "meGusta": 5,
       "comentarios": 0,
       "durSeg": 46
@@ -100,7 +100,7 @@
       "titulo": "Autopista Central rebajará el TAG desde enero de 2027",
       "publicado": "2026-10-13",
       "estado": "public",
-      "vistas": 1,
+      "vistas": 3,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 233
@@ -2352,8 +2352,8 @@
   "fuentes": {
     "canal": {
       "SHORTS": {
-        "vistas": 10624,
-        "minutos": 2596
+        "vistas": 10623,
+        "minutos": 2595
       },
       "YT_SEARCH": {
         "vistas": 1331,
@@ -2380,7 +2380,7 @@
         "minutos": 42
       },
       "NO_LINK_OTHER": {
-        "vistas": 35,
+        "vistas": 33,
         "minutos": 32
       },
       "EXT_URL": {
@@ -2899,7 +2899,7 @@
         "fuentes": {
           "RELATED_VIDEO": 44,
           "SUBSCRIBER": 18,
-          "NO_LINK_OTHER": 9,
+          "NO_LINK_OTHER": 8,
           "YT_SEARCH": 3,
           "YT_OTHER_PAGE": 1
         },
@@ -3982,7 +3982,7 @@
       "9Le8uCfDRA4": {
         "fuentes": {
           "SUBSCRIBER": 14,
-          "NO_LINK_OTHER": 4,
+          "NO_LINK_OTHER": 3,
           "YT_SEARCH": 1,
           "RELATED_VIDEO": 1
         },
