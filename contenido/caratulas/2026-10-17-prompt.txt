@@ -1,0 +1,228 @@
+Crea una carátula de YouTube 16:9 para un canal de noticias y actualidad.
+DATOS QUE YO ENTREGO
+CLIMA DE LA CARÁTULA:
+internacional
+GANCHO QUE VA ENCIMA:
+¿Qué cambia ahora?
+Chile y Bolivia
+NOTICIA DE PORTADA:
+Los gobiernos abrieron cuatro líneas de trabajo, sin anunciar una fecha para intercambiar embajadores.
+TU TAREA
+A partir de esos tres datos, tú tomas todas las decisiones creativas.
+Quiero una miniatura diseñada para maximizar el CTR, detener el scroll y hacer que el usuario quiera entrar al video, sin perder credibilidad periodística.
+No quiero una simple ilustración de la noticia.
+Quiero una miniatura de alto rendimiento, pensada específicamente para YouTube.
+OBJETIVO CENTRAL
+La carátula debe lograr estas dos cosas al mismo tiempo:
+1. CONTEXTO INMEDIATO
+La persona debe entender en menos de un segundo de qué trata la noticia.
+2. CURIOSIDAD REAL
+La persona debe sentir que necesita entrar al video para entender qué cambia, qué significa, qué pasó realmente o qué puede pasar después.
+La carátula debe crear una brecha de curiosidad, pero sin volverse confusa.
+REGLA CLAVE: NO ELIMINAR EL CONTEXTO, COMPRIMIRLO
+La NOTICIA DE PORTADA no necesariamente debe aparecer completa ni literal dentro de la imagen,
+pero su contexto esencial NO puede perderse.
+Antes de diseñar, identifica:
+cuál es el hecho principal;
+cuál es el dato mínimo que el espectador necesita para entender por qué esta noticia importa hoy;
+qué parte conviene convertir en texto secundario corto;
+qué parte conviene dejar como información implícita para generar curiosidad.
+Regla:
+No copies toda la noticia automáticamente. COMPRÍMELA.
+Si al quitar el texto principal la imagen se vuelve demasiado genérica, entonces falta contexto.
+Si la miniatura parece un titular de diario lleno de texto, entonces falta síntesis.
+JERARQUÍA DE TEXTO OBLIGATORIA
+Organiza el texto en esta prioridad:
+1. GANCHO
+Es la frase más grande, llamativa y dominante.
+Debe aparecer exactamente como yo la entrego, respetando palabras, signos, mayúsculas, tildes y sentido.
+2. CONTEXTO
+Una frase breve que explique de qué trata la noticia.
+Debe ser corta, clara y fácil de leer.
+3. DATO CLAVE
+Solo si ayuda mucho:
+fecha,
+cifra,
+condición,
+etapa,
+lugar,
+segunda vuelta,
+reforma,
+fallo,
+alza,
+baja,
+etc.
+Debe ir como sello, etiqueta o tercer nivel de lectura.
+Nunca debe competir con el gancho principal.
+EJEMPLO DE ESTRUCTURA IDEAL
+Si la noticia es:
+Gancho:
+¿Qué cambia ahora?
+Noticia:
+Brasil decidirá su presidencia en segunda vuelta el 25 de octubre.
+La estructura ideal puede ser:
+GANCHO grande:
+¿Qué cambia ahora?
+CONTEXTO corto:
+Brasil vota de nuevo
+DATO CLAVE corto:
+2ª vuelta • 25 oct
+Eso funciona mejor que meter toda la oración completa dentro de la miniatura.
+PRINCIPIO DE DISEÑO
+La miniatura debe responder visualmente estas preguntas:
+En 0,5 segundos:
+¿De qué país, tema o hecho estamos hablando?
+En 1 segundo:
+¿Cuál es el conflicto o acontecimiento?
+En 2 segundos:
+¿Qué pregunta queda abierta que me hace querer entrar?
+COMPOSICIÓN
+Debe existir un protagonista visual inequívoco.
+Como máximo debe haber:
+un elemento principal;
+un elemento secundario de contexto;
+un fondo o entorno que sitúe la noticia.
+Evita meter demasiadas cosas compitiendo entre sí.
+Piensa en capas:
+Primer plano: el elemento emocional o decisivo;
+Segundo plano: apoyo narrativo;
+Fondo: contexto institucional, geográfico o simbólico.
+Usa composición pensada para móvil:
+formas claras,
+lectura rápida,
+contraste fuerte,
+jerarquía evidente,
+nada importante demasiado pequeño.
+Importante:
+Deja la zona inferior derecha libre de información crítica, porque YouTube puede poner ahí la duración del video.
+CURIOSIDAD SÍ, CONFUSIÓN NO
+La miniatura debe provocar clic porque deja una pregunta abierta, no porque oculta tanto que nadie entiende nada.
+Correcto:
+el espectador entiende el tema;
+pero quiere saber la respuesta o la implicancia.
+Incorrecto:
+la miniatura se ve llamativa;
+pero no se entiende qué está pasando.
+VERACIDAD
+Si la noticia involucra:
+una persona real,
+una institución real,
+un edificio real,
+una elección real,
+un tribunal real,
+un lugar real,
+un símbolo nacional,
+una infraestructura reconocible,
+represéntalo correctamente.
+No inventes:
+arquitectura,
+resultados,
+consecuencias,
+violencia,
+declaraciones,
+escándalos,
+datos no confirmados.
+La carátula puede dramatizar visualmente,
+pero no puede falsear el hecho.
+ESTILO GENERAL
+La miniatura debe verse como una pieza de alto nivel editorial.
+Puede combinar:
+fotografía periodística,
+composición cinematográfica,
+diseño gráfico moderno,
+texto fuerte y legible,
+color con intención.
+Debe sentirse:
+seria,
+profesional,
+poderosa,
+contemporánea,
+atractiva,
+no genérica.
+Evita:
+collage barato,
+exceso de elementos,
+ruido innecesario,
+estética conspirativa,
+exageración vulgar,
+emojis,
+flechas gigantes por defecto,
+círculos rojos sin sentido,
+caras forzadas,
+texto en exceso.
+CLIMA DE LA CARÁTULA
+El valor que yo entregue en CLIMA DE LA CARÁTULA define la emoción dominante.
+Interprétalo visualmente.
+Ejemplos:
+Institucional
+Sobriedad, poder, arquitectura pública, documentos, votación, autoridad, decisión, Estado, orden.
+Urgente
+Tensión, instante crítico, energía, acción, contraste, inmediatez.
+Económico
+Dinero, precios, mercados, objetos cotidianos afectados, documentos, comercio, impacto práctico.
+Judicial o policial
+Investigación, expediente, tribunal, evidencia, tensión contenida, institucionalidad.
+Humano
+Rostros, consecuencias, impacto en personas, cercanía emocional.
+Internacional
+Geopolítica, mapa, líderes, instituciones, banderas, territorio, escala.
+No conviertas el clima en una fórmula automática.
+Interprétalo con inteligencia visual según la noticia específica.
+COLOR
+Construye una paleta breve y deliberada.
+Usa normalmente:
+un color dominante,
+un color de apoyo,
+un color de acento.
+El color de acento debe servir para:
+dirigir la mirada,
+resaltar el gancho,
+destacar el dato clave,
+separar planos.
+Si la noticia es de un país o institución, puedes tomar colores reconocibles de su identidad, pero con tratamiento editorial, no decorativo.
+PERSONAS
+Si una persona real es parte esencial de la noticia, puede aparecer.
+Si no aporta claridad, no la agregues solo porque “las caras venden”.
+Si aparecen personas:
+deben ser reconocibles;
+su gesto debe ser coherente;
+no inventes expresiones extremas;
+no caricaturices.
+REGLA DE TEXTO
+Obligatorio:
+El texto del GANCHO QUE VA ENCIMA debe aparecer exacto.
+Recomendado:
+Agregar un CONTEXTO breve cuando sea necesario para que se entienda la noticia.
+Opcional:
+Agregar un DATO CLAVE muy corto si mejora claramente la comprensión.
+Prohibido:
+Llenar la miniatura con bloques de texto largos.
+Menos texto, pero mejor elegido.
+PRUEBA FINAL ANTES DE ENTREGAR
+Antes de terminar, evalúa silenciosamente:
+¿Se entiende de qué trata en menos de un segundo?
+¿El gancho se lee bien en teléfono?
+¿Hay contexto suficiente?
+¿Sigue habiendo curiosidad?
+¿La imagen es específica o genérica?
+¿Se puede eliminar algo?
+¿El texto secundario es realmente necesario?
+¿La composición tiene un protagonista claro?
+¿La esquina inferior derecha está limpia de información crítica?
+¿Parece una miniatura premium capaz de competir por clics?
+Si alguna respuesta es no, corrígelo antes de generar.
+ORDEN DE PRIORIDADES
+Prioriza en este orden:
+CURIOSIDAD
+CLARIDAD INMEDIATA
+CONTEXTO ESENCIAL
+FUERZA VISUAL
+CREDIBILIDAD
+BELLEZA
+RESULTADO ESPERADO
+Entrega una sola carátula final, lista para YouTube, en formato 16:9,
+con:
+un gancho principal irresistible,
+el contexto mínimo necesario para entender la noticia,
+una composición visual potente,
+y una ejecución pensada específicamente para maximizar el deseo de hacer clic.
