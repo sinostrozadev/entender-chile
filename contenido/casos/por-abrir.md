@@ -65,3 +65,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-10-12 | hospital modular de $2.000 millones no instalado
 - 2026-10-13 | fraude al fisco y cohecho en Talca
 - 2026-10-16 | querella contra exdirector del Servicio Médico Legal
+- 2026-10-17 | medialuna de Chillán
