@@ -122,175 +122,177 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 17-10-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-10-17-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON OBSERVACIONES. La cadena de hoy salió completa y adelantada en</div>
+    <p class="eyebrow">Auditoría de la mañana · 18-10-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-10-18-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON OBSERVACIONES. La cadena de hoy salió completa y muy adelantada</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0"># Auditoría matinal · 17-10-2026
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0"># Auditoría matinal · 18-10-2026
 
-ESTADO: CON OBSERVACIONES. La cadena de hoy salió completa y adelantada en
-casi todos los tramos, sin ningún HOY nuevo. Quedan dos hallazgos AGUANTA con
-causa raíz ya identificada (el guion copia la URL de las fuentes del informe
-y el validador tiene que corregirla cada edición; el clasificador de áreas
-del barrido deja secciones vacías y fuerza al suplente a tomar candidatas
-directo del JSON) y la retención de los largos sigue bajando, aunque las
-horas se recuperan un poco. La auditoría corrió hoy por segunda mañana
-seguida, después de seis mañanas sin rastro (07, 08, 11, 13, 14 y 15-10).
+ESTADO: CON OBSERVACIONES. La cadena de hoy salió completa y muy adelantada
+en cada tramo, sin ningún HOY. Siguen dos hallazgos de calidad ya conocidos
+y documentados (el guion copia la URL de las fuentes del informe, tercera
+edición seguida; el clasificador de áreas del barrido deja secciones vacías,
+cuarta edición seguida), ninguno nuevo y ninguno con dueño todavía. La
+retención de los largos se recuperó con fuerza tras dos días de caída.
 
 ## Qué salió hoy y a qué hora
 
 | Pieza | Llegó (Chile) | Se esperaba | Atraso/adelanto |
 |---|---|---|---|
-| Barrido | 01:49 | 01:40 | +9 min |
-| Preselección (APROBADA, vuelta 0, 59 candidatas, la escribió el suplente) | 02:07 | 02:10 | adelantado 3 min |
-| Informe (APROBADA, vuelta 2, 2 correcciones) | 02:19 (primer borrador) / veredicto final 02:40 | 02:40 | a tiempo |
-| Guion del informe (APROBADA, vuelta 1, 1 corrección) | 02:41 | 03:10 | adelantado 29 min |
-| Revisión (veredicto final) | 02:57 | 03:30 | adelantado 33 min |
-| Videos y descripciones (`edicion-diaria.yml` run 39008158831) | 03:10 a 03:14 | 05:15 | adelantado 2 h 1 min |
-| Podcast (`episodios.json`, informe, 256 s = 4:16) | sin dato | 3 a 4 min (decisión 12-10) | en el borde superior |
-| Métricas | 05:20 | 05:00 | +20 min |
+| Barrido | 01:45 | 01:40 | +5 min |
+| Observatorio plata pública | 01:55 | 01:45 | +10 min |
+| Preselección (APROBADA, vuelta 0, 55 candidatas, 15 secciones) | 01:59 | 02:10 | adelantado 11 min |
+| Informe (APROBADA, vuelta 1, 8 INCUMPLE) | 02:11 (primer borrador) / veredicto final 02:25 | 02:40 | adelantado 15 min |
+| Guion del informe (APROBADA, vuelta 1, 3 INCUMPLE) | 02:29 (primer borrador) / veredicto final 02:40 | 03:10 | adelantado 30 min |
+| Revisión (veredicto final, compuerta) | 02:41 | 03:30 | adelantado 49 min |
+| Videos y descripciones (`edicion-diaria.yml`, listo) | 02:56 | 05:15 | adelantado 2 h 19 min |
+| Podcast (`episodios.json`, informe, 263 s = 4:23) | sin dato de hora | 3 a 4 min narrados (decisión 12-10) | dentro del rango: 500 palabras narradas, ~3,7 min |
+| Métricas | 05:05 | 05:00 | +5 min |
 
-Fuente: `contenido/estado/2026-10-17.md` (`ETAPA: videos_listos`, `VEREDICTO:
-APROBADA`, `FALTA: nada, el día está completo`). `node
-scripts/validar-tarjetas.js --fecha 2026-10-17`: "variedad OK: ninguna cuota
-rota, ninguna marca malformada" (4 bloques con fuente, 497 palabras
-narradas, ~3,7 min). No hubo Clave hoy (no es diaria desde el 16-09); hoy es
-sábado, no domingo, así que no corresponde revisar el banco semanal.
-
-Esta vez la preselección la escribió Claude por el reparto permanente
-(`contenido/estado/reparto.txt`, línea `claude:`), no por plan B, y el
-informe y el guion los escribió GPT (commits "Tarea: despachador"): es el
-reparto normal de la cadena, distinto del 16-10, cuando las tres piezas las
-tuvo que escribir el suplente porque la cadena venía de dos días muertos.
-
-Nota sobre el checkout: el `git log --diff-filter=A` inicial sobre el
-checkout shallow (50 commits) atribuía el barrido y la preselección de hoy a
-un commit de `estado.yml` de las 05:07 UTC, que no es quien los escribió.
-Hubo que `git fetch --unshallow` para ver el commit real del barrido
-(`barrido 2026-10-17 [bot]`, 04:49 UTC) y de la preselección (`edición
-2026-10-17: preselección`, 05:07 UTC). Mismo defecto que ya dejó anotado la
-auditoría del 16-10: el checkout con el que arranca esta rutina no alcanza
-para ver el historial completo, y conviene que el paso 1 de este prompt
-incluya el `--unshallow` en vez de depender de que cada auditoría lo
-descubra de nuevo.
+Fuente: `contenido/estado/2026-10-18.md` (`ETAPA: videos_listos`, `VEREDICTO:
+APROBADA`, `FALTA: nada, el día está completo`) y los `VALIDADO:` de cada
+veredicto. `node scripts/validar-tarjetas.js --fecha 2026-10-18`: "variedad
+OK: ninguna cuota rota, ninguna marca malformada" (4 bloques con fuente, 500
+palabras narradas, ~3,7 min). Hoy es domingo: la Clave no es diaria (CLAVE 4)
+y no tuvo entrega ni guion hoy porque no le tocaba, pero avanzó la que ya
+tenía tema aprobado (`acuerdo-internacional-sin-tratado`, producción
+21-10-2026): entrega y guion quedaron APROBADA hoy
+(`contenido/estado/clave-acuerdo-internacional-sin-tratado.md`), falta solo
+el video, que espera su fecha de producción, como corresponde. El chequeo de
+domingo (`contenido/claves/semana/AAAA-Www-candidatos.md` de la semana que
+cerró) está cumplido: existe `2026-W41-candidatos.md`, la semana
+lunes-sábado 05 al 11-10; la de esta semana (lunes 12 a sábado 17-10, ISO
+W42) todavía no corresponde, porque `scripts/semana.js` corre a las 09:00 de
+hoy, después de esta auditoría.
 
 ## Qué falló
 
 Sin fallas que rompan la edición de mañana, pierdan datos o ya estén
-publicadas con un defecto visible. Dos hallazgos de calidad, ninguno nuevo
-del todo, los dos con causa raíz a la vista por primera vez:
+publicadas con un defecto visible. Dos hallazgos de calidad, ninguno nuevo,
+los dos sin dueño:
 
-### 1. El guion copia la URL de las fuentes del informe y cuesta una vuelta de corrección, segunda edición seguida
+### 1. El guion vuelve a copiar la URL de las fuentes del informe: tercera edición seguida (16, 17 y 18-10)
 
-`contenido/revisiones/2026-10-17.md`: "El guion costó una sola vuelta y por
-lo mismo que el 16-10-2026: las nueve líneas de 'Fuentes:' con dirección
-web (...) Es la segunda edición seguida con ese mismo hallazgo". Comprobado
-en el origen: `contenido/informes/2026-10-17.md` líneas 92 en adelante trae
-cada fuente como "institución, descripción, fecha: URL" bajo "## Fuentes
-consultadas", y `prompts/guion-informe.md:316` instruye copiar cada fuente
-"tal como aparecen en el informe", sin decir que se omita la URL. El guion
-corregido (`contenido/guiones/informe/2026-10-17.md`, vuelta 1) ya no trae
-URLs, pero la vuelta existió porque la primera versión las copió, igual que
-el 16-10. El patrón se repite: GPT copia con URL, Claude corrige, cuesta una
-vuelta, cada día.
+`contenido/revisiones/2026-10-18.md`: "Las 'Fuentes:' del guion volvieron a
+salir con dirección web, el mismo hallazgo que
+`contenido/revisiones/2026-10-17.md` ya daba por segunda edición seguida.
+Con esta son tres seguidas". Verificado en el veredicto
+(`contenido/veredictos/2026-10-18-guion_informe.md`): "Las diez líneas de
+'Fuentes:' perdieron la dirección web" en la corrección de la vuelta 1, lo
+que confirma que la versión de GPT (vuelta 0) sí las traía. El guion final
+(`contenido/guiones/informe/2026-10-18.md:54-60`) ya no tiene URLs porque la
+corrección las sacó, igual que el 16 y el 17-10. El patrón es el mismo que
+documentó la auditoría del 17-10: GPT copia la fuente con URL desde
+`contenido/informes/2026-10-18.md` (sección "## Fuentes consultadas", que sí
+lleva enlace y debe llevarlo) y `prompts/guion-informe.md:316` no dice
+explícitamente que se omita. Cuesta una vuelta de corrección cada día.
 
-### 2. El clasificador de áreas del barrido deja secciones vacías y obliga a la preselección a tomar candidatas del JSON, no es nuevo
+### 2. El clasificador de áreas del barrido deja secciones vacías: cuarta edición seguida (13, 16, 17 y 18-10)
 
-Commit de hoy (`contenido/preseleccion/2026-10-17.md`): "Dieciséis
-candidatas salieron del JSON del día y no del barrido en Markdown (...) el
-Markdown deja Salud, Educación, Trabajo y pensiones y Plata pública casi
-vacías, y rotula como 'Ciencia y tecnología' una sección que es sobre todo
-fútbol". El mismo defecto, con las mismas áreas, ya lo dejó anotado el
-commit de preselección del 13-10-2026 (trece candidatas por la misma razón).
-Nadie lo bajó a `bitacora/PENDIENTES.md` en su momento: comprobado
-buscando "clasificador" y "JSON del día" en el archivo completo, cero
-resultados. La agrupación por área vive en `scripts/barrido.js:291-295`
-(`const a = n.areas[0] || "Sin área"`). No bloquea porque el suplente ya
-sabe ir al JSON, pero cada preselección que lo necesite paga ese rodeo a
-mano.
+`contenido/preseleccion/2026-10-18.md:221-222`: "Las candidatas se tomaron
+del JSON del día (...) porque en el Markdown las áreas de Salud, Educación,
+Trabajo y pensiones y Plata pública quedan casi vacías (...) El barrido en
+Markdown rotula como 'Ciencia y tecnología' una sección de 18 noticias donde
+la mayoría es fútbol". Mismo defecto, mismas áreas, que ya documentaron las
+preselecciones del 13, 16 y 17-10 (confirmado leyendo esos tres archivos).
+La causa, según la auditoría del 17-10, está en `scripts/barrido.js:291-295`
+(`const a = n.areas[0] || "Sin área"`). No bloquea porque quien escribe la
+preselección ya sabe ir al JSON, pero paga ese rodeo a mano cada vez.
 
 ## Propuestas
 
 1. **`prompts/guion-informe.md:316`**: cambiar "lista una línea por cada
    fuente (...) tal como aparecen en el informe" por una versión que diga
-   explícitamente "sin la URL: solo institución o medio, descripción breve
-   y fecha, igual que en el informe pero sin el enlace". Evita la vuelta de
-   corrección que se repite desde el 16-10.
-2. **`scripts/barrido.js:291-295`**: revisar por qué la clasificación por
-   área (`n.areas[0]`) deja vacías Salud, Educación, Trabajo y pensiones y
-   Plata pública, y por qué rotula una noticia de fútbol como "Ciencia y
-   tecnología". Mientras no se arregle, la preselección sigue necesitando
-   leer el JSON a mano para esas áreas, como hoy y como el 13-10.
-3. **El `--unshallow` del paso 1**: agregar `git fetch --unshallow` (o
-   aumentar la profundidad del checkout) al arranque de esta rutina, para
-   que la atribución de "quién escribió qué" no dependa de que cada
-   auditoría lo descubra por su cuenta, como pasó hoy y el 16-10.
+   explícitamente que la lista "Fuentes:" se copia del informe SIN el
+   enlace: solo institución o medio, descripción breve y fecha. Repetida de
+   la auditoría del 17-10; sigue sin ejecutarse.
+2. **`scripts/barrido.js:291-295`**: revisar por qué `n.areas[0]` deja
+   vacías Salud, Educación, Trabajo y pensiones y Plata pública, y por qué
+   rotula noticias de fútbol como "Ciencia y tecnología". Repetida de la
+   auditoría del 17-10; sigue sin ejecutarse.
+3. **`prompts/auditoria-matinal.md:53`**: la promesa de duración que cita
+   este prompt para comparar ("~10 min, 12-13 en día cargado") quedó
+   superada por la decisión del 12-10-2026
+   (`estrategia/decisiones.md:825-861`, el informe pasó a 3 o 4 minutos
+   narrados). Esta auditoría comparó contra la promesa viva (3 a 4 min) y no
+   contra la que cita el propio prompt, para no dejar un hallazgo falso por
+   seguir una premisa vieja; conviene actualizar esa línea para que la
+   próxima auditoría no tenga que repetir esta verificación.
 
 ## Triage
 
 - **HOY**: ninguno.
 - **AGUANTA**: los dos hallazgos de arriba (fuentes con URL en el guion,
-  clasificador de áreas del barrido). Nueva entrada en "Para la sesión de
-  la noche" cuando corresponda ejecutarlos: no se agregan a
-  `bitacora/PENDIENTES.md` en esta auditoría porque ninguno es HOY, siguiendo
-  al pie de la letra el contrato de esta rutina (paso 7: solo los HOY bajan
-  a la lista viva). Quedan documentados acá para que la sesión de la noche
-  los recoja si Santiago lo pide.
-  Las seis fuentes institucionales sin feed propio ya están en
-  `bitacora/PENDIENTES.md` desde el 16-10 (sección "Dependen de Santiago");
-  hoy es la cuarta revisión seguida que las menciona (12, 13, 16 y 17-10),
-  no se duplica la entrada.
-- **MIRAR**: la retención media ponderada de los largos sigue bajando (ver
-  Comparación con ayer) y la "Carátula 3" como segundo giro en vez de una
-  cifra, que la revisión de hoy marca como tercera edición con la misma
-  observación (confirmado en este repo el 16 y el 17-10).
+  clasificador de áreas del barrido). Ya quedaron documentados como AGUANTA
+  en la auditoría del 17-10 y no se agregan a `bitacora/PENDIENTES.md` en
+  esta auditoría porque ninguno es HOY, siguiendo al pie de la letra el
+  contrato de esta rutina (paso 7: solo los HOY bajan a la lista viva).
+  Las seis fuentes institucionales sin feed propio siguen en
+  `bitacora/PENDIENTES.md` desde el 16-10 (sección "Para la sesión de la
+  noche"); hoy es la quinta revisión seguida que las menciona (12, 13, 16,
+  17 y 18-10; la revisión de hoy dice "segundo día seguido" contando solo
+  desde el 17-10, pero el propio archivo la trae también en el 16-10), no
+  se duplica la entrada.
+- **MIRAR**: la "Carátula sugerida" del guion de hoy usa la pregunta
+  genérica que la propia prueba del gancho busca evitar ("¿Qué pasó en
+  Portillo?"), y el veredicto la deja anotada como no bloqueante; es la
+  primera vez que aparece con esas palabras exactas, así que no cuenta
+  todavía como repetición, pero conviene mirar si vuelve. La línea del
+  prompt de esta auditoría sobre la duración prometida (propuesta 3, arriba)
+  también queda en observación hasta que alguien la actualice.
 
 ## Qué mejoró
 
-- Los tres relojes del reintento (A, B y C), mudos dos días completos el 14
-  y el 15-10, volvieron a pushear con cadencia normal toda la madrugada de
-  hoy: nueve corridas de `reintento.yml` entre las 02:51 y las 05:36 UTC,
-  cada 15 a 25 minutos, todas `success`. El apagón de esos relojes, que la
-  auditoría del 16-10 dejó como HOY, no se repitió.
-- La cadena volvió a su reparto normal: GPT escribió el informe y el guion
-  (commits "Tarea: despachador"), y Claude escribió solo la preselección por
-  su turno permanente. El 16-10 las tres piezas las tuvo que escribir el
-  suplente porque la cadena venía de dos días muertos, que es el escenario
-  caro que `bitacora/PENDIENTES.md` pide mirar primero si hay que recortar
-  cuota.
-- La auditoría dejó rastro dos mañanas seguidas (16 y 17-10), después de
-  seis mañanas sin ninguno.
-- El video del 16-10 que esperaba el clic de Santiago ("¿Kast quiere que
-  Chile y Bolivia vuelvan a tener embajadores") ya está público, con 14
-  vistas (`bitacora/metricas/2026-10-17.md`).
-- Las horas vistas en largos subieron de 23,3 h (16-10) a 23,6 h (17-10),
-  +0,3 h, después de la caída de 2,8 h que dejó mirando la auditoría
-  anterior.
+- Toda la cadena corrió más adelantada que ayer en cada tramo donde hay
+  comparación: la revisión cerró a las 02:41 (ayer 02:57, hoy 16 min antes)
+  y la fábrica dejó los videos listos a las 02:56 (ayer 03:10 a 03:14, hoy
+  entre 14 y 18 min antes), ambas muy por delante de sus horas esperadas.
+- El informe costó una sola vuelta hoy (8 INCUMPLE) contra las dos vueltas
+  de ayer (también 8 INCUMPLE en total, pero repartidos en dos rondas); la
+  corrección de hoy, igual que ayer, no introdujo hallazgos nuevos.
+- La retención media ponderada de los largos subió con fuerza: de 21,2%
+  (17-10) a 23,3% (18-10), +2,1 puntos, revirtiendo la caída de los dos días
+  anteriores (22,2% el 16-10, 21,2% el 17-10) que la auditoría del 17-10
+  dejó marcada MIRAR.
 
 ## Qué siguió igual
 
-- Las seis fuentes institucionales sin feed propio
-  (`contenido/barrido/fuentes.json`): cuarta revisión seguida que las marca
-  (12, 13, 16 y 17-10), sin que nada haya cambiado.
-- La retención media ponderada de los largos sigue bajando: 22,2% (16-10) a
-  21,1% (17-10), -1,1 puntos. Las dos piezas de hoy (informe y Short) siguen
-  en privado con 0 vistas, así que todavía no pueden estar moviendo el
-  número.
+- Las dos fallas de calidad de la sección "Qué falló": la URL en las fuentes
+  del guion (tercera edición seguida) y el clasificador de áreas del barrido
+  (cuarta edición seguida), ninguna de las dos con dueño ni fecha de
+  ejecución.
+- Las seis fuentes institucionales sin feed propio: quinta revisión seguida
+  que las marca (12, 13, 16, 17 y 18-10), sin que nada haya cambiado. Sigue
+  en `bitacora/PENDIENTES.md` desde el 16-10.
+- El formato corto sigue sin fricción en su quinta edición (12, 13, 16, 17 y
+  18-10): tres [A] narradas, 420 a 600 palabras, sin tocar el piso ni el
+  techo.
 
-## Comparación con ayer (16-10)
+## Qué es nuevo
 
-Ayer la cadena entera había estado muerta dos días (14 y 15-10) y se destrabó
-sola gracias al suplente, con las tres piezas escritas por Claude. Hoy la
-cadena corrió con su reparto normal, GPT escribiendo informe y guion, y
-terminó adelantada en cada tramo, sin ningún HOY. Lo nuevo de hoy es que, por
-primera vez, se puede nombrar con archivo y línea la causa de dos hallazgos
-que las revisiones venían repitiendo sin que nadie los bajara a una
-propuesta concreta: la URL en las fuentes del guion y el clasificador de
-áreas del barrido. Los números del canal se mueven en la misma dirección que
-ayer predijo como posible: las horas de largos se recuperan un poco (+0,3 h)
-mientras la retención sigue cayendo (-1,1 puntos), así que la hipótesis de
-que era solo el efecto de la ventana móvil de 30 días queda a medias: una
-serie sube, la otra sigue bajando.
+- Las horas vistas en largos bajaron levemente tras tres días de alza: de
+  23,6 h (17-10) a 23,1 h (18-10), -0,5 h. Es una sola jornada de baja sobre
+  una ventana móvil de 30 días, así que todavía no es tendencia; queda para
+  mirar si se repite.
+- La "pregunta genérica" en el gancho de la carátula sugerida (hallazgo
+  MIRAR de arriba), que no había aparecido con esas palabras en las
+  revisiones del 16 y el 17-10.
+- La Clave `acuerdo-internacional-sin-tratado` avanzó su entrega y su guion
+  el mismo día (ambos APROBADA), quedando solo el video pendiente de su
+  fecha de producción del 21-10-2026: es el funcionamiento correcto de los
+  tres eslabones, sin entrega huérfana.
+
+## Comparación con ayer (17-10)
+
+Ayer la cadena había corrido adelantada en casi todos los tramos, con dos
+hallazgos AGUANTA recién identificados con causa raíz (URL en las fuentes
+del guion, clasificador de áreas del barrido) y la retención todavía
+cayendo. Hoy la cadena corrió más adelantada todavía, con un informe que
+costó una sola vuelta en vez de dos, y la retención se recuperó con fuerza
+en vez de seguir bajando. Lo que no cambió es que ninguna de las dos
+propuestas de ayer (la línea de `prompts/guion-informe.md:316` y la revisión
+de `scripts/barrido.js:291-295`) se ejecutó: los mismos dos hallazgos
+volvieron a costar, palabra por palabra, lo mismo que costaron ayer.
 </pre>
     </details>
     <!--AUDITORIA-FIN-->
