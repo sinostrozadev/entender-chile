@@ -3,9 +3,18 @@
   "canal": {
     "suscriptores": 37,
     "vistas": 18747,
-    "videos": 169
+    "videos": 170
   },
   "videos": {
+    "rYQEgUwwm5A": {
+      "titulo": "Portillo: tres fallecidos y un rescate pendiente",
+      "publicado": "2026-10-18",
+      "estado": "public",
+      "vistas": 1,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 264
+    },
     "CwEQYIeTkG4": {
       "titulo": "La Fiscalía confirmó tres fallecidos y cuatro lesionados tra",
       "publicado": "2026-10-18",
@@ -15,20 +24,11 @@
       "comentarios": 0,
       "durSeg": 42
     },
-    "rYQEgUwwm5A": {
-      "titulo": "Portillo: tres fallecidos y un rescate pendiente",
-      "publicado": "2026-10-18",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 264
-    },
     "oZ-gCKULOO0": {
       "titulo": "¿Qué se sabe de la avalancha cerca de Portillo? #Shorts",
       "publicado": "2026-10-17",
       "estado": "public",
-      "vistas": 242,
+      "vistas": 256,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 41
@@ -37,7 +37,7 @@
       "titulo": "Chile y Bolivia firmaron cuatro instrumentos, y otras 4 cosa",
       "publicado": "2026-10-17",
       "estado": "public",
-      "vistas": 44,
+      "vistas": 54,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 42
@@ -46,7 +46,7 @@
       "titulo": "Chile y Bolivia firman cuatro instrumentos y siguen sin emba",
       "publicado": "2026-10-17",
       "estado": "public",
-      "vistas": 2,
+      "vistas": 3,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 256
@@ -55,7 +55,7 @@
       "titulo": "¿Kast quiere que Chile y Bolivia vuelvan a tener embajadores",
       "publicado": "2026-10-17",
       "estado": "public",
-      "vistas": 45,
+      "vistas": 47,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 46
@@ -82,7 +82,7 @@
       "titulo": "El fallo contra Villegas cierra un juicio, y otras 4 cosas d",
       "publicado": "2026-10-16",
       "estado": "public",
-      "vistas": 357,
+      "vistas": 367,
       "meGusta": 3,
       "comentarios": 0,
       "durSeg": 32
@@ -91,7 +91,7 @@
       "titulo": "¿Qué cambia para el norte de Chile si Kast y Bolivia firman ",
       "publicado": "2026-10-16",
       "estado": "public",
-      "vistas": 284,
+      "vistas": 289,
       "meGusta": 6,
       "comentarios": 0,
       "durSeg": 46
@@ -127,7 +127,7 @@
       "titulo": "Autopista Central rebajará el TAG desde enero de 2027",
       "publicado": "2026-10-13",
       "estado": "public",
-      "vistas": 5,
+      "vistas": 8,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 233
@@ -1638,7 +1638,7 @@
       "pct": 68.1
     },
     "PEnNy3SIQWo": {
-      "vistas": 718,
+      "vistas": 717,
       "minutos": 197,
       "segProm": 29,
       "pct": 64.2
@@ -1704,7 +1704,7 @@
       "pct": 69.6
     },
     "3QhDzy_gUKk": {
-      "vistas": 75,
+      "vistas": 74,
       "minutos": 64,
       "segProm": 72,
       "pct": 10.6
@@ -2226,7 +2226,7 @@
       "pct": 26.8
     },
     "9Le8uCfDRA4": {
-      "vistas": 20,
+      "vistas": 19,
       "minutos": 0,
       "segProm": 3,
       "pct": 0.4
@@ -2379,11 +2379,11 @@
   "fuentes": {
     "canal": {
       "SHORTS": {
-        "vistas": 10577,
+        "vistas": 10575,
         "minutos": 2590
       },
       "YT_SEARCH": {
-        "vistas": 1330,
+        "vistas": 1331,
         "minutos": 371
       },
       "SUBSCRIBER": {
@@ -2395,7 +2395,7 @@
         "minutos": 733
       },
       "NOTIFICATION": {
-        "vistas": 76,
+        "vistas": 77,
         "minutos": 77
       },
       "YT_CHANNEL": {
@@ -2403,7 +2403,7 @@
         "minutos": 138
       },
       "YT_OTHER_PAGE": {
-        "vistas": 48,
+        "vistas": 47,
         "minutos": 42
       },
       "NO_LINK_OTHER": {
