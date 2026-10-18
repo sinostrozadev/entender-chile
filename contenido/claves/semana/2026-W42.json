@@ -1,0 +1,641 @@
+{
+  "semana": "2026-W42",
+  "lunes": "2026-10-12",
+  "sabado": "2026-10-17",
+  "dias": [
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-17"
+  ],
+  "dias_con_informe": [
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-16",
+    "2026-10-17"
+  ],
+  "generado": "2026-10-18",
+  "noticias": 118,
+  "temas": 101,
+  "pesos": {
+    "A": 3,
+    "B": 2,
+    "C": 1,
+    "seguimiento": 1.5,
+    "dia_extra": 1,
+    "dossier": 2
+  },
+  "ranking": [
+    {
+      "puesto": 1,
+      "puntaje": 11,
+      "dias": [
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-16",
+        "2026-10-17"
+      ],
+      "niveles": [
+        "B",
+        "A",
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Actualidad",
+        "Además, hoy",
+        "Vivienda y ciudad"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "cond",
+        "aluvion",
+        "clas",
+        "riesgo",
+        "advertia",
+        "advertido",
+        "afectada",
+        "agosto"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-12",
+          "nivel": "B",
+          "titular": "Doce colegios de Las Condes suspenden clases por el aluvión",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-10-13",
+          "nivel": "A",
+          "titular": "Las Condes levanta la evacuación preventiva y mantiene suspendidas las clases",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-10-16",
+          "nivel": "C",
+          "titular": "**Minuta del MOP había advertido riesgo de nuevos aluviones en Las Condes.** Una minuta de la Dirección de Obras Hidráulicas de agosto de 2026 advertía que el sedimento y la pérdida de cobertura vegetal mantenían riesgo de desbordes en la zona afectada por el aluvión del 8 de octubre, antes de que Las Condes fuera declarada zona de catástrofe el 9 de octubre",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-17",
+          "nivel": "B",
+          "titular": "Tras el aluvión, Las Condes recupera calles y abre una mesa de riesgo",
+          "seccion": "Vivienda y ciudad"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 2,
+      "puntaje": 10,
+      "dias": [
+        "2026-10-13",
+        "2026-10-16",
+        "2026-10-17"
+      ],
+      "niveles": [
+        "C",
+        "C",
+        "A",
+        "C"
+      ],
+      "secciones": [
+        "Seguridad y Justicia",
+        "Además, hoy"
+      ],
+      "seguimiento": true,
+      "noticias": 4,
+      "terminos": [
+        "causa",
+        "alcalde",
+        "chillan",
+        "fraude",
+        "prision",
+        "abandono",
+        "benavente",
+        "camilo"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-13",
+          "nivel": "C",
+          "titular": "Cuatro imputados quedan en prisión preventiva en causa por fraude y cohecho en Talca",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-10-16",
+          "nivel": "C",
+          "titular": "**Concejales piden destituir al alcalde de Chillán.** Tres concejales solicitaron al Tribunal Electoral Regional de Ñuble remover al alcalde Camilo Benavente por presunto notable abandono de deberes, mientras su formalización en una causa distinta por presunto fraude al Fisco está fijada para el 16 de octubre",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-17",
+          "nivel": "A",
+          "titular": "Alcalde de Chillán es formalizado por la compra de la medialuna",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 3,
+      "puntaje": 7,
+      "dias": [
+        "2026-10-13",
+        "2026-10-16"
+      ],
+      "niveles": [
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Vivienda y ciudad"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "arauco",
+        "familia",
+        "arriendo",
+        "cuarenta",
+        "evacuada",
+        "reciben",
+        "socavon",
+        "subsidio"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-13",
+          "nivel": "B",
+          "titular": "Cuarenta familias reciben subsidio de arriendo por la emergencia en Arauco",
+          "seccion": "Vivienda y ciudad"
+        },
+        {
+          "fecha": "2026-10-16",
+          "nivel": "B",
+          "titular": "Trece familias evacuadas por un socavón en Arauco",
+          "seccion": "Vivienda y ciudad"
+        }
+      ],
+      "dossier": {
+        "slug": "subsidios-arriendo-minvu",
+        "titulo": "Caso: Subsidios de arriendo (Minvu / Contraloría 314-2026)"
+      },
+      "explicado": null
+    },
+    {
+      "puesto": 4,
+      "puntaje": 7,
+      "dias": [
+        "2026-10-12",
+        "2026-10-13"
+      ],
+      "niveles": [
+        "A",
+        "A"
+      ],
+      "secciones": [
+        "Actualidad"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "teniente",
+        "trabajador",
+        "alud",
+        "identifican",
+        "investigacion",
+        "mueren",
+        "muerto"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-12",
+          "nivel": "A",
+          "titular": "Dos trabajadores mueren tras un alud en El Teniente y se abre una investigación",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-10-13",
+          "nivel": "A",
+          "titular": "Identifican a los dos trabajadores muertos en El Teniente",
+          "seccion": "Actualidad"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 5,
+      "puntaje": 6,
+      "dias": [
+        "2026-10-13",
+        "2026-10-16"
+      ],
+      "niveles": [
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Economía",
+        "Trabajo y empleo"
+      ],
+      "seguimiento": true,
+      "noticias": 2,
+      "terminos": [
+        "escondida",
+        "huelga",
+        "aprueban",
+        "contrato",
+        "evitan",
+        "evitar",
+        "ofrece",
+        "supervisor"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-13",
+          "nivel": "B",
+          "titular": "Escondida ofrece $28 millones por trabajador para evitar una huelga",
+          "seccion": "Economía"
+        },
+        {
+          "fecha": "2026-10-16",
+          "nivel": "B",
+          "titular": "Supervisores de Escondida aprueban contrato y evitan huelga",
+          "seccion": "Trabajo y empleo"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 6,
+      "puntaje": 5,
+      "dias": [
+        "2026-10-12",
+        "2026-10-13"
+      ],
+      "niveles": [
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Resumen internacional"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "aeropuerto",
+        "ataque",
+        "huti",
+        "saudita",
+        "cerrar",
+        "diecisiete",
+        "golpea",
+        "muerto"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-12",
+          "nivel": "B",
+          "titular": "Otro ataque hutí golpea un aeropuerto saudita",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-10-13",
+          "nivel": "B",
+          "titular": "Ataque hutí deja diecisiete muertos y obliga a cerrar un aeropuerto saudita",
+          "seccion": "Resumen internacional"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 7,
+      "puntaje": 5,
+      "dias": [
+        "2026-10-12",
+        "2026-10-13"
+      ],
+      "niveles": [
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Medioambiente y clima"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "alerta",
+        "valparaiso",
+        "coquimbo",
+        "lluvia",
+        "masa",
+        "refuerzan",
+        "remocion",
+        "temprana"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-12",
+          "nivel": "B",
+          "titular": "Valparaíso queda bajo Alerta Temprana Preventiva",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-10-13",
+          "nivel": "B",
+          "titular": "Coquimbo y Valparaíso refuerzan alertas por lluvias y remociones en masa",
+          "seccion": "Medioambiente y clima"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 8,
+      "puntaje": 5,
+      "dias": [
+        "2026-10-13",
+        "2026-10-16"
+      ],
+      "niveles": [
+        "A",
+        "C"
+      ],
+      "secciones": [
+        "Actualidad",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "autopista",
+        "central",
+        "rebaja",
+        "acuerdo",
+        "ampliar",
+        "cambio",
+        "concesion",
+        "cuestiona"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-13",
+          "nivel": "A",
+          "titular": "Autopista Central tendrá rebajas de 25% en horario punta y 10% fuera de punta",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-10-16",
+          "nivel": "C",
+          "titular": "**Eduardo Engel cuestiona el acuerdo del TAG.** El economista Eduardo Engel sostuvo que la rebaja del TAG en Autopista Central a cambio de ampliar la concesión puede reducir recursos disponibles para infraestructura futura, una evaluación suya y no una estimación oficial de pérdidas",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 9,
+      "puntaje": 5,
+      "dias": [
+        "2026-10-12",
+        "2026-10-16"
+      ],
+      "niveles": [
+        "B",
+        "C",
+        "C"
+      ],
+      "secciones": [
+        "Resumen internacional",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "balotaje",
+        "brasil",
+        "electoral",
+        "final",
+        "meta",
+        "alcance",
+        "ante",
+        "brasilena"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-12",
+          "nivel": "B",
+          "titular": "Brasil entra en las dos semanas finales antes del balotaje",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-10-16",
+          "nivel": "C",
+          "titular": "**Tribunal electoral de Brasil exige trato igual a las campañas en Meta.** El Tribunal Superior Electoral de Brasil ordenó a Meta no restringir de modo desigual el alcance de contenidos de las candidaturas presidenciales en sus plataformas, en la recta final del balotaje",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 10,
+      "puntaje": 5,
+      "dias": [
+        "2026-10-12",
+        "2026-10-13"
+      ],
+      "niveles": [
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Resumen internacional"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "energetica",
+        "rusia",
+        "tregua",
+        "ucrania",
+        "acusa",
+        "infraestructura",
+        "romper"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-12",
+          "nivel": "B",
+          "titular": "Rusia y Ucrania anuncian una tregua sobre infraestructura energética",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-10-13",
+          "nivel": "B",
+          "titular": "Ucrania acusa a Rusia de romper la tregua energética",
+          "seccion": "Resumen internacional"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    }
+  ],
+  "fuera_por_ya_explicado": [
+    {
+      "puntaje": 1,
+      "dias": [
+        "2026-10-16"
+      ],
+      "niveles": [
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "advertencia",
+        "advertido",
+        "asociado",
+        "banco",
+        "central",
+        "definitiva",
+        "derivado",
+        "dolar"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-16",
+          "nivel": "C",
+          "titular": "**El Banco Central recuerda sus advertencias sobre derivados de las AFP.** El Banco Central indicó que había advertido riesgos asociados a la exposición de fondos de pensiones a derivados de tasas externas en sus informes de estabilidad financiera de 2025 y 2026; esa advertencia no permite equiparar toda variación del Fondo E con una pérdida definitiva de siete mil millones de dólares",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "como-leer-ipom",
+        "titulo": "Cómo leer el IPoM: proyecciones, supuestos y riesgos detrás de las decisiones del Banco Central"
+      }
+    },
+    {
+      "puntaje": 1,
+      "dias": [
+        "2026-10-16"
+      ],
+      "niveles": [
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "ante",
+        "brasileno",
+        "campana",
+        "congreso",
+        "constitucional",
+        "enmienda",
+        "fine",
+        "gratuito"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-16",
+          "nivel": "C",
+          "titular": "**Lula plantea transporte público gratuito los fines de semana.** El presidente brasileño Luiz Inácio Lula da Silva anunció que propondrá al Congreso una enmienda constitucional para hacer gratuito el transporte público durante los fines de semana, una propuesta de campaña antes de la segunda vuelta del 25 de octubre y no una medida vigente",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "control-constitucional-proyectos-ley",
+        "titulo": "Tribunal Constitucional y formación de la ley: qué revisa antes de la promulgación y por qué puede frenar una norma aprobada por el Congreso"
+      }
+    },
+    {
+      "puntaje": 1,
+      "dias": [
+        "2026-10-13"
+      ],
+      "niveles": [
+        "C"
+      ],
+      "secciones": [
+        "Política"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "argentina",
+        "propone",
+        "revisar",
+        "senador",
+        "tratado"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-13",
+          "nivel": "C",
+          "titular": "Senador propone revisar tratados con Argentina",
+          "seccion": "Política"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "mineria-transfronteriza-chile-argentina",
+        "titulo": "Minería transfronteriza entre Chile y Argentina: cómo un tratado permite operar un yacimiento a ambos lados de la frontera"
+      }
+    },
+    {
+      "puntaje": 1,
+      "dias": [
+        "2026-10-13"
+      ],
+      "niveles": [
+        "C"
+      ],
+      "secciones": [
+        "Seguridad y Justicia"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "constitucional",
+        "fiscalia",
+        "indaga",
+        "ministro",
+        "nombramiento",
+        "realizado",
+        "tribunal"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-13",
+          "nivel": "C",
+          "titular": "Fiscalía indaga nombramientos realizados por un ministro del Tribunal Constitucional",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "control-constitucional-proyectos-ley",
+        "titulo": "Tribunal Constitucional y formación de la ley: qué revisa antes de la promulgación y por qué puede frenar una norma aprobada por el Congreso"
+      }
+    }
+  ]
+}
