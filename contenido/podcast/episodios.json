@@ -546,5 +546,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-17-informe.mp3",
     "bytes": 6138432,
     "durSeg": 256
+  },
+  {
+    "fecha": "2026-10-18",
+    "tipo": "informe",
+    "titulo": "18-10-2026 · Portillo: tres fallecidos y un rescate pendiente",
+    "descripcion": "La Fiscalía confirmó tres fallecidos y cuatro lesionados por la avalancha en Portillo, y rectificó el balance inicial. Dos médicos quedaron en prisión preventiva en La Serena por una causa de licencias presuntamente falsas, mientras la Región Metropolitana enfrenta una alerta sanitaria ante nuevos riesgos hidrometeorológicos. El informe completo también explica la Ley de Reconstrucción, las convocatorias del 18 de octubre y el plazo para responder al cupo de Admisión Escolar.\n\nEl informe completo de hoy, con todas las noticias del día: https://sinostrozadev.github.io/entender-chile-web/informes/2026-10-18/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-18-informe.mp3",
+    "bytes": 6313536,
+    "durSeg": 263
   }
 ]
