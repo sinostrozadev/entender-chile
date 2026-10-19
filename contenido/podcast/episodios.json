@@ -555,5 +555,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-18-informe.mp3",
     "bytes": 6313536,
     "durSeg": 263
+  },
+  {
+    "fecha": "2026-10-19",
+    "tipo": "informe",
+    "titulo": "19-10-2026 · Emergencia preventiva en siete regiones y clases suspendidas en diez comunas",
+    "descripcion": "Un decreto declaró emergencia preventiva en siete regiones y las clases se suspenden este martes en diez comunas metropolitanas. Cadem registró treinta por ciento de aprobación para José Antonio Kast, mientras Carabineros entregó un balance preliminar de veintinueve detenidos tras la conmemoración del dieciocho de octubre. El informe completo también aborda la búsqueda suspendida en Portillo, la investigación por licencias médicas en La Serena y la formalización del alcalde de Chillán.\n\nEl informe completo de hoy, con todas las noticias del día: https://sinostrozadev.github.io/entender-chile-web/informes/2026-10-19/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-19-informe.mp3",
+    "bytes": 6170112,
+    "durSeg": 257
   }
 ]
