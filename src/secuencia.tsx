@@ -167,20 +167,49 @@ const ALFA_SIN_IMAGEN = 0.6;
 //
 // El ancho, 760 sobre 1920 desde la izquierda, deja el título dentro de la
 // mitad de la pantalla, que es hasta donde llega lo oscuro macizo (ver velo).
-export const TituloSeccion: React.FC<{ categoria?: string | null; titulo: string; escala?: number; opacidad?: number }> =
-({ categoria, titulo, escala = 1, opacidad = 1 }) => (
-  <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080,
-    transform: escala === 1 ? undefined : `scale(${escala})`, transformOrigin: "top left",
-    opacity: opacidad, pointerEvents: "none" }}>
-    <div style={{ position: "absolute", left: 110, top: "50%", transform: "translateY(-50%)", maxWidth: 760 }}>
-      <div style={{ fontFamily: tema.mono, fontSize: 24, letterSpacing: "0.2em", textTransform: "uppercase",
-        color: COBRE, marginBottom: 22 }}>{categoria || "Entender Chile"}</div>
-      <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 78, lineHeight: 1.06, color: "#F7F6F2" }}>
-        {titulo}
+// EL TÍTULO SE TECLEA ANTES DE QUE LA VOZ LO LEA (19-10-2026, pedido de
+// Santiago). Es el mismo recurso que la Clave usa en su rótulo desde el
+// 06-10 y por el mismo motivo: el nombre de la sección es lo único que el
+// ojo puede leer entero antes de que empiece el párrafo, y escribirlo lo
+// convierte en un gesto en vez de un cartel que aparece.
+//
+// El tecleo dura 1,1 s pase lo que pase, repartido entre las letras que
+// haya: un título largo escribe más rápido en vez de quedarse a medias
+// cuando la cabecera se acaba. Y el sonido va cada dos cuadros como mucho,
+// porque una tecla por letra en un título de cuarenta caracteres deja de
+// sonar a máquina de escribir y suena a ametralladora.
+const TECLEO_SEG = 1.1;
+const CUADROS_POR_SONIDO = 2;
+export const TituloSeccion: React.FC<{ categoria?: string | null; titulo: string; escala?: number; opacidad?: number; teclea?: boolean }> =
+({ categoria, titulo, escala = 1, opacidad = 1, teclea = false }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const letras = Array.from(titulo);
+  const cuadros = Math.max(1, Math.round(TECLEO_SEG * fps));
+  const escritas = teclea ? Math.min(letras.length, Math.ceil((frame / cuadros) * letras.length)) : letras.length;
+  const sonidos = teclea ? Math.min(Math.floor(cuadros / CUADROS_POR_SONIDO), letras.length) : 0;
+  return (
+    <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080,
+      transform: escala === 1 ? undefined : `scale(${escala})`, transformOrigin: "top left",
+      opacity: opacidad, pointerEvents: "none" }}>
+      <div style={{ position: "absolute", left: 110, top: "50%", transform: "translateY(-50%)", maxWidth: 760 }}>
+        <div style={{ fontFamily: tema.mono, fontSize: 24, letterSpacing: "0.2em", textTransform: "uppercase",
+          color: COBRE, marginBottom: 22 }}>{categoria || "Entender Chile"}</div>
+        <div style={{ fontFamily: tema.serif, fontWeight: 600, fontSize: 78, lineHeight: 1.06, color: "#F7F6F2" }}>
+          {/* el texto completo va en un hueco invisible para que la caja no
+              cambie de alto mientras se escribe y el bloque no salte */}
+          <span style={{ visibility: "hidden", display: "block", height: 0, overflow: "hidden" }}>{titulo}</span>
+          {letras.slice(0, escritas).join("")}
+        </div>
       </div>
+      {Array.from({ length: sonidos }).map((_, i) => (
+        <Sequence key={i} from={i * CUADROS_POR_SONIDO} durationInFrames={4}>
+          <Audio src={staticFile(`sonidos/tecla-${(i % 3) + 1}.wav`)} volume={0.45} />
+        </Sequence>
+      ))}
     </div>
-  </div>
-);
+  );
+};
 
 // ── el tablero ───────────────────────────────────────────────────────────
 const CAJA = 420, CAJA_ALTO = 236;
@@ -451,7 +480,7 @@ export const Bloque: React.FC<{ b: BloqueP; tarjetas: { ev: Evento; from: number
       <AbsoluteFill style={{ background: retiro > 0
         ? velo(retiro, true, b.imagen ? undefined : ALFA_SIN_IMAGEN)
         : velo(avance, false, b.imagen ? undefined : ALFA_SIN_IMAGEN) }} />
-      {b.titulo ? <TituloSeccion categoria={b.categoria} titulo={b.titulo} opacidad={opTitulo} /> : null}
+      {b.titulo ? <TituloSeccion categoria={b.categoria} titulo={b.titulo} opacidad={opTitulo} teclea /> : null}
       <FondoTarjetaContext.Provider value={{ modo: "transparente", secciones: [] }}>
         <AbsoluteFill style={{ opacity: apagado }}>
           {tarjetas.map((t, i) => (

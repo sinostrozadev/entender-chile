@@ -140,7 +140,24 @@ const planear = (tl, opciones = {}) => {
   // Para que un fondo claro sirva acá hay que hacer ese velo consciente del
   // tono, como ya lo es el de la portada y el de la entrada (src/legible.tsx).
   const imagenDeBloque = (categoria) => imagenDeSeccion(tl, categoria);
-  const portadaSeg = opciones.portadaSeg ?? tl.meta.portadaSeg ?? 3.5;
+  // LA PORTADA VIVE EN EL SILENCIO, NUNCA SOBRE LA VOZ (19-10-2026, lo cazó
+  // Santiago mirando un informe: "empieza Lorenzo hablando y no aparece al
+  // tiro el texto que lee, aparece otra cosa, y al finalizar casi la lectura
+  // aparece el texto y se cambia rápido").
+  //
+  // Eran dos decisiones que no se habían mirado juntas. La apertura en frío
+  // (02-09) pone la voz en el segundo 0 para que el que llegó por el título
+  // reciba la noticia en el primer segundo; la portada se quedaba 3,5 s fijos
+  // desde antes de que esa apertura existiera. Resultado: tres segundos y
+  // medio de narración sobre una imagen, y un texto que entra ya atrasado y
+  // tiene que correr para alcanzar a la voz. Justo al principio, que es donde
+  // se decide si alguien se queda.
+  //
+  // El tope no es un número nuevo: es el momento en que empieza a hablar. Con
+  // apertura en frío eso da cero y no hay portada, que es lo correcto, porque
+  // la ilustración ya hizo su trabajo como miniatura.
+  const portadaPedida = opciones.portadaSeg ?? tl.meta.portadaSeg ?? 3.5;
+  const portadaSeg = Math.min(portadaPedida, tl.meta.inicioNarracion ?? portadaPedida);
   const paseoSeg = opciones.paseoSeg ?? PASEO_SEG;
   const presentacionSeg = opciones.presentacionSeg ?? PRESENTACION_SEG;
   const fin = tl.meta.duracionSeg;
