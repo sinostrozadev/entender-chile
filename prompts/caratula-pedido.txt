@@ -94,6 +94,7 @@ jerarquía evidente,
 nada importante demasiado pequeño.
 Importante:
 Deja la zona inferior derecha libre de información crítica, porque YouTube puede poner ahí la duración del video.
+Deja también la franja inferior IZQUIERDA libre: los primeros 560 píxeles de ancho y los últimos 130 de alto. Ahí el sistema pone la etiqueta de la serie, y si esa franja trae texto o un elemento importante, la etiqueta lo tapa. Puede haber fondo, fotografía o cielo: lo que no puede haber es texto ni el protagonista de la imagen.
 CURIOSIDAD SÍ, CONFUSIÓN NO
 La miniatura debe provocar clic porque deja una pregunta abierta, no porque oculta tanto que nadie entiende nada.
 Correcto:
@@ -208,6 +209,7 @@ Antes de terminar, evalúa silenciosamente:
 ¿El texto secundario es realmente necesario?
 ¿La composición tiene un protagonista claro?
 ¿La esquina inferior derecha está limpia de información crítica?
+¿La franja inferior izquierda está libre de texto y del protagonista?
 ¿Parece una miniatura premium capaz de competir por clics?
 Si alguna respuesta es no, corrígelo antes de generar.
 ORDEN DE PRIORIDADES

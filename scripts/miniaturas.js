@@ -30,7 +30,18 @@ const { entera } = require("./imagen-entera.js");
 //
 // LA CLAVE NO LLEVA ETIQUETA, y eso no es un olvido: se reconoce por ausencia.
 // Si algún día la lleva, las dos series vuelven a verse iguales.
-const ETIQUETA_INFORME = { etiqueta: "El día en 3 minutos", posicion: "arriba", cuerpo: 52 };
+// ABAJO A LA IZQUIERDA, no arriba (19-10-2026). Arriba fue un error mío: lo
+// elegí mirando la carátula del 16-10, donde ese rincón estaba libre, y el
+// tablero lo confirmó con otra del 13-10. Pero GPT compone libre y el gancho
+// suele ocupar el tope: el 19-10 la etiqueta tapó "¿Hay clases mañana?" y el
+// 17-10 "¿Qué cambia ahora?", con los tres informes ya publicados.
+//
+// Abajo a la izquierda es la única esquina libre en las tres carátulas que
+// miré (escritorio, nieve, traje oscuro), y es la única que YouTube no usa:
+// el reloj de duración va abajo a la DERECHA. Aun así una posición fija sobre
+// una imagen que otro compone es frágil, y por eso el arreglo de fondo va en
+// prompts/caratula-pedido.txt, pidiendo que esa franja quede limpia.
+const ETIQUETA_INFORME = { etiqueta: "El día en 3 minutos", posicion: "abajo", cuerpo: 52 };
 
 const miniaturas = ({ parsed, fecha, esClave = false, OUT, guion = null }) => {
   // qué ilustración terminó usando la carátula que sale al aire: el video de
