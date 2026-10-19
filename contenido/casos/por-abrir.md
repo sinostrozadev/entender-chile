@@ -67,3 +67,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-10-16 | querella contra exdirector del Servicio Médico Legal
 - 2026-10-17 | medialuna de Chillán
 - 2026-10-18 | GORE La Araucanía y Fundación Local
+- 2026-10-19 | Medialuna de Chillán
