@@ -1,7 +1,7 @@
 # Caso: Democracia Viva (caso Convenios, arista madre)
 
 Estado: JUDICIALIZADO
-Dossier abierto: 2026-08-26 · Última actualización: 2026-10-16
+Dossier abierto: 2026-08-26 · Última actualización: 2026-10-20
 
 <!-- datos
 cuestionado: 426000000
@@ -73,9 +73,12 @@ Advertencia de rigor: todas las personas mencionadas como acusadas mantienen la 
 - 2026-07-20/21: se difunde el cierre de esa arista. Crispi acusa una "operación política". (Emol, 2026-07-20; El Mostrador, 2026-07-21; Radio U. de Chile, 2026-07-21)
 - 2026-08-25: se comunica la resolución con que la Segunda Sala de la Corte Suprema zanja la contienda de competencia y radica definitivamente la causa en el Juzgado de Garantía de Antofagasta, aplicando los artículos 157 y 159 del Código Orgánico de Tribunales y fijando como primer acto de ejecución el convenio con Fusupo firmado el 01-07-2022 en Antofagasta. El Ministerio Público lo informa en su propio sitio institucional y precisa que la preparación del juicio oral sigue en curso respecto de las siete personas acusadas por fraude al fisco, dos de ellas también por lavado de activos. Corrección de lo que este dossier publicaba: la fecha figuraba como "agosto de 2026, sin confirmar", con un snippet de búsqueda que la situaba el 21-08-2026; ahora se consigna el 25-08-2026, día en que la informan la Fiscalía de Chile y dos medios con fecha en su dirección web. Ese 25-08-2026 es la fecha de comunicación del fallo: la fecha de la resolución misma, su rol y la sala siguen sin verificarse en el texto. (Fiscalía de Chile, fuente oficial; Radio Paulina, 25-08-2026; G5noticias, 25-08-2026; La Nación; El Periodista, 2026-08; Antofagasta.tv, 2026-08; Puranoticia, 2026-08)
 - 2026-08-21: fecha fijada para la audiencia en que se comunicaría formalmente la decisión de no perseverar respecto de Jackson, Crispi y Martínez. Resultado de esa audiencia: sin confirmar.
+- 2026-10-11: se difunde que el Juzgado de Garantía de Antofagasta rechazó la solicitud de las defensas de Catalina Pérez y Daniel Andrade de comparecer por vía telemática a la audiencia fijada para el 19-10-2026, que la Corte de Apelaciones de Antofagasta declaró inadmisibles sus recursos y que ambos recurrieron a la Corte Suprema. AntofagastaAlDía describe esas presentaciones como recursos de amparo; Soychile habla de recursos ante la Corte Suprema sin nombrar la vía. El resultado de la gestión ante la Corte Suprema no consta. (Soychile, 11-10-2026; AntofagastaAlDía, 19-10-2026)
+- 2026-10-19: la audiencia de preparación de juicio oral fijada ante el Juzgado de Garantía de Antofagasta no se realiza. El tribunal la suspende después de que Daniel Andrade dejara sin efecto el patrocinio de todos sus abogados, con lo que quedó sin defensa constituida. Es al menos la sexta vez que esta etapa se suspende o se refija. El tribunal no informó nueva fecha y estimó que la preparación podría extenderse entre dos y tres semanas una vez iniciada. La suspensión no se pronuncia sobre el fondo de la acusación ni altera la situación procesal de los siete acusados, que mantienen la presunción de inocencia. (El Mostrador, 19-10-2026; Cooperativa, 19-10-2026; AntofagastaAlDía, 19-10-2026; EnEstrado, 19-10-2026)
 
 ## Próximos hitos conocidos
-1. Fijación de nueva fecha para la audiencia de preparación de juicio oral (APJO) ante el Juzgado de Garantía de Antofagasta. Tras el fallo de la Corte Suprema comunicado el 25-08-2026, la causa vuelve a Antofagasta y la APJO debe reagendarse; el Ministerio Público consignó ese mismo día que la preparación del juicio oral sigue en curso respecto de los siete acusados. A la fecha de cierre de este dossier no hay fecha fijada verificable. La APJO ha sido suspendida o refijada al menos cinco veces (2025-09-29, 2025-11-17, 2026-01-19, y las postergaciones derivadas del conflicto de competencia de mayo-agosto de 2026).
+1. Fijación de nueva fecha para la audiencia de preparación de juicio oral (APJO) ante el Juzgado de Garantía de Antofagasta. Tras el fallo de la Corte Suprema comunicado el 25-08-2026 la causa volvió a Antofagasta y la APJO se fijó para el 19-10-2026, pero ese día el tribunal la suspendió porque Daniel Andrade dejó sin efecto el patrocinio de todos sus abogados. Al 20-10-2026 el tribunal no ha informado nueva fecha. La APJO ha sido suspendida o refijada al menos seis veces (2025-09-29, 2025-11-17, 2026-01-19, las postergaciones derivadas del conflicto de competencia de mayo-agosto de 2026 y la del 19-10-2026). El tribunal estimó que, una vez iniciada, la preparación podría durar entre dos y tres semanas. (El Mostrador y Cooperativa, 19-10-2026)
+6. Resultado de la gestión de Catalina Pérez y Daniel Andrade ante la Corte Suprema para comparecer por vía telemática, después de que el Juzgado de Garantía de Antofagasta rechazara la solicitud y la Corte de Apelaciones declarara inadmisibles sus recursos. Sin confirmar al 20-10-2026. (Soychile, 11-10-2026; AntofagastaAlDía, 19-10-2026)
 2. Formalización del cierre respecto de Jackson, Crispi y Martínez. Audiencia estaba fijada para el 2026-08-21. Falta confirmar si el tribunal aprobó la decisión de no perseverar y si algún querellante particular pidió el forzamiento de la acusación.
 3. Juicio oral ante el Tribunal de Juicio Oral en lo Penal de Antofagasta. Sin fecha. La Fiscalía Regional de Antofagasta estimó públicamente en 2025 que, una vez iniciada la preparación, el juicio podría extenderse entre 3 y 6 meses.
 4. Destino de los $294.957.312 retenidos en la cuenta del tribunal de Antofagasta y estado del juicio civil de restitución del CDE. Sin confirmar.
@@ -141,12 +144,18 @@ Advertencia de rigor: todas las personas mencionadas como acusadas mantienen la 
 - G5noticias, 2025-08-21: https://g5noticias.cl/2025/08/21/fiscalia-de-antofagasta-pide-entre-10-y-35-anos-de-carcel-para-siete-imputados-en-cuatro-aristas-del-caso-convenios/
 - El Diario de Antofagasta, 2025-08: https://www.diarioantofagasta.cl/regional/antofagasta/212710/caso-convenios-fiscalia-de-antofagasta-cierra-investigacion-en-cuatro-aristas-y-alista-acusacion-contra-7-imputados/
 - Radio Angelina, 2026 (retención de fondos recuperados): https://www.radioangelina.cl/portal/views/noticia.php?codNoticia=MjI4MTg%3D
+- El Mostrador, 19-10-2026 (suspensión de la APJO): https://www.elmostrador.cl/noticias/pais/2026/10/19/democracia-viva-suspenden-preparacion-del-juicio-oral-tras-cambio-de-abogados-de-daniel-andrade/
+- Cooperativa, 19-10-2026: https://www.cooperativa.cl/noticias/pais/judicial/casos-emblematicos/democracia-viva-preparacion-de-juicio-oral-se-aplaza-luego-que-andrade/2026-10-19/123519.html
+- AntofagastaAlDía, 19-10-2026: https://antofagastaaldia.cl/caso-convenios-audiencia-de-preparacion-de-juicio-oral-de-democracia-viva-se-suspende-tras-revocacion-de-abogados-de-daniel-andrade/
+- EnEstrado, 19-10-2026: https://enestrado.com/caso-democracia-viva-la-sorpresiva-maniobra-de-daniel-andrade-que-frena-el-arranque-del-juicio-oral/
+- Soychile, 11-10-2026 (solicitud de comparecencia telemática): https://www.soychile.cl/antofagasta/sociedad/2026/10/11/968306/juicio-oral-democracia-viva.html
 
 Nota sobre las fuentes: no se accedió al texto íntegro de las resoluciones judiciales ni al rol de la causa. Todo lo consignado proviene de notas de prensa y extractos con URL verificada, con al menos dos medios por cifra salvo donde se indica lo contrario. Los montos de $426 millones y $391.768.516 provienen de fuentes oficiales (acusación del Ministerio Público, resolución de la Seremi de Vivienda y acciones del CDE); los desgloses por convenio y la cifra agregada de $1.596 millones están reportados por prensa (La Tercera, Timeline.cl, El Diario de Antofagasta, 08-2025).
 
 ## Registro de actualizaciones del dossier
 - 2026-08-26: dossier creado con investigación inicial. (agente de investigación)
 - 2026-10-16: se fecha el fallo con que la Segunda Sala de la Corte Suprema radicó la causa en el Juzgado de Garantía de Antofagasta, que el dossier consignaba como "agosto de 2026, fecha exacta sin confirmar" y con un snippet que la situaba el 21-08-2026. Corrección de lo publicado: la resolución se comunicó el 25-08-2026, día en que la informan el propio Ministerio Público en su sitio institucional, Radio Paulina y G5noticias (las dos con fecha en su dirección web) y La Nación. Queda dicho que el 25-08-2026 es la fecha de comunicación y no necesariamente la de la resolución, cuyo rol y sala siguen sin verificarse. Entra además, de la misma nota oficial, que la preparación del juicio oral sigue en curso respecto de las siete personas acusadas por fraude al fisco, dos de ellas también por lavado de activos, lo que confirma el estado procesal que la ficha ya describía. Se reescriben la línea de la cronología y el primer próximo hito, y se agregan cuatro fuentes, entre ellas la oficial de la Fiscalía de Chile. Sin cambios en el bloque de datos: los $426 millones acusados siguen iguales, no hay dinero recuperado y los $294.957.312 siguen retenidos en una cuenta del tribunal.
+- 2026-10-20: entra el hecho procesal del día y se cierra el punto que el dossier tenía pendiente de un segundo medio. La audiencia de preparación de juicio oral fijada para el 19-10-2026 ante el Juzgado de Garantía de Antofagasta no se realizó: el tribunal la suspendió después de que Daniel Andrade dejara sin efecto el patrocinio de todos sus abogados, quedando sin defensa constituida, y no informó nueva fecha. Con eso la etapa suma al menos seis suspensiones o refijaciones. Entra también, ahora con dos medios, el antecedente que estaba anotado por fuente única: el rechazo del tribunal a la solicitud de Catalina Pérez y Daniel Andrade de comparecer por vía telemática, la inadmisibilidad declarada por la Corte de Apelaciones de Antofagasta y el recurso de ambos ante la Corte Suprema, cuyo resultado no consta; se consigna que AntofagastaAlDía los llama recursos de amparo y Soychile no nombra la vía. Corrección de lo publicado: donde el primer próximo hito decía que no había fecha fijada verificable para la APJO, ahora consigna que se fijó para el 19-10-2026 y que ese día se suspendió. Entra con dos medios establecidos (El Mostrador y Cooperativa, los dos del 19-10-2026) más AntofagastaAlDía y EnEstrado. Sin cambios en el bloque de datos: la suspensión no mueve los $426 millones acusados, el recuperado sigue en $0 y los $294.957.312 siguen retenidos en una cuenta del tribunal.
 
 <!-- interno
 Correcciones al barrido de candidatos del 25-08-2026 (base interna, no publicada) y límites de acceso:
@@ -170,6 +179,17 @@ hay una audiencia fijada para el 19-10-2026 en esta causa, que el Juzgado de Gar
 solicitud de las defensas de Catalina Perez y Daniel Andrade de comparecer por via telematica, que la
 Corte de Apelaciones declaro inadmisibles sus recursos y que ambos recurrieron a la Corte Suprema. Es el
 movimiento procesal mas reciente del caso y merece confirmarse con un segundo medio.
+
+20-10-2026: el proxy de red bloqueo por DNS todos los dominios consultados
+(elmostrador.cl, cooperativa.cl, antofagastaaldia.cl, enestrado.com,
+soychile.cl): ninguno resolvio, asi que la suspension entra desde titulares y
+extractos de busqueda con URL verificada, con dos medios establecidos
+coincidentes. Queda por confirmar en por-verificar.md el numero exacto de
+suspensiones de esta etapa (la ficha dice "al menos seis" contando las que ya
+tenia registradas, pero ningun medio da un conteo propio) y si la via usada
+ante la Corte Suprema fue un amparo, que solo nombra AntofagastaAlDia. La
+estimacion de dos a tres semanas de duracion de la APJO se atribuye al tribunal
+segun el extracto de El Mostrador, sin texto leido.
 
 Tampoco entra, por ser pronostico y no hecho, la nota de Timeline.cl segun la cual un abogado querellante
 preve que el criterio de competencia de la Corte Suprema en esta causa deberia aplicarse a ProCultura si
