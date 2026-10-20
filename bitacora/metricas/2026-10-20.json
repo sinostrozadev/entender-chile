@@ -3,26 +3,26 @@
   "canal": {
     "suscriptores": 39,
     "vistas": 20060,
-    "videos": 181
+    "videos": 182
   },
   "videos": {
+    "FFKbSWzAq_g": {
+      "titulo": "Alerta roja: diez comunas sin clases, y otras 4 cosas de hoy",
+      "publicado": "2026-10-20",
+      "estado": "public",
+      "vistas": 4,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 30
+    },
     "esc7Vm_376c": {
       "titulo": "Diez comunas metropolitanas en alerta roja por riesgo de alu",
       "publicado": "2026-10-20",
       "estado": "public",
-      "vistas": 3,
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 259
-    },
-    "FFKbSWzAq_g": {
-      "titulo": "Alerta roja: diez comunas sin clases, y otras 4 cosas de hoy",
-      "publicado": "2026-10-20",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 30
     },
     "jqn9W9c_cEk": {
       "titulo": "Siete regiones están bajo emergencia preventiva por el siste",
@@ -37,7 +37,7 @@
       "titulo": "Emergencia preventiva en siete regiones y clases suspendidas",
       "publicado": "2026-10-19",
       "estado": "public",
-      "vistas": 1,
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 258
@@ -46,7 +46,7 @@
       "titulo": "RM en alerta roja: ¿qué comunas no tendrán clases el martes?",
       "publicado": "2026-10-19",
       "estado": "public",
-      "vistas": 97,
+      "vistas": 99,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 42
@@ -91,7 +91,7 @@
       "titulo": "¿Qué cree hoy la mayoría de los chilenos sobre el estallido ",
       "publicado": "2026-10-18",
       "estado": "public",
-      "vistas": 445,
+      "vistas": 455,
       "meGusta": 17,
       "comentarios": 1,
       "durSeg": 44
@@ -100,7 +100,7 @@
       "titulo": "La Fiscalía confirmó tres fallecidos y cuatro lesionados tra",
       "publicado": "2026-10-18",
       "estado": "public",
-      "vistas": 146,
+      "vistas": 147,
       "meGusta": 5,
       "comentarios": 1,
       "durSeg": 42
