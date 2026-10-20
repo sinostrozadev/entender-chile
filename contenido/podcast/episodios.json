@@ -564,5 +564,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-19-informe.mp3",
     "bytes": 6170112,
     "durSeg": 257
+  },
+  {
+    "fecha": "2026-10-20",
+    "tipo": "informe",
+    "titulo": "20-10-2026 · Diez comunas metropolitanas en alerta roja por riesgo de aluviones",
+    "descripcion": "Diez comunas metropolitanas están bajo alerta roja por riesgo de remociones en masa, con suspensión de clases y tres perímetros de seguridad. El Gobierno presentó una reforma al Instituto Nacional de Derechos Humanos y la Cámara aprobó cambios a las expulsiones administrativas que aún debe revisar el Senado. En el informe completo también están la inversión proyectada de Enap en Ecuador y los recursos judiciales por las pérdidas del Fondo E.\n\nEl informe completo de hoy, con todas las noticias del día: https://sinostrozadev.github.io/entender-chile-web/informes/2026-10-20/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-20-informe.mp3",
+    "bytes": 6197184,
+    "durSeg": 258
   }
 ]
