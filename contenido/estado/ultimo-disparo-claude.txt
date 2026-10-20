@@ -1,1 +1,1 @@
-2026-10-19 validar_final 0
+2026-10-20 validar_preseleccion 0
