@@ -1046,6 +1046,20 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **20-10, HOY: el informe cita rutas internas del repo
+      (`contenido/casos/hitos.md`) como fuente para el lector, y ya salió
+      así a la web.** Auditoría del 20-10 (`bitacora/2026-10-20-auditoria.md`).
+      `contenido/informes/2026-10-20.md` líneas 57, 141, 143 y 145: cada una
+      cierra con "(contenido/casos/hitos.md, 20-10-2026)" en vez de la fuente
+      pública real que el propio hito ya registra. Es nuevo: no hay mención
+      de "hitos.md" en las revisiones del 17, 18 ni 19-10. `prompts/guion-informe.md:316`
+      ya tiene la regla correcta ("NUNCA listes archivos internos del
+      sistema... cita la fuente PÚBLICA original del hecho") desde que el
+      30-08 se coló lo mismo en el guion; `prompts/informe.md:159-160` (la
+      sección "¿En qué quedó?") no tiene esa misma regla. Propuesta:
+      agregar en `prompts/informe.md:159-160` una línea equivalente a la del
+      guion.
+
 - [ ] **16-10, AGUANTA: las seis fuentes institucionales sin feed propio
       nunca entran a la preselección desde que pasó al suplente (06-10), y
       ya son tres revisiones seguidas que lo marcan sin que nada cambie.**
