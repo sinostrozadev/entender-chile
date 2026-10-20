@@ -2,10 +2,19 @@
   "fecha": "2026-10-20",
   "canal": {
     "suscriptores": 39,
-    "vistas": 19762,
-    "videos": 180
+    "vistas": 20060,
+    "videos": 181
   },
   "videos": {
+    "esc7Vm_376c": {
+      "titulo": "Diez comunas metropolitanas en alerta roja por riesgo de alu",
+      "publicado": "2026-10-20",
+      "estado": "public",
+      "vistas": 3,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 259
+    },
     "FFKbSWzAq_g": {
       "titulo": "Alerta roja: diez comunas sin clases, y otras 4 cosas de hoy",
       "publicado": "2026-10-20",
@@ -14,15 +23,6 @@
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 30
-    },
-    "esc7Vm_376c": {
-      "titulo": "Diez comunas metropolitanas en alerta roja por riesgo de alu",
-      "publicado": "2026-10-20",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 259
     },
     "jqn9W9c_cEk": {
       "titulo": "Siete regiones están bajo emergencia preventiva por el siste",
@@ -46,7 +46,7 @@
       "titulo": "RM en alerta roja: ¿qué comunas no tendrán clases el martes?",
       "publicado": "2026-10-19",
       "estado": "public",
-      "vistas": 84,
+      "vistas": 97,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 42
@@ -64,7 +64,7 @@
       "titulo": "Un libro vuelve a las muertes del estallido social, a siete ",
       "publicado": "2026-10-18",
       "estado": "public",
-      "vistas": 1,
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 39
@@ -82,7 +82,7 @@
       "titulo": "¿Por qué hay desvíos y Metro cerrado en el centro de Santiag",
       "publicado": "2026-10-18",
       "estado": "public",
-      "vistas": 20,
+      "vistas": 21,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 49
@@ -91,7 +91,7 @@
       "titulo": "¿Qué cree hoy la mayoría de los chilenos sobre el estallido ",
       "publicado": "2026-10-18",
       "estado": "public",
-      "vistas": 391,
+      "vistas": 445,
       "meGusta": 17,
       "comentarios": 1,
       "durSeg": 44
@@ -109,7 +109,7 @@
       "titulo": "¿Qué cambió en Chile a siete años del estallido social? #Sho",
       "publicado": "2026-10-18",
       "estado": "public",
-      "vistas": 144,
+      "vistas": 166,
       "meGusta": 6,
       "comentarios": 3,
       "durSeg": 54
@@ -262,7 +262,7 @@
       "titulo": "¿Por qué había mineros sacando nieve en una zona de riesgo e",
       "publicado": "2026-10-12",
       "estado": "public",
-      "vistas": 720,
+      "vistas": 722,
       "meGusta": 18,
       "comentarios": 0,
       "durSeg": 46
@@ -271,7 +271,7 @@
       "titulo": "¿Por qué cae la aprobación de Kast a su nivel más bajo? #Sho",
       "publicado": "2026-10-11",
       "estado": "public",
-      "vistas": 1052,
+      "vistas": 1055,
       "meGusta": 37,
       "comentarios": 1,
       "durSeg": 44
@@ -280,7 +280,7 @@
       "titulo": "Murió el exlautarista que pidió indulto a Kast seis días ant",
       "publicado": "2026-10-11",
       "estado": "public",
-      "vistas": 871,
+      "vistas": 873,
       "meGusta": 13,
       "comentarios": 3,
       "durSeg": 43
@@ -289,7 +289,7 @@
       "titulo": "Senapred reportó trescientos ochenta y cuatro damnificados y",
       "publicado": "2026-10-11",
       "estado": "public",
-      "vistas": 85,
+      "vistas": 90,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 46
@@ -307,7 +307,7 @@
       "titulo": "Fiscalía investiga el aluvión de Las Condes y el Estado acti",
       "publicado": "2026-10-10",
       "estado": "public",
-      "vistas": 74,
+      "vistas": 75,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 47
@@ -325,7 +325,7 @@
       "titulo": "¿Tsunami en Isla de Pascua? El SHOA ya canceló la alerta por",
       "publicado": "2026-10-09",
       "estado": "public",
-      "vistas": 54,
+      "vistas": 55,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 47
@@ -361,7 +361,7 @@
       "titulo": "¿En qué comunas no hay clases este viernes por la alerta roj",
       "publicado": "2026-10-09",
       "estado": "public",
-      "vistas": 293,
+      "vistas": 294,
       "meGusta": 4,
       "comentarios": 0,
       "durSeg": 47
@@ -4436,9 +4436,9 @@
         "ctr": 25
       },
       "9Eb-1KD5BqE": {
-        "impresiones": 1072,
+        "impresiones": 1073,
         "clics": 87,
-        "ctr": 8.12
+        "ctr": 8.11
       },
       "9SxSCiC8ZTs": {
         "impresiones": 6,
@@ -4811,9 +4811,9 @@
         "ctr": 2.56
       },
       "g1WnkeX8Kas": {
-        "impresiones": 841,
+        "impresiones": 840,
         "clics": 24,
-        "ctr": 2.85
+        "ctr": 2.86
       },
       "vS-m7wt4MgQ": {
         "impresiones": 128,
