@@ -1,1 +1,1 @@
-2026-10-20 reparar_preseleccion 1
+2026-10-21 barrido_listo 0
