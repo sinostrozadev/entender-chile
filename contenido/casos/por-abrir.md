@@ -73,3 +73,5 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-10-20 | Municipalidad de Río Bueno  (POSIBLE DUPLICADO de un dossier abierto: revisar antes de abrir)
 - 2026-10-21 | Medialuna de Chillán
 - 2026-10-21 | Viajes y comisiones del Gobierno Regional del Biobío
+- 2026-10-21 | Medialuna de Chillán
+- 2026-10-21 | Viajes y comisiones del Gobierno Regional del Biobío
