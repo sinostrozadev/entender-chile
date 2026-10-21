@@ -1059,6 +1059,15 @@ referencia:
       sección "¿En qué quedó?") no tiene esa misma regla. Propuesta:
       agregar en `prompts/informe.md:159-160` una línea equivalente a la del
       guion.
+      **21-10: segundo día seguido, y subió de cuatro a cinco citas.**
+      `contenido/informes/2026-10-21.md` líneas 57, 89, 91, 187 y 189 (más su
+      línea en "Fuentes consultadas", línea 236) repiten "(contenido/casos/hitos.md, ...)"
+      como fuente para el lector, ya republicado en la web (`web.yml` run
+      366, revisión 2026-10-21 empujada a las 05:43 UTC). Verificado en
+      `contenido/revisiones/2026-10-21.md`, hallazgo 2: "Es el segundo día
+      seguido con este hallazgo". `prompts/informe.md:159-160` sigue sin la
+      línea propuesta el 20-10. Auditoría del 21-10
+      (`bitacora/2026-10-21-auditoria.md`).
 
 - [ ] **16-10, AGUANTA: las seis fuentes institucionales sin feed propio
       nunca entran a la preselección desde que pasó al suplente (06-10), y
@@ -1225,6 +1234,30 @@ referencia:
       reprodujo, pero la Clave "acuerdo-internacional-sin-tratado" sigue en
       `idea_lista` esperando el sí de Santiago, y el día que se apruebe y su
       producción coincida con la validación de un informe, el bug se repite.
+      **21-10: SÉPTIMA mañana marcada, y esta vez no fue predicción: pasó de
+      verdad y se perdió el día entero.** Auditoría del 21-10
+      (`bitacora/2026-10-21-auditoria.md`). La línea 52 sigue idéntica
+      (verificada en esta corrida). Hoy la Clave "acuerdo-internacional-sin-tratado"
+      tenía fecha de producción 2026-10-21 (`contenido/estado/clave-acuerdo-internacional-sin-tratado.json`,
+      `etapa: aprobada`) y el informe del día aprobó en vuelta 1, así que las
+      dos condiciones que el 12-10 anticipaba coincidieron. La corrida
+      `https://github.com/sinostrozadev/entender-chile/actions/runs/39551135358`
+      (05:43 UTC, disparada por el push de la revisión, la compuerta real del
+      día) falló con el mismo mensaje de siempre: "clave: parsea 0
+      secciones" y "ERROR: clave: solo 0 secciones", pese a que
+      `contenido/guiones/claves/2026-10-21-acuerdo-internacional-sin-tratado.md`
+      existe con sus secciones completas y veredicto APROBADA. A diferencia
+      de las reproducciones del 06-10 y 09-10, hoy no hubo ningún otro motivo
+      de fondo que también fallara: el informe parseaba bien (6 secciones),
+      la revisión estaba APROBADA, y el único bloqueo fue este. Resultado
+      verificado en `contenido/estado/2026-10-21.md` (FALTA: Videos y
+      descripciones) y en `bitacora/metricas/2026-10-21.md` (190 subidos,
+      el mismo conteo de ayer más un Short de guardia ajeno a la cadena
+      diaria; no hay episodio del 21-10 en `contenido/podcast/episodios.json`):
+      a la hora de esta auditoría no se publicó ni el video del informe, ni
+      el Short, ni el video de la Clave del día. El arreglo de una línea
+      sigue siendo el mismo: en `scripts/gate.js:52`, agregar
+      `&& !f.endsWith("-imagenes.md")` al `.find()`.
 
 - [ ] **22-09, HOY: contradicción de prompt en `prompts/guion-informe.md`
       entre el ejemplo de `comparacion` (línea 229, etiquetas de una
@@ -1488,6 +1521,35 @@ referencia:
       a 230 porque el archivo creció), todavía con la restricción "(en esta
       marca o en el pie de un [DATO])" sin generalizar a titulares y
       [TESIS].
+      **21-10: tercera aparición de la variante "siglas contra el tope de seis
+      palabras", después del 10-10 y de la vuelta 1 de hoy mismo.**
+      `contenido/revisiones/2026-10-21.md`, hallazgo 3: "Senapred" se pinta
+      sin expandir en la [FUENTE] de la línea 29 del guion porque expandirla
+      rompería el tope de seis palabras de `prompts/guion-informe.md:238` y
+      `:258`. No bloquea ninguna pieza (ambas reglas se cumplen por separado,
+      solo entran en conflicto cuando coinciden en la misma marca) y "no se
+      arregla en la pieza: hay que decidirlo en el prompt" (palabras de la
+      propia revisión). Sigue sin tocarse ninguna de las dos reglas citadas.
+      Auditoría del 21-10 (`bitacora/2026-10-21-auditoria.md`).
+
+- [ ] **21-10, AGUANTA: `scripts/validar-tarjetas.js:153` cuenta líneas de
+      encabezado ("Carátula N:", "Título sugerido:", "Descripción sugerida:")
+      como si fueran narración, y dispara falsos positivos de "cifra exacta
+      en voz".** Auditoría del 21-10 (`bitacora/2026-10-21-auditoria.md`).
+      El filtro de `narradas` (línea 90) sí excluye esas cabeceras
+      (`!/^(\[|## |#|Título sugerido:|Descripción sugerida:|Guion:)/`), pero
+      el bloque de cifra exacta usa `narrables.forEach` (línea 152) con un
+      filtro más angosto (`!/^(\[|## |#)/`, línea 153) que no excluye
+      "Carátula sugerida:", "Carátula N:" ni "Descripción sugerida:".
+      Reproducido hoy: `contenido/guiones/informe/2026-10-21.md:5` dice
+      "Carátula 3: Por cada millón / 103.900 pesos menos" (un gancho de
+      miniatura, no narración) y el script lo marca con "línea 5: cifra
+      exacta en voz (\"103.900\")" (`node scripts/validar-tarjetas.js --fecha
+      2026-10-21`). `contenido/revisiones/2026-10-21.md`, hallazgo 4, confirma
+      que no es la primera vez hoy: "es el segundo veredicto del día que
+      tiene que explicar el mismo falso positivo". Arreglo de una línea: en
+      `scripts/validar-tarjetas.js:153`, copiar la misma exclusión de cabeceras
+      que ya usa la línea 90.
 
 - [ ] **23-09, HOY: tope al cierre de cautela repetido ("queda para
       verificar/en seguimiento/pendiente"), más de una semana sin corregirse
