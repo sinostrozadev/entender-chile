@@ -3,7 +3,7 @@
   "etapa": "aprobada",
   "veredicto": "APROBADA",
   "vuelta": 0,
-  "actualizado": "2026-10-21 06:42",
+  "actualizado": "2026-10-21 07:18",
   "reparar": null,
   "piezas": [
     {
@@ -87,7 +87,7 @@
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 87,
+      "atraso": 123,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
