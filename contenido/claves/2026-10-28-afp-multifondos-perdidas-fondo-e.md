@@ -4,7 +4,7 @@ Slug: afp-multifondos-perdidas-fondo-e
 
 ## La noticia que abrió esta pregunta, 28-10-2026
 
-Entre el 19 y el 20-10-2026, dos afiliados recurrieron contra AFP Capital y AFP Uno, y la Superintendencia de Pensiones abrió procedimientos sancionatorios separados contra las siete administradoras. El objeto es determinar si decisiones de inversión que afectaron a los fondos D y E incumplieron los deberes de lealtad y diligencia. Al 23-10-2026 no había sanción ni fallo que estableciera responsabilidad o una compensación general (Superintendencia de Pensiones, 20-10-2026; Radio Universidad de Chile, 19-10-2026).
+El 20-10-2026 la Superintendencia de Pensiones abrió procedimientos sancionatorios separados contra las siete administradoras, y Radio Universidad de Chile informó el 19-10-2026 que dos afiliados presentaron recursos de protección contra AFP Capital y AFP Uno, sin que consten su rol ni una resolución en fuentes oficiales. El objeto de los procedimientos es determinar si decisiones de inversión que afectaron a los fondos D y E incumplieron los deberes de lealtad y diligencia. Al 23-10-2026 no había sanción ni fallo que estableciera responsabilidad o una compensación general (Superintendencia de Pensiones, 20-10-2026; Radio Universidad de Chile, 19-10-2026).
 
 El Fondo E, descrito como el más conservador de los cinco, cayó 4,92% real en septiembre y acumuló 10,39% real negativo entre enero y septiembre de 2026. El Fondo D cayó 4,19% en septiembre y 6,38% en el mismo período. La contradicción aparente es la pregunta: si era el fondo con menos riesgo, ¿por qué perdió más y quién responde por ese resultado? (Superintendencia de Pensiones, Ficha Estadística Previsional N° 167, octubre de 2026).
 
@@ -20,7 +20,7 @@ El saldo de una cuenta se obtiene multiplicando el número de cuotas por el valo
 
 El informe oficial de septiembre atribuyó el resultado del Fondo E a retornos negativos de la renta fija nacional y extranjera y de instrumentos extranjeros. La renta fija no equivale a un precio inmóvil. Cuando suben las tasas, instrumentos antiguos que pagan menos pierden valor de mercado para competir con los nuevos. Cuanto mayor sea su sensibilidad a las tasas, mayor puede ser el ajuste (Superintendencia de Pensiones, 05-10-2026).
 
-Los derivados también estaban autorizados. El artículo 45 del Decreto Ley 3.500 permite usarlos para cobertura y para fines distintos de cobertura, dentro de tipos, límites, contrapartes, garantías y controles fijados por el Régimen de Inversión. Un swap de tasas puede proteger frente a un movimiento o tomar exposición para obtener retorno. Que el instrumento esté permitido no demuestra que una operación particular haya sido diligente, pero tampoco que haya sido ilegal (Superintendencia de Pensiones, Decreto Ley 3.500 actualizado a septiembre de 2026).
+Los derivados también estaban autorizados. El artículo 45 del Decreto Ley 3.500 permite usarlos para cobertura y para fines distintos de cobertura, dentro de tipos, límites, contrapartes, garantías y controles fijados por el Régimen de Inversión. Un swap de tasas puede proteger frente a un movimiento o tomar exposición para obtener retorno. Cuál de los dos propósitos movió cada operación no consta: ninguna resolución pública lo establece, y eso es parte de lo que deben determinar los procedimientos abiertos el 20-10-2026. Que el instrumento esté permitido no demuestra que una operación particular haya sido diligente, pero tampoco que haya sido ilegal (Superintendencia de Pensiones, Decreto Ley 3.500 actualizado a septiembre de 2026).
 
 El Banco Central informó en noviembre de 2025 que había aumentado la posición activa de los fondos en derivados de tasas largas en dólares y advirtió que un alza pronunciada podía generar llamados de margen y ventas de renta fija local en un escenario de estrés. El Informe de Estabilidad Financiera del primer semestre de 2026 volvió a tratar el mercado de derivados. Eso acredita que el riesgo estaba identificado, pero no prueba que el Banco Central ordenara a una AFP cerrar una posición ni que una administradora desobedeciera una instrucción (Banco Central de Chile, noviembre de 2025 y mayo de 2026).
 
@@ -76,19 +76,15 @@ La Ley 21.735 reemplaza los multifondos por diez fondos generacionales desde el 
 
 La desaparición de las letras A a E no borra hechos ocurridos bajo la normativa anterior ni extingue los procedimientos abiertos. Los expedientes deberán resolverse según las reglas aplicables a las decisiones que investigan.
 
-## Aplicado al caso de hoy, 23-10-2026
+## Aplicado al caso de hoy, 28-10-2026
 
-El punto comprobado es acotado. El Fondo E fue el que más cayó en septiembre y entre enero y septiembre de 2026. Los derivados estaban permitidos, pero su uso seguía sujeto a límites y deberes de cuidado. La Superintendencia investiga si esos deberes se cumplieron. A esa fecha no había sanción, restitución general ni fallo de los dos recursos informados por la prensa.
+El punto comprobado es acotado. El Fondo E fue el que más cayó en septiembre y entre enero y septiembre de 2026. Los derivados estaban permitidos, pero su uso seguía sujeto a límites y deberes de cuidado. La Superintendencia investiga si esos deberes se cumplieron. Al 23-10-2026 no había sanción, restitución general ni fallo de los dos recursos informados por la prensa.
 
 El País informó el 20-10-2026, como referencia secundaria, más de 770.000 afiliados en el Fondo E y 1,6 millones en el D. La Ficha N° 167 de la Superintendencia no entregó en una misma tabla el número de afiliados, su desglose por edad y la composición porcentual específica de la cartera E. Esos datos no deben atribuirse al regulador.
 
 Sobre el encaje circuló una afirmación de Franco Parisi según la cual la reforma lo redujo de US$2.000 millones a US$400 millones. No se encontró decreto, resolución o acta que confirmara esos montos, fecha y promotores, ni una declaración primaria verificable de Mario Marcel que sostuviera esa cifra. Lo confirmado es la transición legal: el encaje de 1% se conserva hasta el 31-03-2027 y luego cambia su fórmula (T13, 22-10-2026; BCN, Ley 21.735, 26-03-2025).
 
 Análisis: el beneficio de investigar y sancionar, si se acredita una infracción, es hacer exigible el deber de administrar para el interés de los fondos y desalentar riesgos incompatibles con ese deber. El riesgo para quien se pensiona durante una caída es disponer de menos saldo sin un horizonte largo para esperar una eventual recuperación. Para las administradoras, el procedimiento expone decisiones, controles y posibles sanciones. Para los afiliados, el resultado decisivo no será el número de titulares publicados, sino si las resoluciones identifican una infracción, una relación con el perjuicio y una consecuencia que alcance sus cuentas.
-
-## Qué observar en esta discusión, octubre de 2026
-
-Primero, las resoluciones fundadas de los siete procedimientos: deberán decir qué conducta se investigó, qué pruebas se aceptaron y si hubo infracción. Segundo, la tramitación de los recursos del 19-10-2026: mientras no haya fallo, no prueban un derecho a restitución. Tercero, cualquier anuncio de compensación debe distinguir entre multa, rentabilidad mínima, restitución por una instrucción incumplida y una nueva regla legal. Cuarto, las cifras agregadas deben explicar qué miden, durante qué período y sobre qué fondos antes de compararse.
 
 ## Qué conviene recordar
 
@@ -97,6 +93,10 @@ Primero, las resoluciones fundadas de los siete procedimientos: deberán decir q
 3. La rentabilidad mínima, el encaje, una sanción administrativa y una restitución individual son mecanismos distintos.
 4. Una investigación o un recurso no equivalen a una condena ni generan un abono automático.
 5. Renta vitalicia, retiro programado y trámite de pensión reaccionan de forma distinta ante una caída del fondo.
+
+## Qué observar en esta discusión, octubre de 2026
+
+Primero, las resoluciones fundadas de los siete procedimientos: deberán decir qué conducta se investigó, qué pruebas se aceptaron y si hubo infracción. Segundo, la tramitación de los recursos del 19-10-2026: mientras no haya fallo, no prueban un derecho a restitución. Tercero, cualquier anuncio de compensación debe distinguir entre multa, rentabilidad mínima, restitución por una instrucción incumplida y una nueva regla legal. Cuarto, las cifras agregadas deben explicar qué miden, durante qué período y sobre qué fondos antes de compararse.
 
 Fuentes:
 
