@@ -1,47 +1,106 @@
 {
-  "generado": "2026-10-09 06:12",
-  "fecha": "2026-10-09",
-  "total": 18,
+  "generado": "2026-10-23 13:09",
+  "fecha": "2026-10-23",
+  "total": 21,
   "por_tipo": {
     "clave": 1,
-    "pendiente": 17
+    "semana": 2,
+    "pendiente": 18
   },
   "items": [
     {
-      "id": "clave-acuerdo-internacional-sin-tratado-idea_lista",
+      "id": "clave-afp-multifondos-perdidas-fondo-e-pauta_lista",
       "tipo": "clave",
-      "titulo": "Clave \"qué obliga a Chile un acuerdo internacional que no es un tratado\": la idea espera tu aprobación",
-      "detalle": "Etapa idea_lista, camino idea. Al aprobar, la producción queda para el 2026-10-14 y GPT recién entonces trabaja.",
-      "desde": "2026-10-05",
-      "archivo": "contenido/claves/flujo/acuerdo-internacional-sin-tratado/idea.md",
+      "titulo": "Clave \"qué es un multifondo de las AFP, quién responde cuando uno pierde y qué puede hacer un af…\": la pauta espera tu aprobación",
+      "detalle": "Etapa pauta_lista, camino pauta. Al aprobar, la producción queda para el 2026-10-28 y GPT recién entonces trabaja.",
+      "desde": "2026-10-23",
+      "archivo": "contenido/claves/flujo/afp-multifondos-perdidas-fondo-e/pauta.md",
       "acciones": [
         {
-          "texto": "Leer la idea",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/contenido/claves/flujo/acuerdo-internacional-sin-tratado/idea.md"
+          "texto": "Leer la pauta",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/contenido/claves/flujo/afp-multifondos-perdidas-fondo-e/pauta.md"
         },
         {
-          "texto": "Aprobar la idea",
-          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Facuerdo-internacional-sin-tratado%2Faprobacion.md&value=APROBADA%3A%202026-10-14%0AAPROBO%3A%20Santiago%2C%202026-10-09%2006%3A12%20(hora%20de%20Chile)%0A%0ALa%20entrega%20y%20el%20guion%20llevan%20la%20fecha%202026-10-14%3B%20el%20video%20sube%20programado%20ese%0Ad%C3%ADa%20a%20la%20hora%20de%20la%20Clave.%0A",
+          "texto": "Aprobar la pauta",
+          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Fafp-multifondos-perdidas-fondo-e%2Faprobacion.md&value=APROBADA%3A%202026-10-28%0AAPROBO%3A%20Santiago%2C%202026-10-23%2013%3A09%20(hora%20de%20Chile)%0A%0AAprobada%20la%20PAUTA%3A%20GPT%20ya%20puede%20trabajar.%20Investiga%20con%20fuentes%0A(investigacion.md)%20y%20despu%C3%A9s%20escribe%20la%20entrega%20y%20el%20guion%2C%20que%20llevan%20la%0Afecha%202026-10-28%3B%20el%20video%20sube%20programado%20ese%20d%C3%ADa%20a%20la%20hora%20de%20la%20Clave.%0A",
           "crea": true
         },
         {
           "texto": "Pedir cambios",
-          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Facuerdo-internacional-sin-tratado%2Faprobacion.md&value=CAMBIAR%3A%20ESCRIBE%20AQU%C3%8D%20LA%20NOTA%20(qu%C3%A9%20hay%20que%20cambiar)%0APIDIO%3A%20Santiago%2C%202026-10-09%2006%3A12%20(hora%20de%20Chile)%0A%0AGPT%20rehace%20la%20idea%20con%20esta%20nota%20(etapa%20reparar_idea)%3B%20Claude%20la%20valida%20de%0Anuevo%20y%20vuelve%20a%20Santiago.%0A",
+          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Fafp-multifondos-perdidas-fondo-e%2Faprobacion.md&value=CAMBIAR%3A%20ESCRIBE%20AQU%C3%8D%20LA%20NOTA%20(qu%C3%A9%20hay%20que%20cambiar)%0APIDIO%3A%20Santiago%2C%202026-10-23%2013%3A09%20(hora%20de%20Chile)%0A%0AClaude%20rehace%20la%20pauta%20con%20esta%20nota%20(etapa%20reparar_pauta)%20y%20vuelve%20a%0ASantiago.%20GPT%20no%20trabaja%20hasta%20que%20la%20pauta%20est%C3%A9%20aprobada.%0A",
           "crea": true
         }
       ]
     },
     {
-      "id": "pendiente-L751",
+      "id": "semana-2026-W41",
+      "tipo": "semana",
+      "titulo": "Semana 2026-W41: hay 3 candidatos y ningún tema elegido para la Clave",
+      "detalle": "Sin tema elegido no se abre el flujo, y sin flujo no hay Clave esa semana.",
+      "desde": "2026-10-23",
+      "archivo": "contenido/claves/semana/2026-W41-candidatos.md",
+      "acciones": [
+        {
+          "texto": "Leer los tres candidatos",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/contenido/claves/semana/2026-W41-candidatos.md"
+        },
+        {
+          "texto": "Elegir 1: por qué una elección presidencial se decide en segunda vuel…",
+          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Fsegunda-vuelta-mayoria-absoluta%2Ftema.md&value=CONCEPTO%3A%20por%20qu%C3%A9%20una%20elecci%C3%B3n%20presidencial%20se%20decide%20en%20segunda%20vuelta%20y%20qu%C3%A9%20se%20cuenta%20como%20voto%20v%C3%A1lido%0ANOTICIA%3A%2005-10%3A%20Brasil%20va%20a%20segunda%20vuelta%20con%20Fl%C3%A1vio%20Bolsonaro%20primero%20y%20Lula%20a%20menos%20de%20dos%20puntos%20%7C%2006-10%3A%20Brasil%20entra%20a%20segunda%20vuelta%20y%20mueve%20la%20pol%C3%ADtica%20y%20los%20mercados%20chilenos%20%7C%2007-10%3A%20Dos%20partidos%20del%20gobierno%20de%20Lula%20apoyan%20a%20Fl%C3%A1vio%20Bolsonaro%20en%20segunda%20vuelta%20%7C%2010-10%3A%20Brasil%20extendi%C3%B3%20subsidios%20a%20combustibles%20antes%20de%20la%20segunda%20vuelta%0AORIGEN%3A%20tema%20de%20la%20semana%202026-W41%0ASEMANA%3A%202026-W41%0ACANDIDATO%3A%201%0APUNTAJE%3A%2012%0ADIAS%3A%202026-10-05%2C%202026-10-06%2C%202026-10-07%2C%202026-10-10%0ACANDIDATOS%3A%20contenido%2Fclaves%2Fsemana%2F2026-W41-candidatos.md%0AELEGIDO%3A%202026-10-23%2013%3A09%20(hora%20de%20Chile)%2C%20por%20Santiago%0A%0A%23%23%20Historia%20hasta%20hoy%0A%0ALos%20informes%20vienen%20siguiendo%20la%20elecci%C3%B3n%20brasile%C3%B1a%20desde%20el%0A%C3%BAltimo%20mes%20de%20campa%C3%B1a%3A%20el%2009-09-2026%20el%20Gobierno%20de%20Brasil%20anunci%C3%B3%20subsidios%20por%0AUS%241.300%20millones%20para%20contener%20el%20precio%20de%20los%20combustibles%2C%20y%20el%2014-09-2026%0Auna%20encuesta%20puso%20por%20primera%20vez%20a%20Fl%C3%A1vio%20Bolsonaro%20delante%20de%20Luiz%20In%C3%A1cio%20Lula%0Ada%20Silva%20en%20un%20eventual%20balotaje.%20El%2005-10-2026%2C%20a%20las%2000%3A29%2C%20el%20Tribunal%0ASuperior%20Electoral%20confirm%C3%B3%20la%20segunda%20vuelta%20con%2099%2C99%25%20de%20las%20urnas%0Aescrutadas%3A%20Bolsonaro%2056.104.268%20votos%20(47%2C03%25%20de%20los%20v%C3%A1lidos)%20y%20Lula%2053.876.617%0A(45%2C16%25)%2C%20una%20diferencia%20de%202.227.651%20votos%20y%201%2C87%20puntos%2C%20la%20menor%20en%20una%0Aprimera%20vuelta%20presidencial%20desde%20la%20redemocratizaci%C3%B3n.%20El%20TSE%20contabiliz%C3%B3%0A119.297.583%20votos%20v%C3%A1lidos%20dentro%20de%20125.272.513%20computados%2C%20con%202.300.781%0Ablancos%20y%203.674.149%20nulos%2C%20y%20fij%C3%B3%20la%20nueva%20votaci%C3%B3n%20para%20el%2025-10-2026.%20Despu%C3%A9s%0Ael%20tablero%20se%20movi%C3%B3%3A%20el%2006-10-2026%20dos%20partidos%20con%20presencia%20en%20el%20gobierno%20de%0ALula%20anunciaron%20apoyo%20a%20Bolsonaro%2C%20y%20el%2009-10-2026%20Brasil%20ampli%C3%B3%20por%2030%20d%C3%ADas%20los%0Asubsidios%20a%20los%20combustibles%2C%20a%20dos%20semanas%20del%20balotaje.%20En%20Chile%2C%20el%20resultado%0Asubi%C3%B3%20las%20acciones%20con%20exposici%C3%B3n%20a%20Brasil%20y%20los%20partidos%20empezaron%20a%20tomar%0Aposici%C3%B3n.%0A%0A%23%23%20Qu%C3%A9%20ense%C3%B1ar%C3%ADa%20la%20Clave%0A%0AQue%20una%20elecci%C3%B3n%20presidencial%20a%20dos%20vueltas%20no%20la%20gana%0Ael%20primer%20lugar%20sino%20la%20mayor%C3%ADa%20absoluta%2C%20y%20que%20%22v%C3%A1lidos%22%20no%20es%20lo%20mismo%20que%0A%22computados%22%3A%20los%20blancos%20y%20los%20nulos%20se%20cuentan%20al%20votar%2C%20pero%20quedan%20fuera%20del%0Adenominador%20que%20define%20si%20hay%20segunda%20vuelta%2C%20y%20por%20eso%20un%2047%2C03%25%20no%20alcanza.%20La%0AClave%20tendr%C3%A1%20que%20verificar%20en%20la%20ley%20chilena%20c%C3%B3mo%20se%20define%20ac%C3%A1%20ese%20umbral%20y%20qu%C3%A9%0Aplazos%20corren%20entre%20una%20vuelta%20y%20otra.%20Qu%C3%A9%20est%C3%A1%20en%20juego%3A%20con%201%2C87%20puntos%20de%0Adiferencia%20deciden%20los%20apoyos%20que%20se%20reordenan%20y%20las%20medidas%20de%20bolsillo%20que%20se%0Atoman%20en%20el%20intertanto%2C%20dos%20cosas%20que%20esta%20semana%20pasaron%20a%20la%20vista.%0A%0ATema%20elegido%20por%20Santiago%20para%20una%20Clave%20(CLAVE%204%2C%20flujo%20propio).%20Desde%20el%0A27-09-2026%3A%20Claude%20escribe%20la%20PAUTA%20(prompts%2Fpauta-clave.md)%20con%20todo%20lo%20que%20el%0Avideo%20debe%20tocar%3B%20Santiago%20la%20aprueba%20con%20scripts%2Fclave.js%20aprobar%20segunda-vuelta-mayoria-absoluta%20y%0Areci%C3%A9n%20entonces%20GPT%20investiga%20y%20escribe.%0A",
+          "crea": true
+        },
+        {
+          "texto": "Elegir 2: qué es el libre tránsito, qué papel juega el Tratado de 190…",
+          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Flibre-transito-bolivia-tratado-1904%2Ftema.md&value=CONCEPTO%3A%20qu%C3%A9%20es%20el%20libre%20tr%C3%A1nsito%2C%20qu%C3%A9%20papel%20juega%20el%20Tratado%20de%201904%20y%20c%C3%B3mo%20se%20tratan%20dos%20pa%C3%ADses%20sin%20relaciones%20diplom%C3%A1ticas%20plenas%0ANOTICIA%3A%2006-10%3A%20Bolivia%20coordina%20la%20visita%20de%20Kast%20y%20reactiva%20la%20discusi%C3%B3n%20por%20autos%20chutos%20%7C%2007-10%3A%20Bolivia%20coordina%20en%20Santiago%20la%20visita%20del%20presidente%20Kast%20%7C%2009-10%3A%20El%20Presidente%20viajar%C3%A1%20a%20Bolivia%20%7C%2010-10%3A%20La%20visita%20de%20Kast%20a%20Bolivia%20llegar%C3%A1%20con%20libre%20tr%C3%A1nsito%20y%20una%20causa%20pendiente%0AORIGEN%3A%20tema%20de%20la%20semana%202026-W41%0ASEMANA%3A%202026-W41%0ACANDIDATO%3A%202%0APUNTAJE%3A%2010%0ADIAS%3A%202026-10-06%2C%202026-10-07%2C%202026-10-09%2C%202026-10-10%0ACANDIDATOS%3A%20contenido%2Fclaves%2Fsemana%2F2026-W41-candidatos.md%0AELEGIDO%3A%202026-10-23%2013%3A09%20(hora%20de%20Chile)%2C%20por%20Santiago%0A%0A%23%23%20Historia%20hasta%20hoy%0A%0AChile%20y%20Bolivia%20no%20mantienen%20relaciones%20diplom%C3%A1ticas%20plenas%0Adesde%201978%2C%20y%20aun%20as%C3%AD%20los%20informes%20registran%20un%20acercamiento%20sostenido%3A%20el%0A31-08-2026%20Carabineros%2C%20la%20PDI%20y%20la%20Polic%C3%ADa%20Boliviana%20hicieron%20en%20La%20Paz%20la%0Aprimera%20Reuni%C3%B3n%20de%20Altos%20Mandos%20Policiales%20y%20Unidades%20Especializadas%2C%20contra%0Anarcotr%C3%A1fico%2C%20crimen%20organizado%20y%20trata%3B%20el%2004-09-2026%20la%20Comisi%C3%B3n%20de%20Relaciones%0AExteriores%20del%20Senado%20visit%C3%B3%20Bolivia%2C%20la%20primera%20visita%20de%20ese%20nivel%20en%2018%20a%C3%B1os%2C%0Ay%20se%20reuni%C3%B3%20con%20el%20presidente%20Rodrigo%20Paz%3B%20y%20el%2021-09-2026%20los%20cancilleres%0Avolvieron%20a%20conversar%20en%20la%20Asamblea%20General%20de%20la%20ONU.%20Esta%20semana%20se%20arm%C3%B3%20la%0Avisita%20presidencial%3A%20el%2005-10-2026%20el%20canciller%20boliviano%20H%C3%A9ctor%20Huanca%20anunci%C3%B3%0Auna%20reuni%C3%B3n%20con%20su%20par%20chileno%20para%20prepararla%2C%20con%20comercio%2C%20seguridad%20e%0Aintegraci%C3%B3n%20en%20la%20agenda%2C%20mientras%20la%20reactivaci%C3%B3n%20boliviana%20de%20un%20proyecto%20para%0Aregularizar%20veh%C3%ADculos%20indocumentados%20(los%20autos%20chutos)%20generaba%20preocupaci%C3%B3n%20en%0Ael%20norte%20por%20sus%20efectos%20aduaneros%20y%20de%20seguridad%3B%20el%2006-10-2026%20el%20canciller%0Aviaj%C3%B3%20a%20Santiago%20a%20coordinarla%3B%20el%2008-10-2026%20se%20confirm%C3%B3%20el%20viaje%20para%20el%0A16-10-2026%3B%20y%20el%2009-10-2026%20se%20supo%20que%20la%20agenda%20incluye%20el%20libre%20tr%C3%A1nsito%20y%20el%0ATratado%20de%201904%2C%20y%20que%20autoridades%20bolivianas%20pidieron%20a%20la%20Fiscal%C3%ADa%20chilena%20una%0Arespuesta%20por%20el%20llamado%20caso%20maderas%20antes%20del%20encuentro%20con%20Paz.%0A%0A%23%23%20Qu%C3%A9%20ense%C3%B1ar%C3%ADa%20la%20Clave%0A%0AQu%C3%A9%20es%20el%20libre%20tr%C3%A1nsito%2C%20qu%C3%A9%20obligaci%C3%B3n%20concreta%20deja%0Asobre%20Chile%20y%20por%20qu%C3%A9%20se%20discute%20con%20un%20tratado%20de%201904%20en%20la%20mano%2C%20piezas%20que%20la%0AClave%20tendr%C3%A1%20que%20verificar%20en%20el%20texto%20del%20tratado%20y%20no%20de%20memoria.%20Y%20c%C3%B3mo%0Afunciona%20una%20relaci%C3%B3n%20sin%20relaciones%20diplom%C3%A1ticas%20plenas%2C%20donde%20el%20trabajo%20pasa%0Apor%20c%C3%B3nsules%2C%20polic%C3%ADas%2C%20parlamentarios%20y%20cancilleres%20antes%20que%20por%20embajadas.%20Qu%C3%A9%0Aest%C3%A1%20en%20juego%3A%20un%20encuentro%20presidencial%20inusual%20el%2016-10-2026%2C%20con%20dos%20asuntos%0Acotidianos%20encima%2C%20la%20carga%20que%20entra%20y%20sale%20por%20los%20puertos%20del%20norte%20y%20los%0Aveh%C3%ADculos%20sin%20papeles%20en%20la%20frontera.%0A%0ATema%20elegido%20por%20Santiago%20para%20una%20Clave%20(CLAVE%204%2C%20flujo%20propio).%20Desde%20el%0A27-09-2026%3A%20Claude%20escribe%20la%20PAUTA%20(prompts%2Fpauta-clave.md)%20con%20todo%20lo%20que%20el%0Avideo%20debe%20tocar%3B%20Santiago%20la%20aprueba%20con%20scripts%2Fclave.js%20aprobar%20libre-transito-bolivia-tratado-1904%20y%0Areci%C3%A9n%20entonces%20GPT%20investiga%20y%20escribe.%0A",
+          "crea": true
+        },
+        {
+          "texto": "Elegir 3: qué es el fraude al fisco y por qué aparece en causas tan d…",
+          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Ffraude-al-fisco-delito-funcionario%2Ftema.md&value=CONCEPTO%3A%20qu%C3%A9%20es%20el%20fraude%20al%20fisco%20y%20por%20qu%C3%A9%20aparece%20en%20causas%20tan%20distintas%0ANOTICIA%3A%2006-10%3A%20Diez%20funcionarios%20del%20Maule%20son%20detenidos%20por%20un%20fraude%20al%20fisco%20superior%20a%20%243.000%20millones%20%7C%2007-10%3A%20Desafuero%20del%20senador%20Calisto%20permite%20avanzar%20en%20una%20causa%20por%20fraude%20al%20Fisco%20%7C%2010-10%3A%20La%20Suprema%20volvi%C3%B3%20a%20rechazar%20el%20amparo%20del%20senador%20Calisto%0AORIGEN%3A%20tema%20de%20la%20semana%202026-W41%0ASEMANA%3A%202026-W41%0ACANDIDATO%3A%203%0APUNTAJE%3A%2010%0ADIAS%3A%202026-10-06%2C%202026-10-07%2C%202026-10-10%0ACANDIDATOS%3A%20contenido%2Fclaves%2Fsemana%2F2026-W41-candidatos.md%0AELEGIDO%3A%202026-10-23%2013%3A09%20(hora%20de%20Chile)%2C%20por%20Santiago%0A%0A%23%23%20Historia%20hasta%20hoy%0A%0AEl%20delito%20vuelve%20semana%20a%20semana%20en%20los%20informes%20y%20en%20casos%0Asin%20relaci%C3%B3n%20entre%20s%C3%AD%3A%20el%2003-09-2026%20se%20difundi%C3%B3%20la%20formalizaci%C3%B3n%20de%20un%20exabogado%20del%0AServicio%20de%20Salud%20de%20Antofagasta%20que%20habr%C3%ADa%20intentado%20cobrar%20cinco%20dep%C3%B3sitos%0Ajudiciales%20por%20%2413%20millones%3B%20el%2007-09-2026%20reformaliz%C3%B3%20a%20cuatro%20imputados%20del%0Acaso%20Papaya%20Gate%3B%20el%2011-09-2026%20la%20PDI%20allan%C3%B3%20la%20Municipalidad%20de%20Llay%20Llay%3B%20y%20el%0A24-09-2026%20detuvo%20en%20Atacama%20a%20cuatro%20funcionarios%20de%20Gendarmer%C3%ADa%20por%20compras%0Ap%C3%BAblicas.%20Esta%20semana%20sum%C3%B3%20dos%20cap%C3%ADtulos.%20El%2005-10-2026%20se%20inform%C3%B3%20la%20detenci%C3%B3n%20de%20diez%0Afuncionarios%20p%C3%BAblicos%20del%20Maule%20por%20una%20presunta%20trama%20con%20perjuicio%20superior%20a%0A%243.000%20millones.%20Y%20la%20causa%20del%20senador%20Miguel%20%C3%81ngel%20Calisto%20avanz%C3%B3%20dos%20pasos%3A%0Ael%2006-10-2026%20el%20pleno%20de%20la%20Corte%20de%20Apelaciones%20de%20Puerto%20Montt%20acogi%C3%B3%20por%20tres%0Avotos%20a%20cero%20el%20desafuero%20pedido%20por%20la%20Fiscal%C3%ADa%2C%20en%20la%20investigaci%C3%B3n%20por%0Aasesor%C3%ADas%20falsas%20cobradas%20al%20Congreso%20entre%202018%20y%202022%20como%20asignaciones%0Aparlamentarias%2C%20con%20un%20perjuicio%20eventual%20sobre%20%24100%20millones%20y%20una%20pena%20pedida%0Ade%20hasta%2012%20a%C3%B1os%3B%20ya%20hab%C3%ADa%20sido%20desaforado%20como%20diputado%20por%20la%20Corte%20Suprema%20el%0A29-09-2025%20y%20conserva%20su%20esca%C3%B1o%20hasta%20que%20la%20Suprema%20resuelva%20el%20recurso%20que%0Aanunci%C3%B3.%20El%2009-10-2026%20la%20Suprema%20rechaz%C3%B3%20un%20nuevo%20amparo%20suyo%20en%20la%20causa%20por%0Afraude%20al%20fisco%20y%20fraude%20de%20subvenciones%2C%20despu%C3%A9s%20de%20que%20la%20Corte%20de%20Coyhaique%20ya%0Ale%20hubiera%20rechazado%20otro%20el%2016-09-2026.%20Nada%20de%20esto%20es%20condena%3A%20Calisto%20no%0Aest%C3%A1%20condenado%20en%20ninguna%20de%20sus%20dos%20causas.%20Dos%20avisos%20para%20la%20Clave%3A%20el%0Aranking%20junta%20en%20un%20solo%20tema%20la%20trama%20del%20Maule%20y%20la%20causa%20de%20Calisto%2C%20que%20son%0Ainvestigaciones%20distintas%20y%20solo%20comparten%20el%20delito%2C%20y%20el%20desafuero%20ya%20est%C3%A1%0Aexplicado%20en%20desafuero-parlamentario-chile%2C%20as%C3%AD%20que%20la%20Clave%20es%20sobre%20el%20delito%20y%0Ano%20sobre%20el%20fuero.%0A%0A%23%23%20Qu%C3%A9%20ense%C3%B1ar%C3%ADa%20la%20Clave%0A%0AQu%C3%A9%20tiene%20que%20ocurrir%20para%20que%20haya%20fraude%20al%20fisco%20y%20no%0Asolo%20un%20mal%20gasto%3A%20un%20funcionario%20p%C3%BAblico%2C%20una%20operaci%C3%B3n%20en%20la%20que%20interviene%20por%0Asu%20cargo%20y%20un%20perjuicio%20al%20patrimonio%20del%20Estado%2C%20con%20la%20figura%20de%20defraudar%20o%20de%0Aconsentir%20que%20otro%20lo%20haga.%20La%20Clave%20tendr%C3%A1%20que%20verificar%20en%20el%20C%C3%B3digo%20Penal%20los%0Aelementos%20y%20los%20tramos%20de%20pena%20seg%C3%BAn%20el%20monto.%20Y%20por%20qu%C3%A9%20corre%20en%20paralelo%20a%20la%0Av%C3%ADa%20administrativa%20que%20ya%20explicamos%20en%20contraloria-reparo-juicio-cuentas%3A%20una%0Abusca%20sancionar%20a%20la%20persona%2C%20la%20otra%20recuperar%20la%20plata.%20Qu%C3%A9%20est%C3%A1%20en%20juego%3A%20en%0Alas%20causas%20de%20esta%20semana%20se%20suman%20m%C3%A1s%20de%20%243.000%20millones%20en%20el%20Maule%20y%20sobre%0A%24100%20millones%20en%20la%20causa%20del%20senador%2C%20sin%20recuperaci%C3%B3n%20informada.%0A%0ATema%20elegido%20por%20Santiago%20para%20una%20Clave%20(CLAVE%204%2C%20flujo%20propio).%20Desde%20el%0A27-09-2026%3A%20Claude%20escribe%20la%20PAUTA%20(prompts%2Fpauta-clave.md)%20con%20todo%20lo%20que%20el%0Avideo%20debe%20tocar%3B%20Santiago%20la%20aprueba%20con%20scripts%2Fclave.js%20aprobar%20fraude-al-fisco-delito-funcionario%20y%0Areci%C3%A9n%20entonces%20GPT%20investiga%20y%20escribe.%0A",
+          "crea": true
+        }
+      ]
+    },
+    {
+      "id": "semana-2026-W42",
+      "tipo": "semana",
+      "titulo": "Semana 2026-W42: hay 3 candidatos y ningún tema elegido para la Clave",
+      "detalle": "Sin tema elegido no se abre el flujo, y sin flujo no hay Clave esa semana.",
+      "desde": "2026-10-23",
+      "archivo": "contenido/claves/semana/2026-W42-candidatos.md",
+      "acciones": [
+        {
+          "texto": "Leer los tres candidatos",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/contenido/claves/semana/2026-W42-candidatos.md"
+        },
+        {
+          "texto": "Elegir 1: quién mapea y mitiga el riesgo aluvional de una quebrada an…",
+          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Friesgo-aluvional-quebradas-mitigacion%2Ftema.md&value=CONCEPTO%3A%20qui%C3%A9n%20mapea%20y%20mitiga%20el%20riesgo%20aluvional%20de%20una%20quebrada%20antes%20del%20aluvi%C3%B3n%2C%20y%20qu%C3%A9%20habilita%20de%20verdad%20un%20decreto%20de%20zona%20de%20cat%C3%A1strofe%0ANOTICIA%3A%2012-10%3A%20Doce%20colegios%20de%20Las%20Condes%20suspenden%20clases%20por%20el%20aluvi%C3%B3n%20%7C%2013-10%3A%20Las%20Condes%20levanta%20la%20evacuaci%C3%B3n%20preventiva%20y%20mantiene%20suspendidas%20las%20clases%20%7C%2016-10%3A%20**Minuta%20del%20MOP%20hab%C3%ADa%20advertido%20riesgo%20de%20nuevos%20aluviones%20en%20Las%20Condes.**%20Una%20minuta%20de%20la%20Direcci%C3%B3n%20de%20Obras%20Hidr%C3%A1ulicas%20de%20agosto%20de%202026%20advert%C3%ADa%20que%20el%20sedimento%20y%20la%20p%C3%A9rdida%20de%20cobertura%20vegetal%20manten%C3%ADan%20riesgo%20de%20desbordes%20en%20la%20zona%20afectada%20por%20el%20aluvi%C3%B3n%20del%208%20de%20octubre%2C%20antes%20de%20que%20Las%20Condes%20fuera%20declarada%20zona%20de%20cat%C3%A1strofe%20el%209%20de%20octubre%20%7C%2017-10%3A%20Tras%20el%20aluvi%C3%B3n%2C%20Las%20Condes%20recupera%20calles%20y%20abre%20una%20mesa%20de%20riesgo%0AORIGEN%3A%20tema%20de%20la%20semana%202026-W42%0ASEMANA%3A%202026-W42%0ACANDIDATO%3A%201%0APUNTAJE%3A%2011%0ADIAS%3A%202026-10-12%2C%202026-10-13%2C%202026-10-16%2C%202026-10-17%0ACANDIDATOS%3A%20contenido%2Fclaves%2Fsemana%2F2026-W42-candidatos.md%0AELEGIDO%3A%202026-10-23%2013%3A09%20(hora%20de%20Chile)%2C%20por%20Santiago%0A%0A%23%23%20Historia%20hasta%20hoy%0A%0AEl%2008-10-2026%20dos%20aluviones%20golpearon%20Las%20Condes%20y%20el%0Asubsecretario%20Pavez%20situ%C3%B3%20el%20origen%20en%20el%20desborde%20de%20Quebrada%20Honda%3B%20Senapred%0Adeclar%C3%B3%20alerta%20roja%20en%20diez%20comunas%20y%20el%20Gobierno%20decret%C3%B3%20zona%20de%20cat%C3%A1strofe%2C%0Aque%20el%20Ministerio%20del%20Interior%20fecha%20el%2009-10-2026.%20El%2009-10-2026%20la%20Fiscal%C3%ADa%0AMetropolitana%20Oriente%20abri%C3%B3%20investigaci%C3%B3n%2C%20el%20Estado%20activ%C3%B3%20la%20ficha%20FIBE%20y%0ASenapred%20explic%C3%B3%20que%20el%20SAE%20no%20se%20activ%C3%B3%20porque%20fueron%2015%20mil%C3%ADmetros%20de%20lluvia%0Aen%20una%20hora%2C%20un%20fen%C3%B3meno%20s%C3%BAbito%20sin%20tiempo%20%C3%BAtil%20para%20ordenar%20evacuaci%C3%B3n%3B%20el%0A10-10-2026%20cifr%C3%B3%20384%20damnificados%20y%20m%C3%A1s%20de%201.200%20rescatados.%20Entre%20el%0A12-10-2026%20y%20el%2013-10-2026%20la%20emergencia%20sigui%C3%B3%20en%20los%20colegios%3A%20doce%0Aestablecimientos%20suspendidos%2C%20una%20evacuaci%C3%B3n%20preventiva%20por%20pron%C3%B3stico%20de%0Alluvias%20sobre%20suelo%20ya%20removido%20(ordenada%20para%20las%2013%3A00%20y%20levantada%20la%20noche%0Adel%2012-10-2026)%20y%2021%20establecimientos%20municipales%20sin%20clases%20el%2013-10-2026%2C%0Adoce%20colegios%20y%20nueve%20jardines%20infantiles.%20El%2015-10-2026%20apareci%C3%B3%20el%20dato%20que%0Acorre%20el%20tema%3A%20una%20minuta%20de%20la%20Direcci%C3%B3n%20de%20Obras%20Hidr%C3%A1ulicas%20del%20MOP%2C%20de%0Aagosto%20de%202026%2C%20ya%20advert%C3%ADa%20que%20el%20sedimento%20y%20la%20p%C3%A9rdida%20de%20cobertura%20vegetal%0Amanten%C3%ADan%20riesgo%20de%20nuevos%20desbordes%20en%20esa%20zona.%20El%2016-10-2026%20Las%20Condes%0Asegu%C3%ADa%20recuperando%20calles%20y%20viviendas%20y%20constituy%C3%B3%20una%20Mesa%20Asesora%20de%20Riesgo%20y%0ADesastre%20Comunal%2C%20mientras%20el%20Gobierno%20ped%C3%ADa%20a%20los%20municipios%20prepararse%20ante%0Aotro%20sistema%20frontal.%0A%0A%23%23%20Qu%C3%A9%20ense%C3%B1ar%C3%ADa%20la%20Clave%0A%0ALa%20cadena%20que%20existe%20antes%20del%20aluvi%C3%B3n%20y%20no%20despu%C3%A9s%3A%0Aqui%C3%A9n%20mapea%20el%20riesgo%20aluvional%20de%20una%20quebrada%2C%20a%20qui%C3%A9n%20le%20toca%20hacer%20y%0Amantener%20las%20obras%20de%20mitigaci%C3%B3n%2C%20qu%C3%A9%20puede%20y%20qu%C3%A9%20no%20puede%20hacer%20un%20municipio%0Acon%20ese%20riesgo%20encima%2C%20y%20qu%C3%A9%20habilita%20realmente%20un%20decreto%20de%20zona%20de%0Acat%C3%A1strofe%2C%20que%20son%20recursos%20y%20facultades%20extraordinarias%20y%20no%20obras.%20De%20d%C3%B3nde%0Aviene%3A%20la%20minuta%20de%20agosto%20de%202026%20muestra%20que%20el%20riesgo%20estaba%20escrito%20antes%0Adel%2008-10-2026%2C%20y%20la%20Clave%20tendr%C3%A1%20que%20verificar%20en%20la%20norma%20qui%C3%A9n%20quedaba%0Aobligado%20a%20actuar%20con%20ese%20papel%20en%20la%20mano.%20Qu%C3%A9%20est%C3%A1%20en%20juego%3A%20el%20Gobierno%20ya%0Apidi%C3%B3%20a%20los%20municipios%20prepararse%20ante%20otro%20sistema%20frontal%2C%20as%C3%AD%20que%20la%20pregunta%0A%C3%BAtil%20no%20es%20qu%C3%A9%20pas%C3%B3%2C%20es%20qu%C3%A9%20falta%20para%20que%20no%20vuelva%20a%20pasar.%0A%0ATema%20elegido%20por%20Santiago%20para%20una%20Clave%20(CLAVE%204%2C%20flujo%20propio).%20Desde%20el%0A27-09-2026%3A%20Claude%20escribe%20la%20PAUTA%20(prompts%2Fpauta-clave.md)%20con%20todo%20lo%20que%20el%0Avideo%20debe%20tocar%3B%20Santiago%20la%20aprueba%20con%20scripts%2Fclave.js%20aprobar%20riesgo-aluvional-quebradas-mitigacion%20y%0Areci%C3%A9n%20entonces%20GPT%20investiga%20y%20escribe.%0A",
+          "crea": true
+        },
+        {
+          "texto": "Elegir 2: cómo se saca a un alcalde del cargo, y por qué la causa pen…",
+          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Fremocion-alcalde-notable-abandono-deberes%2Ftema.md&value=CONCEPTO%3A%20c%C3%B3mo%20se%20saca%20a%20un%20alcalde%20del%20cargo%2C%20y%20por%20qu%C3%A9%20la%20causa%20penal%20y%20la%20remoci%C3%B3n%20electoral%20corren%20por%20carriles%20separados%0ANOTICIA%3A%2013-10%3A%20Cuatro%20imputados%20quedan%20en%20prisi%C3%B3n%20preventiva%20en%20causa%20por%20fraude%20y%20cohecho%20en%20Talca%20%7C%2016-10%3A%20**Concejales%20piden%20destituir%20al%20alcalde%20de%20Chill%C3%A1n.**%20Tres%20concejales%20solicitaron%20al%20Tribunal%20Electoral%20Regional%20de%20%C3%91uble%20remover%20al%20alcalde%20Camilo%20Benavente%20por%20presunto%20notable%20abandono%20de%20deberes%2C%20mientras%20su%20formalizaci%C3%B3n%20en%20una%20causa%20distinta%20por%20presunto%20fraude%20al%20Fisco%20est%C3%A1%20fijada%20para%20el%2016%20de%20octubre%20%7C%2017-10%3A%20Alcalde%20de%20Chill%C3%A1n%20es%20formalizado%20por%20la%20compra%20de%20la%20medialuna%0AORIGEN%3A%20tema%20de%20la%20semana%202026-W42%0ASEMANA%3A%202026-W42%0ACANDIDATO%3A%202%0APUNTAJE%3A%2010%0ADIAS%3A%202026-10-13%2C%202026-10-16%2C%202026-10-17%0ACANDIDATOS%3A%20contenido%2Fclaves%2Fsemana%2F2026-W42-candidatos.md%0AELEGIDO%3A%202026-10-23%2013%3A09%20(hora%20de%20Chile)%2C%20por%20Santiago%0A%0A%23%23%20Historia%20hasta%20hoy%0A%0ALa%20compra%20municipal%20de%20la%20medialuna%20de%20Chill%C3%A1n%20viene%20de%0Aantes%20de%20esta%20semana%3A%20la%20ficha%20de%20candidatos%20del%20observatorio%20registra%20que%20la%0Aformalizaci%C3%B3n%20del%20alcalde%20Camilo%20Benavente%20por%20presunto%20sobreprecio%20se%20anunci%C3%B3%0Aen%20julio%20de%202026%20por%20%241.276%20millones%2C%20dentro%20de%20una%20serie%20de%20alcaldes%0Aformalizados%20en%202026%20que%20incluye%20Coronel%2C%20Pozo%20Almonte%20y%20Rinconada.%20El%0A15-10-2026%20tres%20concejales%20pidieron%20al%20Tribunal%20Electoral%20Regional%20de%20%C3%91uble%0Aremover%20a%20Benavente%20por%20presunto%20notable%20abandono%20de%20deberes%2C%20en%20una%20causa%0Adistinta%20de%20la%20penal.%20El%2016-10-2026%20la%20Fiscal%C3%ADa%20lo%20formaliz%C3%B3%20por%20dos%20hechos%20de%0Apresunto%20fraude%20al%20Fisco%3A%20estima%20un%20perjuicio%20de%20%242.100%20millones%2C%20con%20un%0Asobreprecio%20cercano%20a%20%241.900%20millones%20y%20unos%20%24200%20millones%20en%20enseres%2C%20sobre%20una%0Aoperaci%C3%B3n%20pactada%20en%20%243.276%20millones.%20La%20audiencia%20se%20suspendi%C3%B3%20y%20debe%20continuar%0Ael%20lunes%2019-10-2026%20a%20las%2008%3A00%20para%20debatir%20cautelares%3B%20la%20Fiscal%C3%ADa%20pidi%C3%B3%0Aarresto%20domiciliario%20total%20y%20arraigo%20nacional%2C%20y%20Benavente%20mantiene%20la%0Apresunci%C3%B3n%20de%20inocencia.%20Una%20advertencia%20sobre%20el%20grupo%3A%20el%20ranking%20le%20suma%20la%0Anoticia%20del%2013-10-2026%20sobre%20cuatro%20imputados%20en%20prisi%C3%B3n%20preventiva%20por%20fraude%20y%0Acohecho%20en%20Talca%2C%20que%20es%20otra%20causa%20y%20no%20entra%20en%20esta%20Clave.%0A%0A%23%23%20Qu%C3%A9%20ense%C3%B1ar%C3%ADa%20la%20Clave%0A%0AQue%20a%20un%20alcalde%20se%20lo%20puede%20sacar%20del%20cargo%20por%20dos%0Apuertas%20que%20no%20se%20tocan%3A%20la%20penal%2C%20donde%20una%20formalizaci%C3%B3n%20solo%20abre%20la%0Ainvestigaci%C3%B3n%20y%20fija%20cautelares%2C%20y%20la%20electoral%2C%20donde%20el%20Tribunal%20Electoral%0ARegional%20puede%20declarar%20el%20notable%20abandono%20de%20deberes%20y%20remover.%20De%20d%C3%B3nde%0Aviene%3A%20la%20Clave%20tendr%C3%A1%20que%20verificar%20en%20la%20ley%20org%C3%A1nica%20municipal%20qui%C3%A9n%20puede%0Apedir%20esa%20remoci%C3%B3n%2C%20con%20qu%C3%A9%20causal%20y%20en%20qu%C3%A9%20plazo%2C%20porque%20el%20hecho%20de%20la%20semana%0Amuestra%20que%20tres%20concejales%20bastaron%20para%20abrir%20la%20puerta.%20Qu%C3%A9%20est%C3%A1%20en%20juego%3A%20el%0A19-10-2026%20se%20discuten%20las%20cautelares%2C%20y%20los%20%242.100%20millones%20son%20la%20tesis%20del%0AMinisterio%20P%C3%BAblico%20y%20no%20un%20da%C3%B1o%20fijado%20por%20sentencia.%0A%0ATema%20elegido%20por%20Santiago%20para%20una%20Clave%20(CLAVE%204%2C%20flujo%20propio).%20Desde%20el%0A27-09-2026%3A%20Claude%20escribe%20la%20PAUTA%20(prompts%2Fpauta-clave.md)%20con%20todo%20lo%20que%20el%0Avideo%20debe%20tocar%3B%20Santiago%20la%20aprueba%20con%20scripts%2Fclave.js%20aprobar%20remocion-alcalde-notable-abandono-deberes%20y%0Areci%C3%A9n%20entonces%20GPT%20investiga%20y%20escribe.%0A",
+          "crea": true
+        },
+        {
+          "texto": "Elegir 3: qué hace el Estado cuando el suelo se mueve y una vivienda …",
+          "href": "https://github.com/sinostrozadev/entender-chile/new/main?filename=contenido%2Fclaves%2Fflujo%2Fsubsidio-arriendo-emergencia-habitabilidad%2Ftema.md&value=CONCEPTO%3A%20qu%C3%A9%20hace%20el%20Estado%20cuando%20el%20suelo%20se%20mueve%20y%20una%20vivienda%20queda%20inhabitable%3A%20el%20subsidio%20de%20arriendo%20de%20emergencia%0ANOTICIA%3A%2013-10%3A%20Cuarenta%20familias%20reciben%20subsidio%20de%20arriendo%20por%20la%20emergencia%20en%20Arauco%20%7C%2016-10%3A%20Trece%20familias%20evacuadas%20por%20un%20socav%C3%B3n%20en%20Arauco%0AORIGEN%3A%20tema%20de%20la%20semana%202026-W42%0ASEMANA%3A%202026-W42%0ACANDIDATO%3A%203%0APUNTAJE%3A%207%0ADIAS%3A%202026-10-13%2C%202026-10-16%0ACANDIDATOS%3A%20contenido%2Fclaves%2Fsemana%2F2026-W42-candidatos.md%0ADOSSIER%3A%20contenido%2Fcasos%2Fsubsidios-arriendo-minvu.md%0AELEGIDO%3A%202026-10-23%2013%3A09%20(hora%20de%20Chile)%2C%20por%20Santiago%0A%0A%23%23%20Historia%20hasta%20hoy%0A%0AEl%2011-10-2026%20una%20grieta%20de%20unos%20500%20metros%20dej%C3%B3%20en%20riesgo%0Aal%20menos%20cien%20viviendas%20en%20la%20comuna%20de%20Arauco%2C%20y%20el%20Minvu%20inici%C3%B3%20obras%20de%0Amitigaci%C3%B3n%20y%20comprometi%C3%B3%20subsidios%20de%20evacuaci%C3%B3n.%20El%2012-10-2026%20el%20ministerio%0Ainform%C3%B3%20la%20entrega%20de%20cuarenta%20subsidios%20de%20arriendo%20para%20familias%20evacuadas%2C%0Acon%20138%20viviendas%20con%20da%C3%B1os%20asociados%20a%20la%20grieta%2C%20mientras%20se%20evaluaba%20la%0Ahabitabilidad.%20El%2013-10-2026%20una%20nueva%20fractura%20del%20pavimento%20en%20Villa%20El%0AMirador%20oblig%C3%B3%20a%20trasladar%20preventivamente%20a%20trece%20familias%2C%20y%20los%20trabajos%20de%0Acontenci%C3%B3n%20comenzaron%20el%2015-10-2026.%20El%20dossier%20previo%20subsidios-arriendo-minvu%0Apone%20el%20otro%20lado%20del%20mismo%20instrumento%3A%20la%20Contralor%C3%ADa%2C%20en%20su%20Informe%20Final%0AN%C2%B0%20314%20de%202026%2C%20observ%C3%B3%20m%C3%A1s%20de%20%24239%20millones%20en%20pagos%20irregulares%20de%20subsidio%20de%0Aarriendo%20del%20Programa%20de%20Integraci%C3%B3n%20Urbana%20de%20Campamentos%20(168%20beneficiarios%0Afallecidos%2C%20172%20contratos%20con%20familiares%2C%2019%20con%20c%C3%B3nyuges%20y%202%20con%20doble%0Abeneficio)%2C%20con%20sumario%20instruido%20en%20julio%20de%202026%20y%20cero%20pesos%20de%20recuperaci%C3%B3n%0Ainformada%20al%2025-08-2026.%0A%0A%23%23%20Qu%C3%A9%20ense%C3%B1ar%C3%ADa%20la%20Clave%0A%0AQu%C3%A9%20es%20el%20subsidio%20de%20arriendo%20cuando%20el%20suelo%20se%20mueve%3A%0Aqui%C3%A9n%20lo%20otorga%20(el%20Minvu%20a%20trav%C3%A9s%20de%20los%20Serviu)%2C%20qu%C3%A9%20tiene%20que%20pasar%20antes%20(la%0Aevaluaci%C3%B3n%20de%20habitabilidad%20de%20la%20vivienda)%2C%20cu%C3%A1nto%20dura%20y%20qu%C3%A9%20ocurre%20cuando%20la%0Agrieta%20no%20se%20cierra%20y%20la%20familia%20no%20puede%20volver.%20De%20d%C3%B3nde%20viene%20y%20qu%C3%A9%20est%C3%A1%20en%0Ajuego%3A%20el%20dossier%20muestra%20el%20mismo%20instrumento%20fallando%20por%20el%20otro%20extremo%2C%20el%0Acontrol%20de%20qui%C3%A9n%20sigue%20cobrando%2C%20y%20la%20Clave%20tendr%C3%A1%20que%20verificar%20si%20la%20modalidad%0Ade%20emergencia%20usada%20en%20Arauco%20es%20la%20misma%20que%20observ%C3%B3%20la%20Contralor%C3%ADa%2C%20porque%20el%0Adossier%20se%20refiere%20al%20programa%20de%20campamentos.%0A%0ATema%20elegido%20por%20Santiago%20para%20una%20Clave%20(CLAVE%204%2C%20flujo%20propio).%20Desde%20el%0A27-09-2026%3A%20Claude%20escribe%20la%20PAUTA%20(prompts%2Fpauta-clave.md)%20con%20todo%20lo%20que%20el%0Avideo%20debe%20tocar%3B%20Santiago%20la%20aprueba%20con%20scripts%2Fclave.js%20aprobar%20subsidio-arriendo-emergencia-habitabilidad%20y%0Areci%C3%A9n%20entonces%20GPT%20investiga%20y%20escribe.%0A",
+          "crea": true
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L1002",
       "tipo": "pendiente",
       "titulo": "22-09, HOY: la cadena se congeló en el informe, revisar/relanzar la",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 751.",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 1002.",
       "desde": "2026-09-22",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L751"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L1002"
         },
         {
           "texto": "Editar la lista",
@@ -50,16 +109,16 @@
       ]
     },
     {
-      "id": "pendiente-L734",
+      "id": "pendiente-L985",
       "tipo": "pendiente",
       "titulo": "23-09, HOY: el video del informe de hoy publica a las 07:30 con dos",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 734.",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 985.",
       "desde": "2026-09-23",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L734"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L985"
         },
         {
           "texto": "Editar la lista",
@@ -68,16 +127,16 @@
       ]
     },
     {
-      "id": "pendiente-L574",
+      "id": "pendiente-L825",
       "tipo": "pendiente",
       "titulo": "27-09, HOY: la idea de la Clave de la semana 39",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 574.",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 825.",
       "desde": "2026-09-27",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L574"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L825"
         },
         {
           "texto": "Editar la lista",
@@ -86,16 +145,16 @@
       ]
     },
     {
-      "id": "pendiente-L596",
+      "id": "pendiente-L847",
       "tipo": "pendiente",
       "titulo": "27-09, HOY: la carátula que SÍ se genera se pierde, porque el",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 596.",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 847.",
       "desde": "2026-09-27",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L596"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L847"
         },
         {
           "texto": "Editar la lista",
@@ -104,16 +163,16 @@
       ]
     },
     {
-      "id": "pendiente-L620",
+      "id": "pendiente-L871",
       "tipo": "pendiente",
       "titulo": "27-09: nombre de la Clave semanal. Santiago quiere evaluar un",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 620.",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 871.",
       "desde": "2026-09-27",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L620"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L871"
         },
         {
           "texto": "Editar la lista",
@@ -122,16 +181,16 @@
       ]
     },
     {
-      "id": "pendiente-L625",
+      "id": "pendiente-L876",
       "tipo": "pendiente",
       "titulo": "27-09 (domingo): elegir el tema de la semana 39. Los tres",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 625.",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 876.",
       "desde": "2026-09-27",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L625"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L876"
         },
         {
           "texto": "Editar la lista",
@@ -140,16 +199,16 @@
       ]
     },
     {
-      "id": "pendiente-L550",
+      "id": "pendiente-L733",
       "tipo": "pendiente",
       "titulo": "09-10, HOY: el 07-10 y el 08-10 la cadena diaria y la propia",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 550.",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 733.",
       "desde": "2026-10-09",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L550"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L733"
         },
         {
           "texto": "Editar la lista",
@@ -158,16 +217,34 @@
       ]
     },
     {
-      "id": "pendiente-L769",
+      "id": "pendiente-L710",
+      "tipo": "pendiente",
+      "titulo": "16-10, HOY: la alarma vive en el mismo recurso que se puede caer. El",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 710.",
+      "desde": "2026-10-16",
+      "archivo": "bitacora/PENDIENTES.md",
+      "acciones": [
+        {
+          "texto": "Leer la entrada completa",
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L710"
+        },
+        {
+          "texto": "Editar la lista",
+          "href": "https://github.com/sinostrozadev/entender-chile/edit/main/bitacora/PENDIENTES.md"
+        }
+      ]
+    },
+    {
+      "id": "pendiente-L1020",
       "tipo": "pendiente",
       "titulo": "PR #5, abierto desde el 11-09: fusionarlo o cerrarlo. Trae la",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 769.",
-      "desde": "2026-10-09",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 1020.",
+      "desde": "2026-10-23",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L769"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L1020"
         },
         {
           "texto": "Editar la lista",
@@ -176,16 +253,16 @@
       ]
     },
     {
-      "id": "pendiente-L810",
+      "id": "pendiente-L1061",
       "tipo": "pendiente",
       "titulo": "Fondos: elegir intensidad en las láminas de Descargas",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 810.",
-      "desde": "2026-10-09",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 1061.",
+      "desde": "2026-10-23",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L810"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L1061"
         },
         {
           "texto": "Editar la lista",
@@ -194,16 +271,16 @@
       ]
     },
     {
-      "id": "pendiente-L816",
+      "id": "pendiente-L1067",
       "tipo": "pendiente",
       "titulo": "Reservar el handle @entenderchile en TikTok e Instagram (no",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 816.",
-      "desde": "2026-10-09",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 1067.",
+      "desde": "2026-10-23",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L816"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L1067"
         },
         {
           "texto": "Editar la lista",
@@ -212,16 +289,16 @@
       ]
     },
     {
-      "id": "pendiente-L818",
+      "id": "pendiente-L1069",
       "tipo": "pendiente",
       "titulo": "Funciones avanzadas de YouTube: Settings → Channel → Feature",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 818.",
-      "desde": "2026-10-09",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 1069.",
+      "desde": "2026-10-23",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L818"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L1069"
         },
         {
           "texto": "Editar la lista",
@@ -230,16 +307,16 @@
       ]
     },
     {
-      "id": "pendiente-L821",
+      "id": "pendiente-L1072",
       "tipo": "pendiente",
       "titulo": "Voz de respaldo S0 (~día 17 del mes): segundo recurso Speech plan",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 821.",
-      "desde": "2026-10-09",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 1072.",
+      "desde": "2026-10-23",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L821"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L1072"
         },
         {
           "texto": "Editar la lista",
@@ -248,16 +325,16 @@
       ]
     },
     {
-      "id": "pendiente-L824",
+      "id": "pendiente-L1075",
       "tipo": "pendiente",
       "titulo": "Facebook: el Reel diario de la fase 1 (dos semanas midiendo antes",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 824.",
-      "desde": "2026-10-09",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 1075.",
+      "desde": "2026-10-23",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L824"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L1075"
         },
         {
           "texto": "Editar la lista",
@@ -266,16 +343,16 @@
       ]
     },
     {
-      "id": "pendiente-L826",
+      "id": "pendiente-L1077",
       "tipo": "pendiente",
       "titulo": "Tagline: sigue en duda \"El resumen sin gritos\"; alternativas en",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 826.",
-      "desde": "2026-10-09",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 1077.",
+      "desde": "2026-10-23",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L826"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L1077"
         },
         {
           "texto": "Editar la lista",
@@ -284,16 +361,16 @@
       ]
     },
     {
-      "id": "pendiente-L828",
+      "id": "pendiente-L1079",
       "tipo": "pendiente",
       "titulo": "Música de los Shorts: elegir una pista en la Biblioteca de audio",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 828.",
-      "desde": "2026-10-09",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 1079.",
+      "desde": "2026-10-23",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L828"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L1079"
         },
         {
           "texto": "Editar la lista",
@@ -302,16 +379,16 @@
       ]
     },
     {
-      "id": "pendiente-L830",
+      "id": "pendiente-L1081",
       "tipo": "pendiente",
       "titulo": "Noticias que faltaron el 29 según tu ojo: nombrarlas para rastrear",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 830.",
-      "desde": "2026-10-09",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 1081.",
+      "desde": "2026-10-23",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L830"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L1081"
         },
         {
           "texto": "Editar la lista",
@@ -320,16 +397,16 @@
       ]
     },
     {
-      "id": "pendiente-L832",
+      "id": "pendiente-L1083",
       "tipo": "pendiente",
       "titulo": "Notificaciones: permitir que la app de Claude se salte el modo",
-      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 832.",
-      "desde": "2026-10-09",
+      "detalle": "Entrada de \"Dependen de Santiago\" en bitacora/PENDIENTES.md, línea 1083.",
+      "desde": "2026-10-23",
       "archivo": "bitacora/PENDIENTES.md",
       "acciones": [
         {
           "texto": "Leer la entrada completa",
-          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L832"
+          "href": "https://github.com/sinostrozadev/entender-chile/blob/main/bitacora/PENDIENTES.md#L1083"
         },
         {
           "texto": "Editar la lista",
