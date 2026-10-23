@@ -2,17 +2,17 @@
   "flujo": "clave",
   "slug": "afp-multifondos-perdidas-fondo-e",
   "camino": "pauta",
-  "etapa": "pauta_lista",
+  "etapa": "pauta_aprobada",
   "vuelta": 0,
-  "turno": "Santiago: aprobar o pedir cambios (scripts/clave.js aprobar | cambiar)",
-  "fecha_produccion": null,
-  "actualizado": "2026-10-23 15:48",
+  "turno": "GPT",
+  "fecha_produccion": "2026-10-28",
+  "actualizado": "2026-10-23 15:59",
   "concepto": "qué es un multifondo de las AFP, quién responde cuando uno pierde y qué puede hacer un afiliado",
   "pieza": {
-    "id": "pauta",
-    "prompt": "prompts/pauta-clave.md",
-    "archivo": "contenido/claves/flujo/afp-multifondos-perdidas-fondo-e/pauta.md",
-    "entrada": "contenido/claves/flujo/afp-multifondos-perdidas-fondo-e/tema.md"
+    "id": "investigacion",
+    "prompt": "prompts/investigacion-clave.md",
+    "archivo": "contenido/claves/flujo/afp-multifondos-perdidas-fondo-e/investigacion.md",
+    "entrada": "contenido/claves/flujo/afp-multifondos-perdidas-fondo-e/pauta.md"
   },
   "piezas": [
     {
@@ -28,12 +28,12 @@
     {
       "id": "entrega",
       "situacion": "falta",
-      "archivo": ""
+      "archivo": "contenido/claves/2026-10-28-afp-multifondos-perdidas-fondo-e.md"
     },
     {
       "id": "guion",
       "situacion": "falta",
-      "archivo": ""
+      "archivo": "contenido/guiones/claves/2026-10-28-afp-multifondos-perdidas-fondo-e.md"
     }
   ]
 }
