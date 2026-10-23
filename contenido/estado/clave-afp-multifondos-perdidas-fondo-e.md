@@ -1,11 +1,11 @@
 FLUJO: clave
 SLUG: afp-multifondos-perdidas-fondo-e
 CAMINO: pauta
-ETAPA: entrega_lista
+ETAPA: validar_guion
 VUELTA: 0
-TURNO: GPT
+TURNO: Claude
 FECHA_PRODUCCION: 2026-10-28
-ACTUALIZADO: 2026-10-23 16:39 (hora de Chile)
+ACTUALIZADO: 2026-10-23 16:45 (hora de Chile)
 PIEZA: guion
 PROMPT: prompts/guion-claves.md
 ARCHIVO: contenido/guiones/claves/2026-10-28-afp-multifondos-perdidas-fondo-e.md
@@ -24,5 +24,5 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 | Aprobación de Santiago | aprobada | 15:59 | Santiago |
 | Investigación | aprobada | 16:17 | GPT, valida Claude |
 | Entrega escrita | aprobada | 16:36 | GPT, valida Claude |
-| Guion | falta |  | GPT, valida Claude |
+| Guion | por validar | 16:45 | GPT, valida Claude |
 | Video | falta |  | Actions |
