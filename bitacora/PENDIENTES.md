@@ -94,6 +94,23 @@ medición de retención por duración).
 
 ## PARA LA SESIÓN DE LA NOCHE: lo que el día NO puede hacer (06-10-2026)
 
+### 000000. 23-10-2026: cambiar título y carátula del informe del 23-10 ya publicado
+
+**Dueño: noche (necesita los secrets de YouTube).** La carátula publicada ("¿Quién las autorizó?
+/ La firma decisiva") no dice qué se autorizó. Santiago eligió el gancho nuevo: **"El ministro
+firmó / 56 rebajas a condenados por abuso y violación de menores"**. El pedido a GPT está en
+`contenido/urgente/PEDIDO-caratula-2026-10-23-v2.md`; la imagen llega a
+`contenido/caratulas/2026-10-23-v2.png`. Cuando exista: (0) ANTES DE TODO, comprobar en el artículo de EL PAÍS (22-10-2026, enlace en el informe, línea 184) que los 56 decretos son los 27 por abuso sexual y 29 por violación de menores, y que los dos internos de Punta Peuco (secuestro y tortura) NO están dentro de los 56; desde la sesión de día no se pudo abrir elpais.cl. Si están dentro, el gancho "56 rebajas a condenados por abuso y violación de menores" es inexacto y hay que cambiarlo (decir "56 rebajas, casi todas por delitos sexuales contra menores" o similar); (1) mirarla con la skill `caratula`
+(la etiqueta "El día en 3 minutos" abajo a la izquierda no debe tapar texto), (2) ponerla con
+`node scripts/youtube-caratula.js --imagen <ruta> --fecha 2026-10-23 --pieza informe`,
+(3) cambiar el título del video a **"Rabat firmó 56 rebajas de condena a condenados por abuso
+y violación de menores"** (la frase sale del informe: 27 por abuso sexual y 29 por violación de
+menores, EL PAÍS, 22-10-2026; no usar "violadores" ni "abusadores" a secas), y (4) actualizar
+`Título sugerido:` del guion y la descripción. Aún no se sabe si los dos internos de Punta Peuco
+están dentro de los 56: no escribir "los 56 son todos por delitos sexuales" sin eso.
+La regla de fondo ya quedó en `prompts/guion-informe.md`: el gancho y el título nombran el
+objeto de la noticia.
+
 ### 00000. Clave de la AFP: antes de la revisión final de Santiago, revisar carátulas y paneles
 
 **Dueño: día.** Santiago aprobó la pauta el 23-10-2026 y su única intervención prevista es
