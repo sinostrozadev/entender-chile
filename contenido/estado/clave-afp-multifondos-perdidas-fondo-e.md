@@ -1,16 +1,15 @@
 FLUJO: clave
 SLUG: afp-multifondos-perdidas-fondo-e
 CAMINO: pauta
-ETAPA: validar_investigacion
-VUELTA: 1
-TURNO: Claude
+ETAPA: investigacion_lista
+VUELTA: 0
+TURNO: GPT
 FECHA_PRODUCCION: 2026-10-28
-ACTUALIZADO: 2026-10-23 16:18 (hora de Chile)
-PIEZA: investigacion
-PROMPT: prompts/investigacion-clave.md
-ARCHIVO: contenido/claves/flujo/afp-multifondos-perdidas-fondo-e/investigacion.md
-ARCHIVO_ENTRADA: contenido/claves/flujo/afp-multifondos-perdidas-fondo-e/pauta.md
-VEREDICTO_PIEZA: CORREGIR (vuelta 1, en contenido/veredictos/clave-afp-multifondos-perdidas-fondo-e-investigacion.md)
+ACTUALIZADO: 2026-10-23 16:23 (hora de Chile)
+PIEZA: entrega
+PROMPT: prompts/claves.md
+ARCHIVO: contenido/claves/2026-10-28-afp-multifondos-perdidas-fondo-e.md
+ARCHIVO_ENTRADA: contenido/claves/flujo/afp-multifondos-perdidas-fondo-e/investigacion.md
 
 Tema: qué es un multifondo de las AFP, quién responde cuando uno pierde y qué puede hacer un afiliado
 Noticia de origen: Las siete AFP enfrentan procesos por las pérdidas de los fondos D y E y afiliados presentan recursos de protección (informes del 19 al 21-10-2026) (ELEGIDO: 2026-10-23 12:56 (hora de Chile), por Santiago)
@@ -23,7 +22,7 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 | Tema elegido | listo | 12:56 | Santiago |
 | Pauta | escrita | 15:48 | Claude |
 | Aprobación de Santiago | aprobada | 15:59 | Santiago |
-| Investigación | por validar | 16:17 | GPT, valida Claude |
+| Investigación | aprobada | 16:17 | GPT, valida Claude |
 | Entrega escrita | falta |  | GPT, valida Claude |
 | Guion | falta |  | GPT, valida Claude |
 | Video | falta |  | Actions |
