@@ -122,190 +122,222 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 21-10-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-10-21-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS. HOY: `scripts/gate.js:52` eligió el archivo equivocado</div>
+    <p class="eyebrow">Auditoría de la mañana · 23-10-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-10-23-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS. HOY: ayer 22-10-2026 se perdió el día completo (ni</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0"># Auditoría matinal · 21-10-2026
-
-ESTADO: CON FALLAS. HOY: `scripts/gate.js:52` eligió el archivo equivocado
-para la Clave (un guion de prompts de imagen en vez del guion real) y tiró
-abajo toda la edición del día: a la hora de esta auditoría no se publicó ni
-el video del informe, ni el Short, ni el video de la Clave de hoy, aunque
-las cuatro piezas de texto llegaron completas y aprobadas con adelanto. Este
-bug se viene prediciendo desde el 06-10 (seis mañanas documentadas en
-`bitacora/PENDIENTES.md`) y hoy pasó de predicción a pérdida real.
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON FALLAS. HOY: ayer 22-10-2026 se perdió el día completo (ni
+informe, ni video, ni podcast, y sin auditoría que lo registrara); hoy la
+cifra de comunas con clases suspendidas sigue sin cerrarse, tal como el
+21-10 anticipó que pasaría a HOY; y `contenido/informes/2026-10-23.md` volvió
+a citar `contenido/casos/hitos.md` como fuente pública, esta vez sin que el
+validador lo pescara.
 
 ## Qué salió hoy y a qué hora
 
-| Pieza | Llegó (Chile) | Se esperaba | Atraso/adelanto |
+| Pieza | Llegó (Chile) | Vuelta | Fuente |
 |---|---|---|---|
-| Barrido | 01:45 | ~01:40 | +5 min |
-| Observatorio plata pública | 01:55 | ~01:45 | +10 min |
-| Preselección (APROBADA vuelta 0, 57 candidatas, sin corrección) | 02:02 | 02:10 | adelantada 8 min |
-| Informe (APROBADA vuelta 1) | 02:14 | 02:40 | adelantada 26 min |
-| Guion del informe (APROBADA vuelta 1) | 02:31 | 03:10 | adelantada 39 min |
-| Revisión (veredicto final, compuerta) | 02:43 | 03:30 | adelantada 47 min |
-| Entrega y guion de la Clave ("acuerdo-internacional-sin-tratado") | ya existían, aprobados por su flujo propio, fecha de producción 2026-10-21 | — | — |
-| Videos y descripciones (`edicion-diaria.yml` run 248) | **FALLÓ a las 02:43**, nada se renderizó | 05:15 | sin publicar a la hora de esta auditoría |
-| Métricas | 05:06 | 05:00 | +6 min |
+| Barrido | ~01:31 (estado `barrido_listo` a las 01:46) | — | `git log` sobre `contenido/estado/2026-10-23.md` |
+| Preselección | 02:04 | APROBADA vuelta 0 | `contenido/veredictos/2026-10-23-preseleccion.md` |
+| Informe | 02:15 → corrección → 02:28 | APROBADA vuelta 1 | `contenido/veredictos/2026-10-23-informe.md` |
+| Guion del informe | 02:37 → corrección → 02:47 | APROBADA vuelta 1 | `contenido/veredictos/2026-10-23-guion_informe.md` |
+| Revisión (compuerta) | 02:51 | APROBADA vuelta 1 | `contenido/revisiones/2026-10-23.md` |
+| Videos, descripciones, podcast | 03:00-03:03 (`estado: videos_listos` 03:03) | — | `edicion-diaria.yml` run exitoso, `contenido/podcast/episodios.json` |
+| Métricas | 05:06 (reloj a las 05:05) | — | `bitacora/metricas/2026-10-23.md` |
+| Clave | no corresponde hoy (la última, "acuerdo-internacional-sin-tratado", es del 21-10 y tiene sus dos eslabones completos: entrega y guion, ambos aprobados) | — | `contenido/claves/indice.md`, `contenido/guiones/claves/` |
 
-Fuente: horas de creación vía `git log --diff-filter=A --date=format-local`
-en huso `America/Santiago` sobre cada archivo de hoy; `contenido/estado/2026-10-21.md`
-(`ETAPA: aprobada`, `VEREDICTO: APROBADA`, `FALTA: Videos y descripciones`);
-`contenido/estado/clave-acuerdo-internacional-sin-tratado.json` (`etapa:
-aprobada`, `fecha_produccion: 2026-10-21`); y la lista de ejecuciones de
-GitHub Actions del día vía `actions_list` (`edicion-diaria.yml` run 248,
-`conclusion: failure`; runs 244 a 247 success, de retries anteriores sin
-pieza nueva; `metricas.yml` run 149, `web.yml` run 366, `estado.yml` runs
-847 a 851, todos success; `barrido.yml` run 155, success). Hoy es miércoles:
-no corresponde el chequeo de domingo del ranking semanal.
+Horas vía `git log --diff-filter=A --date=format-local` en huso Chile sobre
+cada archivo de hoy. Ninguna pieza llegó con más de 20 minutos de atraso
+contra su hora esperada (`bitacora/cronograma.json`); al contrario, toda la
+cadena de texto corrió rápido: preselección, informe y guion terminados a
+las 02:50, casi dos horas antes de la ventana de la fábrica (~04:00). Las
+nueve corridas de "Reintento del despertar" entre las 01:51 y las 05:36 son
+el reloj de respaldo cada 20 minutos (`*/20 4-9 * * *`); no encontraron nada
+que reintentar porque la cadena nunca se atrasó, y las trece corridas de
+GitHub Actions del día (`barrido`, `edición diaria`, `estado del día` x7,
+`estado de la Clave` x2, `web` x3, `métricas`) terminaron todas con
+`conclusion: success` (`actions_list`).
 
 ## Qué falló
 
-### 1. HOY: `scripts/gate.js:52` eligió el guion equivocado de la Clave y bloqueó toda la edición del día (informe, Short y Clave)
+### 1. HOY, nuevo: el 22-10-2026 se perdió el día completo y ninguna auditoría lo registró
 
-La cadena de texto llegó completa y rápida (ver tabla: cada pieza adelantada
-contra su hora esperada, preselección aprobada sin corrección). El fallo
-está en el último eslabón, el que renderiza y publica. La corrida
-`https://github.com/sinostrozadev/entender-chile/actions/runs/39551135358`
-(disparada a las 05:43 UTC por el push de la revisión, la compuerta real del
-día) falló en el paso "2b · Gate previo al render" con exit code 1, y eso
-saltó en cascada los pasos 3 a 8 (producir informe, Short, Clave, commit de
-descripciones, release, YouTube, podcast y web): todos quedaron en
-`skipped`. El log es explícito:
+`git log` (con la historia completa, no el shallow de 50 commits con que
+empezó esta corrida) muestra que entre las 00:00 y las 24:00 del 22-10 solo
+hubo: `barrido 2026-10-22 [bot]` a las **06:03** (contra ~01:31 esperado,
+**+272 min**), el estado `barrido_listo` a las 06:41, un disparo al suplente
+(Claude, que escribe la preselección desde el 06-10 por decisión de
+Santiago, `contenido/estado/reparto.txt`) a las **06:41**, y nada más de la
+cadena: nunca se escribió `contenido/preseleccion/2026-10-22.md`, ni el
+informe, ni el guion, ni la revisión, ni video, ni podcast (verificado
+listando las cuatro carpetas: ninguna tiene archivo con esa fecha, y
+`contenido/estado/2026-10-22.md` quedó congelado en
+`FALTA: Preselección, Informe, Guion del informe, Revisión, Videos y
+descripciones` con "ATRASADAS a las 07:19" de hasta +309 minutos). El único
+commit de las horas siguientes, `edición 2026-10-22 [bot]` (10:33), resultó
+ser un cambio de una línea en `contenido/casos/indice.md`, ajeno a la cadena
+diaria.
 
-```
-✓ informe: parsea · 6 secciones · ~3.6 min estimados
-✓ clave: parsea · 0 secciones · ~0.0 min estimados
-✓ revisión editorial: APROBADA
-ERROR: clave: solo 0 secciones - YouTube exige ≥3 capítulos
-ERROR: clave: narración de 0 caracteres - demasiado corta, algo vino mal
-```
+Lo más grave no es el atraso del barrido (`reintento.yml` existe justo para
+relanzarlo, y lo hizo): es que **ningún reloj de Claude disparó esa
+madrugada**. Comparado con hoy (23-10) y con el 21-10, que registran entre
+nueve y quince commits `reintento: despertador HH:MM [reloj]` repartidos
+cada 15-22 minutos entre la 01:00 y las 06:00 de Chile, el 22-10 no tiene
+**ninguno**: ni el reloj del barrido (01:30), ni los tres relojes del
+reintento (01:10-05:10, 01:30-05:30, 01:50-05:50), ni el reloj de métricas
+(05:00, que de hecho corrió tarde, a las 11:37 y otra vez a las 12:45), ni
+la propia Auditoría matinal (05:30): no existe
+`bitacora/2026-10-22-auditoria.md` (verificado listando `bitacora/` completo
+con `git ls-tree`: la lista salta del 21-10 al 23-10). El barrido de las
+06:03 se disparó por `workflow_dispatch` de `github-actions[bot]`
+(`actions_list`, run 158 de `barrido.yml`), no por el reloj de Claude, lo
+que cuadra con una ventana donde las rutinas de Claude no estaban
+respondiendo. Esta corrida no puede confirmar la causa exacta (no tiene
+acceso a los logs de las rutinas de Claude de ese día, solo a `last_run` de
+hoy), pero sí puede afirmar el hecho, verificado desde tres ángulos
+independientes (archivos de contenido ausentes, `contenido/estado/2026-10-22.md`
+congelado, y cero commits de reloj).
 
-El informe parseaba bien y la revisión estaba APROBADA: el único bloqueo
-fue la Clave. La causa, verificada en `scripts/gate.js:49-53`, es esta
-línea:
+### 2. HOY (escala el MIRAR del 21-10): la cifra de comunas con clases suspendidas sigue sin cerrar y sin marca nueva
 
-```js
-const gc = fs.existsSync(dirGC)
-  ? fs.readdirSync(dirGC).find((f) => f.startsWith(fecha) &amp;&amp; f.endsWith(".md"))
-  : null;
-```
+El 21-10 esta misma auditoría dejó en MIRAR: "si Mineduc sigue sin publicar
+y mañana tampoco hay marca nueva, pasa a HOY" (`bitacora/2026-10-21-auditoria.md`).
+Como el 22-10 no tuvo edición, la primera oportunidad real de cerrarla es
+hoy, y no se cerró: `contenido/informes/2026-10-23.md:9` y `:162` repiten
+"clases suspendidas en el Gran Concepción" sin número y sin una marca
+`PENDIENTE DE CIERRE` nueva (verificado con `grep` sobre el archivo
+completo). `contenido/revisiones/2026-10-23.md` (hallazgo 2) confirma que el
+material de hoy trae la misma contradicción sin resolver: BioBioChile cuenta
+seis comunas, La Tercera cuenta cuatro, y ninguna fuente consolidada (Mineduc
+o la intendencia) zanjó el número.
 
-`contenido/guiones/claves/` tiene HOY dos archivos que empiezan con
-"2026-10-21" y terminan en ".md": `2026-10-21-acuerdo-internacional-sin-tratado-imagenes.md`
-(los seis prompts de imagen de las carátulas y las tarjetas, sin ninguna
-marca de guion) y `2026-10-21-acuerdo-internacional-sin-tratado.md` (el
-guion real, con sus secciones y veredicto `APROBADA` en
-`contenido/veredictos/clave-acuerdo-internacional-sin-tratado-guion.md`).
-`readdirSync` los devuelve en orden alfabético y `-imagenes.md` queda primero
-("-" antes que "." en el nombre), así que `.find()` se queda con el archivo
-de prompts de imagen, lo cuenta con 0 secciones y 0 caracteres, y hace
-fallar la corrida entera (línea 97, `process.exit(1)`, que no distingue
-error de informe de error de Clave).
+### 3. HOY (continúa, octava mañana): `scripts/gate.js:52` sigue sin el arreglo de una línea
 
-Verificado que no es nuevo: este bug está documentado en
-`bitacora/PENDIENTES.md` desde el 06-10-2026 (siete mañanas marcadas,
-detalle en la sección "Para la sesión de la noche" de ese archivo), con el
-arreglo de una línea ya escrito: `&amp;&amp; !f.endsWith("-imagenes.md")` en la
-línea 52. Las reproducciones anteriores (06-10 y 09-10) "no costaron nada"
-porque otro motivo (informe sin aprobar, o guion del informe inexistente a
-esa hora) habría hecho fallar la corrida de todos modos. Hoy es la primera
-vez que el único bloqueo fue este bug: sin él, la edición de hoy renderizaba
-limpia a la primera.
+Verificado de nuevo hoy: la línea 52 de `scripts/gate.js` es idéntica a la
+que `bitacora/PENDIENTES.md` describe desde el 06-10 (siete mañanas
+marcadas: 06, 07, 08, 09, 10, 12 y 21-10). El 21-10 el bug pasó de
+predicción a pérdida real (bloqueó informe, Short y Clave de ese día). Hoy
+no hay guion de Clave con fecha de hoy, así que no se reprodujo, pero sigue
+listo para repetirse el día que una producción de Clave coincida con la
+validación de un informe.
 
-Verificado el resultado real: `contenido/estado/2026-10-21.md` sigue
-diciendo `FALTA: Videos y descripciones`; `bitacora/metricas/2026-10-21.md`
-marca 190 subidos contra 189 de ayer, pero el único video nuevo es
-"Alerta roja en toda la RM por lluvias y granizo: qué cambia..." (un Short de
-Guardia, ajeno a la cadena diaria, no el informe de hoy); y
-`contenido/podcast/episodios.json` no trae ninguna entrada del 21-10-2026 (lo
-digo sin inventar el número, tal como pide el contrato: el episodio de hoy
-simplemente no existe todavía). A la hora de esta auditoría, nadie puede ver
-el informe de hoy, el Short de hoy ni la Clave de hoy en YouTube ni en el
-podcast.
+### 4. HOY (continúa, tercera vez, y hoy el validador no lo pescó): el informe vuelve a citar `contenido/casos/hitos.md` como fuente pública
 
-### 2. HOY (continúa desde el 20-10): el informe vuelve a citar `contenido/casos/hitos.md` como fuente para el lector, ahora en cinco lugares, segundo día seguido
+`contenido/informes/2026-10-23.md` líneas 37, 168 y 179 cierran con
+"(contenido/casos/hitos.md, 23-10-2026)" y linkean directamente al archivo
+del repositorio como si fuera la fuente para el lector, exactamente el
+defecto que el 20-10 y el 21-10 ya marcaron HOY (`bitacora/PENDIENTES.md`,
+sección "Para la sesión de la noche"). `prompts/informe.md:159-160` sigue sin
+la regla que ya tiene `prompts/guion-informe.md:316` ("nunca cites rutas del
+repositorio, cita la fuente pública que el hito ya registra"), verificado
+leyendo el prompt completo hoy. A diferencia del 20 y el 21-10,
+`contenido/revisiones/2026-10-23.md` **no menciona el defecto en absoluto**:
+hoy es la primera vez que también se le escapa a la validación, y salió a la
+web igual (`web.yml` run exitoso tras el push de la revisión).
 
-`contenido/informes/2026-10-21.md` líneas 57, 89, 91, 187 y 189 (más su
-línea en "Fuentes consultadas", línea 236) cierran con
-"(contenido/casos/hitos.md, ...)" como si un archivo del repositorio fuera
-una fuente pública. Ya está en la web: `web.yml` run 366 republicó el sitio
-tras el push de la revisión (05:43 UTC). Es el mismo defecto que la
-auditoría del 20-10 marcó HOY (entonces cuatro citas), y
-`contenido/revisiones/2026-10-21.md` lo confirma en su hallazgo 2: "Es el
-segundo día seguido con este hallazgo". La causa sigue siendo la misma,
-verificada de nuevo: `prompts/guion-informe.md:316` ya tiene la regla
-correcta ("NUNCA listes archivos internos del sistema... cita la fuente
-PÚBLICA original del hecho") pero `prompts/informe.md:159-160` (la sección
-"¿En qué quedó?") no la tiene, y nadie la agregó desde ayer.
+### Hallazgos AGUANTA que siguen repitiéndose (no bloquean, no se tocan hoy)
+
+- **Siglas contra el tope de seis palabras de las marcas de fuente**: cuarta
+  aparición (10-10, 21-10 y hoy, con "GLP vehicular" y "ENAP" sin expandir
+  antes de la marca), ya en `bitacora/PENDIENTES.md`. Sigue sin decidirse
+  cuál regla gana cuando chocan.
+- **"Carátula 3" sale como una segunda pregunta en vez de "cifra con
+  referencia"** (la decisión de Santiago sobre las tres variantes de A/B,
+  `estrategia/decisiones.md:388`): hoy es la quinta vez documentada en
+  auditorías (17, 18, 19, 20 y hoy 23-10, según `contenido/revisiones/*.md`
+  y las propias auditorías de esos días), y **nunca llegó a
+  `bitacora/PENDIENTES.md`** a pesar de que la auditoría del 20-10 ya la
+  contaba como "cuarta repetición seguida". Es justo el caso que esta
+  auditoría tiene instrucción de escalar: un hallazgo que se repite sin
+  cambiar nada es el hallazgo. Queda agregado hoy (ver más abajo).
 
 ## Propuestas
 
-1. **`scripts/gate.js:52`**: cambiar
-   `fs.readdirSync(dirGC).find((f) => f.startsWith(fecha) &amp;&amp; f.endsWith(".md"))`
-   por `fs.readdirSync(dirGC).find((f) => f.startsWith(fecha) &amp;&amp; f.endsWith(".md") &amp;&amp; !f.endsWith("-imagenes.md"))`.
-2. **`prompts/informe.md:159-160`**: agregar, junto a la regla de "¿En qué
-   quedó?", la misma línea que ya funciona en `prompts/guion-informe.md:316`:
-   "Nunca cites `contenido/casos/hitos.md` ni ninguna ruta del repositorio
-   como fuente para el lector: hitos.md es tu insumo, no una fuente citable.
-   Cita siempre el origen público real que el propio hito ya registra."
-3. **`scripts/validar-tarjetas.js:153`**: el filtro de `narrables` para la
-   revisión de "cifra exacta en voz" (`!/^(\[|## |#)/`) no excluye las
-   cabeceras "Carátula sugerida:", "Carátula N:", "Título sugerido:" ni
-   "Descripción sugerida:", a diferencia del filtro de `narradas` en la
-   línea 90. Copiar la misma exclusión para que no cuente "Carátula 3: Por
-   cada millón / 103.900 pesos menos" (línea 5 del guion de hoy) como cifra
-   hablada.
-4. **`prompts/guion-informe.md:238` y `:258`** (tope de seis palabras de las
-   marcas [FUENTE]) y la regla de siglas que exige expandirlas: decidir en
-   el prompt qué gana cuando chocan en la misma marca (hoy "Senapred" quedó
-   sin expandir por el tope). Sin esta decisión, el defecto va a seguir
-   aparemiendo cada vez que una sigla larga entre a una marca de fuente.
+1. **Investigar el apagón de relojes del 22-10.** No hay archivo de código
+   que arreglar (los relojes son rutinas de Claude, no líneas de este
+   repo), pero sí hay una brecha real: nada fuera del propio sistema de
+   rutinas de Claude vigila si esas rutinas están disparando. Propuesta
+   concreta para `reintento.yml` (que ya corre por cron nativo de GitHub,
+   independiente de las rutinas de Claude): si a las 07:00 UTC
+   `contenido/estado/FECHA.md` todavía no llegó a `preseleccion_lista`,
+   que el workflow además escriba un archivo de alerta
+   (`contenido/estado/alerta-cadena-muda.txt`) y notifique por un canal que
+   no dependa de las rutinas de Claude (por ejemplo un paso de GitHub
+   Actions que llame directo a la API de notificaciones), para que un
+   apagón total de rutinas no deje a Santiago sin aviso otra vez.
+2. **`prompts/informe.md`, entre las líneas 159 y 160**: agregar la misma
+   línea que ya funciona en `prompts/guion-informe.md:316`: "Nunca cites
+   `contenido/casos/hitos.md` ni ninguna ruta del repositorio como fuente
+   para el lector: hitos.md es tu insumo, no una fuente citable. Cita
+   siempre el origen público real que el propio hito ya registra." Esta
+   propuesta ya estaba hecha desde el 20-10 y sigue sin aplicarse.
+3. **`prompts/validador.md`**: agregar un punto explícito que revise, en la
+   vuelta 1 del informe, que ninguna cita del cuerpo ni de "Fuentes
+   consultadas" apunte a una ruta de `contenido/`, porque hoy el validador
+   dejó pasar el mismo defecto que las dos auditorías anteriores ya habían
+   nombrado.
+4. **La cifra de comunas con clases suspendidas**: la sesión de día puede
+   verificar si Mineduc, la intendencia del Biobío o la Seremi de Educación
+   publicaron un número consolidado; si no, `contenido/informes/2026-10-24.md`
+   debería abrir una marca `PENDIENTE DE CIERRE` nueva en vez de repetir la
+   frase sin fecha de cierre, para que la escritura verificada pueda seguir
+   rastreándola.
+5. **`scripts/gate.js:52`**: sin cambios en la propuesta ya escrita siete
+   veces: agregar `&amp;&amp; !f.endsWith("-imagenes.md")` al `.find()`.
+6. **Carátula 3**: decidir en el prompt que la genera (`prompts/clave-idea.md`
+   o el prompt de carátulas del informe, a confirmar por quien lo toque)
+   por qué la tercera variante sigue saliendo como pregunta y no como cifra
+   con referencia, y corregirlo antes de que la prueba A/B de Studio (ya
+   marcada como "no está andando" en `bitacora/PENDIENTES.md`, sección
+   CARÁTULA 4) tenga que compararse con solo dos enfoques reales.
 
 ## Triage
 
 - **HOY**:
-  1. `scripts/gate.js:52` (propuesta 1): bloquea la edición completa de hoy;
-     ya publicado el defecto de no-publicación. Arreglar antes de la próxima
-     Clave, que puede caer cualquier día.
-  2. `prompts/informe.md:159-160` (propuesta 2): ya publicado con un defecto
-     visible, segundo día seguido.
+  1. El apagón de relojes del 22-10 y la falta de una alerta independiente
+     (propuesta 1).
+  2. `prompts/informe.md:159-160`, cita de `hitos.md` (propuesta 2), más el
+     punto nuevo en `prompts/validador.md` (propuesta 3): ya se le escapó
+     al validador por primera vez.
+  3. `scripts/gate.js:52` (propuesta 5): octava mañana sin el arreglo de una
+     línea.
 - **AGUANTA**:
-  3. `scripts/validar-tarjetas.js:153` (propuesta 3): molesta a los
-     validadores (dos veces hoy) pero no bloquea nada.
-  4. La contradicción siglas/tope de seis palabras (propuesta 4, tercera
-     aparición): no bloquea ninguna pieza.
-  5. Las seis fuentes institucionales sin feed propio, sin cambios desde el
-     16-10 (ya en `PENDIENTES.md`, no se duplica).
-- **MIRAR**: el `PENDIENTE DE CIERRE` de "número definitivo de comunas con
-  clases suspendidas" (`contenido/informes/2026-10-20.md:81`, vencía hoy) no
-  se cerró con número porque Mineduc no publicó la resolución consolidada;
-  el informe de hoy lo explica bien (línea 125) en vez de inventar un
-  número, pero no abrió un nuevo `PENDIENTE DE CIERRE:` para mañana, así que
-  la promesa queda sin marca explícita que la seguridad de archivos pueda
-  rastrear. Si Mineduc sigue sin publicar y mañana tampoco hay marca nueva,
-  pasa a HOY.
+  4. "Carátula 3" como segunda pregunta en vez de cifra con referencia
+     (propuesta 6): quinta repetición, nunca estuvo en `PENDIENTES.md`,
+     queda agregada hoy.
+  5. Siglas contra el tope de seis palabras (cuarta aparición, ya en
+     `PENDIENTES.md`, no se duplica).
+  6. Las seis fuentes institucionales sin feed propio (sin cambios, ya en
+     `PENDIENTES.md`).
+- **MIRAR**:
+  7. La cifra de comunas con clases suspendidas (propuesta 4): pasó de MIRAR
+     a HOY por lo ya dicho arriba, pero su arreglo de fondo (si Mineduc
+     publica o no) no depende de código ni de esta noche.
 
 ## Comparación con ayer
 
-**Mejoró**: la cadena de texto corrió más rápida que nunca esta semana, cada
-pieza bien adelantada contra su hora esperada, preselección aprobada sin
-ninguna corrección. El `PENDIENTE DE CIERRE` de la lluvia (vencía hoy) sí se
-cerró con número real (29,3 mm, estación Pudahuel), a diferencia de su
-primera extensión.
+No hay "ayer" que comparar en el sentido estricto: el 22-10 no tiene
+auditoría propia (confirmado listando `bitacora/`: no existe
+`2026-10-22-auditoria.md`) porque no hubo nada que auditar más allá del
+apagón mismo, que esta auditoría recién documenta hoy. Comparado con la
+última auditoría real, la del 21-10 (`CON FALLAS` por `gate.js`):
 
-**Sigue igual**: la cita de `contenido/casos/hitos.md` como fuente (segundo
-día seguido); las seis fuentes institucionales sin feed; la contradicción de
-siglas contra el tope de seis palabras (tercera vez, ahora con "Senapred").
+**Mejoró**: la cadena de texto de hoy corrió sin ningún atraso y con una
+sola vuelta de corrección por pieza (igual de rápida que el 21-10, mejor
+resultado porque hoy sí hubo video, Short y podcast). Las horas vistas de
+los largos (21,0 h, ventana de 30 días) y su retención (20,3%) se mueven
+apenas (-0,2 h, +0,5 pp) y no son una tendencia, son ruido de ventana móvil.
 
-**Es nuevo**: por primera vez el bug de `scripts/gate.js:52` dejó de ser una
-predicción y bloqueó de verdad toda la edición del día completo, sin que
-ningún otro motivo lo acompañara ni lo explicara; hasta hoy, cada vez que se
-había reproducido "no costó nada" porque algo más también fallaba. También
-es nuevo el falso positivo de "Carátula 3" en `validar-tarjetas.js`
-(aunque la causa, el filtro angosto de `narrables`, ya existía).
+**Sigue igual**: `scripts/gate.js:52` sin tocar (ahora van ocho mañanas); las
+seis fuentes institucionales sin feed; la contradicción de siglas contra el
+tope de seis palabras (cuarta vez).
+
+**Es nuevo**: por primera vez se documenta que el apagón completo de un día
+(22-10) ocurrió sin que ninguna rutina de Claude, incluida esta misma
+auditoría, lo registrara ese día; por primera vez el validador deja pasar
+sin comentario la cita de `hitos.md` que las dos auditorías anteriores ya
+habían marcado; y por primera vez "Carátula 3" queda escalada a
+`PENDIENTES.md` después de cinco apariciones sin tracking.
 </pre>
     </details>
     <!--AUDITORIA-FIN-->

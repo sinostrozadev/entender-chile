@@ -1046,6 +1046,48 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **23-10, HOY: el 22-10-2026 se perdió el día completo (ni informe, ni
+      video, ni podcast) porque ningún reloj de Claude disparó esa
+      madrugada, y nada fuera del sistema de rutinas lo detectó.** Auditoría
+      del 23-10 (`bitacora/2026-10-23-auditoria.md`). El barrido recién
+      corrió a las 06:03 (contra ~01:31 esperado, +272 min), disparado por
+      `workflow_dispatch` de `github-actions[bot]` y no por el reloj de
+      Claude de las 01:30; el suplente (Claude, dueño permanente de la
+      preselección desde el 06-10) fue despachado a las 06:41 y nunca
+      escribió `contenido/preseleccion/2026-10-22.md`; y no existen
+      informe, guion, revisión, video ni podcast de esa fecha
+      (`contenido/estado/2026-10-22.md` quedó congelado en "FALTA:
+      Preselección, Informe, Guion del informe, Revisión, Videos y
+      descripciones"). No hay ningún commit `reintento: despertador HH:MM
+      [reloj]` ese día, a diferencia de los nueve a quince que sí aparecen
+      el 21 y el 23-10, lo que apunta a un apagón de las rutinas de Claude
+      (reloj del barrido, los tres relojes del reintento, el reloj de
+      métricas y la propia Auditoría matinal, que tampoco escribió
+      `bitacora/2026-10-22-auditoria.md`) y no a un problema de código de
+      este repo. Propuesta concreta, la única que sí es código: que
+      `reintento.yml` (cron nativo de GitHub, no depende de las rutinas de
+      Claude) escriba una alerta en el repo y notifique por un canal
+      independiente si a las 07:00 UTC `contenido/estado/FECHA.md` todavía
+      no llegó a `preseleccion_lista`, para que un apagón total de rutinas
+      no vuelva a pasar sin aviso.
+
+- [ ] **23-10, AGUANTA: "Carátula 3" sale como una segunda pregunta en vez
+      de "cifra con referencia", la variante de A/B que decidió Santiago
+      (`estrategia/decisiones.md:388`), y nunca se anotó en esta lista a
+      pesar de llevar cinco mañanas documentadas.** Auditoría del 23-10
+      (`bitacora/2026-10-23-auditoria.md`). Apariciones: 17-10
+      (`contenido/revisiones/2026-10-17.md:80`, "segundo giro"), 18-10
+      (`bitacora/2026-10-20-auditoria.md:75`, cita la revisión del 18-10),
+      19-10 (`contenido/revisiones/2026-10-19.md:81-83`), 20-10 (la propia
+      auditoría de ese día ya la cuenta como "cuarta repetición seguida") y
+      hoy 23-10 (`contenido/revisiones/2026-10-23.md`, "igual que el 17-10
+      y el 19-10-2026"). No bloquea ninguna pieza, pero deja la prueba A/B
+      de carátulas de YouTube Studio comparando dos enfoques en vez de tres,
+      justo la prueba que `bitacora/PENDIENTES.md` (sección CARÁTULA 4) ya
+      marca como "no está andando". Propuesta: decidir en el prompt que
+      genera las tres carátulas por qué la tercera variante sigue cayendo en
+      pregunta y no en cifra con referencia, y corregirlo ahí.
+
 - [ ] **20-10, HOY: el informe cita rutas internas del repo
       (`contenido/casos/hitos.md`) como fuente para el lector, y ya salió
       así a la web.** Auditoría del 20-10 (`bitacora/2026-10-20-auditoria.md`).
@@ -1068,6 +1110,18 @@ referencia:
       seguido con este hallazgo". `prompts/informe.md:159-160` sigue sin la
       línea propuesta el 20-10. Auditoría del 21-10
       (`bitacora/2026-10-21-auditoria.md`).
+      **23-10: tercera vez (el 22-10 no tuvo edición), y ahora ni el
+      validador lo marcó.** `contenido/informes/2026-10-23.md` líneas 37,
+      168 y 179 repiten "(contenido/casos/hitos.md, 23-10-2026)", pero a
+      diferencia del 20 y el 21-10, `contenido/revisiones/2026-10-23.md` no
+      lo menciona: se le escapó también a la validación y salió publicado
+      sin que nadie lo señalara en el repo hasta esta auditoría.
+      `prompts/informe.md:159-160` sigue idéntico, verificado de nuevo hoy.
+      Propuesta nueva, además de la del 20-10: agregar en
+      `prompts/validador.md` un punto que revise, en la vuelta 1 del
+      informe, que ninguna cita del cuerpo ni de "Fuentes consultadas"
+      apunte a una ruta de `contenido/`. Auditoría del 23-10
+      (`bitacora/2026-10-23-auditoria.md`).
 
 - [ ] **16-10, AGUANTA: las seis fuentes institucionales sin feed propio
       nunca entran a la preselección desde que pasó al suplente (06-10), y
@@ -1258,6 +1312,12 @@ referencia:
       el Short, ni el video de la Clave del día. El arreglo de una línea
       sigue siendo el mismo: en `scripts/gate.js:52`, agregar
       `&& !f.endsWith("-imagenes.md")` al `.find()`.
+      **23-10: van OCHO mañanas marcada (06, 07, 08, 09, 10, 12, 21 y
+      23-10; el 22-10 no tuvo edición ni auditoría propia).** Auditoría del
+      23-10 (`bitacora/2026-10-23-auditoria.md`). La línea 52 sigue
+      idéntica, verificada de nuevo en esta corrida. No hay guion de Clave
+      con fecha de hoy, así que no se reprodujo, pero el arreglo de una
+      línea sigue sin aplicarse.
 
 - [ ] **22-09, HOY: contradicción de prompt en `prompts/guion-informe.md`
       entre el ejemplo de `comparacion` (línea 229, etiquetas de una
@@ -1531,6 +1591,11 @@ referencia:
       arregla en la pieza: hay que decidirlo en el prompt" (palabras de la
       propia revisión). Sigue sin tocarse ninguna de las dos reglas citadas.
       Auditoría del 21-10 (`bitacora/2026-10-21-auditoria.md`).
+      **23-10: cuarta aparición, ahora con "GLP vehicular" y "ENAP".**
+      `contenido/revisiones/2026-10-23.md` marca las dos siglas sin expandir
+      en una etiqueta y en una marca [FUENTE]/[TESIS] del guion de hoy.
+      Ninguna de las dos reglas citadas se tocó. Auditoría del 23-10
+      (`bitacora/2026-10-23-auditoria.md`).
 
 - [ ] **21-10, AGUANTA: `scripts/validar-tarjetas.js:153` cuenta líneas de
       encabezado ("Carátula N:", "Título sugerido:", "Descripción sugerida:")
@@ -2255,6 +2320,21 @@ referencia:
       criterio congelado el 28-08, 30 a 50 fichas, commit de congelación.
 
 ## Para la sesión de día (solo análisis)
+
+- [ ] **23-10, HOY: la cifra de comunas con clases suspendidas en el Gran
+      Concepción sigue sin cerrar, y pasó a HOY como anticipó el 21-10.**
+      Auditoría del 23-10 (`bitacora/2026-10-23-auditoria.md`). El 21-10 esta
+      auditoría dejó en MIRAR: "si Mineduc sigue sin publicar y mañana
+      tampoco hay marca nueva, pasa a HOY" (`bitacora/2026-10-21-auditoria.md`).
+      El 22-10 no tuvo edición, así que hoy fue la primera oportunidad real
+      de cerrarla, y no se cerró: `contenido/informes/2026-10-23.md:9` y
+      `:162` repiten "clases suspendidas en el Gran Concepción" sin número
+      y sin una marca `PENDIENTE DE CIERRE` nueva. `contenido/revisiones/2026-10-23.md`
+      (hallazgo 2) confirma la contradicción sin resolver: BioBioChile cuenta
+      seis comunas, La Tercera cuenta cuatro. Propuesta: verificar si
+      Mineduc, la intendencia del Biobío o la Seremi de Educación publicaron
+      un número consolidado; si no, que el informe de mañana abra una marca
+      `PENDIENTE DE CIERRE` nueva en vez de repetir la frase sin fecha.
 
 - [ ] **13-10: revisar el primer informe corto al aire** (duración, retención a los 40 s comparada con el promedio del largo, vistas a las 24 h)
 - [ ] **27-09: revisar el primer video de producción con la secuencia del
