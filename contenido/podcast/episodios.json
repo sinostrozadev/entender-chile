@@ -573,5 +573,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-20-informe.mp3",
     "bytes": 6197184,
     "durSeg": 258
+  },
+  {
+    "fecha": "2026-10-23",
+    "tipo": "informe",
+    "titulo": "23-10-2026 · Rabat confirma que firmó 56 rebajas de condena",
+    "descripcion": "El ministro Rabat confirmó que firmó 56 rebajas de condena y explicó por qué La Moneda sostiene que el Presidente no conocía cada expediente. También revisamos el hospital modular del Barros Luco que acumula cuatro años almacenado y las nuevas alzas estimadas para gasolinas y diésel. La jornada incluye además el desempleo en 9,6%, daños por el sistema frontal en Biobío y la votación presupuestaria de Ciencia y los SLEP.\n\nEl informe completo de hoy, con todas las noticias del día: https://sinostrozadev.github.io/entender-chile-web/informes/2026-10-23/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-23-informe.mp3",
+    "bytes": 5757120,
+    "durSeg": 240
   }
 ]
