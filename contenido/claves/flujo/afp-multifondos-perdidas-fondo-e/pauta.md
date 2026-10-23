@@ -97,6 +97,28 @@ siete mil millones de dólares (15-10-2026), más de US$18.000 millones
     acuerdo con qué, y cuántas veces, se cuenta SOLO con decretos, actas o
     declaraciones fechadas. Si un hecho como "se opuso varias veces" no
     aparece escrito, no se dice.
+13. **QUÉ PASA CON QUIENES SE JUBILAN AHORA (pregunta central, la investigación
+    tiene que ir a fondo).** Tres grupos distintos, que no se mezclan:
+    a) Quien ya está pensionado con renta vitalicia, que según se entiende
+       queda fijada con una aseguradora y no depende del saldo de hoy.
+    b) Quien está pensionado con retiro programado, cuya pensión se recalcula
+       periódicamente sobre el saldo, así que una caída del fondo puede
+       bajarla.
+    c) Quien tiene la jubilación programada o pactada pero aún no se pensiona,
+       o la tiene en trámite (oferta de rentas vitalicias aceptada, solicitud
+       presentada, fecha acordada): ¿el saldo con que se calcula es el de la
+       fecha de la solicitud, el de la oferta o el del día de pago? ¿Se puede
+       retractar, esperar o cambiar de modalidad sin perder?
+    Y para los tres: cuánto de la pensión es saldo y cuánto es Pensión Garantizada
+    Universal u otro aporte del Estado que no depende del fondo; qué efecto
+    tiene que el Fondo E, el que se recomienda a quien está por jubilar,
+    sea el que cayó; qué significa el llamado del ministro del Trabajo a
+    postergar la jubilación (22-10-2026) y qué se pierde o se gana postergando;
+    y si el Gobierno, la Superintendencia o el Congreso anunciaron algo para
+    los que se pensionan en estos meses. Todo lo que está en esta pregunta
+    parte de lo que se entiende del sistema, NO de una fuente del repo:
+    se confirma con la ley, la Superintendencia de Pensiones y la Comisión
+    para el Mercado Financiero antes de que el guion lo diga.
 
 ## 5. Evaluación
 
@@ -151,6 +173,16 @@ sanción ni fallo, el video no afirma responsabilidad de nadie.
 - **Los reportajes de CIPER ("siguiendo a la manada", 22-10-2026) e Interferencia
   (advertidas cuatro veces)**: no como verdad, sino para llegar a los documentos
   que citan. Y el juicio del Sernac por los swaps (BioBioChile, 22-10-2026).
+- **El caso de quien se jubila ahora (INVESTIGAR A FONDO, es lo que más le
+  importa al espectador)**: la ley y las normas de la Superintendencia sobre
+  modalidades de pensión (renta vitalicia, retiro programado, renta temporal y
+  vitalicia diferida), cómo y con qué saldo se calcula cada una, qué plazos
+  tiene la oferta de rentas vitalicias, si se puede desistir, cómo se recalcula
+  el retiro programado, cuántas personas se pensionan por mes y cuántas lo
+  hicieron con el Fondo E en 2026, qué dijo la Superintendencia a ese grupo, y
+  ejemplos numéricos con cifras oficiales (un saldo de un millón en el Fondo E
+  a septiembre de 2026, cuánto bajó, y qué pensión implica antes y después).
+  Si no hay cifra oficial para un caso, el video lo dice y no inventa el ejemplo.
 - **Composición del Fondo E**, por qué el alza de tasas golpea la renta fija,
   cuántos afiliados hay en los fondos D y E, qué pasa con estos procesos cuando
   los multifondos se extingan, y la ley que los creó, con año y motivo, que es
@@ -160,8 +192,9 @@ sanción ni fallo, el video no afirma responsabilidad de nadie.
 
 Carátula 1 (pregunta): ¿Quién responde / si tu fondo pierde?
 Carátula 2 (contradicción): El más seguro / perdió más
-Carátula 3 (cifra con referencia): 10,39% menos / en nueve meses
+Carátula 3 (cifra con referencia): 10,39% menos / si te jubilas hoy
 
-Duración: 10 a 11 minutos. Son tres explicaciones: por qué cae un fondo
-conservador, con qué regla responde la administradora y por dónde reclama una
-persona.
+Duración: 11 a 12 minutos. Son cuatro explicaciones: por qué cae un fondo
+conservador, con qué regla responde la administradora, por dónde reclama una
+persona y qué pasa con quien se jubila ahora. Esta última pesa tanto como la
+primera y no se recorta si el tiempo aprieta: se recorta la pregunta 12.
