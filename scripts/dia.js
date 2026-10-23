@@ -41,10 +41,16 @@ let guion = rutaExplicita;
 if (!guion) {
   if (esClave) {
     const dir = path.join("contenido", "guiones", "claves");
-    const candidatos = fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => f.startsWith(fecha) && f.endsWith(".md")) : [];
+    // el mismo selector que el gate: sin él, candidatos[0] podía ser el archivo
+    // de prompts de carátulas ("-imagenes.md") y no el guion (21-10-2026)
+    const candidatos = require("./guion-de-clave").guionesDeClave(dir, fecha);
     if (!candidatos.length) {
       if (args.includes("--si-existe")) { console.log("Hoy no hay guion de Claves; nada que producir."); process.exit(0); }
       console.error(`No hay guion de Claves de hoy en ${dir}/${fecha}-*.md`);
+      process.exit(1);
+    }
+    if (candidatos.length > 1) {
+      console.error(`Hay ${candidatos.length} guiones de Claves de hoy (${candidatos.join(", ")}): pásame la ruta del que va.`);
       process.exit(1);
     }
     guion = path.join(dir, candidatos[0]);

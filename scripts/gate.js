@@ -48,11 +48,14 @@ if (!fs.existsSync(gi)) errores.push(`no existe ${gi} - no hay nada que renderiz
 else chequearGuion(gi, "informe");
 
 const dirGC = path.join("contenido", "guiones", "claves");
-const gc = fs.existsSync(dirGC)
-  ? fs.readdirSync(dirGC).find((f) => f.startsWith(fecha) && f.endsWith(".md"))
-  : null;
+// selector compartido con dia.js: el primer .md de la fecha era a veces el
+// archivo de prompts de carátulas, y el 21-10-2026 bloqueó la Clave entera
+const gcs = require("./guion-de-clave").guionesDeClave(dirGC, fecha);
+// dos guiones de la misma fecha no es algo que se elija en silencio
+if (gcs.length > 1) errores.push(`clave: hay ${gcs.length} guiones de hoy (${gcs.join(", ")}) y no se sabe cuál renderizar`);
+const gc = gcs.length === 1 ? gcs[0] : null;
 if (gc) chequearGuion(path.join(dirGC, gc), "clave");
-else console.log("- clave: hoy no hay guion (ok)");
+else if (!gcs.length) console.log("- clave: hoy no hay guion (ok)");
 
 const rev = path.join("contenido", "revisiones", `${fecha}.md`);
 let revAprobada = false;

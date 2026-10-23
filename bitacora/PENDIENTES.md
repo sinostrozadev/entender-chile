@@ -94,6 +94,33 @@ medición de retención por duración).
 
 ## PARA LA SESIÓN DE LA NOCHE: lo que el día NO puede hacer (06-10-2026)
 
+### 000. HOY, 23-10-2026: la Clave de la semana no se produjo, y falta decidir en qué formato sale
+
+**La Clave es** "¿Qué compromete a Chile cuando se suma a un acuerdo
+internacional?" (`acuerdo-internacional-sin-tratado`, el caso del Escudo de las
+Américas). Sus tres veredictos son APROBADA (idea, entrega, guion) y su estado
+dice `aprobada` con `fecha_produccion: 2026-10-21`.
+
+**Por qué no salió el 21-10:** el gate previo al render la leyó vacía y bloqueó
+la edición entera, informe incluido. `scripts/gate.js` tomaba el primer `.md` de
+la fecha, y en la carpeta conviven el guion y su archivo de prompts de
+carátulas (`...-imagenes.md`), que en orden alfabético va antes. El gate leyó
+los prompts como si fueran el guion: 0 secciones. `scripts/dia.js` tenía la
+misma línea y habría tomado el mismo archivo. Arreglado con un selector único,
+`scripts/guion-de-clave.js`; reproducido el fallo antes y corregido después
+contra el 21-10 (de 0 a 11 secciones, ~9,6 minutos).
+
+**Lo que sigue pendiente y es decisión de Santiago, no de la máquina:**
+
+- No tiene mural ni carátula de GPT. Nadie los pidió, y los paneles son el paso
+  humano. Tal como está saldría en el formato clásico de tarjetas y con la
+  portada dibujada por código, que es justo lo que Santiago descartó para la
+  Clave de licencias.
+- Para sacarla con mural hay que pedir los paneles a GPT
+  (`scripts/mural-pedido.js` arma el pedido desde el guion) y coserlos.
+- Para sacarla ya en formato clásico: despachar `edicion-diaria.yml` con
+  `fecha=2026-10-21`. Sube programada, no pública.
+
 ### 00. EL MODO DE OPERACIÓN DESDE EL 16-10-2026: no gastar en mejoras
 
 Santiago, 16-10-2026: **"me queda poco límite, así que quiero dejar límite para
