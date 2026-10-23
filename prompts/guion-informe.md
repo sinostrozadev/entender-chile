@@ -312,7 +312,7 @@ no salió jamás puede frenar un informe.
       nombra. Si dudas, NO la pongas: un dibujo de más se corrige mirando el
       video, y una edición llena de vetos deja el recurso sin usar.
 - Todo párrafo sin marca es narración normal.
-- No incluyas URLs, emojis, paréntesis, bibliografía, notas al editor, marcas de tiempo, indicaciones de edición ni advertencias fuera de las marcas definidas.
+- No incluyas URLs en el texto narrado ni en las marcas (las únicas URLs permitidas están en las líneas de "Fuentes:", tal como las trae el informe; desde el 23-10-2026 esas líneas pueden llevarlas porque la descripción de YouTube las publica y sirven a quien quiere verificar), ni emojis, paréntesis, bibliografía, notas al editor, marcas de tiempo, indicaciones de edición ni advertencias fuera de las marcas definidas.
 - Al final, bajo "Fuentes:", lista una línea por cada fuente de las marcas [DATO] y [CITA] Y por cada fuente del informe cuyas noticias narraste, tal como aparecen en el informe. NUNCA listes archivos internos del sistema (rutas como contenido/..., hitos.md, preselección): si un dato viene de ahí, cita la fuente PÚBLICA original del hecho (el tribunal, el organismo, el medio). La lista se publica en YouTube tal cual (30-08: se coló "contenido/casos/hitos.md" y hubo que borrarlo a mano). Esa lista alimenta la descripción del video en YouTube: la transparencia de fuentes es marca del canal, y una fuente cuyo contenido se narró no puede quedar sin crédito. Y TODA fuente mencionada EN LA PROSA del guion ("según X", "el Informe diario señalaba", "como reportó Y") también va en la lista, aunque no tenga marca: 3 de las últimas 4 revisiones cazaron citas en prosa sin crédito en el bloque.
 
 PERSISTENCIA:

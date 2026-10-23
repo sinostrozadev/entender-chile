@@ -879,10 +879,15 @@ la pieza vuelve una segunda vez por los de criterio y se suma una vuelta (el top
 Hallazgo lateral: la regla "no incluyas URLs" del prompt del guion del informe choca con
 lo que el validador exigió el 23-10-2026 (agregar la línea de Contraloría "tal como la
 trae el informe", con su dirección web). Una regla mecánica sobre URLs habría rechazado un
-guion que el propio validador mandó dejar así. Hay que decidir cuál manda antes de
-automatizar nada sobre ella (en `bitacora/PENDIENTES.md`).
+guion que el propio validador mandó dejar así. Se resolvió ese mismo día (entrada siguiente).
 
 Lo que cambiaría la decisión: que una regla de forma vuelva a repetirse en 3 o más rondas
 seguidas. Ahí se agrega esa regla a `revisar-mecanico.js`, que Opus ya corre al empezar
 cada validación, sin tocar el flujo.
 
+## 23-10-2026 · Las URLs van en "Fuentes:" del guion del informe
+
+Santiago eligió que se queden (opción a). La descripción de YouTube las admite y
+sirven a quien quiere verificar. `prompts/guion-informe.md` las prohíbe en el texto
+narrado y en las marcas, y las permite solo en las líneas de "Fuentes:", tal como las
+trae el informe. Se decidió **NO** recortarlas en `dia.js`.
