@@ -2,11 +2,11 @@
   "flujo": "clave",
   "slug": "afp-multifondos-perdidas-fondo-e",
   "camino": "pauta",
-  "etapa": "investigacion_lista",
+  "etapa": "validar_entrega",
   "vuelta": 0,
-  "turno": "GPT",
+  "turno": "Claude",
   "fecha_produccion": "2026-10-28",
-  "actualizado": "2026-10-23 16:23",
+  "actualizado": "2026-10-23 16:27",
   "concepto": "qué es un multifondo de las AFP, quién responde cuando uno pierde y qué puede hacer un afiliado",
   "pieza": {
     "id": "entrega",
@@ -27,7 +27,7 @@
     },
     {
       "id": "entrega",
-      "situacion": "falta",
+      "situacion": "por_validar",
       "archivo": "contenido/claves/2026-10-28-afp-multifondos-perdidas-fondo-e.md"
     },
     {
