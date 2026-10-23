@@ -94,6 +94,20 @@ medición de retención por duración).
 
 ## PARA LA SESIÓN DE LA NOCHE: lo que el día NO puede hacer (06-10-2026)
 
+### 00000. Clave de la AFP: antes de la revisión final de Santiago, revisar carátulas y paneles
+
+**Dueño: día.** Santiago aprobó la pauta el 23-10-2026 y su única intervención prevista es
+la revisión del video al final (acordado ese día). El flujo de paneles valida por código
+(archivo entero, proporción, juntura) y nada juzga si la imagen sirve a su sección: el
+panel 6 de licencias estaba mal y lo vio él. Y la carátula que se pone es la primera de
+las tres, sin revisión. Por eso, cuando existan los paneles (`contenido/claves/flujo/
+afp-multifondos-perdidas-fondo-e/paneles/`) y las tres carátulas, y ANTES de que Santiago
+mire el video, la sesión de día: (1) revisa las tres carátulas con la skill `caratula` y
+deja su recomendación, y (2) mira cada panel contra su sección del guion y anota los que
+no sirven. Evidencia de que hace falta: la carátula de licencias salió mal el 16-10-2026
+("se supone que debemos validar eso antes"). Mirar `contenido/estado/clave-*.md` para
+saber en qué etapa va. Se borra al cumplirse.
+
 ### 000. 23-10-2026: el mural de la Clave ya se pide y se cose solo; falta decidir el tema
 
 **Hecho hoy, con prueba:** (1) el gate y `dia.js` leían el archivo de prompts de
