@@ -1,11 +1,11 @@
 FLUJO: clave
 SLUG: afp-multifondos-perdidas-fondo-e
 CAMINO: pauta
-ETAPA: pauta_aprobada
+ETAPA: validar_investigacion
 VUELTA: 0
-TURNO: GPT
+TURNO: Claude
 FECHA_PRODUCCION: 2026-10-28
-ACTUALIZADO: 2026-10-23 15:59 (hora de Chile)
+ACTUALIZADO: 2026-10-23 16:05 (hora de Chile)
 PIEZA: investigacion
 PROMPT: prompts/investigacion-clave.md
 ARCHIVO: contenido/claves/flujo/afp-multifondos-perdidas-fondo-e/investigacion.md
@@ -22,7 +22,7 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 | Tema elegido | listo | 12:56 | Santiago |
 | Pauta | escrita | 15:48 | Claude |
 | Aprobación de Santiago | aprobada | 15:59 | Santiago |
-| Investigación | falta |  | GPT, valida Claude |
+| Investigación | por validar | 16:05 | GPT, valida Claude |
 | Entrega escrita | falta |  | GPT, valida Claude |
 | Guion | falta |  | GPT, valida Claude |
 | Video | falta |  | Actions |
