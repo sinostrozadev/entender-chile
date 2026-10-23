@@ -7,7 +7,7 @@ Guion:
 [TESIS] Que el fondo más conservador haya perdido más no significa que estuviera garantizado, pero tampoco vuelve irrelevante cómo invirtió la AFP.
 
 [DATO comparacion | Superintendencia de Pensiones, 30-09-2026] rentabilidad real Fondo E enero-septiembre 2026: -10,39% ; rentabilidad real Fondo D enero-septiembre 2026: -6,38%
-El veinte de octubre de dos mil veintiséis, la Superintendencia de Pensiones abrió procedimientos sancionatorios contra las siete AFP por decisiones que afectaron a los fondos D y E. Un día antes, Radio Universidad de Chile informó que dos afiliados habían presentado recursos de protección. Al veintitrés de octubre no había sanción ni fallo. Entonces, la pregunta de fondo es directa: cuando baja el ahorro previsional, ¿la pérdida siempre la asume el afiliado o hay situaciones en que debe responder la administradora?
+Entre enero y septiembre de dos mil veintiséis, el Fondo E acumuló una caída real de diez coma treinta y nueve por ciento. El Fondo D cayó cuatro coma diecinueve por ciento en septiembre y seis coma treinta y ocho por ciento en el mismo período. El veinte de octubre, la Superintendencia abrió procedimientos contra las siete AFP por decisiones que afectaron a ambos fondos. Un día antes se informaron dos recursos de protección. Sin sanción ni fallo al veintitrés de octubre, la pregunta es: cuando baja el ahorro previsional, ¿debe responder la administradora?
 
 ## Promesa
 [TESIS] Para responder hay que separar el riesgo de mercado, la rentabilidad mínima, la fiscalización y el reclamo individual.
@@ -17,6 +17,7 @@ Al terminar vas a entender por qué el Fondo E puede caer, qué significa esa ba
 ## De dónde vienen los multifondos
 [TESIS] Los multifondos nacieron para ofrecer distintos niveles de riesgo, no para prometer que alguno jamás perdería.
 
+[FUENTE] BCN, Ley 19.795, 28-02-2002
 [ESQUEMA | Origen y cambio] Multifondos en 2002 -> Reforma en 2025 -> Cambio en 2027
 La Ley diecinueve mil setecientos noventa y cinco creó en dos mil dos los fondos A, B, C, D y E. La diferencia principal es cuánto pueden exponerse a renta variable y cómo se componen sus carteras. El A admite más variación para buscar mayor retorno. El E limita más esa exposición y concentra una parte mayor en renta fija. Por eso se lo llama conservador. Conservador quiere decir menor riesgo esperado bajo ciertas condiciones, no capital garantizado ni rentabilidad siempre positiva.
 
@@ -50,6 +51,7 @@ Es un ejemplo de saldo, no de pensión mensual. No existe una simulación oficia
 ## Cuándo responde una AFP
 [TESIS] Una rentabilidad negativa no obliga por sí sola a devolver dinero, porque la ley distingue entre resultado de mercado e incumplimiento.
 
+[FUENTE] Superintendencia de Pensiones, 30-09-2026
 [ESQUEMA | Tres mecanismos] Rentabilidad mínima -> Sanción administrativa -> Restitución individual
 Para los fondos C, D y E existe una rentabilidad mínima relativa. Cada AFP se compara con el promedio real anualizado de treinta y seis meses de los fondos del mismo tipo. Si todas caen de manera parecida, el promedio también baja y el mecanismo puede no activarse.
 
@@ -62,6 +64,7 @@ Una multa no llega automáticamente a la cuenta. Una restitución necesita un fu
 ## Qué puede hacer una persona afiliada
 [TESIS] Reclamar permite dejar antecedentes y exigir respuesta, pero ningún camino garantiza por adelantado una compensación.
 
+[FUENTE] Poder Judicial, Acta 19-2023
 El primer paso es pedir una explicación a la AFP y reclamar ante la Superintendencia, acompañando cartola, fondo, fechas, instrucciones y respuesta. Al veintitrés de octubre de dos mil veintiséis, el portal no publicaba un plazo especial para esta caída.
 
 El recurso de protección tiene un plazo general de treinta días corridos, contado según el acto, la omisión o el conocimiento cierto, pero calcularlo exige revisar cada caso. Radio Universidad de Chile informó dos recursos contra AFP Capital y AFP Uno, sin que estuvieran disponibles su rol, texto íntegro o sentencia. Tampoco se verificó un supuesto precedente contra AFP Uno del cinco de octubre, así que no puede presentarse como un derecho general a reintegro.
@@ -71,26 +74,31 @@ Cambiarse de AFP o de fondo también tiene reglas. Quienes reciben retiro progra
 ## Qué pasa si la jubilación está cerca
 [TESIS] Renta vitalicia, retiro programado y trámite de pensión reaccionan de manera distinta ante una caída del fondo.
 
-[DATO cifra | Superintendencia de Pensiones, 02-10-2026] tasa técnica retiro programado desde octubre 2026: 3,67%
-Si la persona ya contrató una renta vitalicia, el saldo convenido fue traspasado a una aseguradora. Una variación posterior del Fondo E no recalcula esa renta. La Pensión Garantizada Universal, si corresponde, es un componente separado del valor cuota.
+En los tres casos, la Pensión Garantizada Universal no se calcula multiplicando el saldo por el valor cuota. No existe una proporción universal entre ahorro y aporte estatal: depende de la situación y de los requisitos de cada persona.
 
+Si la persona ya contrató una renta vitalicia, el saldo convenido fue traspasado a una aseguradora. Una variación posterior del Fondo E no recalcula esa renta.
+
+[DATO cifra | Superintendencia de Pensiones, 02-10-2026] tasa técnica retiro programado desde octubre 2026: 3,67%
 En retiro programado, el saldo continúa en la AFP y la pensión se recalcula usando saldo, beneficiarios, tablas y una tasa técnica. Desde octubre de dos mil veintiséis, esa tasa equivalente era de tres coma sesenta y siete por ciento. Eso significa que una baja de diez coma treinta y nueve por ciento del Fondo E no se copia automáticamente como la misma baja mensual de la pensión.
 
 [DATO cifra | Superintendencia de Pensiones, 23-10-2026] vigencia del Certificado de Saldo: 35 días
 Si la pensión está en trámite, la AFP emite un Certificado de Saldo vigente por treinta y cinco días y envía los antecedentes al Sistema de Consultas y Ofertas de Montos de Pensión. La persona recibe ofertas, puede escoger modalidad, aceptar una oferta externa o desistirse antes de cerrar. Durante el trámite puede solicitar que el saldo destinado a pensión quede en una cuenta corriente de los fondos para preservar su valor nominal hasta la concesión o el desistimiento. Esa opción evita rentabilidades posteriores, pero no repara una pérdida anterior. Si ya se celebró una póliza o se traspasó la prima, no debe suponerse que todavía es posible retractarse.
 
-El ministro del Trabajo pidió el veintidós de octubre de dos mil veintiséis que quienes pudieran evaluaran esperar. Fue una declaración política difundida por prensa, no una instrucción general de la Superintendencia ni una garantía de recuperación. Al veintitrés de octubre no había una compensación especial confirmada ni una simulación oficial que dijera cuánto se ganaría o perdería al postergar.
+El ministro del Trabajo pidió el veintidós de octubre de dos mil veintiséis evaluar esperar. No fue una instrucción general ni una garantía de recuperación. Al veintitrés de octubre no había compensación especial ni simulación oficial sobre el efecto de postergar.
 
 ## Qué cambia en 2027
 [TESIS] El reemplazo de los multifondos cambia la arquitectura futura, no borra los procedimientos sobre hechos anteriores.
 
-Desde el primero de abril de dos mil veintisiete comenzarán diez fondos generacionales y dejarán de operar las letras A a E. También cambiará la base del encaje. Los expedientes abiertos deberán resolverse con las reglas aplicables a las decisiones investigadas.
+[FUENTE] BCN, Ley 21.735, 26-03-2025
+Desde el primero de abril de dos mil veintisiete comenzarán diez fondos generacionales y dejarán de operar las letras A a E. También cambiará la base del encaje.
 
-Sobre el debate político del encaje, lo único confirmado en las fuentes es la transición fijada por la Ley veintiún mil setecientos treinta y cinco. No se encontró un acto oficial que confirmara las cifras atribuidas a esa discusión ni una orden escrita de cerrar exactamente estas posiciones.
+[FUENTE] Superintendencia de Pensiones, 23-10-2026
+Las resoluciones trescientos sesenta y ocho, del cuatro de marzo de dos mil veintiséis, y quinientos cuarenta y nueve, del nueve de abril, modificaron el Régimen de Inversión vigente durante dos mil veintiséis. La Resolución Exenta mil ciento noventa y cinco, del primero de septiembre, fijó el que regirá desde dos mil veintisiete. La entrega no permite afirmar qué órgano dictó cada resolución. Ese cambio no borra los expedientes abiertos.
 
 ## Qué está en juego ahora
 [TESIS] Lo decisivo no es que exista una investigación, sino lo que sus resoluciones logren probar y ordenar.
 
+[FUENTE] Superintendencia de Pensiones, 20-10-2026
 [HECHO] Al veintitrés de octubre de dos mil veintiséis había siete procedimientos abiertos, ninguna sanción confirmada, ninguna restitución general y ningún fallo verificable de los dos recursos informados por la prensa.
 
 [INTERPRETACIÓN] Una lectura posible es que estos procedimientos ponen a prueba si los deberes de cuidado pueden traducirse en una consecuencia concreta cuando el daño alegado proviene de decisiones generales de inversión. Para los afiliados, importará si la resolución identifica una infracción, la relaciona con el perjuicio y determina una consecuencia que alcance sus cuentas.
@@ -121,7 +129,7 @@ Superintendencia de Pensiones, Compendio Libro III, trámite y cuenta corriente 
 Superintendencia de Pensiones, Circular 2.425, 02-10-2026: https://www.spensiones.cl/apps/GetFile.php?id=001&namefile=CAFP2425.pdf
 Superintendencia de Pensiones, cambio y asignación de fondos, consultado 23-10-2026: https://www.spensiones.cl/portal/compendio/596/w3-propertyvalue-3623.html
 Superintendencia de Pensiones, consultas y reclamos, consultado 23-10-2026: https://www.spensiones.cl/apps/consultasWEB/formConsulta.php
-Superintendencia de Pensiones, Compendio Libro III, pago de pensión, consultado 23-10-2026: https://www.spensiones.cl/portal/compendio/596/w3-propertyvalue-3205.html
+Superintendencia de Pensiones, resoluciones del sistema de pensiones, consultado 23-10-2026: https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-10352.html
 Poder Judicial, Auto Acordado Acta N° 19-2023: https://www.pjud.cl/prensa-y-comunicaciones/getRulingNew/28644
 Radio Universidad de Chile, recursos de protección, 19-10-2026: https://radio.uchile.cl/2026/10/19/afiliados-de-afp-presentan-recursos-de-proteccion-ante-millonarias-perdidas-del-fondo-e/
 El Desconcierto, declaración del ministro del Trabajo, 22-10-2026: https://eldesconcierto.cl/actualidad/caida-del-fondo-e-rau-pide-no-jubilarse-aun-y-parlamentarios-exigen-que-afp-restituyan-dinero-afiliados-n5463402

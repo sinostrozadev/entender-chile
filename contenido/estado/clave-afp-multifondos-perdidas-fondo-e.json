@@ -3,10 +3,10 @@
   "slug": "afp-multifondos-perdidas-fondo-e",
   "camino": "pauta",
   "etapa": "validar_guion",
-  "vuelta": 0,
+  "vuelta": 1,
   "turno": "Claude",
   "fecha_produccion": "2026-10-28",
-  "actualizado": "2026-10-23 16:45",
+  "actualizado": "2026-10-23 16:59",
   "concepto": "qué es un multifondo de las AFP, quién responde cuando uno pierde y qué puede hacer un afiliado",
   "pieza": {
     "id": "guion",
