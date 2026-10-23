@@ -105,15 +105,16 @@ firmó / 56 rebajas a condenados por abuso y violación de menores"**. Pasos:
    sola solicitud rechazada; también Chilevisión, T13 y Pauta). Ninguna fuente que abrí menciona
    a los internos de Punta Peuco (secuestro y tortura), así que no hay motivo para creer que
    estén dentro de los 56, pero EL PAÍS no abre desde la nube y no se confirmó contra él.
-1. **Hay dos carátulas v2 y Santiago elige.** a) `contenido/caratulas/2026-10-23-v2.png`, la del
-   flujo (GPT): 1672x941 y 2,0 MB, sobre el tope de 2 MB de YouTube, hay que pasarla a JPG.
-   b) `contenido/caratulas/2026-10-23-v2-b.jpg`, la que Santiago generó a mano y mandó por el
-   chat. Revisadas con la skill `caratula` el 23-10-2026: la b no muestra cara ni menores, pero
-   su segunda línea se lee mal a 168 px; la a se lee mejor, pero trae un rostro realista, la
-   silueta de un niño y una fachada inventada rotulada MINISTERIO DE JUSTICIA.
-2. A la elegida, ponerle la etiqueta "El día en 3 minutos" abajo a la izquierda con
-   `miniaturas.js` y comprobar que no tape texto.
-3. Ponerla con `node scripts/youtube-caratula.js --imagen <ruta> --fecha 2026-10-23 --pieza informe`.
+1. **Carátula elegida por Santiago el 23-10-2026: la b**, la que él generó a mano
+   (`contenido/caratulas/2026-10-23-v2-b.jpg`), no la de GPT (`2026-10-23-v2.png`, que trae un
+   rostro realista, la silueta de un niño y una fachada inventada rotulada MINISTERIO DE
+   JUSTICIA; no se usa). Revisada con la skill `caratula`: sin problemas contra la política de
+   Miniaturas de YouTube (23-10-2026); su única debilidad es que "por abuso y violación de
+   menores" se lee chico a 168 px.
+2. **Ya está lista con la etiqueta puesta**: `contenido/caratulas/listas/2026-10-23-informe-v2.png`
+   (1280x720, 1,3 MB, entera; "El día en 3 minutos" abajo a la izquierda, sin tapar texto,
+   comprobado a la vista). No hay que renderizar nada.
+3. Ponerla con `node scripts/youtube-caratula.js --imagen contenido/caratulas/listas/2026-10-23-informe-v2.png --fecha 2026-10-23 --pieza informe`.
 4. Cambiar el título del video a **"Rabat firmó 56 rebajas de condena a condenados por abuso y
    violación de menores"** (la frase sale del informe; no usar "violadores" ni "abusadores" a
    secas) y actualizar `Título sugerido:` del guion y la descripción.
