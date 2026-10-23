@@ -1,0 +1,10 @@
+En pausa desde el 23-10-2026, a pedido de Santiago, mientras evalúa si esta Clave conviene.
+
+Motivo: la historia del Escudo de las Américas no aparece en ninguno de los seis
+informes del 17 al 23-10 (cero menciones), y en la misma semana se repitieron las AFP
+(6 de 6 días, 52 menciones), el clima (6 de 6, 61) y las rebajas de condena (3 de 6,
+12 menciones, 9 de ellas el 23-10). Si se descarta o se pospone, el guion aprobado
+queda de reserva: ya costó sus turnos de GPT y su validación, y no hay que rehacerlo.
+
+Para reanudar: borrar este archivo. Mientras exista, scripts/mural-flujo.js no pide
+ninguna imagen y el estado del flujo queda en bloqueado_humano.

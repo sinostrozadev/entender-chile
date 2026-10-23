@@ -36,6 +36,11 @@ const anchas = new Set(arg("anchas", "").split(",").filter(Boolean).map(Number))
 const SOLAPE_NORMAL = Number(arg("solape", 500));
 const SOLAPE_ANCHO = Number(arg("solape-ancho", 900));
 const TROZOS = Number(arg("trozos", 3));
+// --crudo <ruta>: deja el mural entero sin comprimir en disco, con su meta al lado
+// (<ruta>.json). mural-velos.js lo necesita y hasta el 23-10-2026 no existía en
+// ninguna parte: se armaba a mano en cada Clave, y por eso el último paso del
+// mural no se podía automatizar.
+const CRUDO = arg("crudo", "");
 
 const archivos = fs.readdirSync(dirPaneles)
   .filter((f) => /^panel-\d{2}\.jpg$/.test(f)).sort()
@@ -97,6 +102,11 @@ const solape = (s) => (anchas.has(s) ? SOLAPE_ANCHO : SOLAPE_NORMAL);
       "  " + enJuntura.toFixed(4) + "      " + p90.toFixed(4) + "   " + (enJuntura <= Math.max(p90, 0.004) ? "invisible" : "MIRAR DE CERCA"));
   }
 
+  if (CRUDO) {
+    fs.mkdirSync(path.dirname(CRUDO), { recursive: true });
+    fs.writeFileSync(CRUDO, crudo);
+    fs.writeFileSync(CRUDO + ".json", JSON.stringify({ total, alto: ALTO, canales: C }));
+  }
   fs.mkdirSync(path.dirname(salida), { recursive: true });
   const base = Math.floor(total / TROZOS);
   console.log("");

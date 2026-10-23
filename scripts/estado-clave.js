@@ -131,10 +131,27 @@ const calcular = (slug) => {
     tema_elegido: "GPT", pauta_aprobada: "GPT", idea_aprobada: "GPT", investigacion_lista: "GPT", entrega_lista: "GPT",
     validar_idea: "Claude", validar_investigacion: "Claude", validar_entrega: "Claude", validar_guion: "Claude",
     reparar_idea: "GPT", reparar_investigacion: "GPT", reparar_entrega: "GPT", reparar_guion: "GPT",
+    paneles: "GPT: genera los paneles del mural (pedido en contenido/urgente/, en tandas de diez)", armar_mural: "Actions: cose y mide el mural (scripts/mural-flujo.js)",
     bloqueado_humano: "Santiago", aprobada: "Actions: edicion-diaria.yml renderiza y sube", videos_listos: "nadie: cerrado",
   };
   // la etapa de una pieza que todavía no está lista, según su situación
   const etapaDe = (p, falta) => ({ falta, por_validar: `validar_${p.id}`, reparar: `reparar_${p.id}`, bloqueada: "bloqueado_humano" })[p.sit];
+
+  // TRAS EL GUION APROBADO VIENEN LOS PANELES (23-10-2026). Hasta hoy el flujo
+  // pasaba directo de guion aprobado a "aprobada" y a renderizar, y los paneles
+  // del mural no los pedía nadie: la Clave de la semana quedó con sus tres
+  // veredictos en APROBADA y sin forma de salir. Ahora hay dos etapas más y
+  // ninguna gasta un turno de Claude: se validan por código (archivo entero,
+  // proporción, juntura medida). Las maneja scripts/mural-flujo.js.
+  //   paneles       GPT: falta alguna imagen; el script abre el pedido en tandas de diez
+  //   armar_mural   Actions: están todos los paneles; se cosen y se deja mural.json
+  // Un flujo con mural.json, o con formato-clasico.txt, sigue como siempre.
+  const tras_guion = () => {
+    const m = require("./mural-flujo.js").situacion(slug, RAIZ);
+    if (!m.ctx || m.mural || m.clasico) return "aprobada";
+    if (m.noPude || m.pausa) return "bloqueado_humano";
+    return m.panelesCompletos ? "armar_mural" : "paneles";
+  };
 
   if (video && existe(video)) etapa = "videos_listos";
   else if (camino === "pauta") {
@@ -144,14 +161,14 @@ const calcular = (slug) => {
     else if (pInvestigacion.sit !== "lista") { enJuego(pInvestigacion); etapa = etapaDe(pInvestigacion, "pauta_aprobada"); }
     else if (pEntrega.sit !== "lista") { enJuego(pEntrega); etapa = etapaDe(pEntrega, "investigacion_lista"); }
     else if (pGuion.sit !== "lista") { enJuego(pGuion); etapa = etapaDe(pGuion, "entrega_lista"); }
-    else { etapa = "aprobada"; foco = pGuion; }
+    else { etapa = tras_guion(); foco = pGuion; }
   } else {
     if (pIdea.sit !== "lista") { enJuego(pIdea); etapa = etapaDe(pIdea, "tema_elegido"); }
     else if (cambiar) { enJuego(pIdea); etapa = "reparar_idea"; }
     else if (!aprobada) { enJuego(pIdea); etapa = "idea_lista"; }
     else if (pEntrega.sit !== "lista") { enJuego(pEntrega); etapa = etapaDe(pEntrega, "idea_aprobada"); }
     else if (pGuion.sit !== "lista") { enJuego(pGuion); etapa = etapaDe(pGuion, "entrega_lista"); }
-    else { etapa = "aprobada"; foco = pGuion; }
+    else { etapa = tras_guion(); foco = pGuion; }
   }
   quien = QUIEN[etapa] || "";
 

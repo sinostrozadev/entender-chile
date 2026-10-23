@@ -40,7 +40,7 @@ imagenes.split(/^## /m).forEach((b) => {
 // La cadena de superficies: con qué termina cada panel y con qué empieza el
 // siguiente. Es lo ÚNICO que hace que paneles hechos por separado encajen, y
 // por eso es lo primero que va en el pedido.
-const CADENA = arg("cadena", "") || [
+const ARCO = [
   "mesón de oficina pública en azul petróleo",
   "el mismo mesón, virando a piedra gris",
   "piedra gris pasando a papel envejecido",
@@ -55,7 +55,16 @@ const CADENA = arg("cadena", "") || [
   "lino sobre mármol frío",
   "mármol que se entibia a madera clara",
   "madera clara en luz de tarde",
-].slice(0, secciones.length).join(" → ");
+];
+// EL ARCO SE REESCALA AL NÚMERO DE SECCIONES, NO SE RECORTA (23-10-2026). La
+// versión anterior hacía slice(0, N): una Clave de once secciones terminaba en
+// "cuero que se aclara hacia lino", a mitad del arco, y no cerraba sereno, que
+// es lo que el comentario de arriba dice que busca. Ahora el primero y el último
+// paso del arco siempre están, y los de en medio se reparten parejo.
+const reescalar = (arco, n) => n >= arco.length
+  ? arco.slice()
+  : Array.from({ length: n }, (_, i) => arco[Math.round(i * (arco.length - 1) / Math.max(1, n - 1))]);
+const CADENA = arg("cadena", "") || reescalar(ARCO, secciones.length).join(" → ");
 
 const desde = TANDA === 1 ? 1 : TOPE + 1;
 const hasta = TANDA === 1 ? Math.min(TOPE, secciones.length) : secciones.length;

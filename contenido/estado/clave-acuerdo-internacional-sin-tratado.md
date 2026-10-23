@@ -1,11 +1,11 @@
 FLUJO: clave
 SLUG: acuerdo-internacional-sin-tratado
 CAMINO: idea
-ETAPA: aprobada
+ETAPA: bloqueado_humano
 VUELTA: 0
-TURNO: Actions: edicion-diaria.yml renderiza y sube
+TURNO: Santiago
 FECHA_PRODUCCION: 2026-10-21
-ACTUALIZADO: 2026-10-16 17:22 (hora de Chile)
+ACTUALIZADO: 2026-10-23 12:38 (hora de Chile)
 PIEZA: guion
 PROMPT: prompts/guion-claves.md
 ARCHIVO: contenido/guiones/claves/2026-10-21-acuerdo-internacional-sin-tratado.md
@@ -20,9 +20,9 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 
 | Paso | Estado | Hora | Quién |
 |---|---|---|---|
-| Tema elegido | listo | 23:23 | Santiago |
-| Idea | aprobada | 23:34 | GPT, valida Claude |
+| Tema elegido | listo | 16:18 | Santiago |
+| Idea | aprobada | 16:18 | GPT, valida Claude |
 | Aprobación de Santiago | aprobada | 16:47 | Santiago |
-| Entrega escrita | aprobada | 16:59 | GPT, valida Claude |
-| Guion | aprobada | 17:17 | GPT, valida Claude |
+| Entrega escrita | aprobada | 17:01 | GPT, valida Claude |
+| Guion | aprobada | 12:47 | GPT, valida Claude |
 | Video | falta |  | Actions |

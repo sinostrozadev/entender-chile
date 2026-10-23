@@ -32,6 +32,12 @@ on:
   workflow_run:
     workflows: ["Edición diaria"]
     types: [completed]
+  # Cada cuatro horas, para que la espera entre reintentos de los paneles (45
+  # min) y el reintento del render tengan quien vuelva a mirar: sin un push
+  # nuevo, nada más despierta a este workflow. El cron de GitHub llega tarde y
+  # a horas al azar, y acá da igual: se trata de reintentar, no de ser puntual.
+  schedule:
+    - cron: "23 */4 * * *"
   workflow_dispatch:
 
 permissions:
@@ -73,6 +79,46 @@ jobs:
             echo "push rechazado (intento $intento de 3)"
           done
           echo "hay=1" >> "$GITHUB_OUTPUT"
+
+      # EL MURAL DE LA CLAVE SIN PASOS MANUALES (23-10-2026, scripts/mural-flujo.js).
+      # La Clave de la semana tenía sus tres veredictos en APROBADA y nadie había
+      # pedido los paneles, porque ese paso no existía: lo hacía Santiago a mano.
+      # Este paso pide los paneles a GPT en tandas de diez (el tope por
+      # solicitud) y, cuando están todos, los cose, los mide y deja mural.json.
+      # No gasta ningún turno de Claude: la validación es por código.
+      #
+      # Se despacha pedido-gpt a mano además del push porque un push hecho con el
+      # token del workflow no siempre dispara otro workflow, y un pedido que nadie
+      # recoge es un día perdido sin aviso. pedido-gpt.yml deduplica por su cuenta.
+      #
+      # sharp se instala acá y no está en package.json: solo hace falta para medir
+      # el color de entrega y para coser, o sea casi nunca.
+      - name: Mural de la Clave (pedir los paneles a GPT, o coserlos si ya están)
+        if: steps.calc.outputs.hay == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git fetch -q origin main && git reset -q --hard origin/main
+          grep -lE '^ETAPA: (paneles|armar_mural)$' contenido/estado/clave-*.md >/dev/null 2>&1 \
+            || { echo "ningún flujo está en etapa de paneles"; exit 0; }
+          npm install --no-save --no-audit --no-fund sharp@0.35.5 >/dev/null 2>&1 \
+            || echo "::warning::no se pudo instalar sharp; sin él no se puede medir ni coser"
+          RES=$(node scripts/mural-flujo.js paso) || { echo "::warning::mural-flujo.js falló"; exit 0; }
+          echo "$RES"
+          git config user.name "estado-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add contenido/urgente/ contenido/claves/flujo/ contenido/caratulas/claves/ public/claves/ 2>/dev/null || true
+          git diff --cached --quiet && { echo "sin cambios"; exit 0; }
+          # algo cambió: la etapa también (paneles -> armar_mural -> aprobada), y el render
+          # de más abajo la lee del estado commiteado
+          node scripts/estado-clave.js
+          git add contenido/estado/clave-*.md contenido/estado/clave-*.json 2>/dev/null || true
+          git commit -q -m "mural de la Clave: $(echo "$RES" | head -1 | cut -c1-100) [bot]"
+          for intento in 1 2 3; do
+            git push -q origin main && break
+            git fetch -q origin main && git rebase -q origin/main || break
+          done
+          if echo "$RES" | grep -q ': pidio '; then gh workflow run pedido-gpt.yml && echo "pedido-gpt despachado"; fi
 
       - name: Emitir eventos, despertar al validador, disparar el render
         if: steps.calc.outputs.hay == '1'
@@ -174,8 +220,20 @@ jobs:
             # --- aprobada: render y subida de la Clave para su fecha de producción
             if [ "$ETAPA" = "aprobada" ] && [ -n "$FECHAP" ]; then
               MARCA="contenido/estado/ultimo-render-clave-$SLUG.txt"
-              if [ "$(cat "$MARCA" 2>/dev/null)" = "$FECHAP" ]; then echo "render ya disparado"; else
-                echo "$FECHAP" > "$MARCA"; git add "$MARCA"; git commit -q -m "render de la Clave $SLUG disparado para $FECHAP [bot]"; git push -q origin main || true
+              # La marca era solo la fecha, y por eso un render que FALLÓ no se reintentaba
+              # nunca: el 16-10-2026 el gate rechazó la Clave por un error de selección de
+              # archivo, la marca quedó puesta, y la Clave esperó siete días sin que nada
+              # volviera a intentarlo. Ahora guarda fecha, intentos y hora, y se reintenta
+              # pasadas tres horas (más que un render normal), hasta tres veces. Si la Clave
+              # sigue en "aprobada" es que no hay video: el estado pasa a videos_listos
+              # apenas existe su descripción, y ahí los reintentos terminan solos.
+              read -r M_FECHA M_INT M_EPOCH < "$MARCA" 2>/dev/null || true
+              [ "$M_FECHA" = "$FECHAP" ] || M_INT=0
+              M_INT=${M_INT:-0}; M_EPOCH=${M_EPOCH:-0}; AHORA_E=$(date +%s)
+              if [ "$M_FECHA" = "$FECHAP" ] && { [ "$M_INT" -ge 3 ] || [ $((AHORA_E - M_EPOCH)) -lt 10800 ]; }; then
+                [ "$M_INT" -ge 3 ] && echo "::warning::el render de $SLUG se disparó 3 veces y no hay video: hay que mirarlo a mano" || echo "render ya disparado (intento $M_INT), se reintenta pasadas 3 h"
+              else
+                echo "$FECHAP $((M_INT + 1)) $AHORA_E" > "$MARCA"; git add "$MARCA"; git commit -q -m "render de la Clave $SLUG disparado para $FECHAP (intento $((M_INT + 1))) [bot]"; git push -q origin main || true
                 gh workflow run edicion-diaria.yml -f fecha="$FECHAP" && echo "Edición diaria disparada para $FECHAP"
               fi
             fi

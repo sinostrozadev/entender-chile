@@ -94,32 +94,31 @@ medición de retención por duración).
 
 ## PARA LA SESIÓN DE LA NOCHE: lo que el día NO puede hacer (06-10-2026)
 
-### 000. HOY, 23-10-2026: la Clave de la semana no se produjo, y falta decidir en qué formato sale
+### 000. 23-10-2026: el mural de la Clave ya se pide y se cose solo; falta decidir el tema
 
-**La Clave es** "¿Qué compromete a Chile cuando se suma a un acuerdo
-internacional?" (`acuerdo-internacional-sin-tratado`, el caso del Escudo de las
-Américas). Sus tres veredictos son APROBADA (idea, entrega, guion) y su estado
-dice `aprobada` con `fecha_produccion: 2026-10-21`.
+**Hecho hoy, con prueba:** (1) el gate y `dia.js` leían el archivo de prompts de
+carátulas (`...-imagenes.md`) como si fuera el guion, y por eso la Clave del 21-10
+nunca salió; arreglado con `scripts/guion-de-clave.js`. (2) El mural ya no tiene pasos
+manuales: `scripts/mural-flujo.js` pide los paneles a GPT en tandas de diez, reabre solo
+por lo que falte, los cose y deja `mural.json`; el flujo tiene dos etapas nuevas
+(`paneles`, `armar_mural`) y ninguna gasta un turno de Claude. (3) Un render que falla
+ahora se reintenta, hasta tres veces, pasadas tres horas; antes la marca impedía
+reintentar para siempre. Detalle en `contenido/claves/flujo/README.md`.
 
-**Por qué no salió el 21-10:** el gate previo al render la leyó vacía y bloqueó
-la edición entera, informe incluido. `scripts/gate.js` tomaba el primer `.md` de
-la fecha, y en la carpeta conviven el guion y su archivo de prompts de
-carátulas (`...-imagenes.md`), que en orden alfabético va antes. El gate leyó
-los prompts como si fueran el guion: 0 secciones. `scripts/dia.js` tenía la
-misma línea y habría tomado el mismo archivo. Arreglado con un selector único,
-`scripts/guion-de-clave.js`; reproducido el fallo antes y corregido después
-contra el 21-10 (de 0 a 11 secciones, ~9,6 minutos).
+**Lo que NO se pudo probar acá y la primera corrida real tiene que mirar:** que GPT
+entienda un pedido de diez imágenes con nombres de archivo exactos y las deje en esas
+rutas. El pedido se explica solo, pero es la primera vez que se le pide así. Si en la
+primera tanda faltan imágenes, el sistema reabre por las que falten; si tras dos
+reintentos siguen faltando, deja `paneles/NO-PUDE.md` y la Clave queda en
+`bloqueado_humano`.
 
-**Lo que sigue pendiente y es decisión de Santiago, no de la máquina:**
-
-- No tiene mural ni carátula de GPT. Nadie los pidió, y los paneles son el paso
-  humano. Tal como está saldría en el formato clásico de tarjetas y con la
-  portada dibujada por código, que es justo lo que Santiago descartó para la
-  Clave de licencias.
-- Para sacarla con mural hay que pedir los paneles a GPT
-  (`scripts/mural-pedido.js` arma el pedido desde el guion) y coserlos.
-- Para sacarla ya en formato clásico: despachar `edicion-diaria.yml` con
-  `fecha=2026-10-21`. Sube programada, no pública.
+**Pendiente de decisión de Santiago:** la Clave `acuerdo-internacional-sin-tratado` está
+EN PAUSA (`pausa.txt` en su flujo) mientras se evalúa si conviene. Es la única decisión
+abierta: borrar `pausa.txt` la reanuda y pide los paneles; elegir otro tema la deja de
+reserva. Medido en los informes del 17 al 23-10, el Escudo tiene cero menciones; las AFP
+6 de 6 días con 52 menciones, el clima 6 de 6 con 61, las rebajas de condena 3 de 6 con
+12 (9 de ellas el 23-10). La mejor Clave que ha hecho el canal fue sobre fondos de
+pensiones: 178 vistas y 50,1% de retención.
 
 ### 00. EL MODO DE OPERACIÓN DESDE EL 16-10-2026: no gastar en mejoras
 

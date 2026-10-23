@@ -44,6 +44,35 @@ sale de coser y medir los paneles (`scripts/mural-coser.js`,
 calzar con el guion (otra cantidad de paradas que de secciones), el paso de la
 Clave se detiene. Detalle en `scripts/clave-mural.js` y `scripts/dia.js`.
 
+## Los paneles del mural, sin pasos manuales (desde el 23-10-2026)
+
+Tras el guion aprobado hay dos etapas más, `paneles` y `armar_mural`, y ninguna
+gasta un turno de Claude: se validan por código. Las maneja
+`scripts/mural-flujo.js`, que corre dentro de `estado-clave.yml`.
+
+    <slug>/paneles/panel-NN.jpg   los paneles que entrega GPT         (scripts/mural-flujo.js los pide)
+    <slug>/paneles/NO-PUDE.md     GPT no entregó tras dos reintentos  (frena el flujo, espera a Santiago)
+    <slug>/pausa.txt              frena el flujo sin tocar su estado  (borrarlo lo reanuda)
+    <slug>/formato-clasico.txt    saca el flujo de este camino: sale en tarjetas
+    contenido/caratulas/claves/<fecha>-<slug>-1.jpg ... -3.jpg   las tres candidatas
+
+1. **Pide** los paneles en tandas de **diez** (el tope de GPT por solicitud),
+   con el color de empalme medido sobre el último panel de la tanda anterior.
+   Las tres carátulas viajan en la última tanda si caben. El pedido es un
+   `contenido/urgente/PEDIDO-mural-<slug>-t<N>.md`.
+2. Si GPT entrega a medias, **reabre solo por lo que falta**, esperando 45
+   minutos entre pedidos. Tras dos reintentos deja `NO-PUDE.md`.
+3. Con todos los paneles los **cose** (`mural-coser.js`), calcula las paradas
+   (inicio de cada panel más 440) y los velos (`mural-velos.js`), y escribe
+   `mural.json`. Esa es la señal que activa el formato mural en `dia.js`.
+   La carátula por defecto es la primera; para cambiarla basta dejar la elegida
+   como `contenido/caratulas/claves/<fecha>-<slug>.jpg`.
+
+Lo que la validación por código NO cubre, y es de Santiago al ver el video: las
+junturas se miden por salto de luz, no se miran. Probado contra los 14 paneles
+reales de licencias, reproduce las paradas y 13 de 14 velos del mural aprobado;
+la diferencia está en tres junturas que se ensancharon a mano, decisión de gusto.
+
 `aprobacion.md` tiene el mismo formato en los dos caminos (`APROBADA: fecha` o
 `CAMBIAR: nota`) y lo escriben las mismas órdenes: en el camino nuevo aprueba la
 PAUTA, en el viejo la IDEA, y en los dos fija la fecha de producción.
