@@ -5,7 +5,7 @@ ETAPA: bloqueado_humano
 VUELTA: 0
 TURNO: Santiago
 FECHA_PRODUCCION: 2026-10-21
-ACTUALIZADO: 2026-10-23 12:56 (hora de Chile)
+ACTUALIZADO: 2026-10-23 13:08 (hora de Chile)
 PIEZA: guion
 PROMPT: prompts/guion-claves.md
 ARCHIVO: contenido/guiones/claves/2026-10-21-acuerdo-internacional-sin-tratado.md
