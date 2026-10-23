@@ -94,6 +94,20 @@ medición de retención por duración).
 
 ## PARA LA SESIÓN DE LA NOCHE: lo que el día NO puede hacer (06-10-2026)
 
+### 0000. 23-10-2026: decidir si las URLs van o no en "Fuentes:" del guion del informe
+
+**Dueño: Santiago (decide), día (aplica).** El prompt `prompts/guion-informe.md`
+(FORMATO DE SALIDA) dice "No incluyas URLs", y el 17-10-2026 el validador devolvió el
+guion por eso. El 23-10-2026 el mismo validador mandó agregar la línea de Contraloría
+"tal como la trae el informe", que lleva su dirección web, y el guion aprobado
+(`contenido/guiones/informe/2026-10-23.md`, líneas 55 a 59) y su descripción
+(`contenido/descripciones/2026-10-23-informe.txt`, 8 líneas con http) salieron con URLs.
+Es una contradicción entre prompt y validador, y cada validación puede caer a un lado.
+Opciones: (a) las URLs se quedan, porque la descripción de YouTube las admite, y se
+quita la frase del prompt; (b) se quitan, y `dia.js` las recorta al copiar. Con (b) la
+descripción pierde enlaces a fuentes, que es lo que más sirve al espectador. Mi
+recomendación: (a). Sin esto resuelto no se puede automatizar ninguna revisión de URLs.
+
 ### 000. 23-10-2026: el mural de la Clave ya se pide y se cose solo; falta decidir el tema
 
 **Hecho hoy, con prueba:** (1) el gate y `dia.js` leían el archivo de prompts de

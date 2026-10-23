@@ -859,3 +859,30 @@ interno), `prompts/validador.md` (que el formato corto no es una omisión) y
 `scripts/validar-tarjetas.js` (piso de 420, techo de 600, tres secciones, sin
 la cola del formato largo). Probado con un guion corto del 12-10 escrito a mano:
 446 palabras, 3,5 minutos con la voz simulada.
+
+## 23-10-2026 · NO se construye un pre-validador que rechace piezas sin pasar por Claude
+
+Santiago aprobó "el prevalidador" ese día, apoyado en mi estimación de que ahorraría
+20 a 25% de los turnos de validación. Esa cifra era un techo. Antes de escribirlo se
+midió contra los 76 veredictos CORREGIR del 24-09-2026 al 23-10-2026: desde el
+08-10-2026 el chequeo mecánico solo habría atrapado algo en 1 de 33 rondas y no habría
+evitado ninguna. Se decidió **NO** construirlo, y si la auditoría lo vuelve a proponer
+la respuesta es esta medición.
+
+Por qué tampoco conviene ampliarlo ya: lo que hoy hace volver una pieza son reglas de
+criterio (cierre de cautela, autoverificación, cifra sin segunda fuente, etiqueta que
+se entienda en silencio), no de forma. Y rechazar sin Claude tiene un costo que el
+cálculo original no contaba: una ronda de corrección es una pieza reescrita entera por
+GPT, cuya cuota también se agota; si el rechazo mecánico lista solo parte de los fallos,
+la pieza vuelve una segunda vez por los de criterio y se suma una vuelta (el tope es 4).
+
+Hallazgo lateral: la regla "no incluyas URLs" del prompt del guion del informe choca con
+lo que el validador exigió el 23-10-2026 (agregar la línea de Contraloría "tal como la
+trae el informe", con su dirección web). Una regla mecánica sobre URLs habría rechazado un
+guion que el propio validador mandó dejar así. Hay que decidir cuál manda antes de
+automatizar nada sobre ella (en `bitacora/PENDIENTES.md`).
+
+Lo que cambiaría la decisión: que una regla de forma vuelva a repetirse en 3 o más rondas
+seguidas. Ahí se agrega esa regla a `revisar-mecanico.js`, que Opus ya corre al empezar
+cada validación, sin tocar el flujo.
+
