@@ -1,1 +1,1 @@
-validar_entrega 0
+validar_entrega 1
