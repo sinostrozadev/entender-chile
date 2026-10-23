@@ -1,0 +1,39 @@
+{
+  "flujo": "clave",
+  "slug": "afp-multifondos-perdidas-fondo-e",
+  "camino": "pauta",
+  "etapa": "pautar",
+  "vuelta": 0,
+  "turno": "Claude: escribe la pauta (prompts/pauta-clave.md)",
+  "fecha_produccion": null,
+  "actualizado": "2026-10-23 12:56",
+  "concepto": "qué es un multifondo de las AFP, quién responde cuando uno pierde y qué puede hacer un afiliado",
+  "pieza": {
+    "id": "pauta",
+    "prompt": "prompts/pauta-clave.md",
+    "archivo": "contenido/claves/flujo/afp-multifondos-perdidas-fondo-e/pauta.md",
+    "entrada": "contenido/claves/flujo/afp-multifondos-perdidas-fondo-e/tema.md"
+  },
+  "piezas": [
+    {
+      "id": "pauta",
+      "situacion": "falta",
+      "archivo": "contenido/claves/flujo/afp-multifondos-perdidas-fondo-e/pauta.md"
+    },
+    {
+      "id": "investigacion",
+      "situacion": "falta",
+      "archivo": "contenido/claves/flujo/afp-multifondos-perdidas-fondo-e/investigacion.md"
+    },
+    {
+      "id": "entrega",
+      "situacion": "falta",
+      "archivo": ""
+    },
+    {
+      "id": "guion",
+      "situacion": "falta",
+      "archivo": ""
+    }
+  ]
+}
