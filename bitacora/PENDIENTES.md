@@ -98,16 +98,26 @@ medición de retención por duración).
 
 **Dueño: noche (necesita los secrets de YouTube).** La carátula publicada ("¿Quién las autorizó?
 / La firma decisiva") no dice qué se autorizó. Santiago eligió el gancho nuevo: **"El ministro
-firmó / 56 rebajas a condenados por abuso y violación de menores"**. El pedido a GPT está en
-`contenido/urgente/PEDIDO-caratula-2026-10-23-v2.md`; la imagen llega a
-`contenido/caratulas/2026-10-23-v2.png`. Cuando exista: (0) YA COMPROBADO el 23-10-2026 desde la sesión de día: los 56 decretos son 27 por abuso sexual y 29 por violación de menores (Interferencia: entre el 11-03-2026 y el 13-09-2026, una sola solicitud rechazada; también Chilevisión, T13 y Pauta). Ninguna fuente que abrí menciona a los internos de Punta Peuco, así que no hay motivo para creer que estén dentro de los 56, pero tampoco se pudo confirmar contra EL PAÍS (no abre desde la nube); ante cualquier duda, el título dice "por delitos sexuales contra menores". (1) mirarla con la skill `caratula`
-(la etiqueta "El día en 3 minutos" abajo a la izquierda no debe tapar texto), (2) ponerla con
-`node scripts/youtube-caratula.js --imagen <ruta> --fecha 2026-10-23 --pieza informe`,
-(3) cambiar el título del video a **"Rabat firmó 56 rebajas de condena a condenados por abuso
-y violación de menores"** (la frase sale del informe: 27 por abuso sexual y 29 por violación de
-menores, EL PAÍS, 22-10-2026; no usar "violadores" ni "abusadores" a secas), y (4) actualizar
-`Título sugerido:` del guion y la descripción. Aún no se sabe si los dos internos de Punta Peuco
-están dentro de los 56: no escribir "los 56 son todos por delitos sexuales" sin eso.
+firmó / 56 rebajas a condenados por abuso y violación de menores"**. Pasos:
+
+0. **Cifra comprobada** el 23-10-2026 desde la sesión de día: los 56 decretos son 27 por abuso
+   sexual y 29 por violación de menores (Interferencia: entre el 11-03-2026 y el 13-09-2026, una
+   sola solicitud rechazada; también Chilevisión, T13 y Pauta). Ninguna fuente que abrí menciona
+   a los internos de Punta Peuco (secuestro y tortura), así que no hay motivo para creer que
+   estén dentro de los 56, pero EL PAÍS no abre desde la nube y no se confirmó contra él.
+1. **Hay dos carátulas v2 y Santiago elige.** a) `contenido/caratulas/2026-10-23-v2.png`, la del
+   flujo (GPT): 1672x941 y 2,0 MB, sobre el tope de 2 MB de YouTube, hay que pasarla a JPG.
+   b) `contenido/caratulas/2026-10-23-v2-b.jpg`, la que Santiago generó a mano y mandó por el
+   chat. Revisadas con la skill `caratula` el 23-10-2026: la b no muestra cara ni menores, pero
+   su segunda línea se lee mal a 168 px; la a se lee mejor, pero trae un rostro realista, la
+   silueta de un niño y una fachada inventada rotulada MINISTERIO DE JUSTICIA.
+2. A la elegida, ponerle la etiqueta "El día en 3 minutos" abajo a la izquierda con
+   `miniaturas.js` y comprobar que no tape texto.
+3. Ponerla con `node scripts/youtube-caratula.js --imagen <ruta> --fecha 2026-10-23 --pieza informe`.
+4. Cambiar el título del video a **"Rabat firmó 56 rebajas de condena a condenados por abuso y
+   violación de menores"** (la frase sale del informe; no usar "violadores" ni "abusadores" a
+   secas) y actualizar `Título sugerido:` del guion y la descripción.
+
 La regla de fondo ya quedó en `prompts/guion-informe.md`: el gancho y el título nombran el
 objeto de la noticia.
 
