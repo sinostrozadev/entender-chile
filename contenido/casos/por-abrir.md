@@ -76,3 +76,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-10-21 | Medialuna de Chillán
 - 2026-10-21 | Viajes y comisiones del Gobierno Regional del Biobío
 - 2026-10-23 | Hospital modular Barros Luco
+- 2026-10-24 | Alcalde de Chillán por fraude al fisco
