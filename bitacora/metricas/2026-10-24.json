@@ -3,9 +3,18 @@
   "canal": {
     "suscriptores": 39,
     "vistas": 21014,
-    "videos": 186
+    "videos": 187
   },
   "videos": {
+    "4UCpBZmp5sc": {
+      "titulo": "Justicia suspende nuevas rebajas de condena a agresores de m",
+      "publicado": "2026-10-24",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 258
+    },
     "ANViULvfEjw": {
       "titulo": "La suspensión detiene nuevos decretos, y otras 4 cosas de ho",
       "publicado": "2026-10-24",
@@ -14,15 +23,6 @@
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 33
-    },
-    "4UCpBZmp5sc": {
-      "titulo": "Justicia suspende nuevas rebajas de condena a agresores de m",
-      "publicado": "2026-10-24",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 258
     },
     "7vnz4Ex22ew": {
       "titulo": "¿Por qué ahora también el PC exige la salida del ministro Ra",
@@ -37,7 +37,7 @@
       "titulo": "La decisión administrativa llevó la firma del ministro, y ot",
       "publicado": "2026-10-23",
       "estado": "public",
-      "vistas": 48,
+      "vistas": 53,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 34
@@ -730,7 +730,7 @@
       "titulo": "Pérez Mackenna enfrenta interpelación por el Escudo de las A",
       "publicado": "2026-09-28",
       "estado": "public",
-      "vistas": 11,
+      "vistas": 12,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 601
@@ -838,7 +838,7 @@
       "titulo": "Muere un trabajador en Minera Escondida mientras hacía mante",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 428,
+      "vistas": 429,
       "meGusta": 3,
       "comentarios": 1,
       "durSeg": 42
@@ -1180,7 +1180,7 @@
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 83,
+      "vistas": 85,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 680
@@ -2619,8 +2619,8 @@
   "fuentes": {
     "canal": {
       "SHORTS": {
-        "vistas": 11974,
-        "minutos": 3133
+        "vistas": 11969,
+        "minutos": 3132
       },
       "YT_SEARCH": {
         "vistas": 1340,
@@ -2634,13 +2634,13 @@
         "vistas": 319,
         "minutos": 719
       },
+      "NOTIFICATION": {
+        "vistas": 80,
+        "minutos": 59
+      },
       "YT_CHANNEL": {
         "vistas": 79,
         "minutos": 144
-      },
-      "NOTIFICATION": {
-        "vistas": 78,
-        "minutos": 58
       },
       "YT_OTHER_PAGE": {
         "vistas": 69,
