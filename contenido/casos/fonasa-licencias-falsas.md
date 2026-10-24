@@ -1,7 +1,7 @@
 # Caso: FONASA, megafraude de licencias médicas falsas
 
 Estado: JUDICIALIZADO
-Dossier abierto: 2026-08-26 · Última actualización: 2026-10-11
+Dossier abierto: 2026-08-26 · Última actualización: 2026-10-24
 
 <!-- datos
 cuestionado: 31571798643
@@ -50,6 +50,8 @@ nota-cifra: Perjuicio al sistema público de salud fijado en la sentencia del 7�
 
 - 2026-10-07: se informa que la defensa de Samir Enrique Rivaldo Hernández presentó un recurso de nulidad ante la Corte Suprema contra la sentencia del 31-08-2026. Alega que el fallo contiene errores propios de transcripciones automáticas y del uso de inteligencia artificial en la valoración de la prueba, cuestiona la imparcialidad de dos juezas del tribunal y objeta que la nacionalidad se haya considerado al determinar la pena. (BioBioChile 07-10-2026; Canal 9 07-10-2026; El Reporte Diario 07-10-2026)
 - 2026-10-10: se informa que la Defensoría Penal Pública presentó un recurso de nulidad para invalidar el juicio respecto de nueve de sus representados condenados el 31-08-2026. El recurso apunta a la imparcialidad del tribunal: la jueza Alejandra García Bocaz se inhabilitó el 18-06-2026, durante los alegatos de clausura, después de que se abriera en su contra un cuaderno de remoción por salidas del país con licencia médica, tras haber participado en casi todo el juicio, que duró 122 jornadas, y haber estado a cargo de redactar el fallo. Será la Corte Suprema la que resuelva si invalida el juicio y ordena uno nuevo. (El Mostrador 10-10-2026; El Periodista octubre de 2026)
+- 2026-10-17: el Juzgado de Garantía de La Serena decreta prisión preventiva para dos médicos formalizados por emisión fraudulenta de licencias médicas y fraude de subvenciones, uno de ellos además por lavado de activos, en una causa distinta de la sentenciada el 31-08-2026 y también a cargo de la Fiscalía Metropolitana Oriente. Se les atribuye un perjuicio conjunto de $11.560.784.388 en subsidios pagados por FONASA, repartido en 16.718 licencias y $8.651 millones para uno y 4.537 licencias y $2.909 millones para el otro, es decir 21.255 licencias en total; Meganoticias titula "20 mil licencias" y La Tercera "más de 21 mil", y se consignan ambas lecturas. El tribunal fijó un plazo de investigación de 90 días. La detención la hizo la Brigada Investigadora de Delitos Económicos de la Policía de Investigaciones y el fiscal a cargo es Álvaro Pérez. Los dos imputados están formalizados, no condenados, y rige su presunción de inocencia; sus nombres no han sido publicados por fuentes oficiales ni por dos medios y no se consignan aquí. (La Tercera; Meganoticias, 18-10-2026; Mi Radio, 18-10-2026; El Informador Chile, 18-10-2026)
+- 2026-10-21: el 5° Tribunal de Juicio Oral en lo Penal de Santiago declara culpable al médico Alí Iván Cuadrado Chiriboga por la emisión de más de 4.500 licencias médicas falsas a afiliados de FONASA y de isapres, tras un juicio oral de 15 días, en otra causa distinta de la sentenciada el 31-08-2026. Según el fiscal Rodrigo Fernández, el médico atendía en una consulta privada de su propiedad en Cerrillos y cobraba $15.000 a cada paciente que se atendía por FONASA. La Fiscalía pide una multa de 300 UTM (más de $20 millones) y la inhabilidad para emitir licencias por el tiempo de la condena. La lectura de sentencia quedó fijada para el 05-11-2026, de modo que al 24-10-2026 hay veredicto de culpabilidad pero ninguna pena impuesta. (BioBioChile, 21-10-2026; Canal 9, 21-10-2026; El Reporte Diario, 21-10-2026; Prensa Local, 21-10-2026)
 
 Contexto del modus operandi (acreditado en juicio según prensa): las licencias se ofrecían por redes sociales y la venta se cerraba por WhatsApp, con captadores a comisión; precios reportados: afiliados FONASA pagaban $35.000 por licencias de 1 a 11 días y $75.000 por 22 a 30 días; afiliados a isapres desde $75.000 hasta $95.000 según los días de reposo. (Infobae 16-07-2025; El Tiempo; T13)
 
@@ -60,7 +62,8 @@ Contexto de reformas: la Ley 21.746 (publicada el 24-05-2025) reforzó las facul
 - Materialización del comiso ordenado en la sentencia: cuánto de los bienes y de los más de $1.000 millones incautados en cuentas corrientes ingresa efectivamente al Fisco, y qué ocurre con los inmuebles en Barranquilla, que requieren cooperación internacional con Colombia. Es el dato que decide si este caso pasa de perjuicio a recuperación. (La Tercera 31-08-2026; Fiscalía vía Cooperativa/T13, 23/24-06-2026)
 - Cobro efectivo de las multas impuestas, entre ellas la de $2.566 millones a Samir Rivaldo Hernández, la de $1.573 millones a Yesica Donado Alvis y la de $1.447 millones a Obed Urrea. (La Tercera 31-08-2026)
 - Pago efectivo de la indemnización civil de alrededor de $26.000 millones a la que fueron condenados los sentenciados al acogerse la demanda del Consejo de Defensa del Estado: es, junto con el comiso, la vía por la que este caso podría dejar de tener $0 recuperados. (La Tercera 31-08-2026; 24 Horas)
-- Causas conexas en curso: 29 compradores de licencias investigados (La Tercera, jun. 2026); nuevas detenciones de médicos por una segunda red de licencias falsas en diciembre de 2025 y enero de 2026 (BioBioChile 30-12-2025; Infobae 01-01-2026); 41 médicos indagados que salieron de Chile (BioBioChile 28-05-2025).
+- Causas conexas en curso: 29 compradores de licencias investigados (La Tercera, jun. 2026); nuevas detenciones de médicos por una segunda red de licencias falsas en diciembre de 2025 y enero de 2026 (BioBioChile 30-12-2025; Infobae 01-01-2026); 41 médicos indagados que salieron de Chile (BioBioChile 28-05-2025). Avance del 17-10-2026: dos médicos quedaron en prisión preventiva en el Juzgado de Garantía de La Serena por un perjuicio atribuido de $11.560.784.388 en subsidios pagados por FONASA, con un plazo de investigación de 90 días que vence hacia enero de 2027. Avance del 21-10-2026: el 5° Tribunal de Juicio Oral en lo Penal de Santiago declaró culpable al médico Alí Iván Cuadrado Chiriboga por más de 4.500 licencias falsas. (La Tercera y Meganoticias, 18-10-2026; BioBioChile y Canal 9, 21-10-2026)
+- Lectura de sentencia del médico Alí Iván Cuadrado Chiriboga el 05-11-2026 ante el 5° Tribunal de Juicio Oral en lo Penal de Santiago: es el próximo hito con fecha de este dossier. Ahí se sabrá la pena, si se acoge la multa de 300 UTM que pidió la Fiscalía y por cuánto tiempo queda inhabilitado para emitir licencias. Ninguno de esos montos es dinero recuperado por el Fisco hasta que se cobre. (BioBioChile y Canal 9, 21-10-2026)
 
 Nota sobre las fuentes: no se accedió al texto íntegro de la sentencia del 31-08-2026 ni de las notas de prensa citadas para ella; los datos provienen de extractos con URL verificada y con al menos dos medios establecidos por cada cifra y por cada pena consignada.
 
@@ -108,6 +111,14 @@ Nota sobre las fuentes: no se accedió al texto íntegro de la sentencia del 31-
 - El Periodista, octubre de 2026 (detalle del recurso y la inhabilitación de la jueza García Bocaz): https://www.elperiodista.cl/2026/10/defensa-busca-anular-juicio-por-megafraude-a-fonasa-y-cuestiona-imparcialidad-de-juezas/
 - La Tercera (Fiscalía rechaza la solicitud de nulidad por los cuestionamientos a la jueza): https://www.latercera.com/nacional/noticia/fiscalia-rechaza-solicitud-de-nulidad-en-megafraude-por-licencias-tras-cuestionamientos-a-jueza-las-defensas-no-tienen-agravio-alguno/
 - Canal 9, 07-10-2026 (recurso de nulidad): https://www.canal9.cl/episodios/2026/10/07/buscan-anular-condena-a-medico-que-vendio-licencias-porque-tribunal-uso-ia-en-fallo-de-456-paginas
+- La Tercera (prisión preventiva de dos médicos por más de 21 mil licencias falsas, La Serena): https://www.latercera.com/nacional/noticia/prision-preventiva-para-dos-medicos-acusados-de-emitir-mas-de-21-mil-licencias-falsas-por-11-mil-millones/
+- Meganoticias, 18-10-2026 (misma causa, perjuicio fiscal de $11 mil millones): https://www.meganoticias.cl/nacional/534189-prision-preventiva-medicos-licencias-falsas-perjuicio-fiscal-fonasa-18-10-2026.html
+- Mi Radio, 18-10-2026 (desglose de licencias y montos por imputado, La Serena): https://www.miradiols.cl/2026/10/18/medicos-prision-preventiva-licencias-medicas-falsas-la-serena/
+- El Informador Chile, 18-10-2026 (misma causa): https://www.elinformadorchile.cl/2026/10/18/prision-preventiva-para-dos-medicos-acusados-de-haber-otorgado-mas-de-21-mil-licencias-fraudulentas-por-11-mil-millones/
+- BioBioChile, 21-10-2026 (veredicto de culpabilidad del médico Cuadrado Chiriboga): https://www.biobiochile.cl/noticias/nacional/chile/2026/10/21/condenan-a-medico-que-vendio-mas-de-4-mil-licencias-falsas-en-chile-y-piden-multa-de-20-millones.shtml
+- Canal 9, 21-10-2026 (mismo veredicto, multa pedida de 300 UTM): https://www.canal9.cl/episodios/2026/10/21/condenan-a-medico-que-vendio-mas-de-4-mil-licencias-falsas-en-chile-y-piden-multa-de-20-millones
+- El Reporte Diario, 21-10-2026 (mismo veredicto): https://reportediario.cl/2026/10/21/condenan-a-medico-que-vendio-mas-de-4-mil-licencias-falsas-en-chile/
+- Prensa Local, 21-10-2026 (juicio al médico por licencias falsas): https://www.prensalocal.cl/2026/10/21/enjuician-a-medico-por-licencias-falsas/
 
 ## Registro de actualizaciones del dossier
 - 2026-08-26: dossier creado con investigación inicial. (agente de investigación)
@@ -115,6 +126,8 @@ Nota sobre las fuentes: no se accedió al texto íntegro de la sentencia del 31-
 - 2026-09-04: se incorpora que la sentencia del 31-08-2026 acogió la demanda civil del Consejo de Defensa del Estado y condenó a los sentenciados a pagar alrededor de $26.000 millones (La Tercera y 24 Horas), junto con las multas individuales de Yesica Donado Alvis ($1.573 millones) y Obed Urrea ($1.447 millones) y la extensión del comiso a bienes situados en Colombia, que se ejecutará por cooperación internacional. Se incorporan además los nombres de los siete médicos condenados que faltaban (Lizney de La Hoz, José Gnecco Cervantes, Ana Toncel Peña, Karen Mejía, Obed Urrea, Yainer Olivero Álvarez y Jorge González Guerrero), publicados por Emol el 31-08-2026 y por T13 el 01-09-2026, con sus penas reportadas. Corrección: la ficha decía que la pena de Yesica Donado Alvis no se consignaba por falta de cifra oficial; ahora consigna las dos cifras en disputa (21 años según Emol, casi 17 según La Tercera). Se mantienen recuperado y retenido en 0: una condena a pagar no es dinero devuelto y la sentencia no está firme.
 
 - 2026-10-11: entra el estado actual de la sentencia del 31-08-2026, que hasta ahora figuraba sin recursos confirmados: constan dos recursos de nulidad ante la Corte Suprema, el de la defensa de Samir Enrique Rivaldo Hernández (informado el 07-10-2026, que alega errores de transcripción automática y uso de inteligencia artificial en la valoración de la prueba, cuestiona a dos juezas y objeta el peso de la nacionalidad en la pena) y el de la Defensoría Penal Pública por nueve condenados (informado el 10-10-2026, centrado en que la jueza Alejandra García Bocaz se inhabilitó el 18-06-2026, en los alegatos de clausura, tras abrirse un cuaderno de remoción en su contra por salidas del país con licencia médica, después de participar en casi todo el juicio de 122 jornadas y de quedar a cargo de redactar el fallo). Se mantienen recuperado y retenido en 0. (BioBioChile 07-10-2026; El Mostrador 10-10-2026; El Periodista octubre de 2026)
+
+- 2026-10-24: entran dos avances judiciales de las causas conexas, que el dossier seguía como hito abierto sin fechas. El 17-10-2026 el Juzgado de Garantía de La Serena decretó prisión preventiva para dos médicos formalizados por emisión fraudulenta de licencias y fraude de subvenciones, uno además por lavado de activos, con un perjuicio atribuido de $11.560.784.388 en subsidios pagados por FONASA (16.718 licencias y $8.651 millones para uno, 4.537 licencias y $2.909 millones para el otro) y un plazo de investigación de 90 días; se consigna la discrepancia entre los titulares de 20 mil y de más de 21 mil licencias. Y el 21-10-2026 el 5° Tribunal de Juicio Oral en lo Penal de Santiago declaró culpable al médico Alí Iván Cuadrado Chiriboga por más de 4.500 licencias falsas, con lectura de sentencia fijada para el 05-11-2026 y una multa de 300 UTM pedida por la Fiscalía. Se agregan dos líneas a la cronología, se amplía el hito de causas conexas, se abre un hito nuevo por la lectura de sentencia del 05-11-2026 y se suman ocho fuentes. Sin cambios en el bloque de datos: son causas distintas de la sentenciada el 31-08-2026, así que sus montos no entran en los $31.571.798.643 de este dossier, y el recuperado sigue en $0 porque no consta ingreso alguno al Fisco. Sigue sin resolverse lo central: los dos recursos de nulidad ante la Corte Suprema contra la sentencia del 31-08-2026, el comiso y el pago de la condena civil del Consejo de Defensa del Estado.
 
 <!-- interno
 2026-09-01: no se pudo abrir el texto de ninguna fuente de la sentencia del
@@ -169,4 +182,19 @@ Quedo fuera de la ficha la extension del fallo: el titular de BioBioChile dice
 habla de 308 tomos; sin texto abierto no se puede zanjar y el dato no cambia
 ningun hecho procesal. Tampoco entra el nombre de la segunda jueza cuestionada,
 que ningun extracto individualiza. Las tres cosas quedan en por-verificar.md.
+
+2026-10-24: ningun dominio de prensa chilena resolvio por DNS en este entorno
+y el proxy devolvio 403 al intentarlo por curl, asi que ninguna de las notas de
+La Serena ni del veredicto del 21-10-2026 se leyo en su texto. Los dos hechos
+entran porque los reportan cuatro medios establecidos e independientes entre si
+por cada uno, con URL verificada y fecha en la propia direccion web.
+Quedaron fuera de la ficha, por fuente unica, y anotados en por-verificar.md:
+- La identidad de los dos medicos de La Serena, que ningun extracto nombra.
+- Que el fiscal Alvaro Perez mantenga nueve medicos emisores en prision
+  preventiva y mas de 340 funcionarios publicos formalizados: aparece en un
+  solo extracto (La Tercera) y es la cifra que mas se cruza con el dossier de
+  licencias medicas de funcionarios, donde constan 359 formalizados.
+- El nombre de la segunda jueza cuestionada en los recursos de nulidad, que un
+  extracto de octubre de 2026 da como Grace Daniela Diaz Salvo sin que un
+  segundo medio independiente lo confirme.
 -->
