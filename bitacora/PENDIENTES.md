@@ -94,6 +94,26 @@ medición de retención por duración).
 
 ## PARA LA SESIÓN DE LA NOCHE: lo que el día NO puede hacer (06-10-2026)
 
+### 0000000. 24-10-2026, URGENTE: el Short exprés de las rebajas de condena salió publicado con errores
+
+**Dueño: Santiago (decide si lo deja o lo baja) y noche (corrige, necesita secrets de YouTube).**
+El hallazgo que dejó la sesión de día para pedir una lectura a GPT
+(`contenido/urgente/2026-10-24-1105-rebajas-condena-gobiernos-anteriores.md`) lo tomó la guardia,
+que procesa todo archivo `contenido/urgente/AAAA-MM-DD-*.md` sin guion; dio la lectura por perdida
+a la hora y redactó y subió el Short (`KWY4GglxXOY`, programado a las 12:27 de Chile del 24-10-2026,
+guion en `contenido/urgente/GUION-2026-10-24-1105-rebajas-condena-gobiernos-anteriores.md`).
+Errores del guion: (1) "no se aplicó hacia atrás" mezcla la pausa de Rabat (que sí se aplica hacia
+adelante) con la Ley 21.421, cuya aplicación a condenas anteriores es justo la disputa jurídica;
+(2) "sin pasar por tribunales / ninguna vino obligada por un tribunal" se dice como hecho del
+canal y viene de fuentes citadas por Interferencia, mientras Rabat dice que recogió la doctrina de
+la Corte Suprema; (3) "salieron casi libres" no es lo que pasó (rebajas de condena, no libertad) y
+Rabat dice que la mayoría ya habría salido; (4) omite lo más nuevo, que el 23-10-2026 Rabat
+suspendió nuevas rebajas; (5) las Fuentes públicas dicen "recogido en el hallazgo de la sesión de
+día", lenguaje interno. Cómo evitarlo: un pedido manual NO se deja como `contenido/urgente/FECHA-*.md`
+si no se quiere que la guardia lo tome; ponerlo en otra carpeta o con un `pausa` explícito.
+Acción: bajar el video a privado (`node scripts/youtube-privacidad.js --id KWY4GglxXOY --privacidad private`
+o Studio) si Santiago lo decide, y rehacer el guion con la lectura de GPT si llega.
+
 ### 000000. 23-10-2026: cambiar título y carátula del informe del 23-10 ya publicado
 
 **Dueño: noche (necesita los secrets de YouTube).** La carátula publicada ("¿Quién las autorizó?
