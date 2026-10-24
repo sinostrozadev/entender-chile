@@ -1,9 +1,9 @@
 {
   "fecha": "2026-10-24",
-  "etapa": "validar_informe",
+  "etapa": "informe_listo",
   "veredicto": "pendiente",
-  "vuelta": 2,
-  "actualizado": "2026-10-24 02:52",
+  "vuelta": 0,
+  "actualizado": "2026-10-24 02:56",
   "reparar": null,
   "piezas": [
     {
@@ -36,7 +36,7 @@
       "id": "informe",
       "etiqueta": "Informe",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "lista",
       "prompt": "prompts/informe.md",
       "hora": "02:32",
       "esperada": "02:40",
