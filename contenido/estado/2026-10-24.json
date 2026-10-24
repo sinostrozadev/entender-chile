@@ -1,10 +1,18 @@
 {
   "fecha": "2026-10-24",
-  "etapa": "validar_guion_informe",
+  "etapa": "reparar_guion_informe",
   "veredicto": "pendiente",
-  "vuelta": 1,
-  "actualizado": "2026-10-24 03:15",
-  "reparar": null,
+  "vuelta": 2,
+  "actualizado": "2026-10-24 03:21",
+  "reparar": {
+    "piezas": [
+      "guion_informe"
+    ],
+    "pieza": "guion_informe",
+    "dueno": "GPT (despachador)",
+    "motivo": "contenido/veredictos/2026-10-24-guion_informe.md",
+    "vuelta": 2
+  },
   "piezas": [
     {
       "id": "barrido",
@@ -49,7 +57,7 @@
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "reparar",
       "prompt": "prompts/guion-informe.md",
       "hora": "03:00",
       "esperada": "03:10",
