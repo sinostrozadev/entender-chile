@@ -127,6 +127,7 @@ Banco Central de Chile, Informes de Estabilidad Financiera 2025-2026: https://ww
 Superintendencia de Pensiones, solicitud de pensión de vejez y SCOMP, consultado 23-10-2026: https://www.spensiones.cl/portal/institucional/594/w3-article-12269.html
 Superintendencia de Pensiones, Compendio Libro III, trámite y cuenta corriente durante pensión, actualizado a septiembre de 2026: https://www71.spensiones.cl/portal/institucional/594/articles-11315_nt_566_texto_compendiado.pdf
 Superintendencia de Pensiones, Circular 2.425, 02-10-2026: https://www.spensiones.cl/apps/GetFile.php?id=001&namefile=CAFP2425.pdf
+Superintendencia de Pensiones, preguntas generales sobre PGU, consultado 23-10-2026: https://www.spensiones.cl/portal/institucional/594/w3-article-15170.html
 Superintendencia de Pensiones, cambio y asignación de fondos, consultado 23-10-2026: https://www.spensiones.cl/portal/compendio/596/w3-propertyvalue-3623.html
 Superintendencia de Pensiones, consultas y reclamos, consultado 23-10-2026: https://www.spensiones.cl/apps/consultasWEB/formConsulta.php
 Superintendencia de Pensiones, resoluciones del sistema de pensiones, consultado 23-10-2026: https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-10352.html
