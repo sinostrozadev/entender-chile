@@ -582,5 +582,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-23-informe.mp3",
     "bytes": 5757120,
     "durSeg": 240
+  },
+  {
+    "fecha": "2026-10-24",
+    "tipo": "informe",
+    "titulo": "24-10-2026 · Justicia suspende nuevas rebajas de condena a agresores de menores",
+    "descripcion": "Justicia suspendió nuevos decretos de rebaja de condena para agresores sexuales de menores, pero los beneficios ya concedidos no quedan anulados automáticamente. También explicamos el dólar observado, la renovación del swap con China y el balance actualizado del sistema frontal. En el informe completo revisamos además el Fondo E, las expulsiones y otras noticias del día.\n\nEl informe completo de hoy, con todas las noticias del día: https://sinostrozadev.github.io/entender-chile-web/informes/2026-10-24/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-24-informe.mp3",
+    "bytes": 6175296,
+    "durSeg": 257
   }
 ]
