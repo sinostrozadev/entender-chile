@@ -1158,6 +1158,28 @@ referencia:
       independiente si a las 07:00 UTC `contenido/estado/FECHA.md` todavía
       no llegó a `preseleccion_lista`, para que un apagón total de rutinas
       no vuelva a pasar sin aviso.
+      **25-10: segunda mañana, y esta vez más angosta, lo que demuestra que
+      la alerta propuesta no basta.** `bitacora/2026-10-24-auditoria.md`
+      nunca se escribió (verificado listando `bitacora/`: la lista de
+      archivos `*-auditoria.md` salta del 23-10 al 25-10) y no existe
+      ningún commit `"auditoría matinal 2026-10-24"` en toda la rama
+      principal (`search_commits`). A diferencia del 22-10, el 24-10 la
+      cadena de producción corrió completa y a tiempo (video y podcast
+      listos a las 03:38 Chile, métricas a las 05:05): lo que se apagó fue
+      solo la capa de autovigilancia, auditoría de las 05:30 e informe de
+      la mañana de las 06:00, sin dejar ningún commit entre las 05:05 y las
+      08:10 Chile de ese día (`list_commits` sobre el repo real, no el clon
+      superficial de esta sesión). La alerta propuesta el 23-10 (avisar si
+      `contenido/estado/FECHA.md` no llega a `preseleccion_lista`) no habría
+      servido aquí, porque ese estado sí llegó, hasta `videos_listos`.
+      Propuesta nueva y distinta: en `.github/workflows/reintento.yml`,
+      junto al paso de la línea 70, agregar una comprobación propia que a
+      las 08:50 UTC (05:50 Chile) revise si `bitacora/<FECHA>-auditoria.md`
+      existe para la fecha de hoy en Chile, y si no, escriba
+      `contenido/estado/alerta-auditoria-faltante.txt` y lo pushee, para que
+      la falta de auditoría quede visible sin depender de que otra
+      auditoría la encuentre días después. Auditoría del 25-10
+      (`bitacora/2026-10-25-auditoria.md`).
 
 - [ ] **23-10, AGUANTA: "Carátula 3" sale como una segunda pregunta en vez
       de "cifra con referencia", la variante de A/B que decidió Santiago
