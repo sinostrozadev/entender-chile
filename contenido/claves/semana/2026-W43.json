@@ -1,0 +1,627 @@
+{
+  "semana": "2026-W43",
+  "lunes": "2026-10-19",
+  "sabado": "2026-10-24",
+  "dias": [
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24"
+  ],
+  "dias_con_informe": [
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-23",
+    "2026-10-24"
+  ],
+  "generado": "2026-10-25",
+  "noticias": 160,
+  "temas": 133,
+  "pesos": {
+    "A": 3,
+    "B": 2,
+    "C": 1,
+    "seguimiento": 1.5,
+    "dia_extra": 1,
+    "dossier": 2
+  },
+  "ranking": [
+    {
+      "puesto": 1,
+      "puntaje": 19,
+      "dias": [
+        "2026-10-19",
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-24"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "B",
+        "C",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Chile en regiones",
+        "Además, hoy",
+        "Seguridad y Justicia",
+        "Plata pública"
+      ],
+      "seguimiento": true,
+      "noticias": 6,
+      "terminos": [
+        "alcalde",
+        "chillan",
+        "medialuna",
+        "arraigo",
+        "causa",
+        "formalizan",
+        "municipal",
+        "aconcagua"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-19",
+          "nivel": "B",
+          "titular": "Fiscalía formaliza al alcalde de Chillán por la compra de la Medialuna",
+          "seccion": "Chile en regiones"
+        },
+        {
+          "fecha": "2026-10-20",
+          "nivel": "B",
+          "titular": "El alcalde de Chillán queda con arraigo en el caso Medialuna",
+          "seccion": "Chile en regiones"
+        },
+        {
+          "fecha": "2026-10-21",
+          "nivel": "B",
+          "titular": "El alcalde de Chillán queda con arraigo en el caso Medialuna",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-10-24",
+          "nivel": "B",
+          "titular": "Formalizan al alcalde de Chillán por fraude al fisco",
+          "seccion": "Plata pública"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 2,
+      "puntaje": 9,
+      "dias": [
+        "2026-10-20",
+        "2026-10-21"
+      ],
+      "niveles": [
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Seguridad y Justicia"
+      ],
+      "seguimiento": true,
+      "noticias": 2,
+      "terminos": [
+        "barriga",
+        "cathy",
+        "causa",
+        "comenzar",
+        "juicio",
+        "logra",
+        "maipu",
+        "municipio"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-20",
+          "nivel": "B",
+          "titular": "La preparación del juicio contra Cathy Barriga logra comenzar",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-10-21",
+          "nivel": "B",
+          "titular": "El municipio de Maipú seguirá como querellante en la causa contra Cathy Barriga",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": {
+        "slug": "maipu-cathy-barriga",
+        "titulo": "Caso: Municipalidad de Maipú (causa Cathy Barriga)"
+      },
+      "explicado": null
+    },
+    {
+      "puesto": 3,
+      "puntaje": 8.5,
+      "dias": [
+        "2026-10-19",
+        "2026-10-20"
+      ],
+      "niveles": [
+        "A",
+        "B"
+      ],
+      "secciones": [
+        "Actualidad",
+        "Medioambiente y clima"
+      ],
+      "seguimiento": true,
+      "noticias": 2,
+      "terminos": [
+        "clas",
+        "region",
+        "alcanza",
+        "comuna",
+        "emergencia",
+        "mart",
+        "metropolitana",
+        "suspenden"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-19",
+          "nivel": "A",
+          "titular": "Siete regiones bajo emergencia preventiva; diez comunas metropolitanas suspenden clases el martes 20-10-2026",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-10-20",
+          "nivel": "B",
+          "titular": "La suspensión de clases alcanza a cuatro regiones",
+          "seccion": "Medioambiente y clima"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 4,
+      "puntaje": 8,
+      "dias": [
+        "2026-10-21",
+        "2026-10-23",
+        "2026-10-24"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Educación",
+        "Vivienda y ciudad"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "slep",
+        "traspaso",
+        "ajust",
+        "certeza",
+        "exigen",
+        "frena",
+        "municipio",
+        "postergan"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-21",
+          "nivel": "B",
+          "titular": "Cinco traspasos a SLEP se postergan tras ajustes de última hora",
+          "seccion": "Educación"
+        },
+        {
+          "fecha": "2026-10-23",
+          "nivel": "B",
+          "titular": "El presupuesto frena traspasos a los SLEP",
+          "seccion": "Vivienda y ciudad"
+        },
+        {
+          "fecha": "2026-10-24",
+          "nivel": "B",
+          "titular": "Municipios exigen certeza para los traspasos a SLEP",
+          "seccion": "Educación"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 5,
+      "puntaje": 8,
+      "dias": [
+        "2026-10-20",
+        "2026-10-21"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "B",
+        "C"
+      ],
+      "secciones": [
+        "Ciencia y tecnología",
+        "Salud",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "artificial",
+        "cancer",
+        "inteligencia",
+        "mama",
+        "prepara",
+        "publico",
+        "activa",
+        "banco"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-20",
+          "nivel": "B",
+          "titular": "Un sistema de inteligencia artificial para riesgo de cáncer de mama prepara un piloto público",
+          "seccion": "Ciencia y tecnología"
+        },
+        {
+          "fecha": "2026-10-21",
+          "nivel": "B",
+          "titular": "Salud prepara búsqueda activa para cáncer de mama",
+          "seccion": "Salud"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 6,
+      "puntaje": 7,
+      "dias": [
+        "2026-10-20",
+        "2026-10-21"
+      ],
+      "niveles": [
+        "A",
+        "A"
+      ],
+      "secciones": [
+        "Política",
+        "Actualidad"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "administrativa",
+        "expulsion",
+        "agiliza",
+        "aprueba",
+        "camara",
+        "cambio",
+        "congreso",
+        "despacha"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-20",
+          "nivel": "A",
+          "titular": "La Cámara aprueba cambios a las expulsiones administrativas; falta el Senado",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-10-21",
+          "nivel": "A",
+          "titular": "El Congreso despacha la ley que agiliza las expulsiones administrativas",
+          "seccion": "Actualidad"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 7,
+      "puntaje": 7,
+      "dias": [
+        "2026-10-23",
+        "2026-10-24"
+      ],
+      "niveles": [
+        "A",
+        "A"
+      ],
+      "secciones": [
+        "Actualidad"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "condena",
+        "rebaja",
+        "agresor",
+        "confirma",
+        "firmo",
+        "justicia",
+        "menor",
+        "rabat"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-23",
+          "nivel": "A",
+          "titular": "Rabat confirma que firmó 56 rebajas de condena",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-10-24",
+          "nivel": "A",
+          "titular": "Justicia suspende nuevas rebajas de condena a agresores sexuales de menores",
+          "seccion": "Actualidad"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 8,
+      "puntaje": 7,
+      "dias": [
+        "2026-10-23",
+        "2026-10-24"
+      ],
+      "niveles": [
+        "B",
+        "A",
+        "C"
+      ],
+      "secciones": [
+        "Medioambiente y clima",
+        "Vivienda y ciudad",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "frontal",
+        "sistema",
+        "autoridad",
+        "biobio",
+        "centro",
+        "citada",
+        "clas",
+        "comuna"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-23",
+          "nivel": "B",
+          "titular": "El sistema frontal mantiene daños en Biobío",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-10-24",
+          "nivel": "A",
+          "titular": "El sistema frontal deja más de 750 viviendas dañadas",
+          "seccion": "Vivienda y ciudad"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 9,
+      "puntaje": 5,
+      "dias": [
+        "2026-10-20",
+        "2026-10-24"
+      ],
+      "niveles": [
+        "C",
+        "A"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Resumen internacional"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "brasil",
+        "empate",
+        "tecnico",
+        "bolsonaro",
+        "campana",
+        "cierra",
+        "divulgada",
+        "encuesta"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-20",
+          "nivel": "C",
+          "titular": "Una encuesta BTG/Nexus divulgada el 19-10-2026 mostró empate técnico entre Lula da Silva y Flávio Bolsonaro en la segunda vuelta presidencial de Brasil: 50,3% a 49,7% de votos válidos (UOL, 19-10-2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-24",
+          "nivel": "A",
+          "titular": "Brasil cierra la campaña con empate técnico",
+          "seccion": "Resumen internacional"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 10,
+      "puntaje": 5,
+      "dias": [
+        "2026-10-19",
+        "2026-10-20"
+      ],
+      "niveles": [
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Chile en regiones"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "busqueda",
+        "portillo",
+        "victima",
+        "fijada",
+        "juev",
+        "posterga"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-19",
+          "nivel": "B",
+          "titular": "Portillo posterga hasta el jueves 22-10-2026 la búsqueda de la tercera víctima",
+          "seccion": "Chile en regiones"
+        },
+        {
+          "fecha": "2026-10-20",
+          "nivel": "B",
+          "titular": "En Portillo, la búsqueda de una tercera víctima queda fijada para el 22-10-2026",
+          "seccion": "Chile en regiones"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    }
+  ],
+  "fuera_por_ya_explicado": [
+    {
+      "puntaje": 6,
+      "dias": [
+        "2026-10-20",
+        "2026-10-21"
+      ],
+      "niveles": [
+        "B",
+        "A"
+      ],
+      "secciones": [
+        "Seguridad y Justicia",
+        "Actualidad"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "fondo",
+        "perdida",
+        "afiliado",
+        "cort",
+        "enfrentan",
+        "llevan",
+        "proceso"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-20",
+          "nivel": "B",
+          "titular": "Dos afiliados llevan a las cortes las pérdidas del Fondo E",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-10-21",
+          "nivel": "A",
+          "titular": "Las siete AFP enfrentan procesos por las pérdidas de los fondos D y E",
+          "seccion": "Actualidad"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "afp-multifondos-perdidas-fondo-e",
+        "titulo": "Multifondos de pensiones: quién responde cuando el saldo cae y qué puede hacer el afiliado"
+      }
+    },
+    {
+      "puntaje": 4,
+      "dias": [
+        "2026-10-24"
+      ],
+      "niveles": [
+        "A",
+        "C"
+      ],
+      "secciones": [
+        "Economía",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "banco",
+        "central",
+        "anticipo",
+        "china",
+        "cooperativa",
+        "dolar",
+        "elevo",
+        "inflacion"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-24",
+          "nivel": "A",
+          "titular": "El dólar queda en $986,58 y el Banco Central renueva el swap con China",
+          "seccion": "Economía"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "como-leer-ipom",
+        "titulo": "Cómo leer el IPoM: proyecciones, supuestos y riesgos detrás de las decisiones del Banco Central"
+      }
+    },
+    {
+      "puntaje": 1,
+      "dias": [
+        "2026-10-24"
+      ],
+      "niveles": [
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "acumula",
+        "caida",
+        "cesantia",
+        "distinta",
+        "enero",
+        "fondo",
+        "pension",
+        "positiva"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-24",
+          "nivel": "C",
+          "titular": "El Fondo E acumula una caída real de 10,39% entre enero y septiembre, mientras los fondos del Seguro de Cesantía registran rentabilidad positiva bajo reglas distintas (Superintendencia de Pensiones, 05-10-2026; La Tercera, 23-10-2026)",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "afp-multifondos-perdidas-fondo-e",
+        "titulo": "Multifondos de pensiones: quién responde cuando el saldo cae y qué puede hacer el afiliado"
+      }
+    }
+  ]
+}
