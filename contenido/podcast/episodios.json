@@ -591,5 +591,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-24-informe.mp3",
     "bytes": 6175296,
     "durSeg": 257
+  },
+  {
+    "fecha": "2026-10-25",
+    "tipo": "informe",
+    "titulo": "25-10-2026 · Brasil elige presidente en un balotaje estrecho entre Bolsonaro y Lula",
+    "descripcion": "Brasil define su Presidencia en una segunda vuelta estrecha entre Flávio Bolsonaro y Lula. En Chile, el Congreso despachó la modernización de Carabineros y el sistema frontal mantiene personas albergadas y aisladas. El informe completo también aborda las rebajas de condenas, el acuerdo financiero con China y los nuevos controles para las licencias médicas.\n\nEl informe completo de hoy, con todas las noticias del día: https://sinostrozadev.github.io/entender-chile-web/informes/2026-10-25/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-25-informe.mp3",
+    "bytes": 5248512,
+    "durSeg": 219
   }
 ]
