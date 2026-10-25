@@ -3,9 +3,18 @@
   "canal": {
     "suscriptores": 39,
     "vistas": 21095,
-    "videos": 189
+    "videos": 190
   },
   "videos": {
+    "FL_0KYCVIx0": {
+      "titulo": "Brasil elige presidente en un balotaje estrecho entre Bolson",
+      "publicado": "2026-10-25",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 219
+    },
     "hmEIT_mxTpE": {
       "titulo": "Las encuestas sitúan la elección brasileña dentro del margen",
       "publicado": "2026-10-25",
@@ -15,20 +24,11 @@
       "comentarios": 0,
       "durSeg": 32
     },
-    "FL_0KYCVIx0": {
-      "titulo": "Brasil elige presidente en un balotaje estrecho entre Bolson",
-      "publicado": "2026-10-25",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 219
-    },
     "KWY4GglxXOY": {
       "titulo": "¿Por qué 56 condenados por abusos a menores salieron casi li",
       "publicado": "2026-10-24",
       "estado": "public",
-      "vistas": 48,
+      "vistas": 75,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 42
@@ -37,7 +37,7 @@
       "titulo": "La suspensión detiene nuevos decretos, y otras 4 cosas de ho",
       "publicado": "2026-10-24",
       "estado": "public",
-      "vistas": 39,
+      "vistas": 40,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 33
@@ -1207,7 +1207,7 @@
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 90,
+      "vistas": 91,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 680
@@ -1243,7 +1243,7 @@
       "titulo": "Corte Suprema remueve a once jueces por viajar con licencia ",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 38,
+      "vistas": 40,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 709
@@ -1324,7 +1324,7 @@
       "titulo": "Banco Central reduce a menos de uno por ciento su proyección",
       "publicado": "2026-09-10",
       "estado": "public",
-      "vistas": 22,
+      "vistas": 23,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 694
