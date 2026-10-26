@@ -122,141 +122,182 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 25-10-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-10-25-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS. HOY: la auditoría matinal del 24-10-2026 nunca escribió</div>
+    <p class="eyebrow">Auditoría de la mañana · 26-10-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-10-26-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:#8A6F3F;margin-bottom:10px">ESTADO: CON OBSERVACIONES. Nada bloquea la edición de mañana ni perdió datos</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON FALLAS. HOY: la auditoría matinal del 24-10-2026 nunca escribió
-su archivo (ni la del informe de la mañana de esa fecha dejó rastro en el
-repo), y nadie lo notó hasta esta corrida, un día después de que el apagón
-del 22-10 propusiera justo la alerta que habría avisado esto. La cadena de
-hoy, en cambio, corrió completa y sin fallas técnicas.
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON OBSERVACIONES. Nada bloquea la edición de mañana ni perdió datos
+hoy; lo que sigue son tendencias a vigilar y un pendiente ya cerrado en el
+código que quedó mal registrado en la bitácora.
 
 ## Qué salió hoy y a qué hora
 
 | Pieza | Llegó (Chile) | Esperada | Vuelta | Fuente |
 |---|---|---|---|---|
-| Barrido | 01:46 | 01:40 | (no aplica) | `contenido/estado/2026-10-25.md` |
-| Preselección | 02:03 | 02:10 | APROBADA vuelta 0 | `contenido/veredictos/2026-10-25-preseleccion.md` |
-| Informe | 02:16, corregido dos veces | 02:40 | APROBADA vuelta 2 (02:35) | `contenido/veredictos/2026-10-25-informe.md` |
-| Guion del informe | 02:38, corregido una vez | 03:10 | APROBADA vuelta 1 (02:49) | `contenido/veredictos/2026-10-25-guion_informe.md` |
-| Revisión (compuerta) | 02:50 | 03:30 | APROBADA vuelta 2 | `contenido/revisiones/2026-10-25.md` |
-| Videos, descripciones, podcast | 03:00 a 03:04 (`estado: videos_listos` 03:04) | 05:15 | (no aplica) | `edicion-diaria.yml` run 40166981449, exitoso |
-| Métricas | 05:05 | 05:00 | (no aplica) | `bitacora/metricas/2026-10-25.md` |
-| Auditoría matinal | disparo real 05:43 (esta corrida) | 05:30 | (no aplica) | `last_run` del trigger, +13 min, dentro de tolerancia |
+| Barrido | 01:45 | 01:40 (01:30 en el panel) | (no aplica) | `contenido/estado/2026-10-26.md`; Actions run 40270676754 |
+| Preselección | 02:00, veredicto 02:08 | 02:10 | APROBADA vuelta 0 | `contenido/veredictos/2026-10-26-preseleccion.md` |
+| Informe | 02:16 | 02:40 | APROBADA vuelta 1 (02:34) | `contenido/veredictos/2026-10-26-informe.md` |
+| Guion del informe | 02:38, aprobado 03:00 tras 2 vueltas | 03:10 | APROBADA vuelta 2 | `contenido/veredictos/2026-10-26-guion_informe.md` |
+| Revisión (compuerta) | 03:02 | 03:30 | APROBADA vuelta 2 | `contenido/revisiones/2026-10-26.md`; Actions run 40277503808 |
+| Videos, descripciones, podcast | 03:16, `videos_listos` 03:21 | 05:15 | (no aplica) | `contenido/estado/2026-10-26.md`; Web run 40279303544 |
+| Métricas | 05:05 | 05:00 | (no aplica) | `bitacora/metricas/2026-10-26.md`; Actions run 40289863064 |
+| Auditoría matinal | esta corrida, ~05:3x | 05:30 | (no aplica) | — |
 
-Horas vía `git log --diff-filter=A --date=format-local` en huso Chile sobre
-cada archivo de hoy, cruzadas con `contenido/estado/2026-10-25.md` y con
-`actions_list` de GitHub. Ninguna pieza llegó con más de 20 minutos de
-atraso contra su hora esperada: al contrario, toda la cadena de texto y de
-video terminó muy por delante del cuadro (videos listos a las 03:04 contra
-las 05:15 esperadas). Las nueve corridas de "Reintento del despertar" entre
-las 02:10 y las 05:36 son el reloj de respaldo cada 20 minutos
-(`*/20 4-9 * * *`), y no encontraron nada que reintentar porque la cadena
-nunca se atrasó. Las corridas de GitHub Actions del día (barrido, edición
-diaria, estado del día, estado de la Clave, web x2, métricas, reintento x9)
-terminaron todas con `conclusion: success` (`actions_list`, repo
-sinostrozadev/entender-chile, rama main).
+Ninguna pieza llegó con más de 20 minutos de atraso contra su hora esperada;
+al contrario, la cadena de texto y de video terminó muy por delante del
+cuadro (videos listos a las 03:21 contra las 05:15 esperadas). Las corridas
+de "Reintento del despertar" entre las 02:36 y las 05:37 (diez corridas,
+cada ~15 a 20 minutos) son el reloj de respaldo y no encontraron nada que
+reintentar porque la cadena nunca se atrasó. `node scripts/validar-tarjetas.js --fecha 2026-10-26`
+imprime "variedad OK: ninguna cuota rota, ninguna marca malformada" sobre 4
+bloques (cifra 3, esquema 2, comparación 1), sin avisos.
 
 ## Qué falló
 
-### 1. HOY, nuevo: la auditoría del 24-10-2026 nunca se escribió, y la del informe de la mañana tampoco dejó rastro
+### 1. Las seis fuentes institucionales sin feed propio, cuarto día seguido sin cambio
 
-`bitacora/` no tiene `2026-10-24-auditoria.md` (verificado listando la
-carpeta completa: la lista de archivos `*-auditoria.md` salta del 23-10 al
-25-10, el de hoy, que es esta misma corrida). Una búsqueda de commits sobre
-toda la rama principal (`search_commits`, query
-`repo:sinostrozadev/entender-chile "auditoría matinal 2026-10-24"`) devuelve
-cero resultados. Y revisando los commits reales del 24-10-2026 de 03:00 a
-09:00 UTC (`list_commits`, que no depende del clon superficial de esta
-sesión), la cadena de contenido de ese día corrió completa y bien, con la
-revisión aprobada y el video listo a las 03:38 Chile (06:38 UTC) y el reloj
-de métricas a las 05:05 Chile (08:05 UTC); después de eso, el siguiente
-commit de cualquier tipo es "guardia: despertador 08:10 [reloj]" a las 08:10
-Chile (11:10 UTC). Entre las 05:05 y las 08:10 de Chile, exactamente la
-ventana donde debían correr la auditoría de las 05:30 y el informe de la
-mañana de las 06:00, no hay un solo commit: ni el archivo de la auditoría,
-ni ningún indicio de que el guardián de las 06:00 escribiera algo (su
-salida es la respuesta del chat, no un archivo, así que esta corrida no
-puede afirmar si ese sí corrió, solo que no dejó huella en el repo).
+`contenido/revisiones/2026-10-26.md` (hallazgo 1) repite, idéntica, la lista
+de Contraloría General de la República, Banco Central de Chile, Cámara de
+Diputados, Senado, Dirección Meteorológica de Chile y Ministerio Público,
+que no se abren porque la preselección la escribe el suplente (no navega).
+Ya apareció igual en `contenido/revisiones/2026-10-23.md:25`,
+`2026-10-24.md:31` y `2026-10-25.md:31`: van cuatro mañanas con el mismo
+texto. Ya está en `bitacora/PENDIENTES.md` (entrada del 16-10, AGUANTA, sin
+dueño); no se duplica.
 
-Es la misma familia de falla que el apagón del 22-10 (`bitacora/PENDIENTES.md`,
-sección "Para la sesión de la noche", entrada del 23-10), pero más angosta:
-ese día se apagaron también los relojes de la cadena de producción
-(barrido, reintentos, métricas); el 24-10 la cadena de producción funcionó
-entera y a tiempo, y lo que faltó fue específicamente la capa de
-autovigilancia (auditoría y guardián). Eso importa para la propuesta: la
-que se dejó anotada el 23-10 (alertar si `contenido/estado/FECHA.md` no
-llega a `preseleccion_lista`) no habría atrapado esto, porque el 24-10 el
-estado llegó hasta `videos_listos` sin problema. Hace falta una
-comprobación distinta, enfocada en la auditoría misma.
+### 2. Titulares de la preselección casi copiados del barrido: se duplicó la proporción de un día a otro
+
+Hoy 25 de las 60 candidatas de `contenido/preseleccion/2026-10-26.md`
+quedan "muy cerca del titular del barrido, reescritos apenas con artículos
+agregados y la puntuación cambiada" (veredicto de preselección, líneas
+citadas 9, 12, 27, 48, 57, 60, 66, 75, 78, 87, 102, 105, 114, 117, 138, 141,
+144, 150, 153, 165, 174, 177, 189, 201 y 213). El 25-10-2026 el mismo
+hallazgo contó 9 sobre 60 (primera vez que se documentó, marcado MIRAR en
+`bitacora/2026-10-25-auditoria.md` con la regla "si se repite dos mañanas
+más, pasa a HOY"). Hoy es la segunda mañana y la proporción se duplicó, no
+se mantuvo: no mide literal (cero coincidencias exactas tras normalizar),
+así que ninguna vuelta lo bloqueó, pero la causa de fondo es la misma del
+hallazgo 1, el suplente permanente de la preselección.
+
+### 3. Horas vistas de los largos: seis días bajando, y hoy el salto fue tres veces el ruido habitual
+
+`bitacora/metricas/FECHA.md`, campo "horas vistas en videos LARGOS"
+(ventana móvil de 30 días, Analytics real, no estimado):
+
+| Fecha | Horas | Retención media |
+|---|---|---|
+| 20-10 | 21.9 | 20.5% |
+| 21-10 | 21.8 | 19.8% |
+| 22-10 | 21.2 | 19.8% |
+| 23-10 | 21.0 | 20.3% |
+| 24-10 | 21.0 | 20.3% |
+| 25-10 | 20.8 | 20.3% |
+| 26-10 | **19.6** | 19.7% |
+
+Las auditorías del 23 y 25-10 ya midieron esta serie y la llamaron "ruido de
+ventana móvil, no una tendencia" porque el cambio diario rondaba los 0,2 h.
+Hoy el cambio fue de 1,2 h en un solo día, seis veces ese ruido, y es la
+sexta baja consecutiva sin un solo repunte desde el 20-10 (-2,3 h en total).
+La retención se mantiene estable (19,7% a 20,5%, sin tendencia), así que no
+es un problema de qué tan bien retienen los videos que ya se publican: es
+la misma causa que ya describe `bitacora/PENDIENTES.md` bajo "NÚMEROS 1
+(PRIORIDAD ALTA, 22-09)", los largos no reciben tráfico de entrada. Esa
+entrada medía 23,5 horas el 22-09; con 19,6 horas hoy, la distancia a las
+4.000 horas del YPP no se acortó en un mes, se alargó.
+
+### 4. `scripts/gate.js:52` está arreglado desde el 23-10 a las 15:14 UTC y nadie lo bajó de la lista viva
+
+`bitacora/PENDIENTES.md` tenía, hasta esta corrida, una entrada "HOY" desde
+el 06-10 que decía, en su última actualización (23-10, "van OCHO mañanas
+marcada"), que la línea 52 de `scripts/gate.js` "sigue idéntica" y el
+arreglo "sigue sin aplicarse". Verificado contra el commit real
+(`git fetch --deepen=200`, porque el checkout superficial de esta sesión
+solo trae 50 commits y no alcanza a este): el commit `3d9184c`, del propio
+Claude, con fecha 23-10-2026 15:14:36 UTC (12:14 Chile, horas después de la
+auditoría de esa mañana), reescribió exactamente el bug descrito: creó
+`scripts/guion-de-clave.js` con la función `guionesDeClave()` que excluye
+los archivos `-imagenes.md` y falla si hay más de un guion para la misma
+fecha, y tanto `scripts/gate.js:53` como `scripts/dia.js:46` ya la usan en
+el archivo actual de `main`. El bug que bloqueaba la edición completa
+cuando la Clave y el informe coincidían está cerrado desde entonces.
+Dos cosas no ocurrieron cuando debieron: `bitacora/REALIZADOS.md` no tiene
+ninguna línea con "gate.js" ni "guion-de-clave" (verificado con `grep` sobre
+el archivo completo), así que el aporte humano/de Claude de esa tarde no
+quedó registrado donde el estándar pide registrarlo; y la auditoría del
+25-10 no volvió a verificar la línea 52 (no aparece mencionada en
+`bitacora/2026-10-25-auditoria.md`), así que la entrada quedó "HOY" tres
+mañanas de más (24, 25 y hoy) sin que nadie la corrigiera.
 
 ## Propuestas
 
-1. **Vigilar que la auditoría matinal exista, no solo que la cadena de
-   contenido avance.** En `.github/workflows/reintento.yml`, agregar un
-   paso nuevo (junto al de la línea 70, que ya corre en el mismo cron
-   `*/20 4-9 * * *`) que, cuando la hora UTC sea 08:50 o más (05:50 Chile,
-   20 minutos después de la hora esperada de la auditoría), compruebe si
-   `bitacora/&lt;FECHA>-auditoria.md` existe para la fecha de hoy en Chile; si
-   no, que escriba `contenido/estado/alerta-auditoria-faltante.txt` con la
-   fecha y la hora, lo pushee, y notifique por un canal que no dependa de
-   las rutinas de Claude, igual que se propuso el 23-10 para la cadena de
-   contenido. Esta comprobación es independiente de la de `preseleccion_lista`
-   porque hoy se demostró que una puede fallar sin la otra.
+1. Para el hallazgo 1: agregar feed propio (RSS o scraping) para las seis
+   fuentes institucionales en `contenido/barrido/fuentes.json`, como ya
+   propone la entrada del 16-10 en `bitacora/PENDIENTES.md`. No se repite
+   acá por completo; ver esa entrada.
+2. Para el hallazgo 2: si `contenido/revisiones/2026-10-27.md` vuelve a
+   medir una proporción igual o mayor de titulares casi copiados, baja a
+   HOY y resuélvela igual que el hallazgo 1 (misma causa, el suplente no
+   reescribe, copia). Si baja, queda en MIRAR una mañana más.
+3. Para el hallazgo 3: no hay acción nueva que proponer hoy distinta de la
+   ya escrita en "NÚMEROS 1" de `bitacora/PENDIENTES.md`; lo que cambia es
+   la urgencia, porque la serie llevaba un mes sin repuntar y hoy aceleró.
+   Si la sesión de día mide el IPoM. mañana y la baja continúa dos días más
+   seguidos, esa entrada debería subir de AGUANTA a su propio HOY con una
+   propuesta concreta de qué cambiar en el empuje de entrada (miniaturas,
+   títulos, programación de subida).
+4. Para el hallazgo 4: ya ejecutado en este mismo commit, ver más abajo
+   (se borró la entrada de `bitacora/PENDIENTES.md`, que es de las tres
+   excepciones que esta auditoría puede tocar). Falta, y esto no lo puede
+   hacer esta auditoría porque no es ninguno de sus tres archivos: agregar
+   en `bitacora/REALIZADOS.md` una línea con fecha 23-10 por el commit
+   `3d9184c` (el gate ya no confunde el guion de la Clave con su archivo de
+   carátulas).
 
 ## Triage
 
-- **HOY**:
-  1. La auditoría faltante del 24-10 y la alerta independiente que falta
-     para que no vuelva a pasar inadvertida (propuesta 1).
-- **AGUANTA** (sin cambios desde la última vez que se marcaron, no se
-  duplican en `PENDIENTES.md`):
-  2. Las seis fuentes institucionales sin feed propio (Contraloría, Banco
-     Central, Cámara de Diputados, Senado, Dirección Meteorológica y
-     Ministerio Público): la preselección de hoy las declara sin abrir,
-     igual que las últimas mañanas (`contenido/revisiones/2026-10-25.md`).
-  3. "Carátula 3" como segunda pregunta en vez de "cifra con referencia":
-     no se verificó hoy contra las carátulas reales del día, pero
-     `contenido/revisiones/2026-10-25.md` no trae ese hallazgo, así que no
-     hay novedad que anotar.
-  4. La contradicción entre la regla de siglas y el tope de seis palabras
-     de las marcas de fuente: hoy volvió a aparecer con "Senapred"
-     (`contenido/revisiones/2026-10-25.md`), pero el propio veredicto dice
-     que "hoy no pesa, porque Senapred es de uso corriente en Chile", así
-     que no escala hoy.
+- **HOY**: ninguna. Nada de lo de hoy rompe la edición de mañana, pierde
+  datos ni salió publicado con un defecto visible.
+- **AGUANTA**:
+  1. Las seis fuentes institucionales sin feed (hallazgo 1). Sin cambios:
+     ya está en `bitacora/PENDIENTES.md` desde el 16-10, sin dueño, no se
+     duplica.
+  2. La sección "Plata pública" sin nombre propio en `prompts/informe.md`
+     (observación de `contenido/revisiones/2026-10-26.md`, ya cubierta por
+     la entrada "Secciones Plata pública y Educación" de
+     `bitacora/PENDIENTES.md`, sin novedad que agregar).
 - **MIRAR**:
-  5. Nueve titulares de la preselección de hoy quedan "casi palabra por
-     palabra" como los del barrido, con solo artículos agregados y
-     puntuación cambiada (`contenido/revisiones/2026-10-25.md`, hallazgo de
-     preselección). Es la primera vez que se documenta así, y coincide con
-     la causa ya anotada en `PENDIENTES.md` (16-10, AGUANTA): la
-     preselección la escribe el suplente, que no navega ni verifica, solo
-     reescribe el barrido. Si se repite dos mañanas más, pasa a HOY.
+  3. Titulares casi copiados del barrido, ahora el doble que ayer
+     (hallazgo 2). Segunda mañana seguida; una tercera mañana con la misma
+     proporción o mayor pasa a HOY, como ya quedó escrito el 25-10.
+  4. Horas vistas de los largos, seis bajas seguidas y hoy un salto seis
+     veces el ruido habitual (hallazgo 3). Todavía no es la causa, que ya
+     se conoce (NÚMEROS 1); es la aceleración de una tendencia que lleva un
+     mes sin revertirse.
 
 ## Comparación con ayer
 
-Ayer, 24-10-2026, no tiene auditoría propia que comparar, que es
-exactamente el hallazgo de hoy. Comparando contra `contenido/revisiones/2026-10-24.md`
-y `bitacora/metricas/2026-10-24.md`, que sí existen:
+**Mejoró**: las tres carátulas del informe de hoy trajeron los tres
+enfoques correctos (pregunta, contradicción y cifra con referencia, según
+el veredicto del guion), algo que no se verificó así desde antes del
+23-10; no hay un cambio de código identificado que lo explique, así que se
+anota sin cerrar la entrada "Carátula 3" de `bitacora/PENDIENTES.md`. El
+guion del informe narró las tres noticias desde el primer borrador del
+contenido (sus dos vueltas fueron por la capa de variedad de tarjetas, no
+por selección ni por fidelidad), igual de limpio que ayer.
 
-**Mejoró**: el guion del informe de hoy costó una sola vuelta de corrección
-(ayer costó dos, y las dos de ayer las introdujo la propia corrección
-anterior); el informe de hoy, en cambio, pasó de una vuelta ayer a dos hoy,
-las dos por forma (subsecciones "### [C]" y encabezados sin contenido
-propio), no por contenido.
+**Sigue igual**: las seis fuentes institucionales sin feed (cuarto día); el
+patrón de que el bloque de la noticia de portada narra menos palabras que
+los otros dos, ya visto el 22-09 y el 03-10; la etiqueta "Fondo E en 2026"
+en vez de "a septiembre de 2026" en las tarjetas del guion, tercera vuelta
+seguida que el validador la anota sin que bloquee.
 
-**Sigue igual**: las seis fuentes institucionales sin feed, declaradas sin
-abrir tanto ayer como hoy; la duración del video (219 s hoy, 257 s ayer,
-ambas dentro del formato corto de 3 a 4 minutos que decidió Santiago el
-12-10-2026, no de la promesa vieja de 10 minutos); las horas vistas de los
-largos en la ventana de 30 días (20,8 h hoy contra 21,0 h ayer, variación de
-ruido, no una tendencia).
-
-**Es nuevo**: el descubrimiento de que la auditoría del 24-10 nunca se
-escribió, invisible hasta esta corrida; y la observación sobre titulares de
-la preselección casi copiados del barrido, que no aparece en las
-revisiones de los tres días anteriores.
+**Es nuevo**: la proporción de titulares casi copiados se duplicó en vez de
+mantenerse (hallazgo 2); la baja de horas vistas de los largos aceleró de
+golpe tras un mes de bajas pequeñas (hallazgo 3); y esta auditoría encontró
+que un "HOY" de `bitacora/PENDIENTES.md` lleva arreglado en el código desde
+el 23-10 por la tarde sin que la lista viva ni `bitacora/REALIZADOS.md` lo
+reflejaran (hallazgo 4), que es la primera vez que se documenta este tipo
+de desfase entre el código y la bitácora.
 </pre>
     </details>
     <!--AUDITORIA-FIN-->
