@@ -65,9 +65,17 @@ Observaciones:
   no bloquea, pero en pantalla y en silencio "en 2026" se lee como año
   completo. "a septiembre de 2026" cabe igual.
 
-Verificado sobre el commit 76c1901 de la pieza ("edición 2026-10-26: guion
-informe", cuerpo "Tarea: despachador", un solo archivo), con el informe del
-26-10-2026 como entrada. Selección correcta: el informe trae tres noticias [A]
+Verificado sobre el commit e17a8eb de la pieza, que es su versión vigente en
+main ("edición 2026-10-26: guion informe", un solo archivo), con el informe
+del 26-10-2026 como entrada. La lectura empezó en el commit anterior, 76c1901,
+y GPT repusheó la pieza a las 02:39 de Chile, mientras yo leía: el diff entre
+las dos versiones es una sola palabra, la [TESIS] de la línea 18 pasó de
+"Bolsonaro" a "Flávio Bolsonaro", que es como lo nombra el informe. Esa tesis
+queda en 16 palabras, bajo el tope de 18, y el resto del archivo es idéntico
+byte a byte. Las dos correcciones de arriba se volvieron a comprobar sobre
+e17a8eb y siguen en las mismas líneas: tres [ESQUEMA] en 25, 38 y 53, y las
+dos tarjetas cifra pegadas en 32 y 35. El largo tampoco se movió: 488 palabras
+narradas. Selección correcta: el informe trae tres noticias [A]
 y el guion narra esas tres, con la portada de Brasil primera, sin cuarta
 sección de noticia y sin "En titulares", Dato curioso, Agenda ni "¿En qué
 quedó?". Largo dentro de rango: 488 palabras narradas, unos 3,6 minutos según
