@@ -1,99 +1,93 @@
 VEREDICTO: CORREGIR
-VUELTA: 1
+VUELTA: 2
 PIEZA: guion_informe
 PROMPT: prompts/guion-informe.md
-VALIDADO: 2026-10-26T05:46:31Z
+VALIDADO: 2026-10-26T05:54:44Z
 
 Correcciones:
-1. Dónde: las tres marcas [ESQUEMA] de la pieza, en la línea 25
-   ("[ESQUEMA | Qué viene en Brasil]"), la línea 38 ("[ESQUEMA | Reforma
-   propuesta] evaluación de Gendarmería -> revisión judicial -> decisión de
-   garantía") y la línea 53 ("[ESQUEMA | Etapas del proceso]") · Regla:
-   "[ESQUEMA | título] ... Cero a dos por edición, y OBLIGATORIO al menos uno
-   cuando una de las TRES noticias narradas sea de proceso" · Debe quedar: dos
-   marcas [ESQUEMA] como máximo en la edición. Borra la de la línea 38 y deja
-   las otras dos exactamente como están. Es la que sobra por dos motivos
-   verificables: sus dos últimos elementos nombran el mismo paso (la revisión
-   judicial la hacen los jueces de garantía), y todo su contenido ya está
-   narrado en el párrafo que la sigue, que dice que el proyecto saca al
-   Ministerio de Justicia de la decisión, entrega la revisión a jueces de
-   garantía y mantiene la evaluación técnica de Gendarmería. No agregues ni
-   muevas nada más: con dos esquemas se sigue cumpliendo el mínimo obligatorio
-   para las noticias de proceso.
-2. Dónde: línea 35, "[DATO cifra | Interferencia, 25-10-2026] intervalo
-   promedio entre rebajas tramitadas: 3,3 días", que viene inmediatamente
-   después de "[DATO cifra | Interferencia, 25-10-2026] rebajas de condena
-   tramitadas en 2026: 56 decretos" de la línea 32, dentro del mismo bloque
-   "## Las 56 rebajas fuerzan una reforma [congreso]" · Regla: "VARIEDAD
-   (capa aparte, DESPUÉS del árbol y nunca encima de él): nunca más de dos
-   [DATO cifra] seguidas en el guion; nunca dos tarjetas del mismo tipo
-   seguidas dentro del mismo bloque ... si el árbol está bien aplicado, deja
-   la cifra sobrante en la narración" (scripts/validar-tarjetas.js lo marca:
-   "línea 35: dos cifra seguidas en el bloque") · Debe quedar: borrada la
-   marca completa de la línea 35, sin reemplazarla por una tarjeta de otro
-   tipo y sin tocar el párrafo que la sigue. La cifra se queda solo en la
-   narración, donde ya está dicha: "entre el once de marzo y el trece de
-   septiembre se tramitó, en promedio, una rebaja cada tres coma tres días".
-   El árbol está bien aplicado en las dos marcas (un valor cada una, así que
-   cifra es el tipo correcto), de modo que lo que corresponde es dejar la
-   sobrante en el texto, no cambiarle el tipo ni inventar un dato con que
-   variar. Que ese párrafo quede sin marca es lo que la propia regla manda.
+1. Dónde: línea 39, "[DATO cifra | Cadem, 25-10-2026] desaprobación
+   presidencial durante la crisis: 66%", que ahora queda pegada a
+   "[DATO cifra | Interferencia, 25-10-2026] rebajas de condena tramitadas en
+   2026: 56 decretos" de la línea 32, dentro del mismo bloque "## Las 56
+   rebajas fuerzan una reforma [congreso]", y que además deja tres [DATO
+   cifra] corridas en el guion con la de la línea 48 · Regla: "VARIEDAD (capa
+   aparte, DESPUÉS del árbol y nunca encima de él): nunca más de dos [DATO
+   cifra] seguidas en el guion; nunca dos tarjetas del mismo tipo seguidas
+   dentro del mismo bloque ... si el árbol está bien aplicado, deja la cifra
+   sobrante en la narración" (scripts/validar-tarjetas.js marca las dos cosas:
+   "línea 39: dos cifra seguidas en el bloque" y "línea 48: tercera [DATO
+   cifra] seguida") · Debe quedar: borrada la marca completa de la línea 39,
+   sin tocar el párrafo que la sigue. El sesenta y seis por ciento se queda
+   solo en la narración, donde ya está dicho: "la desaprobación del presidente
+   José Antonio Kast llegó a sesenta y seis por ciento". Si prefieres conservar
+   la cifra en pantalla, la ÚNICA alternativa que también cumple es dejar la
+   línea 39 exactamente así, con los dos valores que el informe da en su línea
+   30 y la fila 6 del árbol (dos valores de cosas distintas, misma unidad):
+   "[DATO comparacion | Cadem, 25-10-2026] aprobación de Kast en la crisis: 29%
+   ; desaprobación de Kast en la crisis: 66%". Cualquiera de las dos, no las
+   dos ni una mezcla. Las dos las corrí yo contra el script antes de escribir
+   esta línea y las dos dan "variedad OK: ninguna cuota rota". Borrar en cambio
+   la marca de la línea 48 NO sirve: deja igual las dos cifra seguidas del
+   bloque del congreso.
 
 Observaciones:
-- El bloque de la noticia de portada es el que menos se desarrolla de los
-  tres: 110 palabras narradas contando su [TESIS], frente a 177 del bloque de
-  las rebajas y 128 del de las AFP. Sumando "La noticia del día" la portada
-  llega a 143 y sigue debajo. El prompt pide que la noticia de portada reciba
-  "el mayor desarrollo", pero no lo marco, por lo mismo que el 22-09-2026 y el
-  03-10-2026: el desnivel viene del informe, que le da tres párrafos a Brasil
-  y cuatro a las rebajas, y el bloque narra todo lo que el informe trae de esa
-  noticia. Si el informe de mañana vuelve a repartir así, conviene comprimir
-  el bloque segundo antes que estirar el primero.
+- Esta corrección la causé yo en la vuelta 1 y conviene que quede escrito. Las
+  dos correcciones de esa vuelta eran exigibles (tres [ESQUEMA] contra un tope
+  de dos, y dos [DATO cifra] seguidas en el bloque del congreso), y GPT las
+  ejecutó exactas: el diff entre e17a8eb y 8b8c7b3 son esas dos líneas
+  borradas y nada más. El problema fue CUÁL [ESQUEMA] mandé a borrar. El de la
+  línea 38 anterior era el que separaba las tarjetas cifra del bloque del
+  congreso de la del Fondo E, y al sacarlo la racha quedó en tres, porque
+  "cualquier otra tarjeta corta la racha" en scripts/validar-tarjetas.js. Si en
+  la vuelta 1 hubiera mandado borrar el [ESQUEMA | Etapas del proceso] en vez
+  de ese, con la misma segunda corrección la pieza quedaba limpia de una sola
+  vez: lo verifiqué sobre el archivo. La regla de convergencia pide verificar la
+  redacción que uno propone contra la misma regla; falta verificarla también
+  contra las OTRAS cuotas que el borrado toca, y eso es lo que no hice.
+- El bloque de la noticia de portada sigue siendo el que menos se desarrolla de
+  los tres, 110 palabras narradas contra 177 del bloque de las rebajas y 128
+  del de las AFP. Igual que el 22-09-2026 y el 03-10-2026 no lo marco: el
+  desnivel viene del informe, que le da tres párrafos a Brasil y cuatro a las
+  rebajas, y el bloque narra todo lo que el informe trae de esa noticia.
 - Las 177 palabras narradas del bloque de las rebajas quedan sobre el tramo de
-  110 a 160 del reparto, que el prompt da como "Reparto orientativo" y por eso
-  no bloquea. La corrección 2 no cambia ninguna palabra narrada; si quieres
-  acercarlo al tramo, el lugar es el párrafo del promedio de 3,3 días, que es
-  el menos cargado de hechos nuevos.
-- "El costo político ya aparece en Cadem" nombra la encuestadora sin su
-  categoría. No es incumplimiento: la regla de nombres propios cubre los que
-  suenan a persona o a cargo, y Cadem no es ninguno de los dos. Aun así "la
-  encuesta Cadem" se entiende de inmediato en voz, y el guion ya lo hace bien
-  con el resto.
-- La etiqueta "rentabilidad real del Fondo E en 2026" acompaña a un valor que
-  el informe mide entre el 01-01-2026 y el 30-09-2026, no a doce meses. Está
-  dentro de las 3 a 8 palabras y la narración sí da el periodo exacto, así que
-  no bloquea, pero en pantalla y en silencio "en 2026" se lee como año
+  110 a 160 del reparto, que el prompt da como orientativo y por eso no
+  bloquea. Esta corrección no cambia ninguna palabra narrada.
+- La etiqueta "rentabilidad real del Fondo E en 2026" de la línea 48 acompaña a
+  un valor que el informe mide entre el 01-01-2026 y el 30-09-2026, no a doce
+  meses. Está dentro de las 3 a 8 palabras y la narración da el periodo exacto,
+  así que no bloquea, pero en pantalla y en silencio "en 2026" se lee como año
   completo. "a septiembre de 2026" cabe igual.
 
-Verificado sobre el commit e17a8eb de la pieza, que es su versión vigente en
-main ("edición 2026-10-26: guion informe", un solo archivo), con el informe
-del 26-10-2026 como entrada. La lectura empezó en el commit anterior, 76c1901,
-y GPT repusheó la pieza a las 02:39 de Chile, mientras yo leía: el diff entre
-las dos versiones es una sola palabra, la [TESIS] de la línea 18 pasó de
-"Bolsonaro" a "Flávio Bolsonaro", que es como lo nombra el informe. Esa tesis
-queda en 16 palabras, bajo el tope de 18, y el resto del archivo es idéntico
-byte a byte. Las dos correcciones de arriba se volvieron a comprobar sobre
-e17a8eb y siguen en las mismas líneas: tres [ESQUEMA] en 25, 38 y 53, y las
-dos tarjetas cifra pegadas en 32 y 35. El largo tampoco se movió: 488 palabras
-narradas. Selección correcta: el informe trae tres noticias [A]
-y el guion narra esas tres, con la portada de Brasil primera, sin cuarta
-sección de noticia y sin "En titulares", Dato curioso, Agenda ni "¿En qué
-quedó?". Largo dentro de rango: 488 palabras narradas, unos 3,6 minutos según
-scripts/validar-tarjetas.js. scripts/revisar-mecanico.js imprime "sin
-hallazgos mecánicos", la búsqueda de raya larga y raya media sobre el archivo
-completo no devuelve nada, y tampoco aparecen conectores de ensayo escrito ni
-paréntesis o símbolos en el texto narrado. Fidelidad verificada dato por dato
-contra el informe: 51,79% y 48,21%, la diferencia de 4.430.191 votos narrada
-redondeada con "unos", la extensión horaria hasta las 19:00 pedida por las dos
-campañas, los 56 decretos bajo la Ley 19.856, el promedio de 3,3 días con su
-salvedad, el 66% de desaprobación de Cadem, el procedimiento contra las siete
-AFP y el -10,39% del Fondo E. Las tres [TESIS] tienen 15, 16 y 16 palabras,
-cada una con su línea en blanco antes del párrafo; cada bloque de noticia trae
-su [FUENTE]; el cierre son 56 palabras con el enlace a la web, la línea "Para
-salir hoy" integrada y el tagline exacto como última frase. El informe no trae
-sección "Análisis", así que no corresponde ninguna marca [INTERPRETACIÓN]. Las
-tres carátulas son de la portada, con dos líneas de cuatro palabras o menos
-cada una y los tres enfoques pedidos, y "Clima de carátula: internacional"
-calza con la portada. La lista de "Fuentes:" cubre las fuentes de todas las
-marcas, las de las tres noticias narradas y Agência Brasil, que se nombra en
-la prosa, y no cuela ninguna ruta interna del sistema.
+Verificado sobre el commit 8b8c7b3 de la pieza, que es su versión vigente en
+main, con el informe del 26-10-2026 como entrada, leído completo. Las dos
+correcciones de la vuelta 1 están resueltas y no vuelven: quedan dos marcas
+[ESQUEMA] (líneas 25 y 51), que cumple el tope de cero a dos y el mínimo de al
+menos una con noticias de proceso, y la marca del promedio de 3,3 días ya no
+está, con su cifra solo en la narración. El único INCUMPLE es el de arriba y lo
+introdujo mi propia corrección. Lo demás se volvió a comprobar sobre esta
+versión: 488 palabras narradas, unos 3,6 minutos, dentro de 420 a 600;
+scripts/revisar-mecanico.js imprime "sin hallazgos mecánicos"; cero rayas
+largas y cero rayas medias en el archivo completo; ninguna URL ni paréntesis en
+el texto narrado y ningún conector de ensayo escrito. Selección correcta: el
+informe trae tres noticias [A] y el guion narra esas tres, con la portada de
+Brasil primera, sin cuarta sección de noticia y sin "En titulares", Dato
+curioso, Agenda ni "¿En qué quedó?". Las tres [TESIS] tienen 16 palabras cada
+una, bajo el tope de 18, y las tres llevan su línea en blanco antes del párrafo
+narrado; cada bloque de noticia trae su [FUENTE], incluida "La noticia del día".
+Fidelidad verificada dato por dato contra el informe: 51,79% y 48,21% (líneas 5
+y 16), la diferencia de 4.430.191 votos narrada redondeada con "unos" a tres
+cifras significativas, la extensión de las 17:00 a las 19:00 pedida por las dos
+campañas (líneas 18 y 20), los 56 decretos bajo la Ley 19.856 (línea 26), el
+promedio de 3,3 días con su salvedad de que no fue uniforme (línea 32), el 66%
+de desaprobación de Kast en Cadem (línea 30), el procedimiento contra las siete
+AFP por los fondos D y E (línea 50) y el -10,39% del Fondo E entre el
+01-01-2026 y el 30-09-2026 (línea 52). El informe no trae sección "Análisis",
+así que no corresponde ninguna marca [INTERPRETACIÓN]. El cierre son 56
+palabras, con el enlace al informe de la web, la línea "Para salir hoy" del
+informe integrada (capa liviana y algo impermeable en Santiago) y el tagline
+exacto como última frase hablada. Las tres carátulas son de la portada, con dos
+líneas de cuatro palabras o menos cada una y los tres enfoques pedidos, y
+"Clima de carátula: internacional" calza con la portada. La lista de "Fuentes:"
+cubre las fuentes de todas las marcas, las de las tres noticias narradas y
+Agência Brasil, que se nombra en la prosa, y no cuela ninguna ruta interna del
+sistema: la búsqueda de "contenido/" y de ".md" en el archivo no devuelve nada.
