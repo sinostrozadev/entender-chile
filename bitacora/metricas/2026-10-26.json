@@ -2,14 +2,14 @@
   "fecha": "2026-10-26",
   "canal": {
     "suscriptores": 39,
-    "vistas": 21253,
-    "videos": 192
+    "vistas": 21476,
+    "videos": 194
   },
   "videos": {
     "CwM4pI30Wg4": {
       "titulo": "Lula ganó por margen estrecho y Flávio Bolsonaro cuestiona…,",
       "publicado": "2026-10-26",
-      "estado": "private",
+      "estado": "public",
       "vistas": 0,
       "meGusta": 0,
       "comentarios": 0,
@@ -18,8 +18,8 @@
     "ptxU3E0GKIo": {
       "titulo": "Lula gana por 51,79% y Bolsonaro busca anular la elección",
       "publicado": "2026-10-26",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 248
@@ -55,7 +55,7 @@
       "titulo": "¿Por qué 56 condenados por abusos a menores salieron casi li",
       "publicado": "2026-10-24",
       "estado": "public",
-      "vistas": 198,
+      "vistas": 221,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 42
@@ -100,7 +100,7 @@
       "titulo": "Rabat confirma que firmó 56 rebajas de condena",
       "publicado": "2026-10-23",
       "estado": "public",
-      "vistas": 1,
+      "vistas": 4,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 241
@@ -1234,7 +1234,7 @@
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 99,
+      "vistas": 100,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 680
@@ -1270,7 +1270,7 @@
       "titulo": "Corte Suprema remueve a once jueces por viajar con licencia ",
       "publicado": "2026-09-12",
       "estado": "public",
-      "vistas": 46,
+      "vistas": 48,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 709
