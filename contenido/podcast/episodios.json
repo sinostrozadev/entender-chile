@@ -600,5 +600,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-25-informe.mp3",
     "bytes": 5248512,
     "durSeg": 219
+  },
+  {
+    "fecha": "2026-10-26",
+    "tipo": "informe",
+    "titulo": "26-10-2026 · Lula gana por 51,79% y Bolsonaro busca anular la elección",
+    "descripcion": "Lula fue reelegido presidente de Brasil y Flávio Bolsonaro anunció que buscará anular el resultado. En Chile, las 56 rebajas de condena empujan una reforma urgente y la Superintendencia de Pensiones abrió un proceso contra las siete AFP por las pérdidas de los fondos D y E. La jornada también incluye la reunión de política monetaria, alertas por tormentas en Biobío y La Araucanía, y la alerta técnica amarilla en Nevados de Chillán.\n\nEl informe completo de hoy, con todas las noticias del día: https://sinostrozadev.github.io/entender-chile-web/informes/2026-10-26/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-26-informe.mp3",
+    "bytes": 5931648,
+    "durSeg": 247
   }
 ]
