@@ -609,5 +609,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-26-informe.mp3",
     "bytes": 5931648,
     "durSeg": 247
+  },
+  {
+    "fecha": "2026-10-27",
+    "tipo": "informe",
+    "titulo": "27-10-2026 · Tornado EF-2 golpea Requínoa y activa alertas en Santiago",
+    "descripcion": "Un tornado EF-2 dejó daños en Requínoa y diez comunas de Santiago quedaron bajo alerta roja por riesgo de remociones en masa. El Gobierno mantuvo al ministro Fernando Rabat después de reconocer el error en 56 rebajas de condena, mientras Luis Hermosilla fue formalizado por soborno. La jornada también incluye la comisión investigadora por las pérdidas de los fondos D y E, la formalización del alcalde de Coronel y la reunión de política monetaria aún sin resultado al cierre.\n\nEl informe completo de hoy, con todas las noticias del día: https://sinostrozadev.github.io/entender-chile-web/informes/2026-10-27/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-27-informe.mp3",
+    "bytes": 5764032,
+    "durSeg": 240
   }
 ]
