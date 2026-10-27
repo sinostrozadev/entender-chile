@@ -79,3 +79,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-10-24 | Alcalde de Chillán por fraude al fisco
 - 2026-10-25 | Embotelladora Llacolén
 - 2026-10-26 | CICITEM
+- 2026-10-27 | Embotelladora Llacolén
