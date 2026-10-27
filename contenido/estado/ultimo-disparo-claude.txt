@@ -1,1 +1,1 @@
-2026-10-27 validar_informe 0
+2026-10-27 validar_informe 1
