@@ -1134,6 +1134,38 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
+- [ ] **27-10, HOY: `scripts/metricas.js` pierde videos completos de la
+      lista sin avisar, confirmado siete veces en el último mes.**
+      Auditoría del 27-10 (`bitacora/2026-10-27-auditoria.md`). Cruzando
+      `bitacora/metricas/AAAA-MM-DD.json` de todo octubre, título por
+      título, un video que estaba presente un día desaparece entero al día
+      siguiente y casi siempre vuelve solo uno a tres días después: pasó
+      entre el 01 y 02-10, el 02 y 03-10, el 11 y 12-10, el 12 y 13-10
+      (tres días afuera), el 16 y 17-10, el 17 y 18-10, y hoy entre el 26 y
+      27-10, con dos videos a la vez por primera vez ("Clave: Cómo leer el
+      IPoM del Banco Central #Shorts" y "Concepción en Alerta Roja por el
+      aumento del río Andalién"). Verificado que no es un video borrado o
+      pasado a privado: `canal.videos` (de `channels.list`, solo cuenta
+      públicos) subió de 194 a 195, un solo video más, el que corresponde
+      al Short nuevo de la guardia; y `subidos.length` (la lista paginada
+      completa de `playlistItems.list`) también creció en uno, de 201 a
+      202, sin disparar el AVISO de `scripts/metricas.js:53`. Los dos
+      videos siguen existiendo y públicos; lo que falta es que
+      `yt.videos.list` (línea 56) haya devuelto sus datos en la tanda de 50
+      que les tocaba, y nada compara los id pedidos contra los id que
+      realmente llegaron. Esto perdió datos reales (vistas, me gusta e
+      impresiones de esos video día que no quedan escritos en ningún
+      archivo) y hoy además explica la baja de 45 vistas totales que el
+      encabezado de `bitacora/metricas/2026-10-27.md` marca como la
+      primera baja de la semana: sin esas dos filas, la suma cae aunque el
+      resto del canal haya crecido. Propuesta concreta: en
+      `scripts/metricas.js`, dentro del bucle de la línea 55, después de
+      `yt.videos.list(...)` (línea 56), comparar el largo de
+      `r.data.items` contra el de la tanda pedida
+      (`subidos.slice(i, i + 50)`) y, si faltan id, reintentar esa tanda
+      una vez antes de seguir; si siguen faltando, imprimir un AVISO con
+      los id exactos que faltaron, mismo patrón que la línea 53.
+
 - [ ] **23-10, HOY: el 22-10-2026 se perdió el día completo (ni informe, ni
       video, ni podcast) porque ningún reloj de Claude disparó esa
       madrugada, y nada fuera del sistema de rutinas lo detectó.** Auditoría

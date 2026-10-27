@@ -122,182 +122,209 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 26-10-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-10-26-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:#8A6F3F;margin-bottom:10px">ESTADO: CON OBSERVACIONES. Nada bloquea la edición de mañana ni perdió datos</div>
+    <p class="eyebrow">Auditoría de la mañana · 27-10-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-10-27-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS. HOY: `scripts/metricas.js` pierde de forma intermitente</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON OBSERVACIONES. Nada bloquea la edición de mañana ni perdió datos
-hoy; lo que sigue son tendencias a vigilar y un pendiente ya cerrado en el
-código que quedó mal registrado en la bitácora.
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0">ESTADO: CON FALLAS. HOY: `scripts/metricas.js` pierde de forma intermitente
+videos completos de la lista que arma cada mañana (hoy dos a la vez, "Clave:
+Cómo leer el IPoM del Banco Central #Shorts" y "Concepción en Alerta Roja por
+el aumento del río Andalién"), ya son al menos siete veces en el último mes
+sin que nadie lo detectara, y explica la baja de 45 vistas totales de hoy que
+a simple vista parecía un dato raro de YouTube.
 
 ## Qué salió hoy y a qué hora
 
 | Pieza | Llegó (Chile) | Esperada | Vuelta | Fuente |
 |---|---|---|---|---|
-| Barrido | 01:45 | 01:40 (01:30 en el panel) | (no aplica) | `contenido/estado/2026-10-26.md`; Actions run 40270676754 |
-| Preselección | 02:00, veredicto 02:08 | 02:10 | APROBADA vuelta 0 | `contenido/veredictos/2026-10-26-preseleccion.md` |
-| Informe | 02:16 | 02:40 | APROBADA vuelta 1 (02:34) | `contenido/veredictos/2026-10-26-informe.md` |
-| Guion del informe | 02:38, aprobado 03:00 tras 2 vueltas | 03:10 | APROBADA vuelta 2 | `contenido/veredictos/2026-10-26-guion_informe.md` |
-| Revisión (compuerta) | 03:02 | 03:30 | APROBADA vuelta 2 | `contenido/revisiones/2026-10-26.md`; Actions run 40277503808 |
-| Videos, descripciones, podcast | 03:16, `videos_listos` 03:21 | 05:15 | (no aplica) | `contenido/estado/2026-10-26.md`; Web run 40279303544 |
-| Métricas | 05:05 | 05:00 | (no aplica) | `bitacora/metricas/2026-10-26.md`; Actions run 40289863064 |
-| Auditoría matinal | esta corrida, ~05:3x | 05:30 | (no aplica) | — |
+| Barrido | 01:46 | 01:40 (01:30 en el panel) | (no aplica) | `contenido/estado/2026-10-27.md`; Actions `barrido.yml` |
+| Preselección | 01:59, veredicto 02:09 | 02:10 | APROBADA vuelta 0 | `contenido/veredictos/2026-10-27-preseleccion.md` |
+| Informe | 02:14, veredicto 02:35 | 02:40 | APROBADA vuelta 2 (CORREGIR en 02:23 y 02:31) | `contenido/veredictos/2026-10-27-informe.md` |
+| Guion del informe | 02:37, veredicto 02:50 | 03:10 | APROBADA vuelta 1 (CORREGIR en 02:45) | `contenido/veredictos/2026-10-27-guion_informe.md` |
+| Revisión (compuerta) | 02:50 | 03:30 | APROBADA vuelta 2 | `contenido/revisiones/2026-10-27.md` |
+| Videos, descripciones, podcast | `videos_listos` 03:05 | 05:15 | (no aplica) | `contenido/estado/2026-10-27.md`; Actions "Edición diaria" run 40457635089 (éxito) |
+| Métricas | push 05:06 | 05:00 | (no aplica) | `bitacora/metricas/2026-10-27.md`; Actions "Métricas" run 40471151048 (éxito) |
+| Auditoría matinal | esta corrida | 05:30 | (no aplica) | — |
 
 Ninguna pieza llegó con más de 20 minutos de atraso contra su hora esperada;
-al contrario, la cadena de texto y de video terminó muy por delante del
-cuadro (videos listos a las 03:21 contra las 05:15 esperadas). Las corridas
-de "Reintento del despertar" entre las 02:36 y las 05:37 (diez corridas,
-cada ~15 a 20 minutos) son el reloj de respaldo y no encontraron nada que
-reintentar porque la cadena nunca se atrasó. `node scripts/validar-tarjetas.js --fecha 2026-10-26`
+al contrario, la cadena terminó muy por delante del cuadro (videos listos a
+las 03:05 contra las 05:15 esperadas). `node scripts/validar-tarjetas.js --fecha 2026-10-27`
 imprime "variedad OK: ninguna cuota rota, ninguna marca malformada" sobre 4
-bloques (cifra 3, esquema 2, comparación 1), sin avisos.
+bloques (comparación 2, esquema 2, cifra 1), sin avisos. No hubo Clave hoy
+(no es diaria desde el 16-09) y no corresponde revisar el ranking semanal
+porque hoy es martes, no domingo. Las corridas de "Reintento del despertar"
+entre las 02:36 y las 05:36 (nueve corridas cada 15 a 20 minutos) son el
+reloj de respaldo y no encontraron nada que reintentar porque la cadena
+nunca se atrasó.
 
 ## Qué falló
 
-### 1. Las seis fuentes institucionales sin feed propio, cuarto día seguido sin cambio
+### 1. `scripts/metricas.js` pierde videos completos de la lista, sin avisar, al menos siete veces en el último mes
 
-`contenido/revisiones/2026-10-26.md` (hallazgo 1) repite, idéntica, la lista
-de Contraloría General de la República, Banco Central de Chile, Cámara de
-Diputados, Senado, Dirección Meteorológica de Chile y Ministerio Público,
-que no se abren porque la preselección la escribe el suplente (no navega).
-Ya apareció igual en `contenido/revisiones/2026-10-23.md:25`,
-`2026-10-24.md:31` y `2026-10-25.md:31`: van cuatro mañanas con el mismo
-texto. Ya está en `bitacora/PENDIENTES.md` (entrada del 16-10, AGUANTA, sin
-dueño); no se duplica.
+Comparando cada `bitacora/metricas/AAAA-MM-DD.json` contra el del día
+anterior (título por título), estos videos desaparecieron de un día para
+otro y en la mayoría de los casos reaparecieron solos después:
 
-### 2. Titulares de la preselección casi copiados del barrido: se duplicó la proporción de un día a otro
+| Desaparece entre | Video perdido | Vuelve el |
+|---|---|---|
+| 01 y 02-10 | El Estrecho es chileno, y otras 4 cosas de hoy #Shorts | 03-10 |
+| 02 y 03-10 | Clave: ¿Por qué una norma sísmica no basta para evitar el ri... | 04-10 |
+| 11 y 12-10 | Clave: ¿Qué es la prisión preventiva y por qué no es una con... | 13-10 |
+| 12 y 13-10 | El crimen del carabinero en Renca suma un segundo detenido | 16-10 (tres días afuera) |
+| 16 y 17-10 | ¿Qué ocurre cuando Contraloría detecta un perjuicio fiscal? | 18-10 |
+| 17 y 18-10 | ¿Cómo funciona la regla fiscal y el balance estructural? | 19-10 |
+| 26 y 27-10 | Clave: Cómo leer el IPoM del Banco Central #Shorts, y Concepción en Alerta Roja por el aumento del río Andalién (dos a la vez, la primera vez que caen dos juntos) | sin verificar, se sabrá mañana |
 
-Hoy 25 de las 60 candidatas de `contenido/preseleccion/2026-10-26.md`
-quedan "muy cerca del titular del barrido, reescritos apenas con artículos
-agregados y la puntuación cambiada" (veredicto de preselección, líneas
-citadas 9, 12, 27, 48, 57, 60, 66, 75, 78, 87, 102, 105, 114, 117, 138, 141,
-144, 150, 153, 165, 174, 177, 189, 201 y 213). El 25-10-2026 el mismo
-hallazgo contó 9 sobre 60 (primera vez que se documentó, marcado MIRAR en
-`bitacora/2026-10-25-auditoria.md` con la regla "si se repite dos mañanas
-más, pasa a HOY"). Hoy es la segunda mañana y la proporción se duplicó, no
-se mantuvo: no mide literal (cero coincidencias exactas tras normalizar),
-así que ninguna vuelta lo bloqueó, pero la causa de fondo es la misma del
-hallazgo 1, el suplente permanente de la preselección.
+Verificado con `canal.videos` (de `channels.list`, cuenta solo videos
+públicos): subió de 194 a 195 entre el 26 y el 27-10, un solo video más, el
+número que corresponde al Short nuevo de la guardia ("Diez comunas de la RM
+en alerta roja: ¿está la tuya? #Shorts", público, 9 vistas, no estaba ayer).
+Si los dos videos perdidos hubieran sido borrados o pasados a no públicos en
+YouTube, ese contador también habría bajado, y no bajó: la lista de subidos
+completa (`subidos`, por `playlistItems.list` paginado) también creció en
+uno, de 201 a 202, sin AVISO de truncamiento (`scripts/metricas.js:53`). Los
+dos videos siguen existiendo y siguen públicos; lo que falta es que
+`yt.videos.list` (línea 56) haya devuelto sus datos en la tanda de 50 que les
+tocaba. Como las vistas totales se calculan sumando por video
+(`scripts/metricas.js:78`, ARREGLO 3 del 01-09), perder dos videos con 55 y
+22 vistas de un día a otro explica la baja de 45 vistas totales que el
+encabezado de hoy marca como primera baja de la semana: sin esas dos filas,
+la suma cae aunque todo el resto del canal haya crecido.
 
-### 3. Horas vistas de los largos: seis días bajando, y hoy el salto fue tres veces el ruido habitual
+Esto nunca se había verificado cruzando los JSON día a día; esta auditoría lo
+hizo porque la baja de vistas totales de hoy no cuadraba con ningún video que
+hubiera pasado a privado. El AVISO de la línea 53 solo compara cantidades
+totales (`subidos.length` contra `canal.videos`), así que un video que SÍ
+está en `subidos` pero que `videos.list` no devuelve en su tanda no dispara
+ningún aviso: la cuenta de cuántos id se pidieron contra cuántos `r.data.items`
+llegaron nunca se compara.
 
-`bitacora/metricas/FECHA.md`, campo "horas vistas en videos LARGOS"
-(ventana móvil de 30 días, Analytics real, no estimado):
+### 2. Las seis fuentes institucionales sin feed, sin cambios
+
+`contenido/revisiones/2026-10-27.md` (hallazgo 1) repite la misma lista de
+Contraloría, Banco Central, Cámara de Diputados, Senado, Dirección
+Meteorológica y Ministerio Público. Ya está en `bitacora/PENDIENTES.md`
+(entrada del 16-10, AGUANTA, sin dueño); no se duplica.
+
+### 3. Horas vistas de los largos: octava baja consecutiva, hoy otra vez varias veces el ruido habitual
+
+`bitacora/metricas/FECHA.md`, campo "horas vistas en videos LARGOS" (ventana
+móvil de 30 días):
 
 | Fecha | Horas | Retención media |
 |---|---|---|
-| 20-10 | 21.9 | 20.5% |
-| 21-10 | 21.8 | 19.8% |
-| 22-10 | 21.2 | 19.8% |
-| 23-10 | 21.0 | 20.3% |
 | 24-10 | 21.0 | 20.3% |
 | 25-10 | 20.8 | 20.3% |
-| 26-10 | **19.6** | 19.7% |
+| 26-10 | 19.6 | 19.7% |
+| 27-10 | **18.6** | 19.5% |
 
-Las auditorías del 23 y 25-10 ya midieron esta serie y la llamaron "ruido de
-ventana móvil, no una tendencia" porque el cambio diario rondaba los 0,2 h.
-Hoy el cambio fue de 1,2 h en un solo día, seis veces ese ruido, y es la
-sexta baja consecutiva sin un solo repunte desde el 20-10 (-2,3 h en total).
-La retención se mantiene estable (19,7% a 20,5%, sin tendencia), así que no
-es un problema de qué tan bien retienen los videos que ya se publican: es
-la misma causa que ya describe `bitacora/PENDIENTES.md` bajo "NÚMEROS 1
-(PRIORIDAD ALTA, 22-09)", los largos no reciben tráfico de entrada. Esa
-entrada medía 23,5 horas el 22-09; con 19,6 horas hoy, la distancia a las
-4.000 horas del YPP no se acortó en un mes, se alargó.
+La auditoría del 26-10 ya marcó esto en MIRAR y propuso: "si la baja continúa
+dos días más seguidos, esa entrada debería subir de AGUANTA a su propio HOY".
+Hoy es el primero de esos dos días y la baja continuó (-1.0 h, de nuevo varias
+veces el ruido habitual de ~0.2 h/día). Falta un día más para que se cumpla la
+condición completa; si el 28-10 vuelve a bajar, corresponde escribir esa
+entrada HOY en `bitacora/PENDIENTES.md` bajo "NÚMEROS 1".
 
-### 4. `scripts/gate.js:52` está arreglado desde el 23-10 a las 15:14 UTC y nadie lo bajó de la lista viva
+### 4. Titulares de la preselección casi copiados del barrido: bajó, no subió
 
-`bitacora/PENDIENTES.md` tenía, hasta esta corrida, una entrada "HOY" desde
-el 06-10 que decía, en su última actualización (23-10, "van OCHO mañanas
-marcada"), que la línea 52 de `scripts/gate.js` "sigue idéntica" y el
-arreglo "sigue sin aplicarse". Verificado contra el commit real
-(`git fetch --deepen=200`, porque el checkout superficial de esta sesión
-solo trae 50 commits y no alcanza a este): el commit `3d9184c`, del propio
-Claude, con fecha 23-10-2026 15:14:36 UTC (12:14 Chile, horas después de la
-auditoría de esa mañana), reescribió exactamente el bug descrito: creó
-`scripts/guion-de-clave.js` con la función `guionesDeClave()` que excluye
-los archivos `-imagenes.md` y falla si hay más de un guion para la misma
-fecha, y tanto `scripts/gate.js:53` como `scripts/dia.js:46` ya la usan en
-el archivo actual de `main`. El bug que bloqueaba la edición completa
-cuando la Clave y el informe coincidían está cerrado desde entonces.
-Dos cosas no ocurrieron cuando debieron: `bitacora/REALIZADOS.md` no tiene
-ninguna línea con "gate.js" ni "guion-de-clave" (verificado con `grep` sobre
-el archivo completo), así que el aporte humano/de Claude de esa tarde no
-quedó registrado donde el estándar pide registrarlo; y la auditoría del
-25-10 no volvió a verificar la línea 52 (no aparece mencionada en
-`bitacora/2026-10-25-auditoria.md`), así que la entrada quedó "HOY" tres
-mañanas de más (24, 25 y hoy) sin que nadie la corrigiera.
+Hoy 23 de las 60 candidatas de `contenido/preseleccion/2026-10-27.md`
+quedaron "cerca del titular del barrido, reescritos con artículos agregados y
+la puntuación cambiada" (veredicto de preselección). El 26-10 fueron 25. La
+auditoría del 26-10 dejó la regla: "si vuelve a medir una proporción igual o
+mayor, baja a HOY; si baja, queda en MIRAR una mañana más". Bajó, así que
+sigue en MIRAR.
+
+### 5. Una promesa abierta se perdió por el tope de 60 candidatas, no por error de contenido
+
+`contenido/revisiones/2026-10-27.md` (hallazgo 6): la alerta por tormentas
+del Biobío, que el informe del 26-10-2026 dejó abierta, tuvo novedad hoy y no
+entró ni a las candidatas ni a las historias sin novedad porque la
+preselección llegó justo al tope de 60. No bloqueó ningún veredicto. Primera
+vez que se documenta este mecanismo puntual (una continuidad abierta pierde
+el cupo frente a noticias nuevas); si se repite, hay que decidir si las
+promesas abiertas del día anterior reservan un lugar en la olla antes de
+llenarla con lo nuevo.
+
+### 6. El cuerpo del commit de la preselección dice "plan B" sin que hubiera plan B
+
+`contenido/revisiones/2026-10-27.md` (hallazgo 8), verificado: el commit
+`3873a21` ("edición 2026-10-27: preselección") trae `Tarea: suplente (plan
+B)` en el cuerpo, pero `contenido/estado/plan-b.txt` no existe y
+`contenido/estado/reparto.txt` confirma que la preselección es reparto
+permanente del suplente desde el 06-10, no un plan B temporal. El propio
+cuerpo del commit lo dice bien ("El reparto permanente deja esta etapa en
+Claude"); solo la línea `Tarea:` quedó mal. No bloquea, el contrato deja esa
+línea libre, pero es justo el historial que se usa para contar cuántas veces
+GPT se quedó mudo, y hoy contaría una vez de más.
+
+### 7. Tres candidatas con "corroborada en 2 fuentes" que en realidad es una sola nota repetida en dos feeds
+
+`contenido/revisiones/2026-10-27.md` (hallazgo 7): el campo `repeticiones` del
+barrido marca 2 cuando el segundo "medio" es la misma nota entrando por otro
+feed. Primera vez que se documenta con esta claridad. No bloquea y la propia
+revisión recomienda no salir a buscar el segundo medio porque no existe; se
+deja anotado por si vuelve a aparecer.
 
 ## Propuestas
 
-1. Para el hallazgo 1: agregar feed propio (RSS o scraping) para las seis
-   fuentes institucionales en `contenido/barrido/fuentes.json`, como ya
-   propone la entrada del 16-10 en `bitacora/PENDIENTES.md`. No se repite
-   acá por completo; ver esa entrada.
-2. Para el hallazgo 2: si `contenido/revisiones/2026-10-27.md` vuelve a
-   medir una proporción igual o mayor de titulares casi copiados, baja a
-   HOY y resuélvela igual que el hallazgo 1 (misma causa, el suplente no
-   reescribe, copia). Si baja, queda en MIRAR una mañana más.
-3. Para el hallazgo 3: no hay acción nueva que proponer hoy distinta de la
-   ya escrita en "NÚMEROS 1" de `bitacora/PENDIENTES.md`; lo que cambia es
-   la urgencia, porque la serie llevaba un mes sin repuntar y hoy aceleró.
-   Si la sesión de día mide el IPoM. mañana y la baja continúa dos días más
-   seguidos, esa entrada debería subir de AGUANTA a su propio HOY con una
-   propuesta concreta de qué cambiar en el empuje de entrada (miniaturas,
-   títulos, programación de subida).
-4. Para el hallazgo 4: ya ejecutado en este mismo commit, ver más abajo
-   (se borró la entrada de `bitacora/PENDIENTES.md`, que es de las tres
-   excepciones que esta auditoría puede tocar). Falta, y esto no lo puede
-   hacer esta auditoría porque no es ninguno de sus tres archivos: agregar
-   en `bitacora/REALIZADOS.md` una línea con fecha 23-10 por el commit
-   `3d9184c` (el gate ya no confunde el guion de la Clave con su archivo de
-   carátulas).
+1. Para el hallazgo 1 (HOY): en `scripts/metricas.js`, dentro del bucle de
+   la línea 55, después de `const r = await yt.videos.list(...)` (línea 56),
+   comparar el largo de `r.data.items` contra el de la tanda pedida
+   (`subidos.slice(i, i + 50)`) y, si faltan id, reintentar esa tanda una vez
+   antes de seguir; si siguen faltando, imprimir un AVISO con los id exactos
+   que faltaron (mismo patrón que la línea 53), para que la próxima vez que
+   esto pase quede escrito en el log de Actions en vez de descubrirse
+   cruzando JSON a mano.
+2. Para el hallazgo 3: ninguna propuesta nueva hoy; la de `bitacora/PENDIENTES.md`
+   ("NÚMEROS 1") sigue siendo la pendiente. Si el 28-10 confirma la segunda
+   baja seguida, esa entrada sube a HOY con la propuesta concreta de qué
+   tocar en el empuje de entrada.
+3. Para el hallazgo 5: si se repite, que `prompts/seleccion.md` reserve un
+   cupo dentro de los 60 para las continuidades abiertas del informe
+   anterior, antes de llenar el resto con candidatas nuevas.
 
 ## Triage
 
-- **HOY**: ninguna. Nada de lo de hoy rompe la edición de mañana, pierde
-  datos ni salió publicado con un defecto visible.
+- **HOY**:
+  1. `scripts/metricas.js` pierde videos de la lista sin avisar (hallazgo
+     1). Es dato perdido real (vistas, me gusta e impresiones de esos
+     video-día no quedan en ningún archivo), lleva un mes repitiéndose sin
+     que nadie lo viera y hoy afectó el encabezado de métricas. Baja a
+     `bitacora/PENDIENTES.md` en este mismo commit.
 - **AGUANTA**:
-  1. Las seis fuentes institucionales sin feed (hallazgo 1). Sin cambios:
-     ya está en `bitacora/PENDIENTES.md` desde el 16-10, sin dueño, no se
-     duplica.
-  2. La sección "Plata pública" sin nombre propio en `prompts/informe.md`
-     (observación de `contenido/revisiones/2026-10-26.md`, ya cubierta por
-     la entrada "Secciones Plata pública y Educación" de
-     `bitacora/PENDIENTES.md`, sin novedad que agregar).
+  1. Las seis fuentes institucionales sin feed (hallazgo 2). Sin cambios,
+     ya está en `bitacora/PENDIENTES.md` desde el 16-10.
 - **MIRAR**:
-  3. Titulares casi copiados del barrido, ahora el doble que ayer
-     (hallazgo 2). Segunda mañana seguida; una tercera mañana con la misma
-     proporción o mayor pasa a HOY, como ya quedó escrito el 25-10.
-  4. Horas vistas de los largos, seis bajas seguidas y hoy un salto seis
-     veces el ruido habitual (hallazgo 3). Todavía no es la causa, que ya
-     se conoce (NÚMEROS 1); es la aceleración de una tendencia que lleva un
-     mes sin revertirse.
+  2. Horas vistas de los largos, octava baja seguida (hallazgo 3). Un día
+     más de baja y sube a HOY, como quedó escrito el 26-10.
+  3. Titulares casi copiados del barrido (hallazgo 4). Bajó de 25 a 23;
+     sigue en MIRAR una mañana más.
+  4. Promesas abiertas perdidas por el tope de 60 candidatas (hallazgo 5).
+     Primera vez que se documenta; mirar si se repite.
+  5. "Corroborada en 2 fuentes" con un solo medio real (hallazgo 7). Primera
+     vez que se documenta con claridad.
 
 ## Comparación con ayer
 
-**Mejoró**: las tres carátulas del informe de hoy trajeron los tres
-enfoques correctos (pregunta, contradicción y cifra con referencia, según
-el veredicto del guion), algo que no se verificó así desde antes del
-23-10; no hay un cambio de código identificado que lo explique, así que se
-anota sin cerrar la entrada "Carátula 3" de `bitacora/PENDIENTES.md`. El
-guion del informe narró las tres noticias desde el primer borrador del
-contenido (sus dos vueltas fueron por la capa de variedad de tarjetas, no
-por selección ni por fidelidad), igual de limpio que ayer.
+**Mejoró**: la proporción de titulares casi copiados del barrido bajó de 25
+a 23 sobre 60, revirtiendo (aunque sea un poco) la duplicación que se vio
+ayer. El informe y el guion de hoy no tuvieron problemas de selección ni de
+fidelidad, igual que ayer; lo único que costó vueltas fue forma (un
+encabezado vacío en el informe, cuatro correcciones de tarjeta en el guion).
 
-**Sigue igual**: las seis fuentes institucionales sin feed (cuarto día); el
-patrón de que el bloque de la noticia de portada narra menos palabras que
-los otros dos, ya visto el 22-09 y el 03-10; la etiqueta "Fondo E en 2026"
-en vez de "a septiembre de 2026" en las tarjetas del guion, tercera vuelta
-seguida que el validador la anota sin que bloquee.
+**Sigue igual**: las seis fuentes institucionales sin feed, quinto día o
+más con el mismo texto exacto; las horas vistas de los largos siguen
+bajando, ya son ocho días seguidos sin un solo repunte desde el 20-10.
 
-**Es nuevo**: la proporción de titulares casi copiados se duplicó en vez de
-mantenerse (hallazgo 2); la baja de horas vistas de los largos aceleró de
-golpe tras un mes de bajas pequeñas (hallazgo 3); y esta auditoría encontró
-que un "HOY" de `bitacora/PENDIENTES.md` lleva arreglado en el código desde
-el 23-10 por la tarde sin que la lista viva ni `bitacora/REALIZADOS.md` lo
-reflejaran (hallazgo 4), que es la primera vez que se documenta este tipo
-de desfase entre el código y la bitácora.
+**Es nuevo**: esta auditoría encontró, cruzando los JSON de métricas de todo
+el mes, un bug de `scripts/metricas.js` que pierde videos completos de la
+lista de forma intermitente, confirmado siete veces desde el 01-10 y nunca
+antes documentado ni en `bitacora/PENDIENTES.md` ni en ninguna auditoría
+anterior; hoy perdió dos videos a la vez por primera vez, y eso explica la
+primera baja de vistas totales de la semana. También son nuevos: una
+promesa abierta (la alerta del Biobío) que se quedó fuera de la olla por el
+tope de 60 candidatas en vez de por un error de contenido, y el hallazgo de
+"corroborada en 2 fuentes" con una sola nota repetida en dos feeds.
 </pre>
     </details>
     <!--AUDITORIA-FIN-->
