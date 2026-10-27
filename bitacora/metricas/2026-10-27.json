@@ -3,14 +3,14 @@
   "canal": {
     "suscriptores": 39,
     "vistas": 21499,
-    "videos": 195
+    "videos": 197
   },
   "videos": {
     "tljBxS0W6M8": {
       "titulo": "Requínoa enfrenta daños por el tornado, y otras 4 cosas de h",
       "publicado": "2026-10-27",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 34
@@ -18,8 +18,8 @@
     "5_XA1XDUUK0": {
       "titulo": "Tornado EF-2 golpea Requínoa y activa alertas en Santiago",
       "publicado": "2026-10-27",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 241
@@ -28,7 +28,7 @@
       "titulo": "Diez comunas de la RM en alerta roja: ¿está la tuya? #Shorts",
       "publicado": "2026-10-27",
       "estado": "public",
-      "vistas": 9,
+      "vistas": 13,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 47
@@ -55,7 +55,7 @@
       "titulo": "¿Por qué cae el respaldo a Kast tras las rebajas de penas a ",
       "publicado": "2026-10-26",
       "estado": "public",
-      "vistas": 5,
+      "vistas": 7,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 47
@@ -73,7 +73,7 @@
       "titulo": "Brasil elige presidente en un balotaje estrecho entre Bolson",
       "publicado": "2026-10-25",
       "estado": "public",
-      "vistas": 2,
+      "vistas": 3,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 219
@@ -127,7 +127,7 @@
       "titulo": "Rabat confirma que firmó 56 rebajas de condena",
       "publicado": "2026-10-23",
       "estado": "public",
-      "vistas": 4,
+      "vistas": 3,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 241
@@ -406,7 +406,7 @@
       "titulo": "¿Por qué cae la aprobación de Kast a su nivel más bajo? #Sho",
       "publicado": "2026-10-11",
       "estado": "public",
-      "vistas": 1055,
+      "vistas": 1056,
       "meGusta": 37,
       "comentarios": 1,
       "durSeg": 44
@@ -919,7 +919,7 @@
       "titulo": "Muere un trabajador en Minera Escondida mientras hacía mante",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 436,
+      "vistas": 437,
       "meGusta": 3,
       "comentarios": 1,
       "durSeg": 42
@@ -1369,7 +1369,7 @@
       "titulo": "Banco Central reduce a menos de uno por ciento su proyección",
       "publicado": "2026-09-10",
       "estado": "public",
-      "vistas": 25,
+      "vistas": 26,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 694
@@ -2195,8 +2195,8 @@
     "FFKbSWzAq_g": {
       "vistas": 111,
       "minutos": 9,
-      "segProm": 15,
-      "pct": 51.4
+      "segProm": 14,
+      "pct": 49.4
     },
     "AvwK4lnit4Q": {
       "vistas": 7,
@@ -3964,7 +3964,7 @@
         "ctr": 0
       },
       "MRG9fw8e5P8": {
-        "impresiones": 16,
+        "impresiones": 17,
         "clics": 0,
         "ctr": 0
       },
@@ -4179,7 +4179,7 @@
         "ctr": 0
       },
       "bHwxoqomx-M": {
-        "impresiones": 309,
+        "impresiones": 310,
         "clics": 6,
         "ctr": 1.94
       },
@@ -4921,8 +4921,8 @@
         "ctr": 0.85
       },
       "2026-10-22": {
-        "impresiones": 194,
-        "ctr": 3.09
+        "impresiones": 196,
+        "ctr": 3.06
       },
       "2026-10-23": {
         "impresiones": 711,
