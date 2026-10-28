@@ -3,7 +3,7 @@
   "etapa": "validar_preseleccion",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-10-28 02:04",
+  "actualizado": "2026-10-28 07:52",
   "reparar": null,
   "piezas": [
     {
@@ -77,5 +77,30 @@
       "rutas": []
     }
   ],
-  "atrasos": []
+  "atrasos": [
+    {
+      "id": "informe",
+      "etiqueta": "Informe",
+      "atraso": 312,
+      "dueno": "GPT · prompts/informe.md"
+    },
+    {
+      "id": "guion_informe",
+      "etiqueta": "Guion del informe",
+      "atraso": 282,
+      "dueno": "GPT · prompts/guion-informe.md"
+    },
+    {
+      "id": "revision",
+      "etiqueta": "Revisión (veredicto final)",
+      "atraso": 262,
+      "dueno": "Claude · prompts/validador.md"
+    },
+    {
+      "id": "videos",
+      "etiqueta": "Videos y descripciones",
+      "atraso": 157,
+      "dueno": "Actions · edicion-diaria.yml"
+    }
+  ]
 }
