@@ -1,258 +1,43 @@
 {
-  "actualizado": "2026-10-27",
+  "actualizado": "2026-10-28",
   "job": "512e38a3-6714-4fdd-b6bc-0a4a375117b3",
   "tipo": "channel_reach_basic_a1",
   "ventanaDias": 30,
-  "desde": "2026-09-27",
-  "hasta": "2026-10-27",
+  "desde": "2026-09-28",
+  "hasta": "2026-10-28",
   "videos": {
     "-QmnmBnT1Ng": {
-      "impresiones": 4,
-      "clics": 0,
-      "ctr": 0
-    },
-    "-phNJeYXTLA": {
-      "impresiones": 35,
-      "clics": 0,
-      "ctr": 0
-    },
-    "01xPihe7hz0": {
-      "impresiones": 8,
-      "clics": 0,
-      "ctr": 0
-    },
-    "0zRRrvdLUac": {
-      "impresiones": 7,
-      "clics": 0,
-      "ctr": 0
-    },
-    "1CAMSAuZzug": {
-      "impresiones": 8,
-      "clics": 0,
-      "ctr": 0
-    },
-    "22gwMpPnCxY": {
-      "impresiones": 6,
-      "clics": 0,
-      "ctr": 0
-    },
-    "38xMuHE47eI": {
-      "impresiones": 49,
-      "clics": 0,
-      "ctr": 0
-    },
-    "3QhDzy_gUKk": {
-      "impresiones": 4553,
-      "clics": 20,
-      "ctr": 0.44
-    },
-    "4SzkhEkMdEI": {
-      "impresiones": 184,
-      "clics": 0,
-      "ctr": 0
-    },
-    "5gCnr5z-5_4": {
-      "impresiones": 3918,
-      "clics": 49,
-      "ctr": 1.25
-    },
-    "5rhKCFnA-Mc": {
-      "impresiones": 5,
-      "clics": 0,
-      "ctr": 0
-    },
-    "8WNkdRrmI9U": {
       "impresiones": 3,
       "clics": 0,
       "ctr": 0
     },
-    "9Eb-1KD5BqE": {
-      "impresiones": 597,
-      "clics": 23,
-      "ctr": 3.85
-    },
-    "9Le8uCfDRA4": {
-      "impresiones": 2335,
-      "clics": 1,
-      "ctr": 0.04
-    },
-    "9SxSCiC8ZTs": {
-      "impresiones": 4,
+    "-phNJeYXTLA": {
+      "impresiones": 31,
       "clics": 0,
       "ctr": 0
     },
-    "DQl1ZQPx51o": {
-      "impresiones": 36,
-      "clics": 0,
-      "ctr": 0
-    },
-    "EFWY7D3NJso": {
-      "impresiones": 26,
-      "clics": 1,
-      "ctr": 3.85
-    },
-    "GJMefzqOaqk": {
-      "impresiones": 33,
-      "clics": 4,
-      "ctr": 12.12
-    },
-    "HnWm9lwFw8w": {
-      "impresiones": 4,
-      "clics": 0,
-      "ctr": 0
-    },
-    "LjpVaF71JbQ": {
-      "impresiones": 8,
-      "clics": 0,
-      "ctr": 0
-    },
-    "MHEFCy1o6nw": {
-      "impresiones": 30,
-      "clics": 0,
-      "ctr": 0
-    },
-    "MRG9fw8e5P8": {
-      "impresiones": 17,
-      "clics": 0,
-      "ctr": 0
-    },
-    "NgutmEp2__Y": {
-      "impresiones": 16,
-      "clics": 0,
-      "ctr": 0
-    },
-    "REcC_ZuhrPY": {
-      "impresiones": 61,
-      "clics": 2,
-      "ctr": 3.28
-    },
-    "RGSENsGCBKA": {
-      "impresiones": 347,
-      "clics": 4,
-      "ctr": 1.15
-    },
-    "RgyxBISTZ9Y": {
-      "impresiones": 42,
-      "clics": 2,
-      "ctr": 4.76
-    },
-    "TeKnIIGAMUw": {
-      "impresiones": 48,
-      "clics": 1,
-      "ctr": 2.08
-    },
-    "UyW1kuLY37E": {
-      "impresiones": 5,
-      "clics": 0,
-      "ctr": 0
-    },
-    "Wd9_JFdie-k": {
-      "impresiones": 4,
-      "clics": 0,
-      "ctr": 0
-    },
-    "WjXgunaHKjs": {
-      "impresiones": 314,
-      "clics": 1,
-      "ctr": 0.32
-    },
-    "XRzll3-Hbyw": {
-      "impresiones": 10,
-      "clics": 0,
-      "ctr": 0
-    },
-    "XX1upDjWWx0": {
-      "impresiones": 11,
-      "clics": 0,
-      "ctr": 0
-    },
-    "Yoli64YxjuM": {
-      "impresiones": 9,
-      "clics": 0,
-      "ctr": 0
-    },
-    "bfhNo31wIFI": {
-      "impresiones": 38,
-      "clics": 0,
-      "ctr": 0
-    },
-    "fUYEskTWdGc": {
-      "impresiones": 22,
-      "clics": 0,
-      "ctr": 0
-    },
-    "hrufcYlaUSM": {
-      "impresiones": 25,
-      "clics": 0,
-      "ctr": 0
-    },
-    "i31AWVLW6qg": {
+    "01xPihe7hz0": {
       "impresiones": 7,
       "clics": 0,
       "ctr": 0
     },
-    "iJvu555lINQ": {
-      "impresiones": 199,
-      "clics": 7,
-      "ctr": 3.52
-    },
-    "lidq_pTvTlo": {
-      "impresiones": 98,
-      "clics": 1,
-      "ctr": 1.02
-    },
-    "ml6Yj5G-1_I": {
-      "impresiones": 18,
-      "clics": 0,
-      "ctr": 0
-    },
-    "n8N1z4-124E": {
-      "impresiones": 26,
-      "clics": 0,
-      "ctr": 0
-    },
-    "nvG_C4evsL8": {
-      "impresiones": 378,
-      "clics": 3,
-      "ctr": 0.79
-    },
-    "oCEw0HwkUyg": {
-      "impresiones": 30,
-      "clics": 0,
-      "ctr": 0
-    },
-    "pGzRumCBjg0": {
-      "impresiones": 38,
-      "clics": 1,
-      "ctr": 2.63
-    },
-    "qzn2RJefxic": {
-      "impresiones": 384,
-      "clics": 21,
-      "ctr": 5.47
-    },
-    "sCdoxJs4Ea8": {
-      "impresiones": 24,
-      "clics": 1,
-      "ctr": 4.17
-    },
-    "uzbivsRi_cE": {
-      "impresiones": 96,
-      "clics": 6,
-      "ctr": 6.25
-    },
-    "w8IPmwGoq3w": {
-      "impresiones": 53,
-      "clics": 1,
-      "ctr": 1.89
-    },
-    "xYaG4nx-IkI": {
-      "impresiones": 11,
-      "clics": 1,
-      "ctr": 9.09
-    },
     "0BNQR6diTNI": {
       "impresiones": 10,
+      "clics": 0,
+      "ctr": 0
+    },
+    "0zRRrvdLUac": {
+      "impresiones": 5,
+      "clics": 0,
+      "ctr": 0
+    },
+    "1CAMSAuZzug": {
+      "impresiones": 7,
+      "clics": 0,
+      "ctr": 0
+    },
+    "38xMuHE47eI": {
+      "impresiones": 22,
       "clics": 0,
       "ctr": 0
     },
@@ -260,6 +45,16 @@
       "impresiones": 708,
       "clics": 23,
       "ctr": 3.25
+    },
+    "3QhDzy_gUKk": {
+      "impresiones": 4190,
+      "clics": 19,
+      "ctr": 0.45
+    },
+    "4SzkhEkMdEI": {
+      "impresiones": 144,
+      "clics": 0,
+      "ctr": 0
     },
     "5GV3sHJxsQM": {
       "impresiones": 11,
@@ -271,15 +66,45 @@
       "clics": 0,
       "ctr": 0
     },
+    "5gCnr5z-5_4": {
+      "impresiones": 1145,
+      "clics": 11,
+      "ctr": 0.96
+    },
+    "9Eb-1KD5BqE": {
+      "impresiones": 544,
+      "clics": 20,
+      "ctr": 3.68
+    },
+    "9Le8uCfDRA4": {
+      "impresiones": 2154,
+      "clics": 2,
+      "ctr": 0.09
+    },
     "CU4xH6A4dKA": {
       "impresiones": 7,
       "clics": 0,
       "ctr": 0
     },
+    "DQl1ZQPx51o": {
+      "impresiones": 30,
+      "clics": 0,
+      "ctr": 0
+    },
+    "EFWY7D3NJso": {
+      "impresiones": 21,
+      "clics": 1,
+      "ctr": 4.76
+    },
     "FI_7V_pOlwQ": {
       "impresiones": 37,
       "clics": 0,
       "ctr": 0
+    },
+    "GJMefzqOaqk": {
+      "impresiones": 32,
+      "clics": 4,
+      "ctr": 12.5
     },
     "I-cYlzfnJ70": {
       "impresiones": 17,
@@ -291,6 +116,21 @@
       "clics": 3,
       "ctr": 3.06
     },
+    "LjpVaF71JbQ": {
+      "impresiones": 6,
+      "clics": 0,
+      "ctr": 0
+    },
+    "MHEFCy1o6nw": {
+      "impresiones": 23,
+      "clics": 0,
+      "ctr": 0
+    },
+    "MRG9fw8e5P8": {
+      "impresiones": 16,
+      "clics": 0,
+      "ctr": 0
+    },
     "MsPcFSzX1B0": {
       "impresiones": 3,
       "clics": 0,
@@ -301,35 +141,70 @@
       "clics": 4,
       "ctr": 10.53
     },
+    "NgutmEp2__Y": {
+      "impresiones": 10,
+      "clics": 0,
+      "ctr": 0
+    },
     "OttZ12KyBSk": {
       "impresiones": 7,
       "clics": 0,
       "ctr": 0
     },
     "QuLCkDcNvCQ": {
-      "impresiones": 8,
+      "impresiones": 10,
       "clics": 0,
       "ctr": 0
+    },
+    "REcC_ZuhrPY": {
+      "impresiones": 52,
+      "clics": 2,
+      "ctr": 3.85
     },
     "RVVuQv3twv4": {
       "impresiones": 48,
       "clics": 1,
       "ctr": 2.08
     },
+    "RgyxBISTZ9Y": {
+      "impresiones": 41,
+      "clics": 2,
+      "ctr": 4.88
+    },
+    "TeKnIIGAMUw": {
+      "impresiones": 47,
+      "clics": 1,
+      "ctr": 2.13
+    },
+    "WjXgunaHKjs": {
+      "impresiones": 317,
+      "clics": 1,
+      "ctr": 0.32
+    },
     "XMRGXLgDOXg": {
       "impresiones": 124,
       "clics": 3,
       "ctr": 2.42
+    },
+    "XRzll3-Hbyw": {
+      "impresiones": 7,
+      "clics": 0,
+      "ctr": 0
     },
     "XVIxe4EJZbM": {
       "impresiones": 25,
       "clics": 0,
       "ctr": 0
     },
+    "XX1upDjWWx0": {
+      "impresiones": 9,
+      "clics": 0,
+      "ctr": 0
+    },
     "bHwxoqomx-M": {
-      "impresiones": 310,
+      "impresiones": 311,
       "clics": 6,
-      "ctr": 1.94
+      "ctr": 1.93
     },
     "bO42vVDt5vg": {
       "impresiones": 15,
@@ -341,8 +216,18 @@
       "clics": 0,
       "ctr": 0
     },
+    "bfhNo31wIFI": {
+      "impresiones": 28,
+      "clics": 0,
+      "ctr": 0
+    },
     "dURWm6EWmBo": {
       "impresiones": 41,
+      "clics": 0,
+      "ctr": 0
+    },
+    "fUYEskTWdGc": {
+      "impresiones": 10,
       "clics": 0,
       "ctr": 0
     },
@@ -356,15 +241,75 @@
       "clics": 0,
       "ctr": 0
     },
+    "hrufcYlaUSM": {
+      "impresiones": 23,
+      "clics": 0,
+      "ctr": 0
+    },
+    "iJvu555lINQ": {
+      "impresiones": 121,
+      "clics": 4,
+      "ctr": 3.31
+    },
+    "lidq_pTvTlo": {
+      "impresiones": 78,
+      "clics": 1,
+      "ctr": 1.28
+    },
+    "ml6Yj5G-1_I": {
+      "impresiones": 16,
+      "clics": 0,
+      "ctr": 0
+    },
+    "n8N1z4-124E": {
+      "impresiones": 20,
+      "clics": 0,
+      "ctr": 0
+    },
+    "nvG_C4evsL8": {
+      "impresiones": 355,
+      "clics": 3,
+      "ctr": 0.85
+    },
+    "oCEw0HwkUyg": {
+      "impresiones": 26,
+      "clics": 0,
+      "ctr": 0
+    },
+    "pGzRumCBjg0": {
+      "impresiones": 33,
+      "clics": 1,
+      "ctr": 3.03
+    },
+    "qzn2RJefxic": {
+      "impresiones": 375,
+      "clics": 20,
+      "ctr": 5.33
+    },
+    "sCdoxJs4Ea8": {
+      "impresiones": 16,
+      "clics": 1,
+      "ctr": 6.25
+    },
     "tBv9v_TGayw": {
-      "impresiones": 356,
+      "impresiones": 368,
       "clics": 2,
-      "ctr": 0.56
+      "ctr": 0.54
+    },
+    "uzbivsRi_cE": {
+      "impresiones": 82,
+      "clics": 5,
+      "ctr": 6.1
     },
     "vCopBzxTDxg": {
       "impresiones": 77,
       "clics": 1,
       "ctr": 1.3
+    },
+    "w8IPmwGoq3w": {
+      "impresiones": 43,
+      "clics": 1,
+      "ctr": 2.33
     },
     "xDofJVmO0rk": {
       "impresiones": 8,
@@ -381,13 +326,28 @@
       "clics": 0,
       "ctr": 0
     },
+    "HnWm9lwFw8w": {
+      "impresiones": 2,
+      "clics": 0,
+      "ctr": 0
+    },
     "U__vg19xHW8": {
-      "impresiones": 7,
+      "impresiones": 8,
+      "clics": 0,
+      "ctr": 0
+    },
+    "UyW1kuLY37E": {
+      "impresiones": 3,
       "clics": 0,
       "ctr": 0
     },
     "YZZwXm6XMMw": {
       "impresiones": 839,
+      "clics": 0,
+      "ctr": 0
+    },
+    "Yoli64YxjuM": {
+      "impresiones": 8,
       "clics": 0,
       "ctr": 0
     },
@@ -412,7 +372,7 @@
       "ctr": 0
     },
     "v8hygFRbm2U": {
-      "impresiones": 4,
+      "impresiones": 5,
       "clics": 0,
       "ctr": 0
     },
@@ -422,7 +382,7 @@
       "ctr": 0
     },
     "QHL1wY5Fpls": {
-      "impresiones": 13,
+      "impresiones": 14,
       "clics": 0,
       "ctr": 0
     },
@@ -437,9 +397,14 @@
       "ctr": 0
     },
     "rYoBCZmEipg": {
-      "impresiones": 8,
+      "impresiones": 9,
       "clics": 0,
       "ctr": 0
+    },
+    "xYaG4nx-IkI": {
+      "impresiones": 9,
+      "clics": 1,
+      "ctr": 11.11
     },
     "ybLb8PCGerY": {
       "impresiones": 49,
@@ -447,9 +412,14 @@
       "ctr": 0
     },
     "4rbR0MXU5eU": {
-      "impresiones": 113,
+      "impresiones": 114,
       "clics": 8,
-      "ctr": 7.08
+      "ctr": 7.02
+    },
+    "5rhKCFnA-Mc": {
+      "impresiones": 4,
+      "clics": 0,
+      "ctr": 0
     },
     "AWrhkCZUQ6k": {
       "impresiones": 47,
@@ -460,6 +430,11 @@
       "impresiones": 17,
       "clics": 0,
       "ctr": 0
+    },
+    "RGSENsGCBKA": {
+      "impresiones": 21,
+      "clics": 1,
+      "ctr": 4.76
     },
     "W1wDcuuG7tI": {
       "impresiones": 123,
@@ -501,6 +476,11 @@
       "clics": 5,
       "ctr": 4.76
     },
+    "22gwMpPnCxY": {
+      "impresiones": 4,
+      "clics": 0,
+      "ctr": 0
+    },
     "AJ4cxxL3XvA": {
       "impresiones": 12,
       "clics": 0,
@@ -527,9 +507,9 @@
       "ctr": 2.79
     },
     "1O2sYbmslnA": {
-      "impresiones": 34,
+      "impresiones": 39,
       "clics": 1,
-      "ctr": 2.94
+      "ctr": 2.56
     },
     "QjRp0EJZ20M": {
       "impresiones": 110,
@@ -537,14 +517,14 @@
       "ctr": 0.91
     },
     "VqkqyzQp8Ec": {
-      "impresiones": 7,
+      "impresiones": 10,
       "clics": 0,
       "ctr": 0
     },
     "Z3YHx4hd1YI": {
-      "impresiones": 52,
+      "impresiones": 56,
       "clics": 1,
-      "ctr": 1.92
+      "ctr": 1.79
     },
     "wmUEAj_EQO8": {
       "impresiones": 88,
@@ -572,9 +552,9 @@
       "ctr": 0
     },
     "x42q1499zPo": {
-      "impresiones": 82,
+      "impresiones": 83,
       "clics": 1,
-      "ctr": 1.22
+      "ctr": 1.2
     },
     "E5bzH9810Rw": {
       "impresiones": 3,
@@ -652,7 +632,7 @@
       "ctr": 1.96
     },
     "3E9EU2YJPC0": {
-      "impresiones": 1439,
+      "impresiones": 1441,
       "clics": 24,
       "ctr": 1.67
     },
@@ -661,13 +641,18 @@
       "clics": 2,
       "ctr": 2.94
     },
+    "9SxSCiC8ZTs": {
+      "impresiones": 4,
+      "clics": 0,
+      "ctr": 0
+    },
     "SLpzQ_hHP_s": {
-      "impresiones": 675,
+      "impresiones": 679,
       "clics": 6,
-      "ctr": 0.89
+      "ctr": 0.88
     },
     "Y_yvxKGuKEE": {
-      "impresiones": 46,
+      "impresiones": 47,
       "clics": 0,
       "ctr": 0
     },
@@ -707,7 +692,7 @@
       "ctr": 0
     },
     "bFTr8dDFlyg": {
-      "impresiones": 3858,
+      "impresiones": 3860,
       "clics": 51,
       "ctr": 1.32
     },
@@ -722,14 +707,19 @@
       "ctr": 0
     },
     "_DV_RvPYWM4": {
-      "impresiones": 43,
+      "impresiones": 44,
       "clics": 1,
-      "ctr": 2.33
+      "ctr": 2.27
     },
     "g1WnkeX8Kas": {
-      "impresiones": 842,
+      "impresiones": 843,
       "clics": 24,
       "ctr": 2.85
+    },
+    "i31AWVLW6qg": {
+      "impresiones": 5,
+      "clics": 0,
+      "ctr": 0
     },
     "vS-m7wt4MgQ": {
       "impresiones": 130,
@@ -743,6 +733,11 @@
     },
     "4a0tM4wBa8c": {
       "impresiones": 1,
+      "clics": 0,
+      "ctr": 0
+    },
+    "8WNkdRrmI9U": {
+      "impresiones": 2,
       "clics": 0,
       "ctr": 0
     },
@@ -762,9 +757,9 @@
       "ctr": 0
     },
     "LiJfJjb0qjg": {
-      "impresiones": 143,
+      "impresiones": 144,
       "clics": 1,
-      "ctr": 0.7
+      "ctr": 0.69
     },
     "Lx5FGXPlpvg": {
       "impresiones": 3,
@@ -776,15 +771,20 @@
       "clics": 0,
       "ctr": 0
     },
+    "Wd9_JFdie-k": {
+      "impresiones": 3,
+      "clics": 0,
+      "ctr": 0
+    },
     "YFYczQZWjnQ": {
       "impresiones": 1,
       "clics": 0,
       "ctr": 0
     },
     "h8nSAnrlKeQ": {
-      "impresiones": 98,
-      "clics": 3,
-      "ctr": 3.06
+      "impresiones": 105,
+      "clics": 4,
+      "ctr": 3.81
     },
     "hCObnchAo2U": {
       "impresiones": 1,
@@ -837,9 +837,9 @@
       "ctr": 0
     },
     "AvwK4lnit4Q": {
-      "impresiones": 197,
+      "impresiones": 195,
       "clics": 5,
-      "ctr": 2.54
+      "ctr": 2.56
     },
     "C_1XjIts_So": {
       "impresiones": 51,
@@ -852,9 +852,9 @@
       "ctr": 5.93
     },
     "6coGSuvXcg0": {
-      "impresiones": 58,
+      "impresiones": 60,
       "clics": 4,
-      "ctr": 6.9
+      "ctr": 6.67
     },
     "CwEQYIeTkG4": {
       "impresiones": 23,
@@ -867,9 +867,9 @@
       "ctr": 0
     },
     "YrIUAlA4FAs": {
-      "impresiones": 178,
+      "impresiones": 182,
       "clics": 3,
-      "ctr": 1.69
+      "ctr": 1.65
     },
     "b6HJFx34dZI": {
       "impresiones": 77,
@@ -882,37 +882,37 @@
       "ctr": 0
     },
     "pP-MNExXLpg": {
-      "impresiones": 48,
+      "impresiones": 50,
       "clics": 0,
       "ctr": 0
     },
     "rYQEgUwwm5A": {
-      "impresiones": 75,
+      "impresiones": 76,
       "clics": 1,
-      "ctr": 1.33
+      "ctr": 1.32
     },
     "wwjiSfQLZQE": {
-      "impresiones": 85,
+      "impresiones": 91,
       "clics": 3,
-      "ctr": 3.53
+      "ctr": 3.3
     },
     "KCRdSC8uzz8": {
-      "impresiones": 157,
+      "impresiones": 167,
       "clics": 3,
-      "ctr": 1.91
+      "ctr": 1.8
     },
     "jqn9W9c_cEk": {
-      "impresiones": 34,
+      "impresiones": 35,
       "clics": 0,
       "ctr": 0
     },
     "FFKbSWzAq_g": {
-      "impresiones": 47,
+      "impresiones": 48,
       "clics": 0,
       "ctr": 0
     },
     "blGZpPgVI3Q": {
-      "impresiones": 141,
+      "impresiones": 147,
       "clics": 0,
       "ctr": 0
     },
@@ -922,56 +922,67 @@
       "ctr": 3.33
     },
     "7vnz4Ex22ew": {
-      "impresiones": 7,
-      "clics": 0,
-      "ctr": 0
-    },
-    "oYy0mdiGE_4": {
       "impresiones": 8,
       "clics": 0,
       "ctr": 0
     },
+    "oYy0mdiGE_4": {
+      "impresiones": 9,
+      "clics": 0,
+      "ctr": 0
+    },
     "yd4QwF5m6pE": {
-      "impresiones": 29,
+      "impresiones": 36,
       "clics": 0,
       "ctr": 0
     },
     "4UCpBZmp5sc": {
-      "impresiones": 16,
+      "impresiones": 17,
       "clics": 0,
       "ctr": 0
     },
     "ANViULvfEjw": {
-      "impresiones": 12,
+      "impresiones": 20,
       "clics": 0,
       "ctr": 0
     },
     "KWY4GglxXOY": {
-      "impresiones": 35,
+      "impresiones": 51,
       "clics": 0,
       "ctr": 0
     },
     "FL_0KYCVIx0": {
-      "impresiones": 7,
+      "impresiones": 62,
       "clics": 0,
       "ctr": 0
     },
     "hmEIT_mxTpE": {
-      "impresiones": 4,
+      "impresiones": 5,
       "clics": 0,
       "ctr": 0
     },
     "sWFbntMkLdQ": {
-      "impresiones": 1,
+      "impresiones": 6,
+      "clics": 0,
+      "ctr": 0
+    },
+    "4iSRPpPzV4Y": {
+      "impresiones": 4,
+      "clics": 0,
+      "ctr": 0
+    },
+    "CwM4pI30Wg4": {
+      "impresiones": 6,
+      "clics": 0,
+      "ctr": 0
+    },
+    "ptxU3E0GKIo": {
+      "impresiones": 6,
       "clics": 0,
       "ctr": 0
     }
   },
   "dias": {
-    "2026-09-27": {
-      "impresiones": 4249,
-      "ctr": 1.18
-    },
     "2026-09-28": {
       "impresiones": 2411,
       "ctr": 1.41
@@ -1057,8 +1068,8 @@
       "ctr": 3.09
     },
     "2026-10-19": {
-      "impresiones": 500,
-      "ctr": 1.6
+      "impresiones": 506,
+      "ctr": 1.58
     },
     "2026-10-20": {
       "impresiones": 504,
@@ -1073,8 +1084,8 @@
       "ctr": 3.06
     },
     "2026-10-23": {
-      "impresiones": 711,
-      "ctr": 0.42
+      "impresiones": 708,
+      "ctr": 0.56
     },
     "2026-10-24": {
       "impresiones": 578,
@@ -1083,6 +1094,10 @@
     "2026-10-25": {
       "impresiones": 434,
       "ctr": 0.69
+    },
+    "2026-10-26": {
+      "impresiones": 410,
+      "ctr": 0.24
     }
   }
 }
