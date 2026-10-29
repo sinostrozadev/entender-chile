@@ -3,7 +3,7 @@
   "etapa": "validar_guion_informe",
   "veredicto": "pendiente",
   "vuelta": 1,
-  "actualizado": "2026-10-29 19:15",
+  "actualizado": "2026-10-29 19:16",
   "reparar": null,
   "piezas": [
     {
@@ -85,13 +85,13 @@
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 945,
+      "atraso": 946,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 840,
+      "atraso": 841,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
