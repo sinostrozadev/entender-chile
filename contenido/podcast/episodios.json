@@ -618,5 +618,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-27-informe.mp3",
     "bytes": 5764032,
     "durSeg": 240
+  },
+  {
+    "fecha": "2026-10-29",
+    "tipo": "informe",
+    "titulo": "29-10-2026 · Oposición prepara acusación constitucional contra Rabat por las rebajas de condena",
+    "descripcion": "La oposición anunció una acusación constitucional contra el ministro de Justicia, mientras el Gobierno lo mantiene en el cargo. La Cámara despachó al Senado una reforma que crea nuevas herramientas para financiar la primera vivienda, y el sistema frontal dejó damnificados y más de doscientas viviendas dañadas. La jornada también estuvo marcada por la abstención chilena sobre Cuba en la ONU, la TPM en 4,5% y la remoción del juez Daniel Urrutia.\n\nEl informe completo de hoy, con todas las noticias del día: https://sinostrozadev.github.io/entender-chile-web/informes/2026-10-29/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-29-informe.mp3",
+    "bytes": 5557248,
+    "durSeg": 232
   }
 ]
