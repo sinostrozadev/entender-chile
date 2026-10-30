@@ -2,14 +2,23 @@
   "fecha": "2026-10-30",
   "canal": {
     "suscriptores": 39,
-    "vistas": 21593,
-    "videos": 201
+    "vistas": 21608,
+    "videos": 204
   },
   "videos": {
+    "YAbPiVJe9FE": {
+      "titulo": "¿Qué se sabe de la balacera con más de 50 disparos en el cen",
+      "publicado": "2026-10-30",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 41
+    },
     "j_JdvqLQyBU": {
       "titulo": "Chile llegó a nueve coma ocho por ciento de desempleo y el e",
       "publicado": "2026-10-30",
-      "estado": "private",
+      "estado": "public",
       "vistas": 0,
       "meGusta": 0,
       "comentarios": 0,
@@ -18,8 +27,8 @@
     "SK9Eve4nP4E": {
       "titulo": "Chile supera el millón de personas sin trabajo",
       "publicado": "2026-10-30",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 220
@@ -28,7 +37,7 @@
       "titulo": "La oposición prepara una acusación constitucional contra Fer",
       "publicado": "2026-10-30",
       "estado": "public",
-      "vistas": 5,
+      "vistas": 6,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 41
@@ -37,7 +46,7 @@
       "titulo": "Oposición prepara acusación constitucional contra Rabat por ",
       "publicado": "2026-10-30",
       "estado": "public",
-      "vistas": 0,
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 232
@@ -523,7 +532,7 @@
       "titulo": "¿Por qué Kast promulgó la Ley de Reconstrucción pese a la em",
       "publicado": "2026-10-09",
       "estado": "public",
-      "vistas": 33,
+      "vistas": 34,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 46
@@ -1432,7 +1441,7 @@
       "titulo": "Banco Central reduce a menos de uno por ciento su proyección",
       "publicado": "2026-09-10",
       "estado": "public",
-      "vistas": 26,
+      "vistas": 28,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 694
