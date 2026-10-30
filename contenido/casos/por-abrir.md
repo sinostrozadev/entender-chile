@@ -81,3 +81,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-10-26 | CICITEM
 - 2026-10-27 | Embotelladora Llacolén
 - 2026-10-29 | Alcalde de Chillán por fraude al fisco
+- 2026-10-30 | Municipalidad de Río Bueno  (POSIBLE DUPLICADO de un dossier abierto: revisar antes de abrir)
