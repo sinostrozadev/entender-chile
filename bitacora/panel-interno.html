@@ -122,170 +122,193 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 30-10-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-10-30-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS. El historial de git de main se destruyó hoy a las</div>
+    <p class="eyebrow">Auditoría de la mañana · 31-10-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-10-31-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON OBSERVACIONES. La cadena de hoy corrió limpia y sin piezas</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0"># Auditoría matinal, 30-10-2026
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0"># Auditoría matinal, 31-10-2026
 
-ESTADO: CON FALLAS. El historial de git de main se destruyó hoy a las
-01:55:56 de Chile (04:55:56 UTC) y hay que repararlo antes del Barrido de
-mañana, 31-10-2026, o la única copia que queda se pierde también.
+ESTADO: CON OBSERVACIONES. La cadena de hoy corrió limpia y sin piezas
+faltantes; el hallazgo que importa es que la "destrucción del historial de
+git" marcada HOY por la auditoría del 30-10 nunca ocurrió, era un clon
+shallow del contenedor de esa sesión, y ya la corregí: retiré la entrada
+falsa de `bitacora/PENDIENTES.md` antes de que la noche ejecutara el rebase
+destructivo que proponía.
 
 ## Qué salió y a qué hora
 
 | Pieza | Hora real (Chile) | Hora esperada (cuadro) | Veredicto | Evidencia |
 |---|---|---|---|---|
-| Barrido | 01:45 | 01:40 | éxito | Actions "Barrido", run 41004620108 |
-| Preselección | redactada 01:58, veredicto 02:05 | 02:10 | APROBADA vuelta 0 | contenido/veredictos/2026-10-30-preseleccion.md |
-| Informe | redactado 02:09, veredicto 02:25 | 02:40 | APROBADA vuelta 1 (CORREGIR en 02:18) | contenido/veredictos/2026-10-30-informe.md |
-| Guion del informe | redactado 02:28, veredicto 02:51 | 03:10 | APROBADA vuelta 2 (CORREGIR en 02:36 y 02:46) | contenido/veredictos/2026-10-30-guion_informe.md |
-| Revisión (compuerta) | 02:51 | 03:30 | APROBADA vuelta 2 | contenido/revisiones/2026-10-30.md |
-| Edición diaria (render, descripciones, podcast) | videos_listos 03:07 | (no aplica) | éxito | Actions "Edición diaria", run 41010763530 |
-| Métricas | reloj 05:07, bajada 05:08 | 05:00 | éxito | bitacora/metricas/2026-10-30.md |
-| Clave | no corresponde hoy (no es domingo, CLAVE 4 no es diaria desde el 16-09) | | | |
+| Barrido | 01:45 | 01:30 | éxito | commit `373c026`..., Actions "Barrido" (04:45 UTC) |
+| Preselección (suplente, reparto permanente del 06-10, no es falla) | redactada 01:55, veredicto 01:59 | tras cada pieza | APROBADA vuelta 0 | `contenido/veredictos/2026-10-31-preseleccion.md` |
+| Informe | redactado 02:02, veredicto 02:16 | tras cada pieza | APROBADA vuelta 1 (CORREGIR 02:10) | `contenido/veredictos/2026-10-31-informe.md` |
+| Guion del informe | redactado 02:18, veredicto 02:31 | tras cada pieza | APROBADA vuelta 1 (CORREGIR 02:25) | `contenido/veredictos/2026-10-31-guion_informe.md` |
+| Revisión (compuerta) | 02:33 | tras cada pieza | APROBADA vuelta 1 | `contenido/revisiones/2026-10-31.md` |
+| Edición diaria (render, descripciones, podcast) | videos_listos 02:50 | ~04:00 | éxito | Actions "Edición diaria"; `contenido/descripciones/2026-10-31-informe.txt` (02:46), `contenido/podcast/episodios.json` (02:50) |
+| Métricas | reloj 05:04, bajada 05:05 | 05:00 | éxito | `bitacora/metricas/2026-10-31.md` |
+| Clave (flujo propio semanal, no es la cadena diaria) | guion de `afp-multifondos-perdidas-fondo-e` APROBADA vuelta 2, 02:32 | cuando corresponda | éxito | `contenido/estado/clave-afp-multifondos-perdidas-fondo-e.md` |
 
-Ninguna pieza de la cadena de contenido llegó con más de 20 minutos de
-atraso: al contrario, las cinco piezas y el render terminaron antes de lo
-que marca el cuadro del panel vigente (bitacora/panel-interno.html, tabla
-fechada 27-10). Eso ya pasaba el 27-10 (real 03:05 contra esperado 05:15
-para "videos listos") y vuelve a pasar hoy, así que el cuadro de horas
-esperadas parece desactualizado contra el ritmo real del pipeline. Anotado
-como MIRAR, no HOY: no bloquea nada, solo vuelve inútil la comparación de
-atrasos.
+Como el 27 y el 30-10, la cadena completa (barrido a videos_listos) terminó
+a las 02:50, mucho antes de las ~04:00 que marca `bitacora/cronograma.json`
+(actualizado 21-09-2026) para "Edición diaria". Sigue siendo MIRAR, no HOY:
+no bloquea nada y ya está anotado, solo que el cuadro de horas esperadas del
+panel sigue sin reflejar el ritmo real.
 
 ## Qué falló
 
-**1. Grave, fuera de la cadena de piezas: el historial real de git en main
-quedó destruido hoy.** A las 01:55:56 de Chile (04:55:56 UTC) se subió a
-main el commit `2549835e8e49dbe5b03490528020245546474362`
-("observatorio 2026-10-30 [claude]", autor Claude, Co-Authored-By Claude
-Opus 5, sesión `https://claude.ai/code/session_01GSL5CyeEVqQBiH2Gh2VAUd`,
-que es la de la rutina Observatorio de plata pública). Ese commit NO TIENE
-PADRE (`git show --no-patch --format=%P 2549835` no devuelve nada) y agrega
-de una sola vez 2.030 archivos y 1.513.597 líneas: el árbol completo del
-repo convertido en un commit raíz nuevo. Verificado, no es una sospecha:
+**1. El hallazgo HOY del 30-10 ("el historial de git de main se destruyó")
+era falso, y la causa es verificable.** Esta misma auditoría, al arrancar,
+clonó el repo con un fetch shallow (confirmado: `git rev-parse
+--is-shallow-repository` daba `true`, con `.git/shallow` listando
+exactamente los mismos tres SHA que aparecen como "sin padre" o "no
+ancestro" en la auditoría de ayer). Tras `git fetch --unshallow origin`:
 
-- `git rev-list --count main` da 50 commits, los 50 fechados hoy entre las
-  04:56 y las 08:36 UTC.
-- El tag `edicion-2026-10-29` (creado por la propia edición del 29-10, a
-  las 22:42 UTC de ese día) tiene 134 commits reales de historia y NO es
-  ancestro de main: `git merge-base --is-ancestor edicion-2026-10-29 main`
-  devuelve que no.
-- La rama `origin/automatizacion/barrido-listo` sí conserva la cadena real
-  completa, 144 commits, con `edicion-2026-10-29` como ancestro. Su padre
-  inmediato, `fdea01240c30eedf019b8d106a2ac17f005d755a` ("barrido 2026-10-30
-  [bot]", 04:45 UTC de hoy), es con alta probabilidad el verdadero último
-  commit de main, once minutos antes de que lo reemplazaran.
-- Esa misma rama es, hoy, la única copia accesible de esos dos meses de
-  historial, y es también lo que puede destruirla: `barrido.yml` líneas 86
-  a 95 la resetea cada madrugada (`git checkout -B automatizacion/barrido-listo
-  origin/main`) y la sube con `git push -f`. La corrida de mañana
-  (31-10-2026, hacia la 01:30 a 01:45 de Chile) va a tomar como base el main
-  YA ROTO y va a sobreescribir esta rama. Después de esa corrida, recuperar
-  el historial sin pasar por soporte de GitHub puede dejar de ser posible.
-- No hay ninguna decisión en `estrategia/decisiones.md` ni línea en
-  `bitacora/REALIZADOS.md` que explique esto: no es un cambio decidido, es
-  un accidente de hoy. El contenido de los archivos no se perdió (todo lo
-  de abajo se verificó sobre el main actual y está bien), lo que se perdió
-  es el rastro: los commits reales de los dos meses de producción, que son
-  justamente la evidencia de aporte humano distribuido en el tiempo que
-  pide YouTube y que cita el encabezado de CLAUDE.md.
+- `git rev-list --count main` da **4.501** commits (no 50), el primero
+  `88a39c8` del 23-08-2026 23:44:21 ("Estructura inicial del pipeline del
+  canal (v04)").
+- El commit que ayer se señaló como "sin padre" y "commit raíz falso",
+  `2549835e8e49dbe5b03490528020245546474362`, SÍ tiene padre:
+  `git show --no-patch --format='%P' 2549835...` devuelve
+  `23de43001ab722fa58f4ea0dad7d104ff8db0005`. Y `git merge-base
+  --is-ancestor 2549835... main` responde que SÍ es ancestro.
+- El tag `edicion-2026-10-29`, que ayer se verificó con 134 commits y "no
+  ancestro de main", tiene en realidad 4.359 commits y SÍ es ancestro de
+  main (`git merge-base --is-ancestor edicion-2026-10-29 main` → sí).
+- Los tags diarios desde `edicion-2026-08-25` (25 commits) hasta
+  `edicion-2026-10-31` (4.488 commits) forman una cadena continua, todos
+  ancestros de `main`, con el conteo de commits creciendo día a día sin
+  saltos. No hay ningún punto de la serie donde la historia se corte.
+- `fdea01240c30eedf019b8d106a2ac17f005d755a`, el commit que ayer se proponía
+  como base para reconstruir main con `git rebase --onto` y
+  `push --force-with-lease`, es simplemente un commit intermedio normal de
+  ayer (30-10), ya integrado en la línea recta de main, sin que haga falta
+  tocar nada.
 
-**2. AGUANTA, ya señalada por la propia revisión de hoy: las observaciones
-del validador empujan a incumplir el prompt.** `contenido/revisiones/2026-10-30.md`
-(hallazgos 1 y 2) dice que el veredicto del informe recomendó una [B] por
-"tener más material" en vez de nombrar la que manda la regla (la primera de
-"En una mirada" cuando el informe trae menos de tres [A]), y que una
-corrección de la vuelta 1 pidió reescribir el cierre sin decirle el rango de
-palabras, así que salió en 64 contra un techo de 60. Las dos vueltas del
-guion de hoy las provocó esto. Ayer (29-10) el guion también costó dos
-vueltas, por una variante distinta del mismo problema de fondo (ver
-Comparación con ayer).
+No se llegó a ejecutar ningún paso de la reparación propuesta ayer (el tag
+`respaldo-historial-2026-10-30` no existe en el remoto, comprobado con
+`git ls-remote origin | grep respaldo-historial`), así que no hay ningún
+daño que reparar. Lo único que hice fue borrar la entrada de
+`bitacora/PENDIENTES.md` (bajo "Para la sesión de la noche") que pedía ese
+rebase, porque ejecutarla sobre un historial que ya está completo e intacto
+habría sido la reescritura de main que la regla dura 24 prohíbe sin que
+exista ningún problema real detrás.
 
-**3. MIRAR: la edición de hoy quedó sin margen.** 422 palabras narradas
-contra un piso de 420, y un cierre de 60 contra un techo de 60, como ya lo
-advierte `contenido/revisiones/2026-10-30.md` ("la edición quedó sin
-margen"). No es una falla hoy: lo sería si mañana un hallazgo pide quitar
-algo y no hay de dónde.
+Propuesta de fondo para que esto no se repita: todo contenedor de sesión
+(incluido el de esta misma auditoría al arrancar) parte con un clon shallow
+por defecto. Antes de afirmar algo sobre padres de commit, ancestría de
+tags o "historial destruido", hay que comprobar primero
+`git rev-parse --is-shallow-repository` y, si devuelve `true`, correr
+`git fetch --unshallow origin` antes de sacar cualquier conclusión. Esto
+debería agregarse como regla explícita en la sección "VERIFICAR ANTES DE
+AFIRMAR" de `prompts/contrato-archivos.md`, junto a las demás reglas de
+verificación de archivos, ya que hoy ese contrato cubre archivos pero no
+menciona el estado del propio clon git.
+
+**2. AGUANTA, sigue igual: las seis fuentes institucionales sin feed
+siguen sin abrirse, ya son más de dos semanas.** `contenido/revisiones/2026-10-31.md`
+(hallazgo 3): Contraloría, Banco Central, Cámara, Senado, Dirección
+Meteorológica y Ministerio Público devolvieron código 000 otra vez hoy,
+mismo hueco del 30-10, del 27-10 y de toda la serie desde el 16-10
+(`bitacora/PENDIENTES.md`, sección "Para la sesión de la noche", entrada
+del 16-10). No agrego línea nueva a esa entrada porque ya documenta la
+recurrencia; solo confirmo que sigue abierta y sin dueño que la tome.
+
+**3. AGUANTA, nuevo, con arreglo concreto: `scripts/validar-tarjetas.js:90`
+subcuenta las palabras narradas y hoy causó reconteo manual por segunda vez
+en el día.** `contenido/revisiones/2026-10-31.md` (hallazgo 1): el filtro de
+la línea 90 excluye del conteo toda línea que empieza con corchete,
+incluidas las cuatro `[TESIS]`, que `scripts/parse.js:414` sí manda a la
+voz. Hoy el script avisó 419 palabras contra el piso de 420 (a un punto),
+cuando lo narrado de verdad son 472. Ya se había visto exactamente el mismo
+mecanismo el 29-10 (`contenido/revisiones/2026-10-29.md`, hallazgo 1, que
+ya avisaba "una edición que quede apenas bajo 420 va a pedir relleno que el
+video no necesita"), pero nunca bajó a `bitacora/PENDIENTES.md`. Arreglo de
+una línea: sumar el texto de las líneas `[TESIS]` al conteo de `narradas`
+en `scripts/validar-tarjetas.js:90`, igual que ya hace `parse.js:414`. No es
+HOY porque hoy mismo el validador lo detectó a mano y no rellenó de más,
+pero ya costó dos vueltas reales (29-10 y 31-10) y tiene dueño claro
+(noche, es código).
+
+**4. MIRAR: las horas vistas en videos largos bajan cuatro días seguidos.**
+`bitacora/metricas/AAAA-MM-DD.md`, campo "horas vistas en videos LARGOS"
+(ventana móvil de 30 días de Analytics): 28-10 → 16,5 h, 29-10 → 15,2 h,
+30-10 → 15,0 h, 31-10 → **14,6 h**. Es la única serie que cuenta para las
+4.000 horas y lleva cuatro mediciones seguidas a la baja, aunque sea una
+ventana móvil donde videos viejos van saliendo más rápido de lo que entran
+nuevos. Todavía no es un problema (la caída es moderada y los suscriptores
+siguen subiendo, 38→39→40), pero si sigue cinco o seis días más deja de ser
+ruido de la ventana móvil.
+
+**5. MIRAR, sigue igual: el clasificador de áreas del barrido.**
+`contenido/revisiones/2026-10-31.md` (hallazgo 4): 45 señales quedaron "Sin
+área" hoy (57 el 30-10), y el clasificador sigue mezclando fútbol y
+farándula en "Ciencia y tecnología". Dos días seguidos documentados
+(30 y 31-10); si aparece una tercera vez paso a tratarlo como AGUANTA con
+entrada propia en PENDIENTES.
 
 Sin más fallas en el contenido: `node scripts/validar-tarjetas.js --fecha
-2026-10-30` no dejó avisos (422 palabras narradas, ~3,1 min, variedad OK), y
-la duración real del episodio de hoy (`contenido/podcast/episodios.json`,
-`durSeg: 220`, 3,67 min) está dentro del objetivo vigente de 3 a 4 minutos
-(decisión de Santiago del 12-10-2026, `estrategia/decisiones.md`), no contra
-la vieja promesa de ~10 minutos. No hay marcas `PENDIENTE DE CIERRE`
-vencidas sin cerrar: la única que existe en los informes recientes
-(27-10-2026, sobre la tasa del Banco Central) ya quedó resuelta por la
-edición posterior, que narró "Banco Central no bajó la tasa".
+2026-10-31` no dejó más avisos que el de palabras (ya cubierto en el punto
+3), la duración real del episodio de hoy (`contenido/podcast/episodios.json`,
+`durSeg: 225`, 3,75 min) está dentro del objetivo de 3 a 4 minutos (decisión
+de Santiago del 12-10-2026), y no quedaron marcas `PENDIENTE DE CIERRE`
+vencidas sin cerrar (comprobado en `contenido/informes/2026-10-31.md`,
+`2026-10-30.md` y `2026-10-29.md`: ninguna trae la marca). Todas las
+corridas de GitHub Actions de hoy (Barrido, Edición diaria, Métricas, Web,
+Estado del día, Reintento del despertar) terminaron en `success`,
+verificado contra la API de Actions.
 
 ## Propuestas
 
-1. **Para la falla 1 (HOY).** Primero, asegurar una copia del historial
-   real fuera de la rama que el propio workflow sobreescribe, sin tocar
-   main todavía: `git push origin
-   fdea01240c30eedf019b8d106a2ac17f005d755a:refs/tags/respaldo-historial-2026-10-30`
-   (un tag nuevo, ningún workflow lo fuerza). Después, con el sí explícito
-   de Santiago porque es una reescritura de main (regla dura 24):
-   reconstruir main sobre `fdea0124` y volver a aplicar encima los commits
-   reales de hoy, que son legítimos en su contenido aunque hoy cuelguen del
-   commit raíz falso (desde `3b50b7c` "edición 2026-10-30: preselección"
-   hasta la punta actual), por ejemplo con `git rebase --onto fdea0124
-   2549835 main`, y recién ahí `push --force-with-lease` a main. Conviene
-   además revisar la sesión de la rutina Observatorio
-   (`https://claude.ai/code/session_01GSL5CyeEVqQBiH2Gh2VAUd`) para entender
-   por qué su checkout quedó sin la historia real antes de comitear.
-2. **Para la falla 2 (AGUANTA).** En `prompts/validador.md`, en la sección
-   que escribe las observaciones para el despachador: exigir que, cuando el
-   informe trae menos de tres [A], la observación nombre la [B] exacta que
-   manda la regla (la primera de "En una mirada") y no una recomendación por
-   volumen de material; y que toda corrección que mande reescribir una
-   sección con rango propio (apertura, cierre, noticia del día) cite ese
-   rango en la misma línea de la corrección.
-3. **Para el MIRAR 3.** En `prompts/guion-informe.md`, subir el objetivo
-   interno de palabras narradas de 420 a entre 440 y 460 (sigue dentro de
-   los 3 a 4 minutos vigentes), tal como ya lo sugiere
-   `contenido/revisiones/2026-10-30.md`, para dejar margen a una corrección
-   que necesite acortar.
+1. **Para la falla 1 (ya corregida en este mismo commit).** Agregar en
+   `prompts/contrato-archivos.md`, sección "VERIFICAR ANTES DE AFIRMAR", una
+   línea que obligue a comprobar `git rev-parse --is-shallow-repository` y
+   hacer `git fetch --unshallow origin` antes de afirmar algo sobre padres
+   de commit, ancestría de tags o historial "destruido". Dueño: día o
+   Santiago, es un cambio de prompt sin secrets.
+2. **Para la falla 3.** En `scripts/validar-tarjetas.js:90`, sumar las
+   palabras de las líneas que empiezan con `[TESIS]` al conteo de
+   `narradas`, igual que ya hace `scripts/parse.js:414`. Dueño: noche
+   (código).
+3. **Para la falla 2.** Sigue en pie la propuesta del 16-10: agregar feed
+   propio (RSS o scraping) para Contraloría, Banco Central, Cámara, Senado,
+   Dirección Meteorológica y Ministerio Público en
+   `contenido/barrido/fuentes.json`.
 
 ## Triage
 
-- **HOY**: la destrucción del historial de git en main (falla 1). Baja a
-  `bitacora/PENDIENTES.md` en este mismo commit.
-- **AGUANTA**: el defecto de las observaciones del validador sobre qué [B]
-  narrar y sobre los rangos de las correcciones (falla 2).
-- **MIRAR**: el cuadro de horas esperadas del panel, desactualizado contra
-  el ritmo real de la cadena; y el margen cero de palabras narradas de hoy
-  (hallazgo 3).
+- **HOY**: ninguno. La única pieza que ayer estaba marcada HOY resultó
+  falsa y ya se retiró de `bitacora/PENDIENTES.md` en este mismo commit.
+- **AGUANTA**: las seis fuentes institucionales sin feed (sigue igual,
+  entrada del 16-10 ya existente, no se duplica); el subconteo de palabras
+  de `validar-tarjetas.js:90` por las líneas `[TESIS]` (nuevo, con arreglo
+  de una línea, no bajó a PENDIENTES hoy porque no es HOY, queda anotado
+  acá para que la noche lo tome).
+- **MIRAR**: las horas vistas en videos largos, cuatro días seguidos a la
+  baja; el clasificador de áreas del barrido, segunda vez seguida con "Sin
+  área" alto; el cuadro de horas esperadas del panel, que sigue sin
+  reflejar que la cadena termina hacia las 02:50 y no hacia las 04:00.
 
-## Comparación con ayer (29-10-2026)
+## Comparación con ayer (30-10-2026)
 
-- **Nuevo**: la falla 1 no existía ayer. Es de hoy, a las 01:55 de Chile.
-- **Igual**: el guion volvió a costar dos vueltas, como ayer. Ayer el costo
-  fue de fidelidad en pantalla y un relleno que la regla prohíbe; hoy fue
-  elegir la [B] equivocada y un cierre sin rango. Dos días seguidos con dos
-  vueltas de guion, por variantes del mismo problema de fondo (qué hacer
-  cuando el informe trae menos de tres [A] y cómo se redactan las
-  correcciones que cambian el largo), está en la frontera de la regla de
-  "tres días sin aprender": si pasa una tercera vez, el hallazgo ya no es el
-  guion, es que el ciclo revisa y no corrige la causa.
-- **Mejoró**: la preselección de hoy salió aprobada sin vueltas (ayer costó
-  una) y el informe costó solo una vuelta igual que ayer.
-- **Sigue igual, ya anotado y no se duplica aquí**: las seis fuentes
-  institucionales sin feed (Contraloría, Banco Central, Cámara, Senado,
-  Dirección Meteorológica, Ministerio Público) siguen sin abrirse. Aparecen
-  en las revisiones del 25, 26, 27 y hoy 30 de octubre (no en la del 29, y
-  la del 28 no existe porque ese día la cadena se detuvo en la
-  preselección). Es AGUANTA desde el 16-10 en `bitacora/PENDIENTES.md`
-  línea 1268.
-- **Números del canal** (`bitacora/metricas/2026-10-30.md` contra el de
-  ayer): 39 suscriptores (+0, igual que ayer), 21.655 vistas totales (+55,
-  contra +23 ayer), 210 subidos y 201 públicos (+6 y +4, porque el video
-  largo de ayer, la acusación constitucional contra Rabat, pasó de privado a
-  público hoy junto con su Short). El video largo de hoy (el desempleo)
-  sigue privado, a la espera del clic de Santiago, que es el estado normal
-  antes de publicarse. Nada que mover en la serie de los largos todavía: el
-  único largo nuevo de hoy no tiene vistas porque no está publicado.
+- **Mejoró**: el guion del informe costó una sola vuelta hoy (dos vueltas
+  el 29 y el 30-10); la falla 2 de ayer ("el validador empuja a incumplir el
+  prompt eligiendo [B] por volumen o pidiendo reescrituras sin rango") no
+  volvió a aparecer en las correcciones de hoy, que fueron por otros motivos
+  (carátulas que no nombraban el hecho, siglas sin expandir, duplicados en
+  el rastro de descarte).
+- **Nuevo**: la falla 1, que en realidad no es nueva de hoy sino la
+  corrección de un hallazgo falso de ayer; el aviso de palabras por el
+  subconteo de `[TESIS]` se repitió por segunda vez documentada (29 y
+  31-10, con el 30-10 sin este problema porque el guion de ese día llevaba
+  margen).
+- **Igual**: las seis fuentes institucionales sin feed, cuarto día
+  documentado en la serie (27, 29, 30 y 31-10, con el 28 sin cadena); el
+  clasificador de áreas, segundo día con "Sin área" alto (57 y 45).
+- **Números del canal** (`bitacora/metricas/2026-10-31.md` contra el de
+  ayer): 40 suscriptores (+1, igual de ritmo que los últimos días), 21.686
+  vistas totales (+24, menos que los +62 de ayer), 214 subidos y 205
+  públicos (+4 y +4). Las horas vistas en videos largos siguen bajando
+  (15,0 h → 14,6 h), cuarto día seguido a la baja, ver falla 4.
 </pre>
     </details>
     <!--AUDITORIA-FIN-->

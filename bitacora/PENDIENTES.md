@@ -1134,35 +1134,6 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **30-10, HOY: el historial de git de main se destruyó hoy a las
-      01:55:56 de Chile (04:55:56 UTC) y la única copia que queda se pierde
-      con el Barrido de mañana si nadie actúa antes.** Auditoría del 30-10
-      (`bitacora/2026-10-30-auditoria.md`). El commit `2549835e8e49dbe5b03490528020245546474362`
-      ("observatorio 2026-10-30 [claude]", sesión de la rutina Observatorio
-      de plata pública, `https://claude.ai/code/session_01GSL5CyeEVqQBiH2Gh2VAUd`)
-      no tiene padre y agrega de una sola vez 2.030 archivos y 1.513.597
-      líneas: todo el árbol del repo como commit raíz nuevo, subido por
-      encima de main. Verificado: `git rev-list --count main` da 50
-      commits, todos de hoy; el tag `edicion-2026-10-29` (134 commits
-      reales) no es ancestro de main. La cadena real completa (144 commits)
-      sigue viva solo en `origin/automatizacion/barrido-listo`, cuyo padre
-      inmediato `fdea01240c30eedf019b8d106a2ac17f005d755a` ("barrido
-      2026-10-30 [bot]", 04:45 UTC de hoy) es con alta probabilidad el
-      verdadero último commit de main. Esa rama se resetea a `origin/main`
-      y se fuerza cada madrugada en `barrido.yml` líneas 86 a 95: el Barrido
-      de mañana (31-10, hacia la 01:30 a 01:45 de Chile) va a tomar como
-      base el main ya roto y va a sobreescribir esa última copia. SIN EL SÍ
-      DE SANTIAGO NO SE TOCA MAIN (regla dura 24, es una reescritura de
-      historia): primero asegurar `git push origin
-      fdea01240c30eedf019b8d106a2ac17f005d755a:refs/tags/respaldo-historial-2026-10-30`
-      (un tag nuevo, no lo fuerza ningún workflow, no reescribe nada), y con
-      el sí de Santiago recién después reconstruir main sobre `fdea0124` y
-      reaplicar encima los commits reales de hoy (`3b50b7c` en adelante, que
-      son legítimos en contenido) con `git rebase --onto fdea0124 2549835
-      main` y `push --force-with-lease`. Revisar también por qué el
-      checkout de la rutina Observatorio quedó sin la historia real antes
-      de comitear.
-
 - [ ] **27-10, HOY: `scripts/metricas.js` pierde videos completos de la
       lista sin avisar, confirmado siete veces en el último mes.**
       Auditoría del 27-10 (`bitacora/2026-10-27-auditoria.md`). Cruzando
