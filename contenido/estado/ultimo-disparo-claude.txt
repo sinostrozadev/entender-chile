@@ -1,1 +1,1 @@
-2026-10-30 validar_guion_informe 2
+2026-10-31 validar_preseleccion 0
