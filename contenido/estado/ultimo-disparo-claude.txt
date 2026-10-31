@@ -1,1 +1,1 @@
-2026-10-31 validar_guion_informe 0
+2026-10-31 validar_guion_informe 1
