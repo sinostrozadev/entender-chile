@@ -2,11 +2,11 @@
   "flujo": "clave",
   "slug": "afp-multifondos-perdidas-fondo-e",
   "camino": "pauta",
-  "etapa": "validar_guion",
-  "vuelta": 2,
-  "turno": "Claude",
+  "etapa": "paneles",
+  "vuelta": 0,
+  "turno": "GPT: genera los paneles del mural (pedido en contenido/urgente/, en tandas de diez)",
   "fecha_produccion": "2026-10-28",
-  "actualizado": "2026-10-24 02:34",
+  "actualizado": "2026-10-31 02:32",
   "concepto": "qué es un multifondo de las AFP, quién responde cuando uno pierde y qué puede hacer un afiliado",
   "pieza": {
     "id": "guion",
@@ -32,7 +32,7 @@
     },
     {
       "id": "guion",
-      "situacion": "por_validar",
+      "situacion": "lista",
       "archivo": "contenido/guiones/claves/2026-10-28-afp-multifondos-perdidas-fondo-e.md"
     }
   ]
