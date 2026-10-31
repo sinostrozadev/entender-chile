@@ -636,5 +636,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-30-informe.mp3",
     "bytes": 5273856,
     "durSeg": 220
+  },
+  {
+    "fecha": "2026-10-31",
+    "tipo": "informe",
+    "titulo": "31-10-2026 · Fiscalía investiga a Rabat y Silva por decretos de rebaja de condenas",
+    "descripcion": "La Fiscalía abrió una investigación contra el ministro Fernando Rabat y el exsubsecretario Luis Silva por los decretos que rebajaron condenas. Más de 140 mil niños siguen con su vacunación contra el sarampión incompleta y la Región Metropolitana quedó bajo Alerta Amarilla. La producción industrial cayó 2,7%, continuó el paro de camioneros en San Antonio y cuatro petroleros explotaron en el estrecho de Ormuz.\n\nEl informe completo de hoy, con todas las noticias del día: https://sinostrozadev.github.io/entender-chile-web/informes/2026-10-31/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-31-informe.mp3",
+    "bytes": 5405184,
+    "durSeg": 225
   }
 ]
