@@ -1,9 +1,9 @@
 {
   "fecha": "2026-11-01",
-  "etapa": "preseleccion_lista",
+  "etapa": "validar_informe",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-11-01 08:48",
+  "actualizado": "2026-11-01 08:51",
   "reparar": null,
   "piezas": [
     {
@@ -35,13 +35,15 @@
     {
       "id": "informe",
       "etiqueta": "Informe",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "por_validar",
       "prompt": "prompts/informe.md",
-      "hora": "",
+      "hora": "08:50",
       "esperada": "02:40",
       "dueno": "GPT · prompts/informe.md",
-      "rutas": []
+      "rutas": [
+        "contenido/informes/2026-11-01.md"
+      ]
     },
     {
       "id": "guion_informe",
@@ -79,27 +81,21 @@
   ],
   "atrasos": [
     {
-      "id": "informe",
-      "etiqueta": "Informe",
-      "atraso": 368,
-      "dueno": "GPT · prompts/informe.md"
-    },
-    {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "atraso": 338,
+      "atraso": 341,
       "dueno": "GPT · prompts/guion-informe.md"
     },
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 318,
+      "atraso": 321,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 213,
+      "atraso": 216,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
