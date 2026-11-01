@@ -1,0 +1,914 @@
+{
+  "semana": "2026-W44",
+  "lunes": "2026-10-26",
+  "sabado": "2026-10-31",
+  "dias": [
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-10-31"
+  ],
+  "dias_con_informe": [
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-10-31"
+  ],
+  "generado": "2026-11-01",
+  "noticias": 182,
+  "temas": 131,
+  "pesos": {
+    "A": 3,
+    "B": 2,
+    "C": 1,
+    "seguimiento": 1.5,
+    "dia_extra": 1,
+    "dossier": 2
+  },
+  "ranking": [
+    {
+      "puesto": 1,
+      "puntaje": 11,
+      "dias": [
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-29",
+        "2026-10-31"
+      ],
+      "niveles": [
+        "C",
+        "B",
+        "B",
+        "B",
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Política",
+        "Resumen internacional"
+      ],
+      "seguimiento": false,
+      "noticias": 5,
+      "terminos": [
+        "estado",
+        "unido",
+        "anticartel",
+        "coalicion",
+        "observador",
+        "ampliar",
+        "arancel",
+        "barro"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-26",
+          "nivel": "C",
+          "titular": "El canciller Francisco Barros impulsa que Chile mantenga el estatus de observador en una coalición anticárteles promovida por Estados Unidos y Kast citó a una reunión extraordinaria de ministros. (Ex-Ante, 25-10-2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-27",
+          "nivel": "B",
+          "titular": "Chile posterga la firma de la coalición anticárteles y seguirá como observador",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-10-29",
+          "nivel": "B",
+          "titular": "Chile busca ampliar las exenciones al arancel de Estados Unidos",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-10-31",
+          "nivel": "C",
+          "titular": "Una investigación de CIPER examinó la presión de Estados Unidos por minerales críticos en el Cono Sur y sus efectos sobre derechos humanos",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 2,
+      "puntaje": 9,
+      "dias": [
+        "2026-10-27",
+        "2026-10-29",
+        "2026-10-31"
+      ],
+      "niveles": [
+        "A",
+        "C",
+        "A"
+      ],
+      "secciones": [
+        "Actualidad",
+        "Además, hoy",
+        "Medioambiente y clima"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "comuna",
+        "alerta",
+        "metropolitana",
+        "region",
+        "roja",
+        "amarilla",
+        "bach",
+        "call"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-27",
+          "nivel": "A",
+          "titular": "Tornado EF-2 golpea Requínoa y diez comunas de Santiago quedan bajo alerta roja",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-10-29",
+          "nivel": "C",
+          "titular": "El plan Chao Baches considera reparación de calles en cinco comunas de la Región Metropolitana durante dos meses. (BioBioChile y Radio Universidad de Chile, 28-10-2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-31",
+          "nivel": "A",
+          "titular": "Región Metropolitana queda en Alerta Amarilla y diez comunas mantienen Alerta Roja",
+          "seccion": "Medioambiente y clima"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 3,
+      "puntaje": 9,
+      "dias": [
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-31"
+      ],
+      "niveles": [
+        "A",
+        "A",
+        "C"
+      ],
+      "secciones": [
+        "Política",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "condena",
+        "rebaja",
+        "abierta",
+        "agresor",
+        "bancada",
+        "beneficiado",
+        "crisi",
+        "error"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-26",
+          "nivel": "A",
+          "titular": "Las 56 rebajas de condena fuerzan una reforma y mantienen abierta la crisis en Justicia",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-10-27",
+          "nivel": "A",
+          "titular": "Kast mantiene a Rabat y anuncia una ley tras reconocer el error en 56 rebajas de condena",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-10-31",
+          "nivel": "C",
+          "titular": "La bancada republicana pidió reparaciones y pensiones de gracia para 332 víctimas de agresores sexuales beneficiados con rebajas de condena",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 4,
+      "puntaje": 7,
+      "dias": [
+        "2026-10-29",
+        "2026-10-30",
+        "2026-10-31"
+      ],
+      "niveles": [
+        "B",
+        "C",
+        "C",
+        "C"
+      ],
+      "secciones": [
+        "Vivienda y ciudad",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "subsidio",
+        "tramo",
+        "abrio",
+        "postulacion",
+        "vivienda",
+        "abierta",
+        "agricultura",
+        "amplia"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-29",
+          "nivel": "B",
+          "titular": "Nuevo tramo del DS1 amplía el precio máximo de vivienda",
+          "seccion": "Vivienda y ciudad"
+        },
+        {
+          "fecha": "2026-10-30",
+          "nivel": "C",
+          "titular": "El subsidio habitacional Tramo 4.000 abrió 150 cupos en la Región de Los Lagos para familias de ingresos medios",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-31",
+          "nivel": "C",
+          "titular": "El Tramo 4.000 del subsidio DS1 abrió un período de postulación para viviendas de hasta 4.000 UF",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 5,
+      "puntaje": 7,
+      "dias": [
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-30"
+      ],
+      "niveles": [
+        "B",
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Medioambiente y clima",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "tormenta",
+        "alerta",
+        "electrica",
+        "granizo",
+        "araucania",
+        "aviso",
+        "biobio",
+        "coquimbo"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-26",
+          "nivel": "B",
+          "titular": "Biobío y La Araucanía siguen bajo alerta por tormentas y granizos",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-10-27",
+          "nivel": "C",
+          "titular": "La Dirección Meteorológica emitió un aviso para sectores de Valparaíso por probables tormentas eléctricas y granizos. (Dirección Meteorológica de Chile, 26-10-2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-30",
+          "nivel": "B",
+          "titular": "Coquimbo mantiene alertas por tormentas eléctricas",
+          "seccion": "Medioambiente y clima"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 6,
+      "puntaje": 6,
+      "dias": [
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-29"
+      ],
+      "niveles": [
+        "C",
+        "C",
+        "C",
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "autoridad",
+        "salud",
+        "sanitaria",
+        "seremi",
+        "sumario",
+        "inicio",
+        "antofagasta",
+        "articulo"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-26",
+          "nivel": "C",
+          "titular": "Autoridades sanitarias difundieron señales de consulta por sarna costrosa, o noruega, tras un brote en el sur. (Seremi de Salud, 25-10-2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-27",
+          "nivel": "C",
+          "titular": "La autoridad sanitaria destruyó más de 200 kilos de miel presuntamente falsificada en Valdivia e inició dos sumarios. (Seremi de Salud de Los Ríos, 26-10-2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-29",
+          "nivel": "C",
+          "titular": "La autoridad sanitaria inició un sumario por el derrumbe de un muro y la erosión del terreno en el cementerio de Lota. (BioBioChile y Canal 9 Bío Bío Televisión, 28-10-2026)",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 7,
+      "puntaje": 6,
+      "dias": [
+        "2026-10-29",
+        "2026-10-31"
+      ],
+      "niveles": [
+        "B",
+        "A"
+      ],
+      "secciones": [
+        "Salud"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "completar",
+        "nino",
+        "llama",
+        "minsal",
+        "sarampion",
+        "vacuna",
+        "vacunacion"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-29",
+          "nivel": "B",
+          "titular": "Minsal llama a completar la vacunación de más de 140 mil niños",
+          "seccion": "Salud"
+        },
+        {
+          "fecha": "2026-10-31",
+          "nivel": "A",
+          "titular": "Más de 140 mil niños siguen sin completar la vacuna contra el sarampión",
+          "seccion": "Salud"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 8,
+      "puntaje": 5,
+      "dias": [
+        "2026-10-27",
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "niveles": [
+        "C",
+        "C",
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "metal",
+        "detector",
+        "establecimiento",
+        "aplicarse",
+        "calama",
+        "colegio",
+        "conclusion",
+        "contraloria"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-27",
+          "nivel": "C",
+          "titular": "Un estudio reportó metales pesados en establecimientos de Calama; las conclusiones requieren revisar muestra, método y respuesta sanitaria. (Cooperativa, 26-10-2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-29",
+          "nivel": "C",
+          "titular": "El Gobierno ingresó a Contraloría el reglamento para detectores de metales en colegios; la medida podría aplicarse desde 2027. (Ministerio de Educación, La Tercera y BioBioChile, 28-10-2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-30",
+          "nivel": "C",
+          "titular": "El Gobierno proyectó para 2027 la instalación de detectores de metales en establecimientos educacionales",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 9,
+      "puntaje": 5,
+      "dias": [
+        "2026-10-26",
+        "2026-10-30"
+      ],
+      "niveles": [
+        "A",
+        "C"
+      ],
+      "secciones": [
+        "Actualidad",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "eleccion",
+        "lula",
+        "america",
+        "anular",
+        "bolsonaro",
+        "brasil",
+        "conversacion",
+        "cuestiono"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-26",
+          "nivel": "A",
+          "titular": "Lula gana por 51,79% y Bolsonaro anuncia una ofensiva para anular la elección",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-10-30",
+          "nivel": "C",
+          "titular": "Donald Trump cuestionó las elecciones de Brasil y anunció una conversación con el presidente Luiz Inácio Lula da Silva, en una nueva fricción entre las dos mayores economías de América",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 10,
+      "puntaje": 4,
+      "dias": [
+        "2026-10-30",
+        "2026-10-31"
+      ],
+      "niveles": [
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Chile en regiones"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "arica",
+        "desafiliacion",
+        "marco",
+        "advirtio",
+        "ciudad",
+        "economico",
+        "efecto",
+        "futbol"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-30",
+          "nivel": "C",
+          "titular": "El gobernador de Arica advirtió efectos económicos y sociales para la ciudad ante la desafiliación de San Marcos de Arica del fútbol profesional",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-31",
+          "nivel": "B",
+          "titular": "Tribunal ratifica la desafiliación de San Marcos de Arica",
+          "seccion": "Chile en regiones"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    }
+  ],
+  "fuera_por_ya_explicado": [
+    {
+      "puntaje": 15,
+      "dias": [
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "niveles": [
+        "B",
+        "C",
+        "A",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Plata pública",
+        "Además, hoy",
+        "Seguridad y Justicia"
+      ],
+      "seguimiento": true,
+      "noticias": 5,
+      "terminos": [
+        "preventiva",
+        "prision",
+        "hermosilla",
+        "luis",
+        "mantiene",
+        "alcalde",
+        "arista",
+        "bueno"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-26",
+          "nivel": "B",
+          "titular": "Corte mantiene en prisión preventiva al exgerente de CICITEM",
+          "seccion": "Plata pública"
+        },
+        {
+          "fecha": "2026-10-27",
+          "nivel": "A",
+          "titular": "Luis Hermosilla es formalizado por soborno en la arista Manuel Guerra",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-10-29",
+          "nivel": "B",
+          "titular": "Luis Hermosilla vuelve a prisión preventiva",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-10-30",
+          "nivel": "B",
+          "titular": "La Corte mantiene en prisión preventiva al alcalde de Río Bueno",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "prision-preventiva-chile",
+        "titulo": "Prisión preventiva en Chile: cuándo puede ordenarse y por qué no equivale a una condena"
+      }
+    },
+    {
+      "puntaje": 13,
+      "dias": [
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-29"
+      ],
+      "niveles": [
+        "A",
+        "C",
+        "A",
+        "C",
+        "A"
+      ],
+      "secciones": [
+        "Trabajo y empleo",
+        "Además, hoy",
+        "Vivienda y ciudad"
+      ],
+      "seguimiento": false,
+      "noticias": 5,
+      "terminos": [
+        "fondo",
+        "camara",
+        "comision",
+        "crea",
+        "perdida",
+        "proceso",
+        "abogado",
+        "atribuyo"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-26",
+          "nivel": "A",
+          "titular": "La Superintendencia abre proceso contra las siete AFP por pérdidas en los fondos D y E",
+          "seccion": "Trabajo y empleo"
+        },
+        {
+          "fecha": "2026-10-27",
+          "nivel": "A",
+          "titular": "La Cámara crea una comisión investigadora por las pérdidas de los fondos D y E",
+          "seccion": "Trabajo y empleo"
+        },
+        {
+          "fecha": "2026-10-29",
+          "nivel": "A",
+          "titular": "Reforma crea un fondo para vivienda y pasa al Senado",
+          "seccion": "Vivienda y ciudad"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "afp-multifondos-perdidas-fondo-e",
+        "titulo": "Multifondos de pensiones: quién responde cuando el saldo cae y qué puede hacer el afiliado"
+      }
+    },
+    {
+      "puntaje": 12,
+      "dias": [
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-29"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Mercados y bolsillo",
+        "Economía"
+      ],
+      "seguimiento": true,
+      "noticias": 4,
+      "terminos": [
+        "banco",
+        "central",
+        "advierte",
+        "reunion",
+        "riesgo",
+        "alcanzable",
+        "autonomo",
+        "cierra"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-26",
+          "nivel": "B",
+          "titular": "El Banco Central inicia una reunión de dos días con la TPM en 4,5%",
+          "seccion": "Mercados y bolsillo"
+        },
+        {
+          "fecha": "2026-10-27",
+          "nivel": "B",
+          "titular": "El Banco Central cierra el 27-10-2026 su reunión con la TPM vigente en 4,5%",
+          "seccion": "Mercados y bolsillo"
+        },
+        {
+          "fecha": "2026-10-29",
+          "nivel": "B",
+          "titular": "Banco Central mantiene la TPM en 4,5% y advierte mayor riesgo inflacionario",
+          "seccion": "Economía"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "fogaes-garantia-estatal-hipotecaria",
+        "titulo": "FOGAES y crédito hipotecario: qué garantiza el Estado, qué riesgo conserva el banco y por qué puede reducir el pie"
+      }
+    },
+    {
+      "puntaje": 7,
+      "dias": [
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "niveles": [
+        "A",
+        "A"
+      ],
+      "secciones": [
+        "Política"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "acusacion",
+        "rabat",
+        "congreso",
+        "constitucional",
+        "entra",
+        "fernando",
+        "oposicion",
+        "prepara"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-29",
+          "nivel": "A",
+          "titular": "Oposición prepara acusación constitucional contra Fernando Rabat",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-10-30",
+          "nivel": "A",
+          "titular": "La acusación contra Rabat sigue en preparación y todavía no entra al Congreso",
+          "seccion": "Política"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "control-constitucional-proyectos-ley",
+        "titulo": "Tribunal Constitucional y formación de la ley: qué revisa antes de la promulgación y por qué puede frenar una norma aprobada por el Congreso"
+      }
+    },
+    {
+      "puntaje": 4,
+      "dias": [
+        "2026-10-26",
+        "2026-10-27"
+      ],
+      "niveles": [
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Vivienda y ciudad"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "constitucional",
+        "tribunal",
+        "admitio",
+        "agresion",
+        "autoridad",
+        "carabinero",
+        "decreto",
+        "impide"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-26",
+          "nivel": "C",
+          "titular": "El Tribunal Constitucional admitió a trámite un requerimiento contra la norma que impide penas sustitutivas por agresiones a Carabineros. (Tribunal Constitucional, 25-10-2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-10-27",
+          "nivel": "B",
+          "titular": "Autoridades y pobladores llevan al Tribunal Constitucional el decreto urbano del Minvu",
+          "seccion": "Vivienda y ciudad"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "control-constitucional-proyectos-ley",
+        "titulo": "Tribunal Constitucional y formación de la ley: qué revisa antes de la promulgación y por qué puede frenar una norma aprobada por el Congreso"
+      }
+    },
+    {
+      "puntaje": 2,
+      "dias": [
+        "2026-10-29"
+      ],
+      "niveles": [
+        "B"
+      ],
+      "secciones": [
+        "Seguridad y Justicia"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "contraloria",
+        "cuenta",
+        "fiscalizacion"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-29",
+          "nivel": "B",
+          "titular": "Contraloría pide cuentas por la fiscalización a las AFP",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "contraloria-reparo-juicio-cuentas",
+        "titulo": "Contraloría, reparos y juicios de cuentas: cómo se busca recuperar dinero público cuando una fiscalización detecta un perjuicio"
+      }
+    },
+    {
+      "puntaje": 2,
+      "dias": [
+        "2026-10-30"
+      ],
+      "niveles": [
+        "C",
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "presidente",
+        "amenaza",
+        "camara",
+        "cambio",
+        "congreso",
+        "detenida",
+        "exige",
+        "idea"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-30",
+          "nivel": "C",
+          "titular": "Los presidentes del Senado y de la Cámara respondieron que el Congreso seguirá en Valparaíso ante la idea del Presidente Kast de trasladarlo a Santiago; un cambio exige una modificación legal",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "interpelacion-ministerial-chile",
+        "titulo": "Interpelación ministerial en Chile: cómo la Cámara exige respuestas al Gobierno y cuáles son sus límites"
+      }
+    },
+    {
+      "puntaje": 1,
+      "dias": [
+        "2026-10-26"
+      ],
+      "niveles": [
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "causa",
+        "cedula",
+        "describio",
+        "encontraba",
+        "etapa",
+        "falso",
+        "investigacion",
+        "meganoticia"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-10-26",
+          "nivel": "C",
+          "titular": "Meganoticias describió una red que usaba cédulas y poderes notariales falsos para sustraer vehículos, causa que se encontraba en etapa de investigación penal. (Meganoticias, 25-10-2026)",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "investigacion-catastrofes-responsabilidades",
+        "titulo": "Después de una catástrofe: cómo se determinan causas y responsabilidades"
+      }
+    }
+  ]
+}
