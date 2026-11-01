@@ -1,9 +1,9 @@
 {
   "fecha": "2026-11-01",
-  "etapa": "validar_informe",
+  "etapa": "informe_listo",
   "veredicto": "pendiente",
-  "vuelta": 1,
-  "actualizado": "2026-11-01 09:01",
+  "vuelta": 0,
+  "actualizado": "2026-11-01 09:07",
   "reparar": null,
   "piezas": [
     {
@@ -36,7 +36,7 @@
       "id": "informe",
       "etiqueta": "Informe",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "lista",
       "prompt": "prompts/informe.md",
       "hora": "08:50",
       "esperada": "02:40",
@@ -83,19 +83,19 @@
     {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "atraso": 351,
+      "atraso": 357,
       "dueno": "GPT · prompts/guion-informe.md"
     },
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 331,
+      "atraso": 337,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 226,
+      "atraso": 232,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
