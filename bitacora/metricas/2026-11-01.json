@@ -3,9 +3,27 @@
   "canal": {
     "suscriptores": 47,
     "vistas": 21880,
-    "videos": 207
+    "videos": 209
   },
   "videos": {
+    "8r33QiylLD4": {
+      "titulo": "Cinco personas fueron detenidas por el crimen de Martín Pére",
+      "publicado": "2026-11-01",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 41
+    },
+    "Q3CeYDg-oik": {
+      "titulo": "Caso Martín Pérez: las audiencias que definirán los cargos",
+      "publicado": "2026-11-01",
+      "estado": "public",
+      "vistas": 2,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 241
+    },
     "YarJ0NTw_EM": {
       "titulo": "Fiscalía investiga a Rabat y Silva por posible prevaricación",
       "publicado": "2026-10-31",
@@ -37,7 +55,7 @@
       "titulo": "¿Qué se sabe de la balacera con más de 50 disparos en el cen",
       "publicado": "2026-10-30",
       "estado": "public",
-      "vistas": 6,
+      "vistas": 7,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 41
@@ -438,15 +456,6 @@
       "comentarios": 0,
       "durSeg": 620
     },
-    "LiJfJjb0qjg": {
-      "titulo": "Autopista Central rebajará el TAG desde enero, y otras 4 cos",
-      "publicado": "2026-10-13",
-      "estado": "public",
-      "vistas": 295,
-      "meGusta": 5,
-      "comentarios": 0,
-      "durSeg": 44
-    },
     "h8nSAnrlKeQ": {
       "titulo": "Autopista Central rebajará el TAG desde enero de 2027",
       "publicado": "2026-10-13",
@@ -622,7 +631,7 @@
       "titulo": "Presupuesto 2027 pide autorización para US$25 mil millones d",
       "publicado": "2026-10-06",
       "estado": "public",
-      "vistas": 19,
+      "vistas": 20,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 703
@@ -856,7 +865,7 @@
       "titulo": "Muere un carabinero en Lo Espejo: Kast decreta duelo y acele",
       "publicado": "2026-09-28",
       "estado": "public",
-      "vistas": 10,
+      "vistas": 11,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 47
@@ -887,15 +896,6 @@
       "meGusta": 7,
       "comentarios": 1,
       "durSeg": 58
-    },
-    "JQNNaB8zNIs": {
-      "titulo": "El crimen del carabinero en Renca suma un segundo detenido: ",
-      "publicado": "2026-09-28",
-      "estado": "public",
-      "vistas": 742,
-      "meGusta": 26,
-      "comentarios": 0,
-      "durSeg": 56
     },
     "bHwxoqomx-M": {
       "titulo": "Pérez Mackenna enfrenta interpelación por el Escudo de las A",
@@ -1338,15 +1338,6 @@
       "comentarios": 0,
       "durSeg": 46
     },
-    "fUYEskTWdGc": {
-      "titulo": "¿Qué prueba realmente una infracción tras una tragedia?",
-      "publicado": "2026-09-13",
-      "estado": "public",
-      "vistas": 6,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 366
-    },
     "3QhDzy_gUKk": {
       "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
       "publicado": "2026-09-13",
@@ -1787,15 +1778,6 @@
       "meGusta": 5,
       "comentarios": 0,
       "durSeg": 54
-    },
-    "qzn2RJefxic": {
-      "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
-      "publicado": "2026-09-02",
-      "estado": "public",
-      "vistas": 193,
-      "meGusta": 2,
-      "comentarios": 1,
-      "durSeg": 682
     },
     "rWOxj_0Iris": {
       "titulo": "La economía cae 1,5% y Hacienda prepara una nueva proyección",
@@ -2895,131 +2877,6 @@
             0.103,
             0.103,
             0.121
-          ]
-        }
-      },
-      "qzn2RJefxic": {
-        "fuentes": {
-          "SUBSCRIBER": 58,
-          "YT_SEARCH": 14,
-          "RELATED_VIDEO": 6,
-          "YT_OTHER_PAGE": 1,
-          "PLAYLIST": 1,
-          "NO_LINK_OTHER": 0
-        },
-        "curva": {
-          "p01": 87,
-          "p03": 74,
-          "p05": 71,
-          "p10": 55,
-          "p25": 52,
-          "p50": 52,
-          "p75": 45,
-          "caidaMayor": {
-            "segundo": 0,
-            "puntos": 13
-          },
-          "serie": [
-            1,
-            0.871,
-            0.871,
-            0.742,
-            0.71,
-            0.71,
-            0.581,
-            0.581,
-            0.581,
-            0.548,
-            0.548,
-            0.548,
-            0.548,
-            0.548,
-            0.548,
-            0.548,
-            0.548,
-            0.548,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.581,
-            0.581,
-            0.548,
-            0.548,
-            0.548,
-            0.548,
-            0.548,
-            0.548,
-            0.516,
-            0.516,
-            0.548,
-            0.516,
-            0.548,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.548,
-            0.548,
-            0.516,
-            0.516,
-            0.516,
-            0.516,
-            0.484,
-            0.484,
-            0.484,
-            0.452,
-            0.452,
-            0.484,
-            0.484,
-            0.452,
-            0.452,
-            0.419,
-            0.419,
-            0.419,
-            0.419,
-            0.419,
-            0.419,
-            0.419,
-            0.419,
-            0.419,
-            0.419,
-            0.387,
-            0.387,
-            0.355,
-            0.355,
-            0.355,
-            0.355,
-            0.355,
-            0.355,
-            0.355,
-            0.355,
-            0.355,
-            0.355,
-            0.355,
-            0.355
           ]
         }
       },
