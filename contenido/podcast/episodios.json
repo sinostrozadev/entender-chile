@@ -645,5 +645,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-10-31-informe.mp3",
     "bytes": 5405184,
     "durSeg": 225
+  },
+  {
+    "fecha": "2026-11-01",
+    "tipo": "informe",
+    "titulo": "01-11-2026 · Caso Martín Pérez: las audiencias que definirán los cargos",
+    "descripcion": "La justicia avanza sobre los detenidos por el secuestro y homicidio de Martín Pérez. Atacama inicia una reconstrucción por más de $115 mil millones y la Región Metropolitana mantiene alertas por el sistema frontal. La jornada también incluye la disputa por el Fondo E, la vacunación contra el sarampión y el brote de ébola en la República Democrática del Congo.\n\nEl informe completo de hoy, con todas las noticias del día: https://sinostrozadev.github.io/entender-chile-web/informes/2026-11-01/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-01-informe.mp3",
+    "bytes": 5759424,
+    "durSeg": 240
   }
 ]
