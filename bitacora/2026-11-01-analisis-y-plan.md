@@ -42,8 +42,8 @@ tiene y esos no.
 **La máquina produce, pero se cae y nadie se entera a tiempo.** Hoy la cadena
 murió a las 02:12 y la edición salió a las 09:45 porque `estado.yml` no
 recalcula tras relanzar el barrido; el reloj del barrido reportó éxito sin
-escribir; las dos últimas carátulas salieron rotas (una corrupta, una con
-texto dentro) y nadie lo detectó antes de subir; el validador no se vuelve a
+escribir; las dos últimas carátulas salieron rotas (una corrupta, una
+truncada a medio subir) y nadie lo detectó antes de subir; el validador no se vuelve a
 despertar si una pieza cambia tras su veredicto (tuvo parada la Clave cinco
 días el 12-10).
 
