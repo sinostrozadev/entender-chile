@@ -108,7 +108,7 @@ las secciones institucionales, papel recortado (B) para las de naturaleza,
 territorio y personas. Las cuatro de prueba quedaron en `pruebas/` con el
 sufijo `-plano-a` y `-plano-b`.
 
-## Cómo se ven en el video (definido el 24-09, en `src/taller-secuencia.tsx`)
+## Cómo se ven en el video (definido el 24-09, en `archivo/src/taller-secuencia.tsx`)
 
 La imagen de sección queda a pantalla completa DURANTE TODA la sección: entra
 limpia, un oscurecido barre hasta la mitad y aparece el título; cuando el

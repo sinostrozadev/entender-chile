@@ -158,3 +158,72 @@ el A/B de voz.
 3. Esta semana: la "pregunta del día" y la Clave partida en Shorts, con sus
    fichas de experimento y línea base.
 4. Semana siguiente: movimiento con Remotion y el A/B de voz.
+
+## 6. Diseño del largo por tema con el diario como escenario (para validar)
+
+Decisiones de Santiago del 01-11 que lo definen: no tiene cadencia fija (uno o
+dos por día de temas distintos, o ninguno); explica un caso desde su origen
+con la información acumulada; a un caso que avanza se le manda una
+actualización cuando ya hay suficiente que explicar; el escenario visual es
+el diario escrito tal como se ve en la web, con zoom a la sección de cada
+noticia el día en que salió. Se funde con la Clave. Nombre provisional:
+"Entender el caso" (se decide con el primero).
+
+**La columna vertebral ya existe:** `contenido/casos/` sigue casos de plata
+pública con un dossier por caso y `hitos.md` con fecha, hito y archivo.
+El largo por tema generaliza eso a cualquier tema: `contenido/temas/<slug>/`
+con una ficha (origen, cronología de hitos con la fecha y la noticia del
+diario donde salió cada uno, estado, qué falta por saber) y un registro de
+qué se publicó de ese tema (largo inicial, actualizaciones).
+
+**Cómo nos vamos enterando (el seguimiento).** Cada día, después del informe
+aprobado, un turno de Claude ("seguimiento de temas", rol nuevo de la rutina
+validadora o paso del observatorio de las 01:45) lee el informe y decide, por
+cada noticia, si pertenece a un tema abierto (agrega el hito con su fecha y
+su sección del diario), si abre un tema nuevo (una noticia sola no abre tema:
+dos días o un hecho mayor sí), o nada. Sin navegar: solo con el informe y
+las fichas. Es el mismo criterio que hoy usa el observatorio, aplicado a
+todos los temas.
+
+**Qué dispara el largo.** El mismo turno propone, con criterio editorial y
+no con un contador: "explicar" cuando un tema acumula lo suficiente para
+contarse desde el origen (varios hitos, o un hecho mayor como una
+formalización, un fallo o una cifra oficial), y "actualizar" cuando un tema
+ya explicado avanzó de verdad. La propuesta entra a la Bandeja del Taller y
+al teléfono; Santiago la aprueba o la deja. Puede haber dos en un día o
+ninguno en una semana. Después sigue el flujo que ya existe para la Clave:
+Claude escribe la pauta (qué debe tocar y contener), Santiago la aprueba,
+GPT investiga con fuentes y escribe la entrega siguiendo la pauta, Claude
+valida, GPT escribe el guion, Claude valida, render. Nada va a GPT sin el sí.
+
+**El escenario: el diario de verdad.** Cada hito nombra una fecha y una
+noticia. El video muestra la página real `entender.sinodev.cl/informes/FECHA`
+(diseño 2), capturada a 1920 de ancho con el mismo navegador sin cabeza que
+ya usan las carátulas, y hace zoom a la sección de esa noticia con un velo
+para leer; la narración dice "el día X se conoció..." sobre esa página;
+termina el hito, la cámara se aleja y pasa a la página del día siguiente.
+Para eso la página del informe necesita un ancla por noticia (hoy tiene una
+por categoría), cambio chico en la web. Los datos van a plano propio y el
+texto en bloques, con el silencio antes de la cifra, igual que en la Clave;
+voz de Azure y cama de mecanismo, igual que en la Clave. Sin herramientas
+nuevas ni gasto.
+
+**Lo que sale de cada largo:** el video a las 19:00 con título en pregunta,
+y tres Shorts de 30 segundos cortados de sus hitos (los "la pregunta del
+día"), que es lo que multiplica el alcance.
+
+**Piloto.** Un solo tema de principio a fin antes de cablear el seguimiento
+diario: la rebaja de condenas (Rabat y Silva), porque es actual, tiene
+páginas del diario desde el 24-10 y ya tiene un exprés que pegó. Alternativa:
+licencias médicas, que tiene dossier con 18 hitos. Con el piloto aprobado se
+enciende el seguimiento diario y se apaga el informe en video.
+
+**Encargos, en orden, después de la coherencia y la limpieza:**
+1. La web: ancla por noticia en la página del informe, y `scripts/diario-captura.js`
+   que captura una página por fecha y devuelve la caja de cada noticia.
+2. El flujo: `contenido/temas/`, el prompt del seguimiento y el de la pauta
+   del largo (heredan de pauta-clave.md), el rol en la rutina, la Bandeja.
+3. El render: `src/largo-diario.tsx` sobre la secuencia y el mural (zoom a la
+   página, velo, bloques, datos a plano), cableado a `dia.js` con interruptor.
+4. El piloto de Rabat: pauta para Santiago, GPT escribe, render, revisión,
+   subida programada.

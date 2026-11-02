@@ -95,7 +95,10 @@ export type Evento = {
   // PRUEBA DE BIBLIOTECA (29-09-2026): una imagen de concepto en lugar del
   // párrafo, mientras la voz sigue. Hoy no lo escribe nadie, así que ninguna
   // edición al aire cambia por esto: solo lo pone a mano la muestra que pidió
-  // Santiago para ver si veinte dibujos parecidos cansan en movimiento.
+  // Santiago para ver si veinte dibujos parecidos cansan en movimiento. La
+  // biblioteca y su repartidor se archivaron el 01-11-2026 (archivo/); este
+  // camino de pintura queda vivo pero sin nadie que lo alimente, y sacarlo es
+  // trabajo aparte porque toca el render.
   imagen?: string;             // ruta dentro de public/
   imagenPie?: string;          // rótulo corto al pie, no el párrafo entero
   imagenOrden?: number;        // el lugar que ocupa entre las imágenes seguidas: decide la pose
@@ -487,7 +490,7 @@ export const TarjetaTesis: React.FC<{ ev: Evento }> = ({ ev }) => {
 // SE FUERON EL SCREEN, LA MÁSCARA Y EL CONTRASTE (29-09-2026, tarde). Los tres
 // eran parches para esconder el fondo propio de un PNG que no venía recortado.
 // Desde que la biblioteca entrega PNG con canal alfa de verdad, y la puerta
-// (scripts/revisar-imagen.js) no deja pasar uno que no lo traiga, los tres
+// (archivo/scripts/revisar-imagen.js) no deja pasar uno que no lo traiga, los tres
 // estorban:
 //
 //   la MÁSCARA elíptica cortaba el dibujo en un óvalo. Con el PNG recortado no

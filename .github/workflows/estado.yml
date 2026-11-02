@@ -2,7 +2,7 @@ name: Estado del día
 
 # Escribe la VISTA del estado (contenido/estado/FECHA.md y .json) en el repo,
 # que es lo que faltaba del paso 1 de la máquina de estados
-# (bitacora/2026-09-08-propuesta-maquina-de-estados.md, §7 y §8). Hasta hoy el
+# (archivo/bitacora/2026-09-08-propuesta-maquina-de-estados.md, §7 y §8). Hasta hoy el
 # estado solo se calculaba al vuelo: el vigía lo leía con --solo-leer y nadie
 # más podía verlo, así que GPT no tenía cómo saber en qué va el día.
 #
@@ -342,4 +342,4 @@ jobs:
           gh pr list --head automatizacion/estado --state open --json number -q '.[0].number' | grep -q . \
             || gh pr create --base main --head automatizacion/estado \
                  --title "🔔 Estado del día — disparador único de GPT (no fusionar)" \
-                 --body "PR permanente. No se fusiona: cada commit nuevo aquí anuncia que la edición del día cambió de etapa (ver contenido/estado/ultimo-evento.txt, y la vista completa en contenido/estado/FECHA.md). Es el disparador único de la tarea de contenido de ChatGPT, que decide qué hacer leyendo el estado, no el evento. Diseño: bitacora/2026-09-08-propuesta-maquina-de-estados.md y prompts/despachador-gpt.md."
+                 --body "PR permanente. No se fusiona: cada commit nuevo aquí anuncia que la edición del día cambió de etapa (ver contenido/estado/ultimo-evento.txt, y la vista completa en contenido/estado/FECHA.md). Es el disparador único de la tarea de contenido de ChatGPT, que decide qué hacer leyendo el estado, no el evento. Diseño: archivo/bitacora/2026-09-08-propuesta-maquina-de-estados.md y prompts/despachador-gpt.md."

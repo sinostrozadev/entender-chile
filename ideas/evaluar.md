@@ -224,7 +224,7 @@ madrugada" en ejecutar.md, 2026-08-24.)
 - **Valor:** alto: revisión 2-3 h antes (hoy un error estuvo público 5 h),
   dedup por diseño, de 8 relojes a 4, GPT de 3 tareas a 1.
 - **Esfuerzo:** medio-alto, migrable en 5 pasos de una noche cada uno.
-- **Diseño:** `bitacora/2026-09-08-propuesta-maquina-de-estados.md`.
+- **Diseño:** `archivo/bitacora/2026-09-08-propuesta-maquina-de-estados.md`.
 
 
 ## 27-09-2026 · Dos ideas de Santiago sobre el mosaico y el fondo (madrugada)

@@ -300,14 +300,13 @@ function parseGuion(md) {
       buffer = { tipo: "cita", autor: m[1].trim(), fuente: m[2].trim(), lineas: [m[3]] };
       continue;
     }
-    // EL VETO DEL GUION (30-09-2026). El dibujo del párrafo lo pone el sistema
-    // mirando el texto (scripts/dibujo-parrafo.js), no el guion: si el guion lo
-    // eligiera habría que llevarle el catálogo entero dentro del prompt y
-    // actualizarlo con cada PNG nuevo. Pero una regla reconoce el párrafo y no
-    // lo entiende, así que se equivoca donde hace falta criterio: sobre un
-    // duelo nacional por un carabinero asesinado pondría el Palacio de La
-    // Moneda. Para eso está esta marca, y solo para eso. Tachar es barato
-    // (no nombra ningún dibujo, no necesita saber cuáles existen); elegir no.
+    // EL VETO DEL GUION (30-09-2026). El dibujo del párrafo lo ponía el sistema
+    // mirando el texto, no el guion, y esta marca le tachaba un párrafo donde
+    // la regla acertaba la palabra y erraba el sentido (sobre el duelo por un
+    // carabinero asesinado habría puesto el Palacio de La Moneda). La regla se
+    // retiró el 01-11-2026 sin encenderse nunca (archivo/scripts/
+    // dibujo-parrafo.js), pero la marca se sigue tragando: si el guion la trae
+    // y nadie la reconoce, la voz la leería en voz alta.
     if (/^\[SIN DIBUJO\]\s*$/i.test(linea)) {
       flush();
       vetoPendiente = true;

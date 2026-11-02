@@ -109,7 +109,7 @@ penúltima sección antes del cierre. Con eso, la regla 1 cambia:
 Y a la regla 4 (elemento obligatorio ausente) se suma: el bloque "En
 titulares" cuando el informe tiene más noticias que las narradas.
 Decidido por Santiago el 29-08 (estrategia/decisiones.md); detalle en
-bitacora/2026-08-29-propuesta-informe-largo.md. Lo que hay que vigilar los
+archivo/bitacora/2026-08-29-propuesta-informe-largo.md. Lo que hay que vigilar los
 primeros días: que las [A] no se inflen con contexto genérico (la pauta pide
 hechos), la duración real con titulares (+45 s estimados por 8 frases) y que
 "Además, hoy" no se vuelva basurero.

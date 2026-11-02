@@ -1,16 +1,16 @@
-# archivo/ — lo que ya cumplió su función
+# archivo/: lo que ya cumplió su función
 
 Nada del proyecto se borra: lo que dejó de ser criterio vivo se retira aquí,
 con una línea que diga qué fue y dónde vive hoy lo que lo reemplazó. Regla de
-la propuesta de orden del 02-09 (`bitacora/2026-09-02-orden-del-repo.md`).
+la propuesta de orden del 02-09 (`archivo/bitacora/2026-09-02-orden-del-repo.md`).
 
-- `plan-produccion.md` (de estrategia/) — plan por fases del arranque. Fases
+- `plan-produccion.md` (de estrategia/): plan por fases del arranque. Fases
   0 a 3 cumplidas al 30-08; la 4 vive en `bitacora/PENDIENTES.md` y la 5 en
   `estrategia/modelo-de-negocio.md`.
-- `musica.md` (de prompts/) — prompts para pedir la cama musical. Superado
+- `musica.md` (de prompts/): prompts para pedir la cama musical. Superado
   por la decisión del 27-08: sin cama, sonido sintetizado por código
   (`scripts/sonido.js`).
-- `ejecutar.md`, `IMPLEMENTAR.md`, `hechas.md` (de ideas/) — tres listas de
+- `ejecutar.md`, `IMPLEMENTAR.md`, `hechas.md` (de ideas/): tres listas de
   backlog sin movimiento desde el 27-08; nada pasó nunca de ejecutar a
   hechas. El backlog vivo es `bitacora/PENDIENTES.md`; lo cumplido,
   `bitacora/REALIZADOS.md`. Ojo: `IMPLEMENTAR.md` aún trataba la voz clonada
@@ -20,11 +20,11 @@ la propuesta de orden del 02-09 (`bitacora/2026-09-02-orden-del-repo.md`).
   él; hoy los temas de la Clave salen del barrido semanal (`scripts/semana.js`)
   y del prompt del domingo (`prompts/tema-semana.md`). El banco en sí queda
   congelado y sin tocar en `contenido/claves/banco-temas.md`.
-- `timeline-schema.md` (de docs/) — describía el esquema del timeline
+- `timeline-schema.md` (de docs/): describía el esquema del timeline
   anterior al 27-08: hoy desinforma. Si vuelve a hacer falta un esquema, se
   regenera desde `scripts/build-timeline.js`, que es la verdad.
 
-## Limpieza del 26-09-2026 (propuesta `bitacora/2026-09-26-propuesta-limpieza-y-taller.md`)
+## Limpieza del 26-09-2026 (propuesta `archivo/bitacora/2026-09-26-propuesta-limpieza-y-taller.md`)
 
 Prompts de flujos que ya no existen. Los seis salieron de `prompts/`, que
 desde acá vuelve a ser solo lo vivo:
@@ -157,3 +157,146 @@ un backlog compite por la atención con las que faltan:
   elegir entre el diseño 1 (revista) y el 2 (diario) con `?diseno=` y
   localStorage. Santiago fijó el 2 como único; hoy vive en
   `web/src/styles/diseno2.css`, aplicado siempre.
+
+## Limpieza del 01-11-2026, primera parte: bancos de prueba, biblioteca y taller viejo
+
+Pedido de Santiago del 01-11-2026: "que no haya código basura; veamos qué está
+en stand by". Nada de esto corría en la edición diaria; se verificó que el
+timeline de producción (informes del 30-10, 31-10 y 01-11 con voz simulada)
+sale idéntico byte a byte antes y después.
+
+Bancos de prueba de Remotion, a `archivo/src/`. Cada uno tenía su propia
+entrada (`*-entry.tsx`) y solo se rendían a mano para comparar variantes; el
+formato que eligió Santiago ya vive en el código de producción:
+
+- `taller-caratulas.tsx` (23-09) y `taller-entry.tsx`: variantes de carátula.
+  La carátula al aire la hace `MiniaturaV3` en `src/marca.tsx`.
+- `taller-express.tsx`, `taller-herramientas.tsx`, `taller-mosaico.tsx`,
+  `taller-secciones.tsx`, `taller-video.tsx` (24-09) con sus entradas: los
+  fondos de tarjeta, las herramientas, el mosaico, las imágenes de sección y el
+  formato del informe. Lo aprobado pasó a `src/tarjetas.tsx`,
+  `src/mosaico.tsx` y `src/fondos.tsx`. La cabecera de `taller-secciones.tsx`
+  sigue explicando cómo rearmar `public/secciones/` a mano.
+- `taller-secuencia.tsx` (24-09) y su entrada: la secuencia completa tal como
+  la dictó Santiago. Su HEREDERO es `src/secuencia.tsx`, que la portó al
+  informe (`SECUENCIA=2409`); las citas de `scripts/secuencia-plan.js`,
+  `scripts/prueba-video.js` y `contenido/secciones/` apuntan acá.
+- `taller-entrada.tsx` (05-10): la entrada de marca para compararla. La de
+  producción es `src/entrada.tsx`.
+- `tablero-estilos.tsx`, `muestra-biblioteca.tsx`, `prueba-parrafo.tsx`
+  (28 y 29-09) con sus entradas: las pruebas que decidieron el estilo de la
+  biblioteca de dibujos (ver más abajo).
+- `clave-muestra.tsx` (06-10) con `archivo/ejemplos/clave-muestra.json`: la
+  muestra del formato de la Clave, que era la composición `ClaveMuestra` de
+  `src/Root.tsx` (quitada de ahí). La reemplazó el mural
+  (`src/clave-mural.tsx`, composición `ClaveMuralProduccion`).
+- `ejemplos/guion-2026-08-23.md` y `ejemplos/short-urgente-demo.tsx`, a
+  `archivo/ejemplos/`: un guion de muestra y una demo del exprés que ya no
+  citaba ningún script. En `ejemplos/` quedan `timeline.ejemplo.json` y los
+  `clave-*.json` que importa `src/Root.tsx`.
+
+La biblioteca de dibujos por párrafo (29-09 a 01-11), ARCHIVADA por decisión
+de Santiago del 01-11-2026. Estuvo siempre apagada (`DIBUJOS_PARRAFO=1`, que
+ningún workflow encendió nunca):
+
+- `contenido/biblioteca/` entera (56 MB: los PNG de `grabado/`, `pruebas/` y
+  `pruebas-recortadas/`, `CONCEPTOS.md`, `ESTILOS.md`, `PROMPTS-CONCEPTOS.md`,
+  `conceptos.json`), a `archivo/contenido-biblioteca/`.
+- Sus scripts, a `archivo/scripts/`: `conteo-conceptos.js` (contaba conceptos
+  en los guiones), `frases-concepto.js`, `ranura-narracion.js`,
+  `dibujo-parrafo.js` (el repartidor que leía `build-timeline.js`),
+  `vocabulario.js`, `recortar-imagen.js` y `revisar-imagen.js` (la puerta de
+  los PNG).
+- `contenido/config/ranura-narracion.json` y `contenido/config/tablero-dibujos.json`,
+  a `archivo/contenido-config/`: los escribía la cadena y solo los leía el
+  taller.
+- `scripts/build-timeline.js` ya no requiere el repartidor ni lee
+  `DIBUJOS_PARRAFO`. `scripts/parse.js` sigue tragándose la marca
+  `[SIN DIBUJO]` para que la voz no la lea si un guion la trae.
+- Lo que NO se movió: `src/fondo-biblioteca.tsx` y el camino que pinta
+  `ev.imagen` en `src/tarjetas.tsx` y `src/Informe.tsx`. Son parte del render
+  de producción (los importa `tarjetas.tsx`) aunque ya nadie les mande una
+  imagen; sacarlos toca el render y queda como trabajo aparte.
+
+La interfaz del taller de configuración (28-09 a 05-10), a
+`archivo/taller-configuracion/`. Su propio README decía que no mandaba sobre
+el render; el código sigue leyendo `contenido/config/`:
+
+- `taller/taller.html`, `taller/tarjetas.html`, `taller/menu.js`,
+  `taller/datos.js`, `taller/conceptos.js`, `taller/README.md` y
+  `taller/medios/` (21 MB de clips y fotogramas de muestra).
+- `taller/PARAMETROS.md` NO se movió: es el inventario de qué debe ser
+  configurable y lo cita `bitacora/PENDIENTES.md`.
+- `scripts/datos-taller.js` (copiaba `contenido/config/` al taller) y
+  `scripts/vistas-taller.js` (rendía las vistas previas), a `archivo/scripts/`.
+- El taller de voz: `scripts/taller-voz.js`, `taller-voz-lista.js`,
+  `taller-voz-neutras.js` y `.github/workflows/taller-voz.yml` (a
+  `archivo/workflows/`, deja de aparecer en Actions), con lo que produjeron,
+  `contenido/taller/voz/` (18 MB de mp3), a `archivo/contenido-taller/`. La voz
+  se eligió: Azure es-CL Lorenzo (`scripts/tts-azure.js`).
+- Los talleres de sonido: `scripts/taller-notas.js`, `taller-sonido.js`,
+  `taller-tension.js` y `demo-piano.js`, a `archivo/scripts/`. Generaban
+  candidatos para escuchar y elegir; lo elegido vive en `scripts/sonido.js` y
+  `scripts/motor-sonido.js`. Sus `require("./motor-sonido")` ya no resuelven
+  desde `archivo/scripts/`: para volver a correrlos hay que devolverlos a
+  `scripts/`.
+- `scripts/taller.js` (el Taller de control, `bitacora/taller.html`) se QUEDA:
+  no tenía módulos que apuntaran a nada de lo retirado.
+
+## Limpieza del 01-11-2026, segunda parte: prompts sin disparador y documentos cerrados
+
+Prompts que ya nadie lee, a `archivo/prompts/`:
+
+- `prompts/guardian.md` - el prompt del "Informe de la mañana" (06:00), la
+  rutina que se apagó el 12-10-2026. Su revisión la hace hoy la sesión de día
+  con la skill `revision`. Ojo: su sección 2, la que comprueba si la Edición
+  diaria sigue en curso antes de dar por faltante un video (consulta el
+  workflow y escribe "todavía en curso" en vez de una falta), sigue valiendo
+  para esa revisión de la mañana y conviene no perderla.
+- `prompts/caratula-pedido-corta.txt` - la versión resumida del pedido de
+  carátula que Santiago dejó junto al prompt del 05-10-2026. Su propia fila en
+  `prompts/README.md` decía "NO SE USA. Nada la lee".
+- `prompts/clave-idea.md` NO se retiró: el flujo
+  `acuerdo-internacional-sin-tratado` sigue abierto en `CAMINO: idea`
+  (`contenido/estado/clave-acuerdo-internacional-sin-tratado.md`) y
+  `scripts/estado-clave.js` lo nombra como prompt de esa etapa. Se retira
+  cuando ese flujo cierre.
+
+Documentos cerrados de `bitacora/`, a `archivo/bitacora/`. Son propuestas,
+planes e investigaciones cuyo resultado ya está aplicado y anotado en
+`estrategia/decisiones.md` o en `bitacora/REALIZADOS.md`; ningún workflow ni
+script los ejecuta, solo los citaban como diseño, y esas citas apuntan ahora a
+la ruta nueva (`scripts/estado.js`, `scripts/taller.js`,
+`.github/workflows/estado.yml`, `prompts/vigia.md`, `prompts/CALIDAD.md`,
+`ideas/evaluar.md`):
+
+- `2026-08-24-ideas-hechas.md`, `2026-08-28-investigacion-cron.md`,
+  `2026-08-28-plan-barrido.md`, `2026-08-28-quien-ejecuta-que.md`,
+  `2026-08-29-propuesta-informe-largo.md`, `2026-08-30-manana.md`,
+  `2026-09-02-orden-del-repo.md`, `2026-09-03-propuesta-tiempos.md`,
+  `2026-09-08-propuesta-maquina-de-estados.md` (el diseño de la máquina de
+  estados: la implementan `scripts/estado.js` y `estado.yml`),
+  `2026-09-20-propuesta-taller.md`, `2026-09-24-plan-b-gpt-caido.md` (el plan
+  del fin de semana del 24 al 27-09; el plan B vivo es `prompts/suplente.md`
+  con `contenido/estado/plan-b.txt`), `2026-09-26-propuesta-limpieza-y-taller.md`
+  y `2026-10-12-encargo-mural-al-pipeline.md` (el mural ya está en producción,
+  `scripts/clave-mural.js`).
+- La captura `bitacora/capturas-2026-09-26-short-expres-descifra.jpg`, a
+  `archivo/capturas/`, junto a las otras siete capturas de decisiones visuales
+  ya cerradas.
+
+Duplicados y restos:
+
+- `docs/auditoria-api/` deja de existir: `DECISION-07-09.md` y su README
+  (el más nuevo) se sumaron a `archivo/docs/auditoria-api/`, donde ya estaba
+  el resto del expediente; el README viejo de esa carpeta quedó como
+  `seguimiento-2026-08-30.md`. Queda vivo `docs/youtube.md`.
+- `contenido/pruebas/flujo/` (la pieza, el estado y el veredicto de la prueba
+  v2 del 14-09), a `archivo/contenido-pruebas/`. Es lo que producía el bucle de
+  prueba que ya se retiró el 26-09 (`archivo/workflows/prueba-flujo.yml`).
+
+ElevenLabs, sin restos: `.github/workflows/edicion-diaria.yml` ya no pasa
+`ELEVENLABS_API_KEY` ni `VOICE_ID` a los pasos 3 y 4, y la condición de voz es
+solo Azure. Con la condición vieja, un secret de ElevenLabs sin Azure pedía
+`--voz` y la edición se caía en `scripts/dia.js` en vez de salir muda. Los
+secrets siguen en GitHub y se pueden borrar desde la interfaz.

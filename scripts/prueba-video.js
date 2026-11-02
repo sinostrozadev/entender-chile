@@ -85,7 +85,7 @@ if (!fecha || !/^\d{4}-\d{2}-\d{2}$/.test(fecha)) {
 }
 // LA SECUENCIA DEL 24-09 ES EL MODO POR DEFECTO (27-09-2026). Santiago
 // devolvió el primer intento: "la imagen de la sección debe quedar durante
-// TODA la sección". Lo aprobado está en src/taller-secuencia.tsx y se dibuja
+// TODA la sección". Lo aprobado está en archivo/src/taller-secuencia.tsx y se dibuja
 // desde src/secuencia.tsx; lo de antes (cada tarjeta con su propio fondo)
 // queda accesible para comparar, porque comparar contra lo que sale hoy es
 // justamente lo que pidió.

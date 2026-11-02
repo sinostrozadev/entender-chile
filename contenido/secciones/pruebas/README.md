@@ -57,7 +57,7 @@ Tres cosas que conviene saber antes de mirar el resultado:
 
 ## La secuencia del 24-09, que es lo que sale por defecto
 
-Es la que dictó Santiago en el taller (`src/taller-secuencia.tsx`) y está
+Es la que dictó Santiago en el taller (`archivo/src/taller-secuencia.tsx`) y está
 descrita en `bitacora/taller/VISUAL.md`, sección 3b. El orden:
 
 1. **Portada**: la ilustración del día a sangre, con el gancho encima.
