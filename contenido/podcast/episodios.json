@@ -654,5 +654,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-01-informe.mp3",
     "bytes": 5759424,
     "durSeg": 240
+  },
+  {
+    "fecha": "2026-11-02",
+    "tipo": "informe",
+    "titulo": "02-11-2026 · Río Maipo: tres mujeres mueren en una balsa con 13 ocupantes",
+    "descripcion": "Tres mujeres murieron en un accidente de rafting familiar en el río Maipo y la Fiscalía investiga las condiciones del descenso. También revisamos los documentos que contradicen la defensa del ministro Fernando Rabat y el inicio de la Casen 2026. La edición escrita incluye además la discusión por las pérdidas previsionales, la gira presidencial y las alertas por calor y tormentas.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-02/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-02-informe.mp3",
+    "bytes": 5962752,
+    "durSeg": 248
   }
 ]
