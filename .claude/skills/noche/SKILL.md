@@ -51,8 +51,9 @@ Cuando dudes entre leer un archivo más o preguntar, pregunta.
 
 7. **La Bandeja y el Taller** (desde el 27-09-2026), dos comandos:
    `node scripts/bandeja.js` recalcula `bitacora/bandeja.json` (lo que espera
-   decisión de Santiago) y **se commitea si cambió**: lo leen el informe de la
-   mañana y la rutina que le avisa al teléfono, así que un json viejo le
+   decisión de Santiago) y **se commitea si cambió**: lo lee la rutina que le
+   avisa al teléfono (el informe de la mañana está apagado desde el
+   12-10-2026), así que un json viejo le
    miente. Después `node scripts/taller.js` y se **republica
    `bitacora/taller.html` a su URL fija** (la de `bitacora/2026-09-26.md`):
    el html está en `.gitignore`, así que sin republicar, el Taller que

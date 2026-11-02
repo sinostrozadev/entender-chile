@@ -26,8 +26,8 @@ no se hizo el lunes desaparece de la vista el martes. Ahí no.
 
 ## La rutina
 
-**En la mañana**, la auditoría base la escribe la rutina de las 09:30
-(disputa 7, decidida el 02-09); la sesión de día corre `/bitacora auditoria`
+**En la mañana**, la auditoría base la escribe la rutina de las 05:30
+(disputa 7, decidida el 02-09; corría a las 09:30 hasta el rediseño del 06-09); la sesión de día corre `/bitacora auditoria`
 para LEERLA, verificar su triage y profundizarla en el mismo archivo. Solo
 si la rutina falló, la sesión de día mide el
 estado real del proyecto contra lo que la estrategia promete y escribe

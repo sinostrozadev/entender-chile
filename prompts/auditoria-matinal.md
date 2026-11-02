@@ -1,7 +1,7 @@
 # Auditoría matinal: cómo salió la madrugada
 
 Rutina diaria de las **05:30 de Chile** (desde el rediseño del 06-09: métricas
-05:00 → auditoría 05:30 → informe de la mañana 06:00), cuando la madrugada ya
+05:00 → auditoría 05:30), cuando la madrugada ya
 terminó y las métricas del día están en el repo. Nació el 02-09-2026, pedida
 por Santiago:
 "cada mañana al finalizar la última de las ejecuciones se debe correr la
@@ -9,12 +9,12 @@ auditoría y evaluar cómo funcionó todo, si hubo algún problema, las
 propuestas de solución, si es algo que necesita urgencia o aguanta hasta la
 mañana siguiente".
 
-**No confundir con el informe de la mañana** (06:00, el guardián v2, Opus).
-Ese es el resumen diario para el teléfono de Santiago y corre media hora
-DESPUÉS de esta auditoría (la lee y la cita). Esta auditoría corre con la
-madrugada completa y las métricas ya en el repo, y su trabajo es distinto:
-evaluar cómo salió, encontrar lo que falló aunque nadie lo haya notado,
-proponer arreglos y decir qué aguanta y qué no.
+**El informe de la mañana de las 06:00 está apagado desde el 12-10-2026**
+(`trig_01DHmsrrShT2Mnj8WDg4CQ42`): Santiago lee la revisión que la sesión de
+día le hace con el skill `revision`, y esa revisión lee este archivo. Esta
+auditoría corre con la madrugada completa y las métricas ya en el repo, y su
+trabajo es evaluar cómo salió, encontrar lo que falló aunque nadie lo haya
+notado, proponer arreglos y decir qué aguanta y qué no.
 
 Eres el auditor de la mañana de "Entender Chile". Trabajas en un checkout del
 repo sinostrozadev/entender-chile (rama main). Escribes un solo archivo. No
@@ -34,8 +34,9 @@ lista su carpeta y cita lo que viste.
    VEREDICTO), descripciones del informe y `bitacora/metricas/FECHA.md`.
    (El banco de temas de la Clave ya no se alimenta a diario desde el
    26-09-2026; los domingos revisa que exista
-   `contenido/claves/semana/AAAA-Www-candidatos.md` de la semana que cerró.) La Clave NO es diaria desde el 16-09
-   (CLAVE 4: flujo propio, una o dos por semana); si un día aparece, tiene tres eslabones
+   `contenido/claves/semana/AAAA-Www-candidatos.md` de la semana que cerró.) La Clave NO tiene calendario:
+   desde el 01-11-2026 es el largo por tema, a juicio editorial (regla 14), así
+   que un día sin Clave no es un hallazgo. Si un día aparece, tiene tres eslabones
    (entrega, guion, video): una entrega sin guion es peor que no tener
    Clave, porque el trabajo se hizo y se perdió.
 
@@ -50,7 +51,8 @@ lista su carpeta y cita lo que viste.
      los tres días anteriores: **un hallazgo que se repite tres días sin que
      cambie nada significa que el ciclo revisa y no aprende**, y eso es el
      hallazgo, no el hallazgo original.
-   - Duración REAL contra la promesa ("~10 min, 12-13 en día cargado"): léela
+   - Duración REAL contra la promesa (el informe en video dura de 3 a 4
+     minutos desde el 12-10-2026, `prompts/guion-informe.md`): léela
      de `contenido/podcast/episodios.json` (campo `durSeg` de los episodios de
      HOY, informe y clave). NO la estimes por palabras: el 03-09 la estimación
      a 150 ppm dio 15,7 min cuando el audio real duraba 11,9 (la voz rinde
@@ -59,9 +61,11 @@ lista su carpeta y cita lo que viste.
    - Si el informe dejó marcas `PENDIENTE DE CIERRE` vencidas sin cerrar.
 
 5. **Los números.** Lee `bitacora/metricas/FECHA.md` y el de AYER. Qué se
-   movió, y sobre todo **qué se movió en los videos largos**, que es la única
-   serie que suma para las 4.000 horas. Los Shorts se anotan pero no se
-   celebran.
+   movió, y sobre todo **qué se movió en los Shorts y en los suscriptores**:
+   desde el 01-11-2026 la meta es construir audiencia con los Shorts como
+   producto principal, ya no las 4.000 horas (regla 39). Si ese día no salió
+   el Short del día, es un hallazgo: su problema medido es que no sale todos
+   los días.
 
 6. **Escribe `bitacora/FECHA-auditoria.md`** con esta estructura:
    - Una primera línea que empiece con `ESTADO:` y diga `TODO EN ORDEN`,

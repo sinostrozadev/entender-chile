@@ -11,11 +11,12 @@
       "metrica": "vistas de los largos en sus primeras 48 h, y CTR en YouTube Studio; comparar con los largos del 15 al 20-09 (12, 9, 2, 0 vistas)",
       "control": "las alternativas 2 y 3 en la prueba A/B de Studio, con la 1 como control",
       "decidio": "Santiago, 20-09, sobre el tablero https://claude.ai/artifact/XsfWbLELW4LWLv4rF6roZR",
-      "estado": "en_curso",
-      "veredicto": "",
+      "estado": "cerrado",
+      "veredicto": "Sin dato: no se midió. 01-11-2026: la ficha venció el 05-10 sin que nadie cargara las alternativas en la prueba A/B de Studio ni comparara las 48 h de los largos contra el control. Se cierra para que no quede abierta como si se estuviera midiendo; los experimentos nuevos van con línea base y fecha de juicio (bitacora/2026-11-01-analisis-y-plan.md, sección 2).",
       "bitacora": [
         "21-09: primera edición real. GPT escribió las tres carátulas con el formato pedido ('¿Por qué tantas muertes? / Balance aún abierto'; 'Fiestas largas / Costos irreparables'; '267 siniestros / Balance aún abierto'). Render correcto; las tres en el release. La lámina cayó al mapa: ninguna sección calzó con 'balance vial'."
-      ]
+      ],
+      "cerrado": "2026-11-01"
     },
     {
       "id": "apertura-en-frio",
@@ -27,8 +28,9 @@
       "metrica": "audiencia que queda al 5% del video (curva de Analytics); solo se mide desde el 20-09 y solo en largos con ~20 vistas o más",
       "control": "los largos anteriores al 03-09 (Milei 31-08: 47% al 5%)",
       "decidio": "Santiago, 02-09",
-      "estado": "en_curso",
-      "veredicto": "Sin dato todavía: los largos posteriores al 03-09 con curva son pocos (04-09: 34% al 5%, peor que el control, pero con tráfico de sugeridos que rebota). Se juzga cuando la carátula v3 traiga tráfico."
+      "estado": "cerrado",
+      "veredicto": "Sin dato: no se midió. 01-11-2026: la ficha venció el 17-09 y nunca hubo largos con curva suficiente para comparar contra el control; el informe pasó a 3 o 4 minutos el 12-10 y cambió la pieza medida. Se cierra para que no quede abierta como si se estuviera midiendo; los experimentos nuevos van con línea base y fecha de juicio (bitacora/2026-11-01-analisis-y-plan.md, sección 2).",
+      "cerrado": "2026-11-01"
     },
     {
       "id": "short-titulo-formula-a",
@@ -40,8 +42,9 @@
       "metrica": "vistas de los Shorts diarios y CTR en Studio, contra los Shorts anteriores al 09-09 (mediana 176)",
       "control": "Shorts del 30-08 al 08-09",
       "decidio": "Santiago, 09-09",
-      "estado": "en_curso",
-      "veredicto": ""
+      "estado": "cerrado",
+      "veredicto": "Sin dato: no se midió. 01-11-2026: la ficha venció el 23-09 y nadie comparó las vistas ni el CTR contra la mediana del control. Se cierra para que no quede abierta como si se estuviera midiendo; los experimentos nuevos van con línea base y fecha de juicio (bitacora/2026-11-01-analisis-y-plan.md, sección 2).",
+      "cerrado": "2026-11-01"
     },
     {
       "id": "claves-8-min",

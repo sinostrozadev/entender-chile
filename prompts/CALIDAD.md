@@ -93,6 +93,12 @@ informe. Para eso existe el guion.
 
 ### Recalibración por "En titulares" (30-08-2026)
 
+**SUPERADA el 12-10-2026**: el guion del informe narra tres noticias en 3 o 4
+minutos y ya no tiene bloque "En titulares" (`prompts/guion-informe.md`;
+`estrategia/decisiones.md`, "El informe pasa a 3 o 4 minutos"). Una [A] o [B]
+que no esté en el guion ya no es una omisión: el informe completo vive en la
+web. Lo que sigue queda como registro de cómo se medía antes.
+
 Desde la edición del 30-08 el informe no tiene tope (es la edición completa
 para la web) y el guion recorta: narra las [A] y las [B] más relevantes
 hasta 10, y todo lo demás suena como UNA frase en el bloque "En titulares",

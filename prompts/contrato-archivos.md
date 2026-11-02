@@ -38,7 +38,8 @@ FORMATO OBLIGATORIO de los dos guiones (el parser depende de esto):
 
 VEREDICTOS POR PIEZA (cadena lineal v3, desde el 15-09-2026): Claude, el
 validador, escribe contenido/veredictos/AAAA-MM-DD-<pieza>.md con <pieza> en
-preseleccion, informe, guion_informe (la Clave, cuando exista su flujo, tendrá los suyos). Primera línea
+preseleccion, informe, guion_informe (los de la Clave, desde su flujo propio,
+van como contenido/veredictos/clave-<slug>-<pieza>.md). Primera línea
 "VEREDICTO: APROBADA" o "VEREDICTO: CORREGIR" (o BLOQUEADA), segunda
 "VUELTA: N", y si es CORREGIR una sección "Correcciones:" numerada. Una pieza
 cuenta como lista SOLO con veredicto APROBADA más nuevo que ella. GPT lee esos
@@ -53,9 +54,11 @@ REGLAS DE COMMIT:
   tarea escribió la pieza. Se lee con `git log --format=%b`.
 - Jamás modificar archivos de fechas anteriores; re-ejecuciones del mismo
   día sí sobreescriben los archivos de ese día.
-- La Clave YA NO ES DIARIA (CLAVE 4, decisión de Santiago del 16-09): sale
-  una o dos veces por semana, con flujo propio y dos aprobaciones suyas
-  (tema e idea). La cadena diaria termina en el guion del informe. El tema
+- La Clave YA NO ES DIARIA (CLAVE 4, decisión de Santiago del 16-09) y desde
+  el 01-11-2026 tampoco es semanal: es el largo por tema, sin calendario y a
+  juicio editorial (REGLAS-DURAS, regla 14). Mientras se construye, la que
+  está en curso sigue su flujo propio, con la pauta que aprueba Santiago.
+  La cadena diaria termina en el guion del informe. El tema
   de cada Clave sale del ranking semanal (scripts/semana.js, domingos) y de
   los tres candidatos que Claude escribe con prompts/tema-semana.md; el
   banco diario de temas se dejó el 26-09-2026. Regla anterior, hoy sin efecto:

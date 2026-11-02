@@ -101,7 +101,10 @@ Buscar documentos que describan un pipeline que ya no existe (menciones a
 
 ### 8. El objetivo
 
-Días restantes hasta el 1-feb-2027 y estado del contador de horas vistas.
+Desde el 01-11-2026 la meta es construir audiencia con los Shorts como
+producto principal (regla 39), no las 4.000 horas: suscriptores, vistas de
+Shorts y visto frente a deslizado, contra la semana anterior, y cuántos días
+de la semana salió el Short del día.
 
 ### Cómo se escribe
 
@@ -133,8 +136,9 @@ algo, van a `estrategia/decisiones.md`.
 3. Si hubo una decisión de fondo, registrarla también en
    `estrategia/decisiones.md` con el formato que ya usa ese archivo.
 4. Correr `node scripts/bandeja.js` y **commitear `bitacora/bandeja.json` si
-   cambió**: es la lista de lo que espera decisión de Santiago, y la leen el
-   informe de la mañana y el aviso a su teléfono. Cerrar el día sin
+   cambió**: es la lista de lo que espera decisión de Santiago, y la lee el
+   aviso a su teléfono (el informe de la mañana, que también la leía, está
+   apagado desde el 12-10-2026). Cerrar el día sin
    recalcularla deja pidiendo decisiones ya tomadas.
 5. Regenerar el Taller (`node scripts/taller.js`) y **republicarlo a su URL
    fija** (la que anota `bitacora/2026-09-26.md`). En ese orden: el Taller lee

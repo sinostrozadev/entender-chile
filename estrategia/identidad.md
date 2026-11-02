@@ -7,7 +7,7 @@ público primario también decididos (ver decisiones.md).
 
 ## En una frase
 
-Entender Chile explica cada día, en unos diez minutos (doce o trece cuando el día viene cargado) y sin gritos, lo que
+Entender Chile explica cada día, sin gritos y en pocos minutos (un diario escrito y un Short, y un video largo cuando un caso lo pide), lo que
 de verdad importa para entender el país - con las fuentes a la vista y los
 hechos separados de las interpretaciones.
 
@@ -48,11 +48,18 @@ compite por hacer entender mejor.
 
 ## Las dos series
 
+Ajuste del 01-11-2026 (decisión de Santiago, `estrategia/decisiones.md`): el
+hábito diario es el diario escrito (https://entender.sinodev.cl) con su Short,
+y los Shorts son el producto principal del canal; el informe en video, que
+dura de 3 a 4 minutos desde el 12-10, sigue hasta que exista el primer largo
+por tema. La Clave pasa a ser el largo por tema, sin calendario. Las dos
+velocidades no cambian:
+
 - **El informe diario** - hábito. Publica a hora fija cada mañana; su
   trabajo es la retención y la relación diaria con la audiencia.
-- **Claves para entender las noticias** - evergreen. Su trabajo es el
-  crecimiento: captar búsqueda permanente (UF, AFP, TPM, cómo se elige al
-  Presidente), traer suscriptores y seguir siendo útil en dos años.
+- **Claves para entender las noticias** (el largo por tema) - evergreen. Su
+  trabajo es el crecimiento: captar búsqueda permanente (UF, AFP, TPM, cómo se
+  elige al Presidente), traer suscriptores y seguir siendo útil en dos años.
 
 ## Dónde termina
 
@@ -99,7 +106,7 @@ Va en: descripción del canal, cierre de cada video, banner y bio de redes.
 
 ## Descripción del canal (borrador para YouTube → Información)
 
-> Las noticias de Chile explicadas cada mañana en unos diez minutos. Un informe
+> Las noticias de Chile explicadas cada mañana en pocos minutos. Un informe
 > con las tres o cuatro cosas que importan, cada cifra con su fuente, y los
 > hechos separados de las opiniones. Y en la serie Claves, lo que hay que
 > saber para entender las próximas noticias, no solo las de hoy. El resumen

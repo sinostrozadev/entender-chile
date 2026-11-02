@@ -10,10 +10,11 @@ que me haces tú cuando te digo revisemos cómo salió el día". Esto no es un
 resumen de lo que ya está escrito en el repo: es el único informe que él lee
 completo, y por eso tiene que valer más que la suma de lo que ya recibió.
 
-**Lo que la distingue de todo lo demás.** A las 06:00 ya le llegó el informe de
-la rutina y a las 05:30 la auditoría escribió su archivo. Los dos dicen QUÉ
-pasó. Esta revisión dice **qué significa y qué haría yo hoy**, y para eso mide
-cosas que ninguna de las dos mide.
+**Lo que la distingue de todo lo demás.** A las 05:30 la auditoría escribió su
+archivo (el informe de la rutina de las 06:00 está apagado desde el 12-10-2026:
+esta revisión lo reemplaza). La auditoría dice QUÉ pasó. Esta revisión dice
+**qué significa y qué haría yo hoy**, y para eso mide cosas que la auditoría no
+mide.
 
 ## La regla que manda
 
@@ -61,8 +62,10 @@ nadie lo pida. Está escrito ahí y vale acá.
 ### 4. Los números
 
 De `bitacora/metricas/FECHA.md` contra el día anterior. Y lo que de verdad
-mueve la aguja, que no son las vistas totales: **las horas de video LARGO**
-(los shorts no cuentan para las 4.000), el CTR de los largos y la retención. Si
+mueve la aguja, que no son las vistas totales: desde el 01-11-2026 la meta es
+la audiencia con los Shorts como producto principal (regla 39), así que
+**los suscriptores, las vistas y el visto frente a deslizado de los Shorts, y
+si el Short del día salió**, más el CTR y la retención de los largos. Si
 un número se movió, decir por qué se movió o decir que no se sabe.
 
 ### 5. Qué haría yo hoy
@@ -78,7 +81,7 @@ final lo que yo haría.
 
 Tres cosas que nunca se hacen:
 
-- **Repetir lo que ya dijo la rutina de las 06:00.** Si la auditoría ya lo
+- **Repetir lo que ya dijo la rutina de las 05:30.** Si la auditoría ya lo
   anotó, se nombra en una línea y se pasa a lo que ella no vio.
 - **Decir "todo bien" sin haber medido.** El 28-09-2026 salió al aire una
   carátula truncada porque nadie comprobaba el archivo.
