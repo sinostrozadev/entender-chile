@@ -8,7 +8,7 @@ Listar las rutinas de Claude por API cuesta unos **75 KB por llamada** (el
 volcado trae el prompt completo de cada una), y una sesión que quiere saber
 "¿quién toca el barrido?" paga ese precio entero para leer una línea. Esta
 tabla responde eso gratis. Lo mismo con los workflows: en vez de abrir
-dieciséis archivos YAML, se lee una fila.
+quince archivos YAML, se lee una fila.
 
 ## Cómo se mantiene
 
@@ -33,7 +33,7 @@ Esta versión NO consultó la API. Sale de cuatro fuentes del repo:
   notificaciones de siete rutinas.
 - `bitacora/2026-11-01.md` y `bitacora/REALIZADOS.md` para los cambios del
   01-11.
-- Los dieciséis archivos de `.github/workflows/`, leídos el 01-11-2026.
+- Los quince archivos de `.github/workflows/`, leídos el 01-11-2026 (el decimosexto, `taller-voz.yml`, se retiró ese día a `archivo/workflows/`).
 
 Se sacaron ocho filas muertas que la tabla arrastraba desde septiembre: los
 tres "Respaldo" del plan B del 24-09 (preselección `trig_01CEfUBNnqtRYgEgyYhYocUU`,
@@ -93,7 +93,7 @@ la del PR #5 no consta.
 
 ## Workflows de GitHub Actions
 
-Dieciséis archivos en `.github/workflows/`. Regla de fondo (31-08-2026): **el
+Quince archivos en `.github/workflows/` (`taller-voz.yml` se retiró a `archivo/workflows/` el 01-11-2026). Regla de fondo (31-08-2026): **el
 cron de GitHub nunca es reloj principal**, solo red de respaldo, porque
 demostró atrasos de diez y once horas; los despertadores de verdad son rutinas
 de Claude que pushean un archivo. La excepción es `doc-youtube.yml`, mensual,
@@ -115,5 +115,4 @@ donde llegar diez horas tarde no cambia nada.
 | Prueba de voz | `prueba-voz.yml` | solo dispatch (fecha, entrada, secciones, fondo) | Rinde una muestra del informe CON VOZ REAL para escuchar un cambio de lo que se dice antes de que entre al aire. Nace el 27-09. No commitea nada: deja el mp4 en el release `prueba-voz`. Sin cron porque cada corrida gasta cupo de Azure |
 | Reintento del despertar | `reintento.yml` | push de `contenido/estado/reintento-despertador.txt`; cron `*/20 4-9 * * *`; dispatch | Vuelve a tocarle el timbre a GPT cuando no responde (regla 20 y 20: a los 40 minutos escribe `plan-b.txt`), reintenta las etapas del reparto, relanza el Barrido desde las 01:48 si el despertador no trae la marca de hoy, y desde el 01-11 pide `estado.yml` si hay barrido y no hay vista. El 22-09 la cadena quedó parada nueve horas por falta de un reintento |
 | Short exprés | `short-expres.yml` | push de `contenido/urgente/GUION-*.md`; dispatch con `guion` | Produce el Short vertical de piel vino del hallazgo de la guardia, lo sube público y deja la marca `SUBIDO-`, que además deduplica si el guion se pushea dos veces |
-| Taller de voz | `taller-voz.yml` | solo dispatch (ronda, voces, texto, procesar) | Sintetiza el mismo párrafo en varias variantes de SSML para escucharlas seguidas. Sin cron a propósito: gasta cupo de Azure, se corre cuando hay algo que decidir |
 | Web | `web.yml` | push de las carpetas publicables (`informes`, `revisiones`, `claves`, `casos`, `videos`, `podcast`) y de `web/`; dispatch | Publica el diario (Astro) en https://entender.sinodev.cl (Cloudflare Pages, desde el 01-11-2026) y en la copia vieja de GitHub Pages, que sigue saliendo porque Spotify lee el feed del podcast de ahí. La revisión es la que abre la compuerta: sin ese push, el informe aprobado se queda fuera del sitio |

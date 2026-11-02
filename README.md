@@ -77,7 +77,7 @@ por tarea: el estado dice de quién es el turno.
   guion), `tts-azure.js` (voz, con respaldo S0), `build-timeline.js`, `dia.js`
   (orquesta una pieza), `short.js`, `sonido.js`, `estado.js`, `semana.js`,
   `metricas.js`, `youtube-subir.js`, `podcast-subir.js`.
-- **`.github/workflows/`**: dieciséis workflows. El inventario, con su
+- **`.github/workflows/`**: quince workflows. El inventario, con su
   disparador y su razón de ser, está en `bitacora/rutinas.md`.
 - **`src/`**: las piezas de Remotion (informe, Short, tarjetas, fondos, el
   mural de la Clave). **`web/`**: el sitio en Astro que publica `web.yml` en

@@ -210,7 +210,7 @@ promesa fija: objetivo ~10 minutos, tolerancia 12-13 en días cargados.
 **Por qué**: la [A] principal del 29-08 tenía 220 palabras y dejaba al
 lector a medias; 13 noticias verificables se botaron por espacio sin dejar
 línea; y el tope del informe existía por el video, que la web no paga.
-**Decidió**: Santiago. **Detalle**: bitacora/2026-08-29-propuesta-informe-largo.md.
+**Decidió**: Santiago. **Detalle**: archivo/bitacora/2026-08-29-propuesta-informe-largo.md.
 
 ## 2026-08-30 - LANZAMIENTO: se abre la puerta de salida
 
@@ -295,7 +295,7 @@ edición entera.
 colgando del cron de GitHub como reloj principal.
 
 **Decidió**: Santiago, 31-08-2026, tras el hallazgo de que métricas nunca
-corrió. **Detalle**: bitacora/2026-08-28-investigacion-cron.md (la medición
+corrió. **Detalle**: archivo/bitacora/2026-08-28-investigacion-cron.md (la medición
 original de los tres relojes) y bitacora/PENDIENTES.md.
 
 ## 2026-09-01 - Comentarios: se responde siempre, cálido y sin pedir nada
@@ -637,9 +637,9 @@ intercambiar**. La de sección convive con el texto, va en papel claro y deja la
 mitad izquierda libre. La de biblioteca lo reemplaza, va oscura y su motivo va
 centrado ocupando el cuadro.
 
-**Evidencia**: `contenido/biblioteca/pruebas/gobierno-papel.png` y
-`gobierno-oscuro.png`, montadas con `src/muestra-biblioteca.tsx`. Prompts en
-`contenido/biblioteca/PROMPTS-CONCEPTOS.md`.
+**Evidencia**: `archivo/contenido-biblioteca/pruebas/gobierno-papel.png` y
+`gobierno-oscuro.png`, montadas con `archivo/src/muestra-biblioteca.tsx`. Prompts en
+`archivo/contenido-biblioteca/PROMPTS-CONCEPTOS.md`.
 
 ## 2026-09-29 - Los emblemas del lugar se dibujan, y la línea es afirmativa
 
@@ -674,7 +674,7 @@ para este caso".
 
 **Evidencia**: las dos imágenes de congreso pasan la vara entera y ninguna
 sirve; la testera despejada en `congreso-1`. Detalle en `bitacora/2026-09-29.md`
-y el porqué largo en `contenido/biblioteca/ESTILOS.md`, regla 6.
+y el porqué largo en `archivo/contenido-biblioteca/ESTILOS.md`, regla 6.
 
 ## 2026-09-29 - La figura de espaldas entra, y solo donde la persona es el hecho
 
@@ -709,7 +709,7 @@ quedan como están, desocupados.
 "dale, déjalo escrito".
 
 **Evidencia**: regla 29 en `REGLAS-DURAS.md`, criterio en
-`contenido/biblioteca/ESTILOS.md` regla 1, motivo en `scripts/vocabulario.js`.
+`archivo/contenido-biblioteca/ESTILOS.md` regla 1, motivo en `archivo/scripts/vocabulario.js`.
 
 ## 2026-09-30 - La época la pone el motivo, no el estilo
 

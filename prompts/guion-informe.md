@@ -294,25 +294,6 @@ no salió jamás puede frenar un informe.
       Prefijo del párrafo cuando el informe distingue explícitamente análisis. Se narra el párrafo, no la marca.
   [CITA | nombre, cargo | fuente, fecha] texto
       Solo citas textuales presentes en el informe. Se narra el texto.
-  [SIN DIBUJO]
-      EN SU PROPIA LÍNEA, justo ANTES del párrafo que tacha. No se narra y no
-      cambia nada de lo que se oye: solo impide que el sistema ponga una
-      ilustración sobre ESE párrafo.
-      Para qué existe: el video ilustra algunos párrafos narrados con un dibujo
-      de la biblioteca, y lo elige una regla que RECONOCE palabras, no que
-      entiende el párrafo. Tú no eliges el dibujo (no necesitas saber cuáles
-      existen ni nombrarlos); solo tachas donde la regla acertaría la palabra y
-      erraría el sentido. Ejemplo real del 29-09-2026: un párrafo sobre el duelo
-      nacional por un carabinero asesinado dice "el Gobierno", y la regla le
-      pondría el Palacio de La Moneda. Eso no está mal por información, está
-      mal por tono.
-      ÚSALA POCO, cero a dos por edición. Los casos son estos y no otros:
-      (a) el párrafo nombra una institución pero el hecho es una muerte, una
-      víctima o un duelo; (b) el párrafo habla de la institución como escenario
-      de algo que la contradice, y una imagen neutra de ella lo suavizaría;
-      (c) el párrafo es una salvedad o un desmentido sobre lo que la palabra
-      nombra. Si dudas, NO la pongas: un dibujo de más se corrige mirando el
-      video, y una edición llena de vetos deja el recurso sin usar.
 - Todo párrafo sin marca es narración normal.
 - No incluyas URLs en el texto narrado ni en las marcas (las únicas URLs permitidas están en las líneas de "Fuentes:", tal como las trae el informe; desde el 23-10-2026 esas líneas pueden llevarlas porque la descripción de YouTube las publica y sirven a quien quiere verificar), ni emojis, paréntesis, bibliografía, notas al editor, marcas de tiempo, indicaciones de edición ni advertencias fuera de las marcas definidas.
 - Al final, bajo "Fuentes:", lista una línea por cada fuente de las marcas [DATO] y [CITA] Y por cada fuente del informe cuyas noticias narraste, tal como aparecen en el informe. NUNCA listes archivos internos del sistema (rutas como contenido/..., hitos.md, preselección): si un dato viene de ahí, cita la fuente PÚBLICA original del hecho (el tribunal, el organismo, el medio). La lista se publica en YouTube tal cual (30-08: se coló "contenido/casos/hitos.md" y hubo que borrarlo a mano). Esa lista alimenta la descripción del video en YouTube: la transparencia de fuentes es marca del canal, y una fuente cuyo contenido se narró no puede quedar sin crédito. Y TODA fuente mencionada EN LA PROSA del guion ("según X", "el Informe diario señalaba", "como reportó Y") también va en la lista, aunque no tenga marca: 3 de las últimas 4 revisiones cazaron citas en prosa sin crédito en el bloque.
