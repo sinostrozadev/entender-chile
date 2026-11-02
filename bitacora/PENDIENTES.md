@@ -92,6 +92,10 @@ medición de retención por duración).
 
 ---
 
+## PARA LA SESIÓN DE DÍA
+
+- [ ] **01-11: GPT entregó dos carátulas inservibles (31-10 corrupta, 01-11 truncada)**: el .png del 31-10 no tiene firma PNG (bytes al azar, igual que `contenido/caratulas/2026-10-24.png`, que sigue en el repo) y el del 01-11 se cortó en 786.445 bytes sin IEND, como el 28-09. Ninguna de las dos falló por diseño: el texto dentro de la imagen es lo que pide `prompts/caratula-pedido.txt` desde el 05-10 y la del 01-11 medía 1672x941, que es 16:9. Revisar en `prompts/imagen-caratula.md` (paso 3 bis) y en el pedido por qué GPT no comprueba bytes e IEND antes de dar por subida la imagen, y si conviene que el validador mire la carátula (`caratulaUsable` de `scripts/imagen-entera.js`) antes del render. Dueño: día.
+
 ## PARA LA SESIÓN DE LA NOCHE: lo que el día NO puede hacer (06-10-2026)
 
 ### 0000000. 24-10-2026, URGENTE: el Short exprés de las rebajas de condena salió publicado con errores
