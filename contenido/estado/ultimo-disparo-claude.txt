@@ -1,1 +1,1 @@
-2026-11-02 validar_guion_informe 0 a49960a1
+2026-11-02 validar_guion_informe 1 1b6d7dd0
