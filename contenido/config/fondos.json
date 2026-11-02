@@ -1,5 +1,5 @@
 {
-  "_": "GENERADO A MANO, y es la fuente de verdad de los FONDOS: lo que hay DETRÁS del texto. Un fondo no decide qué se muestra, solo sobre qué se muestra, y por eso cualquier tarjeta puede llevar cualquiera. Lo lee src/tarjetas.tsx al compilar y scripts/datos-taller.js lo copia al taller.",
+  "_": "GENERADO A MANO, y es la fuente de verdad de los FONDOS: lo que hay DETRÁS del texto. Un fondo no decide qué se muestra, solo sobre qué se muestra, y por eso cualquier tarjeta puede llevar cualquiera. Lo lee src/tarjetas.tsx al compilar (la copia al taller, archivo/scripts/datos-taller.js, se retiró el 01-11-2026).",
   "_porque": "Nació como modos.json el 30-09-2026 con ocho entradas, dos de las cuales (dibujo y texto, dibujo solo) no eran fondos sino tarjetas: no pasan por Marco, arman su propio cuadro. Se separaron el mismo día cuando Santiago preguntó qué define lo que muestra el video. El que decide qué se ve es la TARJETA (contenido/config/tarjetas.json); el fondo es una propiedad del Marco que las envuelve a todas.",
   "version": 2,
   "fondos": [

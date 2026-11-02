@@ -25,7 +25,7 @@
  */
 
 // El preámbulo COMPLETO de una sección con cabecera, en segundos, tal como
-// quedó en el banco (src/taller-secuencia.tsx, cuadros a 24): el título se
+// quedó en el banco (archivo/src/taller-secuencia.tsx, cuadros a 24): el título se
 // muestra hasta 3,83 s, el barrido de la mitad al final va de 3,83 a 5,5 y la
 // primera tarjeta entra en 5,83.
 const TITULO_SEG = 3.83;

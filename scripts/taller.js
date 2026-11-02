@@ -4,7 +4,7 @@
  * autocontenido (Bandeja, Hoy, Semana, Clave, Medir, Experimentos, Prompts,
  * Flujos y rutinas), con botones que abren GitHub con el trabajo ya hecho.
  * Especificación validada por Santiago en la sección D de
- * bitacora/2026-09-26-propuesta-limpieza-y-taller.md.
+ * archivo/bitacora/2026-09-26-propuesta-limpieza-y-taller.md.
  *
  * La BANDEJA es del 27-09-2026 ("crea en el Taller un sistema de
  * notificaciones: cuando algo necesita mi aprobación, que lo pueda ver ahí") y

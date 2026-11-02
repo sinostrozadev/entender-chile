@@ -8,7 +8,6 @@
 const fs = require("fs");
 const path = require("path");
 const { copiarSecciones, imagenDe, carpetaPublica } = require("./imagenes-secciones.js");
-const { repartidor } = require("./dibujo-parrafo.js");
 const { entera, caratulaUsable } = require("./imagen-entera.js");
 const { bloquesDe } = require("./texto-bloques.js");
 
@@ -83,7 +82,7 @@ const INICIO = enFrio ? 0 : Number(process.env.INICIO_NARRACION || 3.0);
 
 if (chars.length !== parsed.cleanText.length) {
   console.warn(`AVISO: la alineación tiene ${chars.length} caracteres y la narración ${parsed.cleanText.length}. ` +
-    "Si usaste ElevenLabs, revisa que enviaste exactamente out/narracion.txt (la alineación puede diferir por normalización).");
+    "Con voz real, revisa que tts-azure.js recibió exactamente out/narracion.txt (la alineación puede diferir por normalización).");
 }
 
 const esBlanco = (c) => c === " " || c === "\n" || c === "\t";
@@ -142,25 +141,14 @@ let seccionActual = null;
 // fondo de cada tarjeta (24-09, Santiago: el contenido no va sobre blanco,
 // va sobre la imagen de su sección).
 let categoriaActual = null;
-// La fecha local de Chile del día de producción. Salió de meta a una constante
-// cuando el repartidor de dibujos la necesitó: con ella decide con qué variante
-// empieza, así gobierno no sale siempre con el mismo dibujo.
+// La fecha local de Chile del día de producción, para el sello de inicio.
 const FECHA = process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
   timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
 }).format(new Date());
-// EL DIBUJO DEL PÁRRAFO (30-09-2026). Apagado salvo con DIBUJOS_PARRAFO=1: es
-// un cambio en lo que se ve y lo que se ve lo elige Santiago (regla 19). El
-// repartidor es uno por edición porque dos de sus guardas tienen memoria (no
-// dos seguidos, y un concepto tantas veces como variantes tenga); el porqué de
-// cada guarda está en scripts/dibujo-parrafo.js.
-const dibujos = repartidor();
-// Los párrafos que ya tienen un dato o un esquema anclado: su tarjeta se reparte
-// el intervalo entero del párrafo, así que un dibujo ahí quedaría debajo y no se
-// vería. Se calcula antes del recorrido porque el ancla apunta hacia atrás.
-const conTarjetaEncima = new Set(
-  parsed.eventos.filter((e) => (e.tipo === "dato" || e.tipo === "esquema") && e.anchor != null)
-    .map((e) => e.anchor)
-);
+// EL DIBUJO DEL PÁRRAFO (30-09 a 01-11-2026) se retiró sin haberse encendido
+// nunca en producción: el repartidor (archivo/scripts/dibujo-parrafo.js) y su
+// biblioteca viven en archivo/. La marca [SIN DIBUJO] del guion la sigue
+// tragando parse.js para que no se narre, pero ya no llega hasta acá.
 parsed.eventos.forEach((ev, idx) => {
   if (ev.tipo === "seccion") {
     seccionActual = ev.texto;
@@ -188,10 +176,6 @@ parsed.eventos.forEach((ev, idx) => {
       if (ev.tipo === "narracion") {
         const r2 = ritmoDe(ev.charStart, ev.charEnd, r.from);
         if (r2) out.ritmo = r2;
-        // el veto del guion viaja en ev.sinDibujo; el repartidor decide el resto
-        const d = dibujos.dar({ texto: ev.texto, seccion: ev._seccion, sinDibujo: ev.sinDibujo,
-          tapado: conTarjetaEncima.has(idx) });
-        if (d) { out.imagen = d.ruta; out.imagenPie = d.concepto; }
         if (TEXTO_BLOQUES === "1") {
           const b = bloquesDe(out.textoPantalla ?? out.texto, out.ritmo, r.to - r.from, ADELANTO_PALABRA);
           if (b && b.length) out.bloques = b;
@@ -342,12 +326,6 @@ const timeline = {
     // se pintan con su color y su pictograma, que es el mosaico v3 aprobado.
     // Van llegando de a una y el video no espera a tenerlas todas.
     secciones: copiarSecciones(),
-    // Los dibujos usados se copian a public/ recién acá, cuando ya se sabe
-    // cuáles salieron: copiar los 23 cuando salen 6 es cargar el bundle de
-    // Remotion con archivos que nadie va a pedir. La clave solo viaja cuando
-    // hay alguno, para que una edición con la regla apagada produzca el mismo
-    // archivo byte por byte que antes de que la regla existiera.
-    ...(dibujos.copiar() ? { dibujos: dibujos.puestos.length } : {}),
     // De qué carpeta de public/ salen esas imágenes. Solo se escribe en el
     // modo de prueba (SECCIONES_DIR): en producción la clave no existe y el
     // video usa public/secciones/ como siempre, así el timeline del día sale

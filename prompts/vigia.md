@@ -13,7 +13,7 @@ destiempo se avisa mientras todavía hay tiempo de arreglarlo.
 
 **Qué NO hace.** No escribe ni commitea nada, no arregla, no reescribe piezas.
 Mira y avisa. Reparar es de quien cometió el error (ver
-`bitacora/2026-09-08-propuesta-maquina-de-estados.md`, §5).
+`archivo/bitacora/2026-09-08-propuesta-maquina-de-estados.md`, §5).
 
 Cron: `15 5,8 * * *` en UTC = **02:15 y 05:15 de Chile** (UTC-3).
 - **02:15** pilla una madrugada que no arrancó: barrido (se espera 01:40) o

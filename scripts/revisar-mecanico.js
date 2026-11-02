@@ -55,8 +55,6 @@ const RELATIVAS = [
   /\bla próxima semana\b/i, /\bel próximo mes\b/i,
 ];
 
-const palabras = (s) => s.trim().split(/\s+/).filter(Boolean).length;
-
 // Una fecha absoluta en la misma línea RESUELVE la referencia relativa.
 const MESES = "enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre";
 const ABSOLUTA = new RegExp(`\\b\\d{2}-\\d{2}-\\d{4}\\b|\\b(${MESES})\\b|\\b\\d{1,2}\\s+(ene|feb|mar|abr|may|jun|jul|ago|sep|sept|oct|nov|dic)\\b`, "i");
@@ -88,17 +86,13 @@ function revisar(ruta) {
   });
 
   if (tipo === "guion") {
-    // 2. Titulares de más de 12 palabras, solo dentro del bloque "En titulares".
-    let dentro = false;
-    lineas.forEach((l, i) => {
-      if (/^##\s/.test(l)) dentro = /^##\s+En titulares/i.test(l);
-      if (!dentro) return;
-      const t = l.trim();
-      if (!t || /^##/.test(t) || /^Y en titulares:/i.test(t) || /^\[/.test(t) || /^Fuentes:/i.test(t)) return;
-      const n = palabras(t);
-      if (n > 12) anotar(i + 1, "EN TITULARES: cada frase, MÁXIMO 12 PALABRAS",
-        `recortar de ${n} a 12 palabras o menos, sin convertir un anuncio en un hecho`);
-    });
+    // 2. (RETIRADA el 01-11-2026) Contaba que cada frase del bloque "## En
+    // titulares" tuviera 12 palabras o menos. El formato corto del 12-10-2026
+    // eliminó ese bloque (prompts/guion-informe.md: "No hay bloque En
+    // titulares"); el último guion que lo trajo es el del 09-10. Una
+    // comprobación sobre algo que ya no existe no encuentra nada y solo hace
+    // creer que se está mirando. Si el bloque vuelve, la regla está en la
+    // historia de este archivo.
 
     // 3. El bloque "Fuentes:" tiene que existir y no puede ir vacío.
     const iF = lineas.findIndex((l) => /^Fuentes:\s*$/i.test(l.trim()));

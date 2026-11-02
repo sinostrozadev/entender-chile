@@ -157,13 +157,15 @@ jobs:
           for g in contenido/guiones/claves/"$FECHA"-*.md; do [ -f "$g" ] && node scripts/validar-tarjetas.js "$g" || true; done
 
       - name: 3 · Producir video del informe (voz si hay secrets; si no, mudo)
+        # La voz es solo Azure desde el 26-09-2026: ELEVENLABS_API_KEY y
+        # VOICE_ID salieron de este paso y del 4 el 01-11-2026. Con ellos en la
+        # condición, un secret viejo de ElevenLabs podía pedir --voz sin Azure
+        # y la edición se caía en dia.js en vez de salir muda.
         env:
           AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           AZURE_SPEECH_KEY2: ${{ secrets.AZURE_SPEECH_KEY2 }}
           AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
-          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-          VOICE_ID: ${{ secrets.VOICE_ID }}
           # (27-09) la secuencia aprobada el 24-09 (imagen de sección toda la
           # sección, oscurecida, texto encima) entra a producción por decisión
           # de Santiago tras ver el video de prueba. Vacío = montaje anterior.
@@ -198,7 +200,7 @@ jobs:
           ENTRADA_MARCA: "1"
         if: env.SALTAR != '1' && env.HAY_INFORME != '1'
         run: |
-          if { [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; } || { [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; }; then VOZ="--voz"; else VOZ=""; echo "Sin secrets de voz: video mudo de prueba."; fi
+          if [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; then VOZ="--voz"; else VOZ=""; echo "Sin secrets de voz: video mudo de prueba."; fi
           node scripts/dia.js $VOZ --render
 
       # El Short del informe: cinco tesis del guion en vertical (scripts/short.js).
@@ -228,11 +230,9 @@ jobs:
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           AZURE_SPEECH_KEY2: ${{ secrets.AZURE_SPEECH_KEY2 }}
           AZURE_SPEECH_REGION2: ${{ secrets.AZURE_SPEECH_REGION2 }}
-          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-          VOICE_ID: ${{ secrets.VOICE_ID }}
         if: env.SALTAR != '1' && env.HAY_CLAVE != '1' && env.SIN_CLAVE != '1'
         run: |
-          if { [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; } || { [ -n "$ELEVENLABS_API_KEY" ] && [ -n "$VOICE_ID" ]; }; then VOZ="--voz"; else VOZ=""; fi
+          if [ -n "$AZURE_SPEECH_KEY" ] && [ -n "$AZURE_SPEECH_REGION" ]; then VOZ="--voz"; else VOZ=""; fi
           node scripts/dia.js --clave --si-existe $VOZ --render
 
       - name: 5 · Commit de las descripciones
