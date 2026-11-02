@@ -3,7 +3,7 @@ DATOS QUE YO ENTREGO
 CLIMA DE LA CARÁTULA:
 policial
 GANCHO QUE VA ENCIMA:
-¿Quién autorizó rebajas?
+¿Quién rebajó las condenas?
 Fiscalía investiga
 NOTICIA DE PORTADA:
 Fiscalía investiga a Rabat y Silva por posible prevaricación en decretos que rebajaron condenas.
@@ -228,4 +228,3 @@ un gancho principal irresistible,
 el contexto mínimo necesario para entender la noticia,
 una composición visual potente,
 y una ejecución pensada específicamente para maximizar el deseo de hacer clic.
-
