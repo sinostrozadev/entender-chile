@@ -1,16 +1,16 @@
-# archivo/ — lo que ya cumplió su función
+# archivo/: lo que ya cumplió su función
 
 Nada del proyecto se borra: lo que dejó de ser criterio vivo se retira aquí,
 con una línea que diga qué fue y dónde vive hoy lo que lo reemplazó. Regla de
 la propuesta de orden del 02-09 (`bitacora/2026-09-02-orden-del-repo.md`).
 
-- `plan-produccion.md` (de estrategia/) — plan por fases del arranque. Fases
+- `plan-produccion.md` (de estrategia/): plan por fases del arranque. Fases
   0 a 3 cumplidas al 30-08; la 4 vive en `bitacora/PENDIENTES.md` y la 5 en
   `estrategia/modelo-de-negocio.md`.
-- `musica.md` (de prompts/) — prompts para pedir la cama musical. Superado
+- `musica.md` (de prompts/): prompts para pedir la cama musical. Superado
   por la decisión del 27-08: sin cama, sonido sintetizado por código
   (`scripts/sonido.js`).
-- `ejecutar.md`, `IMPLEMENTAR.md`, `hechas.md` (de ideas/) — tres listas de
+- `ejecutar.md`, `IMPLEMENTAR.md`, `hechas.md` (de ideas/): tres listas de
   backlog sin movimiento desde el 27-08; nada pasó nunca de ejecutar a
   hechas. El backlog vivo es `bitacora/PENDIENTES.md`; lo cumplido,
   `bitacora/REALIZADOS.md`. Ojo: `IMPLEMENTAR.md` aún trataba la voz clonada
@@ -20,7 +20,7 @@ la propuesta de orden del 02-09 (`bitacora/2026-09-02-orden-del-repo.md`).
   él; hoy los temas de la Clave salen del barrido semanal (`scripts/semana.js`)
   y del prompt del domingo (`prompts/tema-semana.md`). El banco en sí queda
   congelado y sin tocar en `contenido/claves/banco-temas.md`.
-- `timeline-schema.md` (de docs/) — describía el esquema del timeline
+- `timeline-schema.md` (de docs/): describía el esquema del timeline
   anterior al 27-08: hoy desinforma. Si vuelve a hacer falta un esquema, se
   regenera desde `scripts/build-timeline.js`, que es la verdad.
 
@@ -157,3 +157,88 @@ un backlog compite por la atención con las que faltan:
   elegir entre el diseño 1 (revista) y el 2 (diario) con `?diseno=` y
   localStorage. Santiago fijó el 2 como único; hoy vive en
   `web/src/styles/diseno2.css`, aplicado siempre.
+
+## Limpieza del 01-11-2026, primera parte: bancos de prueba, biblioteca y taller viejo
+
+Pedido de Santiago del 01-11-2026: "que no haya código basura; veamos qué está
+en stand by". Nada de esto corría en la edición diaria; se verificó que el
+timeline de producción (informes del 30-10, 31-10 y 01-11 con voz simulada)
+sale idéntico byte a byte antes y después.
+
+Bancos de prueba de Remotion, a `archivo/src/`. Cada uno tenía su propia
+entrada (`*-entry.tsx`) y solo se rendían a mano para comparar variantes; el
+formato que eligió Santiago ya vive en el código de producción:
+
+- `taller-caratulas.tsx` (23-09) y `taller-entry.tsx`: variantes de carátula.
+  La carátula al aire la hace `MiniaturaV3` en `src/marca.tsx`.
+- `taller-express.tsx`, `taller-herramientas.tsx`, `taller-mosaico.tsx`,
+  `taller-secciones.tsx`, `taller-video.tsx` (24-09) con sus entradas: los
+  fondos de tarjeta, las herramientas, el mosaico, las imágenes de sección y el
+  formato del informe. Lo aprobado pasó a `src/tarjetas.tsx`,
+  `src/mosaico.tsx` y `src/fondos.tsx`. La cabecera de `taller-secciones.tsx`
+  sigue explicando cómo rearmar `public/secciones/` a mano.
+- `taller-secuencia.tsx` (24-09) y su entrada: la secuencia completa tal como
+  la dictó Santiago. Su HEREDERO es `src/secuencia.tsx`, que la portó al
+  informe (`SECUENCIA=2409`); las citas de `scripts/secuencia-plan.js`,
+  `scripts/prueba-video.js` y `contenido/secciones/` apuntan acá.
+- `taller-entrada.tsx` (05-10): la entrada de marca para compararla. La de
+  producción es `src/entrada.tsx`.
+- `tablero-estilos.tsx`, `muestra-biblioteca.tsx`, `prueba-parrafo.tsx`
+  (28 y 29-09) con sus entradas: las pruebas que decidieron el estilo de la
+  biblioteca de dibujos (ver más abajo).
+- `clave-muestra.tsx` (06-10) con `archivo/ejemplos/clave-muestra.json`: la
+  muestra del formato de la Clave, que era la composición `ClaveMuestra` de
+  `src/Root.tsx` (quitada de ahí). La reemplazó el mural
+  (`src/clave-mural.tsx`, composición `ClaveMuralProduccion`).
+- `ejemplos/guion-2026-08-23.md` y `ejemplos/short-urgente-demo.tsx`, a
+  `archivo/ejemplos/`: un guion de muestra y una demo del exprés que ya no
+  citaba ningún script. En `ejemplos/` quedan `timeline.ejemplo.json` y los
+  `clave-*.json` que importa `src/Root.tsx`.
+
+La biblioteca de dibujos por párrafo (29-09 a 01-11), ARCHIVADA por decisión
+de Santiago del 01-11-2026. Estuvo siempre apagada (`DIBUJOS_PARRAFO=1`, que
+ningún workflow encendió nunca):
+
+- `contenido/biblioteca/` entera (56 MB: los PNG de `grabado/`, `pruebas/` y
+  `pruebas-recortadas/`, `CONCEPTOS.md`, `ESTILOS.md`, `PROMPTS-CONCEPTOS.md`,
+  `conceptos.json`), a `archivo/contenido-biblioteca/`.
+- Sus scripts, a `archivo/scripts/`: `conteo-conceptos.js` (contaba conceptos
+  en los guiones), `frases-concepto.js`, `ranura-narracion.js`,
+  `dibujo-parrafo.js` (el repartidor que leía `build-timeline.js`),
+  `vocabulario.js`, `recortar-imagen.js` y `revisar-imagen.js` (la puerta de
+  los PNG).
+- `contenido/config/ranura-narracion.json` y `contenido/config/tablero-dibujos.json`,
+  a `archivo/contenido-config/`: los escribía la cadena y solo los leía el
+  taller.
+- `scripts/build-timeline.js` ya no requiere el repartidor ni lee
+  `DIBUJOS_PARRAFO`. `scripts/parse.js` sigue tragándose la marca
+  `[SIN DIBUJO]` para que la voz no la lea si un guion la trae.
+- Lo que NO se movió: `src/fondo-biblioteca.tsx` y el camino que pinta
+  `ev.imagen` en `src/tarjetas.tsx` y `src/Informe.tsx`. Son parte del render
+  de producción (los importa `tarjetas.tsx`) aunque ya nadie les mande una
+  imagen; sacarlos toca el render y queda como trabajo aparte.
+
+La interfaz del taller de configuración (28-09 a 05-10), a
+`archivo/taller-configuracion/`. Su propio README decía que no mandaba sobre
+el render; el código sigue leyendo `contenido/config/`:
+
+- `taller/taller.html`, `taller/tarjetas.html`, `taller/menu.js`,
+  `taller/datos.js`, `taller/conceptos.js`, `taller/README.md` y
+  `taller/medios/` (21 MB de clips y fotogramas de muestra).
+- `taller/PARAMETROS.md` NO se movió: es el inventario de qué debe ser
+  configurable y lo cita `bitacora/PENDIENTES.md`.
+- `scripts/datos-taller.js` (copiaba `contenido/config/` al taller) y
+  `scripts/vistas-taller.js` (rendía las vistas previas), a `archivo/scripts/`.
+- El taller de voz: `scripts/taller-voz.js`, `taller-voz-lista.js`,
+  `taller-voz-neutras.js` y `.github/workflows/taller-voz.yml` (a
+  `archivo/workflows/`, deja de aparecer en Actions), con lo que produjeron,
+  `contenido/taller/voz/` (18 MB de mp3), a `archivo/contenido-taller/`. La voz
+  se eligió: Azure es-CL Lorenzo (`scripts/tts-azure.js`).
+- Los talleres de sonido: `scripts/taller-notas.js`, `taller-sonido.js`,
+  `taller-tension.js` y `demo-piano.js`, a `archivo/scripts/`. Generaban
+  candidatos para escuchar y elegir; lo elegido vive en `scripts/sonido.js` y
+  `scripts/motor-sonido.js`. Sus `require("./motor-sonido")` ya no resuelven
+  desde `archivo/scripts/`: para volver a correrlos hay que devolverlos a
+  `scripts/`.
+- `scripts/taller.js` (el Taller de control, `bitacora/taller.html`) se QUEDA:
+  no tenía módulos que apuntaran a nada de lo retirado.

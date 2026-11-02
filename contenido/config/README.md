@@ -57,8 +57,8 @@ código para que ese estilo existiera.
 
 ## Las vistas previas
 
-El taller muestra cómo se ve cada pieza, y esas imágenes las rinde
-`scripts/vistas-taller.js` con el MISMO motor que produce el video. Una vista
-previa dibujada a mano miente desde el primer cambio de diseño; ésta se rehace
-con un comando. Subirlas al taller y anotarlas en su base lo hace la sesión de
-día.
+El taller mostraba cómo se veía cada pieza con imágenes rendidas por
+`archivo/scripts/vistas-taller.js`, con el MISMO motor que produce el video.
+La pantalla del taller y ese script se retiraron el 01-11-2026 a `archivo/`
+(la página, en `archivo/taller-configuracion/`): si vuelve a hacer falta una
+vista previa, se rehace desde ahí con un comando y no dibujada a mano.

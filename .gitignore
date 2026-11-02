@@ -16,7 +16,8 @@ public/caratulas/
 
 # copias de trabajo de las imágenes de sección (el original vive en
 # contenido/secciones/; acá solo se copia para que Remotion las sirva).
-# Para rearmarlas, ver la cabecera de src/taller-secciones.tsx.
+# Para rearmarlas, ver la cabecera de archivo/src/taller-secciones.tsx (banco
+# retirado el 01-11-2026; los cp de su cabecera siguen valiendo).
 public/secciones/
 
 # lo mismo para el video de prueba (scripts/prueba-video.js): las imágenes y
@@ -29,8 +30,8 @@ public/caratulas-prueba/
 taller-*.mp4
 .claude/worktrees/
 
-# lo mismo para la biblioteca de conceptos: el original vive en
-# contenido/biblioteca/, y acá solo se copia lo que una muestra necesita
-# servir. Se rearma copiando desde contenido/biblioteca/<estilo>/
+# lo mismo para la biblioteca de conceptos (archivada el 01-11-2026): el
+# original vive en archivo/contenido-biblioteca/, y acá solo se copiaba lo que
+# una muestra necesitaba servir. Se queda ignorada por si alguien la rearma.
 public/biblioteca/
 public/sonidos/cama-clave.wav

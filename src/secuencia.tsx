@@ -4,7 +4,7 @@
 // imagen de sección tarjeta por tarjeta, y Santiago lo devolvió: "el video no
 // salió como lo habíamos trabajado. La imagen de la sección debe quedar
 // durante TODA la sección, se oscurece la imagen y el texto va encima". Lo
-// aprobado estaba dictado en src/taller-secuencia.tsx y en
+// aprobado estaba dictado en archivo/src/taller-secuencia.tsx y en
 // bitacora/taller/VISUAL.md (3b), y esto es ESO, portado tal cual al informe
 // que arma el pipeline, no una versión nueva.
 //
@@ -14,7 +14,8 @@
 // pide paciencia a alguien que todavía no tiene motivos para dártela) → y
 // recién ahí el recorrido sección por sección.
 //
-// El bloque (taller-secuencia, corregido con los reparos de Santiago):
+// El bloque (el del banco archivo/src/taller-secuencia.tsx, corregido con los
+// reparos de Santiago):
 //   sin cabecera →  aparece directamente oscuro y entra el texto
 //   con cabecera →  aparece al 50% de oscurecido, se muestra el título, el
 //                   barrido sigue hasta el 100% y recién ahí entran los textos
