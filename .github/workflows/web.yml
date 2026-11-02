@@ -1,8 +1,17 @@
 name: Web
 
-# Publica el sitio (web/, Astro) en el repo público entender-chile-web
-# (GitHub Pages). Se dispara solo cuando cambia el contenido publicable o
-# el sitio: la edición de las 4:00 actualiza la web en minutos.
+# Publica el sitio (web/, Astro) en dos casas. La principal, desde el
+# 01-11-2026, es https://entender.sinodev.cl (Cloudflare Pages, proyecto
+# entender-chile). La vieja, el repo público entender-chile-web en GitHub
+# Pages, sigue publicándose porque Spotify lee el feed del podcast desde ahí
+# hasta que se redirija.
+# Se dispara solo cuando cambia el contenido publicable o el sitio: la edición
+# de las 4:00 actualiza la web en minutos.
+# Por qué Cloudflare se sube desde acá y no con su propia integración de Git:
+# esa integración construía con CADA push a main, y a main llegan 60 a 80
+# pushes diarios de los bots; eran unos 2.000 builds al mes contra 500 del
+# plan gratuito (más de 1.100 despliegues en el primer día). Se apagó en el
+# proyecto Pages y este workflow, que ya filtra por rutas, sube el resultado.
 on:
   push:
     branches: [main]
@@ -16,7 +25,6 @@ on:
       - "contenido/casos/**"
       - "contenido/videos/**"
       - "contenido/podcast/**"
-      - "web/**"
       - "web/**"
       - ".github/workflows/web.yml"
   workflow_dispatch:
@@ -62,3 +70,26 @@ jobs:
           user_name: edicion-bot
           user_email: bot@users.noreply.github.com
           commit_message: "web: ${{ github.sha }}"
+
+      # La copia de GitHub Pages va en la subruta /entender-chile-web/; la de
+      # Cloudflare va en la raíz del dominio propio, así que se compila de nuevo
+      # con otra base (los enlaces internos llevan la base escrita).
+      - name: Compilar para entender.sinodev.cl
+        working-directory: web
+        env:
+          WEB_SITE: https://entender.sinodev.cl
+          WEB_BASE: /
+        run: rm -rf dist && npm run build
+
+      # Sin los secrets el paso avisa y sale bien: así el workflow no se pone
+      # rojo mientras Santiago los crea, y la copia de GitHub Pages ya salió.
+      - name: Publicar en Cloudflare Pages (entender.sinodev.cl)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::warning title=Cloudflare Pages sin publicar::Faltan los secrets CLOUDFLARE_API_TOKEN y/o CLOUDFLARE_ACCOUNT_ID; entender.sinodev.cl no se actualizó en esta corrida (GitHub Pages sí)."
+            exit 0
+          fi
+          npx --yes wrangler@4.151.1 pages deploy web/dist --project-name entender-chile --branch main --commit-hash "${{ github.sha }}" --commit-message "web: ${{ github.sha }}"

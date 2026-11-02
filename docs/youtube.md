@@ -15,8 +15,8 @@ llegan **privadas** y se publican a mano hasta que se decida lo contrario.
    - Nombre: `Entender Chile`. Handle: `@entenderchile` (o la variante libre).
    - Descripción: el texto de `estrategia/identidad.md` → "Descripción del
      canal". Al pegarlo, el mismo texto va después en las bios de redes.
-   - Enlaces: el sitio (cuando exista entenderchile.cl; mientras, la URL de
-     GitHub Pages). Correo de contacto: uno que no sea el personal.
+   - Enlaces: el sitio, https://entender.sinodev.cl (desde el
+     01-11-2026; antes, la URL de GitHub Pages). Correo de contacto: uno que no sea el personal.
    - País: Chile. Idioma: español.
 3. **Configuración → Canal → Configuración avanzada**: "¿Este canal está
    creado para niños?" → **No** (se decide a nivel de canal, si no YouTube lo
@@ -143,7 +143,8 @@ Project ID **entender-chile** · Cliente OAuth **workflow-entender-chile**
 2. **Contacto y organización**: nombre Santiago Inostroza; correo
    entenderchile@gmail.com; organización "Entender Chile" (creador
    individual / individual developer); país Chile; sitio
-   https://sinostrozadev.github.io/entender-chile-web/.
+   https://entender.sinodev.cl/ (hasta el 01-11-2026,
+   https://sinostrozadev.github.io/entender-chile-web/).
 3. **Modelo de negocio y contactos de Google**: "Independent news channel;
    revenue model is future YouTube Partner Program monetization of our own
    channel. No Google contacts." (Sin contactos en Google: No.)
@@ -164,7 +165,7 @@ Project ID **entender-chile** · Cliente OAuth **workflow-entender-chile**
 6. **Pruebas y documentación**: capturas de (a) YouTube Studio con los
    videos subidos en privado por la API, (b) el log del workflow en GitHub
    Actions mostrando la subida, (c) la página de privacidad
-   https://sinostrozadev.github.io/entender-chile-web/privacidad/.
+   https://entender.sinodev.cl/privacidad/.
 7. **Certificaciones**: marcar el cumplimiento de las políticas y Enviar.
    Responden al correo del desarrollador; si repreguntan, pasarle la
    pregunta a Claude para armar la respuesta.

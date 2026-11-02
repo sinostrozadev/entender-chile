@@ -150,3 +150,10 @@ un backlog compite por la atención con las que faltan:
 - `ideas/voz-opciones.md` - la comparación de proveedores de voz. La cerró
   `scripts/tts-azure.js`: Azure es-CL Lorenzo al 90% de velocidad, con el
   recurso S0 como respaldo cuando se agota el F0 gratis.
+
+## Selector de diseño de la web (01-11-2026)
+
+- `web/selector-diseno.txt`: los scripts, los botones y el CSS que dejaban
+  elegir entre el diseño 1 (revista) y el 2 (diario) con `?diseno=` y
+  localStorage. Santiago fijó el 2 como único; hoy vive en
+  `web/src/styles/diseno2.css`, aplicado siempre.

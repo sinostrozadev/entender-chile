@@ -40,7 +40,7 @@ const descripcion = fs.existsSync(rutaDesc)
 
 const gh = (extra) => execFileSync("gh", extra, { stdio: ["ignore", "pipe", "pipe"] }).toString();
 try { gh(["release", "view", TAG, "-R", REPO, "--json", "name"]); }
-catch { gh(["release", "create", TAG, "-R", REPO, "--title", "Audio del informe diario", "--notes", "Los episodios del podcast Entender Chile. El feed: https://sinostrozadev.github.io/entender-chile-web/podcast.xml"]); }
+catch { gh(["release", "create", TAG, "-R", REPO, "--title", "Audio del informe diario", "--notes", "Los episodios del podcast Entender Chile. El feed: https://entender.sinodev.cl/podcast.xml"]); }
 gh(["release", "upload", TAG, mp3, "-R", REPO, "--clobber"]);
 const url = `https://github.com/${REPO}/releases/download/${TAG}/${fecha}-${etiqueta}.mp3`;
 console.log(`mp3 subido: ${url} (${(bytes / 1e6).toFixed(1)} MB, ~${Math.round(durSeg / 60)} min)`);

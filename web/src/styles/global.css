@@ -163,12 +163,10 @@ body { overflow-x: hidden; }
 .aviso-legal { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--linea); font-size: 0.85rem; color: var(--gris); max-width: var(--ancho); }
 .hito { background: var(--papel-elevado); border-left: 4px solid var(--patina); padding: 0.8rem 1rem; font-size: 0.95rem; max-width: var(--ancho); margin: 0 0 1.5rem; }
 
-/* La cabecera debe poder envolverse: con el selector de diseño la barra ya no
-   cabe en pantallas angostas y empujaba el ancho del documento. */
+/* La cabecera debe poder envolverse: en pantallas angostas la barra no cabe
+   y empujaba el ancho del documento. */
 .cab nav { flex-wrap: wrap; row-gap: 0.45rem; justify-content: flex-end; }
-.selector-diseno { margin-left: auto; }
 @media (max-width: 620px) {
-  .selector-diseno span { display: none; }   /* la palabra "Diseño" sobra en móvil */
   .cab nav { gap: 0.9rem; }
 }
 
@@ -323,7 +321,6 @@ article.pieza-cat .video, article.pieza-cat .salir, article.pieza-cat .nav-dias 
   .cab nav { grid-area: nav; flex-wrap: nowrap; justify-content: flex-end; align-items: center; gap: 1.1rem; margin: 0; white-space: nowrap; }
   .cab nav .suscribe { padding: 0.3rem 0.7rem; font-size: 0.88rem; }
   .cab nav .suscribe + .suscribe { margin-left: -0.4rem; }
-  .selector-diseno { margin-left: 0.4rem; }
 }
 /* "Lo que importa hoy" en la portada: una tira de titulares numerados, sans y
    pequeña, para que no compita con la frase grande de "En una mirada" */

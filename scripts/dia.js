@@ -227,7 +227,7 @@ const parsed = JSON.parse(fs.readFileSync(path.join(OUT, "parsed.json"), "utf8")
 // frase apuntaría a nada. Va ANTES de "Capítulos:" porque podcast-subir.js
 // corta ahí y el episodio también tiene que llevarlo. La URL es la misma que
 // usa el feed del podcast (scripts/podcast-subir.js) y la web (web.yml).
-const WEB = (process.env.WEB_URL || "https://sinostrozadev.github.io/entender-chile-web").replace(/\/$/, "");
+const WEB = (process.env.WEB_URL || "https://entender.sinodev.cl").replace(/\/$/, "");
 const enlaceInforme = esClave ? [] : ["", `El informe completo de hoy, con todas las noticias del día: ${WEB}/informes/${fecha}/`];
 const descripcion = [parsed.descripcion || "", ...enlaceInforme, "", "Capítulos:", capitulos.trim(), "",
   "Fuentes de esta edición:", ...(parsed.fuentes || [])].join("\n");

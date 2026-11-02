@@ -1,5 +1,8 @@
 // Feed RSS del podcast (el informe diario en audio). Spotify, Apple y el
-// resto lo leen solos desde https://sinostrozadev.github.io/entender-chile-web/podcast.xml
+// resto lo leen solos. Desde el 01-11-2026 la casa del sitio es
+// https://entender.sinodev.cl/podcast.xml; Spotify lo tiene registrado en la
+// dirección vieja de GitHub Pages, que se sigue publicando con el mismo
+// contenido hasta que se redirija (PENDIENTES), así que no se corta nada.
 // Los episodios los anota scripts/podcast-subir.js en contenido/podcast/episodios.json;
 // los mp3 viven como release "audio" del repo público de la web.
 import fs from "node:fs";
@@ -12,7 +15,7 @@ const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replac
 export const GET: APIRoute = () => {
   const ruta = path.resolve(process.cwd(), "..", "contenido", "podcast", "episodios.json");
   const eps: Episodio[] = fs.existsSync(ruta) ? JSON.parse(fs.readFileSync(ruta, "utf8")) : [];
-  const sitio = "https://sinostrozadev.github.io/entender-chile-web";
+  const sitio = "https://entender.sinodev.cl";
   const items = eps.slice().sort((a, b) => (a.fecha < b.fecha ? 1 : -1)).map((e) => `
   <item>
     <title>${esc(e.titulo)}</title>

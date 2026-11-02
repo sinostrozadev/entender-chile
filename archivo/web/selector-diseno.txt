@@ -1,0 +1,101 @@
+Selector de diseño de la web (retirado el 01-11-2026)
+======================================================
+
+Santiago fijó el diseño 2 (diario) como único. Esto es lo que permitía elegir
+entre el 1 (revista) y el 2 con ?diseno= y localStorage. Vivía en
+web/src/layouts/Base.astro y web/src/styles/global.css. Para volver a tener
+dos diseños, diseno2.css tendría que volver a ir bajo [data-diseno="2"].
+
+--- Base.astro, en <head>: aplicaba el diseño antes de pintar ---
+    <script is:inline>
+      // Diseño elegido por el visitante (1 revista, 2 diario). Se aplica antes
+      // de pintar para que no haya parpadeo. ?diseno=2 en la URL lo fija (sirve
+      // para compartir un enlace "míralo en el diseño 2").
+      (function () {
+        try {
+          var q = (location.search.match(/[?&]diseno=([12])/) || [])[1];
+          if (q) localStorage.setItem("ec-diseno", q);
+          var d = q || localStorage.getItem("ec-diseno");
+          if (d === "2") document.documentElement.setAttribute("data-diseno", "2");
+        } catch (e) {}
+      })();
+    </script>
+
+--- Base.astro, al final de <nav> de la cabecera: los botones ---
+        <span class="selector-diseno" role="group" aria-label="Elegir diseño">
+          <span>Diseño</span>
+          <button type="button" data-d="1" aria-pressed="true" title="Revista">1</button>
+          <button type="button" data-d="2" aria-pressed="false" title="Diario">2</button>
+        </span>
+
+--- Base.astro, al final de <body>: el selector ---
+    <script is:inline>
+      // Selector de diseño: aplica, recuerda y marca el botón activo.
+      (function () {
+        var raiz = document.documentElement;
+        var botones = document.querySelectorAll(".selector-diseno button");
+        function pintar(d) {
+          botones.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.d === d)); });
+        }
+        var actual = raiz.getAttribute("data-diseno") || "1";
+        pintar(actual);
+        botones.forEach(function (b) {
+          b.addEventListener("click", function () {
+            var d = b.dataset.d;
+            if (d === "1") raiz.removeAttribute("data-diseno");
+            else raiz.setAttribute("data-diseno", d);
+            try { localStorage.setItem("ec-diseno", d); } catch (e) {}
+            pintar(d);
+          });
+        });
+      })();
+    </script>
+
+--- global.css, reglas del selector ---
+/* La cabecera debe poder envolverse: con el selector de diseño la barra ya no
+   cabe en pantallas angostas y empujaba el ancho del documento. */
+.cab nav { flex-wrap: wrap; row-gap: 0.45rem; justify-content: flex-end; }
+.selector-diseno { margin-left: auto; }
+@media (max-width: 620px) {
+  .selector-diseno span { display: none; }   /* la palabra "Diseño" sobra en móvil */
+  .cab nav { gap: 0.9rem; }
+}
+
+(y dentro del @media de escritorio)
+  .selector-diseno { margin-left: 0.4rem; }
+
+--- diseno2.css, estilo del selector en el diseño 2 ---
+:root .selector-diseno { margin-left: 0.75rem; border-radius: 0; }
+
+/* ---------- selector de diseño ---------- */
+.selector-diseno {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--linea);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-left: 1rem;
+  vertical-align: middle;
+}
+.selector-diseno span {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gris);
+  padding: 0 0.5rem 0 0.6rem;
+}
+.selector-diseno button {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  line-height: 1;
+  padding: 0.35rem 0.6rem;
+  border: 0;
+  background: transparent;
+  color: var(--gris);
+  cursor: pointer;
+}
+.selector-diseno button:hover { color: var(--tinta); }
+.selector-diseno button[aria-pressed="true"] { background: var(--tinta); color: var(--papel); }
+

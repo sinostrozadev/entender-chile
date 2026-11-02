@@ -13,19 +13,6 @@ const hoy = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Santiago", yea
 <!doctype html>
 <html lang="es">
   <head>
-    <script is:inline>
-      // Diseño elegido por el visitante (1 revista, 2 diario). Se aplica antes
-      // de pintar para que no haya parpadeo. ?diseno=2 en la URL lo fija (sirve
-      // para compartir un enlace "míralo en el diseño 2").
-      (function () {
-        try {
-          var q = (location.search.match(/[?&]diseno=([12])/) || [])[1];
-          if (q) localStorage.setItem("ec-diseno", q);
-          var d = q || localStorage.getItem("ec-diseno");
-          if (d === "2") document.documentElement.setAttribute("data-diseno", "2");
-        } catch (e) {}
-      })();
-    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{t}</title>
@@ -50,11 +37,6 @@ const hoy = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Santiago", yea
         <a href={url("acerca/")} aria-current={actual === "acerca" ? "page" : undefined}>Acerca</a>
         {canal.youtube && <a class="suscribe" href={canal.youtube} rel="noopener">Suscríbete</a>}
         {canal.spotify && <a class="suscribe" href={canal.spotify} rel="noopener">Podcast</a>}
-        <span class="selector-diseno" role="group" aria-label="Elegir diseño">
-          <span>Diseño</span>
-          <button type="button" data-d="1" aria-pressed="true" title="Revista">1</button>
-          <button type="button" data-d="2" aria-pressed="false" title="Diario">2</button>
-        </span>
       </nav>
     </header>
     <nav class="nav-cat" aria-label="Categorías">
@@ -63,27 +45,6 @@ const hoy = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Santiago", yea
       ))}
     </nav>
     <main><slot /></main>
-    <script is:inline>
-      // Selector de diseño: aplica, recuerda y marca el botón activo.
-      (function () {
-        var raiz = document.documentElement;
-        var botones = document.querySelectorAll(".selector-diseno button");
-        function pintar(d) {
-          botones.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.d === d)); });
-        }
-        var actual = raiz.getAttribute("data-diseno") || "1";
-        pintar(actual);
-        botones.forEach(function (b) {
-          b.addEventListener("click", function () {
-            var d = b.dataset.d;
-            if (d === "1") raiz.removeAttribute("data-diseno");
-            else raiz.setAttribute("data-diseno", d);
-            try { localStorage.setItem("ec-diseno", d); } catch (e) {}
-            pintar(d);
-          });
-        });
-      })();
-    </script>
     <script is:inline>
       // "Para salir hoy" solo tiene sentido la mañana del mismo día (hora de Chile).
       (function () {
