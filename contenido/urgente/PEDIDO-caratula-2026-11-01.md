@@ -1,24 +1,29 @@
-# PEDIDO · carátula del informe del 01-11-2026
+# PEDIDO · carátula del informe del 01-11-2026, HECHA DE NUEVO
 Tarea: imagen
 Salida: contenido/caratulas/2026-11-01.png
 Prompt: va completo más abajo, en este mismo archivo
-Pedido por: estado.yml, porque el turno del guion terminó sin dejar la imagen.
+Pedido por: Santiago, 01-11-2026 ("los 2 últimos informes salieron mal las carátulas. Mándalas a hacer de nuevo").
 
-Este es el REINTENTO automático, en una ejecución nueva. Si en el turno
-anterior anotaste que no podías subir un binario, compruébalo de nuevo antes
-de repetirlo: el 27-09-2026 esa conclusión resultó equivocada y la imagen
-subió sin problema al segundo intento.
+POR QUÉ SE REPITE: la imagen que llegó el 01-11-2026 llegó CORTADA: 786.445 bytes, sin el bloque IEND de cierre, y solo se ve la franja de arriba; el resto salió negro en YouTube. Es lo mismo que pasó el 28-09-2026.
+El archivo malo ya se sacó del repo, así que el pedido está abierto.
 
 QUÉ TIENES QUE HACER, y nada más que esto:
 1. Copia el bloque de abajo TAL CUAL al generador de imágenes. Ya viene con
    los tres datos del día pegados. No lo reescribas, no lo resumas y no le
-   agregues nada tuyo.
+   agregues nada tuyo. El GANCHO va EXACTO como está abajo: la vez anterior
+   se cambiaron palabras.
 2. NO abras ningún otro archivo de prompts. Lo que necesitas está acá.
-3. Deja la imagen en contenido/caratulas/2026-11-01.png (o .jpg), rama main.
-4. Deja el prompt que usaste en contenido/caratulas/2026-11-01-prompt.txt, tal como lo mandaste.
-5. Si no pudiste, no te quedes en silencio: escribe
+3. Deja la imagen en contenido/caratulas/2026-11-01.png, rama main, como PNG VÁLIDO, en formato 16:9
+   HORIZONTAL (por ejemplo 1920x1080 o 1672x941). Súbela como binario (blob),
+   nunca como texto.
+4. COMPRUEBA QUE LLEGÓ ENTERA (paso 3 bis de prompts/imagen-caratula.md):
+   lee el archivo de vuelta desde main y confirma que el TAMAÑO EN BYTES es
+   el mismo que el de la imagen que generaste, que EMPIEZA con la firma PNG
+   (89 50 4E 47) y que TERMINA con el bloque IEND. Si no calza, súbela de
+   nuevo, hasta tres veces.
+5. Deja el prompt que usaste en contenido/caratulas/2026-11-01-prompt.txt, tal como lo mandaste.
+6. Si no pudiste, no te quedes en silencio: escribe
    contenido/caratulas/2026-11-01-NO-PUDE.md diciendo QUÉ falló, con el mensaje de error textual.
-   Una causa sin mensaje de error no es una causa.
 
 ----- EL PROMPT, DESDE ACÁ HASTA EL FINAL DEL ARCHIVO -----
 
