@@ -46,7 +46,54 @@ const entera = (ruta) => {
   } catch { return false; }
 };
 
-module.exports = { entera };
+// ¿Sirve como carátula del informe? (01-11-2026). entera() deja pasar lo que
+// no reconoce ("otro formato: no sabemos"), y eso dejó pasar el 31-10 un
+// archivo .png de 2 MB que no era una imagen: sin firma PNG, bytes al azar. El
+// render de la miniatura falló y el release salió sin miniatura.png. Y el
+// 01-11 llegó un PNG truncado en 786.445 bytes (lo mismo que el 28-09), que
+// miniaturas.js no revisaba: YouTube recibió una franja de ilustración arriba
+// y el resto negro. Para una carátula la regla es más estricta que entera():
+// tiene que ser PNG, JPEG o WebP reconocible, completa y horizontal 16:9 (con
+// 2 % de tolerancia), porque MiniaturaV5 la estira a 1280x720 y otra
+// proporción la deforma o la recorta. Devuelve el motivo para el log.
+const dimensiones = (b) => {
+  if (b.slice(0, 8).toString("hex") === "89504e470d0a1a0a") return { formato: "png", ancho: b.readUInt32BE(16), alto: b.readUInt32BE(20) };
+  if (b[0] === 0xFF && b[1] === 0xD8) {
+    let i = 2;
+    while (i + 9 < b.length) {
+      if (b[i] !== 0xFF) { i++; continue; }
+      const m = b[i + 1];
+      // SOF0 a SOF15, salvo DHT (C4), JPG (C8) y DAC (CC): ahí vienen alto y ancho
+      if (m >= 0xC0 && m <= 0xCF && ![0xC4, 0xC8, 0xCC].includes(m)) return { formato: "jpeg", alto: b.readUInt16BE(i + 5), ancho: b.readUInt16BE(i + 7) };
+      if (m === 0xD8 || m === 0x01 || (m >= 0xD0 && m <= 0xD7)) { i += 2; continue; }
+      i += 2 + b.readUInt16BE(i + 2);
+    }
+    return { formato: "jpeg", ancho: 0, alto: 0 };
+  }
+  if (b.slice(0, 4).toString("ascii") === "RIFF" && b.slice(8, 12).toString("ascii") === "WEBP") {
+    const tipo = b.slice(12, 16).toString("ascii");
+    if (tipo === "VP8X") return { formato: "webp", ancho: 1 + b.readUIntLE(24, 3), alto: 1 + b.readUIntLE(27, 3) };
+    if (tipo === "VP8 ") return { formato: "webp", ancho: b.readUInt16LE(26) & 0x3FFF, alto: b.readUInt16LE(28) & 0x3FFF };
+    if (tipo === "VP8L") { const v = b.readUInt32LE(21); return { formato: "webp", ancho: 1 + (v & 0x3FFF), alto: 1 + ((v >> 14) & 0x3FFF) }; }
+  }
+  return null;
+};
+
+const caratulaUsable = (ruta) => {
+  try {
+    if (!ruta || !fs.existsSync(ruta)) return { ok: false, motivo: "no existe" };
+    const b = fs.readFileSync(ruta);
+    const d = b.length >= 32 ? dimensiones(b) : null;
+    if (!d) return { ok: false, motivo: "no es una imagen PNG, JPEG ni WebP (la cabecera no calza)" };
+    if (!entera(ruta)) return { ok: false, motivo: `${d.formato.toUpperCase()} incompleto (truncado, sin su cierre)` };
+    if (!d.ancho || !d.alto) return { ok: false, motivo: "no se pudo leer su tamaño" };
+    const r = d.ancho / d.alto;
+    if (Math.abs(r / (16 / 9) - 1) > 0.02) return { ok: false, motivo: `${d.ancho}x${d.alto} no es 16:9 (proporción ${r.toFixed(3)})` };
+    return { ok: true, motivo: `${d.formato.toUpperCase()} ${d.ancho}x${d.alto}` };
+  } catch (e) { return { ok: false, motivo: e.message }; }
+};
+
+module.exports = { entera, caratulaUsable };
 
 if (require.main === module) {
   const rutas = process.argv.slice(2);

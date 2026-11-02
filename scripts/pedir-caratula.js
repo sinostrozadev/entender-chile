@@ -52,7 +52,7 @@
  */
 const fs = require("fs");
 const path = require("path");
-const { entera } = require("./imagen-entera.js");
+const { caratulaUsable } = require("./imagen-entera.js");
 
 const FECHA = process.env.FECHA_EDICION || new Intl.DateTimeFormat("en-CA", {
   timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit",
@@ -74,7 +74,10 @@ if (!fs.existsSync(guion)) fin(`sin guion del informe de ${FECHA}: no hay nada q
 // (28-09-2026). Asi el reintento cubre tambien el caso en que el archivo llego
 // pero llego truncado, que es lo que paso ese dia y salio al aire.
 const yaEsta = ["png", "jpg", "jpeg", "webp"]
-  .map((e) => path.join("contenido", "caratulas", `${FECHA}.${e}`)).find((p) => entera(p));
+  .map((e) => path.join("contenido", "caratulas", `${FECHA}.${e}`)).find((p) => caratulaUsable(p).ok);
+// caratulaUsable y no entera (01-11-2026): entera() da por buena una cabecera
+// que no reconoce, y el 31-10 (y el 24-10) un .png de bytes al azar pasó por
+// carátula presente, así que este reintento nunca se abrió.
 if (yaEsta) fin(`la carátula de ${FECHA} ya está en ${yaEsta}: sin pedido.`);
 
 if (fs.existsSync(pedido)) fin(`el pedido de la carátula de ${FECHA} ya está abierto: no se repite.`);

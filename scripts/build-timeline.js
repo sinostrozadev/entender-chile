@@ -9,7 +9,7 @@ const fs = require("fs");
 const path = require("path");
 const { copiarSecciones, imagenDe, carpetaPublica } = require("./imagenes-secciones.js");
 const { repartidor } = require("./dibujo-parrafo.js");
-const { entera } = require("./imagen-entera.js");
+const { entera, caratulaUsable } = require("./imagen-entera.js");
 const { bloquesDe } = require("./texto-bloques.js");
 
 const [, , parsedPath, alignPath, salida = "out/timeline.json", audioFile = null] = process.argv;
@@ -403,8 +403,10 @@ if (SECUENCIA === "2409") {
       // (28-09-2026, ver scripts/imagen-entera.js): el 28 la caratula llego
       // truncada al cuarto de su alto, Chromium pinto lo que pudo y eso salio
       // en la portada del video y en la miniatura, a YouTube.
-      if (fs.existsSync(orig) && !entera(orig)) {
-        console.warn(`portada: ${orig} esta ROTA (archivo incompleto): la edicion sigue sin ilustracion.`);
+      // Desde el 01-11-2026 con caratulaUsable: el 31-10 un .png que no era
+      // imagen pasaba entera() porque esa funcion deja pasar lo que no conoce.
+      if (fs.existsSync(orig) && !caratulaUsable(orig).ok) {
+        console.warn(`portada: ${orig} esta ROTA (${caratulaUsable(orig).motivo}): la edicion sigue sin ilustracion.`);
         continue;
       }
       if (fs.existsSync(orig)) {

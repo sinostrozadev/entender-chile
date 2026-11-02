@@ -85,7 +85,11 @@ const diaChile = (iso) => new Intl.DateTimeFormat("en-CA", {
     console.log(`Video encontrado: ${videoId} (${candidatos[0].titulo})`);
   }
 
-  await yt.thumbnails.set({ videoId, media: { mimeType: "image/png", body: fs.createReadStream(imagen) } });
+  // el tipo sale de la extensión (01-11-2026): estaba fijo en image/png y las
+  // carátulas también llegan como .jpg; declarar un JPEG como PNG es pedirle a
+  // YouTube que lo rechace o lo interprete mal.
+  const mimeType = /\.jpe?g$/i.test(imagen) ? "image/jpeg" : "image/png";
+  await yt.thumbnails.set({ videoId, media: { mimeType, body: fs.createReadStream(imagen) } });
   console.log(`Carátula cambiada: https://youtu.be/${videoId} ← ${imagen}`);
 })().catch((e) => {
   console.error("Error al cambiar la carátula:", e.response?.data?.error?.message || e.message);

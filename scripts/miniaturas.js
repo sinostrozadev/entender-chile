@@ -12,7 +12,7 @@
 const { execFileSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
-const { entera } = require("./imagen-entera.js");
+const { entera, caratulaUsable } = require("./imagen-entera.js");
 
 // Miniatura (1280x720, src/marca.tsx): la cifra principal del día + el título.
 // Cifra = el primer [DATO] que eligió el guion (no los automáticos). No bloquea.
@@ -207,6 +207,13 @@ const miniaturas = ({ parsed, fecha, esClave = false, OUT, guion = null }) => {
     let imagenGpt = null;
     for (const orig of candidatas) {
       if (fs.existsSync(orig)) {
+        // UNA ILUSTRACIÓN ROTA ES UNA ILUSTRACIÓN QUE NO ESTÁ (01-11-2026). Acá
+        // no se miraba el archivo: el 31-10 llegó un .png que no era imagen y
+        // el release salió sin miniatura.png, y el 01-11 uno truncado que subió
+        // a YouTube como una franja arriba y el resto negro. Si no sirve, aviso
+        // y se sigue buscando; sin ninguna, sale el pictograma de respaldo (V4).
+        const u = caratulaUsable(orig);
+        if (!u.ok) { console.warn(`Carátula: ${orig} NO SIRVE (${u.motivo}): se trata como ausente.`); continue; }
         const destino = path.join("public", carpeta, path.basename(orig));
         fs.mkdirSync(path.dirname(destino), { recursive: true });
         fs.copyFileSync(orig, destino);
