@@ -32,6 +32,10 @@ aquí queda descartado:
 5. **Sin gastos nuevos**: ni ElevenLabs ni clips generativos. La biblioteca de
    dibujos, `guardian.md` y la interfaz `taller/` se archivan.
 
+6. **El largo por tema se llama "Entender el caso"** y su piloto es la rebaja de
+   condenas de Rabat y Silva (noticias del diario desde el 24-10-2026); diseño
+   en `bitacora/2026-11-01-analisis-y-plan.md`, sección 6.
+
 **En construcción** (el día propone con alcance, Santiago aprueba): el largo
 por tema, el podcast que lee el diario escrito, el Short del día todos los
 días y la hora de las 19:00 para el largo.
@@ -40,6 +44,7 @@ días y la hora de las 19:00 para el largo.
 
 ## DEPENDEN DE SANTIAGO
 
+- [ ] **01-11: borrar en GitHub los secrets `ELEVENLABS_API_KEY` y `VOICE_ID`** (ya sin uso; Santiago dio el sí, pero la sesión de la noche no puede tocar secrets desde el entorno: se borran en Settings, Secrets and variables, Actions, icono de la papelera)
 - [ ] **Redirigir la copia vieja de GitHub Pages (repo `entender-chile-web`) a
       https://entender.sinodev.cl y apagar esa publicación**, cuando el dominio
       lleve una semana estable. Ojo: Spotify tiene registrado el feed en la

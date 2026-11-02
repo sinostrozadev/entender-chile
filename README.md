@@ -112,7 +112,7 @@ por tarea: el estado dice de quién es el turno.
 
 ## Antes de publicar (el gate humano)
 
-La máquina produce, una persona aprueba (regla 19). Las subidas llegan
+La máquina sube programado y la ventana es la revisión (regla 19). Las subidas llegan
 **privadas y programadas** a su hora (`publishAt`, `edicion-diaria.yml`): si
 Santiago no las detiene en Studio, salen solas. Antes de esa hora: escuchar el
 audio completo, revisar el guion contra el informe (cifras, fechas,

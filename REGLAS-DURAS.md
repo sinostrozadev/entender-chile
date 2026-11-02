@@ -20,6 +20,9 @@ la del workflow (disputa 8) y la regla 27 duplicada de la sección D pasa a
 ser la 26b, para no correr la numeración que citan el código y los prompts.
 Son 42 reglas numeradas más la 26b y la 38b.
 
+Versión 3: 01-11-2026, noche: la regla 19 pasa de "el clic de publicación es
+de Santiago" a "la máquina sube programado y la ventana es la revisión".
+
 ---
 
 ## A. A quién le debemos lealtad
@@ -108,10 +111,16 @@ Son 42 reglas numeradas más la 26b y la 38b.
 
 ## D. Cómo se produce
 
-19. **La máquina produce, una persona aprueba.** Toda pieza sube en
-    privado y el clic de publicación es de Santiago. Escuchar el audio
-    completo antes de publicar no se automatiza nunca. (decisión 30-08;
-    README)
+19. **La máquina sube programado y la ventana es la revisión.** Desde el
+    01-11-2026 la máquina sube cada pieza programada a su hora (informe
+    06:30, Short 12:00, largo por tema 19:00, exprés a 5 minutos) y la
+    publicación ocurre sola. La ventana entre la subida y la hora es la
+    revisión de Santiago, que puede frenar la pieza o cambiarle la hora desde
+    Studio. Nada se sube público de inmediato. Historia: la regla original
+    decía "la máquina produce, una persona aprueba: la pieza sube en privado
+    y el clic de publicación es suyo" (decisión 30-08); Santiago la cambió la
+    noche del 01-11-2026: "no publico yo, tú publicas: subes programado".
+    (decisión 01-11; README)
 20. **El repositorio es la única memoria y `prompts/` la única fuente de
     verdad de los prompts.** Nada vive en la Biblioteca de ChatGPT ni en
     copias sueltas; si se cambia un prompt, se cambia en el repo y se

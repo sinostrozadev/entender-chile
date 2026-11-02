@@ -892,7 +892,7 @@ sirven a quien quiere verificar. `prompts/guion-informe.md` las prohíbe en el t
 narrado y en las marcas, y las permite solo en las líneas de "Fuentes:", tal como las
 trae el informe. Se decidió **NO** recortarlas en `dia.js`.
 
-## 2026-11-01 - Tomar el control: la meta, los Shorts, el largo por tema, la hora, el gasto
+## 2026-11-01 - Tomar el control: la meta, los Shorts, el largo por tema ("Entender el caso"), la hora, el gasto
 
 Santiago decidió el 01-11-2026, sobre el análisis de ese día
 (`bitacora/2026-11-01-analisis-y-plan.md`, con las métricas, la investigación
@@ -969,4 +969,14 @@ dominio propio es la dirección que se puede decir al aire y en la descripción,
 y la integración de Git construía con cada push a `main` (1.121 despliegues en
 un día contra 500 al mes del plan gratuito). **Evidencia**:
 `bitacora/2026-11-01.md`, sección "El diario en entender.sinodev.cl".
+**Decidió**: Santiago.
+
+## 2026-11-01 - Entender el caso: nombre y piloto
+**Qué**: el largo por tema se llama "Entender el caso". El piloto es la rebaja
+de condenas de Rabat y Silva, que el diario lleva en sus noticias desde el
+24-10-2026. **Por qué**: Rabat ya tiene recorrido y cobertura propia en el
+diario, así que el caso se puede contar desde su origen con material que ya
+existe. El diseño está en `bitacora/2026-11-01-analisis-y-plan.md`, sección 6.
+El informe en video se apaga cuando el primer "Entender el caso" esté aprobado.
+Misma noche, regla 19: la máquina sube programado y la publicación ocurre sola.
 **Decidió**: Santiago.
