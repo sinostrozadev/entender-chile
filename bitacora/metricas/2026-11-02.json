@@ -3,23 +3,41 @@
   "canal": {
     "suscriptores": 47,
     "vistas": 22779,
-    "videos": 209
+    "videos": 213
   },
   "videos": {
+    "8o8oCJHwxTE": {
+      "titulo": "¿Por qué un diputado rompió con su propio gobierno por el ca",
+      "publicado": "2026-11-02",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 47
+    },
     "zrsxvaG1e_o": {
       "titulo": "Tres mujeres murieron tras volcar una balsa familiar con tre",
       "publicado": "2026-11-02",
-      "estado": "private",
+      "estado": "public",
       "vistas": 0,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 40
     },
+    "pkO1ASDz_AU": {
+      "titulo": "¿Por qué un Imacec de 0,2% no es una buena noticia? #Shorts",
+      "publicado": "2026-11-02",
+      "estado": "public",
+      "vistas": 14,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 44
+    },
     "7lV_qn0ojp8": {
       "titulo": "Río Maipo: tres mujeres mueren en una balsa con 13 ocupantes",
       "publicado": "2026-11-02",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 249
@@ -28,7 +46,7 @@
       "titulo": "Cinco personas fueron detenidas por el crimen de Martín Pére",
       "publicado": "2026-11-01",
       "estado": "public",
-      "vistas": 28,
+      "vistas": 36,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 41
@@ -37,7 +55,7 @@
       "titulo": "Caso Martín Pérez: las audiencias que definirán los cargos",
       "publicado": "2026-11-01",
       "estado": "public",
-      "vistas": 17,
+      "vistas": 24,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 241
@@ -46,7 +64,7 @@
       "titulo": "Fiscalía investiga a Rabat y Silva por posible prevaricación",
       "publicado": "2026-10-31",
       "estado": "public",
-      "vistas": 1088,
+      "vistas": 1089,
       "meGusta": 28,
       "comentarios": 1,
       "durSeg": 39
@@ -487,7 +505,7 @@
       "titulo": "Autopista Central rebajará el TAG desde enero de 2027",
       "publicado": "2026-10-13",
       "estado": "public",
-      "vistas": 24,
+      "vistas": 25,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 233
@@ -658,7 +676,7 @@
       "titulo": "Presupuesto 2027 pide autorización para US$25 mil millones d",
       "publicado": "2026-10-06",
       "estado": "public",
-      "vistas": 21,
+      "vistas": 22,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 703
@@ -1045,7 +1063,7 @@
       "titulo": "Muere un trabajador en Minera Escondida mientras hacía mante",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 454,
+      "vistas": 455,
       "meGusta": 3,
       "comentarios": 1,
       "durSeg": 42
@@ -1337,15 +1355,6 @@
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 32
-    },
-    "ifkYQ8GJpOA": {
-      "titulo": "Hacienda prepara un Presupuesto 2027 que casi congela el gas",
-      "publicado": "2026-09-14",
-      "estado": "private",
-      "vistas": 2,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 50
     },
     "E-Z-IkAUItw": {
       "titulo": "¿Qué pasa con las reformas si el gobierno tiene su peor eval",
@@ -2772,7 +2781,7 @@
   "fuentes": {
     "canal": {
       "SHORTS": {
-        "vistas": 8406,
+        "vistas": 8405,
         "minutos": 2250
       },
       "YT_SEARCH": {
@@ -2796,7 +2805,7 @@
         "minutos": 39
       },
       "NOTIFICATION": {
-        "vistas": 50,
+        "vistas": 51,
         "minutos": 26
       },
       "NO_LINK_OTHER": {
