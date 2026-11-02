@@ -759,7 +759,6 @@ referencia:
 
 ## Dependen de Santiago
 
-- [ ] **01-11: crear en GitHub los secrets `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID`** (valores en la carpeta de secrets local, archivos cloudflare-sinodev.*) para que web.yml publique a Pages. Mientras no existan, el paso "Publicar en Cloudflare Pages" de `.github/workflows/web.yml` avisa y sale en verde, y entender.sinodev.cl se queda con lo subido a mano el 01-11. Dueño: Santiago.
 - [ ] **redirigir sinostrozadev.github.io/entender-chile-web a entender.sinodev.cl y apagar la publicación vieja** cuando el dominio lleve una semana estable. Ojo: Spotify tiene registrado el feed en la dirección vieja (`podcast.xml`); antes de apagarla hay que cambiar el feed en Spotify for Creators o dejar una redirección que lo siga sirviendo. Dueño: Santiago.
 
 - [ ] **16-10, HOY: la alarma vive en el mismo recurso que se puede caer.** El
