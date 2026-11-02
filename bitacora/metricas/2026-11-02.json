@@ -10,7 +10,7 @@
       "titulo": "¿Por qué un diputado rompió con su propio gobierno por el ca",
       "publicado": "2026-11-02",
       "estado": "public",
-      "vistas": 0,
+      "vistas": 1,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 47
@@ -55,7 +55,7 @@
       "titulo": "Caso Martín Pérez: las audiencias que definirán los cargos",
       "publicado": "2026-11-01",
       "estado": "public",
-      "vistas": 24,
+      "vistas": 27,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 241
@@ -775,7 +775,7 @@
       "titulo": "Imacec cae 1%: la minería arrastra la economía",
       "publicado": "2026-10-02",
       "estado": "public",
-      "vistas": 33,
+      "vistas": 34,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 585
@@ -1063,7 +1063,7 @@
       "titulo": "Muere un trabajador en Minera Escondida mientras hacía mante",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 455,
+      "vistas": 456,
       "meGusta": 3,
       "comentarios": 1,
       "durSeg": 42
@@ -1979,6 +1979,12 @@
     }
   },
   "retencion": {
+    "YarJ0NTw_EM": {
+      "vistas": 1071,
+      "minutos": 312,
+      "segProm": 34,
+      "pct": 89.1
+    },
     "i0_MPdpnh48": {
       "vistas": 1056,
       "minutos": 295,
@@ -1992,10 +1998,10 @@
       "pct": 73.3
     },
     "x42q1499zPo": {
-      "vistas": 1051,
-      "minutos": 248,
-      "segProm": 24,
-      "pct": 60
+      "vistas": 1052,
+      "minutos": 249,
+      "segProm": 23,
+      "pct": 59.9
     },
     "ehAgHv6EYYs": {
       "vistas": 297,
@@ -2016,7 +2022,7 @@
       "pct": 26.3
     },
     "qzn2RJefxic": {
-      "vistas": 82,
+      "vistas": 83,
       "minutos": 167,
       "segProm": 330,
       "pct": 48.5
@@ -2058,10 +2064,10 @@
       "pct": 90.7
     },
     "tBv9v_TGayw": {
-      "vistas": 25,
+      "vistas": 27,
       "minutos": 68,
-      "segProm": 163,
-      "pct": 23.6
+      "segProm": 158,
+      "pct": 22.8
     },
     "LiJfJjb0qjg": {
       "vistas": 295,
@@ -2088,8 +2094,8 @@
       "pct": 57.4
     },
     "g1WnkeX8Kas": {
-      "vistas": 196,
-      "minutos": 46,
+      "vistas": 198,
+      "minutos": 47,
       "segProm": 70,
       "pct": 9.6
     },
@@ -2165,17 +2171,23 @@
       "segProm": 306,
       "pct": 49.4
     },
+    "SK9Eve4nP4E": {
+      "vistas": 12,
+      "minutos": 19,
+      "segProm": 108,
+      "pct": 49.2
+    },
+    "9Eb-1KD5BqE": {
+      "vistas": 116,
+      "minutos": 17,
+      "segProm": 30,
+      "pct": 72.2
+    },
     "REcC_ZuhrPY": {
       "vistas": 13,
       "minutos": 17,
       "segProm": 212,
       "pct": 62.2
-    },
-    "9Eb-1KD5BqE": {
-      "vistas": 114,
-      "minutos": 17,
-      "segProm": 31,
-      "pct": 73.9
     },
     "Y_yvxKGuKEE": {
       "vistas": 75,
@@ -2272,12 +2284,6 @@
       "minutos": 9,
       "segProm": 14,
       "pct": 49.4
-    },
-    "SK9Eve4nP4E": {
-      "vistas": 5,
-      "minutos": 8,
-      "segProm": 132,
-      "pct": 60.3
     },
     "AvwK4lnit4Q": {
       "vistas": 7,
@@ -2393,17 +2399,17 @@
       "segProm": 26,
       "pct": 53.2
     },
+    "ja0dizX_U1M": {
+      "vistas": 16,
+      "minutos": 2,
+      "segProm": 22,
+      "pct": 48.6
+    },
     "rYQEgUwwm5A": {
       "vistas": 5,
       "minutos": 2,
       "segProm": 79,
       "pct": 29.9
-    },
-    "ja0dizX_U1M": {
-      "vistas": 14,
-      "minutos": 2,
-      "segProm": 22,
-      "pct": 48.6
     },
     "yo2MBI4qSZE": {
       "vistas": 27,
@@ -2422,6 +2428,12 @@
       "minutos": 2,
       "segProm": 48,
       "pct": 112
+    },
+    "jhVDXm63VlY": {
+      "vistas": 15,
+      "minutos": 2,
+      "segProm": 31,
+      "pct": 75.9
     },
     "nvG_C4evsL8": {
       "vistas": 18,
@@ -2465,12 +2477,6 @@
       "segProm": 26,
       "pct": 59.3
     },
-    "jhVDXm63VlY": {
-      "vistas": 8,
-      "minutos": 1,
-      "segProm": 69,
-      "pct": 170.2
-    },
     "9Le8uCfDRA4": {
       "vistas": 36,
       "minutos": 1,
@@ -2482,6 +2488,12 @@
       "minutos": 1,
       "segProm": 58,
       "pct": 114.8
+    },
+    "ZTZdBZ88YmM": {
+      "vistas": 6,
+      "minutos": 0,
+      "segProm": 18,
+      "pct": 40.9
     },
     "loDkCx1RGmQ": {
       "vistas": 2,
@@ -2495,6 +2507,12 @@
       "segProm": 13,
       "pct": 32.6
     },
+    "YAbPiVJe9FE": {
+      "vistas": 6,
+      "minutos": 0,
+      "segProm": 16,
+      "pct": 40.6
+    },
     "lFmps6xjlg4": {
       "vistas": 10,
       "minutos": 0,
@@ -2506,12 +2524,6 @@
       "minutos": 0,
       "segProm": 15,
       "pct": 29.5
-    },
-    "ZTZdBZ88YmM": {
-      "vistas": 4,
-      "minutos": 0,
-      "segProm": 24,
-      "pct": 55.4
     },
     "CwM4pI30Wg4": {
       "vistas": 4,
@@ -2603,6 +2615,18 @@
       "segProm": 13,
       "pct": 2
     },
+    "gs7clYEZRx0": {
+      "vistas": 2,
+      "minutos": 0,
+      "segProm": 11,
+      "pct": 5.3
+    },
+    "VFaoYS4Q_G0": {
+      "vistas": 2,
+      "minutos": 0,
+      "segProm": 10,
+      "pct": 22.8
+    },
     "S9lXZ6iXZ3w": {
       "vistas": 1,
       "minutos": 0,
@@ -2651,6 +2675,12 @@
       "segProm": 5,
       "pct": 0.8
     },
+    "j_JdvqLQyBU": {
+      "vistas": 3,
+      "minutos": 0,
+      "segProm": 0,
+      "pct": 0
+    },
     "xYaG4nx-IkI": {
       "vistas": 1,
       "minutos": 0,
@@ -2681,12 +2711,6 @@
       "segProm": 0,
       "pct": 0
     },
-    "YAbPiVJe9FE": {
-      "vistas": 3,
-      "minutos": 0,
-      "segProm": 2,
-      "pct": 5.1
-    },
     "I-cYlzfnJ70": {
       "vistas": 2,
       "minutos": 0,
@@ -2698,12 +2722,6 @@
       "minutos": 0,
       "segProm": 3,
       "pct": 6.5
-    },
-    "j_JdvqLQyBU": {
-      "vistas": 2,
-      "minutos": 0,
-      "segProm": 0,
-      "pct": 0
     },
     "pP-MNExXLpg": {
       "vistas": 4,
@@ -2759,14 +2777,14 @@
       "segProm": 0,
       "pct": 0
     },
-    "4SzkhEkMdEI": {
-      "vistas": 1,
+    "o91xeQhkSv4": {
+      "vistas": 0,
       "minutos": 0,
       "segProm": 0,
       "pct": 0
     },
-    "o91xeQhkSv4": {
-      "vistas": 0,
+    "4SzkhEkMdEI": {
+      "vistas": 1,
       "minutos": 0,
       "segProm": 0,
       "pct": 0
@@ -2781,31 +2799,31 @@
   "fuentes": {
     "canal": {
       "SHORTS": {
-        "vistas": 8405,
-        "minutos": 2250
+        "vistas": 9473,
+        "minutos": 2560
       },
       "YT_SEARCH": {
-        "vistas": 805,
-        "minutos": 182
+        "vistas": 821,
+        "minutos": 184
       },
       "SUBSCRIBER": {
-        "vistas": 448,
+        "vistas": 450,
         "minutos": 142
       },
       "RELATED_VIDEO": {
-        "vistas": 187,
-        "minutos": 464
+        "vistas": 195,
+        "minutos": 476
       },
       "YT_CHANNEL": {
-        "vistas": 56,
-        "minutos": 71
+        "vistas": 61,
+        "minutos": 72
       },
       "YT_OTHER_PAGE": {
-        "vistas": 55,
-        "minutos": 39
+        "vistas": 60,
+        "minutos": 40
       },
       "NOTIFICATION": {
-        "vistas": 51,
+        "vistas": 52,
         "minutos": 26
       },
       "NO_LINK_OTHER": {
@@ -2951,7 +2969,7 @@
       },
       "qzn2RJefxic": {
         "fuentes": {
-          "SUBSCRIBER": 59,
+          "SUBSCRIBER": 60,
           "YT_SEARCH": 15,
           "RELATED_VIDEO": 6,
           "YT_OTHER_PAGE": 1,
@@ -3076,123 +3094,124 @@
       },
       "tBv9v_TGayw": {
         "fuentes": {
-          "RELATED_VIDEO": 23,
+          "RELATED_VIDEO": 24,
           "SUBSCRIBER": 1,
+          "YT_SEARCH": 1,
           "YT_OTHER_PAGE": 1
         },
         "curva": {
           "p01": 92,
-          "p03": 71,
-          "p05": 63,
-          "p10": 42,
-          "p25": 25,
-          "p50": 17,
-          "p75": 17,
+          "p03": 72,
+          "p05": 60,
+          "p10": 40,
+          "p25": 24,
+          "p50": 16,
+          "p75": 16,
           "caidaMayor": {
             "segundo": 0,
-            "puntos": 17
+            "puntos": 16
           },
           "serie": [
-            1.083,
-            0.917,
-            0.792,
-            0.708,
-            0.667,
-            0.625,
-            0.5,
-            0.417,
-            0.417,
-            0.417,
-            0.417,
-            0.417,
-            0.417,
-            0.417,
-            0.375,
-            0.375,
-            0.375,
-            0.375,
-            0.375,
-            0.333,
-            0.292,
-            0.25,
-            0.25,
-            0.25,
-            0.25,
-            0.25,
-            0.25,
-            0.25,
-            0.25,
-            0.25,
-            0.25,
-            0.25,
-            0.25,
-            0.25,
-            0.208,
-            0.208,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167,
-            0.167
+            1.08,
+            0.92,
+            0.8,
+            0.72,
+            0.64,
+            0.6,
+            0.48,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.36,
+            0.36,
+            0.36,
+            0.36,
+            0.36,
+            0.32,
+            0.28,
+            0.24,
+            0.24,
+            0.24,
+            0.24,
+            0.24,
+            0.24,
+            0.24,
+            0.24,
+            0.24,
+            0.24,
+            0.24,
+            0.24,
+            0.24,
+            0.2,
+            0.2,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16,
+            0.16
           ]
         }
       },
@@ -3324,7 +3343,7 @@
       "g1WnkeX8Kas": {
         "fuentes": {
           "SUBSCRIBER": 174,
-          "YT_SEARCH": 8,
+          "YT_SEARCH": 10,
           "RELATED_VIDEO": 8,
           "YT_CHANNEL": 3,
           "EXT_URL": 2,
@@ -3574,6 +3593,15 @@
         "fuentes": {
           "RELATED_VIDEO": 9,
           "YT_OTHER_PAGE": 1,
+          "NO_LINK_OTHER": 0
+        },
+        "curva": null
+      },
+      "SK9Eve4nP4E": {
+        "fuentes": {
+          "RELATED_VIDEO": 10,
+          "YT_SEARCH": 1,
+          "NOTIFICATION": 1,
           "NO_LINK_OTHER": 0
         },
         "curva": null
