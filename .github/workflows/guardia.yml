@@ -3,9 +3,18 @@ name: Guardia
 # El agente de guardia (diseño aprobado 02-09): barrido LIVIANO de última
 # hora, cada 2 horas entre las 08:00 y las 22:00 de Chile. El reloj es una
 # rutina de Claude que toca contenido/urgente/despertador.txt (regla del
-# 31-08: el cron de GitHub no es reloj principal; acá ni siquiera hay cron
-# de respaldo, porque perder una pasada del guardia no pierde nada que la
-# siguiente no recupere con su ventana de 3 horas).
+# 31-08: el cron de GitHub no es reloj principal).
+#
+# CRON DE RED (01-11-2026): antes no había ninguno, con el argumento de que
+# perder una pasada no pierde nada que la siguiente no recupere con su
+# ventana de 3 horas. Eso vale si se pierde UNA. El 14 y el 15-10 la cuenta
+# de Claude se quedó sin uso, el reloj de la guardia calló dos días enteros y
+# nadie lo notó, porque el que vigila también era Claude. El cron de GitHub
+# no depende de esa cuota: llega tarde y a horas al azar, pero llega. Para no
+# duplicar al reloj, el cron se retira si el reloj (o una corrida a mano) ya
+# hizo una guardia hace menos de 90 minutos, y fuera de las 08:00 a 22:59 de
+# Chile. Solo cuentan las corridas que NO son del cron: si contaran, una red
+# que se retiró taparía a la siguiente aunque el reloj siguiera muerto.
 #
 # Si scripts/guardia.js caza algo (2 señales de: ALARMA, 3+ portadas,
 # ANUNCIADO por el informe), escribe contenido/urgente/FECHA-HHMM-<slug>.md
@@ -16,6 +25,13 @@ on:
     branches: [main]
     paths:
       - "contenido/urgente/despertador.txt"
+  schedule:
+    # cada 2 horas, cuarenta minutos detrás del reloj, que corre a las horas
+    # impares de UTC (0 23,1,11,...,21, bitacora/rutinas.md) y en Actions
+    # aparece entre el minuto 5 y el 12. Detrás del reloj y no a una hora par:
+    # a 1 h 40 min de distancia el guard de 90 minutos habría corrido la red
+    # en cada pasada. La ventana de Chile se mira adentro.
+    - cron: "40 1-23/2 * * *"
   workflow_dispatch:
     inputs:
       ventana:
@@ -24,6 +40,7 @@ on:
 
 permissions:
   contents: write
+  actions: read   # para ver cuándo corrió la última guardia
 
 concurrency:
   group: guardia
@@ -34,15 +51,49 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      # Solo el cron pasa por este filtro: el push del reloj y el dispatch a
+      # mano corren siempre.
+      - name: Red del cron (se retira si el reloj ya hizo su trabajo)
+        id: red
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENTO: ${{ github.event_name }}
+          REPO: ${{ github.repository }}
+        run: |
+          if [ "$EVENTO" != "schedule" ]; then echo "seguir=1" >> "$GITHUB_OUTPUT"; exit 0; fi
+          HORA=$(TZ=America/Santiago date +%H)
+          if [ "$HORA" -lt 8 ] || [ "$HORA" -gt 22 ]; then
+            echo "son las $HORA de Chile: fuera de la ventana de la guardia (08 a 22)"
+            echo "seguir=0" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          ULT=$(gh run list -R "$REPO" --workflow=guardia.yml --limit 20 --json event,createdAt \
+                --jq '[.[] | select(.event != "schedule")][0].createdAt // empty' 2>/dev/null || echo "")
+          EDAD=9999
+          [ -n "$ULT" ] && EDAD=$(( ( $(date -u +%s) - $(date -u -d "$ULT" +%s) ) / 60 ))
+          if [ "$EDAD" -lt 90 ]; then
+            echo "el reloj hizo una guardia a las $ULT (UTC), hace $EDAD minutos: no hago nada"
+            echo "seguir=0" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "::warning::el reloj de la guardia no corre hace $EDAD minutos (última: ${ULT:-ninguna a la vista}): corre la red de GitHub"
+          echo "seguir=1" >> "$GITHUB_OUTPUT"
+          # Más de 150 minutos es una pasada entera del reloj perdida, no un
+          # atraso (el cron de GitHub llega a veces horas tarde, y entre dos
+          # pasadas del reloj hay 120). Eso se marca para el último paso.
+          [ "$EDAD" -ge 150 ] && echo "reloj_muerto=1" >> "$GITHUB_OUTPUT" || true
+
       - uses: actions/checkout@v4
+        if: steps.red.outputs.seguir == '1'
       - uses: actions/setup-node@v4
+        if: steps.red.outputs.seguir == '1'
         with:
           node-version: "22"
 
       - name: Barrido liviano de última hora
+        if: steps.red.outputs.seguir == '1'
         run: node scripts/guardia.js --ventana "${{ inputs.ventana || '3' }}"
 
       - name: Commit de los hallazgos (si hubo)
+        if: steps.red.outputs.seguir == '1'
         run: |
           git config user.name "guardia-bot"
           git config user.email "bot@users.noreply.github.com"
@@ -52,3 +103,14 @@ jobs:
             git -c rebase.autoStash=true pull --rebase origin main
             git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
           }
+
+      # El aviso de la caída. La red de arriba barre, pero el que avisa al
+      # teléfono de un hallazgo es la rutina de Claude: si está caída, el
+      # barrido no le llega a nadie. Una corrida programada que termina en
+      # rojo sí le llega a Santiago, por correo de GitHub, sin depender de
+      # ninguna cuota de Claude. Va al final para que el barrido corra igual.
+      - name: Si el reloj de la guardia perdió una pasada entera, fallar para avisar
+        if: ${{ !cancelled() && steps.red.outputs.reloj_muerto == '1' }}
+        run: |
+          echo "::error::el reloj de la guardia (rutina trig_01HLSWkJ8VpVFPuxQ51YiG4d) no corre hace más de 150 minutos: Claude puede estar caído o sin cuota, y con él la vigía y la cadena nocturna"
+          exit 1

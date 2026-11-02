@@ -763,8 +763,10 @@ referencia:
       14 y el 15-10 el canal no publicó nada porque la cuenta de Claude se
       quedó sin uso (lo dijo Santiago el 16-10; se restauró la noche del
       15). El apagón en sí es ajeno, pero que nadie se enterara en dos días es
-      nuestro: la vigía y la guardia también son rutinas de Claude, y
-      `.github/workflows/guardia.yml` ni siquiera tiene cron de respaldo. Es la
+      nuestro: la vigía y la guardia también son rutinas de Claude. (Desde el
+      01-11, `.github/workflows/guardia.yml` tiene cron de red de GitHub, que
+      termina en rojo si el reloj de la guardia perdió una pasada entera; eso
+      cubre la guardia, no la edición del día, que sigue sin aviso.) Es la
       tercera vez que una cuota ajena apaga el canal (GPT cinco días a
       principios de octubre, Claude estos dos), así que conviene tratarlo como
       la forma del sistema y no como un incidente.
@@ -1138,55 +1140,7 @@ referencia:
 
 ## Para la sesión de la noche (código y prompts)
 
-- [ ] **01-11, HOY: la cadena de hoy murió en `barrido_listo` a las 02:12 de
-      Chile porque `estado.yml` nunca se disparó tras el Barrido, y
-      `reintento.yml` no tiene ningún segundo camino para ese caso.**
-      Auditoría del 01-11 (`bitacora/2026-11-01-auditoria.md`). El Barrido de
-      hoy terminó bien a las 02:12 Chile (Actions run 41275961290, "Barrido"
-      #187, conclusion success), relanzado por `workflow_dispatch` desde
-      `reintento.yml` porque el reloj directo de las 01:30 no llegó a main
-      (ver la segunda entrada, abajo). Pero ningún "Estado del día" corrió
-      después: el último run de ese workflow en todo el repo es el
-      41209865931 del 31-10 a las 14:22:54 UTC, más de 18 horas antes. Sin
-      ese recálculo, `contenido/estado/2026-11-01.md` nunca existió, nadie
-      despertó al suplente (`contenido/estado/ultimo-disparo-suplente.txt`
-      sigue en "2026-10-31 barrido_listo 0") y no hay preselección, informe,
-      guion ni revisión de hoy. `reintento.yml` corrió cada 20 minutos desde
-      las 02:11 (once veces hasta las 05:37) y en todas chocó con la misma
-      rama muerta: `.github/workflows/reintento.yml:165`,
-      `[ -f "$VISTA" ] || { echo "todavía no hay estado de hoy"; exit 0; }`,
-      que no hace nada más que salir. Propuesta concreta: en esa misma línea
-      165, si `contenido/barrido/$FECHA.md` existe pero `$VISTA` no, y ya
-      pasaron 10 a 15 minutos, disparar `gh workflow run estado.yml --ref
-      main` como segundo camino, independiente del `workflow_run` que hoy no
-      encadenó. Falta además confirmar si el hueco es de hoy o estructural:
-      revisar si los Barridos relanzados así en días anteriores (runs 134,
-      137 y 158 de `barrido.yml`, todos `workflow_dispatch` por
-      `github-actions[bot]`) encadenaron su propio "Estado del día" o no.
-      Parecido en el síntoma pero de causa distinta al apagón del 22 y
-      24-10-2026 (más abajo, "27-10... HOY... workflow_dispatch" en esa
-      misma sección): aquella vez se apagaron las rutinas de Claude
-      enteras; hoy las rutinas corrieron, fue el encadenamiento de GitHub
-      Actions el que faltó.
-
-- [ ] **01-11, HOY: la rutina "Reloj del barrido" se reporta exitosa sin que
-      su escritura llegara a main.** Auditoría del 01-11
-      (`bitacora/2026-11-01-auditoria.md`). `get_trigger` sobre
-      `trig_01W5KEjHbr5wWPsmmJ4ygNEh` muestra `last_run.status:
-      ROUTINE_RUN_STATUS_SUCCEEDED`, disparada a las 01:44 y terminada a las
-      01:45 de Chile, pero `contenido/barrido/despertador.txt` en main sigue
-      con la marca de ayer ("2026-10-31 04:45:34 UTC") y no existe ningún
-      commit "despertador 2026-11-01 [reloj]" en todo el día de hoy (sí
-      existen los de los tres días anteriores, siempre a las 01:45). Esta
-      falla fue la que obligó a `reintento.yml` a relanzar el Barrido 41
-      minutos tarde. El contrato de escritura verificada
-      (`prompts/contrato-archivos.md`, sección ESCRITURA VERIFICADA) exige
-      leer de vuelta antes de dar una escritura por hecha. Propuesta: el
-      prompt de esta rutina (vivo en la propia definición de
-      `trig_01W5KEjHbr5wWPsmmJ4ygNEh`, no en un archivo del repo) debería
-      agregar un paso final que lea `contenido/barrido/despertador.txt` desde
-      main después del push y solo responda éxito si el contenido leído es
-      el que acaba de escribir.
+- [ ] **01-11: el prompt del reloj del barrido debe fallar si el push no entró** (texto propuesto en bitacora/2026-11-01.md)
 
 - [ ] **27-10, HOY: `scripts/metricas.js` pierde videos completos de la
       lista sin avisar, confirmado siete veces en el último mes.**
@@ -1347,10 +1301,6 @@ referencia:
       (`contenido/caratulas/claves/FECHA-slug.jpg`), no con la que dibuja
       `scripts/miniaturas.js`. El 12-10 se cambió a mano en YouTube. Además
       `scripts/youtube-caratula.js:88` declara `image/png` también para jpg.
-- [ ] **12-10: el validador no se re-despierta si la pieza cambia después de
-      su veredicto** (dedup por etapa y vuelta en `estado-clave.yml`; la Clave
-      del 07-10 quedó cinco días parada en `validar_guion` vuelta 2). Que el
-      dedup incluya el commit de la pieza, o que la reescritura suba la vuelta.
 - [ ] **12-10: shorts y exprés con imagen propia** (plan propuesto a Santiago,
       falta su sí): el Short del día usa la portada del informe recortada en
       vertical; cada exprés pide una imagen a GPT con el tema, que sirve de

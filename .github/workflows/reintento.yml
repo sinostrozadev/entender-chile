@@ -28,7 +28,10 @@ name: Reintento del despertar
 # filtro de rutas, el Barrido nunca corrió y los crones de respaldo tampoco
 # dispararon: día entero perdido, y este workflow se retiró en silencio cuatro
 # veces porque solo sabía reintentar cadenas atascadas, no cadenas que nunca
-# empezaron. Desde entonces también relanza el barrido.
+# empezaron. Desde entonces también relanza el barrido. El 01-11 lo relanzó
+# bien a las 02:11, pero el estado nunca se recalculó detrás (estado.yml no
+# se entera de un Barrido despachado) y esto salía once veces con "todavía no
+# hay estado de hoy": ahora, si hay barrido y no hay vista, pide el recálculo.
 on:
   # DESPERTADOR PROPIO (26-09): el cron de GitHub de abajo es red, no reloj.
   # Dispara dos veces al día a horas al azar (auditorías del 24, 25 y 26-09),
@@ -148,8 +151,20 @@ jobs:
           # ¿ARRANCÓ SIQUIERA EL DÍA? Sin barrido no hay nada que reintentar:
           # hay que volver a tocar el primer botón. Se espera a las 02:00 de
           # Chile para no pisarle los talones al reloj, que toca a la 01:40.
+          # (01-11-2026) Salvo que el reloj ya se sepa caído: si pasadas las
+          # 01:48 despertador.txt no trae la fecha de hoy, el reloj de las 01:44
+          # no escribió en main (ese día se reportó exitoso igual) y esperar a
+          # las 02:00 solo regala veinte minutos. El reloj escribe la fecha en
+          # UTC, que a esa hora es la misma de Chile en verano y en invierno.
           if [ ! -f "contenido/barrido/$FECHA.md" ]; then
-            if [ "$HORA" -lt 2 ]; then echo "sin barrido de hoy, pero son las $HORA: le doy tiempo al reloj"; exit 0; fi
+            if [ "$HORA" -lt 2 ]; then
+              HHMM=$(TZ=America/Santiago date +%H%M)
+              if [ "$HHMM" -ge 148 ] && ! grep -q "^$(date -u +%F)" contenido/barrido/despertador.txt 2>/dev/null; then
+                echo "::warning::son las $HHMM y despertador.txt no tiene marca de hoy: el reloj del barrido no escribió en main, no espero a las 02:00"
+              else
+                echo "sin barrido de hoy, pero son las $HORA: le doy tiempo al reloj"; exit 0
+              fi
+            fi
             # que no se dispare uno cada 20 minutos si ya hay uno en marcha
             RECIENTE=$(gh run list --workflow=barrido.yml --limit 3 --json createdAt --jq '.[0].createdAt' 2>/dev/null || echo "")
             if [ -n "$RECIENTE" ] && [ "$(( $(date -u +%s) - $(date -u -d "$RECIENTE" +%s) ))" -lt 1500 ]; then
@@ -161,8 +176,22 @@ jobs:
             exit 0
           fi
 
+          # (01-11-2026) HAY BARRIDO PERO NO HAY VISTA: el recálculo no llegó.
+          # Antes acá solo se salía, y el 01-11 esta rama se ejecutó once veces
+          # seguidas sin hacer nada mientras la cadena estaba muerta en
+          # barrido_listo (el workflow_run de estado.yml no nace tras un Barrido
+          # despachado). Ahora se pide el recálculo a mano, salvo que ya haya uno
+          # de hace menos de 10 minutos que pueda estar todavía en vuelo.
           VISTA="contenido/estado/$FECHA.md"
-          [ -f "$VISTA" ] || { echo "todavía no hay estado de hoy"; exit 0; }
+          if [ ! -f "$VISTA" ]; then
+            ULT_E=$(gh run list --workflow=estado.yml --limit 1 --json createdAt --jq '.[0].createdAt' 2>/dev/null || echo "")
+            if [ -n "$ULT_E" ] && [ "$(( $(date -u +%s) - $(date -u -d "$ULT_E" +%s) ))" -lt 600 ]; then
+              echo "hay barrido y todavía no hay estado de hoy, pero un recálculo empezó hace menos de 10 minutos: espero"; exit 0
+            fi
+            echo "::warning::hay barrido de $FECHA y no hay vista del estado: pido el recálculo (estado.yml)"
+            hacer gh workflow run estado.yml --ref main
+            exit 0
+          fi
           ETAPA=$(grep -m1 '^ETAPA:' "$VISTA" | cut -d' ' -f2-)
           VUELTA=$(grep -m1 '^VUELTA:' "$VISTA" | cut -d' ' -f2-); VUELTA=${VUELTA:-0}
 

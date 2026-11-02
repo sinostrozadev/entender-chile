@@ -33,6 +33,12 @@ on:
   # de modo que el disparador de arriba es CIEGO justo para la primera pieza del
   # día y para la última. Sin esto, la 01:34 pasaba sin que el estado se
   # recalculara y el despachador de GPT nunca despertaba con barrido_listo.
+  # OJO (01-11-2026): este evento tampoco nace cuando el Barrido lo lanzó
+  # OTRO workflow por dispatch (reintento.yml, con GITHUB_TOKEN). Medido: los
+  # runs 134, 137, 158 y 187 del Barrido no encadenaron ningún recálculo, y
+  # el 01-11 la cadena murió en barrido_listo siete horas. Por eso el Barrido
+  # despachado pide este workflow por workflow_dispatch al terminar, y
+  # reintento.yml lo pide también si a los 10 minutos sigue sin vista del día.
   workflow_run:
     workflows: ["Barrido", "Edición diaria"]
     types: [completed]
@@ -215,11 +221,23 @@ jobs:
           # en la misma etapa, por ejemplo el reloj del barrido, no vuelve a
           # disparar). Nunca falla el job: si el /fire no responde 2xx, avisa
           # y los relojes de 02:20 y 04:45 hacen el trabajo como hasta ahora.
+          #
+          # (01-11-2026) La marca lleva además el commit de la pieza. Con solo
+          # "FECHA ETAPA VUELTA", una pieza reescrita sin que la vuelta subiera
+          # (GPT corrige y el veredicto viejo trae la misma VUELTA) caía en el
+          # dedup y nadie la validaba: la Clave del 07-10 quedó cinco días en
+          # validar_guion vuelta 2 así. Una pieza nueva es un commit nuevo, y un
+          # commit nuevo es un disparo nuevo. La marca vieja, sin hash, no calza
+          # con la nueva: al estrenarse esto puede salir un disparo de más.
           MARCA="contenido/estado/ultimo-disparo-claude.txt"
+          ARCHIVO_P=$(grep -m1 '^ARCHIVO:' "$VISTA" | cut -d' ' -f2- || true)
+          SHA_P=""
+          [ -n "$ARCHIVO_P" ] && SHA_P=$(git log -1 --format=%h origin/main -- "$ARCHIVO_P" 2>/dev/null || true)
+          FIRMA="$FECHA $ETAPA $VUELTA ${SHA_P:-sin_pieza}"
           if echo "$ETAPA" | grep -q '^validar_'; then
             YA=$(git show origin/main:"$MARCA" 2>/dev/null || echo "")
-            if [ "$YA" = "$FECHA $ETAPA $VUELTA" ]; then
-              echo "Claude ya fue despertado para $ETAPA (vuelta $VUELTA): no se repite"
+            if [ "$YA" = "$FIRMA" ]; then
+              echo "Claude ya fue despertado para $ETAPA (vuelta $VUELTA, pieza ${SHA_P:-sin_pieza}): no se repite"
               ETAPA_DISPARO=""
             else
               ETAPA_DISPARO="$ETAPA"
@@ -227,10 +245,10 @@ jobs:
               for intento in 1 2 3; do
                 git fetch -q origin main && git reset -q --hard origin/main
                 YA=$(cat "$MARCA" 2>/dev/null || echo "")
-                if [ "$YA" = "$FECHA $ETAPA $VUELTA" ]; then echo "otra corrida ya dejó la marca: no se repite el disparo"; ETAPA_DISPARO=""; break; fi
-                echo "$FECHA $ETAPA $VUELTA" > "$MARCA"
+                if [ "$YA" = "$FIRMA" ]; then echo "otra corrida ya dejó la marca: no se repite el disparo"; ETAPA_DISPARO=""; break; fi
+                echo "$FIRMA" > "$MARCA"
                 git add "$MARCA"
-                git commit -q -m "disparo a Claude $FECHA: $ETAPA (vuelta $VUELTA) [bot]"
+                git commit -q -m "disparo a Claude $FECHA: $ETAPA (vuelta $VUELTA, pieza ${SHA_P:-sin_pieza}) [bot]"
                 git push -q origin main && break
                 echo "push de la marca rechazado (intento $intento de 3)"
                 [ "$intento" = 3 ] && { echo "::warning::no se pudo dejar la marca; se dispara igual"; }

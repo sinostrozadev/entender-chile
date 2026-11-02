@@ -8,7 +8,20 @@ name: Barrido
 # puntual al minuto) que toca contenido/barrido/despertador.txt y pushea;
 # ese push dispara este workflow, y lo disparado por push funciona 30 de 30.
 # El cron de acá queda solo de red de seguridad, con --si-falta para no
-# pisar jamás un barrido ya escrito.
+# pisar jamás un barrido ya escrito. Medido en octubre de 2026: llega entre
+# las 06:00 y las 08:30 de Chile, tarde para la edición pero útil para
+# destrabar un día muerto. La red puntual es reintento.yml, que relanza este
+# workflow por dispatch desde las 01:50.
+#
+# EL RECÁLCULO DEL ESTADO (01-11-2026): estado.yml escucha la conclusión de
+# este workflow con `workflow_run`, pero GitHub no crea ese evento cuando a
+# este lo lanzó otro workflow con GITHUB_TOKEN (es su regla contra bucles).
+# Medido en Actions: los cuatro barridos relanzados por reintento.yml (runs
+# 134, 137, 158 y 187) no encadenaron ni un "Estado del día", y los de push o
+# cron sí, todos. El 01-11 la cadena murió así en barrido_listo a las 02:12 y
+# la edición salió a las 09:45, rescatada por el cron tardío. Por eso, cuando
+# esta corrida vino de un dispatch, el último paso pide el recálculo a mano:
+# workflow_dispatch es la excepción que GITHUB_TOKEN sí puede disparar.
 on:
   push:
     branches: [main]
@@ -32,6 +45,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write   # para pedir el recálculo del estado tras un dispatch
 
 concurrency:
   group: barrido
@@ -98,3 +112,17 @@ jobs:
                  --title "🔔 Canal de avisos: barrido listo (no fusionar)" \
                  --label barrido-listo \
                  --body "PR permanente. No se fusiona: cada commit nuevo aquí anuncia que el barrido del día quedó publicado en main (ver contenido/barrido/ultimo-evento.txt). Es el evento que despierta la preselección de ChatGPT."
+
+      # Un dispatch hecho por Santiago a mano sí encadena el workflow_run, y
+      # entonces el estado se recalcula dos veces: no importa, estado.yml corre
+      # en fila (concurrency) y la segunda corrida sale "sin cambios".
+      - name: Pedir el recálculo del estado (el workflow_run no encadena tras un dispatch)
+        # !cancelled(): si el paso del PR de avisos falla, el barrido igual
+        # quedó en main y el estado igual hay que recalcularlo
+        if: ${{ !cancelled() && github.event_name == 'workflow_dispatch' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run estado.yml --ref main \
+            && echo "recálculo del estado pedido" \
+            || echo "::warning::no se pudo pedir el recálculo del estado; reintento.yml lo pide si a los 10 minutos sigue sin vista"

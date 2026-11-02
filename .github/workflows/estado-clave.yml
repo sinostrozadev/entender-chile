@@ -169,9 +169,19 @@ jobs:
                 reparar_pauta) QUE="etapa reparar_pauta: escribe la pauta de nuevo con la nota de Santiago que apunta CORRECCIONES, con prompts/pauta-clave.md" ;;
                 *) QUE="te toca validar la pieza $(grep -m1 '^PIEZA:' "$VISTA" | cut -d' ' -f2-) contra su prompt" ;;
               esac
+              # (01-11-2026) La marca lleva el commit de la pieza en juego, igual
+              # que en estado.yml. Con solo "ETAPA VUELTA", el guion de la Clave
+              # del 07-10 se reescribió en la misma vuelta, la marca calzó y
+              # quedó cinco días en validar_guion vuelta 2 sin que nadie lo
+              # validara. Pieza nueva, commit nuevo, disparo nuevo. La marca
+              # vieja, sin hash, no calza: al estrenarse puede salir uno de más.
+              ARCHIVO_P=$(grep -m1 '^ARCHIVO:' "$VISTA" | cut -d' ' -f2- || true)
+              SHA_P=""
+              [ -n "$ARCHIVO_P" ] && SHA_P=$(git log -1 --format=%h origin/main -- "$ARCHIVO_P" 2>/dev/null || true)
+              FIRMA="$ETAPA $VUELTA ${SHA_P:-sin_pieza}"
               MARCA="contenido/estado/ultimo-disparo-claude-clave-$SLUG.txt"
-              if [ "$(cat "$MARCA" 2>/dev/null)" = "$ETAPA $VUELTA" ]; then echo "Claude ya despertado para $ETAPA"; else
-                echo "$ETAPA $VUELTA" > "$MARCA"; git add "$MARCA"; git commit -q -m "disparo a Claude, clave $SLUG: $ETAPA (vuelta $VUELTA) [bot]"; git push -q origin main || echo "::warning::marca no pusheada; se dispara igual"
+              if [ "$(cat "$MARCA" 2>/dev/null)" = "$FIRMA" ]; then echo "Claude ya despertado para $ETAPA (pieza ${SHA_P:-sin_pieza})"; else
+                echo "$FIRMA" > "$MARCA"; git add "$MARCA"; git commit -q -m "disparo a Claude, clave $SLUG: $ETAPA (vuelta $VUELTA, pieza ${SHA_P:-sin_pieza}) [bot]"; git push -q origin main || echo "::warning::marca no pusheada; se dispara igual"
                 BODY=$(printf '{"text":"Entender Chile, flujo de la Clave %s: etapa %s, vuelta %s. %s. La verdad es contenido/estado/clave-%s.md."}' "$SLUG" "$ETAPA" "$VUELTA" "$QUE" "$SLUG")
                 CODIGO=$(curl -sS -o /tmp/fire.json -w '%{http_code}' -X POST "https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire" \
                   -H "Authorization: Bearer $REVISION_TOKEN" -H "anthropic-beta: experimental-cc-routine-2026-04-01" -H "anthropic-version: 2023-06-01" -H "content-type: application/json" -d "$BODY" || echo 000)
