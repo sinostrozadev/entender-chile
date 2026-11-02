@@ -891,3 +891,82 @@ Santiago eligió que se queden (opción a). La descripción de YouTube las admit
 sirven a quien quiere verificar. `prompts/guion-informe.md` las prohíbe en el texto
 narrado y en las marcas, y las permite solo en las líneas de "Fuentes:", tal como las
 trae el informe. Se decidió **NO** recortarlas en `dia.js`.
+
+## 2026-11-01 - Tomar el control: la meta, los Shorts, el largo por tema, la hora, el gasto
+
+Santiago decidió el 01-11-2026, sobre el análisis de ese día
+(`bitacora/2026-11-01-analisis-y-plan.md`, con las métricas, la investigación
+y el inventario del repo). Estas cinco decisiones mandan sobre cualquier texto
+anterior, y REGLAS-DURAS (versión 2) ya las lleva.
+
+**1. La meta de 2026 es construir audiencia, con los Shorts como producto
+principal; ya no son las 4.000 horas.** Por qué: desde el 01-02-2027, quien no
+esté dentro del Programa de Socios necesita 8.000 horas de largos o 20 millones
+de vistas de Shorts en 90 días, y el canal hace 15,3 horas de largos en 30
+días, así que ni la meta vieja ni la nueva estaban al alcance. Los Shorts ya
+son el canal: del 01-10 al 01-11 hicieron 330 vistas diarias contra 22 de los
+largos, los 15 videos más vistos del mes son Shorts o exprés, y el 78 % de los
+minutos vistos del canal (2.444 de 3.130 en 30 días) son de Shorts. Lo que abre
+cualquier camino después son los suscriptores, y a 0,8 por día faltan años.
+Reemplaza la regla 39 del 30-08 (postular antes del 01-02-2027).
+
+**2. La Clave deja de ser diaria y deja de ser semanal: pasa a ser el LARGO
+POR TEMA, a juicio editorial.** Puede salir uno o dos el mismo día, de temas
+distintos, o ninguno. Cada uno explica un caso desde su origen con la
+información acumulada, y a un caso que avanza se le manda una actualización
+cuando ya hay suficiente que explicar. El escenario visual es el diario
+escrito: la página real del día en que salió cada noticia, con zoom a su
+sección. Por qué: la Clave retiene casi el doble que el informe (39,7 % de
+mediana contra 20,6 %, medido el 12-10) y su problema era la exposición, no la
+pieza; un calendario fijo obligaba a elegir tema por la fecha y no por el caso.
+Y el diario escrito ya es el archivo fechado de cada noticia, así que usarlo
+como escenario muestra la fuente en vez de ilustrarla, sin pedir imágenes
+nuevas. Reemplaza "la Clave es diaria" (02-09, disputa 6) y "una Clave semanal"
+(12-10). Está en construcción: mientras no exista, el flujo de la Clave actual
+(`estado-clave.yml`, mural) sigue con la que está en curso.
+
+**3. Qué sigue saliendo mientras el largo por tema se construye.** El informe
+diario en video (de 3 a 4 minutos desde el 12-10) sigue hasta que el primer
+largo por tema esté aprobado; después se apaga. El diario ESCRITO sigue todos
+los días en https://entender.sinodev.cl (diseño 2, desde el 01-11). El podcast
+pasa a leer el diario escrito, no el audio del video. El Short del día se queda
+y se mejora. Por qué: el informe en video junta entre 2 y 80 vistas con 10 a 30
+% visto, y es la pieza que más cuota gasta; el escrito es lo que de verdad usa
+quien quiere el día completo. El Short del día rinde una mediana de 104 vistas
+y su problema no es el formato sino que no sale todos los días.
+
+**4. La hora de publicación que vale es la real del workflow**: informe 06:30,
+Short 12:00 y largo o Clave 14:00 hoy (`YT_HORA_INFORME`, `YT_HORA_SHORT` y
+`YT_HORA_CLAVE` en `.github/workflows/edicion-diaria.yml`), y el largo por tema
+pasa a las 19:00. `ideas/viralizacion.md` deja de mandar sobre la hora
+(disputa 8). Por qué: la tabla escrita (antes de las 06:00 y Short a las 07:30)
+no la cumplía nadie desde el 23-09, y dos horas que se contradicen hacen que
+cada auditoría marque un atraso que no existe. La hora es palanca de segundo
+orden: solo el 0,7 % de las vistas llega por notificación (medido el 12-10).
+
+**5. Sin gastos nuevos, y fuera lo que no se usa.** NO se contrata ElevenLabs
+ni clips generativos por ahora: el análisis proponía 22 dólares al mes de voz y
+10 de clips como experimento, y Santiago lo dejó en cero. La voz sigue siendo
+Azure (regla 31). La biblioteca de dibujos por párrafo (apagada, unas 1.760
+líneas) se archiva, y `prompts/guardian.md` y la interfaz `taller/` se retiran:
+no tenían quién los leyera. Por qué: el problema del canal no es la falta de
+herramientas sino que lo que ya existe no sale todos los días; gastar antes de
+eso es agregar piezas a una máquina que se cae.
+
+Lo que NO se hace, para que la auditoría no lo vuelva a proponer: perseguir
+las 4.000 horas, devolverle un calendario a la Clave, mover la hora por la
+tabla de `ideas/viralizacion.md`, contratar voz o clips sin un sí nuevo de
+Santiago, y encender la biblioteca. **Decidió**: Santiago.
+
+## 2026-11-01 - El diario en entender.sinodev.cl
+
+**Qué**: el diario escrito se publica en https://entender.sinodev.cl
+(Cloudflare Pages, proyecto `entender-chile`), con el diseño 2 como único;
+`web.yml` sube el sitio y los builds automáticos de Git del proyecto quedaron
+apagados. La copia vieja de GitHub Pages sigue saliendo porque Spotify lee de
+ahí el feed del podcast; se apaga cuando el feed se mueva. **Por qué**: un
+dominio propio es la dirección que se puede decir al aire y en la descripción,
+y la integración de Git construía con cada push a `main` (1.121 despliegues en
+un día contra 500 al mes del plan gratuito). **Evidencia**:
+`bitacora/2026-11-01.md`, sección "El diario en entender.sinodev.cl".
+**Decidió**: Santiago.

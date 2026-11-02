@@ -83,7 +83,9 @@ pieza sube en privado y el clic de publicación es suyo.
 
 | Archivo | Qué manda |
 |---|---|
-| `REGLAS-DURAS.md` | las 41 reglas con su origen. Si algo lo contradice, gana este |
+| `REGLAS-DURAS.md` | las 42 reglas numeradas (más la 26b y la 38b) con su origen. Si algo lo contradice, gana este |
+| `estrategia/decisiones.md` | las decisiones de fondo; la del 01-11-2026 ("Tomar el control") fija la meta, los Shorts y el largo por tema |
+| `bitacora/PENDIENTES.md` | la única lista viva; arranca con "EL MODELO NUEVO (01-11-2026)" |
 | `bitacora/README.md` | el estándar de dónde se anota cada cosa |
 | `bitacora/rutinas.md` | rutinas de la nube y workflows, para no listarlos por API |
 | `prompts/contrato-archivos.md` | rutas, formatos, commits y escritura verificada |

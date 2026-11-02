@@ -12,6 +12,14 @@ al final, separado, porque una regla en disputa no es una regla.
 Versión 1: 02-09-2026, armada a partir de la lectura completa de los 84
 archivos de criterio del repositorio.
 
+Versión 2: 01-11-2026, puesta al día con las decisiones de Santiago de ese
+día (`estrategia/decisiones.md`, entrada "Tomar el control"): la meta pasa a
+ser la audiencia con los Shorts como producto principal (regla 39), la Clave
+pasa a ser el largo por tema (reglas 14 y 40, disputa 6), la hora que vale es
+la del workflow (disputa 8) y la regla 27 duplicada de la sección D pasa a
+ser la 26b, para no correr la numeración que citan el código y los prompts.
+Son 42 reglas numeradas más la 26b y la 38b.
+
 ---
 
 ## A. A quién le debemos lealtad
@@ -73,9 +81,18 @@ archivos de criterio del repositorio.
     sección, ni resumen deportivo de la fecha, ni farándula, ni webinars y
     actos protocolares en la agenda. El clima entra solo cuando es noticia.
     (identidad; prompts/informe)
-14. **Dos series, dos trabajos.** El informe diario es el hábito y publica
-    a hora fija cada mañana; las Claves son la biblioteca permanente y el
-    crecimiento. La Clave es diaria. (identidad; prompts/claves)
+14. **El diario es el hábito; el largo por tema es la explicación.** El
+    diario escrito sale todos los días en https://entender.sinodev.cl, y el
+    Short del día lo lleva a YouTube. La Clave deja de ser una serie con
+    calendario (ni diaria ni semanal): es el LARGO POR TEMA, y sale cuando
+    hay un caso que explicar, a juicio editorial. Pueden salir uno o dos el
+    mismo día, de temas distintos, o ninguno. Cada uno explica un caso desde
+    su origen con la información acumulada, y a un caso que avanza se le
+    hace una actualización cuando ya hay suficiente que explicar. Su
+    escenario es el propio diario escrito: la página real del día en que
+    salió cada noticia, con zoom a su sección. (decisión de Santiago,
+    01-11-2026; reemplaza "la Clave es diaria" del 02-09 y "una Clave
+    semanal" del 12-10)
 15. **Nada de clickbait.** Ni preguntas cebo, ni mayúsculas sostenidas, ni
     "no vas a creer", ni prometer más de lo que el texto entrega. El
     título y la apertura no dependen de impacto artificial. Subir un
@@ -127,7 +144,7 @@ archivos de criterio del repositorio.
 26. **Lo que se prueba, se mide dos semanas antes de opinar.** Una táctica
     se decide por retención y swipe-away, no por gusto. Las hipótesis se
     marcan como hipótesis. (viralizacion; estrategia/README)
-27. **Una rutina nueva no reemplaza a la vieja hasta que corrió de verdad
+26b. **Una rutina nueva no reemplaza a la vieja hasta que corrió de verdad
     una vez.** Antes de apagar la que funciona, la nueva tiene que probar
     en una corrida real que trae el repo montado (`sources` en el cuerpo
     de la API: sin eso despierta en un directorio vacío, no puede clonar y
@@ -135,7 +152,9 @@ archivos de criterio del repositorio.
     nunca por lo que diga una nota. Pagado dos veces: el guardián el 01-09
     (29-08 a 01-09 sin comprobar nada) y la revisión editorial el 08-09
     (creada sin fuente; se apagó la que servía y la noche quedó sin
-    control de calidad hasta que se detectó). (decisión 08-09)
+    control de calidad hasta que se detectó). (decisión 08-09; se numeró
+    27 por error, repitiendo la 27 de la sección E, y pasó a 26b el
+    01-11-2026)
 
 ## E. Cómo se ve y cómo suena
 
@@ -144,7 +163,11 @@ archivos de criterio del repositorio.
     los datos. (src/tema; decisiones)
 28. **Sobriedad radical.** Sin alarma, sin relleno, sin pirotecnia; nada de
     zooms ni efectos. En notas de duelo o violencia, frases más cortas y
-    cero música. (identidad; formato-video)
+    cero música. (identidad; formato-video) Precisión del 01-11-2026: el
+    movimiento de cámara que muestra DE DÓNDE sale lo que se narra no es un
+    efecto. Por eso caben el viaje de la cámara del mural (12-10) y el zoom a
+    la sección del diario escrito en el largo por tema (regla 14); sigue
+    prohibido el zoom o el efecto que solo busca impacto.
 29. **Imágenes: nada ajeno, y nada que se pueda leer como registro del
     hecho.** Fotos ajenas jamás (Chile no tiene fair use; un reclamo de
     Content ID bloquea la monetización del video entero). Las imágenes
@@ -215,7 +238,8 @@ archivos de criterio del repositorio.
     el "nada realista" original dejaba fuera la única dirección que
     funcionaba, y la línea correcta no es el estilo sino si la imagen
     pretende ser el registro del hecho; partida en personas y lugares el
-    29-09-2026, ver arriba)
+    29-09-2026, ver arriba. La biblioteca de dibujos por párrafo se archivó
+    el 01-11-2026; esta regla vale igual para toda imagen generada)
 30. **La música se genera por código, suena a mecanismo y nunca dice qué
     sentir.** Nada descargado de ningún banco. El sello del canal es siempre el
     mismo, re - la - re, porque un sello es identidad. La cama sí puede correr
@@ -262,14 +286,24 @@ archivos de criterio del repositorio.
     seguidos se escuchan horrible y se pierde el hilo. (decisión de
     Santiago, 04-09; guion-informe; guion-claves; validar-tarjetas avisa)
 
-## G. El objetivo que manda el calendario
+## G. El objetivo que manda
 
-39. **Postular al Programa de Socios antes del 01-02-2027.** Ese día el
-    umbral se duplica (8.000 horas o 20 millones de vistas de Shorts). Hasta
-    entonces: 1.000 suscriptores y 4.000 horas públicas de videos largos;
-    las vistas de Shorts no suman horas. (modelo-de-negocio; decisión 30-08)
-40. **La promesa del canal es diaria.** No se recorta el fin de semana por
-    costo. (PENDIENTES, decisión de Santiago)
+39. **La meta de 2026 es construir audiencia, con los Shorts como producto
+    principal.** Ya no son las 4.000 horas: desde el 01-02-2027, quien no
+    esté dentro del Programa de Socios necesita 8.000 horas de largos o 20
+    millones de vistas de Shorts en 90 días, y con unas 15 horas de largos
+    al mes ninguno de los dos umbrales estaba al alcance. Lo que abre
+    cualquier camino después es la audiencia, y hoy la traen los Shorts (el
+    78 % de los minutos vistos del canal). (decisión de Santiago,
+    01-11-2026; reemplaza la meta del 30-08; números en
+    `bitacora/2026-11-01-analisis-y-plan.md`)
+40. **La promesa diaria es el diario escrito y el Short del día.** El diario
+    sale todos los días en https://entender.sinodev.cl y el podcast lo lee;
+    el Short del día sale todos los días. No se recorta el fin de semana por
+    costo. El informe diario en video (de 3 a 4 minutos) sigue hasta que el
+    primer largo por tema esté aprobado y después se apaga; el largo por tema
+    no tiene calendario (regla 14). (decisión de Santiago, 01-11-2026;
+    reemplaza "la promesa del canal es diaria", que incluía el video)
 
 41. **Una sola lista de trabajo: `bitacora/PENDIENTES.md`.** Toda tarea vive
     ahí, con evidencia (archivo y línea) y con dueño (noche, día o Santiago);
@@ -296,7 +330,7 @@ archivos de criterio del repositorio.
 
 ---
 
-## Las disputas: todas cerradas (al 13-09-2026)
+## Las disputas: todas cerradas (al 01-11-2026)
 
 Acá se anota lo que dos archivos del proyecto afirman de forma distinta. Una
 disputa no es una regla: se cierra con una decisión de Santiago en
@@ -308,17 +342,26 @@ que la sostenía. **Hoy no hay ninguna abierta.**
 - **2 · Voz clonada**: CERRADA el 02-09: NO es requisito de monetización; se
   reabre solo con evidencia.
 - **3 · Titulares**: CERRADA el 02-09: tope de LARGO (12 palabras por titular),
-  no de cantidad; todo lo del informe sigue sonando.
+  no de cantidad; todo lo del informe sigue sonando. SUPERADA el 12-10-2026:
+  el informe en video pasó a 3 o 4 minutos con tres noticias y sin "En
+  titulares"; el informe completo vive en la web (`estrategia/decisiones.md`,
+  entrada "El informe pasa a 3 o 4 minutos").
 - **4 · El clima**: CERRADA el 02-09: excepción declarada, UNA frase casual en
   la despedida, nunca una sección.
 - **5 · "¿En qué quedó?"**: CERRADA el 02-09: por hito, no por calendario.
-- **6 · La Clave**: CERRADA el 02-09: es DIARIA. Su duración cambió dos veces
-  después: a ~5 minutos el 05-09 y de vuelta a 8 como piso el 13-09, a pedido
-  de Santiago (`prompts/guion-claves.md`).
+- **6 · La Clave**: CERRADA el 02-09 como diaria; salió de la cadena diaria el
+  16-09 y el 12-10 Santiago la dejó semanal. Desde el 01-11-2026, decisión de
+  Santiago, no es diaria ni semanal: es el LARGO POR TEMA, sin calendario y a
+  juicio editorial (regla 14). Su duración la fija `prompts/guion-claves.md`
+  mientras el largo por tema se construye.
 - **7 · Auditoría matinal**: CERRADA el 02-09: la escribe la rutina; la sesión
   de día la lee y profundiza.
-- **8 · Hora de publicación**: CERRADA el 02-09: manda la tabla de
-  `ideas/viralizacion.md`; los demás archivos la citan.
+- **8 · Hora de publicación**: CERRADA el 02-09 con la tabla de
+  `ideas/viralizacion.md`. RESUELTA DE NUEVO el 01-11-2026, decisión de
+  Santiago: vale la hora real del workflow (`YT_HORA_INFORME`,
+  `YT_HORA_SHORT` y `YT_HORA_CLAVE` en `.github/workflows/edicion-diaria.yml`):
+  informe 06:30, Short 12:00 y Clave 14:00 hoy, y el largo por tema pasa a las
+  19:00. `ideas/viralizacion.md` deja de mandar sobre la hora.
 - **9 · La base de series**: CERRADA el 02-09: la alimenta el agente de
   guardia.
 - **10 · La cortina de sección**: CERRADA el 02-09: no era disputa sino
