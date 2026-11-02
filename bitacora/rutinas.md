@@ -117,6 +117,8 @@ donde llegar diez horas tarde no cambia nada.
 | Short exprés | `short-expres.yml` | push de `contenido/urgente/GUION-*.md`; dispatch con `guion` | Produce el Short vertical de piel vino del hallazgo de la guardia, lo sube público y deja la marca `SUBIDO-`, que además deduplica si el guion se pushea dos veces |
 | Web | `web.yml` | push de las carpetas publicables (`informes`, `revisiones`, `claves`, `casos`, `videos`, `podcast`) y de `web/`; dispatch | Publica el diario (Astro) en https://entender.sinodev.cl (Cloudflare Pages, desde el 01-11-2026) y en la copia vieja de GitHub Pages, que sigue saliendo porque Spotify lee el feed del podcast de ahí. La revisión es la que abre la compuerta: sin ese push, el informe aprobado se queda fuera del sitio |
 
-Nota del 01-11-2026 (sesión de la noche, verificado por API): el ID viejo del
-informe de la mañana (`trig_01Dk4PXRmaLb7aXbXfW9xLts`) ya no existe; el que se
-apagó el 12-10 es `trig_01DHmsrrShT2Mnj8WDg4CQ42`. No hay dos rutinas.
+Nota del 01-11-2026 (sesión de la noche, verificado por API): el guardián
+viejo `trig_01Dk4PXRmGEMPHzrvs6amTgf` (Sonnet, alerta al teléfono) existe pero
+está APAGADO desde el 06-09-2026 (última corrida 05-09). El informe de la
+mañana que se apagó el 12-10 es `trig_01DHmsrrShT2Mnj8WDg4CQ42`. Ninguna de
+las dos corre hoy. Duda 1 cerrada.
