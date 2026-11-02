@@ -116,3 +116,7 @@ donde llegar diez horas tarde no cambia nada.
 | Reintento del despertar | `reintento.yml` | push de `contenido/estado/reintento-despertador.txt`; cron `*/20 4-9 * * *`; dispatch | Vuelve a tocarle el timbre a GPT cuando no responde (regla 20 y 20: a los 40 minutos escribe `plan-b.txt`), reintenta las etapas del reparto, relanza el Barrido desde las 01:48 si el despertador no trae la marca de hoy, y desde el 01-11 pide `estado.yml` si hay barrido y no hay vista. El 22-09 la cadena quedó parada nueve horas por falta de un reintento |
 | Short exprés | `short-expres.yml` | push de `contenido/urgente/GUION-*.md`; dispatch con `guion` | Produce el Short vertical de piel vino del hallazgo de la guardia, lo sube público y deja la marca `SUBIDO-`, que además deduplica si el guion se pushea dos veces |
 | Web | `web.yml` | push de las carpetas publicables (`informes`, `revisiones`, `claves`, `casos`, `videos`, `podcast`) y de `web/`; dispatch | Publica el diario (Astro) en https://entender.sinodev.cl (Cloudflare Pages, desde el 01-11-2026) y en la copia vieja de GitHub Pages, que sigue saliendo porque Spotify lee el feed del podcast de ahí. La revisión es la que abre la compuerta: sin ese push, el informe aprobado se queda fuera del sitio |
+
+Nota del 01-11-2026 (sesión de la noche, verificado por API): el ID viejo del
+informe de la mañana (`trig_01Dk4PXRmaLb7aXbXfW9xLts`) ya no existe; el que se
+apagó el 12-10 es `trig_01DHmsrrShT2Mnj8WDg4CQ42`. No hay dos rutinas.
