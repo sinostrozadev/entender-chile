@@ -5,6 +5,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { marked } from "marked";
+import { repartidorDeSlugs } from "./slug-noticia.js";
+import { categoriaDe } from "./categorias";
 
 const RAIZ = path.resolve(process.cwd(), "..", "contenido");
 
@@ -109,7 +111,38 @@ const MARCAS_INTERNAS = /^\s*(EN SEGUIMIENTO|FUERA DE LA OLLA|PENDIENTE DE CIERR
 export const quitarInterno = (md: string): string =>
   md.replace(/<!--[\s\S]*?-->/g, "").replace(MARCAS_INTERNAS, "");
 
-function render(md: string): { html: string; secciones: Seccion[]; noticias: Noticia[] } {
+// Ancla por noticia (01-11-2026, formato "Entender el caso"): el largo por
+// tema hace zoom a la noticia del día en la página real, y para encontrarla
+// en la captura cada noticia necesita un elemento propio con nombre estable.
+// Solo lo llevan los informes; claves y casos no cambian. Los atributos viajan
+// pegados al h3 con este marcador y agruparSecundarias() los pasa al envoltorio.
+const MARCA_ANCLA = "\u0000";
+const atributosAncla = (slug: string, nivel: string, cat: string) =>
+  ` id="noticia-${slug}" data-noticia="${slug}" data-nivel="${nivel}" data-categoria="${cat}"`;
+// Se recorre en orden de lectura (secciones, titulares [A]/[B] y viñetas [C]
+// mezclados) para que el -2 de un slug repetido caiga donde lo pone
+// scripts/slug-noticia.js leyendo el markdown. Va antes de fechasHumanas(),
+// que cambia las fechas del texto y con eso el slug.
+function anclarNoticias(html: string): string {
+  const slug = repartidorDeSlugs();
+  let cat = "";
+  return html.replace(
+    /<h2 id="([^"]+)">([\s\S]*?)<\/h2>|<h3 class="noticia peso-([ab])" id="([^"]+)">([\s\S]*?)<\/h3>|<li data-nivel="C">([\s\S]*?)<\/li>/g,
+    (m, h2id, h2txt, peso, h3id, h3txt, liTxt) => {
+      if (h2id !== undefined) { cat = categoriaDe(textoLlano(h2txt))?.id ?? h2id; return m; }
+      if (peso !== undefined) {
+        const a = atributosAncla(slug(textoLlano(h3txt)), peso.toUpperCase(), cat);
+        return `<h3 class="noticia peso-${peso}" id="${h3id}"${MARCA_ANCLA}${a}${MARCA_ANCLA}>${h3txt}</h3>`;
+      }
+      return `<li${atributosAncla(slug(textoLlano(liTxt)), "C", cat)}>${liTxt}</li>`;
+    });
+}
+const sacarAncla = (seg: string): [string, string] => {
+  const m = seg.match(new RegExp(`${MARCA_ANCLA}([^${MARCA_ANCLA}]*)${MARCA_ANCLA}`));
+  return m ? [seg.replace(m[0], ""), m[1]] : [seg, ""];
+};
+
+function render(md: string, opciones: { anclas?: boolean } = {}): { html: string; secciones: Seccion[]; noticias: Noticia[] } {
   let html = marked.parse(quitarInterno(md), { async: false, gfm: true }) as string;
   const secciones: Seccion[] = [];
   const noticias: Noticia[] = [];
@@ -128,6 +161,11 @@ function render(md: string): { html: string; secciones: Seccion[]; noticias: Not
     return `<h2 id="${id}">${inner}</h2>`;
   });
   html = html.replace(/<h1>([\s\S]*?)<\/h1>/g, (_m, inner) => `<h2 id="${slugify(inner)}">${inner}</h2>`);
+  // Las viñetas [C] son noticias también: se marcan antes de borrar el peso.
+  if (opciones.anclas) {
+    html = html.replace(/<li>(\s*<p>)?\s*\[C\]\s*/g, (_m, p) => `<li data-nivel="C">${p ?? ""}`);
+    html = anclarNoticias(html);
+  }
   // Cualquier marca de peso restante ([C] en listas, etc.) se elimina.
   html = html.replace(/\[([ABC])\]\s*/g, "");
   html = html.replace(/<strong>(Contexto|Clave|Análisis|Analisis):<\/strong>/g,
@@ -144,13 +182,20 @@ function render(md: string): { html: string; secciones: Seccion[]; noticias: Not
 export function agruparSecundarias(html: string): string {
   const seg = html.split(/(?=<h[23][\s>])/);
   const esB = (x: string) => /^<h3 class="noticia peso-b"/.test(x);
+  // Con ancla (solo informes), cada noticia queda envuelta: la secundaria en
+  // su nota-b de siempre, y la suelta (A o B) en un div sin estilo propio.
+  const esNoticia = (x: string) => /^<h3 class="noticia peso-[ab]"/.test(x);
+  const suelta = (x: string) => {
+    const [limpio, a] = sacarAncla(x);
+    return a && esNoticia(x) ? `<div class="noticia-caja"${a}>${limpio}</div>\n` : limpio;
+  };
   const out: string[] = [];
   for (let i = 0; i < seg.length; ) {
-    if (!esB(seg[i])) { out.push(seg[i]); i++; continue; }
+    if (!esB(seg[i])) { out.push(suelta(seg[i])); i++; continue; }
     let j = i;
     while (j < seg.length && esB(seg[j])) j++;
-    if (j - i >= 2) out.push(`<div class="fila-b">` + seg.slice(i, j).map((x) => `<div class="nota-b">${x}</div>`).join("") + `</div>\n`);
-    else out.push(seg[i]);
+    if (j - i >= 2) out.push(`<div class="fila-b">` + seg.slice(i, j).map((x) => { const [limpio, a] = sacarAncla(x); return `<div class="nota-b"${a}>${limpio}</div>`; }).join("") + `</div>\n`);
+    else out.push(suelta(seg[i]));
     i = j;
   }
   return out.join("");
@@ -214,7 +259,7 @@ export function informes(): Informe[] {
       // las marcas internas las quita render() para todas las piezas
       cuerpo = cuerpo.replace(/^\*\*Para salir hoy:\*\*.*$/m, "");
       cuerpo = cuerpo.replace(/^##\s+Para salir hoy\s*$[\s\S]*?(?=^#{1,6}\s|(?![\s\S]))/im, "");
-      const { html, secciones, noticias } = render(cuerpo);
+      const { html, secciones, noticias } = render(cuerpo, { anclas: true });
       const fuentes = seccionDe(md, /^##\s+Fuentes consultadas/i).split("\n").filter((l) => l.trim()).length;
       const palabras = md.split(/\s+/).length;
       return {
