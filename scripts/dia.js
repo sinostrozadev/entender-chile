@@ -6,7 +6,7 @@
  *   node scripts/dia.js                       → guion del informe de HOY (contenido/guiones/informe/AAAA-MM-DD.md), voz simulada
  *   node scripts/dia.js --clave               → guion de Claves de HOY (contenido/guiones/claves/AAAA-MM-DD-*.md)
  *   node scripts/dia.js <ruta.md>             → un guion específico
- *   ... --voz                                 → voz real ElevenLabs (ELEVENLABS_API_KEY y VOICE_ID)
+ *   ... --voz                                 → voz real Azure (AZURE_SPEECH_KEY y AZURE_SPEECH_REGION; respaldo KEY2/REGION2)
  *   ... --render                              → además renderiza el MP4
  *   CLAVE_FORMATO=mural|clasico               → formato de la Clave (vacío: mural si la Clave lo trae)
  *

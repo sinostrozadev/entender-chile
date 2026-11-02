@@ -13,7 +13,7 @@
  *   node scripts/estado.js --solo-leer  → no escribe nada, solo imprime
  *   node scripts/estado.js --ahora 05:30 → finge esa hora de Chile (pruebas)
  *
- * La etapa se nombra igual que en bitacora/2026-09-08-propuesta-maquina-de-estados.md.
+ * La etapa se nombra igual que en archivo/bitacora/2026-09-08-propuesta-maquina-de-estados.md.
  * Sin dependencias.
  */
 const fs = require("fs");

@@ -2,7 +2,7 @@
 
 Nada del proyecto se borra: lo que dejó de ser criterio vivo se retira aquí,
 con una línea que diga qué fue y dónde vive hoy lo que lo reemplazó. Regla de
-la propuesta de orden del 02-09 (`bitacora/2026-09-02-orden-del-repo.md`).
+la propuesta de orden del 02-09 (`archivo/bitacora/2026-09-02-orden-del-repo.md`).
 
 - `plan-produccion.md` (de estrategia/): plan por fases del arranque. Fases
   0 a 3 cumplidas al 30-08; la 4 vive en `bitacora/PENDIENTES.md` y la 5 en
@@ -24,7 +24,7 @@ la propuesta de orden del 02-09 (`bitacora/2026-09-02-orden-del-repo.md`).
   anterior al 27-08: hoy desinforma. Si vuelve a hacer falta un esquema, se
   regenera desde `scripts/build-timeline.js`, que es la verdad.
 
-## Limpieza del 26-09-2026 (propuesta `bitacora/2026-09-26-propuesta-limpieza-y-taller.md`)
+## Limpieza del 26-09-2026 (propuesta `archivo/bitacora/2026-09-26-propuesta-limpieza-y-taller.md`)
 
 Prompts de flujos que ya no existen. Los seis salieron de `prompts/`, que
 desde acá vuelve a ser solo lo vivo:
@@ -242,3 +242,61 @@ el render; el código sigue leyendo `contenido/config/`:
   `scripts/`.
 - `scripts/taller.js` (el Taller de control, `bitacora/taller.html`) se QUEDA:
   no tenía módulos que apuntaran a nada de lo retirado.
+
+## Limpieza del 01-11-2026, segunda parte: prompts sin disparador y documentos cerrados
+
+Prompts que ya nadie lee, a `archivo/prompts/`:
+
+- `prompts/guardian.md` - el prompt del "Informe de la mañana" (06:00), la
+  rutina que se apagó el 12-10-2026. Su revisión la hace hoy la sesión de día
+  con la skill `revision`. Ojo: su sección 2, la que comprueba si la Edición
+  diaria sigue en curso antes de dar por faltante un video (consulta el
+  workflow y escribe "todavía en curso" en vez de una falta), sigue valiendo
+  para esa revisión de la mañana y conviene no perderla.
+- `prompts/caratula-pedido-corta.txt` - la versión resumida del pedido de
+  carátula que Santiago dejó junto al prompt del 05-10-2026. Su propia fila en
+  `prompts/README.md` decía "NO SE USA. Nada la lee".
+- `prompts/clave-idea.md` NO se retiró: el flujo
+  `acuerdo-internacional-sin-tratado` sigue abierto en `CAMINO: idea`
+  (`contenido/estado/clave-acuerdo-internacional-sin-tratado.md`) y
+  `scripts/estado-clave.js` lo nombra como prompt de esa etapa. Se retira
+  cuando ese flujo cierre.
+
+Documentos cerrados de `bitacora/`, a `archivo/bitacora/`. Son propuestas,
+planes e investigaciones cuyo resultado ya está aplicado y anotado en
+`estrategia/decisiones.md` o en `bitacora/REALIZADOS.md`; ningún workflow ni
+script los ejecuta, solo los citaban como diseño, y esas citas apuntan ahora a
+la ruta nueva (`scripts/estado.js`, `scripts/taller.js`,
+`.github/workflows/estado.yml`, `prompts/vigia.md`, `prompts/CALIDAD.md`,
+`ideas/evaluar.md`):
+
+- `2026-08-24-ideas-hechas.md`, `2026-08-28-investigacion-cron.md`,
+  `2026-08-28-plan-barrido.md`, `2026-08-28-quien-ejecuta-que.md`,
+  `2026-08-29-propuesta-informe-largo.md`, `2026-08-30-manana.md`,
+  `2026-09-02-orden-del-repo.md`, `2026-09-03-propuesta-tiempos.md`,
+  `2026-09-08-propuesta-maquina-de-estados.md` (el diseño de la máquina de
+  estados: la implementan `scripts/estado.js` y `estado.yml`),
+  `2026-09-20-propuesta-taller.md`, `2026-09-24-plan-b-gpt-caido.md` (el plan
+  del fin de semana del 24 al 27-09; el plan B vivo es `prompts/suplente.md`
+  con `contenido/estado/plan-b.txt`), `2026-09-26-propuesta-limpieza-y-taller.md`
+  y `2026-10-12-encargo-mural-al-pipeline.md` (el mural ya está en producción,
+  `scripts/clave-mural.js`).
+- La captura `bitacora/capturas-2026-09-26-short-expres-descifra.jpg`, a
+  `archivo/capturas/`, junto a las otras siete capturas de decisiones visuales
+  ya cerradas.
+
+Duplicados y restos:
+
+- `docs/auditoria-api/` deja de existir: `DECISION-07-09.md` y su README
+  (el más nuevo) se sumaron a `archivo/docs/auditoria-api/`, donde ya estaba
+  el resto del expediente; el README viejo de esa carpeta quedó como
+  `seguimiento-2026-08-30.md`. Queda vivo `docs/youtube.md`.
+- `contenido/pruebas/flujo/` (la pieza, el estado y el veredicto de la prueba
+  v2 del 14-09), a `archivo/contenido-pruebas/`. Es lo que producía el bucle de
+  prueba que ya se retiró el 26-09 (`archivo/workflows/prueba-flujo.yml`).
+
+ElevenLabs, sin restos: `.github/workflows/edicion-diaria.yml` ya no pasa
+`ELEVENLABS_API_KEY` ni `VOICE_ID` a los pasos 3 y 4, y la condición de voz es
+solo Azure. Con la condición vieja, un secret de ElevenLabs sin Azure pedía
+`--voz` y la edición se caía en `scripts/dia.js` en vez de salir muda. Los
+secrets siguen en GitHub y se pueden borrar desde la interfaz.

@@ -82,7 +82,7 @@ const INICIO = enFrio ? 0 : Number(process.env.INICIO_NARRACION || 3.0);
 
 if (chars.length !== parsed.cleanText.length) {
   console.warn(`AVISO: la alineación tiene ${chars.length} caracteres y la narración ${parsed.cleanText.length}. ` +
-    "Si usaste ElevenLabs, revisa que enviaste exactamente out/narracion.txt (la alineación puede diferir por normalización).");
+    "Con voz real, revisa que tts-azure.js recibió exactamente out/narracion.txt (la alineación puede diferir por normalización).");
 }
 
 const esBlanco = (c) => c === " " || c === "\n" || c === "\t";

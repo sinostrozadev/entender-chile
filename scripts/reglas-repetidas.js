@@ -19,6 +19,12 @@
  * semanas y se compara con la corrida anterior: si una regla sigue arriba
  * después de que la pusimos a contar, el problema no era la redacción.
  *
+ * HERRAMIENTA MANUAL (anotado el 01-11-2026, en la limpieza de lo que estaba
+ * en espera): ningún workflow ni rutina la dispara, y así debe quedar. La
+ * corre a mano la sesión de día, desde la raíz del repo y con el historial
+ * completo (en un clon superficial no hay CORREGIR que contar). Lee el
+ * historial y solo imprime: no escribe nada en el repo.
+ *
  * Uso:  node scripts/reglas-repetidas.js [días]      (por defecto 14)
  */
 const { execFileSync } = require("child_process");

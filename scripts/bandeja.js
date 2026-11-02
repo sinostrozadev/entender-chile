@@ -7,7 +7,8 @@
  * Por qué un json versionado y no un cálculo al vuelo dentro del Taller: lo
  * leen TRES cosas distintas y ninguna puede tener su propia idea de qué espera
  * decisión. El módulo Bandeja del Taller (scripts/taller.js) lo muestra con sus
- * botones; el informe de la mañana (prompts/guardian.md) lo cuenta en su
+ * botones; el informe de la mañana (archivo/prompts/guardian.md: rutina
+ * apagada el 12-10-2026, prompt retirado el 01-11-2026) lo contaba en su
  * sección "Espera tu decisión"; y la rutina en MODO AVISADOR
  * (prompts/validador.md) lo usa para COMPROBAR que el aviso que le pidieron
  * mandar corresponde a algo que de verdad está esperando, antes de sonar el
