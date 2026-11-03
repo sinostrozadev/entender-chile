@@ -1,0 +1,39 @@
+{
+  "flujo": "clave",
+  "slug": "rabat-rebajas-de-condena",
+  "camino": "pauta",
+  "etapa": "pautar",
+  "vuelta": 0,
+  "turno": "Claude: escribe la pauta (prompts/pauta-clave.md)",
+  "fecha_produccion": null,
+  "actualizado": "2026-11-02 23:03",
+  "concepto": "Las rebajas de condena firmadas por el Ministerio de Justicia: Rabat y Silva",
+  "pieza": {
+    "id": "pauta",
+    "prompt": "prompts/pauta-clave.md",
+    "archivo": "contenido/claves/flujo/rabat-rebajas-de-condena/pauta.md",
+    "entrada": "contenido/claves/flujo/rabat-rebajas-de-condena/tema.md"
+  },
+  "piezas": [
+    {
+      "id": "pauta",
+      "situacion": "falta",
+      "archivo": "contenido/claves/flujo/rabat-rebajas-de-condena/pauta.md"
+    },
+    {
+      "id": "investigacion",
+      "situacion": "falta",
+      "archivo": "contenido/claves/flujo/rabat-rebajas-de-condena/investigacion.md"
+    },
+    {
+      "id": "entrega",
+      "situacion": "falta",
+      "archivo": ""
+    },
+    {
+      "id": "guion",
+      "situacion": "falta",
+      "archivo": ""
+    }
+  ]
+}
