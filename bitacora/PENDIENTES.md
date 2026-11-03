@@ -5,8 +5,9 @@ están `REALIZADOS.md` y el archivo del día. Lo que salió de esta lista el
 01-11-2026 (secciones históricas, entradas hechas y entradas que el modelo
 nuevo dejó sin objeto) está en `bitacora/2026-11-01-pendientes-historia.md`.
 
-Última actualización: 01-11-2026, poda completa contra la regla 41: de 2.445
-líneas a solo las tareas vivas, cada una con su dueño y su evidencia.
+Última actualización: 02-11-2026, limpieza: una sola entrada para los secrets
+de ElevenLabs, fuera el nombre del largo (decidido el 01-11-2026), hora del
+largo corregida a las 19:00 y quitada de "En construcción".
 
 ---
 
@@ -27,8 +28,8 @@ aquí queda descartado:
    todos los días en https://entender.sinodev.cl; el podcast pasa a leer el
    diario escrito; el Short del día se queda y se mejora (mediana 104 vistas,
    pero no sale todos los días).
-4. **La hora es la del workflow**: informe 06:30, Short 12:00, largo o Clave
-   14:00; `ideas/viralizacion.md` ya no manda.
+4. **La hora es la del workflow**: informe 06:30, Short 12:00, largo por tema (Entender el caso)
+   19:00; `ideas/viralizacion.md` ya no manda.
 5. **Sin gastos nuevos**: ni ElevenLabs ni clips generativos. La biblioteca de
    dibujos, `guardian.md` y la interfaz `taller/` se archivan.
 
@@ -38,13 +39,12 @@ aquí queda descartado:
 
 **En construcción** (el día propone con alcance, Santiago aprueba): el largo
 por tema, el podcast que lee el diario escrito, el Short del día todos los
-días y la hora de las 19:00 para el largo.
+días.
 
 ---
 
 ## DEPENDEN DE SANTIAGO
 
-- [ ] **01-11: borrar en GitHub los secrets `ELEVENLABS_API_KEY` y `VOICE_ID`** (ya sin uso; Santiago dio el sí, pero la sesión de la noche no puede tocar secrets desde el entorno: se borran en Settings, Secrets and variables, Actions, icono de la papelera)
 - [ ] **Redirigir la copia vieja de GitHub Pages (repo `entender-chile-web`) a
       https://entender.sinodev.cl y apagar esa publicación**, cuando el dominio
       lleve una semana estable. Ojo: Spotify tiene registrado el feed en la
@@ -84,16 +84,13 @@ días y la hora de las 19:00 para el largo.
       23-10: el Escudo tiene cero menciones; las AFP 6 de 6 días con 52
       menciones. Dueño: Santiago.
 
-- [ ] **Nombre del largo por tema.** Santiago quería evaluar un renombre de la
-      Clave desde el 27-09 (opciones de entonces: mantener La Clave, En
-      contexto, Para entender). Con el largo por tema la pregunta vuelve:
-      decidirlo antes del primer largo. Dueño: Santiago.
-
 - [ ] **01-11: borrar en GitHub los secrets `ELEVENLABS_API_KEY` y
       `VOICE_ID`, ya sin uso.** La limpieza del 01-11 sacó los restos de
       ElevenLabs de `.github/workflows/edicion-diaria.yml` (commits faf7bad9 y
-      a0cfa35e) y la decisión 5 deja la voz en Azure. Settings, Secrets and
-      variables, Actions. Dueño: Santiago.
+      a0cfa35e) y la decisión 5 deja la voz en Azure. Santiago dio el sí, pero
+      una sesión no puede tocar secrets desde el entorno: se borran en
+      Settings, Secrets and variables, Actions, icono de la papelera.
+      Dueño: Santiago.
 
 - [ ] **PR #5, abierto desde el 11-09: fusionarlo o cerrarlo.** Trae la
       corrección completa de la cifra del 11-09 en los cuatro archivos, escrita
