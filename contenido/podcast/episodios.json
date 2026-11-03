@@ -663,5 +663,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-02-informe.mp3",
     "bytes": 5962752,
     "durSeg": 248
+  },
+  {
+    "fecha": "2026-11-03",
+    "tipo": "informe",
+    "titulo": "03-11-2026 · Rabat figura como imputado por denuncia de prevaricación",
+    "descripcion": "El fiscal nacional confirmó que el ministro de Justicia, Fernando Rabat, figura como imputado por una denuncia de presunta prevaricación. Tres fundaciones deberán restituir más de mil millones de pesos al fisco, mientras el Imacec de septiembre creció apenas 0,2% anual. La jornada también incluye el hallazgo de Aedes aegypti en Iquique, la votación del Presupuesto 2027 y la aprobación ambiental del Puerto Exterior de San Antonio.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-03/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-03-informe.mp3",
+    "bytes": 5034240,
+    "durSeg": 210
   }
 ]
