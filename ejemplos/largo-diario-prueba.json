@@ -1,0 +1,397 @@
+{
+  "viajeSeg": 1.5,
+  "planos": {
+    "alejarSeg": 0.6,
+    "fundidoSeg": 0.5,
+    "generalSeg": 1.2
+  },
+  "paginas": [
+    {
+      "fecha": "2026-10-24",
+      "png": "diario/2026-10-24.png",
+      "ancho": 1920,
+      "alto": 12744,
+      "caja": {
+        "x": 586,
+        "y": 1660,
+        "ancho": 757,
+        "alto": 1056
+      },
+      "trozos": [
+        {
+          "png": "diario/2026-10-24/1.png",
+          "y": 0,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-24/2.png",
+          "y": 1024,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-24/3.png",
+          "y": 2048,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-24/4.png",
+          "y": 3072,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-24/5.png",
+          "y": 4096,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-24/6.png",
+          "y": 5120,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-24/7.png",
+          "y": 6144,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-24/8.png",
+          "y": 7168,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-24/9.png",
+          "y": 8192,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-24/10.png",
+          "y": 9216,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-24/11.png",
+          "y": 10240,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-24/12.png",
+          "y": 11264,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-24/13.png",
+          "y": 12288,
+          "alto": 456
+        }
+      ]
+    },
+    {
+      "fecha": "2026-10-30",
+      "png": "diario/2026-10-30.png",
+      "ancho": 1920,
+      "alto": 7912,
+      "caja": {
+        "x": 586,
+        "y": 1490,
+        "ancho": 1054,
+        "alto": 418
+      },
+      "trozos": [
+        {
+          "png": "diario/2026-10-30/1.png",
+          "y": 0,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-30/2.png",
+          "y": 1024,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-30/3.png",
+          "y": 2048,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-30/4.png",
+          "y": 3072,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-30/5.png",
+          "y": 4096,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-30/6.png",
+          "y": 5120,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-30/7.png",
+          "y": 6144,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-10-30/8.png",
+          "y": 7168,
+          "alto": 744
+        }
+      ]
+    },
+    {
+      "fecha": "2026-11-02",
+      "png": "diario/2026-11-02.png",
+      "ancho": 1920,
+      "alto": 10209,
+      "caja": {
+        "x": 586,
+        "y": 1714,
+        "ancho": 1054,
+        "alto": 611
+      },
+      "trozos": [
+        {
+          "png": "diario/2026-11-02/1.png",
+          "y": 0,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/2.png",
+          "y": 1024,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/3.png",
+          "y": 2048,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/4.png",
+          "y": 3072,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/5.png",
+          "y": 4096,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/6.png",
+          "y": 5120,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/7.png",
+          "y": 6144,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/8.png",
+          "y": 7168,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/9.png",
+          "y": 8192,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/10.png",
+          "y": 9216,
+          "alto": 993
+        }
+      ]
+    },
+    {
+      "fecha": "2026-11-02",
+      "png": "diario/2026-11-02.png",
+      "ancho": 1920,
+      "alto": 10209,
+      "caja": {
+        "x": 626,
+        "y": 7441,
+        "ancho": 717,
+        "alto": 60
+      },
+      "trozos": [
+        {
+          "png": "diario/2026-11-02/1.png",
+          "y": 0,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/2.png",
+          "y": 1024,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/3.png",
+          "y": 2048,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/4.png",
+          "y": 3072,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/5.png",
+          "y": 4096,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/6.png",
+          "y": 5120,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/7.png",
+          "y": 6144,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/8.png",
+          "y": 7168,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/9.png",
+          "y": 8192,
+          "alto": 1028
+        },
+        {
+          "png": "diario/2026-11-02/10.png",
+          "y": 9216,
+          "alto": 993
+        }
+      ]
+    }
+  ],
+  "bloques": [
+    {
+      "texto": "Justicia frenó las nuevas rebajas de condena a agresores sexuales de menores.",
+      "dicho": "Justicia frenó las nuevas rebajas de condena a agresores sexuales de menores.",
+      "parada": 0,
+      "seg": 8.19,
+      "tesis": true,
+      "rotulo": "El anuncio",
+      "diario": {
+        "fecha": "2026-10-24",
+        "slug": "justicia-suspende-nuevas-rebajas-de-condena-a-agresores"
+      },
+      "escena": 2.7
+    },
+    {
+      "texto": "El ministro Fernando Rabat suspendió la tramitación de nuevos decretos.",
+      "dicho": "El ministro Fernando Rabat suspendió la tramitación de nuevos decretos.",
+      "parada": 0,
+      "seg": 4.9
+    },
+    {
+      "texto": "Antes se habían conocido 56 beneficios ya concedidos.",
+      "dicho": "Antes se habían conocido cincuenta y seis beneficios ya concedidos.",
+      "parada": 0,
+      "seg": 4.9,
+      "fuente": "El País, 23-10-2026"
+    },
+    {
+      "texto": "La pausa se aplica hacia adelante: los decretos ya ejecutados no se anulan solos.",
+      "dicho": "La pausa se aplica hacia adelante: los decretos ya ejecutados no se anulan solos.",
+      "parada": 0,
+      "seg": 6.08
+    },
+    {
+      "tipo": "dato",
+      "etiqueta": "rebajas de condena concedidas a condenados por delitos sexuales contra menores",
+      "a": "56 beneficios",
+      "fuente": "El País, 23-10-2026",
+      "valores": [
+        {
+          "rotulo": "",
+          "valor": "56 beneficios"
+        }
+      ],
+      "flecha": false,
+      "seg": 4.8,
+      "parada": 0
+    },
+    {
+      "texto": "La oposición preparó una acusación constitucional contra el ministro.",
+      "dicho": "La oposición preparó una acusación constitucional contra el ministro.",
+      "parada": 1,
+      "seg": 8.4,
+      "tesis": true,
+      "rotulo": "La acusación",
+      "diario": {
+        "fecha": "2026-10-30",
+        "slug": "la-acusacion-contra-rabat-sigue-en-preparacion-y-todavia-no"
+      },
+      "escena": 3.8
+    },
+    {
+      "texto": "Al 30 de octubre, el libelo todavía no entraba al Congreso.",
+      "dicho": "Al treinta de octubre, el libelo todavía no entraba al Congreso.",
+      "parada": 1,
+      "seg": 5.19
+    },
+    {
+      "texto": "El Presidente Kast inició gestiones con parlamentarios para sostener a Rabat y reunir votos contra la acusación.",
+      "dicho": "El Presidente Kast inició gestiones con parlamentarios para sostener a Rabat y reunir votos contra la acusación.",
+      "parada": 1,
+      "seg": 6.97
+    },
+    {
+      "texto": "Los documentos contradicen la defensa del ministro.",
+      "dicho": "Los documentos contradicen la defensa del ministro.",
+      "parada": 2,
+      "seg": 7.81,
+      "tesis": true,
+      "rotulo": "Los documentos",
+      "diario": {
+        "fecha": "2026-11-02",
+        "slug": "documentos-contradicen-la-defensa-de-rabat-sobre-las-rebajas"
+      },
+      "escena": 3.8
+    },
+    {
+      "texto": "Justicia aprobó 11 rebajas pese a advertencias de sus propias oficinas regionales.",
+      "dicho": "Justicia aprobó once rebajas pese a advertencias de sus propias oficinas regionales.",
+      "parada": 2,
+      "seg": 5.49,
+      "fuente": "Interferencia y CNN Chile, 02-11-2026"
+    },
+    {
+      "texto": "Siete decretos llevan la firma de Rabat y tres la del exsubsecretario Luis Silva, como ministro subrogante.",
+      "dicho": "Siete decretos llevan la firma de Rabat y tres la del exsubsecretario Luis Silva, como ministro subrogante.",
+      "parada": 2,
+      "seg": 6.97
+    },
+    {
+      "texto": "El caso sigue por dos caminos separados.",
+      "dicho": "El caso sigue por dos caminos separados.",
+      "parada": 3,
+      "seg": 5.51,
+      "tesis": true,
+      "rotulo": "Lo que sigue",
+      "diario": {
+        "fecha": "2026-11-02",
+        "slug": "una-iniciativa-parlamentaria-busca-tramitar-en-paralelo-una"
+      },
+      "escena": 1.5
+    },
+    {
+      "texto": "Uno es la responsabilidad política del ministro.",
+      "dicho": "Uno es la responsabilidad política del ministro.",
+      "parada": 3,
+      "seg": 4.01
+    },
+    {
+      "texto": "El otro es el cambio legal: parlamentarios buscan tramitar una prohibición legal a estas rebajas, por un carril separado de la acusación.",
+      "dicho": "El otro es el cambio legal: parlamentarios buscan tramitar una prohibición legal a estas rebajas, por un carril separado de la acusación.",
+      "parada": 3,
+      "seg": 8.44
+    }
+  ],
+  "musica": "sonidos/cama-clave.wav"
+}

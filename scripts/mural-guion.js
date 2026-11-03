@@ -17,6 +17,7 @@
 //     --ancho 27580 --paradas 440,2460,... --trozos claves/slug/mural14 --salida ejemplos/clave-mural14.json
 const fs = require("fs");
 const { aNumerales, cifraCorta, cifraDeDato } = require("./numerales");
+const { leerMarcaDiario } = require("./parse");
 
 const palabras = (t) => t.trim().split(/\s+/).filter(Boolean).length;
 const dura = (t) => Math.round((1.95 + 0.295 * palabras(t)) * 100) / 100;
@@ -47,6 +48,13 @@ const leerSecciones = (md) => {
     const fz = l.match(/^\[FUENTE\]\s*(.+)$/);
     if (fz) { actual.fuente = fz[1].trim(); continue; }
     if (l.startsWith("[ESQUEMA")) continue;
+    // EL ESCENARIO DE LA SECCIÓN en "Entender el caso" (02-11-2026): la página
+    // del diario y la noticia a la que se hace zoom. Antes de esto la línea
+    // caía en el descarte de corchetes de abajo y se perdía en silencio. La
+    // posición y la fecha las valida scripts/parse.js, que corre antes en
+    // dia.js y en largo-diario.js; acá solo se toma.
+    const dz = leerMarcaDiario(l);
+    if (dz) { if (!dz.error) actual.diario = { fecha: dz.fecha, slug: dz.slug }; continue; }
     // [HECHO] e [INTERPRETACIÓN] SÍ son prosa narrada, con la marca del canal
     // adelante. Saltárselas dejó la sección 12 sin una sola palabra.
     const mk = l.match(/^\[(HECHO|INTERPRETACI[ÓO]N)\]\s*(.+)$/i);
@@ -154,7 +162,7 @@ const armarBloques = (md) => {
     for (const p of ordenar(sec.partes)) {
       if (p.tipo === "dato") {
         const b = { ...armarDato(p), parada: i };
-        if (primera) { b.rotulo = sec.titulo; primera = false; }
+        if (primera) { b.rotulo = sec.titulo; if (sec.diario) b.diario = sec.diario; primera = false; }
         bloques.push(b);
       } else {
         oraciones(p.texto).forEach((o, k) => {
@@ -167,7 +175,7 @@ const armarBloques = (md) => {
           // la marca va solo en la primera oración del párrafo marcado: repetirla
           // en cada oración la convierte en ruido y deja de distinguir nada
           if (p.marca && k === 0) b.marca = p.marca;
-          if (primera) { b.rotulo = sec.titulo; primera = false; }
+          if (primera) { b.rotulo = sec.titulo; if (sec.diario) b.diario = sec.diario; primera = false; }
           bloques.push(b);
         });
       }

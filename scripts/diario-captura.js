@@ -143,9 +143,27 @@ const lanzar = (exe, perfil) => new Promise((ok, mal) => {
   p.on("exit", (c) => { clearTimeout(t); mal(new Error(`el navegador terminó (código ${c}):\n${err}`)); });
 });
 
+// LA FECHA DE LA CABECERA (02-11-2026). La web escribe ahí el día en que se
+// CONSTRUYE (web/src/layouts/Base.astro, fechaLarga(hoy)), así que la página
+// del 24-10 capturada el 02-11 decía "lunes, 2 de noviembre de 2026": el video
+// mostraba un diario con la fecha equivocada y la captura cambiaba según el día
+// del render. Se reescribe con la fecha de la página, con el mismo formato que
+// fechaLarga de web/src/lib/contenido.ts (las mayúsculas las pone el CSS). Si
+// la línea no tiene la forma esperada, no se adivina: se esconde.
+const fechaLarga = (f) => {
+  const t = new Intl.DateTimeFormat("es-CL", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })
+    .format(new Date(`${f}T12:00:00Z`));
+  return t.charAt(0).toUpperCase() + t.slice(1);
+};
+const CABECERA = JSON.stringify(`Santiago de Chile · ${fechaLarga(fecha)}`);
+
 // Lo que corre dentro de la página: prepara, espera y mide.
 const PREPARAR = `(async () => {
   document.querySelectorAll(".salir[data-fecha], .hoy[data-fecha]").forEach((e) => { e.hidden = true; });
+  document.querySelectorAll(".cab-fecha").forEach((e) => {
+    if (/^Santiago de Chile · \\S+, \\d{1,2} de \\S+ de \\d{4}$/.test(e.textContent.trim())) e.textContent = ${CABECERA};
+    else e.style.visibility = "hidden";
+  });
   document.querySelectorAll("img[loading=lazy]").forEach((i) => { i.loading = "eager"; });
   const espera = (ms) => new Promise((r) => setTimeout(r, ms));
   await Promise.race([Promise.all([...document.images].map((i) => i.complete ? 0 : new Promise((r) => { i.onload = i.onerror = r; }))), espera(15000)]);

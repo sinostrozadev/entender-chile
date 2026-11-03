@@ -8,7 +8,7 @@
  *   node scripts/dia.js <ruta.md>             → un guion específico
  *   ... --voz                                 → voz real Azure (AZURE_SPEECH_KEY y AZURE_SPEECH_REGION; respaldo KEY2/REGION2)
  *   ... --render                              → además renderiza el MP4
- *   CLAVE_FORMATO=mural|clasico               → formato de la Clave (vacío: mural si la Clave lo trae)
+ *   CLAVE_FORMATO=diario|mural|clasico        → formato de la Clave (las marcas DIARIO del guion mandan salvo con clasico)
  *
  * Pasos: parse → voz → timeline → capítulos (+ descripción) → (render)
  * Salidas del día en out/AAAA-MM-DD/ y descripción lista en contenido/descripciones/.
@@ -74,24 +74,57 @@ const capturar = (script, extra = []) =>
 // EL MURAL (12-10-2026, Santiago: "cablea la Clave"). La Clave sale con el
 // mural (src/clave-mural.tsx, scripts/clave-mural.js) cuando su carpeta trae
 // el material, contenido/claves/flujo/<slug>/mural.json; si no, con el formato
-// clásico de siempre. CLAVE_FORMATO es el interruptor:
-//   (vacío)  mural si hay material y calza con el guion; si no, clásico
-//   mural    lo mismo, pero un mural que NO calza con su guion (otra cantidad
-//            de paneles que de secciones, un trozo que falta) detiene la
-//            corrida en vez de caer al clásico: si alguien pidió el mural, un
-//            video con el formato viejo es una sorpresa, no un respaldo
-//   clasico  el formato anterior, aunque haya mural, para volver atrás
-// Una Clave sin material NUNCA se cae: sale clásica, con aviso, porque quedarse
-// sin video de la semana por no haber encargado el mural es peor que el
-// formato viejo. Se valida acá por lo mismo que FONDO_TARJETA: un valor mal
-// escrito en el workflow tiene que caerse y verse.
+// clásico de siempre.
+// EL DIARIO (02-11-2026, "Entender el caso"): si el guion de la Clave trae
+// marcas [DIARIO AAAA-MM-DD | slug], el largo sale sobre la página real del
+// diario (src/largo-diario.tsx, scripts/largo-diario.js). LAS MARCAS MANDAN,
+// aunque CLAVE_FORMATO diga mural: vienen de la pauta que aprobó Santiago y
+// son una orden explícita, más reciente que cualquier mural.json que haya
+// quedado en la carpeta del tema. El workflow fija "mural" desde el
+// 12-10-2026, y con la regla anterior (el diario solo con la variable vacía)
+// el formato nuevo no se habría encendido nunca en producción.
+// CLAVE_FORMATO es el interruptor:
+//   clasico  el formato anterior siempre, aunque haya mural o marcas, para
+//            volver atrás
+//   diario   exige marcas: un guion sin ellas detiene la corrida
+//   (vacío) y mural, cuando el guion TRAE marcas: diario
+//   (vacío) y mural, cuando NO las trae: lo de siempre. Con vacío, mural si
+//            hay material y calza con el guion, si no clásico. Con mural, un
+//            mural que NO calza con su guion (otra cantidad de paneles que de
+//            secciones, un trozo que falta) detiene la corrida en vez de caer
+//            al clásico
+// Un largo con marcas que no se puede armar (una noticia que no está en su
+// página, una captura que falla) SIEMPRE detiene la corrida: el guion pidió el
+// diario, y un video con otro formato es una sorpresa, no un respaldo. Una
+// Clave sin marcas y sin material NUNCA se cae: sale clásica, con aviso,
+// porque quedarse sin video de la semana por no haber encargado el mural es
+// peor que el formato viejo. Se valida acá por lo mismo que FONDO_TARJETA: un
+// valor mal escrito en el workflow tiene que caerse y verse.
 const FORMATO_PEDIDO = (process.env.CLAVE_FORMATO || "").trim().toLowerCase();
-if (!["", "mural", "clasico"].includes(FORMATO_PEDIDO)) {
-  console.error(`CLAVE_FORMATO no reconocido: "${process.env.CLAVE_FORMATO}". Valores: (vacío) | mural | clasico.`);
+if (!["", "diario", "mural", "clasico"].includes(FORMATO_PEDIDO)) {
+  console.error(`CLAVE_FORMATO no reconocido: "${process.env.CLAVE_FORMATO}". Valores: (vacío) | diario | mural | clasico.`);
   process.exit(1);
 }
-let mural = null;
+let diario = null;
 if (esClave && FORMATO_PEDIDO !== "clasico") {
+  const { materialDiario } = require("./largo-diario.js");
+  const mat = materialDiario(guion);
+  if (!mat) {
+    if (FORMATO_PEDIDO === "diario") {
+      console.error(`CLAVE_FORMATO=diario, pero ${guion} no trae marcas [DIARIO AAAA-MM-DD | slug].`);
+      process.exit(1);
+    }
+  } else if (mat.problemas.length) {
+    console.error(`El guion pide el diario, pero el largo de ${mat.slug} no se puede armar:\n  - ${mat.problemas.join("\n  - ")}`);
+    process.exit(1);
+  } else {
+    diario = mat;
+    console.log(`(formato de la Clave: diario, ${new Set(mat.paginas.map((p) => p.fecha)).size} páginas` +
+      `${FORMATO_PEDIDO === "mural" ? "; el guion trae marcas DIARIO y mandan sobre CLAVE_FORMATO=mural" : ""})`);
+  }
+}
+let mural = null;
+if (esClave && !diario && FORMATO_PEDIDO !== "clasico" && FORMATO_PEDIDO !== "diario") {
   const { materialMural } = require("./clave-mural.js");
   const mat = materialMural(guion);
   if (!mat) {
@@ -111,7 +144,18 @@ console.log("── 1/4 · Parseando guion ────────────�
 run("parse.js", [guion, OUT]);
 
 let capitulosDe = path.join(OUT, "timeline.json");
-if (mural) {
+if (diario) {
+  // lo mismo que el mural, con la página del diario como escenario
+  console.log("── 2-3/4 · Voz, diario y cama ────────────────────");
+  if (conVoz && !(process.env.AZURE_SPEECH_KEY && process.env.AZURE_SPEECH_REGION)) {
+    console.error("--voz requiere AZURE_SPEECH_KEY + AZURE_SPEECH_REGION (respaldo: AZURE_SPEECH_KEY2 + AZURE_SPEECH_REGION2).");
+    process.exit(1);
+  }
+  if (!conVoz) console.log("(modo prueba: video sin voz, duraciones estimadas, cero créditos)");
+  const { producirDiario } = require("./largo-diario.js");
+  diario.salida = producirDiario({ guion, OUT, fecha, conVoz, mat: diario });
+  capitulosDe = diario.salida.rutaCap;
+} else if (mural) {
   // voz, reloj de bloques, cama y capítulos: todo sale de scripts/clave-mural.js
   console.log("── 2-3/4 · Voz, mural y cama ─────────────────────");
   if (conVoz && !(process.env.AZURE_SPEECH_KEY && process.env.AZURE_SPEECH_REGION)) {
@@ -247,7 +291,7 @@ if (conRender) {
   console.log("── Render ────────────────────────────────────────");
   // --concurrency=100%: el runner de Actions tiene 4 núcleos y el default de
   // remotion usaba 2; el render de un informe tardaba 55 a 105 min (ACTIONS 1).
-  if (mural) {
+  if (mural || diario) {
     // EL NIVEL VA DESPUÉS DEL RENDER. Un video de narración se nivela contra
     // la voz, y el objetivo de YouTube es -14 LUFS con pico a -1,5: más fuerte
     // lo bajan igual, más bajo queda sonando flojo (medido el 07-10-2026, ver
@@ -259,8 +303,12 @@ if (conRender) {
     // render no se puede verificar fuera de Actions, que es donde sí hay red.
     // El 16-10-2026 costó una corrida entera descubrirlo. En Actions la
     // variable no existe y todo sigue igual.
-    execFileSync("npx", ["remotion", "render", "ClaveMuralProduccion", crudo,
-      `--props=./${mural.salida.rutaProps}`, "--concurrency=100%",
+    // el largo sobre el diario se nivela igual: misma voz, misma cama
+    const [composicion, rutaProps] = diario
+      ? ["LargoDiario", diario.salida.rutaProps]
+      : ["ClaveMuralProduccion", mural.salida.rutaProps];
+    execFileSync("npx", ["remotion", "render", composicion, crudo,
+      `--props=./${rutaProps}`, "--concurrency=100%",
       ...(process.env.REMOTION_BROWSER_EXECUTABLE ? [`--browser-executable=${process.env.REMOTION_BROWSER_EXECUTABLE}`] : []),
     ], { stdio: "inherit" });
     execFileSync("npx", ["remotion", "ffmpeg", "-loglevel", "error", "-i", crudo,

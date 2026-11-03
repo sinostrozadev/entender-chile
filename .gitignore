@@ -35,3 +35,7 @@ taller-*.mp4
 # una muestra necesitaba servir. Se queda ignorada por si alguien la rearma.
 public/biblioteca/
 public/sonidos/cama-clave.wav
+
+# las capturas de las páginas del diario que usa el largo sobre el diario
+# (scripts/largo-diario.js): se regeneran desde web/dist en cada render
+public/diario/

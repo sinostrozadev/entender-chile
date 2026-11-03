@@ -218,6 +218,25 @@ jobs:
         continue-on-error: true
         run: node scripts/short.js --fecha "$FECHA" --voz --render
 
+      # EL DIARIO COMO ESCENARIO (02-11-2026, "Entender el caso"). Si el guion
+      # de la Clave trae marcas [DIARIO ...], scripts/diario-captura.js dibuja
+      # la página de cada fecha desde web/dist, y en Actions web/ no está
+      # instalada ni construida: sin este paso el largo no tendría páginas.
+      # Se instala y construye igual que en web.yml (la compilación para
+      # entender.sinodev.cl, con base /), y solo cuando hace falta: son un par
+      # de minutos que una Clave sin marcas no tiene por qué pagar.
+      - name: Dependencias de la web (solo si la Clave usa el diario)
+        if: env.SALTAR != '1' && env.HAY_CLAVE != '1' && env.SIN_CLAVE != '1'
+        env:
+          WEB_SITE: https://entender.sinodev.cl
+          WEB_BASE: /
+        run: |
+          if ls contenido/guiones/claves/$FECHA-*.md 2>/dev/null | grep -v -- '-imagenes\.md$' | xargs -r grep -l '^\[DIARIO' >/dev/null; then
+            cd web && npm ci && npm run build
+          else
+            echo "La Clave de hoy no trae marcas DIARIO: no hace falta la web."
+          fi
+
       - name: 4 · Producir video de la Clave (si hubo)
         env:
           # EL MURAL (12-10-2026): la Clave sale con el mural cuando su carpeta
@@ -225,6 +244,11 @@ jobs:
           # clásico si no lo trae. "mural" hace además que un mural que no calza
           # con su guion detenga el paso en vez de salir con el formato viejo.
           # Para volver atrás: "clasico". El detalle está en scripts/dia.js.
+          # EL DIARIO (02-11-2026): si el guion trae marcas [DIARIO ...], el
+          # largo sale sobre la página del diario aunque acá diga "mural",
+          # porque las marcas vienen de la pauta aprobada; y si una noticia no
+          # se encuentra en su página, el paso se detiene. Solo "clasico" lo
+          # apaga.
           CLAVE_FORMATO: mural
           AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
@@ -282,10 +306,12 @@ jobs:
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
           # Hora de Chile de publicación por pieza (variables del repo, Settings →
           # Variables; si no existen, valen estos defaults). Desde el 15-09 los
-          # videos suben PROGRAMADOS, no privados.
+          # videos suben PROGRAMADOS, no privados. La Clave pasó de las 14:00 a
+          # las 19:00 el 01-11-2026 (regla 19): ahora es el largo por tema, que
+          # se ve de tarde, y no la pieza del mediodía.
           YT_HORA_INFORME: ${{ vars.YT_HORA_INFORME || '06:30' }}
           YT_HORA_SHORT: ${{ vars.YT_HORA_SHORT || '12:00' }}
-          YT_HORA_CLAVE: ${{ vars.YT_HORA_CLAVE || '14:00' }}
+          YT_HORA_CLAVE: ${{ vars.YT_HORA_CLAVE || '19:00' }}
           # Mínimo de minutos entre la subida y la publicación: la ventana de
           # revisión de Santiago. Si la hora de arriba queda más cerca, se corre.
           YT_MARGEN_MIN: ${{ vars.YT_MARGEN_MIN || '90' }}

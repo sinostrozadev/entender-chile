@@ -14,6 +14,7 @@
  *   [HECHO] párrafo        [INTERPRETACIÓN] párrafo
  *   [CITA | quién | fuente] texto
  *   [FUENTE medio, fecha]  fuente principal del bloque: va al pie de todas sus tarjetas
+ *   [DIARIO AAAA-MM-DD | slug]  escenario de la sección en "Entender el caso"; ver leerMarcaDiario
  *
  * Indicadores en los valores de [DATO]: "9,5% (sube)", "-11% (baja)", "(baja mal)",
  * "(bien)", "(mal)", "(igual)". Un valor puede ser solo el indicador: la
@@ -135,6 +136,31 @@ function cifraPrincipal(textoPantalla) {
   return null;
 }
 
+// LA MARCA DIARIO (02-11-2026, "Entender el caso"). Dice que el escenario de
+// la sección es la página del diario de esa fecha, con zoom a la noticia cuyo
+// data-noticia es ese slug (scripts/largo-diario.js). No se narra ni se ve: si
+// cayera al párrafo, la voz leería una fecha y un slug en voz alta. Va SOLO
+// como primera línea de la sección, porque una sección tiene un solo
+// escenario y la cámara llega a él antes de la primera palabra; una marca a
+// mitad de sección no tiene un momento en que pueda cumplirse, así que se
+// rechaza con su línea en vez de adivinar. Vive acá y no en un json aparte
+// porque la escribe el mismo que escribe la sección, en el mismo momento.
+// Devuelve null si la línea no es una marca DIARIO, { fecha, slug } si está
+// bien escrita, y { error } si lo intenta y no calza.
+const MARCA_DIARIO = /^\[DIARIO\b/i;
+function leerMarcaDiario(linea) {
+  const l = String(linea).trim();
+  if (!MARCA_DIARIO.test(l)) return null;
+  const m = l.match(/^\[DIARIO\s+(\S+)\s*\|\s*([a-z0-9-]+)\s*\]$/i);
+  if (!m) return { error: `marca DIARIO mal escrita ("${l}"); el formato es [DIARIO AAAA-MM-DD | slug]` };
+  const f = m[1].match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const d = f && new Date(Date.UTC(+f[1], +f[2] - 1, +f[3]));
+  if (!f || d.getUTCMonth() !== +f[2] - 1 || d.getUTCDate() !== +f[3]) {
+    return { error: `fecha mal formada en la marca DIARIO ("${m[1]}"); va como AAAA-MM-DD, por ejemplo 2026-10-24` };
+  }
+  return { fecha: m[1], slug: m[2].toLowerCase() };
+}
+
 function parseGuion(md) {
   const lineas = md.replace(/\r\n/g, "\n").split("\n");
   let titulo = null, caratula = null, descripcion = [], fuentes = [];
@@ -163,7 +189,11 @@ function parseGuion(md) {
     buffer = null;
   };
 
+  // la sección abierta, para colgarle su marca DIARIO, y si todavía no trae
+  // ninguna línea propia (la marca solo vale en esa posición)
+  let seccionActual = null, seccionVacia = false, nLinea = 0;
   for (let cruda of lineas) {
+    nLinea++;
     const linea = cruda.trim();
     const sinNegrita = linea.replace(/\*\*/g, "");
 
@@ -207,7 +237,9 @@ function parseGuion(md) {
       const m = bruto.match(/^(.*?)\s*\[([a-záéíóúñ-]+)\]$/i);
       const texto = (m ? m[1] : bruto).trim();
       const categoria = m ? m[2].toLowerCase() : null;
-      eventos.push({ tipo: "seccion", texto, ...(categoria ? { categoria } : {}) });
+      seccionActual = { tipo: "seccion", texto, ...(categoria ? { categoria } : {}) };
+      seccionVacia = true;
+      eventos.push(seccionActual);
       // un veto que nadie gastó muere acá: tacha el párrafo que le sigue en SU
       // bloque, nunca el primero del siguiente
       vetoPendiente = false;
@@ -231,6 +263,21 @@ function parseGuion(md) {
       }
       seccionNombre = texto;
       continue;
+    }
+
+    {
+      const d = leerMarcaDiario(linea);
+      if (d) {
+        if (d.error) throw new Error(`línea ${nLinea}: ${d.error}`);
+        if (!seccionActual || !seccionVacia) {
+          throw new Error(`línea ${nLinea}: la marca DIARIO va como primera línea de la sección, justo después del "## título" y antes de la [TESIS]` +
+            (seccionActual ? ` (sección "${seccionActual.texto}")` : " (está antes de la primera sección)"));
+        }
+        seccionActual.diario = { fecha: d.fecha, slug: d.slug };
+        seccionVacia = false;
+        continue;
+      }
+      seccionVacia = false;
     }
 
     let m;
@@ -454,4 +501,4 @@ if (require.main === module) {
   const sinAncla = r.eventos.filter(e => (e.tipo === "dato" || e.tipo === "esquema") && e.anchor == null);
   if (sinAncla.length) console.warn(`AVISO: ${sinAncla.length} dato/esquema sin párrafo posterior; no se mostrarán.`);
 }
-module.exports = { parseGuion };
+module.exports = { parseGuion, leerMarcaDiario };
