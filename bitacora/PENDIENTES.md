@@ -5,8 +5,9 @@ están `REALIZADOS.md` y el archivo del día. Lo que salió de esta lista el
 01-11-2026 (secciones históricas, entradas hechas y entradas que el modelo
 nuevo dejó sin objeto) está en `bitacora/2026-11-01-pendientes-historia.md`.
 
-Última actualización: 02-11-2026, cierre del día: encargos fusionados, piloto de Rabat
-en pauta_lista y tres hallazgos abiertos.
+Última actualización: 03-11-2026, auditoría matinal: tres hallazgos que
+repetían sin bajar nunca a esta lista (clasificador de áreas, URL de
+Interferencia, cuadro del panel).
 
 ---
 
@@ -601,6 +602,53 @@ que estaba aprobada.
 ---
 
 ## PARA LA SESIÓN DE DÍA
+
+- [ ] **03-11, AGUANTA: el clasificador de áreas del barrido confunde fútbol
+      con ciencia, y nunca había bajado a esta lista pese a repetirse cinco
+      mañanas seguidas.** `contenido/barrido/fuentes.json:90`, la consulta de
+      "Ciencia y tecnología" es `Chile (ciencia OR tecnología OR investigación
+      OR astronomía OR universidad)`: el término "universidad" trae noticias
+      de los clubes de fútbol Universidad de Chile y Universidad Católica, no
+      de ciencia. Hoy la sección trajo "Informe del árbitro detalla expulsión
+      de Fernando Gago en el clásico universitario" (Teletrece) y "jugador de
+      U. Católica confirma conflicto entre Medel y Garnero" (RedGol), entre
+      otras (`contenido/barrido/2026-11-03.md:364-367`). Lo mismo viene
+      marcado en `contenido/revisiones/` del 30-10, 31-10, 01-11 y 02-11 (once
+      de 27 y nueve de 17 noticias de fútbol según el día) sin que nadie lo
+      anotara aquí ni lo tocara. Propuesta: en `contenido/barrido/fuentes.json:90`,
+      quitar "universidad" o acotarlo (por ejemplo "universidad (investigación
+      OR estudio OR académic*)"), y de paso excluir para esa área los medios
+      que son solo de fútbol (RedGol, Bolavip). Dueño: día, con el sí de
+      Santiago antes de tocar el archivo de fuentes. Auditoría del 03-11
+      (`bitacora/2026-11-03-auditoria.md`).
+
+- [ ] **03-11, AGUANTA: las URL de Interferencia llegan rotas del barrido,
+      tercer día seguido, ahora con la causa encontrada.** `scripts/barrido.js:90`
+      (`let url = campo(b, "link")`) toma literal lo que trae `<link>` del
+      feed de Interferencia, y ese campo no es una URL: trae una etiqueta
+      `<a href="/articulos/...">Título</a>` entera, percent-encoded. Mismo
+      patrón los tres días: `https://interferencia.cl/%3Ca%20href%3D%22/articulos/<slug>%22%3E<título>%3C/a%3E`
+      (`contenido/barrido/2026-11-03.md:494`, `2026-11-02.md:521` y `560`,
+      `2026-11-01.md:521`). Decodificado da `<a href="/articulos/<slug>">`, o
+      sea la URL real es `https://interferencia.cl/articulos/<slug>`.
+      Propuesta: en `scripts/barrido.js:90`, si el `url` extraído matchea
+      `/^https:\/\/interferencia\.cl\/%3Ca/i`, aplicar `decodeURIComponent` y
+      extraer el `href` con el mismo patrón que ya usa la línea 95 para Atom,
+      resolviendo contra `https://interferencia.cl`. Dueño: día. Auditoría del
+      03-11 (`bitacora/2026-11-03-auditoria.md`).
+
+- [ ] **03-11, AGUANTA: el cuadro "Cronograma del sistema" del panel sigue
+      prometiendo las ~04:00 para Edición diaria, y la cadena real termina
+      antes de las 03:00 Chile hace semanas.** `bitacora/cronograma.json:45`
+      (`"hora": "~04:00"`, `"quien": "Edición diaria"`) alimenta la tabla de
+      `bitacora/panel-interno.html` vía `scripts/panel-cronograma.js`. Las
+      auditorías del 27-10, 30-10, 31-10, 02-11 y hoy (03-11: Edición diaria
+      corrió de 02:41 a 02:58 Chile) miden la cadena terminando antes de las
+      03:00, y el cuadro nunca se corrigió. Propuesta: en
+      `bitacora/cronograma.json:45`, cambiar `"~04:00"` por algo como
+      `"~02:50"`, y volver a correr `scripts/panel-cronograma.js` para que el
+      panel quede al día. Dueño: día. Auditoría del 03-11
+      (`bitacora/2026-11-03-auditoria.md`).
 
 - [ ] **01-11: GPT entregó dos carátulas inservibles (31-10 corrupta, 01-11 truncada)**: el .png del 31-10 no tiene firma PNG (bytes al azar, igual que `contenido/caratulas/2026-10-24.png`, que sigue en el repo) y el del 01-11 se cortó en 786.445 bytes sin IEND, como el 28-09. Ninguna de las dos falló por diseño: el texto dentro de la imagen es lo que pide `prompts/caratula-pedido.txt` desde el 05-10 y la del 01-11 medía 1672x941, que es 16:9. Revisar en `prompts/imagen-caratula.md` (paso 3 bis) y en el pedido por qué GPT no comprueba bytes e IEND antes de dar por subida la imagen, y si conviene que el validador mire la carátula (`caratulaUsable` de `scripts/imagen-entera.js`) antes del render. Dueño: día.
 
