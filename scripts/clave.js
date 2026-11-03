@@ -16,6 +16,10 @@
  *       escribe contenido/claves/flujo/<slug>/tema.md  → etapa tema_elegido (GPT propone la idea)
  *   node scripts/clave.js elegir <slug> --concepto "..." --noticia "..." --origen AAAA-MM-DD
  *       el camino manual, para un tema que no viene del ranking
+ *   node scripts/clave.js elegir <slug> --tema-de <slug-del-tema>
+ *       "Entender el caso" (02-11-2026): el tema.md sale de la ficha
+ *       contenido/temas/<slug-del-tema>/ficha.md, con TEMA: y FORMATO: diario,
+ *       y la propuesta abierta del tema se cierra en propuestas/
  *   node scripts/clave.js aprobar <slug> [--fecha AAAA-MM-DD]
  *       escribe aprobacion.md "APROBADA: fecha"        → etapa pauta_aprobada (GPT investiga)
  *       en el camino viejo: idea_aprobada (GPT escribe la entrega)
@@ -33,6 +37,15 @@
  * caminoDe(slug), no la orden.
  *
  * Cada orden commitea y pushea (con --sin-push, solo escribe).
+ *
+ * Por qué --tema-de (02-11-2026). Desde el 01-11-2026 la Clave es "Entender el
+ * caso": un largo por tema que cuenta un caso desde su origen con la página
+ * del diario de cada hito. Ese material ya está reunido en la ficha del tema
+ * (contenido/temas/README.md), con la fecha y el slug de cada noticia, así que
+ * el tema.md no se escribe a mano: se arma desde la ficha, y la línea TEMA:
+ * le dice a la pauta dónde está. FORMATO: diario es la señal para el render.
+ * El ELEGIDO: lleva la fecha de hoy, posterior al corte, para que caminoDe dé
+ * "pauta": el largo pasa por la pauta de Claude antes de que GPT trabaje.
  *
  * Por qué hay funciones exportadas: los botones del Taller de una página
  * (scripts/taller.js) abren GitHub con el archivo YA escrito, así que
@@ -132,6 +145,39 @@ const temaDeCandidato = (semana, numero, opciones = {}) => {
   };
 };
 
+// El tema.md de un flujo que viene de un tema seguido día a día. CONCEPTO es
+// el título de la ficha y ORIGEN su fecha de apertura; NOTICIA es el primer
+// hito, que es lo que dispara la historia. El cuerpo lleva el Origen de la
+// ficha para que el Taller muestre de qué se trata sin abrir otro archivo; la
+// cronología NO se copia, porque copiada envejece mientras la ficha sigue
+// creciendo: la pauta la lee de la ficha. Devuelve null si no hay ficha.
+const seccionDe = (md, nombre) => {
+  const lineas = md.split("\n");
+  const i = lineas.findIndex((l) => new RegExp(`^##\\s+${nombre}\\s*$`).test(l));
+  if (i < 0) return "";
+  const fin = lineas.findIndex((l, j) => j > i && /^##\s/.test(l));
+  return lineas.slice(i + 1, fin < 0 ? undefined : fin).join("\n").trim();
+};
+const temaDeFicha = (slugTema, opciones = {}, raiz = RAIZ) => {
+  const rutaFicha = `contenido/temas/${slugTema}/ficha.md`;
+  let ficha;
+  try { ficha = fs.readFileSync(path.join(raiz, rutaFicha), "utf8"); } catch { return null; }
+  const titulo = (ficha.match(/^#\s+(.+)$/m) || [])[1]?.trim() || slugTema;
+  const abierto = (ficha.match(/^Abierto:\s*(\d{4}-\d{2}-\d{2})/m) || [])[1] || "";
+  const primer = seccionDe(ficha, "Cronología").match(/^-\s*(\d{4}-\d{2}-\d{2})\s*\|\s*([^|]+)/m);
+  const noticia = primer ? `${primer[1]}: ${primer[2].trim()}` : "";
+  const origen = seccionDe(ficha, "Origen");
+  return {
+    rutaFicha, titulo,
+    contenido: contenidoTema({
+      slug: opciones.slug || slugTema, concepto: titulo, noticia, origen: abierto,
+      cabecera: `TEMA: ${rutaFicha}\nFORMATO: diario\n`,
+      cuerpo: origen ? `\n## Origen (de la ficha del tema)\n\n${origen}\n` : "",
+      ahora: opciones.ahora,
+    }),
+  };
+};
+
 // La Clave de la semana sale el MIÉRCOLES: sin fecha, el próximo miércoles.
 // Estrictamente el próximo: si hoy es miércoles, el de la semana siguiente,
 // porque el video de hoy ya no alcanza a producirse.
@@ -177,7 +223,7 @@ const contenidoCambio = (nota, ahora = hoyChile(), camino = "pauta") =>
 
 module.exports = {
   hoyChile, ddmm, semanasDisponibles, ultimaSemana, leerCandidatos, temaDelRanking,
-  contenidoTema, temaDeCandidato, proximoMiercoles, contenidoAprobacion, contenidoCambio,
+  contenidoTema, temaDeCandidato, temaDeFicha, seccionDe, proximoMiercoles, contenidoAprobacion, contenidoCambio,
   caminoDe, CORTE_PAUTA,
 };
 
@@ -220,18 +266,46 @@ if (require.main === module) {
     process.exit(0);
   }
 
-  if (!orden || !slug || !/^[a-z0-9-]+$/.test(slug)) { console.error("uso: clave.js listar | elegir <slug> --candidato <n> | elegir <slug> --concepto ... --noticia ... | aprobar <slug> | cambiar <slug> --nota ...  (slug en minúsculas, con guiones)"); process.exit(2); }
+  if (!orden || !slug || !/^[a-z0-9-]+$/.test(slug)) { console.error("uso: clave.js listar | elegir <slug> --candidato <n> | elegir <slug> --concepto ... --noticia ... | elegir <slug> --tema-de <slug-del-tema> | aprobar <slug> | cambiar <slug> --nota ...  (slug en minúsculas, con guiones)"); process.exit(2); }
   const dir = path.join(RAIZ, "contenido/claves/flujo", slug);
+  // `archivo` puede ser una ruta o varias: elegir --tema-de escribe tema.md y
+  // además mueve la propuesta, y las dos cosas viajan en el mismo commit o la
+  // Bandeja vería abierta una propuesta ya aprobada. `add -A` con rutas
+  // explícitas registra también el borrado de la propuesta movida.
   const commit = (msg, archivo) => {
-    if (args.includes("--sin-push")) { console.log(`escrito ${archivo} (sin push)`); return; }
-    execSync(`git add "${archivo}" && git commit -q -m "${msg}" && git -c rebase.autoStash=true pull --rebase -q origin main && git push -q origin main`, { cwd: RAIZ, stdio: "inherit" });
+    const rutas = [].concat(archivo);
+    if (args.includes("--sin-push")) { console.log(`escrito ${rutas.join(", ")} (sin push)`); return; }
+    execSync(`git add -A -- ${rutas.map((r) => `"${r}"`).join(" ")} && git commit -q -m "${msg}" && git -c rebase.autoStash=true pull --rebase -q origin main && git push -q origin main`, { cwd: RAIZ, stdio: "inherit" });
     console.log(`pusheado: ${msg}`);
   };
 
   if (orden === "elegir") {
     const concepto = opt("--concepto"), noticia = opt("--noticia"), origen = opt("--origen");
     let md;
-    if (opt("--candidato")) {
+    const extra = [];
+    if (opt("--tema-de")) {
+      const slugTema = opt("--tema-de");
+      if (!/^[a-z0-9-]+$/.test(slugTema)) { console.error("--tema-de lleva el slug del tema, en minúsculas y con guiones"); process.exit(2); }
+      const armado = temaDeFicha(slugTema, { slug });
+      if (!armado) { console.error(`no hay ficha en contenido/temas/${slugTema}/ficha.md`); process.exit(2); }
+      md = armado.contenido;
+      // La propuesta abierta del tema se cierra al elegirlo: se archiva con su
+      // fecha y su tipo, y deja libre el lugar para la próxima (hay una sola
+      // abierta por tema, prompts/seguimiento-temas.md).
+      const dirTema = path.join(RAIZ, "contenido/temas", slugTema);
+      const rutaProp = path.join(dirTema, "propuesta.md");
+      if (fs.existsSync(rutaProp)) {
+        const prop = fs.readFileSync(rutaProp, "utf8");
+        const tipo = /^PROPUESTA:\s*actualizar/im.test(prop) ? "actualizar" : "explicar";
+        const fechaProp = (prop.match(/^FECHA:\s*(\d{4}-\d{2}-\d{2})/m) || [])[1] || hoyChile().slice(0, 10);
+        fs.mkdirSync(path.join(dirTema, "propuestas"), { recursive: true });
+        let destino = path.join(dirTema, "propuestas", `${fechaProp}-${tipo}.md`);
+        for (let n = 2; fs.existsSync(destino); n++) destino = path.join(dirTema, "propuestas", `${fechaProp}-${tipo}-${n}.md`);
+        fs.renameSync(rutaProp, destino);
+        extra.push(path.relative(RAIZ, rutaProp), path.relative(RAIZ, destino));
+        console.log(`propuesta cerrada: ${path.relative(RAIZ, destino)}`);
+      }
+    } else if (opt("--candidato")) {
       const semana = opt("--semana") || ultimaSemana();
       if (!semana) { console.error("no hay ninguna semana con candidatos; corre scripts/semana.js y prompts/tema-semana.md"); process.exit(2); }
       const armado = temaDeCandidato(semana, opt("--candidato"), { slug, concepto, noticia });
@@ -243,7 +317,7 @@ if (require.main === module) {
     }
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, "tema.md"), md);
-    commit(`clave ${slug}: tema elegido por Santiago`, `contenido/claves/flujo/${slug}/tema.md`);
+    commit(`clave ${slug}: tema elegido por Santiago`, [`contenido/claves/flujo/${slug}/tema.md`, ...extra]);
   } else if (orden === "aprobar") {
     // la misma orden aprueba la pauta (camino nuevo) o la idea (camino viejo):
     // se exige que la pieza exista, porque aprobar lo que nadie escribió deja

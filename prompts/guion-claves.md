@@ -21,7 +21,7 @@ FIDELIDAD A LA ENTREGA:
 
 EXTENSIÓN:
 - Objetivo: 1.080 a 1.350 palabras NARRADAS (8 a 10 minutos a 135 palabras por minuto, el ritmo real medido de la voz del canal), y hasta unas 1.620 (12 minutos) cuando el tema lo justifique. Pedido de Santiago el 09-09-2026, aplicado el 13-09: REVIERTE el recorte del 05-09 que había dejado las Claves en ~5 minutos.
-- Palabras NARRADAS son las del texto hablado: no cuentan el "Título sugerido:", la "Descripción sugerida:", las marcas ([TESIS], [DATO], [ESQUEMA], [FUENTE], [CITA], [INTERPRETACIÓN]) ni el bloque "Fuentes:". Ojo con esto: los guiones de Clave de septiembre miden unas 1.100 palabras de archivo pero solo ~740 narradas, y por eso los videos duraban 5,5 minutos. El objetivo de arriba es sobre las narradas.
+- Palabras NARRADAS son las del texto hablado: no cuentan el "Título sugerido:", la "Descripción sugerida:", las marcas ([TESIS], [DATO], [ESQUEMA], [FUENTE], [CITA], [INTERPRETACIÓN], [DIARIO]) ni el bloque "Fuentes:". Ojo con esto: los guiones de Clave de septiembre miden unas 1.100 palabras de archivo pero solo ~740 narradas, y por eso los videos duraban 5,5 minutos. El objetivo de arriba es sobre las narradas.
 - QUÉ JUSTIFICA EXTENDERSE, y nada fuera de esta lista:
   - un segundo ejemplo que CAMBIE la conclusión o muestre el límite de la regla, no que la repita con otros nombres;
   - un procedimiento que solo se entiende completo: los pasos, quién decide en cada uno y qué pasa si falla;
@@ -92,6 +92,10 @@ El guion incluye las siguientes marcas, y solo estas, cada una en su propia lín
       Solo citas textuales presentes en la entrega. Se narra el texto.
   [FUENTE] institución o medio, fecha
       Una por bloque que narre cifras, al principio del bloque. No se narra. Va al pie de cada plano del bloque que muestre una cifra, que es lo que pide la regla 6 ("una cifra sin fuente no entra") y la 32 ("la pieza tiene que entenderse con el video en silencio"). Si el bloque ya trae un [DATO], su fuente sirve para todo el bloque y no hace falta esta marca. Mismo formato legible que la fuente de un [DATO]: institución o medio más fecha, máximo seis palabras ("Contraloría, 20-05-2025"), nunca la URL ni "Informe diario de Entender Chile". Sin esta marca, un párrafo que dice "más de 25.000 funcionarios" o "211 de 416 investigaciones" sale a pantalla sin respaldo a la vista (12-10-2026, cinco planos de la Clave de licencias quedaron así).
+  [DIARIO AAAA-MM-DD | slug]
+      Solo en el largo de "Entender el caso" (desde el 02-11-2026) y solo cuando la pauta la da: su sección 9 fija, por sección del video, la marca que va en ella. Le dice al render que el escenario de esa sección es la página del diario de esa fecha (entender.sinodev.cl/AAAA-MM-DD/) con zoom a esa noticia. No se narra ni se muestra como texto.
+      Posición: PRIMERA línea de la sección, justo después del "## título" y antes de la [TESIS]. Como máximo una por sección; una sección sin marca en la pauta va sin marca en el guion.
+      Se copia TAL CUAL de la pauta, sin cambiar la fecha ni el slug, aunque el slug parezca cortado o feo: es la llave con que el render encuentra la noticia en la página (el `data-noticia` de la web), y un slug retocado deja la sección sin escenario. Formato exacto: "[DIARIO 2026-10-23 | rabat-confirma-que-firmo-56-rebajas-de-condena]".
 Todo párrafo sin marca es narración normal. Sin URLs, emojis ni paréntesis fuera de las marcas.
 
 FORMATO DE SALIDA:
@@ -161,6 +165,6 @@ exactas, el formato obligatorio de los guiones y las reglas de commit.
 FORMATO, REGLA DURA: después de CADA línea "[TESIS] ..." va una LÍNEA EN BLANCO antes del párrafo narrado. La tesis es una línea y nada más. Sin esa línea en blanco el sistema mete el párrafo dentro de la tarjeta de la tesis y el texto se sale del video (pasó el 01-09 y el 02-09, con piezas ya publicadas).
 
 ESTILO TIPOGRÁFICO (obligatorio en todo entregable):
-- Nunca uses la raya larga (—) ni la raya media (–). Donde caería una raya,
+- Nunca uses la raya larga (U+2014) ni la raya media (U+2013). Donde caería una raya,
   usa coma, dos puntos, punto o paréntesis.
 - Los rangos se escriben con guion corto (2026-2027, 8-10) o con "a" (8 a 10).

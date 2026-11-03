@@ -339,7 +339,32 @@ jobs:
             fi
           fi
 
+          # SEGUIMIENTO DE TEMAS (02-11-2026, "Entender el caso"): el largo por
+          # tema explica un caso desde su origen con la página del diario de
+          # cada hito, y eso solo se puede si alguien anota cada día qué noticia
+          # pertenece a qué tema. Lo hace la rutina validadora en MODO
+          # SEGUIMIENTO (prompts/seguimiento-temas.md). Se dispara al llegar a
+          # aprobada, y no antes, porque lee el informe FINAL: un borrador que el
+          # validador todavía podía devolver cambia titulares, y con el titular
+          # cambia el slug con que el render encuentra la noticia. Marca propia
+          # (ultimo-seguimiento.txt), igual que el AVISO, para no pisar el dedup
+          # del validador, del suplente ni del aviso: aprobada dispara UNA vez
+          # por edición, aunque el estado se recalcule varias veces en esa
+          # etapa. Si el /fire falla, contenido/temas/seguimiento/FECHA.md sigue
+          # faltando y el punto 0 de la rutina lo retoma en su próximo despertar.
+          if [ "$ETAPA" = "aprobada" ] && [ -n "$REVISION_ID" ] && [ -n "$REVISION_TOKEN" ]; then
+            MARCA_T="contenido/estado/ultimo-seguimiento.txt"
+            git checkout -q main 2>/dev/null || true; git fetch -q origin main && git reset -q --hard origin/main
+            if [ "$(cat "$MARCA_T" 2>/dev/null)" = "$FECHA aprobada" ]; then echo "seguimiento ya disparado para la edicion del $FECHA"; else
+              echo "$FECHA aprobada" > "$MARCA_T"; git add "$MARCA_T"; git commit -q -m "disparo al seguimiento $FECHA: edicion aprobada [bot]"; git push -q origin main || echo "::warning::marca del seguimiento no pusheada; se dispara igual"
+              BODY=$(printf '{"text":"MODO SEGUIMIENTO: la edicion del %s esta aprobada; sigue prompts/seguimiento-temas.md (punto 0 de prompts/validador.md)."}' "$FECHA")
+              CODIGO=$(curl -sS -o /tmp/fire-t.json -w '%{http_code}' -X POST "https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire" \
+                -H "Authorization: Bearer $REVISION_TOKEN" -H "anthropic-beta: experimental-cc-routine-2026-04-01" -H "anthropic-version: 2023-06-01" -H "content-type: application/json" -d "$BODY" || echo 000)
+              case "$CODIGO" in 2*) echo "SEGUIMIENTO disparado: $(head -c 200 /tmp/fire-t.json)";; *) echo "::warning::no se pudo disparar el seguimiento (HTTP $CODIGO); la rutina lo retoma en su proximo despertar";; esac
+            fi
+          fi
+
           gh pr list --head automatizacion/estado --state open --json number -q '.[0].number' | grep -q . \
             || gh pr create --base main --head automatizacion/estado \
-                 --title "🔔 Estado del día — disparador único de GPT (no fusionar)" \
+                 --title "🔔 Estado del día: disparador único de GPT (no fusionar)" \
                  --body "PR permanente. No se fusiona: cada commit nuevo aquí anuncia que la edición del día cambió de etapa (ver contenido/estado/ultimo-evento.txt, y la vista completa en contenido/estado/FECHA.md). Es el disparador único de la tarea de contenido de ChatGPT, que decide qué hacer leyendo el estado, no el evento. Diseño: archivo/bitacora/2026-09-08-propuesta-maquina-de-estados.md y prompts/despachador-gpt.md."

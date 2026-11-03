@@ -47,7 +47,10 @@ sinostrozadev/entender-chile (rama main).
 ## 1. Qué lees antes, y solo del repo
 
 1. `contenido/claves/flujo/<slug>/tema.md` completo: `CONCEPTO`, `NOTICIA`,
-   `ORIGEN`, `DIAS`, `SEMANA` y los dos bloques de prosa que trae.
+   `ORIGEN`, `DIAS`, `SEMANA` y los dos bloques de prosa que trae. Si trae
+   una línea `TEMA:`, el flujo viene de un tema seguido día a día: lee antes
+   la sección "Cuando el flujo viene de un tema (Entender el caso)", justo
+   después de la sección 2, porque cambia qué lees y qué escribes.
 2. Los informes de TODAS las fechas de la línea `DIAS:`
    (`contenido/informes/AAAA-MM-DD.md`), y los informes posteriores que
    nombren la historia. Si `ORIGEN` es una fecha suelta, el informe de esa
@@ -149,6 +152,56 @@ teléfono. Renombrar un encabezado rompe a los tres.
 
 Extensión: entre 600 y 1.100 palabras. Es una pauta, no un borrador: Santiago
 la lee en el teléfono y decide con ella.
+
+## Cuando el flujo viene de un tema (Entender el caso)
+
+Desde el 02-11-2026. Si `tema.md` trae la línea `TEMA:` (y `FORMATO: diario`),
+el flujo no salió del ranking de la semana sino de un caso que el canal viene
+siguiendo día a día (`contenido/temas/README.md`). La pauta se arma **desde la
+ficha** que nombra esa línea, y no desde una idea: la ficha ya tiene el origen,
+cada hito con su fecha y la página del diario donde salió. Rehacer esa
+cronología con otro material la haría distinta de lo que el diario contó, y el
+video muestra justamente esas páginas.
+
+Lo que cambia:
+
+1. **Qué lees.** La ficha completa, primero. Después los informes de las
+   fechas de sus `diario:`, para tener cada noticia entera y no solo el
+   resumen del hito. `SEMANA`, `DIAS` y el archivo de candidatos no existen
+   en este camino: sáltalos. Las secciones 2 y 3 de la pauta salen del
+   `## Origen` y la `## Cronología` de la ficha; la 4 parte de su
+   `## Qué falta por saber`. Si la ficha tiene `## Publicado` con un `largo`,
+   es una ACTUALIZACIÓN: la sección 1 dice qué cambió desde ese largo.
+2. **La estructura del largo es obligatoria**, en este orden: el origen; los
+   hitos en orden de fecha; qué se sabe hoy; qué falta por saber. Entre **6 y
+   9 secciones** en total. Varios hitos chicos del mismo día o del mismo frente
+   pueden ir en una sola sección.
+3. **Agregas al final una sección 9**, después de la 8 y sin tocar los
+   encabezados anteriores (son contrato):
+
+       ## 9. Las secciones del largo y su página del diario
+
+   Una línea por sección del video, en orden, con su título de trabajo, qué
+   hito o hitos narra, y en la línea siguiente la marca que el guion pondrá
+   como primera línea de esa sección:
+
+       1. <título de la sección>: <qué cuenta, en una línea>
+          [DIARIO AAAA-MM-DD | slug]
+
+   La fecha y el slug se copian del campo `diario:` del hito en la ficha,
+   letra por letra: `diario: 2026-10-23#rabat-confirma-que-firmo-56-rebajas-de-condena`
+   se vuelve `[DIARIO 2026-10-23 | rabat-confirma-que-firmo-56-rebajas-de-condena]`.
+   El render busca esa página y esa noticia: un slug cambiado deja la sección
+   sin escenario. Si la sección narra varios hitos, la marca es la del hito
+   central (el que la narración muestra). Si el hito dice `diario: ninguno`,
+   esa sección va **sin marca** y lo dices en la línea ("sin página del
+   diario"). Las secciones de contexto (el origen, qué falta) pueden ir sin
+   marca o con la del primer o el último hito.
+
+La extensión de la pauta sube hasta 1.300 palabras por esa sección 9. Lo demás
+de este prompt vale igual: no navegas, lo que no consta va `(por verificar)`,
+y la presunción de inocencia de `contenido/casos/README.md` manda en cada
+línea que nombre a una persona.
 
 ## 3. Reglas
 
