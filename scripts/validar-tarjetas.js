@@ -87,7 +87,8 @@ if (!esClave) {
 const corteFuentes = lineas.findIndex((l) => /^Fuentes:/.test(l.trim()));
 const inicioGuion = lineas.findIndex((l) => /^Guion:\s*$/.test(l.trim()));
 const narrables = (corteFuentes >= 0 ? lineas.slice(0, corteFuentes) : lineas);
-const narradas = narrables.filter((l, i) => i > inicioGuion && l.trim() && !/^(\[|## |#|Título sugerido:|Descripción sugerida:|Guion:)/.test(l.trim()))
+// La [TESIS] sí se narra (prompts/guion-informe.md): se suma sin la marca; cuatro auditorías seguidas (30-10 al 02-11) midieron bajo por descartarla.
+const narradas = narrables.map((l) => l.trim().replace(/^\[TESIS\]\s*/, "")).filter((l, i) => i > inicioGuion && l && !/^(\[|## |#|Título sugerido:|Descripción sugerida:|Guion:)/.test(l))
   .join(" ").split(/\s+/).filter(Boolean).length;
 const conteo = {};
 for (const t of tarjetas) conteo[t.tipo] = (conteo[t.tipo] || 0) + 1;

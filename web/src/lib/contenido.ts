@@ -104,10 +104,11 @@ export const fechasHumanas = (html: string): string =>
   ).join("");
 export const fechaCortaNum = (f: string) => { const m = f.match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? `${m[3]}-${m[2]}-${m[1]}` : f; };
 
+// "Puntaje de portada:" (02-11-2026) es una línea interna del informe que se filtraba a la web del 24-10.
 // Marcas y notas dirigidas al operador, no al lector. Nunca se publican, en
 // ninguna pieza: el 27-08 una nota de plomería ("PRESELECCIÓN NO DISPONIBLE:
 // ...no existía al iniciar esta ejecución") salió al aire en el informe.
-const MARCAS_INTERNAS = /^\s*(EN SEGUIMIENTO|FUERA DE LA OLLA|PENDIENTE DE CIERRE|NOTICIA DE PORTADA|PRESELECCI[ÓO]N NO DISPONIBLE|NOTA INTERNA|NOTA DEL SISTEMA|AVISO INTERNO)\b.*$/gim;
+const MARCAS_INTERNAS = /^\s*(EN SEGUIMIENTO|FUERA DE LA OLLA|PENDIENTE DE CIERRE|NOTICIA DE PORTADA|PRESELECCI[ÓO]N NO DISPONIBLE|NOTA INTERNA|NOTA DEL SISTEMA|AVISO INTERNO)\b.*$|^\s*Puntaje de portada:.*$/gim;
 export const quitarInterno = (md: string): string =>
   md.replace(/<!--[\s\S]*?-->/g, "").replace(MARCAS_INTERNAS, "");
 
