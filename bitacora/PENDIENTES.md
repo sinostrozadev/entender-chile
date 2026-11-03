@@ -5,9 +5,8 @@ están `REALIZADOS.md` y el archivo del día. Lo que salió de esta lista el
 01-11-2026 (secciones históricas, entradas hechas y entradas que el modelo
 nuevo dejó sin objeto) está en `bitacora/2026-11-01-pendientes-historia.md`.
 
-Última actualización: 02-11-2026, limpieza: una sola entrada para los secrets
-de ElevenLabs, fuera el nombre del largo (decidido el 01-11-2026), hora del
-largo corregida a las 19:00 y quitada de "En construcción".
+Última actualización: 02-11-2026, cierre del día: encargos fusionados, piloto de Rabat
+en pauta_lista y tres hallazgos abiertos.
 
 ---
 
@@ -37,9 +36,9 @@ aquí queda descartado:
    condenas de Rabat y Silva (noticias del diario desde el 24-10-2026); diseño
    en `bitacora/2026-11-01-analisis-y-plan.md`, sección 6.
 
-**En construcción** (el día propone con alcance, Santiago aprueba): el largo
-por tema, el podcast que lee el diario escrito, el Short del día todos los
-días.
+**En construcción** (el día propone con alcance, Santiago aprueba): el podcast
+que lee el diario escrito, el Short del día todos los días; el largo por tema ya
+tiene flujo y render desde el 02-11-2026 y está en piloto.
 
 ---
 
@@ -157,6 +156,8 @@ día", lenguaje interno. Cómo evitarlo: un pedido manual NO se deja como `conte
 si no se quiere que la guardia lo tome; ponerlo en otra carpeta o con un `pausa` explícito.
 Acción: bajar el video a privado (`node scripts/youtube-privacidad.js --id KWY4GglxXOY --privacidad private`
 o Studio) si Santiago lo decide, y rehacer el guion con la lectura de GPT si llega.
+- [ ] **02-11: aprobar la pauta del piloto Entender el caso (Rabat)**, `contenido/claves/flujo/rabat-rebajas-de-condena/pauta.md`, con los dos cambios pedidos (duración 8 a 10 minutos; carátula 1 sin "salieron antes"). Se aprueba con `node scripts/clave.js aprobar rabat-rebajas-de-condena --fecha AAAA-MM-DD` o pidiendo cambios con `cambiar --nota`. Dueño: Santiago.
+
 ---
 
 ## PARA LA SESIÓN DE LA NOCHE (necesita secrets o rutinas)
@@ -653,6 +654,10 @@ saber en qué etapa va. Se borra al cumplirse.
       no necesita más muestra: la Clave retiene 39,7% mediana contra 20,6% del
       informe, y convierte mejor (CTR 2,06% contra 1,59%). El problema de la
       Clave no es la pieza, es la exposición: 1.720 impresiones contra 16.893.
+
+- [ ] **02-11: `scripts/parse.js` narra la línea `[FUENTE] X`.** El formato que documenta `prompts/guion-claves.md` es `[FUENTE] X`, pero la regex de `scripts/parse.js` solo reconoce `[FUENTE X]`, así que la línea se lee como texto narrado. Afecta solo al formato clásico (el mural y el diario no la usan). Arreglar el regex o el prompt, y una prueba que fije el formato. Dueño: día.
+- [ ] **02-11: la cama calla en las secciones con "abuso sexual" o "violación".** La regla 28 de duelo apaga la cama en esas secciones; es correcto, pero en el piloto de Rabat (`contenido/claves/flujo/rabat-rebajas-de-condena/pauta.md`) pasará en casi todas. Decidir si el largo va sin cama o se ajusta la regla. Dueño: Santiago decide, día ejecuta.
+- [ ] **02-11: la captura reescribe la fecha de cabecera según la clase `.cab-fecha` de la web.** `scripts/largo-diario.js` depende de ese nombre; si la web la cambia, la línea de la fecha se esconde en el render. Solo actuar si la web cambia (agregar una prueba o fijar el selector). Dueño: día.
 
 ---
 
