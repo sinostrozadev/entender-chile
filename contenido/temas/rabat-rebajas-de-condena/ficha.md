@@ -1,7 +1,7 @@
 # Las rebajas de condena firmadas por el Ministerio de Justicia: Rabat y Silva
 Estado: abierto
 Abierto: 2026-10-23
-Última actualización: 2026-11-02
+Última actualización: 2026-11-03
 
 ## Origen
 El 22-10-2026 el ministro de Justicia, Fernando Rabat, confirmó que firmó 56 decretos de rebaja de condena para personas sentenciadas por delitos sexuales contra menores (27 por abuso sexual y 29 por violación), concedidos entre el 11-03-2026 y el 13-09-2026 (EL PAÍS, 22 y 23-10-2026). Importa porque la Ley N° 21.421, de febrero de 2022, excluyó a esos delitos del beneficio, y la disputa es si esa exclusión alcanza a condenas anteriores y quién decidía: la Corte Suprema precisó que los decretos los dictó el ministro (EL PAÍS, 22-10-2026). El caso abrió una crisis política, un proyecto de ley y una investigación de la Fiscalía, iniciada el 30-10-2026 por una denuncia de diputados contra el ministro y el entonces subsecretario Luis Silva, sin formalización de ninguno de los dos al 02-11-2026 en el material del repo.
@@ -26,9 +26,10 @@ El 22-10-2026 el ministro de Justicia, Fernando Rabat, confirmó que firmó 56 d
 - 2026-11-01 | Documentos muestran que Justicia aprobó 11 rebajas pese a advertencias de sus oficinas regionales (siete firmadas por Rabat, tres por Silva como ministro subrogante y una por el subsecretario Pablo Mira) y rechazó 22 que esas oficinas consideraban procedentes, lo que contradice lo que Rabat dijo ante la Cámara el 28-10-2026 (Interferencia y CNN Chile, 01 y 02-11-2026) | diario: 2026-11-02#documentos-contradicen-la-defensa-de-rabat-sobre-las-rebajas | sección: Política
 - 2026-11-01 | El diputado Raúl Leiva (PS) anuncia que impulsará la acusación constitucional aunque Rabat deje el cargo, y parlamentarios piden tramitar el proyecto que restringe las rebajas (La Tercera y El Mostrador, 01-11-2026) | diario: 2026-11-02#documentos-contradicen-la-defensa-de-rabat-sobre-las-rebajas | sección: Política
 - 2026-11-02 | El diputado Arenas respalda la acusación constitucional contra Rabat contra la postura de su propio gobierno, y afirma que ningún parlamentario había votado contra su gobierno desde 1990 (Radio Universidad de Chile, 02-11-2026, recogido por el exprés de ese día) | diario: ninguno | sección: ninguna
+- 2026-11-02 | El fiscal nacional, Ángel Valencia, confirma que Rabat tiene calidad de imputado por la denuncia de prevaricación administrativa de los diputados Juan Santana y Luis Cuello, radicada en el fiscal regional metropolitano Centro Norte, Francisco Jacir, con apoyo de la Fiscalía Anticorrupción e Investigación Especializada Centro Norte; Valencia explica que esa calidad nace cuando una denuncia individualiza a una persona, tenga o no mérito, y Rabat señala que colaborará con la tramitación: no hay formalización ni responsabilidad penal acreditada (Cooperativa, BioBioChile, Teletrece y CNN Chile, 02-11-2026) | diario: 2026-11-03#el-fiscal-nacional-confirma-que-rabat-figura-como-imputado | sección: Política
 
 ## Qué falta por saber
-- ¿Formaliza la Fiscalía a alguien? Al 02-11-2026, Rabat y Silva están denunciados y bajo una investigación abierta el 30-10-2026; en el material del repo no consta formalización de ninguno de los dos.
+- ¿Formaliza la Fiscalía a alguien? Al 02-11-2026, Rabat figura como imputado por la denuncia, Silva está denunciado y la investigación abierta el 30-10-2026 la dirige el fiscal Francisco Jacir; la calidad de imputado no es formalización y en el material del repo no consta formalización de ninguno de los dos.
 - ¿Se ingresa la acusación constitucional contra Rabat, con qué firmas y en qué fecha? Al 30-10-2026 no había sido ingresada.
 - ¿Qué resultado da la revisión caso a caso de los 56 decretos anunciada el 26-10-2026, y se puede dejar sin efecto alguno ya ejecutado?
 - ¿Cuántos de los beneficiados están hoy en libertad? Solo consta la estimación de Rabat del 22-10-2026 de que la mayoría ya está libre.

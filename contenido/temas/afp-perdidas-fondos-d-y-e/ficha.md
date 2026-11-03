@@ -1,0 +1,26 @@
+# Las pérdidas de los fondos D y E de las AFP y la restitución a los afiliados
+Estado: abierto
+Abierto: 2026-11-03
+Última actualización: 2026-11-03
+
+## Origen
+El Fondo E perdió 10,39% real entre el 01-01-2026 y el 30-09-2026 y el Fondo D cayó 6,3% real; el superintendente de Pensiones cifró en torno a US$10.000 millones las pérdidas de valoración asociadas a la exposición a derivados, y el regulador informó que había levantado alertas desde 2024 (Superintendencia de Pensiones, 20-10-2026; CNN Chile y ADN Radio, 26-10-2026). Esa cifra de valoración no equivale al saldo definitivo de cada afiliado ni a una pérdida realizada idéntica para todos. Importa porque son los ahorros obligatorios de los afiliados y porque de ahí salieron tres vías paralelas: un procedimiento sancionatorio de la Superintendencia contra las siete AFP, una comisión investigadora de la Cámara y un proyecto de ley para que las administradoras restituyan las pérdidas. Ninguna había establecido una sanción al 02-11-2026.
+
+## Cronología
+- 2026-10-26 | La Cámara de Diputadas y Diputados crea una comisión investigadora sobre la fiscalización estatal de las AFP, mientras la Superintendencia de Pensiones mantiene procedimientos sancionatorios contra las siete administradoras por su eventual responsabilidad en decisiones de inversión que afectaron a los fondos D y E; son vías distintas y ninguna ha establecido todavía una sanción (Cámara de Diputadas y Diputados, 26-10-2026; Superintendencia de Pensiones, 20-10-2026; La Tercera, 26-10-2026) | diario: 2026-10-27#la-camara-crea-una-comision-investigadora-por-las-perdidas | sección: Trabajo y empleo
+- 2026-10-26 | Ingresa el boletín 18817-07, que propone que las AFP restituyan las pérdidas anuales de los ahorros obligatorios hasta el monto de las comisiones cobradas y que la regla alcance las pérdidas de 2026 (Portal Legislativo, 02-11-2026) | diario: 2026-11-02#el-proyecto-para-que-las-afp-restituyan-perdidas-sigue-sin | sección: Trabajo y pensiones
+- 2026-10-27 | La Cámara aprueba por separado una resolución no vinculante que pide reparación integral y fija 60 días a la comisión investigadora para revisar la fiscalización estatal entre 2018 y 2026 (Cámara de Diputadas y Diputados, vía Voto Visible, 27-10-2026; Emol y Senado, 20 y 26-10-2026) | diario: 2026-11-02#el-proyecto-para-que-las-afp-restituyan-perdidas-sigue-sin | sección: Trabajo y pensiones
+- 2026-10-28 | El boletín 18817-07 queda en la Comisión de Constitución de la Cámara, en primer trámite (Portal Legislativo, 02-11-2026) | diario: 2026-11-02#el-proyecto-para-que-las-afp-restituyan-perdidas-sigue-sin | sección: Trabajo y pensiones
+- 2026-10-28 | La Contraloría da diez días hábiles a la Superintendencia de Pensiones para informar cómo fiscalizó a las AFP frente a la caída del Fondo E; el requerimiento busca antecedentes y no establece por sí mismo una infracción (Diario Financiero, Diario Concepción y Ministerio del Trabajo, 27 a 29-10-2026) | diario: 2026-10-29#contraloria-pide-cuentas-por-la-fiscalizacion-a-las-afp | sección: Seguridad y Justicia
+- 2026-10-31 | La Asociación de AFP afirma que los ahorros previsionales están resguardados después de las pérdidas atribuidas a operaciones con swaps de tasas y a la caída del precio de los bonos; el diputado Luis Cuello anuncia que el 02-11-2026 se votará una iniciativa para que las administradoras asuman pérdidas y el diputado Agustín Romero pide claridad sobre las operaciones (BioBioChile y Canal 9 Bío Bío Televisión, 31-10-2026) | diario: 2026-11-01#el-fondo-e-abre-una-nueva-disputa-entre-las-afp-y-el | sección: Economía
+- 2026-11-02 | El boletín 18817-07 permanece en primer trámite en la Comisión de Constitución, sin votación en Sala ni urgencia del Ejecutivo, pese a la votación anunciada para ese día (Portal Legislativo, 02-11-2026) | diario: 2026-11-03#el-boletin-18817-07-permanece-en-primer-tramite | sección: Trabajo y empleo
+
+## Qué falta por saber
+- ¿Cuándo se vota el boletín 18817-07 y con qué resultado? Al 02-11-2026 no registra votaciones en Sala ni urgencia del Ejecutivo.
+- ¿Qué resuelve la Superintendencia de Pensiones en los procedimientos sancionatorios contra las siete AFP?
+- ¿Qué responde la Superintendencia al requerimiento de la Contraloría sobre cómo fiscalizó?
+- ¿Existe una investigación penal por estas pérdidas? El informe del 27-10-2026 no la incorporó como confirmada porque no fue posible identificar fiscalía, rol ni delito.
+- ¿Cuánto de la pérdida de valoración se recupera, y qué pasa con los afiliados que cambiaron de fondo o se pensionaron en el período?
+
+## Publicado
+Sin publicaciones al 03-11-2026. La Clave `afp-multifondos-perdidas-fondo-e`, con fecha de producción 2026-10-28, estaba en etapa de paneles al 03-11-2026.
