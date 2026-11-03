@@ -8,7 +8,7 @@
  *   node scripts/dia.js <ruta.md>             → un guion específico
  *   ... --voz                                 → voz real Azure (AZURE_SPEECH_KEY y AZURE_SPEECH_REGION; respaldo KEY2/REGION2)
  *   ... --render                              → además renderiza el MP4
- *   CLAVE_FORMATO=diario|mural|clasico        → formato de la Clave (vacío: diario si el guion trae marcas DIARIO, si no mural si la Clave lo trae)
+ *   CLAVE_FORMATO=diario|mural|clasico        → formato de la Clave (las marcas DIARIO del guion mandan salvo con clasico)
  *
  * Pasos: parse → voz → timeline → capítulos (+ descripción) → (render)
  * Salidas del día en out/AAAA-MM-DD/ y descripción lista en contenido/descripciones/.
@@ -77,31 +77,36 @@ const capturar = (script, extra = []) =>
 // clásico de siempre.
 // EL DIARIO (02-11-2026, "Entender el caso"): si el guion de la Clave trae
 // marcas [DIARIO AAAA-MM-DD | slug], el largo sale sobre la página real del
-// diario (src/largo-diario.tsx, scripts/largo-diario.js). Tiene prioridad
-// sobre el mural porque la marca la escribe el guion de HOY, mientras que un
-// mural.json puede ser un resto del modelo anterior en la carpeta del tema: si
-// el guion pidió el diario, eso es lo que quiso decir quien lo escribió.
+// diario (src/largo-diario.tsx, scripts/largo-diario.js). LAS MARCAS MANDAN,
+// aunque CLAVE_FORMATO diga mural: vienen de la pauta que aprobó Santiago y
+// son una orden explícita, más reciente que cualquier mural.json que haya
+// quedado en la carpeta del tema. El workflow fija "mural" desde el
+// 12-10-2026, y con la regla anterior (el diario solo con la variable vacía)
+// el formato nuevo no se habría encendido nunca en producción.
 // CLAVE_FORMATO es el interruptor:
-//   (vacío)  diario si el guion trae marcas y todas calzan; si no, mural si
-//            hay material y calza con el guion; si no, clásico
-//   diario   lo exige: un guion sin marcas, o una noticia que no está en su
-//            página, detiene la corrida en vez de caer a otro formato
-//   mural    como antes: un mural que NO calza con su guion (otra cantidad
-//            de paneles que de secciones, un trozo que falta) detiene la
-//            corrida en vez de caer al clásico: si alguien pidió el mural, un
-//            video con el formato viejo es una sorpresa, no un respaldo
-//   clasico  el formato anterior, aunque haya mural o marcas, para volver atrás
-// Una Clave sin material NUNCA se cae: sale clásica, con aviso, porque quedarse
-// sin video de la semana por no haber encargado el mural es peor que el
-// formato viejo. Se valida acá por lo mismo que FONDO_TARJETA: un valor mal
-// escrito en el workflow tiene que caerse y verse.
+//   clasico  el formato anterior siempre, aunque haya mural o marcas, para
+//            volver atrás
+//   diario   exige marcas: un guion sin ellas detiene la corrida
+//   (vacío) y mural, cuando el guion TRAE marcas: diario
+//   (vacío) y mural, cuando NO las trae: lo de siempre. Con vacío, mural si
+//            hay material y calza con el guion, si no clásico. Con mural, un
+//            mural que NO calza con su guion (otra cantidad de paneles que de
+//            secciones, un trozo que falta) detiene la corrida en vez de caer
+//            al clásico
+// Un largo con marcas que no se puede armar (una noticia que no está en su
+// página, una captura que falla) SIEMPRE detiene la corrida: el guion pidió el
+// diario, y un video con otro formato es una sorpresa, no un respaldo. Una
+// Clave sin marcas y sin material NUNCA se cae: sale clásica, con aviso,
+// porque quedarse sin video de la semana por no haber encargado el mural es
+// peor que el formato viejo. Se valida acá por lo mismo que FONDO_TARJETA: un
+// valor mal escrito en el workflow tiene que caerse y verse.
 const FORMATO_PEDIDO = (process.env.CLAVE_FORMATO || "").trim().toLowerCase();
 if (!["", "diario", "mural", "clasico"].includes(FORMATO_PEDIDO)) {
   console.error(`CLAVE_FORMATO no reconocido: "${process.env.CLAVE_FORMATO}". Valores: (vacío) | diario | mural | clasico.`);
   process.exit(1);
 }
 let diario = null;
-if (esClave && (FORMATO_PEDIDO === "" || FORMATO_PEDIDO === "diario")) {
+if (esClave && FORMATO_PEDIDO !== "clasico") {
   const { materialDiario } = require("./largo-diario.js");
   const mat = materialDiario(guion);
   if (!mat) {
@@ -110,12 +115,12 @@ if (esClave && (FORMATO_PEDIDO === "" || FORMATO_PEDIDO === "diario")) {
       process.exit(1);
     }
   } else if (mat.problemas.length) {
-    console.error(`El largo sobre el diario de ${mat.slug} no se puede armar:\n  - ${mat.problemas.join("\n  - ")}`);
-    if (FORMATO_PEDIDO === "diario") process.exit(1);
-    console.warn("(se cae al mural o al formato clásico)");
+    console.error(`El guion pide el diario, pero el largo de ${mat.slug} no se puede armar:\n  - ${mat.problemas.join("\n  - ")}`);
+    process.exit(1);
   } else {
     diario = mat;
-    console.log(`(formato de la Clave: diario, ${new Set(mat.paginas.map((p) => p.fecha)).size} páginas)`);
+    console.log(`(formato de la Clave: diario, ${new Set(mat.paginas.map((p) => p.fecha)).size} páginas` +
+      `${FORMATO_PEDIDO === "mural" ? "; el guion trae marcas DIARIO y mandan sobre CLAVE_FORMATO=mural" : ""})`);
   }
 }
 let mural = null;

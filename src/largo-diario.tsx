@@ -254,7 +254,12 @@ export const LargoDiario: React.FC<GuionDiario> = ({ bloques, paginas, viajeSeg,
         {capas}
       </AbsoluteFill>
       <Velo fuerza={(esDato ? 1 - apagado : 1) * velo} k={VELO_K} />
-      <AbsoluteFill style={{ backgroundColor: "rgba(10,12,16,0.55)", opacity: apagado }} />
+      {/* EL DATO APAGA MÁS EL PAPEL QUE EL MURAL (0,85 contra 0,55). Un panel
+          del mural es dibujo; la página es texto, y con 0,55 las líneas de la
+          página seguían legibles detrás de la etiqueta en pátina, que quedaba
+          leyéndose encima de otra letra (still 3 de la prueba, 02-11-2026).
+          Así la página queda como textura y la cifra se lee sola. */}
+      <AbsoluteFill style={{ backgroundColor: "rgba(10,12,16,0.85)", opacity: apagado }} />
       {abreSeccion && (tipo === "cambio" || tipo === "primera") ? (
         // EL RÓTULO DE LA FECHA va en una placa oscura porque se dibuja sobre
         // el papel sin velo, donde la pátina del rótulo no se lee. Es el mismo
