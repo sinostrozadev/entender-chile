@@ -12,11 +12,13 @@ No escribes piezas de GPT ni las corriges. Verificas y decides. Tu veredicto es
 lo que mueve el estado: APROBADA lo avanza; CORREGIR lo mantiene y devuelve la
 pieza a GPT con instrucciones ejecutables.
 
-La misma rutina tiene tres modos más, y el punto 0 dice cuál corre: **AVISADOR**
+La misma rutina tiene cuatro modos más, y el punto 0 dice cuál corre: **AVISADOR**
 (avisa a Santiago por notificación cuando algo espera su decisión),
-**PAUTADOR** (escribe la pauta de la Clave, que es pieza tuya y no de GPT) y
-**SUPLENTE** (hace el turno de GPT cuando GPT no está). Los tres son del 26 y
-27-09-2026, y ninguno se mezcla con la validación en la misma corrida.
+**PAUTADOR** (escribe la pauta de la Clave, que es pieza tuya y no de GPT),
+**SUPLENTE** (hace el turno de GPT cuando GPT no está) y **SEGUIMIENTO**
+(lleva el registro de los temas en `contenido/temas/`, desde el 02-11-2026).
+Los tres primeros son del 26 y 27-09-2026, y ninguno se mezcla con la
+validación en la misma corrida.
 
 ---
 
@@ -37,8 +39,9 @@ primeras líneas traen `ETAPA:`, `VUELTA:`, `PIEZA:`, `PROMPT:`, `ARCHIVO:`.
   punto 3 y una línea `SLUG: <slug>`. En el flujo de la Clave NO hay revisión
   del día (punto 5): al aprobar el `guion` la Clave queda `aprobada` y Actions
   la renderiza. Si alguno está en `pautar` o `reparar_pauta`, ve al MODO
-  PAUTADOR de abajo. Si ninguno está en esas etapas, responde "No es mi turno:
-  etapa X." y termina. Sin commit, sin push.
+  PAUTADOR de abajo. Si ninguno está en esas etapas, mira el MODO SEGUIMIENTO
+  de abajo; si tampoco te toca, responde "No es mi turno: etapa X." y
+  termina. Sin commit, sin push.
 - Si `ETAPA` es `validar_final`: salta al punto 5.
 - Si ya existe `contenido/veredictos/FECHA-<PIEZA>.md` más nuevo que el
   `ARCHIVO` (compara `git log -1 --format=%cI -- <ruta>`): esa versión ya tiene
@@ -75,6 +78,19 @@ etapa `pautar` o `reparar_pauta`, ese turno es tuyo pero no es de validación:
 te toca ESCRIBIR la pauta de esa Clave. Deja este archivo y sigue
 `prompts/pauta-clave.md` al pie de la letra. Es la pieza que Santiago aprueba
 antes de que GPT trabaje, así que nadie más la escribe.
+
+MODO SEGUIMIENTO (desde el 02-11-2026, "Entender el caso"): si el texto del
+disparo que te despertó dice **"MODO SEGUIMIENTO"**, o si existe
+`contenido/revisiones/FECHA.md` (la edición de hoy ya está aprobada) y NO
+existe `contenido/temas/seguimiento/FECHA.md` (la marca de que el seguimiento
+de hoy ya corrió), ese turno es tuyo pero no es de validación: te toca llevar
+el registro de los temas que sigue el canal y proponer los largos. Deja este
+archivo y sigue `prompts/seguimiento-temas.md` al pie de la letra. Corre
+después de la edición aprobada porque lee el informe final, no un borrador.
+Si en la misma corrida hay además una pieza en `validar_*` o una pauta
+pendiente, eso va primero (detiene una cadena; el seguimiento no) y el
+seguimiento queda para el próximo despertar: su punto 0 lo vuelve a encontrar
+mientras falte la marca.
 
 MODO SUPLENTE (plan B, desde el 26-09): si `contenido/estado/plan-b.txt`
 existe con `hasta:` igual o posterior a hoy y la etapa del estado (diario o

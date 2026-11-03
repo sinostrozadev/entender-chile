@@ -20,6 +20,8 @@
  *   contenido/estado/FECHA.json          el día, por si quedó bloqueado
  *   bitacora/PENDIENTES.md               sección "Dependen de Santiago"
  *   contenido/secciones/PROMPTS-PARA-PEGAR.md   imágenes pedidas sin archivo
+ *   contenido/temas/<slug>/propuesta.md  largos de "Entender el caso" propuestos
+ *                                        por el seguimiento de temas (02-11-2026)
  *
  * Uso:  node scripts/bandeja.js [--solo-leer] [--fecha AAAA-MM-DD]
  *   --solo-leer imprime el json y no escribe (para probar sin tocar el repo).
@@ -95,6 +97,39 @@ for (const slug of slugs) {
       { texto: `Leer la ${pieza}`, href: urlVer(rutaPieza) },
       { texto: `Aprobar la ${pieza}`, href: aprobar.href, crea: !aprobar.existe },
       { texto: "Pedir cambios", href: cambios.href, crea: !cambios.existe },
+    ],
+  });
+}
+
+// ---------- 1b. Los largos propuestos por el seguimiento de temas -----------
+// "Entender el caso" (02-11-2026): el turno SEGUIMIENTO de la rutina validadora
+// (prompts/seguimiento-temas.md) deja una propuesta.md cuando un tema tiene
+// suficiente para explicarse o avanzó desde su último largo. No mueve ninguna
+// etapa: espera que Santiago diga sí en la conversación con la sesión de día
+// (clave.js elegir ... --tema-de, que además la cierra). Sin este ítem la
+// propuesta solo existiría en el repo y en una notificación que se pierde.
+const DIR_TEMAS = "contenido/temas";
+const temas = existe(DIR_TEMAS) ? fs.readdirSync(path.join(RAIZ, DIR_TEMAS), { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name).sort() : [];
+for (const slugTema of temas) {
+  const rutaProp = `${DIR_TEMAS}/${slugTema}/propuesta.md`;
+  if (!existe(rutaProp)) continue;
+  const prop = leer(rutaProp);
+  const rutaFicha = `${DIR_TEMAS}/${slugTema}/ficha.md`;
+  const titulo = (leer(rutaFicha).match(/^#\s+(.+)$/m) || [])[1] || slugTema;
+  const tipo = /^PROPUESTA:\s*actualizar/im.test(prop) ? "actualizar" : "explicar";
+  // POR QUÉ puede ocupar hasta tres líneas: se junta hasta HITOS NUEVOS
+  const porque = (prop.match(/^POR QUÉ:\s*([\s\S]*?)(?=^HITOS NUEVOS:|^[A-ZÁÉÍÓÚ ]+:\s|(?![\s\S]))/m) || [])[1] || "";
+  const fechaProp = (prop.match(/^FECHA:\s*(\d{4}-\d{2}-\d{2})/m) || [])[1] || desdeDe(rutaProp);
+  items.push({
+    id: `tema-${slugTema}-${tipo}`,
+    tipo: "tema",
+    titulo: `Entender el caso: "${corta(unaLinea(titulo), 90)}": propone ${tipo}`,
+    detalle: unaLinea(porque) || "La propuesta no trae POR QUÉ.",
+    desde: fechaProp,
+    archivo: rutaProp,
+    acciones: [
+      { texto: "Leer la propuesta", href: urlVer(rutaProp) },
+      { texto: "Leer la ficha", href: urlVer(rutaFicha) },
     ],
   });
 }
@@ -228,7 +263,9 @@ if (existe(guionHoy) && !hayCaratula) {
 }
 
 // ---------- el orden: primero lo que detiene la máquina --------------------
-const URGENCIA = { clave: 0, bloqueo: 1, semana: 2, pendiente: 3, imagen: 4 };
+// tema va junto a semana: los dos esperan que Santiago abra un flujo, y ninguno
+// detiene una cadena que ya está corriendo
+const URGENCIA = { clave: 0, bloqueo: 1, semana: 2, tema: 2, pendiente: 3, imagen: 4 };
 items.sort((a, b) => (URGENCIA[a.tipo] - URGENCIA[b.tipo]) || a.desde.localeCompare(b.desde) || a.id.localeCompare(b.id));
 
 const salida = {
