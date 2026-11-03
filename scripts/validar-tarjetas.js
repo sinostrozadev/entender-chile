@@ -33,6 +33,11 @@ for (let i = 0; i < lineas.length; i++) {
   const l = lineas[i].trim();
   if (l.startsWith("## ")) { bloque = l.slice(3).trim(); continue; }
   if (/^\[FUENTE /.test(l)) { fuentes++; continue; }
+  // La marca DIARIO de "Entender el caso" (02-11-2026) es el escenario de la
+  // sección, no una tarjeta ni texto narrado: no entra a ninguna cuota. El
+  // conteo de palabras ya salta toda línea que abre con corchete; esto lo
+  // deja dicho para que nadie la cuente como marca desconocida mañana.
+  if (/^\[DIARIO\b/i.test(l)) continue;
   // La tesis va a una tarjeta pensada para 18 palabras. Un texto muy largo
   // significa casi siempre que el parser se comió el párrafo siguiente
   // (BUG 1, 02-09), y eso se ve como texto desbordado en el video.

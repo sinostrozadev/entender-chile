@@ -85,11 +85,14 @@ export type GuionMural = {
   bloques: Bloque[];
 };
 
-const suave = (t: number) => t * t * (3 - 2 * t);
+// Las curvas, el velo, el rótulo y los dos bloques se exportan (02-11-2026)
+// para src/largo-diario.tsx: el largo sobre el diario tiene que leerse y
+// sonar igual que la Clave, y dos copias se separan con el primer arreglo.
+export const suave = (t: number) => t * t * (3 - 2 * t);
 // Para el viaje hace falta una curva MÁS marcada que la anterior: arranca casi
 // de cero, cruza rápido y llega frenando. Es la diferencia entre una cámara que
 // se desplaza y un carrete que se arrastra.
-const viajeSuave = (t: number) => t * t * t * (t * (t * 6 - 15) + 10);
+export const viajeSuave = (t: number) => t * t * t * (t * (t * 6 - 15) + 10);
 
 // EL VELO TERMINA EN COLA LARGA (07-10-2026). Antes iba de 0,5 a cero entre el
 // 50% y el 64% del ancho y ahí se acababa. Con un panel oscuro no se notaba,
@@ -113,7 +116,7 @@ const viajeSuave = (t: number) => t * t * t * (t * (t * 6 - 15) + 10);
 // inventar.
 const PARADAS_VELO: Array<[number, number]> = [[0, 0.93], [34, 0.88], [50, 0.5], [58, 0.26], [68, 0.08], [80, 0]];
 
-const Velo: React.FC<{ fuerza?: number; k?: number }> = ({ fuerza = 1, k = 1 }) => (
+export const Velo: React.FC<{ fuerza?: number; k?: number }> = ({ fuerza = 1, k = 1 }) => (
   <AbsoluteFill style={{
     background: `linear-gradient(90deg, ${PARADAS_VELO
       .map(([x, a]) => `rgba(10,12,16,${(1 - Math.pow(1 - a, k)) * fuerza}) ${x}%`)
@@ -131,7 +134,7 @@ const Velo: React.FC<{ fuerza?: number; k?: number }> = ({ fuerza = 1, k = 1 }) 
 // oído la caza en la tercera letra. Es el truco de los pasos en el cine.
 const RITMO_TECLA = 2.2; // cuadros por letra, a 24 fps son 11 letras por segundo
 
-const Rotulo: React.FC<{ texto: string }> = ({ texto }) => {
+export const Rotulo: React.FC<{ texto: string }> = ({ texto }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const inicio = Math.round(fps * 0.25);
@@ -174,7 +177,7 @@ const Marca: React.FC<{ marca: "hecho" | "interpretacion" }> = ({ marca }) => {
   );
 };
 
-const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: number; voz?: string }> = ({ b, dur, voz }) => {
+export const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: number; voz?: string }> = ({ b, dur, voz }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const letras = Array.from(b.texto);
@@ -219,7 +222,7 @@ const BloqueTexto: React.FC<{ b: Extract<Bloque, { tipo?: "texto" }>; dur: numbe
 
 // EL DATO COMO PLANO. El número entra creciendo apenas (1.06 a 1.0): no es un
 // efecto, es lo que hace que el ojo lo lea como que llegó y se quedó.
-const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number }> = ({ b, dur }) => {
+export const BloqueDato: React.FC<{ b: Extract<Bloque, { tipo: "dato" }>; dur: number }> = ({ b, dur }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const entra = interpolate(frame, [0, fps * 0.7], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });

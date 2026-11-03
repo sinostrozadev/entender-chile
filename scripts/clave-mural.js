@@ -136,50 +136,48 @@ const tramosDeVoz = (alineacion, rangos) => {
   });
 };
 
-const producirMural = ({ guion, OUT, fecha, conVoz, mat }) => {
-  const md = fs.readFileSync(guion, "utf8");
-  const { secciones, bloques } = armarBloques(md);
-  const m = mat.material;
-  const viajeSeg = Number(m.viajeSeg ?? 1.5);
-  const dir = path.join(OUT, "mural");
-  fs.mkdirSync(dir, { recursive: true });
+// LA VOZ DE LOS BLOQUES, de corrido. Se sacó de producirMural el 02-11-2026
+// para que el largo sobre el diario (scripts/largo-diario.js) mida su voz con
+// el mismo código y no con una copia: dos copias del reloj terminan midiendo
+// distinto, y la voz que se corre medio segundo es lo primero que se oye.
+// Deja en cada bloque hablado `_voz` y `_habla`, que relojDeBloques convierte
+// en sus campos finales. Devuelve el nombre del mp3 en public/.
+const sintetizarVoz = ({ bloques, dir, voz }) => {
+  // Un solo texto con los bloques separados por párrafo, y el rango de
+  // caracteres de cada uno para devolverle sus tiempos después.
+  const habla = bloques.filter((b) => b.tipo !== "dato");
+  let texto = "";
+  const rangos = habla.map((b) => {
+    if (texto) texto += "\n\n";
+    const a = texto.length;
+    texto += b.dicho.replace(/-/g, " ");   // la voz no lee guiones: "centro-sur" se dice "centro sur"
+    return [a, texto.length];
+  });
+  fs.writeFileSync(path.join(dir, "narracion.txt"), texto);
+  // sin cortes de sección: las pausas del mural son los viajes y los datos,
+  // y ya las pone el reloj de los bloques. Un parsed.json vacío al lado de la
+  // narración le dice eso a tts-azure.js sin que avise de que falta.
+  fs.writeFileSync(path.join(dir, "parsed.json"), JSON.stringify({ eventos: [] }));
+  execFileSync("node", [path.join(RAIZ, "scripts", "tts-azure.js"), path.join(dir, "narracion.txt"), dir],
+    { stdio: "inherit", env: { ...process.env, ...entornoDe("clave") } });
+  const alineacion = JSON.parse(fs.readFileSync(path.join(dir, "alignment.json"), "utf8"));
+  const tramos = tramosDeVoz(alineacion, rangos);
+  habla.forEach((b, i) => {
+    const { t0, t1 } = tramos[i];
+    const siguiente = tramos[i + 1] ? tramos[i + 1].t0 : t1 + 1;
+    b._voz = [Math.max(0, t0 - MARGEN_VOZ_ANTES), Math.min(siguiente, t1 + MARGEN_VOZ_DESPUES)];
+    b._habla = Math.max(0.3, t1 - t0);
+  });
+  fs.copyFileSync(path.join(dir, "narracion.mp3"), path.join(RAIZ, "public", voz));
+  return voz;
+};
 
-  let voz = null;
-  if (conVoz) {
-    // Un solo texto con los bloques separados por párrafo, y el rango de
-    // caracteres de cada uno para devolverle sus tiempos después.
-    const habla = bloques.filter((b) => b.tipo !== "dato");
-    let texto = "";
-    const rangos = habla.map((b) => {
-      if (texto) texto += "\n\n";
-      const a = texto.length;
-      texto += b.dicho.replace(/-/g, " ");   // la voz no lee guiones: "centro-sur" se dice "centro sur"
-      return [a, texto.length];
-    });
-    fs.writeFileSync(path.join(dir, "narracion.txt"), texto);
-    // sin cortes de sección: las pausas del mural son los viajes y los datos,
-    // y ya las pone el reloj de los bloques. Un parsed.json vacío al lado de la
-    // narración le dice eso a tts-azure.js sin que avise de que falta.
-    fs.writeFileSync(path.join(dir, "parsed.json"), JSON.stringify({ eventos: [] }));
-    execFileSync("node", [path.join(RAIZ, "scripts", "tts-azure.js"), path.join(dir, "narracion.txt"), dir],
-      { stdio: "inherit", env: { ...process.env, ...entornoDe("clave") } });
-    const alineacion = JSON.parse(fs.readFileSync(path.join(dir, "alignment.json"), "utf8"));
-    const tramos = tramosDeVoz(alineacion, rangos);
-    habla.forEach((b, i) => {
-      const { t0, t1 } = tramos[i];
-      const siguiente = tramos[i + 1] ? tramos[i + 1].t0 : t1 + 1;
-      b._voz = [Math.max(0, t0 - MARGEN_VOZ_ANTES), Math.min(siguiente, t1 + MARGEN_VOZ_DESPUES)];
-      b._habla = Math.max(0.3, t1 - t0);
-    });
-    voz = `${fecha}-clave-mural.mp3`;
-    fs.copyFileSync(path.join(dir, "narracion.mp3"), path.join(RAIZ, "public", voz));
-  }
-
-  // el reloj: con voz, lo que tardó la voz; sin voz, la estimación de siempre
-  let previa = bloques.length ? bloques[0].parada : 0;
+// EL RELOJ: con voz, lo que tardó la voz; sin voz, la estimación de siempre.
+// `entradas[i]` es lo que la cámara se mueve antes de que el bloque i pueda
+// hablar (el viaje del mural, o el plano general y el zoom del diario).
+const relojDeBloques = (bloques, entradas) => {
   bloques.forEach((b, i) => {
-    const viaje = b.parada !== previa ? viajeSeg : 0;
-    previa = b.parada;
+    const viaje = entradas[i];
     if (b.tipo === "dato") return;   // 4,8 s, como en el taller
     if (b._voz) {
       const entra = ENTRA + rotuloSeg(b.rotulo);
@@ -192,6 +190,57 @@ const producirMural = ({ guion, OUT, fecha, conVoz, mat }) => {
     }
     delete b._voz; delete b._habla;
   });
+};
+
+// LA CAMA, desde los tiempos reales. Va a public/ porque Remotion solo sirve
+// desde ahí, y no se guarda en el repo (37 MB que se rehacen del guion).
+// Devuelve el rango de tensión que usó, para el resumen.
+const generarCama = ({ props, rutaProps, secciones }) => {
+  const cama = path.join("sonidos", "cama-clave.wav");
+  const tension = rangoTension(secciones);
+  try {
+    execFileSync("node", [path.join(RAIZ, "scripts", "clave-musica.js"), "--guion", rutaProps,
+      "--salida", path.join(RAIZ, "public", cama), ...(tension ? ["--tension", tension] : [])], { stdio: "inherit" });
+    props.musica = cama;
+    fs.writeFileSync(rutaProps, JSON.stringify(props, null, 2) + "\n");
+  } catch (e) {
+    // una Clave sin cama sigue siendo una Clave: el componente sin `musica`
+    // suena como antes. Perder el video entero por la música no.
+    console.warn(`AVISO: la cama no se pudo generar (${e.message}); la Clave sale sin música.`);
+  }
+  return tension;
+};
+
+// los capítulos, con el mismo formato que lee scripts/chapters.js; devuelve
+// la duración en cuadros
+const escribirCapitulos = ({ bloques, secciones, rutaCap }) => {
+  let fr = 0, cur = null;
+  const eventos = [];
+  for (const b of bloques) {
+    if (b.parada !== cur) { cur = b.parada; eventos.push({ tipo: "seccion", texto: secciones[b.parada].titulo, from: fr / FPS }); }
+    fr += Math.round(b.seg * FPS);
+  }
+  fs.writeFileSync(rutaCap, JSON.stringify({ meta: { duracionSeg: fr / FPS }, eventos }, null, 2));
+  return fr;
+};
+
+const producirMural = ({ guion, OUT, fecha, conVoz, mat }) => {
+  const md = fs.readFileSync(guion, "utf8");
+  const { secciones, bloques } = armarBloques(md);
+  const m = mat.material;
+  const viajeSeg = Number(m.viajeSeg ?? 1.5);
+  const dir = path.join(OUT, "mural");
+  fs.mkdirSync(dir, { recursive: true });
+
+  const voz = conVoz ? sintetizarVoz({ bloques, dir, voz: `${fecha}-clave-mural.mp3` }) : null;
+
+  let previa = bloques.length ? bloques[0].parada : 0;
+  const entradas = bloques.map((b) => {
+    const viaje = b.parada !== previa ? viajeSeg : 0;
+    previa = b.parada;
+    return viaje;
+  });
+  relojDeBloques(bloques, entradas);
 
   const props = {
     mural: m.trozos,
@@ -205,33 +254,16 @@ const producirMural = ({ guion, OUT, fecha, conVoz, mat }) => {
   const rutaProps = path.join(OUT, "clave-mural.json");
   fs.writeFileSync(rutaProps, JSON.stringify(props, null, 2) + "\n");
 
-  // LA CAMA, desde los tiempos reales. Va a public/ porque Remotion solo sirve
-  // desde ahí, y no se guarda en el repo (37 MB que se rehacen del guion).
-  const cama = path.join("sonidos", "cama-clave.wav");
-  const tension = rangoTension(secciones);
-  try {
-    execFileSync("node", [path.join(RAIZ, "scripts", "clave-musica.js"), "--guion", rutaProps,
-      "--salida", path.join(RAIZ, "public", cama), ...(tension ? ["--tension", tension] : [])], { stdio: "inherit" });
-    props.musica = cama;
-    fs.writeFileSync(rutaProps, JSON.stringify(props, null, 2) + "\n");
-  } catch (e) {
-    // una Clave sin cama sigue siendo una Clave: el componente sin `musica`
-    // suena como antes. Perder el video entero por la música no.
-    console.warn(`AVISO: la cama no se pudo generar (${e.message}); la Clave sale sin música.`);
-  }
+  const tension = generarCama({ props, rutaProps, secciones });
 
-  // los capítulos, con el mismo formato que lee scripts/chapters.js
-  let fr = 0, cur = null;
-  const eventos = [];
-  for (const b of bloques) {
-    if (b.parada !== cur) { cur = b.parada; eventos.push({ tipo: "seccion", texto: secciones[b.parada].titulo, from: fr / FPS }); }
-    fr += Math.round(b.seg * FPS);
-  }
   const rutaCap = path.join(OUT, "capitulos-clave-mural.json");
-  fs.writeFileSync(rutaCap, JSON.stringify({ meta: { duracionSeg: fr / FPS }, eventos }, null, 2));
+  const fr = escribirCapitulos({ bloques, secciones, rutaCap });
   console.log(`mural: ${secciones.length} secciones, ${bloques.length} bloques, ${Math.floor(fr / FPS / 60)}m${Math.round((fr / FPS) % 60)}s` +
     `${voz ? ", con voz" : ", sin voz (estimado)"}, tensión ${tension || "ninguna"}`);
   return { rutaProps, rutaCap, duracionSeg: fr / FPS };
 };
 
-module.exports = { materialMural, producirMural, slugDe };
+// Lo de abajo de materialMural y producirMural se exporta para
+// scripts/largo-diario.js (02-11-2026): mismo reloj, misma voz, misma cama.
+module.exports = { materialMural, producirMural, slugDe,
+  sintetizarVoz, relojDeBloques, generarCama, escribirCapitulos, MUSICA_DB, FPS };

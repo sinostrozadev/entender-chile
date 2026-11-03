@@ -15,6 +15,10 @@ import clavePanel from "../ejemplos/clave-panel.json";
 // de 27.580 px partido en tres. Esta es la de producción; las de arriba son
 // las pruebas que llevaron hasta acá y se pueden borrar.
 import claveMural14 from "../ejemplos/clave-mural14.json";
+// ENTENDER EL CASO (02-11-2026): el largo por tema sobre la página real del
+// diario. Ver src/largo-diario.tsx.
+import { LargoDiario, GuionDiario } from "./largo-diario";
+import largoDiarioPrueba from "../ejemplos/largo-diario-prueba.json";
 
 export const Root: React.FC = () => {
   return (
@@ -32,6 +36,23 @@ export const Root: React.FC = () => {
       height={1080}
       calculateMetadata={({ props }) => ({
         durationInFrames: (props as GuionMural).bloques.reduce((a, b) => a + Math.round(b.seg * 24), 0),
+      })}
+    />
+    {/* EL LARGO SOBRE EL DIARIO (02-11-2026): lo rinde scripts/dia.js --clave
+        cuando el guion trae marcas DIARIO, y scripts/largo-diario.js a mano.
+        Las props salen siempre del json que arma el script; el defaultProps es
+        el guion de prueba, y para que el estudio lo muestre con sus páginas
+        hay que correr antes el script (las capturas de public/diario/ no
+        viajan al repo). */}
+    <Composition
+      id="LargoDiario"
+      component={LargoDiario}
+      defaultProps={largoDiarioPrueba as GuionDiario}
+      fps={24}
+      width={1920}
+      height={1080}
+      calculateMetadata={({ props }) => ({
+        durationInFrames: (props as GuionDiario).bloques.reduce((a, b) => a + Math.round(b.seg * 24), 0),
       })}
     />
     <Composition
