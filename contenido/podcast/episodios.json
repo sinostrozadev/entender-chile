@@ -672,5 +672,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-03-informe.mp3",
     "bytes": 5034240,
     "durSeg": 210
+  },
+  {
+    "fecha": "2026-11-04",
+    "tipo": "informe",
+    "titulo": "04-11-2026 · Fondos D y E siguen en rojo tras el repunte de octubre",
+    "descripcion": "Los fondos D y E mantienen pérdidas reales acumuladas y el regulador abrió un proceso sancionatorio contra las siete AFP. El tribunal declaró culpable a Óscar Izurieta por lavado de activos y Contraloría detectó inconsistencias en miles de inmuebles fiscales. La edición también aborda el Presupuesto 2027, la cooperación entre Chile e Italia y el nuevo control demócrata del Senado estadounidense.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-04/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-04-informe.mp3",
+    "bytes": 5249088,
+    "durSeg": 219
   }
 ]
