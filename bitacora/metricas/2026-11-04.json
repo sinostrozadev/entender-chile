@@ -3,22 +3,22 @@
   "canal": {
     "suscriptores": 48,
     "vistas": 23011,
-    "videos": 215
+    "videos": 217
   },
   "videos": {
     "NkQ1XVfzGHY": {
       "titulo": "El repunte de octubre no borró las pérdidas reales de los fo",
       "publicado": "2026-11-04",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
+      "estado": "public",
+      "vistas": 4,
+      "meGusta": 1,
       "comentarios": 0,
       "durSeg": 33
     },
     "QIZfhvG4HzA": {
       "titulo": "Fondos D y E siguen en rojo tras el repunte de octubre",
       "publicado": "2026-11-04",
-      "estado": "private",
+      "estado": "public",
       "vistas": 0,
       "meGusta": 0,
       "comentarios": 0,
@@ -46,8 +46,8 @@
       "titulo": "¿Por qué un diputado rompió con su propio gobierno por el ca",
       "publicado": "2026-11-02",
       "estado": "public",
-      "vistas": 57,
-      "meGusta": 1,
+      "vistas": 63,
+      "meGusta": 2,
       "comentarios": 0,
       "durSeg": 47
     },
@@ -55,7 +55,7 @@
       "titulo": "Tres mujeres murieron tras volcar una balsa familiar con tre",
       "publicado": "2026-11-02",
       "estado": "public",
-      "vistas": 12,
+      "vistas": 13,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 40
@@ -64,7 +64,7 @@
       "titulo": "¿Por qué un Imacec de 0,2% no es una buena noticia? #Shorts",
       "publicado": "2026-11-02",
       "estado": "public",
-      "vistas": 26,
+      "vistas": 27,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 44
@@ -73,7 +73,7 @@
       "titulo": "Río Maipo: tres mujeres mueren en una balsa con 13 ocupantes",
       "publicado": "2026-11-02",
       "estado": "public",
-      "vistas": 18,
+      "vistas": 20,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 249
@@ -91,7 +91,7 @@
       "titulo": "Caso Martín Pérez: las audiencias que definirán los cargos",
       "publicado": "2026-11-01",
       "estado": "public",
-      "vistas": 51,
+      "vistas": 54,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 241
@@ -541,7 +541,7 @@
       "titulo": "Autopista Central rebajará el TAG desde enero de 2027",
       "publicado": "2026-10-13",
       "estado": "public",
-      "vistas": 27,
+      "vistas": 29,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 233
