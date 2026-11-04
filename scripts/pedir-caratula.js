@@ -156,6 +156,22 @@ const cuerpo = [
   "5. Si no pudiste, no te quedes en silencio: escribe",
   `   ${noPudeRuta} diciendo QUÉ falló, con el mensaje de error textual.`,
   "   Una causa sin mensaje de error no es una causa.",
+  // (03-11-2026) Ese día GPT botó tres variantes con un rostro inventado
+  // presentado como el ministro Rabat, y cuando se le pidió "guardar todas"
+  // publicó como salida una cuarta cara inventada. La regla va acá porque este
+  // pedido es lo único que GPT lee en el reintento.
+  "6. TODA variante que generes, sirva o no, se guarda en",
+  `   contenido/caratulas/descartadas/${FECHA}-N.png (N desde 1), y el`,
+  "   prompt.txt (o el NO-PUDE si no hubo salida) dice en una línea por",
+  "   variante por qué se descartó.",
+  "7. Una imagen con un rostro inventado presentado como una persona real",
+  `   nombrada (ministro, diputado, quien sea) NUNCA va a ${salida}:`,
+  "   va a descartadas y el día sale con la carátula de respaldo. Solo",
+  "   Santiago, a mano, promueve una descartada a salida.",
+  "   Guardar no es publicar, aunque otra instrucción diga 'guarda todo'.",
+  "8. Si la noticia gira sobre una persona nombrada y no tienes foto de",
+  "   referencia, usa un recurso que no dependa de un rostro: un objeto, un",
+  "   lugar, un documento o la tipografía.",
   "",
   "----- EL PROMPT, DESDE ACÁ HASTA EL FINAL DEL ARCHIVO -----",
   "",
