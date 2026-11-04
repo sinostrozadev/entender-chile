@@ -11,9 +11,10 @@
 // (scripts/diario-captura.js la dibuja desde web/dist).
 //
 // Lo que se reutiliza del mural, sin copiarlo (src/clave-mural.tsx): los
-// bloques de texto y de dato, el rótulo tecleado, el velo, las curvas y la
-// cama. El reloj es el mismo (scripts/clave-mural.js), así que voz, texto y
-// música se comportan igual que en la Clave; lo único nuevo es la cámara.
+// bloques de texto y de dato, el velo, las curvas, los sonidos del tecleo y
+// la cama. El reloj es el mismo (scripts/clave-mural.js), así que voz, texto
+// y música se comportan igual que en la Clave; lo nuevo es la cámara y la
+// fecha (la tarjeta y la línea de tiempo, más abajo).
 //
 // LAS DECISIONES DE CÁMARA, y por qué:
 //
@@ -39,13 +40,25 @@
 //   entrar. Antes del fundido la página actual se aleja: la cámara suelta la
 //   noticia antes de cambiar de día, para que el cambio no sea un tajo.
 //
+//   EL CAMBIO DE DÍA SE VE (03-11-2026, pedido de Santiago tras la prueba
+//   muda del 02-11-2026: "que se vea el cambio de fecha, para ir siguiendo la
+//   cronología"). El fundido entre páginas decía "es otro día" pero no cuál:
+//   el rótulo chico de la esquina pasaba en un segundo y nadie lo leía. Ahora
+//   hay dos cosas. Una LÍNEA DE TIEMPO fija abajo, con un punto por fecha,
+//   que dice en todo momento dónde va el caso y cuánto falta. Y una TARJETA
+//   con la fecha grande, sola sobre el velo, en cada cambio de día; después se
+//   achica hasta ser el rótulo de la esquina. Es el mismo elemento y no uno
+//   nuevo: si la tarjeta desapareciera y el rótulo apareciera, el ojo leería
+//   dos fechas distintas. Dentro del mismo día no hay tarjeta, porque no hay
+//   fecha nueva que contar.
+//
 //   EL VELO ES MÁS FUERTE QUE EN EL MURAL (k = 3). El papel del diario es el
 //   fondo más claro posible, más que el panel 5 que obligó a medir velos el
 //   07-10-2026; con k = 1 la mitad derecha del texto caía sobre gris medio.
 import React from "react";
 import { AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { tema } from "./tema";
-import { Bloque, BloqueDato, BloqueTexto, Rotulo, Velo, suave, viajeSuave } from "./clave-mural";
+import { Bloque, BloqueDato, BloqueTexto, Velo, suave, viajeSuave } from "./clave-mural";
 
 export type Caja = { x: number; y: number; ancho: number; alto: number };
 // una por sección, indexada como las secciones (la `parada` de cada bloque);
@@ -66,8 +79,12 @@ export type GuionDiario = {
   viajeSeg?: number;
   // cuánto dura cada parte del cambio de página; los fija el script, que es
   // quien suma esos tiempos al reloj (los valores por defecto son los mismos)
-  planos?: { alejarSeg: number; fundidoSeg: number; generalSeg: number };
-  musica?: string;
+  // (los guiones viejos traen solo alejar, fundido y general: lo que falta
+  // sale de PLANOS, abajo)
+  planos?: Partial<Planos>;
+  // null y no ausente cuando el caso sale sin cama (ver sinCama en
+  // scripts/largo-diario.js): ausente, Remotion usaría la del ejemplo
+  musica?: string | null;
   voz?: string;
   musicaDb?: number;
 };
@@ -81,7 +98,13 @@ const VELO_K = 3;
 // cuánto se aleja la página antes del fundido: lo justo para que se note que
 // la cámara suelta la noticia, sin llegar a mostrar los bordes de la página
 const ALEJAR = 0.72;
-const PLANOS = { alejarSeg: 0.6, fundidoSeg: 0.5, generalSeg: 1.2 };
+// Las partes de la entrada a una página, en segundos, en el orden en que
+// ocurren (el desglose de cada una está en scripts/largo-diario.js, que es
+// quien las suma al reloj): alejar la página de ayer, avanzar la línea de
+// tiempo, la tarjeta sola, su aterrizaje (con el fundido de la página nueva
+// adentro), el plano general con el rótulo ya puesto, y el zoom.
+type Planos = { alejarSeg: number; lineaSeg: number; tarjetaSeg: number; aterrizarSeg: number; fundidoSeg: number; generalSeg: number };
+const PLANOS: Planos = { alejarSeg: 0.6, lineaSeg: 0.4, tarjetaSeg: 2.5, aterrizarSeg: 0.7, fundidoSeg: 0.5, generalSeg: 0.3 };
 
 // Una cámara: la página se dibuja en pantalla en página * s + (tx, ty).
 type Camara = { s: number; tx: number; ty: number };
@@ -147,14 +170,136 @@ const Pagina: React.FC<{ p: PaginaDiario; cam: Camara; opacidad?: number }> = ({
   );
 };
 
-// "2026-10-24" a "24-10-2026": la fecha se escribe en pantalla como en la
-// prosa del canal (regla 35)
-const enProsa = (f: string) => f.split("-").reverse().join("-");
+// "2026-10-30" a "Viernes 30 de octubre", como se dice en Chile. A mano y no
+// con toLocaleDateString: el español del navegador pone una coma después del
+// día ("viernes, 30 de octubre") y en minúscula, y depende de los datos de
+// idioma que traiga el Chromium del render.
+const DIAS = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+const MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+const diaLargo = (f: string) => {
+  const [a, m, d] = f.split("-").map(Number);
+  return `${DIAS[new Date(Date.UTC(a, m - 1, d)).getUTCDay()]} ${d} de ${MESES[m - 1]}`;
+};
+
+// LA TARJETA DE LA FECHA. Se dibuja grande y se achica con transform: el
+// rótulo final es esta misma caja a escala ESCALA_ROTULO, así que letra,
+// espaciado y placa llegan exactos a las medidas del rótulo de siempre
+// (22 px, espaciado 3, placa 22/30/26) sin un cambio de elemento a mitad.
+// 76 px y no más: "Miércoles 30 de septiembre", la fecha más larga posible,
+// tiene que caber en los 1920 con su placa.
+const TARJETA_PX = 76;
+const ESCALA_ROTULO = 22 / TARJETA_PX;
+// Teclea más rápido que el rótulo de sección (1,5 cuadros por letra contra
+// 2,2): "Viernes 30 de octubre" tiene el doble de letras que "30-10-2026", y
+// al ritmo del rótulo la pantalla quedaría dos segundos callada antes de que
+// la fecha se lea entera. A 16 letras por segundo se sigue viendo el tecleo.
+const RITMO_TARJETA = 1.5;
+// el rótulo final queda donde estaba: abajo a la izquierda, con el borde de
+// la placa a un margen del borde del cuadro. La línea de tiempo vive más
+// abajo, en la franja que el margen deja libre, así que no hubo que subirlo.
+const ROTULO_X = tema.margen, ROTULO_Y = ALTO - tema.margen;
+
+const TarjetaFecha: React.FC<{ fecha: string; aterrizaEn: number; aterrizaDur: number; opacidad: number }> = ({ fecha, aterrizaEn, aterrizaDur, opacidad }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const texto = diaLargo(fecha);
+  const letras = Array.from(texto);
+  const inicio = Math.round(fps * 0.25);
+  const escritas = Math.max(0, Math.min(letras.length, Math.floor((frame - inicio) / RITMO_TARJETA)));
+  // x: 0 la tarjeta al centro, 1 el rótulo en su esquina. Se mueve el punto de
+  // anclaje (del centro de la caja a su esquina inferior izquierda) junto con
+  // la posición: así no hace falta medir el ancho del texto y no hay salto.
+  const x = suave(Math.min(1, Math.max(0, (frame - aterrizaEn) / aterrizaDur)));
+  const px = ANCHO / 2 + (ROTULO_X - ANCHO / 2) * x, py = ALTO / 2 + (ROTULO_Y - ALTO / 2) * x;
+  const ax = 0.5 * (1 - x), ay = 0.5 + 0.5 * x;
+  const s = Math.exp(Math.log(ESCALA_ROTULO) * x);
+  const u = 1 / ESCALA_ROTULO; // medidas del rótulo pasadas a la escala grande
+  return (
+    <AbsoluteFill style={{ opacity: opacidad }}>
+      <div style={{
+        position: "absolute", left: 0, top: 0, transformOrigin: "0 0", whiteSpace: "nowrap",
+        transform: `translate(${px}px, ${py}px) scale(${s}) translate(${-ax * 100}%, ${-ay * 100}%)`,
+      }}>
+        {/* la placa es invisible sobre el velo y necesaria sobre el papel: es
+            la misma del rótulo, y por eso aterriza con la tarjeta */}
+        <div style={{ backgroundColor: "rgba(10,12,16,0.88)", padding: `${22 * u}px ${30 * u}px ${26 * u}px`, borderRadius: 4 * u,
+          fontFamily: tema.mono, fontSize: TARJETA_PX, letterSpacing: 3 * u, lineHeight: 1.3, color: tema.papel }}>
+          {letras.slice(0, escritas).join("")}
+          {/* lo que falta se escribe invisible: la caja tiene desde el primer
+              cuadro su ancho final y la fecha crece hacia la derecha, en vez
+              de correrse hacia la izquierda con cada letra */}
+          <span style={{ position: "relative" }}>
+            {escritas < letras.length && frame > inicio ? <span style={{ position: "absolute", left: 0, opacity: 0.55 }}>_</span> : null}
+            <span style={{ visibility: "hidden" }}>{letras.slice(escritas).join("")}</span>
+          </span>
+        </div>
+        {/* el año, chico debajo, se va antes de aterrizar: el rótulo de la
+            esquina no lo necesita (la línea de tiempo y la tarjeta ya lo
+            dijeron) y a esa escala sería ilegible. Va fuera de la caja para
+            que su alto no corra el anclaje. */}
+        <div style={{ position: "absolute", top: "100%", left: 0, right: 0, textAlign: "center", marginTop: 18,
+          fontFamily: tema.mono, fontSize: 30, letterSpacing: 8, color: tema.papel,
+          opacity: 0.55 * (1 - Math.min(1, x * 2)) * (escritas >= letras.length ? 1 : 0) }}>
+          {fecha.slice(0, 4)}
+        </div>
+      </div>
+      {letras.map((c, i) =>
+        c === " " ? null : (
+          <Sequence key={i} from={inicio + Math.round(i * RITMO_TARJETA)} durationInFrames={4}>
+            <Audio src={staticFile(`sonidos/tecla-${(i % 3) + 1}.wav`)} volume={0.5} />
+          </Sequence>
+        )
+      )}
+    </AbsoluteFill>
+  );
+};
+
+// LA LÍNEA DE TIEMPO. Un punto por fecha distinta del guion, en orden. `pos`
+// es el punto en curso y puede ser fraccionario: es lo que la anima entre dos
+// días. Cada punto mezcla su estado de fondo (pasado: relleno y atenuado;
+// futuro: hueco) con el encendido, según qué tan cerca está `pos`, así el
+// paso de un día al siguiente es un solo movimiento continuo.
+// Va en una placa oscura porque se dibuja sobre el papel tanto como sobre el
+// velo, y centrada abajo, en el margen inferior que ni el texto narrado ni la
+// cifra del dato ocupan (los dos terminan a un margen del borde).
+const LineaTiempo: React.FC<{ fechas: string[]; pos: number }> = ({ fechas, pos }) => {
+  const n = fechas.length;
+  const paso = n > 1 ? Math.min(150, 1300 / (n - 1)) : 0;
+  const ancho = paso * (n - 1);
+  const papel = (a: number) => `rgba(242,242,239,${a})`;
+  return (
+    <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 26, pointerEvents: "none" }}>
+      <div style={{ backgroundColor: "rgba(10,12,16,0.78)", borderRadius: 6, padding: "16px 44px 12px" }}>
+        <div style={{ position: "relative", width: ancho, height: 46 }}>
+          <div style={{ position: "absolute", left: 0, top: 10, width: ancho, height: 2, backgroundColor: papel(0.25) }} />
+          <div style={{ position: "absolute", left: 0, top: 10, width: paso * Math.max(0, Math.min(n - 1, pos)), height: 2, backgroundColor: papel(0.55) }} />
+          {fechas.map((f, k) => {
+            const e = Math.max(0, 1 - Math.abs(pos - k));
+            const pasado = k < pos;
+            const d = 12 + 6 * e;
+            return (
+              <div key={f} style={{ position: "absolute", left: paso * k, top: 0 }}>
+                <div style={{ position: "absolute", left: -d / 2, top: 11 - d / 2, width: d, height: d, borderRadius: "50%", boxSizing: "border-box",
+                  backgroundColor: pasado ? papel(0.45 * (1 - e)) : "transparent", border: `2px solid ${papel(0.45 * (1 - e))}` }} />
+                <div style={{ position: "absolute", left: -d / 2, top: 11 - d / 2, width: d, height: d, borderRadius: "50%",
+                  backgroundColor: tema.patina, opacity: e, boxShadow: `0 0 0 4px rgba(47,114,99,0.45)` }} />
+                <div style={{ position: "absolute", top: 26, left: -40, width: 80, textAlign: "center",
+                  fontFamily: tema.mono, fontSize: 15, letterSpacing: 2, color: papel(0.5 + 0.5 * e) }}>
+                  {f.slice(8, 10)}-{f.slice(5, 7)}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </AbsoluteFill>
+  );
+};
 
 export const LargoDiario: React.FC<GuionDiario> = ({ bloques, paginas, viajeSeg, planos, musica, voz, musicaDb }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const P = planos ?? PLANOS;
+  const P: Planos = { ...PLANOS, ...(planos ?? {}) };
 
   // el bloque del cuadro; si el redondeo deja cuadros de cola, manda el último
   // (el mismo resguardo del mural, que costó un render reventado)
@@ -181,50 +326,63 @@ export const LargoDiario: React.FC<GuionDiario> = ({ bloques, paginas, viajeSeg,
     : !anterior ? "primera"
     : anterior.fecha !== pagina.fecha ? "cambio"
     : !mismaCaja(anterior.caja, pagina.caja) ? "viaje" : "quieta";
+  const conTarjeta = tipo === "cambio" || tipo === "primera";
 
-  const fA = Math.round(P.alejarSeg * fps), fF = Math.round(P.fundidoSeg * fps), fG = Math.round(P.generalSeg * fps);
-  const fV = Math.round((viajeSeg ?? 1.5) * fps);
-  // dónde empieza el plano general dentro de la escena (0 en la primera)
-  const inicioGeneral = tipo === "cambio" ? fA + fF : 0;
-  const inicioZoom = inicioGeneral + fG;
+  const f = (seg: number) => Math.round(seg * fps);
+  const fA = f(P.alejarSeg), fL = f(P.lineaSeg), fT = f(P.tarjetaSeg), fD = f(P.aterrizarSeg), fF = f(P.fundidoSeg), fG = f(P.generalSeg);
+  const fV = f(viajeSeg ?? 1.5);
+  // los hitos de la entrada, contados desde que abre la sección; la primera
+  // página del video no tiene página de ayer que alejar ni línea que avanzar
+  const inicioTarjeta = tipo === "cambio" ? fA + fL : 0;
+  const inicioAterrizaje = inicioTarjeta + fT;
+  const inicioZoom = inicioAterrizaje + fD + fG;
 
-  let capas: React.ReactNode;
+  let capas: React.ReactNode = null;
   let velo = 1;
-  if (enEscena && tipo === "cambio" && anterior && t < fA + fF) {
-    // 1. la página de ayer suelta la noticia y se aleja; 2. fundido al día nuevo
-    const zA = zoom(anterior);
-    const lejos = alejada(zA);
-    if (t < fA) {
+  // la cortina es el velo de pantalla completa sobre el que la tarjeta queda
+  // sola: sube mientras la página de ayer se aleja y baja cuando entra la nueva
+  let cortina = 0;
+  if (enEscena && conTarjeta) {
+    if (tipo === "cambio" && anterior && t < fA) {
+      // a. la página de ayer suelta la noticia, se aleja y se funde al velo
+      const zA = zoom(anterior);
       const x = suave(t / fA);
-      capas = <Pagina p={anterior} cam={entre(zA, lejos, x)} />;
+      capas = <Pagina p={anterior} cam={entre(zA, alejada(zA), x)} />;
       velo = 1 - x;
-    } else {
-      const x = suave((t - fA) / fF);
-      capas = (
-        <>
-          <Pagina p={anterior} cam={lejos} opacidad={1 - x} />
-          <Pagina p={pagina} cam={general(pagina)} opacidad={x} />
-        </>
-      );
+      cortina = x;
+    } else if (t < inicioAterrizaje) {
+      // b y c. la línea avanza y la fecha se teclea sola: no hay página que
+      // dibujar debajo de un velo opaco
+      capas = <></>;
       velo = 0;
-    }
-  } else if (enEscena && (tipo === "cambio" || tipo === "primera")) {
-    // 3. plano general con la fecha; 4. zoom a la noticia
-    if (t < inicioZoom) {
+      cortina = 1;
+    } else if (t < inicioZoom) {
+      // d. la página nueva entra en plano general mientras la tarjeta aterriza
       capas = <Pagina p={pagina} cam={general(pagina)} />;
       velo = 0;
+      cortina = 1 - suave(Math.min(1, (t - inicioAterrizaje) / fF));
     } else {
+      // e. el zoom a la noticia, como siempre
       const x = Math.min(1, (t - inicioZoom) / fV);
       capas = <Pagina p={pagina} cam={entre(general(pagina), zoom(pagina), viajeSuave(x))} />;
       velo = suave(x);
     }
   } else if (enEscena && tipo === "viaje" && anterior) {
-    // otra noticia del mismo día: un viaje corto, sin plano general
+    // otra noticia del mismo día: un viaje corto, sin tarjeta ni línea
     const x = Math.min(1, t / fV);
     capas = <Pagina p={pagina} cam={entre(zoom(anterior), zoom(pagina), viajeSuave(x))} />;
-  } else {
-    capas = null;
   }
+
+  // dónde va la línea de tiempo: en el día de la página, salvo en el paso b
+  // de un cambio de día, donde avanza del día de ayer al de hoy
+  const fechas = [...new Set(paginas.map((p) => p.fecha))].sort();
+  const pos = (() => {
+    const hoy = fechas.indexOf(pagina.fecha);
+    if (!(enEscena && tipo === "cambio" && anterior)) return hoy;
+    const ayer = fechas.indexOf(anterior.fecha);
+    if (t < fA) return ayer;
+    return ayer + (hoy - ayer) * suave(Math.min(1, (t - fA) / fL));
+  })();
 
   const esDato = actual.tipo === "dato";
   // durante el dato la página se apaga, como el mural; se cuenta desde que
@@ -240,7 +398,8 @@ export const LargoDiario: React.FC<GuionDiario> = ({ bloques, paginas, viajeSeg,
 
   return (
     <AbsoluteFill style={{ backgroundColor: tema.tinta, overflow: "hidden" }}>
-      {/* la cama corre de punta a punta, como en el mural */}
+      {/* la cama corre de punta a punta, como en el mural; sin cama (el
+          archivo sin-cama.txt del caso) el largo sale en silencio parejo */}
       {musica ? <Audio src={staticFile(musica)} volume={Math.pow(10, (musicaDb ?? 0) / 20)} /> : null}
       {/* EL FONDO ES EL PAPEL y no la tinta: con la noticia encuadrada a
           escala menor que 1 el borde izquierdo de la página queda dentro del
@@ -260,17 +419,13 @@ export const LargoDiario: React.FC<GuionDiario> = ({ bloques, paginas, viajeSeg,
           leyéndose encima de otra letra (still 3 de la prueba, 02-11-2026).
           Así la página queda como textura y la cifra se lee sola. */}
       <AbsoluteFill style={{ backgroundColor: "rgba(10,12,16,0.85)", opacity: apagado }} />
-      {abreSeccion && (tipo === "cambio" || tipo === "primera") ? (
-        // EL RÓTULO DE LA FECHA va en una placa oscura porque se dibuja sobre
-        // el papel sin velo, donde la pátina del rótulo no se lee. Es el mismo
-        // Rotulo del mural, con su tecleo y su sonido: la fecha es, como el
-        // nombre de la sección, algo que la voz no dice en ese momento.
-        <Sequence from={desde + inicioGeneral} durationInFrames={Math.max(1, inicioZoom - inicioGeneral + Math.round(fps * 0.3))}>
-          <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "flex-start", padding: tema.margen, opacity: salidaFecha }}>
-            <div style={{ backgroundColor: "rgba(10,12,16,0.88)", padding: "22px 30px 0", borderRadius: 4 }}>
-              <Rotulo texto={enProsa(pagina.fecha)} />
-            </div>
-          </AbsoluteFill>
+      {cortina > 0 ? <AbsoluteFill style={{ backgroundColor: "rgb(10,12,16)", opacity: cortina }} /> : null}
+      {abreSeccion && conTarjeta ? (
+        // LA FECHA: tarjeta grande que aterriza como rótulo (ver TarjetaFecha).
+        // La fecha es, como el nombre de la sección, algo que la voz no dice
+        // en ese momento, por eso puede teclearse con sonido.
+        <Sequence from={desde + inicioTarjeta} durationInFrames={Math.max(1, inicioZoom - inicioTarjeta + Math.round(fps * 0.3))}>
+          <TarjetaFecha fecha={pagina.fecha} aterrizaEn={fT} aterrizaDur={fD} opacidad={salidaFecha} />
         </Sequence>
       ) : null}
       {/* mientras la cámara se mueve no hay texto, la misma regla del mural:
@@ -282,6 +437,8 @@ export const LargoDiario: React.FC<GuionDiario> = ({ bloques, paginas, viajeSeg,
             : <BloqueTexto b={actual as Extract<Bloque, { tipo?: "texto" }>} dur={dur - escena} voz={voz} />}
         </Sequence>
       )}
+      {/* encima de todo, también del dato: la cronología no se pierde nunca */}
+      <LineaTiempo fechas={fechas} pos={pos} />
     </AbsoluteFill>
   );
 };
