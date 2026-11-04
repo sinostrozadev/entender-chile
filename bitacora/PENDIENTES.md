@@ -603,6 +603,23 @@ que estaba aprobada.
 
 ## PARA LA SESIÓN DE DÍA
 
+- [ ] **03-11, tarde del 04-11 (aprobado por Santiago): el generador debe guardar
+      las carátulas que descarta.** El 03-11 GPT botó tres variantes (rostro
+      inventado presentado como Rabat) y no quedó ninguna para que Santiago
+      juzgara. Regla nueva en `prompts/caratula-pedido.txt` y en el PEDIDO de
+      reintento de `estado.yml`: toda variante va a
+      `contenido/caratulas/descartadas/FECHA-N.png`, y el NO-PUDE dice por qué
+      se descartó cada una. Ya está puesta a mano en
+      `contenido/urgente/PEDIDO-caratula-2026-11-03.md` (commit 2076fd3b).
+      Dueño: día.
+
+- [ ] **03-11, tarde del 04-11: encargo de la animación del cambio de día en el
+      largo por tema** (`src/largo-diario.tsx`, `scripts/largo-diario.js`):
+      línea de tiempo fija abajo con un punto por día del caso, y al cambiar
+      de día la página se aleja, la fecha nueva aparece grande al centro con
+      día de la semana, queda un segundo y recién entra la página nueva.
+      Pedido por Santiago el 02-11 tras ver la prueba. Dueño: día, Opus.
+
 - [ ] **03-11, AGUANTA: el clasificador de áreas del barrido confunde fútbol
       con ciencia, y nunca había bajado a esta lista pese a repetirse cinco
       mañanas seguidas.** `contenido/barrido/fuentes.json:90`, la consulta de
