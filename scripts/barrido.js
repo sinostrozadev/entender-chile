@@ -75,6 +75,24 @@ async function bajar(url) {
   } finally { clearTimeout(t); }
 }
 
+// EL LINK ROTO DE INTERFERENCIA (03-11-2026). El <link> del feed de
+// Interferencia no trae una URL sino una etiqueta <a href="/articulos/...">
+// entera; al tomarla literal queda pegada al dominio y percent-encoded
+// ("https://interferencia.cl/%3Ca%20href%3D%22/articulos/..."). Pasó tres
+// días seguidos (01, 02 y 03-11-2026) y esas noticias llegaban al barrido sin
+// un enlace que se pudiera abrir. Se decodifica, se saca el href con el mismo
+// patrón que el link de Atom y se resuelve contra el dominio del medio.
+function arreglarUrlInterferencia(url) {
+  if (!/^https:\/\/interferencia\.cl\/%3Ca/i.test(url)) return url;
+  let crudo;
+  try { crudo = decodeURIComponent(url.slice("https://interferencia.cl/".length)); }
+  catch { return url; }
+  const m = crudo.match(/<a[^>]*href="([^"]+)"/i);
+  if (!m) return url;
+  try { return new URL(m[1], "https://interferencia.cl").href; }
+  catch { return url; }
+}
+
 // Parser de RSS/Atom suficiente para feeds de prensa (sin dependencias).
 function parsear(xml, medioPorDefecto) {
   const bloques = xml.split(/<item[\s>]|<entry[\s>]/).slice(1);
@@ -93,6 +111,7 @@ function parsear(xml, medioPorDefecto) {
     }
     let url = campo(b, "link");
     if (!url) { const m = b.match(/<link[^>]*href="([^"]+)"/i); if (m) url = m[1]; }
+    url = arreglarUrlInterferencia(url);
     const publicado = campo(b, "pubDate") || campo(b, "published") || campo(b, "updated");
     return { titulo, medio, url, publicado };
   }).filter((n) => n.titulo && n.titulo.length > 15);
@@ -318,4 +337,9 @@ async function main() {
   console.log(`\n  → ${path.join(DIR, fecha)}.json y .md`);
 }
 
-main().catch((e) => { console.error("ERROR:", e.message); process.exit(1); });
+// Se exporta solo para probar el arreglo de Interferencia sin correr el
+// barrido; desde la línea de comandos se comporta igual que siempre.
+if (require.main === module) {
+  main().catch((e) => { console.error("ERROR:", e.message); process.exit(1); });
+}
+module.exports = { arreglarUrlInterferencia };

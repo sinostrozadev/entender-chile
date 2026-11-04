@@ -195,3 +195,8 @@ editorial y técnico humano del proyecto.
 - 02-11 · Flujo de Entender el caso: seguimiento de temas (`contenido/temas/`, `prompts/seguimiento-temas.md`), ficha del piloto, pauta desde la ficha y marca `[DIARIO AAAA-MM-DD | slug]` en el guion (commit da52e974)
 - 02-11 · Render del largo sobre la página del diario (`src/largo-diario.tsx`, `scripts/largo-diario.js`), interruptor `CLAVE_FORMATO=diario` y hora del largo a las 19:00; prueba muda de 87,8 segundos con tres páginas del caso (commits 0d52974b y 2437fcf2)
 - 02-11 · Piloto de Rabat abierto y pauta escrita por la rutina (1.299 palabras, ocho secciones), en `pauta_lista` a las 23:07
+- 03-11 · El barrido de "Ciencia y tecnología" ya no trae fútbol: la consulta de `contenido/barrido/fuentes.json` pierde el término "universidad" (medido ese día: 28 de 100 noticias eran de la U o la UC; sin el término, 0 de 40)
+- 03-11 · Las URL de Interferencia salen bien del barrido: `scripts/barrido.js` decodifica la etiqueta `<a>` que trae su `<link>` y deja `https://interferencia.cl/articulos/<slug>` (rotas el 01, 02 y 03-11)
+- 03-11 · El cuadro "Cronograma del sistema" del panel interno dice ~02:50 para Edición diaria, la hora real en que termina la cadena, en vez de ~04:00
+- 03-11 · `scripts/parse.js` reconoce la marca `[FUENTE] X` que documenta `prompts/guion-claves.md` y ya no la narra (la Clave de la AFP leía en voz alta cinco fuentes); sigue aceptando `[FUENTE X]`
+- 03-11 · La Clave `acuerdo-internacional-sin-tratado` queda descartada por Santiago: su carpeta pasa a `contenido/claves/descartadas/` con el guion aprobado de reserva y sale del estado de las Claves

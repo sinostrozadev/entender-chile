@@ -87,7 +87,8 @@
     {
       "id": "ciencia",
       "area": "Ciencia y tecnología",
-      "q": "Chile (ciencia OR tecnología OR investigación OR astronomía OR universidad)"
+      "_nota": "Sin 'universidad' desde el 03-11-2026: traía los clubes Universidad de Chile y Universidad Católica (28 de 100 noticias de fútbol medido ese día; sin el término, 0 de 40). Acotarlo con un grupo anidado deja 11 noticias, y '-site:redgol.cl -site:bolavip.com' desarma el OR y sube a 101 con fútbol de otros medios: por eso se quitó en vez de acotarlo.",
+      "q": "Chile (ciencia OR tecnología OR investigación OR astronomía)"
     },
     {
       "id": "clima",
