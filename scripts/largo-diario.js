@@ -36,7 +36,7 @@
  * Uso como módulo desde scripts/dia.js:
  *   const { materialDiario, producirDiario } = require("./largo-diario");
  * Uso directo (prueba sin Azure con --mudo):
- *   node scripts/largo-diario.js --guion <ruta.md> [--mudo] [--salida out/prueba-largo]
+ *   [LARGO_SIN_CAMA=1] node scripts/largo-diario.js --guion <ruta.md> [--mudo] [--salida out/prueba-largo]
  */
 const { execFileSync } = require("child_process");
 const fs = require("fs");
@@ -56,9 +56,18 @@ const TEXTURA_MAX = 16384;
 // viaje: el mismo 1,5 del mural, el zoom a la noticia o el paso entre dos
 // noticias del mismo día.
 const VIAJE = 1.5;
-// alejar y fundido: el cambio de día. El plano general dura lo que tarda en
-// teclearse una fecha de diez caracteres (0,25 + 10 x 2,2 cuadros = 1,17 s).
-const PLANOS = { alejarSeg: 0.6, fundidoSeg: 0.5, generalSeg: 1.2 };
+// LA ENTRADA A UN DÍA (03-11-2026, rehecha para que se vea el cambio de
+// fecha, ver la cabecera de src/largo-diario.tsx). Las partes, en orden:
+//   alejar 0,6: la página de ayer suelta la noticia y se funde al velo.
+//   linea 0,4: la línea de tiempo de abajo avanza al punto siguiente.
+//   tarjeta 2,5: la fecha grande, tecleada y sola sobre el velo. Son 0,25 de
+//     espera antes de la primera letra, 1,31 de tecleo para "Viernes 30 de
+//     octubre" (21 letras a 1,5 cuadros) y 0,94 quieta para leerla entera.
+//   aterrizar 0,7: la tarjeta se achica hasta ser el rótulo de la esquina; la
+//     página nueva entra en plano general en los primeros 0,5 (fundido).
+//   general 0,3: el plano general con el rótulo ya puesto, para que la página
+//     se reconozca antes de que la cámara se mueva.
+const PLANOS = { alejarSeg: 0.6, lineaSeg: 0.4, tarjetaSeg: 2.5, aterrizarSeg: 0.7, fundidoSeg: 0.5, generalSeg: 0.3 };
 
 // LA PÁGINA EN TROZOS para el render (ver Pagina en src/largo-diario.tsx: la
 // captura entera en un solo <img> se decodificaba en cada cuadro). SOLAPE son
@@ -82,12 +91,36 @@ const r3 = (x) => Math.round(x * 1000) / 1000;
 
 // Qué entrada tiene cada sección. Es la misma regla que aplica el componente
 // cuadro a cuadro; acá se usa para saber cuánto tiempo pedirle al reloj.
+// Los segundos de `escena` que se piden al reloj, con su desglose:
+//   primera página del video: tarjeta 2,5 + aterrizar 0,7 + general 0,3 +
+//     zoom 1,5 = 5,0 (no hay página de ayer que alejar ni línea que avanzar).
+//   cambio de día: alejar 0,6 + línea 0,4 + los 5,0 de arriba = 6,0.
+//   otra noticia de la misma página: el viaje corto, 1,5, sin tarjeta.
+//   la misma noticia (sección sin marca): 0, hereda la cámara.
+const ENTRADA_DIA = PLANOS.tarjetaSeg + PLANOS.aterrizarSeg + PLANOS.generalSeg + VIAJE;
 const escenaDe = (paginas, i) => {
-  if (i === 0) return PLANOS.generalSeg + VIAJE;
+  if (i === 0) return ENTRADA_DIA;
   const a = paginas[i - 1], b = paginas[i];
-  if (a.fecha !== b.fecha) return PLANOS.alejarSeg + PLANOS.fundidoSeg + PLANOS.generalSeg + VIAJE;
+  if (a.fecha !== b.fecha) return PLANOS.alejarSeg + PLANOS.lineaSeg + ENTRADA_DIA;
   const c = a.caja, d = b.caja;
   return c.x !== d.x || c.y !== d.y || c.ancho !== d.ancho || c.alto !== d.alto ? VIAJE : 0;
+};
+
+// EL INTERRUPTOR DE LA CAMA (03-11-2026, decisión de Santiago para el piloto
+// de Rabat). La regla 28 (duelo) apaga la cama en toda sección que nombre
+// "abuso sexual" o "violación", y en un caso como ese son casi todas: la
+// música entraría y saldría a cada rato, y eso es peor que un silencio parejo.
+// Se apaga por caso con un archivo y no con una opción del guion, porque es
+// una decisión editorial sobre el caso entero, no sobre un guion, y tiene que
+// sobrevivir a que el guion se reescriba. Solo cuenta para guiones con fecha
+// (AAAA-MM-DD-<slug>.md): sin fecha el slug no es de ningún caso y todo sigue
+// como antes. LARGO_SIN_CAMA=1 fuerza lo mismo, para probar sin el archivo.
+const sinCama = (rutaGuion) => {
+  if (process.env.LARGO_SIN_CAMA === "1") return "LARGO_SIN_CAMA=1";
+  const base = path.basename(rutaGuion, ".md");
+  if (!/^\d{4}-\d{2}-\d{2}-/.test(base)) return null;
+  const archivo = path.join(RAIZ, "contenido", "claves", "flujo", slugDe(rutaGuion), "sin-cama.txt");
+  return fs.existsSync(archivo) ? path.relative(RAIZ, archivo) : null;
 };
 
 // El material de un largo sobre el diario, o null si el guion no trae marcas
@@ -175,7 +208,17 @@ const producirDiario = ({ guion, OUT, fecha, conVoz, mat }) => {
   };
   const rutaProps = path.join(OUT, "largo-diario.json");
   fs.writeFileSync(rutaProps, JSON.stringify(props, null, 2) + "\n");
-  const tension = generarCama({ props, rutaProps, secciones });
+  // Sin cama, `musica` va en null y no ausente (03-11-2026, lo pagó la
+  // primera prueba sin cama): Remotion mezcla estas props sobre las
+  // defaultProps de la composición, que traen la cama del ejemplo, así que sin
+  // la clave el render la heredaba y reventaba con un 404 al no encontrarla.
+  const apagada = sinCama(guion);
+  if (apagada) {
+    props.musica = null;
+    fs.writeFileSync(rutaProps, JSON.stringify(props, null, 2) + "\n");
+    console.log(`diario: sin cama musical (${apagada})`);
+  }
+  const tension = apagada ? null : generarCama({ props, rutaProps, secciones });
   const rutaCap = path.join(OUT, "capitulos-largo-diario.json");
   const fr = escribirCapitulos({ bloques, secciones, rutaCap });
   console.log(`diario: ${secciones.length} secciones, ${new Set(paginas.map((p) => p.fecha)).size} páginas, ${bloques.length} bloques, ` +
