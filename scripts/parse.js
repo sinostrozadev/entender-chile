@@ -13,7 +13,8 @@
  *   [ESQUEMA | título] A -> B -> C
  *   [HECHO] párrafo        [INTERPRETACIÓN] párrafo
  *   [CITA | quién | fuente] texto
- *   [FUENTE medio, fecha]  fuente principal del bloque: va al pie de todas sus tarjetas
+ *   [FUENTE] medio, fecha  fuente principal del bloque: va al pie de todas sus tarjetas
+ *                          (también se acepta la forma vieja [FUENTE medio, fecha])
  *   [DIARIO AAAA-MM-DD | slug]  escenario de la sección en "Entender el caso"; ver leerMarcaDiario
  *
  * Indicadores en los valores de [DATO]: "9,5% (sube)", "-11% (baja)", "(baja mal)",
@@ -337,7 +338,13 @@ function parseGuion(md) {
       buffer = { tipo: "narracion", etiqueta: "interpretacion", lineas: [m[1]] };
       continue;
     }
-    if ((m = linea.match(/^\[FUENTE\s*\|?\s*([^\]]+)\]\s*$/i))) {
+    // Dos formas de la marca (02-11-2026). prompts/guion-claves.md documenta
+    // "[FUENTE] institución, fecha", con el texto FUERA del corchete, pero esta
+    // regex solo aceptaba "[FUENTE institución, fecha]": la forma documentada
+    // caía a texto normal y la voz leía la fuente en voz alta. Manda el prompt;
+    // la forma vieja se sigue aceptando porque hay guiones escritos así.
+    if ((m = linea.match(/^\[FUENTE\s*\|?\s*([^\]]+)\]\s*$/i)) ||
+        (m = linea.match(/^\[FUENTE\]\s*(\S.*?)\s*$/i))) {
       flush();
       eventos.push({ tipo: "fuente", texto: m[1].trim() });
       continue;

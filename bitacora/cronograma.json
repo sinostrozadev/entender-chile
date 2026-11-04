@@ -1,6 +1,6 @@
 {
   "_regla": "FUENTE DE VERDAD del cronograma del panel. Quien cambie una tarea (rutina, workflow, tarea GPT, horario o disparador) ACTUALIZA este archivo en el mismo commit; scripts/panel-cronograma.js lo inyecta al panel y el reloj de métricas lo refresca a diario.",
-  "actualizado": "2026-09-21",
+  "actualizado": "2026-11-03",
   "fases": [
     {
       "nombre": "La madrugada: cadena LINEAL v3 (GPT escribe, Claude valida cada pieza, el estado manda)",
@@ -42,7 +42,7 @@
           "que": "En paralelo: busca novedades verificables de cada caso en seguimiento y actualiza los dossiers de ¿En qué quedó? que publica la web."
         },
         {
-          "hora": "~04:00",
+          "hora": "~02:50",
           "quien": "Edición diaria",
           "tipo": "actions",
           "que": "La fábrica, con compuerta (exige la revisión del día con VEREDICTO: APROBADA, que escribe el validador al cerrar la cadena): voz Azure, render del informe y su Short (24 fps y concurrency 100% desde el 16-09), carátulas, subida PROGRAMADA a YouTube, podcast. La Clave, cuando exista por su flujo propio, entra por el mismo camino."
@@ -77,7 +77,7 @@
       "nombre": "El día: vigilancia y medición",
       "items": [
         {
-          "hora": "08–22 c/2h",
+          "hora": "08 a 22 c/2h",
           "quien": "Guardia + Short exprés",
           "tipo": "claude",
           "que": "Barrido liviano de urgentes con criterio mecánico (2 de 4 señales, o algo anunciado que se publicó). Si caza: redacta el guion exprés, Actions produce el Short vertical vino, lo sube privado y llega el link al teléfono. Silencio si no hay nada. También a pedido: \"prepara un video exprés de X\" → ~10 min."
