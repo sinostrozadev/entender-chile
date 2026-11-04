@@ -3,9 +3,18 @@
   "canal": {
     "suscriptores": 48,
     "vistas": 23011,
-    "videos": 217
+    "videos": 218
   },
   "videos": {
+    "-swKZxjq0IA": {
+      "titulo": "¿Qué significa que los demócratas le quitaron el Congreso a ",
+      "publicado": "2026-11-04",
+      "estado": "public",
+      "vistas": 124,
+      "meGusta": 3,
+      "comentarios": 0,
+      "durSeg": 45
+    },
     "NkQ1XVfzGHY": {
       "titulo": "El repunte de octubre no borró las pérdidas reales de los fo",
       "publicado": "2026-11-04",
@@ -28,7 +37,7 @@
       "titulo": "Fernando Rabat figura como imputado por una denuncia de pres",
       "publicado": "2026-11-03",
       "estado": "public",
-      "vistas": 27,
+      "vistas": 28,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 39
@@ -46,7 +55,7 @@
       "titulo": "¿Por qué un diputado rompió con su propio gobierno por el ca",
       "publicado": "2026-11-02",
       "estado": "public",
-      "vistas": 63,
+      "vistas": 64,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 47
@@ -541,7 +550,7 @@
       "titulo": "Autopista Central rebajará el TAG desde enero de 2027",
       "publicado": "2026-10-13",
       "estado": "public",
-      "vistas": 29,
+      "vistas": 30,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 233
