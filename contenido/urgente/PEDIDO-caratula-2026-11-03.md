@@ -20,6 +20,14 @@ QUÉ TIENES QUE HACER, y nada más que esto:
    contenido/caratulas/2026-11-03-NO-PUDE.md diciendo QUÉ falló, con el mensaje de error textual.
    Una causa sin mensaje de error no es una causa.
 
+6. NUEVO (Santiago, 03-11-2026): si una variante no te sirve, NO la botes.
+   Guarda TODAS las que generes, incluidas las descartadas, en
+   contenido/caratulas/descartadas/2026-11-03-1.png, -2.png, -3.png, y anota
+   en el NO-PUDE por qué descartaste cada una. Santiago quiere verlas con sus
+   ojos: la decisión de si un rostro inventado sirve o no es de él, no tuya.
+   Las tres del turno anterior (rostro presentado como Rabat) también las
+   quiere ver: si todavía las tienes, súbelas igual a esa carpeta.
+
 ----- EL PROMPT, DESDE ACÁ HASTA EL FINAL DEL ARCHIVO -----
 
 Crea una carátula de YouTube 16:9 para un canal de noticias y actualidad.
