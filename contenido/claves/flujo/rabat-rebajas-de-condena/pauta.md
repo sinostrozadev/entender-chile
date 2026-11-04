@@ -4,6 +4,7 @@ SLUG: rabat-rebajas-de-condena
 CONCEPTO: Las rebajas de condena firmadas por el Ministerio de Justicia: Rabat y Silva
 CAMINO: pauta
 ESCRITA: 2026-11-02 23:07 (hora de Chile), por Claude
+AJUSTADA: 2026-11-03 23:50 (hora de Chile), por Claude con los cambios de Santiago del 02-11 y el hito del 03-11
 
 ## 1. Qué es y por qué importa ahora
 
@@ -40,9 +41,11 @@ descuenta, quién evalúa y qué margen tenía el ministro no consta en el repo:
 - 30-10-2026: el fiscal Francisco Jacir abre investigación por eventual prevaricación administrativa tras la denuncia de los diputados Cuello y Santana contra Rabat y el entonces subsecretario Luis Silva; no acredita delito `(confirmado)`. Kast acepta la renuncia de Silva, sin imputarle responsabilidad penal `(confirmado)`.
 - 30-10-2026: CIPER halla fallos que rechazaron amparos y Gendarmería consigna un nexo con el Tren de Aragua de un beneficiado `(confirmado)`.
 - 01-11-2026: documentos muestran 11 rebajas aprobadas pese a advertencias regionales (siete de Rabat, tres de Silva subrogante, una de Pablo Mira) y 22 rechazos que esas oficinas consideraban procedentes `(confirmado)`.
+- 02-11-2026: el fiscal nacional, Ángel Valencia, confirma que Rabat tiene calidad de imputado por la denuncia de prevaricación; esa calidad nace al ser individualizado en una denuncia, tenga o no mérito, y no hay formalización `(confirmado)`.
 
-Lo que se sabe hoy, al 02-11-2026: nada revertido, tramitación suspendida, Rabat
-en el cargo, investigación abierta sin formalizados y acusación sin ingresar.
+Lo que se sabe hoy, al 03-11-2026: nada revertido, tramitación suspendida, Rabat
+en el cargo e imputado sin formalización, investigación abierta y acusación sin
+ingresar.
 
 ## 4. Las dudas que la Clave tiene que responder
 
@@ -84,12 +87,12 @@ pierden y riesgo concreto sobre personas, no solo un mecanismo.
 
 ## 8. Carátulas y duración
 
-Carátula 1 (pregunta): ¿Quién firmó esos permisos? / 56 condenados salieron antes
+Carátula 1 (pregunta): ¿Quién firmó esos permisos? / 56 rebajas de condena
 Carátula 2 (contradicción): La ley lo obligaba / sus oficinas advirtieron antes
 Carátula 3 (cifra con referencia): 56 en seis meses / uno cada tres días
 
-Duración estimada: 11 a 12 minutos, por las ocho secciones y el mecanismo
-explicado desde cero.
+Duración estimada: 8 a 10 minutos (Santiago, 02-11-2026): nueve secciones, el
+mecanismo explicado desde cero y sin repetir lo que el diario ya contó.
 
 ## 9. Las secciones del largo y su página del diario
 
@@ -104,6 +107,8 @@ explicado desde cero.
    [DIARIO 2026-10-29 | oposicion-prepara-acusacion-constitucional-contra-fernando]
 6. 30-10-2026: la Fiscalía investiga, sale el subsecretario, aparecen los fallos y el informe de Gendarmería.
    [DIARIO 2026-10-31 | fiscalia-investiga-a-rabat-y-silva-y-el-gobierno-cambia-al]
-7. 01 y 02-11-2026: 11 rebajas aprobadas contra las advertencias regionales, 22 rechazos en contra.
+7. 01-11-2026: 11 rebajas aprobadas contra las advertencias regionales, 22 rechazos en contra.
    [DIARIO 2026-11-02 | documentos-contradicen-la-defensa-de-rabat-sobre-las-rebajas]
-8. Qué se sabe hoy y qué falta por saber, al 02-11-2026: el estado de los tres frentes y las preguntas abiertas (formalización, ingreso de la acusación, revisión caso a caso, cuántos están libres). Sin página: es síntesis y preguntas, no un hito.
+8. 02-11-2026: el fiscal nacional confirma que Rabat es imputado; qué significa esa calidad y qué no.
+   [DIARIO 2026-11-03 | el-fiscal-nacional-confirma-que-rabat-figura-como-imputado]
+9. Qué se sabe hoy y qué falta por saber, al 03-11-2026: el estado de los tres frentes y las preguntas abiertas (formalización, ingreso de la acusación, revisión caso a caso, cuántos están libres). Sin página: es síntesis y preguntas, no un hito.
