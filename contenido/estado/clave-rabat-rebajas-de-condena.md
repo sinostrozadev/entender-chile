@@ -5,7 +5,7 @@ ETAPA: pauta_lista
 VUELTA: 0
 TURNO: Santiago: aprobar o pedir cambios (scripts/clave.js aprobar | cambiar)
 FECHA_PRODUCCION: (la fija Santiago al aprobar la pauta)
-ACTUALIZADO: 2026-11-02 23:18 (hora de Chile)
+ACTUALIZADO: 2026-11-03 23:53 (hora de Chile)
 PIEZA: pauta
 PROMPT: prompts/pauta-clave.md
 ARCHIVO: contenido/claves/flujo/rabat-rebajas-de-condena/pauta.md
@@ -20,7 +20,7 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 | Paso | Estado | Hora | Quién |
 |---|---|---|---|
 | Tema elegido | listo | 23:02 | Santiago |
-| Pauta | escrita | 23:18 | Claude |
+| Pauta | escrita | 23:53 | Claude |
 | Aprobación de Santiago | espera |  | Santiago |
 | Investigación | falta |  | GPT, valida Claude |
 | Entrega escrita | falta |  | GPT, valida Claude |
