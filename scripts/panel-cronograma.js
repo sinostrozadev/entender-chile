@@ -40,7 +40,7 @@ for (const fase of cron.fases) {
   }
   htmlCron += `</table></div>`;
 }
-htmlCron += `<p class="nota" style="margin-top:10px">Fuente de verdad: bitacora/cronograma.json — quien cambia una tarea, actualiza ese archivo en el mismo commit.</p>`;
+htmlCron += `<p class="nota" style="margin-top:10px">Fuente de verdad: bitacora/cronograma.json: quien cambia una tarea, actualiza ese archivo en el mismo commit.</p>`;
 
 const taller = JSON.parse(fs.readFileSync(path.join(DIR, "taller.json"), "utf8"));
 let htmlTaller = `<p class="eyebrow">Taller · tableros y decisiones de diseño</p><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13.5px">`;
