@@ -84,3 +84,5 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-10-30 | Municipalidad de Río Bueno  (POSIBLE DUPLICADO de un dossier abierto: revisar antes de abrir)
 - 2026-11-03 | restitución TomArte, Fibra y Campamento de Ideas
 - 2026-11-03 | caso Fundación Comprometidos  (POSIBLE DUPLICADO de un dossier abierto: revisar antes de abrir)
+- 2026-11-04 | gastos reservados del Ejército
+- 2026-11-04 | registro y control de inmuebles fiscales
