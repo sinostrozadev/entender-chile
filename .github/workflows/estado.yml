@@ -121,6 +121,13 @@ jobs:
       # veinte minutos: este workflow solo corre cuando llega una pieza, y el
       # día que el guion se aprueba a la primera puede no haber ningún push
       # posterior que vuelva a mirar.
+      #
+      # (03-11-2026) Regla que el texto del pedido tiene que llevar: toda
+      # variante generada se guarda en contenido/caratulas/descartadas/FECHA-N.png
+      # con una línea por variante sobre por qué se descartó, y una cara
+      # inventada presentada como una persona real nombrada NUNCA es la salida
+      # (guardar no es publicar; solo Santiago promueve una descartada, a mano).
+      # El texto del pedido no vive acá sino en scripts/pedir-caratula.js.
       - name: Si falta la carátula del día, abrir el pedido a GPT
         run: |
           git fetch -q origin main

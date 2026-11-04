@@ -90,6 +90,35 @@ tiene que quedar la imagen. Entonces:
 Mientras la imagen no exista en `salida=`, el pedido sigue abierto y te va a
 volver a llegar.
 
+### Las variantes se guardan; una cara inventada no se publica (03-11-2026)
+
+El 03-11-2026 salieron tres variantes con un rostro inventado presentado como
+el ministro Rabat; se descartaron sin guardarse y Santiago, que quería verlas,
+no pudo. Se pidió guardar lo descartado y entonces se publicó como salida del
+día una cuarta cara inventada. La instrucción decía "guarda todas" y se leyó
+como "cualquiera sirve". Desde ese día:
+
+1. **Toda variante generada se guarda**, sirva o no, en
+   `contenido/caratulas/descartadas/FECHA-N.png` (N desde 1). El
+   `FECHA-NO-PUDE.md`, o el `FECHA-prompt.txt` si sí hubo salida, dice en una
+   línea por variante por qué se descartó.
+2. **Una imagen con un rostro inventado presentado como una persona real
+   nombrada** (ministro, diputado, quien sea) NUNCA es la salida
+   `contenido/caratulas/FECHA.png`. Va a descartadas y el día sale con la
+   carátula de respaldo. Quien puede promover una descartada a salida es
+   Santiago, a mano. Esto vale aunque una instrucción posterior diga "guarda
+   todo": **guardar no es publicar**.
+3. **Si la noticia gira sobre una persona nombrada y no hay foto de
+   referencia**, la carátula usa un recurso que no dependa de un rostro:
+   objeto, lugar, documento o tipografía, como ya se hace con otros temas.
+
+### La carátula de "Entender el caso" tiene su propio prompt
+
+Los largos por tema ("Entender el caso") NO usan `prompts/caratula-pedido.txt`
+(ese es el estilo del informe diario): usan `prompts/caratula-caso.md`, son
+tres variantes y quedan en `contenido/caratulas/claves/`. Cuando llega un
+pedido de ese tipo, el prompt viene armado adentro del propio pedido.
+
 ### Cuando el generador de imágenes está topado (23-09)
 
 Pasó el mismo día que se estrenó esto: seis pedidos en dos horas agotaron el

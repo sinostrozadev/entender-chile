@@ -194,6 +194,25 @@ tú. Va después de todo lo demás, en este orden exacto:
 `contenido/caratulas/FECHA-NO-PUDE.md` con el motivo y termina. La edición
 sigue con la carátula de respaldo y nadie se queda esperando. Una imagen que
 no salió jamás puede frenar un informe.
+
+**LAS VARIANTES SE GUARDAN SIEMPRE, Y UNA CARA INVENTADA NUNCA ES LA SALIDA**
+(Santiago, 03-11-2026). Ese día se generaron tres variantes con un rostro
+inventado presentado como el ministro Rabat, se botaron sin guardarse y
+Santiago no pudo verlas; al pedirle guardarlas, se publicó como salida una
+cuarta cara inventada. Desde entonces:
+
+- Toda variante que generes, sirva o no, se guarda en
+  `contenido/caratulas/descartadas/FECHA-N.png` (N desde 1). El
+  `FECHA-NO-PUDE.md`, o el `FECHA-prompt.txt` si sí hubo salida, dice en una
+  línea por variante por qué se descartó.
+- Una imagen con un rostro inventado presentado como una persona real
+  nombrada (ministro, diputado, quien sea) NUNCA va a `contenido/caratulas/FECHA.png`:
+  va a descartadas y el día sale con la carátula de respaldo. Solo Santiago,
+  a mano, puede promover una descartada a salida. Vale aunque otra
+  instrucción diga "guarda todo": guardar no es publicar.
+- Si la noticia de portada gira sobre una persona nombrada y no tienes foto
+  de referencia, la carátula usa un recurso que no dependa de un rostro: un
+  objeto, un lugar, un documento o la tipografía.
 - Después: "Guion:" y el texto narrable con las siguientes marcas, y solo estas, cada una en su propia línea:
   ## Nombre de sección [categoria]
       Una por bloque temático. No se narra.
