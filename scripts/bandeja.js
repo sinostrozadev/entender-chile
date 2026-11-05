@@ -5,11 +5,10 @@
  * de notificaciones: cuando algo necesita mi aprobación, que lo pueda ver ahí".
  *
  * Por qué un json versionado y no un cálculo al vuelo dentro del Taller: lo
- * leen TRES cosas distintas y ninguna puede tener su propia idea de qué espera
- * decisión. El módulo Bandeja del Taller (scripts/taller.js) lo muestra con sus
- * botones; el informe de la mañana (archivo/prompts/guardian.md: rutina
- * apagada el 12-10-2026, prompt retirado el 01-11-2026) lo contaba en su
- * sección "Espera tu decisión"; y la rutina en MODO AVISADOR
+ * leen varias cosas distintas y ninguna puede tener su propia idea de qué
+ * espera decisión. El módulo Bandeja del Taller (scripts/taller.js) lo muestra
+ * con sus botones; las skills de sesión `noche` y `bitacora` lo consultan; y la
+ * rutina en MODO AVISADOR
  * (prompts/validador.md) lo usa para COMPROBAR que el aviso que le pidieron
  * mandar corresponde a algo que de verdad está esperando, antes de sonar el
  * teléfono de Santiago. Un aviso falso enseña a ignorar los avisos.
@@ -68,8 +67,8 @@ const desdeDe = (ruta) => {
 const items = [];
 
 // ---------- 1. Los flujos de la Clave que esperan su aprobación -------------
-// pauta_lista (camino nuevo) e idea_lista (camino viejo) son las DOS etapas en
-// que la pelota es de Santiago: nadie más puede moverlas.
+// pauta_lista es la etapa en que la pelota es de Santiago: nadie más puede
+// moverla. (Hasta el 04-11-2026 había otra, la del camino de la idea, retirado.)
 const DIR_FLUJO = "contenido/claves/flujo";
 const slugs = existe(DIR_FLUJO) ? fs.readdirSync(path.join(RAIZ, DIR_FLUJO), { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name).sort() : [];
 const semanasElegidas = new Set();
@@ -78,14 +77,14 @@ for (const slug of slugs) {
   const sem = (leer(`${base}/tema.md`).match(/^SEMANA:\s*(\S+)/m) || [])[1];
   if (sem) semanasElegidas.add(sem);
   const e = json(`contenido/estado/clave-${slug}.json`, null);
-  if (!e || !["pauta_lista", "idea_lista"].includes(e.etapa)) continue;
-  const camino = e.camino || clave.caminoDe(slug, RAIZ);
-  const pieza = camino === "pauta" ? "pauta" : "idea";
+  if (!e || e.etapa !== "pauta_lista") continue;
+  const camino = "pauta";
+  const pieza = "pauta";
   const rutaPieza = `${base}/${pieza}.md`;
   const rutaAprob = `${base}/aprobacion.md`;
   const miercoles = clave.proximoMiercoles(FECHA);
-  const aprobar = hrefArchivo(rutaAprob, clave.contenidoAprobacion(miercoles, AHORA, camino), RAIZ);
-  const cambios = hrefArchivo(rutaAprob, clave.contenidoCambio("ESCRIBE AQUÍ LA NOTA (qué hay que cambiar)", AHORA, camino), RAIZ);
+  const aprobar = hrefArchivo(rutaAprob, clave.contenidoAprobacion(miercoles, AHORA), RAIZ);
+  const cambios = hrefArchivo(rutaAprob, clave.contenidoCambio("ESCRIBE AQUÍ LA NOTA (qué hay que cambiar)", AHORA), RAIZ);
   items.push({
     id: `clave-${slug}-${e.etapa}`,
     tipo: "clave",

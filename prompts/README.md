@@ -43,9 +43,8 @@ qué pieza le toca y con qué prompt. Nada de esto corre por reloj.
 | `caratula-pedido.txt` | **es el prompt que se manda al generador, tal cual**, con tres marcadores que rellena quien lo usa. Desde el 04-11-2026 solo para carátulas de largos o pedidos manuales | una carátula |
 | `imagen-caratula.md` | un pedido `tarea=imagen` (hasta el 04-11-2026 también el turno del guion del informe); desde ese día solo para carátulas de largos o pedidos manuales. Dice de dónde salen los tres datos y adónde va la imagen, no cómo se dibuja | `contenido/caratulas/FECHA.png` y `FECHA-prompt.txt` |
 | `investigacion-clave.md` | etapa `pauta_aprobada` de un flujo de la Clave | `contenido/claves/flujo/<slug>/investigacion.md`, el dossier con fuentes |
-| `claves.md` (MODO FLUJO) | etapa `investigacion_lista` (camino nuevo) o `idea_aprobada` (camino viejo) | `contenido/claves/FECHA-<slug>.md`, la entrega |
+| `claves.md` (MODO FLUJO) | etapa `investigacion_lista` | `contenido/claves/FECHA-<slug>.md`, la entrega |
 | `guion-claves.md` | etapa `entrega_lista` | `contenido/guiones/claves/FECHA-<slug>.md` |
-| `clave-idea.md` | etapa `tema_elegido`, SOLO en el camino viejo de la Clave | `contenido/claves/flujo/<slug>/idea.md`; desde el 27-09-2026 lo reemplaza `pauta-clave.md`, que es de Claude |
 | `lector-gpt.md` | un pedido `tarea=lectura` (`pedido-gpt.yml`) | `contenido/urgente/FUENTE-<slug>.md`, citas textuales para que Claude contraste |
 | `mural-clave.md` | la etapa `paneles` del flujo de la Clave: `scripts/mural-flujo.js` le pide los paneles en tandas de diez, y `scripts/clave-mural.js` cose y mide con sus reglas | `contenido/claves/flujo/<slug>/paneles/panel-NN.jpg` |
 | `doc-youtube.md` | el pedido mensual que abre `doc-youtube.yml` el día 1 (`scripts/pedir-doc-youtube.js`) | `contenido/referencia/youtube/AAAA-MM-politicas.md`, las políticas de YouTube con fecha, para el skill `caratula` |
@@ -65,7 +64,7 @@ la rutina. Acá va solo qué prompt lee cada una.
 | `suplente.md` | la misma rutina, en MODO SUPLENTE | siempre en las etapas de la línea `claude:` de `contenido/estado/reparto.txt` (hoy la preselección, desde el 06-10-2026), y además en los turnos de GPT mientras exista `contenido/estado/plan-b.txt` de hoy (lo escribe `reintento.yml` con la regla 20 y 20) | la pieza que le tocaba a GPT, en la ruta que diga el estado |
 | `pauta-clave.md` | la misma rutina, en MODO PAUTADOR | la despierta `estado-clave.yml` en las etapas `pautar` y `reparar_pauta` | `contenido/claves/flujo/<slug>/pauta.md`, lo que el video debe tocar y contener, que es lo que aprueba Santiago antes de que GPT trabaje |
 | `seguimiento-temas.md` | la misma rutina, en MODO SEGUIMIENTO (desde el 02-11-2026) | la despierta `estado.yml` una vez por edición cuando la etapa del día llega a `aprobada`, porque lee el informe final; su punto 0 lo retoma en cualquier despertar mientras falte la marca del día | las fichas de `contenido/temas/<slug>/ficha.md`, una `propuesta.md` cuando un tema da para un largo, la marca `contenido/temas/seguimiento/FECHA.md`, `bitacora/bandeja.json` y UNA notificación si propuso |
-| `validador.md`, punto 0 MODO AVISADOR | la misma rutina | la despierta `estado-clave.yml` en `pauta_lista` e `idea_lista`, y `estado.yml` en `bloqueado_humano` | `bitacora/bandeja.json` si cambió, y UNA notificación push al teléfono de Santiago |
+| `validador.md`, punto 0 MODO AVISADOR | la misma rutina | la despierta `estado-clave.yml` en `pauta_lista`, y `estado.yml` en `bloqueado_humano` | `bitacora/bandeja.json` si cambió, y UNA notificación push al teléfono de Santiago |
 | `tema-semana.md` | la rutina del tema de la semana | domingos 09:00 | `contenido/claves/semana/AAAA-Www-candidatos.md`, tres candidatos para que Santiago elija |
 | `caso-seguimiento.md` | el observatorio de la plata pública | 01:45, en paralelo a la cadena | engorda los dossiers de `contenido/casos/` solo si hay novedad verificable |
 | `guardia-reloj.md` | la guardia. **Apagada desde el 04-11-2026** (los exprés se apagaron con la decisión "El despegue"); la fila queda como registro | era cada 2 horas, 08:00 a 22:00 | `contenido/urgente/GUION-<slug>.md` para el Short exprés, y `PEDIDO-<slug>.md` cuando necesita que GPT lea una página |
@@ -75,8 +74,7 @@ la rutina. Acá va solo qué prompt lee cada una.
 La validadora tiene así **cinco roles** (validador, suplente, pautador,
 avisador y seguimiento) en una sola rutina. El informe de la mañana de las 06:00
 (`trig_01DHmsrrShT2Mnj8WDg4CQ42`) está **apagado desde el 12-10-2026**, porque
-Santiago lee la revisión del skill `revision`; su prompt, `guardian.md`, está
-en `archivo/prompts/` desde el 01-11-2026.
+Santiago lee la revisión del skill `revision`.
 
 ## Lo que se lee, no se ejecuta
 

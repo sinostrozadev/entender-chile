@@ -1,9 +1,15 @@
-# contenido/videos/ : el id del video ya subido
+# contenido/videos/ : ids de YouTube viejos (carpeta histórica)
 
-Lo escribe `scripts/youtube-subir.js` al terminar la subida, un archivo por
-pieza (`AAAA-MM-DD-informe.txt`, `AAAA-MM-DD-clave.txt`) con el id de YouTube.
-La web los lee para embeber el reproductor, y `web.yml` republica el sitio
-cuando aparecen.
+Hasta el 04-09-2026 acá quedaba un archivo por pieza (`AAAA-MM-DD-informe.txt`,
+`AAAA-MM-DD-clave.txt`) con el id del video subido, para que la web embebiera
+el reproductor. Desde esa fecha nada escribe en esta carpeta:
+`scripts/youtube-subir.js` deja el id en `out/FECHA/youtube-id.txt` y no lo
+copia acá.
 
-**Es dato del sistema, no se edita a mano.** Si un archivo falta, el video no
-se subió: eso lo revisa el informe de la mañana.
+La carpeta se conserva porque la web todavía lee estos ids viejos para las
+ediciones de esos días. Para el resto el video llega como `null` y la web lo
+tolera: simplemente no muestra reproductor (`youtubeId` en
+`web/src/lib/contenido.ts`).
+
+No se agregan archivos a mano. Si algún día vuelve a hacer falta embeber los
+videos nuevos, el escritor se arma de nuevo; no se rellena esto a mano.

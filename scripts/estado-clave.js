@@ -8,39 +8,34 @@
  * VISTA calculada desde los archivos: la verdad son los archivos.
  *
  *   tema.md        Santiago eligió el tema (lo escribe scripts/clave.js elegir)
- *   pauta.md       Claude escribe la pauta (prompts/pauta-clave.md)        [camino nuevo]
- *   idea.md        GPT propone la idea (prompts/clave-idea.md)             [camino viejo]
+ *   pauta.md       Claude escribe la pauta (prompts/pauta-clave.md)
  *   aprobacion.md  Santiago aprueba (clave.js aprobar) o pide cambios (clave.js cambiar)
- *   investigacion.md  GPT investiga con fuentes (prompts/investigacion-clave.md) [camino nuevo]
+ *   investigacion.md  GPT investiga con fuentes (prompts/investigacion-clave.md)
  *   entrega        contenido/claves/<FECHA_PROD>-<slug>.md            (prompts/claves.md, modo flujo)
  *   guion          contenido/guiones/claves/<FECHA_PROD>-<slug>.md    (prompts/guion-claves.md)
- *   veredictos     contenido/veredictos/clave-<slug>-{idea,investigacion,entrega,guion}.md
+ *   veredictos     contenido/veredictos/clave-<slug>-{investigacion,entrega,guion}.md
  *   video          contenido/descripciones/<FECHA_PROD>-clave.txt      (edicion-diaria)
  *
- * DOS CAMINOS, y la vista dice cuál con la línea `CAMINO:`. Lo decide
- * clave.caminoDe(slug): hay pauta.md, o el `ELEGIDO:` de tema.md es del
- * 27-09-2026 o posterior. Por qué dos: hasta el 26-09 GPT escribía la idea y
- * Santiago la aprobaba; desde el 27-09 Santiago pidió ver ANTES lo que el video
- * debe tocar ("para que GPT solo trabaje cuando estamos seguros"), así que la
- * pauta la escribe Claude y GPT no se mueve hasta que ella está aprobada. El
- * flujo abierto en el camino viejo se termina por el camino viejo: cambiarle las
- * etapas a mitad de recorrido lo habría dejado en una etapa sin archivo.
+ * UN SOLO CAMINO, el de la pauta. La vista sigue diciendo `CAMINO: pauta`
+ * porque la Bandeja, el Taller y estado-clave.yml leen esa línea. Desde el
+ * 27-09-2026 Santiago pidió ver ANTES lo que el video debe tocar ("para que GPT
+ * solo trabaje cuando estamos seguros"), así que la pauta la escribe Claude y
+ * GPT no se mueve hasta que ella está aprobada. El camino anterior (GPT escribía
+ * una idea y Santiago la aprobaba) se retiró el 04-11-2026, cuando ya no
+ * quedaba ningún flujo abierto en él: su prompt está en archivo/prompts/. Si
+ * clave.caminoDe() vuelve a ver un tema.md anterior al corte, el flujo se
+ * salta con un error en vez de calcularle etapas que ya nadie atiende.
  *
- * Etapas del camino NUEVO, en orden: pautar (Claude) → pauta_lista (espera a
+ * Etapas, en orden: pautar (Claude) → pauta_lista (espera a
  * Santiago) → (reparar_pauta, Claude) → pauta_aprobada (GPT investiga) →
  * validar_investigacion (Claude) → (reparar_investigacion) → investigacion_lista
  * (GPT escribe la entrega) → validar_entrega → (reparar_entrega) →
  * entrega_lista (GPT escribe el guion) → validar_guion → (reparar_guion) →
  * aprobada → videos_listos.
  *
- * Etapas del camino VIEJO, en orden: tema_elegido → validar_idea →
- * (reparar_idea) → idea_lista (espera a Santiago) → idea_aprobada →
- * validar_entrega → (reparar_entrega) → entrega_lista → validar_guion →
- * (reparar_guion) → aprobada → videos_listos.
- * Turnos: GPT en tema_elegido, pauta_aprobada, idea_aprobada,
- * investigacion_lista, entrega_lista y reparar_{idea,investigacion,entrega,guion};
- * Claude en validar_*, pautar y reparar_pauta; Santiago en pauta_lista e
- * idea_lista; Actions en aprobada.
+ * Turnos: GPT en pauta_aprobada, investigacion_lista, entrega_lista y
+ * reparar_{investigacion,entrega,guion}; Claude en validar_*, pautar y
+ * reparar_pauta; Santiago en pauta_lista; Actions en aprobada.
  *
  *   node scripts/estado-clave.js              → todos los flujos abiertos
  *   node scripts/estado-clave.js --slug X     → uno
@@ -50,8 +45,7 @@ const fs = require("fs");
 const path = require("path");
 const { execFileSync } = require("child_process");
 // el camino del flujo lo decide un solo lugar (scripts/clave.js): la orden que
-// escribe la aprobación y la vista que la lee tienen que estar de acuerdo, o
-// Santiago aprobaría una pauta y el estado esperaría una idea
+// escribe la aprobación y la vista que la lee tienen que estar de acuerdo
 const clave = require("./clave.js");
 
 const RAIZ = path.join(__dirname, "..");
@@ -84,13 +78,18 @@ const leerVeredicto = (slug, pieza) => {
 
 const calcular = (slug) => {
   const base = `${DIR}/${slug}`;
-  const tema = `${base}/tema.md`, idea = `${base}/idea.md`, pauta = `${base}/pauta.md`;
+  const tema = `${base}/tema.md`, pauta = `${base}/pauta.md`;
   const aprob = `${base}/aprobacion.md`, investigacion = `${base}/investigacion.md`;
   if (!existe(tema)) return null;
   const temaTxt = leer(tema);
   const camino = clave.caminoDe(slug, RAIZ);
-  // lo que Santiago aprueba: la pauta en el camino nuevo, la idea en el viejo
-  const aprobada_ = camino === "pauta" ? pauta : idea;
+  if (camino !== "pauta") {
+    console.error(`clave-${slug}: camino "${camino}" retirado el 04-11-2026; solo existe el camino pauta. El flujo se salta: o se le escribe pauta.md o se mueve a contenido/claves/descartadas/.`);
+    process.exitCode = 1;
+    return null;
+  }
+  // lo que Santiago aprueba es la pauta
+  const aprobada_ = pauta;
   // fecha de producción: la fija la aprobación de Santiago; antes de eso no hay entrega ni guion
   const aprobTxt = leer(aprob);
   const aprobVigente = existe(aprob) && existe(aprobada_) && ultimaMod(aprob) >= ultimaMod(aprobada_);
@@ -115,11 +114,10 @@ const calcular = (slug) => {
   // que su situación es solo si está escrita o no. Todo lo demás pasa por el
   // validador y usa situar().
   const pPauta = { id: "pauta", etiqueta: "Pauta", prompt: "prompts/pauta-clave.md", archivo: pauta, entrada: tema, sit: existe(pauta) ? "lista" : "falta", v: null };
-  const pIdea = { id: "idea", etiqueta: "Idea", prompt: "prompts/clave-idea.md", archivo: idea, entrada: tema, ...situar(idea, "idea") };
   const pInvestigacion = { id: "investigacion", etiqueta: "Investigación", prompt: "prompts/investigacion-clave.md", archivo: investigacion, entrada: pauta, ...situar(investigacion, "investigacion") };
-  const pEntrega = { id: "entrega", etiqueta: "Entrega escrita", prompt: "prompts/claves.md", archivo: entrega, entrada: camino === "pauta" ? investigacion : idea, ...situar(entrega, "entrega") };
+  const pEntrega = { id: "entrega", etiqueta: "Entrega escrita", prompt: "prompts/claves.md", archivo: entrega, entrada: investigacion, ...situar(entrega, "entrega") };
   const pGuion = { id: "guion", etiqueta: "Guion", prompt: "prompts/guion-claves.md", archivo: guion, entrada: entrega, ...situar(guion, "guion") };
-  const PIEZAS = camino === "pauta" ? [pPauta, pInvestigacion, pEntrega, pGuion] : [pIdea, pEntrega, pGuion];
+  const PIEZAS = [pPauta, pInvestigacion, pEntrega, pGuion];
 
   let etapa, foco = null, vuelta = 0, quien = "";
   const enJuego = (p) => { foco = p; vuelta = p.v?.vuelta || 0; };
@@ -127,10 +125,9 @@ const calcular = (slug) => {
     pautar: "Claude: escribe la pauta (prompts/pauta-clave.md)",
     reparar_pauta: "Claude (con las notas de Santiago en aprobacion.md)",
     pauta_lista: "Santiago: aprobar o pedir cambios (scripts/clave.js aprobar | cambiar)",
-    idea_lista: "Santiago: aprobar o pedir cambios (scripts/clave.js aprobar | cambiar)",
-    tema_elegido: "GPT", pauta_aprobada: "GPT", idea_aprobada: "GPT", investigacion_lista: "GPT", entrega_lista: "GPT",
-    validar_idea: "Claude", validar_investigacion: "Claude", validar_entrega: "Claude", validar_guion: "Claude",
-    reparar_idea: "GPT", reparar_investigacion: "GPT", reparar_entrega: "GPT", reparar_guion: "GPT",
+    pauta_aprobada: "GPT", investigacion_lista: "GPT", entrega_lista: "GPT",
+    validar_investigacion: "Claude", validar_entrega: "Claude", validar_guion: "Claude",
+    reparar_investigacion: "GPT", reparar_entrega: "GPT", reparar_guion: "GPT",
     paneles: "GPT: genera los paneles del mural (pedido en contenido/urgente/, en tandas de diez)", armar_mural: "Actions: cose y mide el mural (scripts/mural-flujo.js)",
     bloqueado_humano: "Santiago", aprobada: "Actions: edicion-diaria.yml renderiza y sube", videos_listos: "nadie: cerrado",
   };
@@ -156,7 +153,7 @@ const calcular = (slug) => {
   };
 
   if (video && existe(video)) etapa = "videos_listos";
-  else if (camino === "pauta") {
+  else {
     if (!existe(pauta)) { enJuego(pPauta); etapa = "pautar"; }
     else if (cambiar) { enJuego(pPauta); etapa = "reparar_pauta"; }
     else if (!aprobada) { enJuego(pPauta); etapa = "pauta_lista"; }
@@ -164,19 +161,12 @@ const calcular = (slug) => {
     else if (pEntrega.sit !== "lista") { enJuego(pEntrega); etapa = etapaDe(pEntrega, "investigacion_lista"); }
     else if (pGuion.sit !== "lista") { enJuego(pGuion); etapa = etapaDe(pGuion, "entrega_lista"); }
     else { etapa = tras_guion(); foco = pGuion; }
-  } else {
-    if (pIdea.sit !== "lista") { enJuego(pIdea); etapa = etapaDe(pIdea, "tema_elegido"); }
-    else if (cambiar) { enJuego(pIdea); etapa = "reparar_idea"; }
-    else if (!aprobada) { enJuego(pIdea); etapa = "idea_lista"; }
-    else if (pEntrega.sit !== "lista") { enJuego(pEntrega); etapa = etapaDe(pEntrega, "idea_aprobada"); }
-    else if (pGuion.sit !== "lista") { enJuego(pGuion); etapa = etapaDe(pGuion, "entrega_lista"); }
-    else { etapa = tras_guion(); foco = pGuion; }
   }
   quien = QUIEN[etapa] || "";
 
   const lineas = [
     `FLUJO: clave`, `SLUG: ${slug}`, `CAMINO: ${camino}`, `ETAPA: ${etapa}`, `VUELTA: ${vuelta}`, `TURNO: ${quien}`,
-    `FECHA_PRODUCCION: ${fechaProd || `(la fija Santiago al aprobar la ${camino === "pauta" ? "pauta" : "idea"})`}`,
+    `FECHA_PRODUCCION: ${fechaProd || `(la fija Santiago al aprobar la pauta)`}`,
     `ACTUALIZADO: ${AHORA} (hora de Chile)`,
   ];
   if (foco) {
@@ -184,7 +174,7 @@ const calcular = (slug) => {
     if (foco.v) lineas.push(`VEREDICTO_PIEZA: ${foco.v.veredicto} (vuelta ${foco.v.vuelta}, en ${foco.v.ruta})`);
     // de dónde salen las correcciones: del veredicto del validador, salvo
     // cuando quien pidió cambios fue Santiago sobre la pieza que él aprueba
-    if (etapa.startsWith("reparar_")) lineas.push(`REPARAR: ${foco.id}`, `CORRECCIONES: ${cambiar && (foco.id === "pauta" || foco.id === "idea") ? aprob : foco.v?.ruta || ""}`);
+    if (etapa.startsWith("reparar_")) lineas.push(`REPARAR: ${foco.id}`, `CORRECCIONES: ${cambiar && foco.id === "pauta" ? aprob : foco.v?.ruta || ""}`);
   }
   const concepto = campo(temaTxt, "CONCEPTO") || temaTxt.split("\n").find((l) => l.trim()) || slug;
   let md = lineas.join("\n") + "\n\n";
@@ -194,15 +184,10 @@ const calcular = (slug) => {
   md += `| Tema elegido | listo | ${hora(tema)} | Santiago |\n`;
   const marca = { falta: "falta", por_validar: "por validar", reparar: "devuelta a GPT", bloqueada: "BLOQUEADA", lista: "aprobada" };
   const esperaAprob = aprobada ? "aprobada" : cambiar ? "pidió cambios"
-    : existe(aprob) && !aprobVigente ? `vieja (la ${camino === "pauta" ? "pauta" : "idea"} cambió después)` : "espera";
-  if (camino === "pauta") {
-    md += `| Pauta | ${existe(pauta) ? "escrita" : "falta"} | ${existe(pauta) ? hora(pauta) : ""} | Claude |\n`;
-    md += `| Aprobación de Santiago | ${esperaAprob} | ${existe(aprob) ? hora(aprob) : ""} | Santiago |\n`;
-    md += `| Investigación | ${marca[pInvestigacion.sit]} | ${pInvestigacion.sit !== "falta" ? hora(investigacion) : ""} | GPT, valida Claude |\n`;
-  } else {
-    md += `| Idea | ${marca[pIdea.sit]} | ${pIdea.sit !== "falta" ? hora(idea) : ""} | GPT, valida Claude |\n`;
-    md += `| Aprobación de Santiago | ${esperaAprob} | ${existe(aprob) ? hora(aprob) : ""} | Santiago |\n`;
-  }
+    : existe(aprob) && !aprobVigente ? `vieja (la pauta cambió después)` : "espera";
+  md += `| Pauta | ${existe(pauta) ? "escrita" : "falta"} | ${existe(pauta) ? hora(pauta) : ""} | Claude |\n`;
+  md += `| Aprobación de Santiago | ${esperaAprob} | ${existe(aprob) ? hora(aprob) : ""} | Santiago |\n`;
+  md += `| Investigación | ${marca[pInvestigacion.sit]} | ${pInvestigacion.sit !== "falta" ? hora(investigacion) : ""} | GPT, valida Claude |\n`;
   md += `| Entrega escrita | ${marca[pEntrega.sit]} | ${pEntrega.sit !== "falta" ? hora(entrega) : ""} | GPT, valida Claude |\n`;
   md += `| Guion | ${marca[pGuion.sit]} | ${pGuion.sit !== "falta" ? hora(guion) : ""} | GPT, valida Claude |\n`;
   md += `| Video | ${video && existe(video) ? "listo" : "falta"} | ${video && existe(video) ? hora(video) : ""} | Actions |\n`;

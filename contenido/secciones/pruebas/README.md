@@ -1,5 +1,9 @@
 # contenido/secciones/pruebas/ : lo que todavía se está mirando
 
+Ojo (04-11-2026): el video de prueba que leía esta carpeta se archivó junto
+con el informe en video: está en `archivo/scripts/prueba-video.js` y, para volver
+a usarlo, hay que devolverlo a `scripts/`. Lo de abajo describe cómo funcionaba.
+
 Acá viven las candidatas: imágenes de sección y carátulas que se están
 evaluando y que NO tienen que salir al aire. Producción lee
 `contenido/secciones/<slug>.png` y nunca mira esta carpeta; el único que la

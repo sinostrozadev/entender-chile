@@ -34,7 +34,8 @@ aquí queda descartado:
 4. **La hora es la del workflow**: Short 12:00, largo por tema (Entender el
    caso) 19:00; `ideas/viralizacion.md` ya no manda.
 5. **Sin gastos nuevos**: ni ElevenLabs ni clips generativos. La biblioteca de
-   dibujos, `guardian.md` y la interfaz `taller/` se archivan.
+   dibujos, el prompt del informe de la mañana y la interfaz `taller/` ya están
+   en `archivo/`.
 
 6. **El largo por tema se llama "Entender el caso"** y su piloto es la rebaja de
    condenas de Rabat y Silva (noticias del diario desde el 24-10-2026); diseño
@@ -575,8 +576,9 @@ que estaba aprobada.
       (`Agenda de hoy`, la familia `En qué quedó...` con el caso pegado atrás),
       y un bloque del armazón leído como tema **el locutor lo anuncia en voz
       alta** desde el 28-09 (`ENTRADA_VOZ`). Son listas que no hablan entre
-      sí: `parse.js:31`, `NO_NOTICIA` en `scripts/short.js` (qué no entra al
-      Short) y `scripts/guion-corto.js:39-41`. La de `short.js` **no está
+      sí: `parse.js:31` y `NO_NOTICIA` en `scripts/short.js` (qué no entra al
+      Short); la tercera, la de la muestra corta de voz, se archivó el
+      04-11-2026. La de `short.js` **no está
       anclada y ya falla**: descarta el titular "Cierre de Orionx" porque
       contiene la palabra cierre. Con la interfaz `taller/` retirada el
       01-11-2026, la salida es anclar y unificar los regex en el código.
@@ -623,11 +625,6 @@ saber en qué etapa va. Se borra al cumplirse.
       las que falten; si tras dos reintentos siguen faltando, deja
       `paneles/NO-PUDE.md` y la Clave queda en `bloqueado_humano`. Detalle en
       `contenido/claves/flujo/README.md`. Dueño: día.
-- [ ] **01-11: retirar `prompts/clave-idea.md` cuando cierre el flujo
-      `acuerdo-internacional-sin-tratado`** (el único en `CAMINO: idea`, ver
-      `contenido/estado/clave-acuerdo-internacional-sin-tratado.md`), y con él
-      la etapa `idea` de `scripts/estado-clave.js`. Desde el 27-09 los flujos
-      nuevos van por la pauta. Dueño: día.
 
 - [ ] **`contenido/casos/por-verificar.md` lleva 64 líneas y nadie lo vacía.**
       Crece unas 5 por día desde el 27-08 y las más viejas, de hace diecisiete
