@@ -1,11 +1,11 @@
 FLUJO: clave
 SLUG: rabat-rebajas-de-condena
 CAMINO: pauta
-ETAPA: pauta_aprobada
+ETAPA: validar_investigacion
 VUELTA: 0
-TURNO: GPT
+TURNO: Claude
 FECHA_PRODUCCION: 2026-11-05
-ACTUALIZADO: 2026-11-04 23:10 (hora de Chile)
+ACTUALIZADO: 2026-11-04 23:18 (hora de Chile)
 PIEZA: investigacion
 PROMPT: prompts/investigacion-clave.md
 ARCHIVO: contenido/claves/flujo/rabat-rebajas-de-condena/investigacion.md
@@ -22,7 +22,7 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 | Tema elegido | listo | 23:02 | Santiago |
 | Pauta | escrita | 23:53 | Claude |
 | Aprobación de Santiago | aprobada | 23:10 | Santiago |
-| Investigación | falta |  | GPT, valida Claude |
+| Investigación | por validar | 23:17 | GPT, valida Claude |
 | Entrega escrita | falta |  | GPT, valida Claude |
 | Guion | falta |  | GPT, valida Claude |
 | Video | falta |  | Actions |
