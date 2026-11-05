@@ -1,16 +1,11 @@
 FLUJO: clave
 SLUG: rabat-rebajas-de-condena
 CAMINO: pauta
-ETAPA: aprobada
+ETAPA: videos_listos
 VUELTA: 0
-TURNO: Actions: edicion-diaria.yml renderiza y sube
+TURNO: nadie: cerrado
 FECHA_PRODUCCION: 2026-11-05
-ACTUALIZADO: 2026-11-05 00:14 (hora de Chile)
-PIEZA: guion
-PROMPT: prompts/guion-claves.md
-ARCHIVO: contenido/guiones/claves/2026-11-05-rabat-rebajas-de-condena.md
-ARCHIVO_ENTRADA: contenido/claves/2026-11-05-rabat-rebajas-de-condena.md
-VEREDICTO_PIEZA: APROBADA (vuelta 1, en contenido/veredictos/clave-rabat-rebajas-de-condena-guion.md)
+ACTUALIZADO: 2026-11-05 05:46 (hora de Chile)
 
 Tema: Las rebajas de condena firmadas por el Ministerio de Justicia: Rabat y Silva
 Noticia de origen: 2026-10-22: Rabat confirma que firmó 56 decretos de rebaja de condena (27 por abuso sexual y 29 por violación de menores), que el mecanismo alcanzó además a dos internos de Punta Peuco, y la presidenta de la Corte Suprema, Gloria Ana Chevesich, precisa que los decretos los dictó el ministro y que los tribunales solo intervienen ante recursos concretos (EL PAÍS y La Tercera, 22-10-2026) (2026-10-23)
@@ -26,4 +21,4 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 | Investigación | aprobada | 23:26 | GPT, valida Claude |
 | Entrega escrita | aprobada | 23:44 | GPT, valida Claude |
 | Guion | aprobada | 00:10 | GPT, valida Claude |
-| Video | falta |  | Actions |
+| Video | listo | 05:39 | Actions |
