@@ -146,9 +146,11 @@ const calcular = (slug) => {
   //   paneles       GPT: falta alguna imagen; el script abre el pedido en tandas de diez
   //   armar_mural   Actions: están todos los paneles; se cosen y se deja mural.json
   // Un flujo con mural.json, o con formato-clasico.txt, sigue como siempre.
+  // Un guion con marcas DIARIO tampoco lleva mural (04-11-2026): sale sobre la
+  // página del diario, y mandarlo a paneles pedía imágenes que nadie usaría.
   const tras_guion = () => {
     const m = require("./mural-flujo.js").situacion(slug, RAIZ);
-    if (!m.ctx || m.mural || m.clasico) return "aprobada";
+    if (!m.ctx || m.mural || m.clasico || m.diario) return "aprobada";
     if (m.noPude || m.pausa) return "bloqueado_humano";
     return m.panelesCompletos ? "armar_mural" : "paneles";
   };

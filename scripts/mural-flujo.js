@@ -125,6 +125,10 @@ function situacion(slug, raiz = RAIZ) {
     panelesCompletos: panelesFaltan === 0,
     mural: hay(`contenido/claves/flujo/${slug}/mural.json`, raiz),
     clasico: hay(`contenido/claves/flujo/${slug}/formato-clasico.txt`, raiz),
+    // un guion con marcas [DIARIO AAAA-MM-DD | slug] sale sobre la página del
+    // diario y no lleva mural (04-11-2026): sin esto el piloto del diario caía
+    // a "paneles" y se le pedían a GPT imágenes que el video no iba a usar
+    diario: /^\[DIARIO \d{4}-\d{2}-\d{2} \|/m.test(leer(ctx.guion, raiz)),
     noPude: hay(`${ctx.dirPaneles}/NO-PUDE.md`, raiz),
     // pausa.txt: Santiago (o el día) frena un flujo sin tocar su estado. Existe porque
     // este script pide imágenes SOLO, y pedirlas es gastar cuota de GPT: si el tema se

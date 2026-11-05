@@ -1,0 +1,3 @@
+04-11-2026
+El informe diario en video está apagado (decisión El despegue). Borrar este archivo lo vuelve a encender.
+Referencia: estrategia/decisiones.md, sección "El despegue".

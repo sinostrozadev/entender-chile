@@ -7,11 +7,11 @@ name: Short exprés
 # contenido/urgente/SUBIDO-<slug>.txt con el id. La rutina, que quedó
 # esperando esa marca, avisa al teléfono con el link. Un hallazgo = un
 # Short: la marca SUBIDO deduplica aunque el guion se pushee dos veces.
+# APAGADO el 04-11-2026 (decisión "El despegue", estrategia/decisiones.md):
+# el canal dejó los Shorts exprés. Se quitó el disparador por push del GUION
+# para que un guion que alguien deje en contenido/urgente/ no publique solo.
+# Queda workflow_dispatch para producir uno a mano si se decide volver.
 on:
-  push:
-    branches: [main]
-    paths:
-      - "contenido/urgente/GUION-*.md"
   workflow_dispatch:
     inputs:
       guion:

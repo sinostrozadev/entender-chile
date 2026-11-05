@@ -245,7 +245,11 @@ lineasImg.forEach((linea, i) => {
 const guionHoy = `contenido/guiones/informe/${FECHA}.md`;
 const rutaCaratula = `contenido/caratulas/${FECHA}.png`;
 const hayCaratula = ["png", "jpg", "jpeg", "webp"].some((e) => existe(`contenido/caratulas/${FECHA}.${e}`));
-if (existe(guionHoy) && !hayCaratula) {
+// Con el informe en video apagado (04-11-2026, marcador
+// contenido/estado/sin-video-informe.txt) no hay video que salga sin portada:
+// el aviso sería una alarma falsa cada día.
+const sinVideoInforme = existe("contenido/estado/sin-video-informe.txt");
+if (!sinVideoInforme && existe(guionHoy) && !hayCaratula) {
   const noPude = existe(`contenido/caratulas/${FECHA}-NO-PUDE.md`);
   const pedido = existe(`contenido/urgente/PEDIDO-caratula-${FECHA}.md`);
   const reintento = pedido ? "El reintento automático ya está pedido." : "Aún no hay pedido de reintento abierto.";

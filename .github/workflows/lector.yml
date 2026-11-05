@@ -5,12 +5,11 @@ name: Lector automático
 # la guardia se quedó sin poder hacer Shorts. Este workflow corre el lector
 # donde SÍ hay red, igual que el barrido, y deja el FUENTE en el repo.
 #
-# Se dispara solo cuando la guardia deja un PEDIDO, y también a mano.
+# Se disparaba solo cuando la guardia dejaba un PEDIDO, y también a mano.
+# APAGADO el 04-11-2026 (decisión "El despegue"): el lector solo servía a la
+# guardia y a los exprés, que se apagaron ese día. Se quitó el push del PEDIDO
+# y queda solo workflow_dispatch.
 on:
-  push:
-    branches: [main]
-    paths:
-      - "contenido/urgente/PEDIDO-*.md"
   workflow_dispatch:
     inputs:
       slug:
