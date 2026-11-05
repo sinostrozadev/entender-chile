@@ -25,3 +25,4 @@
 2026-10-07 | licencia-medica-fiscalizacion-y-sumario | Licencia médica en Chile: quién decide, quién paga y qué ocurre si no se cumple el reposo
 2026-10-21 | acuerdo-internacional-sin-tratado | Acuerdos internacionales sin tratado: qué compromete a Chile y quién controla al Gobierno
 2026-10-28 | afp-multifondos-perdidas-fondo-e | Multifondos de pensiones: quién responde cuando el saldo cae y qué puede hacer el afiliado
+2026-11-05 | rabat-rebajas-de-condena | Rebajas de condena por conducta sobresaliente: quién evaluaba, quién concedía y qué podía revisar un tribunal
