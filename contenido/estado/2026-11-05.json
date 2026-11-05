@@ -1,9 +1,9 @@
 {
   "fecha": "2026-11-05",
-  "etapa": "validar_guion_informe",
+  "etapa": "validar_final",
   "veredicto": "pendiente",
-  "vuelta": 2,
-  "actualizado": "2026-11-05 05:01",
+  "vuelta": 0,
+  "actualizado": "2026-11-05 05:03",
   "reparar": null,
   "piezas": [
     {
@@ -49,7 +49,7 @@
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "lista",
       "prompt": "prompts/guion-informe.md",
       "hora": "04:46",
       "esperada": "03:10",
@@ -85,7 +85,7 @@
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 91,
+      "atraso": 93,
       "dueno": "Claude · prompts/validador.md"
     }
   ]
