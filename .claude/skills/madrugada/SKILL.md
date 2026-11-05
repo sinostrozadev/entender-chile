@@ -1,6 +1,6 @@
 ---
 name: madrugada
-description: La revisión diaria de cómo salió la cadena de la madrugada de Entender Chile, en diez minutos y con pocos tokens. Verifica la secuencia de commits, el estado, los pasos del workflow, la carátula, la web y las métricas, todo contra el repo. Usar cuando Santiago diga "revisa la madrugada", "cómo salió la cadena" o "revisa y sigamos".
+description: La revisión diaria de cómo salió la cadena de la madrugada de Entender Chile, en diez minutos y con pocos tokens. Verifica la secuencia de commits, el estado, los pasos del workflow, el Short y el podcast, la web y las métricas, todo contra el repo. Usar cuando Santiago diga "revisa la madrugada", "cómo salió la cadena" o "revisa y sigamos".
 ---
 
 # La revisión de la madrugada
@@ -8,6 +8,11 @@ description: La revisión diaria de cómo salió la cadena de la madrugada de En
 Objetivo: en diez minutos y con pocos tokens, saber si la madrugada salió bien.
 No se repiensa cada día: se corren estos pasos en orden y se anota. FECHA es el
 día de hoy en AAAA-MM-DD. Todo se mide contra el repo, nunca de memoria.
+
+El informe en video está apagado desde el 04-11-2026 (marcador `contenido/estado/sin-video-informe.txt`).
+Por eso ya no se revisan el mp4 ni la carátula del informe: si el marcador
+existe, que falten no es una falla. Si alguien lo borra, vuelve a tocar
+revisarlos.
 
 1. Secuencia de la cadena. Las horas del log salen en UTC; Chile es UTC-3.
    ```
@@ -26,15 +31,14 @@ día de hoy en AAAA-MM-DD. Todo se mide contra el repo, nunca de memoria.
    gh run list --workflow=edicion-diaria.yml --limit 1 --json databaseId --jq '.[0].databaseId'
    gh api repos/sinostrozadev/entender-chile/actions/runs/<id>/jobs --jq '.jobs[]|.name,(.steps[]|"  \(.conclusion)\t\(.name)")'
    ```
-4. Carátula. Primero que sea usable:
+4. El Short y el podcast del día en el release.
    ```
-   node -e 'const {caratulaUsable}=require("./scripts/imagen-entera.js"); console.log(JSON.stringify(caratulaUsable("contenido/caratulas/FECHA.png")))'
+   gh release view edicion-FECHA --json assets -q '.assets[].name'
    ```
-   Debe dar `ok: true`. Luego en YouTube: buscar el id del informe en
-   `bitacora/metricas/FECHA.json` (cerca del título del día; los ids son
-   cadenas de 11 caracteres), bajar `https://i.ytimg.com/vi/<id>/maxresdefault.jpg`
-   al scratchpad y mirarla con Read junto a `contenido/caratulas/FECHA.png`:
-   deben ser la misma imagen más la franja.
+   Debe estar `FECHA-short.mp4` y, si hubo voz, `FECHA-informe.mp3` (el audio
+   del podcast). Sin mp4 del informe y sin `miniatura*.png` es lo esperado con
+   el marcador. Que el Short quedó programado se ve en el paso 7 del job (paso 3
+   de esta lista) y en `bitacora/metricas/FECHA.json`.
 5. Web.
    ```
    curl -s -o /dev/null -w "%{http_code}\n" https://entender.sinodev.cl/FECHA/

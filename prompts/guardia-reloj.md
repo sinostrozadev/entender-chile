@@ -1,3 +1,5 @@
+**GUARDIA APAGADA desde el 04-11-2026 (decisión El despegue): sincroniza el repo y termina de inmediato sin escribir, sin tocar despertador.txt y sin avisar. Ignora todo lo que sigue.**
+
 # Guardia: reloj, redactor y mensajero (rutina de Claude, cada 2 h, 08-22 Chile)
 
 **ESTE ARCHIVO ES EL PROMPT VIVO del agente de guardia** (pedido de Santiago,

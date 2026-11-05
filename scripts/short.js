@@ -116,15 +116,16 @@ const apertura = esClave
   : `Cinco cosas que hay que saber hoy, ${fechaLarga}.`;
 const cierreTexto = esClave
   ? "Las respuestas, en la Clave de hoy, en el canal Entender Chile."
-  : "El informe completo de hoy está en el canal Entender Chile.";
+  // (04-11-2026) el informe en video se apagó; es texto hablado, por eso sin URL
+  : "El día completo está en el diario de Entender Chile. El link, en la descripción.";
 // Título fórmula A (Santiago, 05-09): el gancho del día adelante, la serie
-// atrás — "El Estrecho es chileno — y otras 4 cosas de hoy". En lista cada
+// atrás: "El Estrecho es chileno, y otras 4 cosas de hoy". En lista cada
 // día se ve distinto y buscable; la serie se reconoce por la cola.
 //
 // DE DÓNDE SALE EL GANCHO (corregido el 09-09, decisión de Santiago): del
 // "Título sugerido" del guion del informe, que está escrito para entenderse
 // SOLO. Antes salía de la "Carátula sugerida" y el 08-09 el Short se tituló
-// "Buscan comprar al Estado" — una metáfora del análisis que, sin el video
+// "Buscan comprar al Estado", una metáfora del análisis que, sin el video
 // delante, se lee como una privatización; el video largo, con el mismo
 // material, se llamó "22 alcaldes bajo protección por el crimen organizado" y
 // ese sí funcionó. La carátula es un gancho que se apoya en la imagen de la
@@ -175,7 +176,11 @@ const md = [
   "Descripción sugerida:",
   esClave
     ? "Una clave para entender las noticias, en un minuto. La Clave completa, en el canal Entender Chile. #Shorts #Chile #noticias"
-    : "Las cinco noticias del día en un minuto. El informe completo, en el canal Entender Chile. #Shorts #Chile #noticias",
+    // (04-11-2026) El informe en video se apagó: el día completo vive ahora en
+    // el diario escrito, y "en el canal" mandaba a un video que ya no existe.
+    // La cifra sale de las noticias que de verdad entraron (hoy, tres), para
+    // que la descripción no prometa más de las que el Short narra.
+    : `Las ${["cero", "una", "dos", "tres", "cuatro", "cinco"][elegidos.length] || elegidos.length} noticias del día en un minuto. El día completo, en el diario escrito: https://entender.sinodev.cl/${fecha}/ #Shorts #Chile #noticias`,
   "Guion:",
   "## Apertura",
   `[TESIS] ${apertura}`,

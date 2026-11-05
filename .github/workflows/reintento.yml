@@ -395,6 +395,8 @@ jobs:
           git fetch -q --deepen=200 origin main 2>/dev/null || true
           git fetch -q origin main
           git reset -q --hard origin/main
+          # la carátula diaria solo la usaba el video del informe, apagado el 04-11-2026 por este marcador
+          if [ -f contenido/estado/sin-video-informe.txt ]; then echo "informe en video apagado: no se pide carátula del día"; exit 0; fi
           node scripts/pedir-caratula.js
           git add contenido/urgente/ || true
           git diff --cached --quiet && exit 0

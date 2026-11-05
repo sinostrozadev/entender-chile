@@ -27,12 +27,22 @@ una ausencia.
 Y la verdad está en `main`, no en el checkout. Partir siempre por
 `git fetch origin main && git reset --hard origin/main`.
 
+El informe en video está apagado desde el 04-11-2026 (marcador `contenido/estado/sin-video-informe.txt`).
+Sin mp4 ni carátula del informe no hay falla que reportar: las piezas del día
+son el Short, el diario escrito en la web y el podcast, si hubo voz.
+
 ## Qué se mide, en este orden
 
 ### 1. La edición salió, o no
 
 De `contenido/estado/FECHA.json`: la etapa final, y pieza por pieza la hora
 real contra la esperada. Los atrasos se dan en minutos, no en adjetivos.
+
+Y que salieron las piezas que quedan: el Short y el audio del podcast en el
+release (`gh release view edicion-FECHA --json assets -q '.assets[].name'`
+debe traer `FECHA-short.mp4` y, con voz, `FECHA-informe.mp3`) y el diario
+escrito en la web (`curl -s -o /dev/null -w "%{http_code}\n" https://entender.sinodev.cl/FECHA/`
+debe dar 200).
 
 Si la etapa final no es `videos_listos` ni `aprobada`, **esa es la primera
 línea de todo**, antes que cualquier otra cosa.
@@ -57,7 +67,8 @@ elegida para que el salto parezca mayor, un titular que convierte un anuncio en
 un hecho.
 
 **Si hay carátula del día, se revisa con el skill `caratula`, siempre**, aunque
-nadie lo pida. Está escrito ahí y vale acá.
+nadie lo pida. Está escrito ahí y vale acá. Con el informe en video apagado,
+la carátula diaria ya no se pide; la de la Clave sí sigue.
 
 ### 4. Los números
 

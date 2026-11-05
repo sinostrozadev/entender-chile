@@ -12,6 +12,15 @@
  *
  * Pasos: parse → voz → timeline → capítulos (+ descripción) → (render)
  * Salidas del día en out/AAAA-MM-DD/ y descripción lista en contenido/descripciones/.
+ *
+ * EL INFORME EN VIDEO ESTÁ APAGADO desde el 04-11-2026 (decisión "El despegue",
+ * estrategia/decisiones.md). Lo apaga el marcador
+ * contenido/estado/sin-video-informe.txt y no una variable de entorno, para
+ * que volver atrás sea un commit que borra un archivo y quede a la vista en el
+ * repo. Con el marcador el informe no rinde mp4 ni carátulas, pero el guion
+ * se sigue procesando entero (parse, voz, mp3, timeline y descripción): de
+ * out/F/parsed.json sale el Short del día (scripts/short.js) y del mp3 sale
+ * el podcast. La Clave no lo mira nunca.
  */
 const { execFileSync } = require("child_process");
 const fs = require("fs");
@@ -30,6 +39,8 @@ const conVoz = args.includes("--voz");
 const conRender = args.includes("--render");
 const esClave = args.includes("--clave");
 const rutaExplicita = args.find((a) => !a.startsWith("--"));
+// el porqué está en la cabecera: apaga solo el video del informe, nunca la Clave
+const SIN_VIDEO = !esClave && fs.existsSync(path.join("contenido", "estado", "sin-video-informe.txt"));
 
 // fecha local de Chile (FECHA_EDICION la fija el workflow para que un job
 // que cruza la medianoche siga hablando de la misma edición)
@@ -140,6 +151,7 @@ if (esClave && !diario && FORMATO_PEDIDO !== "clasico" && FORMATO_PEDIDO !== "di
 }
 
 console.log(`Guion: ${guion}\nSalidas: ${OUT}\n`);
+if (SIN_VIDEO) console.log("(el video del informe está apagado por contenido/estado/sin-video-informe.txt: sin carátulas ni mp4; guion, voz, mp3 y descripción siguen)\n");
 console.log("── 1/4 · Parseando guion ─────────────────────────");
 run("parse.js", [guion, OUT]);
 
@@ -284,10 +296,14 @@ console.log(`\nDescripción lista para pegar: ${rutaDesc}`);
 // Las tres carátulas del día. La lógica vive en scripts/miniaturas.js desde
 // el 27-09-2026: el video de prueba rinde las mismas y una sola copia evita
 // que las dos se separen.
-miniaturas({ parsed, fecha, esClave, OUT, guion });
+// Con el video del informe apagado no hay carátula que hacer: el Short no la usa.
+if (!SIN_VIDEO) miniaturas({ parsed, fecha, esClave, OUT, guion });
 
 const video = path.join(OUT, `${fecha}-${etiqueta}.mp4`);
-if (conRender) {
+if (SIN_VIDEO) {
+  // sin mp4: el step de subida del workflow lo sabe y no falla (edicion-diaria.yml)
+  console.log(`\nListo sin video: el informe en video está apagado por el marcador; quedan ${OUT}parsed.json, el mp3 y la descripción.`);
+} else if (conRender) {
   console.log("── Render ────────────────────────────────────────");
   // --concurrency=100%: el runner de Actions tiene 4 núcleos y el default de
   // remotion usaba 2; el render de un informe tardaba 55 a 105 min (ACTIONS 1).

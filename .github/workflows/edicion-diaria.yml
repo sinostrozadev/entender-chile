@@ -13,6 +13,13 @@ name: Edición diaria
 # termina en verde sin hacer nada y la otra pieza vuelve a tocar (paso 0b).
 # 29-08: la revisión llegó 04:41 y el guion 09:04 → el gate falló en rojo
 # sin culpa y hubo que esperar al cron de respaldo (10:04).
+#
+# EL INFORME EN VIDEO SE APAGÓ el 04-11-2026 (decisión "El despegue",
+# estrategia/decisiones.md). No se borró nada: lo apaga el marcador
+# contenido/estado/sin-video-informe.txt, que dia.js lee para no rendir el
+# mp4 ni las carátulas, y que el paso 0 lee para no esperar un mp4 que no va a
+# llegar. El guion del informe sigue entrando y tocando el timbre porque de él
+# salen el Short (3b) y el podcast (7b). Borrar el marcador lo enciende de nuevo.
 on:
   push:
     branches: [main]
@@ -91,11 +98,21 @@ jobs:
             ASSETS=""
           fi
           tiene() { echo "$ASSETS" | grep -qxF "$FECHA-$1.mp4"; }
-          tiene informe     && echo "HAY_INFORME=1"     >> "$GITHUB_ENV"
+          # INFORME EN VIDEO APAGADO (04-11-2026): con el marcador, el mp4 del
+          # informe no va a existir nunca, así que pedirlo dejaría la edición
+          # siempre "por producir" y cada push volvería a gastar Azure en el
+          # paso 3. La pieza del día pasa a ser el Short: si ya está en el
+          # release, el guion del informe ya se procesó (HAY_INFORME=1).
+          if [ -f contenido/estado/sin-video-informe.txt ]; then
+            echo "Informe en video apagado por contenido/estado/sin-video-informe.txt: la señal de pieza hecha es el Short."
+            tiene short && echo "HAY_INFORME=1" >> "$GITHUB_ENV"
+          else
+            tiene informe && echo "HAY_INFORME=1" >> "$GITHUB_ENV"
+          fi
           tiene short       && echo "HAY_SHORT=1"       >> "$GITHUB_ENV"
           tiene clave       && echo "HAY_CLAVE=1"       >> "$GITHUB_ENV"
           FALTA=""
-          tiene informe || FALTA="$FALTA informe"
+          [ -f contenido/estado/sin-video-informe.txt ] || { tiene informe || FALTA="$FALTA informe"; }
           tiene short   || FALTA="$FALTA short"
           # La Clave solo cuenta como pendiente si hoy existe su guion.
           # (Su Short se retiró el 16-09: ver CLAVE 3 en bitacora/PENDIENTES.md.)
@@ -290,7 +307,11 @@ jobs:
           done
           gh release view "$TAG" >/dev/null 2>&1 \
             || { echo "::error::el release $TAG no existe tras tres intentos: los videos quedaron renderizados y SIN publicar"; exit 1; }
-          gh release upload "$TAG" out/$FECHA/*.mp4 --clobber
+          # Sin el video del informe (04-11-2026) puede haber un día sin ningún
+          # mp4 (el Short falló y no hubo Clave). El glob sin coincidencias hacía
+          # fallar el upload, y un paso 6 en rojo se llevaba el podcast (7b) y
+          # la web (8), que no dependen de ningún mp4.
+          ls out/$FECHA/*.mp4 >/dev/null 2>&1 && gh release upload "$TAG" out/$FECHA/*.mp4 --clobber || echo "sin mp4 que subir"
           # las tres carátulas (la que salió y las dos alternativas) para la
           # prueba A/B de YouTube Studio, que se carga a mano (20-09)
           if ls out/$FECHA/miniatura*.png >/dev/null 2>&1; then gh release upload "$TAG" out/$FECHA/miniatura*.png --clobber; fi

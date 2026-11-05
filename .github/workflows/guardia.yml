@@ -20,18 +20,13 @@ name: Guardia
 # ANUNCIADO por el informe), escribe contenido/urgente/FECHA-HHMM-<slug>.md
 # y este workflow lo commitea. La rutina de guardia ve aparecer el archivo
 # y avisa al teléfono. Fase 2 (Short exprés) se construye aparte.
+# APAGADA el 04-11-2026 (decisión "El despegue", estrategia/decisiones.md):
+# el canal dejó los exprés, y sin exprés la guardia no tiene a quién
+# entregarle un hallazgo. Se quitaron el push del despertador y el cron de
+# red, y el aviso de reloj muerto (que fallaba a propósito si la rutina no
+# tocaba el timbre: apagada la rutina, fallaría cada dos horas). Queda solo
+# workflow_dispatch para una pasada a mano.
 on:
-  push:
-    branches: [main]
-    paths:
-      - "contenido/urgente/despertador.txt"
-  schedule:
-    # cada 2 horas, cuarenta minutos detrás del reloj, que corre a las horas
-    # impares de UTC (0 23,1,11,...,21, bitacora/rutinas.md) y en Actions
-    # aparece entre el minuto 5 y el 12. Detrás del reloj y no a una hora par:
-    # a 1 h 40 min de distancia el guard de 90 minutos habría corrido la red
-    # en cada pasada. La ventana de Chile se mira adentro.
-    - cron: "40 1-23/2 * * *"
   workflow_dispatch:
     inputs:
       ventana:
@@ -103,14 +98,3 @@ jobs:
             git -c rebase.autoStash=true pull --rebase origin main
             git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
           }
-
-      # El aviso de la caída. La red de arriba barre, pero el que avisa al
-      # teléfono de un hallazgo es la rutina de Claude: si está caída, el
-      # barrido no le llega a nadie. Una corrida programada que termina en
-      # rojo sí le llega a Santiago, por correo de GitHub, sin depender de
-      # ninguna cuota de Claude. Va al final para que el barrido corra igual.
-      - name: Si el reloj de la guardia perdió una pasada entera, fallar para avisar
-        if: ${{ !cancelled() && steps.red.outputs.reloj_muerto == '1' }}
-        run: |
-          echo "::error::el reloj de la guardia (rutina trig_01HLSWkJ8VpVFPuxQ51YiG4d) no corre hace más de 150 minutos: Claude puede estar caído o sin cuota, y con él la vigía y la cadena nocturna"
-          exit 1
