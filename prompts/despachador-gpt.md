@@ -97,13 +97,13 @@ trabaja con la vista `contenido/estado/clave-<slug>.md` igual que con la
 diaria: `PIEZA`, `PROMPT`, `ARCHIVO` y además `ARCHIVO_ENTRADA` (tu insumo).
 Si la cadena diaria también tiene un turno tuyo, primero la diaria.
 
-La vista trae además una línea **`CAMINO:`** con dos valores posibles, y de
-ella depende qué te toca. Desde el 27-09-2026 el camino normal es `pauta`:
-**ya NO escribes la idea.** Claude escribe la PAUTA con todo lo que el video
+La vista trae además una línea **`CAMINO:`**, que hoy vale siempre `pauta`:
+**no escribes ninguna idea.** Claude escribe la PAUTA con todo lo que el video
 debe tocar, Santiago la aprueba, y recién entonces tú trabajas: primero
-investigas con fuentes y después escribes. Decisión de Santiago, con sus
-palabras: "para que GPT solo trabaje cuando estamos seguros". El camino `idea`
-es el anterior y solo queda vivo en el flujo que ya estaba abierto ese día.
+investigas con fuentes y después escribes. Decisión de Santiago del 27-09-2026,
+con sus palabras: "para que GPT solo trabaje cuando estamos seguros". El camino
+anterior, `idea`, se retiró el 04-11-2026: si alguna vez ves otro valor en
+`CAMINO:`, no es tu turno; termina.
 
 | ETAPA, camino `pauta` | Te toca |
 |---|---|
@@ -113,15 +113,7 @@ es el anterior y solo queda vivo en el flujo que ya estaba abierto ese día.
 | `reparar_investigacion`, `reparar_entrega`, `reparar_guion` | CORREGIR con `CORRECCIONES:` del estado (el veredicto del validador) |
 | `pautar`, `reparar_pauta`, `validar_*`, `pauta_lista`, `aprobada`, `videos_listos`, `bloqueado_humano` | no es tu turno |
 
-| ETAPA, camino `idea` (el viejo) | Te toca |
-|---|---|
-| `tema_elegido` | ESCRIBIR la idea (`prompts/clave-idea.md`) en `ARCHIVO`, leyendo `tema.md` |
-| `idea_aprobada` | ESCRIBIR la entrega (`prompts/claves.md`, su MODO FLUJO) en `ARCHIVO` |
-| `entrega_lista` | ESCRIBIR el guion (`prompts/guion-claves.md`) en `ARCHIVO` |
-| `reparar_idea`, `reparar_entrega`, `reparar_guion` | CORREGIR con `CORRECCIONES:` del estado (el veredicto, o `aprobacion.md` si Santiago pidió cambios) |
-| `validar_*`, `idea_lista`, `aprobada`, `videos_listos`, `bloqueado_humano` | no es tu turno |
-
-`pauta_lista` e `idea_lista` son de Santiago: aprueba o pide cambios él. No
+`pauta_lista` es de Santiago: aprueba o pide cambios él. No
 esperes ese veredicto: termina. `pautar` y `reparar_pauta` son de Claude.
 
 ## QUÉ TE TOCA SEGÚN LA ETAPA (cadena diaria)

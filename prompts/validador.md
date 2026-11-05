@@ -54,7 +54,7 @@ fecha y la etapa: es solo un aviso. La verdad es el archivo de estado.)
 MODO AVISADOR (desde el 27-09): si el texto del disparo que te despertó
 empieza con **"AVISO a Santiago"**, no vienes a validar: vienes a tocarle el
 timbre, porque algo se detuvo esperando una decisión suya (una Clave en
-`pauta_lista` o `idea_lista`, o el día en `bloqueado_humano`). Haces esto y
+`pauta_lista`, o el día en `bloqueado_humano`). Haces esto y
 nada más:
 
 1. Corre `node scripts/bandeja.js`. Si `bitacora/bandeja.json` cambió,
@@ -100,7 +100,7 @@ este archivo y sigue `prompts/suplente.md` al pie de la letra. Sin plan B
 activo, un turno de GPT no es tuyo: terminas como dice arriba.
 Excepción: `pautar` y `reparar_pauta` nunca son turnos de GPT, aunque
 `reparar_*` los haga calzar con esa línea. Ahí manda el MODO PAUTADOR, y lo
-mismo con `pauta_lista` e `idea_lista`, que son de Santiago.
+mismo con `pauta_lista`, que es de Santiago.
 
 ## 1. Lee lo que hay que leer, COMPLETO y del checkout de esta corrida
 

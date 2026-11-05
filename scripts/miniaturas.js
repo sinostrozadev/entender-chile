@@ -3,9 +3,9 @@
  * miniaturas.js - Las tres carátulas de una edición (1280x720, src/marca.tsx).
  *
  * Salió de dia.js el 27-09-2026 sin cambiarle la lógica: el video de prueba
- * (scripts/prueba-video.js) necesita las mismas tres carátulas que la edición
- * real, y copiarlas habría dejado dos verdades que se separan al primer
- * ajuste. Acá vive una sola.
+ * (hoy en archivo/scripts/, retirado el 04-11-2026) necesitaba las mismas tres
+ * carátulas que la edición real, y copiarlas habría dejado dos verdades que se
+ * separan al primer ajuste. Acá vive una sola.
  *
  * Uso: miniaturas({ parsed, fecha, esClave, OUT })
  */

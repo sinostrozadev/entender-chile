@@ -300,3 +300,39 @@ ElevenLabs, sin restos: `.github/workflows/edicion-diaria.yml` ya no pasa
 solo Azure. Con la condición vieja, un secret de ElevenLabs sin Azure pedía
 `--voz` y la edición se caía en `scripts/dia.js` en vez de salir muda. Los
 secrets siguen en GitHub y se pueden borrar desde la interfaz.
+
+## Limpieza del 04-11-2026: el camino de la idea, el taller viejo y las pruebas del informe en video
+
+Decisión "El despegue" (`estrategia/decisiones.md`, 04-11-2026): se archiva lo
+que ninguna pieza viva referencia. El mismo día se apagaron el informe en
+video y los Shorts exprés.
+
+- `prompts/clave-idea.md` (de prompts/): el prompt con que GPT escribía la
+  idea de una Clave en el camino viejo, anterior al 27-09-2026. El último flujo
+  en ese camino, `acuerdo-internacional-sin-tratado`, quedó descartado el
+  03-11-2026, y los tres flujos abiertos van por la pauta que escribe Claude
+  (`prompts/pauta-clave.md`). Con él salieron las etapas `tema_elegido`,
+  `validar_idea`, `reparar_idea`, `idea_lista` e `idea_aprobada` de
+  `scripts/estado-clave.js`, `scripts/clave.js`, `scripts/bandeja.js`,
+  `estado-clave.yml`, `reintento.yml` y los prompts del despachador, del
+  suplente y del validador. `clave.caminoDe()` sigue detectando un tema.md
+  anterior al corte, para que falle con un mensaje en vez de quedar a medias.
+- `taller/PARAMETROS.md` (de taller/, que quedó vacía y se borró): el
+  inventario de qué debía ser configurable en el render, con archivo y línea.
+  Lo citaba la interfaz del taller retirada el 01-11-2026 y sus líneas ya no
+  calzan con el código; si vuelve a hacer falta, se rehace desde el código.
+- `scripts/guion-corto.js` (a `archivo/scripts/`) y
+  `.github/workflows/prueba-voz.yml` (a `archivo/workflows/`, deja de aparecer
+  en Actions): la muestra corta con voz real del informe en video, del
+  27-09-2026. Sin informe en video no hay voz que probar.
+- `scripts/prueba-video.js` (a `archivo/scripts/`): el video de prueba que
+  rendía una edición publicada con las imágenes de
+  `contenido/secciones/pruebas/`. Era solo del informe en video. Lo que sí
+  sigue vivo y él usaba, `scripts/secuencia-plan.js` y `scripts/miniaturas.js`,
+  se quedó en `scripts/` (sus `require` ya no resuelven desde `archivo/`: para
+  correrlo hay que devolverlo a `scripts/`). Los comentarios de `src/` y de
+  `scripts/secuencia-plan.js` que lo nombran no se tocaron.
+- `scripts/reglas-repetidas.js` (a `archivo/scripts/`): la medición del
+  06-10-2026 de qué reglas incumplía GPT, leyendo el historial de veredictos.
+  Ningún workflow lo corría; solo lo citaba `bitacora/REALIZADOS.md`. Su línea
+  base quedó en `bitacora/metricas/`.

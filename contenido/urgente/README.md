@@ -1,16 +1,26 @@
-# contenido/urgente/ : la guardia y los Shorts exprés
+# contenido/urgente/ : pedidos a GPT (y el histórico de los exprés)
 
-La guardia (`prompts/guardia-reloj.md`, cada 2 horas entre las 08:00 y las
-22:00) trabaja acá. Los prefijos dicen quién escribe cada archivo:
+La guardia y los Shorts exprés se apagaron el 04-11-2026 (decisión "El
+despegue" en `estrategia/decisiones.md`: el canal solo explica). Lo que dejaron
+acá es histórico y no se borra:
 
-    despertador.txt        lo toca la rutina; su push dispara guardia.yml
-    AAAA-MM-DD-HHMM-<slug>.md   el hallazgo de la guardia
-    RECHAZADO-...          el hallazgo que no pasó el criterio, con el motivo
-    PEDIDO-<slug>.md       lo que Claude necesita de la web o una imagen; su
-                           push emite el evento a GPT (pedido-gpt.yml)
-    FUENTE-<slug>.md       lo que GPT leyó en las páginas, con citas textuales
-                           (prompts/lector-gpt.md, o lector.yml)
-    GUION-<slug>.md        el guion del Short exprés; su push dispara
-                           short-expres.yml
-    SUBIDO-<slug>.md       la marca de que el Short se subió, que además
-                           deduplica si el guion se pushea dos veces
+    AAAA-MM-DD-HHMM-<slug>.md    los hallazgos de la guardia
+    GUION-<slug>.md              los guiones de los Shorts exprés
+    SUBIDO-<slug>.md             la marca de que cada exprés se subió
+    FUENTE-<slug>.md             lo que GPT leyó en las páginas para un exprés
+    PEDIDO-AAAA-MM-DD-HHMM-*.md  los pedidos de lectura de la guardia
+    PEDIDO-seccion-*.md          pedidos de imagen de sección del informe en video
+    despertador.txt              el disparador de la guardia, ya sin efecto
+
+La carpeta sigue viva para los pedidos a GPT. Cada `PEDIDO-*.md` que se
+pushea acá lo toma `pedido-gpt.yml`, que emite el evento a GPT según las
+líneas `Tarea:`, `Salida:` y `Prompt:` del propio pedido. Los que se siguen
+usando:
+
+    PEDIDO-caratula-*.md      la carátula de una pieza
+    PEDIDO-doc-youtube-*.md   las políticas de YouTube del mes (doc-youtube.yml)
+    PEDIDO-mural-*.md         los paneles del mural de la Clave (scripts/mural-flujo.js)
+    PEDIDO-clave-*.md         otros encargos del flujo de la Clave
+
+Lo que GPT entrega vuelve a la ruta que diga la línea `Salida:` del pedido, no
+necesariamente a esta carpeta.

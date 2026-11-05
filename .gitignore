@@ -20,7 +20,7 @@ public/caratulas/
 # retirado el 01-11-2026; los cp de su cabecera siguen valiendo).
 public/secciones/
 
-# lo mismo para el video de prueba (scripts/prueba-video.js): las imágenes y
+# lo mismo para el video de prueba (en archivo/scripts/ desde el 04-11-2026): las imágenes y
 # la carátula que todavía se están evaluando van a carpetas aparte para no
 # pisar las de producción
 public/secciones-prueba/
