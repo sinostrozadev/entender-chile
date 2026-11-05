@@ -81,6 +81,13 @@ tiene flujo y render desde el 02-11-2026 y está en piloto.
       nuevos. Alcance: un archivo de workflow y unas 30 líneas. Detalle y
       números en `bitacora/2026-10-16-auditoria.md`, sección de corrección de
       la sesión de día.
+      **05-11: cuarta vez, y la primera con el motivo exacto de la API en vez
+      de inferido.** `get_trigger` sobre la rutina del Observatorio de plata
+      pública (`trig_01MzKjYwnyH8PfJfCBrtJvv4`) devolvió
+      `failure_reason: ROUTINE_RUN_FAILURE_REASON_USAGE_LIMIT_REACHED` a las
+      01:45:44 Chile; la misma ventana (01:41 a 04:11) dejó sin pushear a los
+      tres relojes del reintento y atrasó la preselección 2 h 41 min, aunque
+      la cadena se recuperó sola. `bitacora/2026-11-05-auditoria.md`.
 
 - [ ] **01-11: borrar en GitHub los secrets `ELEVENLABS_API_KEY` y
       `VOICE_ID`, ya sin uso.** La limpieza del 01-11 sacó los restos de
