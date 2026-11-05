@@ -1,1 +1,1 @@
-reparar_investigacion 1
+investigacion_lista 0
