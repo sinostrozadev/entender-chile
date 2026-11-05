@@ -1,6 +1,6 @@
 Título sugerido: ¿Quién decidía las rebajas de condena en Chile?
 Descripción sugerida: Entiende cómo funciona la reducción por conducta sobresaliente, qué papel cumplían Gendarmería, una comisión, el Ministerio y los tribunales, y por qué la reforma de 2022 produjo decisiones contradictorias. También explicamos qué se sabe sobre los 56 decretos y qué pueden cambiar los tres frentes abiertos.
-Carátula sugerida: ¿Quién firmó las rebajas?
+Carátula sugerida: ¿Quién les acortó la condena?
 Guion:
 
 ## Gancho
@@ -17,15 +17,15 @@ Al terminar vas a saber qué reducía el beneficio, qué hacía cada institució
 ## De dónde viene el beneficio
 [TESIS] La reducción nació como un incentivo de reinserción, no como una revisión de la condena.
 
-[DATO comparacion | BCN, Ley 19.856, 04-02-2003] rebaja por cada año cumplido: 2 meses ; rebaja anual después de media condena: 3 meses
 [ESQUEMA | Origen legal] Ley de 2003 -> Conducta sobresaliente -> Fecha final menor
 La Ley diecinueve mil ochocientos cincuenta y seis, de dos mil tres, premia el comportamiento sobresaliente durante el encierro. Considera estudio, trabajo, rehabilitación, conducta, apoyo familiar y adaptación social. No declara inocencia ni borra el delito. Reduce la fecha final de cumplimiento.
 
+[DATO comparacion | BCN, Ley 19.856, 04-02-2003] rebaja por cada año cumplido: 2 meses ; rebaja anual después de media condena: 3 meses
 La regla descuenta dos meses por cada año reconocido y, después de la mitad de la condena, tres por año. Una condena de doce años con calificación sobresaliente en todos sus períodos acumularía treinta meses. El cálculo real depende de los años reconocidos y los requisitos.
 
 ## Los 56 decretos y la suspensión
 [DIARIO 2026-10-23 | rabat-confirma-que-firmo-56-rebajas-de-condena]
-[TESIS] Los tribunales no dictaron los 56 decretos y la suspensión posterior no anuló lo ya ejecutado.
+[TESIS] Los tribunales no dictaron los cincuenta y seis decretos y la suspensión posterior no anuló lo ya ejecutado.
 
 [FUENTE] EL PAÍS Chile, 22-10-2026
 El veintidós de octubre, el ministro Fernando Rabat confirmó los cincuenta y seis decretos. La presidenta de la Corte Suprema, Gloria Ana Chevesich, precisó que los había dictado el ministro y que los tribunales intervenían al conocer recursos concretos.
@@ -36,18 +36,19 @@ El veintitrés de octubre, Justicia suspendió la tramitación de nuevas rebajas
 [DIARIO 2026-10-26 | las-56-rebajas-de-condena-fuerzan-una-reforma-y-mantienen]
 [TESIS] La defensa jurídica convivió con un rechazo ciudadano muy amplio y con datos todavía incompletos.
 
-[DATO barras | Cadem, 25-10-2026] aprobación presidencial: 29% ; desaprobación presidencial: 66% ; conocimiento del caso: 89% ; desacuerdo con las rebajas: 92%
+[FUENTE] The Clinic, 25-10-2026
 El veinticinco de octubre, Rabat defendió la legalidad de los decretos y dijo que la Corte Suprema había reprochado más de doscientas cincuenta negativas anteriores. Al cuatro de noviembre no había una nómina oficial para verificar esa cifra.
 
+[DATO barras | Cadem, 25-10-2026] aprobación presidencial: 29% ; desaprobación presidencial: 66% ; conocimiento del caso: 89% ; desacuerdo con las rebajas: 92%
 Cadem midió veintinueve por ciento de aprobación presidencial, sesenta y seis de desaprobación, ochenta y nueve de conocimiento del caso y noventa y dos de desacuerdo con las rebajas. Rabat estimó que probablemente los beneficiados estaban libres, sin haber revisado todos los casos.
 
 ## El cambio de criterio
 [DIARIO 2026-10-27 | kast-mantiene-a-rabat-y-anuncia-una-ley-tras-reconocer-el]
 [TESIS] El conflicto no nació de una orden general de los tribunales, sino de una exclusión sin regla transitoria expresa y de criterios distintos.
 
-[DATO cifra | CIPER, 30-10-2026] amparos revisados entre 2022 y 2026: 113 recursos ; rebajas finalmente negadas: 19 casos ; proporción negada en la muestra: 17%
 La Ley veintiún mil cuatrocientos veintiuno, de febrero de dos mil veintidós, excluyó a condenados por delitos sexuales contra menores, pero no dejó una regla transitoria expresa para hechos o condenas anteriores.
 
+[DATO cifra | CIPER, 30-10-2026] amparos revisados entre 2022 y 2026: 113 recursos ; rebajas finalmente negadas: 19 casos ; proporción negada en la muestra: 17%
 CIPER revisó ciento trece amparos entre dos mil veintidós y dos mil veintiséis. Diecinueve terminaron con la rebaja negada. La muestra no demuestra una regla única: muestra decisiones distintas según los antecedentes y la interpretación jurídica.
 
 El veintiséis de octubre, el Gobierno calificó las rebajas como un error y mantuvo al ministro. Interferencia documentó rechazos hasta mayo y un criterio favorable desde junio para ciertos casos anteriores a dos mil veintidós.
@@ -64,6 +65,7 @@ Al cuatro de noviembre, la acusación constitucional seguía anunciada y no hab�
 ## Quién decidía realmente
 [TESIS] La ley repartía tareas entre varias instituciones, pero la concesión final se materializaba en un decreto tramitado por el Ministerio.
 
+[FUENTE] Interferencia, 01-11-2026
 [ESQUEMA | Ruta del beneficio] Antecedentes penitenciarios -> Calificación anual -> Decreto ministerial
 Gendarmería aportaba antecedentes sociales, psicológicos y de conducta. Una Comisión presidida por un ministro de Corte e integrada por jueces, un abogado nombrado por Justicia y peritos calificaba el comportamiento. La Secretaría Regional Ministerial acreditaba requisitos. La persona pedía el beneficio por intermedio del ministro y Justicia tramitaba el decreto.
 
@@ -84,7 +86,7 @@ Un informe de Gendarmería consignó un nexo con el Tren de Aragua de uno de los
 [DATO comparacion | Interferencia, 01-11-2026] rebajas aprobadas contra advertencia regional: 11 casos ; solicitudes rechazadas pese a criterio regional favorable: 22 casos
 [HECHO] El primero de noviembre se publicaron once aprobaciones contra advertencias de las oficinas regionales, siete firmadas por Rabat, tres por Silva como subrogante y una por Pablo Mira. También aparecieron veintidós rechazos pese a que esas oficinas no veían impedimentos.
 
-[INTERPRETACIÓN] El diseño distribuido evitaba que una institución produjera todos los antecedentes y resolviera sin control, pero también podía diluir responsabilidades. Cuando las recomendaciones chocaban, había que identificar quién decidió y con qué fundamento.
+[INTERPRETACIÓN] Una lectura posible es que el diseño distribuido evitaba que una institución produjera todos los antecedentes y resolviera sin control, pero también podía diluir responsabilidades. Cuando las recomendaciones chocaban, había que identificar quién decidió y con qué fundamento.
 
 ## Qué significa ser imputado
 [DIARIO 2026-11-03 | el-fiscal-nacional-confirma-que-rabat-figura-como-imputado]
@@ -108,11 +110,12 @@ El proyecto del Ejecutivo ingresó al Senado el veintisiete de octubre y seguía
 
 La ley vigente no obliga a avisar ni oír a la víctima antes de la reducción. El proyecto propone cambiarlo, pero seguía en trámite al cuatro de noviembre.
 
-[INTERPRETACIÓN] El beneficio puede incentivar estudio, trabajo y rehabilitación, pero necesita criterios consistentes, una autoridad final identificada y participación de las víctimas.
+[INTERPRETACIÓN] Una lectura posible es que el beneficio puede incentivar estudio, trabajo y rehabilitación, pero necesita criterios consistentes, una autoridad final identificada y participación de las víctimas.
 
 ## Qué mirar después
 [TESIS] Los próximos hechos verificables son actos formales, no anuncios.
 
+[FUENTE] Interferencia, 22-10-2026
 Hay que mirar si el Senado vota el boletín dieciocho mil ochocientos seis, si ingresa la acusación con texto y firmas, si la Fiscalía formaliza, si se publica la situación de los cincuenta y seis y si aparece una decisión sobre beneficios ejecutados.
 
 ## Qué conviene recordar
