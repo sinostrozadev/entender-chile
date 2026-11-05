@@ -37,15 +37,15 @@ Estándar del 13-09-2026, detalle completo en `bitacora/README.md`.
   `bitacora/taller.json`. Bajan a PENDIENTES solo cuando se quedan pegadas.
   `ideas/evaluar.md` es material crudo: una idea aprobada baja a PENDIENTES.
 
-## MODO 1: quién ejecuta qué
+## Quién ejecuta qué (desde el 04-11-2026)
 
-Regla dura 24, desde el 16-09-2026: **el día propone, Santiago aprueba, el día
-ejecuta.** La sesión de día analiza, mide y anota; cuando algo está listo lo
-propone con alcance medido (qué archivos, qué líneas, qué cambia y cómo se
-prueba) y, con el sí explícito de Santiago, lo ejecuta, lo prueba con una
-corrida real y lo deja anotado. Sin el sí, no se toca nada. Sigue siendo de la
-noche lo que el día no puede: lo que necesita secrets (Azure, YouTube,
-podcast), renderizar video o carátulas, y editar las rutinas de la interfaz.
+Mandato de Santiago del 04-11-2026, texto completo y rutina diaria en
+`.claude/skills/despegue/SKILL.md`: **Claude decide y ejecuta; Santiago se
+entera.** Reemplaza la regla dura 24 ("el día propone, Santiago aprueba").
+La sesión principal analiza, decide y encarga; los agentes ejecutan en
+worktrees (skill `encargo`); cada día hay una revisión y al menos una mejora
+registrada en `bitacora/mejoras/`. Quedan para Santiago el dinero, sus
+cuentas y contraseñas, los secretos de GitHub y cerrar PRs.
 
 ## Commits
 
@@ -86,7 +86,7 @@ desde Studio.
 | Archivo | Qué manda |
 |---|---|
 | `REGLAS-DURAS.md` | las 42 reglas numeradas (más la 26b y la 38b) con su origen. Si algo lo contradice, gana este |
-| `estrategia/decisiones.md` | las decisiones de fondo; la del 01-11-2026 ("Tomar el control") fija la meta, los Shorts y el largo por tema |
+| `estrategia/decisiones.md` | las decisiones de fondo; la del 04-11-2026 ("El despegue") manda: solo explicar, Claude al mando, cierre el 31-01-2027 |
 | `bitacora/PENDIENTES.md` | la única lista viva; arranca con "EL MODELO NUEVO (01-11-2026)" |
 | `bitacora/README.md` | el estándar de dónde se anota cada cosa |
 | `bitacora/rutinas.md` | rutinas de la nube y workflows, para no listarlos por API |

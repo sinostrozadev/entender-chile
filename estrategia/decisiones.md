@@ -980,3 +980,35 @@ existe. El diseño está en `bitacora/2026-11-01-analisis-y-plan.md`, sección 6
 El informe en video se apaga cuando el primer "Entender el caso" esté aprobado.
 Misma noche, regla 19: la máquina sube programado y la publicación ocurre sola.
 **Decidió**: Santiago.
+
+## 2026-11-04 - El despegue: Claude al mando, solo explicar, cierre el 31-01-2027
+
+Santiago decidió el 04-11-2026, sobre el diagnóstico de esa noche (48
+suscriptores y 23.004 vistas en 66 días y 221 videos; 0,8 suscriptores por
+día; unas 15 horas de largos en 30 días). Texto completo del mandato en
+`.claude/skills/despegue/SKILL.md`. Estas decisiones mandan sobre la regla
+dura 24 y sobre el MODO 1 de `CLAUDE.md`.
+
+**1. Claude decide y ejecuta; Santiago se entera.** Estrategia, formatos,
+prompts, herramientas gratuitas, rutinas, qué se archiva y qué se borra: todo
+sin pedir permiso. Siguen siendo de Santiago el dinero (sin gasto nuevo), sus
+cuentas y contraseñas, los secretos de GitHub y cerrar PRs. Por qué: ya no hay
+sesión de día que proponga, y cada permiso pedido es un día perdido.
+
+**2. Solo explicar.** Se apagan el informe diario en video y los exprés. Por
+qué: son el 80 % de la producción y el 5 % de las vistas, mueren en 48 horas y
+son exactamente el formato (resumen de noticias, voz sintética, plantilla
+fija) que YouTube trata como contenido inauténtico. Los únicos videos que
+pasan de 500 vistas son los que explican algo. Se quedan el Short explicativo
+del día, Entender el caso, el diario escrito, el podcast del escrito, el
+barrido, las métricas y el seguimiento de temas.
+
+**3. Una revisión y al menos una mejora cada día**, registradas en
+`bitacora/mejoras/AAAA-MM-DD.md`. Por qué: la máquina funciona; el producto no.
+Lo que no se mide y no se cambia cada día, no despega.
+
+**4. Criterio de cierre: 31-01-2027.** Se sigue solo si el ritmo de
+suscriptores se multiplicó por cinco (4 por día en los últimos 30 días) y los
+explicativos pasan de forma regular las 1.000 vistas. Si no, se cierra. Por
+qué: Claude no puede asegurar la monetización y lo dijo; una apuesta sin fecha
+de cierre no es una apuesta, es una costumbre.
