@@ -83,11 +83,6 @@ if (elegidos.length < (esClave ? 1 : 3) || (esClave && preguntas.length < 2)) {
 }
 
 // 2) Guion corto con las mismas marcas que el informe.
-const fechaLarga = (() => {
-  const t = new Intl.DateTimeFormat("es-CL", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" })
-    .format(new Date(`${fecha}T12:00:00Z`));
-  return t.charAt(0).toUpperCase() + t.slice(1);
-})();
 const lineaDato = (d) => {
   const s = d.series;
   // Un cambio, o una comparación de dos valores (antes y después), se muestra
@@ -111,9 +106,34 @@ const lineaDato = (d) => {
 const tituloClave = (parsed.titulo || "").replace(/\s*#\w+/g, "").trim();
 const tituloCorto = tituloClave ? tituloClave.charAt(0).toLowerCase() + tituloClave.slice(1) : "una clave de hoy";
 // Si el título de la Clave es una pregunta, se lee tal cual después de un punto.
+// LA PRIMERA FRASE DEL SHORT (05-11-2026, rutina de mejora diaria).
+//
+// Decía "Cinco cosas que hay que saber hoy, Jueves, 5 de noviembre": tres
+// segundos y medio de fórmula y fecha antes de que apareciera un solo tema, y
+// con un número que desde el 04-11 ya no era verdad (el guion del informe trae
+// tres bloques, no cinco).
+//
+// Lo medido en `bitacora/metricas/2026-11-05.json`: de los 84 Shorts con
+// retención propia, los 31 que no llegan al 40 % visto tienen una MEDIANA DE 2
+// VISTAS, y los 8 que pasan de 300 vistas van todos entre 50 % y 97 % visto.
+// La mediana del canal son 22,5 segundos vistos de unos 44 de Short. En Shorts
+// el % visto es la puerta de la distribución, y lo que lo decide es el primer
+// segundo, así que ahí va ahora el tema del día y no el calendario.
+//
+// El tema entra como la PREGUNTA de la carátula sugerida, que el guion escribe
+// corta y en forma de pregunta (los 14 guiones del 21-10 al 05-11 la traen
+// así), seguida de la promesa con el número REAL de noticias. Si el guion no
+// trajo pregunta, se abre con la promesa sola: nunca con la fecha. Una fecha
+// hablada además fecha el Short, y el feed de Shorts reparte durante semanas:
+// la cola larga del 04-11 necesita piezas que no suenen viejas en diciembre.
+const CUANTAS_PALABRA = ["cero", "una", "dos", "tres", "cuatro", "cinco"];
+const promesa = elegidos.length === 1
+  ? "Esto es lo que hay que saber hoy."
+  : `${(CUANTAS_PALABRA[elegidos.length] || elegidos.length).replace(/^./, (c) => c.toUpperCase())} cosas que hay que saber hoy.`;
+const preguntaDia = (parsed.caratula || "").split("/")[0].trim();
 const apertura = esClave
   ? (/[?!]$/.test(tituloClave) ? `Una clave para entender las noticias. ${tituloClave}` : `Una clave para entender las noticias: ${tituloCorto}.`)
-  : `Cinco cosas que hay que saber hoy, ${fechaLarga}.`;
+  : (/^¿.+\?$/.test(preguntaDia) ? `${preguntaDia} ${promesa}` : promesa);
 const cierreTexto = esClave
   ? "Las respuestas, en la Clave de hoy, en el canal Entender Chile."
   // (04-11-2026) el informe en video se apagó; es texto hablado, por eso sin URL
@@ -172,7 +192,12 @@ const ganchoDia = recortarGancho(
 const md = [
   esClave
     ? `Título sugerido: Clave: ${tituloClave || "para entender las noticias"} #Shorts`
-    : `Título sugerido: ${ganchoDia}, y otras ${CUANTAS - 1} cosas de hoy #Shorts`,
+    // La cola lleva el número REAL de noticias, no el tope CUANTAS: el 05-11-2026
+    // el guion trajo tres bloques y el título salía "y otras 4 cosas de hoy",
+    // prometiendo dos noticias que el Short nunca narraba. Es la misma regla
+    // del 27-09 (el titular no puede prometer lo que el video no entrega), que
+    // se rompió sola cuando el informe pasó de cinco bloques a tres.
+    : `Título sugerido: ${ganchoDia}, y otras ${elegidos.length - 1} cosas de hoy #Shorts`,
   "Descripción sugerida:",
   esClave
     ? "Una clave para entender las noticias, en un minuto. La Clave completa, en el canal Entender Chile. #Shorts #Chile #noticias"
@@ -238,7 +263,8 @@ run("build-timeline.js", [path.join(OUT, "parsed.json"), path.join(OUT, "alignme
 const tl = JSON.parse(fs.readFileSync(path.join(OUT, "timeline.json"), "utf8"));
 tl.meta.width = 1080; tl.meta.height = 1920;
 tl.meta.handle = HANDLE;
-tl.meta.eyebrow = esClave ? "Claves para entender las noticias" : "Cinco cosas que hay que saber";
+// El eyebrow dice lo mismo que el título, con el número real (05-11-2026).
+tl.meta.eyebrow = esClave ? "Claves para entender las noticias" : promesa.replace(/\.$/, "");
 tl.meta.numerar = !esClave; // "1 de 5" solo tiene sentido en el informe
 tl.meta.selloEn = -1; // sin sello visual: no cabe en un Short (ver src/Short.tsx)
 tl.meta.fondo = conFondo && fs.existsSync(path.join("public", FONDO)) ? FONDO : null;
