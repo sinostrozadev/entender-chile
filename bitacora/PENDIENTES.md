@@ -25,13 +25,14 @@ aquí queda descartado:
    temas distintos, o ninguno; cada uno cuenta un caso desde su origen, con
    actualización cuando el caso avanza; escenario, el diario escrito con zoom
    a la sección del día de cada noticia (regla 14). Sale a las 19:00.
-3. **Mientras tanto**: el informe en video de 3 a 4 minutos sigue hasta el
-   primer largo por tema aprobado y después se apaga; el diario escrito sale
-   todos los días en https://entender.sinodev.cl; el podcast pasa a leer el
-   diario escrito; el Short del día se queda y se mejora (mediana 104 vistas,
-   pero no sale todos los días).
-4. **La hora es la del workflow**: informe 06:30, Short 12:00, largo por tema (Entender el caso)
-   19:00; `ideas/viralizacion.md` ya no manda.
+3. **Estado al 04-11-2026** (decisión "El despegue"): el informe en video y
+   los exprés están apagados. Sigue el diario escrito todos los días en
+   https://entender.sinodev.cl; sigue el guion narrado del informe, del que
+   salen el Short del día (se queda y se mejora: mediana 104 vistas, pero no
+   sale todos los días) y el podcast, que hoy lee la voz de ese guion. Que el
+   podcast lea el diario escrito está decidido y sin construir.
+4. **La hora es la del workflow**: Short 12:00, largo por tema (Entender el
+   caso) 19:00; `ideas/viralizacion.md` ya no manda.
 5. **Sin gastos nuevos**: ni ElevenLabs ni clips generativos. La biblioteca de
    dibujos, `guardian.md` y la interfaz `taller/` se archivan.
 
@@ -39,7 +40,8 @@ aquí queda descartado:
    condenas de Rabat y Silva (noticias del diario desde el 24-10-2026); diseño
    en `bitacora/2026-11-01-analisis-y-plan.md`, sección 6.
 
-**En construcción** (el día propone con alcance, Santiago aprueba): el podcast
+**En construcción** (desde el 04-11-2026 Claude decide y ejecuta; Santiago se
+entera): el podcast
 que lee el diario escrito, el Short del día todos los días; el largo por tema ya
 tiene flujo y render desde el 02-11-2026 y está en piloto.
 

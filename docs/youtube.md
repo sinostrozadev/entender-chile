@@ -87,8 +87,10 @@ sube el mp4 como privado con título, descripción, capítulos y miniatura.
     aparece en Studio como privado. Bórralo después si era prueba.
 11. Desde el día siguiente el workflow lo hace solo (paso 7 de
     `edicion-diaria.yml`): si los tres secrets existen, sube; si no, dice
-    "sin secrets de YouTube" y sigue. El id queda en `out/FECHA/youtube-id-informe.txt`
-    y en el log del workflow.
+    "sin secrets de YouTube" y sigue. El id queda en `out/FECHA/youtube-id-*.txt`
+    y en el log del workflow. (Hasta el 04-11-2026 subía también el informe
+    en video, a `youtube-id-informe.txt`; desde ese día está apagado y suben
+    el Short y los largos.)
 
 ### Lo que hay que saber
 
@@ -101,9 +103,9 @@ sube el mp4 como privado con título, descripción, capítulos y miniatura.
   solo interviene para frenar.
 - **Cuota**: 10.000 unidades al día por proyecto; una subida cuesta ~1.600,
   poner miniatura 50. Dos videos diarios usan un tercio.
-- **Publicar un video**: al ponerlo público, copiar su id (lo que va después
-  de `youtu.be/`) a `contenido/videos/FECHA-informe.txt` y commitear: la web lo
-  embebe sola.
+- **Publicar un video** (histórico): al ponerlo público se copiaba su id a
+  `contenido/videos/FECHA-informe.txt` para que la web lo embebiera. Nada lo
+  escribe desde el 04-09-2026, y el informe en video se apagó el 04-11-2026.
 
 ## Anexo (30-08): idioma, dónde está cada cosa, y monetización
 

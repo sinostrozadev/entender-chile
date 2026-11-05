@@ -1,10 +1,11 @@
 # Entender Chile: el pipeline del canal
 
 Canal diario de noticias chilenas en YouTube (@entenderchile), producido por
-código y publicado con gate humano. Cada madrugada sale el diario escrito en
-https://entender.sinodev.cl, el informe en video (1440p, de 3 a 4 minutos y
-tres noticias desde el 12-10-2026) y el Short vertical del día. Voz Azure
-es-CL, sonido sintetizado por código, sin edición manual. Papel frío, tinta
+código. Cada madrugada sale el diario escrito en https://entender.sinodev.cl,
+el Short vertical del día (sube a las 12:00) y el podcast; "Entender el caso",
+el largo por tema, sale a las 19:00 el día que se aprueba. El informe diario
+en video y los exprés se apagaron el 04-11-2026 (decisión "El despegue"). Voz
+Azure es-CL, sonido sintetizado por código, sin edición manual. Papel frío, tinta
 negra y verde pátina (`src/tema.ts`); toda cifra en pantalla lleva su fuente.
 
 Las reglas que mandan sobre todo lo demás están en **`REGLAS-DURAS.md`** (42
@@ -23,13 +24,15 @@ Decisiones de Santiago de ese día, con sus porqués en
   su origen, y se actualiza cuando el caso avanza. Su escenario es el diario
   escrito, con zoom a la sección del día en que salió cada noticia (regla 14).
   **Está en construcción**: sale a las 19:00 cuando exista.
-- **Mientras tanto sigue vivo**: el diario escrito todos los días, el informe
-  en video de 3 a 4 minutos hasta que el primer largo por tema esté aprobado
-  (después se apaga), el Short del día (que se mejora), los Shorts exprés de la
-  guardia, y la Clave que ya está en su flujo. El podcast pasa a leer el diario
-  escrito.
-- **Horas de publicación**, las del workflow: informe 06:30, Short 12:00,
-  largo o Clave 14:00.
+- **Lo que sigue vivo desde el 04-11-2026** (decisión "El despegue"): el diario
+  escrito todos los días; el guion narrado del informe (tres noticias), del que
+  salen el Short del día y el podcast; Entender el caso; el barrido, las
+  métricas y el seguimiento de temas. El informe en video y los Shorts exprés
+  de la guardia están apagados. Que el podcast lea el diario escrito está
+  decidido pero no construido: hoy lee la voz del guion.
+- **Claude decide y ejecuta; Santiago se entera** (regla 24, desde el
+  04-11-2026). Criterio de cierre: 31-01-2027.
+- **Horas de publicación**, las del workflow: Short 12:00, largo o Clave 19:00.
 - **Sin gastos nuevos**: nada de ElevenLabs ni clips generativos por ahora.
 
 ## La cadena, como funciona hoy
@@ -55,9 +58,10 @@ por tarea: el estado dice de quién es el turno.
    CORREGIR lo mantiene y devuelve la pieza con correcciones ejecutables.
 5. **Actions calcula el estado** (`estado.yml` escribe
    `contenido/estado/FECHA.md`, emite la etapa al PR #6 y despierta al
-   validador), y cuando la última pieza llega, `edicion-diaria.yml` rinde el
-   video con voz, hace el Short y las carátulas, sube a YouTube programado,
-   publica el podcast y republica la web.
+   validador), y cuando la última pieza llega, `edicion-diaria.yml` hace la
+   voz y el mp3 del guion, rinde el Short, la Clave o el largo si los hay,
+   sube a YouTube programado, publica el podcast y republica la web. Desde el
+   04-11-2026 no rinde video del informe.
 6. **GPT primero, Claude suplente** (regla 20 y 20, desde el 26-09-2026): si
    GPT no responde un turno en 20 minutos, `reintento.yml` le reemite el
    evento; si a los 20 siguientes sigue mudo, escribe
@@ -75,8 +79,9 @@ por tarea: el estado dice de quién es el turno.
   de Claude los leen del repo en cada corrida. Ver `prompts/README.md`.
 - **`scripts/`**: el pipeline en Node. `barrido.js`, `parse.js` (las marcas del
   guion), `tts-azure.js` (voz, con respaldo S0), `build-timeline.js`, `dia.js`
-  (orquesta una pieza), `short.js`, `sonido.js`, `estado.js`, `semana.js`,
-  `metricas.js`, `youtube-subir.js`, `podcast-subir.js`.
+  (orquesta la voz y el mp3 del guion), `short.js` (el Short del día),
+  `sonido.js`, `estado.js`, `semana.js`, `metricas.js`, `youtube-subir.js`,
+  `podcast-subir.js`.
 - **`.github/workflows/`**: quince workflows. El inventario, con su
   disparador y su razón de ser, está en `bitacora/rutinas.md`.
 - **`src/`**: las piezas de Remotion (informe, Short, tarjetas, fondos, el
@@ -100,8 +105,9 @@ por tarea: el estado dice de quién es el turno.
 
 - **`CLAUDE.md`** son las reglas fijas del repo: sin raya larga, fechas
   absolutas, todo en español, y dónde se anota cada cosa.
-- **MODO 1** (regla 24): el día propone con alcance medido, Santiago aprueba,
-  el día ejecuta y lo prueba con una corrida real. Sin el sí, no se toca nada.
+- **Claude decide y ejecuta; Santiago se entera** (regla 24, desde el
+  04-11-2026, skill `despegue`): cada cambio se prueba con una corrida real.
+  Siguen siendo de Santiago el dinero, sus cuentas, los secretos y cerrar PRs.
 - **La bitácora se escribe mientras ocurre**, no al final: lo hablado del día
   en `bitacora/AAAA-MM-DD.md`, el análisis de la mañana en su `-auditoria.md`.
 - **El Taller** es la página única de control (`scripts/taller.js`):

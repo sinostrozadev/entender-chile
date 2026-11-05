@@ -23,7 +23,7 @@ resuelve en el sitio, no escribiendo otro texto.
 
 ## La palabra del día (esto sí se genera para la web)
 
-Es lo único que la web publica y el video no. Una palabra por día, explicada
+Es lo único que la web publica y el guion narrado no. Una palabra por día, explicada
 en dos líneas: qué significa, cómo se usa, dónde la viste.
 
 Se toma de contenido/palabras/banco.md con la prioridad definida en
@@ -46,8 +46,8 @@ está mal escrita.
 - **Subtítulos que se puedan escanear.** Quien lee salta: cada sección debe
   decir de qué trata sin leer el párrafo. El guion puede permitirse un
   subtítulo elegante; la web no.
-- **Los enlaces son la fuente.** En el video la fuente se dice y aparece en
-  pantalla; en la web va enlazada al documento original cuando exista
+- **Los enlaces son la fuente.** En el guion narrado la fuente se dice (y en
+  el Short aparece en pantalla); en la web va enlazada al documento original cuando exista
   (informe de Contraloría, comunicado, ley). Un enlace roto es peor que
   ninguno: si no se puede verificar la URL, se cita sin enlazar.
 - **Las cifras se pueden mirar dos veces.** En pantalla una tabla de cuatro

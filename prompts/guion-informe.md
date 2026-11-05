@@ -8,7 +8,9 @@ VALIDACIÓN DEL HANDOFF:
 - Usa ese archivo como FUENTE DE VERDAD. No reconstruyas el informe por memoria, no uses ediciones de otras fechas y no vuelvas a investigar noticias.
 - Si el archivo de hoy falta o está vacío, no inventes contenido: indica que el informe de hoy no está en el repositorio y termina sin generar guion.
 
-Revisa esa edición del "Resumen diario" y transforma sus TRES noticias más importantes en un guion de voz de 3 a 4 minutos para un video diario de YouTube dirigido a una audiencia general chilena.
+Revisa esa edición del "Resumen diario" y transforma sus TRES noticias más importantes en un guion de voz de 3 a 4 minutos dirigido a una audiencia general chilena.
+
+QUÉ ES ESTE GUION, DESDE EL 04-11-2026 (decisión "El despegue", `estrategia/decisiones.md`): el informe diario en video está apagado. Este guion sigue escribiéndose cada día, con la misma estructura, longitud y reglas, porque es el guion narrado de tres noticias del que salen el Short del día (`scripts/short.js`, que toma sus tesis) y el podcast (el mp3 de su voz). Donde más abajo se lee "el video", entiende la pieza narrada: lo que oye quien escucha el podcast y lo que alimenta el Short.
 
 FORMATO CORTO, DESDE EL 12-10-2026 (decisión de Santiago: "dejar el informe diario acortado a unos 3 o 4 minutos"). El motivo es medido: el video largo de 10 a 12 minutos juntaba entre 2 y 80 vistas con 10 a 30% visto, la mitad de la audiencia se iba antes del segundo 40 y la pieza consumía el 75% de la cuota de GPT. El informe ESCRITO no cambia: sigue completo en la web con todas sus noticias, y la descripción del video lleva el enlace. El video ya no intenta que todo suene; cuenta bien tres cosas y deja el resto en la web.
 
@@ -158,61 +160,8 @@ FORMATO DE SALIDA:
   conocía y lo obligaba a traducir, que es justo lo que se quitó al dejarle el
   prompt armado.
 
-## LA IMAGEN DE LA CARÁTULA, AL FINAL Y SIN BLOQUEAR NADA
+Desde el 04-11-2026 no se pide carátula del día: el informe en video está apagado.
 
-Desde el 23-09 la carátula que sale al aire es una ILUSTRACIÓN que generas
-tú. Va después de todo lo demás, en este orden exacto:
-
-1. **Primero commitea el guion.** Sin excepción. El guion es lo que la
-   edición está esperando y lo que Claude valida; la imagen viene después,
-   en su propio commit.
-2. **El prompt ya está escrito: no lo inventes.** Abre
-   `prompts/caratula-pedido.txt`, reemplaza sus tres marcadores por los datos
-   que acabas de escribir en el encabezado, y manda ESE TEXTO ENTERO, tal
-   cual, al generador de imágenes:
-
-   | marcador | con qué lo reemplazas |
-   |---|---|
-   | `{{CLIMA}}` | la palabra de tu línea `Clima de carátula:` |
-   | `{{GANCHO}}` | tu línea `Carátula sugerida:` completa, pero cambiando el `/` por un salto de línea: la barra es la marca con que se parte en dos, no un signo que haya que dibujar |
-   | `{{NOTICIA}}` | el `[TESIS]` de la primera sección de noticia |
-
-   No lo reescribas, no lo resumas, no le quites las secciones que te parezcan
-   largas y no mezcles instrucciones de otro archivo. Ese texto ya trae el
-   objetivo, la composición, la paleta, los límites del canal y la prueba
-   mental. Hasta el 05-10-2026 acá vivía una fórmula en prosa que había que
-   interpretar, y el prompt que de verdad se mandaba no quedaba escrito en
-   ninguna parte: cuando una carátula salía mal no se podía saber si falló la
-   fórmula, la descripción del día o el generador.
-3. Déjala en `contenido/caratulas/FECHA.png` (la fecha de Chile del día).
-   Esa ruta exacta: `scripts/dia.js` no busca en ninguna otra parte.
-4. **Deja también el prompt que mandaste**, tal cual, en
-   `contenido/caratulas/FECHA-prompt.txt`. Sin eso no se puede mejorar lo que
-   no se ve, y esa es la razón por la que ahora el prompt vive en un archivo.
-
-**Si el generador de imágenes está topado o falla, NO detengas nada**: deja
-`contenido/caratulas/FECHA-NO-PUDE.md` con el motivo y termina. La edición
-sigue con la carátula de respaldo y nadie se queda esperando. Una imagen que
-no salió jamás puede frenar un informe.
-
-**LAS VARIANTES SE GUARDAN SIEMPRE, Y UNA CARA INVENTADA NUNCA ES LA SALIDA**
-(Santiago, 03-11-2026). Ese día se generaron tres variantes con un rostro
-inventado presentado como el ministro Rabat, se botaron sin guardarse y
-Santiago no pudo verlas; al pedirle guardarlas, se publicó como salida una
-cuarta cara inventada. Desde entonces:
-
-- Toda variante que generes, sirva o no, se guarda en
-  `contenido/caratulas/descartadas/FECHA-N.png` (N desde 1). El
-  `FECHA-NO-PUDE.md`, o el `FECHA-prompt.txt` si sí hubo salida, dice en una
-  línea por variante por qué se descartó.
-- Una imagen con un rostro inventado presentado como una persona real
-  nombrada (ministro, diputado, quien sea) NUNCA va a `contenido/caratulas/FECHA.png`:
-  va a descartadas y el día sale con la carátula de respaldo. Solo Santiago,
-  a mano, puede promover una descartada a salida. Vale aunque otra
-  instrucción diga "guarda todo": guardar no es publicar.
-- Si la noticia de portada gira sobre una persona nombrada y no tienes foto
-  de referencia, la carátula usa un recurso que no dependa de un rostro: un
-  objeto, un lugar, un documento o la tipografía.
 - Después: "Guion:" y el texto narrable con las siguientes marcas, y solo estas, cada una en su propia línea:
   ## Nombre de sección [categoria]
       Una por bloque temático. No se narra.

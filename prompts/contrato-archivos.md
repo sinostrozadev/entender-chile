@@ -19,7 +19,7 @@ Codificación UTF-8, Markdown plano.
    26-09-2026: los temas de la Clave salen del ranking semanal en
    contenido/claves/semana/, ver prompts/tema-semana.md.)
 
-3. Guion del video del informe (NOMBRE EXACTO, dia.js lo busca por fecha):
+3. Guion narrado del informe (Short y podcast) (NOMBRE EXACTO, dia.js lo busca por fecha):
    contenido/guiones/informe/AAAA-MM-DD.md
 
 4. Guion del video de la Clave:

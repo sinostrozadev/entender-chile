@@ -21,7 +21,8 @@ registrar la decisión en decisiones.md.
       avatar, trailer, secciones de inicio.
 - [ ] Fijar la meta con fecha y calendario hacia atrás: YPP antes del
       1-feb-2027 → ¿cuándo se lanza en serio, cuántos videos/semana, qué
-      hito a los 30/90/180 días?
+      hito a los 30/90/180 días? (Desde el 04-11-2026: 1 Short diario más
+      los largos por tema; criterio de cierre el 31-01-2027.)
 
 ## Fase 1 - Bloqueantes de monetización (antes de publicar en serio)
 
@@ -43,18 +44,23 @@ registrar la decisión en decisiones.md.
 ## Fase 2 - Lanzamiento (masa crítica, no goteo)
 
 - [ ] 8-10 videos publicados en 2-3 semanas (mezcla Informes + Claves)
-      antes de considerar el canal "lanzado".
+      antes de considerar el canal "lanzado". (Desde el 04-11-2026 la mezcla
+      es Short diario más largos por tema: el informe en video está apagado.)
 - [ ] 1-2 Claves ANCLA con investigación superior en temas de búsqueda
       permanente (UF, AFP, TPM, cómo se elige al Presidente) - el video que
       puede arrastrar el despegue.
 - [ ] Plantilla de miniatura + reglas de título (entidad clave al inicio;
       renunciar a pelear "noticias chile hoy" contra CHV/T13/24H).
-- [ ] Horario fijo 06:30-07:00 y sostenerlo (consistencia > hora mágica).
+- [ ] Horario fijo y sostenerlo (consistencia > hora mágica): Short 12:00,
+      largo por tema 19:00. (La hora 06:30-07:00 era del informe en video,
+      apagado el 04-11-2026.)
 
 ## Fase 3 - Crecimiento y distribución
 
-- [ ] Shorts/clips 9:16 (ya aprobado en ideas/ejecutar.md): 2-3 por informe
-      a TikTok + Reels + Shorts, con etiqueta IA nativa en cada plataforma.
+- [ ] Shorts 9:16: 1 Short diario (el del día, desde el guion narrado) más
+      los largos por tema, a TikTok + Reels + Shorts, con etiqueta IA nativa
+      en cada plataforma. (Los "2-3 clips por informe" de ideas/ejecutar.md
+      quedaron sin objeto el 04-11-2026, al apagarse el informe en video.)
 - [ ] Canal de difusión de WhatsApp (el canal informativo más usado de
       Chile, 68%): link del día + 1-2 titulares.
 - [ ] Pregunta del día al cierre + comentario fijado + responder los

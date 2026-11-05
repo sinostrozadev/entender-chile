@@ -50,13 +50,15 @@ compite por hacer entender mejor.
 
 Ajuste del 01-11-2026 (decisión de Santiago, `estrategia/decisiones.md`): el
 hábito diario es el diario escrito (https://entender.sinodev.cl) con su Short,
-y los Shorts son el producto principal del canal; el informe en video, que
-dura de 3 a 4 minutos desde el 12-10, sigue hasta que exista el primer largo
-por tema. La Clave pasa a ser el largo por tema, sin calendario. Las dos
-velocidades no cambian:
+y los Shorts son el producto principal del canal. Desde el 04-11-2026
+(decisión "El despegue") el informe en video está apagado: el hábito diario es
+el Short explicativo de las 12:00 y el diario escrito. La Clave pasa a ser el
+largo por tema, "Entender el caso", sin calendario. Las dos velocidades no
+cambian:
 
-- **El informe diario** - hábito. Publica a hora fija cada mañana; su
-  trabajo es la retención y la relación diaria con la audiencia.
+- **Lo diario** (el Short de las 12:00 y el diario escrito) - hábito. Su
+  trabajo es la retención y la relación diaria con la audiencia. Hasta el
+  04-11-2026 este papel lo hacía el informe en video de cada mañana.
 - **Claves para entender las noticias** (el largo por tema) - evergreen. Su
   trabajo es el crecimiento: captar búsqueda permanente (UF, AFP, TPM, cómo se
   elige al Presidente), traer suscriptores y seguir siendo útil en dos años.

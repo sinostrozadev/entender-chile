@@ -25,7 +25,9 @@ de Santiago" a "la máquina sube programado y la ventana es la revisión".
 
 Versión 4: 04-11-2026: la regla 24 pasa a "Claude decide y ejecuta; Santiago
 se entera" (decisión "El despegue"). El informe diario en video y los exprés
-se apagan; el canal solo explica.
+se apagan; el canal solo explica. Con eso cambian la regla 19 (horas de
+subida), la regla 40 (promesa diaria) y las disputas 3 (los 3 o 4 minutos),
+8 (hora de publicación) y 9 (la guardia).
 
 ---
 
@@ -116,9 +118,9 @@ se apagan; el canal solo explica.
 ## D. Cómo se produce
 
 19. **La máquina sube programado y la ventana es la revisión.** Desde el
-    01-11-2026 la máquina sube cada pieza programada a su hora (informe
-    06:30, Short 12:00, largo por tema 19:00, exprés a 5 minutos) y la
-    publicación ocurre sola. La ventana entre la subida y la hora es la
+    01-11-2026 la máquina sube cada pieza programada a su hora (Short 12:00,
+    largo por tema 19:00; el informe de las 06:30 y los exprés se apagaron
+    el 04-11-2026) y la publicación ocurre sola. La ventana entre la subida y la hora es la
     revisión de Santiago, que puede frenar la pieza o cambiarle la hora desde
     Studio. Nada se sube público de inmediato. Historia: la regla original
     decía "la máquina produce, una persona aprueba: la pieza sube en privado
@@ -309,11 +311,13 @@ se apagan; el canal solo explica.
     01-11-2026; reemplaza la meta del 30-08; números en
     `bitacora/2026-11-01-analisis-y-plan.md`)
 40. **La promesa diaria es el diario escrito y el Short del día.** El diario
-    sale todos los días en https://entender.sinodev.cl y el podcast lo lee;
-    el Short del día sale todos los días. No se recorta el fin de semana por
-    costo. El informe diario en video (de 3 a 4 minutos) sigue hasta que el
-    primer largo por tema esté aprobado y después se apaga; el largo por tema
-    no tiene calendario (regla 14). (decisión de Santiago, 01-11-2026;
+    sale todos los días en https://entender.sinodev.cl; el Short del día sale
+    todos los días. No se recorta el fin de semana por costo. El informe
+    diario en video se apagó el 04-11-2026 (decisión "El despegue"); su guion
+    narrado sigue, porque de él salen el Short y el podcast. El podcast sigue
+    leyendo ese guion narrado hasta que se construya la lectura del diario
+    escrito, decidida el 01-11-2026. El largo por tema no tiene calendario
+    (regla 14). (decisión de Santiago, 01-11-2026, ajustada el 04-11-2026;
     reemplaza "la promesa del canal es diaria", que incluía el video)
 
 41. **Una sola lista de trabajo: `bitacora/PENDIENTES.md`.** Toda tarea vive
@@ -356,7 +360,9 @@ que la sostenía. **Hoy no hay ninguna abierta.**
   no de cantidad; todo lo del informe sigue sonando. SUPERADA el 12-10-2026:
   el informe en video pasó a 3 o 4 minutos con tres noticias y sin "En
   titulares"; el informe completo vive en la web (`estrategia/decisiones.md`,
-  entrada "El informe pasa a 3 o 4 minutos").
+  entrada "El informe pasa a 3 o 4 minutos"). Desde el 04-11-2026 el video
+  del informe está apagado: lo que queda es el guion narrado de tres
+  noticias, del que salen el Short y el podcast.
 - **4 · El clima**: CERRADA el 02-09: excepción declarada, UNA frase casual en
   la despedida, nunca una sección.
 - **5 · "¿En qué quedó?"**: CERRADA el 02-09: por hito, no por calendario.
@@ -369,12 +375,13 @@ que la sostenía. **Hoy no hay ninguna abierta.**
   de día la lee y profundiza.
 - **8 · Hora de publicación**: CERRADA el 02-09 con la tabla de
   `ideas/viralizacion.md`. RESUELTA DE NUEVO el 01-11-2026, decisión de
-  Santiago: vale la hora real del workflow (`YT_HORA_INFORME`,
-  `YT_HORA_SHORT` y `YT_HORA_CLAVE` en `.github/workflows/edicion-diaria.yml`):
-  informe 06:30, Short 12:00 y Clave 14:00 hoy, y el largo por tema pasa a las
-  19:00. `ideas/viralizacion.md` deja de mandar sobre la hora.
-- **9 · La base de series**: CERRADA el 02-09: la alimenta el agente de
-  guardia.
+  Santiago: vale la hora real del workflow (`YT_HORA_SHORT` y `YT_HORA_CLAVE`
+  en `.github/workflows/edicion-diaria.yml`): Short 12:00 y Clave o largo por
+  tema 19:00. `ideas/viralizacion.md` deja de mandar sobre la hora. Desde el
+  04-11-2026 no hay hora del informe (estaba a las 06:30) ni guardia: los
+  dos se apagaron con la decisión "El despegue".
+- **9 · La base de series**: CERRADA el 02-09: la alimentaba el agente de
+  guardia, apagado desde el 04-11-2026.
 - **10 · La cortina de sección**: CERRADA el 02-09: no era disputa sino
   redacción; dura 1,1 s y ese segundo define la tira de capítulos.
 
