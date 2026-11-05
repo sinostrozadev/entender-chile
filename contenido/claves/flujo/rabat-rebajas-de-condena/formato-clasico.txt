@@ -1,0 +1,8 @@
+Marcador creado el 04-11-2026 23:30 (hora de Chile) por Claude.
+
+No pide el formato clásico: dia.js elige el formato por las marcas
+[DIARIO AAAA-MM-DD | slug] del guion y este flujo sale como largo del diario
+(src/largo-diario.tsx). Este archivo existe solo para que estado-clave.js no
+mande el flujo a la etapa "paneles" (pedir 14 imágenes del mural a GPT)
+cuando el guion quede aprobado. El arreglo de fondo (reconocer las marcas
+DIARIO en tras_guion) está encargado; cuando entre, este marcador sobra.
