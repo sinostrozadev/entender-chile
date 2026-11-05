@@ -681,5 +681,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-04-informe.mp3",
     "bytes": 5249088,
     "durSeg": 219
+  },
+  {
+    "fecha": "2026-11-05",
+    "tipo": "informe",
+    "titulo": "05-11-2026 · Junaeb: pagos por raciones no entregadas y multas pendientes",
+    "descripcion": "Contraloría reactivó el caso de las raciones no entregadas de Junaeb, con pagos sin ajuste, sobrepagos y multas pendientes. Fallos revisados por CIPER cuestionan la defensa del ministro Fernando Rabat, mientras el Banco Central reveló que evaluó subir la tasa antes de mantenerla en 4,5%. La edición completa también aborda el nuevo control demócrata del Congreso de Estados Unidos, el Presupuesto 2027 y el sistema frontal en el centro sur.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-05/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-05-informe.mp3",
+    "bytes": 5245056,
+    "durSeg": 219
   }
 ]
