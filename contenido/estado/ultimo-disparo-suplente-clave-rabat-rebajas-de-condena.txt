@@ -1,1 +1,1 @@
-pauta_aprobada 0
+reparar_investigacion 1
