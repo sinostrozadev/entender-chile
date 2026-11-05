@@ -1,29 +1,9 @@
-VEREDICTO: CORREGIR
+VEREDICTO: APROBADA
 VUELTA: 1
 PIEZA: investigacion
 SLUG: rabat-rebajas-de-condena
 PROMPT: prompts/investigacion-clave.md
-VALIDADO: 2026-11-05T02:24:08Z
-
-Correcciones:
-1. Dónde: línea 19, "CIPER encontró 15 amparos de 2026 en los que las cortes
-   ordenaron al Ministerio pronunciarse y, en algunos, reconocieron
-   expresamente que podía aceptar o rechazar" · Regla: "Cifras exactas, con su
-   unidad, su fecha y de dónde salen. Nada de 'unos', 'cerca de' ni 'varios'
-   si el número existe" (prompts/investigacion-clave.md, sección Reglas) ·
-   Debe quedar: en lugar de "en algunos", cuántos de esos 15 fallos reconocen
-   la facultad de aceptar o rechazar, con el número que da CIPER, 04-11-2026,
-   o los fallos individualizados. Si esa fuente no permite contarlos ni
-   identificarlos, la frase se borra y el punto se queda con los 15 amparos y
-   la orden de pronunciarse, que sí están contados. Es un dato que el video va
-   a usar para decir que el ministro tenía margen propio.
-2. Dónde: línea 26, "resueltos a favor de solicitantes por mayoría y con votos
-   disidentes en varios casos" · Regla: la misma, "Nada de 'unos', 'cerca de'
-   ni 'varios' si el número existe" · Debe quedar: en qué roles de los tres
-   citados (19.357-2026, 17.764-2026, 17.892-2026) consta voto disidente,
-   según Meganoticias, 26-10-2026, o cuántos de ellos. Si la fuente no lo dice
-   por rol, la frase sobre los votos disidentes se borra: los tres roles y el
-   resultado a favor de los solicitantes se mantienen igual.
+VALIDADO: 2026-11-05T02:29:14Z
 
 Observaciones:
 - Para la pieza siguiente: la sección 5 de la pauta (línea 68) dice que el
@@ -44,8 +24,21 @@ Observaciones:
 - Para la pieza siguiente: la fecha de la Ley N° 21.421 queda en 09-02-2022,
   con BCN como fuente (línea 23), y no en el 04-02-2022 que trae la sección 2
   de la pauta.
+- Para la pieza siguiente: la línea 19 sostiene el margen propio del ministro
+  con dos cifras de CIPER, 04-11-2026 (cuatro de los 15 fallos reconocen la
+  facultad de dictar el decreto que correspondiera, y uno dice expresamente
+  que podía reconocer o rechazar). Si la entrega o el guion usan ese punto,
+  van esas dos cifras con su fuente, no una fórmula general sobre "los
+  fallos". La frase "de forma más explícita" es del dossier y no se traslada:
+  en la pieza publicable se dice qué reconoció cada grupo de fallos.
+- Las dos correcciones de la vuelta 1 quedaron ejecutadas y el cambio se
+  limitó a esas dos líneas (dos inserciones, dos borrados): la línea 19
+  reemplazó "en algunos" por cuatro fallos y uno, y la línea 26 reemplazó
+  "votos disidentes en varios casos" por los tres roles con nombre y los dos
+  ministros que estuvieron por mantener el rechazo.
 - Línea 26, "Mega identificó, entre otros, los roles": si el medio dice cuántos
-  fallos identificó, ese número sirve más que "entre otros". No bloquea.
+  fallos identificó, ese número sirve más que "entre otros". No bloquea, y ya
+  venía anotado así en la vuelta 1.
 - El encargo 8 de la sección 7 de la pauta nombra a Interferencia y a CNN
   Chile. El dossier trae los documentos por Interferencia, 01-11-2026, y no
   menciona qué se buscó en CNN Chile. No bloquea, porque el material del
