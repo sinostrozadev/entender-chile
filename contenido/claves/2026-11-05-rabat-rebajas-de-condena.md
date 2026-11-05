@@ -46,6 +46,8 @@ En 2026, Justicia cambió su criterio. Interferencia encontró decretos que nega
 
 Fernando Rabat afirmó el 25-10-2026 que la Corte Suprema había reprochado en más de 250 oportunidades negativas de ministros anteriores. Al 04-11-2026 no se encontró una nómina oficial del Poder Judicial que permitiera verificar esa cifra. Las revisiones públicas disponibles muestran fallos en ambos sentidos, por lo que el número debe mantenerse como una afirmación del ministro y no como un hecho independiente comprobado (The Clinic, 25-10-2026; CIPER, 30-10-2026).
 
+La controversia también escaló políticamente. El 25-10-2026, Cadem midió 29% de aprobación y 66% de desaprobación del Presidente, 89% de conocimiento del caso y 92% de desacuerdo con las rebajas (Cadem, 25-10-2026). El 26-10-2026, el Gobierno calificó las rebajas como un error y mantuvo al ministro en el cargo (Informe de Entender Chile, 27-10-2026). El 28-10-2026, la Cámara aprobó por 68 votos a favor, 42 en contra y 7 abstenciones una resolución que pidió al Presidente la renuncia del ministro y de dos subsecretarios. Esa resolución expresó una posición política y no destituyó por sí sola a las autoridades (Informe de Entender Chile, 29-10-2026).
+
 ## ¿Pueden volver a la cárcel y cuántos están libres?
 
 No hay una respuesta jurídica definitiva en las fuentes revisadas sobre si los 56 beneficiados pueden volver a prisión por la sola revisión de estos decretos. Justicia anunció el 23-10-2026 que suspendía la tramitación de nuevas rebajas, pero ese anuncio operaba hacia adelante y no anuló los actos ya ejecutados. Tampoco se encontró al 04-11-2026 una resolución o decreto publicado que formalizara la suspensión, una revocación de los 56 beneficios, el resultado público de la revisión caso a caso o una orden de reingreso (Ministerio de Justicia, 23 y 26-10-2026; The Clinic, 25-10-2026).
@@ -61,6 +63,8 @@ El primer frente es la reforma legal. El proyecto del Ejecutivo corresponde al b
 El segundo frente es la acusación constitucional. Al cierre del 04-11-2026, dirigentes opositores seguían anunciándola y no se encontró una ficha oficial de ingreso con fecha y firmas. Si la Cámara declara que una acusación contra un ministro procede, este queda suspendido. Si el Senado lo declara culpable, queda destituido e inhabilitado para ejercer funciones públicas durante cinco años (Cámara de Diputadas y Diputados, consulta del 04-11-2026; BCN, Constitución, artículos 52 y 53). Esta es una vía de responsabilidad política, no un juicio penal.
 
 El tercer frente es la investigación penal abierta por la Fiscalía Metropolitana Centro Norte, con apoyo de la Fiscalía Anticorrupción, a partir de una denuncia por eventual prevaricación administrativa. Al 04-11-2026 no había formalización anunciada. La calidad de imputado de Rabat surge de haber sido individualizado en una denuncia y no acredita delito ni responsabilidad (Cooperativa, 02-11-2026; BioBioChile, 03-11-2026). El Código Penal contempla penas para la prevaricación administrativa, pero solo podrían aplicarse después de una investigación, una acusación y una condena. Nada de eso había ocurrido en este caso al 04-11-2026 (BCN, Código Penal, artículo 228).
+
+El 30-10-2026, el Presidente aceptó la renuncia del subsecretario de Justicia, Luis Silva, y nombró a Josefina Soto Larreátegui. El comunicado del Ejecutivo no atribuyó responsabilidad penal a Silva. Al 04-11-2026, Silva estaba denunciado y no había sido formalizado (Informe de Entender Chile, 31-10-2026; BioBioChile, 03-11-2026). Ese mismo 30-10-2026, un informe de Gendarmería consignó un nexo con el Tren de Aragua de uno de los condenados beneficiados por un decreto de rebaja. El documento pasó a integrar los antecedentes para determinar qué información conocía el Ministerio al resolver, sin establecer por sí solo responsabilidad penal de una autoridad (Informe de Entender Chile, 31-10-2026).
 
 ## Qué cambia para las víctimas
 
@@ -122,3 +126,7 @@ Fuentes:
 - The Clinic, ejecución y posibles vías de reversión, 25-10-2026: https://www.theclinic.cl/2026/10/25/rabat-desconoce-si-todos-los-beneficiados-por-rebajas-de-condenas-estan-en-libertad-no-me-atrevo-a-dar-una-respuesta-absoluta-lo-mas-probable-es-que-si/amp/
 - Voto Visible, boletines 18.792-07 y 18.806-07, consultado el 04-11-2026: https://www.votovisible.cl/blog/56-rebajas-y-una-pregunta-abierta
 - Portal Legislativo, boletín 18.806-07, consultado el 04-11-2026: https://legislativo.lsvt.cl/proyecto/18806-07
+- Cadem, Plaza Pública N° 700, 25-10-2026: https://cadem.cl/plaza-publica/
+- Entender Chile, informe del 27-10-2026: https://github.com/sinostrozadev/entender-chile/blob/main/contenido/informes/2026-10-27.md
+- Entender Chile, informe del 29-10-2026: https://github.com/sinostrozadev/entender-chile/blob/main/contenido/informes/2026-10-29.md
+- Entender Chile, informe del 31-10-2026: https://github.com/sinostrozadev/entender-chile/blob/main/contenido/informes/2026-10-31.md
