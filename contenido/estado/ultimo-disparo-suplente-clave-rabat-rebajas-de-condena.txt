@@ -1,1 +1,1 @@
-investigacion_lista 0
+reparar_entrega 1
