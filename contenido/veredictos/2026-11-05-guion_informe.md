@@ -1,64 +1,36 @@
-VEREDICTO: CORREGIR
+VEREDICTO: APROBADA
 VUELTA: 2
 PIEZA: guion_informe
 PROMPT: prompts/guion-informe.md
-VALIDADO: 2026-11-05T07:57:52Z
-
-Correcciones:
-1. Dónde: el orden de los bloques de noticia. El segundo es "## Banco Central
-   mantiene la tasa [economia]" (línea 27) y el tercero "## Fallos presionan la
-   defensa de Rabat [congreso]" (línea 36). · Regla: QUÉ SE NARRA, "1. La
-   NOTICIA DE PORTADA va siempre, y va primera. 2. Las demás [A] del informe,
-   en el orden en que el informe las trae. (...) 4. Si el informe trae más de
-   tres [A], narras la portada y las dos [A] siguientes en el orden del
-   informe." El informe trae cuatro [A] en este orden: Junaeb (línea 14,
-   portada), Rabat (línea 38), Banco Central (línea 80), demócratas (línea
-   160). La vuelta anterior pedía exactamente "Junaeb (portada), Rabat y Banco
-   Central"; entró el bloque de Rabat, pero quedó tercero. · Debe quedar: los
-   dos bloques intercambiados, Rabat segundo y Banco Central tercero. Se mueven
-   completos y sin cambiarles una palabra: el bloque de Rabat con su línea
-   "##", su [FUENTE], su [TESIS], la línea en blanco que va después de la
-   tesis, sus dos párrafos, su [ESQUEMA] y el párrafo que lo sigue; el del
-   Banco Central igual, con su [DATO cifra] donde está. No hay que tocar nada
-   más: la Apertura (línea 14) ya adelanta a Rabat primero y al Banco Central
-   después, el Cierre (línea 48) ya los nombra en ese mismo orden, y la
-   variedad visual se mantiene (las tarjetas quedan cifra, comparacion,
-   esquema, cifra, sin dos [DATO cifra] seguidas).
-2. Dónde: la lista "Fuentes:" (líneas 50 a 64), donde no aparece Radio
-   Universidad de Chile, mientras la línea 45 narra "La acusación
-   constitucional todavía debe ser presentada y después revisada por la
-   Cámara", que en el informe es la línea 46 y viene acreditada ahí a "(Radio
-   Universidad de Chile, 04 nov)". · Regla: FORMATO DE SALIDA, "Al final, bajo
-   'Fuentes:', lista una línea por cada fuente de las marcas [DATO] y [CITA] Y
-   por cada fuente del informe cuyas noticias narraste, tal como aparecen en el
-   informe (...) una fuente cuyo contenido se narró no puede quedar sin
-   crédito." · Debe quedar: una línea más en la lista, tal como la trae el
-   informe en su "Fuentes consultadas" (línea 234): "- Radio Universidad de
-   Chile, 04-11-2026." El resto de la lista queda igual: las altas de CIPER,
-   Interferencia, El Desconcierto, Epicentro Chile y Ex-Ante corresponden a los
-   párrafos de Rabat que sí se narran, y las bajas de Associated Press y Reuters
-   corresponden a la noticia que salió del guion.
+VALIDADO: 2026-11-05T08:02:30Z
 
 Observaciones:
-- La corrección 2 de la vuelta anterior quedó cumplida: "La noticia del día"
-  son ahora dos frases y 33 palabras narradas, dentro del rango de 25 a 35.
+- Las dos correcciones de la vuelta 2 quedaron cumplidas y el cambio no
+  introdujo nada más. La corrección 1: el orden de los bloques de noticia es
+  ahora Junaeb (portada, línea 16), Rabat (línea 27) y Banco Central (línea
+  38), que es el orden en que el informe trae sus cuatro [A] (líneas 14, 38,
+  80 y 160), como pide el punto 4 de QUÉ SE NARRA. La corrección 2: la línea
+  64 agrega "- Radio Universidad de Chile, 04-11-2026.", literal como la trae
+  el informe en su línea 234. El diff contra la versión anterior muestra solo
+  el bloque del Banco Central movido entero y sin cambiarle una palabra, esa
+  línea de fuente y el salto de línea final que faltaba: ninguna otra parte
+  de la pieza se tocó.
+- Verificado que el intercambio de bloques no rompió nada de lo que dependía
+  del orden: la Apertura (línea 14) adelanta a Rabat y después al Banco
+  Central, el Cierre (línea 48) los nombra en esa misma secuencia, las
+  tarjetas quedan cifra, comparacion, esquema y cifra (sin dos [DATO cifra]
+  seguidas y con tres tipos distintos en la edición), y cada [TESIS] conserva
+  su línea en blanco antes del párrafo narrado.
 - "El contrato de la empresa SOSER, en la Región de O'Higgins, muestra la
-  distancia más concreta" (línea 23) sigue usando un comparativo que el informe
-  no trae. No bloquea, porque no afirma nada sobre una serie histórica, pero la
-  regla del 10-09-2026 pide que los comparativos salgan del informe: la
-  comparación se sostiene sola con sus dos cifras.
-- `node scripts/revisar-mecanico.js` no encontró hallazgos.
-  `node scripts/validar-tarjetas.js` avisa por la cifra exacta "9.134" de la
-  línea 5, que es la Carátula 3: las carátulas no se narran, así que la regla de
-  redondeo en voz no la alcanza y el aviso no pide cambio.
-- El archivo quedó sin salto de línea final. El contrato de archivos no lo
-  exige, así que no es hallazgo, pero conviene cerrarlo al reescribir.
-- Lo demás verificado sin hallazgos en esta vuelta: 477 palabras narradas
-  (rango 420 a 600), cuatro bloques con [FUENTE], tesis de 12, 13 y 14 palabras
-  con su línea en blanco, el [ESQUEMA] que exige la noticia de proceso, las
-  etiquetas de las tres marcas [DATO] con contexto y unidad, el árbol de tipos
-  bien aplicado (pago fijo contra entregas acreditadas es comparacion y no
-  cambio), la fidelidad del bloque nuevo contra el informe (líneas 40 a 46),
-  cifras habladas redondeadas y en palabras, apertura de 28 palabras y cierre
-  de 54 con el enlace, la línea "Para salir hoy" y el tagline, y la lista de
-  fuentes sin rutas internas del sistema.
+  distancia más concreta" (línea 23) sigue usando un comparativo que el
+  informe no trae. No bloquea, porque no afirma nada sobre una serie
+  histórica, pero la regla del 10-09-2026 pide que los comparativos salgan
+  del informe: la comparación se sostiene sola con sus dos cifras.
+- `node scripts/revisar-mecanico.js` imprime "sin hallazgos mecánicos".
+  `node scripts/validar-tarjetas.js` cuenta 477 palabras narradas (rango 420
+  a 600) y cuatro bloques con fuente, y avisa por la cifra exacta "9.134" de
+  la línea 5, que es la Carátula 3: las carátulas no se narran, así que la
+  regla de redondeo en voz no la alcanza y el aviso no pide cambio.
+- Queda anotado para la definición del prompt, no para esta pieza: la
+  observación del veredicto del informe sobre "nombre buscable 2" en el
+  puntaje de la portada sigue abierta por segundo día.
