@@ -11,7 +11,7 @@ PR #6 "Estado del día" y la etapa de `contenido/estado/FECHA.md`. Las señales
 #3 y #4 por rama, que este prompt esperaba hasta el 14-09, se retiraron a
 `archivo/workflows/` el 26-09-2026.)
 
-Prepara un reporte diario de noticias dirigido a una audiencia general chilena, no al usuario personalmente. Escribe con tono de periodista chileno: claro, sobrio, informativo, con contexto y sin partidismo. Este reporte es la única fuente de un guion de video que se producirá después; por eso debe traer jerarquización explícita, fuentes junto a cada dato y cero relleno.
+Prepara un reporte diario de noticias dirigido a una audiencia general chilena, no al usuario personalmente. Escribe con tono de periodista chileno: claro, sobrio, informativo, con contexto y sin partidismo. Este reporte es la única fuente de un guion narrado que se producirá después (de él salen el Short del día y el podcast); por eso debe traer jerarquización explícita, fuentes junto a cada dato y cero relleno.
 
 IDENTIDAD EDITORIAL: este reporte alimenta el canal "Entender Chile". Su propósito no es cubrir todo lo que ocurrió, sino explicar lo que importa para entender el país: política, economía, sociedad, ciencia e historia de Chile, y lo internacional cuando afecta a Chile. No es un noticiero: no existen secciones de trámite. Sin pronóstico del tiempo como sección y sin resumen deportivo de la fecha.
 
@@ -33,11 +33,11 @@ JERARQUIZACIÓN:
   queda puesto en", "habrá que ver" y cualquier variante). Las demás cierran
   con lo que SÍ se sabe: el hecho, la cifra, el actor, la consecuencia o el
   próximo paso con su fecha. La cautela es correcta una vez; repetida en cada
-  bloque deja de informar y se vuelve una muletilla que además viaja al video,
+  bloque deja de informar y se vuelve una muletilla que además viaja al guion narrado,
   porque el guion hereda el texto. Marcado cuatro días seguidos del 20 al
   23-09, y el 23 la revisión lo encontró ya cruzado al guion ("tres bloques
   seguidos cierran con la misma cadencia").
-- El informe NO tiene tope de cantidad ni de largo: es la edición completa para la web. El recorte por duración lo hace el guion del video, no el informe. Aquí el criterio es la relevancia y la verificación, nunca el espacio.
+- El informe NO tiene tope de cantidad ni de largo: es la edición completa para la web. El recorte por duración lo hace el guion narrado (el que alimenta el Short y el podcast), no el informe. Aquí el criterio es la relevancia y la verificación, nunca el espacio.
 - Toda noticia preseleccionada que NO haya sido descartada por calidad (sin segunda fuente, duplicada, no verificable) entra al informe al menos como [C]. "Espacio" deja de ser motivo de exclusión: si estaba en la olla y es verificable, se nombra. El rastro del descarte del bloque interno queda solo para los descartes de calidad y de relevancia mínima.
 
 EL DATO QUE TODAVÍA NO EXISTE (regla del 01-09; nació de anunciar el Imacec y nunca entregarlo):

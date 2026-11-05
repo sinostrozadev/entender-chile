@@ -933,7 +933,9 @@ pasa a leer el diario escrito, no el audio del video. El Short del día se queda
 y se mejora. Por qué: el informe en video junta entre 2 y 80 vistas con 10 a 30
 % visto, y es la pieza que más cuota gasta; el escrito es lo que de verdad usa
 quien quiere el día completo. El Short del día rinde una mediana de 104 vistas
-y su problema no es el formato sino que no sale todos los días.
+y su problema no es el formato sino que no sale todos los días. (superado el
+04-11-2026 por la decisión El despegue: el informe en video se apagó ese día;
+la lectura del escrito por el podcast sigue sin construir)
 
 **4. La hora de publicación que vale es la real del workflow**: informe 06:30,
 Short 12:00 y largo o Clave 14:00 hoy (`YT_HORA_INFORME`, `YT_HORA_SHORT` y

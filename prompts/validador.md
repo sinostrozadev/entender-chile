@@ -156,7 +156,7 @@ contrato. Para cada requisito, mira en la pieza si se cumple.
 - **Pieza `guion_informe`, formato corto desde el 12-10-2026** (Santiago:
   "dejar el informe diario acortado a unos 3 o 4 minutos"): el guion narra
   TRES noticias y el resto vive solo en la web. Que una [A] o [B] fuera de
-  esas tres no suene en el video NO es INCUMPLE, y la ausencia de "En
+  esas tres no suene en el guion narrado NO es INCUMPLE, y la ausencia de "En
   titulares", Dato curioso, Agenda y "¿En qué quedó?" tampoco: el prompt las
   retiró. Sí es INCUMPLE una cuarta sección de noticia, la portada fuera del
   primer bloque, o un largo fuera de 420 a 600 palabras narradas (el número
@@ -261,7 +261,8 @@ Escribe `contenido/revisiones/FECHA.md` con:
 
 Solo si los tres veredictos dicen APROBADA. Commit `revisión FECHA [claude]`
 y push: ese push es la compuerta que dispara el render de los videos y la
-publicación en la web.
+publicación en la web. (Desde el 04-11-2026 esos videos son el Short y los
+largos: el informe en video está apagado.)
 
 ## Guardas
 
