@@ -1,1 +1,1 @@
-pauta_lista 0
+pauta_aprobada 0
