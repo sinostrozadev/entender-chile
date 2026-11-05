@@ -2,11 +2,11 @@
   "flujo": "clave",
   "slug": "rabat-rebajas-de-condena",
   "camino": "pauta",
-  "etapa": "investigacion_lista",
+  "etapa": "validar_entrega",
   "vuelta": 0,
-  "turno": "GPT",
+  "turno": "Claude",
   "fecha_produccion": "2026-11-05",
-  "actualizado": "2026-11-04 23:29",
+  "actualizado": "2026-11-04 23:34",
   "concepto": "Las rebajas de condena firmadas por el Ministerio de Justicia: Rabat y Silva",
   "pieza": {
     "id": "entrega",
@@ -27,7 +27,7 @@
     },
     {
       "id": "entrega",
-      "situacion": "falta",
+      "situacion": "por_validar",
       "archivo": "contenido/claves/2026-11-05-rabat-rebajas-de-condena.md"
     },
     {
