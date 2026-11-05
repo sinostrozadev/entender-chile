@@ -1,1 +1,1 @@
-reparar_entrega 1
+entrega_lista 0
