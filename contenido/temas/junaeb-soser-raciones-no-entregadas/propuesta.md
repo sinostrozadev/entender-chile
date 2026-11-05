@@ -1,0 +1,7 @@
+PROPUESTA: explicar
+FECHA: 2026-11-05
+POR QUÉ: La Contraloría puso cifras oficiales sobre el Programa de Alimentación Escolar y el caso ya tiene una imagen que se explica sola: $3.554 millones pagados sobre 796.043 porciones de las que se acreditaron 284.
+Hay sumario, antecedentes en el Ministerio Público y en el Consejo de Defensa del Estado y una comisión investigadora de la Cámara sobre el programa entre 2019 y 2024, y el canal nunca ha contado el caso en un largo.
+Es plata pública destinada a la alimentación de escolares, con un dossier ya armado en contenido/casos/junaeb-soser-raciones-no-entregadas.md.
+HITOS NUEVOS:
+- 2026-11-04 | La Contraloría General de la República consigna 35 pagos de 2022 por $209.221 millones sin el ajuste final acreditado, ajustes no documentados por $40.475 millones, sobrepagos por $34.340 millones en el Programa de Alimentación Escolar y por $6.134 millones en el de párvulos, y multas pendientes por $9.134 millones; en el contrato de SOSER en O'Higgins registra un pago fijo de $3.554 millones calculado sobre 796.043 porciones con la entrega de 284 acreditada, otros $4.640 millones asociados a un cambio no autorizado en la ponderación del precio y 82,6% de las observaciones del seguimiento sin resolver (Contraloría General de la República, BioBioChile y Canal 9 Bío Bío Televisión, 04-11-2026) | diario: 2026-11-05#contraloria-revive-los-pagos-por-raciones-no-entregadas-de | sección: Plata pública

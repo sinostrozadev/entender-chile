@@ -1,7 +1,7 @@
 # La tramitación del Presupuesto 2027
 Estado: abierto
 Abierto: 2026-11-03
-Última actualización: 2026-11-04
+Última actualización: 2026-11-05
 
 ## Origen
 El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro en los informes del canal es del 26-10-2026, cuando Hacienda abrió conversaciones para destrabarlo y los rectores de las universidades estatales objetaron partidas (Diario Financiero, La Tercera, Radio Universidad de Chile y Universidad de Chile, 26-10-2026). Importa porque de esas partidas depende el gasto público del año siguiente y porque la discusión quedó cruzada por la controversia sobre el ministro de Justicia, Fernando Rabat: la oposición anunció que buscará rechazar la glosa de Justicia. El 02-11-2026 la Comisión Especial Mixta inició la votación con más de 3.800 indicaciones (La Tercera, Radio Universidad de Chile y Publimicro, 02-11-2026).
@@ -16,10 +16,15 @@ El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro e
 - 2026-11-02 | La Comisión Especial Mixta inicia la votación del Presupuesto 2027 con más de 3.800 indicaciones; la oposición anuncia que buscará rechazar la glosa de Justicia por la controversia sobre el ministro Rabat y el Gobierno descarta elevar el gasto total (La Tercera, Radio Universidad de Chile y Publimicro, 02-11-2026) | diario: 2026-11-03#la-comision-mixta-inicia-la-votacion-del-presupuesto-2027 | sección: Política
 - 2026-11-03 | La Comisión Especial Mixta aprueba por unanimidad la partida de Seguridad y Salud queda como uno de los principales focos de conflicto: el proyecto asigna más de $18,3 billones a Salud, un aumento de 4,7% respecto de 2026, y parlamentarios y gremios cuestionan reducciones en programas, glosas y fondos específicos (Ministerio de Salud, Senado, Radio Universidad de Chile y La Nación, 19-10-2026 y 03-11-2026) | diario: 2026-11-04#salud-concentra-la-disputa-del-presupuesto-2027 | sección: Política
 
+- 2026-11-04 | Hacienda acuerda con los gobernadores reponer recursos para los gobiernos regionales después de la rebaja inicial discutida en el Congreso, y la Comisión Especial Mixta despacha las partidas de Justicia y de Servel, esta última con una indicación del Ejecutivo para aumentar sus recursos, además de aprobar una indicación destinada a asegurar el cumplimiento de la Ley Ricarte Soto (Senado, La Tercera y Radio Universidad de Chile, 03 y 04-11-2026) | diario: 2026-11-05#presupuesto-2027-repone-recursos-regionales-y-fija | sección: Política
+- 2026-11-04 | La partida de Salud llega a la votación con una propuesta que reduce de $189.000 millones a $166.000 millones el fondo para tratamientos de alto costo de 2027, y el Ministerio de Salud sostiene que los tratamientos vigentes quedarían cubiertos y anuncia una reforma legal para hacer crecer el fondo junto con el número de pacientes (Senado y La Tercera, 19-10-2026 y 04-11-2026) | diario: 2026-11-05#presupuesto-2027-repone-recursos-regionales-y-fija | sección: Política
+- 2026-11-04 | El Ministerio de Salud defiende los cambios al financiamiento de la atención primaria durante la discusión del Presupuesto 2027 (La Tercera, 04-11-2026) | diario: 2026-11-05#el-ministerio-de-salud-defendio-los-cambios-al | sección: Además, hoy
 ## Qué falta por saber
 - ¿Cuándo ingresó el proyecto y cuál es el gasto total propuesto? No consta en los informes del repo.
 - ¿Qué fecha límite tiene el despacho del Presupuesto 2027? No consta en los informes del repo.
-- ¿Se rechaza la glosa de Justicia, y con qué efecto sobre el Ministerio?
+- ¿Se rechaza la glosa de Justicia, y con qué efecto sobre el Ministerio? La Comisión Especial Mixta despachó esa partida el 04-11-2026 pese al rechazo opositor, y falta la votación en Sala.
+- ¿Queda el fondo para tratamientos de alto costo de 2027 en $189.000 millones o en $166.000 millones, y cuándo ingresa la reforma legal que anunció el Ministerio de Salud el 04-11-2026?
+- ¿Cuántos recursos se reponen finalmente para los gobiernos regionales después del acuerdo del 04-11-2026 con los gobernadores?
 - ¿Qué pasa con las partidas de educación superior, cultura y ciencia que objetaron rectores y profesores?
 - ¿Cuántas de las más de 3.800 indicaciones se aprueban, y qué reasignaciones quedan?
 - ¿Qué programas, glosas y fondos específicos de Salud se reducen, y cuáles sobreviven a la votación? El detalle de los recortes cuestionados el 03-11-2026 no consta en los informes del repo.
