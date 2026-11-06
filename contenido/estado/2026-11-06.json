@@ -1,9 +1,9 @@
 {
   "fecha": "2026-11-06",
-  "etapa": "informe_listo",
+  "etapa": "validar_guion_informe",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-11-06 03:16",
+  "actualizado": "2026-11-06 03:19",
   "reparar": null,
   "piezas": [
     {
@@ -48,13 +48,15 @@
     {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "por_validar",
       "prompt": "prompts/guion-informe.md",
-      "hora": "",
+      "hora": "03:19",
       "esperada": "03:10",
       "dueno": "GPT · prompts/guion-informe.md",
-      "rutas": []
+      "rutas": [
+        "contenido/guiones/informe/2026-11-06.md"
+      ]
     },
     {
       "id": "revision",
@@ -79,12 +81,5 @@
       "rutas": []
     }
   ],
-  "atrasos": [
-    {
-      "id": "guion_informe",
-      "etiqueta": "Guion del informe",
-      "atraso": 6,
-      "dueno": "GPT · prompts/guion-informe.md"
-    }
-  ]
+  "atrasos": []
 }
