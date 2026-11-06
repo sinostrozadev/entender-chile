@@ -3,7 +3,7 @@
   "etapa": "validar_guion_informe",
   "veredicto": "pendiente",
   "vuelta": 1,
-  "actualizado": "2026-11-06 03:31",
+  "actualizado": "2026-11-06 03:32",
   "reparar": null,
   "piezas": [
     {
@@ -85,7 +85,7 @@
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 1,
+      "atraso": 2,
       "dueno": "Claude · prompts/validador.md"
     }
   ]
