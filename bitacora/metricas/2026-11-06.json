@@ -3,13 +3,13 @@
   "canal": {
     "suscriptores": 48,
     "vistas": 23336,
-    "videos": 220
+    "videos": 221
   },
   "videos": {
     "BuS_1zid38M": {
       "titulo": "Codelco registró cobre no producido y activó bonos mientras…",
       "publicado": "2026-11-06",
-      "estado": "private",
+      "estado": "public",
       "vistas": 0,
       "meGusta": 0,
       "comentarios": 0,
@@ -19,7 +19,7 @@
       "titulo": "¿Quién decidía las rebajas de condena en Chile?",
       "publicado": "2026-11-05",
       "estado": "public",
-      "vistas": 1,
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 720
@@ -28,8 +28,8 @@
       "titulo": "Contraloría reactivó los pagos observados por raciones escol",
       "publicado": "2026-11-05",
       "estado": "public",
-      "vistas": 8,
-      "meGusta": 0,
+      "vistas": 10,
+      "meGusta": 1,
       "comentarios": 0,
       "durSeg": 35
     },
@@ -37,7 +37,7 @@
       "titulo": "¿Qué significa que los demócratas le quitaron el Congreso a ",
       "publicado": "2026-11-04",
       "estado": "public",
-      "vistas": 170,
+      "vistas": 173,
       "meGusta": 3,
       "comentarios": 0,
       "durSeg": 45
@@ -46,7 +46,7 @@
       "titulo": "El repunte de octubre no borró las pérdidas reales de los fo",
       "publicado": "2026-11-04",
       "estado": "public",
-      "vistas": 6,
+      "vistas": 8,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 33
@@ -109,7 +109,7 @@
       "titulo": "Río Maipo: tres mujeres mueren en una balsa con 13 ocupantes",
       "publicado": "2026-11-02",
       "estado": "public",
-      "vistas": 24,
+      "vistas": 25,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 249
@@ -1450,7 +1450,7 @@
       "titulo": "¿Qué prueba realmente una infracción tras una tragedia?",
       "publicado": "2026-09-13",
       "estado": "public",
-      "vistas": 6,
+      "vistas": 8,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 366
@@ -1657,7 +1657,7 @@
       "titulo": "¿Qué es una interpelación y qué puede exigirle a un ministro",
       "publicado": "2026-09-08",
       "estado": "public",
-      "vistas": 30,
+      "vistas": 31,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 320
@@ -1900,7 +1900,7 @@
       "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 198,
+      "vistas": 204,
       "meGusta": 2,
       "comentarios": 1,
       "durSeg": 682
@@ -2043,7 +2043,7 @@
   },
   "retencion": {
     "YarJ0NTw_EM": {
-      "vistas": 1096,
+      "vistas": 1094,
       "minutos": 317,
       "segProm": 34,
       "pct": 88.6
