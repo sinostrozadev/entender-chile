@@ -1,9 +1,9 @@
 {
   "fecha": "2026-11-06",
-  "etapa": "validar_final",
-  "veredicto": "pendiente",
+  "etapa": "aprobada",
+  "veredicto": "APROBADA",
   "vuelta": 0,
-  "actualizado": "2026-11-06 03:34",
+  "actualizado": "2026-11-06 03:35",
   "reparar": null,
   "piezas": [
     {
@@ -61,13 +61,15 @@
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "listo",
       "prompt": null,
-      "hora": "",
+      "hora": "03:35",
       "esperada": "03:30",
       "dueno": "Claude · prompts/validador.md",
-      "rutas": []
+      "rutas": [
+        "contenido/revisiones/2026-11-06.md"
+      ]
     },
     {
       "id": "videos",
@@ -81,12 +83,5 @@
       "rutas": []
     }
   ],
-  "atrasos": [
-    {
-      "id": "revision",
-      "etiqueta": "Revisión (veredicto final)",
-      "atraso": 4,
-      "dueno": "Claude · prompts/validador.md"
-    }
-  ]
+  "atrasos": []
 }
