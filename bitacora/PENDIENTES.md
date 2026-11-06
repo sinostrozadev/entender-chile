@@ -50,26 +50,6 @@ tiene flujo y render desde el 02-11-2026 y está en piloto.
 
 ## DEPENDEN DE SANTIAGO
 
-- [ ] **06-11, HOY: dos videos públicos con historial real desaparecieron de
-      la lista de subidas de YouTube entre la métricas del 05-11 y las de
-      hoy, sin ningún commit ni archivo del repo que registre que alguien
-      los tocó.** Comparando `bitacora/metricas/2026-11-05.json` contra
-      `bitacora/metricas/2026-11-06.json` por id de video (no por título,
-      que trunca y puede colisionar): `FVu5s1yBu7Q` ("¿Qué cambió en Chile a
-      siete años del estallido social? #Sho", Short publicado 18-10-2026,
-      169 vistas, 6 me gusta, 3 comentarios) y `nvG_C4evsL8` ("¿Quién fue
-      Patricio Guzmán, el documentalista que despide Ch", publicado
-      15-09-2026, 314 vistas, 10 me gusta) estaban `public` ayer y hoy no
-      aparecen en absoluto en la lista que trajo la API, ni `private` ni
-      `public`. Detalle completo en `bitacora/2026-11-06-auditoria.md`,
-      hallazgo 2. Pide revisar en YouTube Studio, Contenido, buscando esos
-      dos IDs por `youtube.com/watch?v=<id>`: si Studio los muestra
-      eliminados por copyright o por infracción de normas de comunidad, es
-      una alerta de cuenta; si Studio los muestra activos, el problema está
-      en la paginación de `scripts/metricas.js` (línea 48) y hay que
-      revisarla antes de que una corrida futura pise el dato bueno con uno
-      incompleto. Dueño: Santiago (acceso a Studio; cuenta de YouTube).
-
 - [ ] **Redirigir la copia vieja de GitHub Pages (repo `entender-chile-web`) a
       https://entender.sinodev.cl y apagar esa publicación**, cuando el dominio
       lleve una semana estable. Ojo: Spotify tiene registrado el feed en la
@@ -302,6 +282,23 @@ que estaba aprobada.
       (`subidos.slice(i, i + 50)`) y, si faltan id, reintentar esa tanda
       una vez antes de seguir; si siguen faltando, imprimir un AVISO con
       los id exactos que faltaron, mismo patrón que la línea 53.
+
+      **06-11: octava vez, y la propuesta está implementada en el PR 8.**
+      Hoy se fueron dos a la vez, `FVu5s1yBu7Q` (169 vistas) y `nvG_C4evsL8`
+      (314 vistas), y la suma del día cayó 443 vistas: sin esas dos filas,
+      el resto del canal igual creció 40. La prueba de que no están borrados
+      la trae la misma medición: `canal.videos`, que viene de
+      `channels.list` y no cuenta borrados ni privados, **subió** de 219 a
+      220 mientras la tabla medía 218 públicos. Esta mañana la auditoría lo
+      leyó al revés y lo escaló a Santiago como posible sanción de cuenta
+      (`bitacora/2026-11-06-auditoria.md`, falla 2, y su propuesta 2); esa
+      entrada en DEPENDEN DE SANTIAGO se borró, porque no es de Santiago.
+      El arreglo (comparar id pedido contra recibido, reintentar la tanda y
+      nombrar lo que falte en la consola, en el md y en un campo `perdidos`
+      del json, más un chequeo de públicos medidos contra `canal.videos`)
+      está probado contra un doble de la API y espera fusión en
+      https://github.com/sinostrozadev/entender-chile/pull/8. Se cierra
+      cuando el PR esté fusionado y una corrida real de Métricas lo use.
 
 - [ ] **23-10, HOY: el 22-10-2026 se perdió el día completo (ni informe, ni
       video, ni podcast) porque ningún reloj de Claude disparó esa
