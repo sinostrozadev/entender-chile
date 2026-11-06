@@ -1,7 +1,7 @@
 # La tramitación del Presupuesto 2027
 Estado: abierto
 Abierto: 2026-11-03
-Última actualización: 2026-11-05
+Última actualización: 2026-11-06
 
 ## Origen
 El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro en los informes del canal es del 26-10-2026, cuando Hacienda abrió conversaciones para destrabarlo y los rectores de las universidades estatales objetaron partidas (Diario Financiero, La Tercera, Radio Universidad de Chile y Universidad de Chile, 26-10-2026). Importa porque de esas partidas depende el gasto público del año siguiente y porque la discusión quedó cruzada por la controversia sobre el ministro de Justicia, Fernando Rabat: la oposición anunció que buscará rechazar la glosa de Justicia. El 02-11-2026 la Comisión Especial Mixta inició la votación con más de 3.800 indicaciones (La Tercera, Radio Universidad de Chile y Publimicro, 02-11-2026).
@@ -19,6 +19,7 @@ El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro e
 - 2026-11-04 | Hacienda acuerda con los gobernadores reponer recursos para los gobiernos regionales después de la rebaja inicial discutida en el Congreso, y la Comisión Especial Mixta despacha las partidas de Justicia y de Servel, esta última con una indicación del Ejecutivo para aumentar sus recursos, además de aprobar una indicación destinada a asegurar el cumplimiento de la Ley Ricarte Soto (Senado, La Tercera y Radio Universidad de Chile, 03 y 04-11-2026) | diario: 2026-11-05#presupuesto-2027-repone-recursos-regionales-y-fija | sección: Política
 - 2026-11-04 | La partida de Salud llega a la votación con una propuesta que reduce de $189.000 millones a $166.000 millones el fondo para tratamientos de alto costo de 2027, y el Ministerio de Salud sostiene que los tratamientos vigentes quedarían cubiertos y anuncia una reforma legal para hacer crecer el fondo junto con el número de pacientes (Senado y La Tercera, 19-10-2026 y 04-11-2026) | diario: 2026-11-05#presupuesto-2027-repone-recursos-regionales-y-fija | sección: Política
 - 2026-11-04 | El Ministerio de Salud defiende los cambios al financiamiento de la atención primaria durante la discusión del Presupuesto 2027 (La Tercera, 04-11-2026) | diario: 2026-11-05#el-ministerio-de-salud-defendio-los-cambios-al | sección: Además, hoy
+- 2026-11-05 | El Gobierno, los gobernadores regionales y la Comisión Mixta acuerdan revertir recortes y restituir cerca de $95 mil millones para inversión regional en el Presupuesto 2027; la cifra corresponde al acuerdo político informado durante la tramitación y todavía debe quedar reflejada en las partidas que vote el Congreso (El Heraldo Austral, Radio Polar y Tierramarillano, 05-11-2026) | diario: 2026-11-06#regiones-recuperan-cerca-de-95-mil-millones-en-el-acuerdo | sección: Economía
 ## Qué falta por saber
 - ¿Cuándo ingresó el proyecto y cuál es el gasto total propuesto? No consta en los informes del repo.
 - ¿Qué fecha límite tiene el despacho del Presupuesto 2027? No consta en los informes del repo.
@@ -28,6 +29,7 @@ El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro e
 - ¿Qué pasa con las partidas de educación superior, cultura y ciencia que objetaron rectores y profesores?
 - ¿Cuántas de las más de 3.800 indicaciones se aprueban, y qué reasignaciones quedan?
 - ¿Qué programas, glosas y fondos específicos de Salud se reducen, y cuáles sobreviven a la votación? El detalle de los recortes cuestionados el 03-11-2026 no consta en los informes del repo.
+- ¿Quedan los cerca de $95 mil millones de inversión regional acordados el 05-11-2026 en las partidas que vote el Congreso, y con qué distribución entre regiones?
 
 ## Publicado
 Sin publicaciones al 03-11-2026.
