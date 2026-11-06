@@ -690,5 +690,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-05-informe.mp3",
     "bytes": 5245056,
     "durSeg": 219
+  },
+  {
+    "fecha": "2026-11-06",
+    "tipo": "informe",
+    "titulo": "06-11-2026 · Codelco registra 42.100 toneladas de producción artificial",
+    "descripcion": "Codelco estimó en 42.100 toneladas el cobre registrado como producción sin serlo entre 2024 y 2025. Nueve rechazos de rebajas de condena firmados por Justicia llegaron a tribunales, mientras la crisis bancaria de Paraguay abrió preguntas sobre la exposición de fondos previsionales chilenos. El informe completo también aborda los relaves que llegaron al río Blanco, el acuerdo presupuestario regional y la investigación por la mantención del avión presidencial.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-06/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-06-informe.mp3",
+    "bytes": 5206464,
+    "durSeg": 217
   }
 ]
