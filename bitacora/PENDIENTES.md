@@ -50,6 +50,26 @@ tiene flujo y render desde el 02-11-2026 y está en piloto.
 
 ## DEPENDEN DE SANTIAGO
 
+- [ ] **06-11, HOY: dos videos públicos con historial real desaparecieron de
+      la lista de subidas de YouTube entre la métricas del 05-11 y las de
+      hoy, sin ningún commit ni archivo del repo que registre que alguien
+      los tocó.** Comparando `bitacora/metricas/2026-11-05.json` contra
+      `bitacora/metricas/2026-11-06.json` por id de video (no por título,
+      que trunca y puede colisionar): `FVu5s1yBu7Q` ("¿Qué cambió en Chile a
+      siete años del estallido social? #Sho", Short publicado 18-10-2026,
+      169 vistas, 6 me gusta, 3 comentarios) y `nvG_C4evsL8` ("¿Quién fue
+      Patricio Guzmán, el documentalista que despide Ch", publicado
+      15-09-2026, 314 vistas, 10 me gusta) estaban `public` ayer y hoy no
+      aparecen en absoluto en la lista que trajo la API, ni `private` ni
+      `public`. Detalle completo en `bitacora/2026-11-06-auditoria.md`,
+      hallazgo 2. Pide revisar en YouTube Studio, Contenido, buscando esos
+      dos IDs por `youtube.com/watch?v=<id>`: si Studio los muestra
+      eliminados por copyright o por infracción de normas de comunidad, es
+      una alerta de cuenta; si Studio los muestra activos, el problema está
+      en la paginación de `scripts/metricas.js` (línea 48) y hay que
+      revisarla antes de que una corrida futura pise el dato bueno con uno
+      incompleto. Dueño: Santiago (acceso a Studio; cuenta de YouTube).
+
 - [ ] **Redirigir la copia vieja de GitHub Pages (repo `entender-chile-web`) a
       https://entender.sinodev.cl y apagar esa publicación**, cuando el dominio
       lleve una semana estable. Ojo: Spotify tiene registrado el feed en la
@@ -88,6 +108,13 @@ tiene flujo y render desde el 02-11-2026 y está en piloto.
       01:45:44 Chile; la misma ventana (01:41 a 04:11) dejó sin pushear a los
       tres relojes del reintento y atrasó la preselección 2 h 41 min, aunque
       la cadena se recuperó sola. `bitacora/2026-11-05-auditoria.md`.
+      **06-11: quinta vez.** `get_trigger` sobre el Reloj del barrido
+      (`trig_01W5KEjHbr5wWPsmmJ4ygNEh`) devolvió el mismo
+      `failure_reason: ROUTINE_RUN_FAILURE_REASON_USAGE_LIMIT_REACHED` a las
+      01:39:54 Chile; el barrido real no corrió hasta las 02:37, 67 minutos
+      sobre el cron, disparado por uno de los relojes de reintento de 20
+      minutos. La cadena se recuperó sola y sin vueltas extra.
+      `bitacora/2026-11-06-auditoria.md`.
 
 - [ ] **01-11: borrar en GitHub los secrets `ELEVENLABS_API_KEY` y
       `VOICE_ID`, ya sin uso.** La limpieza del 01-11 sacó los restos de
