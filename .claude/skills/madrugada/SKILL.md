@@ -48,6 +48,14 @@ revisarlos.
    ```
    sed -n 1,5p bitacora/metricas/FECHA.md
    ```
+   Captura diaria para el video "camino a la monetización" (orden de Santiago
+   del 05-11-2026, skill global `metricas-diarias`): corre
+   `node scripts/metricas-studio.js` (4 capturas de Studio por el piloto :8777 con
+   cambio al canal "Entender Chile" + `salida/metricas/FECHA/metricas.json`).
+   Se commitea la carpeta del día. Si el piloto está ocupado o caído, usa
+   `--sin-capturas` (queda el JSON) y anótalo. Las capturas solo corren en esta
+   máquina (el piloto no existe en Actions), por eso cuelga de la sesión local y
+   no de un workflow; no hay línea de crontab nueva.
 7. Qué anotar. En `bitacora/FECHA.md`, una sección "La madrugada" con lo que
    salió y a qué hora, y lo que la auditoría marcó con lo que se decidió. Lo que
    falla y tiene dueño va a `bitacora/PENDIENTES.md` (regla 41).
