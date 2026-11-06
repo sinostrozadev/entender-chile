@@ -42,6 +42,7 @@ qué pieza le toca y con qué prompt. Nada de esto corre por reloj.
 | `guion-informe.md` | etapa `informe_listo` | `contenido/guiones/informe/FECHA.md`, el guion narrado del que salen el Short y el podcast. Desde el 04-11-2026 ya no pide la carátula del día en el mismo turno |
 | `caratula-pedido.txt` | **es el prompt que se manda al generador, tal cual**, con tres marcadores que rellena quien lo usa. Desde el 04-11-2026 solo para carátulas de largos o pedidos manuales | una carátula |
 | `imagen-caratula.md` | un pedido `tarea=imagen` (hasta el 04-11-2026 también el turno del guion del informe); desde ese día solo para carátulas de largos o pedidos manuales. Dice de dónde salen los tres datos y adónde va la imagen, no cómo se dibuja | `contenido/caratulas/FECHA.png` y `FECHA-prompt.txt` |
+| `imagen-caratula.md`, sección "Pedidos externos" (06-11-2026) | un pedido `tarea=imagen` cuya `Salida` cae en `contenido/caratulas/externos/<canal>/` (lo dejan los otros canales de Santiago por `gh api`; procedimiento en la skill global `caratulas-con-gpt`) | la imagen en esa ruta, con el prompt que vino entero dentro del pedido |
 | `investigacion-clave.md` | etapa `pauta_aprobada` de un flujo de la Clave | `contenido/claves/flujo/<slug>/investigacion.md`, el dossier con fuentes |
 | `claves.md` (MODO FLUJO) | etapa `investigacion_lista` | `contenido/claves/FECHA-<slug>.md`, la entrega |
 | `guion-claves.md` | etapa `entrega_lista` | `contenido/guiones/claves/FECHA-<slug>.md` |
