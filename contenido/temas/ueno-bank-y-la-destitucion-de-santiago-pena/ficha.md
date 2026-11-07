@@ -1,0 +1,24 @@
+# La caída de Ueno Bank y la destitución de Santiago Peña en Paraguay
+Estado: abierto
+Abierto: 2026-11-07
+Última actualización: 2026-11-07
+
+## Origen
+La intervención del banco digital Ueno por el Banco Central del Paraguay, que el oficio de once senadores chilenos fecha el 03-11-2026, desencadenó una crisis financiera y política en Paraguay (CNN Chile y BioBioChile, 05-11-2026; Reuters, 05-11-2026). El 06-11-2026 el Senado paraguayo destituyó al presidente Santiago Peña en un juicio político con el voto de los 44 senadores presentes, el vicepresidente Pedro Alliana debe completar el mandato que termina en 2028, el juicio le atribuyó responsabilidad política por el manejo de la crisis y por los vínculos de su administración con el banco, y Peña rechazó las acusaciones (Senado de Paraguay, ABC Color/EFE y Associated Press, 06-11-2026). El banco tenía cerca de 2,9 millones de clientes y concentraba alrededor de US$800 millones en depósitos de entidades públicas, cifras de balances publicados antes de la destitución que no equivalen a pérdidas definitivas, y 27 directivos y asociados enfrentaban cargos (Associated Press y ABC Color/EFE, 06-11-2026). Importa en Chile por dos vías: once senadores oficiaron al superintendente de Pensiones, Joaquín Cortez, para conocer la exposición de las administradoras de fondos de pensiones a Ueno Bank, y Paraguay participa en la coordinación del Corredor Bioceánico, que conecta el Atlántico con puertos chilenos. La destitución no es una condena penal: las investigaciones sobre directivos, operaciones y eventuales responsabilidades públicas siguen por vías separadas.
+
+## Cronología
+- 2026-11-03 | El Banco Central del Paraguay interviene el banco digital Ueno, según la fecha que consigna el oficio de once senadores chilenos al superintendente de Pensiones (CNN Chile y BioBioChile, 05-11-2026) | diario: 2026-11-06#la-crisis-bancaria-de-paraguay-llega-a-los-fondos-de | sección: Trabajo y pensiones
+- 2026-11-05 | La crisis del banco llega a Chile: once senadores ofician al superintendente de Pensiones, Joaquín Cortez, para pedir el detalle de las inversiones de las administradoras de fondos de pensiones en Paraguay y su eventual exposición a Ueno Bank, mientras el informe de esa fecha consigna la salida del presidente Santiago Peña y ocho ejecutivos del banco con órdenes de detención (Reuters, CNN Chile y BioBioChile, 05-11-2026) | diario: 2026-11-06#la-crisis-bancaria-de-paraguay-llega-a-los-fondos-de | sección: Trabajo y pensiones
+- 2026-11-06 | El Senado paraguayo destituye al presidente Santiago Peña en un juicio político con el voto de los 44 senadores presentes y el vicepresidente Pedro Alliana debe completar el mandato que termina en 2028; el informe del 07-11-2026 fija la destitución en el 06-11-2026, donde el informe del 06-11-2026 había consignado la salida de Peña el 05-11-2026 antes de que avanzara el juicio político (Senado de Paraguay y ABC Color/EFE, 06-11-2026) | diario: 2026-11-07#paraguay-destituye-a-santiago-pena-tras-la-caida-de-ueno | sección: Actualidad
+- 2026-11-06 | Chile y Paraguay aceleran la coordinación del Corredor Bioceánico antes de la crisis presidencial paraguaya (Cancillería de Chile y La Nación de Paraguay, 06-11-2026) | diario: 2026-11-07#chile-y-paraguay-aceleraron-la-coordinacion-del-corredor | sección: Además, hoy
+
+## Qué falta por saber
+- ¿Cuánto ahorro previsional chileno estaba expuesto a Ueno Bank? Al 07-11-2026 la Superintendencia de Pensiones debía responder con montos, instrumentos y administradoras involucradas, y no consta una cifra pública consolidada.
+- ¿Cuántos clientes y cuántos fondos públicos administraba el banco? El informe del 06-11-2026 habla de cerca de tres millones de personas y alrededor de US$850 millones, y el del 07-11-2026 de cerca de 2,9 millones de clientes y alrededor de US$800 millones en depósitos de entidades públicas.
+- ¿Qué resuelven las causas contra los directivos del banco, entre ellos los 27 que enfrentaban cargos al 06-11-2026 y los ocho con órdenes de detención informados el 05-11-2026?
+- ¿Cuándo se instala formalmente Pedro Alliana y con qué gabinete?
+- ¿Recuperan los clientes sus fondos? Solo consta la estimación de la Agencia de Garantía de Depósitos de que 97% de los clientes recuperaría la totalidad, anterior a la destitución.
+- ¿Qué efecto tiene el cambio de gobierno paraguayo sobre la coordinación del Corredor Bioceánico con Chile?
+
+## Publicado
+Sin publicaciones al 07-11-2026.
