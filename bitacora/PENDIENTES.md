@@ -175,6 +175,25 @@ o Studio) si Santiago lo decide, y rehacer el guion con la lectura de GPT si lle
 
 ## PARA LA SESIÓN DE LA NOCHE (necesita secrets o rutinas)
 
+- [ ] **07-11, HOY: "ninguna cifra llegó verificada desde la preselección" se
+      repite por tercer día seguido y hoy costó un defecto publicado.**
+      `contenido/revisiones/2026-11-05.md` ("ninguna de las 57 candidatas vino
+      verificada"), `contenido/revisiones/2026-11-06.md` ("Ninguna cifra llegó
+      verificada desde la preselección") y `contenido/revisiones/2026-11-07.md`
+      (la misma frase, sobre el IPC de octubre, los 37 grados de la alerta de
+      calor, las 2.136 expulsiones de 2026 y las 115 rebajas que cifra
+      Interferencia) dicen lo mismo tres mañanas seguidas. Hoy el patrón ya no
+      es solo una observación: `contenido/revisiones/2026-11-07.md` marca que
+      el 8% de reajuste en las tarifas de transporte de la línea 68 del
+      informe "no viene de la entrada" y "sigue en el informe publicado sin
+      respaldo verificable dentro del repo", además de un nombre de pila y un
+      sector preciso que la línea 72 agrega sin que la entrada los traiga.
+      Propuesta: que `prompts/preseleccion.md` declare explícitamente,
+      candidata por candidata, cuáles cifras no pudo verificar contra su
+      fuente primaria, en vez de dejar que el informe las confirme solo.
+      Primera vez que se marca en esta lista: 07-11-2026 (lleva tres mañanas
+      seguidas señalada en las revisiones). `bitacora/2026-11-07-auditoria.md`.
+
 - [ ] **01-11: el prompt del reloj del barrido debe fallar si el push no entró** (texto propuesto en bitacora/2026-11-01.md)
 
 - [ ] **01-11: sacar el camino de pintura de la biblioteca, que quedó sin
@@ -299,6 +318,17 @@ que estaba aprobada.
       está probado contra un doble de la API y espera fusión en
       https://github.com/sinostrozadev/entender-chile/pull/8. Se cierra
       cuando el PR esté fusionado y una corrida real de Métricas lo use.
+      **07-11: novena vez, y los dos de ayer volvieron solos.** Comparando
+      `bitacora/metricas/2026-11-06.json` contra
+      `bitacora/metricas/2026-11-07.json` por id: hoy falta `GJMefzqOaqk`
+      ("¿Cómo funciona la regla fiscal y el balance estructural?", público,
+      32 vistas, presente ayer); `canal.videos` se mantuvo en 221 los dos
+      días mientras los públicos medidos subieron de 219 a 220, el mismo
+      patrón de siempre. Los dos videos que la auditoría del 06-11 marcó
+      como desaparecidos (`FVu5s1yBu7Q`, `nvG_C4evsL8`) volvieron solos hoy
+      con sus vistas y comentarios intactos, confirmando que tampoco eran
+      un borrado. El PR #8 sigue abierto y sin fusionar (`state: open`,
+      `merged: false`, verificado hoy). `bitacora/2026-11-07-auditoria.md`.
 
 - [ ] **23-10, HOY: el 22-10-2026 se perdió el día completo (ni informe, ni
       video, ni podcast) porque ningún reloj de Claude disparó esa
@@ -579,6 +609,17 @@ que estaba aprobada.
       en una etiqueta y en una marca [FUENTE]/[TESIS] del guion de hoy.
       Ninguna de las dos reglas citadas se tocó. Auditoría del 23-10
       (`bitacora/2026-10-23-auditoria.md`).
+      **07-11: quinta aparición, la propia revisión del día ya la cuenta
+      como tercera vez de la variante del tope de seis palabras.**
+      `contenido/revisiones/2026-11-07.md`: "'ABC Color/EFE' se pinta en el
+      [FUENTE] del guion sin que EFE quede expandida antes (...) Es el
+      tercer día con el mismo choque (CIPER el 04-11-2026, la misma cadena
+      el 06-11-2026): el tope de seis palabras de esas marcas no deja
+      expandirla." Verificado contra `contenido/guiones/informe/2026-11-04.md:9,17`
+      y `contenido/guiones/informe/2026-11-06.md:10,19,31` ("vía CIPER").
+      Ninguna de las dos reglas (`prompts/guion-informe.md:211-212` sin
+      generalizar, ni una lista de siglas de agencia exentas) se tocó.
+      Auditoría del 07-11 (`bitacora/2026-11-07-auditoria.md`).
 
 - [ ] **21-10, AGUANTA: `scripts/validar-tarjetas.js:153` cuenta líneas de
       encabezado ("Carátula N:", "Título sugerido:", "Descripción sugerida:")
