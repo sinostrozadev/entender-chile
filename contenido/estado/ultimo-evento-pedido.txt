@@ -1,0 +1,8 @@
+flujo=pedido
+tarea=imagen
+slug=numeros-rojos-mascota-poses
+pedido=contenido/urgente/PEDIDO-numeros-rojos-mascota-poses.md
+hallazgo=contenido/urgente/numeros-rojos-mascota-poses.md
+salida=contenido/caratulas/externos/numeros-rojos/2026-11-07-mascota-poses.png
+prompt=prompts/imagen-caratula.md
+emitido_utc=2026-11-07T12:00:36Z
