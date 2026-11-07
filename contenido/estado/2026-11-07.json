@@ -1,9 +1,9 @@
 {
   "fecha": "2026-11-07",
-  "etapa": "barrido_listo",
+  "etapa": "validar_preseleccion",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-11-07 01:41",
+  "actualizado": "2026-11-07 01:50",
   "reparar": null,
   "piezas": [
     {
@@ -22,13 +22,15 @@
     {
       "id": "preseleccion",
       "etiqueta": "Preselección",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "por_validar",
       "prompt": "prompts/seleccion.md",
-      "hora": "",
+      "hora": "01:50",
       "esperada": "02:10",
       "dueno": "GPT · prompts/seleccion.md",
-      "rutas": []
+      "rutas": [
+        "contenido/preseleccion/2026-11-07.md"
+      ]
     },
     {
       "id": "informe",
