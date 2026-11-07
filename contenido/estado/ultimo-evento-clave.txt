@@ -1,0 +1,8 @@
+flujo=clave
+slug=rabat-rebajas-de-condena
+etapa=reparar_guion
+vuelta=1
+pieza=pauta
+prompt=prompts/pauta-clave.md
+vista=contenido/estado/clave-rabat-rebajas-de-condena.md
+emitido_utc=2026-11-05T03:08:01Z
