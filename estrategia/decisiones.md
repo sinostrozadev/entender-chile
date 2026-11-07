@@ -1014,3 +1014,45 @@ suscriptores se multiplicó por cinco (4 por día en los últimos 30 días) y lo
 explicativos pasan de forma regular las 1.000 vistas. Si no, se cierra. Por
 qué: Claude no puede asegurar la monetización y lo dijo; una apuesta sin fecha
 de cierre no es una apuesta, es una costumbre.
+
+## 2026-11-07 - La portada no puede ser extranjera (y por qué eso es una decisión de audiencia)
+
+**Qué**: en `prompts/informe.md`, la NOTICIA DE PORTADA ya no puede ser una
+noticia cuyo sujeto central esté fuera de Chile, salvo que la consecuencia
+chilena ya decidida y con fecha sea ella misma la noticia, y en ese caso el
+titular nombra la consecuencia y no al protagonista extranjero. La noticia
+internacional sigue saliendo completa en su sección: lo único que pierde es la
+portada. Además, "un presidente extranjero" deja de valer 2 en el criterio
+NOMBRE PROPIO BUSCABLE: a ese nombre lo busca el público de su país.
+
+**Por qué**: la línea NOTICIA DE PORTADA decide, en cascada, el título del
+video, la carátula, la apertura en frío y el primer bloque del guion, y
+`scripts/short.js` arma el Short con los primeros bloques de ese guion. O sea:
+quien elige la portada elige el tema del Short, que desde el 04-11-2026 es el
+producto principal del canal. Y el Short extranjero no se reparte. Medido el
+07-11-2026 sobre `bitacora/metricas/2026-11-07.json`: los 9 Shorts públicos con
+un nombre propio extranjero en el título juntan 2 clics en 432 impresiones (CTR
+0,46%) contra 102 clics en 5.004 impresiones (2,04%) de los 134 Shorts
+chilenos. Ninguno de los 9 pasó las 300 vistas; 18 de los 134 sí. Lo decisivo
+es que no es un rechazo del espectador: esos 9 tienen 92,7% visto de mediana,
+muy por encima del 62% del resto. Quien los ve, los ve enteros. Lo que no
+ocurre es la distribución, porque la audiencia que YouTube le reconoce al canal
+es chilena y el tema no le calza.
+
+**Qué tan firme es el dato**: la diferencia de CTR es sólida (2 clics
+observados contra 8,8 esperados en 432 impresiones, p = 0,007 binomial de una
+cola). La de "ninguno sobre 300 vistas" no alcanza por sí sola a ser
+concluyente con n = 9 (p = 0,27): se apoya en la primera, no la reemplaza.
+
+**Qué lo gatilló**: el 07-11-2026 la portada fue "Paraguay destituye a Santiago
+Peña tras la caída de Ueno Bank" (9/10, proximidad 1), por delante del IPC de
+octubre, que es chileno, le pega al bolsillo de todos y es cola larga. El
+criterio viejo premiaba con el máximo a "un presidente extranjero", así que el
+prompt estaba eligiendo exactamente lo que los números dicen que no se
+reparte. Ya había pasado el 25 y el 26-10-2026 con el balotaje de Brasil
+(Shorts de 11 y 7 vistas).
+
+**Lo que NO se hace**, para que la auditoría no lo vuelva a proponer: apagar el
+resumen internacional, ni bajarle el desarrollo. El problema nunca fue cubrir
+el mundo, fue ponerlo en la portada. **Decidió**: Claude, por el mandato del
+04-11-2026.
