@@ -1,0 +1,4 @@
+fecha_chile=2026-11-07
+barrido_commit=5f5a4171
+estado=listo
+completado_utc=2026-11-07T04:40:40Z
