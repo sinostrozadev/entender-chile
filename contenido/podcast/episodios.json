@@ -699,5 +699,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-06-informe.mp3",
     "bytes": 5206464,
     "durSeg": 217
+  },
+  {
+    "fecha": "2026-11-07",
+    "tipo": "informe",
+    "titulo": "07-11-2026 · Paraguay destituye a Santiago Peña tras la caída de Ueno Bank",
+    "descripcion": "Paraguay destituyó a Santiago Peña después de la crisis de Ueno Bank. En Chile, el IPC subió 0,5% en octubre y Justicia investigará la filtración de decretos de rebaja de condena. La jornada también estuvo marcada por una alerta de calor extremo, el acuerdo que terminó la movilización de camioneros en San Antonio y la prisión preventiva de dos militares bolivianos.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-07/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-07-informe.mp3",
+    "bytes": 5227776,
+    "durSeg": 218
   }
 ]
