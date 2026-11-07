@@ -1,0 +1,27 @@
+Tarea: imagen
+Salida: contenido/caratulas/externos/numeros-rojos/2026-11-07-mascota-poses.png
+Prompt: prompts/imagen-caratula.md
+Canal: En Números Rojos (externo, @enumerosrojos)
+Para: Mascota del canal (hoja de poses 3×2, prototipo; se recorta en 6 PNG para la plantilla de video; no es carátula), 2026-11-07
+
+# Hoja de poses de la mascota (ardilla)
+
+## El prompt (va tal cual al generador, no se reinterpreta)
+Crea UNA sola imagen horizontal de 1536×1024 px (si no puedes, 1280×720), PNG, que sea una HOJA DE POSES de un mismo personaje de canal de YouTube de economía. Estilo: ilustración vectorial plana (flat), 2D, bordes limpios, formas simples y geométricas, colores sólidos, sin degradados fotográficos, sin sombras realistas, sin texturas, sin trazo de pincel, sin "look IA". Debe parecer diseño gráfico profesional de un canal de datos, no un dibujo infantil.
+
+PERSONAJE (idéntico en las 6 poses, misma proporción, mismos colores, mismo grosor de línea):
+Una ARDILLA amigable y curiosa, de pie, cuerpo redondeado tipo pera. Pelaje principal dorado #F5C451; vientre y hocico crema claro #FFF3D1; orejas pequeñas puntiagudas con el interior rojo #FF4D4D. OJOS GRANDES y expresivos: esclera blanca #FFFFFF, pupila negra grafito #111418 con un brillo blanco pequeño. Nariz pequeña ovalada oscura. COLA grande y esponjosa curvada hacia atrás, dorada por fuera y con el interior rojo #FF4D4D. UNA BUFANDA ROJA #FF4D4D al cuello con una punta colgando (es el detalle de marca: debe estar en las 6 poses). Sin ropa más, sin accesorios, sin texto en el cuerpo. Acento azul #4FA3F7 solo en pequeños destellos o signos alrededor.
+
+CUADRÍCULA: 3 columnas × 2 filas = 6 celdas del mismo tamaño, separadas por líneas finas (2 px) de color #2A313B. Fondo LISO y uniforme #111418 en toda la imagen (sin viñeta, sin degradado, sin patrón). El personaje centrado en cada celda, ocupando aprox. el 70 % del alto útil de la celda, sin tocar los bordes. Deja libre el 12 % inferior de cada celda para el rótulo.
+
+LAS 6 POSES (orden: fila 1 de izquierda a derecha, luego fila 2):
+1. "saluda": sonríe, levanta el brazo derecho del personaje (el de la izquierda de la imagen) saludando, tres rayitas azules junto a la mano.
+2. "senala": sonríe y mira hacia la derecha de la imagen, estira un brazo señalando hacia la derecha, el otro brazo relajado.
+3. "piensa": una mano en el mentón, mirada hacia arriba a la derecha, boca recta; sobre la cabeza un pequeño globo de pensamiento blanco con un signo "?" en su interior.
+4. "sorpresa": ojos MUY abiertos (más grandes), boca en forma de "O", ambos brazos abiertos a los lados, tres rayitas rojas de impacto sobre la cabeza.
+5. "tapa-ojos": se cubre los ojos con las dos manos (los ojos NO se ven), boca apretada con gesto de espanto leve, una pequeña "X" roja en una esquina de la celda.
+6. "celebra": ojos cerrados en arco feliz, boca abierta sonriendo, ambos brazos levantados, confeti pequeño (círculos y cuadritos dorados, rojos, azules y blancos) alrededor.
+
+TEXTO: ninguno salvo UN rótulo pequeño y legible centrado debajo de cada celda, en el 12 % inferior reservado, con el nombre exacto de la pose en minúsculas, tipografía sans-serif gris claro #AEB7C2: saluda, senala, piensa, sorpresa, tapa-ojos, celebra. Ningún otro texto, número, logo, firma ni marca de agua en la imagen.
+
+PROHIBIDO: realismo, fotografía, degradados, sombras suaves, contornos irregulares, fondos distintos al #111418, personajes distintos en cada celda (debe ser EXACTAMENTE la misma ardilla), manos con dedos de más, marcas de agua. Entrega el resultado como PNG.
