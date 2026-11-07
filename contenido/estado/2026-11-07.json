@@ -1,9 +1,9 @@
 {
   "fecha": "2026-11-07",
-  "etapa": "validar_guion_informe",
+  "etapa": "validar_final",
   "veredicto": "pendiente",
-  "vuelta": 1,
-  "actualizado": "2026-11-07 02:35",
+  "vuelta": 0,
+  "actualizado": "2026-11-07 02:40",
   "reparar": null,
   "piezas": [
     {
@@ -49,7 +49,7 @@
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "lista",
       "prompt": "prompts/guion-informe.md",
       "hora": "02:24",
       "esperada": "03:10",
