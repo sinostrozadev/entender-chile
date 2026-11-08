@@ -708,5 +708,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-07-informe.mp3",
     "bytes": 5227776,
     "durSeg": 218
+  },
+  {
+    "fecha": "2026-11-08",
+    "tipo": "informe",
+    "titulo": "08-11-2026 · Balance oficial corregido tras choque en Ruta de la Fruta",
+    "descripcion": "El balance oficial del choque en la Ruta de la Fruta fue corregido a once fallecidos y la investigación sigue abierta. El Gobierno prepara diez medidas de adaptabilidad laboral, mientras una alerta de calor extremo coincide con un incendio en Machalí. La edición completa también revisa el Presupuesto 2027, la inflación y la coordinación parlamentaria con Perú.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-08/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-08-informe.mp3",
+    "bytes": 5685120,
+    "durSeg": 237
   }
 ]
