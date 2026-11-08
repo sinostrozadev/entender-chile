@@ -100,6 +100,8 @@ ESTRUCTURA DEL GUION:
 
 1. LA NOTICIA DEL DÍA (apertura en frío, activada el 02-09): el guion abre con la sección exacta "## La noticia del día", ANTES de la Apertura. Es la noticia de portada (la misma del "Título sugerido"), dicha entera y sin ningún preámbulo: ni saludo, ni fecha, ni "comenzamos". Dos frases, 25 a 35 palabras en total, con su [TESIS] o su [DATO] principal como tarjeta (una sola marca) y su [FUENTE]. El que llegó por el título recibe exactamente eso en el primer segundo: eso sostiene la retención. El sello de marca suena solo DESPUÉS de esta sección; no lo menciones ni lo esperes.
 
+   TOPE DE ESTA [TESIS]: 66 CARACTERES CONTADOS (08-11-2026). La [TESIS] de "La noticia del día" se convierte, literal y sin que nadie la vuelva a mirar, en el título del Short del día: `scripts/short.js` toma la tesis del primer bloque y la recorta a 66 caracteres, porque la cola ", y otras N cosas de hoy #Shorts" ya ocupa 31 de los 100 que admite YouTube. Si la tesis pasa de 66, el título sale cortado con puntos suspensivos y deja de decir nada. Escríbela como un titular que se sostenga solo en 66 caracteres o menos, con sujeto y verbo adentro. El punto 14 de la lista de verificación pide 18 palabras o menos para toda [TESIS], que son unos 110 caracteres: en esta sección manda el tope de caracteres, que es el estrecho. Medido el 08-11-2026 sobre los 72 guiones del repo: 54 pasaron el tope y produjeron un título cortado, 16 se salvaron solo porque el recorte cayó en una coma y apenas 2 cabían enteros. El del 08-11-2026 quedó en "El balance oficial del choque en la Ruta de la Fruta fue…", cortado en el verbo, porque la tesis medía 84 caracteres.
+
 2. APERTURA: DESPUÉS de la noticia del día, máximo 15 segundos (25 a 40 palabras): sitúa la fecha y adelanta en una frase las OTRAS DOS noticias que vienen, sin repetir la ya dada. La formulación debe variar de un día a otro. No leas nombres de secciones y no inventes nombre del canal ni frase de marca. No anuncies cuántas noticias vienen ni que el video es corto.
 
 3. DESARROLLO: tres bloques de noticia, uno por noticia, en el orden de QUÉ SE NARRA (la portada primero). El primero CONTINÚA desde "La noticia del día" (el detalle, los actores, el antecedente) sin repetir literalmente sus frases. La estructura de secciones debe sentirse invisible: entre un bloque y otro, conexión por una idea compartida o arranque directo.
@@ -294,6 +296,7 @@ CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
 12. Verifica que cada bloque [A] y [B] tiene su [TESIS], que cada [DATO] y [CITA] tiene fuente y fecha, y que todo párrafo de "Análisis" lleva [INTERPRETACIÓN].
 13. Verifica que el guion quedó guardado y pusheado en la ruta exacta del contrato de archivos, o que el fallo quedó reportado.
 14. Cada [TESIS] tiene 18 palabras o menos.
+14b. La [TESIS] de "La noticia del día" tiene 66 caracteres o menos, contados de verdad, y se lee como un titular entero: es el título del Short, literal.
 15. El cierre dice que el informe completo está en el enlace de la descripción, la línea "Para salir hoy" del informe quedó integrada en la despedida, y el tagline "El resumen sin gritos." cierra el video.
 16. Ningún bloque termina en síntesis abstracta y no quedan conectores de ensayo escrito.
 17b. Ninguna sigla se pinta en pantalla sin haber sido expandida antes, salvo las de uso corriente.
