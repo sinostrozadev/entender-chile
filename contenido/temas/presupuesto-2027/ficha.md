@@ -1,7 +1,7 @@
 # La tramitación del Presupuesto 2027
 Estado: abierto
 Abierto: 2026-11-03
-Última actualización: 2026-11-07
+Última actualización: 2026-11-08
 
 ## Origen
 El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro en los informes del canal es del 26-10-2026, cuando Hacienda abrió conversaciones para destrabarlo y los rectores de las universidades estatales objetaron partidas (Diario Financiero, La Tercera, Radio Universidad de Chile y Universidad de Chile, 26-10-2026). Importa porque de esas partidas depende el gasto público del año siguiente y porque la discusión quedó cruzada por la controversia sobre el ministro de Justicia, Fernando Rabat: la oposición anunció que buscará rechazar la glosa de Justicia. El 02-11-2026 la Comisión Especial Mixta inició la votación con más de 3.800 indicaciones (La Tercera, Radio Universidad de Chile y Publimicro, 02-11-2026).
@@ -21,15 +21,17 @@ El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro e
 - 2026-11-04 | El Ministerio de Salud defiende los cambios al financiamiento de la atención primaria durante la discusión del Presupuesto 2027 (La Tercera, 04-11-2026) | diario: 2026-11-05#el-ministerio-de-salud-defendio-los-cambios-al | sección: Además, hoy
 - 2026-11-05 | El Gobierno, los gobernadores regionales y la Comisión Mixta acuerdan revertir recortes y restituir cerca de $95 mil millones para inversión regional en el Presupuesto 2027; la cifra corresponde al acuerdo político informado durante la tramitación y todavía debe quedar reflejada en las partidas que vote el Congreso (El Heraldo Austral, Radio Polar y Tierramarillano, 05-11-2026) | diario: 2026-11-06#regiones-recuperan-cerca-de-95-mil-millones-en-el-acuerdo | sección: Economía
 - 2026-11-06 | La Comisión Especial Mixta de Presupuestos rechaza las partidas de Educación y de Ciencia del Presupuesto 2027 y registra además un rechazo simbólico a la partida del Instituto Nacional de Derechos Humanos; el rechazo en comisión no elimina por sí solo los recursos, porque las partidas pasan a las siguientes etapas legislativas y pueden reponerse o modificarse (Cámara de Diputadas y Diputados y Senado de Chile, 06-11-2026) | diario: 2026-11-07#la-comision-mixta-rechaza-partidas-de-educacion-y-ciencia | sección: Política y justicia
+- 2026-11-06 | La Comisión Especial Mixta despacha el Presupuesto 2027 a la Cámara tras votar sus 33 partidas, con las de Educación y Ciencia rechazadas: la partida de Educación considera $17,3 billones y fue rechazada por 11 votos en contra, 2 a favor y 11 abstenciones, el Gobierno anuncia que intentará reponer recursos de Educación y de Salud, y el plazo constitucional para concluir la tramitación vence el 30-11-2026 (Cooperativa, 06-11-2026; BioBioChile y Emol, 07-11-2026) | diario: 2026-11-08#presupuesto-2027-llega-a-la-camara-con-educacion-y-ciencia | sección: Presupuesto público
 
 ## Qué falta por saber
 - ¿Cuándo ingresó el proyecto y cuál es el gasto total propuesto? No consta en los informes del repo.
-- ¿Qué fecha límite tiene el despacho del Presupuesto 2027? No consta en los informes del repo.
+- ¿Qué fecha límite tiene el despacho del Presupuesto 2027? Respondida: el informe del 08-11-2026 fija el 30-11-2026 como plazo constitucional para concluir la tramitación.
+- ¿En qué fecha exacta despachó la Comisión Especial Mixta el proyecto a la Cámara? El informe del 08-11-2026 cita fuentes del 06 y del 07-11-2026 y no fija el día.
 - ¿Se rechaza la glosa de Justicia, y con qué efecto sobre el Ministerio? La Comisión Especial Mixta despachó esa partida el 04-11-2026 pese al rechazo opositor, y falta la votación en Sala.
 - ¿Queda el fondo para tratamientos de alto costo de 2027 en $189.000 millones o en $166.000 millones, y cuándo ingresa la reforma legal que anunció el Ministerio de Salud el 04-11-2026?
 - ¿Cuántos recursos se reponen finalmente para los gobiernos regionales después del acuerdo del 04-11-2026 con los gobernadores?
 - ¿Qué pasa con las partidas de educación superior, cultura y ciencia que objetaron rectores y profesores? El 06-11-2026 la Comisión Especial Mixta rechazó las de Educación y de Ciencia, y falta la votación en Sala.
-- ¿Se reponen en Sala las partidas de Educación y de Ciencia rechazadas el 06-11-2026, y con qué monto?
+- ¿Se reponen en Sala las partidas de Educación y de Ciencia rechazadas el 06-11-2026, y con qué monto? La de Educación considera $17,3 billones y el Gobierno anunció el 07-11-2026 que intentará reponer recursos de Educación y de Salud.
 - ¿Qué efecto tiene el rechazo simbólico a la partida del Instituto Nacional de Derechos Humanos del 06-11-2026 sobre sus recursos?
 - ¿Cuántas de las más de 3.800 indicaciones se aprueban, y qué reasignaciones quedan?
 - ¿Qué programas, glosas y fondos específicos de Salud se reducen, y cuáles sobreviven a la votación? El detalle de los recortes cuestionados el 03-11-2026 no consta en los informes del repo.

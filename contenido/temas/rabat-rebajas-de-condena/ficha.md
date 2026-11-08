@@ -1,7 +1,7 @@
 # Las rebajas de condena firmadas por el Ministerio de Justicia: Rabat y Silva
 Estado: abierto
 Abierto: 2026-10-23
-Última actualización: 2026-11-07
+Última actualización: 2026-11-08
 
 ## Origen
 El 22-10-2026 el ministro de Justicia, Fernando Rabat, confirmó que firmó 56 decretos de rebaja de condena para personas sentenciadas por delitos sexuales contra menores (27 por abuso sexual y 29 por violación), concedidos entre el 11-03-2026 y el 13-09-2026 (EL PAÍS, 22 y 23-10-2026). Importa porque la Ley N° 21.421, de febrero de 2022, excluyó a esos delitos del beneficio, y la disputa es si esa exclusión alcanza a condenas anteriores y quién decidía: la Corte Suprema precisó que los decretos los dictó el ministro (EL PAÍS, 22-10-2026). El caso abrió una crisis política, un proyecto de ley y una investigación de la Fiscalía, iniciada el 30-10-2026 por una denuncia de diputados contra el ministro y el entonces subsecretario Luis Silva, sin formalización de ninguno de los dos al 02-11-2026 en el material del repo.
@@ -40,6 +40,7 @@ El 22-10-2026 el ministro de Justicia, Fernando Rabat, confirmó que firmó 56 d
 - 2026-11-06 | Abogados de la oposición discrepan sobre la causal jurídica para acusar constitucionalmente a Rabat; al cierre del informe la acusación todavía requería texto, firmas y admisibilidad, y no era una decisión adoptada por la Cámara (Ex-Ante y La Tercera, 06-11-2026) | diario: 2026-11-07#abogados-opositores-discrepan-sobre-la-causal-juridica-para | sección: Además, hoy
 - 2026-11-06 | El presidente José Antonio Kast regresa de su gira europea y expresa respaldo público al ministro Rabat (La Tercera y BioBioChile, 06-11-2026) | diario: 2026-11-07#kast-regreso-de-su-gira-europea-y-expreso-respaldo-publico | sección: Además, hoy
 - 2026-11-06 | Estudiantes se manifiestan contra las rebajas de condena, un día después de la marcha estudiantil del 05-11-2026 que derivó en incidentes en la Alameda (Radio Universidad de Chile y El Mostrador, 06-11-2026) | diario: 2026-11-07#estudiantes-se-manifestaron-contra-las-rebajas-de-condena | sección: Además, hoy
+- 2026-11-07 | El Ejecutivo anuncia una ofensiva legislativa para limitar o eliminar beneficios de reducción de condena en determinados delitos, el ministro Arrau respalda la revisión, el exministro Mario Arenas sostiene que varios casos conocidos podrían involucrar reincidencia y CIPER pone el foco en expedientes con víctimas menores de edad; los antecedentes quedan incorporados al debate legislativo y judicial sobre el sistema de rebajas (La Tercera, CIPER y Ex-Ante, 07-11-2026) | diario: 2026-11-08#gobierno-prepara-cambios-al-sistema-de-rebajas-de-condena | sección: Política e instituciones
 
 ## Qué falta por saber
 - ¿Formaliza la Fiscalía a alguien? Al 02-11-2026, Rabat figura como imputado por la denuncia, Silva está denunciado y la investigación abierta el 30-10-2026 la dirige el fiscal Francisco Jacir; la calidad de imputado no es formalización y en el material del repo no consta formalización de ninguno de los dos.
@@ -53,8 +54,12 @@ El 22-10-2026 el ministro de Justicia, Fernando Rabat, confirmó que firmó 56 d
 - ¿Qué criterio se aplicó en los 115 decretos de reducción de pena a extranjeros condenados por drogas que Interferencia contó el 05-11-2026 sobre 150 revisados, y cuántos firmó cada autoridad?
 - ¿Quién filtró los decretos de rebaja de condena con información reservada, y termina la investigación interna ordenada el 06-11-2026 en sumarios o en denuncias penales?
 - ¿Con qué causal jurídica se presenta la acusación constitucional? Al 06-11-2026 los abogados de la oposición discrepaban sobre el fundamento y la Cámara no había adoptado una decisión.
+- ¿Es la ofensiva legislativa anunciada el 07-11-2026 el mismo proyecto que el Ejecutivo ingresó con discusión inmediata el 25-10-2026, o uno nuevo? El informe del 08-11-2026 no lo precisa y habla de limitar o eliminar beneficios en determinados delitos, sin identificarlos.
+- ¿Es la misma persona el diputado Arenas que el 02-11-2026 respaldó la acusación constitucional y el exministro Mario Arenas que el 07-11-2026 habló de reincidencia? Los informes del repo les dan cargos distintos y no lo aclaran.
 
 ## Publicado
+Sin largo registrado con id al 08-11-2026. La Clave `rabat-rebajas-de-condena`, con fecha de producción 2026-11-05, salió de este tema (`contenido/claves/flujo/rabat-rebajas-de-condena/tema.md`); al 08-11-2026 su flujo estaba en etapa `videos_listos` y su id de YouTube no consta en el repo.
+
 - 2026-10-23 | exprés | 7vnz4Ex22ew | ¿Por qué ahora también el PC exige la salida del ministro Rabat?
 - 2026-10-24 | exprés | KWY4GglxXOY | ¿Por qué 56 condenados por abusos a menores salieron casi libres? (salió con errores de contenido, no reutilizar su texto)
 - 2026-10-30 | exprés | VFaoYS4Q_G0 | ¿Alcanza con sacar a un subsecretario para salvar al ministro Rabat?
