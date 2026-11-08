@@ -1,1 +1,1 @@
-2026-11-07 validar_final 0 62ffb295
+2026-11-08 validar_preseleccion 0 1f77f47c
