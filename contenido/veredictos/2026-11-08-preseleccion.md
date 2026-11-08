@@ -1,23 +1,8 @@
-VEREDICTO: CORREGIR
+VEREDICTO: APROBADA
 VUELTA: 1
 PIEZA: preseleccion
 PROMPT: prompts/seleccion.md
-VALIDADO: 2026-11-08T05:00:58Z
-
-Correcciones:
-1. Dónde: línea 115, el titular "La Dirección Meteorológica emite alerta por
-   calor extremo para el domingo en cinco regiones, con temperaturas que
-   podrían llegar a 37 grados" · Regla: REGLAS DE ESTILO de
-   prompts/seleccion.md, "Fechas en la prosa como DD-MM-AAAA" (y regla dura
-   35: nunca una referencia temporal relativa en un texto que se lee
-   después) · Debe quedar: el mismo bloque con la fecha absoluta en lugar del
-   día de la semana, "La Dirección Meteorológica emite alerta por calor
-   extremo para el 08-11-2026 en cinco regiones, con temperaturas que podrían
-   llegar a 37 grados", sin tocar el medio, la URL ni la línea "Por qué podría
-   importar". La fecha está verificada acá, no supuesta: las líneas 507 y 516
-   de contenido/barrido/2026-11-08.md dicen "este domingo" sobre prensa del
-   07-11-2026 (la línea 501 del mismo barrido fecha esa prensa como sábado 7
-   de noviembre), y el domingo de esa misma prensa es el 08-11-2026.
+VALIDADO: 2026-11-08T05:06:14Z
 
 Observaciones:
 - Para la pieza siguiente: ninguna cifra de las 37 candidatas viene
@@ -50,36 +35,25 @@ Observaciones:
   prosa sino un período, y la línea 78 lo resuelve con el "Presupuesto 2027"
   de su propio titular. Si el informe lo arrastra tal cual sí será
   incumplimiento: ahí va 2027.
-- Las seis fuentes institucionales sin feed (Contraloría, Banco Central,
-  Cámara, Senado, Dirección Meteorológica y Ministerio Público) no se abrieron
-  y la pieza lo declara en "Notas del barrido", que es donde este prompt manda
-  anotarlo, así que no es hallazgo. Queda escrito porque es permanente:
-  contenido/estado/reparto.txt da esta etapa a Claude desde el 06-10-2026
-  justamente porque sale del barrido que ya está en el repo.
-- Verificado contra los archivos de esta corrida, no de memoria. Formato: 37
-  bloques de dos líneas, los 37 con medio y URL y ninguno con más o menos de
-  dos barras, los 37 con su línea "Por qué podría importar", y las tres
-  secciones finales presentes y en orden. Tamaño: 37, dentro del rango de 35 a
-  60, con la razón del faltante medida en las notas. La cabecera del barrido
-  calza con lo que la nota le atribuye (167 con señal de 522 únicas en 22
-  fuentes, 655 titulares brutos, 16 de días previos, 3 descartadas y ninguna
-  fuente caída). El informe del 07-11-2026 no trae ninguna marca "PENDIENTE DE
-  CIERRE:": se buscó el literal y la palabra sola, sin distinguir mayúsculas,
-  y las dos búsquedas dan cero coincidencias, así que hoy no había candidatas
-  obligatorias por cierre pendiente. Salud y Educación sin material propio,
-  comprobado sobre el barrido: cero coincidencias de hospital, clínica,
-  Fonasa, Isapre, enfermedad, brote, vacuna, colegio, escuela, profesor,
-  Mineduc, matrícula y PAES. Las nueve líneas del barrido que contienen la
-  cadena "salud" son seis veces "saluda" a Alliana y tres el Presupuesto 2027;
-  el refuerzo policial en dos Cesfam de Puente Alto aparece aparte (líneas 198
-  y 200) y la pieza lo clasificó en Seguridad, que es donde corresponde. Las
-  afirmaciones de cero coincidencias de "Historias en curso sin novedad hoy" se
-  comprobaron una por una contra el barrido: las 38 palabras buscadas dan
-  cero. La única candidata marcada "(sin confirmar)" es la única alarma de un solo medio que
-  viene de un medio no reconocible (línea 247 del barrido), y las demás
-  candidatas de medio único vienen corroboradas en dos o más fuentes según el
-  propio barrido. Sin rayas largas ni medias, sin emojis, sin preámbulo ni
-  comentario final. El commit tocó solo su propio archivo, con el mensaje y la
-  línea "Tarea:" que pide el contrato. Sin hallazgos de
-  scripts/revisar-mecanico.js, que por diseño no persigue los días de la
-  semana distintos del lunes: ese es el hallazgo 1.
+- La corrección de la vuelta 1 quedó resuelta y es la única que había. La
+  candidata de la alerta por calor extremo dice ahora "para el 08-11-2026" en
+  lugar del día de la semana, como pedían las REGLAS DE ESTILO de
+  prompts/seleccion.md y la regla dura 35. La fecha se verificó de nuevo en
+  esta corrida contra el barrido, no de memoria: la línea 501 de
+  contenido/barrido/2026-11-08.md fecha esa prensa como "sábado 7 de
+  noviembre" y las líneas 507 y 516 dicen "este domingo", que es el
+  08-11-2026.
+- La corrección no introdujo nada. El diff entre la versión validada
+  (1f77f47) y esta (56f39f7) es una sola línea, la 115, y solo cambia el
+  tramo de la fecha dentro del titular: el medio (ADN Radio, Revista Digital
+  Minera REDIMIN), la URL y la línea "Por qué podría importar" quedaron
+  idénticos, la línea conserva sus dos barras y el resto del archivo es
+  idéntico byte a byte al que ya había verificado. Comprobado en esta corrida:
+  37 bloques con sus 37 líneas "Por qué podría importar", las tres secciones
+  finales presentes y en orden (líneas 134, 139 y 166), cero rayas largas y
+  cero rayas medias por búsqueda literal, y sin hallazgos de
+  scripts/revisar-mecanico.js.
+- Por convergencia (regla del 15-09) no se suman hallazgos nuevos sobre
+  partes que la vuelta 1 no marcó. El commit tocó solo su propio archivo, con
+  el mensaje "edición 2026-11-08: preselección" y la línea "Tarea:" que pide
+  prompts/contrato-archivos.md.
