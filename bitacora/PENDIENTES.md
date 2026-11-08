@@ -175,6 +175,30 @@ o Studio) si Santiago lo decide, y rehacer el guion con la lectura de GPT si lle
 
 ## PARA LA SESIÓN DE LA NOCHE (necesita secrets o rutinas)
 
+- [ ] **08-11, HOY: las noticias [C] escritas como encabezado rompen el
+      renderizado en la web, y hoy se publicaron nueve así.** Auditoría del
+      08-11 (`bitacora/2026-11-08-auditoria.md`, falla 1).
+      `contenido/informes/2026-11-08.md`, líneas 23, 27, 31, 77, 81, 85, 99,
+      117 y 127: cada una es `### [C] <titular>` en vez de una viñeta dentro
+      de una sección "Además, hoy" (que no existe en esta edición), como
+      pide `prompts/informe.md:100`. `web/src/lib/contenido.ts:165` solo da
+      `data-nivel="C"` (chip y ancla) a un `[C]` dentro de `<li>`, y la línea
+      171 borra cualquier marca `[ABC]` restante, encabezados incluidos: las
+      nueve quedan en la web sin chip, sin ancla propia y fuera del listado
+      `noticias`, ya publicadas. El propio validador lo dejó escrito en
+      `contenido/veredictos/2026-11-08-informe.md`: "Viene de mi corrección 1
+      de la vuelta 1, que pidió corchetes 'y lo mismo para cada [B] y cada
+      [C]' sin mirar la estructura." Propuesta: (a) en
+      `contenido/informes/2026-11-08.md`, convertir esas nueve líneas en
+      viñetas `- [C] <titular>` bajo una sección `## Además, hoy` nueva,
+      edición del mismo día, permitida por el contrato; (b) en
+      `prompts/validador.md:213` (el formato "Dónde / Regla / Debe quedar"),
+      agregar que una corrección que pide envolver una noticia en `[A]`,
+      `[B]` o `[C]` tiene que decir también DÓNDE debe quedar la línea
+      resultante (encabezado, viñeta o línea de "Además, hoy"), no solo
+      pedir el corchete. Primera vez que se marca en esta lista:
+      08-11-2026.
+
 - [ ] **07-11, HOY: "ninguna cifra llegó verificada desde la preselección" se
       repite por tercer día seguido y hoy costó un defecto publicado.**
       `contenido/revisiones/2026-11-05.md` ("ninguna de las 57 candidatas vino
@@ -193,6 +217,12 @@ o Studio) si Santiago lo decide, y rehacer el guion con la lectura de GPT si lle
       fuente primaria, en vez de dejar que el informe las confirme solo.
       Primera vez que se marca en esta lista: 07-11-2026 (lleva tres mañanas
       seguidas señalada en las revisiones). `bitacora/2026-11-07-auditoria.md`.
+      **08-11: cuarta mañana seguida.** `contenido/revisiones/2026-11-08.md`:
+      "las cifras de la preselección entran sin verificar por diseño, así
+      que el informe tiene que confirmarlas contra la fuente antes de
+      usarlas." Sin un defecto publicado nuevo hoy, pero `prompts/preseleccion.md`
+      sigue sin el campo de verificación por candidata que pide la propuesta.
+      `bitacora/2026-11-08-auditoria.md`.
 
 - [ ] **01-11: el prompt del reloj del barrido debe fallar si el push no entró** (texto propuesto en bitacora/2026-11-01.md)
 
@@ -329,6 +359,14 @@ que estaba aprobada.
       con sus vistas y comentarios intactos, confirmando que tampoco eran
       un borrado. El PR #8 sigue abierto y sin fusionar (`state: open`,
       `merged: false`, verificado hoy). `bitacora/2026-11-07-auditoria.md`.
+      **08-11: décima vez.** Comparando `bitacora/metricas/2026-11-07.json`
+      contra `bitacora/metricas/2026-11-08.json` por id: hoy falta
+      `W1wDcuuG7tI` ("La economía chilena no logra repuntar: el Imacec cayó
+      otra v...", público, 8 vistas, presente ayer); `canal.videos` se
+      mantuvo en 222 los dos días mientras los públicos medidos siguen en
+      221, el mismo patrón de siempre. El PR #8 sigue abierto y sin
+      fusionar (`state: open`, `merged: false`, `updated_at` sin cambios
+      desde el 06-11-2026). `bitacora/2026-11-08-auditoria.md`.
 
 - [ ] **23-10, HOY: el 22-10-2026 se perdió el día completo (ni informe, ni
       video, ni podcast) porque ningún reloj de Claude disparó esa

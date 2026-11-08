@@ -122,152 +122,167 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 07-11-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-11-07-auditoria.md</span></p>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS. HOY: "ninguna cifra llegó verificada desde la</div>
+    <p class="eyebrow">Auditoría de la mañana · 08-11-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-11-08-auditoria.md</span></p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--cobre);margin-bottom:10px">ESTADO: CON FALLAS. HOY: las nueve noticias [C] del informe quedaron como</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0"># Auditoría matinal, 07-11-2026
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0"># Auditoría matinal, 08-11-2026
 
-Auditada el 07-11-2026 entre las 05:33 y las 05:39 de Chile, con el checkout
-sincronizado contra `origin/main` (`3613d43`, "reintento: despertador 05:12
+Auditada el 08-11-2026 entre las 05:30 y las 05:50 de Chile, con el checkout
+sincronizado contra `origin/main` (`1c9b202`, "reintento: despertador 05:36
 [reloj]").
 
-ESTADO: CON FALLAS. HOY: "ninguna cifra llegó verificada desde la
-preselección" se repite por tercer día seguido (05, 06 y 07-11-2026) y hoy
-costó un defecto publicado: el 8% de reajuste en las tarifas de transporte
-quedó en el informe sin respaldo verificable en el repo.
+ESTADO: CON FALLAS. HOY: las nueve noticias [C] del informe quedaron como
+encabezados "### [C]" en vez de líneas de "Además, hoy", y la web ya
+publicada no les da chip ni ancla ni las lista; además, "ninguna cifra llegó
+verificada desde la preselección" entra a su cuarta mañana seguida.
 
 ## Qué salió y a qué hora
 
 | Pieza | Hora real (Chile) | Hora esperada (cuadro) | Resultado | Evidencia |
 |---|---|---|---|---|
-| Reloj del barrido + Barrido | despertador 01:39:41, barrido 01:40 | 01:30 (cron), ~01:31 histórico | éxito, 9 a 10 min tarde, sin falla de cuota (primera vez en cinco días) | `get_trigger(trig_01W5KEjHbr5wWPsmmJ4ygNEh)`: `last_run.status: ROUTINE_RUN_STATUS_SUCCEEDED`; Actions "Barrido" run `42339443301`, `conclusion: success`; commit "despertador 2026-11-07 [reloj]" |
-| Preselección | redactada 01:50, veredicto 01:55 | tras `barrido_listo` | éxito, APROBADA vuelta 0, sin corrección | `contenido/veredictos/2026-11-07-preseleccion.md` |
-| Informe | redactado 02:01 (vuelta 0), CORREGIR 02:09 (vuelta 1), de nuevo 02:12, CORREGIR 02:17 (vuelta 2), de nuevo 02:18, APROBADA 02:21 | tras cada pieza | éxito, dos vueltas | `contenido/veredictos/2026-11-07-informe.md` |
-| Guion del informe | redactado 02:24 (vuelta 0), CORREGIR 02:31 (vuelta 1), de nuevo 02:35, APROBADA 02:40 | tras cada pieza | éxito, una vuelta | `contenido/veredictos/2026-11-07-guion_informe.md` |
-| Revisión (compuerta) | 02:41, APROBADA vuelta 2 | tras cada pieza | éxito | `contenido/revisiones/2026-11-07.md` |
-| Edición diaria (render, voz, Short, descripciones, podcast, subida programada) | arrancó 02:41:09 (push de la revisión), `videos_listos` 02:44 | ~02:50 (cuadro del panel) | éxito, adelantada, sin arrastre | Actions "Edición diaria" run `42343773687`, `conclusion: success`; `contenido/estado/2026-11-07.md`: "FALTA: nada, el día está completo" |
-| Web | con cada push relevante | continuo | éxito | Actions "Web" runs `42343952153`, `42343773678`, `42342143816`, `42341710814`, `42340943725`, todos `conclusion: success` |
-| Reloj de métricas + Métricas | despertador 05:04:51, métricas 05:05 | 05:00 | éxito, 4 a 5 min tarde | Actions "Métricas" run `42353926626`, `conclusion: success`; commit "despertador métricas 2026-11-07 [reloj]" |
-| Vigía de la cadena | 02:15 y 05:15 Chile | 02:15 y 05:15 | la corrida de las 05:15 `SUCCEEDED` y no notificó (solo avisa si algo está atrasado) | `get_trigger(trig_01LUtn4fSJjBsCzqdoWeVviH)`: `last_run` fired 05:15:31 Chile, `ROUTINE_RUN_STATUS_SUCCEEDED` |
-| Clave | no corresponde hoy (sin calendario, a juicio editorial, regla 14); la última es la del 05-11-2026 | cuando corresponda | sin novedad, no es hallazgo | listado de `contenido/claves/` y `contenido/guiones/claves/`: sin archivo con fecha 2026-11-07 |
-| Short del día | subido en `private` a la hora de esta auditoría (sube a las 12:00) | 12:00 | pendiente de evaluar hasta su publicación | `bitacora/metricas/2026-11-07.json`: `zbMQDyBa3iI`, "Paraguay destituyó a Santiago Peña después de la caída de Ue", `estado: private`, publicado `2026-11-07` |
+| Reloj del barrido + Barrido | despertador 01:40:01, barrido 01:40:24 | 01:30 (cron), ~01:31 histórico | éxito, 10 min tarde, sin falla de cuota | `get_trigger(trig_01W5KEjHbr5wWPsmmJ4ygNEh)`: `last_run.status: ROUTINE_RUN_STATUS_SUCCEEDED`; Actions "Barrido" run `42447751247`, `conclusion: success` |
+| Preselección | redactada 01:55, CORREGIR vuelta 1 (fecha de prosa sin DD-MM-AAAA), APROBADA 02:02 | tras `barrido_listo` | éxito, una vuelta | `contenido/veredictos/2026-11-08-preseleccion.md` |
+| Informe | redactado, CORREGIR vuelta 1 (quince correcciones, todas de forma: topes de cifras, largos, colocación de tarjetas), APROBADA 02:26 | tras cada pieza | éxito, una vuelta, pero cara: quince correcciones en una sola pasada | `contenido/veredictos/2026-11-08-informe.md`; `contenido/informes/2026-11-08.md` (creado 02:17) |
+| Guion del informe | redactado, CORREGIR vuelta 1 (ocho correcciones, el mismo par de topes), APROBADA 02:52 | tras cada pieza | éxito, una vuelta | `contenido/veredictos/2026-11-08-guion_informe.md`; `contenido/guiones/informe/2026-11-08.md` (creado 02:42) |
+| Revisión (compuerta) | 03:01, APROBADA vuelta 1 | tras cada pieza | éxito | `contenido/revisiones/2026-11-08.md` |
+| Edición diaria (render, voz, Short, descripciones, podcast, subida programada) | arrancó con el push de la revisión, `videos_listos` 03:03 | ~02:50 (cuadro del panel) | éxito, 13 min después del cuadro, sin arrastre (`FALTA: nada, el día está completo` a las 03:04) | Actions "Edición diaria" run `42453025127`, `conclusion: success`; `contenido/estado/2026-11-08.md` |
+| Web | con cada push relevante | continuo | éxito | Actions "Web" runs, todos `conclusion: success` (último `42453209522`) |
+| Reloj de métricas + Métricas | despertador 05:04, métricas 05:04:45 | 05:00 | éxito, 4 a 5 min tarde | Actions "Métricas" run `42461375555`, `conclusion: success`; `bitacora/metricas/2026-11-08.md` (creado 05:05) |
+| Vigía de la cadena | 05:15:13 Chile | 02:15 y 05:15 | `SUCCEEDED`, sin aviso (la cadena ya estaba completa) | `get_trigger(trig_01LUtn4fSJjBsCzqdoWeVviH)`: `last_run.status: ROUTINE_RUN_STATUS_SUCCEEDED` |
+| Clave | no corresponde hoy (sin calendario, a juicio editorial, regla 14); la última es la del 05-11-2026 | cuando corresponda | sin novedad, no es hallazgo | `contenido/claves/` y `contenido/guiones/claves/`: sin archivo con fecha 2026-11-08 |
+| Short del día | subido en `private`, publicado `2026-11-08`, 42 segundos | 12:00 | pendiente de evaluar hasta su publicación | `bitacora/metricas/2026-11-08.json`: `ObuOrzlbqiY`, "El balance oficial del choque en la Ruta de la Fruta fue…, y", `estado: private` |
 
-Duración real del informe: 218 segundos (3:38), dentro de la promesa de 3 a 4
-minutos (`contenido/podcast/episodios.json`, episodio del 07-11-2026). No hay
+Duración real del informe: 237 segundos (3:57), dentro de la promesa de 3 a 4
+minutos (`contenido/podcast/episodios.json`, episodio del 08-11-2026). No hay
 episodio de Clave hoy, consistente con que no hubo Clave.
 
-Validador de tarjetas: `node scripts/validar-tarjetas.js --fecha 2026-11-07`
-→ "4 bloques con fuente, 467 palabras narradas (~3,5 min): cifra 2 ·
-comparacion 1 · barras 1 · esquema 1" y "variedad OK: ninguna cuota rota,
-ninguna marca malformada." Sin avisos.
+Validador de tarjetas: `node scripts/validar-tarjetas.js --fecha 2026-11-08`
+→ "4 bloques con fuente, 510 palabras narradas (~3,8 min): cambio 1 · esquema
+1 · comparacion 1 · cifra 1" y "variedad OK: ninguna cuota rota, ninguna marca
+malformada." Sin avisos.
 
-Marcas `PENDIENTE DE CIERRE`: ninguna en `contenido/informes/2026-11-07.md`
+Marcas `PENDIENTE DE CIERRE`: ninguna en `contenido/informes/2026-11-08.md`
 (buscado explícitamente, cero coincidencias).
 
 ## Qué falló
 
-1. **"Ninguna cifra llegó verificada desde la preselección" se repite por
-   tercer día seguido** (`contenido/revisiones/2026-11-05.md`: "ninguna de
-   las 57 candidatas vino verificada"; `contenido/revisiones/2026-11-06.md`:
-   "Ninguna cifra llegó verificada desde la preselección";
-   `contenido/revisiones/2026-11-07.md`: la misma frase, aplicada hoy al IPC
-   de octubre, los 37 grados de la alerta de calor, las 2.136 expulsiones de
-   2026 y las 115 rebajas que cifra Interferencia). Hoy el patrón costó algo
-   concreto: la revisión de hoy marca que "el reajuste de 8% en las tarifas
-   de transporte que el informe agregó en su línea 68 no viene de la
-   entrada: la preselección trae esa candidata solo como el acuerdo tras
-   siete días de movilización (...) la cifra sigue en el informe publicado
-   sin respaldo verificable dentro del repo", además de un nombre de pila y
-   un sector preciso que la línea 72 del informe agrega sin que la entrada
-   los traiga. Es exactamente el hallazgo "revisa y no aprende" que señaló
-   la auditoría del 06-11: tres mañanas con la misma frase y nada en el
-   prompt cambió entre medio.
+1. **Las nueve noticias [C] del informe de hoy quedaron como encabezados
+   "### [C]" en vez de líneas de "Además, hoy", y la sección "Además, hoy" no
+   existe en esta edición.** `contenido/informes/2026-11-08.md`, líneas 23,
+   27, 31, 77, 81, 85, 99, 117 y 127: cada una empieza con `### [C]`.
+   `web/src/lib/contenido.ts`: la línea 165 solo da `data-nivel="C"` (chip y
+   ancla) a un `[C]` dentro de `&lt;li>` (viñeta), y la línea 171 borra
+   cualquier marca `[ABC]` que quede, encabezados incluidos. Como resultado,
+   las nueve quedan en la web como subtítulos sueltos, sin chip de peso, sin
+   ancla propia y sin entrar al listado `noticias` que alimenta el índice:
+   ya está publicado (el workflow "Web" corrió después de cada push de hoy)
+   y es un defecto visible para cualquier lector. El propio validador lo
+   dejó por escrito en `contenido/veredictos/2026-11-08-informe.md`: "Viene
+   de mi corrección 1 de la vuelta 1, que pidió corchetes 'y lo mismo para
+   cada [B] y cada [C]' sin mirar la estructura." La edición aprobada del
+   07-11-2026 hace lo contrario (cero `### [C]`, con la sección "Además, hoy"
+   en su línea 78) y por eso no le pasa esto.
 
-2. **La variante "sigla contra el tope de seis palabras" de `[FUENTE]`
-   volvió a aparecer, y la propia revisión de hoy ya la cuenta como
-   tercera vez.** `contenido/revisiones/2026-11-07.md`: "'ABC Color/EFE' se
-   pinta en el [FUENTE] del guion sin que EFE quede expandida antes (...)
-   Es el tercer día con el mismo choque (CIPER el 04-11-2026, la misma
-   cadena el 06-11-2026): el tope de seis palabras de esas marcas no deja
-   expandirla. Es material para la definición del prompt, no de la pieza."
-   Verificado contra `contenido/guiones/informe/2026-11-04.md:9,17` ("vía
-   CIPER") y `contenido/guiones/informe/2026-11-06.md:10,19,31` ("vía
-   CIPER"). No bloqueó ninguna vuelta (el propio veredicto no lo cobró como
-   corrección) y es la misma familia de problema que ya vive en
-   `bitacora/PENDIENTES.md` desde el 23-09-2026 bajo "expandir siglas que se
-   pintan en pantalla", con su variante de tope de seis palabras documentada
-   el 21-10 y el 23-10.
+2. **"Ninguna cifra llegó verificada desde la preselección" entra a su
+   cuarta mañana seguida.** `contenido/revisiones/2026-11-08.md`: "las
+   cifras de la preselección entran sin verificar por diseño, así que el
+   informe tiene que confirmarlas contra la fuente antes de usarlas", la
+   misma observación de `contenido/revisiones/2026-11-05.md`,
+   `2026-11-06.md` y `2026-11-07.md`. Ya está en `bitacora/PENDIENTES.md`
+   desde el 07-11-2026 (marcada HOY esa vez, con un defecto publicado en el
+   8% de reajuste de tarifas); hoy no se le encontró un defecto publicado
+   nuevo, pero el patrón sigue sin que `prompts/preseleccion.md` cambie.
 
-3. **`scripts/metricas.js` volvió a perder un video de la medición, novena
-   vez documentada.** Comparando `bitacora/metricas/2026-11-06.json` contra
-   `bitacora/metricas/2026-11-07.json` campo por campo por id (no por
-   título): hoy falta `GJMefzqOaqk` ("¿Cómo funciona la regla fiscal y el
-   balance estructural?", público, 32 vistas, presente ayer). La aritmética
-   confirma que no está borrado: `canal.videos` (de `channels.list`, que no
-   cuenta videos borrados ni privados) se mantuvo en 221 los dos días,
-   mientras que los públicos medidos subieron de 219 a 220, uno por debajo
-   de lo que el canal declara, el mismo patrón que la entrada del 27-10
-   documenta siete veces en octubre y una octava el 06-11. Buena noticia
-   aparte: los dos videos que la auditoría del 06-11 marcó como
-   desaparecidos (`FVu5s1yBu7Q`, `nvG_C4evsL8`) volvieron solos hoy, con sus
-   vistas y comentarios intactos, confirmando que tampoco eran un borrado
-   sino el mismo problema de paginación. El arreglo (PR #8,
-   "Mejora 2026-11-06: métricas que avisan cuando la API no devuelve un
-   video") sigue abierto y sin fusionar: `mcp__github__pull_request_read`
-   sobre el PR 8 lo muestra `state: open`, `merged: false`.
+3. **El tope de tres cifras habladas por bloque volvió a ser el grueso de
+   las correcciones por tercer día seguido, y hoy además mostró un hueco de
+   criterio.** `contenido/revisiones/2026-11-06.md`: "las seis correcciones
+   del guion fueron todas del mismo par de reglas, el tope de tres cifras
+   habladas por bloque..."; `contenido/revisiones/2026-11-07.md`: "dos
+   fueron el tope de tres cifras habladas por bloque"; hoy, de las ocho
+   correcciones del guion, cuatro de los cinco bloques narrados tuvieron que
+   recortarse al tope (`contenido/veredictos/2026-11-08-guion_informe.md`,
+   puntos 3, 4 y 5). El mismo veredicto de hoy señala el hueco: "Conviene
+   que `prompts/guion-informe.md` diga explícitamente si la [TESIS], que sí
+   se narra, cuenta para ese tope: hoy el criterio lo fija el validador y eso
+   puede cambiar entre días." No bloqueó nada ni se publicó con un defecto
+   (la máquina sigue produciendo sin pérdida), pero es exactamente el
+   "revisa y no aprende" que señala este prompt cuando un hallazgo se repite
+   tres días sin que el prompt cambie.
 
-Sin otras fallas: el resto de los hallazgos de
-`contenido/revisiones/2026-11-07.md` (la reclasificación de Ciencia y
-tecnología, el seguimiento de Venezuela sin novedad hoy, los enlaces de
-Google News en vez de la URL directa, los nombres propios de sección fuera
-de la lista del prompt, la segunda fuente derivada del IPC, la fecha del
-hecho de Paraguay que se perdió del guion, el bloque corto del IPC, la
-redacción vaga de los depósitos de Ueno Bank y la Carátula 2 sin nombrar
-Paraguay) son precisiones editoriales de un solo día, ninguna repetida hoy
-por primera vez, y ya están escritas donde corresponde.
+4. **`scripts/metricas.js` volvió a perder un video de la medición, décima
+   vez documentada.** Comparando `bitacora/metricas/2026-11-07.json` contra
+   `bitacora/metricas/2026-11-08.json` por id (no por título): hoy falta
+   `W1wDcuuG7tI` ("La economía chilena no logra repuntar: el Imacec cayó
+   otra v...", público, 8 vistas, presente ayer). `canal.videos` (de
+   `channels.list`, que no cuenta borrados ni privados) se mantuvo en 222 los
+   dos días, mientras los públicos medidos siguen en 221, uno por debajo de
+   lo que el canal declara: el mismo patrón de siempre, no un borrado. El PR
+   #8 (el arreglo, probado contra un doble de la API) sigue abierto y sin
+   fusionar: `mcp__github__pull_request_read` lo muestra `state: open`,
+   `merged: false`, `updated_at: 2026-11-06T10:36:47Z` (sin cambios desde
+   entonces).
+
+Sin otras fallas nuevas: el resto de los hallazgos de
+`contenido/revisiones/2026-11-08.md` (los nombres de sección fuera de la
+lista del prompt, las fuentes por ordenar, las dos afirmaciones más anchas
+que su fuente, las tres fechas de prosa fuera de DD-MM-AAAA, "Conaf" sin
+expandir y las líneas de "Agenda de hoy" escritas como encargos) son
+precisiones de un solo día o variantes menores de patrones ya escritos en
+`bitacora/PENDIENTES.md`, y no agregan un hallazgo nuevo hoy.
 
 ## Propuestas
 
-1. Para la falla 1: que `prompts/preseleccion.md` declare explícitamente,
+1. Para la falla 1: en `contenido/informes/2026-11-08.md`, convertir las
+   nueve líneas `### [C]` (23, 27, 31, 77, 81, 85, 99, 117, 127) en viñetas
+   `- [C] &lt;titular>` dentro de una sección `## Además, hoy` nueva, como pide
+   `prompts/informe.md:100`; es una edición del mismo día, permitida por el
+   contrato. Para que no vuelva a pasar: en
+   `prompts/validador.md:213` (el formato "Dónde / Regla / Debe quedar" de
+   cada corrección), agregar que una corrección que pide envolver una
+   noticia en `[A]`, `[B]` o `[C]` tiene que decir también DÓNDE debe quedar
+   la línea resultante (encabezado, viñeta o línea de "Además, hoy"), no
+   solo pedir el corchete.
+2. Para la falla 2: que `prompts/preseleccion.md` declare explícitamente,
    candidata por candidata, cuáles cifras no pudo verificar contra su fuente
-   primaria (un campo o una marca por candidata), en vez de dejar que el
-   informe las confirme solo. Es la propuesta que la auditoría del 06-11 ya
-   anunció para esta tercera vez.
-2. Para la falla 2: en `prompts/guion-informe.md`, decidir una de dos
-   salidas para cuando una sigla y el tope de seis palabras de `[FUENTE]`
-   chocan: (a) permitir una segunda línea solo para el pie de fuente, o
-   (b) definir una lista de siglas de agencia exentas de expandirse (EFE,
-   AP, Reuters) además de las que ya salva el prompt. La propia revisión de
-   hoy ya dice que no se arregla en la pieza.
-3. Para la falla 3: ninguna propuesta nueva, el arreglo ya existe. Fusionar
-   el PR #8 y verificar la corrida real de Métricas de mañana a las 05:00,
-   que es la prueba que al PR le falta.
+   primaria, en vez de dejar que el informe las confirme solo (la misma
+   propuesta que ya vive en `bitacora/PENDIENTES.md` desde el 07-11-2026).
+3. Para la falla 3: en `prompts/guion-informe.md`, en la regla del tope de
+   tres cifras habladas por bloque, agregar una frase que diga si la cifra
+   narrada dentro de una `[TESIS]` cuenta para ese tope o no, para que el
+   criterio no dependa de que lo fije el validador cada día.
+4. Para la falla 4: ninguna propuesta nueva, el arreglo ya existe. Fusionar
+   el PR #8 y verificar la corrida real de Métricas del 09-11 a las 05:00,
+   que es la prueba que al PR le sigue faltando.
 
 ## Triage
 
-- **HOY**: la falla 1 (cifras sin verificar, tercer día, con un defecto ya
-  publicado). Baja a `bitacora/PENDIENTES.md` en este mismo commit.
-- **AGUANTA**: la falla 2 (siglas contra el tope de seis palabras) y la
-  falla 3 (metricas.js pierde un video); las dos ya están en
-  `bitacora/PENDIENTES.md` desde antes y se les agrega la continuación de
-  hoy, sin duplicar la entrada.
+- **HOY**: la falla 1 (los nueve `[C]` sin chip ni ancla en la web, ya
+  publicado) y la falla 2 (cifras sin verificar, cuarta mañana seguida).
+  Ambas bajan a `bitacora/PENDIENTES.md` en este mismo commit: la falla 1
+  como entrada nueva, la falla 2 como continuación de la entrada del
+  07-11-2026.
+- **AGUANTA**: la falla 3 (tope de tres cifras habladas por bloque, tercer
+  día con el mismo costo, con el hueco de la `[TESIS]` recién señalado) y la
+  falla 4 (`metricas.js` pierde un video; ya está en `bitacora/PENDIENTES.md`
+  desde el 27-10-2026 y se le agrega la continuación de hoy, sin duplicar la
+  entrada).
 - **MIRAR**: ninguna nueva hoy.
 
 ## Comparación con ayer
 
-- **Mejoró**: el reloj del barrido corrió sin la falla de cuota que lo venía
-  frenando hace cinco días seguidos (14 y 15-10, 05 y 06-11): hoy
-  `get_trigger` devuelve `ROUTINE_RUN_STATUS_SUCCEEDED` limpio. La edición
-  diaria también se adelantó al cuadro (`videos_listos` a las 02:44 contra
-  ~02:50 esperado) en vez de arrastrar atraso como ayer.
+- **Mejoró**: el barrido volvió a correr sin falla de cuota, como ayer y
+  antes de ayer. Los suscriptores subieron por primera vez en seis días
+  (48 desde el 03-11, hoy 49, `bitacora/metricas/2026-11-08.md`).
 - **Sigue igual**: las cifras sin verificar desde la preselección (ahora
-  tercer día, escalado a HOY); los 48 suscriptores no se mueven desde el
-  03-11 (quinto día plano); la variante de siglas contra el tope de seis
-  palabras (tercera vez con la misma forma); `scripts/metricas.js` sigue
-  perdiendo un video por corrida con el PR #8 todavía sin fusionar.
-- **Nuevo**: ninguna falla nueva hoy, las tres son continuaciones de
-  patrones ya escritos en auditorías anteriores.
+  cuarta mañana); `scripts/metricas.js` sigue perdiendo un video por corrida,
+  con el PR #8 todavía sin fusionar; el tope de tres cifras habladas sigue
+  costando la mayoría de las correcciones del guion, tercer día seguido.
+- **Nuevo**: el informe pagó una corrección en la preselección además de en
+  el informe y el guion (los tres días anteriores la preselección pasaba
+  limpia en vuelta 0), y por primera vez el propio proceso de corrección del
+  validador introdujo un defecto que llegó publicado (los nueve `[C]` como
+  encabezados), en vez de que el defecto viniera de GPT.
 </pre>
     </details>
     <!--AUDITORIA-FIN-->
