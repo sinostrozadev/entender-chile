@@ -51,18 +51,49 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
     pagina = r.data.nextPageToken;
   } while (pagina);
   if (subidos.length < canal.videos) console.log(`AVISO: el canal declara ${canal.videos} videos y la lista de subidas trajo ${subidos.length}.`);
+  // Una tanda de videos.list puede volver incompleta: la API acepta los 50 id,
+  // responde 200 y devuelve menos, y este bucle solo recorría lo que llegó, así
+  // que el video no devuelto desaparecía entero de la medición y de la suma de
+  // vistas. Pasó siete veces en octubre (PENDIENTES, 27-10) y el 06-11-2026
+  // costó una alarma falsa: dos Shorts públicos de 169 y 314 vistas salieron de
+  // la lista, la suma del día cayó 443 vistas y la auditoría lo escaló a
+  // Santiago como posible sanción de YouTube, cuando channels.list seguía
+  // contando esos videos (220 públicos declarados contra 218 medidos). Ahora se
+  // compara id pedido contra id recibido, la tanda incompleta se reintenta una
+  // vez, y lo que siga faltando se dice con su id por consola, en el md y en el
+  // json, para que nadie lea una baja de la API como una baja del canal.
   const videos = {};
+  const anotar = (v) => {
+    const m = (v.contentDetails?.duration || "").match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+    const durSeg = m ? (+(m[1] || 0)) * 3600 + (+(m[2] || 0)) * 60 + (+(m[3] || 0)) : 0;
+    videos[v.id] = {
+      titulo: v.snippet.title.slice(0, 60), publicado: v.snippet.publishedAt.slice(0, 10), estado: v.status.privacyStatus,
+      vistas: +(v.statistics.viewCount || 0), meGusta: +(v.statistics.likeCount || 0), comentarios: +(v.statistics.commentCount || 0),
+      durSeg,
+    };
+  };
+  // devuelve los id que se pidieron y no llegaron
+  const pedirTanda = async (ids) => {
+    const r = await yt.videos.list({ id: ids, part: ["snippet", "statistics", "status", "contentDetails"] });
+    for (const v of r.data.items || []) anotar(v);
+    return ids.filter((id) => !videos[id]);
+  };
+  const perdidos = [];
   for (let i = 0; i < subidos.length; i += 50) {
-    const r = await yt.videos.list({ id: subidos.slice(i, i + 50), part: ["snippet", "statistics", "status", "contentDetails"] });
-    for (const v of r.data.items) {
-      const m = (v.contentDetails?.duration || "").match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
-      const durSeg = m ? (+(m[1] || 0)) * 3600 + (+(m[2] || 0)) * 60 + (+(m[3] || 0)) : 0;
-      videos[v.id] = {
-        titulo: v.snippet.title.slice(0, 60), publicado: v.snippet.publishedAt.slice(0, 10), estado: v.status.privacyStatus,
-        vistas: +(v.statistics.viewCount || 0), meGusta: +(v.statistics.likeCount || 0), comentarios: +(v.statistics.commentCount || 0),
-        durSeg,
-      };
+    const tanda = subidos.slice(i, i + 50);
+    let faltan = await pedirTanda(tanda);
+    if (faltan.length) {
+      console.log(`AVISO: la tanda ${i / 50 + 1} pidió ${tanda.length} videos y volvió sin ${faltan.length}. Se reintenta: ${faltan.join(", ")}`);
+      faltan = await pedirTanda(faltan);
     }
+    perdidos.push(...faltan);
+  }
+  if (perdidos.length) {
+    console.log(`AVISO: ${perdidos.length} video${perdidos.length === 1 ? "" : "s"} ${perdidos.length === 1 ? "quedó" : "quedaron"} fuera de la medición incluso tras el reintento. La suma de vistas de hoy está incompleta y una baja respecto de ayer NO es una baja real del canal. Id: ${perdidos.join(", ")}`);
+  }
+  const publicos = Object.values(videos).filter((v) => v.estado === "public").length;
+  if (publicos < canal.videos) {
+    console.log(`AVISO: channels.list declara ${canal.videos} videos públicos y la medición trae ${publicos}. Faltan ${canal.videos - publicos}, y como el canal los sigue contando, no están borrados: no llegaron.`);
   }
 
   // deltas contra el json anterior más reciente
@@ -160,7 +191,6 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
   } else {
     console.log("(impresiones: todavía no existe bitacora/metricas/impresiones.json; corre scripts/impresiones.js)");
   }
-  const publicos = Object.values(videos).filter((v) => v.estado === "public").length;
   const lineas = [
     `# Métricas · ${fecha.split("-").reverse().join("-")}`,
     "",
@@ -169,6 +199,12 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
     `${Object.keys(videos).length} subidos, ${publicos} públicos.` +
     (prev ? ` (vs ${previos[previos.length - 1].replace(".json", "")})` : " (línea base, sin comparación)"),
     "",
+    ...(perdidos.length ? [
+      `**AVISO: ${perdidos.length} video${perdidos.length === 1 ? "" : "s"} que el canal sigue contando ${perdidos.length === 1 ? "quedó" : "quedaron"} fuera de esta medición** ` +
+      `(id ${perdidos.join(", ")}): \`videos.list\` no ${perdidos.length === 1 ? "lo" : "los"} devolvió, ni en el reintento. La suma de vistas de arriba está ` +
+      `incompleta por eso, así que una baja respecto del día anterior no es una baja real del canal.`,
+      "",
+    ] : []),
     retencion ? `| Video | Estado | Vistas |${impresiones ? " Impres. | CTR |" : ""} Min. vistos | % visto | Me gusta |`
               : "| Video | Estado | Vistas | Me gusta | Coment. |",
     retencion ? `|---|---|---|${impresiones ? "---|---|" : ""}---|---|---|` : "|---|---|---|---|---|",
@@ -241,7 +277,7 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
     lineas.push("", "Retención: sin YT_ANALYTICS_REFRESH_TOKEN en el entorno (la métrica queda fuera, el resto no se afecta).", "");
   }
   fs.writeFileSync(path.join(DIR, `${fecha}.md`), lineas.join("\n"));
-  fs.writeFileSync(path.join(DIR, `${fecha}.json`), JSON.stringify({ fecha, canal, videos, ...(retencion ? { retencion } : {}), ...(fuentes ? { fuentes } : {}), ...(impresiones ? { impresiones } : {}) }, null, 2) + "\n");
+  fs.writeFileSync(path.join(DIR, `${fecha}.json`), JSON.stringify({ fecha, canal, videos, ...(perdidos.length ? { perdidos } : {}), ...(retencion ? { retencion } : {}), ...(fuentes ? { fuentes } : {}), ...(impresiones ? { impresiones } : {}) }, null, 2) + "\n");
 
   reconstruirHistorico();
   console.log(`métricas del ${fecha}: ${canal.suscriptores} subs, ${Object.keys(videos).length} videos → ${DIR}/${fecha}.md`);
