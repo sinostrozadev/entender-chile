@@ -2,15 +2,15 @@
   "fecha": "2026-11-09",
   "canal": {
     "suscriptores": 53,
-    "vistas": 23791,
-    "videos": 223
+    "vistas": 24088,
+    "videos": 224
   },
   "videos": {
     "Aiu7KWgR900": {
       "titulo": "Curicó cerró ciento veintiséis salidas por viajes con licenc",
       "publicado": "2026-11-09",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 4,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 40
@@ -19,7 +19,7 @@
       "titulo": "El balance oficial del choque en la Ruta de la Fruta fue…, y",
       "publicado": "2026-11-08",
       "estado": "public",
-      "vistas": 31,
+      "vistas": 34,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 42
@@ -28,7 +28,7 @@
       "titulo": "Paraguay destituyó a Santiago Peña después de la caída de Ue",
       "publicado": "2026-11-07",
       "estado": "public",
-      "vistas": 597,
+      "vistas": 639,
       "meGusta": 23,
       "comentarios": 0,
       "durSeg": 37
@@ -37,7 +37,7 @@
       "titulo": "Codelco registró cobre no producido y activó bonos mientras…",
       "publicado": "2026-11-06",
       "estado": "public",
-      "vistas": 11,
+      "vistas": 12,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 35
@@ -46,7 +46,7 @@
       "titulo": "¿Quién decidía las rebajas de condena en Chile?",
       "publicado": "2026-11-05",
       "estado": "public",
-      "vistas": 33,
+      "vistas": 38,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 720
@@ -1306,7 +1306,7 @@
       "titulo": "Tren Melipilla partirá desde Lo Errázuriz",
       "publicado": "2026-09-18",
       "estado": "public",
-      "vistas": 53,
+      "vistas": 54,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 707
