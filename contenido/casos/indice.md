@@ -20,7 +20,7 @@ Fuera del contador, por no ser comparables (se listan igual, con su etiqueta):
 | Democracia Viva (caso Convenios, arista madre) | JUDICIALIZADO | $426 millones | perjuicio-acusado | $0 | 2026-10-20 | democracia-viva-convenios.md |
 | FONASA, megafraude de licencias médicas falsas | JUDICIALIZADO | $31,6 mil millones | perjuicio-veredicto | $0 | 2026-10-27 | fonasa-licencias-falsas.md |
 | GORE La Araucanía y Universidad Autónoma (convenios 2021-2023) | ACTIVO | $21,8 mil millones | transferido-auditado | $155,5 millones | 2026-10-18 | gore-araucania-u-autonoma.md |
-| JUNAEB-SOSER, raciones no entregadas del Programa de Alimentación Escolar ("onces fantasma") | ACTIVO | $14 mil millones | denunciado | $0 | 2026-10-31 | junaeb-soser-raciones-no-entregadas.md |
+| JUNAEB-SOSER, raciones no entregadas del Programa de Alimentación Escolar ("onces fantasma") | ACTIVO | $14 mil millones | denunciado | $0 | 2026-11-09 | junaeb-soser-raciones-no-entregadas.md |
 | JUNJI, app "Mi Jardín JUNJI" (pagos por aplicación de escaso uso) | ACTIVO | $458,9 millones | observado-contraloria | $0 | 2026-08-25 | junji-app-mi-jardin.md |
 | JUNJI, licencias médicas sin recuperar (Contraloría 2026) | ACTIVO | $20,9 mil millones | observado-contraloria | $1,7 mil millones | 2026-10-24 | junji-licencias-medicas.md |
 | Licencias médicas de funcionarios públicos (caso nacional y sus sanciones) | ACTIVO | $36,9 mil millones | estimacion | $0 | 2026-10-31 | licencias-medicas-funcionarios.md |
@@ -28,4 +28,4 @@ Fuera del contador, por no ser comparables (se listan igual, con su etiqueta):
 | ProCultura (transferencias de GORE y servicios a la fundación) | JUDICIALIZADO | $5,9 mil millones | investigado | $0 | 2026-10-20 | procultura.md |
 | Subsidios de arriendo (Minvu / Contraloría 314-2026) | ACTIVO | $239,3 millones | observado-contraloria | $0 | 2026-10-20 | subsidios-arriendo-minvu.md |
 
-10 caso(s) en seguimiento, 10 abierto(s). Última regeneración: 2026-11-08.
+10 caso(s) en seguimiento, 10 abierto(s). Última regeneración: 2026-11-09.
