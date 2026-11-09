@@ -1,50 +1,40 @@
-VEREDICTO: CORREGIR
+VEREDICTO: APROBADA
 VUELTA: 1
 PIEZA: guion_informe
 PROMPT: prompts/guion-informe.md
-VALIDADO: 2026-11-09T05:45:37Z
-
-Correcciones:
-1. Dónde: la línea "[TESIS] Curicó cerró 126 salidas por viajes con licencia
-   médica." de la sección "## La noticia del día". El "126" es el único
-   numeral que queda en todo el texto narrado del guion: las demás cifras
-   (cincuenta y ocho, sesenta y ocho, noventa por ciento, ocho coma tres)
-   sí van en palabras. · Regla: prompts/guion-informe.md, ESTRUCTURA punto 4,
-   "Convierte cifras, monedas, porcentajes, fechas y abreviaturas a una forma
-   cómoda de pronunciar, escribiendo los números en palabras", y control
-   interno punto 9, "que los números estén en palabras". La marca [TESIS] "Sí
-   se narra", y la excepción de numerales está acotada a los valores de
-   [DATO]: "Los VALORES van SIEMPRE en numerales... la marca no se narra, es
-   para pantalla. La regla de números en palabras aplica solo al texto
-   narrado." · Debe quedar: la misma tesis con el número en palabras y además
-   dentro del tope de 66 caracteres del punto 14b, porque esa tesis se
-   convierte literal en el título del Short (scripts/short.js la toma del
-   primer bloque). Por ejemplo "Curicó cerró ciento veintiséis salidas por
-   viajes con licencia." (63 caracteres y 9 palabras, contados). Cualquier
-   otra redacción vale si cumple las dos reglas a la vez; "Curicó cerró
-   ciento veintiséis salidas por viajes con licencia médica." NO sirve,
-   porque mide 70 caracteres y el título del Short saldría cortado. No
-   cambies nada más del guion: el resto está conforme.
+VALIDADO: 2026-11-09T05:51:00Z
 
 Observaciones:
-- La ausencia de "Carátula sugerida:", "Carátula 2:", "Carátula 3:" y "Clima
-  de carátula:" NO es incumplimiento, y lo verifiqué en esta corrida: el
-  propio prompt las retira ("Desde el 04-11-2026 no se pide carátula del día:
-  el informe en video está apagado"), prompts/contrato-archivos.md no las
-  incluye en el FORMATO OBLIGATORIO de los guiones, y scripts/dia.js solo
-  llama a miniaturas() cuando NO existe contenido/estado/sin-video-informe.txt,
-  marcador que sí existe. Aun así el prompt las sigue listando como líneas
-  tercera a sexta de FORMATO DE SALIDA, y scripts/validar-tarjetas.js sigue
-  levantando el aviso citando una regla del 05-09 que la decisión del
-  04-11-2026 dejó sin efecto. Conviene limpiar las dos cosas: la pregunta se
-  repite cada día y el aviso mecánico enseña a ignorar los avisos.
-- En el bloque del cobre, "la estimación para el año siguiente sigue en un
-  nivel parecido al de este año" usa referencias relativas donde el informe da
-  los años exactos (1,2 millones de toneladas en 2026 y una cifra parecida en
-  2027). No es incumplimiento (no están en la lista de
-  scripts/revisar-mecanico.js, la apertura fija la fecha y la tarjeta dice
-  2026), pero el año dicho con su número cumple mejor la regla 35.
-- El bloque de portada quedó en 116 palabras narradas y el de encuestas en
-  123. El reparto del prompt es "orientativo", así que no bloquea, y sumando
-  "La noticia del día" (34 palabras) la portada igual recibe el mayor
-  desarrollo.
+- La única corrección de la vuelta 1 quedó resuelta y la verifiqué contando, no
+  de memoria: la [TESIS] de "La noticia del día" dice ahora "Curicó cerró ciento
+  veintiséis salidas por viajes con licencia.", que mide 63 caracteres y 9
+  palabras, dentro del tope de 66 del punto 14b y de las 18 palabras del punto
+  14. Busqué dígitos en todo el texto narrado (sin encabezados ni marcas) y no
+  queda ninguno: las demás cifras habladas siguen en palabras. El diff contra la
+  versión anterior toca esa sola línea, así que nada más del guion cambió.
+- Fidelidad de la corrección, verificada contra el informe: "salidas" es la
+  palabra del propio informe, cuyo titular [A] de la línea 13 dice "Curicó cerró
+  126 salidas de funcionarios por viajes con licencia médica", y el cuerpo de la
+  línea 17 confirma que los 58 destituidos y los 68 que renunciaron suman 126
+  sobre 140 trabajadores revisados. La tesis perdió la palabra "médica" para
+  entrar en el tope de caracteres, y el párrafo que sigue la restituye ("mientras
+  esos funcionarios tenían licencia médica"), así que el oyente no queda sin el
+  dato.
+- Las otras medidas siguen conformes: 468 palabras narradas (entre 420 y 600),
+  tres bloques de noticia con la portada primera, las cuatro [TESIS] con 18
+  palabras o menos, y "node scripts/revisar-mecanico.js" imprime "sin hallazgos
+  mecánicos". No hay raya larga ni raya media en el archivo.
+- Sigue en pie, y es lo único que conviene arreglar fuera de la pieza: el aviso
+  de "node scripts/validar-tarjetas.js" por la falta de "Carátula sugerida:".
+  No es incumplimiento, por lo mismo que quedó anotado en la vuelta 1 (el propio
+  prompt dice "Desde el 04-11-2026 no se pide carátula del día", el contrato de
+  archivos no la incluye en el formato obligatorio de los guiones y existe el
+  marcador contenido/estado/sin-video-informe.txt), pero el prompt todavía
+  lista esas cuatro líneas en FORMATO DE SALIDA y el script todavía cita la
+  regla del 05-09-2026. La pregunta se repite cada día y un aviso mecánico que
+  nadie debe atender enseña a ignorar los avisos.
+- Para la edición siguiente: en el bloque del cobre, "la estimación para el año
+  siguiente sigue en un nivel parecido al de este año" dice los años de forma
+  relativa donde el informe los da con número. No bloquea (la apertura fija la
+  fecha y la tarjeta dice 2026), pero la regla dura 35 se cumple mejor con el
+  año escrito.
