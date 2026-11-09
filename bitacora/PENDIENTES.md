@@ -223,6 +223,15 @@ o Studio) si Santiago lo decide, y rehacer el guion con la lectura de GPT si lle
       usarlas." Sin un defecto publicado nuevo hoy, pero `prompts/preseleccion.md`
       sigue sin el campo de verificación por candidata que pide la propuesta.
       `bitacora/2026-11-08-auditoria.md`.
+      **09-11: quinta mañana seguida, y el informe la atrapó bien dos veces.**
+      `contenido/veredictos/2026-11-09-preseleccion.md`: "ninguna de las 45
+      candidatas trae cifra verificada, porque esta etapa lo prohíbe." El
+      informe fijó el balance del choque de Santo Domingo en 11 fallecidos y
+      15 lesionados contra las dos cifras distintas del barrido, y nombró a
+      la Superintendencia de Pensiones donde el barrido solo decía "la
+      Superintendencia" (`contenido/veredictos/2026-11-09-informe.md`). Sin
+      defecto publicado, pero `prompts/preseleccion.md` sigue sin el campo
+      de verificación por candidata. `bitacora/2026-11-09-auditoria.md`.
 
 - [ ] **01-11: el prompt del reloj del barrido debe fallar si el push no entró** (texto propuesto en bitacora/2026-11-01.md)
 
