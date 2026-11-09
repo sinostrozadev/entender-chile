@@ -717,5 +717,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-08-informe.mp3",
     "bytes": 5685120,
     "durSeg": 237
+  },
+  {
+    "fecha": "2026-11-09",
+    "tipo": "informe",
+    "titulo": "09-11-2026 · Curicó cerró 126 salidas de funcionarios por viajes con licencia",
+    "descripcion": "Curicó informó 58 destituciones y 68 renuncias tras revisar viajes al extranjero de funcionarios con licencia médica. Chile podría cerrar 2026 con su menor producción anual de cobre desde 2003, mientras Criteria y Cadem muestran una mayoría amplia de desaprobación al Presidente Kast. La edición completa también explica la causa basal del choque de Santo Domingo, las lluvias y tormentas en la zona central y el cómputo final de la Teletón.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-09/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-09-informe.mp3",
+    "bytes": 5345856,
+    "durSeg": 223
   }
 ]
