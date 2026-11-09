@@ -1056,3 +1056,59 @@ reparte. Ya había pasado el 25 y el 26-10-2026 con el balotaje de Brasil
 resumen internacional, ni bajarle el desarrollo. El problema nunca fue cubrir
 el mundo, fue ponerlo en la portada. **Decidió**: Claude, por el mandato del
 04-11-2026.
+
+## 2026-11-09 - El titular de portada tiene que nombrar a quien le pasa algo
+
+**Qué**: en `prompts/informe.md`, el titular de la NOTICIA DE PORTADA ya no
+puede quedarse en una institución, un indicador o un trámite. Tiene que nombrar
+a la persona o al grupo humano al que le pasa algo, con nombre propio o con el
+sustantivo que los nombra (los funcionarios, los pensionados, los vecinos de la
+comuna). Si el hecho no le pasa a nadie identificable porque el sujeto central
+ES un indicador o un trámite, esa candidata pierde la portada mientras exista
+otra [A] chilena del día con alguien a quien nombrar; el indicador igual sale
+completo en su sección. Y en `prompts/guion-informe.md`, cuando la tesis de "La
+noticia del día" no cabe en los 66 caracteres que admite el título del Short,
+el orden de sacrificio es explícito: primero se va el procedimiento, después el
+adjetivo, después la cifra exacta, y la persona se queda siempre.
+
+**Por qué**: de los 145 Shorts públicos medidos el 09-11-2026 sobre
+`bitacora/metricas/2026-11-09.json`, los 54 cuyo título nombra a una persona o a
+un grupo humano pasan las 300 vistas 15 veces (27,8 %) y las 500 nueve veces,
+contra 4 de 91 (4,4 %) y una sola vez de los que solo nombran instituciones o
+indicadores. Nueve de los diez Shorts del canal sobre 500 vistas están en el
+primer grupo. Mediana de vistas 76 contra 59.
+
+**Qué tan firme es el dato, y qué NO dice**: el paso de las 300 vistas es
+sólido (4 observados contra 25,3 esperados en 91 piezas si tuvieran el mismo
+paso que el otro grupo, p menor que 0,0001 binomial de una cola) y aguanta que
+se reclasifiquen los casos de frontera. Pero el CTR de los dos grupos es
+idéntico, 1,86 % contra 1,89 %, así que **esto no es una regla de clics ni de
+carátula**: mueve el reparto, no la miniatura. El CTR por grupo está medido con
+una mediana de unas 20 impresiones por Short, o sea con ruido, y no se usa en
+ninguna dirección.
+
+**Qué lo gatilló**: el 09-11-2026 la portada fue que la Municipalidad de Curicó
+dejó fuera a ciento veintiséis funcionarios por viajar con licencia médica, un
+hecho con ciento veintiséis personas adentro, y el título del Short salió
+"Curicó cerró ciento veintiséis salidas por viajes con licencia". El "Título
+sugerido" del informe sí decía "de funcionarios": lo que borró a la gente fue
+el tope de 66 caracteres que entró el 08-11-2026, porque la cifra escrita en
+palabras cuesta catorce caracteres y la versión con las personas adentro mide
+79. O sea, la mejora de ayer, sin esta, empuja justo en contra.
+
+**Lo que NO se hace**, para que la auditoría no lo vuelva a proponer: no se
+apagan las noticias de indicador ni las de trámite (el Imacec, el IPC, el
+Presupuesto, la Contraloría), que siguen completas en su sección y son cola
+larga. Lo único que pierden es la portada. Y no se inventa una víctima ni un
+responsable para cumplir la regla: si no hay nadie, la portada se la lleva otra
+noticia.
+
+**Lo que queda por medir, y que puede tumbar la decisión del 07-11-2026**: el
+Short del 07-11-2026 sobre la destitución de Santiago Peña en Paraguay, que es
+extranjero y por lo tanto el caso que esa decisión dice que no se reparte,
+llegó el 09-11-2026 a 597 vistas y 23 me gusta, y aportó 380 de las 433 vistas
+del día, el 88 % del movimiento del canal. Es un solo caso y no alcanza para
+revertir nada, pero es el mejor Short de la última semana. Se vuelve a medir el
+16-11-2026: si al menos dos Shorts extranjeros más pasan las 300 vistas, la
+decisión del 07-11-2026 se revisa con los números a la vista. **Decidió**:
+Claude, por el mandato del 04-11-2026.
