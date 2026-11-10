@@ -232,6 +232,15 @@ o Studio) si Santiago lo decide, y rehacer el guion con la lectura de GPT si lle
       Superintendencia" (`contenido/veredictos/2026-11-09-informe.md`). Sin
       defecto publicado, pero `prompts/preseleccion.md` sigue sin el campo
       de verificación por candidata. `bitacora/2026-11-09-auditoria.md`.
+      **10-11: sexta mañana seguida.** `contenido/veredictos/2026-11-10-preseleccion.md`:
+      "ninguna de las cifras de las 56 candidatas viene verificada, porque
+      esta etapa lo prohíbe." El informe volvió a resolverlo bien, sin
+      defecto publicado: fijó el balance de la Ruta de la Fruta en 11
+      fallecidos de la colisión de Santo Domingo contra 12 del fin de semana
+      completo, y resolvió la alerta amarilla de Senapred en 19 comunas con
+      la fuente oficial, no con el promedio de los medios
+      (`contenido/veredictos/2026-11-10-informe.md`). `prompts/preseleccion.md`
+      sigue sin el campo de verificación por candidata. `bitacora/2026-11-10-auditoria.md`.
 
 - [ ] **01-11: el prompt del reloj del barrido debe fallar si el push no entró** (texto propuesto en bitacora/2026-11-01.md)
 

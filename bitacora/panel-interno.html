@@ -122,166 +122,141 @@
 
   <section class="tarjeta">
     <!--AUDITORIA-INICIO-->
-    <p class="eyebrow">Auditoría de la mañana · 09-11-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-11-09-auditoria.md</span></p>
+    <p class="eyebrow">Auditoría de la mañana · 10-11-2026 <span style="letter-spacing:normal;text-transform:none;color:var(--gris)">· la escribe sola la rutina de las 05:30; archivo completo en bitacora/2026-11-10-auditoria.md</span></p>
     <div style="font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:#8A6F3F;margin-bottom:10px">ESTADO: CON OBSERVACIONES. Sin falla nueva ni dato perdido: la cadena</div>
     <details>
       <summary style="cursor:pointer;font-size:13px;color:var(--gris)">ver el informe completo</summary>
-      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0"># Auditoría matinal, 09-11-2026
+      <pre style="white-space:pre-wrap;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-size:13.5px;line-height:1.55;color:var(--tinta);margin:12px 0 0"># Auditoría matinal, 10-11-2026
 
-Auditada el 09-11-2026 entre las 08:36 y las 09:10 UTC (05:36 a 06:10 de
-Chile), con el checkout sincronizado contra `origin/main` (`548e703f`,
-"reintento: despertador 05:38 [reloj]").
+Auditada el 10-11-2026 entre las 08:33 y las 09:10 UTC (05:33 a 06:10 de
+Chile), con el checkout sincronizado contra `origin/main` (`573f0515`,
+"reintento: despertador 05:13 [reloj]").
 
 ESTADO: CON OBSERVACIONES. Sin falla nueva ni dato perdido: la cadena
-terminó más rápido que ayer y sin defecto publicado. HOY: "ninguna cifra
-llegó verificada desde la preselección" entra a su quinta mañana seguida
-(sigue sin costar un defecto publicado, porque el informe la atrapó de
-nuevo, pero el diseño de fondo no cambió).
+terminó bien, con menos vueltas de corrección que ayer. HOY (continúa):
+"ninguna cifra llegó verificada desde la preselección" entra a su sexta
+mañana seguida (de nuevo sin costar un defecto publicado, porque el informe
+la atrapó).
 
 ## Qué salió y a qué hora
 
 | Pieza | Hora real (Chile) | Hora esperada | Resultado | Evidencia |
 |---|---|---|---|---|
-| Reloj del barrido + Barrido | despertador 01:40:10, barrido 01:40:35 | 01:30 (cron) | éxito, 10 min tarde | Actions "Barrido" run `42563089591`, `conclusion: success` |
-| Preselección | redactada 01:52, APROBADA vuelta 0 01:57:45 | tras `barrido_listo` (01:41) | éxito, sin vueltas | `contenido/veredictos/2026-11-09-preseleccion.md` |
-| Informe | redactado 02:04, CORREGIR vuelta 1 (02:15, encabezados vacíos y fuentes sin fecha) y vuelta 2 (02:24), APROBADA 02:31 | tras cada pieza | éxito, dos vueltas | `contenido/veredictos/2026-11-09-informe.md` |
-| Guion del informe | redactado 02:37, CORREGIR vuelta 1 (02:46, "126" en cifras y tope de 66 caracteres), APROBADA 02:51 | tras cada pieza | éxito, una vuelta | `contenido/veredictos/2026-11-09-guion_informe.md` |
-| Revisión (compuerta) | 02:52:03, APROBADA | tras cada pieza | éxito | `contenido/revisiones/2026-11-09.md` |
-| Edición diaria (render, voz, Short, descripciones, podcast, subida programada) | `videos_listos` 02:54:41 | ~02:50 (cuadro del panel) | éxito, prácticamente en hora | Actions "Edición diaria" run `42569723288`, `conclusion: success`; `contenido/estado/2026-11-09.md` ("FALTA: nada") |
-| Web | con cada push relevante | continuo | éxito | Actions "Web" runs, todos `conclusion: success` (último `42569953705`) |
-| Reloj de métricas + Métricas | despertador 05:06:20, métricas 05:06:35 | 05:00 | éxito, 6 min tarde | Actions "Métricas" run `42583556908`, `conclusion: success`; `bitacora/metricas/2026-11-09.md` (creado 05:07) |
-| Vigía de la cadena | sin aviso al teléfono (cadena ya completa a las 02:15 y a las 05:15) | 02:15 y 05:15 | sin novedad | `trig_01LUtn4fSJjBsCzqdoWeVviH` corrió en su horario |
-| Clave | no corresponde hoy (sin calendario, a juicio editorial, regla 14); la última es la del 05-11-2026 | cuando corresponda | sin novedad, no es hallazgo | `contenido/claves/` y `contenido/guiones/claves/`: sin archivo con fecha 2026-11-09 |
-| Short del día | subido `private`, publicado `2026-11-09` (`Aiu7KWgR900`, "Curicó cerró ciento veintiséis salidas por viajes con licenc") | 12:00 | pendiente de evaluar hasta su publicación (hora de la auditoría es 05:36, antes del mediodía) | `bitacora/metricas/2026-11-09.json` |
+| Reloj del barrido + Barrido | despertador 01:40:20, barrido 01:40:48 | 01:30 (cron) | éxito, 10 min tarde | Actions "Barrido" run `42757344794`, `conclusion: success` |
+| Preselección | redactada 01:49:38, APROBADA vuelta 0 01:55:22 | tras `barrido_listo` (01:41) | éxito, sin vueltas | `contenido/veredictos/2026-11-10-preseleccion.md` |
+| Informe | redactado 02:46:11 (ver hallazgo de atraso), CORREGIR vuelta 1 (02:54:47, siete correcciones de cautela y fuentes), APROBADA 03:01:57 | tras cada pieza | éxito, una vuelta | `contenido/veredictos/2026-11-10-informe.md` |
+| Guion del informe | redactado 03:04:44, APROBADA vuelta 0 03:11:52 | tras cada pieza | éxito, sin vueltas | `contenido/veredictos/2026-11-10-guion_informe.md` |
+| Revisión (compuerta) | 03:13:02, APROBADA | tras cada pieza | éxito, pero 23 min sobre el cuadro (ver hallazgo) | `contenido/revisiones/2026-11-10.md` |
+| Edición diaria (render, voz, Short, descripciones, podcast, subida programada) | `videos_listos` 03:15:56 | ~02:50 (cuadro del panel) | éxito | Actions "Edición diaria" run `42767019133`, `conclusion: success`; `contenido/estado/2026-11-10.md` ("FALTA: nada") |
+| Web | con cada push relevante | continuo | éxito | Actions "Web" runs, todos `conclusion: success` (último `42767301494`) |
+| Reloj de métricas + Métricas | despertador 05:05:59, métricas 05:06:45 | 05:00 | éxito, 6 min tarde | Actions "Métricas" run `42780000599`, `conclusion: success`; `bitacora/metricas/2026-11-10.md` |
+| Vigía de la cadena | sin aviso al teléfono | 02:15 y 05:15 | la de 05:15 corrió y cerró a las 05:16:55 Chile, `ROUTINE_RUN_STATUS_SUCCEEDED` | `trig_01LUtn4fSJjBsCzqdoWeVviH` |
+| Clave | no corresponde hoy (sin calendario, a juicio editorial, regla 14); no hay archivo con fecha 2026-11-10 en `contenido/claves/` ni `contenido/guiones/claves/` | cuando corresponda | sin novedad, no es hallazgo | listado de ambas carpetas |
+| Short del día | subido `private` ("Camioneros mantienen el paro..."), pendiente de su hora de publicación | 12:00 | pendiente de evaluar (hora de la auditoría es 05:33, antes del mediodía) | `bitacora/metricas/2026-11-10.md` |
 
-Duración real del informe: 223 segundos (3:43), dentro de la promesa de 3 a
-4 minutos (`contenido/podcast/episodios.json`, episodio del 09-11-2026, campo
-`durSeg`). No hay episodio de Clave hoy, consistente con que no hubo Clave.
-
-Validador de tarjetas: `node scripts/validar-tarjetas.js --fecha 2026-11-09`
-→ "4 bloques con fuente, 468 palabras narradas (~3,5 min): cifra 2 · cambio 1
-· barras 1 · esquema 1" y un AVISO: `sin línea "Carátula sugerida:"` (ver
-hallazgo 2 abajo).
-
-Marcas `PENDIENTE DE CIERRE`: ninguna vencida. `contenido/informes/2026-11-09.md`
-no trae una propia, y la preselección ya verificó que el informe del
-08-11-2026 tampoco la dejó (`contenido/veredictos/2026-11-09-preseleccion.md`).
+Duración real del informe (audio ya en el repo): 206 segundos (3:26), dentro
+de la promesa de 3 a 4 minutos. `contenido/podcast/episodios.json`, episodio
+del 10-11-2026.
 
 ## Qué falló
 
-1. **"Ninguna cifra llegó verificada desde la preselección" entra a su
-   quinta mañana seguida, aunque hoy no costó un defecto publicado.**
-   `contenido/veredictos/2026-11-09-preseleccion.md`: "ninguna de las 45
-   candidatas trae cifra verificada, porque esta etapa lo prohíbe." Hoy el
-   informe la atrapó bien dos veces: fijó el balance del choque de Santo
-   Domingo en 11 fallecidos y 15 lesionados contra las dos cifras distintas
-   del barrido (`contenido/veredictos/2026-11-09-informe.md`), y nombró a la
-   Superintendencia de Pensiones donde el barrido solo decía "la
-   Superintendencia". No se publicó ninguna cifra sin respaldo. El patrón de
-   fondo (`prompts/preseleccion.md` sigue sin declarar, candidata por
-   candidata, qué no pudo verificar) no cambió desde el 07-11-2026.
+- **El despachador GPT se demoró 45 minutos en empezar el informe de hoy
+  porque atendió primero un pedido de imagen de OTRO canal de Santiago.**
+  La preselección quedó lista (`preseleccion_lista`) a las 01:55:37 Chile; el
+  primer push del informe no llegó hasta las 02:46:11, con el commit
+  `edición 2026-11-10: imagen externa` (02:41:07) escribiendo
+  `contenido/caratulas/externos/cepillo-activo/2026-11-09-capitan-cepillo-poses.png`
+  cinco minutos antes, en el medio del hueco. Es el mecanismo documentado en
+  `contenido/caratulas/externos/README.md` (pedidos de otros canales que
+  atiende el mismo GPT), funcionando como está diseñado, pero hoy es la
+  primera vez que se mide su costo sobre la cadena principal: empujó la
+  compuerta (revisión aprobada) a las 03:13:02, 23 minutos sobre el `~02:50`
+  del cuadro del panel, el primer atraso de la cadena que supera el umbral de
+  20 minutos en varios días. La cadena no se rompió (todo terminó con
+  éxito) y nadie necesitó reintentar nada, así que no es `HOY`.
+- **La apertura y el cierre del guion llevan repitiendo la misma fórmula
+  varios días, violando la regla de ORIGINALIDAD del propio prompt.** El
+  validador lo dice en `contenido/veredictos/2026-11-10-guion_informe.md`:
+  la apertura usa "Es `&lt;día>` `&lt;fecha>` de dos mil veintiséis" más un
+  conector de repaso por tercer día seguido (08, 09 y 10-11-2026, solo
+  cambia el conector), y la frase del enlace a la descripción sale idéntica
+  palabra por palabra el 06, 07, 09 y 10-11-2026. `prompts/guion-informe.md:42`
+  pide explícitamente "Evita aperturas, transiciones, estructuras de frase o
+  cierres idénticos día tras día", y el punto 8 (línea 119) pide la frase
+  del enlace "con tus palabras y con variaciones entre días". Ninguna de las
+  dos repeticiones bloqueó un veredicto porque el prompt no da una regla
+  mecánica para medirlas, solo la general.
+- **Repite por segundo día el aviso contradictorio de "Carátula sugerida".**
+  `contenido/revisiones/2026-11-10.md` y el veredicto del guion anotan que
+  `node scripts/validar-tarjetas.js` sigue avisando por la falta de esa
+  línea citando una regla del 05-09-2026 que la decisión del 04-11-2026
+  dejó sin efecto, y que `prompts/guion-informe.md` todavía lista esas
+  cuatro líneas en FORMATO DE SALIDA (líneas 137 a 139) aunque la línea 167
+  del mismo archivo diga "Desde el 04-11-2026 no se pide carátula del día".
+  Ya apareció el 09-11-2026 con la misma explicación.
 
-2. **El aviso de "Carátula sugerida" de `scripts/validar-tarjetas.js` sigue
-   sonando cada día sobre una regla que la decisión del 04-11-2026 dejó sin
-   efecto para el informe, y el prompt no se actualizó.**
-   `scripts/validar-tarjetas.js:70-72` exige la línea "Carátula sugerida:"
-   citando "la exigen desde el 05-09" sin mirar si el video del informe está
-   apagado; `contenido/estado/sin-video-informe.txt` existe desde el
-   04-11-2026 y `prompts/guion-informe.md:165` dice textualmente "Desde el
-   04-11-2026 no se pide carátula del día: el informe en video está
-   apagado." Pero el mismo prompt, en su FORMATO DE SALIDA
-   (`prompts/guion-informe.md:130-149`), todavía lista las tres líneas de
-   carátula y la de "Clima de carátula" como si se pidieran. Resultado: el
-   guion de hoy no las escribió (correcto, según la línea 165) y el
-   validador avisó igual
-   (`contenido/veredictos/2026-11-09-guion_informe.md`: "la pregunta se
-   repite cada día y un aviso mecánico que nadie debe atender enseña a
-   ignorar los avisos"). Es la misma observación del 08-11-2026
-   (`contenido/revisiones/2026-11-08.md`) y de la revisión de hoy
-   (`contenido/revisiones/2026-11-09.md`): dos revisiones seguidas gastando
-   un párrafo en explicar que no es incumplimiento. Esto NO aplica a las
-   Claves, que siguen rindiendo video y siguen necesitando la carátula
-   (`contenido/guiones/claves/2026-11-05-rabat-rebajas-de-condena.md:3`
-   la trae).
-
-3. **El informe de hoy dejó rachas de líneas en blanco donde se borraron
-   los cinco encabezados vacíos de la vuelta 1 (primera vez que se ve este
-   residuo).** `contenido/informes/2026-11-09.md`, líneas 93 a 103 (once
-   seguidas) y 111 a 114 (cuatro), más rachas de dos o tres en las líneas
-   28, 43, 56 y 78. No llega a la web (`web/src/lib/contenido.ts:147` pasa
-   el markdown por `marked.parse`, que las colapsa) ni al guion, así que no
-   es un defecto publicado hoy. Se anota porque es la primera vez que una
-   corrección de "borrar encabezado" deja este rastro; si vuelve a pasar
-   dos o tres días más, pasa a ser un hallazgo que se repite.
-
-Sin otras fallas nuevas: el resto de lo que anota
-`contenido/revisiones/2026-11-09.md` (el conteo de la línea "Método" que no
-distingue candidatas fundidas, "FUENTES CONSULTADAS" sin enlaces, el bloque
-del cobre con años relativos) son precisiones de un solo día, ya señaladas
-como "no bloquea" por el propio validador, y no agregan un hallazgo nuevo
-con evidencia de daño hoy.
+Sin fallas nuevas más allá de estas tres: todas las Actions corrieron en
+verde, los tres veredictos aprobaron, y el Short, aunque todavía privado, es
+lo esperable a esta hora.
 
 ## Propuestas
 
-1. Para el hallazgo 1: que `prompts/preseleccion.md` declare explícitamente,
-   candidata por candidata, cuáles cifras no pudo verificar contra su fuente
-   primaria (la misma propuesta que vive en `bitacora/PENDIENTES.md` desde
-   el 07-11-2026; no se repite aquí para no duplicarla).
-2. Para el hallazgo 2: en `scripts/validar-tarjetas.js`, antes de la
-   comprobación de la línea 70, agregar `if (esClave || !fs.existsSync("contenido/estado/sin-video-informe.txt"))`
-   alrededor del bloque 70-72 (y dejar el de 76-83 como está, que ya se salta
-   para Claves), para que el aviso de "Carátula sugerida" solo corra cuando
-   el video que la necesita de verdad se va a renderizar. En
-   `prompts/guion-informe.md:130-149`, borrar las tres líneas de carátula y
-   la de "Clima de carátula" de FORMATO DE SALIDA (o moverlas a una nota que
-   diga "solo si `contenido/estado/sin-video-informe.txt` no existe"), para
-   que no contradigan la línea 165 del mismo archivo.
-3. Para el hallazgo 3: ninguna propuesta todavía, es una sola observación.
-   Si se repite, la propuesta es que `prompts/validador.md` pida borrar
-   también la línea en blanco sobrante cuando una corrección retira un
-   encabezado completo.
+1. **Si el pedido de otro canal puede esperar, que espere a después de la
+   compuerta.** En el workflow o en el prompt del despachador, antes de
+   atender un `contenido/urgente/PEDIDO-&lt;canal>-&lt;slug>.md`, comprobar si
+   `contenido/estado/FECHA.md` todavía no llegó a `aprobada`; si no llegó,
+   dejar el pedido para después de la compuerta de hoy. Archivo a tocar:
+   el prompt del despachador que lee `contenido/urgente/` (no está en este
+   repo si vive del lado de GPT; si vive acá, es el que cita
+   `prompts/imagen-caratula.md`, sección "Pedidos externos").
+2. **En `prompts/guion-informe.md`, borrar las líneas 137 a 139** (los
+   tres ejemplos de "Carátula sugerida/2/3" del bloque FORMATO DE SALIDA)
+   y, **en `scripts/validar-tarjetas.js`, condicionar el aviso de las
+   líneas 67 a 78** a que NO exista `contenido/estado/sin-video-informe.txt`
+   (hoy el archivo existe siempre, así que el aviso no se apaga nunca).
+3. **Darle al despachador un banco corto de aperturas y cierres alternativos
+   en `prompts/guion-informe.md`**, cerca de la línea 42 (ORIGINALIDAD), o
+   pedirle explícitamente que lea la apertura y el cierre del guion de AYER
+   antes de escribir el de hoy y cambie la estructura si coincide. Hoy el
+   prompt solo dice "evita... idénticos día tras día" sin mecanismo para
+   cumplirlo.
 
 ## Triage
 
-- **HOY**: el hallazgo 1 (cifras sin verificar desde la preselección, quinta
-  mañana seguida). Baja a `bitacora/PENDIENTES.md` como continuación de la
-  entrada del 07-11-2026, en este mismo commit.
-- **AGUANTA**: el hallazgo 2 (aviso de "Carátula sugerida" fuera de lugar
-  para el informe apagado; molesta y gasta párrafos de explicación todos los
-  días, pero no bloquea ni pierde datos).
-- **MIRAR**: el hallazgo 3 (líneas en blanco residuales tras borrar un
-  encabezado; primera vez que se ve, no bloquea hoy, pero si se repite dos o
-  tres días más pasa a ser un hallazgo que se repite sin que el prompt
-  cambie).
+- `HOY` (continúa, no es nuevo de hoy): "ninguna cifra llegó verificada
+  desde la preselección" entra a su sexta mañana seguida. Ya está en
+  `bitacora/PENDIENTES.md`, sección "Para la sesión de la noche", marcada
+  por primera vez el 07-11-2026 y actualizada cada mañana desde entonces.
+  Se agrega la línea de hoy en el mismo commit de esta auditoría.
+- `AGUANTA`:
+  - El despachador compartido retrasa la cadena cuando atiende pedidos de
+    otros canales (propuesta 1).
+  - La apertura y el cierre del guion repiten fórmula día tras día
+    (propuesta 3).
+  - El aviso contradictorio de "Carátula sugerida" en el prompt y en el
+    script (propuesta 2).
+- `MIRAR`:
+  - La clasificación "Sin área" del barrido sigue dejando noticias de peso
+    sin área propia (43 de 147 hoy) y la preselección las reubica a mano
+    todos los días; no empeoró hoy, pero lleva así varias semanas.
+  - El atraso de 23 minutos en la compuerta de hoy: si el pedido de otro
+    canal vuelve a coincidir con la ventana de la madrugada, conviene ver
+    si se repite antes de proponer código nuevo.
 
-## Comparación con ayer
+## Comparación con ayer (09-11-2026)
 
-- **Mejoró**: las nueve `[C]` de hoy quedaron bien, como viñetas dentro de
-  "## Además, hoy" (`contenido/informes/2026-11-09.md:121-137`), a diferencia
-  de los nueve encabezados `### [C]` sin ancla que se publicaron el
-  08-11-2026 (`bitacora/2026-11-08-auditoria.md`, falla 1). No hay un cambio
-  de código que lo explique (`prompts/validador.md` no se tocó desde ayer),
-  así que el defecto de ayer no se repitió pero su causa (una corrección que
-  pide corchetes sin decir dónde va la línea) sigue sin cerrarse en el
-  prompt. El tope de tres cifras habladas por bloque, que había costado la
-  mayoría de las correcciones tres días seguidos (06, 07 y 08-11), tampoco
-  volvió a ser el problema hoy: la única corrección del guion fue por otra
-  regla (números en palabras y el tope de 66 caracteres del punto 14b).
-  `scripts/metricas.js` tampoco perdió ningún video hoy (comparando
-  `bitacora/metricas/2026-11-08.json` contra `2026-11-09.json` por id: cero
-  faltantes, y el video que faltaba el 08-11 volvió solo), aunque el arreglo
-  del PR #8 sigue sin fusionar.
-- **Sigue igual**: las cifras sin verificar desde la preselección (ahora
-  quinta mañana, ver hallazgo 1); el aviso de "Carátula sugerida" sin
-  sentido para el informe apagado (cuarta vez documentada en una revisión:
-  04, 08 y 09-11, más la de hoy); el PR #8 de métricas sigue abierto y sin
-  fusionar (`state: open`, `merged: false`, sin cambios desde el 06-11-2026).
-  La cadena volvió a terminar bien antes de lo que esperaba el estado (02:54
-  contra el cuadro de 02:50, prácticamente en hora, como ayer).
-- **Nuevo**: el residuo de líneas en blanco tras borrar un encabezado
-  (hallazgo 3); los suscriptores subieron a 53 (+3), tercer día seguido de
-  alza después de seis días planos (48 el 03 al 07-11, 50 el 08-11, 53 hoy),
-  y las vistas totales subieron +433, el mejor día de la semana.
+- **Mejoró:** el informe necesitó una sola vuelta de corrección hoy, contra
+  dos ayer; el guion no necesitó ninguna, contra una ayer. La cadena total
+  (barrido a compuerta) salió con menos trabajo de reparación.
+- **Sigue igual:** todas las Actions en verde; "FUENTES CONSULTADAS" sigue
+  sin un solo enlace (ya anotado el 09 y el 10); el Short del día sigue
+  subiendo privado hasta su hora de las 12:00; los suscriptores no se
+  movieron hoy (53, +0) después de subir +2 y +3 los dos días previos.
+- **Es nuevo:** el atraso de 45 minutos del despachador por un pedido de
+  otro canal, medido por primera vez con su causa exacta en vez de
+  inferida; la apertura del guion cruzó el umbral de tres días seguidos con
+  la misma fórmula, que es el punto en que esta auditoría empieza a
+  contarlo como patrón y no como coincidencia.
 </pre>
     </details>
     <!--AUDITORIA-FIN-->
