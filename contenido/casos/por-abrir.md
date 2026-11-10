@@ -88,3 +88,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-11-04 | registro y control de inmuebles fiscales
 - 2026-11-06 | mantención del avión presidencial
 - 2026-11-06 | GORE La Araucanía y posicionamiento electoral
+- 2026-11-10 | caída del Fondo E y fiscalización a las AFP
