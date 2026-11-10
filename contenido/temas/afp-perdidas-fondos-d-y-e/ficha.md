@@ -1,7 +1,7 @@
 # Las pérdidas de los fondos D y E de las AFP y la restitución a los afiliados
 Estado: abierto
 Abierto: 2026-11-03
-Última actualización: 2026-11-09
+Última actualización: 2026-11-10
 
 ## Origen
 El Fondo E perdió 10,39% real entre el 01-01-2026 y el 30-09-2026 y el Fondo D cayó 6,3% real; el superintendente de Pensiones cifró en torno a US$10.000 millones las pérdidas de valoración asociadas a la exposición a derivados, y el regulador informó que había levantado alertas desde 2024 (Superintendencia de Pensiones, 20-10-2026; CNN Chile y ADN Radio, 26-10-2026). Esa cifra de valoración no equivale al saldo definitivo de cada afiliado ni a una pérdida realizada idéntica para todos. Importa porque son los ahorros obligatorios de los afiliados y porque de ahí salieron tres vías paralelas: un procedimiento sancionatorio de la Superintendencia contra las siete AFP, una comisión investigadora de la Cámara y un proyecto de ley para que las administradoras restituyan las pérdidas. Ninguna había establecido una sanción al 02-11-2026.
@@ -18,6 +18,7 @@ El Fondo E perdió 10,39% real entre el 01-01-2026 y el 30-09-2026 y el Fondo D 
 - 2026-11-05 | Once senadores ofician al superintendente de Pensiones, Joaquín Cortez, para pedir el detalle de las inversiones de las administradoras de fondos de pensiones en Paraguay y su eventual exposición al banco digital Ueno, intervenido por el Banco Central del Paraguay el 03-11-2026 según el propio oficio; es un frente distinto de las pérdidas por derivados de los fondos D y E, y al cierre no existe una cifra pública consolidada de ahorro previsional chileno expuesto (CNN Chile y BioBioChile, 05-11-2026) | diario: 2026-11-06#la-crisis-bancaria-de-paraguay-llega-a-los-fondos-de | sección: Trabajo y pensiones
 - 2026-11-08 | La caída del Fondo E abre al menos cuatro recursos de protección contra AFP, uno de ellos dirigido contra AFP Capital y declarado inadmisible, mientras los demás seguían en revisión, y la Superintendencia de Pensiones investiga a siete administradoras para establecer si sus decisiones de inversión cumplieron la normativa: hasta el 08-11-2026 no había determinado responsabilidades ni aplicado sanciones (BioBioChile, 08-11-2026) | diario: 2026-11-09#la-superintendencia-de-pensiones-investiga-la-caida-del | sección: Economía y bolsillo
 - 2026-11-08 | La Corporación Nacional de Consumidores y Usuarios evalúa una acción colectiva por la caída del Fondo E (BioBioChile, 08-11-2026) | diario: 2026-11-09#la-superintendencia-de-pensiones-investiga-la-caida-del | sección: Economía y bolsillo
+- 2026-11-09 | La Superintendencia de Pensiones autoriza a las AFP a recalcular el retiro programado de quienes se pensionaron entre julio y septiembre de 2026, el período marcado por la caída del Fondo E, y la medida corrige el monto mensual de ese retiro; el informe no consigna a cuántas personas alcanza, desde qué mes se aplica ni si el recálculo sube o baja el pago (La Tercera, 09-11-2026) | diario: 2026-11-10#el-regulador-abre-la-opcion-de-recalcular-pensiones | sección: Economía y bolsillo
 
 ## Qué falta por saber
 - ¿Cuándo se vota el boletín 18817-07 y con qué resultado? Al 02-11-2026 no registra votaciones en Sala ni urgencia del Ejecutivo.
@@ -25,10 +26,11 @@ El Fondo E perdió 10,39% real entre el 01-01-2026 y el 30-09-2026 y el Fondo D 
 - ¿Qué responde la Superintendencia al requerimiento de la Contraloría sobre cómo fiscalizó?
 - ¿Existe una investigación penal por estas pérdidas? El informe del 27-10-2026 no la incorporó como confirmada porque no fue posible identificar fiscalía, rol ni delito.
 - ¿Cuánto de la pérdida de valoración se recupera, y qué pasa con los afiliados que cambiaron de fondo o se pensionaron en el período?
-- ¿Con qué saldo quedan quienes se pensionen o recalculen su retiro programado al cierre de 2026? El repunte de octubre de 2026 acotó la pérdida y no la eliminó.
+- ¿Con qué saldo quedan quienes se pensionen o recalculen su retiro programado al cierre de 2026? El repunte de octubre de 2026 acotó la pérdida y no la eliminó. Respondida en parte: el 09-11-2026 la Superintendencia de Pensiones autorizó recalcular el retiro programado de quienes se pensionaron entre julio y septiembre de 2026.
 - ¿Qué responde la Superintendencia de Pensiones al oficio de los once senadores del 05-11-2026, con qué montos, instrumentos y administradoras, sobre la exposición de los fondos al banco Ueno de Paraguay?
 - ¿Qué resuelven los al menos cuatro recursos de protección por la caída del Fondo E, después de que el dirigido contra AFP Capital quedara inadmisible al 08-11-2026?
 - ¿Presenta la Corporación Nacional de Consumidores y Usuarios la acción colectiva que evaluaba al 08-11-2026, y contra qué administradoras?
+- ¿A cuántas personas alcanza el recálculo del retiro programado autorizado el 09-11-2026, desde qué mes se aplica y en qué casos sube o baja el pago mensual? El informe del 10-11-2026 no lo consigna.
 
 ## Publicado
 Sin publicaciones al 03-11-2026. La Clave `afp-multifondos-perdidas-fondo-e`, con fecha de producción 2026-10-28, estaba en etapa de paneles al 03-11-2026.
