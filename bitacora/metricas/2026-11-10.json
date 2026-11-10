@@ -3,15 +3,15 @@
   "canal": {
     "suscriptores": 53,
     "vistas": 24118,
-    "videos": 224
+    "videos": 225
   },
   "videos": {
     "b1psBJOt40A": {
       "titulo": "Camioneros mantienen el paro por el precio del diésel, y otr",
       "publicado": "2026-11-10",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
+      "estado": "public",
+      "vistas": 18,
+      "meGusta": 1,
       "comentarios": 0,
       "durSeg": 36
     },
@@ -28,7 +28,7 @@
       "titulo": "El balance oficial del choque en la Ruta de la Fruta fue…, y",
       "publicado": "2026-11-08",
       "estado": "public",
-      "vistas": 46,
+      "vistas": 48,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 42
