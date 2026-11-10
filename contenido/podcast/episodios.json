@@ -726,5 +726,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-09-informe.mp3",
     "bytes": 5345856,
     "durSeg": 223
+  },
+  {
+    "fecha": "2026-11-10",
+    "tipo": "informe",
+    "titulo": "10-11-2026 · Camioneros mantienen el paro por el precio del diésel",
+    "descripcion": "Gremios camioneros mantuvieron la paralización después de rechazar la propuesta del Gobierno para limitar las futuras alzas del diésel. El balance oficial registra una baja de 16,9% en las víctimas de homicidio, mientras el Banco de Materiales abrió postulaciones para reparar viviendas. La edición completa también explica el récord de exportaciones, la postergación de doce SLEP y el ascenso de la primera mujer general del Ejército.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-10/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-10-informe.mp3",
+    "bytes": 4952448,
+    "durSeg": 206
   }
 ]
