@@ -1,0 +1,77 @@
+{
+  "fecha": "2026-11-11",
+  "etapa": "nuevo_dia",
+  "veredicto": "pendiente",
+  "vuelta": 0,
+  "actualizado": "2026-11-11 01:40",
+  "reparar": null,
+  "piezas": [
+    {
+      "id": "barrido",
+      "etiqueta": "Barrido",
+      "hay": false,
+      "situacion": "falta",
+      "prompt": null,
+      "hora": "",
+      "esperada": "01:40",
+      "dueno": "Actions · barrido.yml",
+      "rutas": []
+    },
+    {
+      "id": "preseleccion",
+      "etiqueta": "Preselección",
+      "hay": false,
+      "situacion": "falta",
+      "prompt": "prompts/seleccion.md",
+      "hora": "",
+      "esperada": "02:10",
+      "dueno": "GPT · prompts/seleccion.md",
+      "rutas": []
+    },
+    {
+      "id": "informe",
+      "etiqueta": "Informe",
+      "hay": false,
+      "situacion": "falta",
+      "prompt": "prompts/informe.md",
+      "hora": "",
+      "esperada": "02:40",
+      "dueno": "GPT · prompts/informe.md",
+      "rutas": []
+    },
+    {
+      "id": "guion_informe",
+      "etiqueta": "Guion del informe",
+      "hay": false,
+      "situacion": "falta",
+      "prompt": "prompts/guion-informe.md",
+      "hora": "",
+      "esperada": "03:10",
+      "dueno": "GPT · prompts/guion-informe.md",
+      "rutas": []
+    },
+    {
+      "id": "revision",
+      "etiqueta": "Revisión (veredicto final)",
+      "hay": false,
+      "situacion": "falta",
+      "prompt": null,
+      "hora": "",
+      "esperada": "03:30",
+      "dueno": "Claude · prompts/validador.md",
+      "rutas": []
+    },
+    {
+      "id": "videos",
+      "etiqueta": "Videos y descripciones",
+      "hay": false,
+      "situacion": "falta",
+      "prompt": null,
+      "hora": "",
+      "esperada": "05:15",
+      "dueno": "Actions · edicion-diaria.yml",
+      "rutas": []
+    }
+  ],
+  "atrasos": []
+}
