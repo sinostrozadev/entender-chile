@@ -1,49 +1,8 @@
-VEREDICTO: CORREGIR
+VEREDICTO: APROBADA
 VUELTA: 1
 PIEZA: preseleccion
 PROMPT: prompts/seleccion.md
-VALIDADO: 2026-11-11T04:55:13Z
-
-Correcciones:
-1. Dónde: línea 12, "que es lo que define si el paro termina esta semana o
-   escala" · Regla: prompts/seleccion.md, REGLAS DE ESTILO: "Fechas en la
-   prosa como DD-MM-AAAA" (y regla dura 35: fechas absolutas, nunca una
-   referencia relativa) · Debe quedar: la frase sin la referencia relativa,
-   "que es lo que define si el paro termina o escala", o la fecha en
-   DD-MM-AAAA si la nota la da.
-2. Dónde: línea 20, titular "anuncian movilizaciones contra el Gobierno desde
-   el miércoles" · Regla: prompts/seleccion.md, REGLAS DE ESTILO: "Fechas en
-   la prosa como DD-MM-AAAA" (regla dura 35) · Debe quedar: la fecha en
-   DD-MM-AAAA. El titular del barrido del 11-11-2026 (línea 342) no trae
-   fecha, así que si la nota no la confirma, el titular debe terminar en
-   "anuncian movilizaciones contra el Gobierno" y la fecha queda para que el
-   informe la verifique, como ya anuncia la línea 21.
-3. Dónde: línea 42, "el Presupuesto 2027 que se está votando esta semana" ·
-   Regla: prompts/seleccion.md, REGLAS DE ESTILO: "Fechas en la prosa como
-   DD-MM-AAAA" (regla dura 35) · Debe quedar: "el Presupuesto 2027 que se
-   está votando en el Congreso", o la fecha de la votación en DD-MM-AAAA.
-4. Dónde: línea 95, titular "La Subsecretaría de Justicia tiene hasta este
-   miércoles para responder a Contraloría" · Regla: prompts/seleccion.md,
-   REGLAS DE ESTILO: "Fechas en la prosa como DD-MM-AAAA" (regla dura 35) ·
-   Debe quedar: "tiene hasta el 11-11-2026 para responder a Contraloría". La
-   propia línea 96 de la pieza ya dice que el plazo vence el 11-11-2026.
-5. Dónde: línea 182, titular "Un sismo se percibió esta mañana en la Región
-   de Tarapacá" · Regla: prompts/seleccion.md, REGLAS DE ESTILO: "Fechas en
-   la prosa como DD-MM-AAAA" (regla dura 35) · Debe quedar: "Un sismo se
-   percibió la mañana del 11-11-2026 en la Región de Tarapacá".
-6. Dónde: línea 219, "Por qué podría importar: continúa la historia de la
-   película sin fecha de estreno que la edición del 10-11-2026 contó, y ahora
-   aparece en qué estado quedó el rodaje. El barrido sigue sin traer la fecha
-   ni la causa de la muerte de Lelio, así que el informe debe confirmarlas
-   antes de narrarlo." · Regla: prompts/seleccion.md, FORMATO DE SALIDA: "Por
-   qué podría importar: <una frase, concreta: a quién afecta, cuánta plata,
-   qué cambia, o qué historia continúa>" · Debe quedar: una sola frase en esa
-   línea, la primera. La segunda sale, y además es innecesaria: el informe
-   del 10-11-2026 (línea 135) ya trae la fecha, Lelio murió el 06-11-2026 en
-   Santiago a los 52 años, y lo que informó la familia, "motivos de salud"
-   sin causa específica. Si igual se quiere dejar constancia de que el
-   barrido no lo trae, va en "Notas del barrido", que el prompt define para
-   "cualquier cosa que el editor deba saber".
+VALIDADO: 2026-11-11T05:01:04Z
 
 Observaciones:
 - Para la pieza siguiente: el plazo de Contraloría a la Subsecretaría de
@@ -65,21 +24,39 @@ Observaciones:
   presentada; el barrido trae el repudio, el libelo en redacción y los
   juristas del PS que se distancian, nada de su ingreso a la Cámara (línea
   227 de la pieza, verificado contra el barrido del 11-11-2026).
-- La preselección entrega 60 candidatas, el tope exacto del rango aceptable
-  (35 a 60), con las doce áreas obligatorias cubiertas y once candidatas
-  fuera de la Región Metropolitana, más del doble de la cuota blanda de 5.
-  La verificación de las notas finales dio todo correcto: el barrido del
-  11-11-2026 trae efectivamente 158 noticias con señal de 622 únicas en 22
-  fuentes, su sección "Sin área" tiene 43 entradas en la línea 295, los cinco
-  enlaces de CIPER con "&#038;" están, y el informe del 10-11-2026 no trae
-  ninguna línea "PENDIENTE DE CIERRE" en sus 241 líneas, así que hoy no hay
-  candidatas obligatorias por esa vía.
+- Para la pieza siguiente: la fecha de la movilización de la CUT y la Confech
+  salió del titular en la vuelta 1 porque el barrido del 11-11-2026 (línea
+  342) no la trae, y la línea 21 de la pieza dice que la fecha está anunciada
+  y es verificable. Si el informe la va a narrar, tiene que confirmarla en la
+  nota; si no la confirma, no la nombra.
+- Para la pieza siguiente: el desmentido del supuesto apagón mundial (línea
+  175) escribe la fecha como "17 de noviembre", y la regla de estilo del
+  prompt pide DD-MM-AAAA. No es corrección porque no lo marqué en la vuelta 1
+  y la regla de convergencia prohíbe sumar un hallazgo nuevo sobre una parte
+  no marcada, pero el informe debe escribirla 17-11-2026 si retoma la
+  candidata.
+- Las seis correcciones de la vuelta 1 quedaron resueltas, verificadas una
+  por una contra el diff de 6b43159 a fdb57bc: la frase del paro quedó "si
+  el paro termina o escala" (línea 12), el titular de la CUT y la Confech
+  termina en "contra el Gobierno" (línea 20), el Presupuesto 2027 quedó "que
+  se está votando en el Congreso" (línea 42), el plazo de la Subsecretaría de
+  Justicia quedó "hasta el 11-11-2026" (línea 95), el sismo quedó "la mañana
+  del 11-11-2026" (línea 182, que calza con "esta mañana" de la línea 129 del
+  barrido del 11-11-2026) y el bloque de Lelio quedó en una sola frase (línea
+  219). Ninguna corrección introdujo un incumplimiento nuevo: el diff toca
+  solo esas seis líneas y no cambia la estructura.
+- La pieza corregida mantiene 60 candidatas con enlace, el tope exacto del
+  rango aceptable (35 a 60), las doce áreas de cobertura obligatoria con al
+  menos una candidata cada una, las tres secciones finales obligatorias y
+  once candidatas fuera de la Región Metropolitana, más del doble de la cuota
+  blanda de 5. `node scripts/revisar-mecanico.js` imprimió "sin hallazgos
+  mecánicos".
 - No bloquea, pero conviene mirarlo en la próxima edición: el titular de la
-  línea 218 dice "a una semana de terminar el rodaje", que también se resuelve
-  solo sabiendo qué día es hoy. Queda como observación y no como corrección
-  porque la referencia está anclada al calendario del rodaje y no a la fecha
-  de la edición, y porque viene así del titular de La Tercera en el barrido
-  (línea 297). Lo mismo con "este año" en la línea 159.
+  línea 218 dice "a una semana de terminar el rodaje", que se resuelve solo
+  sabiendo qué día es hoy. Queda como observación y no como corrección porque
+  la referencia está anclada al calendario del rodaje y no a la fecha de la
+  edición, y porque viene así del titular de La Tercera en el barrido (línea
+  297). Lo mismo con "este año" en la línea 159.
 - No bloquea: la nueva alza de combustibles (línea 17) está en Política y es
   materia de Economía y bolsillo, donde ya viven el dólar y el PIB. La
   preselección no jerarquiza, así que no cambia nada para el informe, pero el
