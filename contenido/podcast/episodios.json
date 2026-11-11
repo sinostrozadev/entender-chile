@@ -735,5 +735,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-10-informe.mp3",
     "bytes": 4952448,
     "durSeg": 206
+  },
+  {
+    "fecha": "2026-11-11",
+    "tipo": "informe",
+    "titulo": "11-11-2026 · El paro de camioneros sigue sin plazo tras la reunión sin acuerdo",
+    "descripcion": "Los gremios camioneros mantuvieron el paro por tiempo indefinido después de que la reunión del 10-11-2026 con el Gobierno terminara sin acuerdo, con el traslado de cerezas y otras frutas hacia los puertos entre los primeros afectados. El Teleférico Bicentenario inició su marcha blanca entre Providencia y Huechuraba, con apertura al público prevista para el primer trimestre de 2027, y la Dirección Meteorológica de Chile mantiene una alerta por temperaturas extremas en la precordillera de Atacama y Coquimbo hasta el 12-11-2026. La edición completa suma el rechazo de la Cámara a la partida de Interior del Presupuesto 2027, la caída a 0,0% de la expectativa de crecimiento para 2026 en la encuesta del Banco Central y el alza de 166% en las denuncias por posible explotación sexual de niños remitidas al Ministerio Público.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-11/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-11-informe.mp3",
+    "bytes": 5926464,
+    "durSeg": 247
   }
 ]
