@@ -1,7 +1,7 @@
 # La tramitación del Presupuesto 2027
 Estado: abierto
 Abierto: 2026-11-03
-Última actualización: 2026-11-10
+Última actualización: 2026-11-11
 
 ## Origen
 El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro en los informes del canal es del 26-10-2026, cuando Hacienda abrió conversaciones para destrabarlo y los rectores de las universidades estatales objetaron partidas (Diario Financiero, La Tercera, Radio Universidad de Chile y Universidad de Chile, 26-10-2026). Importa porque de esas partidas depende el gasto público del año siguiente y porque la discusión quedó cruzada por la controversia sobre el ministro de Justicia, Fernando Rabat: la oposición anunció que buscará rechazar la glosa de Justicia. El 02-11-2026 la Comisión Especial Mixta inició la votación con más de 3.800 indicaciones (La Tercera, Radio Universidad de Chile y Publimicro, 02-11-2026).
@@ -25,6 +25,9 @@ El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro e
 - 2026-11-08 | La investigadora Sylvia Eyzaguirre sostiene que una glosa de Educación del Presupuesto 2027 sería inconstitucional (CNN Chile, 08-11-2026) | diario: 2026-11-09#la-investigadora-sylvia-eyzaguirre-sostuvo-que-una-glosa-de | sección: Además, hoy
 - 2026-11-09 | El Hospital Clínico de la Universidad de Chile solicita $35 mil millones para sostener su operación durante 2027 mientras parlamentarios y gremios presionan para incorporarlos en la Ley de Presupuestos: la cifra es una solicitud en discusión y no un financiamiento aprobado (Radio Universidad de Chile y G5noticias, 09-11-2026) | diario: 2026-11-10#el-hospital-clinico-de-la-universidad-de-chile-pide-35-mil | sección: Plata pública
 - 2026-11-09 | La discusión del Presupuesto 2027 registra un cruce entre el ministro de Hacienda y el presidente de la Cámara, sin modificar por sí solo las partidas en debate; el informe del 10-11-2026 nombra al ministro como Nicolás Quiroz, donde los informes anteriores del repo lo nombraron Jorge Quiroz, y el repo no permite establecer cuál de las dos versiones es la correcta (La Tercera, 09-11-2026) | diario: 2026-11-10#la-discusion-del-presupuesto-2027-tuvo-un-cruce-entre-el | sección: Además, hoy
+- 2026-11-10 | La Cámara rechaza la partida del Ministerio del Interior del Presupuesto 2027 después de críticas a las reducciones para Senapred, la Subdere y el programa de Tenencia Responsable; el rechazo no elimina esos organismos ni fija el monto final, porque la partida sigue su tramitación presupuestaria (Cámara de Diputadas y Diputados, La Tercera y Radio Universidad de Chile, 10-11-2026) | diario: 2026-11-11#la-camara-rechaza-la-partida-de-interior-por-recortes-a | sección: Política
+- 2026-11-10 | Funcionarios de Sernapesca advierten que el recorte presupuestario propuesto puede disminuir inspecciones y controles sobre pesca y acuicultura; la advertencia corresponde a la evaluación de los trabajadores del servicio y ocurre durante la tramitación del Presupuesto 2027 (CIPER, 10-11-2026) | diario: 2026-11-11#sernapesca-advierte-que-los-recortes-reducirian-su | sección: Vivienda y ciudad
+- 2026-11-10 | La Confusam acude al Congreso para pedir mayor financiamiento de la atención primaria en el Presupuesto 2027 (La Tercera y El Informador Chile, 10-11-2026) | diario: 2026-11-11#la-confusam-acudio-al-congreso-para-pedir-mayor | sección: Además, hoy
 
 ## Qué falta por saber
 - ¿Cuándo ingresó el proyecto y cuál es el gasto total propuesto? No consta en los informes del repo.
@@ -42,6 +45,9 @@ El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro e
 - ¿Qué glosa de Educación del Presupuesto 2027 objeta Sylvia Eyzaguirre el 08-11-2026, con qué argumento y quién resuelve si es inconstitucional? El informe del 09-11-2026 no la identifica.
 - ¿Quedan los $35 mil millones que pidió el Hospital Clínico de la Universidad de Chile el 09-11-2026 dentro de la partida de Salud del Presupuesto 2027, y en qué votación?
 - ¿Cómo se llama el ministro de Hacienda que participa en la tramitación? El informe del 10-11-2026 escribe Nicolás Quiroz y los anteriores Jorge Quiroz: hay que fijarlo contra la fuente oficial antes de usarlo en una pieza.
+- ¿Se repone la partida del Ministerio del Interior que la Cámara rechazó el 10-11-2026, y qué recursos quedan para Senapred, la Subdere y el programa de Tenencia Responsable?
+- ¿Qué presupuesto final queda para la fiscalización de Sernapesca, después de la advertencia de sus funcionarios del 10-11-2026 sobre menos inspecciones en pesca y acuicultura?
+- ¿Cambia el financiamiento de la atención primaria que la Confusam fue a pedir al Congreso el 10-11-2026, y con qué monto?
 
 ## Publicado
 Sin publicaciones al 03-11-2026.

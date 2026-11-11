@@ -1,7 +1,7 @@
 # La agenda laboral del Gobierno: adaptabilidad y Empleo 360
 Estado: abierto
 Abierto: 2026-11-08
-Última actualización: 2026-11-10
+Última actualización: 2026-11-11
 
 ## Origen
 El asunto aparece dos días seguidos en los informes del canal: el 06-11-2026 por Empleo 360, que abrió una línea de intermediación y capacitación laboral, y el 07-11-2026 porque el Gobierno reunió diez propuestas de adaptabilidad laboral, entre ellas contratos por hora, la distribución promedio de 40 horas en ciclos de hasta 16 semanas, jornadas especiales para turismo, trabajo híbrido, bandas horarias y cambios a los contratos de aprendizaje (Sence y Atacama Noticias, 06-11-2026; Emol, Mi Radio, Radio Maray y MargaMargaTV, 07-11-2026). Importa porque cambia las reglas de la jornada y del contrato de trabajo, y porque nada de eso rige todavía: varias medidas requieren proyectos de ley y tramitación parlamentaria, y la jornada ordinaria vigente bajó a 42 horas semanales el 26-06-2026. El programa Empleo 360 corre en paralelo, con recursos ya existentes y una meta de política que no es un resultado asegurado.
@@ -11,6 +11,7 @@ El asunto aparece dos días seguidos en los informes del canal: el 06-11-2026 po
 - 2026-11-07 | El Gobierno presenta una agenda de diez medidas de adaptabilidad laboral, entre ellas contratos por hora, la distribución promedio de 40 horas en ciclos de hasta 16 semanas, jornadas especiales para turismo, trabajo híbrido, bandas horarias y cambios a los contratos de aprendizaje; el proyecto de contrato por hora considera un máximo de 30 horas semanales o 120 mensuales, el Ministerio del Trabajo afirma que mantendría cotizaciones previsionales, seguro de cesantía, cobertura de salud y acceso a la justicia laboral, y varias medidas requieren proyectos de ley y tramitación parlamentaria, de modo que son propuestas y no reglas vigentes (Emol, Mi Radio, Radio Maray y MargaMargaTV, 07-11-2026; Ministerio del Trabajo, consultado el 08-11-2026; Senado de Chile, 28-07-2026) | diario: 2026-11-08#diez-medidas-laborales-abren-una-discusion-sobre | sección: Trabajo
 - 2026-11-07 | El Gobierno fija el diseño de Empleo 360: funcionará en las 16 regiones mediante ciclos de 90 días con programas y recursos ya existentes, el primer ciclo regional está previsto entre el 01-01-2027 y el 31-01-2027 sin día definido, los reportes de resultados se esperan entre el 01-07-2027 y el 31-12-2027 y la meta de reducir la desocupación a 6,5% es un objetivo de política y no un resultado asegurado (Gobierno de Chile, Ministerio del Trabajo y Sence, 07-11-2026) | diario: 2026-11-08#diez-medidas-laborales-abren-una-discusion-sobre | sección: Trabajo
 - 2026-11-09 | Los avisos de ofertas laborales caen 12,6% en doce meses según el radar publicado por CIPER, un indicador que anticipa menos vacantes disponibles y no reemplaza la tasa de desocupación del INE, mientras el ministro del Trabajo fija como meta llevar el desempleo a 6,5%, un objetivo político medible que se verificará cada mes con la encuesta nacional de empleo del INE (CIPER y ADN Radio, 09-11-2026) | diario: 2026-11-10#las-ofertas-laborales-caen-mientras-el-gobierno-fija-una | sección: Trabajo y pensiones
+- 2026-11-10 | Una feria laboral organizada por INACAP y la CPC reúne unas 27.000 ofertas de 1.300 empresas en todo Chile; las vacantes corresponden a postulaciones disponibles y no a contratos ya firmados (INACAP, Paislobo y Nostálgica, 10-11-2026) | diario: 2026-11-11#una-feria-laboral-abre-27-000-ofertas-en-todo-chile | sección: Trabajo y empleo
 
 ## Qué falta por saber
 - ¿Cuáles de las diez medidas necesitan ley, en qué boletines se traducen y cuándo ingresan al Congreso? El informe del 08-11-2026 dice que varias requieren tramitación y no identifica los proyectos.
@@ -20,6 +21,7 @@ El asunto aparece dos días seguidos en los informes del canal: el 06-11-2026 po
 - ¿Qué resultados muestra Empleo 360 cuando lleguen los reportes esperados entre el 01-07-2027 y el 31-12-2027, y en qué día de enero de 2027 empieza el primer ciclo regional?
 - ¿Qué dicen los sindicatos y los empleadores sobre las diez medidas? No consta en los informes del repo.
 - ¿Cómo convive la meta de desocupación de 6,5% con la caída de 12,6% en los avisos de ofertas laborales medida por CIPER al 09-11-2026, y qué dice el INE en sus encuestas mensuales desde entonces?
+- ¿Cuántas de las 27.000 ofertas de la feria de INACAP y la CPC del 10-11-2026 terminan en contratos firmados? Son postulaciones disponibles y el repo no registra el resultado.
 
 ## Publicado
 Sin publicaciones al 08-11-2026.

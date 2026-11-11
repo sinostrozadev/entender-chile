@@ -1,7 +1,7 @@
 # Las rebajas de condena firmadas por el Ministerio de Justicia: Rabat y Silva
 Estado: abierto
 Abierto: 2026-10-23
-Última actualización: 2026-11-10
+Última actualización: 2026-11-11
 
 ## Origen
 El 22-10-2026 el ministro de Justicia, Fernando Rabat, confirmó que firmó 56 decretos de rebaja de condena para personas sentenciadas por delitos sexuales contra menores (27 por abuso sexual y 29 por violación), concedidos entre el 11-03-2026 y el 13-09-2026 (EL PAÍS, 22 y 23-10-2026). Importa porque la Ley N° 21.421, de febrero de 2022, excluyó a esos delitos del beneficio, y la disputa es si esa exclusión alcanza a condenas anteriores y quién decidía: la Corte Suprema precisó que los decretos los dictó el ministro (EL PAÍS, 22-10-2026). El caso abrió una crisis política, un proyecto de ley y una investigación de la Fiscalía, iniciada el 30-10-2026 por una denuncia de diputados contra el ministro y el entonces subsecretario Luis Silva, sin formalización de ninguno de los dos al 02-11-2026 en el material del repo.
@@ -46,6 +46,9 @@ El 22-10-2026 el ministro de Justicia, Fernando Rabat, confirmó que firmó 56 d
 - 2026-11-08 | El Presidente José Antonio Kast decide no realizar un cambio de gabinete y mantiene a Fernando Rabat en Justicia mientras avanza la ofensiva parlamentaria (La Tercera, 08-11-2026) | diario: 2026-11-09#kast-mantuvo-su-gabinete-pese-a-la-crisis | sección: Política e instituciones
 - 2026-11-09 | El ministro de Justicia, Fernando Rabat, amplía a todos los delitos la suspensión del beneficio aplicado en 5.614 rebajas de condena: la medida es administrativa y temporal mientras se revisa el procedimiento, y no revoca automáticamente los beneficios ya concedidos ni reemplaza una reforma legal (Ex-Ante y CIPER, 09-11-2026) | diario: 2026-11-10#justicia-amplia-la-suspension-de-rebajas-de-condena | sección: Seguridad y justicia
 - 2026-11-09 | Rabat recurre ante la Corte Suprema contra la resolución que concedió el beneficio de rebaja de condena a un condenado por violación (Ex-Ante, 09-11-2026) | diario: 2026-11-10#justicia-amplia-la-suspension-de-rebajas-de-condena | sección: Seguridad y justicia
+- 2026-11-10 | Los principales constitucionalistas del PS se distancian de la acusación en preparación contra el ministro de Justicia, Fernando Rabat, por falta de fundamentos jurídicos, con el libelo todavía sin ingreso formal (Ex-Ante, 10-11-2026) | diario: 2026-11-11#con-el-libelo-aun-sin-ingreso-formal-los-principales | sección: Además, hoy
+- 2026-11-10 | El senador Matías Walker pide la renuncia del ministro Fernando Rabat por las rebajas de condena (Radio Universidad de Chile, 10-11-2026) | diario: 2026-11-11#el-senador-matias-walker-pidio-la-renuncia-del-ministro | sección: Además, hoy
+- 2026-11-11 | Vence el plazo que la Contraloría General de la República fijó a la Subsecretaría de Justicia para responder su requerimiento sobre la posible falta de entrega de antecedentes a la Defensoría de la Niñez por rebajas de condena, y al cierre de la edición del 11-11-2026 no hay una respuesta pública verificable; la fiscalización y el requerimiento no significan que la Contraloría haya establecido una infracción (Contraloría General de la República, Meganoticias, CNN Chile y La Tercera, 04 al 11-11-2026) | diario: 2026-11-11#justicia-llega-al-vencimiento-del-plazo-pedido-por | sección: Seguridad y Justicia
 
 ## Qué falta por saber
 - ¿Formaliza la Fiscalía a alguien? Al 02-11-2026, Rabat figura como imputado por la denuncia, Silva está denunciado y la investigación abierta el 30-10-2026 la dirige el fiscal Francisco Jacir; la calidad de imputado no es formalización y en el material del repo no consta formalización de ninguno de los dos.
@@ -65,6 +68,8 @@ El 22-10-2026 el ministro de Justicia, Fernando Rabat, confirmó que firmó 56 d
 - ¿Por qué quedó Fernando Rabat excluido del debate de la comisión investigadora, y quién tomó esa decisión? El informe del 09-11-2026 lo consigna sin explicarlo.
 - ¿Hasta cuándo rige la suspensión administrativa que el 09-11-2026 se amplió a todos los delitos, y qué pasa con las 5.614 rebajas ya concedidas mientras se revisa el procedimiento?
 - ¿Qué resuelve la Corte Suprema en el recurso que el ministro Rabat presentó el 09-11-2026 contra la rebaja concedida a un condenado por violación?
+- ¿Responde la Subsecretaría de Justicia el requerimiento de la Contraloría después del vencimiento del 11-11-2026, y qué establece la Contraloría sobre la entrega de antecedentes a la Defensoría de la Niñez?
+- ¿Ingresa la acusación constitucional contra Fernando Rabat después de que los principales constitucionalistas del PS se distanciaran el 10-11-2026 por falta de fundamentos jurídicos, y con qué firmas?
 
 ## Publicado
 Sin largo registrado con id al 08-11-2026. La Clave `rabat-rebajas-de-condena`, con fecha de producción 2026-11-05, salió de este tema (`contenido/claves/flujo/rabat-rebajas-de-condena/tema.md`); al 08-11-2026 su flujo estaba en etapa `videos_listos` y su id de YouTube no consta en el repo.

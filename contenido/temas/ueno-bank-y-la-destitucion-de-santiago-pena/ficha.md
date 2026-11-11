@@ -1,7 +1,7 @@
 # La caída de Ueno Bank y la destitución de Santiago Peña en Paraguay
 Estado: abierto
 Abierto: 2026-11-07
-Última actualización: 2026-11-09
+Última actualización: 2026-11-11
 
 ## Origen
 La intervención del banco digital Ueno por el Banco Central del Paraguay, que el oficio de once senadores chilenos fecha el 03-11-2026, desencadenó una crisis financiera y política en Paraguay (CNN Chile y BioBioChile, 05-11-2026; Reuters, 05-11-2026). El 06-11-2026 el Senado paraguayo destituyó al presidente Santiago Peña en un juicio político con el voto de los 44 senadores presentes, el vicepresidente Pedro Alliana debe completar el mandato que termina en 2028, el juicio le atribuyó responsabilidad política por el manejo de la crisis y por los vínculos de su administración con el banco, y Peña rechazó las acusaciones (Senado de Paraguay, ABC Color/EFE y Associated Press, 06-11-2026). El banco tenía cerca de 2,9 millones de clientes y concentraba alrededor de US$800 millones en depósitos de entidades públicas, cifras de balances publicados antes de la destitución que no equivalen a pérdidas definitivas, y 27 directivos y asociados enfrentaban cargos (Associated Press y ABC Color/EFE, 06-11-2026). Importa en Chile por dos vías: once senadores oficiaron al superintendente de Pensiones, Joaquín Cortez, para conocer la exposición de las administradoras de fondos de pensiones a Ueno Bank, y Paraguay participa en la coordinación del Corredor Bioceánico, que conecta el Atlántico con puertos chilenos. La destitución no es una condena penal: las investigaciones sobre directivos, operaciones y eventuales responsabilidades públicas siguen por vías separadas.
@@ -13,6 +13,7 @@ La intervención del banco digital Ueno por el Banco Central del Paraguay, que e
 - 2026-11-06 | Chile y Paraguay aceleran la coordinación del Corredor Bioceánico antes de la crisis presidencial paraguaya (Cancillería de Chile y La Nación de Paraguay, 06-11-2026) | diario: 2026-11-07#chile-y-paraguay-aceleraron-la-coordinacion-del-corredor | sección: Además, hoy
 - 2026-11-07 | La Fiscalía de Paraguay pide prisión preventiva para el expresidente Santiago Peña y para un banquero en la investigación del caso Ueno Bank, y la solicitud queda radicada en la justicia paraguaya; pedir una medida cautelar no es condenar y las dos personas mantienen la presunción de inocencia (BioBioChile y medios paraguayos, 07-11-2026) | diario: 2026-11-08#fiscalia-paraguaya-pidio-prision-preventiva-para-santiago | sección: Internacional
 - 2026-11-08 | La Fiscalía de Paraguay allana un inmueble vinculado al expresidente Santiago Peña en la investigación del caso Ueno Bank; un allanamiento es una diligencia investigativa y no una condena, y Peña mantiene la presunción de inocencia (La Tercera y BioBioChile, 08-11-2026) | diario: 2026-11-09#la-fiscalia-de-paraguay-allano-un-inmueble-vinculado-al | sección: Además, hoy
+- 2026-11-10 | CIPER examina la caída del banco Ueno y la supervisión financiera en Paraguay tras la destitución del presidente Santiago Peña (CIPER, 10-11-2026) | diario: 2026-11-11#ciper-examino-la-caida-del-banco-ueno-y-la-supervision | sección: Además, hoy
 
 ## Qué falta por saber
 - ¿Cuánto ahorro previsional chileno estaba expuesto a Ueno Bank? Al 07-11-2026 la Superintendencia de Pensiones debía responder con montos, instrumentos y administradoras involucradas, y no consta una cifra pública consolidada.
@@ -23,6 +24,7 @@ La intervención del banco digital Ueno por el Banco Central del Paraguay, que e
 - ¿Qué efecto tiene el cambio de gobierno paraguayo sobre la coordinación del Corredor Bioceánico con Chile?
 - ¿Resuelve la justicia paraguaya la prisión preventiva pedida el 07-11-2026 para Santiago Peña, y quién es el banquero incluido en la misma solicitud? El informe del 08-11-2026 no lo individualiza.
 - ¿Qué buscaba la Fiscalía de Paraguay en el inmueble allanado el 08-11-2026 y qué resultado tuvo la diligencia? El informe del 09-11-2026 no lo detalla.
+- ¿Qué falló en la supervisión financiera paraguaya, según el examen que CIPER publicó el 10-11-2026, y qué de eso alcanza a los fondos chilenos expuestos al banco?
 
 ## Publicado
 Sin publicaciones al 07-11-2026.

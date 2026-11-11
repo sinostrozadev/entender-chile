@@ -1,7 +1,7 @@
 # La alerta por calor extremo y el riesgo de incendios de la temporada
 Estado: abierto
 Abierto: 2026-11-08
-Última actualización: 2026-11-10
+Última actualización: 2026-11-11
 
 ## Origen
 El 01-11-2026 Senapred declaró una Alerta Temprana Preventiva Nacional por calor entre Arica y Parinacota y Magallanes, vigente hasta el 31-03-2027, para reforzar la preparación ante incendios y temperaturas extremas (Senapred, 01-11-2026; Senapred y El País, 01 y 04-11-2026). Sobre ese fondo, el asunto aparece dos días seguidos en los informes del canal: el episodio de calor extremo entre Coquimbo y Maule, alertado por la Dirección Meteorológica de Chile desde la tarde del 07-11-2026 hasta la tarde del 08-11-2026, con máximas que pueden ubicarse entre 35 °C y 37 °C en sectores de Valparaíso, y el incendio forestal de Pozas Verdes en Machalí (Dirección Meteorológica de Chile y Senapred, citados por BioBioChile y Chilevisión, 06-11-2026; Conaf, balance citado por La Tercera, BioBioChile y CNN Chile, 07-11-2026). Importa porque la alerta cambia lo que puede hacer una persona en esas regiones y porque el calor no demuestra por sí solo el origen de un incendio, pero sí agrava las condiciones de propagación y el trabajo de las brigadas. Senapred recomendó hidratarse, evitar la exposición innecesaria entre las 11:00 y las 17:00 y prestar especial atención a niños, personas mayores y enfermos crónicos.
@@ -11,6 +11,7 @@ El 01-11-2026 Senapred declaró una Alerta Temprana Preventiva Nacional por calo
 - 2026-11-06 | La Dirección Meteorológica de Chile emite una alerta por altas temperaturas desde la tarde del 07-11-2026 hasta la tarde del 08-11-2026 en Coquimbo, Valparaíso, Metropolitana, O'Higgins y Maule, con máximas que pueden llegar a 37 °C, y Senapred activa medidas preventivas por riesgo de incendios en Valparaíso (Dirección Meteorológica de Chile y Senapred, 06-11-2026) | diario: 2026-11-07#alerta-por-calor-extremo-alcanza-hasta-37-c-entre-coquimbo-y | sección: Ciudad, seguridad y regiones
 - 2026-11-07 | El incendio forestal de Pozas Verdes, en Machalí, afecta preliminarmente 6,25 hectáreas y Conaf despliega cinco brigadas, dos helicópteros, un avión cisterna, tres técnicos y un puesto de mando, con la quebrada y las dificultades de acceso complicando el trabajo terrestre (Conaf, balance citado por La Tercera, BioBioChile y CNN Chile, 07-11-2026) | diario: 2026-11-08#calor-extremo-entre-coquimbo-y-maule-eleva-el-riesgo-de | sección: Medioambiente
 - 2026-11-09 | Senapred mantiene una alerta roja por calor extremo en la provincia del Tamarugal, con máximas pronosticadas de hasta 36 grados, mientras declara alerta amarilla por remociones en masa en 19 comunas de la Región Metropolitana y O'Higgins y conserva alertas por crecidas en Monte Patria, Río Hurtado y Salamanca: son emergencias distintas y no se suman como un solo evento (Senapred y La Tercera, 09-11-2026) | diario: 2026-11-10#diecinueve-comunas-quedan-bajo-alerta-amarilla-por | sección: Medioambiente y regiones
+- 2026-11-10 | La Dirección Meteorológica de Chile mantiene una alerta por temperaturas extremas desde la tarde del 10-11-2026 hasta la tarde del 12-11-2026 en la precordillera de Atacama y en la precordillera y los valles precordilleranos de Coquimbo, con máximas cercanas a 38 °C asociadas a una dorsal en altura; Senapred recomienda hidratarse, evitar la exposición directa al sol entre las 11:00 y las 17:00 y no dejar personas ni mascotas dentro de vehículos, CEAZA proyecta máximas de 28 a 33 °C en los valles interiores de Coquimbo y advierte condiciones favorables para deshielo y eventuales crecidas en sectores cordilleranos, y la Dirección del Trabajo obliga a los empleadores a gestionar los riesgos por radiación ultravioleta y calor en faenas expuestas (Dirección Meteorológica de Chile, Senapred, BioBioChile, CEAZA y Dirección del Trabajo, 10-11-2026) | diario: 2026-11-11#el-calor-extremo-alcanza-atacama-y-coquimbo | sección: Medioambiente y clima
 
 ## Qué falta por saber
 - ¿Se cierra la alerta por calor extremo en la tarde del 08-11-2026 o se extiende? La ventana informada por la Dirección Meteorológica termina ese día. Respondida en parte: al 09-11-2026 el calor extremo se había desplazado al norte, con alerta roja de Senapred en la provincia del Tamarugal.
@@ -20,6 +21,9 @@ El 01-11-2026 Senapred declaró una Alerta Temprana Preventiva Nacional por calo
 - ¿Hay restricciones locales sobre uso de fuego o acceso a zonas de combate, y quién las dicta?
 - ¿Qué pasa con la Alerta Temprana Preventiva Nacional cuando termine el 31-03-2027, y qué obliga a hacer mientras rige?
 - ¿Hasta cuándo rige la alerta roja por calor extremo en la provincia del Tamarugal declarada al 09-11-2026, y qué comunas abarca?
+- ¿Termina el episodio de calor extremo en la tarde del 12-11-2026 o se extiende a otras zonas? La ventana informada por la Dirección Meteorológica el 10-11-2026 cierra ese día.
+- ¿Se cumplen las obligaciones que la Dirección del Trabajo impone a los empleadores por radiación ultravioleta y calor en las faenas agrícolas de Atacama y Coquimbo, y quién las fiscaliza?
+- ¿Se producen las crecidas por deshielo que CEAZA advirtió el 10-11-2026 para sectores cordilleranos de Coquimbo?
 
 ## Publicado
 Sin publicaciones al 08-11-2026.

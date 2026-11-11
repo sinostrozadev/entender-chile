@@ -1,7 +1,7 @@
 # Las pérdidas de los fondos D y E de las AFP y la restitución a los afiliados
 Estado: abierto
 Abierto: 2026-11-03
-Última actualización: 2026-11-10
+Última actualización: 2026-11-11
 
 ## Origen
 El Fondo E perdió 10,39% real entre el 01-01-2026 y el 30-09-2026 y el Fondo D cayó 6,3% real; el superintendente de Pensiones cifró en torno a US$10.000 millones las pérdidas de valoración asociadas a la exposición a derivados, y el regulador informó que había levantado alertas desde 2024 (Superintendencia de Pensiones, 20-10-2026; CNN Chile y ADN Radio, 26-10-2026). Esa cifra de valoración no equivale al saldo definitivo de cada afiliado ni a una pérdida realizada idéntica para todos. Importa porque son los ahorros obligatorios de los afiliados y porque de ahí salieron tres vías paralelas: un procedimiento sancionatorio de la Superintendencia contra las siete AFP, una comisión investigadora de la Cámara y un proyecto de ley para que las administradoras restituyan las pérdidas. Ninguna había establecido una sanción al 02-11-2026.
@@ -19,6 +19,7 @@ El Fondo E perdió 10,39% real entre el 01-01-2026 y el 30-09-2026 y el Fondo D 
 - 2026-11-08 | La caída del Fondo E abre al menos cuatro recursos de protección contra AFP, uno de ellos dirigido contra AFP Capital y declarado inadmisible, mientras los demás seguían en revisión, y la Superintendencia de Pensiones investiga a siete administradoras para establecer si sus decisiones de inversión cumplieron la normativa: hasta el 08-11-2026 no había determinado responsabilidades ni aplicado sanciones (BioBioChile, 08-11-2026) | diario: 2026-11-09#la-superintendencia-de-pensiones-investiga-la-caida-del | sección: Economía y bolsillo
 - 2026-11-08 | La Corporación Nacional de Consumidores y Usuarios evalúa una acción colectiva por la caída del Fondo E (BioBioChile, 08-11-2026) | diario: 2026-11-09#la-superintendencia-de-pensiones-investiga-la-caida-del | sección: Economía y bolsillo
 - 2026-11-09 | La Superintendencia de Pensiones autoriza a las AFP a recalcular el retiro programado de quienes se pensionaron entre julio y septiembre de 2026, el período marcado por la caída del Fondo E, y la medida corrige el monto mensual de ese retiro; el informe no consigna a cuántas personas alcanza, desde qué mes se aplica ni si el recálculo sube o baja el pago (La Tercera, 09-11-2026) | diario: 2026-11-10#el-regulador-abre-la-opcion-de-recalcular-pensiones | sección: Economía y bolsillo
+- 2026-11-10 | Las AFP reducen parte de sus pérdidas en swaps de tasas después del repunte de los bonos estadounidenses (Bloomberg Línea y Bloomberg, 10-11-2026) | diario: 2026-11-11#las-afp-redujeron-parte-de-sus-perdidas-en-swaps-de-tasas | sección: Además, hoy
 
 ## Qué falta por saber
 - ¿Cuándo se vota el boletín 18817-07 y con qué resultado? Al 02-11-2026 no registra votaciones en Sala ni urgencia del Ejecutivo.
@@ -31,6 +32,7 @@ El Fondo E perdió 10,39% real entre el 01-01-2026 y el 30-09-2026 y el Fondo D 
 - ¿Qué resuelven los al menos cuatro recursos de protección por la caída del Fondo E, después de que el dirigido contra AFP Capital quedara inadmisible al 08-11-2026?
 - ¿Presenta la Corporación Nacional de Consumidores y Usuarios la acción colectiva que evaluaba al 08-11-2026, y contra qué administradoras?
 - ¿A cuántas personas alcanza el recálculo del retiro programado autorizado el 09-11-2026, desde qué mes se aplica y en qué casos sube o baja el pago mensual? El informe del 10-11-2026 no lo consigna.
+- ¿Cuánto de las pérdidas en swaps de tasas recuperan las AFP tras el repunte de los bonos estadounidenses del 10-11-2026, y qué efecto tiene sobre el saldo de los afiliados de los fondos D y E? El informe del 11-11-2026 no entrega montos.
 
 ## Publicado
 Sin publicaciones al 03-11-2026. La Clave `afp-multifondos-perdidas-fondo-e`, con fecha de producción 2026-10-28, estaba en etapa de paneles al 03-11-2026.
