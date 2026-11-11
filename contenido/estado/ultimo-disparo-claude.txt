@@ -1,1 +1,1 @@
-2026-11-11 validar_preseleccion 1 fdb57bcc
+2026-11-11 validar_informe 0 90ae7a35
