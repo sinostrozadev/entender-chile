@@ -3,14 +3,14 @@
   "canal": {
     "suscriptores": 54,
     "vistas": 24161,
-    "videos": 225
+    "videos": 226
   },
   "videos": {
     "4nxRAMmmIBE": {
       "titulo": "Los camioneros mantienen el paro y la fruta espera su viaje,",
       "publicado": "2026-11-11",
-      "estado": "private",
-      "vistas": 0,
+      "estado": "public",
+      "vistas": 9,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 42
@@ -19,8 +19,8 @@
       "titulo": "Camioneros mantienen el paro por el precio del diésel, y otr",
       "publicado": "2026-11-10",
       "estado": "public",
-      "vistas": 609,
-      "meGusta": 10,
+      "vistas": 734,
+      "meGusta": 11,
       "comentarios": 0,
       "durSeg": 36
     },
@@ -28,7 +28,7 @@
       "titulo": "Curicó cerró ciento veintiséis salidas por viajes con licenc",
       "publicado": "2026-11-09",
       "estado": "public",
-      "vistas": 18,
+      "vistas": 20,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 40
@@ -1963,7 +1963,7 @@
       "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 205,
+      "vistas": 206,
       "meGusta": 2,
       "comentarios": 1,
       "durSeg": 682
