@@ -28,7 +28,7 @@ FIDELIDAD TOTAL AL INFORME:
 EXTENSIÓN Y SELECCIÓN (formato corto del 12-10-2026):
 - QUÉ SE NARRA: EXACTAMENTE TRES noticias, cada una en su propio bloque "## Nombre [categoria]". Cuáles, en este orden de regla:
   1. La NOTICIA DE PORTADA va siempre, y va primera.
-  2. Las demás [A] del informe, en el orden en que el informe las trae.
+  2. Las demás [A] del informe, ORDENADAS POR ALCANCE y no por el orden en que el informe las trae (11-11-2026, rutina de mejora diaria): va SEGUNDA la que le cambia el día a más gente (lo que se paga, lo que se come, el trabajo, la salud, el transporte que ya funciona, una alerta vigente), y queda TERCERA la más local, la más especializada o la que todavía no le pasa a nadie porque es un anuncio a futuro. Si las dos empatan de verdad, manda el orden del informe. El porqué está en el punto 3a: el tercer bloque se narra después del segundo 27 y la mitad de la audiencia ya se fue.
   3. Si con eso no llegas a tres, completa con las [B] de mayor peso: las que el informe pone en "En una mirada" y, entre ellas, las que aparecen primero.
   4. Si el informe trae más de tres [A], narras la portada y las dos [A] siguientes en el orden del informe; las otras [A] quedan en la web.
   Nunca más de tres bloques de noticia, nunca menos (salvo que el informe completo traiga menos de tres noticias).
@@ -107,6 +107,12 @@ ESTRUCTURA DEL GUION:
 2. APERTURA: DESPUÉS de la noticia del día, máximo 15 segundos (25 a 40 palabras): sitúa la fecha y adelanta en una frase las OTRAS DOS noticias que vienen, sin repetir la ya dada. La formulación debe variar de un día a otro. No leas nombres de secciones y no inventes nombre del canal ni frase de marca. No anuncies cuántas noticias vienen ni que el video es corto.
 
 3. DESARROLLO: tres bloques de noticia, uno por noticia, en el orden de QUÉ SE NARRA (la portada primero). El primero CONTINÚA desde "La noticia del día" (el detalle, los actores, el antecedente) sin repetir literalmente sus frases. La estructura de secciones debe sentirse invisible: entre un bloque y otro, conexión por una idea compartida o arranque directo.
+
+3a. EL RELOJ DEL SHORT DECIDE EL ORDEN (11-11-2026, rutina de mejora diaria). El orden de los tres bloques no es una convención de redacción: es el reloj del Short. `scripts/short.js` narra, en este orden, una apertura fija, la [TESIS] de "La noticia del día", después las [TESIS] de los tres bloques tal como vienen, y cierra con una línea fija. Repartiendo esos 42 segundos por caracteres narrados sobre el Short del 11-11-2026 (42 segundos reales contra 41,9 que predijo la ley del punto 3b, error de 0,1): la apertura fija ocupa del segundo 0 al 6,5; la portada, del 6,5 al 11,2; su desarrollo, del 11,2 al 19,4; la SEGUNDA noticia, del 19,4 al 27,6; la TERCERA, del 27,6 al 35,9; el cierre, del 35,9 al 42.
+
+   Y la mediana de segundos vistos del canal es 28,7, con 30,5 de promedio ponderado, medido el 11-11-2026 sobre los 61 Shorts que tienen dato de retención y diez vistas o más (12.557 vistas, `bitacora/metricas/2026-11-11.json`), y se mantiene entre 26,2 y 32,4 en las cuatro bandas de duración, o sea no depende de cuánto dure el Short. Juntando las dos cosas: la mitad de la audiencia ya se fue cuando la tercera noticia recién empieza, y casi nadie la oye entera. El tercer bloque es el asiento barato del Short, y hay que sentar ahí lo que menos duele perder. El tramo del segundo 19,4 al 27,6, que es la segunda noticia, es el último que oye la audiencia completa: ahí va lo que le cambia el día a más gente.
+
+   El caso que lo gatilló, para que se vea el costo: el 11-11-2026 quedó segundo el Teleférico Bicentenario (una marcha blanca entre dos comunas de Santiago que no abre al público hasta el primer trimestre de 2027) y tercera la alerta por temperaturas extremas en la precordillera de Atacama y Coquimbo, con 38 grados previstos y la indicación de no exponerse al sol entre las once y las cinco. La única noticia del día que le servía a alguien ese mismo día quedó en el tramo que la mitad del público no oye, y el teleférico, que todavía no se puede tomar, se quedó con el tramo bueno. Nadie lo decidió: salió así porque el informe las traía en ese orden.
 
 3b. PISO Y TECHO DE LAS TESIS QUE NARRA EL SHORT (10-11-2026, rutina de mejora diaria). Cada [TESIS] de los tres bloques de noticia mide entre 105 y 118 CARACTERES CONTADOS. Es un piso, no solo un techo, y es nuevo: 118 caracteres son las mismas 18 palabras que ya pedía el punto 14 de la lista de verificación, contadas en la unidad de la que depende el Short.
 
@@ -294,6 +300,7 @@ CONTROL INTERNO OBLIGATORIO ANTES DE ENTREGAR:
    "monto" está mal, "sin cobrar a becarios que incumplieron" está bien. La
    prueba es si la tarjeta se entiende con el video en silencio.
 1. Verifica la selección: exactamente tres bloques de noticia, la portada primero, y las otras dos elegidas según QUÉ SE NARRA; ninguna noticia agregada; no hay "## En titulares", ni Dato curioso, ni Agenda, ni "¿En qué quedó?".
+1b. Verifica el ORDEN de las dos noticias que siguen a la portada: quedó segunda la que le cambia el día a más gente y tercera la más local, la más especializada o la que todavía no ocurre. Si están al revés, cámbialas de lugar antes de entregar.
 2. CUENTA las palabras narradas (todo lo que se oye, sin marcas ni encabezados): entre 420 y 600. Fuera de ese rango, recorta o completa antes de entregar.
 3. Verifica que no hay ningún tema narrado dos veces.
 4. Verifica que no hay frases que narren ausencia de noticias.
