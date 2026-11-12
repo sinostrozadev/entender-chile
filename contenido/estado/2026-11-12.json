@@ -3,7 +3,7 @@
   "etapa": "reparar_preseleccion",
   "veredicto": "pendiente",
   "vuelta": 1,
-  "actualizado": "2026-11-12 10:19",
+  "actualizado": "2026-11-12 10:52",
   "reparar": {
     "piezas": [
       "preseleccion"
@@ -89,25 +89,25 @@
     {
       "id": "informe",
       "etiqueta": "Informe",
-      "atraso": 459,
+      "atraso": 492,
       "dueno": "GPT · prompts/informe.md"
     },
     {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "atraso": 429,
+      "atraso": 462,
       "dueno": "GPT · prompts/guion-informe.md"
     },
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 409,
+      "atraso": 442,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 304,
+      "atraso": 337,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
