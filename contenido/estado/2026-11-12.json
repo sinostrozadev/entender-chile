@@ -1,6 +1,6 @@
 {
   "fecha": "2026-11-12",
-  "etapa": "nuevo_dia",
+  "etapa": "barrido_listo",
   "veredicto": "pendiente",
   "vuelta": 0,
   "actualizado": "2026-11-12 01:40",
@@ -9,13 +9,15 @@
     {
       "id": "barrido",
       "etiqueta": "Barrido",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "listo",
       "prompt": null,
-      "hora": "",
+      "hora": "01:40",
       "esperada": "01:40",
       "dueno": "Actions · barrido.yml",
-      "rutas": []
+      "rutas": [
+        "contenido/barrido/2026-11-12.md"
+      ]
     },
     {
       "id": "preseleccion",
