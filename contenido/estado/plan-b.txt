@@ -1,6 +1,0 @@
-plan-b: activo
-hasta: 2026-11-11
-turnos: barrido_listo *_lista *_listo reparar_* entrega_lista pauta_aprobada investigacion_lista
-espera_reparar_min: 0
-motivo: GPT no respondio el turno informe_listo (vuelta 0) en 26 min tras dos avisos
-activado: 2026-11-11T06:18:24Z por reintento.yml
