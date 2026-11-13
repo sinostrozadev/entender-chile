@@ -24,7 +24,7 @@ export const Cierre: React.FC = () => {
         <Logo tamano={(vertical ? 220 : 200) * k} avance={avance} />
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: vertical ? 'center' : 'flex-start', gap: 10 * k }}>
           <div style={{ fontFamily: TIPO.display, fontWeight: 800, fontSize: 104 * k, color: PALETA.tinta, letterSpacing: -2 * k, lineHeight: 1 }}>
-            En Números <span style={{ color: PALETA.rojo }}>Rojos</span>
+            Entender <span style={{ color: PALETA.dorado }}>Chile</span>
           </div>
           <div style={{ fontFamily: TIPO.texto, fontWeight: 600, fontSize: 38 * k, color: PALETA.tintaSuave, opacity: lema }}>{MARCA.lema}</div>
           <div style={{ fontFamily: TIPO.texto, fontWeight: 800, fontSize: 34 * k, color: PALETA.dorado, opacity: lema }}>{MARCA.handle}</div>
