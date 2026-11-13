@@ -1,9 +1,9 @@
 {
   "fecha": "2026-11-13",
-  "etapa": "validar_guion_informe",
+  "etapa": "validar_final",
   "veredicto": "pendiente",
-  "vuelta": 1,
-  "actualizado": "2026-11-13 08:55",
+  "vuelta": 0,
+  "actualizado": "2026-11-13 08:57",
   "reparar": null,
   "piezas": [
     {
@@ -49,7 +49,7 @@
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "lista",
       "prompt": "prompts/guion-informe.md",
       "hora": "03:44",
       "esperada": "03:10",
@@ -85,13 +85,13 @@
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 325,
+      "atraso": 327,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 220,
+      "atraso": 222,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
