@@ -2,17 +2,17 @@
   "flujo": "clave",
   "slug": "codelco-produccion-inflada",
   "camino": "pauta",
-  "etapa": "pauta_lista",
+  "etapa": "ventana_veto",
   "vuelta": 0,
-  "turno": "Santiago: aprobar o pedir cambios (scripts/clave.js aprobar | cambiar)",
-  "fecha_produccion": null,
-  "actualizado": "2026-11-12 23:59",
+  "turno": "nadie: ventana de veto de Santiago (12 h tras la aprobación de Claude)",
+  "fecha_produccion": "2026-11-18",
+  "actualizado": "2026-11-13 00:00",
   "concepto": "La producción inflada de Codelco: 42.100 toneladas registradas sin producción efectiva",
   "pieza": {
-    "id": "pauta",
-    "prompt": "prompts/pauta-clave.md",
-    "archivo": "contenido/claves/flujo/codelco-produccion-inflada/pauta.md",
-    "entrada": "contenido/claves/flujo/codelco-produccion-inflada/tema.md"
+    "id": "investigacion",
+    "prompt": "prompts/investigacion-clave.md",
+    "archivo": "contenido/claves/flujo/codelco-produccion-inflada/investigacion.md",
+    "entrada": "contenido/claves/flujo/codelco-produccion-inflada/pauta.md"
   },
   "piezas": [
     {
@@ -28,12 +28,12 @@
     {
       "id": "entrega",
       "situacion": "falta",
-      "archivo": ""
+      "archivo": "contenido/claves/2026-11-18-codelco-produccion-inflada.md"
     },
     {
       "id": "guion",
       "situacion": "falta",
-      "archivo": ""
+      "archivo": "contenido/guiones/claves/2026-11-18-codelco-produccion-inflada.md"
     }
   ]
 }
