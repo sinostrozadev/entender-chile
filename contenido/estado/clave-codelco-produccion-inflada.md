@@ -1,11 +1,11 @@
 FLUJO: clave
 SLUG: codelco-produccion-inflada
 CAMINO: pauta
-ETAPA: pautar
+ETAPA: pauta_lista
 VUELTA: 0
-TURNO: Claude: escribe la pauta (prompts/pauta-clave.md)
+TURNO: Santiago: aprobar o pedir cambios (scripts/clave.js aprobar | cambiar)
 FECHA_PRODUCCION: (la fija quien aprueba la pauta: Claude, con veto de Santiago)
-ACTUALIZADO: 2026-11-12 23:36 (hora de Chile)
+ACTUALIZADO: 2026-11-12 23:59 (hora de Chile)
 PIEZA: pauta
 PROMPT: prompts/pauta-clave.md
 ARCHIVO: contenido/claves/flujo/codelco-produccion-inflada/pauta.md
@@ -20,7 +20,7 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 | Paso | Estado | Hora | Quién |
 |---|---|---|---|
 | Tema elegido | listo | 23:36 | Santiago |
-| Pauta | falta |  | Claude |
+| Pauta | escrita | 23:59 | Claude |
 | Aprobación (Claude, veto de Santiago) | espera |  | Claude |
 | Investigación | falta |  | GPT, valida Claude |
 | Entrega escrita | falta |  | GPT, valida Claude |
