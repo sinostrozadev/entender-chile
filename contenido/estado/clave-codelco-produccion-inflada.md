@@ -1,12 +1,11 @@
 FLUJO: clave
 SLUG: codelco-produccion-inflada
 CAMINO: pauta
-ETAPA: ventana_veto
+ETAPA: pauta_aprobada
 VUELTA: 0
-TURNO: nadie: ventana de veto de Santiago (12 h tras la aprobación de Claude)
+TURNO: GPT
 FECHA_PRODUCCION: 2026-11-18
-ACTUALIZADO: 2026-11-13 00:00 (hora de Chile)
-VETO_HASTA: 2026-11-13 12:00
+ACTUALIZADO: 2026-11-13 12:58 (hora de Chile)
 PIEZA: investigacion
 PROMPT: prompts/investigacion-clave.md
 ARCHIVO: contenido/claves/flujo/codelco-produccion-inflada/investigacion.md
