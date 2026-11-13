@@ -36,7 +36,7 @@ const piloto = async (ruta, params = {}, bin = false) => {
 const PANTALLAS = [
   { nombre: "1-overview", ruta: "analytics/tab-overview/period-default", espera: /Views|Visualizaciones|Watch time|Tiempo de reproducci/i },
   { nombre: "2-monetizacion", ruta: "monetization", espera: /Partner Program|Programa de Partners|subscribers|suscriptores/i },
-  { nombre: "3-alcance", ruta: "analytics/tab-reach_viewers/period-default", espera: /Impressions|Impresiones/i },
+  { nombre: "3-audiencia", ruta: "analytics/tab-build_audience/period-default", espera: /Returning viewers|Espectadores recurrentes|Unique viewers|Espectadores únicos|Subscribers|Suscriptores/i },
   { nombre: "4-contenido", ruta: "analytics/tab-content/period-default", espera: /Content|Contenido|Views|Visualizaciones/i },
 ];
 const MALA = /Oops|don't have permission|Select a channel|Elige un canal/i;
@@ -113,9 +113,11 @@ const numero = (s) => {
   if (!s) return null;
   const m = String(s).match(/([\d.,]+)\s*(K|M|mil|mill)?/i);
   if (!m) return null;
-  let n = parseFloat(m[1].replace(/[.,](?=\d{3}\b)/g, "").replace(",", "."));
-  if (/^(k|mil)$/i.test(m[2] || "")) n *= 1e3; else if (/^(m|mill)/i.test(m[2] || "")) n *= 1e6;
-  return Math.round(n);
+  const suf = m[2] || "", t = m[1];
+  // Con sufijo (1.5K, 1,5 mil) el separador es decimal; sin sufijo, "1.234"/"1,234" son miles y "7.0"/"343,9" decimales.
+  let n = suf ? parseFloat(t.replace(",", ".")) : /^\d{1,3}([.,]\d{3})+$/.test(t) ? parseFloat(t.replace(/[.,]/g, "")) : parseFloat(t.replace(",", "."));
+  if (/^(k|mil)$/i.test(suf)) n *= 1e3; else if (/^m/i.test(suf)) n *= 1e6;
+  return Math.round(n * 10) / 10;
 };
 
 const canalPublico = async () => {
@@ -151,24 +153,39 @@ const deStudio = (textos) => {
   return {
     vistas28d: tras(t, /(?:Views|Visualizaciones)\s*\n?\s*([\d.,]+\s*[KM]?)/i),
     horas28d: tras(t, /(?:Watch time \(hours\)|Tiempo de reproducción \(horas\))\s*\n?\s*([\d.,]+)/i),
-    vistas48h: tras(t, /([\d.,]+)\s*\n?\s*(?:Views|Visualizaciones)\s*·?\s*(?:Last 48 hours|Últimas 48 horas)/i),
+    vistas48h: tras(t, /(?:48 hour views|Visualizaciones en 48 horas|Visualizaciones de las últimas 48 horas)\s*\n?\s*([\d.,]+\s*[KM]?)/i),
     ypp: m ? { subs: tras(m, /([\d.,]+)\s*\/\s*1[.,]?000/), vistasShorts90d: tras(m, /([\d.,]+\s*[KM]?)\s*\/\s*10\s*M/i), horas12m: tras(m, /([\d.,]+)\s*\/\s*4[.,]?000/) } : null,
   };
 };
 
+/** Vistas ganadas en los últimos `dias` días = vistas del canal hoy menos las de la medición de la nube de esa fecha (null si no existe). */
+const deltaVistas = (dias, hoy) => {
+  try {
+    const d = new Date(fecha + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() - dias);
+    const f = path.join("bitacora", "metricas", d.toISOString().slice(0, 10) + ".json");
+    if (!fs.existsSync(f)) return null;
+    return hoy - JSON.parse(fs.readFileSync(f, "utf8")).canal.vistas;
+  } catch { return null; }
+};
+
 (async () => {
-  const sinCapturas = process.argv.includes("--sin-capturas");
-  const cap = sinCapturas ? { estado: "omitidas (--sin-capturas)", textos: {} } : await capturar();
+  // @entenderchile vive en OTRA cuenta de Google: el piloto (cuenta de Santiago) no tiene permiso en su Studio ("Oops, you don't have permission",
+  // 2026-11-12: 0/4 capturas). Por defecto no se captura; EC_CAPTURAS=1 lo fuerza si algún día el piloto entra con esa cuenta.
+  const sinCapturas = process.argv.includes("--sin-capturas") || process.env.EC_CAPTURAS !== "1";
+  const cap = sinCapturas ? { estado: "omitidas (canal en otra cuenta de Google; piloto sin acceso)", textos: {} } : await capturar();
   const canal = await canalPublico();
   const nube = medicionNube();
   const previo = path.join(dir, "metricas.json");
   const anterior = fs.existsSync(previo) ? JSON.parse(fs.readFileSync(previo, "utf8")) : null;
   const studio = deStudio(cap.textos);
+  const datosVistas = nube?.fechaMedicion === fecha ? nube.canal.vistas : (canal.vistasTotales ?? nube?.canal?.vistas ?? null);
   const datos = {
     fecha, canalId: CANAL, generadoEn: new Date().toISOString(), zona: ZONA,
-    subs: canal.subs, videosPublicados: canal.videosPublicados,
-    vistasTotales: canal.vistasTotales,
-    vistas28d: studio.vistas28d, vistas48h: studio.vistas48h, horasTotales: studio.horas28d,
+    // La nube mide con la Data API (token en Actions): es la fuente buena; el curl público queda de respaldo.
+    subs: nube?.fechaMedicion === fecha ? nube.canal.suscriptores : (canal.subs ?? nube?.canal?.suscriptores ?? null),
+    videosPublicados: nube?.fechaMedicion === fecha ? nube.canal.videos : (canal.videosPublicados ?? nube?.canal?.videos ?? null),
+    vistasTotales: nube?.fechaMedicion === fecha ? nube.canal.vistas : (canal.vistasTotales ?? nube?.canal?.vistas ?? null),
+    vistas28d: studio.vistas28d ?? deltaVistas(28, datosVistas), vistas48h: studio.vistas48h ?? deltaVistas(2, datosVistas), horasTotales: studio.horas28d,
     progresoYPP: studio.ypp,
     fuentes: { numeros: "públicos (curl a youtube.com, /about para vistas)", studio: "texto de Studio, mejor esfuerzo", videos: nube ? `nube: bitacora/metricas/${nube.fechaMedicion}.json` : "sin medición de la nube" },
     capturas: cap.estado,
