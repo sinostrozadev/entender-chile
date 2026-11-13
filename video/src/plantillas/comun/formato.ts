@@ -10,7 +10,7 @@ const conMiles = (entero: string) => entero.replace(/\B(?=(\d{3})+(?!\d))/g, '.'
 
 /** 1234567.8 → "1.234.567,8" (con `decimales` fijos). */
 export const numeroEs = (v: number, decimales = 0): string => {
-  if (!Number.isFinite(v)) return '—';
+  if (!Number.isFinite(v)) return '-';
   const neg = v < 0;
   const [e, d] = Math.abs(v).toFixed(decimales).split('.');
   return `${neg ? '−' : ''}${conMiles(e)}${d ? ',' + d : ''}`;

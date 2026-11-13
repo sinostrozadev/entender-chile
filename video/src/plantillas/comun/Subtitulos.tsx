@@ -30,7 +30,7 @@ const unidades = (p: Palabra[]): [number, number][] => {
   return out;
 };
 
-/** Bloques de 2–4 palabras cortados por frase/ritmo, sin partir nombres propios ni dejar artículos colgando. */
+/** Bloques de 2-4 palabras cortados por frase/ritmo, sin partir nombres propios ni dejar artículos colgando. */
 export const bloquesDe = (p: Palabra[]): { desde: number; hasta: number }[] => {
   const us = unidades(p);
   const bloques: { desde: number; hasta: number }[] = [];
@@ -68,9 +68,9 @@ type Props = {
 };
 
 /**
- * Subtítulos de En Números Rojos: 2–4 palabras por bloque, Inter 800 blanco con sombra (sin pastilla, para no
+ * Subtítulos de En Números Rojos: 2-4 palabras por bloque, Inter 800 blanco con sombra (sin pastilla, para no
  * tapar el gráfico), centrados abajo; la palabra que suena va en dorado con un golpe leve de escala. Cambian
- * cada 0,6–1 s con la voz. Las cifras (que tienen dígitos) quedan en dorado después de dichas.
+ * cada 0,6-1 s con la voz. Las cifras (que tienen dígitos) quedan en dorado después de dichas.
  */
 export const Subtitulos: React.FC<Props> = ({ linea, frameLocal, centroY, fontSize, ancho, acento = PALETA.dorado }) => {
   const { fps } = useVideoConfig();

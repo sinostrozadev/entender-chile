@@ -1,5 +1,5 @@
 /**
- * Cómo se construye un gráfico con la voz (módulo puro): calcula las CLAVES de avance (frame → progreso 0–1) de
+ * Cómo se construye un gráfico con la voz (módulo puro): calcula las CLAVES de avance (frame → progreso 0-1) de
  * un `Grafico` a partir de las palabras de una o varias líneas de voz. Lo usan tesis/plan.ts y grafico/plan.ts.
  *  - lineas/area: la cabeza de la línea llega a cada AÑO cuando la voz lo dice (años dichos en orden creciente
  *    dentro del rango), y al último año cuando termina la frase.

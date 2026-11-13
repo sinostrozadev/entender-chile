@@ -8,7 +8,7 @@ import { Anotacion, filasAnotaciones } from './Anotacion';
 import { anchoTexto, clamp01, type PropsCuerpo } from './tipos';
 
 /**
- * Líneas (1–6 países en el tiempo) y Área (una serie con relleno). La línea se DIBUJA de izquierda a derecha con
+ * Líneas (1-6 países en el tiempo) y Área (una serie con relleno). La línea se DIBUJA de izquierda a derecha con
  * `progreso` (0 = primer año, 1 = último): el contenedor lo ancla a la voz para que la cabeza llegue a cada año
  * cuando la voz lo dice. La cabeza lleva un punto y la etiqueta directa del país (y su valor, que va contando);
  * las anotaciones aparecen cuando la línea llega a su año. El destacado va en dorado y encima de todo; en el giro
@@ -146,6 +146,6 @@ const trazo = (puntos: { anio: number; valor: number }[], X: (a: number) => numb
 export const SinDatos: React.FC<{ ancho: number; alto: number; fontSize: number }> = ({ ancho, alto, fontSize }) => (
   <div style={{ width: ancho, height: alto, display: 'flex', alignItems: 'center', justifyContent: 'center', border: `3px dashed ${PALETA.rojo}`, borderRadius: 16,
     color: PALETA.rojo, fontFamily: TIPO.texto, fontWeight: 800, fontSize, textAlign: 'center', padding: 30 }}>
-    DATOS SIN RESOLVER — correr preparar-* antes de renderizar
+    DATOS SIN RESOLVER: correr preparar-* antes de renderizar
   </div>
 );

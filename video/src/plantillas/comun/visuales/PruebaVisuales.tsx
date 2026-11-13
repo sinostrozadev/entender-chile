@@ -62,7 +62,7 @@ const GraficoFalso: React.FC<{ ancho: number; alto: number }> = ({ ancho, alto }
   return (
     <div style={{ position: 'relative', width: ancho, height: alto }}>
       <div style={{ fontFamily: TIPO.display, fontWeight: 800, fontSize: 50, color: PALETA.tinta }}>PIB por persona, Chile y Corea del Sur</div>
-      <div style={{ fontFamily: TIPO.texto, fontWeight: 500, fontSize: 28, color: PALETA.tintaSuave, marginTop: 6 }}>US$ de 2015 · 1960–2023</div>
+      <div style={{ fontFamily: TIPO.texto, fontWeight: 500, fontSize: 28, color: PALETA.tintaSuave, marginTop: 6 }}>US$ de 2015 · 1960-2023</div>
       <svg width={ancho} height={alto} style={{ position: 'absolute', inset: 0 }}>
         <path d={pts.map((p, i) => `${i ? 'L' : 'M'}${p[0]},${p[1]}`).join('')} fill="none" stroke={PALETA.dorado} strokeWidth={6} />
         <path d={`M80 ${alto - 90} H${ancho - 80}`} stroke={PALETA.borde} strokeWidth={2} />

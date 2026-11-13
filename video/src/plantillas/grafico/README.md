@@ -1,4 +1,4 @@
-# Plantilla `grafico` — Short 9:16 (1080×1920, 60 fps, 35–50 s)
+# Plantilla `grafico`: Short 9:16 (1080×1920, 60 fps, 35-50 s)
 
 El embudo al largo: UN gráfico que se construye con la voz y un giro. Contrato: `GuionGrafico`
 (`src/plantillas/comun/guion.ts`, re-exportado en `guion.ts`). Ejemplo: `ejemplo.json` (Chile vs Corea, 105 palabras).

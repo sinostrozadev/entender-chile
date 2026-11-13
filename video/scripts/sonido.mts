@@ -4,7 +4,7 @@
  * grafico/plan.ts) y escriben public/audio/generado/<id>.wav. La voz NO va aquí: la composición la reproduce aparte.
  *
  * Carácter: economía explicada, sobria. Cama GRAVE, NEUTRA y muy baja (dron en la tónica con quinta, pad de
- * acordes que cambian cada ~7–9 s, aire filtrado). Para el largo NO hay loop: cada compás elige su progresión y su
+ * acordes que cambian cada ~7-9 s, aire filtrado). Para el largo NO hay loop: cada compás elige su progresión y su
  * inversión con una semilla, y cada capítulo (`secciones`) cambia de tónica, así nada se repite audible en > 60 s.
  * SFX sutiles: tic al empezar a dibujarse un gráfico y ticks muy suaves mientras se dibuja, golpe suave en el
  * giro, whoosh en el cambio de capítulo, riser + golpe en el remate, firma de dos notas en el cierre.
@@ -56,7 +56,7 @@ const PROGRESIONES = [
 
 /**
  * Cama: dron en la tónica + quinta, pad de acordes lentos y aire filtrado. `secciones` = segundos en que empieza
- * cada capítulo: ahí la tónica se mueve (±2–5 semitonos) para que el oído no reconozca un loop.
+ * cada capítulo: ahí la tónica se mueve (±2-5 semitonos) para que el oído no reconozca un loop.
  */
 const cama = (duracion: number, semilla: number, secciones: number[] = []) => {
   const pista = crearPista(duracion);
@@ -67,7 +67,7 @@ const cama = (duracion: number, semilla: number, secciones: number[] = []) => {
   let t0 = 0;
   let c = 0;
   while (t0 < duracion) {
-    const largo = 7 + azar() * 2; // compases de 7–9 s: sin periodo fijo
+    const largo = 7 + azar() * 2; // compases de 7-9 s: sin periodo fijo
     const prog = PROGRESIONES[Math.floor(azar() * PROGRESIONES.length)];
     const ac = prog[c % 4];
     const tonica = tonicaEn(t0);

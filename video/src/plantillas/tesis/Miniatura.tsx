@@ -7,7 +7,7 @@ import { GraficoAnimado } from '../comun/graficos/GraficoAnimado';
 import type { PropsTesis } from './Tesis';
 
 /**
- * Miniatura 1280×720 del largo (`remotion still … Miniatura`): 3–5 palabras ENORMES a la izquierda (≠ título;
+ * Miniatura 1280×720 del largo (`remotion still … Miniatura`): 3-5 palabras ENORMES a la izquierda (≠ título;
  * la última en dorado), el gráfico de `miniatura.grafico` (o el del gancho, o el número final) completo a la
  * derecha, una franja roja y el isotipo. Un foco visual, contraste alto, legible a 160 px de ancho.
  */

@@ -237,9 +237,9 @@ const partirCsv = (linea: string): string[] => {
   return out;
 };
 
-/** Proveedor original a partir de la cita de OWID ("Bolt and van Zanden – Maddison Project Database 2023 – with minor processing…"). */
+/** Proveedor original a partir de la cita de OWID ("Bolt and van Zanden - Maddison Project Database 2023 - with minor processing…"). */
 export const proveedorDe = (cita: string) =>
-  cita.split(/\s+–\s+(?:with (?:minor|major) processing|processed) by Our World in Data/i)[0].replace(/\s*–\s*$/, '').trim();
+  cita.split(/\s+[\u2013-]\s+(?:with (?:minor|major) processing|processed) by Our World in Data/i)[0].replace(/\s*[\u2013-]\s*$/, '').trim();
 
 export const metadatosOwid = async (slug: string): Promise<MetaOwid> => obtener(urlsOwid(slug).meta);
 
@@ -362,7 +362,7 @@ export const resolverDatos = async (refs: DatoRef[], opciones: { refrescar?: boo
       series[iso] = { pais: NOMBRES_ES[iso] ?? c.paises[iso] ?? iso, puntos };
     }
     if (vacios.length) {
-      throw new Error(`${ref.fuente} ${ref.indicador}: sin datos para ${vacios.join(', ')}${ref.desde || ref.hasta ? ` en ${ref.desde ?? '…'}–${ref.hasta ?? '…'}` : ''} (caché del ${c.consultadoEn}; prueba --refrescar o cambia el rango)`);
+      throw new Error(`${ref.fuente} ${ref.indicador}: sin datos para ${vacios.join(', ')}${ref.desde || ref.hasta ? ` en ${ref.desde ?? '…'}-${ref.hasta ?? '…'}` : ''} (caché del ${c.consultadoEn}; prueba --refrescar o cambia el rango)`);
     }
     salida.push({
       ref,
@@ -380,7 +380,7 @@ export const resolverDatos = async (refs: DatoRef[], opciones: { refrescar?: boo
 
 // ---------------------------------------------------------------- cifras
 export const fmtNumero = (n: number | null | undefined) =>
-  n === null || n === undefined || !Number.isFinite(n) ? '—'
+  n === null || n === undefined || !Number.isFinite(n) ? '-'
     : Math.abs(n) >= 1000 ? Math.round(n).toLocaleString('es-CL')
       : Math.abs(n) >= 10 ? n.toFixed(1).replace('.', ',')
         : n.toFixed(3).replace('.', ',');
@@ -489,11 +489,11 @@ export const calcularCifra = (cifra: Cifra, series: SerieResuelta[]): ResultadoC
       if (!rango.length) return mal(`${c.operacion}: ${nombre(pais)} sin datos en el rango`);
       if (c.operacion === 'promedio') {
         esperado = rango.reduce((acc, p) => acc + p.valor, 0) / rango.length;
-        detalle = `promedio ${nombre(pais)} ${rango[0].anio}–${rango.at(-1)!.anio} (${rango.length} años) = ${fmt(esperado)}`;
+        detalle = `promedio ${nombre(pais)} ${rango[0].anio}-${rango.at(-1)!.anio} (${rango.length} años) = ${fmt(esperado)}`;
       } else {
         const elegido = rango.reduce((m, p) => ((c.operacion === 'maximo' ? p.valor > m.valor : p.valor < m.valor) ? p : m));
         esperado = elegido.valor;
-        detalle = `${c.operacion} ${nombre(pais)} ${rango[0].anio}–${rango.at(-1)!.anio} = ${fmt(esperado)} (en ${elegido.anio})`;
+        detalle = `${c.operacion} ${nombre(pais)} ${rango[0].anio}-${rango.at(-1)!.anio} = ${fmt(esperado)} (en ${elegido.anio})`;
       }
       break;
     }

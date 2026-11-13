@@ -293,7 +293,7 @@ const TarjetaCapitulo: React.FC<{ n: number; titulo: string; frame: number; fram
   );
 };
 
-/** Visibilidad 0–1 del rótulo del capítulo (entra en 0,25 s, sale en 0,6 s): la cabecera se apaga en la misma medida. */
+/** Visibilidad 0-1 del rótulo del capítulo (entra en 0,25 s, sale en 0,6 s): la cabecera se apaga en la misma medida. */
 const visibleRotuloCapitulo = (r: BloqueTesis['rotuloCapitulo'], frame: number) => {
   if (!r || frame < r.desde || frame >= r.hasta) return 0;
   const fps = FORMATO_LARGO.fps;

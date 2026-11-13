@@ -49,7 +49,7 @@ const traer = async () => {
   }
   for (const i of isos) {
     const p = s.series[i].puntos;
-    console.log(`\n${s.series[i].pais}: ${p.length} años con dato (${p[0]?.anio}–${p.at(-1)?.anio}); último ${fmtNumero(p.at(-1)?.valor)}`);
+    console.log(`\n${s.series[i].pais}: ${p.length} años con dato (${p[0]?.anio}-${p.at(-1)?.anio}); último ${fmtNumero(p.at(-1)?.valor)}`);
   }
 };
 
@@ -115,7 +115,7 @@ const verificarCatalogo = async () => {
           const j = await obtener(urlWdi(e.indicador, pais, undefined, undefined, 200));
           const filas = (Array.isArray(j) && Array.isArray(j[1]) ? j[1] : []) as Array<{ date: string; value: number | null }>;
           const con = filas.filter((f) => f.value !== null).map((f) => +f.date).sort((a, b) => a - b);
-          if (con.length) { anios = `${con[0]}–${con.at(-1)} (${pais}, ${con.length} años)`; break; }
+          if (con.length) { anios = `${con[0]}-${con.at(-1)} (${pais}, ${con.length} años)`; break; }
         }
         if (!anios) throw new Error('la API no devuelve datos (CHL, MEX ni USA)');
         buenos.push({ ...e, anios, verificado: hoy });

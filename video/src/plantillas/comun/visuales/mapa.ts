@@ -188,7 +188,7 @@ export const planViaje = (desde: string, hasta: string, ancho: number, alto: num
 };
 
 /**
- * Cámara del viaje en el avance `p` (0–1, ya suavizado): el centro va por el círculo máximo y el zoom sigue una
+ * Cámara del viaje en el avance `p` (0-1, ya suavizado): el centro va por el círculo máximo y el zoom sigue una
  * parábola que parte en el zoom de `desde`, toca `zoomMedio` a mitad de camino y termina en el de `hasta` (sin
  * quiebres: una sola curva suave).
  */

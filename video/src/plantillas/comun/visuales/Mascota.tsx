@@ -7,7 +7,7 @@ const S = FORMATO_LARGO.seguro;
 const LADO = 220;
 /**
  * Caja (px, 1920×1080) que ocupa la mascota: esquina inferior izquierda, dentro de la zona segura, a la izquierda de
- * los subtítulos (2–4 palabras centradas en x = 960, nunca llegan a x < 400). El contenido de la escena se acorta
+ * los subtítulos (2-4 palabras centradas en x = 960, nunca llegan a x < 400). El contenido de la escena se acorta
  * para terminar sobre `y` (Tesis lo hace) y el bocadillo va a la derecha de la cabeza, sobre la línea de subtítulos.
  */
 export const MASCOTA_ZONA = { x: S.lados, y: FORMATO_LARGO.alto - S.abajo - LADO, ancho: LADO, alto: LADO } as const;

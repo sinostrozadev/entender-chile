@@ -9,7 +9,7 @@
  *    ya entregadas (public/ilustraciones/<id>/<clave>.png) y poses de mascota con imagen (public/mascota/<pose>.png);
  *    lo que no se resuelve se avisa con ⚠ y la escena cae al gráfico previo (nunca bloquea el render),
  * 3) voz (msedge-tts) de lineasTesis → public/voz/<id>/ + tiempos.json,
- * 4) plan (tesis/plan.ts), control de duración (RITMO.largoMin–largoMax, 8:30–12:30) y de RITMO (`problemasDeRitmo`:
+ * 4) plan (tesis/plan.ts), control de duración (RITMO.largoMin-largoMax, 8:30-12:30) y de RITMO (`problemasDeRitmo`:
  *    esperas con tarjeta > 3 s, fotos > 12 s sin cambio, citas > 12 s, gráficos quietos > 20 s → ✗ y sale con 1, salvo
  *    --permitir-ritmo; avisos con ⚠),
  * 5) cama + SFX → public/audio/generado/<id>.wav,
@@ -57,7 +57,7 @@ const prepararDatos = async (refs: DatoRef[], fixture: string | undefined, refre
     const salida = path.join(RAIZ, 'salida/pruebas/fixture-series.json');
     fs.mkdirSync(path.dirname(salida), { recursive: true });
     fs.writeFileSync(salida, JSON.stringify(Object.values(datos), null, 2) + '\n');
-    console.warn(`⚠ datos FIXTURE (inventados, marcados en rojo en pantalla): ${path.relative(RAIZ, salida)} — este video NO se publica`);
+    console.warn(`⚠ datos FIXTURE (inventados, marcados en rojo en pantalla): ${path.relative(RAIZ, salida)}: este video NO se publica`);
     return { datos, fixture: true };
   };
   if (fixture) return usarFixture(path.resolve(fixture));
@@ -105,7 +105,7 @@ const tiempos = await generarVoz(guion.id, guion.voz, lineas);
 const plan = planTesis({ ...guion, visuales }, tiempos, datos);
 console.log(`duración: ${reloj(plan.duracionSeg)} (${plan.duracionFrames} frames a ${plan.fps} fps) · mid-rolls en ${plan.midrolls.map(reloj).join(', ')}`);
 if ((plan.duracionSeg < RITMO.largoMin || plan.duracionSeg > RITMO.largoMax) && !args.includes('--permitir-duracion')) {
-  console.error(`✗ duración ${reloj(plan.duracionSeg)} fuera de ${reloj(RITMO.largoMin)}–${reloj(RITMO.largoMax)}. ${plan.duracionSeg < RITMO.largoMin ? 'Alarga' : 'Recorta'} el guion (o --permitir-duracion para pruebas).`);
+  console.error(`✗ duración ${reloj(plan.duracionSeg)} fuera de ${reloj(RITMO.largoMin)}-${reloj(RITMO.largoMax)}. ${plan.duracionSeg < RITMO.largoMin ? 'Alarga' : 'Recorta'} el guion (o --permitir-duracion para pruebas).`);
   process.exit(1);
 }
 const ritmo = problemasDeRitmo(plan, { ...guion, visuales } as GuionTesis);
@@ -136,7 +136,7 @@ const resumen = {
   capitulos: plan.capitulos.map((c) => ({ titulo: c.titulo, seg: +c.seg.toFixed(2), reloj: reloj(c.seg) })),
   descripcionCapitulos: capitulosDescripcion(plan),
   midrolls: plan.midrolls.map((s) => ({ seg: +s.toFixed(2), reloj: reloj(s) })),
-  fuentesDatos: [...new Set(Object.values(datos).map((s) => `${s.fuenteTexto} — ${s.fuenteUrl} (${s.licencia})`))],
+  fuentesDatos: [...new Set(Object.values(datos).map((s) => `${s.fuenteTexto}: ${s.fuenteUrl} (${s.licencia})`))],
   /** Créditos de fotos/ilustraciones: scripts/diario.mts los agrega a la descripción antes de las fuentes. */
   creditos,
   visualesSinResolver: [...fotos.fallidas, ...guion.capitulos.flatMap((c, ci) => c.escenas.flatMap((e, k) => (e.visual?.tipo === 'ilustracion' && !visuales[claveDeVisual(ci, k)]?.ilustracion ? [claveDeVisual(ci, k)] : [])))],

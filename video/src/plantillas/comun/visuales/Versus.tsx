@@ -60,7 +60,7 @@ const Ficha: React.FC<{ diametro: number; texto: string; giro: number; fs?: numb
  * con insignia ✓/✗ (misma lógica que `Iconos`). Separador "VS" sobrio al centro. `apuesta`: desde `apuestaFrame` una
  * ficha dorada nace al centro y rueda hasta debajo de la columna de `apuesta.pais`, que se enciende (borde dorado)
  * mientras la otra baja a 0,6. `frame` e `itemsFrame` (lado 0 y luego lado 1, en orden) son LOCALES (0 = entra el visual).
- * Pensado para 1560–1820 px de ancho (completo) y 800 (dividido).
+ * Pensado para 1560-1820 px de ancho (completo) y 800 (dividido).
  */
 export const Versus: React.FC<{ v: VisualVersus; ancho: number; alto: number; frame: number; fps: number; itemsFrame: number[]; apuestaFrame?: number }> = ({ v, ancho, alto, frame, fps, itemsFrame, apuestaFrame }) => {
   const completo = ancho >= 1200;

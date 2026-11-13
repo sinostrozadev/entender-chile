@@ -12,7 +12,7 @@
   ],
   "props": {
     "id": "pendiente-tesis-chile-corea",
-    "cabecera": "CHILE VS COREA DEL SUR · 1960–2024",
+    "cabecera": "CHILE VS COREA DEL SUR · 1960-2024",
     "gancho": {
       "texto": "En 1960, cada chileno producía el triple que cada coreano. Hoy, cada coreano produce dos veces y media lo que un chileno. Las dos líneas se cruzaron hace más de cuarenta años, y la distancia no se ha cerrado. ¿Qué hizo Corea del Sur que Chile no hizo?",
       "rotulo": "CHILE ERA 3 VECES MÁS RICO",
@@ -117,7 +117,7 @@
             "texto": "Mira la línea dorada: es Chile. Según el Banco Mundial, en 1960 cada chileno producía unos 3.200 dólares al año, medidos en dólares de 2015 para que la inflación no engañe. Cada coreano, unos 1.000. Tres a uno.",
             "grafico": {
               "tipo": "lineas",
-              "titulo": "Ingreso por persona, 1960–1975",
+              "titulo": "Ingreso por persona, 1960-1975",
               "datos": {
                 "fuente": "wdi",
                 "indicador": "NY.GDP.PCAP.KD",
@@ -816,7 +816,7 @@
             "texto": "Piensa en dos familias con el mismo sueldo. Una gasta casi todo lo que gana. La otra, durante veinte años, aparta un tercio para herramientas y para agrandar el taller. Al principio vive peor. Después, la distancia se vuelve enorme. Con esa diferencia, las dos líneas del ingreso se acercan año tras año, y en 1982 se cruzan.",
             "grafico": {
               "tipo": "lineas",
-              "titulo": "Ingreso por persona, 1960–2024",
+              "titulo": "Ingreso por persona, 1960-2024",
               "datos": {
                 "fuente": "wdi",
                 "indicador": "NY.GDP.PCAP.KD",
@@ -1100,7 +1100,7 @@
                 ],
                 "desde": 1960,
                 "hasta": 2020,
-                "etiqueta": "Años promedio de escolaridad (15–64 años)",
+                "etiqueta": "Años promedio de escolaridad (15-64 años)",
                 "unidad": "años"
               },
               "destacar": {
@@ -1132,7 +1132,7 @@
                     ],
                     "desde": 1960,
                     "hasta": 2020,
-                    "etiqueta": "Años promedio de escolaridad (15–64 años)",
+                    "etiqueta": "Años promedio de escolaridad (15-64 años)",
                     "unidad": "años"
                   },
                   "operacion": "valor",
@@ -1153,7 +1153,7 @@
                     ],
                     "desde": 1960,
                     "hasta": 2020,
-                    "etiqueta": "Años promedio de escolaridad (15–64 años)",
+                    "etiqueta": "Años promedio de escolaridad (15-64 años)",
                     "unidad": "años"
                   },
                   "operacion": "valor",
@@ -1174,7 +1174,7 @@
                     ],
                     "desde": 1960,
                     "hasta": 2020,
-                    "etiqueta": "Años promedio de escolaridad (15–64 años)",
+                    "etiqueta": "Años promedio de escolaridad (15-64 años)",
                     "unidad": "años"
                   },
                   "operacion": "diferencia",
@@ -1202,7 +1202,7 @@
                 ],
                 "desde": 2020,
                 "hasta": 2020,
-                "etiqueta": "Años promedio de escolaridad (15–64 años)",
+                "etiqueta": "Años promedio de escolaridad (15-64 años)",
                 "unidad": "años"
               },
               "destacar": {
@@ -1227,7 +1227,7 @@
                     ],
                     "desde": 1960,
                     "hasta": 2020,
-                    "etiqueta": "Años promedio de escolaridad (15–64 años)",
+                    "etiqueta": "Años promedio de escolaridad (15-64 años)",
                     "unidad": "años"
                   },
                   "operacion": "valor",
@@ -1248,7 +1248,7 @@
                     ],
                     "desde": 1960,
                     "hasta": 2020,
-                    "etiqueta": "Años promedio de escolaridad (15–64 años)",
+                    "etiqueta": "Años promedio de escolaridad (15-64 años)",
                     "unidad": "años"
                   },
                   "operacion": "valor",
@@ -1269,7 +1269,7 @@
                     ],
                     "desde": 1960,
                     "hasta": 2020,
-                    "etiqueta": "Años promedio de escolaridad (15–64 años)",
+                    "etiqueta": "Años promedio de escolaridad (15-64 años)",
                     "unidad": "años"
                   },
                   "operacion": "valor",
@@ -1290,7 +1290,7 @@
                     ],
                     "desde": 1960,
                     "hasta": 2020,
-                    "etiqueta": "Años promedio de escolaridad (15–64 años)",
+                    "etiqueta": "Años promedio de escolaridad (15-64 años)",
                     "unidad": "años"
                   },
                   "operacion": "valor",

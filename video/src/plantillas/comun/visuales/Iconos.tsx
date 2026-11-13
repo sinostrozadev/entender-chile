@@ -14,7 +14,7 @@ export const RETARDO_MARCA = 0.25;
 /**
  * Icono dentro de su círculo dorado tenue, con la marca v3 opcional: `si` = insignia verde con check en la esquina
  * superior derecha; `no` = insignia roja con cruz, el icono se atenúa y una diagonal roja lo tacha. `em` es el avance
- * (0–1, resorte) de la marca: el padre lo calcula `RETARDO_MARCA` s después de que entra el ítem.
+ * (0-1, resorte) de la marca: el padre lo calcula `RETARDO_MARCA` s después de que entra el ítem.
  */
 export const CirculoIcono: React.FC<{ nombre: string; lado: number; icono: number; marca?: MarcaItem; em?: number }> = ({ nombre, lado, icono, marca, em = 0 }) => {
   const m = marca ? Math.max(0, Math.min(1.2, em)) : 0;
@@ -58,14 +58,14 @@ export const avanceMarca = (frame: number, desdeItem: number, fps: number) =>
   spring({ frame: frame - desdeItem - Math.round(RETARDO_MARCA * fps), fps, config: { damping: 10, stiffness: 220 } });
 
 /**
- * Lista de 2–6 conceptos con icono: vertical con 2–4 ítems (icono grande + texto + valor dorado), cuadrícula con
- * 5–6 (3 columnas si el panel es ancho, 2 si es angosto). Cada ítem entra con un resorte en su frame LOCAL
+ * Lista de 2-6 conceptos con icono: vertical con 2-4 ítems (icono grande + texto + valor dorado), cuadrícula con
+ * 5-6 (3 columnas si el panel es ancho, 2 si es angosto). Cada ítem entra con un resorte en su frame LOCAL
  * (`itemsFrame[k]`, resuelto por el plan desde `dice` o repartido en la escena). `frame` es local (0 = entra el visual).
  */
 export const Iconos: React.FC<{ v: VisualIconos; ancho: number; alto: number; frame: number; fps: number; itemsFrame: number[] }> = ({ v, ancho, alto, frame, fps, itemsFrame }) => {
   const n = v.items.length;
   const completo = ancho >= 1200;
-  // `completo`: 4–6 ítems en 2 columnas de filas horizontales (tipografía grande); `dividido`: columna (2–4) o cuadrícula de tarjetas (5–6).
+  // `completo`: 4-6 ítems en 2 columnas de filas horizontales (tipografía grande); `dividido`: columna (2-4) o cuadrícula de tarjetas (5-6).
   const dosCols = completo && n >= 4;
   const grilla = n >= 5 && !completo;
   const cols = grilla ? 2 : dosCols ? 2 : 1;

@@ -33,7 +33,7 @@ const T = TIPO_GRAFICO.short;
 /**
  * Disposición 9:16, todo dentro de FORMATO_SHORT.seguro (arriba 220, abajo 340, lados 60; la columna de botones
  * de YouTube queda a la derecha de x≈980 entre y≈1150 y 1600, por eso el gráfico deja 40 px extra a la derecha):
- *   220–262 marca de agua · 280–400 rótulo · 420–1430 gráfico (título + leyenda + cuerpo + fuente) · ~1480 subtítulos.
+ *   220-262 marca de agua · 280-400 rótulo · 420-1430 gráfico (título + leyenda + cuerpo + fuente) · ~1480 subtítulos.
  */
 export const ZONA_GRAFICO = {
   rotulo: { y: 284 },

@@ -47,13 +47,13 @@ export const VisualMapa = z.object({
   /**
    * v3 (orden de Santiago, 2026-11-07): VIAJE entre países para marcar un cambio grande de protagonista ("hasta aquí Corea;
    * ahora Chile"). La cámara arranca sobre `desde` (zoom de país), al decir `dice` (o al entrar el mapa) vuela por el círculo
-   * máximo hasta `hasta` y termina acercada sobre él. Se usa 1–2 veces por video, SOLO en cambios grandes, nunca escena a escena.
+   * máximo hasta `hasta` y termina acercada sobre él. Se usa 1-2 veces por video, SOLO en cambios grandes, nunca escena a escena.
    */
   viaje: z.object({ desde: Iso3, hasta: Iso3, dice: z.string().optional() }).optional(),
   dice: z.string().optional(),
 });
 
-/** Lista de 2–6 conceptos con icono (emoji de Noto Color Emoji o pictograma propio) que aparecen a medida que la voz los nombra. */
+/** Lista de 2-6 conceptos con icono (emoji de Noto Color Emoji o pictograma propio) que aparecen a medida que la voz los nombra. */
 export const VisualIconos = z.object({
   tipo: z.literal('iconos'),
   items: z.array(z.object({

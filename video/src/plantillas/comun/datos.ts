@@ -39,7 +39,7 @@ export const DatoRef = z.object({
   fuente: z.enum(FUENTES_DATOS),
   /** Código WDI, slug de OWID o un nombre corto propio si es manual ("sueldo-minimo-2026"). */
   indicador: z.string().min(2).max(90),
-  /** Países/entidades a traer, ISO3 (1–8). El orden es el orden de aparición en el gráfico. */
+  /** Países/entidades a traer, ISO3 (1-8). El orden es el orden de aparición en el gráfico. */
   paises: z.array(Entidad).min(1).max(8),
   /** Rango de años (ambos incluidos). Si falta, todo lo disponible. */
   desde: z.number().int().optional(),
@@ -85,10 +85,10 @@ export type SerieResuelta = z.infer<typeof SerieResuelta>;
 /**
  * Tipos de gráfico que sabe dibujar la plantilla. Todos se construyen con la voz (la línea se dibuja, las barras
  * crecen, el contador cuenta) y llevan la fuente abajo en pequeño, siempre.
- *  - lineas: evolución de 1–6 países en el tiempo (el caso típico: "Chile vs Corea 1960–2024").
+ *  - lineas: evolución de 1-6 países en el tiempo (el caso típico: "Chile vs Corea 1960-2024").
  *  - barras: comparación entre países en UN año (horizontal, ordenadas).
  *  - area: una sola serie con relleno (deuda, inflación acumulada).
- *  - ranking: barras que se reordenan entre dos o más años (bar chart "race" corto, 2–4 cortes, con narración).
+ *  - ranking: barras que se reordenan entre dos o más años (bar chart "race" corto, 2-4 cortes, con narración).
  *  - contador: UNA cifra enorme que cuenta hasta su valor cuando la voz la dice (+ etiqueta y fuente).
  *  - comparacion: dos cifras grandes lado a lado (A vs B) con la razón entre ellas ("3,1×").
  *  - mapa: coroplético discreto del mundo o de América (world-atlas, dominio público) coloreado por el valor del año.

@@ -113,7 +113,7 @@ const elegir = (paginas: Pagina[]): { candidata?: Candidata; rechazos: string[] 
 
 type Manifiesto = Record<string, { busquedas: string; foto: FotoResuelta; licenciaUrl?: string }>;
 
-/** Texto de créditos para la descripción: "Fotos: <título> — <autor> (<licencia>), <url>; …" (vacío si no hay fotos). */
+/** Texto de créditos para la descripción: "Fotos: <título>: <autor> (<licencia>), <url>; …" (vacío si no hay fotos). */
 export const textoCreditos = (fotos: { foto: FotoResuelta; licenciaUrl?: string }[]): string => {
   const vistas = new Set<string>();
   const partes: string[] = [];
@@ -122,7 +122,7 @@ export const textoCreditos = (fotos: { foto: FotoResuelta; licenciaUrl?: string 
     vistas.add(foto.pagina);
     // TASL: título, autor, fuente y licencia (con el enlace de la licencia cuando pide atribución).
     const lic = licenciaUrl && clasificarLicencia(foto.licencia) === 'atribucion' ? `${foto.licencia}, ${licenciaUrl}` : foto.licencia;
-    partes.push(`${foto.titulo} — ${foto.autor} (${lic}), ${foto.pagina}`);
+    partes.push(`${foto.titulo}: ${foto.autor} (${lic}), ${foto.pagina}`);
   }
   return partes.length ? `Fotos (Wikimedia Commons): ${partes.join('; ')}` : '';
 };

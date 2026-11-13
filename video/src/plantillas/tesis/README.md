@@ -1,6 +1,6 @@
-# Plantilla `tesis` — largo 16:9 (1920×1080, 30 fps, 9–12 min)
+# Plantilla `tesis`: largo 16:9 (1920×1080, 30 fps, 9-12 min)
 
-El producto del canal: UNA pregunta, UNA tesis, 3–5 capítulos con un gráfico que se construye con la voz.
+El producto del canal: UNA pregunta, UNA tesis, 3-5 capítulos con un gráfico que se construye con la voz.
 Contrato: `src/plantillas/comun/guion.ts` (`GuionTesis`, re-exportado en `guion.ts`). Ejemplo: `ejemplo.json`
 (copia del guion Chile vs Corea del backlog).
 
@@ -36,14 +36,14 @@ un video con FIXTURE** (`<id>.plan.json` → `fixture: true`).
     construye. **Sin destellos:** si la espera es < 1,5 s (o no hay `dice`) el gráfico entra con la escena SIN
     tarjeta y su construcción la siguen mandando las claves de la voz. Una espera > 3 s sin visual es error de ritmo.
   - Escena sin gráfico propio (planteamiento, giro, reenganche, significado): "tarjeta de cita" = último gráfico
-    atenuado (0,45) con paneo/zoom lentísimo + la frase que dice la voz grande al centro (display 66–72 px, máx.
+    atenuado (0,45) con paneo/zoom lentísimo + la frase que dice la voz grande al centro (display 66-72 px, máx.
     2 líneas, palabra que suena en dorado; rojo en el giro). Si aún no hubo gráfico: tarjeta del capítulo fija.
   - `respiro`: el último gráfico solo, sin voz, con zoom lento. Tarjeta de capítulo: sobre el gráfico anterior apagado.
   - `escena.enfasis.pais` decide qué país se enciende en rojo en el giro (si falta, `destacar.pais`);
     `anotacion.dice` hace entrar la anotación cuando la voz dice esa palabra.
 - Construcción con la voz (`comun/construccion.ts`): la línea llega a cada AÑO cuando la voz lo dice; el contador
   cuenta cuando dice la cifra; barras/ranking/mapa crecen desde `dice` hasta el fin de la frase.
-- Arriba: cabecera (izq.), marca de agua (der.), barra de capítulos con pictogramas. Abajo: subtítulos 2–4
+- Arriba: cabecera (izq.), marca de agua (der.), barra de capítulos con pictogramas. Abajo: subtítulos 2-4
   palabras, palabra que suena en dorado. Nada estático > 8 s: rejilla de fondo que deriva + micro-zoom.
 
 ## Verificar un video
@@ -59,7 +59,7 @@ visual cubre lo demás que dice la voz. Contrato: `src/plantillas/comun/visual.t
 |---|---|---|
 | `foto` | `Foto.tsx` (`PanelImagen`) | Foto de Commons en panel, ken-burns 1,0→1,08 + paneo (o `fijo`), fundido 0,4 s, pie en caja dorada abajo-izq., crédito "Foto: autor · licencia · Wikimedia Commons" abajo-der. SIEMPRE visible. Foto muy vertical: entera sobre copia desenfocada. |
 | `mapa` | `Mapa.tsx` + `mapa.ts` | world-atlas 50m (Natural Earth, PD). Mercator (ortográfica si \|lat\| > 60). Encuadre automático desde `destacar` por el lado corto del globo (Chile+Corea cruza el Pacífico). Destacados: 1.º dorado, resto `SERIES_GRAFICO`; nombre en español (tabla `PAISES`, ~95 países; el resto en inglés del atlas). Flechas por círculo máximo que se dibujan; `acercar` = zoom−2 → zoom en 2 s. Pie "Mapa: Natural Earth (dominio público)". Zoom: 1 = mundo a lo ancho, +1 duplica. |
-| `iconos` | `Iconos.tsx` + `Icono.tsx` + `pictogramas.tsx` | 2–4 ítems en lista vertical, 5–6 en cuadrícula. Cada ítem entra cuando la voz dice su `dice` (o repartidos). Icono = pictograma propio (índice + Línea Punteada + nicho: `lingote`/`cobre`, `contenedor`, `universidad`, `bombilla`, `patente`, `billete`, `carrito`, `chip`, `fabrica`, `casa`…) o emoji. |
+| `iconos` | `Iconos.tsx` + `Icono.tsx` + `pictogramas.tsx` | 2-4 ítems en lista vertical, 5-6 en cuadrícula. Cada ítem entra cuando la voz dice su `dice` (o repartidos). Icono = pictograma propio (índice + Línea Punteada + nicho: `lingote`/`cobre`, `contenedor`, `universidad`, `bombilla`, `patente`, `billete`, `carrito`, `chip`, `fabrica`, `casa`…) o emoji. |
 | `ilustracion` | `Ilustracion.tsx` | Como la foto, desde `public/ilustraciones/<id>/<clave>.png`; pie siempre dice "Ilustración". |
 | mascota | `Mascota.tsx` | Esquina inferior izquierda (`MASCOTA_ZONA`, 220 px), entra con resorte en `dice`; bocadillo a la derecha de la cabeza (sobre los subtítulos). Imagen `public/mascota/<pose>.png` o ardilla SVG de reserva. Con mascota, el contenido de la escena se acorta para terminar sobre ella. |
 
@@ -76,10 +76,10 @@ referencia ilustraciones existentes, lista las poses con imagen (`props.mascotaP
 `<id>.plan.json`; `diario.mts` los inserta en la descripción antes de "Fuentes:". Lo no resuelto se avisa con ⚠ + clave.
 
 ## Ritmo v3 (2026-11-07, correcciones de Santiago al ver Chile-Corea v2)
-Lo que vio: tarjetas de 0,9–1 s ilegibles, un destello de 0,6 s con el título de un gráfico, 17 s de tarjeta de espera
+Lo que vio: tarjetas de 0,9-1 s ilegibles, un destello de 0,6 s con el título de un gráfico, 17 s de tarjeta de espera
 sobre el gráfico anterior apagado, una foto fija 26 s y un final que no se notaba. Arreglos en `plan.ts`/`Tesis.tsx`:
 
-**Validador** — `problemasDeRitmo(plan: PlanTesis, g: GuionTesis): { errores: string[]; avisos: string[] }` (puro;
+**Validador**: `problemasDeRitmo(plan: PlanTesis, g: GuionTesis): { errores: string[]; avisos: string[] }` (puro;
 `preparar-tesis` lo corre con la voz real y sale con 1 si hay errores salvo `--permitir-ritmo`; `generar-guiones` con
 `estimarTiempos`). Sin `g.visuales` (generador) supone que las fotos/ilustraciones del guion se resolverán.
 | Regla | Umbral | Tipo |
@@ -89,10 +89,10 @@ sobre el gráfico anterior apagado, una foto fija 26 s y un final que no se nota
 | Foto/ilustración `completo` sin que entre gráfico, sello, mascota ni rótulo | > 12 s (`RITMO_FOTO_MAX`) | ✗ |
 | Bloque `cita` (frase grande sin gráfico ni visual propio) | > 12 s (`RITMO_CITA_MAX`) | ✗ |
 | Mismo gráfico sin cambio (anotación, rótulo, sello, mascota, construcción, ítem de visual) | > 20 s | ✗ |
-| Texto que enumera ≥ 3 ítems cortos (comas o " ni ") sin `iconos` ni `versus` | — | ⚠ |
-| Tarjeta de espera más corta que su `tiempoLectura` | — | ⚠ |
-| Sello cuya palabra `dice` la voz no dice (se estampa al 40 % de la escena) | — | ⚠ |
-| Más de 2 mapas con `viaje` | — | ⚠ |
+| Texto que enumera ≥ 3 ítems cortos (comas o " ni ") sin `iconos` ni `versus` |: | ⚠ |
+| Tarjeta de espera más corta que su `tiempoLectura` |: | ⚠ |
+| Sello cuya palabra `dice` la voz no dice (se estampa al 40 % de la escena) |: | ⚠ |
+| Más de 2 mapas con `viaje` |: | ⚠ |
 
 **Sellos** (`escena.sellos`): `b.sellos = [{ s, desde, hasta, sinPalabra? }]`, uno a la vez (cada uno hasta el siguiente
 o el fin del bloque), `golpe` 0,7 al entrar. Se dibujan con `comun/visuales/Sello.tsx` encima del gráfico (su zona) o del

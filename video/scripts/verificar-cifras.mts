@@ -161,8 +161,8 @@ const main = async () => {
   log(`  ${'dónde'.padEnd(ancho.donde)} ${'texto'.padEnd(ancho.texto)} ${'operación'.padEnd(10)} ${'dicho'.padStart(12)} ${'esperado'.padStart(12)} ${'desvío'.padStart(8)}`);
   for (const f of filas) {
     const r = f.resultado;
-    const num = (n: number | null) => (n === null || n === undefined || !Number.isFinite(n) ? '—' : Math.abs(n) >= 100 ? Math.round(n).toLocaleString('es-CL') : n.toFixed(3).replace('.', ','));
-    log(`${r.ok ? '✓' : '✗'} ${f.donde.slice(0, ancho.donde).padEnd(ancho.donde)} ${f.texto.slice(0, ancho.texto).padEnd(ancho.texto)} ${f.operacion.padEnd(10)} ${num(r.dicho).padStart(12)} ${num(r.esperado).padStart(12)} ${(r.desvio === null || !Number.isFinite(r.desvio) ? '—' : `${(r.desvio * 100).toFixed(1).replace('.', ',')} %`).padStart(8)}`);
+    const num = (n: number | null) => (n === null || n === undefined || !Number.isFinite(n) ? '-' : Math.abs(n) >= 100 ? Math.round(n).toLocaleString('es-CL') : n.toFixed(3).replace('.', ','));
+    log(`${r.ok ? '✓' : '✗'} ${f.donde.slice(0, ancho.donde).padEnd(ancho.donde)} ${f.texto.slice(0, ancho.texto).padEnd(ancho.texto)} ${f.operacion.padEnd(10)} ${num(r.dicho).padStart(12)} ${num(r.esperado).padStart(12)} ${(r.desvio === null || !Number.isFinite(r.desvio) ? '-' : `${(r.desvio * 100).toFixed(1).replace('.', ',')} %`).padStart(8)}`);
     log(`    ${r.detalle}`);
   }
   if (filas.length === 0) log('  ✗ ninguna cifra declarada: el revisor no tiene nada que comprobar');

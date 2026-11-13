@@ -2,7 +2,7 @@
  * Prepara un guion de la plantilla `grafico` (Short 9:16) para renderizar:
  *   npx tsx scripts/preparar-grafico.mts <guion.json> [--fixture <series.json>] [--refrescar] [--permitir-duracion]
  * Igual que preparar-tesis: valida (EnvoltorioGrafico) → datos (lib/datos.mts o FIXTURE marcado) → voz
- * (lineasGrafico) → plan (grafico/plan.ts) y duración (RITMO.shortMin–shortMax) → cama + SFX →
+ * (lineasGrafico) → plan (grafico/plan.ts) y duración (RITMO.shortMin-shortMax) → cama + SFX →
  * salida/trabajo/<id>.props.json. Luego:
  *   flock -w 1800 /tmp/bolita-render.lock npx remotion render src/index.ts Grafico salida/bandeja/<id>.mp4 --props=salida/trabajo/<id>.props.json
  */
@@ -41,7 +41,7 @@ const prepararDatos = async (refs: DatoRef[], fixture: string | undefined, refre
     const salida = path.join(RAIZ, 'salida/pruebas/fixture-series.json');
     fs.mkdirSync(path.dirname(salida), { recursive: true });
     fs.writeFileSync(salida, JSON.stringify(Object.values(datos), null, 2) + '\n');
-    console.warn(`⚠ datos FIXTURE (inventados, marcados en rojo en pantalla): ${path.relative(RAIZ, salida)} — este video NO se publica`);
+    console.warn(`⚠ datos FIXTURE (inventados, marcados en rojo en pantalla): ${path.relative(RAIZ, salida)}: este video NO se publica`);
     return { datos, fixture: true };
   };
   if (fixture) return usarFixture(path.resolve(fixture));
@@ -68,7 +68,7 @@ const tiempos = await generarVoz(guion.id, guion.voz, lineas);
 const plan = planGrafico(guion, tiempos, datos);
 console.log(`duración: ${plan.duracionSeg.toFixed(1)} s (${plan.duracionFrames} frames a ${plan.fps} fps)`);
 if ((plan.duracionSeg < RITMO.shortMin || plan.duracionSeg > RITMO.shortMax) && !args.includes('--permitir-duracion')) {
-  console.error(`✗ duración ${plan.duracionSeg.toFixed(1)} s fuera de ${RITMO.shortMin}–${RITMO.shortMax} s. ${plan.duracionSeg < RITMO.shortMin ? 'Alarga' : 'Recorta'} el guion (o --permitir-duracion para pruebas).`);
+  console.error(`✗ duración ${plan.duracionSeg.toFixed(1)} s fuera de ${RITMO.shortMin}-${RITMO.shortMax} s. ${plan.duracionSeg < RITMO.shortMin ? 'Alarga' : 'Recorta'} el guion (o --permitir-duracion para pruebas).`);
   process.exit(1);
 }
 const audio = generarSonido(guion.id, plan.duracionSeg, plan.eventos);

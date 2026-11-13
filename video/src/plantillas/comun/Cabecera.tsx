@@ -13,7 +13,7 @@ export const Cabecera: React.FC<{ texto: string; x: number; y: number; fontSize:
   </div>
 );
 
-/** Caja de acento con un rótulo corto (1–4 palabras) de la escena: dorado, o rojo en el giro. */
+/** Caja de acento con un rótulo corto (1-4 palabras) de la escena: dorado, o rojo en el giro. */
 export const RotuloCaja: React.FC<{ texto: string; visible: number; fontSize: number; rojo?: boolean }> = ({ texto, visible, fontSize, rojo }) => (
   <div style={{
     display: 'inline-block', background: rojo ? PALETA.rojo : PALETA.dorado, color: rojo ? PALETA.tinta : PALETA.fondo, borderRadius: fontSize * 0.2,

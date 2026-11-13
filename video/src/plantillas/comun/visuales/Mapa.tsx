@@ -103,7 +103,7 @@ export const Mapa: React.FC<{ v: VisualMapa; ancho: number; alto: number; frame:
   // Viaje: la partida se apaga al despegar; la llegada se enciende al aterrizar (último 15 % del vuelo + 0,5 s).
   const llegada = pv ? clamp01((frame - (viajeEn + T_VIAJE * fps * 0.85)) / (0.5 * fps)) : 0;
   const partida = pv ? entradaPais(0) * (1 - clamp01(pViaje * 3)) : 0;
-  /** Color y encendido (0–1) de un país destacado; en el viaje, partida y llegada van en dorado. */
+  /** Color y encendido (0-1) de un país destacado; en el viaje, partida y llegada van en dorado. */
   const estiloPais = (iso: string, k: number): { col: string; e: number } => {
     if (pv && iso === hasta) return { col: PALETA.dorado, e: llegada };
     if (pv && iso === desde) return { col: PALETA.dorado, e: Math.max(entradaPais(0) * (1 - 0.7 * pViaje), 0) };

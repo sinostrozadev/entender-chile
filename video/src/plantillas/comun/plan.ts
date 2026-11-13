@@ -114,7 +114,7 @@ const VACIAS = new Set(['del', 'los', 'las', 'una', 'uno', 'que', 'con', 'por', 
 
 /** Primera palabra hablada (desde `desde`) que coincide con alguna palabra significativa de `objetivo`. */
 export const buscarPalabra = (palabras: Palabra[], objetivo: string, desde = 0) => {
-  const partes = objetivo.split(/[\s–—\-:/·,]+/).map(normalizar).filter(Boolean);
+  const partes = objetivo.split(/[\s--\-:/·,]+/).map(normalizar).filter(Boolean);
   const claves = partes.filter((w, k) => (k === 0 && partes.length === 1) || (w.length >= 3 && !VACIAS.has(w)));
   if (!claves.length) return -1;
   for (let i = desde; i < palabras.length; i++) {
@@ -124,7 +124,7 @@ export const buscarPalabra = (palabras: Palabra[], objetivo: string, desde = 0) 
   return -1;
 };
 
-/** ¿El token es un año (1500–2100, sin separador de miles)? */
+/** ¿El token es un año (1500-2100, sin separador de miles)? */
 export const esAnio = (token: string) => /^\D*(1[5-9]\d\d|20\d\d|2100)\D*$/.test(token) && !/[.,]\d/.test(token);
 
 /** Palabras que son años, con su valor: [{ i, anio }]. Sirve para que la línea llegue al año cuando la voz lo dice. */
@@ -158,10 +158,10 @@ export const depurarEventos = (crudos: Evento[]): Evento[] => {
   return out;
 };
 
-/** Clave de animación: en el frame `f` el avance vale `v` (0–1). */
+/** Clave de animación: en el frame `f` el avance vale `v` (0-1). */
 export type Clave = { f: number; v: number };
 
-/** Avance 0–1 en el frame `frame` interpolando claves crecientes (lineal entre claves, con suavizado en cada tramo). */
+/** Avance 0-1 en el frame `frame` interpolando claves crecientes (lineal entre claves, con suavizado en cada tramo). */
 export const avanceEn = (claves: Clave[], frame: number): number => {
   if (!claves.length) return 1;
   if (frame < claves[0].f) return 0;

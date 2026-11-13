@@ -151,7 +151,7 @@ export const cortesRanking = (g: PropsCuerpo['g'], ps: SeriePais[]): number[] =>
 };
 
 /**
- * Ranking: barras que se REORDENAN entre 2–4 cortes de año (bar chart race corto). Los primeros 15 % del avance
+ * Ranking: barras que se REORDENAN entre 2-4 cortes de año (bar chart race corto). Los primeros 15 % del avance
  * las barras crecen; luego valores y posiciones se interpolan corte a corte. Año grande abajo a la derecha.
  */
 export const Ranking: React.FC<PropsCuerpo> = ({ g, serie, ps, ancho, alto, modo, progreso, enfasis, enfasisPais }) => {

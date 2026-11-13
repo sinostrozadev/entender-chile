@@ -13,7 +13,7 @@ const menorQueMil = (n: number): string => {
   return CENTENAS[Math.floor(n / 100)] + (n % 100 ? ' ' + menorQueMil(n % 100) : '');
 };
 
-/** Entero 0–999.999.999 en palabras ("un millón", "dos mil", "cuatrocientos treinta y siete"). */
+/** Entero 0-999.999.999 en palabras ("un millón", "dos mil", "cuatrocientos treinta y siete"). */
 export const enteroAPalabras = (n: number): string => {
   if (!Number.isInteger(n) || n < 0 || n > 999_999_999) return String(n);
   if (n === 0) return 'cero';
@@ -57,7 +57,7 @@ const cifraAPalabras = (c: string): string => {
 export const numeroAPalabras = (token: string): string => {
   const limpio = token.replace(/^[^\d\p{L}%]+|[^\d\p{L}%²]+$/gu, '');
   if (!esNumerico(limpio)) return token;
-  const partes = limpio.split(/[-–—:/]/).filter(Boolean);
+  const partes = limpio.split(/[---:/]/).filter(Boolean);
   if (partes.length > 1) return partes.map(numeroAPalabras).join(' ');
   const m = limpio.match(/^(\d[\d.,]*)\s*(%|[\p{L}²0-9]*)$/u);
   if (!m) return limpio;
