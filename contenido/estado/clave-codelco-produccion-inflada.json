@@ -1,0 +1,39 @@
+{
+  "flujo": "clave",
+  "slug": "codelco-produccion-inflada",
+  "camino": "pauta",
+  "etapa": "pautar",
+  "vuelta": 0,
+  "turno": "Claude: escribe la pauta (prompts/pauta-clave.md)",
+  "fecha_produccion": null,
+  "actualizado": "2026-11-12 23:36",
+  "concepto": "La producción inflada de Codelco: 42.100 toneladas registradas sin producción efectiva",
+  "pieza": {
+    "id": "pauta",
+    "prompt": "prompts/pauta-clave.md",
+    "archivo": "contenido/claves/flujo/codelco-produccion-inflada/pauta.md",
+    "entrada": "contenido/claves/flujo/codelco-produccion-inflada/tema.md"
+  },
+  "piezas": [
+    {
+      "id": "pauta",
+      "situacion": "falta",
+      "archivo": "contenido/claves/flujo/codelco-produccion-inflada/pauta.md"
+    },
+    {
+      "id": "investigacion",
+      "situacion": "falta",
+      "archivo": "contenido/claves/flujo/codelco-produccion-inflada/investigacion.md"
+    },
+    {
+      "id": "entrega",
+      "situacion": "falta",
+      "archivo": ""
+    },
+    {
+      "id": "guion",
+      "situacion": "falta",
+      "archivo": ""
+    }
+  ]
+}

@@ -5,7 +5,7 @@ ETAPA: paneles
 VUELTA: 0
 TURNO: GPT: genera los paneles del mural (pedido en contenido/urgente/, en tandas de diez)
 FECHA_PRODUCCION: 2026-10-28
-ACTUALIZADO: 2026-11-05 05:46 (hora de Chile)
+ACTUALIZADO: 2026-11-12 23:36 (hora de Chile)
 PIEZA: guion
 PROMPT: prompts/guion-claves.md
 ARCHIVO: contenido/guiones/claves/2026-10-28-afp-multifondos-perdidas-fondo-e.md
@@ -22,7 +22,7 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 |---|---|---|---|
 | Tema elegido | listo | 12:56 | Santiago |
 | Pauta | escrita | 15:48 | Claude |
-| Aprobación de Santiago | aprobada | 15:59 | Santiago |
+| Aprobación (Claude, veto de Santiago) | aprobada | 15:59 | Claude |
 | Investigación | aprobada | 16:17 | GPT, valida Claude |
 | Entrega escrita | aprobada | 16:36 | GPT, valida Claude |
 | Guion | aprobada | 02:34 | GPT, valida Claude |
