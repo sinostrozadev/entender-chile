@@ -1,0 +1,483 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-11-21-short-expectativas-pib-cero",
+  "titulo": "En enero esperaban que Chile creciera 2,5 %. Hoy esperan 0 %",
+  "descripcion": "¿Cómo pasó Chile de esperar un crecimiento de 2,5 % a esperar 0 % en 2026?\nLa mediana de la Encuesta de Expectativas Económicas del Banco Central, mes a mes (los meses de marzo a mayo no se muestran porque no pudimos confirmarlos).\nEl miércoles 25-11 sale el video largo: qué es una recesión técnica y qué significa para tu bolsillo.\nFuentes: Banco Central de Chile, EEE, vía The Clinic (10-11-2026) y Emol (10-06 y 10-09-2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#economia",
+    "#chile",
+    "#pib"
+  ],
+  "publicar": "2026-11-21T12:00",
+  "props": {
+    "gancho": {
+      "texto": "En enero, los economistas que consulta el Banco Central esperaban que Chile creciera 2,5 % este año. En noviembre esperan 0 %. Mira cómo se fue cayendo.",
+      "rotulo": "DE 2,5 % A 0 %",
+      "cifras": [
+        {
+          "texto": "2,5 %",
+          "valor": 2.5,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "eee-pib-2026",
+              "paises": [
+                "CHL"
+              ],
+              "valores": {
+                "CHL": [
+                  [
+                    0,
+                    2.5
+                  ],
+                  [
+                    1,
+                    2.6
+                  ],
+                  [
+                    2,
+                    1.6
+                  ],
+                  [
+                    3,
+                    1.3
+                  ],
+                  [
+                    4,
+                    1.3
+                  ],
+                  [
+                    5,
+                    0.7
+                  ],
+                  [
+                    6,
+                    0.2
+                  ],
+                  [
+                    7,
+                    0.0
+                  ]
+                ]
+              },
+              "nombres": {
+                "CHL": "PIB 2026"
+              },
+              "fuenteTexto": "Banco Central de Chile, Encuesta de Expectativas Económicas (vía The Clinic y Emol)",
+              "fuenteUrl": "https://www.theclinic.cl/2026/11/10/expertos-reducen-su-estimacion-de-crecimiento-del-pib-de-este-ano-y-apuestan-por-0/",
+              "etiqueta": "Crecimiento esperado del PIB 2026",
+              "unidad": "%",
+              "etiquetasX": {
+                "0": "ene",
+                "1": "feb",
+                "2": "jun",
+                "3": "jul",
+                "4": "ago",
+                "5": "sep",
+                "6": "oct",
+                "7": "nov"
+              }
+            },
+            "operacion": "valor",
+            "pais": "CHL",
+            "anio": 0
+          }
+        },
+        {
+          "texto": "0 %",
+          "valor": 0,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "eee-pib-2026",
+              "paises": [
+                "CHL"
+              ],
+              "valores": {
+                "CHL": [
+                  [
+                    0,
+                    2.5
+                  ],
+                  [
+                    1,
+                    2.6
+                  ],
+                  [
+                    2,
+                    1.6
+                  ],
+                  [
+                    3,
+                    1.3
+                  ],
+                  [
+                    4,
+                    1.3
+                  ],
+                  [
+                    5,
+                    0.7
+                  ],
+                  [
+                    6,
+                    0.2
+                  ],
+                  [
+                    7,
+                    0.0
+                  ]
+                ]
+              },
+              "nombres": {
+                "CHL": "PIB 2026"
+              },
+              "fuenteTexto": "Banco Central de Chile, Encuesta de Expectativas Económicas (vía The Clinic y Emol)",
+              "fuenteUrl": "https://www.theclinic.cl/2026/11/10/expertos-reducen-su-estimacion-de-crecimiento-del-pib-de-este-ano-y-apuestan-por-0/",
+              "etiqueta": "Crecimiento esperado del PIB 2026",
+              "unidad": "%",
+              "etiquetasX": {
+                "0": "ene",
+                "1": "feb",
+                "2": "jun",
+                "3": "jul",
+                "4": "ago",
+                "5": "sep",
+                "6": "oct",
+                "7": "nov"
+              }
+            },
+            "operacion": "valor",
+            "pais": "CHL",
+            "anio": 7
+          },
+          "tolerancia": 0.05
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "lineas",
+      "titulo": "¿Cuánto crecerá Chile en 2026?",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "eee-pib-2026",
+        "paises": [
+          "CHL"
+        ],
+        "valores": {
+          "CHL": [
+            [
+              0,
+              2.5
+            ],
+            [
+              1,
+              2.6
+            ],
+            [
+              2,
+              1.6
+            ],
+            [
+              3,
+              1.3
+            ],
+            [
+              4,
+              1.3
+            ],
+            [
+              5,
+              0.7
+            ],
+            [
+              6,
+              0.2
+            ],
+            [
+              7,
+              0.0
+            ]
+          ]
+        },
+        "nombres": {
+          "CHL": "PIB 2026"
+        },
+        "fuenteTexto": "Banco Central de Chile, Encuesta de Expectativas Económicas (vía The Clinic y Emol)",
+        "fuenteUrl": "https://www.theclinic.cl/2026/11/10/expertos-reducen-su-estimacion-de-crecimiento-del-pib-de-este-ano-y-apuestan-por-0/",
+        "etiqueta": "Crecimiento esperado del PIB 2026",
+        "unidad": "%",
+        "etiquetasX": {
+          "0": "ene",
+          "1": "feb",
+          "2": "jun",
+          "3": "jul",
+          "4": "ago",
+          "5": "sep",
+          "6": "oct",
+          "7": "nov"
+        }
+      },
+      "formato": {
+        "decimales": 1,
+        "sufijo": " %"
+      },
+      "anotaciones": [
+        {
+          "anio": 5,
+          "texto": "cae el cobre",
+          "dice": "septiembre"
+        }
+      ],
+      "dice": "enero"
+    },
+    "escenas": [
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según la encuesta del Banco Central, en junio ya bajaban a 1,6 %. En septiembre, con la minería cayendo, a 0,7 %. En octubre, 0,2 %.",
+        "cifras": [
+          {
+            "texto": "1,6 %",
+            "valor": 1.6,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "eee-pib-2026",
+                "paises": [
+                  "CHL"
+                ],
+                "valores": {
+                  "CHL": [
+                    [
+                      0,
+                      2.5
+                    ],
+                    [
+                      1,
+                      2.6
+                    ],
+                    [
+                      2,
+                      1.6
+                    ],
+                    [
+                      3,
+                      1.3
+                    ],
+                    [
+                      4,
+                      1.3
+                    ],
+                    [
+                      5,
+                      0.7
+                    ],
+                    [
+                      6,
+                      0.2
+                    ],
+                    [
+                      7,
+                      0.0
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "CHL": "PIB 2026"
+                },
+                "fuenteTexto": "Banco Central de Chile, Encuesta de Expectativas Económicas (vía The Clinic y Emol)",
+                "fuenteUrl": "https://www.theclinic.cl/2026/11/10/expertos-reducen-su-estimacion-de-crecimiento-del-pib-de-este-ano-y-apuestan-por-0/",
+                "etiqueta": "Crecimiento esperado del PIB 2026",
+                "unidad": "%",
+                "etiquetasX": {
+                  "0": "ene",
+                  "1": "feb",
+                  "2": "jun",
+                  "3": "jul",
+                  "4": "ago",
+                  "5": "sep",
+                  "6": "oct",
+                  "7": "nov"
+                }
+              },
+              "operacion": "valor",
+              "pais": "CHL",
+              "anio": 2
+            }
+          },
+          {
+            "texto": "0,7 %",
+            "valor": 0.7,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "eee-pib-2026",
+                "paises": [
+                  "CHL"
+                ],
+                "valores": {
+                  "CHL": [
+                    [
+                      0,
+                      2.5
+                    ],
+                    [
+                      1,
+                      2.6
+                    ],
+                    [
+                      2,
+                      1.6
+                    ],
+                    [
+                      3,
+                      1.3
+                    ],
+                    [
+                      4,
+                      1.3
+                    ],
+                    [
+                      5,
+                      0.7
+                    ],
+                    [
+                      6,
+                      0.2
+                    ],
+                    [
+                      7,
+                      0.0
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "CHL": "PIB 2026"
+                },
+                "fuenteTexto": "Banco Central de Chile, Encuesta de Expectativas Económicas (vía The Clinic y Emol)",
+                "fuenteUrl": "https://www.theclinic.cl/2026/11/10/expertos-reducen-su-estimacion-de-crecimiento-del-pib-de-este-ano-y-apuestan-por-0/",
+                "etiqueta": "Crecimiento esperado del PIB 2026",
+                "unidad": "%",
+                "etiquetasX": {
+                  "0": "ene",
+                  "1": "feb",
+                  "2": "jun",
+                  "3": "jul",
+                  "4": "ago",
+                  "5": "sep",
+                  "6": "oct",
+                  "7": "nov"
+                }
+              },
+              "operacion": "valor",
+              "pais": "CHL",
+              "anio": 5
+            }
+          },
+          {
+            "texto": "0,2 %",
+            "valor": 0.2,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "eee-pib-2026",
+                "paises": [
+                  "CHL"
+                ],
+                "valores": {
+                  "CHL": [
+                    [
+                      0,
+                      2.5
+                    ],
+                    [
+                      1,
+                      2.6
+                    ],
+                    [
+                      2,
+                      1.6
+                    ],
+                    [
+                      3,
+                      1.3
+                    ],
+                    [
+                      4,
+                      1.3
+                    ],
+                    [
+                      5,
+                      0.7
+                    ],
+                    [
+                      6,
+                      0.2
+                    ],
+                    [
+                      7,
+                      0.0
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "CHL": "PIB 2026"
+                },
+                "fuenteTexto": "Banco Central de Chile, Encuesta de Expectativas Económicas (vía The Clinic y Emol)",
+                "fuenteUrl": "https://www.theclinic.cl/2026/11/10/expertos-reducen-su-estimacion-de-crecimiento-del-pib-de-este-ano-y-apuestan-por-0/",
+                "etiqueta": "Crecimiento esperado del PIB 2026",
+                "unidad": "%",
+                "etiquetasX": {
+                  "0": "ene",
+                  "1": "feb",
+                  "2": "jun",
+                  "3": "jul",
+                  "4": "ago",
+                  "5": "sep",
+                  "6": "oct",
+                  "7": "nov"
+                }
+              },
+              "operacion": "valor",
+              "pais": "CHL",
+              "anio": 6
+            }
+          }
+        ]
+      },
+      {
+        "tipo": "giro",
+        "texto": "Y el dato que más pesa: tres de cada diez consultados ya ponen una cifra negativa. El ministro de Hacienda, Jorge Quiroz, reconoció el 11 de noviembre que Chile está en recesión técnica.",
+        "rotulo": {
+          "texto": "RECESIÓN TÉCNICA",
+          "dice": "recesión"
+        },
+        "visual": {
+          "tipo": "chile",
+          "regiones": [
+            "CL-RM"
+          ],
+          "acercar": false
+        }
+      }
+    ],
+    "remate": "No cayó de un mes a otro: se fue cayendo, encuesta tras encuesta. El miércoles, el video completo.",
+    "fuentes": [
+      {
+        "texto": "The Clinic, EEE de noviembre (10-11-2026)",
+        "url": "https://www.theclinic.cl/2026/11/10/expertos-reducen-su-estimacion-de-crecimiento-del-pib-de-este-ano-y-apuestan-por-0/"
+      },
+      {
+        "texto": "Emol, EEE de septiembre (10-09-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/09/10/1211110/empeoran-proyecciones-crecimiento-2026.html"
+      },
+      {
+        "texto": "DF, Quiroz y la recesión técnica (11-11-2026)",
+        "url": "https://www.df.cl/economia-y-politica/actualidad/quiroz-admite-que-chile-esta-en-recesion-tecnica-pero-asegura-que-sera"
+      }
+    ],
+    "id": "2026-11-21-short-expectativas-pib-cero"
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-11-23-short-dilema-congelar-combustibles",
+  "titulo": "Congelar la bencina cuesta US$550 millones: ¿lo harías?",
+  "descripcion": "¿Conviene congelar el precio de las gasolinas y el diésel hasta el 3 de febrero de 2027?\nEl Gobierno ingresó el 12-11-2026 el proyecto de ley (Mensaje N° 439-374) que fija en cero las alzas hasta esa fecha. Es un proyecto, no una ley: revisa en qué quedó su trámite.\nCuéntanos en los comentarios: ¿lo congelas o lo dejas subir?\nFuente: Emol (12-11-2026), con el informe financiero del proyecto.\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#bencina",
+    "#combustibles",
+    "#chile"
+  ],
+  "publicar": "2026-11-23T12:00",
+  "props": {
+    "gancho": {
+      "texto": "Congelar las alzas de la bencina y el diésel hasta el 3 de febrero le costaría al fisco unos 550 millones de dólares. Te doy los datos y tú decides si lo harías.",
+      "rotulo": "¿LO CONGELAS?"
+    },
+    "grafico": {
+      "tipo": "barras",
+      "titulo": "Lo que dejaría de recibir el fisco",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "costo-congelamiento-combustibles",
+        "paises": [
+          "C2026",
+          "C2027"
+        ],
+        "valores": {
+          "C2026": [
+            [
+              2026,
+              172969
+            ]
+          ],
+          "C2027": [
+            [
+              2026,
+              365905
+            ]
+          ]
+        },
+        "nombres": {
+          "C2026": "Costo en 2026",
+          "C2027": "Costo en 2027"
+        },
+        "fuenteTexto": "Mensaje N° 439-374, informe financiero (vía Emol, 12-11-2026)",
+        "fuenteUrl": "https://www.emol.com/noticias/Nacional/2026/11/12/1216863/gobierno-proyecto-congela-precio-combustible.html",
+        "etiqueta": "Menores ingresos fiscales",
+        "unidad": "millones de $"
+      },
+      "formato": {
+        "decimales": 0,
+        "sufijo": " M"
+      },
+      "dice": "fisco"
+    },
+    "escenas": [
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según el informe financiero del proyecto, son 172.969 millones de pesos este año y 365.905 millones el próximo, que se pagarían vendiendo activos del Tesoro.",
+        "cifras": [
+          {
+            "texto": "172.969 millones",
+            "valor": 172969,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "costo-congelamiento-combustibles",
+                "paises": [
+                  "C2026",
+                  "C2027"
+                ],
+                "valores": {
+                  "C2026": [
+                    [
+                      2026,
+                      172969
+                    ]
+                  ],
+                  "C2027": [
+                    [
+                      2026,
+                      365905
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "C2026": "Costo en 2026",
+                  "C2027": "Costo en 2027"
+                },
+                "fuenteTexto": "Mensaje N° 439-374, informe financiero (vía Emol, 12-11-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Nacional/2026/11/12/1216863/gobierno-proyecto-congela-precio-combustible.html",
+                "etiqueta": "Menores ingresos fiscales",
+                "unidad": "millones de $"
+              },
+              "operacion": "valor",
+              "pais": "C2026",
+              "anio": 2026
+            },
+            "tolerancia": 0.01
+          },
+          {
+            "texto": "365.905 millones",
+            "valor": 365905,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "costo-congelamiento-combustibles",
+                "paises": [
+                  "C2026",
+                  "C2027"
+                ],
+                "valores": {
+                  "C2026": [
+                    [
+                      2026,
+                      172969
+                    ]
+                  ],
+                  "C2027": [
+                    [
+                      2026,
+                      365905
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "C2026": "Costo en 2026",
+                  "C2027": "Costo en 2027"
+                },
+                "fuenteTexto": "Mensaje N° 439-374, informe financiero (vía Emol, 12-11-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Nacional/2026/11/12/1216863/gobierno-proyecto-congela-precio-combustible.html",
+                "etiqueta": "Menores ingresos fiscales",
+                "unidad": "millones de $"
+              },
+              "operacion": "valor",
+              "pais": "C2027",
+              "anio": 2026
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "planteamiento",
+        "texto": "A favor: frena el alza que llevó al paro de camioneros y alivia a quien llena el estanque. En contra: es plata de todos que no va a otra cosa, y en febrero el precio vuelve a la regla del Mepco."
+      },
+      {
+        "tipo": "giro",
+        "texto": "Y un detalle: todavía es un proyecto de ley, no una ley. ¿Tú lo congelas o lo dejas subir? Escríbelo en los comentarios.",
+        "rotulo": {
+          "texto": "AÚN NO ES LEY",
+          "dice": "proyecto"
+        }
+      }
+    ],
+    "remate": "Congelar el precio no lo baja: decide quién paga la diferencia.",
+    "fuentes": [
+      {
+        "texto": "Emol, proyecto que congela los combustibles (12-11-2026)",
+        "url": "https://www.emol.com/noticias/Nacional/2026/11/12/1216863/gobierno-proyecto-congela-precio-combustible.html"
+      },
+      {
+        "texto": "La Tercera, anuncio del Gobierno (11-11-2026)",
+        "url": "https://www.latercera.com/politica/noticia/paro-de-camioneros-gobierno-anuncia-que-reingresara-proyecto-y-congelara-tarifas-del-combustible-hasta-febrero-para-contener-conflicto/"
+      }
+    ],
+    "id": "2026-11-23-short-dilema-congelar-combustibles"
+  }
+}
