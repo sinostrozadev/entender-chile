@@ -90,3 +90,5 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-11-06 | GORE La Araucanía y posicionamiento electoral
 - 2026-11-10 | caída del Fondo E y fiscalización a las AFP
 - 2026-11-11 | rebajas de condena por buena conducta
+- 2026-11-12 | rebajas de condena por buena conducta
+- 2026-11-12 | compra de terreno en Lago Ranco
