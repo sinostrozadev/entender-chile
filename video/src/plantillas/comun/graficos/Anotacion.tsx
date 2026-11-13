@@ -7,7 +7,7 @@ import { anchoTexto } from './tipos';
  * una etiqueta arriba que entra cuando la línea (o la voz) llega a ese año. `fila` apila etiquetas cercanas.
  */
 export const Anotacion: React.FC<{
-  x: number; yTop: number; yBase: number; anio: number; texto: string; fontSize: number; visible: number; fila: number; xMax: number; color?: string;
+  x: number; yTop: number; yBase: number; anio: number | string; texto: string; fontSize: number; visible: number; fila: number; xMax: number; color?: string;
 }> = ({ x, yTop, yBase, anio, texto, fontSize, visible, fila, xMax, color = PALETA.tinta }) => {
   if (visible <= 0) return null;
   const etiqueta = `${anio} · ${texto}`;

@@ -14,6 +14,17 @@ import { Subtitulos } from '../comun/Subtitulos';
 import { RotuloCaja } from '../comun/Cabecera';
 import { Remate } from '../comun/Remate';
 import { estimarTiemposGrafico, planGrafico, type PlanGrafico } from './plan';
+import { MapaChile } from '../comun/visuales/MapaChile';
+import { normalizar, type LineaTiempo } from '../comun/plan';
+import type { Visual } from '../comun/visual';
+
+/** Frame local (desde que empieza la línea) en que la voz dice `dice`; undefined si no está. */
+const frameDeDice = (linea: LineaTiempo | undefined, dice: string | undefined, fps: number, offset: number) => {
+  if (!linea || !dice) return undefined;
+  const objetivo = normalizar(dice.split(/\s+/)[0]);
+  const w = linea.palabras.find((p) => normalizar(p.texto).startsWith(objetivo));
+  return w ? Math.round((linea.inicio + w.inicio) * fps) - offset : undefined;
+};
 
 export type PropsGrafico = GuionGrafico & { datos?: DatosResueltos; tiempos?: Tiempos; duracionFrames?: number; audio?: string };
 
@@ -70,13 +81,19 @@ export const Grafico: React.FC<PropsGrafico> = (props) => {
   const vis = rotulo.desde === 0 ? 0.88 + 0.12 * spring({ frame, fps, config: { damping: 12, stiffness: 180 } }) : spring({ frame: frame - rotulo.desde, fps, config: { damping: 12, stiffness: 190 } });
   const Z = ZONA_GRAFICO.grafico;
   const enRemate = b.tipo === 'remate' || b.tipo === 'cierre';
+  // Visual de Entender Chile (mapa de regiones) en lugar del gráfico durante el gancho o una escena.
+  const visual: Visual | undefined = b.tipo === 'gancho' ? props.visualGancho : b.escena !== undefined ? props.escenas[b.escena]?.visual : undefined;
+  const chile = visual?.tipo === 'chile' ? visual : undefined;
   return (
     <AbsoluteFill style={{ background: PALETA.fondo, overflow: 'hidden' }}>
       <FondoRejilla frame={frame} fps={fps} ancho={W} alto={H} paso={72} />
       <div style={{ position: 'absolute', left: Z.x, top: Z.y, width: Z.ancho, height: Z.alto, transform: deriva, transformOrigin: '50% 50%' }}>
-        <GraficoAnimado key={b.graficoId} g={b.grafico} datos={datos} ancho={Z.ancho} alto={Z.alto} modo="short" progreso={progreso}
+        {chile ? (
+          <MapaChile key={`chile-${b.desde}`} v={chile} ancho={Z.ancho} alto={Z.alto} frame={local} fps={fps}
+            puntosFrame={(chile.puntos ?? []).map((pt) => frameDeDice(linea, pt.dice, fps, b.desde))} />
+        ) : <GraficoAnimado key={b.graficoId} g={b.grafico} datos={datos} ancho={Z.ancho} alto={Z.alto} modo="short" progreso={progreso}
           frame={principal ? frame + fps : frame - b.graficoDesde} fps={fps} enfasis={enfasis} inmediato={principal} enfasisPais={b.enfasisPais}
-          anotacionesFrame={b.anotFrames?.map((x) => (x === undefined ? undefined : principal ? x + fps : x - b.graficoDesde))} />
+          anotacionesFrame={b.anotFrames?.map((x) => (x === undefined ? undefined : principal ? x + fps : x - b.graficoDesde))} />}
       </div>
       {!enRemate && (
         <div style={{ position: 'absolute', left: S.lados, top: ZONA_GRAFICO.rotulo.y, maxWidth: W - S.lados * 2 }}>
@@ -84,6 +101,8 @@ export const Grafico: React.FC<PropsGrafico> = (props) => {
         </div>
       )}
       <MarcaDeAgua top={S.arriba - 2} right={S.lados} escala={0.85} />
+      {/* Divulgación de contenido sintético (política de YouTube): pequeña y fija, bajo la marca de agua. */}
+      <div style={{ position: 'absolute', top: S.arriba + 44, right: S.lados, fontFamily: TIPO.texto, fontWeight: 600, fontSize: 24, color: PALETA.tintaSuave, opacity: 0.85 }}>Voz sintética</div>
       {linea && linea.palabras.length > 0 && b.tipo !== 'remate' && (
         <Subtitulos linea={linea} frameLocal={frame - Math.round(linea.inicio * fps)} centroY={ZONA_GRAFICO.subtitulos.centroY} fontSize={T.subtitulos} ancho={W - S.lados * 2}
           acento={enfasis > 0 ? PALETA.rojo : PALETA.dorado} />

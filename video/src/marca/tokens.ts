@@ -1,5 +1,5 @@
 /**
- * Sistema de marca de EN NÚMEROS ROJOS.
+ * Sistema de marca de ENTENDER CHILE (motor copiado de En Números Rojos el 13-11-2026).
  * Única fuente de verdad para colores, tipografía, formatos y ritmo. Toda plantilla importa de aquí.
  * Dos formatos: el LARGO 16:9 (plantilla `tesis`, el producto) y el SHORT 9:16 (plantilla `grafico`, el embudo).
  */
@@ -23,20 +23,20 @@ export const FORMATO_SHORT = {
 export const FORMATO = FORMATO_SHORT;
 
 export const PALETA = {
-  /** Grafito: fondo de todo. */
-  fondo: '#111418',
+  /** Azul marino profundo: fondo de todo (Entender Chile, sobrio). */
+  fondo: '#0F1B2D',
   /** Paneles y cajas. */
-  fondo2: '#1B2027',
+  fondo2: '#17263D',
   /** Rejilla y ejes. */
-  borde: '#2A313B',
+  borde: '#2A3A52',
   tinta: '#FFFFFF',
   tintaSuave: '#AEB7C2',
   /** Verde billete: la serie principal, lo que sube. */
   verde: '#2ECC71',
   /** Rojo "números rojos": caídas, el país que pierde, el giro. */
   rojo: '#FF4D4D',
-  /** Dorado: la cifra clave, el rótulo. */
-  dorado: '#F5C451',
+  /** Cobre: la cifra clave, el rótulo (el acento del canal). */
+  dorado: '#E8A33D',
   /** Azul: segunda serie, agua en el mapa. */
   azul: '#4FA3F7',
   /** Violeta: tercera serie. */
@@ -51,7 +51,7 @@ export const ACENTOS = { dorado: '#F5C451', verde: '#2ECC71', rojo: '#FF4D4D' } 
 export type Acento = keyof typeof ACENTOS;
 
 /** Fondo con transparencia (velos sobre gráficos). */
-export const fondoAlfa = (a: number) => `rgba(17,20,24,${a})`;
+export const fondoAlfa = (a: number) => `rgba(15,27,45,${a})`;
 
 export const TIPO = {
   /** Títulos y cifras enormes. */
@@ -71,9 +71,9 @@ export const TIPO = {
 
 /** Duraciones en segundos. */
 export const RITMO = {
-  shortMin: 35,
-  shortMax: 55,
-  largoMin: 8 * 60 + 30,
+  shortMin: 45,
+  shortMax: 60,
+  largoMin: 10 * 60,
   largoMax: 12 * 60 + 30,
   /** Cierre de marca al final. */
   cierre: 1.2,
@@ -82,13 +82,13 @@ export const RITMO = {
 } as const;
 
 export const MARCA = {
-  nombre: 'En Números Rojos',
-  handle: '@enumerosrojos',
-  lema: 'La economía, con la cuenta en pantalla.',
+  nombre: 'Entender Chile',
+  handle: '@entenderchile',
+  lema: 'El resumen sin gritos.',
   /** Marca de agua discreta esquina superior derecha, dentro de la zona segura. */
   marcaDeAgua: { tamano: 28, opacidad: 0.65 },
   /** Aviso fijo al pie de la pantalla final y en la descripción. */
-  aviso: 'No es asesoría financiera. Datos abiertos con fuente en pantalla. Voz sintetizada.',
+  aviso: 'Voz sintética. Cada cifra con su fuente en pantalla.',
 } as const;
 
 /**

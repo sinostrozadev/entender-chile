@@ -22,14 +22,25 @@ export type FuenteDatos = (typeof FUENTES_DATOS)[number];
 /** Código ISO 3166-1 alfa-3 en mayúsculas (CHL, KOR, ARG…). El Banco Mundial y OWID lo usan; "WLD" = mundo. */
 export const Iso3 = z.string().regex(/^[A-Z]{3}$/);
 
-export const PuntoManual = z.tuple([z.number().int().min(1500).max(2100), z.number()]);
+/**
+ * Entidad de una serie: un país ISO3 (CHL, KOR) o, en datos `manual`, un código propio de Entender Chile para lo que no
+ * es país (una región "CL-LR", un combustible "DIESEL", una partida "EDUCACION", "PAGADO" contra "AVALUO"). Su nombre
+ * legible va en `nombres` de la referencia.
+ */
+export const Entidad = z.string().regex(/^[A-Z0-9-]{2,16}$/);
+
+/**
+ * Punto manual [x, valor]. x es un año (1500 a 2100) o, para series que no son anuales (semanas del diésel, meses de una
+ * encuesta, trimestres), un índice 0, 1, 2... con su rótulo en `etiquetasX` ({"0": "29-jul", "1": "19-ago"}).
+ */
+export const PuntoManual = z.tuple([z.number().int().min(0).max(2100), z.number()]);
 
 export const DatoRef = z.object({
   fuente: z.enum(FUENTES_DATOS),
   /** Código WDI, slug de OWID o un nombre corto propio si es manual ("sueldo-minimo-2026"). */
   indicador: z.string().min(2).max(90),
   /** Países/entidades a traer, ISO3 (1–8). El orden es el orden de aparición en el gráfico. */
-  paises: z.array(Iso3).min(1).max(8),
+  paises: z.array(Entidad).min(1).max(8),
   /** Rango de años (ambos incluidos). Si falta, todo lo disponible. */
   desde: z.number().int().optional(),
   hasta: z.number().int().optional(),
@@ -38,7 +49,11 @@ export const DatoRef = z.object({
   /** Unidad corta para los ejes ("US$", "%", "años", "millones"). */
   unidad: z.string().max(20).optional(),
   /** Solo para fuente 'manual': valores por país [[anio, valor], …] y la fuente oficial. */
-  valores: z.record(Iso3, z.array(PuntoManual).min(1)).optional(),
+  valores: z.record(Entidad, z.array(PuntoManual).min(1)).optional(),
+  /** Nombre en pantalla de cada entidad que no es país ({"DIESEL": "Diésel", "CL-LR": "Los Ríos"}). */
+  nombres: z.record(Entidad, z.string().min(1).max(30)).optional(),
+  /** Rótulo de cada x cuando no es un año ({"0": "29-jul", "1": "19-ago"}). Si existe, los ejes y anotaciones lo usan. */
+  etiquetasX: z.record(z.string(), z.string().min(1).max(12)).optional(),
   fuenteTexto: z.string().max(120).optional(),
   fuenteUrl: z.string().url().optional(),
 }).superRefine((d, ctx) => {
@@ -60,7 +75,7 @@ export const SerieResuelta = z.object({
   fuenteUrl: z.string().url(),
   licencia: z.string(),
   consultadoEn: z.string(),
-  series: z.record(Iso3, z.object({
+  series: z.record(Entidad, z.object({
     pais: z.string(),
     puntos: z.array(z.object({ anio: z.number().int(), valor: z.number() })),
   })),
@@ -87,7 +102,7 @@ export const Grafico = z.object({
   titulo: z.string().min(2).max(60),
   datos: DatoRef,
   /** Qué resaltar: un país (color de acento), un año (línea vertical) o un punto concreto. */
-  destacar: z.object({ pais: Iso3.optional(), anio: z.number().int().optional(), texto: z.string().max(40).optional() }).optional(),
+  destacar: z.object({ pais: Entidad.optional(), anio: z.number().int().optional(), texto: z.string().max(40).optional() }).optional(),
   /** Anotaciones con fecha ("1973: golpe", "1997: crisis asiática") que aparecen cuando la voz llega ahí. */
   anotaciones: z.array(z.object({
     anio: z.number().int(),
@@ -119,8 +134,8 @@ export const Cifra = z.object({
     datos: DatoRef,
     /** valor: el dato del país en el año · razon: paisA / paisB en el año · variacion: (hasta − desde) / desde · diferencia: paisA − paisB · maximo/minimo: en el rango · promedio: del rango · ranking: posición del país entre `paises` en el año. */
     operacion: z.enum(['valor', 'razon', 'variacion', 'diferencia', 'maximo', 'minimo', 'promedio', 'ranking']),
-    pais: Iso3.optional(),
-    paisB: Iso3.optional(),
+    pais: Entidad.optional(),
+    paisB: Entidad.optional(),
     anio: z.number().int().optional(),
     anioB: z.number().int().optional(),
   }),
@@ -138,3 +153,6 @@ export const claveDeRef = (r: DatoRef) =>
 /** Forma de `props.datos` que escriben preparar-tesis / preparar-grafico. */
 export const DatosResueltos = z.record(z.string(), SerieResuelta);
 export type DatosResueltos = z.infer<typeof DatosResueltos>;
+
+/** Rótulo de un x en pantalla: el de `etiquetasX` si la serie no es anual, si no el año tal cual. */
+export const rotuloX = (r: { etiquetasX?: Record<string, string> }, x: number) => r.etiquetasX?.[String(x)] ?? String(x);

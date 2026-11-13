@@ -33,7 +33,7 @@ export const Miniatura: React.FC<PropsTesis> = (props) => {
         </div>
       </div>
       <div style={{ position: 'absolute', left: 56, bottom: 36, display: 'flex', alignItems: 'center', gap: 12, fontFamily: TIPO.display, fontWeight: 800, fontSize: 30, color: PALETA.tinta, opacity: 0.9 }}>
-        <Logo tamano={50} />En Números <span style={{ color: PALETA.rojo }}>Rojos</span>
+        <Logo tamano={50} />Entender <span style={{ color: PALETA.dorado }}>Chile</span>
       </div>
     </AbsoluteFill>
   );

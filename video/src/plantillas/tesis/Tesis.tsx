@@ -4,6 +4,7 @@ import { FORMATO_LARGO, MARCA, PALETA, TIPO, TIPO_GRAFICO, fondoAlfa } from '../
 import { cargarFuentes } from '../../marca/fuentes';
 import { Cierre } from '../../marca/Cierre';
 import { Logo } from '../../marca/Logo';
+import { MapaChile } from '../comun/visuales/MapaChile';
 import { MarcaDeAgua } from '../../marca/MarcaDeAgua';
 import type { GuionTesis } from '../comun/guion';
 import type { DatosResueltos } from '../comun/datos';
@@ -137,6 +138,7 @@ const VistaVisualEn: React.FC<{ vv: VistaVisual; frame: number; visuales?: Visua
   let cuerpo: React.ReactNode = null;
   if (v.tipo === 'foto') cuerpo = <Foto visuales={visuales} clave={vv.clave} ancho={Z.ancho} alto={Z.alto} frame={local} frames={frames} pie={v.pie} encuadre={v.encuadre} variante={variante} />;
   else if (v.tipo === 'ilustracion') cuerpo = <Ilustracion visuales={visuales} clave={vv.clave} ancho={Z.ancho} alto={Z.alto} frame={local} frames={frames} pie={v.pie} variante={variante} />;
+  else if (v.tipo === 'chile') cuerpo = <MapaChile v={v} ancho={Z.ancho} alto={Z.alto} frame={local} fps={fps} />;
   else if (v.tipo === 'mapa') cuerpo = <Mapa v={v} ancho={Z.ancho} alto={Z.alto} frame={local} fps={fps} viajeEn={vv.viajeDesde !== undefined ? vv.viajeDesde - vv.desde : undefined} />;
   else if (v.tipo === 'iconos') cuerpo = <Iconos v={v} ancho={Z.ancho} alto={Z.alto} frame={local} fps={fps} itemsFrame={(vv.itemsFrame ?? []).map((x) => x - vv.desde)} />;
   else if (v.tipo === 'versus') cuerpo = <Versus v={v} ancho={Z.ancho} alto={Z.alto} frame={local} fps={fps} itemsFrame={(vv.itemsFrame ?? []).map((x) => x - vv.desde)}

@@ -1,3 +1,4 @@
+import { rotuloX } from '../datos';
 import React from 'react';
 import { PALETA, TIPO, TIPO_GRAFICO } from '../../../marca/tokens';
 import { formatear, marcasBonitas, marcasLog, opcionesDe, pasoAnios } from '../formato';
@@ -55,7 +56,7 @@ export const Lineas: React.FC<PropsCuerpo & { area?: boolean }> = ({ g, serie, p
   const marcasY: MarcaEje[] = marcas.map((v) => ({ v, pos: Y(v), texto: formatear(v, { ...opc, compacto: true }) }));
   const pa = pasoAnios(a0, a1, maxMarcasX ?? (modo === 'short' ? 4 : 8));
   const marcasX: MarcaEje[] = [];
-  for (let a = Math.ceil(a0 / pa) * pa; a <= a1; a += pa) marcasX.push({ v: a, pos: X(a), texto: String(a) });
+  for (let a = Math.ceil(a0 / pa) * pa; a <= a1; a += pa) marcasX.push({ v: a, pos: X(a), texto: rotuloX(g.datos, a) });
   const aparicion = clamp01(frame / (0.5 * fps));
   const anioCabeza = a0 + (a1 - a0) * clamp01(progreso);
   const xCabeza = X(anioCabeza);
@@ -81,7 +82,7 @@ export const Lineas: React.FC<PropsCuerpo & { area?: boolean }> = ({ g, serie, p
   if (exceso > 0) for (let k = pos.length - 1; k >= 0; k--) { pos[k].ly -= exceso; if (k > 0 && pos[k].ly - pos[k - 1].ly >= altoEtiq) break; }
   for (let k = pos.length - 2; k >= 0; k--) if (pos[k + 1].ly - pos[k].ly < altoEtiq) pos[k].ly = pos[k + 1].ly - altoEtiq;
 
-  const anchosAnot = anots.map((a) => ({ x: X(a.anio), w: anchoTexto(`${a.anio} · ${a.texto}`, T.anotacion, 0.55) + 28 }));
+  const anchosAnot = anots.map((a) => ({ x: X(a.anio), w: anchoTexto(`${rotuloX(g.datos, a.anio)} · ${a.texto}`, T.anotacion, 0.55) + 28 }));
   const filas = filasAnotaciones(anchosAnot);
   const pulso = enfasis > 0 ? 0.5 + 0.5 * Math.sin((frame / fps) * Math.PI * 2.2) : 0;
   const anioDest = g.destacar?.anio;
@@ -101,7 +102,7 @@ export const Lineas: React.FC<PropsCuerpo & { area?: boolean }> = ({ g, serie, p
       )}
       {anots.map((a, k) => {
         const vis = a.fDice !== undefined ? clamp01((frame - a.fDice) / (0.3 * fps)) : clamp01((anioCabeza - a.anio) / Math.max(0.5, (a1 - a0) * 0.025));
-        return <Anotacion key={`${a.anio}-${k}`} x={X(a.anio)} yTop={yTop} yBase={y1} anio={a.anio} texto={a.texto} fontSize={T.anotacion} visible={vis} fila={filas[k]} xMax={ancho - 4} />;
+        return <Anotacion key={`${a.anio}-${k}`} x={X(a.anio)} yTop={yTop} yBase={y1} anio={rotuloX(g.datos, a.anio)} texto={a.texto} fontSize={T.anotacion} visible={vis} fila={filas[k]} xMax={ancho - 4} />;
       })}
       <g clipPath={`url(#${idClip})`}>
         {area && (

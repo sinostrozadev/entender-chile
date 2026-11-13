@@ -124,9 +124,31 @@ export const VisualVersus = z.object({
 });
 export type VisualVersus = z.infer<typeof VisualVersus>;
 
-export const Visual = z.discriminatedUnion('tipo', [VisualFoto, VisualMapa, VisualIconos, VisualIlustracion, VisualVersus]);
+
+/**
+ * Entender Chile (13-11-2026): MAPA DE CHILE POR REGIONES (límites de la BCN, public/geo/README.md). La cámara entra
+ * desde Chile continental entero y en ~2 s se acerca a las regiones destacadas: el movimiento empieza en el frame 0.
+ * Los `puntos` (cortes de ruta, una comuna, una faena) caen como alfileres cuando la voz dice su `dice`. Crédito
+ * "Límites: BCN" siempre en pantalla.
+ */
+export const CODIGOS_REGION = ['CL-AP', 'CL-TA', 'CL-AN', 'CL-AT', 'CL-CO', 'CL-VS', 'CL-RM', 'CL-LI', 'CL-ML', 'CL-NB', 'CL-BI', 'CL-AR', 'CL-LR', 'CL-LL', 'CL-AI', 'CL-MA'] as const;
+export const VisualChile = z.object({
+  tipo: z.literal('chile'),
+  /** Regiones a destacar (cobre la primera, luego los colores de las series). Vacío = Chile entero sin destacar. */
+  regiones: z.array(z.enum(CODIGOS_REGION)).max(8).optional(),
+  /** Alfileres con nombre, en orden de aparición. */
+  puntos: z.array(z.object({ texto: z.string().min(1).max(26), en: LonLat, dice: z.string().optional() })).max(8).optional(),
+  /** true (por defecto): acercar a las regiones destacadas o a los puntos. false: Chile entero quieto con deriva. */
+  acercar: z.boolean().optional(),
+  /** Título corto arriba del mapa (≤ 40). */
+  titulo: z.string().max(40).optional(),
+  dice: z.string().optional(),
+});
+export type VisualChile = z.infer<typeof VisualChile>;
+
+export const Visual = z.discriminatedUnion('tipo', [VisualFoto, VisualMapa, VisualIconos, VisualIlustracion, VisualVersus, VisualChile]);
 export type Visual = z.infer<typeof Visual>;
-export const TIPOS_VISUAL = ['foto', 'mapa', 'iconos', 'ilustracion', 'versus'] as const;
+export const TIPOS_VISUAL = ['foto', 'mapa', 'iconos', 'ilustracion', 'versus', 'chile'] as const;
 
 /**
  * v3: SELLO sobre el gráfico (o sobre el visual si la escena no tiene gráfico): un dato grande que la voz acaba de decir,

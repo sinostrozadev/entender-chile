@@ -332,7 +332,7 @@ const resolverManual = (ref: DatoRef): SerieResuelta => {
   const series: SerieResuelta['series'] = {};
   for (const iso of ref.paises) {
     const pts = (ref.valores?.[iso] ?? []) as Array<[number, number]>;
-    series[iso] = { pais: NOMBRES_ES[iso] ?? iso, puntos: recortar([...pts].sort((a, b) => a[0] - b[0]), ref.desde, ref.hasta) };
+    series[iso] = { pais: ref.nombres?.[iso] ?? NOMBRES_ES[iso] ?? iso, puntos: recortar([...pts].sort((a, b) => a[0] - b[0]), ref.desde, ref.hasta) };
   }
   return {
     ref, etiqueta: ref.etiqueta ?? ref.indicador, unidad: ref.unidad ?? '',

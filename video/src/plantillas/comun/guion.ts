@@ -15,23 +15,25 @@
  */
 import { z } from 'zod';
 import { DISPOSICIONES, Mascota, Visual, Sello } from './visual';
-import { Cifra, Grafico, Iso3 } from './datos';
+import { Cifra, Entidad, Grafico } from './datos';
 
 export const PLANTILLAS_CANAL = ['tesis', 'grafico'] as const;
 export type PlantillaCanal = (typeof PLANTILLAS_CANAL)[number];
 
 /** Voces de msedge-tts permitidas. Por defecto es-MX-JorgeNeural (A/B con es-CL-LorenzoNeural en los primeros videos). */
-export const VOCES = ['es-MX-JorgeNeural', 'es-CL-LorenzoNeural', 'es-ES-AlvaroNeural', 'es-MX-DaliaNeural'] as const;
-export const VOZ_POR_DEFECTO: (typeof VOCES)[number] = 'es-MX-JorgeNeural';
+export const VOCES = ['es-CL-LorenzoNeural', 'es-CL-CatalinaNeural', 'es-MX-JorgeNeural'] as const;
+/** La voz del canal desde agosto de 2026 (antes por Azure, desde el 13-11-2026 por Edge TTS): misma identidad. */
+export const VOZ_POR_DEFECTO: (typeof VOCES)[number] = 'es-CL-LorenzoNeural';
 
 /** Palabras habladas del LARGO (gancho + promesa + capítulos + número + remate + siguiente): ≈ 9–12 min a ~2,7 palabras/s. */
-export const PALABRAS_TESIS_MIN = 1350;
+export const PALABRAS_TESIS_MIN = 1500;
 export const PALABRAS_TESIS_MAX = 1950;
 /** Palabras HABLADAS del SHORT (gancho + escenas + remate), contadas con `contarPalabrasHabladas` (los números se expanden:
  *  la voz lee "1990" como tres palabras y "%" como dos). Medido el 2026-11-07 con la voz del canal: ≈ 0,40 s por palabra hablada
  *  → 113 crudas con muchas cifras = 147 habladas = 59,5 s (rechazado: tope 55 s). 120 habladas ≈ 48 s. */
-export const PALABRAS_GRAFICO_MIN = 85;
-export const PALABRAS_GRAFICO_MAX = 120;
+/** Entender Chile (13-11-2026): Short de 45 a 60 s → 110 a 150 habladas (Lorenzo a -4 %, ~0,40 s por palabra). */
+export const PALABRAS_GRAFICO_MIN = 110;
+export const PALABRAS_GRAFICO_MAX = 150;
 
 /** Palabras prohibidas en títulos, cabeceras y remates (catastrofismo = marca de la competencia y riesgo de brand safety). */
 export const PROHIBIDAS_TITULO = /colaps|destru|el fin de|se acerca|apocalip|hundir|quebrar[áa]|última oportunidad/i;
@@ -72,7 +74,7 @@ export const Escena = z.object({
   /** Segundos de silencio al final de la escena (respiro visual). En `respiro` por defecto 3,5. */
   respiroSeg: z.number().min(0).max(6).optional(),
   /** Qué país se enciende en esta escena (p. ej. en el `giro` el que da la sorpresa). Si falta, el de `grafico.destacar.pais`. */
-  enfasis: z.object({ pais: Iso3 }).optional(),
+  enfasis: z.object({ pais: Entidad }).optional(),
   /** Solo en el Short: la escena `dato` sigue mostrando el gráfico principal (`props.grafico`) sin copiarlo entero. */
   usaGraficoPrincipal: z.boolean().optional(),
   /**
@@ -209,6 +211,9 @@ export const CamposGrafico = CamposBase.extend({
   grafico: Grafico,
   /** 2–4 escenas: ≥ 1 `dato` (puede repetir `grafico` del Short o traer otro) y exactamente 1 `giro`. */
   escenas: z.array(Escena).min(2).max(4),
+  /** Entender Chile: visual que ocupa la zona del gráfico DURANTE EL GANCHO (p. ej. el mapa de Chile que se acerca a Lago
+   *  Ranco desde el frame 0). Si falta, el gancho muestra el gráfico principal construyéndose. */
+  visualGancho: Visual.optional(),
   /** Id del largo (`tesis`) del que sale este Short, si existe: la descripción y el comentario fijado lo enlazan. */
   enlaceLargo: z.string().optional(),
 });

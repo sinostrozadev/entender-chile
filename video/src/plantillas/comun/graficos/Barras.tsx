@@ -1,3 +1,4 @@
+import { rotuloX } from '../datos';
 import React from 'react';
 import { PALETA, TIPO, TIPO_GRAFICO } from '../../../marca/tokens';
 import { formatear, marcasBonitas, opcionesDe, pasoAnios } from '../formato';
@@ -73,7 +74,7 @@ const Columnas: React.FC<PropsCuerpo> = ({ g, serie, ps, ancho, alto, modo, prog
   const clave = g.destacar?.anio ?? pts.reduce((m, q) => (Math.abs(q.valor) > Math.abs(m.valor) ? q : m), pts[0]).anio;
   const pa = pasoAnios(a0, a1, modo === 'short' ? 4 : 8);
   const marcasX = [] as { v: number; pos: number; texto: string }[];
-  for (let a = Math.ceil(a0 / pa) * pa; a <= a1; a += pa) marcasX.push({ v: a, pos: X(a) + banda / 2, texto: String(a) });
+  for (let a = Math.ceil(a0 / pa) * pa; a <= a1; a += pa) marcasX.push({ v: a, pos: X(a) + banda / 2, texto: rotuloX(g.datos, a) });
   const qClave = pts.find((q) => q.anio === clave);
   return (
     <svg width={ancho} height={alto} style={{ overflow: 'visible' }}>
