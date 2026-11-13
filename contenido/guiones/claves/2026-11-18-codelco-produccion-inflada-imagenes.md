@@ -1,11 +1,11 @@
 ## Carátula 1
-Miniatura periodística 16:9, patio de cátodos de cobre al atardecer, una pila sólida a la izquierda y un espacio vacío delineado con contorno luminoso a la derecha, contraste cobre y azul petróleo, texto enorme ¿EXISTIÓ ESE COBRE? en la mitad superior, máximo impacto a 168 píxeles, sin rostros ni logos, esquina inferior derecha libre.
+Miniatura periodística 16:9, patio de cátodos de cobre al atardecer, una pila sólida a la izquierda y un espacio vacío delineado con contorno luminoso a la derecha, contraste cobre y azul petróleo, texto enorme CODELCO: ¿EXISTIÓ ESE COBRE? en la mitad superior, máximo impacto a 168 píxeles, sin rostros ni logos, esquina inferior derecha libre.
 
 ## Carátula 2
-Miniatura 16:9 estilo infografía editorial, balanza industrial con cátodos reales en un plato y hojas de cálculo en el otro, iluminación dramática, paleta cobre, negro y blanco, texto ¿EXISTIÓ ESE COBRE? muy grande y centrado arriba, composición simple, legible en móvil, esquina inferior derecha sin información.
+Miniatura 16:9 estilo infografía editorial, balanza industrial con cátodos reales en un plato y hojas de cálculo en el otro, iluminación dramática, paleta cobre, negro y blanco, texto CODELCO: ¿EXISTIÓ ESE COBRE? muy grande y centrado arriba, composición simple, legible en móvil, esquina inferior derecha sin información.
 
 ## Carátula 3
-Miniatura 16:9 de alto contraste, primer plano de cátodos de cobre atravesados por una cifra contable semitransparente, una parte del material se convierte visualmente en líneas duplicadas, texto ¿EXISTIÓ ESE COBRE? en blanco y amarillo, estética institucional, sin personas, sin logos, esquina inferior derecha despejada.
+Miniatura 16:9 de alto contraste, primer plano de cátodos de cobre atravesados por una cifra contable semitransparente, una parte del material se convierte visualmente en líneas duplicadas, texto CODELCO: ¿EXISTIÓ ESE COBRE? en blanco y amarillo, estética institucional, sin personas, sin logos, esquina inferior derecha despejada.
 
 ## 1. Gancho
 Imagen verticalizable para media pantalla: montaña compacta de cátodos de cobre con una sombra vacía del mismo tamaño detrás, luz fría lateral, fondo industrial oscuro, sujeto centrado y completo, sin texto.
