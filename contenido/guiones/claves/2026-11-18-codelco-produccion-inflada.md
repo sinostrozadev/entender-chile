@@ -1,19 +1,21 @@
 Título sugerido: Cómo Codelco registra su producción y quién la controla
 Descripción sugerida: Una explicación desde cero sobre cómo una minera reconoce producción, cómo aparecen duplicidades entre divisiones y qué controles deberían detectarlas. El caso permite separar inventarios, bonos, responsabilidades laborales e investigación penal sin mezclar cifras preliminares con conclusiones definitivas.
-Carátula sugerida: ¿EXISTIÓ ESE COBRE?
+Carátula sugerida: CODELCO: ¿EXISTIÓ ESE COBRE?
 Guion:
 
 ## Gancho
-[TESIS] Codelco llegó al dieciocho de noviembre de dos mil veintiséis con una contradicción difícil de ignorar: había registrado cobre como producción sin que ese cobre cumpliera todavía la condición para ser contado.
+[TESIS] Codelco reconoció en noviembre de dos mil veintiséis cuarenta y dos mil cien toneladas de cobre registradas sin producción efectiva.
 
 [DATO cifra | Codelco, 05-11-2026] producción registrada incorrectamente 2024-2025: 42100 toneladas
-Cuarenta y dos mil cien toneladas es la estimación preliminar. Al terminar este video vas a entender qué significa realmente esa cifra, cómo puede aparecer en las cuentas, quién debía revisarla y por qué no equivale, por sí sola, a cobre perdido. La pregunta de fondo es simple: ¿cómo se registra producción que no ocurrió y quién controla a una empresa que pertenece al Estado?
+¿Cómo se anota producción que no ocurrió? Acá vas a entender cómo ocurrió.
 
 ## De dónde viene
 [TESIS] El caso partió con material real que seguía en proceso, no con una explicación pública sobre cobre físicamente desaparecido.
 
+Cuarenta y dos mil cien toneladas es la estimación preliminar. Al terminar este video vas a entender qué significa realmente esa cifra, cómo puede aparecer en las cuentas, quién debía revisarla y por qué no equivale, por sí sola, a cobre perdido. La pregunta de fondo es simple: ¿cómo se registra producción que no ocurrió y quién controla a una empresa que pertenece al Estado?
+
 [DATO comparacion | Codelco, 20-05-2026] óxidos de Chuquicamata aún en proceso: 20000 toneladas ; arseniato de calcio de Ministro Hales aún en proceso: 6875 toneladas
-El veinte de mayo de dos mil veintiséis, Codelco informó que veintiséis mil ochocientas setenta y cinco toneladas de material de dos divisiones habían sido reconocidas como producto terminado cuando todavía requerían procesamiento. Una parte eran óxidos de Chuquicamata. La otra, arseniato de calcio de Ministro Hales. La empresa corrigió su producción física de dos mil veinticinco y dijo que sus estados financieros auditados no necesitaban reexpresión, aunque incorporaría aclaraciones.
+El veinte de mayo de dos mil veintiséis, Codelco informó que casi veintisiete mil toneladas de material de dos divisiones habían sido reconocidas como producto terminado cuando todavía requerían procesamiento. Una parte eran óxidos de Chuquicamata. La otra, arseniato de calcio de Ministro Hales. La empresa corrigió su producción física de dos mil veinticinco y dijo que sus estados financieros auditados no necesitaban reexpresión, aunque incorporaría aclaraciones.
 
 El seis de octubre, la revisión se amplió. Codelco comunicó nuevos antecedentes sobre dos mil veinticuatro y dos mil veinticinco, encargó auditorías externas y entregó información al Ministerio Público. Ahí apareció un segundo mecanismo posible: un mismo material contado por la división que lo enviaba y por la que lo recibía.
 
@@ -31,7 +33,7 @@ La investigación penal seguía dirigida por el fiscal regional Aquiles Cubillos
 [TESIS] El cinco de noviembre la revisión dejó de ser un episodio aislado y pasó a cubrir dos años y todas las divisiones.
 
 [DATO barras | Codelco, 05-11-2026] producción registrada incorrectamente 2024: 24000 toneladas ; producción registrada incorrectamente 2025: 18100 toneladas
-La junta extraordinaria conoció un total preliminar de cuarenta y dos mil cien toneladas: veinticuatro mil asociadas a dos mil veinticuatro y dieciocho mil cien netas a dos mil veinticinco. Las dos cifras públicas, veintiséis mil ochocientas setenta y cinco y cuarenta y dos mil cien, no se pueden sumar. Tampoco existe una tabla pública que muestre exactamente cómo se pasa de una a la otra.
+La junta extraordinaria conoció un total preliminar de cuarenta y dos mil cien toneladas: veinticuatro mil asociadas a dos mil veinticuatro y dieciocho mil cien netas a dos mil veinticinco. Las dos cifras públicas, casi veintisiete mil y cuarenta y dos mil cien, no se pueden sumar. Tampoco existe una tabla pública que muestre exactamente cómo se pasa de una a la otra.
 
 [DATO comparacion | Codelco, 05-11-2026] cobre fino que alteró inventarios: 15200 toneladas ; efecto preliminar mínimo: US$120000000 ; efecto preliminar máximo: US$140000000
 De ese total, quince mil doscientas toneladas alteraron inventarios. Los auditores estimaron un efecto entre ciento veinte y ciento cuarenta millones de dólares. Ese rango puede modificar activos, costos y resultados, pero no es una pérdida fiscal líquida y definitiva. KPMG y EY todavía podían cambiar el volumen por año, el detalle por división y el efecto económico.
@@ -49,7 +51,7 @@ Hasta acá, la idea es una sola: puede existir material físico dentro de la cad
 Los incentivos agregan otra capa. Ex-Ante informó más de catorce millones de dólares para cerca de seis mil trescientas personas vinculados al total ampliado.
 
 [DATO cifra | CNN Chile, 30-06-2026] incentivos recalculados del primer caso según CNN Chile: US$14300000 ; personas del primer caso según CNN Chile: 6322 personas
-CNN Chile había informado catorce coma tres millones de dólares y seis mil trescientas veintidós personas, pero para el primer caso de veintiséis mil ochocientas setenta y cinco toneladas. Las fuentes no permiten fundir ambas versiones. Codelco anunció una recuperación gradual conforme a la ley, los contratos y sus políticas, pero al trece de noviembre de dos mil veintiséis no había un balance público completo de cuánto se devolvió.
+CNN Chile había informado catorce coma tres millones de dólares y unas seis mil trescientas veinte personas, pero para el primer caso de casi veintisiete mil toneladas. Las fuentes no permiten fundir ambas versiones. Codelco anunció una recuperación gradual conforme a la ley, los contratos y sus políticas, pero al trece de noviembre de dos mil veintiséis no había un balance público completo de cuánto se devolvió.
 
 ## Quién debía revisar
 [DIARIO 2026-11-10 | parlamentarios-piden-al-cde-transparentar-acciones-y]
@@ -75,6 +77,7 @@ El cinco de noviembre se anunció un grupo de expertos para revisar la instituci
 El ocho de noviembre, el presidente del directorio estimó cerca de un millón doscientas mil toneladas para dos mil veintiséis y una meta cercana a un millón trescientas mil dentro de cuatro años. La producción nacional podía cerrar cerca de cuatro millones novecientas mil toneladas. Son datos productivos distintos del caso contable. Ninguna fuente revisada establece que las inconsistencias causen esa baja.
 
 ## Qué está en juego y qué mirar
+[FUENTE] Codelco, 05-11-2026
 [TESIS] La pregunta pendiente no es solo cuánto corregir, sino si el sistema permitirá seguir cada tonelada desde su origen hasta su registro final.
 
 [HECHO] Al trece de noviembre de dos mil veintiséis no estaban publicados los informes finales de KPMG y EY, la conciliación entre las dos cifras, las reglas completas de bonos, el balance de recuperaciones, una formalización oficial, la respuesta del Consejo de Defensa del Estado ni el informe final del grupo de expertos.
