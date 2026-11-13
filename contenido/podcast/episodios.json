@@ -753,5 +753,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-12-informe.mp3",
     "bytes": 5338368,
     "durSeg": 222
+  },
+  {
+    "fecha": "2026-11-13",
+    "tipo": "informe",
+    "titulo": "13-11-2026 · Camioneros levantan el paro tras rebaja de $142 por litro",
+    "descripcion": "Los principales gremios de camioneros levantaron el paro tras acordar una rebaja del diésel, aunque algunos grupos siguieron movilizados. Senapred evacuó dos sectores de Ovalle por el aumento de los ríos Grande y Limarí, y la oposición ingresó una acusación constitucional contra el ministro Fernando Rabat. El informe completo también explica la pérdida registrada en los fondos de pensiones, las fallas municipales en la gestión de residuos y la caída global de Microsoft 365.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-13/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-13-informe.mp3",
+    "bytes": 5238720,
+    "durSeg": 218
   }
 ]
