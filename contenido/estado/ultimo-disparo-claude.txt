@@ -1,1 +1,1 @@
-2026-11-12 validar_preseleccion 0 db9b093e
+2026-11-12 validar_preseleccion 1 1d9dfec0
