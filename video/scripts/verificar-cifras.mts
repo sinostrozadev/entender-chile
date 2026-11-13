@@ -35,10 +35,16 @@ if (!ruta) {
   process.exit(2);
 }
 
-/** Dominios de organismos oficiales aceptados para datos `manual` (añadir aquí con la licencia verificada). */
-const OFICIAL = /(\.gob\.[a-z]{2}|\.gov(\.[a-z]{2})?|\.gub\.uy|\.mil\.[a-z]{2}|cepal\.org|worldbank\.org|un\.org|ilo\.org|ine\.cl|ine\.es|inegi\.org\.mx|indec\.gob\.ar|ibge\.gov\.br|dane\.gov\.co|bcrp\.gob\.pe|banxico\.org\.mx|bcra\.gob\.ar|bcu\.gub\.uy|sec\.gov|europa\.eu|ourworldindata\.org)$/i;
-/** Fuentes prohibidas (docs/CONVENCIONES.md): uso comercial sin permiso o términos sin verificar. */
-const PROHIBIDO = /(imf\.org|oecd\.org|numbeo\.com|bcentral\.cl|si3\.bcentral\.cl)$/i;
+/**
+ * Dominios aceptados para datos `manual` en ENTENDER CHILE (13-11-2026). A diferencia de En Números Rojos, que
+ * redistribuye series y por eso exige licencia abierta, este canal reporta hechos de actualidad: una cifra publicada por
+ * un organismo (Banco Central, Contraloría, Cámara, ENAP) o por un medio con nombre se puede citar con su fuente. Los
+ * medios entran solo como respaldo cuando el organismo no publicó el documento, y la verificación del plan semanal
+ * (contenido/semana/<semana>/verificacion.md) registra cuál de los dos se usó.
+ */
+const OFICIAL = /(\.gob\.[a-z]{2}|\.gov(\.[a-z]{2})?|\.gub\.uy|bcentral\.cl|contraloria\.cl|camara\.cl|senado\.cl|bcn\.cl|enap\.cl|cne\.cl|ine\.gob\.cl|ine\.cl|mindicador\.cl|cochilco\.cl|cepal\.org|worldbank\.org|un\.org|ilo\.org|ourworldindata\.org|biobiochile\.cl|emol\.com|latercera\.com|cooperativa\.cl|df\.cl|elpais\.com|theclinic\.cl|ciperchile\.cl|bloomberglinea\.com)$/i;
+/** Fuentes que no se usan nunca (términos sin verificar o datos de terceros sin método). */
+const PROHIBIDO = /(numbeo\.com)$/i;
 
 interface FilaCifra { donde: string; texto: string; operacion: string; resultado: ResultadoCifra }
 interface Informe {

@@ -1,0 +1,244 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-11-20-short-lago-ranco-terreno",
+  "titulo": "Lago Ranco pagó casi 17 veces el avalúo de un terreno",
+  "descripcion": "¿Cómo un municipio termina pagando casi 17 veces el avalúo fiscal de un terreno?\nLa Contraloría Regional de Los Ríos revisó la compra que hizo la Municipalidad de Lago Ranco en febrero de 2025, por trato directo.\nEl informe pasó a la Fiscalía; eso no establece responsabilidades. El alcalde defiende la compra por el valor histórico del sitio.\nFuente: Informe Final N° 245 de 2026 de la Contraloría Regional de Los Ríos, vía BioBioChile (11-11-2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#lagoranco",
+    "#contraloria",
+    "#chile"
+  ],
+  "publicar": "2026-11-20T12:00",
+  "props": {
+    "gancho": {
+      "texto": "La Contraloría encontró que la Municipalidad de Lago Ranco pagó casi 17 veces el avalúo fiscal de un terreno. En un minuto, cómo se llega a esa cifra.",
+      "rotulo": "17 VECES",
+      "cifras": [
+        {
+          "texto": "casi 17 veces",
+          "valor": 16.9,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "lago-ranco-terreno-2025",
+              "paises": [
+                "PAGADO",
+                "AVALUO"
+              ],
+              "valores": {
+                "PAGADO": [
+                  [
+                    2025,
+                    567.08
+                  ]
+                ],
+                "AVALUO": [
+                  [
+                    2025,
+                    33.57
+                  ]
+                ]
+              },
+              "nombres": {
+                "PAGADO": "Lo que pagó",
+                "AVALUO": "Avalúo fiscal"
+              },
+              "fuenteTexto": "Contraloría Regional de Los Ríos, Informe N° 245 de 2026 (vía BioBioChile, 11-11-2026)",
+              "fuenteUrl": "https://www.biobiochile.cl/noticias/nacional/region-de-los-rios/2026/11/11/contraloria-revela-que-municipio-de-lago-ranco-compro-terreno-superando-casi-17-veces-el-avaluo-fiscal.shtml",
+              "etiqueta": "Terreno de 5.911 m²",
+              "unidad": "millones de $"
+            },
+            "operacion": "razon",
+            "pais": "PAGADO",
+            "paisB": "AVALUO",
+            "anio": 2025
+          },
+          "tolerancia": 0.02
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-LR"
+      ],
+      "puntos": [
+        {
+          "texto": "Lago Ranco",
+          "en": [
+            -72.5,
+            -40.31
+          ],
+          "dice": "Lago"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "barras",
+      "titulo": "El terreno de Lago Ranco",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "lago-ranco-terreno-2025",
+        "paises": [
+          "PAGADO",
+          "AVALUO"
+        ],
+        "valores": {
+          "PAGADO": [
+            [
+              2025,
+              567.08
+            ]
+          ],
+          "AVALUO": [
+            [
+              2025,
+              33.57
+            ]
+          ]
+        },
+        "nombres": {
+          "PAGADO": "Lo que pagó",
+          "AVALUO": "Avalúo fiscal"
+        },
+        "fuenteTexto": "Contraloría Regional de Los Ríos, Informe N° 245 de 2026 (vía BioBioChile, 11-11-2026)",
+        "fuenteUrl": "https://www.biobiochile.cl/noticias/nacional/region-de-los-rios/2026/11/11/contraloria-revela-que-municipio-de-lago-ranco-compro-terreno-superando-casi-17-veces-el-avaluo-fiscal.shtml",
+        "etiqueta": "Terreno de 5.911 m²",
+        "unidad": "millones de $"
+      },
+      "destacar": {
+        "pais": "PAGADO"
+      },
+      "formato": {
+        "decimales": 0,
+        "sufijo": " M"
+      },
+      "dice": "pagó"
+    },
+    "escenas": [
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según el informe de la Contraloría de Los Ríos, el municipio pagó 567 millones de pesos por 5.911 metros cuadrados. El avalúo fiscal de ese terreno era de 33 millones.",
+        "cifras": [
+          {
+            "texto": "567 millones",
+            "valor": 567,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "lago-ranco-terreno-2025",
+                "paises": [
+                  "PAGADO",
+                  "AVALUO"
+                ],
+                "valores": {
+                  "PAGADO": [
+                    [
+                      2025,
+                      567.08
+                    ]
+                  ],
+                  "AVALUO": [
+                    [
+                      2025,
+                      33.57
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "PAGADO": "Lo que pagó",
+                  "AVALUO": "Avalúo fiscal"
+                },
+                "fuenteTexto": "Contraloría Regional de Los Ríos, Informe N° 245 de 2026 (vía BioBioChile, 11-11-2026)",
+                "fuenteUrl": "https://www.biobiochile.cl/noticias/nacional/region-de-los-rios/2026/11/11/contraloria-revela-que-municipio-de-lago-ranco-compro-terreno-superando-casi-17-veces-el-avaluo-fiscal.shtml",
+                "etiqueta": "Terreno de 5.911 m²",
+                "unidad": "millones de $"
+              },
+              "operacion": "valor",
+              "pais": "PAGADO",
+              "anio": 2025
+            },
+            "tolerancia": 0.01
+          },
+          {
+            "texto": "33 millones",
+            "valor": 33.57,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "lago-ranco-terreno-2025",
+                "paises": [
+                  "PAGADO",
+                  "AVALUO"
+                ],
+                "valores": {
+                  "PAGADO": [
+                    [
+                      2025,
+                      567.08
+                    ]
+                  ],
+                  "AVALUO": [
+                    [
+                      2025,
+                      33.57
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "PAGADO": "Lo que pagó",
+                  "AVALUO": "Avalúo fiscal"
+                },
+                "fuenteTexto": "Contraloría Regional de Los Ríos, Informe N° 245 de 2026 (vía BioBioChile, 11-11-2026)",
+                "fuenteUrl": "https://www.biobiochile.cl/noticias/nacional/region-de-los-rios/2026/11/11/contraloria-revela-que-municipio-de-lago-ranco-compro-terreno-superando-casi-17-veces-el-avaluo-fiscal.shtml",
+                "etiqueta": "Terreno de 5.911 m²",
+                "unidad": "millones de $"
+              },
+              "operacion": "valor",
+              "pais": "AVALUO",
+              "anio": 2025
+            },
+            "tolerancia": 0.03
+          }
+        ]
+      },
+      {
+        "tipo": "planteamiento",
+        "texto": "La compra fue por trato directo, en febrero de 2025, y el municipio no pudo acreditar por qué se autorizó a ese precio. El informe ya está en la Fiscalía.",
+        "visual": {
+          "tipo": "chile",
+          "regiones": [
+            "CL-LR"
+          ],
+          "puntos": [
+            {
+              "texto": "Lago Ranco",
+              "en": [
+                -72.5,
+                -40.31
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "tipo": "giro",
+        "texto": "Ojo: eso no prueba un delito. El alcalde defiende la compra porque el sitio queda junto al muelle y tiene valor histórico, y anunció que él mismo pidió investigar.",
+        "rotulo": {
+          "texto": "NO ES CONDENA",
+          "dice": "delito"
+        }
+      }
+    ],
+    "remate": "El avalúo dice cuánto vale para el fisco; la Contraloría pregunta cuánto valía para el municipio.",
+    "fuentes": [
+      {
+        "texto": "BioBioChile, Contraloría y Lago Ranco (11-11-2026)",
+        "url": "https://www.biobiochile.cl/noticias/nacional/region-de-los-rios/2026/11/11/contraloria-revela-que-municipio-de-lago-ranco-compro-terreno-superando-casi-17-veces-el-avaluo-fiscal.shtml"
+      }
+    ],
+    "id": "2026-11-20-short-lago-ranco-terreno"
+  }
+}
