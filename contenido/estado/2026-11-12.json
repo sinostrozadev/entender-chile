@@ -1,9 +1,9 @@
 {
   "fecha": "2026-11-12",
-  "etapa": "validar_guion_informe",
-  "veredicto": "pendiente",
-  "vuelta": 1,
-  "actualizado": "2026-11-12 23:40",
+  "etapa": "aprobada",
+  "veredicto": "APROBADA",
+  "vuelta": 0,
+  "actualizado": "2026-11-12 23:45",
   "reparar": null,
   "piezas": [
     {
@@ -49,7 +49,7 @@
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "lista",
       "prompt": "prompts/guion-informe.md",
       "hora": "23:29",
       "esperada": "03:10",
@@ -61,13 +61,15 @@
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "listo",
       "prompt": null,
-      "hora": "",
+      "hora": "23:45",
       "esperada": "03:30",
       "dueno": "Claude · prompts/validador.md",
-      "rutas": []
+      "rutas": [
+        "contenido/revisiones/2026-11-12.md"
+      ]
     },
     {
       "id": "videos",
