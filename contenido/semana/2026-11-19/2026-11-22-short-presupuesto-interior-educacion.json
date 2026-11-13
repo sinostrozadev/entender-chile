@@ -12,7 +12,7 @@
   "props": {
     "gancho": {
       "texto": "La Cámara rechazó dos partidas del Presupuesto 2027 por empate: Interior, 71 a 71, y Educación, 72 a 72. ¿Se quedan sin plata? En un minuto, cómo sigue.",
-      "rotulo": "71 A 71",
+      "rotulo": "PRESUPUESTO: 71 A 71",
       "cifras": [
         {
           "texto": "71 a 71",

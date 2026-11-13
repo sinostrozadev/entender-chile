@@ -12,7 +12,7 @@
   "props": {
     "gancho": {
       "texto": "Desde el 29 de julio, el diésel en Chile acumula unos 443 pesos más por litro. Te explico cómo se llegó ahí y por qué los camioneros cortaron rutas.",
-      "rotulo": "+443 $ POR LITRO",
+      "rotulo": "DIÉSEL: +443 $",
       "cifras": [
         {
           "texto": "unos 443 pesos",
