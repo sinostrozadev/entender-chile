@@ -28,4 +28,4 @@ Fuera del contador, por no ser comparables (se listan igual, con su etiqueta):
 | ProCultura (transferencias de GORE y servicios a la fundación) | JUDICIALIZADO | $5,9 mil millones | investigado | $0 | 2026-10-20 | procultura.md |
 | Subsidios de arriendo (Minvu / Contraloría 314-2026) | ACTIVO | $239,3 millones | observado-contraloria | $0 | 2026-10-20 | subsidios-arriendo-minvu.md |
 
-10 caso(s) en seguimiento, 10 abierto(s). Última regeneración: 2026-11-12.
+10 caso(s) en seguimiento, 10 abierto(s). Última regeneración: 2026-11-13.

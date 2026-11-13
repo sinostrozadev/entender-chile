@@ -92,3 +92,4 @@ del día. Al abrir el dossier, borra la línea correspondiente.
 - 2026-11-11 | rebajas de condena por buena conducta
 - 2026-11-12 | rebajas de condena por buena conducta
 - 2026-11-12 | compra de terreno en Lago Ranco
+- 2026-11-13 | malversación Hospital Regional de Antofagasta
