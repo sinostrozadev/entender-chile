@@ -36,7 +36,7 @@ Fuera de la empresa hay controles distintos. La Comisión para el Mercado Financ
 
 Que existan muchas capas no garantiza que el error sea detectado a tiempo. El riesgo crece cuando distintas divisiones usan hitos de reconocimiento incompatibles, cuando una transferencia interna no se elimina al consolidar o cuando el incentivo por cumplir una meta favorece una cifra antes que la verificación física. El control eficaz exige una trazabilidad común: cada tonelada debe conservar una identidad desde su origen, su etapa de proceso y su destino, y una transferencia interna debe quedar conciliada en ambos extremos.
 
-La pregunta sobre quién falló no se responde contando instituciones. Hay que saber qué dato recibió cada nivel, qué alerta produjo el sistema, quién podía corregirla y qué hizo. Codelco informó medidas laborales y auditorías, pero no ha publicado los informes finales que permitirían reconstruir esa cadena. El ministro de Hacienda situó el problema en el nivel superior de la administración, mientras el directorio sostuvo que continuará determinando responsabilidades. Son antecedentes institucionales, no una sentencia sobre personas específicas (Codelco y Ministerio de Hacienda, 5 de noviembre de 2026).
+La pregunta sobre quién falló no se responde contando instituciones. Hay que saber qué dato recibió cada nivel, qué alerta produjo el sistema, quién podía corregirla y qué hizo. Codelco informó medidas laborales y auditorías, pero no ha publicado los informes finales que permitirían reconstruir esa cadena. El ministro de Hacienda situó el problema en el nivel superior de la administración, mientras el directorio sostuvo que continuará determinando responsabilidades. Son antecedentes institucionales, no una sentencia sobre personas específicas (Codelco y Ex-Ante, 5 de noviembre de 2026).
 
 ## El efecto económico: inventarios, resultados y recursos públicos
 
@@ -96,9 +96,7 @@ La mejora más importante sería vincular cada tonelada a un registro común ent
 
 ## Qué conviene recordar
 
-- Las 42.100 toneladas son una estimación preliminar de producción registrada sin corresponder a producción efectiva. No son una prueba pública de cobre desaparecido.
-- El caso reúne al menos dos mecanismos: material en proceso reconocido como terminado y duplicidades entre divisiones.
-- Los 26.875 del primer episodio están contenidos en una revisión más amplia, pero no existe una conciliación pública que muestre exactamente cómo se pasa de una cifra a la otra.
+- Las 42.100 toneladas son una estimación preliminar de producción registrada sin corresponder a producción efectiva. El caso reúne al menos dos mecanismos: material en proceso reconocido como terminado y duplicidades entre divisiones.
 - El rango de US$120 millones a US$140 millones corresponde a un efecto preliminar sobre inventarios asociado a 15.200 toneladas. No es un daño fiscal definitivo ya establecido.
 - Las dos versiones sobre bonos no deben mezclarse. Tampoco existe un balance público completo de recuperaciones.
 - Ocho desvinculaciones no equivalen a ocho personas formalizadas. Al 13 de noviembre no se encontró una formalización oficial pública en esta causa.
