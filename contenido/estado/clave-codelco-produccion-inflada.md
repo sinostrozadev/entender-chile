@@ -1,11 +1,11 @@
 FLUJO: clave
 SLUG: codelco-produccion-inflada
 CAMINO: pauta
-ETAPA: pauta_aprobada
+ETAPA: validar_investigacion
 VUELTA: 0
-TURNO: GPT
+TURNO: Claude
 FECHA_PRODUCCION: 2026-11-18
-ACTUALIZADO: 2026-11-13 12:58 (hora de Chile)
+ACTUALIZADO: 2026-11-13 13:05 (hora de Chile)
 PIEZA: investigacion
 PROMPT: prompts/investigacion-clave.md
 ARCHIVO: contenido/claves/flujo/codelco-produccion-inflada/investigacion.md
@@ -22,7 +22,7 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 | Tema elegido | listo | 23:36 | Santiago |
 | Pauta | escrita | 23:59 | Claude |
 | Aprobación (Claude, veto de Santiago) | aprobada | 00:00 | Claude |
-| Investigación | falta |  | GPT, valida Claude |
+| Investigación | por validar | 13:05 | GPT, valida Claude |
 | Entrega escrita | falta |  | GPT, valida Claude |
 | Guion | falta |  | GPT, valida Claude |
 | Video | falta |  | Actions |
