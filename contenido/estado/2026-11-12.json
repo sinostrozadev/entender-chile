@@ -1,10 +1,18 @@
 {
   "fecha": "2026-11-12",
-  "etapa": "validar_informe",
+  "etapa": "reparar_informe",
   "veredicto": "pendiente",
-  "vuelta": 0,
-  "actualizado": "2026-11-12 23:08",
-  "reparar": null,
+  "vuelta": 1,
+  "actualizado": "2026-11-12 23:18",
+  "reparar": {
+    "piezas": [
+      "informe"
+    ],
+    "pieza": "informe",
+    "dueno": "GPT (despachador)",
+    "motivo": "contenido/veredictos/2026-11-12-informe.md",
+    "vuelta": 1
+  },
   "piezas": [
     {
       "id": "barrido",
@@ -36,7 +44,7 @@
       "id": "informe",
       "etiqueta": "Informe",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "reparar",
       "prompt": "prompts/informe.md",
       "hora": "23:08",
       "esperada": "02:40",
