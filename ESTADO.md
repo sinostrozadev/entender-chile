@@ -15,17 +15,19 @@
   con URL y fecha, pauta del largo del 25-11 (recesión técnica por dos centésimas, con plan B).
 - Compuerta del 03-12-2026 en `estrategia/decisiones.md`; skills `despegue` y `revision` al día.
 
+- Render de prueba local del Short de Lago Ranco (50,9 s, 1080x1920, 60 fps): 9 min con `--concurrency=1` en el
+  PC; fotogramas 0, 3, 10, 20 s y final revisados; se corrigieron la deriva del mapa (desplazaba a Chile), el
+  cierre con la marca vieja, el rótulo sin sujeto y la divulgación tapada (esta última, después del render).
+  Copia: `Escritorio\bolita-canciones-preview\EC-short-formato-nuevo.mp4`.
+
 ## Pendiente (en orden)
-1. **Render de prueba local del Short de Lago Ranco**: si no quedó en el Escritorio, desde `video/`:
-   `npx tsx scripts/preparar-grafico.mts ../contenido/semana/2026-11-19/2026-11-20-short-lago-ranco-terreno.json`
-   y `flock -w 3600 /tmp/bolita-render.lock npx remotion render src/index.ts Grafico salida/bandeja/lr.mp4
-   --props=salida/trabajo/2026-11-20-short-lago-ranco-terreno.props.json --concurrency=1`; mirar fotogramas
-   0, 3, 10, 20 s y final.
-2. **JSON del largo del 25-11** con la plantilla `tesis` tras las Cuentas Nacionales del 18-11 08:30
+1. **JSON del largo del 25-11** con la plantilla `tesis` tras las Cuentas Nacionales del 18-11 08:30
    (`contenido/semana/2026-11-19/PAUTA-largo-2026-11-25-recesion-tecnica.md`), más su PEDIDO de carátula.
-3. Shorts del martes 24 y miércoles 25-11 (ranuras sin guion; los escribe la misma sesión que el largo o
+2. Shorts del martes 24 y miércoles 25-11 (ranuras sin guion; los escribe la misma sesión que el largo o
    quedan vacías).
-4. `validar.mts` único (hoy la validación es `verificar-cifras.mts`, que corre el esquema y las cifras; faltan
+3. `validar.mts` único (hoy la validación es `verificar-cifras.mts`, que corre el esquema y las cifras; faltan
    las reglas mecánicas de gancho con sujeto y cifra y de promesa antes de 15 s).
-5. Visual satelital de Línea Punteada (no portado) y validador de cámara (no portado).
-6. Probar `producir.yml` de punta a punta en Actions (solo al fusionar).
+4. Visual satelital de Línea Punteada (no portado) y validador de cámara (no portado).
+5. Probar `producir.yml` de punta a punta en Actions (solo al fusionar).
+6. Remotion avisa que `zod` 3.25 no es la versión que espera; En Números Rojos convive con el mismo aviso. Revisar
+   antes de subir de versión.
