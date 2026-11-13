@@ -12,7 +12,7 @@
   "props": {
     "gancho": {
       "texto": "Congelar las alzas de la bencina y el diésel hasta el 3 de febrero le costaría al fisco unos 550 millones de dólares. Te doy los datos y tú decides si lo harías.",
-      "rotulo": "¿LO CONGELAS?"
+      "rotulo": "¿CONGELAS LA BENCINA?"
     },
     "grafico": {
       "tipo": "barras",
