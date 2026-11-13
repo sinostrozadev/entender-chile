@@ -101,8 +101,8 @@ export const Grafico: React.FC<PropsGrafico> = (props) => {
         </div>
       )}
       <MarcaDeAgua top={S.arriba - 2} right={S.lados} escala={0.85} />
-      {/* Divulgación de contenido sintético (política de YouTube): pequeña y fija, bajo la marca de agua. */}
-      <div style={{ position: 'absolute', top: S.arriba + 44, right: S.lados, fontFamily: TIPO.texto, fontWeight: 600, fontSize: 24, color: PALETA.tintaSuave, opacity: 0.85 }}>Voz sintética</div>
+      {/* Divulgación de contenido sintético (política de YouTube): pequeña y fija bajo el gráfico; arriba la tapaba un rótulo largo (render del 13-11). */}
+      <div style={{ position: 'absolute', top: ZONA_GRAFICO.grafico.y + ZONA_GRAFICO.grafico.alto + 8, left: S.lados, fontFamily: TIPO.texto, fontWeight: 600, fontSize: 24, color: PALETA.tintaSuave, opacity: 0.85 }}>Voz sintética</div>
       {linea && linea.palabras.length > 0 && b.tipo !== 'remate' && (
         <Subtitulos linea={linea} frameLocal={frame - Math.round(linea.inicio * fps)} centroY={ZONA_GRAFICO.subtitulos.centroY} fontSize={T.subtitulos} ancho={W - S.lados * 2}
           acento={enfasis > 0 ? PALETA.rojo : PALETA.dorado} />
