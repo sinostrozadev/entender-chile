@@ -1,7 +1,7 @@
 # Las pérdidas de los fondos D y E de las AFP y la restitución a los afiliados
 Estado: abierto
 Abierto: 2026-11-03
-Última actualización: 2026-11-11
+Última actualización: 2026-11-13
 
 ## Origen
 El Fondo E perdió 10,39% real entre el 01-01-2026 y el 30-09-2026 y el Fondo D cayó 6,3% real; el superintendente de Pensiones cifró en torno a US$10.000 millones las pérdidas de valoración asociadas a la exposición a derivados, y el regulador informó que había levantado alertas desde 2024 (Superintendencia de Pensiones, 20-10-2026; CNN Chile y ADN Radio, 26-10-2026). Esa cifra de valoración no equivale al saldo definitivo de cada afiliado ni a una pérdida realizada idéntica para todos. Importa porque son los ahorros obligatorios de los afiliados y porque de ahí salieron tres vías paralelas: un procedimiento sancionatorio de la Superintendencia contra las siete AFP, una comisión investigadora de la Cámara y un proyecto de ley para que las administradoras restituyan las pérdidas. Ninguna había establecido una sanción al 02-11-2026.
@@ -20,6 +20,7 @@ El Fondo E perdió 10,39% real entre el 01-01-2026 y el 30-09-2026 y el Fondo D 
 - 2026-11-08 | La Corporación Nacional de Consumidores y Usuarios evalúa una acción colectiva por la caída del Fondo E (BioBioChile, 08-11-2026) | diario: 2026-11-09#la-superintendencia-de-pensiones-investiga-la-caida-del | sección: Economía y bolsillo
 - 2026-11-09 | La Superintendencia de Pensiones autoriza a las AFP a recalcular el retiro programado de quienes se pensionaron entre julio y septiembre de 2026, el período marcado por la caída del Fondo E, y la medida corrige el monto mensual de ese retiro; el informe no consigna a cuántas personas alcanza, desde qué mes se aplica ni si el recálculo sube o baja el pago (La Tercera, 09-11-2026) | diario: 2026-11-10#el-regulador-abre-la-opcion-de-recalcular-pensiones | sección: Economía y bolsillo
 - 2026-11-10 | Las AFP reducen parte de sus pérdidas en swaps de tasas después del repunte de los bonos estadounidenses (Bloomberg Línea y Bloomberg, 10-11-2026) | diario: 2026-11-11#las-afp-redujeron-parte-de-sus-perdidas-en-swaps-de-tasas | sección: Además, hoy
+- 2026-11-12 | Una investigación de CIPER calcula en US$10.064 millones las pérdidas de los fondos de pensiones hasta septiembre de 2026 en operaciones de cobertura cambiaria, y atribuye el resultado a decisiones de las AFP y a reglas estatales que permitieron extender posiciones sin atender a sus fechas de vencimiento, con el Banco Central advirtiendo riesgos desde 2024; el universo directamente expuesto incluye a unas 360.000 personas en edad de jubilar y a 85.000 pensionados con retiro programado, y la Superintendencia de Pensiones adoptó medidas en abril de 2026 para acotar esas operaciones (CIPER, 12-11-2026; Cámara de Diputadas y Diputados, informe técnico, 2026) | diario: 2026-11-13#fondos-de-pensiones-perdieron-us-10-064-millones-en | sección: Trabajo y empleo
 
 ## Qué falta por saber
 - ¿Cuándo se vota el boletín 18817-07 y con qué resultado? Al 02-11-2026 no registra votaciones en Sala ni urgencia del Ejecutivo.
@@ -33,6 +34,9 @@ El Fondo E perdió 10,39% real entre el 01-01-2026 y el 30-09-2026 y el Fondo D 
 - ¿Presenta la Corporación Nacional de Consumidores y Usuarios la acción colectiva que evaluaba al 08-11-2026, y contra qué administradoras?
 - ¿A cuántas personas alcanza el recálculo del retiro programado autorizado el 09-11-2026, desde qué mes se aplica y en qué casos sube o baja el pago mensual? El informe del 10-11-2026 no lo consigna.
 - ¿Cuánto de las pérdidas en swaps de tasas recuperan las AFP tras el repunte de los bonos estadounidenses del 10-11-2026, y qué efecto tiene sobre el saldo de los afiliados de los fondos D y E? El informe del 11-11-2026 no entrega montos.
+- ¿Qué parte de los US$10.064 millones que CIPER atribuye a operaciones de cobertura cambiaria hasta septiembre de 2026 corresponde a cada AFP, y cómo se relaciona con la caída de los fondos D y E? El informe del 13-11-2026 da el total y no el desglose.
+- ¿Qué efecto tienen las medidas que la Superintendencia de Pensiones adoptó en abril de 2026 para acotar esas operaciones, y por qué se extendieron posiciones pese a las advertencias del Banco Central desde 2024?
+- ¿Cómo alcanza esa pérdida a las 360.000 personas en edad de jubilar y a los 85.000 pensionados con retiro programado que el informe identifica como universo directamente expuesto?
 
 ## Publicado
 Sin publicaciones al 03-11-2026. La Clave `afp-multifondos-perdidas-fondo-e`, con fecha de producción 2026-10-28, estaba en etapa de paneles al 03-11-2026.

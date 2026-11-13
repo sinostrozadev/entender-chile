@@ -1,7 +1,7 @@
 # La agenda laboral del Gobierno: adaptabilidad y Empleo 360
 Estado: abierto
 Abierto: 2026-11-08
-Última actualización: 2026-11-11
+Última actualización: 2026-11-13
 
 ## Origen
 El asunto aparece dos días seguidos en los informes del canal: el 06-11-2026 por Empleo 360, que abrió una línea de intermediación y capacitación laboral, y el 07-11-2026 porque el Gobierno reunió diez propuestas de adaptabilidad laboral, entre ellas contratos por hora, la distribución promedio de 40 horas en ciclos de hasta 16 semanas, jornadas especiales para turismo, trabajo híbrido, bandas horarias y cambios a los contratos de aprendizaje (Sence y Atacama Noticias, 06-11-2026; Emol, Mi Radio, Radio Maray y MargaMargaTV, 07-11-2026). Importa porque cambia las reglas de la jornada y del contrato de trabajo, y porque nada de eso rige todavía: varias medidas requieren proyectos de ley y tramitación parlamentaria, y la jornada ordinaria vigente bajó a 42 horas semanales el 26-06-2026. El programa Empleo 360 corre en paralelo, con recursos ya existentes y una meta de política que no es un resultado asegurado.
@@ -12,9 +12,11 @@ El asunto aparece dos días seguidos en los informes del canal: el 06-11-2026 po
 - 2026-11-07 | El Gobierno fija el diseño de Empleo 360: funcionará en las 16 regiones mediante ciclos de 90 días con programas y recursos ya existentes, el primer ciclo regional está previsto entre el 01-01-2027 y el 31-01-2027 sin día definido, los reportes de resultados se esperan entre el 01-07-2027 y el 31-12-2027 y la meta de reducir la desocupación a 6,5% es un objetivo de política y no un resultado asegurado (Gobierno de Chile, Ministerio del Trabajo y Sence, 07-11-2026) | diario: 2026-11-08#diez-medidas-laborales-abren-una-discusion-sobre | sección: Trabajo
 - 2026-11-09 | Los avisos de ofertas laborales caen 12,6% en doce meses según el radar publicado por CIPER, un indicador que anticipa menos vacantes disponibles y no reemplaza la tasa de desocupación del INE, mientras el ministro del Trabajo fija como meta llevar el desempleo a 6,5%, un objetivo político medible que se verificará cada mes con la encuesta nacional de empleo del INE (CIPER y ADN Radio, 09-11-2026) | diario: 2026-11-10#las-ofertas-laborales-caen-mientras-el-gobierno-fija-una | sección: Trabajo y pensiones
 - 2026-11-10 | Una feria laboral organizada por INACAP y la CPC reúne unas 27.000 ofertas de 1.300 empresas en todo Chile; las vacantes corresponden a postulaciones disponibles y no a contratos ya firmados (INACAP, Paislobo y Nostálgica, 10-11-2026) | diario: 2026-11-11#una-feria-laboral-abre-27-000-ofertas-en-todo-chile | sección: Trabajo y empleo
+- 2026-11-11 | La Comisión de Trabajo del Senado aprueba en general, por 3 votos contra 2, el proyecto que crea el contrato por horas, una de las diez medidas de adaptabilidad laboral presentadas el 07-11-2026: el plazo para presentar indicaciones vence el 24-11-2026 a las 12:00 y después continúa la discusión particular, de modo que el contrato por horas todavía no es una regla vigente (Senado de Chile, 11-11-2026) | diario: 2026-11-13#comision-del-senado-aprueba-en-general-el-contrato-por-horas | sección: Trabajo y empleo
+- 2026-11-12 | El Gobierno proyecta que el turismo sumará 14.000 puestos de trabajo durante la temporada 2026-2027, una estimación presentada como parte de la preparación del empleo estacional del verano y no un registro de contratos firmados (La Tercera, 12-11-2026) | diario: 2026-11-13#gobierno-proyecta-14-000-empleos-adicionales-en-turismo-para | sección: Trabajo y empleo
 
 ## Qué falta por saber
-- ¿Cuáles de las diez medidas necesitan ley, en qué boletines se traducen y cuándo ingresan al Congreso? El informe del 08-11-2026 dice que varias requieren tramitación y no identifica los proyectos.
+- ¿Cuáles de las diez medidas necesitan ley, en qué boletines se traducen y cuándo ingresan al Congreso? El informe del 08-11-2026 dice que varias requieren tramitación y no identifica los proyectos. Respondida en parte: el contrato por horas está en trámite y la Comisión de Trabajo del Senado lo aprobó en general el 11-11-2026, sin que el repo consigne su boletín.
 - ¿Cómo convive el contrato por hora, con su máximo de 30 horas semanales o 120 mensuales, con la jornada ordinaria de 42 horas vigente desde el 26-06-2026? El límite propuesto equivale al 71,4% de esa jornada y deja una diferencia de 12 horas a la semana.
 - ¿Quedan efectivamente cubiertas las cotizaciones previsionales, el seguro de cesantía, la salud y el acceso a la justicia laboral en el contrato por hora? Al 08-11-2026 eso es lo que afirma el Ministerio del Trabajo y no consta en una norma aprobada.
 - ¿Qué programas y recursos ya existentes usa Empleo 360, y con qué presupuesto por región? No consta en los informes del repo.
@@ -22,6 +24,8 @@ El asunto aparece dos días seguidos en los informes del canal: el 06-11-2026 po
 - ¿Qué dicen los sindicatos y los empleadores sobre las diez medidas? No consta en los informes del repo.
 - ¿Cómo convive la meta de desocupación de 6,5% con la caída de 12,6% en los avisos de ofertas laborales medida por CIPER al 09-11-2026, y qué dice el INE en sus encuestas mensuales desde entonces?
 - ¿Cuántas de las 27.000 ofertas de la feria de INACAP y la CPC del 10-11-2026 terminan en contratos firmados? Son postulaciones disponibles y el repo no registra el resultado.
+- ¿Aprueba el Senado el contrato por horas en particular después de que venza el plazo de indicaciones el 24-11-2026 a las 12:00, y con qué cambios sobre el máximo de 30 horas semanales o 120 mensuales?
+- ¿Cuántos de los 14.000 empleos que el Gobierno proyecta en turismo para la temporada 2026-2027 se traducen en contratos, y con qué jornada? Es una estimación y el repo no registra el resultado.
 
 ## Publicado
 Sin publicaciones al 08-11-2026.

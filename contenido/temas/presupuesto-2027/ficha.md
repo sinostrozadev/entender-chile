@@ -1,7 +1,7 @@
 # La tramitación del Presupuesto 2027
 Estado: abierto
 Abierto: 2026-11-03
-Última actualización: 2026-11-11
+Última actualización: 2026-11-13
 
 ## Origen
 El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro en los informes del canal es del 26-10-2026, cuando Hacienda abrió conversaciones para destrabarlo y los rectores de las universidades estatales objetaron partidas (Diario Financiero, La Tercera, Radio Universidad de Chile y Universidad de Chile, 26-10-2026). Importa porque de esas partidas depende el gasto público del año siguiente y porque la discusión quedó cruzada por la controversia sobre el ministro de Justicia, Fernando Rabat: la oposición anunció que buscará rechazar la glosa de Justicia. El 02-11-2026 la Comisión Especial Mixta inició la votación con más de 3.800 indicaciones (La Tercera, Radio Universidad de Chile y Publimicro, 02-11-2026).
@@ -28,6 +28,9 @@ El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro e
 - 2026-11-10 | La Cámara rechaza la partida del Ministerio del Interior del Presupuesto 2027 después de críticas a las reducciones para Senapred, la Subdere y el programa de Tenencia Responsable; el rechazo no elimina esos organismos ni fija el monto final, porque la partida sigue su tramitación presupuestaria (Cámara de Diputadas y Diputados, La Tercera y Radio Universidad de Chile, 10-11-2026) | diario: 2026-11-11#la-camara-rechaza-la-partida-de-interior-por-recortes-a | sección: Política
 - 2026-11-10 | Funcionarios de Sernapesca advierten que el recorte presupuestario propuesto puede disminuir inspecciones y controles sobre pesca y acuicultura; la advertencia corresponde a la evaluación de los trabajadores del servicio y ocurre durante la tramitación del Presupuesto 2027 (CIPER, 10-11-2026) | diario: 2026-11-11#sernapesca-advierte-que-los-recortes-reducirian-su | sección: Vivienda y ciudad
 - 2026-11-10 | La Confusam acude al Congreso para pedir mayor financiamiento de la atención primaria en el Presupuesto 2027 (La Tercera y El Informador Chile, 10-11-2026) | diario: 2026-11-11#la-confusam-acudio-al-congreso-para-pedir-mayor | sección: Además, hoy
+- 2026-11-12 | La Cámara aprueba la partida del Ministerio del Trabajo del Presupuesto 2027 en medio de críticas por recortes a subsidios al empleo y a programas del Sence, y la discusión sigue en el Senado (Radio Universidad de Chile y Cámara de Diputadas y Diputados, 12-11-2026) | diario: 2026-11-13#camara-aprueba-partida-de-trabajo-del-presupuesto-2027 | sección: Trabajo y empleo
+- 2026-11-12 | El Ministerio de Salud obtiene la aprobación de su partida presupuestaria, que incluye recursos para la Ley Ricarte Soto (Cámara de Diputadas y Diputados, 12-11-2026) | diario: 2026-11-13#el-ministerio-de-salud-obtuvo-la-aprobacion-de-su-partida | sección: Además, hoy
+- 2026-11-12 | El Gobierno anuncia la reposición del programa Yo Elijo Mi PC para estudiantes: el informe del 12-11-2026 había consignado ese compromiso cuando la Cámara rechazó la partida de Educación del Presupuesto 2027, y el del 13-11-2026 no precisa monto ni partida (Araucanía Noticias Temuco, 12-11-2026) | diario: 2026-11-13#el-gobierno-anuncio-la-reposicion-del-programa-yo-elijo-mi | sección: Además, hoy
 
 ## Qué falta por saber
 - ¿Cuándo ingresó el proyecto y cuál es el gasto total propuesto? No consta en los informes del repo.
@@ -48,6 +51,8 @@ El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro e
 - ¿Se repone la partida del Ministerio del Interior que la Cámara rechazó el 10-11-2026, y qué recursos quedan para Senapred, la Subdere y el programa de Tenencia Responsable?
 - ¿Qué presupuesto final queda para la fiscalización de Sernapesca, después de la advertencia de sus funcionarios del 10-11-2026 sobre menos inspecciones en pesca y acuicultura?
 - ¿Cambia el financiamiento de la atención primaria que la Confusam fue a pedir al Congreso el 10-11-2026, y con qué monto?
+- ¿Repone el Senado los recortes a subsidios al empleo y a programas del Sence criticados cuando la Cámara aprobó la partida de Trabajo el 12-11-2026?
+- ¿Con cuántos recursos queda la Ley Ricarte Soto en la partida de Salud aprobada el 12-11-2026? El informe no consigna el monto.
 
 ## Publicado
 Sin publicaciones al 03-11-2026.

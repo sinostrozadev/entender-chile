@@ -1,7 +1,7 @@
 # La ruta comercial de Punta Arenas a las Malvinas y la reacción argentina
 Estado: abierto
 Abierto: 2026-11-03
-Última actualización: 2026-11-11
+Última actualización: 2026-11-13
 
 ## Origen
 El 28-10-2026 los informes del canal registraron pedidos de anticipación diplomática frente a Argentina por una posible interceptación de un buque chileno rumbo a las islas Malvinas, versión que no tuvo confirmación oficial (Canal 9 Bío Bío Televisión y G5noticias, 28-10-2026). El 30-10-2026 el buque Danstar zarpó de Valparaíso hacia Magallanes antes de abrir en diciembre de 2026 la ruta comercial entre Punta Arenas y las islas Malvinas (24 Horas, Ushuaia 24 y Radio Universidad de Chile, 30-10-2026). Importa porque una ruta comercial chilena hacia un territorio en disputa entre Argentina y el Reino Unido toca la relación con Buenos Aires, y porque el Gobierno y la Cancillería tuvieron que fijar posición en cuatro días seguidos.
@@ -16,6 +16,7 @@ El 28-10-2026 los informes del canal registraron pedidos de anticipación diplom
 - 2026-11-05 | La jueza chilena María Teresa Infante participará, ante el Tribunal Internacional del Derecho del Mar, en la revisión de una presentación argentina vinculada con las islas Malvinas, una decisión que puede fijar criterios sobre navegación marítima aplicables también a Chile (Ex-Ante, 05-11-2026) | diario: 2026-11-06#una-jueza-chilena-revisara-el-recurso-argentino-por-las | sección: Resumen internacional
 - 2026-11-05 | Un proyecto de una diputada argentina propone decomisar embarcaciones que abastezcan a las islas Malvinas (Infobae, 05-11-2026) | diario: 2026-11-06#un-proyecto-de-una-diputada-argentina-propone-decomisar | sección: Además, hoy
 - 2026-11-10 | Argentina pide al Tribunal Internacional del Derecho del Mar frenar el proyecto petrolero Sea Lion en las islas Malvinas (Perfil, Diario Popular y DataClave, 10-11-2026) | diario: 2026-11-11#argentina-pidio-al-tribunal-internacional-del-derecho-del | sección: Además, hoy
+- 2026-11-12 | El Gobierno argentino advierte posibles consecuencias penales para el director ejecutivo de una petrolera británica por actividades de exploración en las islas Malvinas, con lo que la disputa pasa de la vía internacional a una amenaza de persecución penal contra una persona determinada (La Tercera, 12-11-2026) | diario: 2026-11-13#argentina-eleva-la-disputa-por-perforaciones-petroleras-en | sección: Resumen internacional
 
 ## Qué falta por saber
 - ¿Quién opera la ruta, con qué autorizaciones y en qué fecha exacta de diciembre de 2026 parte? No consta en los informes del repo.
@@ -25,6 +26,8 @@ El 28-10-2026 los informes del canal registraron pedidos de anticipación diplom
 - ¿Qué resuelve el Tribunal Internacional del Derecho del Mar sobre la presentación argentina, y en qué fecha? La jueza chilena María Teresa Infante participa en su revisión desde el 05-11-2026.
 - ¿Avanza en el Congreso argentino el proyecto que propone decomisar embarcaciones que abastezcan a las Malvinas, y alcanzaría a la ruta desde Punta Arenas?
 - ¿Qué resuelve el Tribunal Internacional del Derecho del Mar sobre la solicitud argentina del 10-11-2026 contra el proyecto petrolero Sea Lion, y alcanza esa decisión a la ruta comercial desde Punta Arenas?
+- ¿Formaliza Argentina alguna acción penal contra el director ejecutivo de la petrolera británica que advirtió el 12-11-2026, y ante qué tribunal? Una advertencia no es una imputación.
+- ¿Qué resuelve el Tribunal Internacional del Derecho del Mar sobre la solicitud argentina de frenar el proyecto Sea Lion, presentada el 10-11-2026?
 
 ## Publicado
 Sin publicaciones al 03-11-2026.
