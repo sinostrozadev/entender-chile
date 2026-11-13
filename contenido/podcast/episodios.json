@@ -744,5 +744,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-11-informe.mp3",
     "bytes": 5926464,
     "durSeg": 247
+  },
+  {
+    "fecha": "2026-11-12",
+    "tipo": "informe",
+    "titulo": "12-11-2026 · Camioneros mantienen el paro y el Gobierno congela los combustibles",
+    "descripcion": "Los camioneros mantienen el paro mientras el Gobierno anuncia un congelamiento de los combustibles y sigue negociando el despeje de las rutas. Hacienda reconoce que Chile entró en recesión técnica y el norte enfrenta alertas rojas por calor extremo. La jornada también incluye la nueva infraestructura de Amazon Web Services, la discusión por Codelco y el rechazo de la partida de Educación.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-12/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-12-informe.mp3",
+    "bytes": 5338368,
+    "durSeg": 222
   }
 ]
