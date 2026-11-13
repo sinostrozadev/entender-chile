@@ -1,1 +1,1 @@
-2026-11-12 validar_guion_informe 1 7ef0c138
+2026-11-13 validar_preseleccion 0 23b2387f
