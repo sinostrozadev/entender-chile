@@ -1,0 +1,10 @@
+node_modules/
+.remotion/
+*.log
+# Voz, audio, fotos y recortes satelitales se regeneran con preparar-* (caché local, pesan mucho).
+public/voz/
+public/audio/generado/
+public/imagenes/
+public/mapas/
+# Salida de render y archivos de trabajo (props resueltos): se regeneran.
+salida/
