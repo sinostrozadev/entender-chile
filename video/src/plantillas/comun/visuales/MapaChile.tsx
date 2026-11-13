@@ -43,13 +43,15 @@ export const MapaChile: React.FC<{ v: VisualChile; ancho: number; alto: number; 
   const deriva = 1 + 0.015 * Math.sin(t / 2.1);
   const pie = 44;
   const proy = geoMercator().fitExtent([[24, 24 + (v.titulo ? 70 : 0)], [ancho - 24, alto - pie - 12]], { type: 'MultiPoint', coordinates: [caja[0], caja[1], [caja[0][0], caja[1][1]], [caja[1][0], caja[0][1]]] } as never);
-  proy.scale(proy.scale() * deriva);
   const ruta = geoPath(proy);
   const dibujo = clamp01(frame / (0.9 * fps));
   return (
     <div style={{ position: 'relative', width: ancho, height: alto }}>
       <svg width={ancho} height={alto} style={{ position: 'absolute', inset: 0 }}>
         <rect x={0} y={0} width={ancho} height={alto} fill="#0B1524" rx={18} />
+        {/* La deriva va como transformación del dibujo y NO como escala de la proyección: escalar la proyección la
+            agranda alrededor de lon 0, lat 0 y, con el mapa acercado, desplaza a Chile cientos de px (fotograma del 13-11). */}
+        <g transform={`translate(${ancho / 2} ${alto / 2}) scale(${deriva}) translate(${-ancho / 2} ${-alto / 2})`}>
         {REGIONES.map((r) => {
           const k = destacadas.indexOf(r.properties.codigo as never);
           const enc = k >= 0 ? clamp01((frame - (0.4 + 0.25 * k) * fps) / (0.5 * fps)) : 0;
@@ -87,6 +89,7 @@ export const MapaChile: React.FC<{ v: VisualChile; ancho: number; alto: number; 
             </g>
           );
         })}
+        </g>
       </svg>
       {v.titulo && (
         <div style={{ position: 'absolute', left: 28, top: 22, right: 28, fontFamily: TIPO.texto, fontWeight: 800, fontSize: 46, color: PALETA.tinta }}>{v.titulo}</div>
