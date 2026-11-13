@@ -2,11 +2,11 @@
   "flujo": "clave",
   "slug": "codelco-produccion-inflada",
   "camino": "pauta",
-  "etapa": "reparar_entrega",
+  "etapa": "validar_entrega",
   "vuelta": 1,
-  "turno": "GPT",
+  "turno": "Claude",
   "fecha_produccion": "2026-11-18",
-  "actualizado": "2026-11-13 13:27",
+  "actualizado": "2026-11-13 13:30",
   "concepto": "La producción inflada de Codelco: 42.100 toneladas registradas sin producción efectiva",
   "pieza": {
     "id": "entrega",
@@ -27,7 +27,7 @@
     },
     {
       "id": "entrega",
-      "situacion": "reparar",
+      "situacion": "por_validar",
       "archivo": "contenido/claves/2026-11-18-codelco-produccion-inflada.md"
     },
     {
