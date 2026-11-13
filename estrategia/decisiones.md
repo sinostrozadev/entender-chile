@@ -1158,3 +1158,62 @@ la cifra más fuerte en la primera frase y la promesa concreta antes de los 15 s
 (`prompts/guion-claves.md`). **Qué se mide**: CTR de la carátula nueva contra
 0,56 % y retención a los 30 s contra el piloto; si no mejora, se reevalúa la
 fórmula, no el flujo. **Decidió**: Claude, por el mandato del 04-11-2026.
+
+## 2026-11-13 - Estrategia A, "Chile en mapas y datos", con compuerta al día 14
+
+**Qué**: Santiago aprobó la Estrategia A de `estrategia/propuesta-2026-11.md`
+y pidió limpiar y simplificar el repo. Desde el jueves **19-11-2026**: un
+Short diario de 45 a 60 s a las 12:00 y un largo semanal de 10 a 12 min los
+miércoles a las 19:00, ambos con mapa o gráfico en movimiento desde el primer
+segundo, hechos con las plantillas de En Números Rojos y Línea Punteada
+(`video/`), voz es-CL Lorenzo por Edge TTS (Azure queda de respaldo) y un
+flujo de 3 pasos (`docs/FLUJO.md`) que reemplaza la cadena diaria. Se pausa el
+carril escrito (informe diario de GPT, validación por pieza, podcast) y se
+retira "Entender el caso" con su mural. Inventario y motivos de lo retirado:
+`estrategia/limpieza-2026-11.md`. El largo de Codelco del 18-11-2026 sale con
+el formato viejo y **no cuenta** para la evaluación.
+
+**Por qué**: el producto principal era un resumen de noticias estático (texto
+sobre fondo fijo, 12,6 s de texto inmóvil por Short), con mediana de 48 vistas
+y 0,63 suscriptores por día que no se movieron en 75 días, y una fábrica de
+15 workflows y ~14 rutinas para producirlo. La A ataca la causa medida con
+piezas que Santiago ya aprobó en otros canales y baja el gasto de cupo de 50 a
+70 sesiones Opus por semana a unas 4 a 6.
+
+**Decidió**: Santiago (aprobación de la propuesta, 13-11-2026).
+
+### Compuerta del día 14
+
+**Fecha de evaluación: jueves 03-12-2026**, en la revisión semanal del plan
+de las 17:30 (`prompts/plan-semanal.md` §0 y §1), con los datos de
+`bitacora/metricas/` de ese día. Evaluación intermedia a los 7 días, el
+jueves 26-11-2026, solo informativa. Se miden las piezas del formato nuevo
+publicadas desde el 19-11-2026; las vistas de un Short se toman a 72 h de su
+publicación.
+
+| # | Criterio | Línea base | Meta a 7 días (26-11) | **Meta a 14 días (03-12)** |
+|---|---|---|---|---|
+| 1 | Mediana de vistas de los Shorts nuevos, a 72 h | 48 | ≥ 150 | **≥ 300** |
+| 2 | Shorts nuevos sobre 1.000 vistas | 3 de 148 | ≥ 1 | **≥ 2** |
+| 3 | % visto mediano de los Shorts nuevos | 69,5 % | ≥ 70 % | **≥ 75 %** |
+| 4 | CTR de la carátula del largo del 25-11, a 72 h | 0,56 % | ≥ 3 % | **≥ 4 %** |
+| 5 | Retención del largo del 25-11 a los 30 s | ~48 % | ≥ 60 % | **≥ 60 %** |
+| 6 | Vistas del largo del 25-11 | 45 | ≥ 300 (a 7 días) | **≥ 800** |
+| 7 | Suscriptores por día, promedio de 7 días móviles | 0,63 | ≥ 1,5 | **≥ 3** |
+
+**Regla de decisión (03-12-2026)**:
+- **4 o más** de 7 criterios a 14 días cumplidos: **SEGUIR** con A y duplicar
+  lo que pegó.
+- **2 o 3**: **AJUSTAR**, una semana más con el ajuste que diga el dato, y se
+  vuelve a evaluar el jueves 10-12-2026 con la misma tabla.
+- **0 o 1**: **CERRAR** la producción de video de Entender Chile (Estrategia
+  C2): no se publican más piezas, el canal queda publicado, se apagan las
+  tres rutinas y `producir.yml`, y el cupo pasa a Línea Punteada y En Números
+  Rojos. Se le informa a Santiago con estos números el mismo día.
+
+La revisión semanal escribe la decisión en la primera línea de su archivo
+(`DECISIÓN: SEGUIR | AJUSTAR | CERRAR`) y el plan semanal la obedece. Un
+criterio sin dato (por ejemplo, Analytics que no entrega la retención) cuenta
+como no cumplido, y se dice. Esta compuerta adelanta y endurece el criterio de
+cierre del 31-01-2027 de la decisión "El despegue", que queda como segunda
+revisión si la A sigue.
