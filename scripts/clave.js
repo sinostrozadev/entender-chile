@@ -110,10 +110,10 @@ const temaDelRanking = (semana, cand) => {
 // `ahora` es parámetro y no una llamada fija al reloj para que el Taller pueda
 // fijarlo (y para que una prueba pueda comparar dos textos sin que la hora los
 // separe).
-const contenidoTema = ({ slug, concepto, noticia = "", origen = "", cabecera = "", cuerpo = "", ahora = hoyChile() }) =>
+const contenidoTema = ({ slug, concepto, noticia = "", origen = "", cabecera = "", cuerpo = "", ahora = hoyChile(), por = "Santiago" }) =>
   `CONCEPTO: ${concepto}\nNOTICIA: ${noticia || ""}\nORIGEN: ${origen || ""}\n${cabecera}`
-  + `ELEGIDO: ${ahora} (hora de Chile), por Santiago\n${cuerpo}`
-  + `\nTema elegido por Santiago para una Clave (CLAVE 4, flujo propio). Desde el\n27-09-2026: Claude escribe la PAUTA (prompts/pauta-clave.md) con todo lo que el\nvideo debe tocar; Santiago la aprueba con scripts/clave.js aprobar ${slug} y\nrecién entonces GPT investiga y escribe.\n`;
+  + `ELEGIDO: ${ahora} (hora de Chile), por ${por}\n${cuerpo}`
+  + `\nTema elegido por ${por} para una Clave (CLAVE 4, flujo propio). Desde el\n27-09-2026: Claude escribe la PAUTA (prompts/pauta-clave.md) con todo lo que el\nvideo debe tocar; se aprueba con scripts/clave.js aprobar ${slug} y\nrecién entonces GPT investiga y escribe. Desde el 12-11-2026 elige y aprueba\nClaude y Santiago solo tiene veto (ver vetoDe).\n`;
 
 // El tema.md completo de un candidato del ranking: lo que escribe
 // `elegir <slug> --candidato n` y lo que lleva el botón "Elegir este tema".
@@ -170,9 +170,31 @@ const temaDeFicha = (slugTema, opciones = {}, raiz = RAIZ) => {
       slug: opciones.slug || slugTema, concepto: titulo, noticia, origen: abierto,
       cabecera: `TEMA: ${rutaFicha}\nFORMATO: diario\n`,
       cuerpo: origen ? `\n## Origen (de la ficha del tema)\n\n${origen}\n` : "",
-      ahora: opciones.ahora,
+      ahora: opciones.ahora, por: opciones.por,
     }),
   };
+};
+
+
+// --- el veto de Santiago (regla del 12-11-2026: Claude elige y aprueba, él veta) ---
+// Un archivo, una línea: crear contenido/estado/veto-clave.txt (frena la Clave
+// en curso y impide elegir otra) o contenido/claves/flujo/<slug>/veto.txt (frena
+// solo esa). Vale en cualquier etapa hasta que el video se renderiza. Borrar el
+// archivo reanuda. Antes de VETO_HASTA (12 h tras la aprobación de Claude) GPT ni
+// siquiera arranca, para que un veto temprano no gaste cuota de nadie.
+const VETO_GLOBAL = "contenido/estado/veto-clave.txt";
+const VENTANA_VETO_HORAS = 12;
+const vetoDe = (slug, raiz = RAIZ) => {
+  const globalV = path.join(raiz, VETO_GLOBAL), flujoV = slug ? path.join(raiz, "contenido/claves/flujo", slug, "veto.txt") : null;
+  if (fs.existsSync(globalV)) return VETO_GLOBAL;
+  if (flujoV && fs.existsSync(flujoV)) return `contenido/claves/flujo/${slug}/veto.txt`;
+  return null;
+};
+// "AAAA-MM-DD HH:MM" (hora de Chile) más n horas, sin zonas: se opera como reloj de pared.
+const sumarHoras = (ahora, n) => {
+  const d = new Date(`${ahora.slice(0, 10)}T${ahora.slice(11, 16)}:00Z`);
+  d.setUTCHours(d.getUTCHours() + n);
+  return d.toISOString().slice(0, 10) + " " + d.toISOString().slice(11, 16);
 };
 
 // La Clave de la semana sale el MIÉRCOLES: sin fecha, el próximo miércoles.
@@ -205,9 +227,12 @@ const caminoDe = (slug, raiz = RAIZ) => {
 // Las dos decisiones sobre la pauta (`APROBADA: fecha` y `CAMBIAR: nota`).
 // El Taller y la Bandeja todavía pasan un tercer argumento con el camino;
 // se ignora, porque el único camino es la pauta.
-const contenidoAprobacion = (fecha, ahora = hoyChile()) =>
-  `APROBADA: ${fecha}\nAPROBO: Santiago, ${ahora} (hora de Chile)\n\n`
-  + `Aprobada la PAUTA: GPT ya puede trabajar. Investiga con fuentes\n(investigacion.md) y después escribe la entrega y el guion, que llevan la\nfecha ${fecha}; el video sube programado ese día a la hora de la Clave.\n`;
+const contenidoAprobacion = (fecha, ahora = hoyChile(), por = "Santiago", motivo = "") =>
+  `APROBADA: ${fecha}\nAPROBO: ${por}, ${ahora} (hora de Chile)\n`
+  + (por !== "Claude" ? "" : `VETO_HASTA: ${sumarHoras(ahora, VENTANA_VETO_HORAS)} (hora de Chile)\n`)
+  + (motivo ? `MOTIVO: ${motivo}\n` : "")
+  + `\nAprobada la PAUTA: GPT ya puede trabajar. Investiga con fuentes\n(investigacion.md) y después escribe la entrega y el guion, que llevan la\nfecha ${fecha}; el video sube programado ese día a la hora de la Clave.\n`
+  + (por !== "Claude" ? "" : `\nAprobó Claude por la regla del 12-11-2026 (Claude aprueba, Santiago veta). Hasta\nVETO_HASTA GPT no se mueve; el veto (${VETO_GLOBAL} o <flujo>/veto.txt) frena el\nflujo en cualquier etapa, hasta el render.\n`);
 
 const contenidoCambio = (nota, ahora = hoyChile()) =>
   `CAMBIAR: ${nota}\nPIDIO: Santiago, ${ahora} (hora de Chile)\n\n`
@@ -216,7 +241,7 @@ const contenidoCambio = (nota, ahora = hoyChile()) =>
 module.exports = {
   hoyChile, ddmm, semanasDisponibles, ultimaSemana, leerCandidatos, temaDelRanking,
   contenidoTema, temaDeCandidato, temaDeFicha, seccionDe, proximoMiercoles, contenidoAprobacion, contenidoCambio,
-  caminoDe, CORTE_PAUTA,
+  caminoDe, CORTE_PAUTA, vetoDe, VETO_GLOBAL, VENTANA_VETO_HORAS, sumarHoras,
 };
 
 // --- la orden de la consola -------------------------------------------------
@@ -226,6 +251,16 @@ if (require.main === module) {
   const args = process.argv.slice(2);
   const orden = args[0], slug = args[1];
   const opt = (n) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : null; };
+  // Desde el 12-11-2026 elige y aprueba Claude (--por claude, con --motivo) y
+  // Santiago solo veta. Con veto puesto, Claude no elige ni aprueba nada.
+  const porClaude = (opt("--por") || "").toLowerCase() === "claude";
+  const por = porClaude ? "Claude" : "Santiago";
+  const motivo = opt("--motivo") || "";
+  if (porClaude && (orden === "elegir" || orden === "aprobar")) {
+    const v = vetoDe(orden === "aprobar" ? slug : null);
+    if (v) { console.error(`VETO de Santiago puesto (${v}): Claude no ${orden === "elegir" ? "elige" : "aprueba"} hasta que lo borre.`); process.exit(3); }
+    if (!motivo) { console.error("--por claude exige --motivo \"por qué\": criterios cumplidos y por qué este tema y no los otros"); process.exit(2); }
+  }
 
   if (orden === "listar") {
     const semana = opt("--semana") || ultimaSemana();
@@ -278,7 +313,7 @@ if (require.main === module) {
     if (opt("--tema-de")) {
       const slugTema = opt("--tema-de");
       if (!/^[a-z0-9-]+$/.test(slugTema)) { console.error("--tema-de lleva el slug del tema, en minúsculas y con guiones"); process.exit(2); }
-      const armado = temaDeFicha(slugTema, { slug });
+      const armado = temaDeFicha(slugTema, { slug, por });
       if (!armado) { console.error(`no hay ficha en contenido/temas/${slugTema}/ficha.md`); process.exit(2); }
       md = armado.contenido;
       // La propuesta abierta del tema se cierra al elegirlo: se archiva con su
@@ -301,6 +336,7 @@ if (require.main === module) {
       const semana = opt("--semana") || ultimaSemana();
       if (!semana) { console.error("no hay ninguna semana con candidatos; corre scripts/semana.js y prompts/tema-semana.md"); process.exit(2); }
       const armado = temaDeCandidato(semana, opt("--candidato"), { slug, concepto, noticia });
+      if (armado) armado.contenido = armado.contenido.replace(/por Santiago\n/, `por ${por}\n`);
       if (!armado) { console.error(`no hay candidato ${opt("--candidato")} en la semana ${semana}`); process.exit(2); }
       md = armado.contenido;
     } else {
@@ -309,7 +345,12 @@ if (require.main === module) {
     }
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, "tema.md"), md);
-    commit(`clave ${slug}: tema elegido por Santiago`, [`contenido/claves/flujo/${slug}/tema.md`, ...extra]);
+    // El porqué de la elección queda escrito (criterios en prompts/eleccion-clave.md)
+    if (porClaude) {
+      fs.writeFileSync(path.join(dir, "eleccion.md"), `ELEGIDO: ${hoyChile()} (hora de Chile), por Claude\n\n${motivo}\n\nVeto de Santiago: crear ${VETO_GLOBAL} (frena esta y cualquier Clave) o contenido/claves/flujo/${slug}/veto.txt (solo esta).\n`);
+      extra.push(`contenido/claves/flujo/${slug}/eleccion.md`);
+    }
+    commit(`clave ${slug}: tema elegido por ${por}`, [`contenido/claves/flujo/${slug}/tema.md`, ...extra]);
   } else if (orden === "aprobar" || orden === "cambiar") {
     // un flujo del camino retirado no tiene quién lo atienda: escribirle una
     // aprobación lo dejaría en una etapa que estado-clave.js ya no calcula
@@ -319,8 +360,8 @@ if (require.main === module) {
       // el flujo en una etapa que ningún archivo sostiene
       if (!fs.existsSync(path.join(dir, "pauta.md"))) { console.error(`no hay pauta que aprobar en ${dir}`); process.exit(2); }
       const fecha = opt("--fecha") || proximoMiercoles();
-      fs.writeFileSync(path.join(dir, "aprobacion.md"), contenidoAprobacion(fecha, hoyChile()));
-      commit(`clave ${slug}: pauta aprobada por Santiago, sale el ${fecha}`, `contenido/claves/flujo/${slug}/aprobacion.md`);
+      fs.writeFileSync(path.join(dir, "aprobacion.md"), contenidoAprobacion(fecha, hoyChile(), por, motivo));
+      commit(`clave ${slug}: pauta aprobada por ${por}, sale el ${fecha}`, `contenido/claves/flujo/${slug}/aprobacion.md`);
     } else {
       const nota = opt("--nota"); if (!nota) { console.error("falta --nota"); process.exit(2); }
       fs.writeFileSync(path.join(dir, "aprobacion.md"), contenidoCambio(nota, hoyChile()));

@@ -1112,3 +1112,49 @@ revertir nada, pero es el mejor Short de la última semana. Se vuelve a medir el
 16-11-2026: si al menos dos Shorts extranjeros más pasan las 300 vistas, la
 decisión del 07-11-2026 se revisa con los números a la vista. **Decidió**:
 Claude, por el mandato del 04-11-2026.
+
+## 2026-11-12 - "Entender el caso": Claude elige y aprueba, Santiago solo veta
+
+**Qué**: la elección del tema del largo y la aprobación de su pauta pasan de
+Santiago a Claude. Santiago conserva el **veto**: crear el archivo
+`contenido/estado/veto-clave.txt` (o `contenido/claves/flujo/<slug>/veto.txt`
+para una sola) frena la Clave en curso en cualquier etapa hasta el render y
+mientras exista Claude no elige otra; borrarlo reanuda. Antes del `VETO_HASTA`
+(12 horas tras la aprobación) GPT ni siquiera arranca. Cadencia: **una por
+semana**, elegida de jueves a sábado para salir el miércoles siguiente; no sube a
+dos hasta que un largo pase las 1.000 vistas en 7 días dos semanas seguidas. El
+Short diario no se toca. Criterios por escrito en `prompts/eleccion-clave.md`
+(cifra oficial verificable, vigencia, potencial de búsqueda, piso de rigor y
+monetización, no política partidista sin ángulo explicativo); cada elección deja
+su porqué en `contenido/claves/flujo/<slug>/eleccion.md`.
+
+**Por qué**: el flujo se detenía en dos puntos que dependían de Santiago
+(cerrar la propuesta y aprobar la pauta) y 7 propuestas quedaron sin consumir del
+05 al 11-11-2026; el largo es la apuesta de horas de reproducción y un flujo
+parado no mide nada. El mandato del 04-11-2026 ya le daba esta decisión a Claude
+y Santiago autorizó destrabarlo ("sí", 12-11-2026).
+
+**Qué se cambió**: `scripts/clave.js` (`--por claude --motivo`, `vetoDe`),
+`scripts/estado-clave.js` (etapas `vetada` y `ventana_veto`),
+`scripts/mural-flujo.js` (el veto también frena los pedidos de paneles),
+`estado-clave.yml` (el aviso de `pauta_lista` ya no se espera: dura segundos),
+`prompts/eleccion-clave.md` (nuevo), `seguimiento-temas.md` (paso 3b),
+`pauta-clave.md` (Claude aprueba su pauta).
+
+**Primera elección: Codelco** (`codelco-produccion-inflada`), sale el miércoles
+**18-11-2026**. De 7 propuestas ganó con 8 de 8 posibles: cifra oficial de 42.100
+toneladas, caso abierto con auditorías pendientes, búsqueda todo el año, sin
+menores ni duelo, tesis de mecanismo contable y no de pelea partidista. Cayeron:
+Presupuesto 2027, diésel y Junaeb (6), explotación sexual infantil (5, menores
+como eje), Ruta de la Fruta (4, duelo reciente) y paro de San Antonio (4, ya
+cerrado). Las otras siguen abiertas y se vuelven a puntuar.
+
+**Refuerzo tras el piloto del 05-11-2026 (CTR 0,56 %, 31 % visto)**, aplicando
+`caratulas-con-gpt` §2b y `videos-largos`: la carátula nombra al **sujeto** en
+la línea 1 (se lee sin el título) y lleva 2 a 4 palabras de **tensión** en caja
+cobre en la línea 2; foto documental héroe a sangre, esquina inferior derecha
+libre (`prompts/caratula-caso.md`, `pauta-clave.md` §8). El guion pone al sujeto y
+la cifra más fuerte en la primera frase y la promesa concreta antes de los 15 s
+(`prompts/guion-claves.md`). **Qué se mide**: CTR de la carátula nueva contra
+0,56 % y retención a los 30 s contra el piloto; si no mejora, se reevalúa la
+fórmula, no el flujo. **Decidió**: Claude, por el mandato del 04-11-2026.

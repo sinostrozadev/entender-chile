@@ -23,9 +23,13 @@ de lo que el video debe tocar y contener, armada con el material que ya está en
 el repo. Lo que haya que averiguar afuera se pide en la sección 7, y lo
 averigua GPT en la etapa siguiente (`prompts/investigacion-clave.md`).
 
-A la pauta no la valida Claude: la aprueba Santiago. Si pide cambios
-(`CAMBIAR:` en `aprobacion.md`), la etapa vuelve a `reparar_pauta` y la pauta
-es tuya otra vez.
+A la pauta no la valida el validador: desde el 12-11-2026 **la aprueba Claude**
+(tú, al final de este turno, paso 4) y Santiago tiene solo el veto
+(`prompts/eleccion-clave.md`). Si Santiago pide cambios (`CAMBIAR:` en
+`aprobacion.md`), la etapa vuelve a `reparar_pauta` y la pauta es tuya otra
+vez. Antes de aprobar, relee tu pauta contra el rigor de la sección 3: lo que
+Santiago antes revisaba ahora lo revisas tú, y una pauta que no aprobarías
+con él mirando no se aprueba.
 
 ---
 
@@ -142,12 +146,22 @@ teléfono. Renombrar un encabezado rompe a los tres.
 
     ## 8. Carátulas y duración
 
-    Tres carátulas candidatas con la regla de la casa: dos líneas separadas
-    por " / ", máximo cuatro palabras por línea, desde el espectador, nunca
-    la conclusión, y sin usar el término que el video viene a explicar.
+    Tres carátulas candidatas (regla del 12-11-2026, tras el piloto del 05-11
+    con CTR 0,56 %; skill caratulas-con-gpt §2b). Cada una son dos líneas
+    separadas por " / ":
+    - Línea 1 = el SUJETO nombrado (el quién o el qué que se lee sin el título:
+      "CODELCO", "EL DIÉSEL", "LAS RAZONES DE UN PARO"), 1 a 3 palabras, nombre
+      propio o sustantivo concreto. "¿Quién? ¿qué?" no puede quedar sin respuesta.
+    - Línea 2 = de 2 a 4 palabras de TENSIÓN que agregan cómo se siente y NO
+      repiten el título de YouTube ("COBRE QUE NO EXISTIÓ", "SUBE Y NADIE PAGA").
+      Desde el espectador, nunca la conclusión, sin el término que el video
+      explica, sin acusar a nadie.
     Carátula 1 (pregunta): ...
     Carátula 2 (contradicción): ...
     Carátula 3 (cifra con referencia): ...
+    Y una línea "Elemento visual: ..." con la foto documental concreta del
+    sujeto, sin rostros ni logos (la mina a cielo abierto, el surtidor, el
+    camión en la ruta), que se entienda sola a 168 px de ancho.
     Después, la duración estimada (8 a 12 minutos) con el porqué en una línea.
 
 Extensión: entre 600 y 1.100 palabras. Es una pauta, no un borrador: Santiago
@@ -220,13 +234,22 @@ línea que nombre a una persona.
 
 ## 4. Publica y avisa
 
+Releída la pauta contra la sección 3, **apruébala tú** (regla del 12-11-2026:
+Claude aprueba, Santiago veta). Primero comprueba que no haya veto
+(`ls contenido/estado/veto-clave.txt contenido/claves/flujo/<slug>/veto.txt`);
+si existe, NO apruebes: publica la pauta y termina diciéndolo.
+
 `git add contenido/claves/flujo/<slug>/pauta.md`, commit
 `clave <slug>: pauta escrita` (o `clave <slug>: pauta corregida` en
 `reparar_pauta`) con el cuerpo `Tarea: pautador`, `pull --rebase` y push.
 
-Tu push recalcula la vista: la etapa pasa a `pauta_lista`, que es turno de
-Santiago, y `estado-clave.yml` dispara el AVISO a su teléfono. No esperes nada
-más: GPT no se mueve hasta que él apruebe.
+Después del push, sin veto:
 
-Termina con UNA línea: qué pauta dejaste, para qué flujo, y si fue escritura o
-corrección.
+    node scripts/clave.js aprobar <slug> --por claude --motivo "<qué cubre la pauta, qué preguntas responde, qué rigor revisaste>"
+
+Eso fija la producción para el próximo miércoles, abre la ventana de veto de 12
+horas (`VETO_HASTA` en `aprobacion.md`) y recién entonces GPT investiga. La
+etapa `pauta_lista` dura segundos: ya nadie la espera.
+
+Termina con UNA línea: qué pauta dejaste, para qué flujo, si fue escritura o
+corrección, y si la aprobaste o había veto.

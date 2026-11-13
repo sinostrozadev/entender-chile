@@ -197,7 +197,10 @@ jobs:
             # MODO AVISADOR (prompts/validador.md), comprueba primero que el
             # ítem esté de verdad en bitacora/bandeja.json y solo entonces manda
             # la notificación: un aviso falso enseña a ignorar los avisos.
-            if echo "$ETAPA" | grep -Eq '^pauta_lista$' && [ -n "$REVISION_ID" ] && [ -n "$REVISION_TOKEN" ]; then
+            # 12-11-2026: Claude aprueba su propia pauta, pauta_lista dura segundos y el aviso
+            # a Santiago ya no se espera acá (el aviso con el veto sale al ELEGIR). Se deja
+            # el bloque por si Santiago vuelve a aprobar él (clave.js aprobar sin --por claude).
+            if echo "$ETAPA" | grep -Eq '^pauta_lista_con_aviso$' && [ -n "$REVISION_ID" ] && [ -n "$REVISION_TOKEN" ]; then
               PIEZA_ESPERA=$(echo "$ETAPA" | cut -d_ -f1)
               MARCA_A="contenido/estado/ultimo-aviso-$SLUG.txt"
               if [ "$(cat "$MARCA_A" 2>/dev/null)" = "$ETAPA $VUELTA" ]; then echo "aviso ya enviado para $ETAPA (vuelta $VUELTA)"; else

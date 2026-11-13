@@ -111,8 +111,9 @@ Si propones, escribe `contenido/temas/<slug>/propuesta.md`:
     - <los hitos de la ficha que la justifican, copiados tal cual>
 
 **Si ya existe una `propuesta.md` en ese tema, no la pises ni escribas otra**:
-hay una sola propuesta abierta por tema, y la cierra Santiago al aprobarla
-(`scripts/clave.js elegir ... --tema-de`) o al borrarla. Puede haber dos
+hay una sola propuesta abierta por tema, y la cierra quien la elige
+(Claude, `scripts/clave.js elegir ... --tema-de --por claude`, paso 3b) o
+Santiago si la borra. Puede haber dos
 propuestas en un día o ninguna en una semana: un largo flojo cuesta un turno
 de GPT y la confianza del espectador.
 
@@ -141,6 +142,18 @@ de GPT y la confianza del espectador.
    con una línea por propuesta (`<título de la ficha>: explicar` o
    `: actualizar`) y como última línea "Ábrelo en el Taller". Sin propuestas,
    no notificas nada.
+
+## 3b. Elección semanal del largo (desde el 12-11-2026)
+
+Las propuestas ya no esperan a Santiago: **Claude elige**, él solo veta. Si hoy
+es jueves, viernes o sábado, lee `prompts/eleccion-clave.md` ENTERO y aplica sus
+reglas de cadencia (una por semana, sin Clave en curso, sin veto). Si se
+cumplen, puntúa las `propuesta.md` abiertas con los cinco criterios, ejecuta
+`node scripts/clave.js elegir ... --tema-de ... --por claude --motivo "..."` y
+avísale con UNA notificación que incluya cómo vetar. Si no se cumplen, escribe
+una línea en `contenido/temas/seguimiento/FECHA.md` ("ELECCIÓN: no toca: <por
+qué>"). El paso 2 de arriba ya no dice que la cierra Santiago: la cierra
+`clave.js elegir`.
 
 ## 4. Publica y termina
 

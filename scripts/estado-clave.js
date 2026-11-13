@@ -129,7 +129,8 @@ const calcular = (slug) => {
     validar_investigacion: "Claude", validar_entrega: "Claude", validar_guion: "Claude",
     reparar_investigacion: "GPT", reparar_entrega: "GPT", reparar_guion: "GPT",
     paneles: "GPT: genera los paneles del mural (pedido en contenido/urgente/, en tandas de diez)", armar_mural: "Actions: cose y mide el mural (scripts/mural-flujo.js)",
-    bloqueado_humano: "Santiago", aprobada: "Actions: edicion-diaria.yml renderiza y sube", videos_listos: "nadie: cerrado",
+    bloqueado_humano: "Santiago", vetada: "nadie: Santiago vetó esta Clave (borrar el archivo de veto la reanuda)", ventana_veto: "nadie: ventana de veto de Santiago (12 h tras la aprobación de Claude)",
+    aprobada: "Actions: edicion-diaria.yml renderiza y sube", videos_listos: "nadie: cerrado",
   };
   // la etapa de una pieza que todavía no está lista, según su situación
   const etapaDe = (p, falta) => ({ falta, por_validar: `validar_${p.id}`, reparar: `reparar_${p.id}`, bloqueada: "bloqueado_humano" })[p.sit];
@@ -162,13 +163,25 @@ const calcular = (slug) => {
     else if (pGuion.sit !== "lista") { enJuego(pGuion); etapa = etapaDe(pGuion, "entrega_lista"); }
     else { etapa = tras_guion(); foco = pGuion; }
   }
+  // REGLA DEL 12-11-2026: Claude elige y aprueba, Santiago veta. Dos frenos, ambos por archivo:
+  //  - veto (contenido/estado/veto-clave.txt o <flujo>/veto.txt): congela el flujo en cualquier
+  //    etapa que aún no sea video listo, incluida `aprobada` (así el render no sale).
+  //  - ventana de veto: si aprobó Claude, hasta VETO_HASTA la etapa de GPT (pauta_aprobada) espera.
+  const veto = clave.vetoDe(slug, RAIZ);
+  let notaVeto = "";
+  if (etapa !== "videos_listos" && veto) { etapa = "vetada"; notaVeto = `VETO: ${veto}`; }
+  else if (etapa === "pauta_aprobada" && /^APROBO:\s*Claude/m.test(aprobTxt)) {
+    const hasta = (aprobTxt.match(/^VETO_HASTA:\s*(\d{4}-\d{2}-\d{2} \d{2}:\d{2})/m) || [])[1];
+    if (hasta && AHORA.slice(0, 16) < hasta) { etapa = "ventana_veto"; notaVeto = `VETO_HASTA: ${hasta}`; }
+  }
   quien = QUIEN[etapa] || "";
 
   const lineas = [
     `FLUJO: clave`, `SLUG: ${slug}`, `CAMINO: ${camino}`, `ETAPA: ${etapa}`, `VUELTA: ${vuelta}`, `TURNO: ${quien}`,
-    `FECHA_PRODUCCION: ${fechaProd || `(la fija Santiago al aprobar la pauta)`}`,
+    `FECHA_PRODUCCION: ${fechaProd || `(la fija quien aprueba la pauta: Claude, con veto de Santiago)`}`,
     `ACTUALIZADO: ${AHORA} (hora de Chile)`,
   ];
+  if (notaVeto) lineas.push(notaVeto);
   if (foco) {
     lineas.push(`PIEZA: ${foco.id}`, `PROMPT: ${foco.prompt}`, `ARCHIVO: ${foco.archivo || `(sin fecha de producción todavía)`}`, `ARCHIVO_ENTRADA: ${foco.entrada}`);
     if (foco.v) lineas.push(`VEREDICTO_PIEZA: ${foco.v.veredicto} (vuelta ${foco.v.vuelta}, en ${foco.v.ruta})`);
@@ -186,7 +199,7 @@ const calcular = (slug) => {
   const esperaAprob = aprobada ? "aprobada" : cambiar ? "pidió cambios"
     : existe(aprob) && !aprobVigente ? `vieja (la pauta cambió después)` : "espera";
   md += `| Pauta | ${existe(pauta) ? "escrita" : "falta"} | ${existe(pauta) ? hora(pauta) : ""} | Claude |\n`;
-  md += `| Aprobación de Santiago | ${esperaAprob} | ${existe(aprob) ? hora(aprob) : ""} | Santiago |\n`;
+  md += `| Aprobación (Claude, veto de Santiago) | ${esperaAprob} | ${existe(aprob) ? hora(aprob) : ""} | Claude |\n`;
   md += `| Investigación | ${marca[pInvestigacion.sit]} | ${pInvestigacion.sit !== "falta" ? hora(investigacion) : ""} | GPT, valida Claude |\n`;
   md += `| Entrega escrita | ${marca[pEntrega.sit]} | ${pEntrega.sit !== "falta" ? hora(entrega) : ""} | GPT, valida Claude |\n`;
   md += `| Guion | ${marca[pGuion.sit]} | ${pGuion.sit !== "falta" ? hora(guion) : ""} | GPT, valida Claude |\n`;

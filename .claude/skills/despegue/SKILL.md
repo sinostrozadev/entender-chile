@@ -37,6 +37,14 @@ bloquea `gh secret delete` y `gh pr close`). Y las dos líneas editoriales que
 no se negocian por mandato nuestro: nunca un rostro inventado presentado como
 persona real, y nunca afirmar un delito sin situación procesal fechada.
 
+**Regla nueva, 12-11-2026: Claude aprueba, Santiago veta.** En "Entender el
+caso" Claude elige el tema entre las propuestas abiertas (criterios en
+`prompts/eleccion-clave.md`, una por semana) y aprueba la pauta; Santiago no
+decide nada salvo vetar, con un archivo: `contenido/estado/veto-clave.txt`
+(o `contenido/claves/flujo/<slug>/veto.txt`). Cada elección y aprobación escribe
+su porqué en el flujo. Sigue siendo de Santiago lo que cuesta dinero o exige su
+cuenta, como arriba.
+
 ## 2. La estrategia vigente (04-11-2026) y su criterio de cierre
 
 - **Solo explicar.** Se apaga el informe diario en video y los exprés (80 % de

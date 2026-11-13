@@ -133,7 +133,7 @@ function situacion(slug, raiz = RAIZ) {
     // pausa.txt: Santiago (o el día) frena un flujo sin tocar su estado. Existe porque
     // este script pide imágenes SOLO, y pedirlas es gastar cuota de GPT: si el tema se
     // está reevaluando, esperar cuesta cero y pedir cuesta catorce imágenes.
-    pausa: hay(`contenido/claves/flujo/${slug}/pausa.txt`, raiz),
+    pausa: hay(`contenido/claves/flujo/${slug}/pausa.txt`, raiz) || hay(`contenido/claves/flujo/${slug}/veto.txt`, raiz) || hay("contenido/estado/veto-clave.txt", raiz),  // veto de Santiago (12-11-2026) también frena los pedidos
   };
 }
 
