@@ -48,6 +48,11 @@ on:
     # (UTC-3) y 00:00-06:00 en invierno (UTC-4). Fuera de la ventana de Chile
     # el propio job se retira en segundos.
     - cron: "*/20 4-9 * * *"
+    # (12-11-2026) red del suplente fuera de la ventana: el 12-11 el suplente
+    # quedó mudo 20 h y la ventana de arriba, mas el cron poco fiable, no lo
+    # vio. Fuera de 01 a 07 el job SOLO reintenta turnos de Claude (ver
+    # reintentar_claude); no toca barrido, plan B ni eventos de GPT.
+    - cron: "*/30 10-23,0-3 * * *"
   workflow_dispatch:
     inputs:
       simular:
@@ -115,10 +120,120 @@ jobs:
           # Solo en la madrugada de la edición, venga el disparo del cron de
           # GitHub o del reloj de Claude (push). El dispatch a mano se la salta:
           # es para probar o para destrabar el día a cualquier hora.
+          # (12-11-2026) REINTENTO DE LOS TURNOS DE CLAUDE. Los despertares del
+          # suplente (ultimo-disparo-suplente.txt) y del validador
+          # (ultimo-disparo-claude.txt) son de UN solo tiro: si la sesión muere
+          # sin commitear, la marca impide despertarla otra vez y la cadena se
+          # queda parada (12-11: 20 h). Regla: si la etapa sigue siendo la misma
+          # ESPERA_CLAUDE_MIN minutos después del último despertar (marca, o
+          # reintento previo), se despierta de nuevo. Tope: MAX_POR_ETAPA por
+          # etapa y vuelta y MAX_POR_DIA por día; el rastro queda en
+          # contenido/estado/reintentos-suplente.txt. Al agotarse: alerta en
+          # contenido/estado/alerta-suplente.txt y corrida en ROJO (GitHub avisa
+          # por correo). Devuelve 0 si la etapa era de Claude (haya o no
+          # reintentado), 1 si no lo era.
+          ESPERA_CLAUDE_MIN=${ESPERA_CLAUDE_MIN:-40}
+          MAX_POR_ETAPA=3
+          MAX_POR_DIA=6
+          REINTENTO_FALLO=0
+          reintentar_claude() {
+            local VISTA="contenido/estado/$FECHA.md" ETAPA VUELTA TOCA=0 CLASE="" REPARTO TURNOS HASTA RE_T
+            [ -f "$VISTA" ] || return 1
+            ETAPA=$(grep -m1 '^ETAPA:' "$VISTA" | cut -d' ' -f2-)
+            VUELTA=$(grep -m1 '^VUELTA:' "$VISTA" | cut -d' ' -f2-); VUELTA=${VUELTA:-0}
+            if echo "$ETAPA" | grep -q '^validar_'; then TOCA=1; CLASE=validador; fi
+            REPARTO=$(grep -m1 '^claude:' contenido/estado/reparto.txt 2>/dev/null | cut -d' ' -f2- || true)
+            if [ -n "$REPARTO" ] && echo "$ETAPA" | grep -Eq "^($(echo "$REPARTO" | sed 's/\*/[a-z_]+/g; s/  */|/g'))$"; then TOCA=1; CLASE=reparto; fi
+            HASTA=$(grep -m1 '^hasta:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
+            TURNOS=$(grep -m1 '^turnos:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
+            if [ "$TOCA" = 0 ] && [ -n "$HASTA" ] && [ -n "$TURNOS" ] && [ ! "$HASTA" \< "$FECHA" ]; then
+              RE_T="^($(echo "$TURNOS" | sed 's/\*/[a-z_]+/g; s/  */|/g'))$"
+              if echo "$ETAPA" | grep -Eq "$RE_T"; then TOCA=1; CLASE=planb; fi
+            fi
+            [ "$TOCA" = 1 ] || return 1
+            if [ -z "$REVISION_ID" ] || [ -z "$REVISION_TOKEN" ]; then
+              echo "etapa $ETAPA es de Claude, pero sin secrets no puedo despertarlo; lo cubren sus relojes"; return 0
+            fi
+
+            # ¿cuándo fue el último despertar de ESTA etapa y vuelta? Mayor de:
+            # la marca del suplente, la del validador y el último reintento.
+            git fetch -q --deepen=200 origin main 2>/dev/null || true
+            local ULT=0 T M REGISTRO="contenido/estado/reintentos-suplente.txt"
+            M="contenido/estado/ultimo-disparo-suplente.txt"
+            if [ "$(cat "$M" 2>/dev/null)" = "$FECHA $ETAPA $VUELTA" ]; then
+              T=$(git log -1 --format=%ct -- "$M" 2>/dev/null || echo 0); [ "${T:-0}" -gt "$ULT" ] && ULT=$T
+            fi
+            M="contenido/estado/ultimo-disparo-claude.txt"
+            case "$(cat "$M" 2>/dev/null)" in "$FECHA $ETAPA $VUELTA "*)
+              T=$(git log -1 --format=%ct -- "$M" 2>/dev/null || echo 0); [ "${T:-0}" -gt "$ULT" ] && ULT=$T ;; esac
+            T=$(grep "^$FECHA $ETAPA $VUELTA " "$REGISTRO" 2>/dev/null | tail -1 | awk '{print $5}')
+            [ "${T:-0}" -gt "$ULT" ] && ULT=$T
+            if [ "$ULT" = 0 ]; then
+              # nunca se despertó (o no hay marca legible): se mide desde que la etapa empezó
+              local ACT; ACT=$(grep -m1 '^ACTUALIZADO:' "$VISTA" | sed 's/^ACTUALIZADO: *//; s/ (hora.*//')
+              ULT=$(TZ=America/Santiago date -d "$ACT" +%s 2>/dev/null || date -u +%s)
+            fi
+            local EDAD=$(( ( $(date -u +%s) - ULT ) / 60 ))
+            if [ "$EDAD" -lt "$ESPERA_CLAUDE_MIN" ]; then
+              echo "etapa $ETAPA ($CLASE, vuelta $VUELTA) lleva $EDAD min desde el último despertar: en gracia (los $ESPERA_CLAUDE_MIN)"; return 0
+            fi
+
+            local NE ND ALERTA="contenido/estado/alerta-suplente.txt"
+            NE=$(grep -c "^$FECHA $ETAPA $VUELTA " "$REGISTRO" 2>/dev/null || true); NE=${NE:-0}
+            ND=$(grep -c "^$FECHA " "$REGISTRO" 2>/dev/null || true); ND=${ND:-0}
+            if [ "$NE" -ge "$MAX_POR_ETAPA" ] || [ "$ND" -ge "$MAX_POR_DIA" ]; then
+              echo "::error::$FECHA $ETAPA (vuelta $VUELTA) lleva $EDAD min parada y ya se reintentó $NE vez/veces en la etapa ($ND en el día): REINTENTOS AGOTADOS, hace falta una persona"
+              if [ "$(cat "$ALERTA" 2>/dev/null | head -1)" != "$FECHA $ETAPA $VUELTA agotado" ]; then
+                escribir "$ALERTA" "$FECHA $ETAPA $VUELTA agotado"
+                if [ "$SIMULAR" = 0 ]; then echo "$(date -u +%Y-%m-%dT%H:%M:%SZ): la etapa lleva $EDAD min sin avanzar tras $NE reintento(s) del despertar de Claude ($CLASE). Revisar la rutina (cuota, sesión muerta) o avanzar la etapa a mano." >> "$ALERTA"; fi
+                hacer git add "$ALERTA"
+                hacer git commit -q -m "ALERTA $FECHA: $ETAPA sin avanzar, reintentos agotados [bot]"
+                hacer git push -q origin main || echo "::warning::alerta no pusheada"
+                REINTENTO_FALLO=1   # corrida en rojo SOLO la primera vez, para no inundar el correo
+              fi
+              return 0
+            fi
+
+            local N=$((NE+1))
+            echo "$ETAPA ($CLASE) lleva $EDAD min sin avanzar: redespierto a Claude (reintento $N de $MAX_POR_ETAPA, $((ND+1)) del día)"
+            LINEA="$FECHA $ETAPA $VUELTA $N $(date -u +%s) $(date -u +%H:%MZ)"
+            if [ "$SIMULAR" = 1 ]; then echo "  [simulado] anotaría en $REGISTRO: $LINEA"; else echo "$LINEA" >> "$REGISTRO"; fi
+            hacer git add "$REGISTRO"
+            hacer git commit -q -m "reintento del despertar $FECHA: $ETAPA (vuelta $VUELTA, intento $N) [bot]"
+            hacer git push -q origin main || echo "::warning::rastro del reintento no pusheado; se dispara igual"
+            local BODY
+            if [ "$CLASE" = validador ]; then
+              BODY=$(printf '{"text":"Entender Chile, %s: etapa %s, vuelta %s. REINTENTO %s: la sesion anterior no avanzo la etapa en %s min. Te toca la validacion de la pieza %s. Este texto solo te despierta: la verdad son los archivos del repo y tus guardas del punto 0 se aplican igual."}' "$FECHA" "$ETAPA" "$VUELTA" "$N" "$EDAD" "$(grep -m1 '^PIEZA:' "$VISTA" | cut -d' ' -f2-)")
+            else
+              BODY=$(printf '{"text":"Entender Chile, REINTENTO %s (la sesion anterior no avanzo la etapa en %s min): %s, etapa %s, vuelta %s. Haz ese turno segun prompts/suplente.md. La verdad es contenido/estado/%s.md."}' "$N" "$EDAD" "$FECHA" "$ETAPA" "$VUELTA" "$FECHA")
+            fi
+            if [ "$SIMULAR" = 1 ]; then
+              echo "  [simulado] POST routines/\$REVISION_ID/fire con: $BODY"
+            else
+              local CODIGO
+              CODIGO=$(curl -sS -o /tmp/fire-rc.json -w '%{http_code}' -X POST "https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire" \
+                -H "Authorization: Bearer $REVISION_TOKEN" -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
+                -H "anthropic-version: 2023-06-01" -H "content-type: application/json" -d "$BODY" || echo 000)
+              case "$CODIGO" in
+                2*) echo "Claude redespertado para $ETAPA: $(head -c 200 /tmp/fire-rc.json)" ;;
+                *) echo "::warning::no se pudo redespertar a Claude (HTTP $CODIGO); el próximo ciclo lo vuelve a intentar" ;;
+              esac
+            fi
+            return 0
+          }
+
           case "$EVENTO" in
             schedule|push)
               if [ "$HORA" -lt 1 ] || [ "$HORA" -ge 7 ]; then
-                echo "son las $HORA de Chile: fuera de la ventana de la edición (01 a 07)"; exit 0
+                # fuera de la edición solo se vigila al suplente/validador (12-11)
+                git fetch -q origin main
+                git checkout -q -B main origin/main
+                git config user.name "estado-bot"
+                git config user.email "bot@users.noreply.github.com"
+                echo "son las $HORA de Chile: fuera de la ventana de la edición (01 a 07); solo reviso turnos de Claude"
+                reintentar_claude || true
+                [ "$REINTENTO_FALLO" = 1 ] && exit 1
+                exit 0
               fi ;;
           esac
 
@@ -195,60 +310,20 @@ jobs:
           ETAPA=$(grep -m1 '^ETAPA:' "$VISTA" | cut -d' ' -f2-)
           VUELTA=$(grep -m1 '^VUELTA:' "$VISTA" | cut -d' ' -f2-); VUELTA=${VUELTA:-0}
 
+          # (06-10-2026) Las etapas del reparto no son de GPT y nadie más las
+          # reintenta. (12-11-2026) Ese reintento vive ahora en reintentar_claude
+          # (arriba): cubre reparto, plan B y validar_*, con espera de 40 min,
+          # tope por etapa y por día, rastro y alerta.
+          if reintentar_claude; then
+            [ "$REINTENTO_FALLO" = 1 ] && exit 1
+            exit 0
+          fi
+
           # ¿es turno de GPT? MISMA regla que estado.yml (línea 124) para emitir
           # al PR #6. Si una cambia, la otra también: cuando el 26-09 se retiró
           # alimentar_banco hubo que sacarlo de las dos, y de la línea `turnos:`.
           echo "$ETAPA" | grep -Eq '^(barrido_listo|[a-z_]+_lista|[a-z_]+_listo|reparar_[a-z_]+)$' || {
             echo "etapa $ETAPA: no es turno de GPT, nada que reintentar"; exit 0; }
-
-          # (06-10-2026) LAS ETAPAS DEL REPARTO NO SON DE GPT, y sin esto se
-          # caían por un hueco: la regla 20 y 20 de más abajo mira el evento del
-          # PR #6, y estado.yml ya no emite evento para ellas, así que este
-          # workflow salía diciendo "no me toca" y NADIE las reintentaba. O sea:
-          # si la preselección se colgaba, la noche entera moría en silencio en
-          # la primera pieza. Acá se reintentan despertando OTRA VEZ al suplente,
-          # con su propia marca y su propio contador, porque en estas etapas no
-          # hay a quién más llamar: no existe un plan B del plan B.
-          REPARTO=$(grep -m1 '^claude:' contenido/estado/reparto.txt 2>/dev/null | cut -d' ' -f2- || true)
-          if [ -n "$REPARTO" ] && echo "$ETAPA" | grep -Eq "^($(echo "$REPARTO" | sed 's/\*/[a-z_]+/g; s/  */|/g'))$"; then
-            if [ -z "$REVISION_ID" ] || [ -z "$REVISION_TOKEN" ]; then
-              echo "etapa $ETAPA es del reparto, pero sin secrets no puedo despertar al suplente; su reloj de las 02:20 lo cubre"; exit 0
-            fi
-            ACT=$(grep -m1 '^ACTUALIZADO:' "$VISTA" | sed 's/^ACTUALIZADO: *//; s/ (hora.*//')
-            EDAD_R=$(( ( $(date -u +%s) - $(TZ=America/Santiago date -d "$ACT" +%s 2>/dev/null || date -u +%s) ) / 60 ))
-            if [ "$EDAD_R" -lt "$ESPERA_MIN" ]; then
-              echo "etapa $ETAPA (del reparto) lleva $EDAD_R min: aún en gracia (los $ESPERA_MIN)"; exit 0
-            fi
-            MARCA_R="contenido/estado/ultimo-reintento-reparto.txt"
-            PREV=$(cat "$MARCA_R" 2>/dev/null || echo "")
-            NR=0
-            case "$PREV" in "$FECHA $ETAPA $VUELTA "*) NR=${PREV##* } ;; esac
-            # Dos reintentos y basta: a la tercera hay algo roto que no se
-            # arregla insistiendo, y el vigía de las 02:15 y 05:15 avisa al
-            # teléfono. Insistir sin tope gastaría turnos de Claude en vano.
-            if [ "$NR" -ge 2 ]; then
-              echo "::warning::$ETAPA (del reparto) lleva $EDAD_R min y ya se reintentó $NR veces: no insisto más, lo levanta el vigía"; exit 0
-            fi
-            NR=$((NR+1))
-            echo "$ETAPA (del reparto) lleva $EDAD_R min sin respuesta: despierto al suplente otra vez (reintento $NR de 2)"
-            escribir "$MARCA_R" "$FECHA $ETAPA $VUELTA $NR"
-            hacer git add "$MARCA_R"
-            hacer git commit -q -m "reintento del reparto $FECHA: $ETAPA (vuelta $VUELTA, intento $NR) [bot]"
-            hacer git push -q origin main || echo "::warning::marca del reintento no pusheada; se dispara igual"
-            BODY=$(printf '{"text":"Entender Chile, REPARTO PERMANENTE (esta etapa es tuya, contenido/estado/reparto.txt): %s, etapa %s, vuelta %s. Lleva %s min sin respuesta y nadie mas la va a hacer. Haz ese turno segun prompts/suplente.md. La verdad es contenido/estado/%s.md."}' "$FECHA" "$ETAPA" "$VUELTA" "$EDAD_R" "$FECHA")
-            if [ "$SIMULAR" = 1 ]; then
-              echo "  despertaría al suplente para $ETAPA (reintento $NR)"
-            else
-              CODIGO=$(curl -sS -o /tmp/fire-r.json -w '%{http_code}' -X POST "https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire" \
-                -H "Authorization: Bearer $REVISION_TOKEN" -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
-                -H "anthropic-version: 2023-06-01" -H "content-type: application/json" -d "$BODY" || echo 000)
-              case "$CODIGO" in
-                2*) echo "suplente redespertado para $ETAPA: $(head -c 200 /tmp/fire-r.json)" ;;
-                *) echo "::warning::no se pudo redespertar al suplente (HTTP $CODIGO); su reloj de las 02:20 lo cubre" ;;
-              esac
-            fi
-            exit 0
-          fi
 
           git fetch -q origin automatizacion/estado || { echo "sin rama de eventos"; exit 0; }
           EV=$(git show FETCH_HEAD:contenido/estado/ultimo-evento.txt 2>/dev/null || echo "")
