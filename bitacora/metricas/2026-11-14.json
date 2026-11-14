@@ -1,7 +1,7 @@
 {
   "fecha": "2026-11-14",
   "canal": {
-    "suscriptores": 55,
+    "suscriptores": 56,
     "vistas": 25597,
     "videos": 229
   },
@@ -10,8 +10,8 @@
       "titulo": "Camioneros siguen movilizados y el Gobierno anuncia fuerza, ",
       "publicado": "2026-11-14",
       "estado": "public",
-      "vistas": 2,
-      "meGusta": 1,
+      "vistas": 24,
+      "meGusta": 2,
       "comentarios": 0,
       "durSeg": 43
     },
@@ -28,7 +28,7 @@
       "titulo": "Camioneros mantienen el paro y cambia el precio del combusti",
       "publicado": "2026-11-13",
       "estado": "public",
-      "vistas": 199,
+      "vistas": 205,
       "meGusta": 5,
       "comentarios": 0,
       "durSeg": 43
