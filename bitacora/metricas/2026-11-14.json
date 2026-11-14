@@ -3,15 +3,15 @@
   "canal": {
     "suscriptores": 55,
     "vistas": 25597,
-    "videos": 228
+    "videos": 229
   },
   "videos": {
     "GAwy9zuvgZE": {
       "titulo": "Camioneros siguen movilizados y el Gobierno anuncia fuerza, ",
       "publicado": "2026-11-14",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
+      "estado": "public",
+      "vistas": 2,
+      "meGusta": 1,
       "comentarios": 0,
       "durSeg": 43
     },
@@ -28,7 +28,7 @@
       "titulo": "Camioneros mantienen el paro y cambia el precio del combusti",
       "publicado": "2026-11-13",
       "estado": "public",
-      "vistas": 194,
+      "vistas": 199,
       "meGusta": 5,
       "comentarios": 0,
       "durSeg": 43
@@ -46,7 +46,7 @@
       "titulo": "Camioneros mantienen el paro por el precio del diésel, y otr",
       "publicado": "2026-11-10",
       "estado": "public",
-      "vistas": 952,
+      "vistas": 950,
       "meGusta": 13,
       "comentarios": 0,
       "durSeg": 36
@@ -1981,7 +1981,7 @@
       "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
       "publicado": "2026-09-02",
       "estado": "public",
-      "vistas": 211,
+      "vistas": 212,
       "meGusta": 2,
       "comentarios": 1,
       "durSeg": 682
