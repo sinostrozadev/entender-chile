@@ -175,6 +175,22 @@ o Studio) si Santiago lo decide, y rehacer el guion con la lectura de GPT si lle
 
 ## PARA LA SESIÓN DE LA NOCHE (necesita secrets o rutinas)
 
+- [ ] **14-11, AGUANTA: el render automático de la Clave de Codelco ya gastó
+      sus tres reintentos antes de que llegue su fecha de producción.**
+      Auditoría del 14-11 (`bitacora/2026-11-14-auditoria.md`).
+      `contenido/estado/ultimo-render-clave-codelco-produccion-inflada.txt`
+      dice `2026-11-18 3 1794635803`: `.github/workflows/estado-clave.yml:234-251`
+      dispara el render de cualquier Clave en etapa `aprobada` cada tres
+      horas sin mirar si `FECHAP` (18-11-2026, cuatro días adelante de hoy)
+      ya llegó, así que los tres intentos (el de hoy, commit `cc798a1`, y uno
+      anterior) fallaron igual con "ERROR: no existe
+      contenido/guiones/informe/2026-11-18.md". Como `M_INT` solo se resetea
+      cuando cambia `FECHAP`, el 18-11 el flujo no va a tener ningún
+      reintento disponible. Propuesta concreta: en la línea 234, exigir
+      además que `FECHAP` sea hoy o anterior antes de contar un intento, y
+      resetear a mano (o borrar) la marca de Codelco para que llegue al
+      18-11 con sus tres intentos intactos.
+
 - [ ] **08-11, HOY: las noticias [C] escritas como encabezado rompen el
       renderizado en la web, y hoy se publicaron nueve así.** Auditoría del
       08-11 (`bitacora/2026-11-08-auditoria.md`, falla 1).
@@ -432,6 +448,19 @@ que estaba aprobada.
       la falta de auditoría quede visible sin depender de que otra
       auditoría la encuentre días después. Auditoría del 25-10
       (`bitacora/2026-10-25-auditoria.md`).
+      **14-11: tercera y cuarta mañana, la propuesta sigue sin construirse y
+      ahora hay causa confirmada.** `bitacora/` salta de
+      `2026-11-11-auditoria.md` a hoy (sin `12` ni `13-11`), `bitacora/mejoras/`
+      salta de `2026-11-11.md` a hoy, y no existen `bitacora/2026-11-12.md` ni
+      `bitacora/2026-11-13.md`; la cadena de producción sí corrió los dos días
+      (hay preselección, informe, guion, veredictos y métricas de ambas
+      fechas). Causa confirmada, no conjeturada: el `last_run` de la rutina
+      "Mejora diaria" (`trig_012bFrH9XnJMjV74uHxVYz8c`) quedó
+      `ROUTINE_RUN_STATUS_FAILED` / `ROUTINE_RUN_FAILURE_REASON_USAGE_LIMIT_REACHED`
+      el 13-11-2026 a las 07:31 de Chile. `reintento.yml` sigue sin la
+      comprobación propuesta el 25-10 (verificado hoy, sin mención a
+      "auditoria" en el archivo). Auditoría del 14-11
+      (`bitacora/2026-11-14-auditoria.md`).
 
 - [ ] **23-10, AGUANTA: "Carátula 3" sale como una segunda pregunta en vez
       de "cifra con referencia", la variante de A/B que decidió Santiago
@@ -508,6 +537,16 @@ que estaba aprobada.
       esas fuentes en `contenido/barrido/fuentes.json`, para que entren al
       barrido sin necesitar navegación, que es exactamente la premisa con la
       que se decidió el cambio del 06-10.
+      **14-11: sigue igual, casi un mes después, y hoy la propia revisión
+      nombra la causa exacta.** `contenido/revisiones/2026-11-12.md`,
+      `2026-11-13.md` y `2026-11-14.md` repiten el mismo hallazgo; el de hoy
+      lo dice más preciso que nunca: "es una incompatibilidad entre dos
+      prompts del repo, no un descuido de la pieza, y no se arregla
+      reescribiéndola", exactamente `prompts/seleccion.md:59-62` ("Ábrelos
+      tú") contra `prompts/suplente.md:116` ("No navegas"). Mientras no se
+      elija entre el feed propio de arriba o marcar la fuente como no
+      cubierta en vez de pedir que se abra, el hallazgo sigue repitiéndose
+      sin aprender. Auditoría del 14-11 (`bitacora/2026-11-14-auditoria.md`).
 
 - [ ] **12-10: shorts y exprés con imagen propia** (plan propuesto a Santiago,
       falta su sí): el Short del día usa la portada del informe recortada en
