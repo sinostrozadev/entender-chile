@@ -1,1 +1,1 @@
-2026-11-14 validar_preseleccion 1 ed53a82e
+2026-11-14 validar_informe 0 08f42ddf
