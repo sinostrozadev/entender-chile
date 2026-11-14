@@ -1,0 +1,8 @@
+flujo=pedido
+tarea=imagen
+slug=cepillo-activo-capitan-poses
+pedido=contenido/urgente/PEDIDO-cepillo-activo-capitan-poses.md
+hallazgo=contenido/urgente/cepillo-activo-capitan-poses.md
+salida=contenido/caratulas/externos/cepillo-activo/2026-11-09-capitan-cepillo-poses.png
+prompt=prompts/imagen-caratula.md
+emitido_utc=2026-11-10T01:54:26Z

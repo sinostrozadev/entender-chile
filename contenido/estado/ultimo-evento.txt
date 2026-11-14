@@ -1,0 +1,9 @@
+fecha_chile=2026-11-14
+etapa=reparar_guion_informe
+vuelta=1
+reparar=guion_informe
+pieza=guion_informe
+prompt=prompts/guion-informe.md
+estado_commit=fb5a6894
+vista=contenido/estado/2026-11-14.md
+emitido_utc=2026-11-14T06:04:49Z
