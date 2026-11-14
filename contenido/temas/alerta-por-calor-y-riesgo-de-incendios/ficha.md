@@ -1,7 +1,7 @@
 # La alerta por calor extremo y el riesgo de incendios de la temporada
 Estado: abierto
 Abierto: 2026-11-08
-Última actualización: 2026-11-13
+Última actualización: 2026-11-14
 
 ## Origen
 El 01-11-2026 Senapred declaró una Alerta Temprana Preventiva Nacional por calor entre Arica y Parinacota y Magallanes, vigente hasta el 31-03-2027, para reforzar la preparación ante incendios y temperaturas extremas (Senapred, 01-11-2026; Senapred y El País, 01 y 04-11-2026). Sobre ese fondo, el asunto aparece dos días seguidos en los informes del canal: el episodio de calor extremo entre Coquimbo y Maule, alertado por la Dirección Meteorológica de Chile desde la tarde del 07-11-2026 hasta la tarde del 08-11-2026, con máximas que pueden ubicarse entre 35 °C y 37 °C en sectores de Valparaíso, y el incendio forestal de Pozas Verdes en Machalí (Dirección Meteorológica de Chile y Senapred, citados por BioBioChile y Chilevisión, 06-11-2026; Conaf, balance citado por La Tercera, BioBioChile y CNN Chile, 07-11-2026). Importa porque la alerta cambia lo que puede hacer una persona en esas regiones y porque el calor no demuestra por sí solo el origen de un incendio, pero sí agrava las condiciones de propagación y el trabajo de las brigadas. Senapred recomendó hidratarse, evitar la exposición innecesaria entre las 11:00 y las 17:00 y prestar especial atención a niños, personas mayores y enfermos crónicos.
@@ -16,6 +16,7 @@ El 01-11-2026 Senapred declaró una Alerta Temprana Preventiva Nacional por calo
 - 2026-11-12 | La Dirección Meteorológica emite alertas por temperaturas extremas entre La Araucanía y Los Lagos, con máximas locales cercanas a 30 °C (Dirección Meteorológica de Chile, 12-11-2026) | diario: 2026-11-13#la-direccion-meteorologica-emitio-alertas-por-temperaturas | sección: Además, hoy
 - 2026-11-12 | La Región de Valparaíso enfrentará temperaturas de hasta 37 °C durante el episodio de calor (Dirección Meteorológica de Chile, citada por El Martutino, 12-11-2026) | diario: 2026-11-13#la-region-de-valparaiso-enfrentara-temperaturas-de-hasta-37 | sección: Además, hoy
 
+- 2026-11-13 | Senapred pide evitar actividades de montaña y reforzar las medidas de autocuidado por temperaturas extremas y por el aumento de caudales asociado al deshielo, con recomendaciones de mantenerse hidratado, evitar la exposición prolongada al sol y no acercarse a cursos de agua crecidos (Senapred y Dirección Meteorológica de Chile, 13-11-2026) | diario: 2026-11-14#senapred-advierte-calor-extremo-y-aumento-de-caudales | sección: Medioambiente y clima
 ## Qué falta por saber
 - ¿Se cierra la alerta por calor extremo en la tarde del 08-11-2026 o se extiende? La ventana informada por la Dirección Meteorológica termina ese día. Respondida en parte: al 09-11-2026 el calor extremo se había desplazado al norte, con alerta roja de Senapred en la provincia del Tamarugal.
 - ¿Cuántas hectáreas afecta finalmente el incendio de Pozas Verdes y cuál fue su causa? El balance de 6,25 hectáreas es preliminar y el origen no consta en los informes del repo.

@@ -1,7 +1,7 @@
 # La tramitación del Presupuesto 2027
 Estado: abierto
 Abierto: 2026-11-03
-Última actualización: 2026-11-13
+Última actualización: 2026-11-14
 
 ## Origen
 El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro en los informes del canal es del 26-10-2026, cuando Hacienda abrió conversaciones para destrabarlo y los rectores de las universidades estatales objetaron partidas (Diario Financiero, La Tercera, Radio Universidad de Chile y Universidad de Chile, 26-10-2026). Importa porque de esas partidas depende el gasto público del año siguiente y porque la discusión quedó cruzada por la controversia sobre el ministro de Justicia, Fernando Rabat: la oposición anunció que buscará rechazar la glosa de Justicia. El 02-11-2026 la Comisión Especial Mixta inició la votación con más de 3.800 indicaciones (La Tercera, Radio Universidad de Chile y Publimicro, 02-11-2026).
@@ -32,6 +32,9 @@ El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro e
 - 2026-11-12 | El Ministerio de Salud obtiene la aprobación de su partida presupuestaria, que incluye recursos para la Ley Ricarte Soto (Cámara de Diputadas y Diputados, 12-11-2026) | diario: 2026-11-13#el-ministerio-de-salud-obtuvo-la-aprobacion-de-su-partida | sección: Además, hoy
 - 2026-11-12 | El Gobierno anuncia la reposición del programa Yo Elijo Mi PC para estudiantes: el informe del 12-11-2026 había consignado ese compromiso cuando la Cámara rechazó la partida de Educación del Presupuesto 2027, y el del 13-11-2026 no precisa monto ni partida (Araucanía Noticias Temuco, 12-11-2026) | diario: 2026-11-13#el-gobierno-anuncio-la-reposicion-del-programa-yo-elijo-mi | sección: Además, hoy
 
+- 2026-11-13 | La Cámara de Diputadas y Diputados despacha al Senado el Presupuesto 2027 después de una sesión que termina a las 06:17 del 13-11-2026, con siete partidas ministeriales sin recursos variables: la Sala rechaza los gastos variables de Interior, Educación, Secretaría General de Gobierno, Minería, Mujer y Equidad de Género y Culturas, y la partida de Ciencia ya había quedado sin esos recursos en la comisión mixta; el Senado puede reponer o modificar partidas durante el segundo trámite y, si ambas cámaras mantienen diferencias, el proyecto debe volver a comisión mixta antes del plazo constitucional de despacho (Cámara de Diputadas y Diputados y Cooperativa, 13-11-2026) | diario: 2026-11-14#presupuesto-2027-pasa-al-senado-con-siete-partidas | sección: Política
+- 2026-11-13 | La Cámara rechaza además recursos del Instituto Nacional de Deportes, Senadis, el Servicio de Protección Especializada a la Niñez, Serviu Tarapacá y subsecretarías del Trabajo, y rechaza la autorización que el Ejecutivo solicitó para endeudarse por hasta US$25.000 millones; los rechazos ocurren en el primer trámite y el proyecto sigue en el Senado, que puede reponerlos o modificarlos (Cámara de Diputadas y Diputados, 13-11-2026) | diario: 2026-11-14#presupuesto-2027-pasa-al-senado-con-siete-partidas | sección: Política
+- 2026-11-13 | La Confech critica el financiamiento de la educación superior propuesto para 2027 (Confech, citada por Radio Universidad de Chile, 13-11-2026) | diario: 2026-11-14#la-confech-critico-el-financiamiento-de-la-educacion | sección: Además, hoy
 ## Qué falta por saber
 - ¿Cuándo ingresó el proyecto y cuál es el gasto total propuesto? No consta en los informes del repo.
 - ¿Qué fecha límite tiene el despacho del Presupuesto 2027? Respondida: el informe del 08-11-2026 fija el 30-11-2026 como plazo constitucional para concluir la tramitación.
@@ -54,5 +57,8 @@ El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro e
 - ¿Repone el Senado los recortes a subsidios al empleo y a programas del Sence criticados cuando la Cámara aprobó la partida de Trabajo el 12-11-2026?
 - ¿Con cuántos recursos queda la Ley Ricarte Soto en la partida de Salud aprobada el 12-11-2026? El informe no consigna el monto.
 
+- ¿Repone el Senado los gastos variables de las siete partidas que quedaron sin ellos al despacharse el proyecto el 13-11-2026, y con qué monto queda cada una?
+- ¿Aprueba el Congreso la autorización de endeudamiento por hasta US$25.000 millones que la Cámara rechazó el 13-11-2026, y con qué financia el Ejecutivo el año si no se repone?
+- ¿Qué pide exactamente la Confech sobre el financiamiento de la educación superior para 2027? El informe del 14-11-2026 consigna la crítica y no el detalle.
 ## Publicado
 Sin publicaciones al 03-11-2026.
