@@ -1,9 +1,9 @@
 {
   "fecha": "2026-11-15",
-  "etapa": "validar_preseleccion",
+  "etapa": "preseleccion_lista",
   "veredicto": "pendiente",
-  "vuelta": 1,
-  "actualizado": "2026-11-15 05:24",
+  "vuelta": 0,
+  "actualizado": "2026-11-15 05:28",
   "reparar": null,
   "piezas": [
     {
@@ -23,7 +23,7 @@
       "id": "preseleccion",
       "etiqueta": "Preselección",
       "hay": true,
-      "situacion": "por_validar",
+      "situacion": "lista",
       "prompt": "prompts/seleccion.md",
       "hora": "05:12",
       "esperada": "02:10",
@@ -81,25 +81,25 @@
     {
       "id": "informe",
       "etiqueta": "Informe",
-      "atraso": 164,
+      "atraso": 168,
       "dueno": "GPT · prompts/informe.md"
     },
     {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "atraso": 134,
+      "atraso": 138,
       "dueno": "GPT · prompts/guion-informe.md"
     },
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 114,
+      "atraso": 118,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 9,
+      "atraso": 13,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
