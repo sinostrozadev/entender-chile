@@ -1,18 +1,10 @@
 {
   "fecha": "2026-11-15",
-  "etapa": "reparar_preseleccion",
+  "etapa": "validar_preseleccion",
   "veredicto": "pendiente",
   "vuelta": 1,
-  "actualizado": "2026-11-15 05:21",
-  "reparar": {
-    "piezas": [
-      "preseleccion"
-    ],
-    "pieza": "preseleccion",
-    "dueno": "GPT (despachador)",
-    "motivo": "contenido/veredictos/2026-11-15-preseleccion.md",
-    "vuelta": 1
-  },
+  "actualizado": "2026-11-15 05:24",
+  "reparar": null,
   "piezas": [
     {
       "id": "barrido",
@@ -31,7 +23,7 @@
       "id": "preseleccion",
       "etiqueta": "Preselección",
       "hay": true,
-      "situacion": "reparar",
+      "situacion": "por_validar",
       "prompt": "prompts/seleccion.md",
       "hora": "05:12",
       "esperada": "02:10",
@@ -89,25 +81,25 @@
     {
       "id": "informe",
       "etiqueta": "Informe",
-      "atraso": 161,
+      "atraso": 164,
       "dueno": "GPT · prompts/informe.md"
     },
     {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "atraso": 131,
+      "atraso": 134,
       "dueno": "GPT · prompts/guion-informe.md"
     },
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 111,
+      "atraso": 114,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 6,
+      "atraso": 9,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
