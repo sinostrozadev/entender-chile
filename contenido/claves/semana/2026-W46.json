@@ -1,0 +1,1013 @@
+{
+  "semana": "2026-W46",
+  "lunes": "2026-11-09",
+  "sabado": "2026-11-14",
+  "dias": [
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-11",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-14"
+  ],
+  "dias_con_informe": [
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-11",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-14"
+  ],
+  "generado": "2026-11-15",
+  "noticias": 214,
+  "temas": 157,
+  "pesos": {
+    "A": 3,
+    "B": 2,
+    "C": 1,
+    "seguimiento": 1.5,
+    "dia_extra": 1,
+    "dossier": 2
+  },
+  "ranking": [
+    {
+      "puesto": 1,
+      "puntaje": 20,
+      "dias": [
+        "2026-11-10",
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13",
+        "2026-11-14"
+      ],
+      "niveles": [
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A"
+      ],
+      "secciones": [
+        "Economía y bolsillo",
+        "Actualidad",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 6,
+      "terminos": [
+        "camionero",
+        "mantienen",
+        "paro",
+        "acuerdo",
+        "combustibl",
+        "acordar",
+        "alza",
+        "bloqueo"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-10",
+          "nivel": "A",
+          "titular": "Camioneros mantienen el paro y el Gobierno propone limitar las alzas de combustibles",
+          "seccion": "Economía y bolsillo"
+        },
+        {
+          "fecha": "2026-11-11",
+          "nivel": "A",
+          "titular": "Camioneros mantienen el paro tras otra reunión sin acuerdo",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-11-12",
+          "nivel": "A",
+          "titular": "Camioneros mantienen el paro y el Gobierno cambia su fórmula para los combustibles",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-11-13",
+          "nivel": "A",
+          "titular": "Camioneros levantan el paro tras acordar una rebaja de $142 por litro de diésel, pero persisten focos movilizados",
+          "seccion": "Actualidad"
+        },
+        {
+          "fecha": "2026-11-14",
+          "nivel": "A",
+          "titular": "Camioneros mantienen bloqueos pese al acuerdo y el Gobierno anuncia intervención policial",
+          "seccion": "Actualidad"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 2,
+      "puntaje": 16,
+      "dias": [
+        "2026-11-09",
+        "2026-11-10",
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13",
+        "2026-11-14"
+      ],
+      "niveles": [
+        "C",
+        "C",
+        "B",
+        "B",
+        "B",
+        "A"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Política",
+        "Educación",
+        "Trabajo y empleo"
+      ],
+      "seguimiento": false,
+      "noticias": 6,
+      "terminos": [
+        "partida",
+        "presupuesto",
+        "educacion",
+        "rechaza",
+        "aprueba",
+        "cruce",
+        "debate",
+        "discusion"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-09",
+          "nivel": "C",
+          "titular": "La investigadora Sylvia Eyzaguirre sostuvo que una glosa de Educación del Presupuesto 2027 sería inconstitucional. (CNN Chile, 8 de noviembre de 2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-10",
+          "nivel": "C",
+          "titular": "La discusión del Presupuesto 2027 tuvo un cruce entre el ministro Nicolás Quiroz y el presidente de la Cámara, sin modificar por sí solo las partidas en debate. (La Tercera, 9 de noviembre de 2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-11",
+          "nivel": "B",
+          "titular": "La Cámara rechaza la partida de Interior por recortes a servicios",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-11-12",
+          "nivel": "B",
+          "titular": "La Cámara rechaza la partida de Educación del Presupuesto 2027",
+          "seccion": "Educación"
+        },
+        {
+          "fecha": "2026-11-13",
+          "nivel": "B",
+          "titular": "Cámara aprueba partida de Trabajo del Presupuesto 2027",
+          "seccion": "Trabajo y empleo"
+        },
+        {
+          "fecha": "2026-11-14",
+          "nivel": "A",
+          "titular": "Presupuesto 2027 pasa al Senado con siete partidas ministeriales rechazadas",
+          "seccion": "Política"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 3,
+      "puntaje": 14,
+      "dias": [
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13",
+        "2026-11-14"
+      ],
+      "niveles": [
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "secciones": [
+        "Medioambiente y clima"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "calor",
+        "extremo",
+        "atacama",
+        "aumento",
+        "senapred",
+        "advierte",
+        "alcanza",
+        "alerta"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-11",
+          "nivel": "A",
+          "titular": "El calor extremo alcanza Atacama y Coquimbo",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-11-12",
+          "nivel": "A",
+          "titular": "Atacama y Antofagasta entran en Alerta Roja por calor extremo",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-11-13",
+          "nivel": "A",
+          "titular": "Senapred ordena evacuaciones en Ovalle por aumento de los ríos Grande y Limarí",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-11-14",
+          "nivel": "B",
+          "titular": "Senapred advierte calor extremo y aumento de caudales",
+          "seccion": "Medioambiente y clima"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 4,
+      "puntaje": 7,
+      "dias": [
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "niveles": [
+        "C",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Resumen internacional"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "argentina",
+        "malvina",
+        "controversia",
+        "dataclave",
+        "derecho",
+        "disputa",
+        "eleva",
+        "frenar"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-11",
+          "nivel": "C",
+          "titular": "Argentina pidió al Tribunal Internacional del Derecho del Mar frenar el proyecto petrolero Sea Lion en las islas Malvinas. (Perfil, Diario Popular y DataClave, 10 de noviembre de 2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-12",
+          "nivel": "B",
+          "titular": "Chile y Argentina abren una controversia por un viaje a las Malvinas",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-11-13",
+          "nivel": "B",
+          "titular": "Argentina eleva la disputa por perforaciones petroleras en las Malvinas",
+          "seccion": "Resumen internacional"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 5,
+      "puntaje": 7,
+      "dias": [
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "niveles": [
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Seguridad y Justicia"
+      ],
+      "seguimiento": true,
+      "noticias": 2,
+      "terminos": [
+        "contraloria",
+        "justicia",
+        "pedido",
+        "plazo",
+        "publica",
+        "requerimiento",
+        "respuesta",
+        "vencimiento"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-11",
+          "nivel": "B",
+          "titular": "Justicia llega al vencimiento del plazo pedido por Contraloría",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-11-12",
+          "nivel": "B",
+          "titular": "Justicia sigue sin una respuesta pública verificable al requerimiento de Contraloría",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 6,
+      "puntaje": 7,
+      "dias": [
+        "2026-11-09",
+        "2026-11-10"
+      ],
+      "niveles": [
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Plata pública",
+        "Seguridad y justicia"
+      ],
+      "seguimiento": true,
+      "noticias": 2,
+      "terminos": [
+        "juec",
+        "preparan",
+        "removido",
+        "trece",
+        "cidh",
+        "demanda",
+        "interamericano",
+        "presentacion"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-09",
+          "nivel": "B",
+          "titular": "Trece jueces removidos preparan una demanda ante el sistema interamericano",
+          "seccion": "Plata pública"
+        },
+        {
+          "fecha": "2026-11-10",
+          "nivel": "B",
+          "titular": "Trece jueces removidos preparan una presentación ante la CIDH",
+          "seccion": "Seguridad y justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 7,
+      "puntaje": 6,
+      "dias": [
+        "2026-11-09",
+        "2026-11-11",
+        "2026-11-12"
+      ],
+      "niveles": [
+        "C",
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Chile en regiones"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "emergencia",
+        "familia",
+        "vivienda",
+        "afectada",
+        "anterior",
+        "castro",
+        "chelin",
+        "chiloe"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-09",
+          "nivel": "C",
+          "titular": "Municipios de la Región de Coquimbo informaron la gestión de viviendas de emergencia para familias afectadas por el temporal anterior. (BioBioChile, 8 de noviembre de 2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-11",
+          "nivel": "C",
+          "titular": "Techo y la Municipalidad de Castro preparan viviendas de emergencia para familias de la isla Chelín. (SoyChile, 10 de noviembre de 2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-12",
+          "nivel": "B",
+          "titular": "Cuatro familias enfrentan emergencias habitacionales en Chiloé y Papudo",
+          "seccion": "Chile en regiones"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 8,
+      "puntaje": 5,
+      "dias": [
+        "2026-11-09",
+        "2026-11-11",
+        "2026-11-14"
+      ],
+      "niveles": [
+        "C",
+        "C",
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "paraguay",
+        "pena",
+        "santiago",
+        "expresidente",
+        "fiscalia",
+        "ueno",
+        "allano",
+        "asociacion"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-09",
+          "nivel": "C",
+          "titular": "La Fiscalía de Paraguay allanó un inmueble vinculado al expresidente Santiago Peña en la investigación del caso Ueno Bank. (La Tercera y BioBioChile, 8 de noviembre de 2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-11",
+          "nivel": "C",
+          "titular": "CIPER examinó la caída del banco Ueno y la supervisión financiera en Paraguay tras la destitución del presidente Santiago Peña. (CIPER, 10 de noviembre de 2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-14",
+          "nivel": "C",
+          "titular": "La Fiscalía de Paraguay imputó al expresidente Santiago Peña por asociación criminal",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 9,
+      "puntaje": 5,
+      "dias": [
+        "2026-11-13",
+        "2026-11-14"
+      ],
+      "niveles": [
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Política"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "asia",
+        "gira",
+        "kast",
+        "cancelar",
+        "inicia",
+        "medio",
+        "normalizacion",
+        "oposicion"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-13",
+          "nivel": "B",
+          "titular": "Kast inicia gira por Asia en medio de la normalización de las rutas",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-11-14",
+          "nivel": "B",
+          "titular": "Oposición pide a Kast cancelar su gira por Asia",
+          "seccion": "Política"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 10,
+      "puntaje": 5,
+      "dias": [
+        "2026-11-13",
+        "2026-11-14"
+      ],
+      "niveles": [
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Ciencia y tecnología"
+      ],
+      "seguimiento": false,
+      "noticias": 2,
+      "terminos": [
+        "interrupcion",
+        "microsoft",
+        "recupera",
+        "casi",
+        "global",
+        "outlook",
+        "segunda",
+        "servicio"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-13",
+          "nivel": "B",
+          "titular": "Microsoft 365 recupera sus servicios tras una interrupción global de casi cinco horas",
+          "seccion": "Ciencia y tecnología"
+        },
+        {
+          "fecha": "2026-11-14",
+          "nivel": "B",
+          "titular": "Microsoft recupera Outlook tras una segunda interrupción en dos días",
+          "seccion": "Ciencia y tecnología"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    }
+  ],
+  "fuera_por_ya_explicado": [
+    {
+      "puntaje": 15,
+      "dias": [
+        "2026-11-10",
+        "2026-11-11",
+        "2026-11-13",
+        "2026-11-14"
+      ],
+      "niveles": [
+        "B",
+        "C",
+        "C",
+        "A",
+        "A",
+        "B"
+      ],
+      "secciones": [
+        "Seguridad y justicia",
+        "Además, hoy",
+        "Seguridad y Justicia"
+      ],
+      "seguimiento": false,
+      "noticias": 6,
+      "terminos": [
+        "rabat",
+        "acusacion",
+        "condena",
+        "rebaja",
+        "falta",
+        "fernando",
+        "justicia",
+        "ministro"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-10",
+          "nivel": "B",
+          "titular": "Justicia amplía la suspensión de rebajas de condena",
+          "seccion": "Seguridad y justicia"
+        },
+        {
+          "fecha": "2026-11-11",
+          "nivel": "C",
+          "titular": "Con el libelo aún sin ingreso formal, los principales constitucionalistas del PS se distanciaron de la acusación en preparación contra Fernando Rabat por falta de fundamentos jurídicos. (Ex-Ante, 10 de noviembre de 2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-13",
+          "nivel": "A",
+          "titular": "Oposición ingresa acusación constitucional contra el ministro Rabat",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-11-14",
+          "nivel": "A",
+          "titular": "Acusación contra Rabat cuestiona la falta de apelaciones en casos de 56 condenados",
+          "seccion": "Seguridad y Justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "rabat-rebajas-de-condena",
+        "titulo": "Rebajas de condena por conducta sobresaliente: quién evaluaba, quién concedía y qué podía revisar un tribunal"
+      }
+    },
+    {
+      "puntaje": 14,
+      "dias": [
+        "2026-11-09",
+        "2026-11-10",
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "niveles": [
+        "B",
+        "C",
+        "B",
+        "C",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Economía y bolsillo",
+        "Además, hoy",
+        "Trabajo y empleo"
+      ],
+      "seguimiento": true,
+      "noticias": 6,
+      "terminos": [
+        "fondo",
+        "pension",
+        "caida",
+        "decision",
+        "superintendencia",
+        "acta",
+        "afectada",
+        "anunciaron"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-09",
+          "nivel": "B",
+          "titular": "La Superintendencia de Pensiones investiga la caída del Fondo E",
+          "seccion": "Economía y bolsillo"
+        },
+        {
+          "fecha": "2026-11-10",
+          "nivel": "B",
+          "titular": "El regulador abre la opción de recalcular pensiones afectadas por el Fondo E",
+          "seccion": "Economía y bolsillo"
+        },
+        {
+          "fecha": "2026-11-12",
+          "nivel": "B",
+          "titular": "Un acta de Cuprum muestra la decisión previa a la caída del Fondo E",
+          "seccion": "Trabajo y empleo"
+        },
+        {
+          "fecha": "2026-11-13",
+          "nivel": "B",
+          "titular": "Fondos de pensiones perdieron US$10.064 millones en operaciones cambiarias",
+          "seccion": "Trabajo y empleo"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "afp-multifondos-perdidas-fondo-e",
+        "titulo": "Multifondos de pensiones: quién responde cuando el saldo cae y qué puede hacer el afiliado"
+      }
+    },
+    {
+      "puntaje": 12,
+      "dias": [
+        "2026-11-10",
+        "2026-11-11",
+        "2026-11-13"
+      ],
+      "niveles": [
+        "C",
+        "B",
+        "C",
+        "C",
+        "C",
+        "B",
+        "C",
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Seguridad y Justicia",
+        "Ciencia y tecnología"
+      ],
+      "seguimiento": false,
+      "noticias": 8,
+      "terminos": [
+        "artificial",
+        "inteligencia",
+        "banco",
+        "central",
+        "establ",
+        "innova",
+        "moneda",
+        "pago"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-10",
+          "nivel": "C",
+          "titular": "El Banco Central planteó fortalecer los pagos instantáneos para comercios y preparar regulación local para ciertas monedas estables. (Banco Central, agosto de 2026; BioBioChile, 9 de noviembre de 2026)",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-11",
+          "nivel": "B",
+          "titular": "CIPER detecta rastros de inteligencia artificial en sentencias",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-11-13",
+          "nivel": "B",
+          "titular": "Junaeb probará cámaras con inteligencia artificial para contar raciones",
+          "seccion": "Ciencia y tecnología"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "como-leer-ipom",
+        "titulo": "Cómo leer el IPoM: proyecciones, supuestos y riesgos detrás de las decisiones del Banco Central"
+      }
+    },
+    {
+      "puntaje": 5,
+      "dias": [
+        "2026-11-09"
+      ],
+      "niveles": [
+        "A"
+      ],
+      "secciones": [
+        "Plata pública"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "cerro",
+        "curico",
+        "detalle",
+        "funcionario",
+        "licencia",
+        "medica",
+        "publico",
+        "salida"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-09",
+          "nivel": "A",
+          "titular": "Curicó cerró 126 salidas de funcionarios por viajes con licencia médica y dejó 14 casos sin detalle público",
+          "seccion": "Plata pública"
+        }
+      ],
+      "dossier": {
+        "slug": "fonasa-licencias-falsas",
+        "titulo": "Caso: FONASA, megafraude de licencias médicas falsas"
+      },
+      "explicado": {
+        "slug": "licencia-medica-fiscalizacion-y-sumario",
+        "titulo": "Licencia médica en Chile: quién decide, quién paga y qué ocurre si no se cumple el reposo"
+      }
+    },
+    {
+      "puntaje": 3,
+      "dias": [
+        "2026-11-09"
+      ],
+      "niveles": [
+        "A"
+      ],
+      "secciones": [
+        "Economía y bolsillo"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "anual",
+        "cobre",
+        "encamina",
+        "produccion"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-09",
+          "nivel": "A",
+          "titular": "Chile se encamina a su menor producción anual de cobre desde 2003",
+          "seccion": "Economía y bolsillo"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "codelco-produccion-inflada",
+        "titulo": "Producción inflada en Codelco: cómo se registra cobre que no se produjo y quién controla a la estatal"
+      }
+    },
+    {
+      "puntaje": 3,
+      "dias": [
+        "2026-11-10"
+      ],
+      "niveles": [
+        "A"
+      ],
+      "secciones": [
+        "Vivienda y ciudad"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "banco",
+        "material",
+        "reparar",
+        "subsidio",
+        "vivienda"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-10",
+          "nivel": "A",
+          "titular": "Banco de Materiales abre un subsidio de hasta 40 UF para reparar viviendas",
+          "seccion": "Vivienda y ciudad"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "mercado-capitales-credito-hipotecario",
+        "titulo": "Mercado de capitales y crédito hipotecario: por qué el costo de financiar a los bancos termina influyendo en la tasa de una vivienda"
+      }
+    },
+    {
+      "puntaje": 3,
+      "dias": [
+        "2026-11-14"
+      ],
+      "niveles": [
+        "B"
+      ],
+      "secciones": [
+        "Chile en regiones"
+      ],
+      "seguimiento": true,
+      "noticias": 1,
+      "terminos": [
+        "contraloria",
+        "formula",
+        "iquique",
+        "park",
+        "reparo",
+        "skate"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-14",
+          "nivel": "B",
+          "titular": "Contraloría formula reparo por más de $60 millones en skate park de Iquique",
+          "seccion": "Chile en regiones"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "contraloria-reparo-juicio-cuentas",
+        "titulo": "Contraloría, reparos y juicios de cuentas: cómo se busca recuperar dinero público cuando una fiscalización detecta un perjuicio"
+      }
+    },
+    {
+      "puntaje": 2,
+      "dias": [
+        "2026-11-13"
+      ],
+      "niveles": [
+        "B"
+      ],
+      "secciones": [
+        "Chile en regiones"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "contraloria",
+        "detecta",
+        "extendida",
+        "falla",
+        "gestion",
+        "municipal",
+        "residuo"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-13",
+          "nivel": "B",
+          "titular": "Contraloría detecta fallas extendidas en la gestión municipal de residuos",
+          "seccion": "Chile en regiones"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "contraloria-reparo-juicio-cuentas",
+        "titulo": "Contraloría, reparos y juicios de cuentas: cómo se busca recuperar dinero público cuando una fiscalización detecta un perjuicio"
+      }
+    },
+    {
+      "puntaje": 1,
+      "dias": [
+        "2026-11-10"
+      ],
+      "niveles": [
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "abrio",
+        "apruebe",
+        "apuesta",
+        "cambiar",
+        "congreso",
+        "discusion",
+        "linea",
+        "prohibir"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-10",
+          "nivel": "C",
+          "titular": "El Senado abrió la discusión para prohibir o regular las apuestas en línea, sin cambiar las reglas vigentes mientras el Congreso no apruebe una ley. (ADN Radio y Veredictum, 9 de noviembre de 2026)",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "ley-presupuestos-chile",
+        "titulo": "Ley de Presupuestos en Chile: quién decide el gasto, qué puede cambiar el Congreso y qué ocurre si no hay acuerdo"
+      }
+    },
+    {
+      "puntaje": 1,
+      "dias": [
+        "2026-11-11"
+      ],
+      "niveles": [
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "acudio",
+        "atencion",
+        "confusam",
+        "congreso",
+        "financiamiento",
+        "informador",
+        "pedir",
+        "presupuesto"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-11",
+          "nivel": "C",
+          "titular": "La Confusam acudió al Congreso para pedir mayor financiamiento de la atención primaria en el Presupuesto 2027. (La Tercera y El Informador Chile, 10 de noviembre de 2026)",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "ley-presupuestos-chile",
+        "titulo": "Ley de Presupuestos en Chile: quién decide el gasto, qué puede cambiar el Congreso y qué ocurre si no hay acuerdo"
+      }
+    }
+  ]
+}
