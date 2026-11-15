@@ -1,0 +1,27 @@
+Crea UNA carátula de YouTube para un video largo del canal en español "Bolita Lab": una bolita brillante rebota sobre pads de colores y cada rebote toca una nota; así suena una melodía famosa y el público tiene que adivinar cuál es. Son 10 canciones.
+
+DATOS QUE YO ENTREGO
+TEXTO 1 (exacto, en mayúsculas, enorme, blanco con borde negro grueso, en dos líneas):
+¿CUÁNTAS
+ADIVINAS?
+TEXTO 2 (exacto, dentro de una caja verde neón inclinada con letra negra): 10 CANCIONES
+
+FORMATO
+16:9 horizontal, 1280x720 o mayor, PNG. UNA sola carátula a lienzo completo: nada de paneles, mosaicos ni variantes. El texto VA DENTRO, exacto, con tildes y signos de apertura (¿CUÁNTAS ADIVINAS?). Todo texto debe leerse perfecto a 160 píxeles de ancho.
+
+COMPOSICIÓN
+- Fondo violeta oscuro casi negro, con un brillo suave.
+- A la derecha y al centro: una bolita amarilla brillante y grande (al menos 150 px de diámetro), con brillo de vidrio y estela de luz, rebotando en el aire sobre una fila curva de 8 pads rectangulares de neón de colores distintos (rojo, naranja, amarillo, verde, celeste, azul, violeta, rosa) que se iluminan al ser tocados. Del pad que acaba de tocar salen anillos de luz y notas musicales de colores flotando hacia arriba.
+- Un gran signo de interrogación de neón translúcido detrás de la bolita.
+- Arriba a la izquierda, TEXTO 1 enorme; debajo, la caja verde con TEXTO 2.
+- Marca pequeña "BOLITA LAB" arriba a la derecha, discreta.
+- Esquina inferior derecha LIBRE de elementos importantes (YouTube pone ahí la duración).
+
+ESTILO
+Gráfico 2D/3D limpio, saturado y nítido, tipo simulación física; divertido, para todo público.
+
+PROHIBIDO
+Personas, manos o rostros. Instrumentos de marca, logos, carátulas de discos, nombres de canciones o de artistas, marcas de agua. Cualquier texto que no sea TEXTO 1, TEXTO 2 y la marca.
+
+PRUEBA FINAL
+¿Se entiende en medio segundo que es un juego de adivinar canciones con una bolita? ¿Los textos se leen a 160 px con tildes y signos correctos? ¿La esquina inferior derecha está limpia? ¿Es UNA sola imagen? Si algo falla, corrígelo antes de generar.
