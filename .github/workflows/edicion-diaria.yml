@@ -113,7 +113,15 @@ jobs:
           tiene clave       && echo "HAY_CLAVE=1"       >> "$GITHUB_ENV"
           FALTA=""
           [ -f contenido/estado/sin-video-informe.txt ] || { tiene informe || FALTA="$FALTA informe"; }
-          tiene short   || FALTA="$FALTA short"
+          # Fecha con SOLO Clave (informe apagado y sin guion del informe): el
+          # largo se produce antes de su día. No hay informe ni Short que hacer.
+          if [ -f contenido/estado/sin-video-informe.txt ] && [ ! -f "contenido/guiones/informe/$FECHA.md" ] \
+             && ls contenido/guiones/claves/$FECHA-*.md >/dev/null 2>&1; then
+            echo "Fecha con solo Clave: se salta el informe y su Short."
+            echo "HAY_INFORME=1" >> "$GITHUB_ENV"; echo "HAY_SHORT=1" >> "$GITHUB_ENV"
+          else
+            tiene short   || FALTA="$FALTA short"
+          fi
           # La Clave solo cuenta como pendiente si hoy existe su guion.
           # (Su Short se retiró el 16-09: ver CLAVE 3 en bitacora/PENDIENTES.md.)
           if ls contenido/guiones/claves/$FECHA-*.md >/dev/null 2>&1; then
