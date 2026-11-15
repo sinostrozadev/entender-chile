@@ -1,1 +1,1 @@
-2026-11-15 validar_preseleccion 0 4c1aaf27
+2026-11-15 validar_preseleccion 1 a3138862
