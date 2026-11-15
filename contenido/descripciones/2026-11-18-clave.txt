@@ -1,0 +1,29 @@
+Una explicación desde cero sobre cómo una minera reconoce producción, cómo aparecen duplicidades entre divisiones y qué controles deberían detectarlas. El caso permite separar inventarios, bonos, responsabilidades laborales e investigación penal sin mezclar cifras preliminares con conclusiones definitivas.
+
+Capítulos:
+00:00 Gancho
+00:24 De dónde viene
+01:55 Las ocho salidas
+02:49 La cifra preliminar
+04:07 Cómo se anota cobre que no se produjo
+05:57 Quién debía revisar
+08:28 La producción física es otro problema
+09:20 Qué está en juego y qué mirar
+
+Fuentes de esta edición:
+- Codelco, medidas tras detectar desviaciones en producción 2025, 20-05-2026: https://www.codelco.com/prensa/2026/codelco-adopta-medidas-tras-detectar-desviaciones-en-produccion-2025
+- Fiscalía de Chile, designación del fiscal regional de O'Higgins, 26-05-2026: https://www.fiscaliadechile.cl/actualidad/noticias/nacionales/fiscalia-nacional-designa-fiscal-regional-de-ohiggins-para-dirigir
+- CNN Chile, devolución de bonos por registros de producción, 30-06-2026: https://www.cnnchile.com/negocios/codelco-devolucion-bonos-trabajadores-produccion/
+- Codelco, auditoría externa encargada a KPMG, 21-07-2026: https://codelco.com/prensa/2026/directorio-de-codelco-encarga-a-kpmg-auditoria-externa
+- Codelco, nuevos antecedentes para 2024 y 2025, 06-10-2026: https://codelco.com/prensa/2026/codelco-investiga-nuevos-antecedentes-de-sobreproduccion-entre-2024-y-2025
+- Codelco, medidas ante hallazgos de las investigaciones, 29-10-2026: https://www.codelco.com/prensa/2026/codelco-adopta-medidas-ante-hallazgos-en-investigaciones
+- Codelco, junta extraordinaria de accionistas, 05-11-2026: https://codelco.com/prensa/2026/junta-extraordinaria-de-accionistas-respalda-medidas-adoptadas
+- Ministerio de Minería, grupo de expertos, 05-11-2026: https://www.minmineria.gob.cl/?noticia=tras-irregularidades-en-codelco-biministro-mas-anuncia-grupo-transversal-de-expertos-para-revisar-institucionalidad-de-cochilco-y-sernageomin-en-su-interaccion-con-codelco
+- Radio Universidad de Chile, solicitud al CDE, 09-11-2026: https://radio.uchile.cl/2026/11/09/irregularidades-en-codelco-rn-y-evopoli-solicitan-al-cde-informar-acciones-judiciales-y-recursos-recuperados-para-el-fisco/
+- Cámara de Diputadas y Diputados, comisión investigadora: https://www.camara.cl/legislacion/comisiones/ficha.aspx?prmID=4964
+- Biblioteca del Congreso Nacional, Ley 20.392: https://www.bcn.cl/leychile/navegar?idNorma=1007982
+- Codelco, Código de Gobierno Corporativo 2026: https://www.codelco.com/prontus_codelco/site/docs/20260406/20260406104725/codigo_gobierno_corporativo_codelco.pdf
+- Cochilco, Dirección de Fiscalización: https://www.cochilco.cl/web/direccion-de-fiscalizacion-2/
+- Ex-Ante, cifras de producción y bonos, 05-11-2026: https://www.ex-ante.cl/negocios/codelco-cifras-infladas-pacheco/
+- La Tercera, proyecciones de producción de Codelco, 08-11-2026: https://www.latercera.com/pulso/noticia/fontaine-echa-abajo-las-proyecciones-de-produccion-de-codelco-en-estos-cuatro-anos-vamos-a-intentar-acercarnos-a-13-millon-de-toneladas/
+- BioBioChile, producción nacional proyectada, 08-11-2026: https://www.biobiochile.cl/noticias/economia/actualidad-economica/2026/11/08/chile-tiene-la-menor-produccion-de-cobre-en-20-anos-y-crecimiento-economico-para-2027-se-ve-amenazado.shtml
