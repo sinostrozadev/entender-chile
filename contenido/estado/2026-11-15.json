@@ -1,9 +1,9 @@
 {
   "fecha": "2026-11-15",
-  "etapa": "barrido_listo",
+  "etapa": "validar_preseleccion",
   "veredicto": "pendiente",
   "vuelta": 0,
-  "actualizado": "2026-11-15 04:52",
+  "actualizado": "2026-11-15 05:12",
   "reparar": null,
   "piezas": [
     {
@@ -22,13 +22,15 @@
     {
       "id": "preseleccion",
       "etiqueta": "Preselección",
-      "hay": false,
-      "situacion": "falta",
+      "hay": true,
+      "situacion": "por_validar",
       "prompt": "prompts/seleccion.md",
-      "hora": "",
+      "hora": "05:12",
       "esperada": "02:10",
       "dueno": "GPT · prompts/seleccion.md",
-      "rutas": []
+      "rutas": [
+        "contenido/preseleccion/2026-11-15.md"
+      ]
     },
     {
       "id": "informe",
@@ -77,27 +79,21 @@
   ],
   "atrasos": [
     {
-      "id": "preseleccion",
-      "etiqueta": "Preselección",
-      "atraso": 162,
-      "dueno": "GPT · prompts/seleccion.md"
-    },
-    {
       "id": "informe",
       "etiqueta": "Informe",
-      "atraso": 132,
+      "atraso": 152,
       "dueno": "GPT · prompts/informe.md"
     },
     {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "atraso": 102,
+      "atraso": 122,
       "dueno": "GPT · prompts/guion-informe.md"
     },
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 82,
+      "atraso": 102,
       "dueno": "Claude · prompts/validador.md"
     }
   ]
