@@ -95,6 +95,19 @@ tiene flujo y render desde el 02-11-2026 y está en piloto.
       sobre el cron, disparado por uno de los relojes de reintento de 20
       minutos. La cadena se recuperó sola y sin vueltas extra.
       `bitacora/2026-11-06-auditoria.md`.
+      **15-11: sexta vez, y la más ancha hasta ahora dentro de una misma
+      madrugada (sin perder el día, a diferencia del 12 y el 13-11).**
+      `get_trigger` sobre el Reloj del barrido devolvió el mismo
+      `failure_reason: ROUTINE_RUN_FAILURE_REASON_USAGE_LIMIT_REACHED` a las
+      01:39:48 Chile; el barrido real no corrió hasta las 04:51:53, más de
+      tres horas sobre el cron. El `git log` no tiene ningún commit
+      `reintento: despertador HH:MM [reloj]` entre la 01:10 y las 04:51
+      Chile, pese a que los tres relojes de reintento deberían pushear uno
+      cada 6 a 7 minutos en ese tramo, y `get_trigger` sobre el Reloj B
+      confirma al menos un intento fallido con el mismo motivo a las
+      04:36:34 Chile: la cuota faltó para varias rutinas a la vez, no solo
+      para el reloj del barrido. La cadena se recuperó sola, con una sola
+      vuelta de corrección en la preselección. `bitacora/2026-11-15-auditoria.md`.
 
 - [ ] **01-11: borrar en GitHub los secrets `ELEVENLABS_API_KEY` y
       `VOICE_ID`, ya sin uso.** La limpieza del 01-11 sacó los restos de
