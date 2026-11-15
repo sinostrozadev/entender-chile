@@ -58,7 +58,15 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
       const m = (v.contentDetails?.duration || "").match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
       const durSeg = m ? (+(m[1] || 0)) * 3600 + (+(m[2] || 0)) * 60 + (+(m[3] || 0)) : 0;
       videos[v.id] = {
-        titulo: v.snippet.title.slice(0, 60), publicado: v.snippet.publishedAt.slice(0, 10), estado: v.status.privacyStatus,
+        // ARREGLO (15-11-2026, rutina de mejora diaria): el título se guarda
+        // COMPLETO. Estuvo cortado en 60 caracteres desde el principio y eso
+        // dejaba 189 de los 237 títulos truncados justo donde el gancho se
+        // termina, así que toda medición de título que hizo esta rutina (largo
+        // del gancho, dónde cae la cifra, si el título es recopilatorio) se
+        // hizo contra una cadena cortada y dio ruido por construcción. El corte
+        // a 60 se mantiene, pero SOLO al imprimir las tablas del .md (función
+        // `corto`), que es donde servía: ahí el dato estorba, en el json manda.
+        titulo: v.snippet.title, publicado: v.snippet.publishedAt.slice(0, 10), estado: v.status.privacyStatus,
         vistas: +(v.statistics.viewCount || 0), meGusta: +(v.statistics.likeCount || 0), comentarios: +(v.statistics.commentCount || 0),
         durSeg,
       };
@@ -69,6 +77,9 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
   fs.mkdirSync(DIR, { recursive: true });
   const previos = fs.readdirSync(DIR).filter((f) => f.endsWith(".json") && f < `${fecha}.json`).sort();
   const prev = previos.length ? JSON.parse(fs.readFileSync(path.join(DIR, previos[previos.length - 1]), "utf8")) : null;
+  // El json guarda el título completo; las tablas del .md lo cortan a 60 para
+  // que la columna no se desborde. Es presentación, no dato.
+  const corto = (t) => (t || "").slice(0, 60);
   const d = (ahora, antes) => (antes == null ? "" : (ahora - antes >= 0 ? ` (+${ahora - antes})` : ` (${ahora - antes})`));
 
   // ARREGLO 3 (01-09): las "vistas totales" son la SUMA por video, no el
@@ -180,8 +191,8 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
     const im = impresiones?.videos?.[id];
     const colImpr = impresiones ? ` ${im ? im.impresiones : "-"} | ${im && typeof im.ctr === "number" ? im.ctr + "%" : "-"} |` : "";
     lineas.push(retencion
-      ? `| ${v.titulo} | ${v.estado} | ${v.vistas}${d(v.vistas, pv?.vistas)} |${colImpr} ${re ? re.minutos : "-"} | ${re ? re.pct + "%" : "-"} | ${v.meGusta}${d(v.meGusta, pv?.meGusta)} |`
-      : `| ${v.titulo} | ${v.estado} | ${v.vistas}${d(v.vistas, pv?.vistas)} | ${v.meGusta}${d(v.meGusta, pv?.meGusta)} | ${v.comentarios}${d(v.comentarios, pv?.comentarios)} |`);
+      ? `| ${corto(v.titulo)} | ${v.estado} | ${v.vistas}${d(v.vistas, pv?.vistas)} |${colImpr} ${re ? re.minutos : "-"} | ${re ? re.pct + "%" : "-"} | ${v.meGusta}${d(v.meGusta, pv?.meGusta)} |`
+      : `| ${corto(v.titulo)} | ${v.estado} | ${v.vistas}${d(v.vistas, pv?.vistas)} | ${v.meGusta}${d(v.meGusta, pv?.meGusta)} | ${v.comentarios}${d(v.comentarios, pv?.comentarios)} |`);
   }
   if (retencion) {
     const esShort = (id) => (videos[id]?.durSeg ?? 0) > 0 && (videos[id]?.durSeg ?? 0) <= 75;
@@ -210,7 +221,7 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
         lineas.push("**Largos con impresiones suficientes para juzgar la carátula (100 o más):**", "",
           "| Video | Publicado | Impresiones | CTR | Vistas |", "|---|---|---|---|---|");
         for (const [id, x] of conDatos) {
-          lineas.push(`| ${videos[id]?.titulo ?? id} | ${videos[id]?.publicado ?? "-"} | ${x.impresiones} | ${typeof x.ctr === "number" ? x.ctr + "%" : "-"} | ${videos[id]?.vistas ?? "-"} |`);
+          lineas.push(`| ${videos[id] ? corto(videos[id].titulo) : id} | ${videos[id]?.publicado ?? "-"} | ${x.impresiones} | ${typeof x.ctr === "number" ? x.ctr + "%" : "-"} | ${videos[id]?.vistas ?? "-"} |`);
         }
         lineas.push("");
       } else {
@@ -232,7 +243,7 @@ const sumaVistas = (medicion) => Object.values(medicion?.videos || {}).reduce((s
         for (const [id, x] of conCurva.sort((a, b) => (retencion[b[0]]?.vistas ?? 0) - (retencion[a[0]]?.vistas ?? 0))) {
           const top = Object.entries(x.fuentes).sort((a, b) => b[1] - a[1])[0];
           const c = x.curva;
-          lineas.push(`| ${videos[id]?.titulo ?? id} | ${retencion[id].vistas} | ${top ? `${nom(top[0])} ${Math.round((100 * top[1]) / retencion[id].vistas)}%` : "-"} | ${c.p01}% | ${c.p05}% | ${c.p25}% | ${c.p50}% | ${c.p75}% | seg ${c.caidaMayor.segundo} (-${c.caidaMayor.puntos} pts) |`);
+          lineas.push(`| ${videos[id] ? corto(videos[id].titulo) : id} | ${retencion[id].vistas} | ${top ? `${nom(top[0])} ${Math.round((100 * top[1]) / retencion[id].vistas)}%` : "-"} | ${c.p01}% | ${c.p05}% | ${c.p25}% | ${c.p50}% | ${c.p75}% | seg ${c.caidaMayor.segundo} (-${c.caidaMayor.puntos} pts) |`);
         }
         lineas.push("");
       }
