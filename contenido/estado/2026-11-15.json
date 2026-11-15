@@ -3,7 +3,7 @@
   "etapa": "reparar_informe",
   "veredicto": "pendiente",
   "vuelta": 1,
-  "actualizado": "2026-11-15 09:19",
+  "actualizado": "2026-11-15 09:50",
   "reparar": {
     "piezas": [
       "informe"
@@ -91,19 +91,19 @@
     {
       "id": "guion_informe",
       "etiqueta": "Guion del informe",
-      "atraso": 369,
+      "atraso": 400,
       "dueno": "GPT · prompts/guion-informe.md"
     },
     {
       "id": "revision",
       "etiqueta": "Revisión (veredicto final)",
-      "atraso": 349,
+      "atraso": 380,
       "dueno": "Claude · prompts/validador.md"
     },
     {
       "id": "videos",
       "etiqueta": "Videos y descripciones",
-      "atraso": 244,
+      "atraso": 275,
       "dueno": "Actions · edicion-diaria.yml"
     }
   ]
