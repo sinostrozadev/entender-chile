@@ -771,5 +771,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-14-informe.mp3",
     "bytes": 5778432,
     "durSeg": 241
+  },
+  {
+    "fecha": "2026-11-16",
+    "tipo": "informe",
+    "titulo": "16-11-2026 · Más de 800 vecinos aislados por las crecidas del norte",
+    "descripcion": "Las crecidas mantienen aisladas a más de 800 personas en Alto del Carmen, obligaron a evacuar en Freirina y activaron alertas en Valparaíso. La Cámara inicia la acusación constitucional contra el ministro Fernando Rabat y el Congreso tramita una rebaja de $142 por litro de diésel. La jornada también trae dos mediciones distintas de la aprobación presidencial, la apertura de un nuevo tramo del Subsidio DS1 y avisos meteorológicos en distintas zonas del país.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-16/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-16-informe.mp3",
+    "bytes": 4904640,
+    "durSeg": 204
   }
 ]
