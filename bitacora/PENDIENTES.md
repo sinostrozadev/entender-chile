@@ -50,6 +50,25 @@ tiene flujo y render desde el 02-11-2026 y está en piloto.
 
 ## DEPENDEN DE SANTIAGO
 
+- [ ] **16-11, HOY: el informe del 15-11-2026 sigue publicado en
+      entender.sinodev.cl con los defectos de su única vuelta de corrección,
+      que nunca se aplicó.** La cadena de esa madrugada quedó varada en
+      `reparar_informe` (ver el bullet de la cuota más abajo) y el workflow
+      Web publicó igual la versión sin corregir (`contenido/informes/2026-11-15.md`,
+      push "edición 2026-11-15: informe", run `43695243554`, 2026-11-15T08:35:42Z).
+      Dos defectos visibles: línea 104, "durante el cierre de esta edición"
+      (nota de proceso en el cuerpo público, prohibida); línea 169, el `[C]`
+      de Sernac sobre motos Gas Gas sin la línea obligatoria "FUERA DE LA
+      OLLA:". Las otras cuatro correcciones de
+      `contenido/veredictos/2026-11-15-informe.md` tampoco se aplicaron.
+      Corregirlo exige editar un archivo de una fecha anterior, que la regla
+      general prohíbe: esa regla protege ediciones ya aprobadas y publicadas
+      correctamente, no un error de validación que nunca se corrigió y sigue
+      en línea, pero la excepción la decide Santiago, igual que con el Short
+      del 24-10-2026 (ver más abajo). Dueño: Santiago decide si se corrige in
+      situ o se baja la página mientras se corrige; noche ejecuta.
+      `bitacora/2026-11-16-auditoria.md`.
+
 - [ ] **Redirigir la copia vieja de GitHub Pages (repo `entender-chile-web`) a
       https://entender.sinodev.cl y apagar esa publicación**, cuando el dominio
       lleve una semana estable. Ojo: Spotify tiene registrado el feed en la
@@ -108,6 +127,14 @@ tiene flujo y render desde el 02-11-2026 y está en piloto.
       04:36:34 Chile: la cuota faltó para varias rutinas a la vez, no solo
       para el reloj del barrido. La cadena se recuperó sola, con una sola
       vuelta de corrección en la preselección. `bitacora/2026-11-15-auditoria.md`.
+      **Corrección del 16-11: esa vez SÍ se perdió el día**, al revés de lo
+      que esta misma entrada decía ("sin perder el día, a diferencia del 12 y
+      el 13-11"). La cadena quedó varada en `reparar_informe` y nunca llegó al
+      guion, a la revisión ni al video: no hay
+      `contenido/guiones/informe/2026-11-15.md`, no hay
+      `contenido/revisiones/2026-11-15.md` y `contenido/podcast/episodios.json`
+      salta del 14-11 al 16-11. Edición diaria corrió por su cron de mediodía
+      (12:25:50 Chile, run `43729832590`) y falló. `bitacora/2026-11-16-auditoria.md`.
 
 - [ ] **01-11: borrar en GitHub los secrets `ELEVENLABS_API_KEY` y
       `VOICE_ID`, ya sin uso.** La limpieza del 01-11 sacó los restos de
