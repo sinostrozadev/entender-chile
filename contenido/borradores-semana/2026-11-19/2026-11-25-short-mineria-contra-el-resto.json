@@ -1,0 +1,377 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-11-25-short-mineria-contra-el-resto",
+  "titulo": "Por qué el Imacec subió solo 0,2 % si el resto creció 2 %",
+  "descripcion": "¿Cómo puede crecer apenas 0,2 % la actividad si el resto crece 2 %?\nSegún el Banco Central, el Imacec de septiembre de 2026 subió 0,2 % frente a septiembre de 2025. La minería cayó 12,1 %, por menor extracción de cobre (menores leyes del mineral y suspensión temporal de faenas); el componente no minero creció 2,0 % anual, y 0,8 % en la serie ajustada por estación.\nHoy a las 19:00 sale el video largo: qué es una recesión técnica, por qué pasó y qué significa para el empleo y los precios.\nFuentes: Emol con datos del Banco Central (Imacec de septiembre, 02-11-2026; Imacec de agosto, 01-10-2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#imacec",
+    "#cobre",
+    "#chile"
+  ],
+  "publicar": "2026-11-25T12:00",
+  "props": {
+    "gancho": {
+      "texto": "Según el Banco Central, en septiembre la minería cayó 12,1 % y el Imacec subió solo 0,2 %. Fuera de la minería, la actividad creció 2 % contra un año antes.",
+      "rotulo": "MINERÍA CAYÓ 12,1 %",
+      "cifras": [
+        {
+          "texto": "12,1 %",
+          "valor": -12.1,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "imacec-septiembre-2026",
+              "paises": [
+                "MINERO",
+                "NOMINERO",
+                "TOTAL"
+              ],
+              "valores": {
+                "MINERO": [
+                  [
+                    2026,
+                    -12.1
+                  ]
+                ],
+                "NOMINERO": [
+                  [
+                    2026,
+                    2.0
+                  ]
+                ],
+                "TOTAL": [
+                  [
+                    2026,
+                    0.2
+                  ]
+                ]
+              },
+              "nombres": {
+                "MINERO": "Minería",
+                "NOMINERO": "No minero",
+                "TOTAL": "Imacec total"
+              },
+              "fuenteTexto": "Banco Central de Chile, Imacec de septiembre de 2026 (vía Emol, 02-11-2026)",
+              "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html",
+              "etiqueta": "Variación anual del Imacec",
+              "unidad": "%"
+            },
+            "operacion": "valor",
+            "pais": "MINERO",
+            "anio": 2026
+          }
+        },
+        {
+          "texto": "0,2 %",
+          "valor": 0.2,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "imacec-septiembre-2026",
+              "paises": [
+                "MINERO",
+                "NOMINERO",
+                "TOTAL"
+              ],
+              "valores": {
+                "MINERO": [
+                  [
+                    2026,
+                    -12.1
+                  ]
+                ],
+                "NOMINERO": [
+                  [
+                    2026,
+                    2.0
+                  ]
+                ],
+                "TOTAL": [
+                  [
+                    2026,
+                    0.2
+                  ]
+                ]
+              },
+              "nombres": {
+                "MINERO": "Minería",
+                "NOMINERO": "No minero",
+                "TOTAL": "Imacec total"
+              },
+              "fuenteTexto": "Banco Central de Chile, Imacec de septiembre de 2026 (vía Emol, 02-11-2026)",
+              "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html",
+              "etiqueta": "Variación anual del Imacec",
+              "unidad": "%"
+            },
+            "operacion": "valor",
+            "pais": "TOTAL",
+            "anio": 2026
+          }
+        },
+        {
+          "texto": "2 %",
+          "valor": 2.0,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "imacec-septiembre-2026",
+              "paises": [
+                "MINERO",
+                "NOMINERO",
+                "TOTAL"
+              ],
+              "valores": {
+                "MINERO": [
+                  [
+                    2026,
+                    -12.1
+                  ]
+                ],
+                "NOMINERO": [
+                  [
+                    2026,
+                    2.0
+                  ]
+                ],
+                "TOTAL": [
+                  [
+                    2026,
+                    0.2
+                  ]
+                ]
+              },
+              "nombres": {
+                "MINERO": "Minería",
+                "NOMINERO": "No minero",
+                "TOTAL": "Imacec total"
+              },
+              "fuenteTexto": "Banco Central de Chile, Imacec de septiembre de 2026 (vía Emol, 02-11-2026)",
+              "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html",
+              "etiqueta": "Variación anual del Imacec",
+              "unidad": "%"
+            },
+            "operacion": "valor",
+            "pais": "NOMINERO",
+            "anio": 2026
+          }
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "barras",
+      "titulo": "Imacec de septiembre, contra un año antes",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "imacec-septiembre-2026",
+        "paises": [
+          "MINERO",
+          "NOMINERO",
+          "TOTAL"
+        ],
+        "valores": {
+          "MINERO": [
+            [
+              2026,
+              -12.1
+            ]
+          ],
+          "NOMINERO": [
+            [
+              2026,
+              2.0
+            ]
+          ],
+          "TOTAL": [
+            [
+              2026,
+              0.2
+            ]
+          ]
+        },
+        "nombres": {
+          "MINERO": "Minería",
+          "NOMINERO": "No minero",
+          "TOTAL": "Imacec total"
+        },
+        "fuenteTexto": "Banco Central de Chile, Imacec de septiembre de 2026 (vía Emol, 02-11-2026)",
+        "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html",
+        "etiqueta": "Variación anual del Imacec",
+        "unidad": "%"
+      },
+      "destacar": {
+        "pais": "MINERO"
+      },
+      "formato": {
+        "decimales": 1,
+        "sufijo": " %"
+      },
+      "dice": "minería"
+    },
+    "escenas": [
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Ese 2 % es sin ajustes. Con la serie ajustada por estación, el resto creció 0,8 % en doce meses.",
+        "cifras": [
+          {
+            "texto": "0,8 %",
+            "valor": 0.8,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "imacec-no-minero-septiembre-2026-serie-ajustada",
+                "paises": [
+                  "NOMINERO"
+                ],
+                "valores": {
+                  "NOMINERO": [
+                    [
+                      2026,
+                      0.8
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "NOMINERO": "No minero"
+                },
+                "fuenteTexto": "Banco Central de Chile, Imacec de septiembre de 2026 (vía Emol, 02-11-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html",
+                "etiqueta": "Variación anual del Imacec no minero",
+                "unidad": "%"
+              },
+              "operacion": "valor",
+              "pais": "NOMINERO",
+              "anio": 2026
+            }
+          }
+        ]
+      },
+      {
+        "tipo": "planteamiento",
+        "texto": "En agosto la minería ya había caído 17,4 %. El Banco Central citó menores leyes del mineral y mantenciones; en septiembre, menores leyes y suspensión de faenas.",
+        "cifras": [
+          {
+            "texto": "17,4 %",
+            "valor": -17.4,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "imacec-agosto-2026",
+                "paises": [
+                  "MINERO",
+                  "NOMINERO"
+                ],
+                "valores": {
+                  "MINERO": [
+                    [
+                      2026,
+                      -17.4
+                    ]
+                  ],
+                  "NOMINERO": [
+                    [
+                      2026,
+                      1.4
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "MINERO": "Minería",
+                  "NOMINERO": "No minero"
+                },
+                "fuenteTexto": "Banco Central de Chile, Imacec de agosto de 2026 (vía Emol, 01-10-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/10/01/1212912/imacec-de-agosto.html",
+                "etiqueta": "Variación anual del Imacec",
+                "unidad": "%"
+              },
+              "operacion": "valor",
+              "pais": "MINERO",
+              "anio": 2026
+            }
+          },
+          {
+            "texto": "1,4 %",
+            "valor": 1.4,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "imacec-agosto-2026",
+                "paises": [
+                  "MINERO",
+                  "NOMINERO"
+                ],
+                "valores": {
+                  "MINERO": [
+                    [
+                      2026,
+                      -17.4
+                    ]
+                  ],
+                  "NOMINERO": [
+                    [
+                      2026,
+                      1.4
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "MINERO": "Minería",
+                  "NOMINERO": "No minero"
+                },
+                "fuenteTexto": "Banco Central de Chile, Imacec de agosto de 2026 (vía Emol, 01-10-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/10/01/1212912/imacec-de-agosto.html",
+                "etiqueta": "Variación anual del Imacec",
+                "unidad": "%"
+              },
+              "operacion": "valor",
+              "pais": "NOMINERO",
+              "anio": 2026
+            }
+          }
+        ],
+        "visual": {
+          "tipo": "iconos",
+          "titulo": "Por qué cayó la minería",
+          "items": [
+            {
+              "icono": "⛏️",
+              "texto": "Menores leyes del mineral",
+              "dice": "leyes"
+            },
+            {
+              "icono": "🔧",
+              "texto": "Mantenciones (agosto)",
+              "dice": "mantenciones"
+            },
+            {
+              "icono": "⏸️",
+              "texto": "Faenas suspendidas (sept.)",
+              "dice": "suspensión"
+            }
+          ]
+        }
+      },
+      {
+        "tipo": "giro",
+        "texto": "El resto de la economía creció, pero no alcanzó a compensar a la minería. Hoy a las siete de la tarde, en el video largo, vemos qué significa para el empleo.",
+        "rotulo": {
+          "texto": "RESTO: +2,0 %",
+          "dice": "creció"
+        }
+      }
+    ],
+    "remate": "Una parte cayó 12,1 %, otra creció, y el total quedó en 0,2 %.",
+    "fuentes": [
+      {
+        "texto": "Emol, Imacec de septiembre (02-11-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html"
+      },
+      {
+        "texto": "Emol, Imacec de agosto (01-10-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/10/01/1212912/imacec-de-agosto.html"
+      }
+    ],
+    "id": "2026-11-25-short-mineria-contra-el-resto"
+  }
+}

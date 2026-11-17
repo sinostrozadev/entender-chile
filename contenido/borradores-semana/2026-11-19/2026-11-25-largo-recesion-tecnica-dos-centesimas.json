@@ -1,0 +1,2236 @@
+{
+  "plantilla": "tesis",
+  "id": "2026-11-25-largo-recesion-tecnica-dos-centesimas",
+  "titulo": "¿Recesión técnica por dos centésimas? Qué cambia y qué no",
+  "descripcion": "¿Está Chile en recesión técnica, o depende de cómo se mida?\nEl PIB del segundo trimestre de 2026 cayó 0,02 % contra el trimestre anterior (cálculo con más decimales de Bloomberg; el Banco Central publica 0,0 %). Contra el mismo trimestre de 2025 cayó 0,2 %. Según la regla que se use, hay recesión técnica o no.\nRevisamos qué es, por qué cayó la minería y cómo llega al empleo, los precios y la tasa de interés, sin consejos financieros.\n\nCapítulos:\n00:00 El número de 0,02 %\n(los tiempos exactos se agregan al renderizar)\n\nFuentes:\n- DF y Bloomberg (11-11-2026): https://www.df.cl/economia-y-politica/actualidad/quiroz-admite-que-chile-esta-en-recesion-tecnica-pero-asegura-que-sera\n- Emol, Cuentas Nacionales (18-08-2026): https://www.emol.com/noticias/Economia/2026/08/18/1208798/cuentas-nacionales-banco-central.html\n- Emol, el debate (18-08-2026): https://www.emol.com/noticias/Economia/2026/08/18/1208875/recesion-tecnica-debate.html\n- Emol, Imacec de septiembre (02-11-2026): https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html\n- Emol, Imacec de agosto (01-10-2026): https://www.emol.com/noticias/Economia/2026/10/01/1212912/imacec-de-agosto.html\n- INE, desocupación jul-sep 2026: https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026\n- Emol, IPC de octubre (06-11-2026): https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html\n- Banco Central, comunicado RPM octubre 2026: https://www.bcentral.cl/web/banco-central/contenido/-/detalle/prensa/comunicados-rpm/comunicado-reunion-de-politica-monetaria-octubre-2026\n\nNo es asesoría financiera.\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#economia",
+    "#chile",
+    "#pib",
+    "#recesion"
+  ],
+  "publicar": "2026-11-25T19:00",
+  "props": {
+    "cabecera": "RECESIÓN TÉCNICA · CHILE 2026",
+    "gancho": {
+      "texto": "Con más decimales, la economía chilena cayó 0,02 % entre abril y junio, solo dos centésimas. Con la regla que compara con el trimestre anterior, esa diferencia decide si hubo recesión técnica. Con la regla interanual, la que se usa tradicionalmente en Chile, hay dos caídas seguidas, según las cifras de agosto. Por eso se discute qué nombre ponerle.",
+      "rotulo": "¿RECESIÓN POR 0,02 %?",
+      "grafico": {
+        "tipo": "contador",
+        "titulo": "Lo que cayó el PIB entre abril y junio",
+        "datos": {
+          "fuente": "manual",
+          "indicador": "pib-trimestral-desest-2026",
+          "paises": [
+            "T1",
+            "T2"
+          ],
+          "valores": {
+            "T1": [
+              [
+                2026,
+                -0.25
+              ]
+            ],
+            "T2": [
+              [
+                2026,
+                -0.02
+              ]
+            ]
+          },
+          "nombres": {
+            "T1": "1.er trimestre",
+            "T2": "2.º trimestre"
+          },
+          "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales; cálculo con más decimales de Bloomberg (vía DF, 11-11-2026)",
+          "fuenteUrl": "https://www.df.cl/economia-y-politica/actualidad/quiroz-admite-que-chile-esta-en-recesion-tecnica-pero-asegura-que-sera",
+          "etiqueta": "PIB contra el trimestre anterior",
+          "unidad": "%"
+        },
+        "destacar": {
+          "pais": "T2",
+          "texto": "contra el trimestre anterior"
+        },
+        "formato": {
+          "decimales": 2,
+          "sufijo": " %"
+        }
+      },
+      "cifras": [
+        {
+          "texto": "0,02 %",
+          "valor": -0.02,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "pib-trimestral-desest-2026",
+              "paises": [
+                "T1",
+                "T2"
+              ],
+              "valores": {
+                "T1": [
+                  [
+                    2026,
+                    -0.25
+                  ]
+                ],
+                "T2": [
+                  [
+                    2026,
+                    -0.02
+                  ]
+                ]
+              },
+              "nombres": {
+                "T1": "1.er trimestre",
+                "T2": "2.º trimestre"
+              },
+              "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales; cálculo con más decimales de Bloomberg (vía DF, 11-11-2026)",
+              "fuenteUrl": "https://www.df.cl/economia-y-politica/actualidad/quiroz-admite-que-chile-esta-en-recesion-tecnica-pero-asegura-que-sera",
+              "etiqueta": "PIB contra el trimestre anterior",
+              "unidad": "%"
+            },
+            "operacion": "valor",
+            "pais": "T2",
+            "anio": 2026
+          }
+        }
+      ]
+    },
+    "promesa": "Vas a saber qué es una recesión técnica, por qué hay dos formas de medirla, qué frenó a la economía y cómo llega al empleo, los precios y la tasa de interés.",
+    "indice": [
+      "Qué es y qué no es",
+      "Por qué cayó",
+      "Cómo llega a casa",
+      "Qué mirar ahora"
+    ],
+    "estructura": "autopsia",
+    "capitulos": [
+      {
+        "titulo": "Qué es una recesión técnica, y qué no es",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "Recesión técnica suena a diagnóstico médico, pero es una regla de cuenta simple: la economía cae durante dos trimestres seguidos. La pregunta es: ¿caer comparado con qué? Hay dos respuestas posibles, y en Chile se usan las dos. Se llama técnica porque no mira si la gente la está pasando mal, ni cuánto cayó la actividad: solo cuenta el signo de dos números seguidos, y por eso se la considera una señal de alerta, no un diagnóstico completo.",
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Dos formas de medir una caída",
+              "items": [
+                {
+                  "icono": "📉",
+                  "texto": "Contra el trimestre anterior"
+                },
+                {
+                  "icono": "📆",
+                  "texto": "Contra hace un año",
+                  "dice": "respuestas"
+                }
+              ]
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "La primera compara cada trimestre con el que viene justo antes, con la serie ajustada por estación del año. Según el Banco Central, el primer trimestre de 2026 cayó 0,3 % y el segundo quedó en cero. Pero Bloomberg y el Diario Financiero calcularon con más decimales: menos 0,25 % y menos 0,02 %.",
+            "grafico": {
+              "tipo": "barras",
+              "titulo": "PIB contra el trimestre anterior",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pib-trimestral-desest-2026",
+                "paises": [
+                  "T1",
+                  "T2"
+                ],
+                "valores": {
+                  "T1": [
+                    [
+                      2026,
+                      -0.25
+                    ]
+                  ],
+                  "T2": [
+                    [
+                      2026,
+                      -0.02
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "T1": "1.er trimestre",
+                  "T2": "2.º trimestre"
+                },
+                "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales; cálculo con más decimales de Bloomberg (vía DF, 11-11-2026)",
+                "fuenteUrl": "https://www.df.cl/economia-y-politica/actualidad/quiroz-admite-que-chile-esta-en-recesion-tecnica-pero-asegura-que-sera",
+                "etiqueta": "PIB contra el trimestre anterior",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "T2"
+              },
+              "formato": {
+                "decimales": 2,
+                "sufijo": " %"
+              },
+              "dice": "decimales"
+            },
+            "cifras": [
+              {
+                "texto": "0,3 %",
+                "valor": -0.3,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-trimestral-desest-publicado-2026",
+                    "paises": [
+                      "T1",
+                      "T2"
+                    ],
+                    "valores": {
+                      "T1": [
+                        [
+                          2026,
+                          -0.3
+                        ]
+                      ],
+                      "T2": [
+                        [
+                          2026,
+                          0.0
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "T1": "1.er trimestre",
+                      "T2": "2.º trimestre"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 18-08-2026 (vía Emol)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/08/18/1208798/cuentas-nacionales-banco-central.html",
+                    "etiqueta": "PIB contra el trimestre anterior, publicado",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "T1",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "cero",
+                "valor": 0.0,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-trimestral-desest-publicado-2026",
+                    "paises": [
+                      "T1",
+                      "T2"
+                    ],
+                    "valores": {
+                      "T1": [
+                        [
+                          2026,
+                          -0.3
+                        ]
+                      ],
+                      "T2": [
+                        [
+                          2026,
+                          0.0
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "T1": "1.er trimestre",
+                      "T2": "2.º trimestre"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 18-08-2026 (vía Emol)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/08/18/1208798/cuentas-nacionales-banco-central.html",
+                    "etiqueta": "PIB contra el trimestre anterior, publicado",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "T2",
+                  "anio": 2026
+                },
+                "tolerancia": 0.0
+              },
+              {
+                "texto": "0,25 %",
+                "valor": -0.25,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-trimestral-desest-2026",
+                    "paises": [
+                      "T1",
+                      "T2"
+                    ],
+                    "valores": {
+                      "T1": [
+                        [
+                          2026,
+                          -0.25
+                        ]
+                      ],
+                      "T2": [
+                        [
+                          2026,
+                          -0.02
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "T1": "1.er trimestre",
+                      "T2": "2.º trimestre"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales; cálculo con más decimales de Bloomberg (vía DF, 11-11-2026)",
+                    "fuenteUrl": "https://www.df.cl/economia-y-politica/actualidad/quiroz-admite-que-chile-esta-en-recesion-tecnica-pero-asegura-que-sera",
+                    "etiqueta": "PIB contra el trimestre anterior",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "T1",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "0,02 %",
+                "valor": -0.02,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-trimestral-desest-2026",
+                    "paises": [
+                      "T1",
+                      "T2"
+                    ],
+                    "valores": {
+                      "T1": [
+                        [
+                          2026,
+                          -0.25
+                        ]
+                      ],
+                      "T2": [
+                        [
+                          2026,
+                          -0.02
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "T1": "1.er trimestre",
+                      "T2": "2.º trimestre"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales; cálculo con más decimales de Bloomberg (vía DF, 11-11-2026)",
+                    "fuenteUrl": "https://www.df.cl/economia-y-politica/actualidad/quiroz-admite-que-chile-esta-en-recesion-tecnica-pero-asegura-que-sera",
+                    "etiqueta": "PIB contra el trimestre anterior",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "T2",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "La segunda forma compara con el mismo trimestre del año anterior, y es la que tradicionalmente se usa en Chile. Con ese método, según Emol, el primer trimestre cayó 0,3 % y el segundo, 0,2 %. También son dos caídas seguidas, según esas cifras de agosto.",
+            "grafico": {
+              "tipo": "barras",
+              "titulo": "PIB contra el mismo trimestre de 2025",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pib-trimestral-interanual-2026",
+                "paises": [
+                  "T1",
+                  "T2"
+                ],
+                "valores": {
+                  "T1": [
+                    [
+                      2026,
+                      -0.3
+                    ]
+                  ],
+                  "T2": [
+                    [
+                      2026,
+                      -0.2
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "T1": "1.er trimestre",
+                  "T2": "2.º trimestre"
+                },
+                "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 18-08-2026 (vía Emol)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/08/18/1208798/cuentas-nacionales-banco-central.html",
+                "etiqueta": "PIB contra el mismo trimestre de 2025",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "T2"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "Emol"
+            },
+            "cifras": [
+              {
+                "texto": "0,3 %",
+                "valor": -0.3,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-trimestral-interanual-2026",
+                    "paises": [
+                      "T1",
+                      "T2"
+                    ],
+                    "valores": {
+                      "T1": [
+                        [
+                          2026,
+                          -0.3
+                        ]
+                      ],
+                      "T2": [
+                        [
+                          2026,
+                          -0.2
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "T1": "1.er trimestre",
+                      "T2": "2.º trimestre"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 18-08-2026 (vía Emol)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/08/18/1208798/cuentas-nacionales-banco-central.html",
+                    "etiqueta": "PIB contra el mismo trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "T1",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "0,2 %",
+                "valor": -0.2,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-trimestral-interanual-2026",
+                    "paises": [
+                      "T1",
+                      "T2"
+                    ],
+                    "valores": {
+                      "T1": [
+                        [
+                          2026,
+                          -0.3
+                        ]
+                      ],
+                      "T2": [
+                        [
+                          2026,
+                          -0.2
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "T1": "1.er trimestre",
+                      "T2": "2.º trimestre"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 18-08-2026 (vía Emol)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/08/18/1208798/cuentas-nacionales-banco-central.html",
+                    "etiqueta": "PIB contra el mismo trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "T2",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Hay un detalle que explica por qué los números se mueven: no son definitivos. Cada vez que sale un trimestre nuevo, el Banco Central revisa los anteriores. La caída del primer trimestre contra un año antes se publicó en mayo como 0,5 % y en agosto se corrigió a 0,3 %. Por eso, el 18 de noviembre, junto con el tercer trimestre, se volvieron a revisar el primero y el segundo.",
+            "grafico": {
+              "tipo": "barras",
+              "titulo": "Primer trimestre: la cifra se corrigió",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pib-t1-interanual-revision-2026",
+                "paises": [
+                  "MAYO",
+                  "AGOSTO"
+                ],
+                "valores": {
+                  "MAYO": [
+                    [
+                      2026,
+                      -0.5
+                    ]
+                  ],
+                  "AGOSTO": [
+                    [
+                      2026,
+                      -0.3
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "MAYO": "Publicado en mayo",
+                  "AGOSTO": "Corregido en agosto"
+                },
+                "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía Emol, 18-08-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/08/18/1208798/cuentas-nacionales-banco-central.html",
+                "etiqueta": "PIB del 1.er trimestre contra un año antes",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "AGOSTO"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "mayo"
+            },
+            "cifras": [
+              {
+                "texto": "0,5 %",
+                "valor": -0.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t1-interanual-revision-2026",
+                    "paises": [
+                      "MAYO",
+                      "AGOSTO"
+                    ],
+                    "valores": {
+                      "MAYO": [
+                        [
+                          2026,
+                          -0.5
+                        ]
+                      ],
+                      "AGOSTO": [
+                        [
+                          2026,
+                          -0.3
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "MAYO": "Publicado en mayo",
+                      "AGOSTO": "Corregido en agosto"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía Emol, 18-08-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/08/18/1208798/cuentas-nacionales-banco-central.html",
+                    "etiqueta": "PIB del 1.er trimestre contra un año antes",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "MAYO",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "0,3 %",
+                "valor": -0.3,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t1-interanual-revision-2026",
+                    "paises": [
+                      "MAYO",
+                      "AGOSTO"
+                    ],
+                    "valores": {
+                      "MAYO": [
+                        [
+                          2026,
+                          -0.5
+                        ]
+                      ],
+                      "AGOSTO": [
+                        [
+                          2026,
+                          -0.3
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "MAYO": "Publicado en mayo",
+                      "AGOSTO": "Corregido en agosto"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía Emol, 18-08-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/08/18/1208798/cuentas-nacionales-banco-central.html",
+                    "etiqueta": "PIB del 1.er trimestre contra un año antes",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "AGOSTO",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "giro",
+            "texto": "Aquí cambia la lectura: que haya o no recesión técnica depende de la regla elegida, no de una economía distinta. En agosto hubo economistas que dijeron que sí la hubo, y otros que dijeron que no, mirando los mismos números. Rodrigo Vergara, del CEP, afirmó que hubo una recesión técnica. Sergio Lehmann, de BCI, dijo que en rigor no la hubo, y que estuvieron muy cerca. El ministro de Hacienda, Jorge Quiroz, dijo el 18 de agosto que no había recesión. El 11 de noviembre, en una entrevista con Bloomberg, dijo: se le puede llamar técnicamente una recesión, y atribuyó la caída a shocks de oferta, sobre todo la baja del cobre.",
+            "rotulo": {
+              "texto": "DOS REGLAS",
+              "dice": "regla"
+            }
+          }
+        ]
+      },
+      {
+        "titulo": "Por qué cayó: el cobre",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "¿Qué frenó a la economía? Para entenderlo hay que mirar un sector que pesa mucho en Chile: la minería del cobre. Y el Banco Central publica cada mes un indicador que permite verlo con precisión. El PIB se conoce una vez por trimestre; este otro indicador llega cada mes, como un adelanto, y por eso es el que primero muestra los cambios.",
+            "visual": {
+              "tipo": "foto",
+              "busqueda": "Chuquicamata open pit copper mine",
+              "alternativas": [
+                "Chile copper mine open pit",
+                "Escondida copper mine"
+              ],
+              "pie": "Mina de cobre a rajo abierto, Chile",
+              "encuadre": "ken-burns"
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Es el Imacec, el índice mensual de actividad. Según el Banco Central, en septiembre la economía creció 0,2 % frente a un año antes. La minería cayó 12,1 %, por menor extracción de cobre, y el resto de la economía, la no minera, creció 2,0 %.",
+            "grafico": {
+              "tipo": "barras",
+              "titulo": "Imacec de septiembre, contra un año antes",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "imacec-septiembre-2026",
+                "paises": [
+                  "MINERO",
+                  "NOMINERO",
+                  "TOTAL"
+                ],
+                "valores": {
+                  "MINERO": [
+                    [
+                      2026,
+                      -12.1
+                    ]
+                  ],
+                  "NOMINERO": [
+                    [
+                      2026,
+                      2.0
+                    ]
+                  ],
+                  "TOTAL": [
+                    [
+                      2026,
+                      0.2
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "MINERO": "Minería",
+                  "NOMINERO": "No minero",
+                  "TOTAL": "Imacec total"
+                },
+                "fuenteTexto": "Banco Central de Chile, Imacec de septiembre de 2026 (vía Emol, 02-11-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html",
+                "etiqueta": "Variación anual del Imacec",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "MINERO"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "minería"
+            },
+            "cifras": [
+              {
+                "texto": "0,2 %",
+                "valor": 0.2,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "imacec-septiembre-2026",
+                    "paises": [
+                      "MINERO",
+                      "NOMINERO",
+                      "TOTAL"
+                    ],
+                    "valores": {
+                      "MINERO": [
+                        [
+                          2026,
+                          -12.1
+                        ]
+                      ],
+                      "NOMINERO": [
+                        [
+                          2026,
+                          2.0
+                        ]
+                      ],
+                      "TOTAL": [
+                        [
+                          2026,
+                          0.2
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "MINERO": "Minería",
+                      "NOMINERO": "No minero",
+                      "TOTAL": "Imacec total"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Imacec de septiembre de 2026 (vía Emol, 02-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html",
+                    "etiqueta": "Variación anual del Imacec",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "TOTAL",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "12,1 %",
+                "valor": -12.1,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "imacec-septiembre-2026",
+                    "paises": [
+                      "MINERO",
+                      "NOMINERO",
+                      "TOTAL"
+                    ],
+                    "valores": {
+                      "MINERO": [
+                        [
+                          2026,
+                          -12.1
+                        ]
+                      ],
+                      "NOMINERO": [
+                        [
+                          2026,
+                          2.0
+                        ]
+                      ],
+                      "TOTAL": [
+                        [
+                          2026,
+                          0.2
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "MINERO": "Minería",
+                      "NOMINERO": "No minero",
+                      "TOTAL": "Imacec total"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Imacec de septiembre de 2026 (vía Emol, 02-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html",
+                    "etiqueta": "Variación anual del Imacec",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "MINERO",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "2,0 %",
+                "valor": 2.0,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "imacec-septiembre-2026",
+                    "paises": [
+                      "MINERO",
+                      "NOMINERO",
+                      "TOTAL"
+                    ],
+                    "valores": {
+                      "MINERO": [
+                        [
+                          2026,
+                          -12.1
+                        ]
+                      ],
+                      "NOMINERO": [
+                        [
+                          2026,
+                          2.0
+                        ]
+                      ],
+                      "TOTAL": [
+                        [
+                          2026,
+                          0.2
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "MINERO": "Minería",
+                      "NOMINERO": "No minero",
+                      "TOTAL": "Imacec total"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Imacec de septiembre de 2026 (vía Emol, 02-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html",
+                    "etiqueta": "Variación anual del Imacec",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "NOMINERO",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Un mes antes la brecha era todavía mayor. En agosto la minería cayó 17,4 % y la no minera creció 1,4 %. Según el Banco Central, pesaron las menores leyes del mineral, las mantenciones y el clima adverso.",
+            "grafico": {
+              "tipo": "barras",
+              "titulo": "Imacec de agosto, contra un año antes",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "imacec-agosto-2026",
+                "paises": [
+                  "MINERO",
+                  "NOMINERO"
+                ],
+                "valores": {
+                  "MINERO": [
+                    [
+                      2026,
+                      -17.4
+                    ]
+                  ],
+                  "NOMINERO": [
+                    [
+                      2026,
+                      1.4
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "MINERO": "Minería",
+                  "NOMINERO": "No minero"
+                },
+                "fuenteTexto": "Banco Central de Chile, Imacec de agosto de 2026 (vía Emol, 01-10-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/10/01/1212912/imacec-de-agosto.html",
+                "etiqueta": "Variación anual del Imacec",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "MINERO"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "agosto"
+            },
+            "cifras": [
+              {
+                "texto": "17,4 %",
+                "valor": -17.4,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "imacec-agosto-2026",
+                    "paises": [
+                      "MINERO",
+                      "NOMINERO"
+                    ],
+                    "valores": {
+                      "MINERO": [
+                        [
+                          2026,
+                          -17.4
+                        ]
+                      ],
+                      "NOMINERO": [
+                        [
+                          2026,
+                          1.4
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "MINERO": "Minería",
+                      "NOMINERO": "No minero"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Imacec de agosto de 2026 (vía Emol, 01-10-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/10/01/1212912/imacec-de-agosto.html",
+                    "etiqueta": "Variación anual del Imacec",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "MINERO",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "1,4 %",
+                "valor": 1.4,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "imacec-agosto-2026",
+                    "paises": [
+                      "MINERO",
+                      "NOMINERO"
+                    ],
+                    "valores": {
+                      "MINERO": [
+                        [
+                          2026,
+                          -17.4
+                        ]
+                      ],
+                      "NOMINERO": [
+                        [
+                          2026,
+                          1.4
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "MINERO": "Minería",
+                      "NOMINERO": "No minero"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Imacec de agosto de 2026 (vía Emol, 01-10-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/10/01/1212912/imacec-de-agosto.html",
+                    "etiqueta": "Variación anual del Imacec",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "NOMINERO",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "El Imacec también sirve para anticipar el PIB del trimestre. Según Emol, con los tres meses del tercer trimestre ya conocidos, el promedio apuntaba a una caída de 0,8 % contra un año antes. Sería el tercer trimestre seguido con caída en la comparación anual, y la más profunda de las tres. Es una estimación: el dato definitivo salió el 18 de noviembre.",
+            "grafico": {
+              "tipo": "barras",
+              "titulo": "PIB contra un año antes, con el tercer trimestre estimado",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pib-interanual-con-estimacion-t3-2026",
+                "paises": [
+                  "T1",
+                  "T2",
+                  "T3"
+                ],
+                "valores": {
+                  "T1": [
+                    [
+                      2026,
+                      -0.3
+                    ]
+                  ],
+                  "T2": [
+                    [
+                      2026,
+                      -0.2
+                    ]
+                  ],
+                  "T3": [
+                    [
+                      2026,
+                      -0.8
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "T1": "1.er trimestre",
+                  "T2": "2.º trimestre",
+                  "T3": "3.º (estimado)"
+                },
+                "fuenteTexto": "Banco Central de Chile; el 3.er trimestre es el promedio del Imacec (vía Emol, 02-11-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html",
+                "etiqueta": "PIB contra el mismo trimestre de 2025",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "T3"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "estimación"
+            },
+            "cifras": [
+              {
+                "texto": "0,8 %",
+                "valor": -0.8,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-interanual-con-estimacion-t3-2026",
+                    "paises": [
+                      "T1",
+                      "T2",
+                      "T3"
+                    ],
+                    "valores": {
+                      "T1": [
+                        [
+                          2026,
+                          -0.3
+                        ]
+                      ],
+                      "T2": [
+                        [
+                          2026,
+                          -0.2
+                        ]
+                      ],
+                      "T3": [
+                        [
+                          2026,
+                          -0.8
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "T1": "1.er trimestre",
+                      "T2": "2.º trimestre",
+                      "T3": "3.º (estimado)"
+                    },
+                    "fuenteTexto": "Banco Central de Chile; el 3.er trimestre es el promedio del Imacec (vía Emol, 02-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html",
+                    "etiqueta": "PIB contra el mismo trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "T3",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "giro",
+            "texto": "Y esto cambia la lectura: en agosto y septiembre, el resto de la economía creció. Quiroz calcula que la baja del cobre le quita a este año entre 1 y 1,5 puntos de crecimiento. Y según Bloomberg, la producción de cobre estaría bajo los 5 millones de toneladas, la menor en más de dos décadas. El ministro sostiene que el resto de los sectores crece con fuerza, y proyecta que la producción de cobre se recupere de a poco, hasta entre 5,5 y 6 millones de toneladas en cinco años.",
+            "rotulo": {
+              "texto": "SIN MINERÍA, CRECE",
+              "dice": "creció"
+            },
+            "cifras": [
+              {
+                "texto": "1 y 1,5 puntos",
+                "valor": 1.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "quiroz-cobre-puntos-pib-2026",
+                    "paises": [
+                      "BAJO",
+                      "ALTO"
+                    ],
+                    "valores": {
+                      "BAJO": [
+                        [
+                          2026,
+                          1.0
+                        ]
+                      ],
+                      "ALTO": [
+                        [
+                          2026,
+                          1.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "BAJO": "Efecto directo",
+                      "ALTO": "Efecto total"
+                    },
+                    "fuenteTexto": "Ministro de Hacienda J. Quiroz, ChileDay de Londres, 16-09-2026 (vía Emol)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/09/17/1211725/quiroz-tras-chileday.html",
+                    "etiqueta": "Puntos de crecimiento que resta el cobre",
+                    "unidad": "puntos"
+                  },
+                  "operacion": "valor",
+                  "pais": "ALTO",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "reenganche",
+            "texto": "Pero una caída de la actividad no se queda en las estadísticas: llega a una casa por el trabajo, por los precios y por la tasa de interés."
+          }
+        ]
+      },
+      {
+        "titulo": "Cómo llega a tu casa: empleo y precios",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "Una caída de la actividad llega a una casa por tres puertas. La primera es el trabajo, y ahí los datos del INE muestran dos cosas a la vez: el desempleo es alto a nivel nacional y muy distinto entre regiones: en Ñuble fue 11,8 % y en Aysén, 4,0 %, en julio a septiembre.",
+            "visual": {
+              "tipo": "chile",
+              "regiones": [
+                "CL-NB",
+                "CL-AI"
+              ],
+              "acercar": false,
+              "puntos": [
+                {
+                  "texto": "Ñuble 11,8 %",
+                  "en": [
+                    -72.1,
+                    -36.61
+                  ],
+                  "dice": "Ñuble"
+                },
+                {
+                  "texto": "Aysén 4,0 %",
+                  "en": [
+                    -72.07,
+                    -45.57
+                  ],
+                  "dice": "Aysén"
+                }
+              ]
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Entre julio y septiembre, la desocupación nacional fue de 9,8 %, contra 8,5 % un año antes. Son 1,3 puntos más, y es la tasa más alta en cinco años. Los desocupados subieron 15,3 % en doce meses, y los ocupados bajaron 1,1 %.",
+            "grafico": {
+              "tipo": "comparacion",
+              "titulo": "Desocupación nacional, julio a septiembre",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "desocupacion-nacional-jas",
+                "paises": [
+                  "N2026",
+                  "N2025"
+                ],
+                "valores": {
+                  "N2026": [
+                    [
+                      2026,
+                      9.8
+                    ]
+                  ],
+                  "N2025": [
+                    [
+                      2026,
+                      8.5
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "N2026": "Jul-sep 2026",
+                  "N2025": "Jul-sep 2025"
+                },
+                "fuenteTexto": "INE, ENE nacional, trimestres julio a septiembre de 2026 y 2025",
+                "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+                "etiqueta": "Desocupación nacional",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "N2026"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "contra"
+            },
+            "cifras": [
+              {
+                "texto": "9,8 %",
+                "valor": 9.8,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "desocupacion-nacional-jas",
+                    "paises": [
+                      "N2026",
+                      "N2025"
+                    ],
+                    "valores": {
+                      "N2026": [
+                        [
+                          2026,
+                          9.8
+                        ]
+                      ],
+                      "N2025": [
+                        [
+                          2026,
+                          8.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "N2026": "Jul-sep 2026",
+                      "N2025": "Jul-sep 2025"
+                    },
+                    "fuenteTexto": "INE, ENE nacional, trimestres julio a septiembre de 2026 y 2025",
+                    "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+                    "etiqueta": "Desocupación nacional",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "N2026",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "8,5 %",
+                "valor": 8.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "desocupacion-nacional-jas",
+                    "paises": [
+                      "N2026",
+                      "N2025"
+                    ],
+                    "valores": {
+                      "N2026": [
+                        [
+                          2026,
+                          9.8
+                        ]
+                      ],
+                      "N2025": [
+                        [
+                          2026,
+                          8.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "N2026": "Jul-sep 2026",
+                      "N2025": "Jul-sep 2025"
+                    },
+                    "fuenteTexto": "INE, ENE nacional, trimestres julio a septiembre de 2026 y 2025",
+                    "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+                    "etiqueta": "Desocupación nacional",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "N2025",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "1,3 puntos",
+                "valor": 1.3,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "desocupacion-nacional-jas",
+                    "paises": [
+                      "N2026",
+                      "N2025"
+                    ],
+                    "valores": {
+                      "N2026": [
+                        [
+                          2026,
+                          9.8
+                        ]
+                      ],
+                      "N2025": [
+                        [
+                          2026,
+                          8.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "N2026": "Jul-sep 2026",
+                      "N2025": "Jul-sep 2025"
+                    },
+                    "fuenteTexto": "INE, ENE nacional, trimestres julio a septiembre de 2026 y 2025",
+                    "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+                    "etiqueta": "Desocupación nacional",
+                    "unidad": "%"
+                  },
+                  "operacion": "diferencia",
+                  "pais": "N2026",
+                  "anio": 2026,
+                  "paisB": "N2025"
+                }
+              },
+              {
+                "texto": "15,3 %",
+                "valor": 15.3,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "empleo-variacion-12-meses-jas-2026",
+                    "paises": [
+                      "DESOC",
+                      "OCUP"
+                    ],
+                    "valores": {
+                      "DESOC": [
+                        [
+                          2026,
+                          15.3
+                        ]
+                      ],
+                      "OCUP": [
+                        [
+                          2026,
+                          -1.1
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "DESOC": "Desocupados",
+                      "OCUP": "Ocupados"
+                    },
+                    "fuenteTexto": "INE, ENE nacional, julio a septiembre de 2026, variación en 12 meses",
+                    "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+                    "etiqueta": "Variación en 12 meses",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "DESOC",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "1,1 %",
+                "valor": -1.1,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "empleo-variacion-12-meses-jas-2026",
+                    "paises": [
+                      "DESOC",
+                      "OCUP"
+                    ],
+                    "valores": {
+                      "DESOC": [
+                        [
+                          2026,
+                          15.3
+                        ]
+                      ],
+                      "OCUP": [
+                        [
+                          2026,
+                          -1.1
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "DESOC": "Desocupados",
+                      "OCUP": "Ocupados"
+                    },
+                    "fuenteTexto": "INE, ENE nacional, julio a septiembre de 2026, variación en 12 meses",
+                    "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+                    "etiqueta": "Variación en 12 meses",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "OCUP",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Y no fue un salto: fue una escalera. Según el INE, el trimestre de abril a junio dio 9,4 %; mayo a julio, 9,5 %; junio a agosto, 9,6 %; y julio a septiembre, 9,8 %. Como el INE mide trimestres móviles, cada cifra comparte dos meses con la anterior, y por eso la curva sube de a poco.",
+            "grafico": {
+              "tipo": "lineas",
+              "titulo": "Desocupación, trimestres móviles de 2026",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "desocupacion-trimestres-moviles-2026",
+                "paises": [
+                  "CHL"
+                ],
+                "valores": {
+                  "CHL": [
+                    [
+                      0,
+                      9.4
+                    ],
+                    [
+                      1,
+                      9.5
+                    ],
+                    [
+                      2,
+                      9.6
+                    ],
+                    [
+                      3,
+                      9.8
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "CHL": "Desocupación"
+                },
+                "fuenteTexto": "INE, Encuesta Nacional de Empleo, trimestres móviles de 2026",
+                "fuenteUrl": "https://www.ine.gob.cl/estadisticas/sociales/mercado-laboral/ocupacion-y-desocupacion",
+                "etiqueta": "Tasa de desocupación nacional",
+                "unidad": "%",
+                "etiquetasX": {
+                  "0": "abr-jun",
+                  "1": "may-jul",
+                  "2": "jun-ago",
+                  "3": "jul-sep"
+                }
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "escalera"
+            },
+            "cifras": [
+              {
+                "texto": "9,4 %",
+                "valor": 9.4,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "desocupacion-trimestres-moviles-2026",
+                    "paises": [
+                      "CHL"
+                    ],
+                    "valores": {
+                      "CHL": [
+                        [
+                          0,
+                          9.4
+                        ],
+                        [
+                          1,
+                          9.5
+                        ],
+                        [
+                          2,
+                          9.6
+                        ],
+                        [
+                          3,
+                          9.8
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "CHL": "Desocupación"
+                    },
+                    "fuenteTexto": "INE, Encuesta Nacional de Empleo, trimestres móviles de 2026",
+                    "fuenteUrl": "https://www.ine.gob.cl/estadisticas/sociales/mercado-laboral/ocupacion-y-desocupacion",
+                    "etiqueta": "Tasa de desocupación nacional",
+                    "unidad": "%",
+                    "etiquetasX": {
+                      "0": "abr-jun",
+                      "1": "may-jul",
+                      "2": "jun-ago",
+                      "3": "jul-sep"
+                    }
+                  },
+                  "operacion": "valor",
+                  "pais": "CHL",
+                  "anio": 0
+                }
+              },
+              {
+                "texto": "9,8 %",
+                "valor": 9.8,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "desocupacion-trimestres-moviles-2026",
+                    "paises": [
+                      "CHL"
+                    ],
+                    "valores": {
+                      "CHL": [
+                        [
+                          0,
+                          9.4
+                        ],
+                        [
+                          1,
+                          9.5
+                        ],
+                        [
+                          2,
+                          9.6
+                        ],
+                        [
+                          3,
+                          9.8
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "CHL": "Desocupación"
+                    },
+                    "fuenteTexto": "INE, Encuesta Nacional de Empleo, trimestres móviles de 2026",
+                    "fuenteUrl": "https://www.ine.gob.cl/estadisticas/sociales/mercado-laboral/ocupacion-y-desocupacion",
+                    "etiqueta": "Tasa de desocupación nacional",
+                    "unidad": "%",
+                    "etiquetasX": {
+                      "0": "abr-jun",
+                      "1": "may-jul",
+                      "2": "jun-ago",
+                      "3": "jul-sep"
+                    }
+                  },
+                  "operacion": "valor",
+                  "pais": "CHL",
+                  "anio": 3
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "La segunda puerta son los precios. Según el INE, el IPC de octubre subió 0,5 % en el mes, y la inflación de doce meses llegó a 4,5 %, sobre la meta de 3 % del Banco Central. Los combustibles pesaron: la gasolina subió 4,5 % en un solo mes.",
+            "grafico": {
+              "tipo": "contador",
+              "titulo": "Inflación a doce meses, octubre",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "ipc-octubre-2026",
+                "paises": [
+                  "ANUAL",
+                  "MES",
+                  "META",
+                  "GAS"
+                ],
+                "valores": {
+                  "ANUAL": [
+                    [
+                      2026,
+                      4.5
+                    ]
+                  ],
+                  "MES": [
+                    [
+                      2026,
+                      0.5
+                    ]
+                  ],
+                  "META": [
+                    [
+                      2026,
+                      3.0
+                    ]
+                  ],
+                  "GAS": [
+                    [
+                      2026,
+                      4.5
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "ANUAL": "IPC 12 meses",
+                  "MES": "IPC del mes",
+                  "META": "Meta",
+                  "GAS": "Gasolina"
+                },
+                "fuenteTexto": "INE, IPC de octubre de 2026 (vía Emol, 06-11-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html",
+                "etiqueta": "Variación del IPC",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "ANUAL",
+                "texto": "IPC a doce meses"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "4,5"
+            },
+            "cifras": [
+              {
+                "texto": "0,5 %",
+                "valor": 0.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "ipc-octubre-2026",
+                    "paises": [
+                      "ANUAL",
+                      "MES",
+                      "META",
+                      "GAS"
+                    ],
+                    "valores": {
+                      "ANUAL": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ],
+                      "MES": [
+                        [
+                          2026,
+                          0.5
+                        ]
+                      ],
+                      "META": [
+                        [
+                          2026,
+                          3.0
+                        ]
+                      ],
+                      "GAS": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "ANUAL": "IPC 12 meses",
+                      "MES": "IPC del mes",
+                      "META": "Meta",
+                      "GAS": "Gasolina"
+                    },
+                    "fuenteTexto": "INE, IPC de octubre de 2026 (vía Emol, 06-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html",
+                    "etiqueta": "Variación del IPC",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "MES",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "4,5 %",
+                "valor": 4.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "ipc-octubre-2026",
+                    "paises": [
+                      "ANUAL",
+                      "MES",
+                      "META",
+                      "GAS"
+                    ],
+                    "valores": {
+                      "ANUAL": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ],
+                      "MES": [
+                        [
+                          2026,
+                          0.5
+                        ]
+                      ],
+                      "META": [
+                        [
+                          2026,
+                          3.0
+                        ]
+                      ],
+                      "GAS": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "ANUAL": "IPC 12 meses",
+                      "MES": "IPC del mes",
+                      "META": "Meta",
+                      "GAS": "Gasolina"
+                    },
+                    "fuenteTexto": "INE, IPC de octubre de 2026 (vía Emol, 06-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html",
+                    "etiqueta": "Variación del IPC",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "ANUAL",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "3 %",
+                "valor": 3.0,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "ipc-octubre-2026",
+                    "paises": [
+                      "ANUAL",
+                      "MES",
+                      "META",
+                      "GAS"
+                    ],
+                    "valores": {
+                      "ANUAL": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ],
+                      "MES": [
+                        [
+                          2026,
+                          0.5
+                        ]
+                      ],
+                      "META": [
+                        [
+                          2026,
+                          3.0
+                        ]
+                      ],
+                      "GAS": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "ANUAL": "IPC 12 meses",
+                      "MES": "IPC del mes",
+                      "META": "Meta",
+                      "GAS": "Gasolina"
+                    },
+                    "fuenteTexto": "INE, IPC de octubre de 2026 (vía Emol, 06-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html",
+                    "etiqueta": "Variación del IPC",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "META",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "4,5 %",
+                "valor": 4.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "ipc-octubre-2026",
+                    "paises": [
+                      "ANUAL",
+                      "MES",
+                      "META",
+                      "GAS"
+                    ],
+                    "valores": {
+                      "ANUAL": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ],
+                      "MES": [
+                        [
+                          2026,
+                          0.5
+                        ]
+                      ],
+                      "META": [
+                        [
+                          2026,
+                          3.0
+                        ]
+                      ],
+                      "GAS": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "ANUAL": "IPC 12 meses",
+                      "MES": "IPC del mes",
+                      "META": "Meta",
+                      "GAS": "Gasolina"
+                    },
+                    "fuenteTexto": "INE, IPC de octubre de 2026 (vía Emol, 06-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html",
+                    "etiqueta": "Variación del IPC",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "GAS",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "giro",
+            "texto": "La tercera puerta, la tasa de interés, no se movió. El Banco Central mantuvo la tasa en 4,5 % en octubre, por unanimidad, en una pausa que viene desde diciembre de 2025. El Consejo dice que decidirá reunión a reunión. Mientras tanto, el empleo está débil y los precios, sobre la meta. En teoría, subir la tasa enfría los precios pero encarece los créditos, y bajarla ayuda a la actividad pero puede presionar los precios. Cuando el empleo y la inflación señalan hacia lados opuestos, el Consejo ha dicho que decidirá reunión a reunión.",
+            "rotulo": {
+              "texto": "TASA EN 4,5 %",
+              "dice": "interés"
+            },
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Las tres puertas",
+              "items": [
+                {
+                  "icono": "👷",
+                  "texto": "Trabajo",
+                  "valor": "9,8 %",
+                  "dice": "empleo"
+                },
+                {
+                  "icono": "🛒",
+                  "texto": "Precios",
+                  "valor": "4,5 %",
+                  "dice": "precios"
+                },
+                {
+                  "icono": "🏦",
+                  "texto": "Tasa de interés",
+                  "valor": "4,5 %",
+                  "dice": "unanimidad"
+                }
+              ]
+            },
+            "cifras": [
+              {
+                "texto": "4,5 %",
+                "valor": 4.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "tpm-octubre-2026",
+                    "paises": [
+                      "TPM"
+                    ],
+                    "valores": {
+                      "TPM": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "TPM": "Tasa de política monetaria"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, comunicado de la reunión de política monetaria de octubre de 2026",
+                    "fuenteUrl": "https://www.bcentral.cl/web/banco-central/contenido/-/detalle/prensa/comunicados-rpm/comunicado-reunion-de-politica-monetaria-octubre-2026",
+                    "etiqueta": "Tasa de política monetaria",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "TPM",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "reenganche",
+            "texto": "Entonces, con la actividad frenada, el empleo débil y los precios arriba, queda lo práctico: qué datos mirar en las próximas semanas para saber si esto se profundiza o se estabiliza."
+          }
+        ]
+      },
+      {
+        "titulo": "Qué mirar en las próximas semanas",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "Hay cinco datos que van a mostrar hacia dónde va esto. El primero ya salió el 18 de noviembre: ese día el Banco Central publicó el PIB del tercer trimestre y actualizó los dos anteriores. Esa cifra suma o resta un trimestre de caída en cada una de las dos reglas.",
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Qué mirar ahora",
+              "items": [
+                {
+                  "icono": "📊",
+                  "texto": "PIB del tercer trimestre",
+                  "dice": "primero"
+                },
+                {
+                  "icono": "⛏️",
+                  "texto": "Imacec de octubre"
+                },
+                {
+                  "icono": "👷",
+                  "texto": "Empleo, agosto a octubre"
+                },
+                {
+                  "icono": "🏦",
+                  "texto": "Tasa: reunión del 15 de dic"
+                },
+                {
+                  "icono": "🛒",
+                  "texto": "IPC de noviembre"
+                }
+              ]
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "El segundo es la tasa de política monetaria. Según el comunicado del Banco Central, la próxima reunión es el martes 15 de diciembre, y la Encuesta de Expectativas de octubre esperaba que la tasa siga en 4,5 % en esa cita. Después vienen el Imacec de octubre, que dirá si la minería se recupera; el empleo del trimestre de agosto a octubre, que dirá si la escalera sigue subiendo; y el IPC de noviembre, que dirá si los combustibles siguen empujando los precios.",
+            "grafico": {
+              "tipo": "contador",
+              "titulo": "Tasa de política monetaria",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "tpm-octubre-2026",
+                "paises": [
+                  "TPM"
+                ],
+                "valores": {
+                  "TPM": [
+                    [
+                      2026,
+                      4.5
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "TPM": "Tasa de política monetaria"
+                },
+                "fuenteTexto": "Banco Central de Chile, comunicado de la reunión de política monetaria de octubre de 2026",
+                "fuenteUrl": "https://www.bcentral.cl/web/banco-central/contenido/-/detalle/prensa/comunicados-rpm/comunicado-reunion-de-politica-monetaria-octubre-2026",
+                "etiqueta": "Tasa de política monetaria",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "TPM",
+                "texto": "vigente desde diciembre de 2025"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "4,5"
+            },
+            "cifras": [
+              {
+                "texto": "4,5 %",
+                "valor": 4.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "tpm-octubre-2026",
+                    "paises": [
+                      "TPM"
+                    ],
+                    "valores": {
+                      "TPM": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "TPM": "Tasa de política monetaria"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, comunicado de la reunión de política monetaria de octubre de 2026",
+                    "fuenteUrl": "https://www.bcentral.cl/web/banco-central/contenido/-/detalle/prensa/comunicados-rpm/comunicado-reunion-de-politica-monetaria-octubre-2026",
+                    "etiqueta": "Tasa de política monetaria",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "TPM",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "giro",
+            "texto": "Y hay un detalle que corrige una idea común: la recesión técnica no mide cuánto cae la economía, solo si cae dos trimestres seguidos. Dos caídas de centésimas cuentan igual que dos caídas grandes. Por eso el nombre importa menos que el tamaño de la caída y lo que viene después.",
+            "rotulo": {
+              "texto": "NO MIDE EL TAMAÑO",
+              "dice": "tamaño"
+            }
+          },
+          {
+            "tipo": "reenganche",
+            "texto": "Antes de cerrar, queda la pregunta de cómo se nota todo esto en una familia."
+          },
+          {
+            "tipo": "significado",
+            "texto": "En resumen, qué cambia y qué no. Lo que no cambia con la regla es que el empleo, los precios y la tasa son los mismos datos con cualquier etiqueta. Lo que sí cambia es el nombre: recesión técnica, sí o no, según cómo se mida. Y lo que se nota en la vida diaria es que el freno del cobre no se quedó en las minas: aparece en un mercado laboral más débil y en precios que suben por sobre la meta. Nada de esto es una predicción: es lo que muestran, hasta hoy, las cifras oficiales. El ministro Quiroz proyecta volver a crecer cerca de 4 % en 2028, y los datos de los próximos meses dirán si el camino va hacia allá."
+          }
+        ]
+      }
+    ],
+    "numeroQueNadieMira": {
+      "texto": "Y queda un número que casi nadie mira: 0,02 por ciento. Es lo que cayó la economía entre abril y junio, con más decimales, y es unas doce veces menos que lo que cayó entre enero y marzo. Una cifra tan chica explica por qué se discute el nombre: lo que se discute es el nombre, no que la actividad se frenó. Según la regla del trimestre anterior, dos centésimas separan una recesión técnica de no tenerla; los demás datos de este video muestran cómo se siente esa baja.",
+      "grafico": {
+        "tipo": "contador",
+        "titulo": "Lo que cayó el PIB entre abril y junio",
+        "datos": {
+          "fuente": "manual",
+          "indicador": "pib-trimestral-desest-2026",
+          "paises": [
+            "T1",
+            "T2"
+          ],
+          "valores": {
+            "T1": [
+              [
+                2026,
+                -0.25
+              ]
+            ],
+            "T2": [
+              [
+                2026,
+                -0.02
+              ]
+            ]
+          },
+          "nombres": {
+            "T1": "1.er trimestre",
+            "T2": "2.º trimestre"
+          },
+          "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales; cálculo con más decimales de Bloomberg (vía DF, 11-11-2026)",
+          "fuenteUrl": "https://www.df.cl/economia-y-politica/actualidad/quiroz-admite-que-chile-esta-en-recesion-tecnica-pero-asegura-que-sera",
+          "etiqueta": "PIB contra el trimestre anterior",
+          "unidad": "%"
+        },
+        "destacar": {
+          "pais": "T2",
+          "texto": "contra el trimestre anterior"
+        },
+        "formato": {
+          "decimales": 2,
+          "sufijo": " %"
+        }
+      },
+      "cifras": [
+        {
+          "texto": "0,02 por ciento",
+          "valor": -0.02,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "pib-trimestral-desest-2026",
+              "paises": [
+                "T1",
+                "T2"
+              ],
+              "valores": {
+                "T1": [
+                  [
+                    2026,
+                    -0.25
+                  ]
+                ],
+                "T2": [
+                  [
+                    2026,
+                    -0.02
+                  ]
+                ]
+              },
+              "nombres": {
+                "T1": "1.er trimestre",
+                "T2": "2.º trimestre"
+              },
+              "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales; cálculo con más decimales de Bloomberg (vía DF, 11-11-2026)",
+              "fuenteUrl": "https://www.df.cl/economia-y-politica/actualidad/quiroz-admite-que-chile-esta-en-recesion-tecnica-pero-asegura-que-sera",
+              "etiqueta": "PIB contra el trimestre anterior",
+              "unidad": "%"
+            },
+            "operacion": "valor",
+            "pais": "T2",
+            "anio": 2026
+          }
+        },
+        {
+          "texto": "doce veces menos",
+          "valor": 12.5,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "pib-trimestral-desest-2026",
+              "paises": [
+                "T1",
+                "T2"
+              ],
+              "valores": {
+                "T1": [
+                  [
+                    2026,
+                    -0.25
+                  ]
+                ],
+                "T2": [
+                  [
+                    2026,
+                    -0.02
+                  ]
+                ]
+              },
+              "nombres": {
+                "T1": "1.er trimestre",
+                "T2": "2.º trimestre"
+              },
+              "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales; cálculo con más decimales de Bloomberg (vía DF, 11-11-2026)",
+              "fuenteUrl": "https://www.df.cl/economia-y-politica/actualidad/quiroz-admite-que-chile-esta-en-recesion-tecnica-pero-asegura-que-sera",
+              "etiqueta": "PIB contra el trimestre anterior",
+              "unidad": "%"
+            },
+            "operacion": "razon",
+            "pais": "T1",
+            "anio": 2026,
+            "paisB": "T2"
+          },
+          "tolerancia": 0.05
+        }
+      ]
+    },
+    "remate": "Dos centésimas no cambian la economía: con una regla deciden el nombre, y con la otra no hacen falta.",
+    "siguiente": "¿Cuánto tarda el empleo en recuperarse después de una caída de la actividad? Lo vemos en el próximo video.",
+    "miniatura": {
+      "texto": "¿RECESIÓN POR 0,02 %?",
+      "grafico": {
+        "tipo": "contador",
+        "titulo": "Lo que cayó el PIB entre abril y junio",
+        "datos": {
+          "fuente": "manual",
+          "indicador": "pib-trimestral-desest-2026",
+          "paises": [
+            "T1",
+            "T2"
+          ],
+          "valores": {
+            "T1": [
+              [
+                2026,
+                -0.25
+              ]
+            ],
+            "T2": [
+              [
+                2026,
+                -0.02
+              ]
+            ]
+          },
+          "nombres": {
+            "T1": "1.er trimestre",
+            "T2": "2.º trimestre"
+          },
+          "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales; cálculo con más decimales de Bloomberg (vía DF, 11-11-2026)",
+          "fuenteUrl": "https://www.df.cl/economia-y-politica/actualidad/quiroz-admite-que-chile-esta-en-recesion-tecnica-pero-asegura-que-sera",
+          "etiqueta": "PIB contra el trimestre anterior",
+          "unidad": "%"
+        },
+        "destacar": {
+          "pais": "T2"
+        },
+        "formato": {
+          "decimales": 2,
+          "sufijo": " %"
+        }
+      }
+    },
+    "fuentes": [
+      {
+        "texto": "DF y Bloomberg, Quiroz y la recesión técnica (11-11-2026)",
+        "url": "https://www.df.cl/economia-y-politica/actualidad/quiroz-admite-que-chile-esta-en-recesion-tecnica-pero-asegura-que-sera"
+      },
+      {
+        "texto": "Emol, Cuentas Nacionales del Banco Central (18-08-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/08/18/1208798/cuentas-nacionales-banco-central.html"
+      },
+      {
+        "texto": "Emol, el debate sobre la recesión técnica (18-08-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/08/18/1208875/recesion-tecnica-debate.html"
+      },
+      {
+        "texto": "Emol, Quiroz sobre la recesión técnica (18-08-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/08/18/1208873/quiroz-recesion-tecnica.html"
+      },
+      {
+        "texto": "Emol, Imacec de septiembre (02-11-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html"
+      },
+      {
+        "texto": "Emol, Imacec de agosto (01-10-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/10/01/1212912/imacec-de-agosto.html"
+      },
+      {
+        "texto": "Emol, Quiroz tras el ChileDay (17-09-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/09/17/1211725/quiroz-tras-chileday.html"
+      },
+      {
+        "texto": "INE, desocupación de julio a septiembre de 2026 (29-10-2026)",
+        "url": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026"
+      },
+      {
+        "texto": "Emol, IPC de octubre del INE (06-11-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html"
+      },
+      {
+        "texto": "Banco Central, comunicado de la reunión de política monetaria de octubre de 2026",
+        "url": "https://www.bcentral.cl/web/banco-central/contenido/-/detalle/prensa/comunicados-rpm/comunicado-reunion-de-politica-monetaria-octubre-2026"
+      }
+    ],
+    "id": "2026-11-25-largo-recesion-tecnica-dos-centesimas"
+  }
+}

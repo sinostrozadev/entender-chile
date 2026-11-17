@@ -1,10 +1,27 @@
-# Largo del miércoles 25-11-2026, 19:00: "Chile en recesión técnica por dos centésimas: qué significa para tu bolsillo"
+# Largo del miércoles 25-11-2026, 19:00: "¿Recesión técnica por dos centésimas? Qué significa para ti"
 
-Estado: **pauta verificada, guion JSON pendiente** (plantilla `tesis` de `video/`, 1.500 a 1.950 palabras).
-No se convierte en JSON hasta después de las **Cuentas Nacionales del Banco Central del miércoles 18-11-2026 a
-las 08:30**, que revisan el primer y el segundo trimestre y publican el tercero. Lo escribe la sesión del 18-11
-en la tarde (antes de fusionar la rama) o, a más tardar, el plan semanal del jueves 19-11 a las 17:30; el render
-en Actions toma unos 12 minutos, así que hay margen hasta el martes 24-11.
+Estado (17-11-2026): **borrador de guion escrito pero NO aprobado**: `contenido/borradores-semana/2026-11-19/2026-11-25-largo-recesion-tecnica-dos-centesimas.json`
+(plantilla `tesis`, 1.533 palabras habladas, 4 capítulos; pasa `validar.mts`, `verificar-cifras.mts` y `tsc`). El revisor independiente lo rechazó
+dos rondas seguidas (promedio 3,57 y 3,86; criterio más débil: cierre = 3; ver `contenido/borradores-semana/2026-11-19/revisiones/README-veredictos.md`),
+así que NO está en `semana/` y `producir.yml` no lo produce. Se escribió **antes** de las Cuentas Nacionales del 18-11-2026 08:30. Fuentes y URLs:
+`contenido/borradores-semana/2026-11-19/verificacion-24-25.md`. Se regenera con `python3 -I contenido/borradores-semana/2026-11-19/generar-24-25.py`.
+Título distinto de esta pauta: "¿Recesión técnica por dos centésimas? Qué cambia y qué no", porque hay dos reglas de medida y el canal no toma partido.
+Para publicarlo: hacer los pasos de abajo, pasar una ronda 3 con el revisor y recién entonces mover el JSON a `contenido/semana/2026-11-19/`.
+
+## ACTUALIZAR EL 18-11 (después de las 08:30, antes de fusionar la rama)
+1. Abrir las Cuentas Nacionales (bcentral.cl) y anotar: PIB del 3.er trimestre, y 1.er y 2.º trimestre revisados, contra el trimestre
+   anterior (con decimales, si el Banco Central o un medio los da) y contra un año antes.
+2. **Si el 2.º trimestre quedó en 0,00 % o más contra el trimestre anterior** (ya no hay caída por esa regla): el gancho, el rótulo
+   (`¿RECESIÓN POR 0,02 %?`), la miniatura, el número que nadie mira y el título pierden sentido. Usar el plan B de abajo el mismo día,
+   o rehacer el gancho con la regla interanual. No fusionar con el guion actual.
+3. Si las caídas se mantienen (aunque cambien centésimas): actualizar en `generar-24-25.py` los datos `R_PIB`, `R_PIBR`, `R_PIBA`, `R_REV`,
+   `R_PIBA3` y los textos que repiten esas cifras (gancho, cap. 1 escenas 2 a 4, cap. 2 escena 4, número que nadie mira, remate),
+   regenerar, y correr `validar.mts`, `verificar-cifras.mts` y `tsc --noEmit`.
+3b. **Obligatorio:** cap. 4, escena 1 debe decir qué publicó el Banco Central el 18-11 (PIB del 3.er trimestre y revisiones) con las cifras reales; hoy solo dice que "ya salió". Revisar también "la hubo igual" (gancho), "se volvieron a revisar" (cap. 1), "12 veces menos" (número que nadie mira), "con la actividad frenada" (cap. 3) y la descripción de la publicación.
+4. Cap. 2, escena 4 ("el tercer trimestre estimado en 0,8 % anual"): reemplazar por el dato publicado el 18-11. Cap. 4, escena 1: ya dice
+   que el dato "ya salió"; añadir qué dijo si se quiere.
+5. Si cambia el titular de la carátula, ajustar el pedido `contenido/urgente/PEDIDO-ec-recesion-tecnica.md` antes de enviarlo.
+6. El render toma unos 12 minutos: hay margen hasta el martes 24-11.
 
 ## Los dos datos dudosos de la propuesta: confirmados con matiz (verificacion.md §6)
 
