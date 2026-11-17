@@ -753,5 +753,41 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-12-informe.mp3",
     "bytes": 5338368,
     "durSeg": 222
+  },
+  {
+    "fecha": "2026-11-13",
+    "tipo": "informe",
+    "titulo": "13-11-2026 · Camioneros levantan el paro tras rebaja de $142 por litro",
+    "descripcion": "Los principales gremios de camioneros levantaron el paro tras acordar una rebaja del diésel, aunque algunos grupos siguieron movilizados. Senapred evacuó dos sectores de Ovalle por el aumento de los ríos Grande y Limarí, y la oposición ingresó una acusación constitucional contra el ministro Fernando Rabat. El informe completo también explica la pérdida registrada en los fondos de pensiones, las fallas municipales en la gestión de residuos y la caída global de Microsoft 365.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-13/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-13-informe.mp3",
+    "bytes": 5238720,
+    "durSeg": 218
+  },
+  {
+    "fecha": "2026-11-14",
+    "tipo": "informe",
+    "titulo": "14-11-2026 · Camioneros mantienen bloqueos y el Gobierno anuncia intervención",
+    "descripcion": "Grupos de camioneros siguen movilizados pese al acuerdo por el diésel, mientras el Gobierno anuncia que despejará las rutas. El Presupuesto 2027 llegó al Senado con siete partidas ministeriales rechazadas y la acusación constitucional contra Fernando Rabat avanza en la Cámara. Además, la edición completa revisa la venta de Entel Perú, el retiro del proyecto H2 Magallanes y la nueva farmacia comunal de Las Condes.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-14/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-14-informe.mp3",
+    "bytes": 5778432,
+    "durSeg": 241
+  },
+  {
+    "fecha": "2026-11-16",
+    "tipo": "informe",
+    "titulo": "16-11-2026 · Más de 800 vecinos aislados por las crecidas del norte",
+    "descripcion": "Las crecidas mantienen aisladas a más de 800 personas en Alto del Carmen, obligaron a evacuar en Freirina y activaron alertas en Valparaíso. La Cámara inicia la acusación constitucional contra el ministro Fernando Rabat y el Congreso tramita una rebaja de $142 por litro de diésel. La jornada también trae dos mediciones distintas de la aprobación presidencial, la apertura de un nuevo tramo del Subsidio DS1 y avisos meteorológicos en distintas zonas del país.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-16/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-16-informe.mp3",
+    "bytes": 4904640,
+    "durSeg": 204
+  },
+  {
+    "fecha": "2026-11-17",
+    "tipo": "informe",
+    "titulo": "17-11-2026 · La rebaja de combustibles comenzaría este jueves",
+    "descripcion": "El Congreso despachó la rebaja de combustibles que comenzaría a reflejarse el jueves, mientras el ingreso real por habitante registró la mayor caída entre los países medidos por la OCDE. También revisamos el nuevo tramo del subsidio para sectores medios, la baja de delitos violentos y el dólar observado sobre los mil pesos. El informe completo incluye además vivienda, empleo, ciencia, regiones y la agenda del día.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-17/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-17-informe.mp3",
+    "bytes": 5637312,
+    "durSeg": 235
   }
 ]

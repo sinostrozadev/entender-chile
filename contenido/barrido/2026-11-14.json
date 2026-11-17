@@ -1,0 +1,2871 @@
+{
+ "fecha": "2026-11-14",
+ "generado": "2026-11-14T04:40:56.580Z",
+ "fuentes_consultadas": 22,
+ "fuentes_caidas": [
+  {
+   "id": "gobierno",
+   "url": "https://news.google.com/rss/search?q=Chile%20(Gobierno%20OR%20Presidente%20OR%20ministro%20OR%20%22La%20Moneda%22)%20when%3A1d&hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  },
+  {
+   "id": "gnews-portada",
+   "url": "https://news.google.com/rss?hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  },
+  {
+   "id": "economia",
+   "url": "https://news.google.com/rss/search?q=Chile%20(econom%C3%ADa%20OR%20IPC%20OR%20d%C3%B3lar%20OR%20%22Banco%20Central%22%20OR%20inflaci%C3%B3n)%20when%3A1d&hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  },
+  {
+   "id": "trabajo",
+   "url": "https://news.google.com/rss/search?q=Chile%20(empleo%20OR%20salario%20OR%20pensiones%20OR%20AFP%20OR%20sindicato)%20when%3A1d&hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  },
+  {
+   "id": "congreso",
+   "url": "https://news.google.com/rss/search?q=Chile%20(Congreso%20OR%20%22proyecto%20de%20ley%22%20OR%20Senado%20OR%20%22C%C3%A1mara%20de%20Diputados%22)%20when%3A1d&hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  },
+  {
+   "id": "seguridad",
+   "url": "https://news.google.com/rss/search?q=Chile%20(fiscal%C3%ADa%20OR%20formalizaci%C3%B3n%20OR%20%22crimen%20organizado%22%20OR%20homicidios%20OR%20Carabineros)%20when%3A1d&hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  },
+  {
+   "id": "vivienda",
+   "url": "https://news.google.com/rss/search?q=Chile%20(vivienda%20OR%20subsidio%20OR%20Minvu%20OR%20campamentos%20OR%20arriendo)%20when%3A1d&hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  },
+  {
+   "id": "ciencia",
+   "url": "https://news.google.com/rss/search?q=Chile%20(ciencia%20OR%20tecnolog%C3%ADa%20OR%20investigaci%C3%B3n%20OR%20astronom%C3%ADa)%20when%3A1d&hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  },
+  {
+   "id": "regiones",
+   "url": "https://news.google.com/rss/search?q=Chile%20(municipalidad%20OR%20gobernador%20OR%20%22regi%C3%B3n%20de%22%20OR%20alcalde)%20when%3A1d&hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  },
+  {
+   "id": "clima",
+   "url": "https://news.google.com/rss/search?q=Chile%20(Senapred%20OR%20alerta%20OR%20%22sistema%20frontal%22%20OR%20emergencia%20OR%20sequ%C3%ADa)%20when%3A1d&hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  },
+  {
+   "id": "plata-publica",
+   "url": "https://news.google.com/rss/search?q=Chile%20(Contralor%C3%ADa%20OR%20%22fraude%20al%20fisco%22%20OR%20%22fondos%20p%C3%BAblicos%22%20OR%20sumario%20OR%20malversaci%C3%B3n)%20when%3A1d&hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  },
+  {
+   "id": "internacional",
+   "url": "https://news.google.com/rss/search?q=Chile%20(Canciller%C3%ADa%20OR%20%22relaciones%20exteriores%22%20OR%20frontera%20OR%20aranceles%20OR%20exportaciones)%20when%3A1d&hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  },
+  {
+   "id": "latam",
+   "url": "https://news.google.com/rss/search?q=(Argentina%20OR%20Per%C3%BA%20OR%20Bolivia%20OR%20Brasil)%20(crisis%20OR%20elecciones%20OR%20gobierno%20OR%20econom%C3%ADa)%20when%3A1d&hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  },
+  {
+   "id": "salud",
+   "url": "https://news.google.com/rss/search?q=Chile%20(Fonasa%20OR%20isapres%20OR%20hospital%20OR%20salud%20OR%20licencias%20m%C3%A9dicas)%20when%3A1d&hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  },
+  {
+   "id": "educacion",
+   "url": "https://news.google.com/rss/search?q=Chile%20(educaci%C3%B3n%20OR%20colegios%20OR%20Mineduc%20OR%20profesores%20OR%20SLEP)%20when%3A1d&hl=es-419&gl=CL&ceid=CL:es-419",
+   "error": "HTTP 503"
+  }
+ ],
+ "total_bruto": 189,
+ "ventana_desde": "2026-11-13T03:00:00.000Z",
+ "descartadas_por_antiguas": 37,
+ "sin_fecha": 0,
+ "total_unico": 152,
+ "continuan_de_dias_previos": 1,
+ "destacadas": 27,
+ "ruido_probable": 2,
+ "noticias": [
+  {
+   "clave": "abre causa discusion doctor estan honoris mundo nuevo preparadas unab universidades viene",
+   "titulo": "¿Están las universidades preparadas para el mundo que viene? La discusión que abre el nuevo Doctor Honoris Causa UNAB",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/lt-board/noticia/estan-las-universidades-preparadas-para-el-mundo-que-viene-la-discusion-que-abre-el-nuevo-doctor-honoris-causa-unab/",
+   "publicado": "Fri, 13 Nov 2026 20:11:57 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "centro eventos parque",
+   "titulo": "¿Parque o centro de eventos?",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/cartas-al-director/noticia/parque-o-centro-de-eventos/",
+   "publicado": "Fri, 13 Nov 2026 23:56:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "acusacion arriesga constitucional ministro rabat",
+   "titulo": "¿Qué arriesga el ministro Rabat con la acusación constitucional?",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/videos/noticia/que-arriesga-el-ministro-rabat-con-la-acusacion-constitucional/",
+   "publicado": "Fri, 13 Nov 2026 19:21:04 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "mismo_tema": 1,
+   "relacionadas": [
+    "Oposición ingresó acusación constitucional contra ministro Rabat"
+   ],
+   "motivo_destaque": "mismo tema en 2 medios con titulares distintos"
+  },
+  {
+   "clave": "adolescentes campana contra dirigido especialmente fumas lanza minsal tabaco vapeadores",
+   "titulo": "“¿Pa’ qué fumas?“: Minsal lanza campaña contra el tabaco y vapeadores dirigido especialmente a adolescentes",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/pa-que-fumas-minsal-lanza-campana-contra-el-tabaco-y-vapeadores-dirigido-especialmente-a-adolescentes/",
+   "publicado": "Fri, 13 Nov 2026 17:52:36 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "mismo_tema": 1,
+   "relacionadas": [
+    "“¿Pa’ qué fumas?”: Minsal lanza campaña para alertar sobre los riesgos del vapeo en adolescentes"
+   ],
+   "motivo_destaque": "mismo tema en 2 medios con titulares distintos"
+  },
+  {
+   "clave": "adolescentes alertar campana fumas lanza minsal riesgos vapeo",
+   "titulo": "“¿Pa’ qué fumas?”: Minsal lanza campaña para alertar sobre los riesgos del vapeo en adolescentes",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/pa-que-fumas-minsal-lanza-campana-para-alertar-sobre-los-riesgos-del-vapeo-en-adolescentes/",
+   "publicado": "Fri, 13 Nov 2026 19:28:57 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "mismo_tema": 1,
+   "relacionadas": [
+    "“¿Pa’ qué fumas?“: Minsal lanza campaña contra el tabaco y vapeadores dirigido especialmente a adolescentes"
+   ],
+   "motivo_destaque": "mismo tema en 2 medios con titulares distintos"
+  },
+  {
+   "clave": "ano carlo colo colo cuando descenso duro jugabas mas mouche pablo peleabamos reviven villanueva",
+   "titulo": "“¿Por qué no jugabas cuando peleábamos el descenso?”: Pablo Mouche y Carlo Villanueva reviven el año más duro de Colo Colo",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/termina-el-partido-y-te-rompo-el-cruce-de-pablo-mouche-y-carlo-villanueva-cuando-colo-colo-sufria-por-el-descenso/",
+   "publicado": "Fri, 13 Nov 2026 19:12:18 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "autentico casa dituro espana matias robo sufre terror",
+   "titulo": "“Auténtico terror”: el ex UC Matías Dituro sufre un robo en su casa en España",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/autentico-terror-el-ex-uc-matias-dituro-sufre-un-robo-en-su-casa-en-espana/",
+   "publicado": "Fri, 13 Nov 2026 22:44:25 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "corrupcion crimen gorda hijo londres oligarca riqueza vista",
+   "titulo": "“El hijo del oligarca”: riqueza, crimen, corrupción y vista gorda en Londres",
+   "medio": "Ex-Ante",
+   "url": "https://www.ex-ante.cl/opinion/hijo-oligarca-riqueza-crimen-londres/",
+   "publicado": "Fri, 13 Nov 2026 22:55:17 +0000",
+   "origen": "exante",
+   "origenes": [
+    "exante"
+   ],
+   "areas": [],
+   "medios": [
+    "Ex-Ante"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "apuestas azul azul casa chile contrato grave incumplimiento millonario reacciona universidad",
+   "titulo": "“Incumplimiento grave”: la Universidad de Chile reacciona al millonario contrato de Azul Azul con una casa de apuestas",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/incumplimiento-grave-la-universidad-de-chile-reacciona-al-millonario-contrato-de-azul-azul-con-una-casa-de-apuestas/",
+   "publicado": "Fri, 13 Nov 2026 16:30:21 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "aclaro laboral mano mauricio pinilla preste solar suro vinculo",
+   "titulo": "\"Le presté una mano\": Suro Solar aclaró su vínculo laboral con Mauricio Pinilla",
+   "medio": "Cooperativa",
+   "url": "https://www.cooperativa.cl/noticias/magazine/personajes/le-preste-una-mano-suro-solar-aclaro-su-vinculo-laboral-con-mauricio/2026-11-13/193453.html",
+   "publicado": "Fri, 13 Nov 2026 19:34:53 -0300",
+   "origen": "cooperativa",
+   "origenes": [
+    "cooperativa"
+   ],
+   "areas": [],
+   "medios": [
+    "Cooperativa"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "ante corresponde detencion ebriedad estado igualdad ley manejar padre pavez",
+   "titulo": "“Lo que corresponde es la igualdad ante la ley”: Pavez por detención de su padre por manejar en estado de ebriedad",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/politica/noticia/lo-que-corresponde-es-la-igualdad-ante-la-ley-pavez-por-detencion-de-su-padre-por-manejar-en-estado-de-ebriedad/",
+   "publicado": "Fri, 13 Nov 2026 15:05:06 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "mismo_tema": 1,
+   "relacionadas": [
+    "Subsecretario Pavez tras detención de su padre: &#8220;Lo que corresponde es la igualdad ante la ley&#8221;"
+   ],
+   "motivo_destaque": "mismo tema en 2 medios con titulares distintos"
+  },
+  {
+   "clave": "chile dio golpe masterchef prime rating supero vertigo",
+   "titulo": "\"MasterChef Chile\" dio el golpe en el rating y superó a \"Vértigo\" en el prime",
+   "medio": "Cooperativa",
+   "url": "https://www.cooperativa.cl/noticias/magazine/television/masterchef-chile-dio-el-golpe-en-el-rating-y-supero-a-vertigo-en-el/2026-11-13/210152.html",
+   "publicado": "Fri, 13 Nov 2026 21:01:52 -0300",
+   "origen": "cooperativa",
+   "origenes": [
+    "cooperativa"
+   ],
+   "areas": [],
+   "medios": [
+    "Cooperativa"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "habitar negra noche peligro pilar quintana",
+   "titulo": "“Noche negra” de Pilar Quintana: el peligro de habitar",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/noche-negra-de-pilar-quintana-el-peligro-de-habitar/",
+   "publicado": "Fri, 13 Nov 2026 20:15:58 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "azul azul director herrera johnny misteriosa ojala resulte reunion",
+   "titulo": "“Ojalá resulte”: la misteriosa reunión de Johnny Herrera con director de Azul Azul",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/ojala-resulte-la-misteriosa-reunion-de-johnny-herrera-con-director-de-azul-azul/",
+   "publicado": "Fri, 13 Nov 2026 20:23:48 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "8220 8220 8221 8221 camara critica desagradables discusiones esta moda ossandon personaje ser ximena",
+   "titulo": "&#8220;Está de moda ser un personaje&#8221;: la crítica de Ximena Ossandón (RN) tras las discusiones &#8220;desagradables&#8221; en la Cámara",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/esta-de-moda-ser-un-personaje-la-critica-de-ximena-ossandon-rn-tras-las-discusiones-desagradables-en-la-camara/",
+   "publicado": "Fri, 13 Nov 2026 15:43:28 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "mismo_tema": 1,
+   "relacionadas": [
+    "Javiera Rodríguez responde a Ximena Ossandón ante críticas por el incidente con Lorena Pizarro: “Soy una mujer con opinión firme que no calla ante la izquierda”"
+   ],
+   "motivo_destaque": "mismo tema en 2 medios con titulares distintos"
+  },
+  {
+   "clave": "colo colo desafio donde hora internacional racing streaming ver",
+   "titulo": "A qué hora y dónde ver a Colo Colo vs. Racing por el desafío internacional en TV y streaming",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/servicios/noticia/a-que-hora-y-donde-ver-a-colo-colo-vs-racing-por-el-desafio-internacional-en-tv-y-streaming/",
+   "publicado": "Fri, 13 Nov 2026 15:56:52 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "ruido_probable": true,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "amistoso chile colombia contra donde hora streaming ver",
+   "titulo": "A qué hora y dónde ver el amistoso de Chile contra Colombia en TV y streaming",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/servicios/noticia/a-que-hora-y-donde-ver-el-amistoso-de-chile-contra-colombia-en-tv-y-streaming/",
+   "publicado": "Fri, 13 Nov 2026 15:12:14 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "ruido_probable": true,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "850 anos causas creacion ecoh formalizaciones investigadas mas mil registra tres",
+   "titulo": "A tres años de su creación, ECOH RM registra más de mil causas investigadas y 850 formalizaciones",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/a-tres-anos-de-su-creacion-ecoh-rm-registra-mas-de-mil-causas-investigadas-y-850-formalizaciones/",
+   "publicado": "Fri, 13 Nov 2026 15:24:14 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "abogado acusa choque colo colo contactado hernandez leandro victima",
+   "titulo": "Abogado de víctima tras choque de Leandro Hernández acusa que Colo Colo no se ha contactado",
+   "medio": "La Nación",
+   "url": "https://www.lanacion.cl/abogado-de-victima-tras-choque-de-leandro-hernandez-acusa-que-colo-colo-no-se-ha-contactado/",
+   "publicado": "Fri, 13 Nov 2026 17:27:00 +0000",
+   "origen": "lanacion",
+   "origenes": [
+    "lanacion"
+   ],
+   "areas": [],
+   "medios": [
+    "La Nación"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "acuerdo camioneros detalles horas ineditos moneda negociacion tensa",
+   "titulo": "Acuerdo con los camioneros: los detalles inéditos de la tensa negociación de 10 horas en La Moneda",
+   "medio": "Ex-Ante",
+   "url": "https://www.ex-ante.cl/politica/camioneros-detalles-ineditos-negociacion/",
+   "publicado": "Sat, 14 Nov 2026 00:28:17 +0000",
+   "origen": "exante",
+   "origenes": [
+    "exante"
+   ],
+   "areas": [],
+   "medios": [
+    "Ex-Ante"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "aereo aeropuerto cancelacion confirma control estados falla masiva santiago tres unidos vuelos",
+   "titulo": "Aeropuerto de Santiago confirma cancelación de tres vuelos a Estados Unidos por falla masiva en control aéreo",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/aeropuerto-de-santiago-confirma-cancelacion-de-tres-vuelos-a-estados-unidos-por-falla-masiva-en-control-aereo/",
+   "publicado": "Sat, 14 Nov 2026 00:48:49 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "aire caballo funcion gratuita libre llega mas mil nueve nui personas rapa salvaje",
+   "titulo": "Al aire libre y con más de mil personas: Caballo Salvaje Nueve llega a Rapa Nui con función gratuita",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/culto/noticia/al-aire-libre-y-con-mas-de-mil-personas-caballo-salvaje-nueve-llega-a-rapa-nui-con-funcion-gratuita/",
+   "publicado": "Fri, 13 Nov 2026 20:19:13 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "acera alfredo anos despues diez presidencia solar vuelve",
+   "titulo": "Alfredo Solar vuelve a la presidencia de Acera después de diez años",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/pulso/noticia/alfredo-solar-vuelve-a-la-presidencia-de-acera-despues-de-diez-anos/",
+   "publicado": "Fri, 13 Nov 2026 17:38:34 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "argentina desaparecidos dos explosion heridos lanus menos muerto municipio",
+   "titulo": "Argentina: Al menos un muerto, dos desaparecidos y 30 heridos por una explosión en municipio de Lanús",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/mundo/noticia/argentina-al-menos-un-muerto-dos-desaparecidos-y-30-heridos-por-una-explosion-en-municipio-de-lanus/",
+   "publicado": "Fri, 13 Nov 2026 22:31:45 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "alarma": "desaparecidos",
+   "motivo_destaque": "alarma: desaparecidos (un solo medio por ahora)"
+  },
+  {
+   "clave": "acuerdo arrau camioneros carreteras derecho derecho manifestarse obstaculizar puede transformarse",
+   "titulo": "Arrau tras acuerdo con camioneros: “El derecho a manifestarse no puede transformarse en el derecho a obstaculizar carreteras”",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/arrau-tras-acuerdo-con-camioneros-el-derecho-a-manifestarse-no-puede-transformarse-en-el-derecho-a-obstaculizar-carreteras/",
+   "publicado": "Fri, 13 Nov 2026 10:49:48 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "aseguran cancelo estado kramer mauricio pinilla show vertigo",
+   "titulo": "Aseguran que Kramer canceló su show en \"Vértigo\" por el estado de Mauricio Pinilla",
+   "medio": "Cooperativa",
+   "url": "https://www.cooperativa.cl/noticias/magazine/television/aseguran-que-kramer-cancelo-su-show-en-vertigo-por-el-estado-de/2026-11-13/095942.html",
+   "publicado": "Fri, 13 Nov 2026 09:59:42 -0300",
+   "origen": "cooperativa",
+   "origenes": [
+    "cooperativa"
+   ],
+   "areas": [],
+   "medios": [
+    "Cooperativa"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "agresion arica asi ataque comediante defendio fue luis slimming sufrio",
+   "titulo": "Así fue la agresión que sufrió Luis Slimming en Arica: Comediante se defendió del ataque",
+   "medio": "Cooperativa",
+   "url": "https://www.cooperativa.cl/noticias/magazine/humor/asi-fue-la-agresion-que-sufrio-luis-slimming-en-arica-comediante-se/2026-11-13/142355.html",
+   "publicado": "Fri, 13 Nov 2026 14:23:55 -0300",
+   "origen": "cooperativa",
+   "origenes": [
+    "cooperativa"
+   ],
+   "areas": [],
+   "medios": [
+    "Cooperativa"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "aumenta chips comercio culpan escandalo exportacion nvidia presion secretario supervisar",
+   "titulo": "Aumenta presión sobre el secretario de Comercio de EE.UU. por escándalo de Nvidia: lo culpan de no supervisar exportación de chips",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/mundo/noticia/aumenta-presion-sobre-el-secretario-de-comercio-de-eeuu-por-escandalo-de-nvidia-lo-culpan-de-no-supervisar-exportacion-de-chips/",
+   "publicado": "Sat, 14 Nov 2026 01:11:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "asi aura chile futuro innovation llega mujer segunda sera swiss week",
+   "titulo": "Aura, la Mujer del Futuro, llega a Chile con su IA: así será la segunda Swiss Innovation Week",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/aura-la-mujer-del-futuro-llega-a-chile-con-su-ia-asi-sera-la-segunda-swiss-innovation-week/",
+   "publicado": "Fri, 13 Nov 2026 16:30:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "autoridad colaborar",
+   "titulo": "Autoridad para colaborar",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/cartas-al-director/noticia/autoridad-para-colaborar/",
+   "publicado": "Fri, 13 Nov 2026 23:46:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "bebe franja gaza hipotermia meses muere nueve palestino sur",
+   "titulo": "Bebé palestino de nueve meses muere por hipotermia en el sur de la Franja de Gaza",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/mundo/noticia/bebe-palestino-de-nueve-meses-muere-por-hipotermia-en-el-sur-de-la-franja-de-gaza/",
+   "publicado": "Fri, 13 Nov 2026 18:06:14 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "2027 camara despacha diputados discusion gobierno horas mas partidas pierde presupuesto siete",
+   "titulo": "Cámara de Diputados despacha Presupuesto 2027 tras más de 21 horas de discusión y Gobierno pierde siete partidas",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/camara-de-diputados-despacha-presupuesto-2027-tras-mas-de-21-horas-de-discusion-y-proyecto-pasa-al-senado/",
+   "publicado": "Fri, 13 Nov 2026 10:31:28 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "bustamante camila compromiso papa personal preocupado reunion senti sodalicio victima",
+   "titulo": "Camila Bustamante, víctima del Sodalicio tras su reunión con el Papa: “Lo sentí preocupado y con un compromiso personal”",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/mundo/noticia/camila-bustamante-victima-de-sodalicio-tras-su-reunion-con-el-papa-lo-senti-preocupado-y-con-un-compromiso-personal/",
+   "publicado": "Fri, 13 Nov 2026 16:30:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "anuncian camioneros deponer despeje movilizacion ruta",
+   "titulo": "Camioneros anuncian despeje de la Ruta 68 tras deponer movilización",
+   "medio": "La Nación",
+   "url": "https://www.lanacion.cl/camioneros-anuncian-despeje-de-la-ruta-68-tras-deponer-movilizacion/",
+   "publicado": "Fri, 13 Nov 2026 18:40:20 +0000",
+   "origen": "lanacion",
+   "origenes": [
+    "lanacion"
+   ],
+   "areas": [],
+   "medios": [
+    "La Nación"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "acuerdo antofagasta camioneros paro rechazan siguen tag temuco",
+   "titulo": "Camioneros de Antofagasta, Temuco y No+TAG rechazan acuerdo y siguen en paro",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/camioneros-de-antofagasta-temuco-y-notag-rechazan-acuerdo-y-siguen-en-paro/",
+   "publicado": "Fri, 13 Nov 2026 11:38:08 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "campeon chileno elegido liso lomo mejor mil mundial pesos planeta vale",
+   "titulo": "Campeón mundial: Lomo liso chileno es elegido el mejor del planeta y vale 50 mil pesos",
+   "medio": "Ex-Ante",
+   "url": "https://www.ex-ante.cl/negocios/lomo-liso-chileno-elegido-mejor-planeta/",
+   "publicado": "Fri, 13 Nov 2026 23:15:00 +0000",
+   "origen": "exante",
+   "origenes": [
+    "exante"
+   ],
+   "areas": [],
+   "medios": [
+    "Ex-Ante"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "colegio convoca movilizacion nacional noviembre profesores",
+   "titulo": "Colegio de Profesores convoca a movilización nacional para el 24 de noviembre",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/colegio-de-profesores-convoca-a-movilizacion-nacional-para-el-24-de-noviembre/",
+   "publicado": "Fri, 13 Nov 2026 12:11:25 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "academia ante buen cacique colo colo concepcion corona extiende festeja momento racing supera",
+   "titulo": "Colo Colo festeja la corona ante Racing: el Cacique extiende su buen momento y supera a la Academia en Concepción",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/colo-colo-festeja-la-corona-ante-racing-el-cacique-extiende-su-buen-momento-y-supera-a-la-academia-en-concepcion/",
+   "publicado": "Fri, 13 Nov 2026 23:55:28 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "amistoso chile colombia cordova donde hora nicolas roja ver",
+   "titulo": "Colombia vs. Chile: dónde y a qué hora ver el amistoso de la Roja de Nicolás Córdova",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/colombia-vs-chile-donde-y-a-que-hora-ver-el-amistoso-de-la-roja-de-nicolas-cordova/",
+   "publicado": "Fri, 13 Nov 2026 23:43:51 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "comercio cumplimiento normativo",
+   "titulo": "Comercio y cumplimiento normativo",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/cartas-al-director/noticia/comercio-y-cumplimiento-normativo/",
+   "publicado": "Fri, 13 Nov 2026 23:54:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "comite conocer derivo disciplina entrada jesus jesus miguel muerte owono sancion",
+   "titulo": "Comité de Disciplina da a conocer la sanción a Jesús Owono tras la entrada que derivó en la muerte de Jesús de Miguel",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/comite-de-disciplina-da-a-conocer-la-sancion-a-jesus-owono-tras-la-entrada-que-derivo-en-la-muerte-de-jesus-de-miguel/",
+   "publicado": "Sat, 14 Nov 2026 01:35:23 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "anuncia construccion contraloria detecta iquique irregularidades monetario park pide reparo skate sumario",
+   "titulo": "Contraloría detecta irregularidades en la construcción de Skate Park en Iquique: anuncia sumario y pide reparo monetario",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/contraloria-detecta-irregularidades-en-la-construccion-de-skate-park-en-iquique-anuncia-sumario-y-pide-reparo-monetario/",
+   "publicado": "Sat, 14 Nov 2026 00:06:41 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "advierten aereos chilenos controladores estados falla masiva modernizacion retrasos sistemas unidos",
+   "titulo": "Controladores aéreos chilenos advierten retrasos en modernización de sistemas tras falla masiva en Estados Unidos",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/controladores-aereos-chilenos-advierten-retrasos-en-modernizacion-de-sistemas-tras-falla-masiva-en-estados-unidos/",
+   "publicado": "Sat, 14 Nov 2026 01:28:35 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "conventillo convertido espectaculo",
+   "titulo": "Conventillo convertido en espectáculo",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/cartas-al-director/noticia/conventillo-convertido-en-espectaculo/",
+   "publicado": "Fri, 13 Nov 2026 23:52:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "avanzar cop31 dificiles tiempos",
+   "titulo": "COP31: avanzar en tiempos difíciles",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/cartas-al-director/noticia/cop31-avanzar-en-tiempos-dificiles/",
+   "publicado": "Fri, 13 Nov 2026 23:58:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "alta antecede asia candidatura chilena china critica kast mar presidente tratado visita",
+   "titulo": "Crítica de China a candidatura chilena para el Tratado de Alta Mar antecede visita del Presidente Kast a Asia",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/critica-de-china-a-candidatura-chilena-para-el-tratado-de-alta-mar-anteceden-visita-del-presidente-kast-a-asia/",
+   "publicado": "Fri, 13 Nov 2026 18:26:00 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "bencinazo costo crisis crisis cuando decretos esta gobierno kast pagado politico reacciona rebaja solo",
+   "titulo": "Del bencinazo a los decretos de rebaja, el gobierno de Kast va de crisis en crisis y solo reacciona cuando el costo político ya está pagado",
+   "medio": "Interferencia",
+   "url": "https://interferencia.cl/articulos/del-bencinazo-los-decretos-de-rebaja-el-gobierno-de-kast-va-de-crisis-en-crisis-y-solo",
+   "publicado": "Fri, 13 Nov 2026 06:00:00 -0300",
+   "origen": "interferencia",
+   "origenes": [
+    "interferencia"
+   ],
+   "areas": [],
+   "medios": [
+    "Interferencia"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "costado delegado desafios difundirnos maule nos pero potencialidades presidencial region tenemos todo",
+   "titulo": "Delegado presidencial del Maule sobre potencialidades y desafíos de la región: “Lo tenemos todo, pero nos ha costado difundirnos”",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/delegado-presidencial-del-maule-sobre-potencialidades-y-desafios-de-la-region-lo-tenemos-todo-pero-nos-ha-costado-difundirnos/",
+   "publicado": "Fri, 13 Nov 2026 13:43:34 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "acuerdo antonio barricadas captan descolgados gobierno san",
+   "titulo": "Descolgados del acuerdo con el gobierno: captan barricadas en San Antonio",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/videos/noticia/descolgados-del-acuerdo-con-el-gobierno-captan-barricadas-en-san-antonio/",
+   "publicado": "Fri, 13 Nov 2026 19:22:59 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "carahue detienen dos forestal homicidio integrantes profugos trabajador wam",
+   "titulo": "Detienen a dos integrantes de la WAM prófugos por homicidio de trabajador forestal en Carahue",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/detienen-a-dos-integrantes-de-la-wam-profugos-por-homicidio-de-trabajador-forestal-en-carahue/",
+   "publicado": "Sat, 14 Nov 2026 02:35:06 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "compromiso directiva discusion gobierno kast medio moneda presupuestaria reafirma reune total",
+   "titulo": "Directiva de RN se reúne con Kast en La Moneda y reafirma “total compromiso” con el gobierno en medio de discusión presupuestaria",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/politica/noticia/directiva-de-rn-se-reune-con-kast-en-la-moneda-y-reafirma-total-compromiso-con-el-gobierno-en-medio-de-discusion-presupuestaria/",
+   "publicado": "Fri, 13 Nov 2026 23:22:16 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "2027 alcanza discusion gobierno plata presupuesto",
+   "titulo": "Discusión del Presupuesto 2027: ¿y si no le alcanza la plata al Gobierno?",
+   "medio": "CIPER",
+   "url": "https://www.ciperchile.cl/2026/11/13/discusion-del-presupuesto-2027-y-si-no-le-alcanza-la-plata-al-gobierno/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=discusion-del-presupuesto-2027-y-si-no-le-alcanza-la-plata-al-gobierno",
+   "publicado": "Fri, 13 Nov 2026 21:14:56 +0000",
+   "origen": "ciper",
+   "origenes": [
+    "ciper"
+   ],
+   "areas": [],
+   "medios": [
+    "CIPER"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "comite dineros dos expresidentes ministerios nudos politico presupuesto rechazados senado trasladaron",
+   "titulo": "Dos ministerios del comité político y dineros de expresidentes rechazados: los nudos del Presupuesto que se trasladaron al Senado",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/politica/noticia/dos-ministerios-del-comite-politico-y-dineros-de-expresidentes-rechazados-los-nudos-del-presupuesto-que-se-trasladaron-al-senado/",
+   "publicado": "Fri, 13 Nov 2026 16:30:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "armas bombardero estrategico lanzamiento nuevo primera prueba raider realiza",
+   "titulo": "EE.UU. realiza la primera prueba de lanzamiento de armas de su nuevo bombardero estratégico B-21 Raider",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/mundo/noticia/eeuu-realiza-la-primera-prueba-de-lanzamiento-de-armas-de-su-nuevo-bombardero-estrategico-b-21-raider/",
+   "publicado": "Fri, 13 Nov 2026 21:42:24 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "analisis caida chile colombia cordova cuatro esto goles llevamos nos optimismo ultima veo vez",
+   "titulo": "El análisis de Córdova tras la caída de Chile en Colombia: “Veo esto con optimismo; la última vez nos llevamos cuatro goles”",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/el-analisis-de-cordova-tras-la-caida-de-chile-en-colombia-veo-esto-con-optimismo-la-ultima-vez-nos-llevamos-cuatro-goles/",
+   "publicado": "Sat, 14 Nov 2026 03:03:01 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "000 alcanzo dolar semana sube tocar",
+   "titulo": "El dólar sube en la semana y alcanzó a tocar los $1.000",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/pulso/noticia/el-valor-del-dolar-en-chile-el-13-de-noviembre-de-2026/",
+   "publicado": "Fri, 13 Nov 2026 12:25:12 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "golpe quiroz realidad",
+   "titulo": "El golpe de realidad para Quiroz",
+   "medio": "CIPER",
+   "url": "https://www.ciperchile.cl/2026/11/13/el-golpe-de-realidad-para-quiroz/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=el-golpe-de-realidad-para-quiroz",
+   "publicado": "Fri, 13 Nov 2026 23:43:52 +0000",
+   "origen": "ciper",
+   "origenes": [
+    "ciper"
+   ],
+   "areas": [],
+   "medios": [
+    "CIPER"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "dustin experiencia fue graduado hoffman infierno peor",
+   "titulo": "El infierno de Dustin Hoffman en El graduado: “Fue la peor experiencia”",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/culto/noticia/el-infierno-de-dustin-hoffman-en-el-graduado-fue-la-peor-experiencia/",
+   "publicado": "Fri, 13 Nov 2026 18:35:22 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "autogol colombia cordova debe desconfigura juego maripan pierde roja sigue",
+   "titulo": "El juego sigue al debe: la Roja de Córdova se desconfigura tras el autogol de Maripán y pierde con Colombia",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/el-juego-sigue-al-debe-la-roja-de-cordova-se-desconfigura-tras-el-autogol-de-maripan-y-pierde-con-colombia/",
+   "publicado": "Sat, 14 Nov 2026 02:19:05 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "chile derrames desincentiva elevan extremas limpiarlos lluvias mineros municipios negocio pagar relaves riesgo",
+   "titulo": "El negocio de los relaves mineros en Chile: pagar a los municipios desincentiva limpiarlos y las lluvias extremas elevan el riesgo de derrames",
+   "medio": "Interferencia",
+   "url": "https://interferencia.cl/articulos/el-negocio-de-los-relaves-mineros-en-chile-pagar-los-municipios-desincentiva-limpiarlos-y",
+   "publicado": "Fri, 13 Nov 2026 06:00:00 -0300",
+   "origen": "interferencia",
+   "origenes": [
+    "interferencia"
+   ],
+   "areas": [],
+   "medios": [
+    "Interferencia"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "calle protagonismo",
+   "titulo": "El protagonismo de la calle",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/opinion/noticia/el-protagonismo-de-la-calle/",
+   "publicado": "Fri, 13 Nov 2026 22:02:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "300 chile diabetes hay mas mil personas saben tienen",
+   "titulo": "En Chile hay más de 300 mil personas que tienen diabetes y no lo saben",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/lt-board/noticia/en-chile-hay-mas-de-300-mil-personas-que-tienen-diabetes-y-no-lo-saben/",
+   "publicado": "Fri, 13 Nov 2026 19:56:16 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "alimentos alteraban bodega carabineros detiene encargada fechas granja vencimiento",
+   "titulo": "En La Granja: Carabineros detiene a encargada de bodega en la que alteraban fechas de vencimiento de alimentos",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/en-la-granja-carabineros-detiene-a-encargada-de-bodega-en-la-que-alteraban-fechas-de-vencimiento-de-alimentos/",
+   "publicado": "Fri, 13 Nov 2026 19:35:48 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "700 acuerda adios dice entel filial mas millicom millones peru venta",
+   "titulo": "Entel dice adiós a Perú: acuerda venta de su filial a Millicom por más de US$1.700 millones",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/pulso/noticia/entel-acuerda-venta-de-sus-operaciones-en-peru-a-millicom-por-mas-de-us1700/",
+   "publicado": "Fri, 13 Nov 2026 21:30:46 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "esperar hable perro",
+   "titulo": "Esperar que el perro hable",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/opinion/noticia/esperar-que-el-perro-hable/",
+   "publicado": "Fri, 13 Nov 2026 22:00:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "100 800 aereo cancelados dejo espacio estados falla mas masiva reabre retrasados unidos vuelos",
+   "titulo": "Estados Unidos reabre su espacio aéreo tras falla masiva que dejó más de 5.100 vuelos cancelados y 9.800 retrasados",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/mundo/noticia/estados-unidos-reabre-su-espacio-aereo-tras-falla-masiva-que-dejo-mas-de-5100-vuelos-cancelados-y-9800-retrasados/",
+   "publicado": "Sat, 14 Nov 2026 02:23:47 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "800 aereo control despegues estados falla mas masiva retrasados suspende todos unidos vuelos",
+   "titulo": "Estados Unidos suspende todos los despegues por falla masiva en el control aéreo: más de 7.800 vuelos retrasados",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/mundo/noticia/falla-masiva-en-control-aereo-obliga-a-suspender-todos-los-despegues-en-estados-unidos-mas-de-7800-vuelos-retrasados/",
+   "publicado": "Fri, 13 Nov 2026 22:06:59 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "carreras cuatro empleabilidad estas profesionales superior tecnico tienen",
+   "titulo": "Estas cuatro carreras técnico-profesionales tienen empleabilidad superior al 80%",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/educacion/noticia/estas-cuatro-carreras-tecnico-profesionales-tienen-empleabilidad-superior-al-80/",
+   "publicado": "Fri, 13 Nov 2026 17:18:25 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "barrio central festival gastronomico hito mapocho mercado nuevo revitalizacion",
+   "titulo": "Festival gastronómico, nuevo hito en la revitalización del Mercado Central y el barrio Mapocho",
+   "medio": "Cooperativa",
+   "url": "https://www.cooperativa.cl/noticias/magazine/panoramas/festival-gastronomico-nuevo-hito-en-la-revitalizacion-del-mercado/2026-11-13/200127.html",
+   "publicado": "Fri, 13 Nov 2026 20:01:27 -0300",
+   "origen": "cooperativa",
+   "origenes": [
+    "cooperativa"
+   ],
+   "areas": [],
+   "medios": [
+    "Cooperativa"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "cuatro fijan granadas imputados iquique lacrimogenas preventiva prision sorprendidos trasladando",
+   "titulo": "Fijan prisión preventiva para cuatro imputados sorprendidos trasladando granadas lacrimógenas en Iquique",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/fijan-prision-preventiva-para-cuatro-imputados-sorprendidos-trasladando-granadas-lacrimogenas-en-iquique/",
+   "publicado": "Fri, 13 Nov 2026 20:22:42 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "amsterdam caso eventual falsificacion fiscalia investigacion investigara maule obstruccion operacion",
+   "titulo": "Fiscalía del Maule investigará eventual falsificación y obstrucción en la investigación en caso Operación Amsterdam",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/fiscalia-del-maule-investigara-eventual-falsificacion-y-obstruccion-en-la-investigacion-en-caso-operacion-amsterdam/",
+   "publicado": "Fri, 13 Nov 2026 16:29:57 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "envejece formar odontologos sociedad",
+   "titulo": "Formar odontólogos para una sociedad que envejece",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/educacion/noticia/formar-odontologos-para-una-sociedad-que-envejece/",
+   "publicado": "Fri, 13 Nov 2026 16:12:51 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "agresiones compromete condena depardieu gerard luego recurrir renuncia sexuales surgir video",
+   "titulo": "Gérard Depardieu renuncia a recurrir su condena por agresiones sexuales luego de surgir video que lo compromete",
+   "medio": "La Nación",
+   "url": "https://www.lanacion.cl/gerard-depardieu-renuncia-a-recurrir-su-condena-por-agresiones-sexuales-luego-de-surgir-video-que-lo-compromete/",
+   "publicado": "Fri, 13 Nov 2026 19:30:25 +0000",
+   "origen": "lanacion",
+   "origenes": [
+    "lanacion"
+   ],
+   "areas": [],
+   "medios": [
+    "La Nación"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "bebe durante embarazo estado gianella informo marengo presentar sangrado termino urgencias",
+   "titulo": "Gianella Marengo terminó en urgencias tras presentar un sangrado durante su embarazo: informó el estado de su bebé",
+   "medio": "La Nación",
+   "url": "https://www.lanacion.cl/gianella-marengo-termino-en-urgencias-tras-presentar-un-sangrado-durante-su-embarazo-informo-el-estado-de-su-bebe/",
+   "publicado": "Fri, 13 Nov 2026 17:25:22 +0000",
+   "origen": "lanacion",
+   "origenes": [
+    "lanacion"
+   ],
+   "areas": [],
+   "medios": [
+    "La Nación"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "actuar acuerdo advierte bloqueos camioneros fuerza gobierno ley mantienen pese publica tienen",
+   "titulo": "Gobierno advierte a camioneros que mantienen bloqueos pese a acuerdo: “La ley y la fuerza pública tienen que actuar”",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/gobierno-advierte-a-camioneros-que-mantienen-bloqueos-pese-a-acuerdo-la-ley-y-la-fuerza-publica-tienen-que-actuar/",
+   "publicado": "Fri, 13 Nov 2026 14:26:04 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "abandonaron asegura camiones dos gobierno mas movilizados rutas tercios",
+   "titulo": "Gobierno asegura que más de dos tercios de los camiones movilizados ya abandonaron las rutas",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/politica/noticia/gobierno-asegura-que-mas-de-dos-tercios-de-los-camiones-movilizados-ya-abandonaron-las-rutas/",
+   "publicado": "Fri, 13 Nov 2026 16:47:28 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "900 acuerdo alcanzara camioneros confirma fiscal gasto gobierno millones usd",
+   "titulo": "Gobierno confirma que gasto fiscal por acuerdo con camioneros alcanzará los USD$900 millones",
+   "medio": "La Nación",
+   "url": "https://www.lanacion.cl/gobierno-confirma-que-gasto-fiscal-por-acuerdo-con-camioneros-alcanzara-los-usd900-millones/",
+   "publicado": "Fri, 13 Nov 2026 17:29:23 +0000",
+   "origen": "lanacion",
+   "origenes": [
+    "lanacion"
+   ],
+   "areas": [],
+   "medios": [
+    "La Nación"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "bombardeo condena contra gaza gobierno hospital israel palestino sur",
+   "titulo": "Gobierno palestino condena bombardeo de Israel contra un hospital en el sur de Gaza",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/mundo/noticia/el-gobierno-palestino-condena-el-bombardeo-de-israel-contra-un-hospital-en-el-sur-de-gaza/",
+   "publicado": "Fri, 13 Nov 2026 15:57:44 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "escogidos fin guia noviembre ocio panoramas semana",
+   "titulo": "Guía del ocio: panoramas escogidos para el fin de semana del 14 y 15 de noviembre",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/finde/noticia/guia-del-ocio-panoramas-escogidos-para-el-fin-de-semana-del-14-y-15-de-noviembre/",
+   "publicado": "Fri, 13 Nov 2026 16:10:56 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": "2026-11-07",
+   "motivo_destaque": null
+  },
+  {
+   "clave": "condena expulsion extranjeros informaba justicia mayo orden pdi rebajas",
+   "titulo": "Hasta mayo, Justicia no informaba a la PDI de las rebajas de condena a extranjeros con orden de expulsión",
+   "medio": "Interferencia",
+   "url": "https://interferencia.cl/articulos/hasta-mayo-justicia-no-informaba-la-pdi-de-las-rebajas-de-condena-extranjeros-con-orden-de",
+   "publicado": "Fri, 13 Nov 2026 06:00:00 -0300",
+   "origen": "interferencia",
+   "origenes": [
+    "interferencia"
+   ],
+   "areas": [],
+   "medios": [
+    "Interferencia"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "bases ciencia cientificos debio exigencia fondef inhabilidad inquieta opinar rectificar",
+   "titulo": "Inhabilidad por opinar: la exigencia en las bases Fondef que inquieta a científicos y que Ciencia debió rectificar",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/inhabiulidad-por-opinar-la-exigencia-en-las-bases-fondef-que-inquieta-a-cientificos-y-que-ciencia-debio-rectificar/",
+   "publicado": "Fri, 13 Nov 2026 16:30:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "bajo disputa eisenkot entre iran israel netanyahu poder sombra",
+   "titulo": "Israel: la disputa por el poder entre Netanyahu y Eisenkot bajo la sombra de Irán",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/israel-la-disputa-por-el-poder-entre-netanyahu-y-eisenkot-bajo-la-sombra-de-iran/",
+   "publicado": "Fri, 13 Nov 2026 20:23:24 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "ceo dimon historico hombres jamie kast mas morgan poderosos reunio street uno wall",
+   "titulo": "Jamie Dimon, el histórico CEO de JP Morgan y uno de los hombres más poderosos de Wall Street que se reunió con Kast",
+   "medio": "Ex-Ante",
+   "url": "https://www.ex-ante.cl/negocios/poderoso-ceo-jp-morgan-que-estuvo-con-kast/",
+   "publicado": "Fri, 13 Nov 2026 17:21:28 +0000",
+   "origen": "exante",
+   "origenes": [
+    "exante"
+   ],
+   "areas": [],
+   "medios": [
+    "Ex-Ante"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "ante ante calla criticas firme incidente izquierda javiera lorena mujer opinion ossandon pizarro responde rodriguez soy ximena",
+   "titulo": "Javiera Rodríguez responde a Ximena Ossandón ante críticas por el incidente con Lorena Pizarro: “Soy una mujer con opinión firme que no calla ante la izquierda”",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/politica/noticia/javiera-rodriguez-responde-a-ximena-ossandon-ante-criticas-por-el-incidente-con-lorena-pizarro-soy-una-mujer-con-opinion-firme-que-no-calla-ante-la-izquierda/",
+   "publicado": "Fri, 13 Nov 2026 21:35:16 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "mismo_tema": 1,
+   "relacionadas": [
+    "&#8220;Está de moda ser un personaje&#8221;: la crítica de Ximena Ossandón (RN) tras las discusiones &#8220;desagradables&#8221; en la Cámara"
+   ],
+   "motivo_destaque": "mismo tema en 2 medios con titulares distintos"
+  },
+  {
+   "clave": "acciones contra evalua hermana jesse joy legales musica uso",
+   "titulo": "Jesse evalúa acciones legales contra su hermana Joy por el uso de su música",
+   "medio": "Cooperativa",
+   "url": "https://www.cooperativa.cl/noticias/magazine/musica/jesse-evalua-acciones-legales-contra-su-hermana-joy-por-el-uso-de-su/2026-11-13/111954.html",
+   "publicado": "Fri, 13 Nov 2026 11:19:54 -0300",
+   "origen": "cooperativa",
+   "origenes": [
+    "cooperativa"
+   ],
+   "areas": [],
+   "medios": [
+    "Cooperativa"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "actividades beauchef candelabro carla feria gratuita hermann jose libro llegan maza",
+   "titulo": "José Maza, Carla Hermann y Candelabro llegan a la 10ª Feria del Libro Beauchef con actividades gratuita",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/jose-maza-carla-hermann-y-candelabro-llegan-a-la-10a-feria-del-libro-beauchef-con-actividades-gratuita/",
+   "publicado": "Fri, 13 Nov 2026 18:36:22 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "aca araneda doggenweiler festival grammy importante karen latin plataforma rafael saben vina",
+   "titulo": "Karen Doggenweiler y Rafael Araneda en los Latin Grammy: “Acá saben que el Festival de Viña es una plataforma importante”",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/culto/noticia/karen-doggenweiler-y-rafael-araneda-en-los-latin-grammy-aca-saben-que-el-festival-de-vina-es-una-plataforma-importante/",
+   "publicado": "Fri, 13 Nov 2026 16:29:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "autoridad negocia tambien",
+   "titulo": "La autoridad también se negocia",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/opinion/noticia/la-autoridad-tambien-se-negocia/",
+   "publicado": "Fri, 13 Nov 2026 16:30:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "blanca casa centrara china cita confirma historica nuclear proliferacion putin reunion trilateral trump",
+   "titulo": "La Casa Blanca confirma reunión trilateral de Trump, Putin y Xi en China: la cita histórica se centrará en la no proliferación nuclear",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/mundo/noticia/la-casa-blanca-confirma-reunion-trilateral-de-trump-putin-y-xi-en-china-la-cita-historica-se-centrara-en-la-no-proliferacion-nuclear/",
+   "publicado": "Sat, 14 Nov 2026 04:07:19 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "casa crecieron donde independiente jovenes residencia transitan vida",
+   "titulo": "La casa donde jóvenes que crecieron en una residencia transitan a la vida independiente",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/paula/noticia/la-casa-donde-jovenes-que-crecieron-en-una-residencia-transitan-a-la-vida-independiente/",
+   "publicado": "Fri, 13 Nov 2026 14:30:33 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "decision kast",
+   "titulo": "La decisión de Kast",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/opinion/noticia/la-decision-de-kast/",
+   "publicado": "Fri, 13 Nov 2026 22:04:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "anos dramatico emperatriz estos final mas series valiosas",
+   "titulo": "La Emperatriz, una de las más valiosas series de estos años, en su dramático final",
+   "medio": "Ex-Ante",
+   "url": "https://www.ex-ante.cl/cine-y-series/la-emperatriz-mas-valiosas-series/",
+   "publicado": "Fri, 13 Nov 2026 19:56:15 +0000",
+   "origen": "exante",
+   "origenes": [
+    "exante"
+   ],
+   "areas": [],
+   "medios": [
+    "Ex-Ante"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "albiceleste ante argentina arranca cae diego era forlan lionel mal messi post scaloni uruguay",
+   "titulo": "La era post Lionel Messi arranca mal para la Albiceleste de Scaloni: Argentina cae ante Uruguay de Diego Forlán",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/la-era-post-lionel-messi-arranca-mal-para-la-albiceleste-de-scaloni-argentina-cae-ante-uruguay-de-diego-forlan/",
+   "publicado": "Sat, 14 Nov 2026 01:15:23 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "asociacion criminal expresidente fiscalia imputa paraguay pena santiago",
+   "titulo": "La Fiscalía de Paraguay imputa al expresidente Santiago Peña por asociación criminal",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/mundo/noticia/la-fiscalia-de-paraguay-imputa-al-expresidente-santiago-pena-por-asociacion-criminal/",
+   "publicado": "Fri, 13 Nov 2026 22:35:49 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "asia bajo gira kast moneda nubla presion primera tiempos tormenta tres",
+   "titulo": "La Moneda bajo presión: la tormenta de tres tiempos que nubla la primera gira de Kast en Asia",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/politica/noticia/la-tormeta-de-tres-tiempos-que-vive-la-moneda-que-nubla-la-primera-gira-de-kast-en-asia/",
+   "publicado": "Fri, 13 Nov 2026 16:30:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "azul azul cecilia chile cuidar deber patrimonio perez respuesta salida tenemos universidad",
+   "titulo": "La respuesta de Cecilia Pérez a la Universidad de Chile en su salida de Azul Azul: “Tenemos un deber de cuidar el patrimonio”",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/la-respuesta-de-cecilia-perez-a-la-universidad-de-chile-en-su-salida-de-azul-azul-tenemos-un-deber-de-cuidar-el-patrimonio/",
+   "publicado": "Fri, 13 Nov 2026 21:50:54 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "2027 colombia conoce rivales roja sub sudamericano",
+   "titulo": "La Roja Sub 20 conoce a sus rivales para el Sudamericano de Colombia 2027",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/la-roja-sub-20-conoce-a-sus-rivales-para-el-sudamericano-de-colombia-2027/",
+   "publicado": "Fri, 13 Nov 2026 20:25:15 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "mismo_tema": 1,
+   "relacionadas": [
+    "La Roja Sub 20 conoció a sus rivales para el Sudamericano 2027 de Colombia"
+   ],
+   "motivo_destaque": "mismo tema en 2 medios con titulares distintos"
+  },
+  {
+   "clave": "2027 colombia conocio rivales roja sub sudamericano",
+   "titulo": "La Roja Sub 20 conoció a sus rivales para el Sudamericano 2027 de Colombia",
+   "medio": "La Nación",
+   "url": "https://www.lanacion.cl/la-roja-sub-20-conocio-a-sus-rivales-para-el-sudamericano-2027-de-colombia/",
+   "publicado": "Fri, 13 Nov 2026 20:30:30 +0000",
+   "origen": "lanacion",
+   "origenes": [
+    "lanacion"
+   ],
+   "areas": [],
+   "medios": [
+    "La Nación"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "mismo_tema": 1,
+   "relacionadas": [
+    "La Roja Sub 20 conoce a sus rivales para el Sudamericano de Colombia 2027"
+   ],
+   "motivo_destaque": "mismo tema en 2 medios con titulares distintos"
+  },
+  {
+   "clave": "caida decirle dorada gabriel generacion gente roja sinceridad somos suazo",
+   "titulo": "La sinceridad de Gabriel Suazo tras la caída de la Roja: “¿Qué decirle a la gente? Que no somos la Generación Dorada”",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/la-sinceridad-de-gabriel-suazo-tras-la-caida-de-la-roja-que-decirle-a-la-gente-que-no-somos-la-generacion-dorada/",
+   "publicado": "Sat, 14 Nov 2026 02:29:49 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "ahorro comunal condes estimado farmacia medicamentos permitira primera tendra",
+   "titulo": "Las Condes tendrá su primera farmacia comunal: permitirá un ahorro estimado de 64,2% en medicamentos",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/las-condes-tendra-su-primera-farmacia-comunal-permitira-un-ahorro-estimado-de-642-en-medicamentos/",
+   "publicado": "Fri, 13 Nov 2026 14:55:38 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "confech educacion entiende gobierno juega laura mlynarz pais publica rol vocera",
+   "titulo": "Laura Mlynarz, vocera de la Confech: “El Gobierno no entiende el rol que juega la educación pública en el país”",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/laura-mlynarz-vocera-de-la-confech-el-gobierno-no-entiende-el-rol-que-juega-la-educacion-publica-en-el-pais/",
+   "publicado": "Fri, 13 Nov 2026 19:12:38 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "leon peruanas tierras xiv",
+   "titulo": "León XIV en tierras peruanas",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/mundo/noticia/leon-xiv-en-tierras-peruanas/",
+   "publicado": "Fri, 13 Nov 2026 23:39:34 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "agresion arica chiste fue luis partir slimming sufrio",
+   "titulo": "Luis Slimming y la agresión que sufrió en Arica: \"No sé a partir de qué chiste fue\"",
+   "medio": "Cooperativa",
+   "url": "https://www.cooperativa.cl/noticias/magazine/humor/luis-slimming-y-la-agresion-que-sufrio-en-arica-no-se-a-partir-de-que/2026-11-13/083202.html",
+   "publicado": "Fri, 13 Nov 2026 08:32:02 -0300",
+   "origen": "cooperativa",
+   "origenes": [
+    "cooperativa"
+   ],
+   "areas": [],
+   "medios": [
+    "Cooperativa"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "acercan aunque colas correo dice fallas microsoft niveles normales outlook persisten",
+   "titulo": "Microsoft dice que las colas de correo se acercan a “niveles normales”, aunque persisten fallas en Outlook",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/pulso/noticia/microsoft-correos-mails-niveles-normales-outlook/",
+   "publicado": "Fri, 13 Nov 2026 16:09:51 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "caida ciberataque compania descarta enfrenta global microsoft prolongada recuperar servicios sistemas trabaja",
+   "titulo": "Microsoft enfrenta prolongada caída global de sus servicios: compañía descarta ciberataque y trabaja en recuperar sus sistemas",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/microsoft-enfrenta-prolongada-caida-global-de-sus-servicios-compania-descarta-ciberataque-y-trabaja-en-recuperar-sus-sistemas/",
+   "publicado": "Fri, 13 Nov 2026 13:20:32 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "memoria mil pesos",
+   "titulo": "Mil pesos para la memoria",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/mil-pesos-para-la-memoria/",
+   "publicado": "Fri, 13 Nov 2026 20:04:32 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "corfo dan discusion economia fondo fondos inicial ley ministerio puntapie",
+   "titulo": "Ministerio de Economía y Corfo dan el puntapié inicial a la discusión de ley de fondo de fondos",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/emprendimiento/noticia/ministerio-de-economia-y-corfo-dan-el-puntapie-inicial-a-la-discusion-de-ley-de-fondo-de-fondos/",
+   "publicado": "Sat, 14 Nov 2026 02:30:37 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "anos anuncio avril ending happy hija lavigne nacimiento primera",
+   "titulo": "My happy ending: Avril Lavigne anunció el nacimiento de su primera hija a sus 42 años",
+   "medio": "Cooperativa",
+   "url": "https://www.cooperativa.cl/noticias/magazine/musica/my-happy-ending-avril-lavigne-anuncio-el-nacimiento-de-su-primera-hija/2026-11-13/140339.html",
+   "publicado": "Fri, 13 Nov 2026 14:03:39 -0300",
+   "origen": "cooperativa",
+   "origenes": [
+    "cooperativa"
+   ],
+   "areas": [],
+   "medios": [
+    "Cooperativa"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "codelco directorio falsas grau historial nicolas noticias presidente promover tiene",
+   "titulo": "Nicolás Grau: “El presidente del directorio de Codelco tiene un historial de promover noticias falsas”",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/nicolas-grau-el-presidente-del-directorio-de-codelco-tiene-un-historial-de-promover-noticias-falsas/",
+   "publicado": "Fri, 13 Nov 2026 13:04:49 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "accionistas azul azul define directorio elegir fecha fue junta ninguno nuevo presidente ratifica",
+   "titulo": "Ninguno fue a la junta de accionistas: Azul Azul ratifica a su nuevo directorio y define fecha para elegir al presidente",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/ninguno-fue-a-la-junta-de-accionistas-azul-azul-ratifica-a-su-nuevo-directorio-y-define-fecha-para-elegir-al-presidente/",
+   "publicado": "Fri, 13 Nov 2026 21:27:01 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "ciclo colombia dos enfrentara mismo nueva nuevo proceso radiografia roja veces",
+   "titulo": "Nuevo ciclo, mismo proceso: radiografía a la nueva Colombia que enfrentará dos veces a la Roja",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/nuevo-ciclo-mismo-proceso-radiografia-a-la-nueva-colombia-que-enfrentara-dos-veces-a-la-roja/",
+   "publicado": "Fri, 13 Nov 2026 19:08:33 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "descartar hermano informe insiste masa ministro nuevo permite proyecto quiroz remociones sernageomin",
+   "titulo": "Nuevo informe: Sernageomin insiste en que proyecto del hermano del ministro Quiroz no permite descartar “remociones en masa”",
+   "medio": "CIPER",
+   "url": "https://www.ciperchile.cl/2026/11/13/nuevo-informe-sernageomin-insiste-en-que-proyecto-del-hermano-del-ministro-quiroz-no-permite-descartar-remociones-en-masa/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=nuevo-informe-sernageomin-insiste-en-que-proyecto-del-hermano-del-ministro-quiroz-no-permite-descartar-remociones-en-masa",
+   "publicado": "Fri, 13 Nov 2026 16:29:32 +0000",
+   "origen": "ciper",
+   "origenes": [
+    "ciper"
+   ],
+   "areas": [],
+   "medios": [
+    "CIPER"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "chat contra firma improvisada llave ministros nuevo ojos rabat ultima",
+   "titulo": "Ojos de la llave: el nuevo chat de ministros y la última (e improvisada) firma de la AC contra Rabat",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/politica/noticia/ojos-de-la-llave-el-nuevo-chat-de-ministros-y-la-ultima-e-improvisada-firma-de-la-ac-contra-rabat/",
+   "publicado": "Fri, 13 Nov 2026 16:30:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "asia cara chile crisis emplaza gira kast medio oposicion quedese suspender",
+   "titulo": "Oposición emplaza a Kast a suspender su gira por Asia en medio de crisis: “Dé la cara y quédese en Chile”",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/oposicion-emplaza-a-kast-a-suspender-su-gira-por-asia-en-medio-de-crisis-de-la-cara-y-quedese-en-chile/",
+   "publicado": "Fri, 13 Nov 2026 12:00:19 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "acusacion constitucional contra ingreso ministro oposicion rabat",
+   "titulo": "Oposición ingresó acusación constitucional contra ministro Rabat",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/oposicion-ingreso-acusacion-constitucional-contra-ministro-rabat/",
+   "publicado": "Fri, 13 Nov 2026 09:47:10 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "mismo_tema": 1,
+   "relacionadas": [
+    "¿Qué arriesga el ministro Rabat con la acusación constitucional?"
+   ],
+   "motivo_destaque": "mismo tema en 2 medios con titulares distintos"
+  },
+  {
+   "clave": "detenido ebriedad estado manejar maximo papa pavez subsecretario",
+   "titulo": "Papá de subsecretario Máximo Pavez es detenido por manejar en estado de ebriedad",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/papa-de-subsecretario-maximo-pavez-es-detenido-por-manejar-en-estado-de-ebriedad/",
+   "publicado": "Fri, 13 Nov 2026 13:55:18 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "camioneros comienza desactivarse distintas maquinas pais paro retiro rutas",
+   "titulo": "Paro de camioneros comienza a desactivarse tras retiro de máquinas en distintas rutas del país",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/paro-de-camioneros-comienza-a-desactivarse-tras-retiro-de-maquinas-en-distintas-rutas-del-pais/",
+   "publicado": "Fri, 13 Nov 2026 16:43:05 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "8220 8221 bencinazo camioneros contraste esta kast paro politico privilegio vez",
+   "titulo": "Paro de camioneros: Por qué esta vez Kast privilegió lo político en contraste con el &#8220;bencinazo&#8221;",
+   "medio": "Ex-Ante",
+   "url": "https://www.ex-ante.cl/politica/paro-camioneros-kast-alvarado/",
+   "publicado": "Fri, 13 Nov 2026 18:05:36 +0000",
+   "origen": "exante",
+   "origenes": [
+    "exante"
+   ],
+   "areas": [],
+   "medios": [
+    "Ex-Ante"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "alza chile combustibles inflacion menor paises pese siendo sigue sudamerica uno",
+   "titulo": "Pese al alza en los combustibles, Chile sigue siendo uno de los países con menor inflación en Sudamérica",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/pulso/noticia/chile-sigue-siendo-uno-de-los-paises-con-menor-inflacion-en-sudamerica/",
+   "publicado": "Fri, 13 Nov 2026 20:14:52 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "camioneros campos cntc dice esta les ministro paralizados presidente resolvio responde situacion",
+   "titulo": "Presidente de la CNTC les dice a camioneros paralizados que “esta situación ya se resolvió”, y le responde ministro Campos",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/pulso/noticia/presidente-de-la-cntc-les-dice-a-camioneros-paralizados-que-esta-situacion-ya-se-resolvio-y-le-responde-ministro-campos/",
+   "publicado": "Fri, 13 Nov 2026 15:54:37 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "2027 buscara derrotas gobierno presupuesto revertir senado",
+   "titulo": "Presupuesto 2027: las derrotas que el Gobierno buscará revertir en el Senado",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/presupuesto-2027-las-derrotas-que-el-gobierno-buscara-revertir-en-el-senado/",
+   "publicado": "Fri, 13 Nov 2026 20:40:26 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "apunta bancada camara clima como emplaza hostil kast orden partido poner republicana responsable",
+   "titulo": "PS apunta a bancada republicana como responsable del clima hostil en la Cámara y emplaza a Kast a poner orden en su partido",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/politica/noticia/ps-apunta-a-bancada-republicana-como-responsable-del-clima-hostil-en-la-camara-y-emplaza-a-kast-a-poner-orden-en-su-partido/",
+   "publicado": "Fri, 13 Nov 2026 23:37:59 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "corte debes esto estrategia planificar postulacion puntaje saber universidad",
+   "titulo": "Qué es el “puntaje de corte”: esto debes saber para planificar tu estrategia de postulación a la universidad",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/educacion/noticia/que-es-el-puntaje-de-corte-esto-debes-saber-para-planificar-tu-estrategia-de-postulacion-a-la-universidad/",
+   "publicado": "Fri, 13 Nov 2026 16:24:53 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "arabe ciudad comida concepcion hacer restaurantes ruta turca",
+   "titulo": "Qué hacer en Concepción: ruta por los restaurantes de comida árabe y turca en la ciudad",
+   "medio": "La Nación",
+   "url": "https://www.lanacion.cl/que-hacer-en-concepcion-ruta-por-los-restaurantes-de-comida-arabe-y-turca-en-la-ciudad/",
+   "publicado": "Fri, 13 Nov 2026 19:42:11 +0000",
+   "origen": "lanacion",
+   "origenes": [
+    "lanacion"
+   ],
+   "areas": [],
+   "medios": [
+    "La Nación"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "descubre distintas donde hacer mar matcha probar tomar variedades vina",
+   "titulo": "Qué hacer en Viña del Mar: descubre dónde tomar matcha y probar sus distintas variedades",
+   "medio": "La Nación",
+   "url": "https://www.lanacion.cl/que-hacer-en-vina-del-mar-descubre-donde-tomar-matcha-y-probar-sus-distintas-variedades/",
+   "publicado": "Fri, 13 Nov 2026 21:19:28 +0000",
+   "origen": "lanacion",
+   "origenes": [
+    "lanacion"
+   ],
+   "areas": [],
+   "medios": [
+    "La Nación"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "artesanal disfrutar donde hacer mar pasteleria reposteria vina",
+   "titulo": "Qué hacer en Viña del Mar: dónde disfrutar pastelería artesanal y repostería",
+   "medio": "La Nación",
+   "url": "https://www.lanacion.cl/que-hacer-en-vina-del-mar-donde-disfrutar-pasteleria-artesanal-y-reposteria/",
+   "publicado": "Fri, 13 Nov 2026 20:24:17 +0000",
+   "origen": "lanacion",
+   "origenes": [
+    "lanacion"
+   ],
+   "areas": [],
+   "medios": [
+    "La Nación"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "acuerdo antofagasta codelco detras estan explorar firmo gigante indio quienes yacimiento",
+   "titulo": "Quiénes están detrás del gigante indio que firmó un acuerdo con Codelco para explorar yacimiento en Antofagasta",
+   "medio": "Ex-Ante",
+   "url": "https://www.ex-ante.cl/negocios/gigante-indio-que-firmo-acuerdo-codelco/",
+   "publicado": "Fri, 13 Nov 2026 21:22:53 +0000",
+   "origen": "exante",
+   "origenes": [
+    "exante"
+   ],
+   "areas": [],
+   "medios": [
+    "Ex-Ante"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "amenazadas aves busca humedal maipo monitoreo proteger radar rio tecnologia",
+   "titulo": "RADAR LT: Tecnología de monitoreo busca proteger aves amenazadas en el Humedal Río Maipo",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/videos/noticia/radar-lt-tecnologia-de-monitoreo-busca-proteger-aves-amenazadas-en-el-humedal-rio-maipo/",
+   "publicado": "Fri, 13 Nov 2026 17:30:17 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "anunciada beneficio estafa impugna moneda nueva penas preso rebaja suspension",
+   "titulo": "Rebaja de penas: preso por estafa impugna nueva suspensión de beneficio anunciada por La Moneda",
+   "medio": "Ex-Ante",
+   "url": "https://www.ex-ante.cl/nacional/rebaja-de-penas-preso-impugna-beneficio/",
+   "publicado": "Fri, 13 Nov 2026 17:42:47 +0000",
+   "origen": "exante",
+   "origenes": [
+    "exante"
+   ],
+   "areas": [],
+   "medios": [
+    "Ex-Ante"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "entre maule oportunidades pesimismo region",
+   "titulo": "Región del Maule: entre el pesimismo y las oportunidades",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/editorial/noticia/region-del-maule-entre-el-pesimismo-y-las-oportunidades/",
+   "publicado": "Fri, 13 Nov 2026 23:30:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "desata financiera huang jensen nvidia politica renuncia sacude tormenta",
+   "titulo": "Renuncia de Jensen Huang sacude a Nvidia y desata tormenta política y financiera",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/renuncia-de-jensen-huang-sacude-a-nvidia-y-desata-tormenta-politica-y-financiera/",
+   "publicado": "Fri, 13 Nov 2026 15:44:02 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "amistoso ante cali colombia cordova derrota duelo nicolas repasa roja",
+   "titulo": "Repasa la derrota de la Roja de Nicolás Córdova ante Colombia en un duelo amistoso en Cali",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/en-vivo-la-roja-de-nicolas-cordova-visita-a-colombia-en-un-duelo-amistoso/",
+   "publicado": "Fri, 13 Nov 2026 23:29:52 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "bancaria bank caso depositos lecciones resolucion seguro ueno urgentes",
+   "titulo": "Resolución bancaria y seguro de depósitos: las lecciones urgentes tras el caso Ueno Bank",
+   "medio": "Ex-Ante",
+   "url": "https://www.ex-ante.cl/afteroffice/resolucion-bancaria-y-depositos/",
+   "publicado": "Fri, 13 Nov 2026 20:44:51 +0000",
+   "origen": "exante",
+   "origenes": [
+    "exante"
+   ],
+   "areas": [],
+   "medios": [
+    "Ex-Ante"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "diente gallina kneza pelea quebro recordo rodrigo yingo",
+   "titulo": "Rodrigo Gallina recordó pelea con Kneza en Yingo: \"Me quebró un diente\"",
+   "medio": "Cooperativa",
+   "url": "https://www.cooperativa.cl/noticias/magazine/personajes/rodrigo-gallina-recordo-pelea-con-kneza-en-yingo-me-quebro-un-diente/2026-11-13/181906.html",
+   "publicado": "Fri, 13 Nov 2026 18:19:06 -0300",
+   "origen": "cooperativa",
+   "origenes": [
+    "cooperativa"
+   ],
+   "areas": [],
+   "medios": [
+    "Cooperativa"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "2026 arraso grammy latin premios rosalia seis",
+   "titulo": "Rosalía arrasó en los Latin Grammy 2026 con seis premios",
+   "medio": "Cooperativa",
+   "url": "https://www.cooperativa.cl/noticias/magazine/musica/grammy-latino/rosalia-arraso-en-los-latin-grammy-2026-con-seis-premios/2026-11-13/085434.html",
+   "publicado": "Fri, 13 Nov 2026 08:54:34 -0300",
+   "origen": "cooperativa",
+   "origenes": [
+    "cooperativa"
+   ],
+   "areas": [],
+   "medios": [
+    "Cooperativa"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "camioneros carreteras continuan donde movilizaciones norte puntos ruta sur",
+   "titulo": "Ruta 68 y carreteras del norte y sur: los puntos donde continúan las movilizaciones de camioneros",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/ruta-68-y-carreteras-del-norte-y-sur-los-puntos-donde-continuan-las-movilizaciones-de-camioneros/",
+   "publicado": "Fri, 13 Nov 2026 14:08:36 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "argentino citibank diego ejecutivo ficha masola reemplazar scotiabank",
+   "titulo": "Scotiabank ficha a ejecutivo argentino de Citibank para reemplazar a Diego Masola",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/pulso/noticia/scotiabank-ficha-a-ejecutivo-argentino-de-citibank-para-reemplazar-a-diego-masola/",
+   "publicado": "Fri, 13 Nov 2026 18:10:58 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "alzas buscan cita combustibles contener donde especial lunes proyectos senado sesion tratara",
+   "titulo": "Senado cita a sesión especial para el lunes donde tratará proyectos que buscan contener alzas de combustibles",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/politica/noticia/senado-cita-a-sesion-especial-para-el-lunes-donde-tratara-proyectos-que-buscan-contener-alzas-de-combustibles/",
+   "publicado": "Fri, 13 Nov 2026 20:27:58 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "advierte altas aumentos caudales cordilleranos evitar extremas llaman posibles sectores senapred temperaturas",
+   "titulo": "Senapred advierte por altas temperaturas extremas y posibles aumentos de caudales: llaman a evitar sectores cordilleranos",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/nacional/noticia/senapred-advierte-por-altas-temperaturas-extremas-y-posibles-aumentos-de-caudales-llaman-a-evitar-sectores-cordilleranos/",
+   "publicado": "Fri, 13 Nov 2026 15:53:10 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "condicion flexibilidad mejorar slep tambien",
+   "titulo": "SLEP: La flexibilidad también es una condición para mejorar",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/opinion/noticia/slep-la-flexibilidad-tambien-es-una-condicion-para-mejorar/",
+   "publicado": "Fri, 13 Nov 2026 21:56:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "ceguera costo gobierno guerra maldicion",
+   "titulo": "Sobre la maldición de la guerra y el costo de la ceguera del gobierno",
+   "medio": "Ex-Ante",
+   "url": "https://www.ex-ante.cl/opinion/schaulsohn-costo-ceguera-del-gobierno/",
+   "publicado": "Fri, 13 Nov 2026 21:22:58 +0000",
+   "origen": "exante",
+   "origenes": [
+    "exante"
+   ],
+   "areas": [],
+   "medios": [
+    "Ex-Ante"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": "exclusiva de medio de investigación"
+  },
+  {
+   "clave": "captan francisco paseando perro real robot san sorprendente uno",
+   "titulo": "Sorprendente: Captan a un perro robot paseando a uno real en San Francisco",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/videos/noticia/sorprendente-captan-a-un-perro-robot-paseando-a-uno-real-en-san-francisco/",
+   "publicado": "Fri, 13 Nov 2026 20:17:55 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "8220 8221 ante corresponde detencion igualdad ley padre pavez subsecretario",
+   "titulo": "Subsecretario Pavez tras detención de su padre: &#8220;Lo que corresponde es la igualdad ante la ley&#8221;",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/subsecretario-pavez-tras-detencion-de-su-padre-lo-que-corresponde-es-la-igualdad-ante-la-ley/",
+   "publicado": "Fri, 13 Nov 2026 15:33:17 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "mismo_tema": 1,
+   "relacionadas": [
+    "“Lo que corresponde es la igualdad ante la ley”: Pavez por detención de su padre por manejar en estado de ebriedad"
+   ],
+   "motivo_destaque": "mismo tema en 2 medios con titulares distintos"
+  },
+  {
+   "clave": "busca chile construir corporativo diez hospitales latinoamerica privados socio sudmedica",
+   "titulo": "Sudmédica busca un socio corporativo para construir diez hospitales privados en Chile y Latinoamérica",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/pulso/noticia/sudmedica-busca-un-socio-corporativo-para-construir-diez-hospitales-privados-en-chile-y-latinoamerica/",
+   "publicado": "Fri, 13 Nov 2026 17:33:07 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "000 amoniaco chile desiste hidrogeno megaproyecto millones verde",
+   "titulo": "TE H2 Chile desiste de su megaproyecto de hidrógeno y amoníaco verde de US$16.000 millones",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/pulso/noticia/te-h2-chile-desiste-del-proyecto-de-hidrogeno-y-amoniaco-verde-de-us16000-millones/",
+   "publicado": "Fri, 13 Nov 2026 20:52:09 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "anunciara awards donde game horario martes nominados the verlo",
+   "titulo": "The Game Awards anunciará sus nominados el martes: horario y dónde verlo",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/tecnologia/noticia/the-game-awards-2026-nominados/",
+   "publicado": "Sat, 14 Nov 2026 02:40:29 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "calle como criminales dejo este gobierno peores recordado ser timonel",
+   "titulo": "Timonel del PS: “Este va a ser recordado como el Gobierno que dejó a los peores criminales en la calle”",
+   "medio": "La Nación",
+   "url": "https://www.lanacion.cl/timonel-del-ps-este-va-a-ser-recordado-como-el-gobierno-que-dejo-a-los-peores-criminales-en-la-calle/",
+   "publicado": "Fri, 13 Nov 2026 19:57:41 +0000",
+   "origen": "lanacion",
+   "origenes": [
+    "lanacion"
+   ],
+   "areas": [],
+   "medios": [
+    "La Nación"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "agresor arica despedido fue golpear humorista luis municipalidad slimming",
+   "titulo": "Tras golpear al humorista: Agresor de Luis Slimming fue despedido de la Municipalidad de Arica",
+   "medio": "Cooperativa",
+   "url": "https://www.cooperativa.cl/noticias/magazine/humor/tras-golpear-al-humorista-agresor-de-luis-slimming-fue-despedido-de-la/2026-11-13/220617.html",
+   "publicado": "Fri, 13 Nov 2026 22:06:17 -0300",
+   "origen": "cooperativa",
+   "origenes": [
+    "cooperativa"
+   ],
+   "areas": [],
+   "medios": [
+    "Cooperativa"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "129 bordo ferry hunde mas mississippi personas petrolero rio",
+   "titulo": "Un petrolero hunde un ferry con más de 129 personas a bordo en el río Mississippi",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/mundo/noticia/un-petrolero-hunde-un-ferry-con-mas-de-129-personas-a-bordo-en-el-rio-mississippi/",
+   "publicado": "Fri, 13 Nov 2026 20:53:41 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "calidad debilita educacion nueva proyecto publica resguarda",
+   "titulo": "Un proyecto que debilita la nueva educación pública y no resguarda la calidad",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/opinion/noticia/un-proyecto-que-debilita-la-nueva-educacion-publica-y-no-resguarda-la-calidad/",
+   "publicado": "Fri, 13 Nov 2026 21:58:00 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "autogol cali chile guillermo maripan noche opaca roja sentencia uno uno",
+   "titulo": "Uno a uno de Chile: el autogol de Guillermo Maripán sentencia la opaca noche de la Roja en Cali",
+   "medio": "La Tercera",
+   "url": "https://www.latercera.com/el-deportivo/noticia/uno-a-uno-chile-el-autogol-de-maripan-sentencia-la-opaca-noche-de-la-roja-en-cali/",
+   "publicado": "Sat, 14 Nov 2026 02:04:35 +0000",
+   "origen": "latercera",
+   "origenes": [
+    "latercera"
+   ],
+   "areas": [],
+   "medios": [
+    "La Tercera"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  },
+  {
+   "clave": "8220 8221 adelanta afirma contra fracaso oficialismo rabat teleserie vocero",
+   "titulo": "Vocero afirma que AC contra Rabat es &#8220;teleserie&#8221; y oficialismo adelanta fracaso",
+   "medio": "Radio U. de Chile",
+   "url": "https://radio.uchile.cl/2026/11/13/vocero-afirma-que-ac-contra-rabat-es-teleserie-y-oficialismo-adelanta-fracaso/",
+   "publicado": "Fri, 13 Nov 2026 13:15:05 +0000",
+   "origen": "radiouchile",
+   "origenes": [
+    "radiouchile"
+   ],
+   "areas": [],
+   "medios": [
+    "Radio U. de Chile"
+   ],
+   "repeticiones": 1,
+   "visto_antes": null,
+   "motivo_destaque": null
+  }
+ ]
+}

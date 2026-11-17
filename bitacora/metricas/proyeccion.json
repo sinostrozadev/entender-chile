@@ -673,5 +673,41 @@
     "vistasLargos": 2314,
     "vistasShorts": 23079,
     "horasEst": 170.12
+  },
+  {
+    "fecha": "2026-11-13",
+    "subs": 55,
+    "vistasTotales": 25585,
+    "vistasCanal": 25509,
+    "vistasLargos": 2321,
+    "vistasShorts": 23241,
+    "horasEst": 170.5
+  },
+  {
+    "fecha": "2026-11-14",
+    "subs": 56,
+    "vistasTotales": 25342,
+    "vistasCanal": 25597,
+    "vistasLargos": 2326,
+    "vistasShorts": 22993,
+    "horasEst": 170.77
+  },
+  {
+    "fecha": "2026-11-15",
+    "subs": 59,
+    "vistasTotales": 26112,
+    "vistasCanal": 25919,
+    "vistasLargos": 2336,
+    "vistasShorts": 23752,
+    "horasEst": 171.29
+  },
+  {
+    "fecha": "2026-11-16",
+    "subs": 59,
+    "vistasTotales": 26582,
+    "vistasCanal": 26365,
+    "vistasLargos": 2342,
+    "vistasShorts": 24216,
+    "horasEst": 171.54
   }
 ]

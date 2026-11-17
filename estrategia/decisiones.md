@@ -1217,3 +1217,68 @@ criterio sin dato (por ejemplo, Analytics que no entrega la retención) cuenta
 como no cumplido, y se dice. Esta compuerta adelanta y endurece el criterio de
 cierre del 31-01-2027 de la decisión "El despegue", que queda como segunda
 revisión si la A sigue.
+
+## 2026-11-16 - Se cierran dos revisiones pendientes: la portada extranjera sigue prohibida y los dos formatos del Short NO se separan
+
+**Qué**: quedan cerradas, con los números a la vista, las dos revisiones que los
+registros anteriores dejaron agendadas. Primera: la decisión del 07-11-2026 (la
+portada no puede ser extranjera) **no se revisa y queda firme**. Segunda: **no
+se separan los dos formatos del Short**, que era la mejora candidata grande que
+dejó escrita el registro del 15-11-2026; el recopilatorio diario se queda como
+está.
+
+**Por qué la portada extranjera sigue prohibida**: la decisión del 09-11-2026
+fijó la prueba para hoy, "si al menos dos Shorts extranjeros más pasan las 300
+vistas, la decisión del 07-11-2026 se revisa". Medido hoy sobre
+`bitacora/metricas/2026-11-16.json`: de los 21 Shorts públicos que pasan las 300
+vistas, **uno solo tiene sujeto fuera de Chile**, el de Paraguay y Santiago Peña
+del 07-11-2026, y está detenido en 639 vistas (+0 respecto del 15-11-2026). Los
+otros 20 son chilenos. O sea no apareció ninguno más, cuando la prueba pedía
+dos. La condición no se cumplió y la prohibición se mantiene tal como está
+escrita en `prompts/informe.md`.
+
+**Por qué los dos formatos no se separan**: la hipótesis era que el Short de un
+solo tema rinde más que el recopilatorio de cuatro bloques, y que por eso valía
+la pena partir el producto principal en dos. Medida hoy sobre los 150 Shorts
+públicos, clasificados por su origen real y no por el título (que el json
+guardaba cortado en 60 caracteres): el **recopilatorio** da mediana de 90 vistas,
+pasa las 300 el 16,4 % de las veces (9 de 55) y las 500 el 9,1 %; el **de un solo
+tema** da mediana 67, pasa las 300 el 12,6 % (12 de 95) y las 500 el 7,4 %. O sea
+el recopilatorio no es peor: en las tres medidas está igual o mejor, y el efecto
+apunta justo al revés de la hipótesis. Binomial de una cola contra la tasa
+combinada del 14,0 %: **p = 0,362**, o sea nada. Y el subconjunto "¿Por qué...?",
+que es el formato que la estrategia del 04-11-2026 nombra como el producto del
+canal, tiene la **peor mediana de todos los grupos, 28 vistas** (n=23).
+
+**Qué tan firme es, y qué NO dice**: el "¿Por qué...?" está **confundido y no se
+puede condenar con esto**: los 23 salieron siempre en días con otras piezas,
+nunca como la pieza única del día, así que el dato mide "Short secundario de un
+día cargado" tanto como mide el formato. El hueco sí aguanta el control por mes
+(septiembre 41 contra 95,5; octubre 28 contra 69; noviembre 48 contra 48 con
+n=2). Lo que queda probado no es que el explicativo de un solo tema sea malo,
+sino que **no hay evidencia para romper el producto diario**, que era lo que se
+iba a hacer mañana.
+
+**Lo que NO se hace**, para que la auditoría no lo vuelva a proponer: no se
+parte el Short en dos formatos, no se apaga el recopilatorio y no se vuelve a
+medir "recopilatorio contra un solo tema" sin una muestra nueva. Tampoco se
+sostiene la canibalización como causa: las vistas del Short por cantidad de
+piezas publicadas ese día no son monótonas (1 pieza mediana 136, 2 piezas 56, 3
+piezas 128,5, 4 piezas 82, 5 o más 36), la banda peor es la de los días de
+exprés de septiembre y por lo tanto está confundida con la antigüedad, y desde
+el 06-11-2026 el canal publica una sola pieza al día, así que el problema ya se
+cerró solo.
+
+**Qué sí quedó confirmado hoy**: la regla del 09-11-2026 (el titular de portada
+nombra a la persona o al grupo humano al que le pasa algo) se volvió a medir
+sobre los **ganchos completos y sin cortar**, leídos de los guiones del repo y no
+del json, que era justo lo que el registro del 15-11-2026 pidió repetir. Sobre
+los 37 Shorts del informe con gancho completo: los 15 que nombran a alguien dan
+mediana **150** vistas y pasan las 300 el 40,0 %; los 16 que solo nombran
+institución o indicador dan mediana **28,5** y pasan las 300 el 6,3 %. Aguanta
+los casos de frontera en las dos direcciones (90 contra 28,5 contándolos a favor
+del primer grupo, 150 contra 39,5 a favor del segundo). Honestidad sobre el
+dato: con n=37 la prueba da **p = 0,100** binomial de una cola, o sea no es
+concluyente por sí sola y se apoya en la medición original del 09-11-2026, que
+tenía 145 piezas; lo que agrega es que el efecto **no era un artefacto del corte
+de 60 caracteres**. **Decidió**: Claude, por el mandato del 04-11-2026.

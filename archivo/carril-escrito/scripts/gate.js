@@ -44,10 +44,17 @@ function chequearGuion(ruta, etiqueta) {
 }
 
 const gi = path.join("contenido", "guiones", "informe", `${fecha}.md`);
-if (!fs.existsSync(gi)) errores.push(`no existe ${gi} - no hay nada que renderizar`);
+const dirGC = path.join("contenido", "guiones", "claves");
+// Con el informe en video apagado (sin-video-informe.txt), una fecha puede
+// tener SOLO la Clave (el largo se produce días antes de su publicación: la
+// del 18-11 se disparó 3 veces y el gate la bloqueó por no existir informe).
+const informeApagado = fs.existsSync(path.join("contenido", "estado", "sin-video-informe.txt"));
+const soloClave = informeApagado && !fs.existsSync(gi)
+  && require("./guion-de-clave").guionesDeClave(dirGC, fecha).length === 1;
+if (soloClave) console.log("- informe: apagado y sin guion de hoy; se produce solo la Clave");
+else if (!fs.existsSync(gi)) errores.push(`no existe ${gi} - no hay nada que renderizar`);
 else chequearGuion(gi, "informe");
 
-const dirGC = path.join("contenido", "guiones", "claves");
 // selector compartido con dia.js: el primer .md de la fecha era a veces el
 // archivo de prompts de carátulas, y el 21-10-2026 bloqueó la Clave entera
 const gcs = require("./guion-de-clave").guionesDeClave(dirGC, fecha);

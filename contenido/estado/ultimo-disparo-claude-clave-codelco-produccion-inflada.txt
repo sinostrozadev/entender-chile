@@ -1,1 +1,1 @@
-pautar 0 sin_pieza
+validar_guion 1 6f67091f

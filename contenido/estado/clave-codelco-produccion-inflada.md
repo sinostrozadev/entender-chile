@@ -1,15 +1,11 @@
 FLUJO: clave
 SLUG: codelco-produccion-inflada
 CAMINO: pauta
-ETAPA: pautar
+ETAPA: videos_listos
 VUELTA: 0
-TURNO: Claude: escribe la pauta (prompts/pauta-clave.md)
-FECHA_PRODUCCION: (la fija quien aprueba la pauta: Claude, con veto de Santiago)
-ACTUALIZADO: 2026-11-12 23:36 (hora de Chile)
-PIEZA: pauta
-PROMPT: prompts/pauta-clave.md
-ARCHIVO: contenido/claves/flujo/codelco-produccion-inflada/pauta.md
-ARCHIVO_ENTRADA: contenido/claves/flujo/codelco-produccion-inflada/tema.md
+TURNO: nadie: cerrado
+FECHA_PRODUCCION: 2026-11-18
+ACTUALIZADO: 2026-11-15 00:24 (hora de Chile)
 
 Tema: La producción inflada de Codelco: 42.100 toneladas registradas sin producción efectiva
 Noticia de origen: 2026-10-29: Codelco informa la salida de ocho ejecutivos y profesionales de Chuquicamata, Ministro Hales, Salvador y la casa matriz después de una auditoría que detectó posibles duplicidades en registros de producción e inventarios de 2024 y 2025; la estatal señala que las investigaciones continúan y que todavía no ha determinado el eventual efecto económico de las inconsistencias (Codelco y La Tercera, 29-10-2026) (2026-11-06)
@@ -20,9 +16,9 @@ edites a mano: la verdad son los archivos, esto solo los lee.
 | Paso | Estado | Hora | Quién |
 |---|---|---|---|
 | Tema elegido | listo | 23:36 | Santiago |
-| Pauta | falta |  | Claude |
-| Aprobación (Claude, veto de Santiago) | espera |  | Claude |
-| Investigación | falta |  | GPT, valida Claude |
-| Entrega escrita | falta |  | GPT, valida Claude |
-| Guion | falta |  | GPT, valida Claude |
-| Video | falta |  | Actions |
+| Pauta | escrita | 23:59 | Claude |
+| Aprobación (Claude, veto de Santiago) | aprobada | 00:00 | Claude |
+| Investigación | aprobada | 13:13 | GPT, valida Claude |
+| Entrega escrita | aprobada | 13:29 | GPT, valida Claude |
+| Guion | aprobada | 13:49 | GPT, valida Claude |
+| Video | listo | 00:20 | Actions |

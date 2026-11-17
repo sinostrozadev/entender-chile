@@ -50,6 +50,28 @@ tiene flujo y render desde el 02-11-2026 y está en piloto.
 
 ## DEPENDEN DE SANTIAGO
 
+- [ ] **16-11, HOY: el informe del 15-11-2026 sigue publicado en
+      entender.sinodev.cl con los defectos de su única vuelta de corrección,
+      que nunca se aplicó.** La cadena de esa madrugada quedó varada en
+      `reparar_informe` (ver el bullet de la cuota más abajo) y el workflow
+      Web publicó igual la versión sin corregir (`contenido/informes/2026-11-15.md`,
+      push "edición 2026-11-15: informe", run `43695243554`, 2026-11-15T08:35:42Z).
+      Dos defectos visibles: línea 104, "durante el cierre de esta edición"
+      (nota de proceso en el cuerpo público, prohibida); línea 169, el `[C]`
+      de Sernac sobre motos Gas Gas sin la línea obligatoria "FUERA DE LA
+      OLLA:". Las otras cuatro correcciones de
+      `contenido/veredictos/2026-11-15-informe.md` tampoco se aplicaron.
+      Corregirlo exige editar un archivo de una fecha anterior, que la regla
+      general prohíbe: esa regla protege ediciones ya aprobadas y publicadas
+      correctamente, no un error de validación que nunca se corrigió y sigue
+      en línea, pero la excepción la decide Santiago, igual que con el Short
+      del 24-10-2026 (ver más abajo). Dueño: Santiago decide si se corrige in
+      situ o se baja la página mientras se corrige; noche ejecuta.
+      `bitacora/2026-11-16-auditoria.md`. Segunda mañana marcada
+      (17-11-2026): sigue igual, verificado de nuevo hoy en
+      `contenido/informes/2026-11-15.md` (línea 104 y la línea del Sernac),
+      `bitacora/2026-11-17-auditoria.md`.
+
 - [ ] **Redirigir la copia vieja de GitHub Pages (repo `entender-chile-web`) a
       https://entender.sinodev.cl y apagar esa publicación**, cuando el dominio
       lleve una semana estable. Ojo: Spotify tiene registrado el feed en la
@@ -95,6 +117,27 @@ tiene flujo y render desde el 02-11-2026 y está en piloto.
       sobre el cron, disparado por uno de los relojes de reintento de 20
       minutos. La cadena se recuperó sola y sin vueltas extra.
       `bitacora/2026-11-06-auditoria.md`.
+      **15-11: sexta vez, y la más ancha hasta ahora dentro de una misma
+      madrugada (sin perder el día, a diferencia del 12 y el 13-11).**
+      `get_trigger` sobre el Reloj del barrido devolvió el mismo
+      `failure_reason: ROUTINE_RUN_FAILURE_REASON_USAGE_LIMIT_REACHED` a las
+      01:39:48 Chile; el barrido real no corrió hasta las 04:51:53, más de
+      tres horas sobre el cron. El `git log` no tiene ningún commit
+      `reintento: despertador HH:MM [reloj]` entre la 01:10 y las 04:51
+      Chile, pese a que los tres relojes de reintento deberían pushear uno
+      cada 6 a 7 minutos en ese tramo, y `get_trigger` sobre el Reloj B
+      confirma al menos un intento fallido con el mismo motivo a las
+      04:36:34 Chile: la cuota faltó para varias rutinas a la vez, no solo
+      para el reloj del barrido. La cadena se recuperó sola, con una sola
+      vuelta de corrección en la preselección. `bitacora/2026-11-15-auditoria.md`.
+      **Corrección del 16-11: esa vez SÍ se perdió el día**, al revés de lo
+      que esta misma entrada decía ("sin perder el día, a diferencia del 12 y
+      el 13-11"). La cadena quedó varada en `reparar_informe` y nunca llegó al
+      guion, a la revisión ni al video: no hay
+      `contenido/guiones/informe/2026-11-15.md`, no hay
+      `contenido/revisiones/2026-11-15.md` y `contenido/podcast/episodios.json`
+      salta del 14-11 al 16-11. Edición diaria corrió por su cron de mediodía
+      (12:25:50 Chile, run `43729832590`) y falló. `bitacora/2026-11-16-auditoria.md`.
 
 - [ ] **01-11: borrar en GitHub los secrets `ELEVENLABS_API_KEY` y
       `VOICE_ID`, ya sin uso.** La limpieza del 01-11 sacó los restos de
@@ -174,6 +217,22 @@ o Studio) si Santiago lo decide, y rehacer el guion con la lectura de GPT si lle
 ---
 
 ## PARA LA SESIÓN DE LA NOCHE (necesita secrets o rutinas)
+
+- [ ] **14-11, AGUANTA: el render automático de la Clave de Codelco ya gastó
+      sus tres reintentos antes de que llegue su fecha de producción.**
+      Auditoría del 14-11 (`bitacora/2026-11-14-auditoria.md`).
+      `contenido/estado/ultimo-render-clave-codelco-produccion-inflada.txt`
+      dice `2026-11-18 3 1794635803`: `.github/workflows/estado-clave.yml:234-251`
+      dispara el render de cualquier Clave en etapa `aprobada` cada tres
+      horas sin mirar si `FECHAP` (18-11-2026, cuatro días adelante de hoy)
+      ya llegó, así que los tres intentos (el de hoy, commit `cc798a1`, y uno
+      anterior) fallaron igual con "ERROR: no existe
+      contenido/guiones/informe/2026-11-18.md". Como `M_INT` solo se resetea
+      cuando cambia `FECHAP`, el 18-11 el flujo no va a tener ningún
+      reintento disponible. Propuesta concreta: en la línea 234, exigir
+      además que `FECHAP` sea hoy o anterior antes de contar un intento, y
+      resetear a mano (o borrar) la marca de Codelco para que llegue al
+      18-11 con sus tres intentos intactos.
 
 - [ ] **08-11, HOY: las noticias [C] escritas como encabezado rompen el
       renderizado en la web, y hoy se publicaron nueve así.** Auditoría del
@@ -432,6 +491,19 @@ que estaba aprobada.
       la falta de auditoría quede visible sin depender de que otra
       auditoría la encuentre días después. Auditoría del 25-10
       (`bitacora/2026-10-25-auditoria.md`).
+      **14-11: tercera y cuarta mañana, la propuesta sigue sin construirse y
+      ahora hay causa confirmada.** `bitacora/` salta de
+      `2026-11-11-auditoria.md` a hoy (sin `12` ni `13-11`), `bitacora/mejoras/`
+      salta de `2026-11-11.md` a hoy, y no existen `bitacora/2026-11-12.md` ni
+      `bitacora/2026-11-13.md`; la cadena de producción sí corrió los dos días
+      (hay preselección, informe, guion, veredictos y métricas de ambas
+      fechas). Causa confirmada, no conjeturada: el `last_run` de la rutina
+      "Mejora diaria" (`trig_012bFrH9XnJMjV74uHxVYz8c`) quedó
+      `ROUTINE_RUN_STATUS_FAILED` / `ROUTINE_RUN_FAILURE_REASON_USAGE_LIMIT_REACHED`
+      el 13-11-2026 a las 07:31 de Chile. `reintento.yml` sigue sin la
+      comprobación propuesta el 25-10 (verificado hoy, sin mención a
+      "auditoria" en el archivo). Auditoría del 14-11
+      (`bitacora/2026-11-14-auditoria.md`).
 
 - [ ] **23-10, AGUANTA: "Carátula 3" sale como una segunda pregunta en vez
       de "cifra con referencia", la variante de A/B que decidió Santiago
@@ -508,6 +580,16 @@ que estaba aprobada.
       esas fuentes en `contenido/barrido/fuentes.json`, para que entren al
       barrido sin necesitar navegación, que es exactamente la premisa con la
       que se decidió el cambio del 06-10.
+      **14-11: sigue igual, casi un mes después, y hoy la propia revisión
+      nombra la causa exacta.** `contenido/revisiones/2026-11-12.md`,
+      `2026-11-13.md` y `2026-11-14.md` repiten el mismo hallazgo; el de hoy
+      lo dice más preciso que nunca: "es una incompatibilidad entre dos
+      prompts del repo, no un descuido de la pieza, y no se arregla
+      reescribiéndola", exactamente `prompts/seleccion.md:59-62` ("Ábrelos
+      tú") contra `prompts/suplente.md:116` ("No navegas"). Mientras no se
+      elija entre el feed propio de arriba o marcar la fuente como no
+      cubierta en vez de pedir que se abra, el hallazgo sigue repitiéndose
+      sin aprender. Auditoría del 14-11 (`bitacora/2026-11-14-auditoria.md`).
 
 - [ ] **12-10: shorts y exprés con imagen propia** (plan propuesto a Santiago,
       falta su sí): el Short del día usa la portada del informe recortada en

@@ -1,0 +1,110 @@
+{
+  "fecha": "2026-11-15",
+  "etapa": "reparar_informe",
+  "veredicto": "pendiente",
+  "vuelta": 1,
+  "actualizado": "2026-11-15 09:50",
+  "reparar": {
+    "piezas": [
+      "informe"
+    ],
+    "pieza": "informe",
+    "dueno": "GPT (despachador)",
+    "motivo": "contenido/veredictos/2026-11-15-informe.md",
+    "vuelta": 1
+  },
+  "piezas": [
+    {
+      "id": "barrido",
+      "etiqueta": "Barrido",
+      "hay": true,
+      "situacion": "listo",
+      "prompt": null,
+      "hora": "04:52",
+      "esperada": "01:40",
+      "dueno": "Actions · barrido.yml",
+      "rutas": [
+        "contenido/barrido/2026-11-15.md"
+      ]
+    },
+    {
+      "id": "preseleccion",
+      "etiqueta": "Preselección",
+      "hay": true,
+      "situacion": "lista",
+      "prompt": "prompts/seleccion.md",
+      "hora": "05:12",
+      "esperada": "02:10",
+      "dueno": "GPT · prompts/seleccion.md",
+      "rutas": [
+        "contenido/preseleccion/2026-11-15.md"
+      ]
+    },
+    {
+      "id": "informe",
+      "etiqueta": "Informe",
+      "hay": true,
+      "situacion": "reparar",
+      "prompt": "prompts/informe.md",
+      "hora": "05:35",
+      "esperada": "02:40",
+      "dueno": "GPT · prompts/informe.md",
+      "rutas": [
+        "contenido/informes/2026-11-15.md"
+      ]
+    },
+    {
+      "id": "guion_informe",
+      "etiqueta": "Guion del informe",
+      "hay": false,
+      "situacion": "falta",
+      "prompt": "prompts/guion-informe.md",
+      "hora": "",
+      "esperada": "03:10",
+      "dueno": "GPT · prompts/guion-informe.md",
+      "rutas": []
+    },
+    {
+      "id": "revision",
+      "etiqueta": "Revisión (veredicto final)",
+      "hay": false,
+      "situacion": "falta",
+      "prompt": null,
+      "hora": "",
+      "esperada": "03:30",
+      "dueno": "Claude · prompts/validador.md",
+      "rutas": []
+    },
+    {
+      "id": "videos",
+      "etiqueta": "Videos y descripciones",
+      "hay": false,
+      "situacion": "falta",
+      "prompt": null,
+      "hora": "",
+      "esperada": "05:15",
+      "dueno": "Actions · edicion-diaria.yml",
+      "rutas": []
+    }
+  ],
+  "atrasos": [
+    {
+      "id": "guion_informe",
+      "etiqueta": "Guion del informe",
+      "atraso": 400,
+      "dueno": "GPT · prompts/guion-informe.md"
+    },
+    {
+      "id": "revision",
+      "etiqueta": "Revisión (veredicto final)",
+      "atraso": 380,
+      "dueno": "Claude · prompts/validador.md"
+    },
+    {
+      "id": "videos",
+      "etiqueta": "Videos y descripciones",
+      "atraso": 275,
+      "dueno": "Actions · edicion-diaria.yml"
+    }
+  ]
+}
