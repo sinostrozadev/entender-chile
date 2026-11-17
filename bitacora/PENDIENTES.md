@@ -67,7 +67,10 @@ tiene flujo y render desde el 02-11-2026 y está en piloto.
       en línea, pero la excepción la decide Santiago, igual que con el Short
       del 24-10-2026 (ver más abajo). Dueño: Santiago decide si se corrige in
       situ o se baja la página mientras se corrige; noche ejecuta.
-      `bitacora/2026-11-16-auditoria.md`.
+      `bitacora/2026-11-16-auditoria.md`. Segunda mañana marcada
+      (17-11-2026): sigue igual, verificado de nuevo hoy en
+      `contenido/informes/2026-11-15.md` (línea 104 y la línea del Sernac),
+      `bitacora/2026-11-17-auditoria.md`.
 
 - [ ] **Redirigir la copia vieja de GitHub Pages (repo `entender-chile-web`) a
       https://entender.sinodev.cl y apagar esa publicación**, cuando el dominio
