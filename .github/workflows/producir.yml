@@ -30,6 +30,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: producir
@@ -45,7 +46,11 @@ jobs:
     env:
       VOZ_PROVEEDOR: edge
     steps:
+      # ref: main (no el SHA del evento): si dos pushes se encolan por la concurrency, el segundo debe ver las marcas
+      # de hecho que dejó el primero; con el SHA viejo re-renderizaba y re-subía los mismos videos (duplicados).
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-node@v4
         with:
@@ -108,3 +113,21 @@ jobs:
           retention-days: 14
           compression-level: 0
           if-no-files-found: ignore
+
+  # Aviso cuando el render o la subida fallan (producir.mts sale con 1 si alguna pieza falló). Sin esto el fallo era
+  # silencioso: el correo de GitHub por run fallido es fácil de pasar por alto y la revisión diaria solo mira al día
+  # siguiente. El issue llega al correo/teléfono de Santiago; la revisión diaria lo cierra al ver la pieza programada.
+  avisar:
+    needs: producir
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Abrir issue de aviso
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Producir falló: hay piezas sin render o sin subir ($(TZ=America/Santiago date '+%d-%m %H:%M'))" \
+            --body "El job producir terminó con error. Revisa el log: $RUN_URL
+          Cada pieza sin marca en contenido/semana/*/hechos/ se reintenta sola en el próximo push de contenido/semana/** o a mano (Actions, Producir, Run workflow; \`solo\` = id de la pieza)."
