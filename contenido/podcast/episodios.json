@@ -780,5 +780,14 @@
     "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-16-informe.mp3",
     "bytes": 4904640,
     "durSeg": 204
+  },
+  {
+    "fecha": "2026-11-17",
+    "tipo": "informe",
+    "titulo": "17-11-2026 · La rebaja de combustibles comenzaría este jueves",
+    "descripcion": "El Congreso despachó la rebaja de combustibles que comenzaría a reflejarse el jueves, mientras el ingreso real por habitante registró la mayor caída entre los países medidos por la OCDE. También revisamos el nuevo tramo del subsidio para sectores medios, la baja de delitos violentos y el dólar observado sobre los mil pesos. El informe completo incluye además vivienda, empleo, ciencia, regiones y la agenda del día.\n\nEl informe completo de hoy, con todas las noticias del día: https://entender.sinodev.cl/informes/2026-11-17/",
+    "url": "https://github.com/sinostrozadev/entender-chile-web/releases/download/audio/2026-11-17-informe.mp3",
+    "bytes": 5637312,
+    "durSeg": 235
   }
 ]
