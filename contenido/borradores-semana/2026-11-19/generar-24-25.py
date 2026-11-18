@@ -4,7 +4,7 @@
   python3 -I contenido/borradores-semana/2026-11-19/generar-24-25.py"""
 import json, os
 D = os.path.dirname(os.path.abspath(__file__))  # los borradores viven en contenido/borradores-semana/ (NO en semana/) hasta que el revisor los apruebe
-DESC_PIE = "\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos."
+DESC_PIE = "\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile. El resumen sin gritos."
 
 def ref(indicador, entidades, valores, nombres, fuente, url, etiqueta, unidad, etiquetasX=None):
     r = {"fuente": "manual", "indicador": indicador, "paises": entidades, "valores": valores, "nombres": nombres,
@@ -57,7 +57,7 @@ R_RM = ref("desocupacion-rm-jas", ["RM26", "RM25"], {"RM26": [[2026, 10.4]], "RM
            "INE, ENE, Región Metropolitana, trimestres julio a septiembre de 2026 y 2025", INE_PRENSA, "Desocupación RM", "%")
 guardar("2026-11-24", "desempleo-regiones", "grafico",
   "Desempleo: 11,8 % en Ñuble y 4,0 % en Aysén, en el mismo país",
-  "¿Por qué el desempleo de Chile no es igual en todas las regiones?\nSegún el INE, la desocupación nacional fue de 9,8 % entre julio y septiembre de 2026, contra 8,5 % un año antes. Entre las regiones que revisamos, Ñuble tuvo 11,8 % y Aysén 4,0 %.\nEl INE entrega cada cifra por trimestres móviles: tres meses seguidos, y cada mes el trimestre se corre un lugar.\nEl miércoles 25-11 a las 19:00 sale el video largo sobre el PIB del tercer trimestre: por qué cayó 1,1 % y cómo llega al empleo y los precios.\nFuentes: INE, Encuesta Nacional de Empleo (29-10-2026) y fichas regionales del INE (regiones.ine.cl).",
+  "¿Cuánto cambia el desempleo de Chile según la región?\nSegún el INE, la desocupación nacional fue de 9,8 % entre julio y septiembre de 2026, contra 8,5 % un año antes. Entre las regiones que revisamos, Ñuble tuvo 11,8 % y Aysén 4,0 %.\nEl INE entrega cada cifra por trimestres móviles: tres meses seguidos, y cada mes el trimestre se corre un lugar.\nEl miércoles 25-11 a las 19:00 sale el video largo sobre el PIB del tercer trimestre: por qué cayó 1,1 % y cómo llega al empleo y los precios.\nFuentes: INE, Encuesta Nacional de Empleo (29-10-2026) y fichas regionales del INE (regiones.ine.cl).",
   ["#desempleo", "#ine", "#chile"],
   {"gancho": {"texto": "Dos regiones de Chile, el mismo trimestre: según el INE, la desocupación fue de 11,8 % en Ñuble y de 4,0 % en Aysén, casi el triple.",
               "rotulo": "11,8 % CONTRA 4,0 %",
@@ -69,18 +69,18 @@ guardar("2026-11-24", "desempleo-regiones", "grafico",
                "formato": {"decimales": 1, "sufijo": " %"}, "dice": "Ñuble"},
    "escenas": [
      {"tipo": "dato", "usaGraficoPrincipal": True, "fuenteEnVoz": True,
-      "texto": "Según la Encuesta Nacional de Empleo, entre julio y septiembre la desocupación del país fue de 9,8 %, 1,3 puntos más que un año antes. En Ñuble fue 11,8 %; en Aysén, 4,0 %.",
+      "texto": "Según la Encuesta Nacional de Empleo, entre julio y septiembre la desocupación del país fue de 9,8 %, 1,3 puntos más que un año antes. Ese dato es de todo el país: cada región tiene el suyo.",
       "cifras": [cif("9,8 %", 9.8, R_NAC, "valor", "N2026", 2026), cif("1,3 puntos", 1.3, R_NAC, "diferencia", "N2026", 2026, paisB="N2025"),
                  cif("11,8 %", 11.8, R_REG, "valor", "CL-NB", 2026), cif("4,0 %", 4.0, R_REG, "valor", "CL-AI", 2026)]},
      {"tipo": "planteamiento",
-      "texto": "Biobío, 10,5 %; Metropolitana, 10,4 %; Antofagasta, 6,7 %.",
+      "texto": "Otras tres regiones: Biobío, 10,5 %; Metropolitana, 10,4 %; Antofagasta, 6,7 %.",
       "cifras": [cif("10,5 %", 10.5, R_OTRAS, "valor", "CL-BI", 2026), cif("10,4 %", 10.4, R_OTRAS, "valor", "CL-RM", 2026), cif("6,7 %", 6.7, R_OTRAS, "valor", "CL-AN", 2026)],
       "visual": {"tipo": "chile", "regiones": ["CL-NB", "CL-BI", "CL-RM", "CL-AN"], "acercar": False}},
      {"tipo": "giro",
-      "texto": "Cada cifra es un trimestre móvil, y un promedio nacional mezcla realidades distintas. En la Metropolitana, la tasa subió 1,6 puntos en doce meses.",
+      "texto": "El INE mide tres meses seguidos y cada mes corre el trimestre un lugar: por eso estas cifras son de julio a septiembre. En la Metropolitana, la tasa subió 1,6 puntos en doce meses.",
       "cifras": [cif("1,6 puntos", 1.6, R_RM, "diferencia", "RM26", 2026, paisB="RM25")],
       "rotulo": {"texto": "NO ES PAREJO", "dice": "promedio"}}],
-   "remate": "Mismo país, mismo trimestre: 11,8 % en Ñuble, 4,0 % en Aysén.",
+   "remate": "Mismo país, mismo trimestre, casi el triple entre dos regiones. El resumen sin gritos.",
    "fuentes": [{"texto": "INE, tasa de desocupación nacional, julio a septiembre de 2026 (29-10-2026)", "url": INE_PRENSA},
                {"texto": "INE, ficha regional de Ñuble", "url": "https://regiones.ine.cl/nuble/estadisticas-regionales/sociales/mercado-laboral/ocupacion-y-desocupacion"},
                {"texto": "INE, ficha regional de Aysén", "url": "https://regiones.ine.cl/aysen/estadisticas-regionales/sociales/mercado-laboral/ocupacion-y-desocupacion"}]},
@@ -101,25 +101,25 @@ guardar("2026-11-25", "mineria-contra-el-resto", "grafico",
   "Por qué el Imacec subió solo 0,2 % si el resto creció 2 %",
   "¿Cómo puede crecer apenas 0,2 % la actividad si el resto crece 2 %?\nSegún el Banco Central, el Imacec de septiembre de 2026 subió 0,2 % frente a septiembre de 2025. La minería cayó 12,1 %, por menor extracción de cobre (menores leyes del mineral y suspensión temporal de faenas); el componente no minero creció 2,0 % anual, y 0,8 % en la serie ajustada por estación.\nEl PIB de todo el tercer trimestre, publicado el 18 de noviembre, cayó 1,1 %, con la minería a la baja 14,7 %. Hoy a las 19:00 sale el video largo con el detalle.\nFuentes: Emol con datos del Banco Central (Imacec de septiembre, 02-11-2026; Imacec de agosto, 01-10-2026).",
   ["#imacec", "#cobre", "#chile"],
-  {"gancho": {"texto": "Según el Banco Central, en septiembre la minería cayó 12,1 % y el Imacec subió solo 0,2 %. Fuera de la minería, la actividad creció 2 % contra un año antes.",
+  {"gancho": {"texto": "En septiembre la minería cayó 12,1 % y, aun así, el Imacec subió: solo 0,2 %, porque el resto creció 2 % contra un año antes.",
               "rotulo": "MINERÍA CAYÓ 12,1 %",
               "cifras": [cif("12,1 %", -12.1, R_IMS, "valor", "MINERO", 2026), cif("0,2 %", 0.2, R_IMS, "valor", "TOTAL", 2026), cif("2 %", 2.0, R_IMS, "valor", "NOMINERO", 2026)]},
    "grafico": {"tipo": "barras", "titulo": "Imacec de septiembre, contra un año antes", "datos": R_IMS, "destacar": {"pais": "MINERO"},
                "formato": {"decimales": 1, "sufijo": " %"}, "dice": "minería"},
    "escenas": [
      {"tipo": "dato", "usaGraficoPrincipal": True, "fuenteEnVoz": True,
-      "texto": "Ese 2 % es sin ajustes. Con la serie ajustada por estación, el resto creció 0,8 % en doce meses.",
+      "texto": "Según el Banco Central, ese 2 % es sin ajustes; ajustado por estación, el resto creció 0,8 %. Aun así, la minería arrastró al total.",
       "cifras": [cif("0,8 %", 0.8, R_IMSD, "valor", "NOMINERO", 2026)]},
      {"tipo": "planteamiento",
-      "texto": "En agosto la minería ya había caído 17,4 %. El Banco Central citó menores leyes del mineral y mantenciones; en septiembre, menores leyes y suspensión de faenas.",
-      "cifras": [cif("17,4 %", -17.4, R_IMA, "valor", "MINERO", 2026), cif("1,4 %", 1.4, R_IMA, "valor", "NOMINERO", 2026)],
+      "texto": "Según el Banco Central, en agosto ya había caído 17,4 %, por menores leyes del mineral y mantenciones; en septiembre, por suspensión de faenas.",
+      "cifras": [cif("17,4 %", -17.4, R_IMA, "valor", "MINERO", 2026)],
       "visual": {"tipo": "iconos", "titulo": "Por qué cayó la minería", "items": [
           {"icono": "⛏️", "texto": "Menores leyes del mineral", "dice": "leyes"}, {"icono": "🔧", "texto": "Mantenciones (agosto)", "dice": "mantenciones"}, {"icono": "⏸️", "texto": "Faenas suspendidas (sept.)", "dice": "suspensión"}]}},
      {"tipo": "giro",
-      "texto": "El PIB del tercer trimestre cayó 1,1 %; la minería, 14,7 %. Hoy a las siete, el detalle en el video largo.",
+      "texto": "Y de julio a septiembre, el PIB cayó 1,1 % y la minería, 14,7 %. Hoy a las siete, el largo lo explica.",
       "cifras": [cif("1,1 %", -1.1, R_T3S, "valor", "PIB", 2026), cif("14,7 %", -14.7, R_T3S, "valor", "MIN", 2026)],
-      "rotulo": {"texto": "RESTO: +2,0 %", "dice": "creció"}}],
-   "remate": "Una parte cayó 12,1 %, otra creció, y el total quedó en 0,2 %.",
+      "rotulo": {"texto": "TRIMESTRE: PIB −1,1 %", "dice": "PIB"}}],
+   "remate": "Una parte cayó 12,1 %, el resto creció 2 %: el total, solo 0,2 %.",
    "fuentes": [{"texto": "Emol, Imacec de septiembre (02-11-2026)", "url": EMOL_IMACEC_SEP},
                {"texto": "Emol, Imacec de agosto (01-10-2026)", "url": EMOL_IMACEC_AGO},
                {"texto": "La Tercera, PIB del tercer trimestre (18-11-2026)", "url": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/"}]},
@@ -178,12 +178,12 @@ R_ACUM = ref("pib-acumulado-2026", ["ACUM", "REQ"], {"ACUM": [[2026, -0.5]], "RE
 largo = {
  "cabecera": "EL COBRE QUE NO SALIÓ · PIB 2026",
  "gancho": {
-   "texto": "El miércoles 18 de noviembre, el Banco Central informó que la economía chilena cayó 1,1 % entre julio y septiembre, contra el mismo trimestre de 2025. Es la mayor caída anual desde fines de 2022. La minería cayó 14,7 %. El resto de la economía, sin minería, creció 1,0 %. En este video vemos qué pasó, en qué sector, y cómo llega a una casa.",
+   "texto": "La economía chilena cayó 1,1 % entre julio y septiembre contra un año antes, la mayor caída anual desde fines de 2022. Pero todo lo que no es minería creció 1,0 %. Un solo sector, la minería, cayó 14,7 %. El Banco Central lo informó el miércoles 18 de noviembre, y esto es lo que pasó.",
    "rotulo": "EL PIB CAYÓ 1,1 %",
    "grafico": {"tipo": "barras", "titulo": "PIB del tercer trimestre de 2026, contra un año antes", "datos": R_T3, "destacar": {"pais": "MIN"}, "formato": {"decimales": 1, "sufijo": " %"}},
    "cifras": [cif("1,1 %", -1.1, R_T3, "valor", "PIB", 2026), cif("14,7 %", -14.7, R_T3, "valor", "MIN", 2026), cif("1,0 %", 1.0, R_T3, "valor", "NOMIN", 2026)]},
- "promesa": "Vas a saber qué publicó el Banco Central, por qué la minería explica la caída, qué pasó con la inversión y el consumo, y cómo llega al empleo, los precios y la tasa de interés.",
- "indice": ["El dato del 18 de nov.", "Dónde cayó: el cobre", "Inversión y consumo", "Cómo llega a casa", "Qué mirar ahora"],
+ "promesa": "Vas a saber qué publicó el Banco Central, por qué la minería explica la caída, qué pasó con la inversión y el consumo, y qué muestran el empleo, los precios y la tasa de interés.",
+ "indice": ["El dato del 18 de nov.", "Dónde cayó: el cobre", "Inversión y consumo", "Tres cifras cotidianas", "Qué mirar ahora"],
  "estructura": "autopsia",
  "capitulos": [
   {"titulo": "El dato del 18 de noviembre", "escenas": [
@@ -192,11 +192,11 @@ largo = {
      "visual": {"tipo": "iconos", "titulo": "Dos indicadores, un mismo trimestre", "items": [
         {"icono": "📅", "texto": "Imacec: cada mes", "dice": "mensual"}, {"icono": "📊", "texto": "PIB: cada trimestre", "dice": "trimestre"}]}},
     {"tipo": "dato", "fuenteEnVoz": True,
-     "texto": "El resultado fue una caída de 1,1 % contra el tercer trimestre de 2025. El promedio del Imacec apuntaba a 0,8 %, así que la caída fue tres décimas mayor. Según La Tercera, es la mayor caída anual desde el cuarto trimestre de 2022. Y el trimestre tuvo dos días hábiles más que el año anterior, un efecto calendario que sumó 0,3 puntos a la cifra.",
+     "texto": "El resultado fue una caída de 1,1 % contra el tercer trimestre de 2025. El promedio del Imacec apuntaba a 0,8 %, así que la caída fue tres décimas mayor. Aparte, según La Tercera, es la mayor caída anual desde el cuarto trimestre de 2022. Y el trimestre tuvo dos días hábiles más que el año anterior, un efecto calendario que sumó 0,3 puntos a la cifra.",
      "grafico": {"tipo": "barras", "titulo": "PIB del tercer trimestre: estimado y publicado", "datos": R_T3EST, "destacar": {"pais": "PIB"}, "formato": {"decimales": 1, "sufijo": " %"}, "dice": "Imacec"},
      "cifras": [cif("1,1 %", -1.1, R_T3EST, "valor", "PIB", 2026), cif("0,8 %", -0.8, R_T3EST, "valor", "IMA", 2026), cif("tres décimas", 0.3, R_T3EST, "diferencia", "IMA", 2026, paisB="PIB")]},
     {"tipo": "dato", "fuenteEnVoz": True,
-     "texto": "Contra el trimestre anterior, con la serie ajustada por estación, el PIB retrocedió 1,8 %. Esa es la comparación que usa una de las dos formas de contar una recesión técnica, que exige dos trimestres seguidos de caída. Para saber si se cumple, hay que mirar el trimestre de antes. Y ese trimestre también cambió.",
+     "texto": "Contra el trimestre anterior, con la serie ajustada por estación, el PIB retrocedió 1,8 %. Hay dos formas de contar una recesión técnica: dos trimestres seguidos de caída contra el trimestre anterior, o dos seguidos de caída contra el mismo trimestre del año anterior. Veamos si alguna se cumple. Para eso hay que mirar los trimestres de antes, y también cambiaron.",
      "grafico": {"tipo": "contador", "titulo": "PIB del 3.er trimestre contra el 2.º, ajustado", "datos": R_T3Q, "destacar": {"pais": "PIB", "texto": "contra el 2.º trimestre"}, "formato": {"decimales": 1, "sufijo": " %"}, "dice": "retrocedió"},
      "cifras": [cif("1,8 %", -1.8, R_T3Q, "valor", "PIB", 2026)]},
     {"tipo": "dato", "fuenteEnVoz": True,
@@ -204,7 +204,7 @@ largo = {
      "grafico": {"tipo": "barras", "titulo": "PIB del 1.º y 2.º trimestre, antes y ahora", "datos": R_REV2, "destacar": {"pais": "T2N"}, "formato": {"decimales": 1, "sufijo": " %"}, "dice": "revisó"},
      "cifras": [cif("0,2 %", -0.2, R_REV2, "valor", "T2A", 2026), cif("0,3 %", -0.3, R_REV2, "valor", "T1A", 2026), cif("0,4 %", -0.4, R_REV2, "valor", "T1N", 2026)]},
     {"tipo": "giro",
-     "texto": "Y aquí cambia el nombre, aunque no cambian los hechos. El 11 de noviembre, con las cifras de agosto, el ministro de Hacienda, Jorge Quiroz, dijo en una entrevista con Bloomberg que se le podía llamar técnicamente una recesión. Con las cifras revisadas, el segundo trimestre ya no cae, y según La Tercera la economía aún no cumple la regla de dos trimestres seguidos de caída. Lo que sí cumple es otra cosa: el tercer trimestre fue el peor desde fines de 2022.",
+     "texto": "Y aquí cambia el nombre, aunque no cambian los hechos. El 11 de noviembre, con las cifras de agosto, el ministro de Hacienda, Jorge Quiroz, dijo en una entrevista con Bloomberg que se le podía llamar técnicamente una recesión. Con las cifras revisadas, el segundo trimestre ya no cae, ni contra un año antes ni, según La Tercera, contra el trimestre anterior. Por eso, según La Tercera, aún no se cumple ninguna de las dos reglas. Lo que sí ocurrió es otra cosa: el tercer trimestre tuvo la mayor caída anual desde fines de 2022.",
      "rotulo": {"texto": "AÚN SIN DOS CAÍDAS SEGUIDAS", "dice": "caídas"}}]},
   {"titulo": "Dónde cayó: el cobre", "escenas": [
     {"tipo": "planteamiento",
@@ -223,14 +223,14 @@ largo = {
      "grafico": {"tipo": "barras", "titulo": "Algunos sectores, contra un año antes", "datos": R_SECT, "destacar": {"pais": "CONS"}, "formato": {"decimales": 1, "sufijo": " %"}, "dice": "agricultura"},
      "cifras": [cif("10,2 %", 10.2, R_SECT, "valor", "AGRO", 2026), cif("6,0 %", 6.0, R_SECT, "valor", "EGA", 2026), cif("2,2 %", 2.2, R_SECT, "valor", "COM", 2026), cif("5,0 %", -5.0, R_SECT, "valor", "CONS", 2026)]},
     {"tipo": "dato", "fuenteEnVoz": True,
-     "texto": "El Imacec ya lo mostraba mes a mes. En septiembre, la minería cayó 12,1 % y el resto de la economía creció 2,0 % contra un año antes. Según Bloomberg, citado por el Diario Financiero, la producción de cobre del año quedaría bajo los 5 millones de toneladas, la menor en más de dos décadas. Y el ministro Quiroz calcula que el cobre le resta al crecimiento de este año entre 1 y 1,5 puntos.",
+     "texto": "El Imacec ya lo mostraba mes a mes. En septiembre, la minería cayó 12,1 % y el resto de la economía creció 2,0 % contra un año antes. Según Bloomberg, citado por el Diario Financiero, la producción de cobre del año quedaría bajo los 5 millones de toneladas, la menor en más de dos décadas. Y el ministro Quiroz calculó en septiembre que el cobre le resta al crecimiento de este año entre 1 y 1,5 puntos.",
      "grafico": {"tipo": "barras", "titulo": "Imacec de septiembre, contra un año antes", "datos": R_IMS, "destacar": {"pais": "MINERO"}, "formato": {"decimales": 1, "sufijo": " %"}, "dice": "septiembre"},
      "cifras": [cif("12,1 %", -12.1, R_IMS, "valor", "MINERO", 2026), cif("2,0 %", 2.0, R_IMS, "valor", "NOMINERO", 2026), cif("1 y 1,5 puntos", 1.5, R_COBRE, "valor", "ALTO", 2026)]},
     {"tipo": "giro",
-     "texto": "Distinguir entre los dos movimientos importa, porque no tienen las mismas causas. La caída de la minería viene del mineral, las mantenciones y el clima, y es lo que concentra el retroceso. Lo que pasa con la inversión y el consumo es otra historia, y la vemos ahora.",
+     "texto": "Distinguir entre la caída de la minería y lo que pasa con la demanda importa, porque no tienen las mismas causas. La caída de la minería viene del mineral, las mantenciones y el clima, y es lo que concentra el retroceso. Lo que pasa con la inversión y el consumo es otra historia, y la vemos ahora.",
      "rotulo": {"texto": "UN SECTOR, NO TODOS", "dice": "sector"}},
     {"tipo": "reenganche",
-     "texto": "Pero una economía no es solo lo que produce: también es lo que se destina a inversión, lo que se consume y lo que se exporta. Y ahí hay una señal que el cobre no explica."}]},
+     "texto": "Pero una economía no es solo lo que produce: también es lo que se destina a inversión, lo que se consume y lo que se exporta. Veamos la demanda: inversión, consumo y exportaciones."}]},
   {"titulo": "Inversión y consumo", "escenas": [
     {"tipo": "planteamiento",
      "texto": "El PIB también se puede mirar desde la demanda: cuánto se destina a inversión, cuánto se consume y cuánto sale al exterior. Mirado así, el tercer trimestre dejó cifras para cada lado.",
@@ -249,9 +249,9 @@ largo = {
      "rotulo": {"texto": "INGRESO: −0,3 %", "dice": "ingreso"}},
     {"tipo": "reenganche",
      "texto": "Hasta aquí, cifras de producción. Falta lo que más se siente: qué pasa con el trabajo, los precios y la tasa de interés."}]},
-  {"titulo": "Cómo llega a tu casa", "escenas": [
+  {"titulo": "Tres cifras del día a día", "escenas": [
     {"tipo": "planteamiento",
-     "texto": "Una caída de la actividad llega a una casa por tres puertas. La primera es el trabajo, y los datos del INE muestran dos cosas a la vez: el desempleo es alto a nivel nacional y muy distinto entre regiones. En Ñuble fue 11,8 % y en Aysén, 4,0 %, entre julio y septiembre.",
+     "texto": "En las semanas previas se publicaron tres cifras que se sienten en el día a día: el trabajo, los precios y la tasa de interés. Las fuentes oficiales no establecen que una cause a otra. Empecemos por el trabajo: el desempleo es alto a nivel nacional y muy distinto entre regiones. En Ñuble fue 11,8 % y en Aysén, 4,0 %, entre julio y septiembre.",
      "visual": {"tipo": "chile", "regiones": ["CL-NB", "CL-AI"], "acercar": False, "puntos": [
         {"texto": "Ñuble 11,8 %", "en": [-72.10, -36.61], "dice": "Ñuble"}, {"texto": "Aysén 4,0 %", "en": [-72.07, -45.57], "dice": "Aysén"}]}},
     {"tipo": "dato", "fuenteEnVoz": True,
@@ -264,20 +264,20 @@ largo = {
      "grafico": {"tipo": "lineas", "titulo": "Desocupación, trimestres móviles de 2026", "datos": R_DESM, "formato": {"decimales": 1, "sufijo": " %"}, "dice": "escalera"},
      "cifras": [cif("9,4 %", 9.4, R_DESM, "valor", "CHL", 0), cif("9,8 %", 9.8, R_DESM, "valor", "CHL", 3)]},
     {"tipo": "dato", "fuenteEnVoz": True,
-     "texto": "La segunda puerta son los precios. Según el INE, el IPC de octubre subió 0,5 % en el mes, y la inflación de doce meses llegó a 4,5 %, sobre la meta de 3 % del Banco Central. Los combustibles pesaron: la gasolina subió 4,5 % en un solo mes.",
+     "texto": "Segunda cifra, los precios. Según el INE, el IPC de octubre subió 0,5 % en el mes, y la inflación de doce meses llegó a 4,5 %, sobre la meta de 3 % del Banco Central. Los combustibles pesaron: la gasolina subió 4,5 % en un solo mes, según el INE.",
      "grafico": {"tipo": "contador", "titulo": "Inflación a doce meses, octubre", "datos": R_IPC, "destacar": {"pais": "ANUAL", "texto": "IPC a doce meses"}, "formato": {"decimales": 1, "sufijo": " %"}, "dice": "4,5"},
      "cifras": [cif("0,5 %", 0.5, R_IPC, "valor", "MES", 2026), cif("4,5 %", 4.5, R_IPC, "valor", "ANUAL", 2026), cif("3 %", 3.0, R_IPC, "valor", "META", 2026), cif("4,5 %", 4.5, R_IPC, "valor", "GAS", 2026)]},
     {"tipo": "giro",
-     "texto": "La tercera puerta, la tasa de interés, no se movió. El Banco Central mantuvo la tasa en 4,5 % en octubre, por unanimidad, en una pausa que viene desde diciembre de 2025. En teoría, subir la tasa enfría los precios pero encarece los créditos, y bajarla ayuda a la actividad pero puede presionar los precios. Cuando el empleo y la inflación señalan hacia lados opuestos, el Consejo ha dicho que decidirá reunión a reunión.",
+     "texto": "La tercera cifra, la tasa de interés, no se movió. El Banco Central mantuvo la tasa en 4,5 % en octubre, por unanimidad, en una pausa que viene desde diciembre de 2025. En teoría, subir la tasa enfría los precios pero encarece los créditos, y bajarla ayuda a la actividad pero puede presionar los precios. El Consejo dijo que evaluará la tasa reunión a reunión, y que los riesgos para la inflación aumentaron de forma relevante.",
      "rotulo": {"texto": "TASA EN 4,5 %", "dice": "interés"},
-     "visual": {"tipo": "iconos", "titulo": "Las tres puertas", "items": [
+     "visual": {"tipo": "iconos", "titulo": "Tres cifras", "items": [
         {"icono": "👷", "texto": "Trabajo", "valor": "9,8 %", "dice": "empleo"}, {"icono": "🛒", "texto": "Precios", "valor": "4,5 %", "dice": "precios"}, {"icono": "🏦", "texto": "Tasa de interés", "valor": "4,5 %", "dice": "unanimidad"}]},
      "cifras": [cif("4,5 %", 4.5, R_TPM, "valor", "TPM", 2026)]},
     {"tipo": "reenganche",
-     "texto": "Con la actividad en baja, el empleo débil y los precios sobre la meta, queda lo práctico: qué datos mirar en las próximas semanas."}]},
+     "texto": "Con esas cifras sobre la mesa, queda lo práctico: qué datos mirar en las próximas semanas."}]},
   {"titulo": "Qué mirar en las próximas semanas", "escenas": [
     {"tipo": "planteamiento",
-     "texto": "Hay cuatro fechas que van a mostrar hacia dónde va esto. Y la primera responde la pregunta de la recesión técnica: el PIB del cuarto trimestre, que el Banco Central publicará el año próximo.",
+     "texto": "Hay cuatro datos que van a mostrar hacia dónde va esto. Y la primera responde la pregunta de la recesión técnica: el PIB del cuarto trimestre, que el Banco Central publicará el año próximo.",
      "visual": {"tipo": "iconos", "titulo": "Qué mirar ahora", "items": [
         {"icono": "⛏️", "texto": "Imacec de octubre", "dice": "octubre"}, {"icono": "🏦", "texto": "Tasa: reunión del 15 de dic"},
         {"icono": "👷", "texto": "Empleo, agosto a octubre"}, {"icono": "📊", "texto": "PIB del cuarto trimestre"}]}},
@@ -293,15 +293,15 @@ largo = {
      "texto": "Y hay un detalle que corrige una idea común: la recesión técnica no mide cuánto cae la economía, solo si cae dos trimestres seguidos. Dos caídas pequeñas cuentan igual que dos grandes, y una caída grande, como la de este trimestre, no la declara sola. Por eso el nombre importa menos que el tamaño de la caída y lo que viene después.",
      "rotulo": {"texto": "NO MIDE EL TAMAÑO", "dice": "tamaño"}},
     {"tipo": "reenganche",
-     "texto": "Antes de cerrar, queda la pregunta de cómo se nota todo esto en una familia."},
+     "texto": "Antes de cerrar, un resumen de qué cambió el 18 de noviembre y qué no."},
     {"tipo": "significado",
-     "texto": "En resumen, qué cambió y qué no. Lo que cambió el 18 de noviembre es el dato: el tercer trimestre cayó 1,1 %, más de lo esperado, y la revisión dejó al segundo en cero. Lo que no cambia es el origen principal: el cobre, con menores leyes, mantenciones y clima. Y lo que se nota en la vida diaria es un mercado laboral más débil y precios sobre la meta. Nada de esto es una predicción: es lo que muestran, hasta hoy, las cifras oficiales. El ministro Quiroz proyecta volver a crecer cerca de 4 % en 2028, y los datos de los próximos meses dirán si el camino va hacia allá."}]}],
+     "texto": "En resumen, qué cambió y qué no. Lo que cambió el 18 de noviembre es el dato: el tercer trimestre cayó 1,1 %, más de lo esperado, y la revisión dejó al segundo en cero. Lo que no cambia es el origen principal: el cobre, con menores leyes, mantenciones y clima. Y lo que se vive en el día a día es un mercado laboral con más desempleo y precios sobre la meta, y el desempleo venía subiendo desde antes de este dato. Esto es lo que muestran, hasta hoy, las cifras oficiales, y los datos de los próximos meses dirán hacia dónde va el año."}]}],
  "numeroQueNadieMira": {
-   "texto": "Y queda un número que casi nadie mira: 0,2 por ciento. Es lo que retrocedió el PIB no minero contra el trimestre anterior, según Pauta. En la misma comparación, la minería cayó 12,9 por ciento. La economía que no es minera casi no se movió; la minera, sí. Por eso el titular del trimestre es una caída de 1,1 por ciento, pero la historia está concentrada en un sector.",
+   "texto": "Y queda un número que conviene mirar: 12,9 por ciento. Es lo que cayó la minería contra el trimestre anterior, mientras el PIB no minero retrocedió 0,2 por ciento, según Pauta. La economía que no es minera casi no se movió; la minera, sí. El titular del trimestre es una caída de 1,1 por ciento, pero la historia está concentrada en un sector.",
    "grafico": {"tipo": "comparacion", "titulo": "Contra el 2.º trimestre, serie ajustada", "datos": R_T3Q, "destacar": {"pais": "NOMIN"}, "formato": {"decimales": 1, "sufijo": " %"}, "dice": "casi"},
    "cifras": [cif("0,2 por ciento", -0.2, R_T3Q, "valor", "NOMIN", 2026), cif("12,9 por ciento", -12.9, R_T3Q, "valor", "MIN", 2026)]},
- "remate": "Un sector cayó casi 15 %, el resto creció 1 %: el nombre de la caída importa menos que su origen.",
- "siguiente": "¿Cuánto tarda el empleo en recuperarse después de una caída de la actividad? Lo vemos en el próximo video.",
+ "remate": "Un sector cayó 14,7 %, el resto creció 1,0 %: importa más su origen que su nombre.",
+ "siguiente": "Con los datos oficiales a la vista, ese fue el detalle del PIB. Entender Chile. El resumen sin gritos.",
  "miniatura": {"texto": "CAYÓ 1,1 %: EL COBRE", "grafico": {"tipo": "barras", "titulo": "PIB del tercer trimestre, contra un año antes", "datos": R_T3, "destacar": {"pais": "MIN"}, "formato": {"decimales": 1, "sufijo": " %"}}},
  "fuentes": [
    {"texto": "La Tercera, PIB del tercer trimestre (18-11-2026)", "url": LT_PIB},
@@ -316,5 +316,5 @@ largo = {
    {"texto": "Banco Central, comunicado de la reunión de política monetaria de octubre de 2026", "url": BC_RPM}]}
 guardar("2026-11-25", "el-cobre-que-no-salio", "tesis",
   "El cobre que no salió: por qué el PIB de Chile cayó 1,1 %",
-  "¿Por qué cayó 1,1 % la economía chilena en el tercer trimestre de 2026?\nSegún las Cuentas Nacionales que el Banco Central publicó el 18-11-2026, el PIB cayó 1,1 % contra el mismo trimestre de 2025: la minería cayó 14,7 % y el PIB no minero creció 1,0 %. Con la revisión, el segundo trimestre quedó en 0,0 % contra un año antes.\nRevisamos qué pasó por sector, con la inversión y el consumo, y cómo llega al empleo, los precios y la tasa de interés, sin consejos financieros.\n\nCapítulos:\n00:00 El PIB cayó 1,1 %\n(los tiempos exactos se agregan al renderizar)\n\nFuentes:\n- La Tercera, PIB del tercer trimestre (18-11-2026): " + LT_PIB + "\n- Emol, Cuentas Nacionales (18-11-2026): " + EMOL_PIB + "\n- Pauta (18-11-2026): " + PAUTA_PIB + "\n- DF (18-11-2026): " + DF_PIB + "\n- DF y Bloomberg (11-11-2026): " + DF_QUIROZ + "\n- Emol, Imacec de septiembre (02-11-2026): " + EMOL_IMACEC_SEP + "\n- INE, desocupación jul-sep 2026: " + INE_PRENSA + "\n- Emol, IPC de octubre (06-11-2026): " + EMOL_IPC + "\n- Banco Central, comunicado RPM octubre 2026: " + BC_RPM + "\n\nNo es asesoría financiera.",
+  "¿Por qué cayó 1,1 % la economía chilena en el tercer trimestre de 2026?\nSegún las Cuentas Nacionales que el Banco Central publicó el 18-11-2026, el PIB cayó 1,1 % contra el mismo trimestre de 2025: la minería cayó 14,7 % y el PIB no minero creció 1,0 %. Con la revisión, el segundo trimestre quedó en 0,0 % contra un año antes.\nRevisamos qué pasó por sector, con la inversión y el consumo, y qué muestran el empleo, los precios y la tasa de interés, sin consejos financieros.\n\nCapítulos:\n00:00 El PIB cayó 1,1 %\n(los tiempos exactos se agregan al renderizar)\n\nFuentes:\n- La Tercera, PIB del tercer trimestre (18-11-2026): " + LT_PIB + "\n- Emol, Cuentas Nacionales (18-11-2026): " + EMOL_PIB + "\n- Pauta (18-11-2026): " + PAUTA_PIB + "\n- DF (18-11-2026): " + DF_PIB + "\n- DF y Bloomberg (11-11-2026): " + DF_QUIROZ + "\n- Emol, Imacec de septiembre (02-11-2026): " + EMOL_IMACEC_SEP + "\n- INE, desocupación jul-sep 2026: " + INE_PRENSA + "\n- Emol, IPC de octubre (06-11-2026): " + EMOL_IPC + "\n- Banco Central, comunicado RPM octubre 2026: " + BC_RPM + "\n\nNo es asesoría financiera.",
   ["#economia", "#chile", "#pib", "#cobre"], largo, "19:00")

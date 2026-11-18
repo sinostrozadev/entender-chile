@@ -1,3 +1,5 @@
+> **ACTUALIZADO 18-11-2026 (mediodía): SE USÓ EL PLAN B.** Con las Cuentas Nacionales del 18-11 el 2.º trimestre quedó en 0,0 % interanual y +0,1 % contra el trimestre anterior (La Tercera): ya no hay recesión técnica ni "dos centésimas". El largo aprobado es `2026-11-25-largo-el-cobre-que-no-salio.json` ("El cobre que no salió: por qué el PIB de Chile cayó 1,1 %"), ya en esta carpeta. El resto de esta pauta es el borrador histórico.
+
 # Largo del miércoles 25-11-2026, 19:00: "¿Recesión técnica por dos centésimas? Qué significa para ti"
 
 Estado (17-11-2026): **borrador de guion escrito pero NO aprobado**: `contenido/borradores-semana/2026-11-19/2026-11-25-largo-recesion-tecnica-dos-centesimas.json`

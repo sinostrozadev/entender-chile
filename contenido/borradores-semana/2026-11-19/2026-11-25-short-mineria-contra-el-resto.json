@@ -2,7 +2,7 @@
   "plantilla": "grafico",
   "id": "2026-11-25-short-mineria-contra-el-resto",
   "titulo": "Por qué el Imacec subió solo 0,2 % si el resto creció 2 %",
-  "descripcion": "¿Cómo puede crecer apenas 0,2 % la actividad si el resto crece 2 %?\nSegún el Banco Central, el Imacec de septiembre de 2026 subió 0,2 % frente a septiembre de 2025. La minería cayó 12,1 %, por menor extracción de cobre (menores leyes del mineral y suspensión temporal de faenas); el componente no minero creció 2,0 % anual, y 0,8 % en la serie ajustada por estación.\nEl PIB de todo el tercer trimestre, publicado el 18 de noviembre, cayó 1,1 %, con la minería a la baja 14,7 %. Hoy a las 19:00 sale el video largo con el detalle.\nFuentes: Emol con datos del Banco Central (Imacec de septiembre, 02-11-2026; Imacec de agosto, 01-10-2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "descripcion": "¿Cómo puede crecer apenas 0,2 % la actividad si el resto crece 2 %?\nSegún el Banco Central, el Imacec de septiembre de 2026 subió 0,2 % frente a septiembre de 2025. La minería cayó 12,1 %, por menor extracción de cobre (menores leyes del mineral y suspensión temporal de faenas); el componente no minero creció 2,0 % anual, y 0,8 % en la serie ajustada por estación.\nEl PIB de todo el tercer trimestre, publicado el 18 de noviembre, cayó 1,1 %, con la minería a la baja 14,7 %. Hoy a las 19:00 sale el video largo con el detalle.\nFuentes: Emol con datos del Banco Central (Imacec de septiembre, 02-11-2026; Imacec de agosto, 01-10-2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile. El resumen sin gritos.",
   "hashtags": [
     "#imacec",
     "#cobre",
@@ -11,7 +11,7 @@
   "publicar": "2026-11-25T12:00",
   "props": {
     "gancho": {
-      "texto": "Según el Banco Central, en septiembre la minería cayó 12,1 % y el Imacec subió solo 0,2 %. Fuera de la minería, la actividad creció 2 % contra un año antes.",
+      "texto": "En septiembre la minería cayó 12,1 % y, aun así, el Imacec subió: solo 0,2 %, porque el resto creció 2 % contra un año antes.",
       "rotulo": "MINERÍA CAYÓ 12,1 %",
       "cifras": [
         {
@@ -212,7 +212,7 @@
         "tipo": "dato",
         "usaGraficoPrincipal": true,
         "fuenteEnVoz": true,
-        "texto": "Ese 2 % es sin ajustes. Con la serie ajustada por estación, el resto creció 0,8 % en doce meses.",
+        "texto": "Según el Banco Central, ese 2 % es sin ajustes; ajustado por estación, el resto creció 0,8 %. Aun así, la minería arrastró al total.",
         "cifras": [
           {
             "texto": "0,8 %",
@@ -249,7 +249,7 @@
       },
       {
         "tipo": "planteamiento",
-        "texto": "En agosto la minería ya había caído 17,4 %. El Banco Central citó menores leyes del mineral y mantenciones; en septiembre, menores leyes y suspensión de faenas.",
+        "texto": "Según el Banco Central, en agosto ya había caído 17,4 %, por menores leyes del mineral y mantenciones; en septiembre, por suspensión de faenas.",
         "cifras": [
           {
             "texto": "17,4 %",
@@ -289,45 +289,6 @@
               "pais": "MINERO",
               "anio": 2026
             }
-          },
-          {
-            "texto": "1,4 %",
-            "valor": 1.4,
-            "calculo": {
-              "datos": {
-                "fuente": "manual",
-                "indicador": "imacec-agosto-2026",
-                "paises": [
-                  "MINERO",
-                  "NOMINERO"
-                ],
-                "valores": {
-                  "MINERO": [
-                    [
-                      2026,
-                      -17.4
-                    ]
-                  ],
-                  "NOMINERO": [
-                    [
-                      2026,
-                      1.4
-                    ]
-                  ]
-                },
-                "nombres": {
-                  "MINERO": "Minería",
-                  "NOMINERO": "No minero"
-                },
-                "fuenteTexto": "Banco Central de Chile, Imacec de agosto de 2026 (vía Emol, 01-10-2026)",
-                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/10/01/1212912/imacec-de-agosto.html",
-                "etiqueta": "Variación anual del Imacec",
-                "unidad": "%"
-              },
-              "operacion": "valor",
-              "pais": "NOMINERO",
-              "anio": 2026
-            }
           }
         ],
         "visual": {
@@ -354,7 +315,7 @@
       },
       {
         "tipo": "giro",
-        "texto": "El PIB del tercer trimestre cayó 1,1 %; la minería, 14,7 %. Hoy a las siete, el detalle en el video largo.",
+        "texto": "Y de julio a septiembre, el PIB cayó 1,1 % y la minería, 14,7 %. Hoy a las siete, el largo lo explica.",
         "cifras": [
           {
             "texto": "1,1 %",
@@ -436,12 +397,12 @@
           }
         ],
         "rotulo": {
-          "texto": "RESTO: +2,0 %",
-          "dice": "creció"
+          "texto": "TRIMESTRE: PIB −1,1 %",
+          "dice": "PIB"
         }
       }
     ],
-    "remate": "Una parte cayó 12,1 %, otra creció, y el total quedó en 0,2 %.",
+    "remate": "Una parte cayó 12,1 %, el resto creció 2 %: el total, solo 0,2 %.",
     "fuentes": [
       {
         "texto": "Emol, Imacec de septiembre (02-11-2026)",

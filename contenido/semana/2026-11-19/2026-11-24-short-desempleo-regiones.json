@@ -2,7 +2,7 @@
   "plantilla": "grafico",
   "id": "2026-11-24-short-desempleo-regiones",
   "titulo": "Desempleo: 11,8 % en Ñuble y 4,0 % en Aysén, en el mismo país",
-  "descripcion": "¿Por qué el desempleo de Chile no es igual en todas las regiones?\nSegún el INE, la desocupación nacional fue de 9,8 % entre julio y septiembre de 2026, contra 8,5 % un año antes. Entre las regiones que revisamos, Ñuble tuvo 11,8 % y Aysén 4,0 %.\nEl INE entrega cada cifra por trimestres móviles: tres meses seguidos, y cada mes el trimestre se corre un lugar.\nEl miércoles 25-11 a las 19:00 sale el video largo sobre el PIB del tercer trimestre: por qué cayó 1,1 % y cómo llega al empleo y los precios.\nFuentes: INE, Encuesta Nacional de Empleo (29-10-2026) y fichas regionales del INE (regiones.ine.cl).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "descripcion": "¿Cuánto cambia el desempleo de Chile según la región?\nSegún el INE, la desocupación nacional fue de 9,8 % entre julio y septiembre de 2026, contra 8,5 % un año antes. Entre las regiones que revisamos, Ñuble tuvo 11,8 % y Aysén 4,0 %.\nEl INE entrega cada cifra por trimestres móviles: tres meses seguidos, y cada mes el trimestre se corre un lugar.\nEl miércoles 25-11 a las 19:00 sale el video largo sobre el PIB del tercer trimestre: por qué cayó 1,1 % y cómo llega al empleo y los precios.\nFuentes: INE, Encuesta Nacional de Empleo (29-10-2026) y fichas regionales del INE (regiones.ine.cl).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile. El resumen sin gritos.",
   "hashtags": [
     "#desempleo",
     "#ine",
@@ -208,7 +208,7 @@
         "tipo": "dato",
         "usaGraficoPrincipal": true,
         "fuenteEnVoz": true,
-        "texto": "Según la Encuesta Nacional de Empleo, entre julio y septiembre la desocupación del país fue de 9,8 %, 1,3 puntos más que un año antes. En Ñuble fue 11,8 %; en Aysén, 4,0 %.",
+        "texto": "Según la Encuesta Nacional de Empleo, entre julio y septiembre la desocupación del país fue de 9,8 %, 1,3 puntos más que un año antes. Ese dato es de todo el país: cada región tiene el suyo.",
         "cifras": [
           {
             "texto": "9,8 %",
@@ -371,7 +371,7 @@
       },
       {
         "tipo": "planteamiento",
-        "texto": "Biobío, 10,5 %; Metropolitana, 10,4 %; Antofagasta, 6,7 %.",
+        "texto": "Otras tres regiones: Biobío, 10,5 %; Metropolitana, 10,4 %; Antofagasta, 6,7 %.",
         "cifras": [
           {
             "texto": "10,5 %",
@@ -528,7 +528,7 @@
       },
       {
         "tipo": "giro",
-        "texto": "Cada cifra es un trimestre móvil, y un promedio nacional mezcla realidades distintas. En la Metropolitana, la tasa subió 1,6 puntos en doce meses.",
+        "texto": "El INE mide tres meses seguidos y cada mes corre el trimestre un lugar: por eso estas cifras son de julio a septiembre. En la Metropolitana, la tasa subió 1,6 puntos en doce meses.",
         "cifras": [
           {
             "texto": "1,6 puntos",
@@ -577,7 +577,7 @@
         }
       }
     ],
-    "remate": "Mismo país, mismo trimestre: 11,8 % en Ñuble, 4,0 % en Aysén.",
+    "remate": "Mismo país, mismo trimestre, casi el triple entre dos regiones. El resumen sin gritos.",
     "fuentes": [
       {
         "texto": "INE, tasa de desocupación nacional, julio a septiembre de 2026 (29-10-2026)",
