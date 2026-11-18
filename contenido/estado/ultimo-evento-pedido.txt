@@ -1,0 +1,8 @@
+flujo=pedido
+tarea=imagen
+slug=numeros-rojos-mexico-chile-v2
+pedido=contenido/urgente/PEDIDO-numeros-rojos-mexico-chile-v2.md
+hallazgo=contenido/urgente/numeros-rojos-mexico-chile-v2.md
+salida=contenido/caratulas/externos/numeros-rojos/2026-11-18-mexico-chile-v2.png
+prompt=prompts/imagen-caratula.md
+emitido_utc=2026-11-15T08:48:50Z
