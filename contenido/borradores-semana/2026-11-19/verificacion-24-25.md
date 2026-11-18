@@ -38,3 +38,19 @@ Consultas web hechas el **17-11-2026** (martes). "Abierta" = página leída por 
 | Camioneros: paro desde el 10-11 por el alza de combustibles | | Emol 10-11 (abierta el 13-11, ver `verificacion.md` §1) | 10-11-2026 | |
 **Fechas no confirmadas y por eso NO dichas:** Imacec de octubre, empleo agosto-octubre e IPC de noviembre (solo se dice "después vienen"). La página de calendario del Banco Central no cargó.
 **Riesgos que caducan el 18-11 a las 08:30:** ver el bloque "Actualizar el 18-11" de la PAUTA.
+
+## ACTUALIZACIÓN 18-11-2026 (mediodía): Cuentas Nacionales del 3.er trimestre — el largo pasa al PLAN B
+El Banco Central publicó el 18-11-2026 a las 08:30 (la página bcentral.cl no abrió; no se encontró el comunicado primario; se leyeron 6 medios que citan al Banco Central). Todas las páginas abiertas el 18-11.
+| Dato | Valor | Fuente | Estado |
+|---|---|---|---|
+| PIB T3 contra T3 2025 | −1,1 % (Imacec estimaba −0,8 %); mayor caída anual desde 4T 2022 (−2,0 %); efecto calendario +0,3 pp (2 días hábiles más); acumulado ene-sep −0,5 % | La Tercera https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/ ; Emol https://www.emol.com/noticias/Economia/2026/11/18/1217423/pib-banco-central-cuentas-nacionales.html ; DF https://www.df.cl/economia-y-politica/macro/pib-del-tercer-trimestre-sorprende-con-caida-de-1-1-determinado-por-la ; Cooperativa ; Pauta | −1,1 % abierto en 5 medios; resto en La Tercera |
+| PIB T3 contra T2, desestacionalizado | −1,8 % | La Tercera y Pauta https://www.pauta.cl/economia/2026/11/18/economia-chilena-cae-11-en-el-tercer-trimestre-por-retroceso-de-la-mineria.html | 2 medios; BioBio lo cita sin aclarar la base |
+| Revisiones (interanual) | T1 −0,3 → −0,4 %; **T2 −0,2 → 0,0 %** | Emol, Cooperativa, DF, La Tercera | confirmado en 4 medios (los medios no dicen "interanual", pero cuadra con −0,3/−0,2 de agosto, que eran interanuales) |
+| T2 contra T1, desestacionalizado, revisado | **+0,1 %** → "aún sin recesión técnica" | La Tercera (solo) | **UNA sola fuente** y sin la cifra revisada de T1 contra T4; por eso la voz lo atribuye a La Tercera |
+| Minería | −14,7 % anual (5.º trimestre seguido a la baja); −12,9 % desest.; causas: menores leyes, mantenciones, clima; litio creció | La Tercera, Cooperativa, Pauta, BioBio | confirmado. DF trae además un "−17,7 %" sin explicar (se ignoró) |
+| No minero | +1,0 % anual; −0,2 % contra T2 desest. | La Tercera, Pauta, DF, Cooperativa; el −0,2 % solo en Pauta | −0,2 % = UNA fuente (Pauta) |
+| Sectores | agro +10,2, pesca +7,1, EGA +6,0, comercio +2,2, construcción −5,0 | La Tercera, DF | confirmado |
+| Demanda | FBCF −6,7 (maquinaria −10,1 tras +22,4; construcción y otras obras −4,1); consumo hogares +0,7 (2,5 → 1,1 → 0,7); gobierno +2,1; exportaciones −0,6; importaciones −0,4; demanda interna −1,1; INBD real −0,3 por términos de intercambio | La Tercera, DF, Pauta, Emol | confirmado |
+| Cuarto trimestre | para cerrar 2026 positivo debería crecer ≈ 1,2 %, "difícil" | La Tercera (opinión del medio) | 1 fuente, atribuida |
+**Efecto en el largo:** con T2 en 0,0 % interanual y +0,1 % contra T1, ya no hay "dos centésimas" ni dos caídas seguidas por ninguna regla: **se usa el plan B** (la pauta, regla del 18-11). Se reescribió como "El cobre que no salió: por qué el PIB de Chile cayó 1,1 %" (id `2026-11-25-largo-el-cobre-que-no-salio`). Quiroz del 11-11 se cita con fecha ("con las cifras de agosto").
+**No verificado:** comunicado primario del Banco Central (no abrió); T1 contra T4 desestacionalizado revisado; fecha de publicación del PIB del 4.º trimestre (no se dice la fecha); Imacec de octubre, empleo ago-oct (no se dicen fechas).

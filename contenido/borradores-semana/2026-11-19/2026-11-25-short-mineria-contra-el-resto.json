@@ -2,7 +2,7 @@
   "plantilla": "grafico",
   "id": "2026-11-25-short-mineria-contra-el-resto",
   "titulo": "Por qué el Imacec subió solo 0,2 % si el resto creció 2 %",
-  "descripcion": "¿Cómo puede crecer apenas 0,2 % la actividad si el resto crece 2 %?\nSegún el Banco Central, el Imacec de septiembre de 2026 subió 0,2 % frente a septiembre de 2025. La minería cayó 12,1 %, por menor extracción de cobre (menores leyes del mineral y suspensión temporal de faenas); el componente no minero creció 2,0 % anual, y 0,8 % en la serie ajustada por estación.\nHoy a las 19:00 sale el video largo: qué es una recesión técnica, por qué pasó y qué significa para el empleo y los precios.\nFuentes: Emol con datos del Banco Central (Imacec de septiembre, 02-11-2026; Imacec de agosto, 01-10-2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "descripcion": "¿Cómo puede crecer apenas 0,2 % la actividad si el resto crece 2 %?\nSegún el Banco Central, el Imacec de septiembre de 2026 subió 0,2 % frente a septiembre de 2025. La minería cayó 12,1 %, por menor extracción de cobre (menores leyes del mineral y suspensión temporal de faenas); el componente no minero creció 2,0 % anual, y 0,8 % en la serie ajustada por estación.\nEl PIB de todo el tercer trimestre, publicado el 18 de noviembre, cayó 1,1 %, con la minería a la baja 14,7 %. Hoy a las 19:00 sale el video largo con el detalle.\nFuentes: Emol con datos del Banco Central (Imacec de septiembre, 02-11-2026; Imacec de agosto, 01-10-2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
   "hashtags": [
     "#imacec",
     "#cobre",
@@ -354,7 +354,87 @@
       },
       {
         "tipo": "giro",
-        "texto": "El resto de la economía creció, pero no alcanzó a compensar a la minería. Hoy a las siete de la tarde, en el video largo, vemos qué significa para el empleo.",
+        "texto": "El PIB del tercer trimestre cayó 1,1 %; la minería, 14,7 %. Hoy a las siete, el detalle en el video largo.",
+        "cifras": [
+          {
+            "texto": "1,1 %",
+            "valor": -1.1,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pib-t3-2026-anual",
+                "paises": [
+                  "PIB",
+                  "MIN"
+                ],
+                "valores": {
+                  "PIB": [
+                    [
+                      2026,
+                      -1.1
+                    ]
+                  ],
+                  "MIN": [
+                    [
+                      2026,
+                      -14.7
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "PIB": "PIB total",
+                  "MIN": "Minería"
+                },
+                "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                "unidad": "%"
+              },
+              "operacion": "valor",
+              "pais": "PIB",
+              "anio": 2026
+            }
+          },
+          {
+            "texto": "14,7 %",
+            "valor": -14.7,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pib-t3-2026-anual",
+                "paises": [
+                  "PIB",
+                  "MIN"
+                ],
+                "valores": {
+                  "PIB": [
+                    [
+                      2026,
+                      -1.1
+                    ]
+                  ],
+                  "MIN": [
+                    [
+                      2026,
+                      -14.7
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "PIB": "PIB total",
+                  "MIN": "Minería"
+                },
+                "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                "unidad": "%"
+              },
+              "operacion": "valor",
+              "pais": "MIN",
+              "anio": 2026
+            }
+          }
+        ],
         "rotulo": {
           "texto": "RESTO: +2,0 %",
           "dice": "creció"
@@ -370,6 +450,10 @@
       {
         "texto": "Emol, Imacec de agosto (01-10-2026)",
         "url": "https://www.emol.com/noticias/Economia/2026/10/01/1212912/imacec-de-agosto.html"
+      },
+      {
+        "texto": "La Tercera, PIB del tercer trimestre (18-11-2026)",
+        "url": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/"
       }
     ],
     "id": "2026-11-25-short-mineria-contra-el-resto"

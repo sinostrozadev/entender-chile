@@ -42,7 +42,7 @@ if (!ruta) {
  * medios entran solo como respaldo cuando el organismo no publicó el documento, y la verificación del plan semanal
  * (contenido/semana/<semana>/verificacion.md) registra cuál de los dos se usó.
  */
-const OFICIAL = /(\.gob\.[a-z]{2}|\.gov(\.[a-z]{2})?|\.gub\.uy|bcentral\.cl|contraloria\.cl|camara\.cl|senado\.cl|bcn\.cl|enap\.cl|cne\.cl|ine\.gob\.cl|ine\.cl|mindicador\.cl|cochilco\.cl|cepal\.org|worldbank\.org|un\.org|ilo\.org|ourworldindata\.org|biobiochile\.cl|emol\.com|latercera\.com|cooperativa\.cl|df\.cl|elpais\.com|theclinic\.cl|ciperchile\.cl|bloomberglinea\.com)$/i;
+const OFICIAL = /(\.gob\.[a-z]{2}|\.gov(\.[a-z]{2})?|\.gub\.uy|bcentral\.cl|contraloria\.cl|camara\.cl|senado\.cl|bcn\.cl|enap\.cl|cne\.cl|ine\.gob\.cl|ine\.cl|mindicador\.cl|cochilco\.cl|cepal\.org|worldbank\.org|un\.org|ilo\.org|ourworldindata\.org|biobiochile\.cl|emol\.com|latercera\.com|cooperativa\.cl|df\.cl|pauta\.cl|elpais\.com|theclinic\.cl|ciperchile\.cl|bloomberglinea\.com)$/i;
 /** Fuentes que no se usan nunca (términos sin verificar o datos de terceros sin método). */
 const PROHIBIDO = /(numbeo\.com)$/i;
 

@@ -1,0 +1,3375 @@
+{
+  "plantilla": "tesis",
+  "id": "2026-11-25-largo-el-cobre-que-no-salio",
+  "titulo": "El cobre que no salió: por qué el PIB de Chile cayó 1,1 %",
+  "descripcion": "¿Por qué cayó 1,1 % la economía chilena en el tercer trimestre de 2026?\nSegún las Cuentas Nacionales que el Banco Central publicó el 18-11-2026, el PIB cayó 1,1 % contra el mismo trimestre de 2025: la minería cayó 14,7 % y el PIB no minero creció 1,0 %. Con la revisión, el segundo trimestre quedó en 0,0 % contra un año antes.\nRevisamos qué pasó por sector, con la inversión y el consumo, y cómo llega al empleo, los precios y la tasa de interés, sin consejos financieros.\n\nCapítulos:\n00:00 El PIB cayó 1,1 %\n(los tiempos exactos se agregan al renderizar)\n\nFuentes:\n- La Tercera, PIB del tercer trimestre (18-11-2026): https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/\n- Emol, Cuentas Nacionales (18-11-2026): https://www.emol.com/noticias/Economia/2026/11/18/1217423/pib-banco-central-cuentas-nacionales.html\n- Pauta (18-11-2026): https://www.pauta.cl/economia/2026/11/18/economia-chilena-cae-11-en-el-tercer-trimestre-por-retroceso-de-la-mineria.html\n- DF (18-11-2026): https://www.df.cl/economia-y-politica/macro/pib-del-tercer-trimestre-sorprende-con-caida-de-1-1-determinado-por-la\n- DF y Bloomberg (11-11-2026): https://www.df.cl/economia-y-politica/actualidad/quiroz-admite-que-chile-esta-en-recesion-tecnica-pero-asegura-que-sera\n- Emol, Imacec de septiembre (02-11-2026): https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html\n- INE, desocupación jul-sep 2026: https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026\n- Emol, IPC de octubre (06-11-2026): https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html\n- Banco Central, comunicado RPM octubre 2026: https://www.bcentral.cl/web/banco-central/contenido/-/detalle/prensa/comunicados-rpm/comunicado-reunion-de-politica-monetaria-octubre-2026\n\nNo es asesoría financiera.\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#economia",
+    "#chile",
+    "#pib",
+    "#cobre"
+  ],
+  "publicar": "2026-11-25T19:00",
+  "props": {
+    "cabecera": "EL COBRE QUE NO SALIÓ · PIB 2026",
+    "gancho": {
+      "texto": "El miércoles 18 de noviembre, el Banco Central informó que la economía chilena cayó 1,1 % entre julio y septiembre, contra el mismo trimestre de 2025. Es la mayor caída anual desde fines de 2022. La minería cayó 14,7 %. El resto de la economía, sin minería, creció 1,0 %. En este video vemos qué pasó, en qué sector, y cómo llega a una casa.",
+      "rotulo": "EL PIB CAYÓ 1,1 %",
+      "grafico": {
+        "tipo": "barras",
+        "titulo": "PIB del tercer trimestre de 2026, contra un año antes",
+        "datos": {
+          "fuente": "manual",
+          "indicador": "pib-t3-2026-anual",
+          "paises": [
+            "PIB",
+            "MIN",
+            "NOMIN"
+          ],
+          "valores": {
+            "PIB": [
+              [
+                2026,
+                -1.1
+              ]
+            ],
+            "MIN": [
+              [
+                2026,
+                -14.7
+              ]
+            ],
+            "NOMIN": [
+              [
+                2026,
+                1.0
+              ]
+            ]
+          },
+          "nombres": {
+            "PIB": "PIB total",
+            "MIN": "Minería",
+            "NOMIN": "PIB no minero"
+          },
+          "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+          "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+          "etiqueta": "Variación contra el 3.er trimestre de 2025",
+          "unidad": "%"
+        },
+        "destacar": {
+          "pais": "MIN"
+        },
+        "formato": {
+          "decimales": 1,
+          "sufijo": " %"
+        }
+      },
+      "cifras": [
+        {
+          "texto": "1,1 %",
+          "valor": -1.1,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "pib-t3-2026-anual",
+              "paises": [
+                "PIB",
+                "MIN",
+                "NOMIN"
+              ],
+              "valores": {
+                "PIB": [
+                  [
+                    2026,
+                    -1.1
+                  ]
+                ],
+                "MIN": [
+                  [
+                    2026,
+                    -14.7
+                  ]
+                ],
+                "NOMIN": [
+                  [
+                    2026,
+                    1.0
+                  ]
+                ]
+              },
+              "nombres": {
+                "PIB": "PIB total",
+                "MIN": "Minería",
+                "NOMIN": "PIB no minero"
+              },
+              "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+              "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+              "etiqueta": "Variación contra el 3.er trimestre de 2025",
+              "unidad": "%"
+            },
+            "operacion": "valor",
+            "pais": "PIB",
+            "anio": 2026
+          }
+        },
+        {
+          "texto": "14,7 %",
+          "valor": -14.7,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "pib-t3-2026-anual",
+              "paises": [
+                "PIB",
+                "MIN",
+                "NOMIN"
+              ],
+              "valores": {
+                "PIB": [
+                  [
+                    2026,
+                    -1.1
+                  ]
+                ],
+                "MIN": [
+                  [
+                    2026,
+                    -14.7
+                  ]
+                ],
+                "NOMIN": [
+                  [
+                    2026,
+                    1.0
+                  ]
+                ]
+              },
+              "nombres": {
+                "PIB": "PIB total",
+                "MIN": "Minería",
+                "NOMIN": "PIB no minero"
+              },
+              "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+              "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+              "etiqueta": "Variación contra el 3.er trimestre de 2025",
+              "unidad": "%"
+            },
+            "operacion": "valor",
+            "pais": "MIN",
+            "anio": 2026
+          }
+        },
+        {
+          "texto": "1,0 %",
+          "valor": 1.0,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "pib-t3-2026-anual",
+              "paises": [
+                "PIB",
+                "MIN",
+                "NOMIN"
+              ],
+              "valores": {
+                "PIB": [
+                  [
+                    2026,
+                    -1.1
+                  ]
+                ],
+                "MIN": [
+                  [
+                    2026,
+                    -14.7
+                  ]
+                ],
+                "NOMIN": [
+                  [
+                    2026,
+                    1.0
+                  ]
+                ]
+              },
+              "nombres": {
+                "PIB": "PIB total",
+                "MIN": "Minería",
+                "NOMIN": "PIB no minero"
+              },
+              "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+              "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+              "etiqueta": "Variación contra el 3.er trimestre de 2025",
+              "unidad": "%"
+            },
+            "operacion": "valor",
+            "pais": "NOMIN",
+            "anio": 2026
+          }
+        }
+      ]
+    },
+    "promesa": "Vas a saber qué publicó el Banco Central, por qué la minería explica la caída, qué pasó con la inversión y el consumo, y cómo llega al empleo, los precios y la tasa de interés.",
+    "indice": [
+      "El dato del 18 de nov.",
+      "Dónde cayó: el cobre",
+      "Inversión y consumo",
+      "Cómo llega a casa",
+      "Qué mirar ahora"
+    ],
+    "estructura": "autopsia",
+    "capitulos": [
+      {
+        "titulo": "El dato del 18 de noviembre",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "El 18 de noviembre, a las 8:30 de la mañana, el Banco Central publicó las Cuentas Nacionales del tercer trimestre. Son el balance oficial de cuánto produjo el país entre julio y septiembre, y salen una vez por trimestre. Antes, el Imacec, el indicador mensual de actividad, ya había adelantado una baja. La pregunta era de cuánto sería la caída, y si se hablaría otra vez de recesión técnica.",
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Dos indicadores, un mismo trimestre",
+              "items": [
+                {
+                  "icono": "📅",
+                  "texto": "Imacec: cada mes",
+                  "dice": "mensual"
+                },
+                {
+                  "icono": "📊",
+                  "texto": "PIB: cada trimestre",
+                  "dice": "trimestre"
+                }
+              ]
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "El resultado fue una caída de 1,1 % contra el tercer trimestre de 2025. El promedio del Imacec apuntaba a 0,8 %, así que la caída fue tres décimas mayor. Según La Tercera, es la mayor caída anual desde el cuarto trimestre de 2022. Y el trimestre tuvo dos días hábiles más que el año anterior, un efecto calendario que sumó 0,3 puntos a la cifra.",
+            "grafico": {
+              "tipo": "barras",
+              "titulo": "PIB del tercer trimestre: estimado y publicado",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pib-t3-2026-contra-imacec",
+                "paises": [
+                  "IMA",
+                  "PIB"
+                ],
+                "valores": {
+                  "IMA": [
+                    [
+                      2026,
+                      -0.8
+                    ]
+                  ],
+                  "PIB": [
+                    [
+                      2026,
+                      -1.1
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "IMA": "Estimado con el Imacec",
+                  "PIB": "PIB publicado"
+                },
+                "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/18/1217423/pib-banco-central-cuentas-nacionales.html",
+                "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "PIB"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "Imacec"
+            },
+            "cifras": [
+              {
+                "texto": "1,1 %",
+                "valor": -1.1,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-contra-imacec",
+                    "paises": [
+                      "IMA",
+                      "PIB"
+                    ],
+                    "valores": {
+                      "IMA": [
+                        [
+                          2026,
+                          -0.8
+                        ]
+                      ],
+                      "PIB": [
+                        [
+                          2026,
+                          -1.1
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "IMA": "Estimado con el Imacec",
+                      "PIB": "PIB publicado"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/18/1217423/pib-banco-central-cuentas-nacionales.html",
+                    "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "PIB",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "0,8 %",
+                "valor": -0.8,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-contra-imacec",
+                    "paises": [
+                      "IMA",
+                      "PIB"
+                    ],
+                    "valores": {
+                      "IMA": [
+                        [
+                          2026,
+                          -0.8
+                        ]
+                      ],
+                      "PIB": [
+                        [
+                          2026,
+                          -1.1
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "IMA": "Estimado con el Imacec",
+                      "PIB": "PIB publicado"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/18/1217423/pib-banco-central-cuentas-nacionales.html",
+                    "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "IMA",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "tres décimas",
+                "valor": 0.3,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-contra-imacec",
+                    "paises": [
+                      "IMA",
+                      "PIB"
+                    ],
+                    "valores": {
+                      "IMA": [
+                        [
+                          2026,
+                          -0.8
+                        ]
+                      ],
+                      "PIB": [
+                        [
+                          2026,
+                          -1.1
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "IMA": "Estimado con el Imacec",
+                      "PIB": "PIB publicado"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/18/1217423/pib-banco-central-cuentas-nacionales.html",
+                    "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "diferencia",
+                  "pais": "IMA",
+                  "anio": 2026,
+                  "paisB": "PIB"
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Contra el trimestre anterior, con la serie ajustada por estación, el PIB retrocedió 1,8 %. Esa es la comparación que usa una de las dos formas de contar una recesión técnica, que exige dos trimestres seguidos de caída. Para saber si se cumple, hay que mirar el trimestre de antes. Y ese trimestre también cambió.",
+            "grafico": {
+              "tipo": "contador",
+              "titulo": "PIB del 3.er trimestre contra el 2.º, ajustado",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pib-t3-2026-desestacionalizado",
+                "paises": [
+                  "PIB",
+                  "MIN",
+                  "NOMIN"
+                ],
+                "valores": {
+                  "PIB": [
+                    [
+                      2026,
+                      -1.8
+                    ]
+                  ],
+                  "MIN": [
+                    [
+                      2026,
+                      -12.9
+                    ]
+                  ],
+                  "NOMIN": [
+                    [
+                      2026,
+                      -0.2
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "PIB": "PIB total",
+                  "MIN": "Minería",
+                  "NOMIN": "PIB no minero"
+                },
+                "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía La Tercera y Pauta, 18-11-2026)",
+                "fuenteUrl": "https://www.pauta.cl/economia/2026/11/18/economia-chilena-cae-11-en-el-tercer-trimestre-por-retroceso-de-la-mineria.html",
+                "etiqueta": "Variación contra el 2.º trimestre, serie ajustada",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "PIB",
+                "texto": "contra el 2.º trimestre"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "retrocedió"
+            },
+            "cifras": [
+              {
+                "texto": "1,8 %",
+                "valor": -1.8,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-desestacionalizado",
+                    "paises": [
+                      "PIB",
+                      "MIN",
+                      "NOMIN"
+                    ],
+                    "valores": {
+                      "PIB": [
+                        [
+                          2026,
+                          -1.8
+                        ]
+                      ],
+                      "MIN": [
+                        [
+                          2026,
+                          -12.9
+                        ]
+                      ],
+                      "NOMIN": [
+                        [
+                          2026,
+                          -0.2
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "PIB": "PIB total",
+                      "MIN": "Minería",
+                      "NOMIN": "PIB no minero"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía La Tercera y Pauta, 18-11-2026)",
+                    "fuenteUrl": "https://www.pauta.cl/economia/2026/11/18/economia-chilena-cae-11-en-el-tercer-trimestre-por-retroceso-de-la-mineria.html",
+                    "etiqueta": "Variación contra el 2.º trimestre, serie ajustada",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "PIB",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Cada vez que sale un trimestre nuevo, el Banco Central revisa los anteriores. Esta vez, el segundo trimestre pasó de menos 0,2 % a cero contra un año antes, y el primero, de menos 0,3 % a menos 0,4 %. Según La Tercera, con esa revisión el segundo trimestre creció 0,1 % contra el primero, en la serie ajustada.",
+            "grafico": {
+              "tipo": "barras",
+              "titulo": "PIB del 1.º y 2.º trimestre, antes y ahora",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pib-revision-t1-t2-2026",
+                "paises": [
+                  "T1A",
+                  "T1N",
+                  "T2A",
+                  "T2N"
+                ],
+                "valores": {
+                  "T1A": [
+                    [
+                      2026,
+                      -0.3
+                    ]
+                  ],
+                  "T1N": [
+                    [
+                      2026,
+                      -0.4
+                    ]
+                  ],
+                  "T2A": [
+                    [
+                      2026,
+                      -0.2
+                    ]
+                  ],
+                  "T2N": [
+                    [
+                      2026,
+                      0.0
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "T1A": "1.er trim., antes",
+                  "T1N": "1.er trim., ahora",
+                  "T2A": "2.º trim., antes",
+                  "T2N": "2.º trim., ahora"
+                },
+                "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía Cooperativa y La Tercera, 18-11-2026)",
+                "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                "etiqueta": "PIB contra el mismo trimestre de 2025",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "T2N"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "revisó"
+            },
+            "cifras": [
+              {
+                "texto": "0,2 %",
+                "valor": -0.2,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-revision-t1-t2-2026",
+                    "paises": [
+                      "T1A",
+                      "T1N",
+                      "T2A",
+                      "T2N"
+                    ],
+                    "valores": {
+                      "T1A": [
+                        [
+                          2026,
+                          -0.3
+                        ]
+                      ],
+                      "T1N": [
+                        [
+                          2026,
+                          -0.4
+                        ]
+                      ],
+                      "T2A": [
+                        [
+                          2026,
+                          -0.2
+                        ]
+                      ],
+                      "T2N": [
+                        [
+                          2026,
+                          0.0
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "T1A": "1.er trim., antes",
+                      "T1N": "1.er trim., ahora",
+                      "T2A": "2.º trim., antes",
+                      "T2N": "2.º trim., ahora"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía Cooperativa y La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "PIB contra el mismo trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "T2A",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "0,3 %",
+                "valor": -0.3,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-revision-t1-t2-2026",
+                    "paises": [
+                      "T1A",
+                      "T1N",
+                      "T2A",
+                      "T2N"
+                    ],
+                    "valores": {
+                      "T1A": [
+                        [
+                          2026,
+                          -0.3
+                        ]
+                      ],
+                      "T1N": [
+                        [
+                          2026,
+                          -0.4
+                        ]
+                      ],
+                      "T2A": [
+                        [
+                          2026,
+                          -0.2
+                        ]
+                      ],
+                      "T2N": [
+                        [
+                          2026,
+                          0.0
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "T1A": "1.er trim., antes",
+                      "T1N": "1.er trim., ahora",
+                      "T2A": "2.º trim., antes",
+                      "T2N": "2.º trim., ahora"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía Cooperativa y La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "PIB contra el mismo trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "T1A",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "0,4 %",
+                "valor": -0.4,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-revision-t1-t2-2026",
+                    "paises": [
+                      "T1A",
+                      "T1N",
+                      "T2A",
+                      "T2N"
+                    ],
+                    "valores": {
+                      "T1A": [
+                        [
+                          2026,
+                          -0.3
+                        ]
+                      ],
+                      "T1N": [
+                        [
+                          2026,
+                          -0.4
+                        ]
+                      ],
+                      "T2A": [
+                        [
+                          2026,
+                          -0.2
+                        ]
+                      ],
+                      "T2N": [
+                        [
+                          2026,
+                          0.0
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "T1A": "1.er trim., antes",
+                      "T1N": "1.er trim., ahora",
+                      "T2A": "2.º trim., antes",
+                      "T2N": "2.º trim., ahora"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía Cooperativa y La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "PIB contra el mismo trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "T1N",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "giro",
+            "texto": "Y aquí cambia el nombre, aunque no cambian los hechos. El 11 de noviembre, con las cifras de agosto, el ministro de Hacienda, Jorge Quiroz, dijo en una entrevista con Bloomberg que se le podía llamar técnicamente una recesión. Con las cifras revisadas, el segundo trimestre ya no cae, y según La Tercera la economía aún no cumple la regla de dos trimestres seguidos de caída. Lo que sí cumple es otra cosa: el tercer trimestre fue el peor desde fines de 2022.",
+            "rotulo": {
+              "texto": "AÚN SIN DOS CAÍDAS SEGUIDAS",
+              "dice": "caídas"
+            }
+          }
+        ]
+      },
+      {
+        "titulo": "Dónde cayó: el cobre",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "¿Dónde se concentró la caída? El PIB se puede abrir por sector, y ahí aparece una diferencia enorme entre la minería y el resto de la economía.",
+            "visual": {
+              "tipo": "foto",
+              "busqueda": "Chuquicamata open pit copper mine",
+              "alternativas": [
+                "Chile copper mine open pit",
+                "Escondida copper mine"
+              ],
+              "pie": "Mina de cobre a rajo abierto, Chile",
+              "encuadre": "ken-burns"
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Según el Banco Central, la minería cayó 14,7 % contra un año antes, su quinto trimestre seguido de caída en esa comparación. El PIB no minero, en cambio, creció 1,0 %. Fue el cobre lo que más pesó, por menores leyes del mineral, mantenciones y condiciones climáticas adversas. La ley es cuánto cobre trae cada tonelada de roca: con una ley más baja, la misma roca entrega menos metal.",
+            "grafico": {
+              "tipo": "barras",
+              "titulo": "PIB del tercer trimestre por tipo de actividad",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pib-t3-2026-anual",
+                "paises": [
+                  "PIB",
+                  "MIN",
+                  "NOMIN"
+                ],
+                "valores": {
+                  "PIB": [
+                    [
+                      2026,
+                      -1.1
+                    ]
+                  ],
+                  "MIN": [
+                    [
+                      2026,
+                      -14.7
+                    ]
+                  ],
+                  "NOMIN": [
+                    [
+                      2026,
+                      1.0
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "PIB": "PIB total",
+                  "MIN": "Minería",
+                  "NOMIN": "PIB no minero"
+                },
+                "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "MIN"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "cobre"
+            },
+            "cifras": [
+              {
+                "texto": "14,7 %",
+                "valor": -14.7,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-anual",
+                    "paises": [
+                      "PIB",
+                      "MIN",
+                      "NOMIN"
+                    ],
+                    "valores": {
+                      "PIB": [
+                        [
+                          2026,
+                          -1.1
+                        ]
+                      ],
+                      "MIN": [
+                        [
+                          2026,
+                          -14.7
+                        ]
+                      ],
+                      "NOMIN": [
+                        [
+                          2026,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "PIB": "PIB total",
+                      "MIN": "Minería",
+                      "NOMIN": "PIB no minero"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "MIN",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "1,0 %",
+                "valor": 1.0,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-anual",
+                    "paises": [
+                      "PIB",
+                      "MIN",
+                      "NOMIN"
+                    ],
+                    "valores": {
+                      "PIB": [
+                        [
+                          2026,
+                          -1.1
+                        ]
+                      ],
+                      "MIN": [
+                        [
+                          2026,
+                          -14.7
+                        ]
+                      ],
+                      "NOMIN": [
+                        [
+                          2026,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "PIB": "PIB total",
+                      "MIN": "Minería",
+                      "NOMIN": "PIB no minero"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "NOMIN",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Contra el trimestre anterior, con ajuste por estación, la minería cayó 12,9 %. Según Pauta, el PIB no minero retrocedió apenas 0,2 %, y fue la minería la que explicó la contracción. Dicho de otro modo: de la caída de 1,8 % del total, la mayor parte viene de un solo sector.",
+            "grafico": {
+              "tipo": "barras",
+              "titulo": "Contra el 2.º trimestre, serie ajustada",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pib-t3-2026-desestacionalizado",
+                "paises": [
+                  "PIB",
+                  "MIN",
+                  "NOMIN"
+                ],
+                "valores": {
+                  "PIB": [
+                    [
+                      2026,
+                      -1.8
+                    ]
+                  ],
+                  "MIN": [
+                    [
+                      2026,
+                      -12.9
+                    ]
+                  ],
+                  "NOMIN": [
+                    [
+                      2026,
+                      -0.2
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "PIB": "PIB total",
+                  "MIN": "Minería",
+                  "NOMIN": "PIB no minero"
+                },
+                "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía La Tercera y Pauta, 18-11-2026)",
+                "fuenteUrl": "https://www.pauta.cl/economia/2026/11/18/economia-chilena-cae-11-en-el-tercer-trimestre-por-retroceso-de-la-mineria.html",
+                "etiqueta": "Variación contra el 2.º trimestre, serie ajustada",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "MIN"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "Pauta"
+            },
+            "cifras": [
+              {
+                "texto": "12,9 %",
+                "valor": -12.9,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-desestacionalizado",
+                    "paises": [
+                      "PIB",
+                      "MIN",
+                      "NOMIN"
+                    ],
+                    "valores": {
+                      "PIB": [
+                        [
+                          2026,
+                          -1.8
+                        ]
+                      ],
+                      "MIN": [
+                        [
+                          2026,
+                          -12.9
+                        ]
+                      ],
+                      "NOMIN": [
+                        [
+                          2026,
+                          -0.2
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "PIB": "PIB total",
+                      "MIN": "Minería",
+                      "NOMIN": "PIB no minero"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía La Tercera y Pauta, 18-11-2026)",
+                    "fuenteUrl": "https://www.pauta.cl/economia/2026/11/18/economia-chilena-cae-11-en-el-tercer-trimestre-por-retroceso-de-la-mineria.html",
+                    "etiqueta": "Variación contra el 2.º trimestre, serie ajustada",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "MIN",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "0,2 %",
+                "valor": -0.2,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-desestacionalizado",
+                    "paises": [
+                      "PIB",
+                      "MIN",
+                      "NOMIN"
+                    ],
+                    "valores": {
+                      "PIB": [
+                        [
+                          2026,
+                          -1.8
+                        ]
+                      ],
+                      "MIN": [
+                        [
+                          2026,
+                          -12.9
+                        ]
+                      ],
+                      "NOMIN": [
+                        [
+                          2026,
+                          -0.2
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "PIB": "PIB total",
+                      "MIN": "Minería",
+                      "NOMIN": "PIB no minero"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía La Tercera y Pauta, 18-11-2026)",
+                    "fuenteUrl": "https://www.pauta.cl/economia/2026/11/18/economia-chilena-cae-11-en-el-tercer-trimestre-por-retroceso-de-la-mineria.html",
+                    "etiqueta": "Variación contra el 2.º trimestre, serie ajustada",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "NOMIN",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "1,8 %",
+                "valor": -1.8,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-desestacionalizado",
+                    "paises": [
+                      "PIB",
+                      "MIN",
+                      "NOMIN"
+                    ],
+                    "valores": {
+                      "PIB": [
+                        [
+                          2026,
+                          -1.8
+                        ]
+                      ],
+                      "MIN": [
+                        [
+                          2026,
+                          -12.9
+                        ]
+                      ],
+                      "NOMIN": [
+                        [
+                          2026,
+                          -0.2
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "PIB": "PIB total",
+                      "MIN": "Minería",
+                      "NOMIN": "PIB no minero"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía La Tercera y Pauta, 18-11-2026)",
+                    "fuenteUrl": "https://www.pauta.cl/economia/2026/11/18/economia-chilena-cae-11-en-el-tercer-trimestre-por-retroceso-de-la-mineria.html",
+                    "etiqueta": "Variación contra el 2.º trimestre, serie ajustada",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "PIB",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Dentro del resto de la economía hubo de todo. Según el Banco Central, crecieron la agricultura y la silvicultura, 10,2 %; la electricidad, el gas y el agua, 6,0 %; y el comercio, 2,2 %. La construcción, en cambio, cayó 5,0 %, con menos obras de ingeniería. Y dentro de la minería, no todo bajó: el litio creció por mayores leyes y mejoras operacionales.",
+            "grafico": {
+              "tipo": "barras",
+              "titulo": "Algunos sectores, contra un año antes",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pib-t3-2026-sectores",
+                "paises": [
+                  "AGRO",
+                  "EGA",
+                  "COM",
+                  "CONS"
+                ],
+                "valores": {
+                  "AGRO": [
+                    [
+                      2026,
+                      10.2
+                    ]
+                  ],
+                  "EGA": [
+                    [
+                      2026,
+                      6.0
+                    ]
+                  ],
+                  "COM": [
+                    [
+                      2026,
+                      2.2
+                    ]
+                  ],
+                  "CONS": [
+                    [
+                      2026,
+                      -5.0
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "AGRO": "Agro y silvicultura",
+                  "EGA": "Electricidad, gas y agua",
+                  "COM": "Comercio",
+                  "CONS": "Construcción"
+                },
+                "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "CONS"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "agricultura"
+            },
+            "cifras": [
+              {
+                "texto": "10,2 %",
+                "valor": 10.2,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-sectores",
+                    "paises": [
+                      "AGRO",
+                      "EGA",
+                      "COM",
+                      "CONS"
+                    ],
+                    "valores": {
+                      "AGRO": [
+                        [
+                          2026,
+                          10.2
+                        ]
+                      ],
+                      "EGA": [
+                        [
+                          2026,
+                          6.0
+                        ]
+                      ],
+                      "COM": [
+                        [
+                          2026,
+                          2.2
+                        ]
+                      ],
+                      "CONS": [
+                        [
+                          2026,
+                          -5.0
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "AGRO": "Agro y silvicultura",
+                      "EGA": "Electricidad, gas y agua",
+                      "COM": "Comercio",
+                      "CONS": "Construcción"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "AGRO",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "6,0 %",
+                "valor": 6.0,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-sectores",
+                    "paises": [
+                      "AGRO",
+                      "EGA",
+                      "COM",
+                      "CONS"
+                    ],
+                    "valores": {
+                      "AGRO": [
+                        [
+                          2026,
+                          10.2
+                        ]
+                      ],
+                      "EGA": [
+                        [
+                          2026,
+                          6.0
+                        ]
+                      ],
+                      "COM": [
+                        [
+                          2026,
+                          2.2
+                        ]
+                      ],
+                      "CONS": [
+                        [
+                          2026,
+                          -5.0
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "AGRO": "Agro y silvicultura",
+                      "EGA": "Electricidad, gas y agua",
+                      "COM": "Comercio",
+                      "CONS": "Construcción"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "EGA",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "2,2 %",
+                "valor": 2.2,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-sectores",
+                    "paises": [
+                      "AGRO",
+                      "EGA",
+                      "COM",
+                      "CONS"
+                    ],
+                    "valores": {
+                      "AGRO": [
+                        [
+                          2026,
+                          10.2
+                        ]
+                      ],
+                      "EGA": [
+                        [
+                          2026,
+                          6.0
+                        ]
+                      ],
+                      "COM": [
+                        [
+                          2026,
+                          2.2
+                        ]
+                      ],
+                      "CONS": [
+                        [
+                          2026,
+                          -5.0
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "AGRO": "Agro y silvicultura",
+                      "EGA": "Electricidad, gas y agua",
+                      "COM": "Comercio",
+                      "CONS": "Construcción"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "COM",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "5,0 %",
+                "valor": -5.0,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-sectores",
+                    "paises": [
+                      "AGRO",
+                      "EGA",
+                      "COM",
+                      "CONS"
+                    ],
+                    "valores": {
+                      "AGRO": [
+                        [
+                          2026,
+                          10.2
+                        ]
+                      ],
+                      "EGA": [
+                        [
+                          2026,
+                          6.0
+                        ]
+                      ],
+                      "COM": [
+                        [
+                          2026,
+                          2.2
+                        ]
+                      ],
+                      "CONS": [
+                        [
+                          2026,
+                          -5.0
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "AGRO": "Agro y silvicultura",
+                      "EGA": "Electricidad, gas y agua",
+                      "COM": "Comercio",
+                      "CONS": "Construcción"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "CONS",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "El Imacec ya lo mostraba mes a mes. En septiembre, la minería cayó 12,1 % y el resto de la economía creció 2,0 % contra un año antes. Según Bloomberg, citado por el Diario Financiero, la producción de cobre del año quedaría bajo los 5 millones de toneladas, la menor en más de dos décadas. Y el ministro Quiroz calcula que el cobre le resta al crecimiento de este año entre 1 y 1,5 puntos.",
+            "grafico": {
+              "tipo": "barras",
+              "titulo": "Imacec de septiembre, contra un año antes",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "imacec-septiembre-2026",
+                "paises": [
+                  "MINERO",
+                  "NOMINERO",
+                  "TOTAL"
+                ],
+                "valores": {
+                  "MINERO": [
+                    [
+                      2026,
+                      -12.1
+                    ]
+                  ],
+                  "NOMINERO": [
+                    [
+                      2026,
+                      2.0
+                    ]
+                  ],
+                  "TOTAL": [
+                    [
+                      2026,
+                      0.2
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "MINERO": "Minería",
+                  "NOMINERO": "No minero",
+                  "TOTAL": "Imacec total"
+                },
+                "fuenteTexto": "Banco Central de Chile, Imacec de septiembre de 2026 (vía Emol, 02-11-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html",
+                "etiqueta": "Variación anual del Imacec",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "MINERO"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "septiembre"
+            },
+            "cifras": [
+              {
+                "texto": "12,1 %",
+                "valor": -12.1,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "imacec-septiembre-2026",
+                    "paises": [
+                      "MINERO",
+                      "NOMINERO",
+                      "TOTAL"
+                    ],
+                    "valores": {
+                      "MINERO": [
+                        [
+                          2026,
+                          -12.1
+                        ]
+                      ],
+                      "NOMINERO": [
+                        [
+                          2026,
+                          2.0
+                        ]
+                      ],
+                      "TOTAL": [
+                        [
+                          2026,
+                          0.2
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "MINERO": "Minería",
+                      "NOMINERO": "No minero",
+                      "TOTAL": "Imacec total"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Imacec de septiembre de 2026 (vía Emol, 02-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html",
+                    "etiqueta": "Variación anual del Imacec",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "MINERO",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "2,0 %",
+                "valor": 2.0,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "imacec-septiembre-2026",
+                    "paises": [
+                      "MINERO",
+                      "NOMINERO",
+                      "TOTAL"
+                    ],
+                    "valores": {
+                      "MINERO": [
+                        [
+                          2026,
+                          -12.1
+                        ]
+                      ],
+                      "NOMINERO": [
+                        [
+                          2026,
+                          2.0
+                        ]
+                      ],
+                      "TOTAL": [
+                        [
+                          2026,
+                          0.2
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "MINERO": "Minería",
+                      "NOMINERO": "No minero",
+                      "TOTAL": "Imacec total"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Imacec de septiembre de 2026 (vía Emol, 02-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html",
+                    "etiqueta": "Variación anual del Imacec",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "NOMINERO",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "1 y 1,5 puntos",
+                "valor": 1.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "quiroz-cobre-puntos-pib-2026",
+                    "paises": [
+                      "BAJO",
+                      "ALTO"
+                    ],
+                    "valores": {
+                      "BAJO": [
+                        [
+                          2026,
+                          1.0
+                        ]
+                      ],
+                      "ALTO": [
+                        [
+                          2026,
+                          1.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "BAJO": "Efecto directo",
+                      "ALTO": "Efecto total"
+                    },
+                    "fuenteTexto": "Ministro de Hacienda J. Quiroz, ChileDay de Londres, 16-09-2026 (vía Emol)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/09/17/1211725/quiroz-tras-chileday.html",
+                    "etiqueta": "Puntos de crecimiento que resta el cobre",
+                    "unidad": "puntos"
+                  },
+                  "operacion": "valor",
+                  "pais": "ALTO",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "giro",
+            "texto": "Distinguir entre los dos movimientos importa, porque no tienen las mismas causas. La caída de la minería viene del mineral, las mantenciones y el clima, y es lo que concentra el retroceso. Lo que pasa con la inversión y el consumo es otra historia, y la vemos ahora.",
+            "rotulo": {
+              "texto": "UN SECTOR, NO TODOS",
+              "dice": "sector"
+            }
+          },
+          {
+            "tipo": "reenganche",
+            "texto": "Pero una economía no es solo lo que produce: también es lo que se destina a inversión, lo que se consume y lo que se exporta. Y ahí hay una señal que el cobre no explica."
+          }
+        ]
+      },
+      {
+        "titulo": "Inversión y consumo",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "El PIB también se puede mirar desde la demanda: cuánto se destina a inversión, cuánto se consume y cuánto sale al exterior. Mirado así, el tercer trimestre dejó cifras para cada lado.",
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "El PIB visto desde la demanda",
+              "items": [
+                {
+                  "icono": "🏗️",
+                  "texto": "Inversión",
+                  "dice": "inversión"
+                },
+                {
+                  "icono": "🛒",
+                  "texto": "Consumo",
+                  "dice": "consume"
+                },
+                {
+                  "icono": "🚢",
+                  "texto": "Exportaciones",
+                  "dice": "exporta"
+                }
+              ]
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "La inversión, que el Banco Central mide como formación bruta de capital fijo, cayó 6,7 %. La maquinaria y los equipos bajaron 10,1 %, después de haber subido 22,4 % en el mismo trimestre de 2025. La construcción y otras obras bajaron 4,1 %. Según el Banco Central, el resultado se explicó por una menor inversión, atenuada por más consumo de los hogares y del gobierno.",
+            "grafico": {
+              "tipo": "barras",
+              "titulo": "Piezas de la demanda, contra un año antes",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pib-t3-2026-demanda",
+                "paises": [
+                  "INV",
+                  "CONS",
+                  "GOB",
+                  "EXP"
+                ],
+                "valores": {
+                  "INV": [
+                    [
+                      2026,
+                      -6.7
+                    ]
+                  ],
+                  "CONS": [
+                    [
+                      2026,
+                      0.7
+                    ]
+                  ],
+                  "GOB": [
+                    [
+                      2026,
+                      2.1
+                    ]
+                  ],
+                  "EXP": [
+                    [
+                      2026,
+                      -0.6
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "INV": "Inversión",
+                  "CONS": "Consumo hogares",
+                  "GOB": "Consumo gobierno",
+                  "EXP": "Exportaciones"
+                },
+                "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "INV"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "inversión"
+            },
+            "cifras": [
+              {
+                "texto": "6,7 %",
+                "valor": -6.7,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-demanda",
+                    "paises": [
+                      "INV",
+                      "CONS",
+                      "GOB",
+                      "EXP"
+                    ],
+                    "valores": {
+                      "INV": [
+                        [
+                          2026,
+                          -6.7
+                        ]
+                      ],
+                      "CONS": [
+                        [
+                          2026,
+                          0.7
+                        ]
+                      ],
+                      "GOB": [
+                        [
+                          2026,
+                          2.1
+                        ]
+                      ],
+                      "EXP": [
+                        [
+                          2026,
+                          -0.6
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "INV": "Inversión",
+                      "CONS": "Consumo hogares",
+                      "GOB": "Consumo gobierno",
+                      "EXP": "Exportaciones"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "INV",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "10,1 %",
+                "valor": -10.1,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "inversion-maquinaria-2026",
+                    "paises": [
+                      "A25",
+                      "A26"
+                    ],
+                    "valores": {
+                      "A25": [
+                        [
+                          2026,
+                          22.4
+                        ]
+                      ],
+                      "A26": [
+                        [
+                          2026,
+                          -10.1
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "A25": "Maquinaria, 3.er trim. 2025",
+                      "A26": "Maquinaria, 3.er trim. 2026"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "Variación anual de maquinaria y equipos",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "A26",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "22,4 %",
+                "valor": 22.4,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "inversion-maquinaria-2026",
+                    "paises": [
+                      "A25",
+                      "A26"
+                    ],
+                    "valores": {
+                      "A25": [
+                        [
+                          2026,
+                          22.4
+                        ]
+                      ],
+                      "A26": [
+                        [
+                          2026,
+                          -10.1
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "A25": "Maquinaria, 3.er trim. 2025",
+                      "A26": "Maquinaria, 3.er trim. 2026"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "Variación anual de maquinaria y equipos",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "A25",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "El consumo de los hogares sí creció, 0,7 %, pero cada vez menos: 2,5 % en el primer trimestre, 1,1 % en el segundo y 0,7 % en el tercero. El gasto del gobierno subió 2,1 %, por salud. Las exportaciones bajaron 0,6 % y las importaciones, 0,4 %, con un efecto neto nulo sobre la actividad.",
+            "grafico": {
+              "tipo": "lineas",
+              "titulo": "Consumo de los hogares, contra un año antes",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "consumo-hogares-2026",
+                "paises": [
+                  "CHL"
+                ],
+                "valores": {
+                  "CHL": [
+                    [
+                      0,
+                      2.5
+                    ],
+                    [
+                      1,
+                      1.1
+                    ],
+                    [
+                      2,
+                      0.7
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "CHL": "Consumo de los hogares"
+                },
+                "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                "etiqueta": "Variación contra un año antes",
+                "unidad": "%",
+                "etiquetasX": {
+                  "0": "1.er trim.",
+                  "1": "2.º trim.",
+                  "2": "3.er trim."
+                }
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "moderación"
+            },
+            "cifras": [
+              {
+                "texto": "0,7 %",
+                "valor": 0.7,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "consumo-hogares-2026",
+                    "paises": [
+                      "CHL"
+                    ],
+                    "valores": {
+                      "CHL": [
+                        [
+                          0,
+                          2.5
+                        ],
+                        [
+                          1,
+                          1.1
+                        ],
+                        [
+                          2,
+                          0.7
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "CHL": "Consumo de los hogares"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "Variación contra un año antes",
+                    "unidad": "%",
+                    "etiquetasX": {
+                      "0": "1.er trim.",
+                      "1": "2.º trim.",
+                      "2": "3.er trim."
+                    }
+                  },
+                  "operacion": "valor",
+                  "pais": "CHL",
+                  "anio": 2
+                }
+              },
+              {
+                "texto": "2,5 %",
+                "valor": 2.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "consumo-hogares-2026",
+                    "paises": [
+                      "CHL"
+                    ],
+                    "valores": {
+                      "CHL": [
+                        [
+                          0,
+                          2.5
+                        ],
+                        [
+                          1,
+                          1.1
+                        ],
+                        [
+                          2,
+                          0.7
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "CHL": "Consumo de los hogares"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "Variación contra un año antes",
+                    "unidad": "%",
+                    "etiquetasX": {
+                      "0": "1.er trim.",
+                      "1": "2.º trim.",
+                      "2": "3.er trim."
+                    }
+                  },
+                  "operacion": "valor",
+                  "pais": "CHL",
+                  "anio": 0
+                }
+              },
+              {
+                "texto": "1,1 %",
+                "valor": 1.1,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "consumo-hogares-2026",
+                    "paises": [
+                      "CHL"
+                    ],
+                    "valores": {
+                      "CHL": [
+                        [
+                          0,
+                          2.5
+                        ],
+                        [
+                          1,
+                          1.1
+                        ],
+                        [
+                          2,
+                          0.7
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "CHL": "Consumo de los hogares"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "Variación contra un año antes",
+                    "unidad": "%",
+                    "etiquetasX": {
+                      "0": "1.er trim.",
+                      "1": "2.º trim.",
+                      "2": "3.er trim."
+                    }
+                  },
+                  "operacion": "valor",
+                  "pais": "CHL",
+                  "anio": 1
+                }
+              },
+              {
+                "texto": "2,1 %",
+                "valor": 2.1,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-t3-2026-demanda",
+                    "paises": [
+                      "INV",
+                      "CONS",
+                      "GOB",
+                      "EXP"
+                    ],
+                    "valores": {
+                      "INV": [
+                        [
+                          2026,
+                          -6.7
+                        ]
+                      ],
+                      "CONS": [
+                        [
+                          2026,
+                          0.7
+                        ]
+                      ],
+                      "GOB": [
+                        [
+                          2026,
+                          2.1
+                        ]
+                      ],
+                      "EXP": [
+                        [
+                          2026,
+                          -0.6
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "INV": "Inversión",
+                      "CONS": "Consumo hogares",
+                      "GOB": "Consumo gobierno",
+                      "EXP": "Exportaciones"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "Variación contra el 3.er trimestre de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "GOB",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "giro",
+            "texto": "Hay un matiz que suaviza la lectura. El ingreso nacional bruto disponible real, que mide cuánto ingreso le queda al país, cayó 0,3 %, menos que el PIB. El Banco Central lo atribuyó a mejores términos de intercambio: el precio de lo que Chile exporta subió más que el de lo que Chile importa. La actividad cayó más que el ingreso.",
+            "rotulo": {
+              "texto": "INGRESO: −0,3 %",
+              "dice": "ingreso"
+            }
+          },
+          {
+            "tipo": "reenganche",
+            "texto": "Hasta aquí, cifras de producción. Falta lo que más se siente: qué pasa con el trabajo, los precios y la tasa de interés."
+          }
+        ]
+      },
+      {
+        "titulo": "Cómo llega a tu casa",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "Una caída de la actividad llega a una casa por tres puertas. La primera es el trabajo, y los datos del INE muestran dos cosas a la vez: el desempleo es alto a nivel nacional y muy distinto entre regiones. En Ñuble fue 11,8 % y en Aysén, 4,0 %, entre julio y septiembre.",
+            "visual": {
+              "tipo": "chile",
+              "regiones": [
+                "CL-NB",
+                "CL-AI"
+              ],
+              "acercar": false,
+              "puntos": [
+                {
+                  "texto": "Ñuble 11,8 %",
+                  "en": [
+                    -72.1,
+                    -36.61
+                  ],
+                  "dice": "Ñuble"
+                },
+                {
+                  "texto": "Aysén 4,0 %",
+                  "en": [
+                    -72.07,
+                    -45.57
+                  ],
+                  "dice": "Aysén"
+                }
+              ]
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Entre julio y septiembre, la desocupación nacional fue de 9,8 %, contra 8,5 % un año antes. Son 1,3 puntos más, y es la tasa más alta en cinco años. Los desocupados subieron 15,3 % en doce meses, y los ocupados bajaron 1,1 %.",
+            "grafico": {
+              "tipo": "comparacion",
+              "titulo": "Desocupación nacional, julio a septiembre",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "desocupacion-nacional-jas",
+                "paises": [
+                  "N2026",
+                  "N2025"
+                ],
+                "valores": {
+                  "N2026": [
+                    [
+                      2026,
+                      9.8
+                    ]
+                  ],
+                  "N2025": [
+                    [
+                      2026,
+                      8.5
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "N2026": "Jul-sep 2026",
+                  "N2025": "Jul-sep 2025"
+                },
+                "fuenteTexto": "INE, ENE nacional, trimestres julio a septiembre de 2026 y 2025",
+                "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+                "etiqueta": "Desocupación nacional",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "N2026"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "contra"
+            },
+            "cifras": [
+              {
+                "texto": "9,8 %",
+                "valor": 9.8,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "desocupacion-nacional-jas",
+                    "paises": [
+                      "N2026",
+                      "N2025"
+                    ],
+                    "valores": {
+                      "N2026": [
+                        [
+                          2026,
+                          9.8
+                        ]
+                      ],
+                      "N2025": [
+                        [
+                          2026,
+                          8.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "N2026": "Jul-sep 2026",
+                      "N2025": "Jul-sep 2025"
+                    },
+                    "fuenteTexto": "INE, ENE nacional, trimestres julio a septiembre de 2026 y 2025",
+                    "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+                    "etiqueta": "Desocupación nacional",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "N2026",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "8,5 %",
+                "valor": 8.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "desocupacion-nacional-jas",
+                    "paises": [
+                      "N2026",
+                      "N2025"
+                    ],
+                    "valores": {
+                      "N2026": [
+                        [
+                          2026,
+                          9.8
+                        ]
+                      ],
+                      "N2025": [
+                        [
+                          2026,
+                          8.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "N2026": "Jul-sep 2026",
+                      "N2025": "Jul-sep 2025"
+                    },
+                    "fuenteTexto": "INE, ENE nacional, trimestres julio a septiembre de 2026 y 2025",
+                    "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+                    "etiqueta": "Desocupación nacional",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "N2025",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "1,3 puntos",
+                "valor": 1.3,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "desocupacion-nacional-jas",
+                    "paises": [
+                      "N2026",
+                      "N2025"
+                    ],
+                    "valores": {
+                      "N2026": [
+                        [
+                          2026,
+                          9.8
+                        ]
+                      ],
+                      "N2025": [
+                        [
+                          2026,
+                          8.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "N2026": "Jul-sep 2026",
+                      "N2025": "Jul-sep 2025"
+                    },
+                    "fuenteTexto": "INE, ENE nacional, trimestres julio a septiembre de 2026 y 2025",
+                    "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+                    "etiqueta": "Desocupación nacional",
+                    "unidad": "%"
+                  },
+                  "operacion": "diferencia",
+                  "pais": "N2026",
+                  "anio": 2026,
+                  "paisB": "N2025"
+                }
+              },
+              {
+                "texto": "15,3 %",
+                "valor": 15.3,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "empleo-variacion-12-meses-jas-2026",
+                    "paises": [
+                      "DESOC",
+                      "OCUP"
+                    ],
+                    "valores": {
+                      "DESOC": [
+                        [
+                          2026,
+                          15.3
+                        ]
+                      ],
+                      "OCUP": [
+                        [
+                          2026,
+                          -1.1
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "DESOC": "Desocupados",
+                      "OCUP": "Ocupados"
+                    },
+                    "fuenteTexto": "INE, ENE nacional, julio a septiembre de 2026, variación en 12 meses",
+                    "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+                    "etiqueta": "Variación en 12 meses",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "DESOC",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "1,1 %",
+                "valor": -1.1,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "empleo-variacion-12-meses-jas-2026",
+                    "paises": [
+                      "DESOC",
+                      "OCUP"
+                    ],
+                    "valores": {
+                      "DESOC": [
+                        [
+                          2026,
+                          15.3
+                        ]
+                      ],
+                      "OCUP": [
+                        [
+                          2026,
+                          -1.1
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "DESOC": "Desocupados",
+                      "OCUP": "Ocupados"
+                    },
+                    "fuenteTexto": "INE, ENE nacional, julio a septiembre de 2026, variación en 12 meses",
+                    "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+                    "etiqueta": "Variación en 12 meses",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "OCUP",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Y no fue un salto: fue una escalera. Según el INE, el trimestre de abril a junio dio 9,4 %; mayo a julio, 9,5 %; junio a agosto, 9,6 %; y julio a septiembre, 9,8 %. Como el INE mide trimestres móviles, cada cifra comparte dos meses con la anterior, y por eso la curva sube de a poco.",
+            "grafico": {
+              "tipo": "lineas",
+              "titulo": "Desocupación, trimestres móviles de 2026",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "desocupacion-trimestres-moviles-2026",
+                "paises": [
+                  "CHL"
+                ],
+                "valores": {
+                  "CHL": [
+                    [
+                      0,
+                      9.4
+                    ],
+                    [
+                      1,
+                      9.5
+                    ],
+                    [
+                      2,
+                      9.6
+                    ],
+                    [
+                      3,
+                      9.8
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "CHL": "Desocupación"
+                },
+                "fuenteTexto": "INE, Encuesta Nacional de Empleo, trimestres móviles de 2026",
+                "fuenteUrl": "https://www.ine.gob.cl/estadisticas/sociales/mercado-laboral/ocupacion-y-desocupacion",
+                "etiqueta": "Tasa de desocupación nacional",
+                "unidad": "%",
+                "etiquetasX": {
+                  "0": "abr-jun",
+                  "1": "may-jul",
+                  "2": "jun-ago",
+                  "3": "jul-sep"
+                }
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "escalera"
+            },
+            "cifras": [
+              {
+                "texto": "9,4 %",
+                "valor": 9.4,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "desocupacion-trimestres-moviles-2026",
+                    "paises": [
+                      "CHL"
+                    ],
+                    "valores": {
+                      "CHL": [
+                        [
+                          0,
+                          9.4
+                        ],
+                        [
+                          1,
+                          9.5
+                        ],
+                        [
+                          2,
+                          9.6
+                        ],
+                        [
+                          3,
+                          9.8
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "CHL": "Desocupación"
+                    },
+                    "fuenteTexto": "INE, Encuesta Nacional de Empleo, trimestres móviles de 2026",
+                    "fuenteUrl": "https://www.ine.gob.cl/estadisticas/sociales/mercado-laboral/ocupacion-y-desocupacion",
+                    "etiqueta": "Tasa de desocupación nacional",
+                    "unidad": "%",
+                    "etiquetasX": {
+                      "0": "abr-jun",
+                      "1": "may-jul",
+                      "2": "jun-ago",
+                      "3": "jul-sep"
+                    }
+                  },
+                  "operacion": "valor",
+                  "pais": "CHL",
+                  "anio": 0
+                }
+              },
+              {
+                "texto": "9,8 %",
+                "valor": 9.8,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "desocupacion-trimestres-moviles-2026",
+                    "paises": [
+                      "CHL"
+                    ],
+                    "valores": {
+                      "CHL": [
+                        [
+                          0,
+                          9.4
+                        ],
+                        [
+                          1,
+                          9.5
+                        ],
+                        [
+                          2,
+                          9.6
+                        ],
+                        [
+                          3,
+                          9.8
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "CHL": "Desocupación"
+                    },
+                    "fuenteTexto": "INE, Encuesta Nacional de Empleo, trimestres móviles de 2026",
+                    "fuenteUrl": "https://www.ine.gob.cl/estadisticas/sociales/mercado-laboral/ocupacion-y-desocupacion",
+                    "etiqueta": "Tasa de desocupación nacional",
+                    "unidad": "%",
+                    "etiquetasX": {
+                      "0": "abr-jun",
+                      "1": "may-jul",
+                      "2": "jun-ago",
+                      "3": "jul-sep"
+                    }
+                  },
+                  "operacion": "valor",
+                  "pais": "CHL",
+                  "anio": 3
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "La segunda puerta son los precios. Según el INE, el IPC de octubre subió 0,5 % en el mes, y la inflación de doce meses llegó a 4,5 %, sobre la meta de 3 % del Banco Central. Los combustibles pesaron: la gasolina subió 4,5 % en un solo mes.",
+            "grafico": {
+              "tipo": "contador",
+              "titulo": "Inflación a doce meses, octubre",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "ipc-octubre-2026",
+                "paises": [
+                  "ANUAL",
+                  "MES",
+                  "META",
+                  "GAS"
+                ],
+                "valores": {
+                  "ANUAL": [
+                    [
+                      2026,
+                      4.5
+                    ]
+                  ],
+                  "MES": [
+                    [
+                      2026,
+                      0.5
+                    ]
+                  ],
+                  "META": [
+                    [
+                      2026,
+                      3.0
+                    ]
+                  ],
+                  "GAS": [
+                    [
+                      2026,
+                      4.5
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "ANUAL": "IPC 12 meses",
+                  "MES": "IPC del mes",
+                  "META": "Meta",
+                  "GAS": "Gasolina"
+                },
+                "fuenteTexto": "INE, IPC de octubre de 2026 (vía Emol, 06-11-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html",
+                "etiqueta": "Variación del IPC",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "ANUAL",
+                "texto": "IPC a doce meses"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "4,5"
+            },
+            "cifras": [
+              {
+                "texto": "0,5 %",
+                "valor": 0.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "ipc-octubre-2026",
+                    "paises": [
+                      "ANUAL",
+                      "MES",
+                      "META",
+                      "GAS"
+                    ],
+                    "valores": {
+                      "ANUAL": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ],
+                      "MES": [
+                        [
+                          2026,
+                          0.5
+                        ]
+                      ],
+                      "META": [
+                        [
+                          2026,
+                          3.0
+                        ]
+                      ],
+                      "GAS": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "ANUAL": "IPC 12 meses",
+                      "MES": "IPC del mes",
+                      "META": "Meta",
+                      "GAS": "Gasolina"
+                    },
+                    "fuenteTexto": "INE, IPC de octubre de 2026 (vía Emol, 06-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html",
+                    "etiqueta": "Variación del IPC",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "MES",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "4,5 %",
+                "valor": 4.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "ipc-octubre-2026",
+                    "paises": [
+                      "ANUAL",
+                      "MES",
+                      "META",
+                      "GAS"
+                    ],
+                    "valores": {
+                      "ANUAL": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ],
+                      "MES": [
+                        [
+                          2026,
+                          0.5
+                        ]
+                      ],
+                      "META": [
+                        [
+                          2026,
+                          3.0
+                        ]
+                      ],
+                      "GAS": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "ANUAL": "IPC 12 meses",
+                      "MES": "IPC del mes",
+                      "META": "Meta",
+                      "GAS": "Gasolina"
+                    },
+                    "fuenteTexto": "INE, IPC de octubre de 2026 (vía Emol, 06-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html",
+                    "etiqueta": "Variación del IPC",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "ANUAL",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "3 %",
+                "valor": 3.0,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "ipc-octubre-2026",
+                    "paises": [
+                      "ANUAL",
+                      "MES",
+                      "META",
+                      "GAS"
+                    ],
+                    "valores": {
+                      "ANUAL": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ],
+                      "MES": [
+                        [
+                          2026,
+                          0.5
+                        ]
+                      ],
+                      "META": [
+                        [
+                          2026,
+                          3.0
+                        ]
+                      ],
+                      "GAS": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "ANUAL": "IPC 12 meses",
+                      "MES": "IPC del mes",
+                      "META": "Meta",
+                      "GAS": "Gasolina"
+                    },
+                    "fuenteTexto": "INE, IPC de octubre de 2026 (vía Emol, 06-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html",
+                    "etiqueta": "Variación del IPC",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "META",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "4,5 %",
+                "valor": 4.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "ipc-octubre-2026",
+                    "paises": [
+                      "ANUAL",
+                      "MES",
+                      "META",
+                      "GAS"
+                    ],
+                    "valores": {
+                      "ANUAL": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ],
+                      "MES": [
+                        [
+                          2026,
+                          0.5
+                        ]
+                      ],
+                      "META": [
+                        [
+                          2026,
+                          3.0
+                        ]
+                      ],
+                      "GAS": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "ANUAL": "IPC 12 meses",
+                      "MES": "IPC del mes",
+                      "META": "Meta",
+                      "GAS": "Gasolina"
+                    },
+                    "fuenteTexto": "INE, IPC de octubre de 2026 (vía Emol, 06-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html",
+                    "etiqueta": "Variación del IPC",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "GAS",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "giro",
+            "texto": "La tercera puerta, la tasa de interés, no se movió. El Banco Central mantuvo la tasa en 4,5 % en octubre, por unanimidad, en una pausa que viene desde diciembre de 2025. En teoría, subir la tasa enfría los precios pero encarece los créditos, y bajarla ayuda a la actividad pero puede presionar los precios. Cuando el empleo y la inflación señalan hacia lados opuestos, el Consejo ha dicho que decidirá reunión a reunión.",
+            "rotulo": {
+              "texto": "TASA EN 4,5 %",
+              "dice": "interés"
+            },
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Las tres puertas",
+              "items": [
+                {
+                  "icono": "👷",
+                  "texto": "Trabajo",
+                  "valor": "9,8 %",
+                  "dice": "empleo"
+                },
+                {
+                  "icono": "🛒",
+                  "texto": "Precios",
+                  "valor": "4,5 %",
+                  "dice": "precios"
+                },
+                {
+                  "icono": "🏦",
+                  "texto": "Tasa de interés",
+                  "valor": "4,5 %",
+                  "dice": "unanimidad"
+                }
+              ]
+            },
+            "cifras": [
+              {
+                "texto": "4,5 %",
+                "valor": 4.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "tpm-octubre-2026",
+                    "paises": [
+                      "TPM"
+                    ],
+                    "valores": {
+                      "TPM": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "TPM": "Tasa de política monetaria"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, comunicado de la reunión de política monetaria de octubre de 2026",
+                    "fuenteUrl": "https://www.bcentral.cl/web/banco-central/contenido/-/detalle/prensa/comunicados-rpm/comunicado-reunion-de-politica-monetaria-octubre-2026",
+                    "etiqueta": "Tasa de política monetaria",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "TPM",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "reenganche",
+            "texto": "Con la actividad en baja, el empleo débil y los precios sobre la meta, queda lo práctico: qué datos mirar en las próximas semanas."
+          }
+        ]
+      },
+      {
+        "titulo": "Qué mirar en las próximas semanas",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "Hay cuatro fechas que van a mostrar hacia dónde va esto. Y la primera responde la pregunta de la recesión técnica: el PIB del cuarto trimestre, que el Banco Central publicará el año próximo.",
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Qué mirar ahora",
+              "items": [
+                {
+                  "icono": "⛏️",
+                  "texto": "Imacec de octubre",
+                  "dice": "octubre"
+                },
+                {
+                  "icono": "🏦",
+                  "texto": "Tasa: reunión del 15 de dic"
+                },
+                {
+                  "icono": "👷",
+                  "texto": "Empleo, agosto a octubre"
+                },
+                {
+                  "icono": "📊",
+                  "texto": "PIB del cuarto trimestre"
+                }
+              ]
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Según La Tercera, para que el año cierre en terreno positivo, el cuarto trimestre tendría que crecer en torno a 1,2 %, algo que el medio considera difícil. El acumulado de enero a septiembre es de menos 0,5 %. Y la regla de la recesión técnica es simple: si el cuarto trimestre también cae contra el tercero, serían dos caídas seguidas.",
+            "grafico": {
+              "tipo": "contador",
+              "titulo": "PIB acumulado de enero a septiembre de 2026",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pib-acumulado-2026",
+                "paises": [
+                  "ACUM",
+                  "REQ"
+                ],
+                "valores": {
+                  "ACUM": [
+                    [
+                      2026,
+                      -0.5
+                    ]
+                  ],
+                  "REQ": [
+                    [
+                      2026,
+                      1.2
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "ACUM": "Enero a septiembre",
+                  "REQ": "Cuarto trimestre requerido"
+                },
+                "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía La Tercera, 18-11-2026)",
+                "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                "etiqueta": "PIB contra el mismo período de 2025",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "ACUM",
+                "texto": "contra el mismo período de 2025"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "acumulado"
+            },
+            "cifras": [
+              {
+                "texto": "0,5 %",
+                "valor": -0.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-acumulado-2026",
+                    "paises": [
+                      "ACUM",
+                      "REQ"
+                    ],
+                    "valores": {
+                      "ACUM": [
+                        [
+                          2026,
+                          -0.5
+                        ]
+                      ],
+                      "REQ": [
+                        [
+                          2026,
+                          1.2
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "ACUM": "Enero a septiembre",
+                      "REQ": "Cuarto trimestre requerido"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "PIB contra el mismo período de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "ACUM",
+                  "anio": 2026
+                }
+              },
+              {
+                "texto": "1,2 %",
+                "valor": 1.2,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "pib-acumulado-2026",
+                    "paises": [
+                      "ACUM",
+                      "REQ"
+                    ],
+                    "valores": {
+                      "ACUM": [
+                        [
+                          2026,
+                          -0.5
+                        ]
+                      ],
+                      "REQ": [
+                        [
+                          2026,
+                          1.2
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "ACUM": "Enero a septiembre",
+                      "REQ": "Cuarto trimestre requerido"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía La Tercera, 18-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+                    "etiqueta": "PIB contra el mismo período de 2025",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "REQ",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Antes de eso vienen otras tres citas. La tasa de política monetaria: según el comunicado del Banco Central, la próxima reunión es el martes 15 de diciembre, y la Encuesta de Expectativas de octubre esperaba que siga en 4,5 %. El Imacec de octubre, que dirá si la minería se recupera. Y el empleo del trimestre de agosto a octubre, que dirá si la escalera sigue subiendo.",
+            "grafico": {
+              "tipo": "contador",
+              "titulo": "Tasa de política monetaria",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "tpm-octubre-2026",
+                "paises": [
+                  "TPM"
+                ],
+                "valores": {
+                  "TPM": [
+                    [
+                      2026,
+                      4.5
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "TPM": "Tasa de política monetaria"
+                },
+                "fuenteTexto": "Banco Central de Chile, comunicado de la reunión de política monetaria de octubre de 2026",
+                "fuenteUrl": "https://www.bcentral.cl/web/banco-central/contenido/-/detalle/prensa/comunicados-rpm/comunicado-reunion-de-politica-monetaria-octubre-2026",
+                "etiqueta": "Tasa de política monetaria",
+                "unidad": "%"
+              },
+              "destacar": {
+                "pais": "TPM",
+                "texto": "vigente desde diciembre de 2025"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " %"
+              },
+              "dice": "4,5"
+            },
+            "cifras": [
+              {
+                "texto": "4,5 %",
+                "valor": 4.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "tpm-octubre-2026",
+                    "paises": [
+                      "TPM"
+                    ],
+                    "valores": {
+                      "TPM": [
+                        [
+                          2026,
+                          4.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "TPM": "Tasa de política monetaria"
+                    },
+                    "fuenteTexto": "Banco Central de Chile, comunicado de la reunión de política monetaria de octubre de 2026",
+                    "fuenteUrl": "https://www.bcentral.cl/web/banco-central/contenido/-/detalle/prensa/comunicados-rpm/comunicado-reunion-de-politica-monetaria-octubre-2026",
+                    "etiqueta": "Tasa de política monetaria",
+                    "unidad": "%"
+                  },
+                  "operacion": "valor",
+                  "pais": "TPM",
+                  "anio": 2026
+                }
+              }
+            ]
+          },
+          {
+            "tipo": "giro",
+            "texto": "Y hay un detalle que corrige una idea común: la recesión técnica no mide cuánto cae la economía, solo si cae dos trimestres seguidos. Dos caídas pequeñas cuentan igual que dos grandes, y una caída grande, como la de este trimestre, no la declara sola. Por eso el nombre importa menos que el tamaño de la caída y lo que viene después.",
+            "rotulo": {
+              "texto": "NO MIDE EL TAMAÑO",
+              "dice": "tamaño"
+            }
+          },
+          {
+            "tipo": "reenganche",
+            "texto": "Antes de cerrar, queda la pregunta de cómo se nota todo esto en una familia."
+          },
+          {
+            "tipo": "significado",
+            "texto": "En resumen, qué cambió y qué no. Lo que cambió el 18 de noviembre es el dato: el tercer trimestre cayó 1,1 %, más de lo esperado, y la revisión dejó al segundo en cero. Lo que no cambia es el origen principal: el cobre, con menores leyes, mantenciones y clima. Y lo que se nota en la vida diaria es un mercado laboral más débil y precios sobre la meta. Nada de esto es una predicción: es lo que muestran, hasta hoy, las cifras oficiales. El ministro Quiroz proyecta volver a crecer cerca de 4 % en 2028, y los datos de los próximos meses dirán si el camino va hacia allá."
+          }
+        ]
+      }
+    ],
+    "numeroQueNadieMira": {
+      "texto": "Y queda un número que casi nadie mira: 0,2 por ciento. Es lo que retrocedió el PIB no minero contra el trimestre anterior, según Pauta. En la misma comparación, la minería cayó 12,9 por ciento. La economía que no es minera casi no se movió; la minera, sí. Por eso el titular del trimestre es una caída de 1,1 por ciento, pero la historia está concentrada en un sector.",
+      "grafico": {
+        "tipo": "comparacion",
+        "titulo": "Contra el 2.º trimestre, serie ajustada",
+        "datos": {
+          "fuente": "manual",
+          "indicador": "pib-t3-2026-desestacionalizado",
+          "paises": [
+            "PIB",
+            "MIN",
+            "NOMIN"
+          ],
+          "valores": {
+            "PIB": [
+              [
+                2026,
+                -1.8
+              ]
+            ],
+            "MIN": [
+              [
+                2026,
+                -12.9
+              ]
+            ],
+            "NOMIN": [
+              [
+                2026,
+                -0.2
+              ]
+            ]
+          },
+          "nombres": {
+            "PIB": "PIB total",
+            "MIN": "Minería",
+            "NOMIN": "PIB no minero"
+          },
+          "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía La Tercera y Pauta, 18-11-2026)",
+          "fuenteUrl": "https://www.pauta.cl/economia/2026/11/18/economia-chilena-cae-11-en-el-tercer-trimestre-por-retroceso-de-la-mineria.html",
+          "etiqueta": "Variación contra el 2.º trimestre, serie ajustada",
+          "unidad": "%"
+        },
+        "destacar": {
+          "pais": "NOMIN"
+        },
+        "formato": {
+          "decimales": 1,
+          "sufijo": " %"
+        },
+        "dice": "casi"
+      },
+      "cifras": [
+        {
+          "texto": "0,2 por ciento",
+          "valor": -0.2,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "pib-t3-2026-desestacionalizado",
+              "paises": [
+                "PIB",
+                "MIN",
+                "NOMIN"
+              ],
+              "valores": {
+                "PIB": [
+                  [
+                    2026,
+                    -1.8
+                  ]
+                ],
+                "MIN": [
+                  [
+                    2026,
+                    -12.9
+                  ]
+                ],
+                "NOMIN": [
+                  [
+                    2026,
+                    -0.2
+                  ]
+                ]
+              },
+              "nombres": {
+                "PIB": "PIB total",
+                "MIN": "Minería",
+                "NOMIN": "PIB no minero"
+              },
+              "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía La Tercera y Pauta, 18-11-2026)",
+              "fuenteUrl": "https://www.pauta.cl/economia/2026/11/18/economia-chilena-cae-11-en-el-tercer-trimestre-por-retroceso-de-la-mineria.html",
+              "etiqueta": "Variación contra el 2.º trimestre, serie ajustada",
+              "unidad": "%"
+            },
+            "operacion": "valor",
+            "pais": "NOMIN",
+            "anio": 2026
+          }
+        },
+        {
+          "texto": "12,9 por ciento",
+          "valor": -12.9,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "pib-t3-2026-desestacionalizado",
+              "paises": [
+                "PIB",
+                "MIN",
+                "NOMIN"
+              ],
+              "valores": {
+                "PIB": [
+                  [
+                    2026,
+                    -1.8
+                  ]
+                ],
+                "MIN": [
+                  [
+                    2026,
+                    -12.9
+                  ]
+                ],
+                "NOMIN": [
+                  [
+                    2026,
+                    -0.2
+                  ]
+                ]
+              },
+              "nombres": {
+                "PIB": "PIB total",
+                "MIN": "Minería",
+                "NOMIN": "PIB no minero"
+              },
+              "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales (vía La Tercera y Pauta, 18-11-2026)",
+              "fuenteUrl": "https://www.pauta.cl/economia/2026/11/18/economia-chilena-cae-11-en-el-tercer-trimestre-por-retroceso-de-la-mineria.html",
+              "etiqueta": "Variación contra el 2.º trimestre, serie ajustada",
+              "unidad": "%"
+            },
+            "operacion": "valor",
+            "pais": "MIN",
+            "anio": 2026
+          }
+        }
+      ]
+    },
+    "remate": "Un sector cayó casi 15 %, el resto creció 1 %: el nombre de la caída importa menos que su origen.",
+    "siguiente": "¿Cuánto tarda el empleo en recuperarse después de una caída de la actividad? Lo vemos en el próximo video.",
+    "miniatura": {
+      "texto": "CAYÓ 1,1 %: EL COBRE",
+      "grafico": {
+        "tipo": "barras",
+        "titulo": "PIB del tercer trimestre, contra un año antes",
+        "datos": {
+          "fuente": "manual",
+          "indicador": "pib-t3-2026-anual",
+          "paises": [
+            "PIB",
+            "MIN",
+            "NOMIN"
+          ],
+          "valores": {
+            "PIB": [
+              [
+                2026,
+                -1.1
+              ]
+            ],
+            "MIN": [
+              [
+                2026,
+                -14.7
+              ]
+            ],
+            "NOMIN": [
+              [
+                2026,
+                1.0
+              ]
+            ]
+          },
+          "nombres": {
+            "PIB": "PIB total",
+            "MIN": "Minería",
+            "NOMIN": "PIB no minero"
+          },
+          "fuenteTexto": "Banco Central de Chile, Cuentas Nacionales del 3.er trimestre de 2026 (vía La Tercera, 18-11-2026)",
+          "fuenteUrl": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/",
+          "etiqueta": "Variación contra el 3.er trimestre de 2025",
+          "unidad": "%"
+        },
+        "destacar": {
+          "pais": "MIN"
+        },
+        "formato": {
+          "decimales": 1,
+          "sufijo": " %"
+        }
+      }
+    },
+    "fuentes": [
+      {
+        "texto": "La Tercera, PIB del tercer trimestre (18-11-2026)",
+        "url": "https://www.latercera.com/pulso/noticia/pib-del-tercer-trimestre-cae-11/"
+      },
+      {
+        "texto": "Emol, Cuentas Nacionales del Banco Central (18-11-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/11/18/1217423/pib-banco-central-cuentas-nacionales.html"
+      },
+      {
+        "texto": "Pauta, PIB del tercer trimestre (18-11-2026)",
+        "url": "https://www.pauta.cl/economia/2026/11/18/economia-chilena-cae-11-en-el-tercer-trimestre-por-retroceso-de-la-mineria.html"
+      },
+      {
+        "texto": "DF, PIB del tercer trimestre (18-11-2026)",
+        "url": "https://www.df.cl/economia-y-politica/macro/pib-del-tercer-trimestre-sorprende-con-caida-de-1-1-determinado-por-la"
+      },
+      {
+        "texto": "DF y Bloomberg, Quiroz y la recesión técnica (11-11-2026)",
+        "url": "https://www.df.cl/economia-y-politica/actualidad/quiroz-admite-que-chile-esta-en-recesion-tecnica-pero-asegura-que-sera"
+      },
+      {
+        "texto": "Emol, Imacec de septiembre (02-11-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/11/02/1215849/imacec-septiembre-banco-central.html"
+      },
+      {
+        "texto": "Emol, Quiroz tras el ChileDay (17-09-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/09/17/1211725/quiroz-tras-chileday.html"
+      },
+      {
+        "texto": "INE, desocupación de julio a septiembre de 2026 (29-10-2026)",
+        "url": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026"
+      },
+      {
+        "texto": "Emol, IPC de octubre del INE (06-11-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html"
+      },
+      {
+        "texto": "Banco Central, comunicado de la reunión de política monetaria de octubre de 2026",
+        "url": "https://www.bcentral.cl/web/banco-central/contenido/-/detalle/prensa/comunicados-rpm/comunicado-reunion-de-politica-monetaria-octubre-2026"
+      }
+    ],
+    "id": "2026-11-25-largo-el-cobre-que-no-salio"
+  }
+}
