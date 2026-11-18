@@ -1,0 +1,884 @@
+{
+  "semana": "2026-W45",
+  "lunes": "2026-11-02",
+  "sabado": "2026-11-07",
+  "dias": [
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-07"
+  ],
+  "dias_con_informe": [
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-07"
+  ],
+  "generado": "2026-11-08",
+  "noticias": 214,
+  "temas": 154,
+  "pesos": {
+    "A": 3,
+    "B": 2,
+    "C": 1,
+    "seguimiento": 1.5,
+    "dia_extra": 1,
+    "dossier": 2
+  },
+  "ranking": [
+    {
+      "puesto": 1,
+      "puntaje": 17,
+      "dias": [
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "A",
+        "C",
+        "C",
+        "A",
+        "C",
+        "C"
+      ],
+      "secciones": [
+        "Resumen internacional",
+        "Salud",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 8,
+      "terminos": [
+        "estado",
+        "unido",
+        "suprema",
+        "corte",
+        "congreso",
+        "democrata",
+        "licencia",
+        "rechazo"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-03",
+          "nivel": "B",
+          "titular": "La Corte Suprema de Estados Unidos rechaza separar 20.000 votos por correo",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-11-04",
+          "nivel": "A",
+          "titular": "Los demócratas recuperan el Senado de Estados Unidos",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-11-05",
+          "nivel": "A",
+          "titular": "Los demócratas ganan las dos cámaras del Congreso de Estados Unidos",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-11-06",
+          "nivel": "C",
+          "titular": "La Corte Suprema rechazó un recurso relacionado con la identidad de un denunciante en el caso de licencias médicas falsas de Los Vilos",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 2,
+      "puntaje": 11,
+      "dias": [
+        "2026-11-02",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-07"
+      ],
+      "niveles": [
+        "B",
+        "C",
+        "C",
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Medioambiente y clima",
+        "Además, hoy",
+        "Ciudad, seguridad y regiones"
+      ],
+      "seguimiento": false,
+      "noticias": 5,
+      "terminos": [
+        "alerta",
+        "calor",
+        "senapred",
+        "temprana",
+        "activa",
+        "alcanza",
+        "arica",
+        "continua"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-02",
+          "nivel": "B",
+          "titular": "Chile activa una alerta preventiva nacional por calor hasta marzo de 2027",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-11-04",
+          "nivel": "C",
+          "titular": "Senapred declaró Alerta Temprana Preventiva Nacional por calor desde el 01-11-2026 hasta el 31-03-2027, entre Arica y Parinacota y Magallanes",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-05",
+          "nivel": "C",
+          "titular": "Senapred mantiene hasta el 31-03-2027 la Alerta Temprana Preventiva nacional por calor para reforzar la preparación ante incendios y temperaturas extremas",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-06",
+          "nivel": "C",
+          "titular": "Especialistas difundieron recomendaciones para reconocer un golpe de calor mientras continúa la alerta preventiva nacional",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-07",
+          "nivel": "B",
+          "titular": "Alerta por calor extremo alcanza hasta 37 °C entre Coquimbo y Maule",
+          "seccion": "Ciudad, seguridad y regiones"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 3,
+      "puntaje": 11,
+      "dias": [
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-07"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "C",
+        "C",
+        "C",
+        "C"
+      ],
+      "secciones": [
+        "Política",
+        "Resumen internacional",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 6,
+      "terminos": [
+        "gira",
+        "europea",
+        "leon",
+        "papa",
+        "argentino",
+        "inicia",
+        "visita",
+        "apostar"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-02",
+          "nivel": "B",
+          "titular": "Kast inicia su primera gira europea como Presidente",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-11-03",
+          "nivel": "C",
+          "titular": "El Gobierno argentino y el Vaticano preparan una visita del papa León XIV a Argentina",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-04",
+          "nivel": "C",
+          "titular": "Kast llamó a inversionistas españoles a apostar por Chile durante su gira europea",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-07",
+          "nivel": "C",
+          "titular": "Kast regresó de su gira europea y expresó respaldo público al ministro Rabat. (La Tercera, 06-11-2026; BioBioChile, 06-11-2026)",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 4,
+      "puntaje": 11,
+      "dias": [
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-05",
+        "2026-11-06"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Medioambiente y clima"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "tormenta",
+        "aviso",
+        "frontal",
+        "lluvia",
+        "sistema",
+        "abarca",
+        "alcanzan",
+        "cubren"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-02",
+          "nivel": "B",
+          "titular": "Aviso de tormentas abarca cinco regiones",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-11-03",
+          "nivel": "B",
+          "titular": "Avisos por tormentas y sistemas frontales cubren el centro y sur",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-11-05",
+          "nivel": "B",
+          "titular": "Lluvia, viento y tormentas alcanzan el centro sur",
+          "seccion": "Medioambiente y clima"
+        },
+        {
+          "fecha": "2026-11-06",
+          "nivel": "B",
+          "titular": "El sistema frontal mantiene lluvia y tormentas en el centro sur",
+          "seccion": "Medioambiente y clima"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 5,
+      "puntaje": 10,
+      "dias": [
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-07"
+      ],
+      "niveles": [
+        "C",
+        "B",
+        "C",
+        "C",
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Plata pública",
+        "Ciencia y tecnología"
+      ],
+      "seguimiento": false,
+      "noticias": 5,
+      "terminos": [
+        "atacama",
+        "paleontologico",
+        "parque",
+        "coquimbo",
+        "museo",
+        "obra",
+        "proyecta",
+        "bahia"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-03",
+          "nivel": "C",
+          "titular": "El Gobierno comprometió patrocinio para el primer Centro-Museo y Parque Paleontológico del país en la Región de Atacama",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-04",
+          "nivel": "B",
+          "titular": "El MOP proyecta 166 obras de reconstrucción en Atacama y Coquimbo",
+          "seccion": "Plata pública"
+        },
+        {
+          "fecha": "2026-11-05",
+          "nivel": "C",
+          "titular": "Atacama proyecta un parque paleontológico para 2030",
+          "seccion": "Ciencia y tecnología"
+        },
+        {
+          "fecha": "2026-11-06",
+          "nivel": "C",
+          "titular": "El proyecto de centro museo y parque paleontológico de Bahía Inglesa sumó respaldo del Gobierno",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-07",
+          "nivel": "C",
+          "titular": "El MOP informó obras y licitaciones en Ñuble y Coquimbo dentro de su cartera 2026. (Ministerio de Obras Públicas, 06-11-2026; La Tribuna, 06-11-2026)",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 6,
+      "puntaje": 9,
+      "dias": [
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-07"
+      ],
+      "niveles": [
+        "B",
+        "C",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Economía",
+        "Además, hoy",
+        "Ciudad, seguridad y regiones"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "antonio",
+        "camionero",
+        "paro",
+        "puerto",
+        "temporada",
+        "acuerdo",
+        "advirtio",
+        "agricultura"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-03",
+          "nivel": "B",
+          "titular": "El Comité de Ministros mantiene la aprobación ambiental del Puerto Exterior de San Antonio",
+          "seccion": "Economía"
+        },
+        {
+          "fecha": "2026-11-04",
+          "nivel": "B",
+          "titular": "El paro de camioneros bloquea la partida de la temporada de cerezas",
+          "seccion": "Economía"
+        },
+        {
+          "fecha": "2026-11-07",
+          "nivel": "B",
+          "titular": "Puerto de San Antonio alcanza acuerdo con camioneros tras siete días",
+          "seccion": "Ciudad, seguridad y regiones"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 7,
+      "puntaje": 8,
+      "dias": [
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-07"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "B"
+      ],
+      "secciones": [
+        "Seguridad y Justicia",
+        "Política y justicia"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "boliviano",
+        "colchane",
+        "contrabando",
+        "militar",
+        "comparecen",
+        "formalizado",
+        "incidente",
+        "prision"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-04",
+          "nivel": "B",
+          "titular": "Dos militares bolivianos serán formalizados por contrabando en Colchane",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-11-05",
+          "nivel": "B",
+          "titular": "Los militares bolivianos comparecen el 06-11-2026 por contrabando",
+          "seccion": "Seguridad y Justicia"
+        },
+        {
+          "fecha": "2026-11-07",
+          "nivel": "B",
+          "titular": "Dos soldados bolivianos quedan en prisión preventiva por el incidente de Colchane",
+          "seccion": "Política y justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 8,
+      "puntaje": 8,
+      "dias": [
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-07"
+      ],
+      "niveles": [
+        "B",
+        "B",
+        "C",
+        "C"
+      ],
+      "secciones": [
+        "Política",
+        "Plata pública",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "presupuesto",
+        "salud",
+        "cambio",
+        "discusion",
+        "atencion",
+        "carabinero",
+        "concentra",
+        "defendio"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-04",
+          "nivel": "B",
+          "titular": "Salud concentra la disputa del Presupuesto 2027",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-11-05",
+          "nivel": "B",
+          "titular": "Presupuesto 2027 repone recursos regionales y fija resguardos para salud electoral y justicia",
+          "seccion": "Plata pública"
+        },
+        {
+          "fecha": "2026-11-07",
+          "nivel": "C",
+          "titular": "Carabineros anunció cambios de mando en Valparaíso y Ñuble. (Carabineros, 06-11-2026; La Discusión, 06-11-2026)",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 9,
+      "puntaje": 7,
+      "dias": [
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-06"
+      ],
+      "niveles": [
+        "C",
+        "C",
+        "B",
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy",
+        "Resumen internacional"
+      ],
+      "seguimiento": false,
+      "noticias": 4,
+      "terminos": [
+        "argentina",
+        "danstar",
+        "malvina",
+        "isla",
+        "abastezcan",
+        "buque",
+        "cancilleria",
+        "comercial"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-02",
+          "nivel": "C",
+          "titular": "Cancillería reforzó su estrategia en Magallanes ante la reacción argentina por la ruta comercial del buque Danstar hacia las islas Malvinas",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-03",
+          "nivel": "B",
+          "titular": "Argentina garantiza libertad de navegación en la controversia por el Danstar",
+          "seccion": "Resumen internacional"
+        },
+        {
+          "fecha": "2026-11-06",
+          "nivel": "C",
+          "titular": "Un proyecto de una diputada argentina propone decomisar embarcaciones que abastezcan a las islas Malvinas",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    },
+    {
+      "puesto": 10,
+      "puntaje": 7,
+      "dias": [
+        "2026-11-03",
+        "2026-11-05",
+        "2026-11-07"
+      ],
+      "niveles": [
+        "B",
+        "C",
+        "B"
+      ],
+      "secciones": [
+        "Política",
+        "Además, hoy",
+        "Política y justicia"
+      ],
+      "seguimiento": false,
+      "noticias": 3,
+      "terminos": [
+        "comision",
+        "educacion",
+        "mixta",
+        "ciencia",
+        "continuo",
+        "convivencia",
+        "escolar",
+        "escuela"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-03",
+          "nivel": "B",
+          "titular": "La Comisión Mixta inicia la votación del Presupuesto 2027",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-11-05",
+          "nivel": "C",
+          "titular": "La Comisión de Educación del Senado continuó la tramitación del proyecto de Escuelas Protegidas, que regula medidas de convivencia y seguridad escolar",
+          "seccion": "Además, hoy"
+        },
+        {
+          "fecha": "2026-11-07",
+          "nivel": "B",
+          "titular": "La Comisión Mixta rechaza partidas de Educación y Ciencia",
+          "seccion": "Política y justicia"
+        }
+      ],
+      "dossier": null,
+      "explicado": null
+    }
+  ],
+  "fuera_por_ya_explicado": [
+    {
+      "puntaje": 15,
+      "dias": [
+        "2026-11-02",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-07"
+      ],
+      "niveles": [
+        "A",
+        "C",
+        "A",
+        "A",
+        "C",
+        "C"
+      ],
+      "secciones": [
+        "Política",
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 6,
+      "terminos": [
+        "condena",
+        "rebaja",
+        "contradicen",
+        "defensa",
+        "fallo",
+        "beneficiado",
+        "conocer",
+        "continuan"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-02",
+          "nivel": "A",
+          "titular": "Documentos contradicen la defensa de Rabat sobre las rebajas de condena",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-11-05",
+          "nivel": "A",
+          "titular": "Rabat queda bajo presión por los fallos que contradicen su defensa",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-11-06",
+          "nivel": "A",
+          "titular": "Seis fallos contradicen la explicación de Rabat sobre las rebajas de condena",
+          "seccion": "Política"
+        },
+        {
+          "fecha": "2026-11-07",
+          "nivel": "C",
+          "titular": "La oposición pidió conocer si extranjeros beneficiados por rebajas de condena continúan en Chile. (Ex-Ante, 06-11-2026; CNN Chile, 06-11-2026)",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "rabat-rebajas-de-condena",
+        "titulo": "Rebajas de condena por conducta sobresaliente: quién evaluaba, quién concedía y qué podía revisar un tribunal"
+      }
+    },
+    {
+      "puntaje": 6.5,
+      "dias": [
+        "2026-11-04",
+        "2026-11-05"
+      ],
+      "niveles": [
+        "A",
+        "C"
+      ],
+      "secciones": [
+        "Plata pública"
+      ],
+      "seguimiento": true,
+      "noticias": 2,
+      "terminos": [
+        "fiscal",
+        "inmuebl",
+        "bien",
+        "contraloria",
+        "detecta",
+        "inconsistencia",
+        "observado",
+        "oficio"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-04",
+          "nivel": "A",
+          "titular": "Contraloría detecta inconsistencias en 9.653 inmuebles fiscales",
+          "seccion": "Plata pública"
+        },
+        {
+          "fecha": "2026-11-05",
+          "nivel": "C",
+          "titular": "Bienes Nacionales recibe el oficio por los inmuebles fiscales observados",
+          "seccion": "Plata pública"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "contraloria-reparo-juicio-cuentas",
+        "titulo": "Contraloría, reparos y juicios de cuentas: cómo se busca recuperar dinero público cuando una fiscalización detecta un perjuicio"
+      }
+    },
+    {
+      "puntaje": 3,
+      "dias": [
+        "2026-11-05"
+      ],
+      "niveles": [
+        "A"
+      ],
+      "secciones": [
+        "Economía"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "ante",
+        "banco",
+        "central",
+        "evaluo",
+        "mantenerla",
+        "subir",
+        "tasa"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-05",
+          "nivel": "A",
+          "titular": "El Banco Central evaluó subir la tasa antes de mantenerla en 4,5%",
+          "seccion": "Economía"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "mercado-capitales-credito-hipotecario",
+        "titulo": "Mercado de capitales y crédito hipotecario: por qué el costo de financiar a los bancos termina influyendo en la tasa de una vivienda"
+      }
+    },
+    {
+      "puntaje": 3,
+      "dias": [
+        "2026-11-04"
+      ],
+      "niveles": [
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "aplicacion",
+        "control",
+        "documental",
+        "entraron",
+        "fiscalizacion",
+        "instruccion",
+        "licencia",
+        "medica"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-04",
+          "nivel": "C",
+          "titular": "Entraron en aplicación nuevos controles documentales y de fiscalización sobre licencias médicas, en paralelo con instrucciones de la Suseso para su revisión",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": {
+        "slug": "fonasa-licencias-falsas",
+        "titulo": "Caso: FONASA, megafraude de licencias médicas falsas"
+      },
+      "explicado": {
+        "slug": "licencia-medica-fiscalizacion-y-sumario",
+        "titulo": "Licencia médica en Chile: quién decide, quién paga y qué ocurre si no se cumple el reposo"
+      }
+    },
+    {
+      "puntaje": 1,
+      "dias": [
+        "2026-11-02"
+      ],
+      "niveles": [
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "advirtieron",
+        "argentina",
+        "consultora",
+        "crecimiento",
+        "proyeccion",
+        "recesion",
+        "redujeron",
+        "riesgo"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-02",
+          "nivel": "C",
+          "titular": "Consultoras redujeron a 1% la proyección de crecimiento de Argentina para 2026 y advirtieron riesgo de recesión",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "como-leer-ipom",
+        "titulo": "Cómo leer el IPoM: proyecciones, supuestos y riesgos detrás de las decisiones del Banco Central"
+      }
+    },
+    {
+      "puntaje": 1,
+      "dias": [
+        "2026-11-04"
+      ],
+      "niveles": [
+        "C"
+      ],
+      "secciones": [
+        "Además, hoy"
+      ],
+      "seguimiento": false,
+      "noticias": 1,
+      "terminos": [
+        "anunciaron",
+        "diputado",
+        "fondo",
+        "previsional",
+        "retiro",
+        "universal"
+      ],
+      "titulares": [
+        {
+          "fecha": "2026-11-04",
+          "nivel": "C",
+          "titular": "Diputados anunciaron un nuevo proyecto de retiro universal de fondos previsionales",
+          "seccion": "Además, hoy"
+        }
+      ],
+      "dossier": null,
+      "explicado": {
+        "slug": "fondos-generacionales-ciclo-de-vida",
+        "titulo": "Fondos generacionales: cómo el ciclo de vida cambia el riesgo de los ahorros previsionales"
+      }
+    }
+  ]
+}

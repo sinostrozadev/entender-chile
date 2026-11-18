@@ -1,0 +1,39 @@
+Tarea: imagen
+Salida: contenido/caratulas/externos/numeros-rojos/2026-11-16-panama-chile.png
+Prompt: prompts/imagen-caratula.md
+Canal: En Números Rojos (externo, @enumerosrojos)
+Para: largo 16:9 "Panamá produce más que Chile. Su gente consume menos" (publica lun 2026-11-16 19:00)
+
+# Carátula del largo (Panamá vs. Chile)
+
+## El prompt (va tal cual al generador, no se reinterpreta)
+
+Crea UNA carátula de YouTube para un video largo de economía explicada con datos, del canal en español "En Números Rojos" (datos abiertos, mirada latinoamericana, tono serio y claro). Misma serie visual que la carátula "CHILE IBA GANANDO" del canal: pantalla partida con fotos documentales, caja roja con el titular, etiquetas de país con franja de bandera y una línea de gráfico roja como firma.
+
+DATOS QUE YO ENTREGO
+TITULAR (exacto, dos líneas, en mayúsculas tal como está, con su tilde):
+PANAMÁ PASÓ
+A CHILE
+ETIQUETAS DE PAÍS (exactas, una en cada mitad): "PANAMÁ" y "CHILE"
+
+FORMATO
+16:9 horizontal, 1280x720 o mayor, PNG. UNA sola carátula a lienzo completo: nada de dos carátulas apiladas, mosaicos ni variantes. El texto VA DENTRO, exacto como se entrega (PANAMÁ y PASÓ con tilde). Todo texto debe leerse perfecto a 160 píxeles de ancho.
+
+LA REGLA PRINCIPAL: QUE SE ENTIENDA QUIÉN EN MEDIO SEGUNDO
+Pantalla partida en diagonal:
+- Mitad izquierda = PANAMÁ: fotografía documental real de un buque portacontenedores enorme cruzando las esclusas del Canal de Panamá, con los rascacielos de Ciudad de Panamá al fondo; tonos verdes y cálidos.
+- Mitad derecha = CHILE: fotografía documental real de Santiago de Chile con la cordillera de los Andes nevada detrás; tonos fríos, azulados, un poco más apagados.
+- Sobre cada mitad, una ETIQUETA rectangular pequeña con el nombre del país en mayúsculas blancas y una franja lateral con los colores correctos de su bandera (Panamá: cuarteles blanco, rojo y azul con estrellas; Chile: rojo, blanco y azul con estrella blanca). Las banderas van SOLO en esas franjas, nunca de fondo.
+- Una LÍNEA DE GRÁFICO roja (#E0312B) gruesa que entra baja por la izquierda (Panamá) y sube hasta cruzar y superar a una línea dorada (#F5C451) casi plana que viene de la derecha (Chile); el cruce queda cerca del centro. Sin ejes, sin cifras, sin rejilla.
+
+TITULAR
+En una CAJA ROJA (#E0312B) de bordes levemente irregulares, arriba a la izquierda, dos líneas, letra blanca enorme en sans condensada muy pesada (estilo Anton / Bebas Neue). Marca pequeña "EN NÚMEROS ROJOS" en blanco abajo a la izquierda, discreta.
+
+COMPOSICIÓN
+Esquina inferior derecha LIBRE (YouTube pone ahí la duración). Fondo oscuro y desaturado para que la caja roja y las líneas sean lo único saturado. Nada más de texto que el titular, las dos etiquetas y la marca.
+
+PROHIBIDO
+Rostros de personas. Banderas grandes o de fondo. Logos, nombres de empresas navieras o de medios, marcas de agua, textos en los contenedores. Billetes, monedas, símbolos de dólar. Cifras. Signos de exclamación, emojis, collage, ilustración 3D plástica.
+
+PRUEBA FINAL
+¿Sin leer el título se entiende que es Panamá contra Chile y que Panamá subió? ¿El titular y las etiquetas se leen a 160 px con tildes correctas? ¿La esquina inferior derecha está limpia? ¿Es UNA sola imagen? Si algo falla, corrígelo antes de generar.

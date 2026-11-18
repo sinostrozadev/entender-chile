@@ -1,0 +1,18 @@
+Crea UNA sola imagen horizontal de 1536×1024 px (si no puedes, 1280×720), PNG, que sea una HOJA DE POSES de un mismo personaje para una serie animada infantil de YouTube (niños de 3 a 8 años). Estilo: ilustración vectorial plana 2D tipo dibujo animado preescolar moderno, formas redondeadas y simples, contorno oscuro fino y uniforme (#1B1F4A), colores sólidos y alegres, sombreado mínimo con UNA sola tinta más oscura por color (cel shading plano), sin degradados fotográficos, sin texturas, sin "look IA". Debe poder redibujarse con formas geométricas simples.
+
+PERSONAJE "CAPITÁN CEPILLO" (idéntico en las 6 poses, mismas proporciones, mismos colores):
+Un CEPILLO DE DIENTES con vida, de pie. El MANGO es el cuerpo: alargado, redondeado, azul #5B6CFF con una franja más clara #8F9BFF en la parte baja (como un cinturón). La CABEZA del cepillo está arriba: las CERDAS forman un copete/peinado esponjoso blanco #FFFFFF y celeste #BFF6FF hacia un lado, con una pequeña gota de pasta dental celeste #7FF3FF encima como si fuera un tupé. CARA en la parte alta del mango, justo bajo las cerdas: dos OJOS GRANDES ovalados (esclera blanca, pupila azul marino #1B1F4A con brillo blanco), cejas cortas, mejillas rosadas #FF9BC4, boca expresiva. Brazos y piernas finos tipo "rubber hose" en azul oscuro #3D4B9A, GUANTES blancos de dibujo animado y BOTITAS amarillas #FFD23F. En el pecho, una pequeña insignia amarilla #FFD23F con una estrella de 4 puntas. Una capa corta color coral #FF6F61 a la espalda. Nada más (sin casco, sin texto en el cuerpo).
+
+CUADRÍCULA: 3 columnas × 2 filas = 6 celdas del mismo tamaño, separadas por líneas finas (2 px) #2A313B. Fondo LISO y uniforme #111418 en toda la imagen (sin viñeta, sin degradado, sin patrón). El personaje centrado en cada celda, de cuerpo entero, ocupando aprox. el 75 % del alto útil, sin tocar los bordes. Deja libre el 12 % inferior de cada celda para el rótulo.
+
+LAS 6 POSES (fila 1 de izquierda a derecha, luego fila 2):
+1. "saluda": de frente, sonrisa grande, saludo militar con la mano derecha en la frente, pecho inflado.
+2. "apunta": mira hacia arriba a la derecha con entusiasmo, un brazo estirado apuntando hacia arriba a la derecha, boca abierta feliz.
+3. "sorpresa": ojos MUY abiertos, boca en "O", brazos abiertos a los lados, tres rayitas amarillas sobre las cerdas.
+4. "vuela": en diagonal volando hacia arriba a la derecha como superhéroe, un puño adelante, capa ondeando, una estela de burbujas y pasta dental celeste saliendo de las botas.
+5. "cepilla": de perfil tres cuartos, hace el gesto de "cepillar" en el aire con ambos brazos moviéndose (líneas de movimiento cortas), guiño de un ojo, sonrisa con dientes.
+6. "celebra": ojos cerrados en arco feliz, boca abierta riendo, ambos brazos arriba, pequeños destellos de estrellas de 4 puntas amarillas y celestes alrededor.
+
+TEXTO: ninguno salvo UN rótulo pequeño centrado debajo de cada celda, en el 12 % inferior reservado, con el nombre exacto de la pose en minúsculas, sans-serif gris claro #AEB7C2: saluda, apunta, sorpresa, vuela, cepilla, celebra. Ningún otro texto, número, logo, firma ni marca de agua.
+
+PROHIBIDO: realismo, 3D, fotografía, degradados, personas, rostros humanos, fondos distintos al #111418, personajes distintos en cada celda (debe ser EXACTAMENTE el mismo cepillo), manos con dedos de más, marcas comerciales de cepillos. Entrega el resultado como PNG.

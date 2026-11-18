@@ -614,10 +614,118 @@
   {
     "fecha": "2026-11-06",
     "subs": 48,
-    "vistasTotales": 22889,
+    "vistasTotales": 22910,
     "vistasCanal": 23336,
-    "vistasLargos": 2238,
-    "vistasShorts": 20628,
-    "horasEst": 164.76
+    "vistasLargos": 2250,
+    "vistasShorts": 20637,
+    "horasEst": 165.52
+  },
+  {
+    "fecha": "2026-11-07",
+    "subs": 48,
+    "vistasTotales": 23377,
+    "vistasCanal": 23386,
+    "vistasLargos": 2226,
+    "vistasShorts": 21128,
+    "horasEst": 164.05
+  },
+  {
+    "fecha": "2026-11-08",
+    "subs": 50,
+    "vistasTotales": 23651,
+    "vistasCanal": 23577,
+    "vistasLargos": 2274,
+    "vistasShorts": 21354,
+    "horasEst": 167.34
+  },
+  {
+    "fecha": "2026-11-09",
+    "subs": 53,
+    "vistasTotales": 24143,
+    "vistasCanal": 24088,
+    "vistasLargos": 2294,
+    "vistasShorts": 21826,
+    "horasEst": 168.88
+  },
+  {
+    "fecha": "2026-11-10",
+    "subs": 53,
+    "vistasTotales": 24259,
+    "vistasCanal": 24118,
+    "vistasLargos": 2305,
+    "vistasShorts": 21931,
+    "horasEst": 169.63
+  },
+  {
+    "fecha": "2026-11-11",
+    "subs": 54,
+    "vistasTotales": 24931,
+    "vistasCanal": 24842,
+    "vistasLargos": 2308,
+    "vistasShorts": 22600,
+    "horasEst": 169.87
+  },
+  {
+    "fecha": "2026-11-12",
+    "subs": 54,
+    "vistasTotales": 25416,
+    "vistasCanal": 25327,
+    "vistasLargos": 2314,
+    "vistasShorts": 23079,
+    "horasEst": 170.12
+  },
+  {
+    "fecha": "2026-11-13",
+    "subs": 55,
+    "vistasTotales": 25585,
+    "vistasCanal": 25509,
+    "vistasLargos": 2321,
+    "vistasShorts": 23241,
+    "horasEst": 170.5
+  },
+  {
+    "fecha": "2026-11-14",
+    "subs": 56,
+    "vistasTotales": 25342,
+    "vistasCanal": 25597,
+    "vistasLargos": 2326,
+    "vistasShorts": 22993,
+    "horasEst": 170.77
+  },
+  {
+    "fecha": "2026-11-15",
+    "subs": 59,
+    "vistasTotales": 26112,
+    "vistasCanal": 25919,
+    "vistasLargos": 2336,
+    "vistasShorts": 23752,
+    "horasEst": 171.29
+  },
+  {
+    "fecha": "2026-11-16",
+    "subs": 59,
+    "vistasTotales": 26582,
+    "vistasCanal": 26365,
+    "vistasLargos": 2342,
+    "vistasShorts": 24216,
+    "horasEst": 171.54
+  },
+  {
+    "fecha": "2026-11-17",
+    "subs": 60,
+    "vistasTotales": 27303,
+    "vistasCanal": 27177,
+    "vistasLargos": 2347,
+    "vistasShorts": 24932,
+    "horasEst": 171.75
+  },
+  {
+    "fecha": "2026-11-18",
+    "subs": 61,
+    "vistasTotales": 27536,
+    "vistasCanal": 27258,
+    "vistasLargos": 2352,
+    "vistasShorts": 25159,
+    "horasEst": 171.98
   }
 ]

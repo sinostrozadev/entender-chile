@@ -27,11 +27,21 @@ abierto ese día (`acuerdo-internacional-sin-tratado`) termina por el camino
 viejo: cambiarle las etapas a mitad de recorrido lo habría dejado en una etapa
 que ningún archivo sostiene.
 
+## Desde el 12-11-2026: Claude elige y aprueba, Santiago veta
+
+Donde esta guía dice "Santiago elige" o "Santiago aprueba" (`pautar`,
+`pauta_lista`), léase **Claude** (`clave.js elegir|aprobar ... --por claude
+--motivo`). Santiago solo veta: archivo `contenido/estado/veto-clave.txt`
+(todas) o `<slug>/veto.txt` (una); etapa `vetada`, vale hasta el render. Tras la
+aprobación hay una ventana de 12 h (`ventana_veto`, `VETO_HASTA`) antes de que
+GPT arranque. Criterios y cadencia: `prompts/eleccion-clave.md`.
+
 ## Los archivos de un flujo
 
     <slug>/tema.md           Santiago eligió el tema         (scripts/clave.js elegir)
     <slug>/pauta.md          Claude escribió la pauta        (prompts/pauta-clave.md)      [camino pauta]
-    <slug>/aprobacion.md     Santiago aprobó o pidió cambios (clave.js aprobar | cambiar)
+    <slug>/eleccion.md       Claude dejó el porqué de la elección (desde 12-11-2026)
+    <slug>/aprobacion.md     Santiago (hoy Claude) aprobó o pidió cambios (clave.js aprobar | cambiar)
     <slug>/investigacion.md  GPT investigó con fuentes       (prompts/investigacion-clave.md) [camino pauta]
     <slug>/idea.md           GPT propuso la idea             (prompts/clave-idea.md)       [camino idea]
     <slug>/mural.json        el mural cosido y medido        (scripts/clave-mural.js lo lee)

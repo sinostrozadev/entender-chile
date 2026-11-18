@@ -1,0 +1,1821 @@
+{
+  "fecha": "2026-11-05",
+  "canalId": "UCpdqApwfcKxTB5Bb24K4uAw",
+  "generadoEn": "2026-11-06T02:12:47.637Z",
+  "zona": "America/Santiago",
+  "subs": 48,
+  "videosPublicados": 220,
+  "vistasTotales": 23289,
+  "vistas28d": null,
+  "vistas48h": null,
+  "horasTotales": null,
+  "progresoYPP": null,
+  "fuentes": {
+    "numeros": "públicos (curl a youtube.com, /about para vistas)",
+    "studio": "texto de Studio, mejor esfuerzo",
+    "videos": "nube: bitacora/metricas/2026-11-04.json"
+  },
+  "capturas": "omitidas (--sin-capturas)",
+  "medicionNube": {
+    "fecha": "2026-11-04",
+    "canal": {
+      "suscriptores": 48,
+      "vistas": 23011,
+      "videos": 218
+    }
+  },
+  "videos": [
+    {
+      "id": "-swKZxjq0IA",
+      "titulo": "¿Qué significa que los demócratas le quitaron el Congreso a ",
+      "vistas": 124,
+      "publicadoEn": "2026-11-04",
+      "segundos": 45,
+      "estado": "public"
+    },
+    {
+      "id": "NkQ1XVfzGHY",
+      "titulo": "El repunte de octubre no borró las pérdidas reales de los fo",
+      "vistas": 4,
+      "publicadoEn": "2026-11-04",
+      "segundos": 33,
+      "estado": "public"
+    },
+    {
+      "id": "QIZfhvG4HzA",
+      "titulo": "Fondos D y E siguen en rojo tras el repunte de octubre",
+      "vistas": 0,
+      "publicadoEn": "2026-11-04",
+      "segundos": 219,
+      "estado": "public"
+    },
+    {
+      "id": "raUYcRyD6-8",
+      "titulo": "Fernando Rabat figura como imputado por una denuncia de pres",
+      "vistas": 28,
+      "publicadoEn": "2026-11-03",
+      "segundos": 39,
+      "estado": "public"
+    },
+    {
+      "id": "pKRdG6No6V4",
+      "titulo": "Rabat figura como imputado por denuncia de prevaricación",
+      "vistas": 3,
+      "publicadoEn": "2026-11-03",
+      "segundos": 210,
+      "estado": "public"
+    },
+    {
+      "id": "8o8oCJHwxTE",
+      "titulo": "¿Por qué un diputado rompió con su propio gobierno por el ca",
+      "vistas": 64,
+      "publicadoEn": "2026-11-02",
+      "segundos": 47,
+      "estado": "public"
+    },
+    {
+      "id": "zrsxvaG1e_o",
+      "titulo": "Tres mujeres murieron tras volcar una balsa familiar con tre",
+      "vistas": 13,
+      "publicadoEn": "2026-11-02",
+      "segundos": 40,
+      "estado": "public"
+    },
+    {
+      "id": "pkO1ASDz_AU",
+      "titulo": "¿Por qué un Imacec de 0,2% no es una buena noticia? #Shorts",
+      "vistas": 27,
+      "publicadoEn": "2026-11-02",
+      "segundos": 44,
+      "estado": "public"
+    },
+    {
+      "id": "7lV_qn0ojp8",
+      "titulo": "Río Maipo: tres mujeres mueren en una balsa con 13 ocupantes",
+      "vistas": 20,
+      "publicadoEn": "2026-11-02",
+      "segundos": 249,
+      "estado": "public"
+    },
+    {
+      "id": "8r33QiylLD4",
+      "titulo": "Cinco personas fueron detenidas por el crimen de Martín Pére",
+      "vistas": 48,
+      "publicadoEn": "2026-11-01",
+      "segundos": 41,
+      "estado": "public"
+    },
+    {
+      "id": "Q3CeYDg-oik",
+      "titulo": "Caso Martín Pérez: las audiencias que definirán los cargos",
+      "vistas": 54,
+      "publicadoEn": "2026-11-01",
+      "segundos": 241,
+      "estado": "public"
+    },
+    {
+      "id": "YarJ0NTw_EM",
+      "titulo": "Fiscalía investiga a Rabat y Silva por posible prevaricación",
+      "vistas": 1094,
+      "publicadoEn": "2026-10-31",
+      "segundos": 39,
+      "estado": "public"
+    },
+    {
+      "id": "gs7clYEZRx0",
+      "titulo": "Fiscalía investiga a Rabat y Silva por decretos de rebaja de",
+      "vistas": 2,
+      "publicadoEn": "2026-10-31",
+      "segundos": 226,
+      "estado": "public"
+    },
+    {
+      "id": "VFaoYS4Q_G0",
+      "titulo": "¿Alcanza con sacar a un subsecretario para salvar al ministr",
+      "vistas": 2,
+      "publicadoEn": "2026-10-30",
+      "segundos": 47,
+      "estado": "public"
+    },
+    {
+      "id": "YAbPiVJe9FE",
+      "titulo": "¿Qué se sabe de la balacera con más de 50 disparos en el cen",
+      "vistas": 7,
+      "publicadoEn": "2026-10-30",
+      "segundos": 41,
+      "estado": "public"
+    },
+    {
+      "id": "j_JdvqLQyBU",
+      "titulo": "Chile llegó a nueve coma ocho por ciento de desempleo y el e",
+      "vistas": 3,
+      "publicadoEn": "2026-10-30",
+      "segundos": 34,
+      "estado": "public"
+    },
+    {
+      "id": "SK9Eve4nP4E",
+      "titulo": "Chile supera el millón de personas sin trabajo",
+      "vistas": 12,
+      "publicadoEn": "2026-10-30",
+      "segundos": 220,
+      "estado": "public"
+    },
+    {
+      "id": "jhVDXm63VlY",
+      "titulo": "La oposición prepara una acusación constitucional contra Fer",
+      "vistas": 15,
+      "publicadoEn": "2026-10-30",
+      "segundos": 41,
+      "estado": "public"
+    },
+    {
+      "id": "YN6hhtlles4",
+      "titulo": "Oposición prepara acusación constitucional contra Rabat por ",
+      "vistas": 4,
+      "publicadoEn": "2026-10-30",
+      "segundos": 232,
+      "estado": "public"
+    },
+    {
+      "id": "ZTZdBZ88YmM",
+      "titulo": "Murió a los 86 años Patrick Stewart, el actor del capitán Pi",
+      "vistas": 6,
+      "publicadoEn": "2026-10-29",
+      "segundos": 45,
+      "estado": "public"
+    },
+    {
+      "id": "ja0dizX_U1M",
+      "titulo": "Banco Central no bajó la tasa: teme que la inflación sea más",
+      "vistas": 16,
+      "publicadoEn": "2026-10-27",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "tljBxS0W6M8",
+      "titulo": "Requínoa enfrenta daños por el tornado, y otras 4 cosas de h",
+      "vistas": 14,
+      "publicadoEn": "2026-10-27",
+      "segundos": 34,
+      "estado": "public"
+    },
+    {
+      "id": "5_XA1XDUUK0",
+      "titulo": "Tornado EF-2 golpea Requínoa y activa alertas en Santiago",
+      "vistas": 6,
+      "publicadoEn": "2026-10-27",
+      "segundos": 241,
+      "estado": "public"
+    },
+    {
+      "id": "4iSRPpPzV4Y",
+      "titulo": "Diez comunas de la RM en alerta roja: ¿está la tuya? #Shorts",
+      "vistas": 14,
+      "publicadoEn": "2026-10-27",
+      "segundos": 47,
+      "estado": "public"
+    },
+    {
+      "id": "CwM4pI30Wg4",
+      "titulo": "Lula ganó por margen estrecho y Flávio Bolsonaro cuestiona…,",
+      "vistas": 4,
+      "publicadoEn": "2026-10-26",
+      "segundos": 35,
+      "estado": "public"
+    },
+    {
+      "id": "ptxU3E0GKIo",
+      "titulo": "Lula gana por 51,79% y Bolsonaro busca anular la elección",
+      "vistas": 6,
+      "publicadoEn": "2026-10-26",
+      "segundos": 248,
+      "estado": "public"
+    },
+    {
+      "id": "sWFbntMkLdQ",
+      "titulo": "¿Por qué cae el respaldo a Kast tras las rebajas de penas a ",
+      "vistas": 7,
+      "publicadoEn": "2026-10-26",
+      "segundos": 47,
+      "estado": "public"
+    },
+    {
+      "id": "hmEIT_mxTpE",
+      "titulo": "Las encuestas sitúan la elección brasileña dentro del margen",
+      "vistas": 11,
+      "publicadoEn": "2026-10-25",
+      "segundos": 32,
+      "estado": "public"
+    },
+    {
+      "id": "FL_0KYCVIx0",
+      "titulo": "Brasil elige presidente en un balotaje estrecho entre Bolson",
+      "vistas": 3,
+      "publicadoEn": "2026-10-25",
+      "segundos": 219,
+      "estado": "public"
+    },
+    {
+      "id": "KWY4GglxXOY",
+      "titulo": "¿Por qué 56 condenados por abusos a menores salieron casi li",
+      "vistas": 223,
+      "publicadoEn": "2026-10-24",
+      "segundos": 42,
+      "estado": "public"
+    },
+    {
+      "id": "ANViULvfEjw",
+      "titulo": "La suspensión detiene nuevos decretos, y otras 4 cosas de ho",
+      "vistas": 67,
+      "publicadoEn": "2026-10-24",
+      "segundos": 33,
+      "estado": "public"
+    },
+    {
+      "id": "4UCpBZmp5sc",
+      "titulo": "Justicia suspende nuevas rebajas de condena a agresores de m",
+      "vistas": 1,
+      "publicadoEn": "2026-10-24",
+      "segundos": 258,
+      "estado": "public"
+    },
+    {
+      "id": "7vnz4Ex22ew",
+      "titulo": "¿Por qué ahora también el PC exige la salida del ministro Ra",
+      "vistas": 25,
+      "publicadoEn": "2026-10-23",
+      "segundos": 50,
+      "estado": "public"
+    },
+    {
+      "id": "oYy0mdiGE_4",
+      "titulo": "La decisión administrativa llevó la firma del ministro, y ot",
+      "vistas": 74,
+      "publicadoEn": "2026-10-23",
+      "segundos": 34,
+      "estado": "public"
+    },
+    {
+      "id": "yd4QwF5m6pE",
+      "titulo": "Rabat confirma que firmó 56 rebajas de condena",
+      "vistas": 5,
+      "publicadoEn": "2026-10-23",
+      "segundos": 241,
+      "estado": "public"
+    },
+    {
+      "id": "blGZpPgVI3Q",
+      "titulo": "Alerta roja en toda la RM por lluvias y granizo: qué cambia ",
+      "vistas": 55,
+      "publicadoEn": "2026-10-20",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "FFKbSWzAq_g",
+      "titulo": "Alerta roja: diez comunas sin clases, y otras 4 cosas de hoy",
+      "vistas": 111,
+      "publicadoEn": "2026-10-20",
+      "segundos": 30,
+      "estado": "public"
+    },
+    {
+      "id": "esc7Vm_376c",
+      "titulo": "Diez comunas metropolitanas en alerta roja por riesgo de alu",
+      "vistas": 6,
+      "publicadoEn": "2026-10-20",
+      "segundos": 259,
+      "estado": "public"
+    },
+    {
+      "id": "jqn9W9c_cEk",
+      "titulo": "Siete regiones están bajo emergencia preventiva por el siste",
+      "vistas": 179,
+      "publicadoEn": "2026-10-19",
+      "segundos": 40,
+      "estado": "public"
+    },
+    {
+      "id": "KCRdSC8uzz8",
+      "titulo": "Emergencia preventiva en siete regiones y clases suspendidas",
+      "vistas": 7,
+      "publicadoEn": "2026-10-19",
+      "segundos": 258,
+      "estado": "public"
+    },
+    {
+      "id": "wwjiSfQLZQE",
+      "titulo": "RM en alerta roja: ¿qué comunas no tendrán clases el martes?",
+      "vistas": 121,
+      "publicadoEn": "2026-10-19",
+      "segundos": 42,
+      "estado": "public"
+    },
+    {
+      "id": "loDkCx1RGmQ",
+      "titulo": "¿Por qué el 18-O vuelve a dividir a Chile siete años después",
+      "vistas": 2,
+      "publicadoEn": "2026-10-18",
+      "segundos": 49,
+      "estado": "public"
+    },
+    {
+      "id": "pP-MNExXLpg",
+      "titulo": "Un libro vuelve a las muertes del estallido social, a siete ",
+      "vistas": 5,
+      "publicadoEn": "2026-10-18",
+      "segundos": 39,
+      "estado": "public"
+    },
+    {
+      "id": "6coGSuvXcg0",
+      "titulo": "A siete años del 18-O, Rojas Vade: \"la Convención se mató a ",
+      "vistas": 8,
+      "publicadoEn": "2026-10-18",
+      "segundos": 41,
+      "estado": "public"
+    },
+    {
+      "id": "YrIUAlA4FAs",
+      "titulo": "¿Por qué hay desvíos y Metro cerrado en el centro de Santiag",
+      "vistas": 23,
+      "publicadoEn": "2026-10-18",
+      "segundos": 49,
+      "estado": "public"
+    },
+    {
+      "id": "b6HJFx34dZI",
+      "titulo": "¿Qué cree hoy la mayoría de los chilenos sobre el estallido ",
+      "vistas": 481,
+      "publicadoEn": "2026-10-18",
+      "segundos": 44,
+      "estado": "public"
+    },
+    {
+      "id": "CwEQYIeTkG4",
+      "titulo": "La Fiscalía confirmó tres fallecidos y cuatro lesionados tra",
+      "vistas": 150,
+      "publicadoEn": "2026-10-18",
+      "segundos": 42,
+      "estado": "public"
+    },
+    {
+      "id": "FVu5s1yBu7Q",
+      "titulo": "¿Qué cambió en Chile a siete años del estallido social? #Sho",
+      "vistas": 169,
+      "publicadoEn": "2026-10-18",
+      "segundos": 54,
+      "estado": "public"
+    },
+    {
+      "id": "rYQEgUwwm5A",
+      "titulo": "Portillo: tres fallecidos y un rescate pendiente",
+      "vistas": 5,
+      "publicadoEn": "2026-10-18",
+      "segundos": 264,
+      "estado": "public"
+    },
+    {
+      "id": "oZ-gCKULOO0",
+      "titulo": "¿Qué se sabe de la avalancha cerca de Portillo? #Shorts",
+      "vistas": 322,
+      "publicadoEn": "2026-10-17",
+      "segundos": 41,
+      "estado": "public"
+    },
+    {
+      "id": "C_1XjIts_So",
+      "titulo": "Chile y Bolivia firmaron cuatro instrumentos, y otras 4 cosa",
+      "vistas": 98,
+      "publicadoEn": "2026-10-17",
+      "segundos": 42,
+      "estado": "public"
+    },
+    {
+      "id": "AvwK4lnit4Q",
+      "titulo": "Chile y Bolivia firman cuatro instrumentos y siguen sin emba",
+      "vistas": 7,
+      "publicadoEn": "2026-10-17",
+      "segundos": 256,
+      "estado": "public"
+    },
+    {
+      "id": "iEX0y3hvp1w",
+      "titulo": "¿Kast quiere que Chile y Bolivia vuelvan a tener embajadores",
+      "vistas": 67,
+      "publicadoEn": "2026-10-17",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "lFmps6xjlg4",
+      "titulo": "¿Por qué Chile y Bolivia firmaron acuerdos tras casi 50 años",
+      "vistas": 10,
+      "publicadoEn": "2026-10-16",
+      "segundos": 45,
+      "estado": "public"
+    },
+    {
+      "id": "yo2MBI4qSZE",
+      "titulo": "¿Más empleo más rápido? El MOP acelera contratos en medio de",
+      "vistas": 27,
+      "publicadoEn": "2026-10-16",
+      "segundos": 45,
+      "estado": "public"
+    },
+    {
+      "id": "hAIUoWfxW-I",
+      "titulo": "El fallo contra Villegas cierra un juicio, y otras 4 cosas d",
+      "vistas": 384,
+      "publicadoEn": "2026-10-16",
+      "segundos": 32,
+      "estado": "public"
+    },
+    {
+      "id": "ehAgHv6EYYs",
+      "titulo": "¿Qué cambia para el norte de Chile si Kast y Bolivia firman ",
+      "vistas": 297,
+      "publicadoEn": "2026-10-16",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "2Zgbao3IU9k",
+      "titulo": "Caso Ronald Ojeda: primera sentencia en juicio oral, 20 años",
+      "vistas": 7,
+      "publicadoEn": "2026-10-16",
+      "segundos": 218,
+      "estado": "public"
+    },
+    {
+      "id": "CvRf1NBm_cg",
+      "titulo": "¿Quién controla una licencia médica y qué puede sancionarse?",
+      "vistas": 7,
+      "publicadoEn": "2026-10-13",
+      "segundos": 620,
+      "estado": "public"
+    },
+    {
+      "id": "LiJfJjb0qjg",
+      "titulo": "Autopista Central rebajará el TAG desde enero, y otras 4 cos",
+      "vistas": 295,
+      "publicadoEn": "2026-10-13",
+      "segundos": 44,
+      "estado": "public"
+    },
+    {
+      "id": "h8nSAnrlKeQ",
+      "titulo": "Autopista Central rebajará el TAG desde enero de 2027",
+      "vistas": 30,
+      "publicadoEn": "2026-10-13",
+      "segundos": 233,
+      "estado": "public"
+    },
+    {
+      "id": "vS-m7wt4MgQ",
+      "titulo": "Murió a los 34 años el actor que interpretó a Walter White J",
+      "vistas": 62,
+      "publicadoEn": "2026-10-12",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "_DV_RvPYWM4",
+      "titulo": "Dos contratistas murieron en El Teniente y se investiga quié",
+      "vistas": 317,
+      "publicadoEn": "2026-10-12",
+      "segundos": 43,
+      "estado": "public"
+    },
+    {
+      "id": "g1WnkeX8Kas",
+      "titulo": "Dos trabajadores mueren en El Teniente: investigan las labor",
+      "vistas": 198,
+      "publicadoEn": "2026-10-12",
+      "segundos": 739,
+      "estado": "public"
+    },
+    {
+      "id": "PEnNy3SIQWo",
+      "titulo": "¿Por qué había mineros sacando nieve en una zona de riesgo e",
+      "vistas": 722,
+      "publicadoEn": "2026-10-12",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "i0_MPdpnh48",
+      "titulo": "¿Por qué cae la aprobación de Kast a su nivel más bajo? #Sho",
+      "vistas": 1056,
+      "publicadoEn": "2026-10-11",
+      "segundos": 44,
+      "estado": "public"
+    },
+    {
+      "id": "--LejxdxVs0",
+      "titulo": "Murió el exlautarista que pidió indulto a Kast seis días ant",
+      "vistas": 874,
+      "publicadoEn": "2026-10-11",
+      "segundos": 43,
+      "estado": "public"
+    },
+    {
+      "id": "l9YcN5JMxDU",
+      "titulo": "Senapred reportó trescientos ochenta y cuatro damnificados y",
+      "vistas": 90,
+      "publicadoEn": "2026-10-11",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "bFTr8dDFlyg",
+      "titulo": "Aluvión en Las Condes: Senapred entrega el primer balance",
+      "vistas": 71,
+      "publicadoEn": "2026-10-11",
+      "segundos": 748,
+      "estado": "public"
+    },
+    {
+      "id": "Y_yvxKGuKEE",
+      "titulo": "Fiscalía investiga el aluvión de Las Condes y el Estado acti",
+      "vistas": 75,
+      "publicadoEn": "2026-10-10",
+      "segundos": 47,
+      "estado": "public"
+    },
+    {
+      "id": "SLpzQ_hHP_s",
+      "titulo": "Fiscalía investiga el aluvión de Las Condes",
+      "vistas": 10,
+      "publicadoEn": "2026-10-10",
+      "segundos": 806,
+      "estado": "public"
+    },
+    {
+      "id": "-kH1IX1N0Gk",
+      "titulo": "¿Tsunami en Isla de Pascua? El SHOA ya canceló la alerta por",
+      "vistas": 71,
+      "publicadoEn": "2026-10-09",
+      "segundos": 47,
+      "estado": "public"
+    },
+    {
+      "id": "8gxP1B3RzM4",
+      "titulo": "¿Por qué Kast promulgó la Ley de Reconstrucción pese a la em",
+      "vistas": 34,
+      "publicadoEn": "2026-10-09",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "tW1C7cXx9D0",
+      "titulo": "Dos aluviones dejan diez comunas bajo alerta roja y sin clas",
+      "vistas": 36,
+      "publicadoEn": "2026-10-09",
+      "segundos": 43,
+      "estado": "public"
+    },
+    {
+      "id": "3E9EU2YJPC0",
+      "titulo": "Aluviones en Las Condes: diez comunas bajo alerta roja y sin",
+      "vistas": 38,
+      "publicadoEn": "2026-10-09",
+      "segundos": 681,
+      "estado": "public"
+    },
+    {
+      "id": "TR_Oy2yn2Cs",
+      "titulo": "¿En qué comunas no hay clases este viernes por la alerta roj",
+      "vistas": 295,
+      "publicadoEn": "2026-10-09",
+      "segundos": 47,
+      "estado": "public"
+    },
+    {
+      "id": "8TOxaSbK130",
+      "titulo": "¿Qué calles evitar en Las Condes tras el aluvión de hoy? #Sh",
+      "vistas": 136,
+      "publicadoEn": "2026-10-08",
+      "segundos": 45,
+      "estado": "public"
+    },
+    {
+      "id": "xX9kaWw8Byg",
+      "titulo": "¿Por qué el Cyber Monday rompió récord pero cada chileno gas",
+      "vistas": 9,
+      "publicadoEn": "2026-10-06",
+      "segundos": 52,
+      "estado": "public"
+    },
+    {
+      "id": "K3F1aDloh6Q",
+      "titulo": "El Congreso comienza a revisar cuánto endeudamiento podrá us",
+      "vistas": 228,
+      "publicadoEn": "2026-10-06",
+      "segundos": 48,
+      "estado": "public"
+    },
+    {
+      "id": "L1VjRH8XTno",
+      "titulo": "Presupuesto 2027 pide autorización para US$25 mil millones d",
+      "vistas": 22,
+      "publicadoEn": "2026-10-06",
+      "segundos": 703,
+      "estado": "public"
+    },
+    {
+      "id": "x42q1499zPo",
+      "titulo": "¿Por qué Chile decretó duelo nacional por un carabinero ases",
+      "vistas": 1052,
+      "publicadoEn": "2026-10-05",
+      "segundos": 40,
+      "estado": "public"
+    },
+    {
+      "id": "s9Z3dGd2FWg",
+      "titulo": "Brasil decidirá su presidencia en segunda vuelta el veintici",
+      "vistas": 136,
+      "publicadoEn": "2026-10-05",
+      "segundos": 42,
+      "estado": "public"
+    },
+    {
+      "id": "RyX3hbdy_0Q",
+      "titulo": "Brasil va a segunda vuelta con Flávio Bolsonaro primero y Lu",
+      "vistas": 34,
+      "publicadoEn": "2026-10-05",
+      "segundos": 696,
+      "estado": "public"
+    },
+    {
+      "id": "wmUEAj_EQO8",
+      "titulo": "¿Sabías que hoy también se vota por Brasil en Santiago? #Sho",
+      "vistas": 13,
+      "publicadoEn": "2026-10-04",
+      "segundos": 52,
+      "estado": "public"
+    },
+    {
+      "id": "1O2sYbmslnA",
+      "titulo": "¿Por qué la deuda de Brasil puede pesar más que los candidat",
+      "vistas": 28,
+      "publicadoEn": "2026-10-04",
+      "segundos": 51,
+      "estado": "public"
+    },
+    {
+      "id": "Z3YHx4hd1YI",
+      "titulo": "La ministra de Educación dejó en el Congreso el fin de la be",
+      "vistas": 56,
+      "publicadoEn": "2026-10-04",
+      "segundos": 48,
+      "estado": "public"
+    },
+    {
+      "id": "QjRp0EJZ20M",
+      "titulo": "El fin de la beca de computadores queda en manos del Congres",
+      "vistas": 23,
+      "publicadoEn": "2026-10-04",
+      "segundos": 809,
+      "estado": "public"
+    },
+    {
+      "id": "cxeqV3WKGnI",
+      "titulo": "El Presupuesto 2027 elimina la beca con que el Estado entreg",
+      "vistas": 9,
+      "publicadoEn": "2026-10-03",
+      "segundos": 48,
+      "estado": "public"
+    },
+    {
+      "id": "fLF9y7DIPFM",
+      "titulo": "El Presupuesto 2027 elimina la beca de computadores escolare",
+      "vistas": 76,
+      "publicadoEn": "2026-10-03",
+      "segundos": 835,
+      "estado": "public"
+    },
+    {
+      "id": "_ivLCorYqqg",
+      "titulo": "La caída minera convirtió en retroceso un mes que, y otras 4",
+      "vistas": 826,
+      "publicadoEn": "2026-10-02",
+      "segundos": 47,
+      "estado": "public"
+    },
+    {
+      "id": "rW75Krh-_JM",
+      "titulo": "Imacec cae 1%: la minería arrastra la economía",
+      "vistas": 34,
+      "publicadoEn": "2026-10-02",
+      "segundos": 585,
+      "estado": "public"
+    },
+    {
+      "id": "lmww6uXgkH4",
+      "titulo": "¿Viene la primera caída del PIB en Chile desde la pandemia? ",
+      "vistas": 532,
+      "publicadoEn": "2026-10-02",
+      "segundos": 51,
+      "estado": "public"
+    },
+    {
+      "id": "4rbR0MXU5eU",
+      "titulo": "¿Por qué el dólar llegó hoy a su nivel más alto en año y med",
+      "vistas": 30,
+      "publicadoEn": "2026-10-01",
+      "segundos": 43,
+      "estado": "public"
+    },
+    {
+      "id": "AWrhkCZUQ6k",
+      "titulo": "La economía chilena frena en agosto: ¿qué significa para tu ",
+      "vistas": 5,
+      "publicadoEn": "2026-10-01",
+      "segundos": 51,
+      "estado": "public"
+    },
+    {
+      "id": "nTuiXTn2ZEY",
+      "titulo": "El desempleo creció porque aumentó la fuerza laboral y cayó…",
+      "vistas": 2,
+      "publicadoEn": "2026-10-01",
+      "segundos": 44,
+      "estado": "public"
+    },
+    {
+      "id": "W1wDcuuG7tI",
+      "titulo": "La economía chilena no logra repuntar: el Imacec cayó otra v",
+      "vistas": 8,
+      "publicadoEn": "2026-10-01",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "Bzw_X8-ubdo",
+      "titulo": "Desempleo llega a 9,6%: el nivel más alto desde 2021",
+      "vistas": 6,
+      "publicadoEn": "2026-10-01",
+      "segundos": 656,
+      "estado": "public"
+    },
+    {
+      "id": "dHAHtOdLuf8",
+      "titulo": "¿Por qué el gobierno estudia retirar su propia reforma de se",
+      "vistas": 1,
+      "publicadoEn": "2026-09-30",
+      "segundos": 47,
+      "estado": "public"
+    },
+    {
+      "id": "ybLb8PCGerY",
+      "titulo": "El sistema frontal cerró Los Libertadores y mantiene varias…",
+      "vistas": 37,
+      "publicadoEn": "2026-09-30",
+      "segundos": 42,
+      "estado": "public"
+    },
+    {
+      "id": "QHL1wY5Fpls",
+      "titulo": "Sistema frontal cierra Los Libertadores y mantiene varias re",
+      "vistas": 3,
+      "publicadoEn": "2026-09-30",
+      "segundos": 617,
+      "estado": "public"
+    },
+    {
+      "id": "uU6CHrWEn_Q",
+      "titulo": "Chile Despega moviliza recursos públicos para crear más de c",
+      "vistas": 278,
+      "publicadoEn": "2026-09-29",
+      "segundos": 44,
+      "estado": "public"
+    },
+    {
+      "id": "YZZwXm6XMMw",
+      "titulo": "Chile Despega moviliza $1,3 billones y proyecta más de 100 m",
+      "vistas": 10,
+      "publicadoEn": "2026-09-29",
+      "segundos": 669,
+      "estado": "public"
+    },
+    {
+      "id": "yLTQp_DFlvM",
+      "titulo": "¿Alcanza el plan de empleo del Gobierno para bajar el desemp",
+      "vistas": 38,
+      "publicadoEn": "2026-09-29",
+      "segundos": 48,
+      "estado": "public"
+    },
+    {
+      "id": "3PyF0uX9pn0",
+      "titulo": "¿Por qué hay paro nacional el jueves 1 de octubre? Esto pide",
+      "vistas": 213,
+      "publicadoEn": "2026-09-28",
+      "segundos": 45,
+      "estado": "public"
+    },
+    {
+      "id": "vCopBzxTDxg",
+      "titulo": "¿Puede un plan de US$1.350 millones bajar el desempleo en Ch",
+      "vistas": 3,
+      "publicadoEn": "2026-09-28",
+      "segundos": 50,
+      "estado": "public"
+    },
+    {
+      "id": "XMRGXLgDOXg",
+      "titulo": "Muere un carabinero en Lo Espejo: Kast decreta duelo y acele",
+      "vistas": 13,
+      "publicadoEn": "2026-09-28",
+      "segundos": 47,
+      "estado": "public"
+    },
+    {
+      "id": "fvGbxqm7kVw",
+      "titulo": "¿Por qué el Gobierno cuadruplica los cupos del subsidio para",
+      "vistas": 2,
+      "publicadoEn": "2026-09-28",
+      "segundos": 56,
+      "estado": "public"
+    },
+    {
+      "id": "dURWm6EWmBo",
+      "titulo": "El canciller deberá explicar ante la Cámara cómo Chile ingre",
+      "vistas": 42,
+      "publicadoEn": "2026-09-28",
+      "segundos": 58,
+      "estado": "public"
+    },
+    {
+      "id": "RVVuQv3twv4",
+      "titulo": "El canciller deberá explicar ante la Cámara cómo Chile ingre",
+      "vistas": 152,
+      "publicadoEn": "2026-09-28",
+      "segundos": 58,
+      "estado": "public"
+    },
+    {
+      "id": "JQNNaB8zNIs",
+      "titulo": "El crimen del carabinero en Renca suma un segundo detenido: ",
+      "vistas": 742,
+      "publicadoEn": "2026-09-28",
+      "segundos": 56,
+      "estado": "public"
+    },
+    {
+      "id": "bHwxoqomx-M",
+      "titulo": "Pérez Mackenna enfrenta interpelación por el Escudo de las A",
+      "vistas": 12,
+      "publicadoEn": "2026-09-28",
+      "segundos": 601,
+      "estado": "public"
+    },
+    {
+      "id": "VE8jCx9CVO8",
+      "titulo": "Pérez Mackenna enfrenta interpelación por el Escudo de las A",
+      "vistas": 1,
+      "publicadoEn": "2026-09-28",
+      "segundos": 601,
+      "estado": "private"
+    },
+    {
+      "id": "lidq_pTvTlo",
+      "titulo": "Temporal deja más de 12 mil personas aisladas en el centro-s",
+      "vistas": 79,
+      "publicadoEn": "2026-09-27",
+      "segundos": 51,
+      "estado": "public"
+    },
+    {
+      "id": "4SzkhEkMdEI",
+      "titulo": "Temporal deja más de 12 mil personas aisladas en el centro-s",
+      "vistas": 14,
+      "publicadoEn": "2026-09-27",
+      "segundos": 719,
+      "estado": "public"
+    },
+    {
+      "id": "iJvu555lINQ",
+      "titulo": "Curarrehue aislada: 7.850 personas sin paso y un puente caíd",
+      "vistas": 189,
+      "publicadoEn": "2026-09-26",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "5gCnr5z-5_4",
+      "titulo": "Curarrehue aislada: 7.850 personas sin paso y un puente caíd",
+      "vistas": 88,
+      "publicadoEn": "2026-09-26",
+      "segundos": 677,
+      "estado": "public"
+    },
+    {
+      "id": "MHEFCy1o6nw",
+      "titulo": "87% de los chilenos cree que el país vive una emergencia lab",
+      "vistas": 527,
+      "publicadoEn": "2026-09-26",
+      "segundos": 48,
+      "estado": "public"
+    },
+    {
+      "id": "38xMuHE47eI",
+      "titulo": "Alerta roja en el sur: evacuaciones y desbordes por el tempo",
+      "vistas": 441,
+      "publicadoEn": "2026-09-25",
+      "segundos": 43,
+      "estado": "public"
+    },
+    {
+      "id": "RGSENsGCBKA",
+      "titulo": "Alerta roja en el sur: evacuaciones y desbordes por el tempo",
+      "vistas": 39,
+      "publicadoEn": "2026-09-25",
+      "segundos": 768,
+      "estado": "public"
+    },
+    {
+      "id": "DQl1ZQPx51o",
+      "titulo": "¿El Escudo de las Américas trae tropas de EE.UU. a Chile? El",
+      "vistas": 259,
+      "publicadoEn": "2026-09-24",
+      "segundos": 49,
+      "estado": "public"
+    },
+    {
+      "id": "EFWY7D3NJso",
+      "titulo": "Escudo de las Américas: el Congreso interpelará al canciller",
+      "vistas": 289,
+      "publicadoEn": "2026-09-24",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "01xPihe7hz0",
+      "titulo": "Escudo de las Américas: el Congreso interpelará al canciller",
+      "vistas": 4,
+      "publicadoEn": "2026-09-24",
+      "segundos": 600,
+      "estado": "public"
+    },
+    {
+      "id": "9Eb-1KD5BqE",
+      "titulo": "Muere un trabajador en Minera Escondida mientras hacía mante",
+      "vistas": 460,
+      "publicadoEn": "2026-09-23",
+      "segundos": 42,
+      "estado": "public"
+    },
+    {
+      "id": "n8N1z4-124E",
+      "titulo": "¿Bloquear parte de una calle podría ser delito? Lo que aprob",
+      "vistas": 14,
+      "publicadoEn": "2026-09-23",
+      "segundos": 54,
+      "estado": "public"
+    },
+    {
+      "id": "-phNJeYXTLA",
+      "titulo": "¿Escondida hacia una huelga? El sindicato pide rechazar el b",
+      "vistas": 65,
+      "publicadoEn": "2026-09-23",
+      "segundos": 42,
+      "estado": "public"
+    },
+    {
+      "id": "ml6Yj5G-1_I",
+      "titulo": "Lluvias intensas: alerta en seis regiones hasta el jueves, y",
+      "vistas": 95,
+      "publicadoEn": "2026-09-23",
+      "segundos": 45,
+      "estado": "public"
+    },
+    {
+      "id": "5rhKCFnA-Mc",
+      "titulo": "Lluvias intensas: alerta en seis regiones hasta el jueves",
+      "vistas": 3,
+      "publicadoEn": "2026-09-23",
+      "segundos": 614,
+      "estado": "public"
+    },
+    {
+      "id": "hrufcYlaUSM",
+      "titulo": "Lluvias fuertes e isoterma cero alta entre Maule y Los Lagos",
+      "vistas": 39,
+      "publicadoEn": "2026-09-22",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "9JjmWDJroLU",
+      "titulo": "Lluvias fuertes e isoterma cero alta entre Maule y Los Lagos",
+      "vistas": 7,
+      "publicadoEn": "2026-09-22",
+      "segundos": 895,
+      "estado": "public"
+    },
+    {
+      "id": "NgutmEp2__Y",
+      "titulo": "¿Cómo terminó Fiestas Patrias en accidentes y violencia? El ",
+      "vistas": 191,
+      "publicadoEn": "2026-09-21",
+      "segundos": 43,
+      "estado": "public"
+    },
+    {
+      "id": "XX1upDjWWx0",
+      "titulo": "Fiestas Patrias deja 18 fallecidos y un balance vial todavía",
+      "vistas": 34,
+      "publicadoEn": "2026-09-21",
+      "segundos": 48,
+      "estado": "public"
+    },
+    {
+      "id": "U__vg19xHW8",
+      "titulo": "Fiestas Patrias deja 18 fallecidos y un balance vial todavía",
+      "vistas": 3,
+      "publicadoEn": "2026-09-21",
+      "segundos": 664,
+      "estado": "public"
+    },
+    {
+      "id": "0zRRrvdLUac",
+      "titulo": "¿Por qué la aprobación de Kast tocó su peor nivel como presi",
+      "vistas": 244,
+      "publicadoEn": "2026-09-21",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "-QmnmBnT1Ng",
+      "titulo": "Bachelet retira su candidatura a la Secretaría General de la",
+      "vistas": 32,
+      "publicadoEn": "2026-09-20",
+      "segundos": 48,
+      "estado": "public"
+    },
+    {
+      "id": "Yum6CV5gfwA",
+      "titulo": "Bachelet retira su candidatura a la Secretaría General de la",
+      "vistas": 6,
+      "publicadoEn": "2026-09-20",
+      "segundos": 641,
+      "estado": "public"
+    },
+    {
+      "id": "LjpVaF71JbQ",
+      "titulo": "Cinco regiones bajo alerta por un frente con rachas de 90 km",
+      "vistas": 213,
+      "publicadoEn": "2026-09-19",
+      "segundos": 48,
+      "estado": "public"
+    },
+    {
+      "id": "m16ACKSvQ5g",
+      "titulo": "Cinco regiones bajo alerta por un frente con rachas de 90 km",
+      "vistas": 19,
+      "publicadoEn": "2026-09-19",
+      "segundos": 508,
+      "estado": "public"
+    },
+    {
+      "id": "RgyxBISTZ9Y",
+      "titulo": "Tren Melipilla partirá desde Lo Errázuriz, y otras 4 cosas d",
+      "vistas": 83,
+      "publicadoEn": "2026-09-18",
+      "segundos": 47,
+      "estado": "public"
+    },
+    {
+      "id": "uzbivsRi_cE",
+      "titulo": "Tren Melipilla partirá desde Lo Errázuriz",
+      "vistas": 52,
+      "publicadoEn": "2026-09-18",
+      "segundos": 707,
+      "estado": "public"
+    },
+    {
+      "id": "5GyUYE2Goj8",
+      "titulo": "¿Tienes pasaporte venezolano vencido en Chile? Desde mañana ",
+      "vistas": 67,
+      "publicadoEn": "2026-09-17",
+      "segundos": 52,
+      "estado": "public"
+    },
+    {
+      "id": "kD55KQ0o38Q",
+      "titulo": "Falla en la PGU afecta a cerca de 53 mil pensionados, y otra",
+      "vistas": 10,
+      "publicadoEn": "2026-09-17",
+      "segundos": 47,
+      "estado": "public"
+    },
+    {
+      "id": "WjXgunaHKjs",
+      "titulo": "Falla en la PGU afecta a cerca de 53 mil pensionados",
+      "vistas": 7,
+      "publicadoEn": "2026-09-17",
+      "segundos": 627,
+      "estado": "public"
+    },
+    {
+      "id": "4a0tM4wBa8c",
+      "titulo": "Clave: ¿Qué se decide antes de un juicio oral? #Shorts",
+      "vistas": 23,
+      "publicadoEn": "2026-09-16",
+      "segundos": 24,
+      "estado": "public"
+    },
+    {
+      "id": "w8IPmwGoq3w",
+      "titulo": "¿Qué se decide antes de un juicio oral?",
+      "vistas": 11,
+      "publicadoEn": "2026-09-16",
+      "segundos": 686,
+      "estado": "public"
+    },
+    {
+      "id": "v8hygFRbm2U",
+      "titulo": "Fiscalía pide 17 años para Luis Hermosilla, y otras 4 cosas ",
+      "vistas": 16,
+      "publicadoEn": "2026-09-16",
+      "segundos": 52,
+      "estado": "public"
+    },
+    {
+      "id": "VqkqyzQp8Ec",
+      "titulo": "Fiscalía pide 17 años para Luis Hermosilla",
+      "vistas": 7,
+      "publicadoEn": "2026-09-16",
+      "segundos": 640,
+      "estado": "public"
+    },
+    {
+      "id": "ei1OUk3ZvAI",
+      "titulo": "Clave: Eliminar no es erradicar: cómo leer una certificación",
+      "vistas": 26,
+      "publicadoEn": "2026-09-15",
+      "segundos": 28,
+      "estado": "public"
+    },
+    {
+      "id": "nvG_C4evsL8",
+      "titulo": "¿Quién fue Patricio Guzmán, el documentalista que despide Ch",
+      "vistas": 313,
+      "publicadoEn": "2026-09-15",
+      "segundos": 44,
+      "estado": "public"
+    },
+    {
+      "id": "sCdoxJs4Ea8",
+      "titulo": "Eliminar no es erradicar: cómo leer una certificación sanita",
+      "vistas": 5,
+      "publicadoEn": "2026-09-15",
+      "segundos": 721,
+      "estado": "public"
+    },
+    {
+      "id": "22gwMpPnCxY",
+      "titulo": "Chile elimina la rabia humana transmitida por perros, y otra",
+      "vistas": 25,
+      "publicadoEn": "2026-09-15",
+      "segundos": 47,
+      "estado": "public"
+    },
+    {
+      "id": "0BNQR6diTNI",
+      "titulo": "Chile elimina la rabia humana transmitida por perros",
+      "vistas": 11,
+      "publicadoEn": "2026-09-15",
+      "segundos": 813,
+      "estado": "public"
+    },
+    {
+      "id": "hpryKVLBUXg",
+      "titulo": "¿Prepara el gobierno un plan de emergencia por el desempleo?",
+      "vistas": 19,
+      "publicadoEn": "2026-09-14",
+      "segundos": 42,
+      "estado": "public"
+    },
+    {
+      "id": "bfhNo31wIFI",
+      "titulo": "¿Quién decide cuánto gasta el Estado cada año?",
+      "vistas": 20,
+      "publicadoEn": "2026-09-14",
+      "segundos": 671,
+      "estado": "public"
+    },
+    {
+      "id": "pGzRumCBjg0",
+      "titulo": "Hacienda prepara un Presupuesto 2027 que casi congela el gas",
+      "vistas": 12,
+      "publicadoEn": "2026-09-14",
+      "segundos": 779,
+      "estado": "public"
+    },
+    {
+      "id": "NIXSupEy11Q",
+      "titulo": "Clave: ¿Quién decide cuánto gasta el Estado cada año? #Short",
+      "vistas": 1,
+      "publicadoEn": "2026-09-14",
+      "segundos": 32,
+      "estado": "private"
+    },
+    {
+      "id": "ifkYQ8GJpOA",
+      "titulo": "Hacienda prepara un Presupuesto 2027 que casi congela el gas",
+      "vistas": 2,
+      "publicadoEn": "2026-09-14",
+      "segundos": 50,
+      "estado": "private"
+    },
+    {
+      "id": "E-Z-IkAUItw",
+      "titulo": "¿Qué pasa con las reformas si el gobierno tiene su peor eval",
+      "vistas": 1,
+      "publicadoEn": "2026-09-14",
+      "segundos": 45,
+      "estado": "private"
+    },
+    {
+      "id": "E5bzH9810Rw",
+      "titulo": "Clave: ¿Qué prueba realmente una infracción tras una tragedi",
+      "vistas": 6,
+      "publicadoEn": "2026-09-13",
+      "segundos": 29,
+      "estado": "public"
+    },
+    {
+      "id": "s1STmc0QX-0",
+      "titulo": "16 muertos en el incendio de una residencia en Pitrufquén, y",
+      "vistas": 112,
+      "publicadoEn": "2026-09-13",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "fUYEskTWdGc",
+      "titulo": "¿Qué prueba realmente una infracción tras una tragedia?",
+      "vistas": 6,
+      "publicadoEn": "2026-09-13",
+      "segundos": 366,
+      "estado": "public"
+    },
+    {
+      "id": "3QhDzy_gUKk",
+      "titulo": "16 muertos en el incendio de una residencia en Pitrufquén",
+      "vistas": 104,
+      "publicadoEn": "2026-09-13",
+      "segundos": 680,
+      "estado": "public"
+    },
+    {
+      "id": "REcC_ZuhrPY",
+      "titulo": "¿Qué es la prisión preventiva y por qué no es una condena?",
+      "vistas": 34,
+      "publicadoEn": "2026-09-12",
+      "segundos": 342,
+      "estado": "public"
+    },
+    {
+      "id": "QARbL1VEpvY",
+      "titulo": "Clave: ¿Qué es la prisión preventiva y por qué no es una con",
+      "vistas": 180,
+      "publicadoEn": "2026-09-12",
+      "segundos": 34,
+      "estado": "public"
+    },
+    {
+      "id": "RPWexIZS3d0",
+      "titulo": "Corte Suprema remueve a once jueces por viajar con licencia ",
+      "vistas": 116,
+      "publicadoEn": "2026-09-12",
+      "segundos": 50,
+      "estado": "public"
+    },
+    {
+      "id": "9Le8uCfDRA4",
+      "titulo": "Corte Suprema remueve a once jueces por viajar con licencia ",
+      "vistas": 55,
+      "publicadoEn": "2026-09-12",
+      "segundos": 709,
+      "estado": "public"
+    },
+    {
+      "id": "PKh8hj3wd2M",
+      "titulo": "¿Por qué el caso del exfiscal Fodich terminó con presos y li",
+      "vistas": 77,
+      "publicadoEn": "2026-09-12",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "A2mhFpZpbzo",
+      "titulo": "¿Cómo termina preso un fiscal acusado de secuestrar por dine",
+      "vistas": 49,
+      "publicadoEn": "2026-09-11",
+      "segundos": 42,
+      "estado": "public"
+    },
+    {
+      "id": "MzrT56tga7w",
+      "titulo": "¿Qué admitió el exfiscal Vinko Fodich antes de ser formaliza",
+      "vistas": 243,
+      "publicadoEn": "2026-09-11",
+      "segundos": 48,
+      "estado": "public"
+    },
+    {
+      "id": "rYoBCZmEipg",
+      "titulo": "Exfiscal declaró que recibió millones en la causa por secues",
+      "vistas": 159,
+      "publicadoEn": "2026-09-11",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "8WNkdRrmI9U",
+      "titulo": "¿Por qué evacuaron Seguridad Municipal de Peñalolén este jue",
+      "vistas": 136,
+      "publicadoEn": "2026-09-10",
+      "segundos": 45,
+      "estado": "public"
+    },
+    {
+      "id": "FI_7V_pOlwQ",
+      "titulo": "Cómo leer el IPoM del Banco Central",
+      "vistas": 8,
+      "publicadoEn": "2026-09-10",
+      "segundos": 351,
+      "estado": "public"
+    },
+    {
+      "id": "qvSZvD8PiGk",
+      "titulo": "Clave: Cómo leer el IPoM del Banco Central #Shorts",
+      "vistas": 55,
+      "publicadoEn": "2026-09-10",
+      "segundos": 28,
+      "estado": "public"
+    },
+    {
+      "id": "bU-eMEkDcHc",
+      "titulo": "Banco Central reduce a menos de uno por ciento su proyección",
+      "vistas": 111,
+      "publicadoEn": "2026-09-10",
+      "segundos": 49,
+      "estado": "public"
+    },
+    {
+      "id": "tBv9v_TGayw",
+      "titulo": "Banco Central reduce a menos de uno por ciento su proyección",
+      "vistas": 32,
+      "publicadoEn": "2026-09-10",
+      "segundos": 694,
+      "estado": "public"
+    },
+    {
+      "id": "S9lXZ6iXZ3w",
+      "titulo": "¿Por qué el Banco Central ve escasez de cobre para el 2029? ",
+      "vistas": 3,
+      "publicadoEn": "2026-09-09",
+      "segundos": 46,
+      "estado": "public"
+    },
+    {
+      "id": "AJ4cxxL3XvA",
+      "titulo": "¿Por qué la economía chilena no mejorará antes de 2028? #Sho",
+      "vistas": 5,
+      "publicadoEn": "2026-09-09",
+      "segundos": 47,
+      "estado": "public"
+    },
+    {
+      "id": "QuLCkDcNvCQ",
+      "titulo": "Clave: ¿Qué significa realmente un puntaje de PISA? #Shorts",
+      "vistas": 36,
+      "publicadoEn": "2026-09-09",
+      "segundos": 28,
+      "estado": "public"
+    },
+    {
+      "id": "I-cYlzfnJ70",
+      "titulo": "¿Qué significa realmente un puntaje de PISA?",
+      "vistas": 6,
+      "publicadoEn": "2026-09-09",
+      "segundos": 318,
+      "estado": "public"
+    },
+    {
+      "id": "24scU14vvcg",
+      "titulo": "Exámenes que no pediste, y otras 4 cosas de hoy #Shorts",
+      "vistas": 33,
+      "publicadoEn": "2026-09-09",
+      "segundos": 48,
+      "estado": "public"
+    },
+    {
+      "id": "sXrH9G7A6II",
+      "titulo": "Fonasa denuncia un fraude de ocho mil millones en salud",
+      "vistas": 19,
+      "publicadoEn": "2026-09-09",
+      "segundos": 720,
+      "estado": "public"
+    },
+    {
+      "id": "i31AWVLW6qg",
+      "titulo": "Banco Central mantiene la tasa en 4,5%: ¿bajarán los crédito",
+      "vistas": 129,
+      "publicadoEn": "2026-09-09",
+      "segundos": 45,
+      "estado": "public"
+    },
+    {
+      "id": "OeGU38H6ryU",
+      "titulo": "Clave: ¿Qué es una interpelación y qué puede exigirle a un m",
+      "vistas": 82,
+      "publicadoEn": "2026-09-08",
+      "segundos": 33,
+      "estado": "public"
+    },
+    {
+      "id": "oCEw0HwkUyg",
+      "titulo": "¿Qué es una interpelación y qué puede exigirle a un ministro",
+      "vistas": 30,
+      "publicadoEn": "2026-09-08",
+      "segundos": 320,
+      "estado": "public"
+    },
+    {
+      "id": "Lx5FGXPlpvg",
+      "titulo": "Buscan comprar al Estado, y otras 4 cosas de hoy #Shorts",
+      "vistas": 134,
+      "publicadoEn": "2026-09-08",
+      "segundos": 48,
+      "estado": "public"
+    },
+    {
+      "id": "vtb2qda7A9E",
+      "titulo": "22 alcaldes bajo protección por el crimen organizado",
+      "vistas": 8,
+      "publicadoEn": "2026-09-08",
+      "segundos": 705,
+      "estado": "public"
+    },
+    {
+      "id": "n7CU6xJQ6Zw",
+      "titulo": "¿Seguirán caros los créditos? Expertos piden al Banco Centra",
+      "vistas": 17,
+      "publicadoEn": "2026-09-07",
+      "segundos": 48,
+      "estado": "private"
+    },
+    {
+      "id": "CU4xH6A4dKA",
+      "titulo": "¿Por qué una norma sísmica no basta para evitar el riesgo?",
+      "vistas": 3,
+      "publicadoEn": "2026-09-07",
+      "segundos": 334,
+      "estado": "public"
+    },
+    {
+      "id": "MsPcFSzX1B0",
+      "titulo": "Clave: ¿Por qué una norma sísmica no basta para evitar el ri",
+      "vistas": 59,
+      "publicadoEn": "2026-09-07",
+      "segundos": 33,
+      "estado": "public"
+    },
+    {
+      "id": "1CAMSAuZzug",
+      "titulo": "La disputa por el Estrecho golpea la imagen de Argentina en ",
+      "vistas": 13,
+      "publicadoEn": "2026-09-07",
+      "segundos": 850,
+      "estado": "public"
+    },
+    {
+      "id": "yH9MT_EDK0Y",
+      "titulo": "El Estrecho es chileno, y otras 4 cosas de hoy #Shorts",
+      "vistas": 352,
+      "publicadoEn": "2026-09-07",
+      "segundos": 48,
+      "estado": "public"
+    },
+    {
+      "id": "k_im76N_Is4",
+      "titulo": "Clave: ¿Por qué un senador necesita permiso judicial para se",
+      "vistas": 222,
+      "publicadoEn": "2026-09-06",
+      "segundos": 35,
+      "estado": "public"
+    },
+    {
+      "id": "xDofJVmO0rk",
+      "titulo": "¿Por qué un senador necesita permiso judicial para ser juzga",
+      "vistas": 8,
+      "publicadoEn": "2026-09-06",
+      "segundos": 312,
+      "estado": "public"
+    },
+    {
+      "id": "o91xeQhkSv4",
+      "titulo": "Su rival lo llamó valiente, y otras 4 cosas de hoy #Shorts",
+      "vistas": 231,
+      "publicadoEn": "2026-09-06",
+      "segundos": 49,
+      "estado": "public"
+    },
+    {
+      "id": "j5gOE3EYaQs",
+      "titulo": "Chile cierra el duelo oficial por Camilo Escalona",
+      "vistas": 15,
+      "publicadoEn": "2026-09-06",
+      "segundos": 659,
+      "estado": "public"
+    },
+    {
+      "id": "5GV3sHJxsQM",
+      "titulo": "Clave: ¿Cómo funciona la regla fiscal y el balance estructur",
+      "vistas": 57,
+      "publicadoEn": "2026-09-05",
+      "segundos": 39,
+      "estado": "public"
+    },
+    {
+      "id": "Zrfm2a7Fxj4",
+      "titulo": "Cinco cosas que hay que saber hoy, Sábado, 5 de septiembre #",
+      "vistas": 102,
+      "publicadoEn": "2026-09-05",
+      "segundos": 54,
+      "estado": "public"
+    },
+    {
+      "id": "GJMefzqOaqk",
+      "titulo": "¿Cómo funciona la regla fiscal y el balance estructural?",
+      "vistas": 32,
+      "publicadoEn": "2026-09-05",
+      "segundos": 598,
+      "estado": "public"
+    },
+    {
+      "id": "Yoli64YxjuM",
+      "titulo": "Muere Camilo Escalona, histórico dirigente socialista y expr",
+      "vistas": 12,
+      "publicadoEn": "2026-09-05",
+      "segundos": 687,
+      "estado": "public"
+    },
+    {
+      "id": "YFYczQZWjnQ",
+      "titulo": "¿Esperabas que bajaran las tasas? El mercado dice que no por",
+      "vistas": 101,
+      "publicadoEn": "2026-09-04",
+      "segundos": 51,
+      "estado": "public"
+    },
+    {
+      "id": "bO42vVDt5vg",
+      "titulo": "Clave: ¿Qué ocurre cuando Contraloría detecta un perjuicio f",
+      "vistas": 99,
+      "publicadoEn": "2026-09-04",
+      "segundos": 35,
+      "estado": "public"
+    },
+    {
+      "id": "94UI6QLnUao",
+      "titulo": "Cinco cosas que hay que saber hoy, Viernes, 4 de septiembre ",
+      "vistas": 393,
+      "publicadoEn": "2026-09-04",
+      "segundos": 50,
+      "estado": "public"
+    },
+    {
+      "id": "xYaG4nx-IkI",
+      "titulo": "Chile y Argentina ratifican la soberanía chilena sobre el Es",
+      "vistas": 153,
+      "publicadoEn": "2026-09-04",
+      "segundos": 655,
+      "estado": "public"
+    },
+    {
+      "id": "Ii7mKdrkNgs",
+      "titulo": "Clave: ¿Cómo conviven soberanía y libre navegación en un est",
+      "vistas": 95,
+      "publicadoEn": "2026-09-03",
+      "segundos": 37,
+      "estado": "public"
+    },
+    {
+      "id": "j3KKFH9yaUc",
+      "titulo": "¿Cómo conviven soberanía y libre navegación en un estrecho?",
+      "vistas": 20,
+      "publicadoEn": "2026-09-03",
+      "segundos": 551,
+      "estado": "public"
+    },
+    {
+      "id": "G3zhNQ15u_w",
+      "titulo": "Cinco cosas que hay que saber hoy, Jueves, 3 de septiembre #",
+      "vistas": 177,
+      "publicadoEn": "2026-09-03",
+      "segundos": 52,
+      "estado": "public"
+    },
+    {
+      "id": "XRzll3-Hbyw",
+      "titulo": "Kast recibe a Milei con el Estrecho de Magallanes en disputa",
+      "vistas": 11,
+      "publicadoEn": "2026-09-03",
+      "segundos": 718,
+      "estado": "public"
+    },
+    {
+      "id": "JpWGFsV-mMc",
+      "titulo": "Clave: ¿Cómo funcionan los fondos generacionales y qué riesg",
+      "vistas": 23,
+      "publicadoEn": "2026-09-02",
+      "segundos": 37,
+      "estado": "public"
+    },
+    {
+      "id": "hCObnchAo2U",
+      "titulo": "Cinco cosas que hay que saber hoy, Miércoles, 2 de septiembr",
+      "vistas": 239,
+      "publicadoEn": "2026-09-02",
+      "segundos": 54,
+      "estado": "public"
+    },
+    {
+      "id": "qzn2RJefxic",
+      "titulo": "¿Cómo funcionan los fondos generacionales y qué riesgo asume",
+      "vistas": 196,
+      "publicadoEn": "2026-09-02",
+      "segundos": 682,
+      "estado": "public"
+    },
+    {
+      "id": "rWOxj_0Iris",
+      "titulo": "La economía cae 1,5% y Hacienda prepara una nueva proyección",
+      "vistas": 42,
+      "publicadoEn": "2026-09-02",
+      "segundos": 816,
+      "estado": "public"
+    },
+    {
+      "id": "6sMtPM7Mzsw",
+      "titulo": "Clave: ¿Cómo leer el Imacec sin confundir señal con ruido? #",
+      "vistas": 81,
+      "publicadoEn": "2026-09-01",
+      "segundos": 34,
+      "estado": "public"
+    },
+    {
+      "id": "XVIxe4EJZbM",
+      "titulo": "¿Cómo leer el Imacec sin confundir señal con ruido?",
+      "vistas": 24,
+      "publicadoEn": "2026-09-01",
+      "segundos": 724,
+      "estado": "public"
+    },
+    {
+      "id": "Wd9_JFdie-k",
+      "titulo": "Cinco cosas que hay que saber hoy, Martes, 1 de septiembre #",
+      "vistas": 96,
+      "publicadoEn": "2026-09-01",
+      "segundos": 55,
+      "estado": "public"
+    },
+    {
+      "id": "OttZ12KyBSk",
+      "titulo": "La industria cae 5,1% antes del Imacec de julio",
+      "vistas": 47,
+      "publicadoEn": "2026-09-01",
+      "segundos": 822,
+      "estado": "public"
+    },
+    {
+      "id": "urU9RKHTg1g",
+      "titulo": "Clave: ¿Por qué el mercado de capitales influye en tu hipote",
+      "vistas": 10,
+      "publicadoEn": "2026-08-31",
+      "segundos": 34,
+      "estado": "public"
+    },
+    {
+      "id": "TeKnIIGAMUw",
+      "titulo": "¿Por qué el mercado de capitales influye en tu hipotecario?",
+      "vistas": 23,
+      "publicadoEn": "2026-08-31",
+      "segundos": 791,
+      "estado": "public"
+    },
+    {
+      "id": "2uHk1abTVRA",
+      "titulo": "Cinco cosas que hay que saber hoy, Lunes, 31 de agosto #Shor",
+      "vistas": 15,
+      "publicadoEn": "2026-08-31",
+      "segundos": 49,
+      "estado": "public"
+    },
+    {
+      "id": "UyW1kuLY37E",
+      "titulo": "Milei llega a Chile tras el impasse por el Estrecho de Magal",
+      "vistas": 222,
+      "publicadoEn": "2026-08-31",
+      "segundos": 843,
+      "estado": "public"
+    },
+    {
+      "id": "HnWm9lwFw8w",
+      "titulo": "¿Cómo puede una antena falsa identificar tu celular?",
+      "vistas": 16,
+      "publicadoEn": "2026-08-30",
+      "segundos": 688,
+      "estado": "public"
+    },
+    {
+      "id": "xCeMIDevwsE",
+      "titulo": "Clave: ¿Cómo puede una antena falsa identificar tu celular? ",
+      "vistas": 126,
+      "publicadoEn": "2026-08-30",
+      "segundos": 36,
+      "estado": "public"
+    },
+    {
+      "id": "MRG9fw8e5P8",
+      "titulo": "Concepción en Alerta Roja por el aumento del río Andalién",
+      "vistas": 22,
+      "publicadoEn": "2026-08-30",
+      "segundos": 692,
+      "estado": "public"
+    },
+    {
+      "id": "9SxSCiC8ZTs",
+      "titulo": "Cinco cosas que hay que saber hoy, Domingo, 30 de agosto #Sh",
+      "vistas": 184,
+      "publicadoEn": "2026-08-30",
+      "segundos": 48,
+      "estado": "public"
+    },
+    {
+      "id": "y-EyhOlc_sU",
+      "titulo": "Cinco cosas que hay que saber hoy, Sábado, 29 de agosto #Sho",
+      "vistas": 1,
+      "publicadoEn": "2026-08-30",
+      "segundos": 48,
+      "estado": "private"
+    },
+    {
+      "id": "jsr27ZICuQ4",
+      "titulo": "Desempleo llega a 9,5% y el Gobierno activa apoyo a nuevas c",
+      "vistas": 0,
+      "publicadoEn": "2026-08-30",
+      "segundos": 522,
+      "estado": "private"
+    }
+  ]
+}

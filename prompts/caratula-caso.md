@@ -7,7 +7,7 @@ que verse como eso: una pieza editorial sobria, reconocible como serie.
 
 **Cuándo se pide:** cuando una Clave con `FORMATO: diario` llega a
 `pauta_lista`, o cuando Santiago lo pida. La fecha de producción la fija
-Santiago al aprobar la pauta.
+quien aprueba la pauta (Claude desde el 12-11-2026; Santiago tiene el veto).
 
 **Cómo se usa:** se copia el bloque de abajo al generador, una vez por
 variante, con los marcadores rellenados desde la sección "Carátulas" de la
@@ -50,14 +50,15 @@ El texto VA DENTRO de la imagen: la carátula se publica tal como sale, nadie le
 IDENTIDAD DE LA SERIE
 Arriba a la izquierda, una marca pequeña que dice ENTENDER EL CASO, en mayúsculas espaciadas y tipografía monoespaciada.
 Paleta sobria: fondo oscuro casi negro azulado; un solo acento cobre; texto en blanco roto.
-El TITULAR va en tipografía serif, con cuerpo grande, en dos líneas, exactamente como yo lo entrego (máximo 7 palabras).
-La LÍNEA SECUNDARIA va debajo, pequeña, exactamente como yo la entrego (máximo 8 palabras).
-El acento cobre puede marcar una palabra o una línea fina, nunca todo el titular.
+El TITULAR es el SUJETO del caso, nombrado tal cual lo entrego (1 a 3 palabras, por ejemplo CODELCO). Va en tipografía serif, cuerpo muy grande, en blanco roto: tiene que leerse en un teléfono sin leer el título del video.
+La LÍNEA SECUNDARIA es la TENSIÓN: de 2 a 4 palabras, exactamente como la entrego, en MAYÚSCULAS dentro de una caja cobre sólida de bordes limpios, justo bajo el titular. No explica el caso, dice cómo se siente.
+El acento cobre es la caja y, como mucho, una línea fina; nunca todo el titular.
 
 COMPOSICIÓN
-El texto ocupa el 60% izquierdo de la imagen.
-En el 40% derecho va UN solo elemento visual: el ELEMENTO VISUAL que entrego, documental, fotográfico o 3D limpio, con luz cinematográfica y sombras suaves, que se funda con el fondo oscuro.
-Nada más compite con el titular.
+La imagen del ELEMENTO VISUAL va a sangre completa de fondo: una fotografía documental, nítida, con luz cinematográfica, oscurecida con un degradado hacia la izquierda para que el texto se lea. Debe responder en medio segundo "de qué va esto" sin ayuda del texto.
+El titular y la caja de tensión ocupan el lado izquierdo, grandes. La marca de la serie, pequeña, arriba a la izquierda.
+La esquina inferior derecha (11% del ancho y 10% del alto) queda LIBRE: YouTube la tapa con la duración.
+Nada más compite con el sujeto y la tensión.
 
 PROHIBIDO
 Rostros de personas reales.
@@ -75,6 +76,8 @@ Revisa letra por letra que el titular y la línea secundaria digan exactamente l
 PRUEBA FINAL ANTES DE ENTREGAR
 ¿Se lee el titular en un teléfono?
 ¿Se ve la marca ENTENDER EL CASO arriba a la izquierda?
-¿Hay un solo elemento visual, a la derecha, y ninguna cara?
+¿Hay una sola imagen héroe a sangre, sin caras, y la esquina inferior derecha está libre?
+¿Se entiende QUIÉN o QUÉ es el sujeto sin leer el título del video?
+¿La caja de tensión tiene entre 2 y 4 palabras y NO repite el titular?
 ¿La imagen se ve seria, sobria y de la misma serie que las anteriores?
 Si alguna respuesta es no, corrígelo antes de generar.

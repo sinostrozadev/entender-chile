@@ -39,3 +39,6 @@ public/sonidos/cama-clave.wav
 # las capturas de las páginas del diario que usa el largo sobre el diario
 # (scripts/largo-diario.js): se regeneran desde web/dist en cada render
 public/diario/
+
+# capturas fallidas de scripts/metricas-studio.js (las buenas SÍ se commitean, para el video de avance)
+salida/metricas/**/fallo-*.png

@@ -1,0 +1,249 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-11-19-short-diesel-camioneros",
+  "titulo": "El diésel subió 443 pesos por litro: por eso pararon los camioneros",
+  "descripcion": "¿Cuánto subió el diésel desde julio y por qué cortaron rutas los camioneros?\nSeis alzas seguidas desde el 29 de julio de 2026 suman unos 443 pesos por litro según los informes de ENAP.\nEl paro partió el 10-11-2026, convocado por la Confederación Fuerza del Norte; las dos confederaciones más grandes no adhirieron.\nFuentes: ENAP vía Emol (21-10-2026 y 11-11-2026), Emol (10-11-2026), The Clinic (10-11-2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#diesel",
+    "#camioneros",
+    "#chile"
+  ],
+  "publicar": "2026-11-19T12:00",
+  "props": {
+    "gancho": {
+      "texto": "Desde el 29 de julio, el diésel en Chile acumula unos 443 pesos más por litro. Te explico cómo se llegó ahí y por qué los camioneros cortaron rutas.",
+      "rotulo": "DIÉSEL: +443 $",
+      "cifras": [
+        {
+          "texto": "unos 443 pesos",
+          "valor": 443,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "diesel-alza-acumulada-2026",
+              "paises": [
+                "DIESEL"
+              ],
+              "valores": {
+                "DIESEL": [
+                  [
+                    0,
+                    28.5
+                  ],
+                  [
+                    1,
+                    125.9
+                  ],
+                  [
+                    2,
+                    214.9
+                  ],
+                  [
+                    3,
+                    309.9
+                  ],
+                  [
+                    4,
+                    401.4
+                  ],
+                  [
+                    5,
+                    401.4
+                  ],
+                  [
+                    6,
+                    443.3
+                  ]
+                ]
+              },
+              "nombres": {
+                "DIESEL": "Diésel"
+              },
+              "fuenteTexto": "ENAP, informes de precios (vía Emol, 21-10 y 11-11-2026)",
+              "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/10/21/1214815/combustibles-precio-alza-enap-hoy.html",
+              "etiqueta": "Alza acumulada del diésel",
+              "unidad": "$/litro",
+              "etiquetasX": {
+                "0": "29 jul",
+                "1": "19 ago",
+                "2": "9 sep",
+                "3": "30 sep",
+                "4": "21 oct",
+                "5": "4 nov",
+                "6": "11 nov"
+              }
+            },
+            "operacion": "valor",
+            "pais": "DIESEL",
+            "anio": 6
+          },
+          "tolerancia": 0.02
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "acercar": false,
+      "puntos": [
+        {
+          "texto": "Pozo Almonte",
+          "en": [
+            -69.79,
+            -20.26
+          ],
+          "dice": "rutas"
+        },
+        {
+          "texto": "San Bernardo",
+          "en": [
+            -70.7,
+            -33.59
+          ],
+          "dice": "rutas"
+        },
+        {
+          "texto": "Los Ángeles",
+          "en": [
+            -72.35,
+            -37.47
+          ],
+          "dice": "rutas"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "lineas",
+      "titulo": "Alza acumulada del diésel desde julio",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "diesel-alza-acumulada-2026",
+        "paises": [
+          "DIESEL"
+        ],
+        "valores": {
+          "DIESEL": [
+            [
+              0,
+              28.5
+            ],
+            [
+              1,
+              125.9
+            ],
+            [
+              2,
+              214.9
+            ],
+            [
+              3,
+              309.9
+            ],
+            [
+              4,
+              401.4
+            ],
+            [
+              5,
+              401.4
+            ],
+            [
+              6,
+              443.3
+            ]
+          ]
+        },
+        "nombres": {
+          "DIESEL": "Diésel"
+        },
+        "fuenteTexto": "ENAP, informes de precios (vía Emol, 21-10 y 11-11-2026)",
+        "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/10/21/1214815/combustibles-precio-alza-enap-hoy.html",
+        "etiqueta": "Alza acumulada del diésel",
+        "unidad": "$/litro",
+        "etiquetasX": {
+          "0": "29 jul",
+          "1": "19 ago",
+          "2": "9 sep",
+          "3": "30 sep",
+          "4": "21 oct",
+          "5": "4 nov",
+          "6": "11 nov"
+        }
+      },
+      "formato": {
+        "decimales": 0,
+        "prefijo": "$"
+      },
+      "dice": "ENAP"
+    },
+    "escenas": [
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según los informes de ENAP fueron seis alzas seguidas, cada tres semanas, casi siempre de noventa pesos. Solo a comienzos de noviembre hubo una semana sin cambio."
+      },
+      {
+        "tipo": "planteamiento",
+        "texto": "El transporte de carga vive del diésel, y cada alza se va directo a sus costos. El 10 de noviembre la Confederación Fuerza del Norte llamó a un paro indefinido.",
+        "visual": {
+          "tipo": "chile",
+          "acercar": false,
+          "puntos": [
+            {
+              "texto": "Pozo Almonte",
+              "en": [
+                -69.79,
+                -20.26
+              ],
+              "dice": "Fuerza"
+            },
+            {
+              "texto": "Coquimbo",
+              "en": [
+                -71.34,
+                -29.95
+              ],
+              "dice": "paro"
+            },
+            {
+              "texto": "San Bernardo",
+              "en": [
+                -70.7,
+                -33.59
+              ],
+              "dice": "paro"
+            },
+            {
+              "texto": "Los Ángeles",
+              "en": [
+                -72.35,
+                -37.47
+              ],
+              "dice": "indefinido"
+            }
+          ]
+        }
+      },
+      {
+        "tipo": "giro",
+        "texto": "Pero las dos confederaciones más grandes no se sumaron. El fondo del reclamo es el mecanismo que fija el precio, el Mepco, que deja subir el diésel de a poco pero sin parar.",
+        "rotulo": {
+          "texto": "EL MEPCO",
+          "dice": "Mepco"
+        }
+      }
+    ],
+    "remate": "El precio no saltó de golpe: subió de a poco, y por eso se notó tarde.",
+    "fuentes": [
+      {
+        "texto": "Emol, alzas de ENAP (21-10-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/10/21/1214815/combustibles-precio-alza-enap-hoy.html"
+      },
+      {
+        "texto": "Emol, paro de camioneros (10-11-2026)",
+        "url": "https://www.emol.com/noticias/Nacional/2026/11/10/1216611/camioneros-bloqueos-bencina-alza-paro.html"
+      }
+    ],
+    "id": "2026-11-19-short-diesel-camioneros"
+  }
+}

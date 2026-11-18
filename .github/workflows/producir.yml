@@ -1,0 +1,133 @@
+# PASO 2 del flujo de Entender Chile (docs/FLUJO.md): render y subida programada.
+#
+# Sin reloj: lo dispara el push del plan semanal (contenido/semana/**) y la llegada de una carátula de GPT
+# (contenido/caratulas/listas/**). La cadena vieja necesitaba relojes y reintentos porque esperaba a GPT en tiempo
+# real; acá el guion ya está escrito y verificado cuando llega el push. Cada pieza deja su marca en
+# contenido/semana/<semana>/hechos/: un segundo push no sube el mismo video dos veces.
+# Molde: numeros-rojos/.github/workflows/producir.yml (un largo de 10 min rinde en ~12 min en Actions).
+name: Producir
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "contenido/semana/**/*.json"
+      - "contenido/caratulas/listas/**"
+  workflow_dispatch:
+    inputs:
+      semana:
+        description: "Carpeta de la semana (AAAA-MM-DD, el jueves en que empieza). Vacío = todas con piezas pendientes"
+        type: string
+        default: ""
+      solo:
+        description: "Id de UNA pieza (ignora la regla de hora futura; para rehacer a mano)"
+        type: string
+        default: ""
+      subir:
+        description: "Subir a YouTube (false = solo renderizar y dejar el mp4 como artifact)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: producir
+  cancel-in-progress: false
+
+jobs:
+  producir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    defaults:
+      run:
+        working-directory: video
+    env:
+      VOZ_PROVEEDOR: edge
+    steps:
+      # ref: main (no el SHA del evento): si dos pushes se encolan por la concurrency, el segundo debe ver las marcas
+      # de hecho que dejó el primero; con el SHA viejo re-renderizaba y re-subía los mismos videos (duplicados).
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: video/package-lock.json
+
+      - name: Máquina
+        run: |
+          cpus=$(nproc); mem=$(awk '/MemTotal/ {print int($2/1024)}' /proc/meminfo)
+          if [ "$cpus" -ge 4 ] && [ "$mem" -ge 12000 ]; then conc=3; else conc=2; fi
+          echo "EC_CONCURRENCIA=$conc" >> "$GITHUB_ENV"
+          echo "CPU $cpus · RAM ${mem} MB · concurrency $conc"
+
+      - name: Fuentes del sistema (emoji a color)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends fonts-noto-color-emoji > /dev/null
+
+      - name: Dependencias
+        run: npm ci --no-audit --no-fund
+
+      - name: Chrome headless de Remotion
+        run: npx remotion browser ensure
+
+      - name: Producir (validar, voz, render, subida programada)
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          SEMANA: ${{ inputs.semana }}
+          SOLO: ${{ inputs.solo }}
+          SUBIR: ${{ github.event_name == 'push' || inputs.subir }}
+        run: |
+          a=()
+          [ -n "$SEMANA" ] && a+=(--semana "$SEMANA")
+          [ -n "$SOLO" ] && a+=(--solo "$SOLO")
+          [ "$SUBIR" = "true" ] || a+=(--sin-subir)
+          npx tsx scripts/producir.mts --concurrencia "$EC_CONCURRENCIA" "${a[@]}"
+
+      - name: Commit de las marcas de hecho
+        if: always()
+        working-directory: .
+        run: |
+          git config user.name "edicion-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add contenido/semana/ || true
+          git diff --cached --quiet || {
+            git commit -m "producir: piezas programadas [bot]"
+            git -c rebase.autoStash=true pull --rebase origin main
+            git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
+          }
+
+      - name: Videos como artifact (14 días)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: producir-${{ github.run_id }}
+          path: video/salida/bandeja/*.mp4
+          retention-days: 14
+          compression-level: 0
+          if-no-files-found: ignore
+
+  # Aviso cuando el render o la subida fallan (producir.mts sale con 1 si alguna pieza falló). Sin esto el fallo era
+  # silencioso: el correo de GitHub por run fallido es fácil de pasar por alto y la revisión diaria solo mira al día
+  # siguiente. El issue llega al correo/teléfono de Santiago; la revisión diaria lo cierra al ver la pieza programada.
+  avisar:
+    needs: producir
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Abrir issue de aviso
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Producir falló: hay piezas sin render o sin subir ($(TZ=America/Santiago date '+%d-%m %H:%M'))" \
+            --body "El job producir terminó con error. Revisa el log: $RUN_URL
+          Cada pieza sin marca en contenido/semana/*/hechos/ se reintenta sola en el próximo push de contenido/semana/** o a mano (Actions, Producir, Run workflow; \`solo\` = id de la pieza)."

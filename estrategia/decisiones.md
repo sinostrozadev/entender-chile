@@ -1014,3 +1014,271 @@ suscriptores se multiplicó por cinco (4 por día en los últimos 30 días) y lo
 explicativos pasan de forma regular las 1.000 vistas. Si no, se cierra. Por
 qué: Claude no puede asegurar la monetización y lo dijo; una apuesta sin fecha
 de cierre no es una apuesta, es una costumbre.
+
+## 2026-11-07 - La portada no puede ser extranjera (y por qué eso es una decisión de audiencia)
+
+**Qué**: en `prompts/informe.md`, la NOTICIA DE PORTADA ya no puede ser una
+noticia cuyo sujeto central esté fuera de Chile, salvo que la consecuencia
+chilena ya decidida y con fecha sea ella misma la noticia, y en ese caso el
+titular nombra la consecuencia y no al protagonista extranjero. La noticia
+internacional sigue saliendo completa en su sección: lo único que pierde es la
+portada. Además, "un presidente extranjero" deja de valer 2 en el criterio
+NOMBRE PROPIO BUSCABLE: a ese nombre lo busca el público de su país.
+
+**Por qué**: la línea NOTICIA DE PORTADA decide, en cascada, el título del
+video, la carátula, la apertura en frío y el primer bloque del guion, y
+`scripts/short.js` arma el Short con los primeros bloques de ese guion. O sea:
+quien elige la portada elige el tema del Short, que desde el 04-11-2026 es el
+producto principal del canal. Y el Short extranjero no se reparte. Medido el
+07-11-2026 sobre `bitacora/metricas/2026-11-07.json`: los 9 Shorts públicos con
+un nombre propio extranjero en el título juntan 2 clics en 432 impresiones (CTR
+0,46%) contra 102 clics en 5.004 impresiones (2,04%) de los 134 Shorts
+chilenos. Ninguno de los 9 pasó las 300 vistas; 18 de los 134 sí. Lo decisivo
+es que no es un rechazo del espectador: esos 9 tienen 92,7% visto de mediana,
+muy por encima del 62% del resto. Quien los ve, los ve enteros. Lo que no
+ocurre es la distribución, porque la audiencia que YouTube le reconoce al canal
+es chilena y el tema no le calza.
+
+**Qué tan firme es el dato**: la diferencia de CTR es sólida (2 clics
+observados contra 8,8 esperados en 432 impresiones, p = 0,007 binomial de una
+cola). La de "ninguno sobre 300 vistas" no alcanza por sí sola a ser
+concluyente con n = 9 (p = 0,27): se apoya en la primera, no la reemplaza.
+
+**Qué lo gatilló**: el 07-11-2026 la portada fue "Paraguay destituye a Santiago
+Peña tras la caída de Ueno Bank" (9/10, proximidad 1), por delante del IPC de
+octubre, que es chileno, le pega al bolsillo de todos y es cola larga. El
+criterio viejo premiaba con el máximo a "un presidente extranjero", así que el
+prompt estaba eligiendo exactamente lo que los números dicen que no se
+reparte. Ya había pasado el 25 y el 26-10-2026 con el balotaje de Brasil
+(Shorts de 11 y 7 vistas).
+
+**Lo que NO se hace**, para que la auditoría no lo vuelva a proponer: apagar el
+resumen internacional, ni bajarle el desarrollo. El problema nunca fue cubrir
+el mundo, fue ponerlo en la portada. **Decidió**: Claude, por el mandato del
+04-11-2026.
+
+## 2026-11-09 - El titular de portada tiene que nombrar a quien le pasa algo
+
+**Qué**: en `prompts/informe.md`, el titular de la NOTICIA DE PORTADA ya no
+puede quedarse en una institución, un indicador o un trámite. Tiene que nombrar
+a la persona o al grupo humano al que le pasa algo, con nombre propio o con el
+sustantivo que los nombra (los funcionarios, los pensionados, los vecinos de la
+comuna). Si el hecho no le pasa a nadie identificable porque el sujeto central
+ES un indicador o un trámite, esa candidata pierde la portada mientras exista
+otra [A] chilena del día con alguien a quien nombrar; el indicador igual sale
+completo en su sección. Y en `prompts/guion-informe.md`, cuando la tesis de "La
+noticia del día" no cabe en los 66 caracteres que admite el título del Short,
+el orden de sacrificio es explícito: primero se va el procedimiento, después el
+adjetivo, después la cifra exacta, y la persona se queda siempre.
+
+**Por qué**: de los 145 Shorts públicos medidos el 09-11-2026 sobre
+`bitacora/metricas/2026-11-09.json`, los 54 cuyo título nombra a una persona o a
+un grupo humano pasan las 300 vistas 15 veces (27,8 %) y las 500 nueve veces,
+contra 4 de 91 (4,4 %) y una sola vez de los que solo nombran instituciones o
+indicadores. Nueve de los diez Shorts del canal sobre 500 vistas están en el
+primer grupo. Mediana de vistas 76 contra 59.
+
+**Qué tan firme es el dato, y qué NO dice**: el paso de las 300 vistas es
+sólido (4 observados contra 25,3 esperados en 91 piezas si tuvieran el mismo
+paso que el otro grupo, p menor que 0,0001 binomial de una cola) y aguanta que
+se reclasifiquen los casos de frontera. Pero el CTR de los dos grupos es
+idéntico, 1,86 % contra 1,89 %, así que **esto no es una regla de clics ni de
+carátula**: mueve el reparto, no la miniatura. El CTR por grupo está medido con
+una mediana de unas 20 impresiones por Short, o sea con ruido, y no se usa en
+ninguna dirección.
+
+**Qué lo gatilló**: el 09-11-2026 la portada fue que la Municipalidad de Curicó
+dejó fuera a ciento veintiséis funcionarios por viajar con licencia médica, un
+hecho con ciento veintiséis personas adentro, y el título del Short salió
+"Curicó cerró ciento veintiséis salidas por viajes con licencia". El "Título
+sugerido" del informe sí decía "de funcionarios": lo que borró a la gente fue
+el tope de 66 caracteres que entró el 08-11-2026, porque la cifra escrita en
+palabras cuesta catorce caracteres y la versión con las personas adentro mide
+79. O sea, la mejora de ayer, sin esta, empuja justo en contra.
+
+**Lo que NO se hace**, para que la auditoría no lo vuelva a proponer: no se
+apagan las noticias de indicador ni las de trámite (el Imacec, el IPC, el
+Presupuesto, la Contraloría), que siguen completas en su sección y son cola
+larga. Lo único que pierden es la portada. Y no se inventa una víctima ni un
+responsable para cumplir la regla: si no hay nadie, la portada se la lleva otra
+noticia.
+
+**Lo que queda por medir, y que puede tumbar la decisión del 07-11-2026**: el
+Short del 07-11-2026 sobre la destitución de Santiago Peña en Paraguay, que es
+extranjero y por lo tanto el caso que esa decisión dice que no se reparte,
+llegó el 09-11-2026 a 597 vistas y 23 me gusta, y aportó 380 de las 433 vistas
+del día, el 88 % del movimiento del canal. Es un solo caso y no alcanza para
+revertir nada, pero es el mejor Short de la última semana. Se vuelve a medir el
+16-11-2026: si al menos dos Shorts extranjeros más pasan las 300 vistas, la
+decisión del 07-11-2026 se revisa con los números a la vista. **Decidió**:
+Claude, por el mandato del 04-11-2026.
+
+## 2026-11-12 - "Entender el caso": Claude elige y aprueba, Santiago solo veta
+
+**Qué**: la elección del tema del largo y la aprobación de su pauta pasan de
+Santiago a Claude. Santiago conserva el **veto**: crear el archivo
+`contenido/estado/veto-clave.txt` (o `contenido/claves/flujo/<slug>/veto.txt`
+para una sola) frena la Clave en curso en cualquier etapa hasta el render y
+mientras exista Claude no elige otra; borrarlo reanuda. Antes del `VETO_HASTA`
+(12 horas tras la aprobación) GPT ni siquiera arranca. Cadencia: **una por
+semana**, elegida de jueves a sábado para salir el miércoles siguiente; no sube a
+dos hasta que un largo pase las 1.000 vistas en 7 días dos semanas seguidas. El
+Short diario no se toca. Criterios por escrito en `prompts/eleccion-clave.md`
+(cifra oficial verificable, vigencia, potencial de búsqueda, piso de rigor y
+monetización, no política partidista sin ángulo explicativo); cada elección deja
+su porqué en `contenido/claves/flujo/<slug>/eleccion.md`.
+
+**Por qué**: el flujo se detenía en dos puntos que dependían de Santiago
+(cerrar la propuesta y aprobar la pauta) y 7 propuestas quedaron sin consumir del
+05 al 11-11-2026; el largo es la apuesta de horas de reproducción y un flujo
+parado no mide nada. El mandato del 04-11-2026 ya le daba esta decisión a Claude
+y Santiago autorizó destrabarlo ("sí", 12-11-2026).
+
+**Qué se cambió**: `scripts/clave.js` (`--por claude --motivo`, `vetoDe`),
+`scripts/estado-clave.js` (etapas `vetada` y `ventana_veto`),
+`scripts/mural-flujo.js` (el veto también frena los pedidos de paneles),
+`estado-clave.yml` (el aviso de `pauta_lista` ya no se espera: dura segundos),
+`prompts/eleccion-clave.md` (nuevo), `seguimiento-temas.md` (paso 3b),
+`pauta-clave.md` (Claude aprueba su pauta).
+
+**Primera elección: Codelco** (`codelco-produccion-inflada`), sale el miércoles
+**18-11-2026**. De 7 propuestas ganó con 8 de 8 posibles: cifra oficial de 42.100
+toneladas, caso abierto con auditorías pendientes, búsqueda todo el año, sin
+menores ni duelo, tesis de mecanismo contable y no de pelea partidista. Cayeron:
+Presupuesto 2027, diésel y Junaeb (6), explotación sexual infantil (5, menores
+como eje), Ruta de la Fruta (4, duelo reciente) y paro de San Antonio (4, ya
+cerrado). Las otras siguen abiertas y se vuelven a puntuar.
+
+**Refuerzo tras el piloto del 05-11-2026 (CTR 0,56 %, 31 % visto)**, aplicando
+`caratulas-con-gpt` §2b y `videos-largos`: la carátula nombra al **sujeto** en
+la línea 1 (se lee sin el título) y lleva 2 a 4 palabras de **tensión** en caja
+cobre en la línea 2; foto documental héroe a sangre, esquina inferior derecha
+libre (`prompts/caratula-caso.md`, `pauta-clave.md` §8). El guion pone al sujeto y
+la cifra más fuerte en la primera frase y la promesa concreta antes de los 15 s
+(`prompts/guion-claves.md`). **Qué se mide**: CTR de la carátula nueva contra
+0,56 % y retención a los 30 s contra el piloto; si no mejora, se reevalúa la
+fórmula, no el flujo. **Decidió**: Claude, por el mandato del 04-11-2026.
+
+## 2026-11-13 - Estrategia A, "Chile en mapas y datos", con compuerta al día 14
+
+**Qué**: Santiago aprobó la Estrategia A de `estrategia/propuesta-2026-11.md`
+y pidió limpiar y simplificar el repo. Desde el jueves **19-11-2026**: un
+Short diario de 45 a 60 s a las 12:00 y un largo semanal de 10 a 12 min los
+miércoles a las 19:00, ambos con mapa o gráfico en movimiento desde el primer
+segundo, hechos con las plantillas de En Números Rojos y Línea Punteada
+(`video/`), voz es-CL Lorenzo por Edge TTS (Azure queda de respaldo) y un
+flujo de 3 pasos (`docs/FLUJO.md`) que reemplaza la cadena diaria. Se pausa el
+carril escrito (informe diario de GPT, validación por pieza, podcast) y se
+retira "Entender el caso" con su mural. Inventario y motivos de lo retirado:
+`estrategia/limpieza-2026-11.md`. El largo de Codelco del 18-11-2026 sale con
+el formato viejo y **no cuenta** para la evaluación.
+
+**Por qué**: el producto principal era un resumen de noticias estático (texto
+sobre fondo fijo, 12,6 s de texto inmóvil por Short), con mediana de 48 vistas
+y 0,63 suscriptores por día que no se movieron en 75 días, y una fábrica de
+15 workflows y ~14 rutinas para producirlo. La A ataca la causa medida con
+piezas que Santiago ya aprobó en otros canales y baja el gasto de cupo de 50 a
+70 sesiones Opus por semana a unas 4 a 6.
+
+**Decidió**: Santiago (aprobación de la propuesta, 13-11-2026).
+
+### Compuerta del día 14
+
+**Fecha de evaluación: jueves 03-12-2026**, en la revisión semanal del plan
+de las 17:30 (`prompts/plan-semanal.md` §0 y §1), con los datos de
+`bitacora/metricas/` de ese día. Evaluación intermedia a los 7 días, el
+jueves 26-11-2026, solo informativa. Se miden las piezas del formato nuevo
+publicadas desde el 19-11-2026; las vistas de un Short se toman a 72 h de su
+publicación.
+
+| # | Criterio | Línea base | Meta a 7 días (26-11) | **Meta a 14 días (03-12)** |
+|---|---|---|---|---|
+| 1 | Mediana de vistas de los Shorts nuevos, a 72 h | 48 | ≥ 150 | **≥ 300** |
+| 2 | Shorts nuevos sobre 1.000 vistas | 3 de 148 | ≥ 1 | **≥ 2** |
+| 3 | % visto mediano de los Shorts nuevos | 69,5 % | ≥ 70 % | **≥ 75 %** |
+| 4 | CTR de la carátula del largo del 25-11, a 72 h | 0,56 % | ≥ 3 % | **≥ 4 %** |
+| 5 | Retención del largo del 25-11 a los 30 s | ~48 % | ≥ 60 % | **≥ 60 %** |
+| 6 | Vistas del largo del 25-11 | 45 | ≥ 300 (a 7 días) | **≥ 800** |
+| 7 | Suscriptores por día, promedio de 7 días móviles | 0,63 | ≥ 1,5 | **≥ 3** |
+
+**Regla de decisión (03-12-2026)**:
+- **4 o más** de 7 criterios a 14 días cumplidos: **SEGUIR** con A y duplicar
+  lo que pegó.
+- **2 o 3**: **AJUSTAR**, una semana más con el ajuste que diga el dato, y se
+  vuelve a evaluar el jueves 10-12-2026 con la misma tabla.
+- **0 o 1**: **CERRAR** la producción de video de Entender Chile (Estrategia
+  C2): no se publican más piezas, el canal queda publicado, se apagan las
+  tres rutinas y `producir.yml`, y el cupo pasa a Línea Punteada y En Números
+  Rojos. Se le informa a Santiago con estos números el mismo día.
+
+La revisión semanal escribe la decisión en la primera línea de su archivo
+(`DECISIÓN: SEGUIR | AJUSTAR | CERRAR`) y el plan semanal la obedece. Un
+criterio sin dato (por ejemplo, Analytics que no entrega la retención) cuenta
+como no cumplido, y se dice. Esta compuerta adelanta y endurece el criterio de
+cierre del 31-01-2027 de la decisión "El despegue", que queda como segunda
+revisión si la A sigue.
+
+## 2026-11-16 - Se cierran dos revisiones pendientes: la portada extranjera sigue prohibida y los dos formatos del Short NO se separan
+
+**Qué**: quedan cerradas, con los números a la vista, las dos revisiones que los
+registros anteriores dejaron agendadas. Primera: la decisión del 07-11-2026 (la
+portada no puede ser extranjera) **no se revisa y queda firme**. Segunda: **no
+se separan los dos formatos del Short**, que era la mejora candidata grande que
+dejó escrita el registro del 15-11-2026; el recopilatorio diario se queda como
+está.
+
+**Por qué la portada extranjera sigue prohibida**: la decisión del 09-11-2026
+fijó la prueba para hoy, "si al menos dos Shorts extranjeros más pasan las 300
+vistas, la decisión del 07-11-2026 se revisa". Medido hoy sobre
+`bitacora/metricas/2026-11-16.json`: de los 21 Shorts públicos que pasan las 300
+vistas, **uno solo tiene sujeto fuera de Chile**, el de Paraguay y Santiago Peña
+del 07-11-2026, y está detenido en 639 vistas (+0 respecto del 15-11-2026). Los
+otros 20 son chilenos. O sea no apareció ninguno más, cuando la prueba pedía
+dos. La condición no se cumplió y la prohibición se mantiene tal como está
+escrita en `prompts/informe.md`.
+
+**Por qué los dos formatos no se separan**: la hipótesis era que el Short de un
+solo tema rinde más que el recopilatorio de cuatro bloques, y que por eso valía
+la pena partir el producto principal en dos. Medida hoy sobre los 150 Shorts
+públicos, clasificados por su origen real y no por el título (que el json
+guardaba cortado en 60 caracteres): el **recopilatorio** da mediana de 90 vistas,
+pasa las 300 el 16,4 % de las veces (9 de 55) y las 500 el 9,1 %; el **de un solo
+tema** da mediana 67, pasa las 300 el 12,6 % (12 de 95) y las 500 el 7,4 %. O sea
+el recopilatorio no es peor: en las tres medidas está igual o mejor, y el efecto
+apunta justo al revés de la hipótesis. Binomial de una cola contra la tasa
+combinada del 14,0 %: **p = 0,362**, o sea nada. Y el subconjunto "¿Por qué...?",
+que es el formato que la estrategia del 04-11-2026 nombra como el producto del
+canal, tiene la **peor mediana de todos los grupos, 28 vistas** (n=23).
+
+**Qué tan firme es, y qué NO dice**: el "¿Por qué...?" está **confundido y no se
+puede condenar con esto**: los 23 salieron siempre en días con otras piezas,
+nunca como la pieza única del día, así que el dato mide "Short secundario de un
+día cargado" tanto como mide el formato. El hueco sí aguanta el control por mes
+(septiembre 41 contra 95,5; octubre 28 contra 69; noviembre 48 contra 48 con
+n=2). Lo que queda probado no es que el explicativo de un solo tema sea malo,
+sino que **no hay evidencia para romper el producto diario**, que era lo que se
+iba a hacer mañana.
+
+**Lo que NO se hace**, para que la auditoría no lo vuelva a proponer: no se
+parte el Short en dos formatos, no se apaga el recopilatorio y no se vuelve a
+medir "recopilatorio contra un solo tema" sin una muestra nueva. Tampoco se
+sostiene la canibalización como causa: las vistas del Short por cantidad de
+piezas publicadas ese día no son monótonas (1 pieza mediana 136, 2 piezas 56, 3
+piezas 128,5, 4 piezas 82, 5 o más 36), la banda peor es la de los días de
+exprés de septiembre y por lo tanto está confundida con la antigüedad, y desde
+el 06-11-2026 el canal publica una sola pieza al día, así que el problema ya se
+cerró solo.
+
+**Qué sí quedó confirmado hoy**: la regla del 09-11-2026 (el titular de portada
+nombra a la persona o al grupo humano al que le pasa algo) se volvió a medir
+sobre los **ganchos completos y sin cortar**, leídos de los guiones del repo y no
+del json, que era justo lo que el registro del 15-11-2026 pidió repetir. Sobre
+los 37 Shorts del informe con gancho completo: los 15 que nombran a alguien dan
+mediana **150** vistas y pasan las 300 el 40,0 %; los 16 que solo nombran
+institución o indicador dan mediana **28,5** y pasan las 300 el 6,3 %. Aguanta
+los casos de frontera en las dos direcciones (90 contra 28,5 contándolos a favor
+del primer grupo, 150 contra 39,5 a favor del segundo). Honestidad sobre el
+dato: con n=37 la prueba da **p = 0,100** binomial de una cola, o sea no es
+concluyente por sí sola y se apoya en la medición original del 09-11-2026, que
+tenía 145 piezas; lo que agrega es que el efecto **no era un artefacto del corte
+de 60 caracteres**. **Decidió**: Claude, por el mandato del 04-11-2026.

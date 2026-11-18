@@ -1,0 +1,39 @@
+Tarea: imagen
+Salida: contenido/caratulas/externos/linea-punteada/2026-11-22-bolivia-mar.png
+Prompt: prompts/imagen-caratula.md
+Canal: Línea Punteada (externo, @lineapunteada)
+Para: largo 16:9 "A Bolivia le ofrecieron el mar 5 veces. ¿Qué falló?" (OA5sbBsUMHU, publica dom 2026-11-22 19:00)
+
+# Carátula del largo El mar de Bolivia
+
+## El prompt (va tal cual al generador, no se reinterpreta)
+
+Crea UNA carátula de YouTube para un video largo de geografía narrada del canal en español "Línea Punteada" (mapas, fronteras y rutas contadas con calma). Misma serie visual que sus carátulas anteriores: fondo azul noche, texto grande a la izquierda, mapa satelital a la derecha, un solo acento naranja.
+
+DATOS QUE YO ENTREGO
+TITULAR (exacto, dos líneas, sin cambiar palabras ni tildes):
+5 veces le ofrecieron
+el mar a Bolivia
+CAJA DE TENSIÓN (exacta, en mayúsculas, caja negra con texto blanco y la palabra NO en naranja):
+Y NO PASÓ
+LÍNEA SECUNDARIA (exacta):
+El Litoral perdido y el candado de Arica
+ELEMENTO VISUAL:
+Mapa satelital en relieve, oscuro y elegante, del centro-oeste de Sudamérica (sur de Perú, Bolivia, norte de Chile y la costa del Pacífico), ocupando el 55 % derecho. Bolivia se ve clara, con su frontera marcada por una línea punteada blanca. La franja costera del antiguo Litoral boliviano (la costa del Pacífico entre el río Loa y el sur de Antofagasta, hoy chilena) está resaltada en naranja (#d95926). Sobre la ciudad de Arica, en la costa al norte de esa franja, un pequeño candado dorado. Una flecha blanca curva dibujada a mano va de la caja de tensión a la franja naranja.
+
+FORMATO
+16:9 horizontal, 1280x720 o mayor, PNG. UNA sola carátula a lienzo completo: nada de paneles, mosaicos ni variantes. Cada territorio aparece UNA sola vez. El texto VA DENTRO, exacto.
+
+IDENTIDAD DEL CANAL
+Arriba a la izquierda, marca pequeña LÍNEA PUNTEADA en mayúsculas espaciadas, grotesca pesada, con una línea punteada corta debajo.
+Paleta: fondo azul noche casi negro; tierra en relieve gris cálido y ocre; mar azul profundo; UN solo acento naranja quemado (#d95926) para la franja costera y la palabra NO.
+TITULAR en grotesca muy pesada, blanco, cuerpo grande, dos líneas. Debajo la CAJA DE TENSIÓN y debajo la LÍNEA SECUNDARIA pequeña.
+
+COMPOSICIÓN
+Texto en el 45 % izquierdo; el mapa se funde con el fondo, sin marco. Esquina inferior derecha libre (duración).
+
+PROHIBIDO
+Personas y rostros. Banderas. Logos, nombres de medios, marcas de agua. Nombres de lugares escritos sobre el mapa. Cualquier texto fuera de la marca, el titular, la caja y la línea secundaria. Rojo de tabloide, signos de exclamación, collage. Geografía inventada.
+
+PRUEBA FINAL
+¿Se entiende en un segundo que Bolivia perdió una costa y no la recuperó? ¿El titular se lee en un teléfono? ¿La esquina inferior derecha está limpia? ¿Hay un solo acento de color? ¿Es UNA sola imagen? Si algo falla, corrígelo antes de generar.

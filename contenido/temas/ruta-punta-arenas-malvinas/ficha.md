@@ -1,7 +1,7 @@
 # La ruta comercial de Punta Arenas a las Malvinas y la reacción argentina
 Estado: abierto
 Abierto: 2026-11-03
-Última actualización: 2026-11-06
+Última actualización: 2026-11-18
 
 ## Origen
 El 28-10-2026 los informes del canal registraron pedidos de anticipación diplomática frente a Argentina por una posible interceptación de un buque chileno rumbo a las islas Malvinas, versión que no tuvo confirmación oficial (Canal 9 Bío Bío Televisión y G5noticias, 28-10-2026). El 30-10-2026 el buque Danstar zarpó de Valparaíso hacia Magallanes antes de abrir en diciembre de 2026 la ruta comercial entre Punta Arenas y las islas Malvinas (24 Horas, Ushuaia 24 y Radio Universidad de Chile, 30-10-2026). Importa porque una ruta comercial chilena hacia un territorio en disputa entre Argentina y el Reino Unido toca la relación con Buenos Aires, y porque el Gobierno y la Cancillería tuvieron que fijar posición en cuatro días seguidos.
@@ -15,14 +15,28 @@ El 28-10-2026 los informes del canal registraron pedidos de anticipación diplom
 - 2026-11-02 | El canciller argentino, Pablo Quirno, asegura que su país garantiza la libertad de navegación, lo que reduce la tensión por la ruta del Danstar; las versiones sobre una eventual intercepción no cuentan con confirmación oficial y contradicen esa declaración, por lo que no se presentan como hecho (La Opinión Austral, Radio Maray y Tiempo Sur, 02-11-2026) | diario: 2026-11-03#argentina-garantiza-libertad-de-navegacion-en-la | sección: Resumen internacional
 - 2026-11-05 | La jueza chilena María Teresa Infante participará, ante el Tribunal Internacional del Derecho del Mar, en la revisión de una presentación argentina vinculada con las islas Malvinas, una decisión que puede fijar criterios sobre navegación marítima aplicables también a Chile (Ex-Ante, 05-11-2026) | diario: 2026-11-06#una-jueza-chilena-revisara-el-recurso-argentino-por-las | sección: Resumen internacional
 - 2026-11-05 | Un proyecto de una diputada argentina propone decomisar embarcaciones que abastezcan a las islas Malvinas (Infobae, 05-11-2026) | diario: 2026-11-06#un-proyecto-de-una-diputada-argentina-propone-decomisar | sección: Además, hoy
+- 2026-11-10 | Argentina pide al Tribunal Internacional del Derecho del Mar frenar el proyecto petrolero Sea Lion en las islas Malvinas (Perfil, Diario Popular y DataClave, 10-11-2026) | diario: 2026-11-11#argentina-pidio-al-tribunal-internacional-del-derecho-del | sección: Además, hoy
+- 2026-11-12 | El Gobierno argentino advierte posibles consecuencias penales para el director ejecutivo de una petrolera británica por actividades de exploración en las islas Malvinas, con lo que la disputa pasa de la vía internacional a una amenaza de persecución penal contra una persona determinada (La Tercera, 12-11-2026) | diario: 2026-11-13#argentina-eleva-la-disputa-por-perforaciones-petroleras-en | sección: Resumen internacional
+- 2026-11-16 | El Gobierno chileno descarta haber solicitado autorización argentina para el viaje del buque Danstar hacia las islas Malvinas y busca contener la disputa diplomática, en un episodio que combina una controversia sobre declaraciones oficiales con el eventual uso del barco para exportaciones hacia Chile (BioBioChile, Diario Usach y La Conexión, 16 noviembre 2026) | diario: 2026-11-17#chile-busca-bajar-la-tension-con-argentina-por-el-buque | sección: Política
+- 2026-11-16 | La Falkland Islands Corporation estudia utilizar el buque Danstar para enviar exportaciones hacia Chile, propuesta que todavía no constituye una ruta comercial operativa (PortalPortuario y antecedentes del Gobierno de Chile, 16 noviembre 2026) | diario: 2026-11-17#la-falkland-islands-corporation-estudia-utilizar-el-buque | sección: Además, hoy
+- 2026-11-17 | El carguero chileno Danstar permanece en Punta Arenas para trabajos en Asmar y mantiene como fecha prevista de zarpe el 17-12-2026 rumbo a las islas Malvinas, plazo que puede variar según los trabajos de mantenimiento (PortalPortuario, ZonaZero, BioBioChile, EFE e Infodefensa, 16-17 noviembre 2026) | diario: 2026-11-18#el-danstar-permanece-en-punta-arenas-antes-de-su-viaje-a-las | sección: Resumen internacional
+- 2026-11-17 | El vocero de Gobierno afirma que el Estado chileno no debe pedir autorización por el viaje del Danstar, pero que el buque debería pedir permiso a Argentina, mientras otras intervenciones oficiales sostienen que al operador privado le corresponde cumplir los requisitos del puerto de destino y La Moneda señala que busca evitar una escalada diplomática; la posición combina el apoyo histórico al reclamo argentino de soberanía con la defensa de la libertad de navegación (PortalPortuario, ZonaZero, BioBioChile, EFE e Infodefensa, 16-17 noviembre 2026) | diario: 2026-11-18#el-danstar-permanece-en-punta-arenas-antes-de-su-viaje-a-las | sección: Resumen internacional
 
 ## Qué falta por saber
-- ¿Quién opera la ruta, con qué autorizaciones y en qué fecha exacta de diciembre de 2026 parte? No consta en los informes del repo.
+- ¿Quién opera la ruta, con qué autorizaciones y en qué fecha exacta de diciembre de 2026 parte? No consta en los informes del repo. Respondida en parte: al 17-11-2026 la fecha prevista de zarpe es el 17-12-2026 y el Gobierno atribuye al operador privado el cumplimiento de los requisitos del puerto de destino.
 - ¿Hubo alguna gestión formal entre las cancillerías de Chile y Argentina, o solo declaraciones públicas?
 - ¿Qué dice el Reino Unido, parte en la disputa por las islas?
-- ¿Cómo queda la posición chilena cuando el Tribunal Internacional del Derecho del Mar tome la disputa por la explotación petrolera en el área?
+- ¿Cómo queda la posición chilena cuando el Tribunal Internacional del Derecho del Mar tome la disputa por la explotación petrolera en el área? Respondida en parte: el 10-11-2026 Argentina pidió al tribunal frenar el proyecto petrolero Sea Lion.
 - ¿Qué resuelve el Tribunal Internacional del Derecho del Mar sobre la presentación argentina, y en qué fecha? La jueza chilena María Teresa Infante participa en su revisión desde el 05-11-2026.
 - ¿Avanza en el Congreso argentino el proyecto que propone decomisar embarcaciones que abastezcan a las Malvinas, y alcanzaría a la ruta desde Punta Arenas?
+- ¿Qué resuelve el Tribunal Internacional del Derecho del Mar sobre la solicitud argentina del 10-11-2026 contra el proyecto petrolero Sea Lion, y alcanza esa decisión a la ruta comercial desde Punta Arenas?
+- ¿Formaliza Argentina alguna acción penal contra el director ejecutivo de la petrolera británica que advirtió el 12-11-2026, y ante qué tribunal? Una advertencia no es una imputación.
+- ¿Qué resuelve el Tribunal Internacional del Derecho del Mar sobre la solicitud argentina de frenar el proyecto Sea Lion, presentada el 10-11-2026?
+
+- ¿Qué declaraciones oficiales originaron la controversia sobre una autorización argentina para el viaje del Danstar, que el Gobierno chileno descartó el 16-11-2026?
+- ¿Se concreta el uso del Danstar para enviar exportaciones de la Falkland Islands Corporation hacia Chile, con qué carga, por qué puerto y en qué fecha?
+- ¿Pide el operador del Danstar el permiso a Argentina que el vocero de Gobierno mencionó el 17-11-2026, y qué responde Buenos Aires?
+- ¿Zarpa el Danstar el 17-12-2026 como estaba previsto al 17-11-2026, o lo retrasan los trabajos en Asmar?
 
 ## Publicado
 Sin publicaciones al 03-11-2026.

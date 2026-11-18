@@ -1,0 +1,483 @@
+name: Reintento del despertar
+
+# La red de seguridad de la cadena: que el día arranque, y que ningún turno de
+# GPT quede colgado. Cubre tres caídas distintas:
+#   1. el conector de GitHub de ChatGPT caído un rato, o el despertar perdido,
+#   2. GPT sin cuota o mudo por lo que sea,
+#   3. el día que no arrancó (sin barrido no hay nada que reintentar).
+#
+# REGLA 20 Y 20 (26-09-2026, decisión de Santiago): GPT es la primera opción
+# cada día y Claude es el respaldo. Si GPT no responde un turno en 20 minutos,
+# se le vuelve a tocar el timbre (se reemite el evento al PR #6). Si en los 20
+# minutos siguientes sigue mudo, se activa el plan B: este workflow escribe
+# contenido/estado/plan-b.txt en main y despierta al suplente por API, que toma
+# ESE turno y todos los que queden del día. Al día siguiente ese archivo está
+# vencido, este mismo workflow lo borra y GPT vuelve a ser el primero. Una
+# caída activa el plan B sola, sin que nadie edite nada a mano.
+#
+# plan-b.txt lo escribe este workflow o una persona a mano, con el mismo
+# formato: una línea por clave (plan-b, hasta, turnos, espera_reparar_min,
+# motivo, activado), y `activado:` dice quién lo encendió. La línea `turnos:`
+# es la única lista de etapas del suplente: la leen estado.yml, estado-clave.yml
+# y prompts/suplente.md.
+#
+# Historia: el 22-09 el conector de ChatGPT devolvió "HTTP 400: Invalid MCP
+# request metadata" y la cadena quedó parada nueve horas con el evento bien
+# emitido, porque estado.yml emite una vez y no insiste: de ahí salió este
+# workflow. El 24-09 el reloj pusheó un commit vacío, el push no calzó con el
+# filtro de rutas, el Barrido nunca corrió y los crones de respaldo tampoco
+# dispararon: día entero perdido, y este workflow se retiró en silencio cuatro
+# veces porque solo sabía reintentar cadenas atascadas, no cadenas que nunca
+# empezaron. Desde entonces también relanza el barrido. El 01-11 lo relanzó
+# bien a las 02:11, pero el estado nunca se recalculó detrás (estado.yml no
+# se entera de un Barrido despachado) y esto salía once veces con "todavía no
+# hay estado de hoy": ahora, si hay barrido y no hay vista, pide el recálculo.
+on:
+  # DESPERTADOR PROPIO (26-09): el cron de GitHub de abajo es red, no reloj.
+  # Dispara dos veces al día a horas al azar (auditorías del 24, 25 y 26-09),
+  # casi nunca dentro de la ventana. Los relojes de Claude tocan este archivo y
+  # pushean cada 20 minutos entre la 01:10 y las 05:50 de Chile: ese push sí
+  # llega puntual, y es lo que hace posible medir los 20 y 20.
+  push:
+    branches: [main]
+    paths:
+      - "contenido/estado/reintento-despertador.txt"
+  schedule:
+    # cada 20 minutos en la ventana de la edición. En UTC para no depender del
+    # cambio de hora: 04:00-09:59 UTC cubre 01:00-07:00 de Chile en verano
+    # (UTC-3) y 00:00-06:00 en invierno (UTC-4). Fuera de la ventana de Chile
+    # el propio job se retira en segundos.
+    - cron: "*/20 4-9 * * *"
+    # (12-11-2026) red del suplente fuera de la ventana: el 12-11 el suplente
+    # quedó mudo 20 h y la ventana de arriba, mas el cron poco fiable, no lo
+    # vio. Fuera de 01 a 07 el job SOLO reintenta turnos de Claude (ver
+    # reintentar_claude); no toca barrido, plan B ni eventos de GPT.
+    - cron: "*/30 10-23,0-3 * * *"
+  workflow_dispatch:
+    inputs:
+      simular:
+        description: "Ensayo en seco: imprime cada decisión y no pushea, no llama a la API ni relanza el barrido"
+        type: boolean
+        default: false
+        required: false
+
+permissions:
+  contents: write
+  actions: write   # para relanzar el Barrido cuando la cadena no arrancó
+
+concurrency:
+  group: reintento
+  cancel-in-progress: false
+
+jobs:
+  reintento:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reintentar el turno de GPT y, si sigue mudo, activar el plan B
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Mismos secrets que usa estado.yml para el despertar dirigido por
+          # API. Sin ellos el plan B queda escrito igual, pero al suplente lo
+          # despierta estado.yml en el próximo recálculo, no este workflow.
+          REVISION_ID: ${{ secrets.CLAUDE_RUTINA_REVISION_ID }}
+          REVISION_TOKEN: ${{ secrets.CLAUDE_RUTINA_REVISION_TOKEN }}
+          # En variables de entorno y no en el script: así el script se puede
+          # extraer tal cual y probar en seco fuera de Actions.
+          EVENTO: ${{ github.event_name }}
+          SIMULAR: ${{ inputs.simular }}
+        run: |
+          set -e
+          # 20 y 20: a los 20 minutos se reemite el evento, a los 40 entra el
+          # suplente. No hay tope de reintentos ni salida en rojo: quedarse sin
+          # GPT ya no es una falla que haya que mirar a mano, es el plan B.
+          ESPERA_MIN=20
+
+          case "${SIMULAR:-false}" in true|1|si|yes) SIMULAR=1 ;; *) SIMULAR=0 ;; esac
+          if [ "$SIMULAR" = 1 ]; then
+            echo "SIMULACIÓN: se imprime cada decisión y no se toca nada."
+          fi
+
+          # Todos los efectos pasan por acá. Con SIMULAR=1 se imprimen y no se
+          # ejecutan, así el ensayo en seco no pushea ni despierta a nadie.
+          hacer() {
+            if [ "$SIMULAR" = 1 ]; then echo "  [simulado] $*"; else "$@"; fi
+          }
+          # La hermana de hacer() para escribir archivos (redirección no cabe
+          # en "$@"): escribir <ruta> <contenido>.
+          escribir() {
+            if [ "$SIMULAR" = 1 ]; then
+              echo "  [simulado] escribiría $1 con:"
+              printf '%s\n' "$2" | sed 's/^/      | /'
+            else
+              printf '%s\n' "$2" > "$1"
+            fi
+          }
+
+          FECHA=$(TZ=America/Santiago date +%F)
+          HORA=$(TZ=America/Santiago date +%H)
+          # Solo en la madrugada de la edición, venga el disparo del cron de
+          # GitHub o del reloj de Claude (push). El dispatch a mano se la salta:
+          # es para probar o para destrabar el día a cualquier hora.
+          # (12-11-2026) REINTENTO DE LOS TURNOS DE CLAUDE. Los despertares del
+          # suplente (ultimo-disparo-suplente.txt) y del validador
+          # (ultimo-disparo-claude.txt) son de UN solo tiro: si la sesión muere
+          # sin commitear, la marca impide despertarla otra vez y la cadena se
+          # queda parada (12-11: 20 h). Regla: si la etapa sigue siendo la misma
+          # ESPERA_CLAUDE_MIN minutos después del último despertar (marca, o
+          # reintento previo), se despierta de nuevo. Tope: MAX_POR_ETAPA por
+          # etapa y vuelta y MAX_POR_DIA por día; el rastro queda en
+          # contenido/estado/reintentos-suplente.txt. Al agotarse: alerta en
+          # contenido/estado/alerta-suplente.txt y corrida en ROJO (GitHub avisa
+          # por correo). Devuelve 0 si la etapa era de Claude (haya o no
+          # reintentado), 1 si no lo era.
+          ESPERA_CLAUDE_MIN=${ESPERA_CLAUDE_MIN:-40}
+          MAX_POR_ETAPA=3
+          MAX_POR_DIA=6
+          REINTENTO_FALLO=0
+          reintentar_claude() {
+            local VISTA="contenido/estado/$FECHA.md" ETAPA VUELTA TOCA=0 CLASE="" REPARTO TURNOS HASTA RE_T
+            [ -f "$VISTA" ] || return 1
+            ETAPA=$(grep -m1 '^ETAPA:' "$VISTA" | cut -d' ' -f2-)
+            VUELTA=$(grep -m1 '^VUELTA:' "$VISTA" | cut -d' ' -f2-); VUELTA=${VUELTA:-0}
+            if echo "$ETAPA" | grep -q '^validar_'; then TOCA=1; CLASE=validador; fi
+            REPARTO=$(grep -m1 '^claude:' contenido/estado/reparto.txt 2>/dev/null | cut -d' ' -f2- || true)
+            if [ -n "$REPARTO" ] && echo "$ETAPA" | grep -Eq "^($(echo "$REPARTO" | sed 's/\*/[a-z_]+/g; s/  */|/g'))$"; then TOCA=1; CLASE=reparto; fi
+            HASTA=$(grep -m1 '^hasta:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
+            TURNOS=$(grep -m1 '^turnos:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
+            if [ "$TOCA" = 0 ] && [ -n "$HASTA" ] && [ -n "$TURNOS" ] && [ ! "$HASTA" \< "$FECHA" ]; then
+              RE_T="^($(echo "$TURNOS" | sed 's/\*/[a-z_]+/g; s/  */|/g'))$"
+              if echo "$ETAPA" | grep -Eq "$RE_T"; then TOCA=1; CLASE=planb; fi
+            fi
+            [ "$TOCA" = 1 ] || return 1
+            if [ -z "$REVISION_ID" ] || [ -z "$REVISION_TOKEN" ]; then
+              echo "etapa $ETAPA es de Claude, pero sin secrets no puedo despertarlo; lo cubren sus relojes"; return 0
+            fi
+
+            # ¿cuándo fue el último despertar de ESTA etapa y vuelta? Mayor de:
+            # la marca del suplente, la del validador y el último reintento.
+            git fetch -q --deepen=200 origin main 2>/dev/null || true
+            local ULT=0 T M REGISTRO="contenido/estado/reintentos-suplente.txt"
+            M="contenido/estado/ultimo-disparo-suplente.txt"
+            if [ "$(cat "$M" 2>/dev/null)" = "$FECHA $ETAPA $VUELTA" ]; then
+              T=$(git log -1 --format=%ct -- "$M" 2>/dev/null || echo 0); [ "${T:-0}" -gt "$ULT" ] && ULT=$T
+            fi
+            M="contenido/estado/ultimo-disparo-claude.txt"
+            case "$(cat "$M" 2>/dev/null)" in "$FECHA $ETAPA $VUELTA "*)
+              T=$(git log -1 --format=%ct -- "$M" 2>/dev/null || echo 0); [ "${T:-0}" -gt "$ULT" ] && ULT=$T ;; esac
+            T=$(grep "^$FECHA $ETAPA $VUELTA " "$REGISTRO" 2>/dev/null | tail -1 | awk '{print $5}')
+            [ "${T:-0}" -gt "$ULT" ] && ULT=$T
+            if [ "$ULT" = 0 ]; then
+              # nunca se despertó (o no hay marca legible): se mide desde que la etapa empezó
+              local ACT; ACT=$(grep -m1 '^ACTUALIZADO:' "$VISTA" | sed 's/^ACTUALIZADO: *//; s/ (hora.*//')
+              ULT=$(TZ=America/Santiago date -d "$ACT" +%s 2>/dev/null || date -u +%s)
+            fi
+            local EDAD=$(( ( $(date -u +%s) - ULT ) / 60 ))
+            if [ "$EDAD" -lt "$ESPERA_CLAUDE_MIN" ]; then
+              echo "etapa $ETAPA ($CLASE, vuelta $VUELTA) lleva $EDAD min desde el último despertar: en gracia (los $ESPERA_CLAUDE_MIN)"; return 0
+            fi
+
+            local NE ND ALERTA="contenido/estado/alerta-suplente.txt"
+            NE=$(grep -c "^$FECHA $ETAPA $VUELTA " "$REGISTRO" 2>/dev/null || true); NE=${NE:-0}
+            ND=$(grep -c "^$FECHA " "$REGISTRO" 2>/dev/null || true); ND=${ND:-0}
+            if [ "$NE" -ge "$MAX_POR_ETAPA" ] || [ "$ND" -ge "$MAX_POR_DIA" ]; then
+              echo "::error::$FECHA $ETAPA (vuelta $VUELTA) lleva $EDAD min parada y ya se reintentó $NE vez/veces en la etapa ($ND en el día): REINTENTOS AGOTADOS, hace falta una persona"
+              if [ "$(cat "$ALERTA" 2>/dev/null | head -1)" != "$FECHA $ETAPA $VUELTA agotado" ]; then
+                escribir "$ALERTA" "$FECHA $ETAPA $VUELTA agotado"
+                if [ "$SIMULAR" = 0 ]; then echo "$(date -u +%Y-%m-%dT%H:%M:%SZ): la etapa lleva $EDAD min sin avanzar tras $NE reintento(s) del despertar de Claude ($CLASE). Revisar la rutina (cuota, sesión muerta) o avanzar la etapa a mano." >> "$ALERTA"; fi
+                hacer git add "$ALERTA"
+                hacer git commit -q -m "ALERTA $FECHA: $ETAPA sin avanzar, reintentos agotados [bot]"
+                hacer git push -q origin main || echo "::warning::alerta no pusheada"
+                REINTENTO_FALLO=1   # corrida en rojo SOLO la primera vez, para no inundar el correo
+              fi
+              return 0
+            fi
+
+            local N=$((NE+1))
+            echo "$ETAPA ($CLASE) lleva $EDAD min sin avanzar: redespierto a Claude (reintento $N de $MAX_POR_ETAPA, $((ND+1)) del día)"
+            LINEA="$FECHA $ETAPA $VUELTA $N $(date -u +%s) $(date -u +%H:%MZ)"
+            if [ "$SIMULAR" = 1 ]; then echo "  [simulado] anotaría en $REGISTRO: $LINEA"; else echo "$LINEA" >> "$REGISTRO"; fi
+            hacer git add "$REGISTRO"
+            hacer git commit -q -m "reintento del despertar $FECHA: $ETAPA (vuelta $VUELTA, intento $N) [bot]"
+            hacer git push -q origin main || echo "::warning::rastro del reintento no pusheado; se dispara igual"
+            local BODY
+            if [ "$CLASE" = validador ]; then
+              BODY=$(printf '{"text":"Entender Chile, %s: etapa %s, vuelta %s. REINTENTO %s: la sesion anterior no avanzo la etapa en %s min. Te toca la validacion de la pieza %s. Este texto solo te despierta: la verdad son los archivos del repo y tus guardas del punto 0 se aplican igual."}' "$FECHA" "$ETAPA" "$VUELTA" "$N" "$EDAD" "$(grep -m1 '^PIEZA:' "$VISTA" | cut -d' ' -f2-)")
+            else
+              BODY=$(printf '{"text":"Entender Chile, REINTENTO %s (la sesion anterior no avanzo la etapa en %s min): %s, etapa %s, vuelta %s. Haz ese turno segun prompts/suplente.md. La verdad es contenido/estado/%s.md."}' "$N" "$EDAD" "$FECHA" "$ETAPA" "$VUELTA" "$FECHA")
+            fi
+            if [ "$SIMULAR" = 1 ]; then
+              echo "  [simulado] POST routines/\$REVISION_ID/fire con: $BODY"
+            else
+              local CODIGO
+              CODIGO=$(curl -sS -o /tmp/fire-rc.json -w '%{http_code}' -X POST "https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire" \
+                -H "Authorization: Bearer $REVISION_TOKEN" -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
+                -H "anthropic-version: 2023-06-01" -H "content-type: application/json" -d "$BODY" || echo 000)
+              case "$CODIGO" in
+                2*) echo "Claude redespertado para $ETAPA: $(head -c 200 /tmp/fire-rc.json)" ;;
+                *) echo "::warning::no se pudo redespertar a Claude (HTTP $CODIGO); el próximo ciclo lo vuelve a intentar" ;;
+              esac
+            fi
+            return 0
+          }
+
+          case "$EVENTO" in
+            schedule|push)
+              if [ "$HORA" -lt 1 ] || [ "$HORA" -ge 7 ]; then
+                # fuera de la edición solo se vigila al suplente/validador (12-11)
+                git fetch -q origin main
+                git checkout -q -B main origin/main
+                git config user.name "estado-bot"
+                git config user.email "bot@users.noreply.github.com"
+                echo "son las $HORA de Chile: fuera de la ventana de la edición (01 a 07); solo reviso turnos de Claude"
+                reintentar_claude || true
+                [ "$REINTENTO_FALLO" = 1 ] && exit 1
+                exit 0
+              fi ;;
+          esac
+
+          git fetch -q origin main
+          git checkout -q -B main origin/main
+          git config user.name "estado-bot"
+          git config user.email "bot@users.noreply.github.com"
+
+          # ¿QUEDÓ UN PLAN B DE AYER? Se borra antes que nada: mientras exista
+          # con `hasta:` vigente, el suplente le gana el turno a GPT, y la regla
+          # es que GPT arranca primero todos los días. El plan B dura un día.
+          HASTA=$(grep -m1 '^hasta:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
+          if [ -n "$HASTA" ] && [ "$HASTA" \< "$FECHA" ]; then
+            echo "el plan B venció ($HASTA, hoy es $FECHA): lo borro para que GPT vuelva a ser el primero"
+            if [ "$SIMULAR" = 1 ]; then echo "  borraría plan-b vencido"; fi
+            for intento in 1 2 3; do
+              hacer git fetch -q origin main
+              hacer git reset -q --hard origin/main
+              if [ "$SIMULAR" = 0 ] && [ ! -f contenido/estado/plan-b.txt ]; then
+                echo "otra corrida ya lo borró"; break
+              fi
+              hacer git rm -q contenido/estado/plan-b.txt
+              hacer git commit -q -m "plan B vencido [bot]"
+              if hacer git push -q origin main; then echo "plan B vencido borrado"; break; fi
+              echo "push rechazado (intento $intento de 3): main se movió, lo reintento"
+              if [ "$intento" = 3 ]; then echo "::warning::no se pudo borrar el plan B vencido; lo verá la corrida siguiente"; fi
+            done
+          fi
+
+          # ¿ARRANCÓ SIQUIERA EL DÍA? Sin barrido no hay nada que reintentar:
+          # hay que volver a tocar el primer botón. Se espera a las 02:00 de
+          # Chile para no pisarle los talones al reloj, que toca a la 01:40.
+          # (01-11-2026) Salvo que el reloj ya se sepa caído: si pasadas las
+          # 01:48 despertador.txt no trae la fecha de hoy, el reloj de las 01:44
+          # no escribió en main (ese día se reportó exitoso igual) y esperar a
+          # las 02:00 solo regala veinte minutos. El reloj escribe la fecha en
+          # UTC, que a esa hora es la misma de Chile en verano y en invierno.
+          if [ ! -f "contenido/barrido/$FECHA.md" ]; then
+            if [ "$HORA" -lt 2 ]; then
+              HHMM=$(TZ=America/Santiago date +%H%M)
+              if [ "$HHMM" -ge 148 ] && ! grep -q "^$(date -u +%F)" contenido/barrido/despertador.txt 2>/dev/null; then
+                echo "::warning::son las $HHMM y despertador.txt no tiene marca de hoy: el reloj del barrido no escribió en main, no espero a las 02:00"
+              else
+                echo "sin barrido de hoy, pero son las $HORA: le doy tiempo al reloj"; exit 0
+              fi
+            fi
+            # que no se dispare uno cada 20 minutos si ya hay uno en marcha
+            RECIENTE=$(gh run list --workflow=barrido.yml --limit 3 --json createdAt --jq '.[0].createdAt' 2>/dev/null || echo "")
+            if [ -n "$RECIENTE" ] && [ "$(( $(date -u +%s) - $(date -u -d "$RECIENTE" +%s) ))" -lt 1500 ]; then
+              echo "no hay barrido de hoy, pero ya se lanzó uno hace menos de 25 minutos: espero"; exit 0
+            fi
+            echo "::warning::no hay barrido de $FECHA y son las $HORA de Chile: relanzando el Barrido"
+            if [ "$SIMULAR" = 1 ]; then echo "  relanzaría el barrido"; fi
+            hacer gh workflow run barrido.yml --ref main
+            exit 0
+          fi
+
+          # (01-11-2026) HAY BARRIDO PERO NO HAY VISTA: el recálculo no llegó.
+          # Antes acá solo se salía, y el 01-11 esta rama se ejecutó once veces
+          # seguidas sin hacer nada mientras la cadena estaba muerta en
+          # barrido_listo (el workflow_run de estado.yml no nace tras un Barrido
+          # despachado). Ahora se pide el recálculo a mano, salvo que ya haya uno
+          # de hace menos de 10 minutos que pueda estar todavía en vuelo.
+          VISTA="contenido/estado/$FECHA.md"
+          if [ ! -f "$VISTA" ]; then
+            ULT_E=$(gh run list --workflow=estado.yml --limit 1 --json createdAt --jq '.[0].createdAt' 2>/dev/null || echo "")
+            if [ -n "$ULT_E" ] && [ "$(( $(date -u +%s) - $(date -u -d "$ULT_E" +%s) ))" -lt 600 ]; then
+              echo "hay barrido y todavía no hay estado de hoy, pero un recálculo empezó hace menos de 10 minutos: espero"; exit 0
+            fi
+            echo "::warning::hay barrido de $FECHA y no hay vista del estado: pido el recálculo (estado.yml)"
+            hacer gh workflow run estado.yml --ref main
+            exit 0
+          fi
+          ETAPA=$(grep -m1 '^ETAPA:' "$VISTA" | cut -d' ' -f2-)
+          VUELTA=$(grep -m1 '^VUELTA:' "$VISTA" | cut -d' ' -f2-); VUELTA=${VUELTA:-0}
+
+          # (06-10-2026) Las etapas del reparto no son de GPT y nadie más las
+          # reintenta. (12-11-2026) Ese reintento vive ahora en reintentar_claude
+          # (arriba): cubre reparto, plan B y validar_*, con espera de 40 min,
+          # tope por etapa y por día, rastro y alerta.
+          if reintentar_claude; then
+            [ "$REINTENTO_FALLO" = 1 ] && exit 1
+            exit 0
+          fi
+
+          # ¿es turno de GPT? MISMA regla que estado.yml (línea 124) para emitir
+          # al PR #6. Si una cambia, la otra también: cuando el 26-09 se retiró
+          # alimentar_banco hubo que sacarlo de las dos, y de la línea `turnos:`.
+          echo "$ETAPA" | grep -Eq '^(barrido_listo|[a-z_]+_lista|[a-z_]+_listo|reparar_[a-z_]+)$' || {
+            echo "etapa $ETAPA: no es turno de GPT, nada que reintentar"; exit 0; }
+
+          git fetch -q origin automatizacion/estado || { echo "sin rama de eventos"; exit 0; }
+          EV=$(git show FETCH_HEAD:contenido/estado/ultimo-evento.txt 2>/dev/null || echo "")
+          campo() { echo "$EV" | grep -m1 "^$1=" | cut -d= -f2-; }
+          # el evento tiene que ser el de ESTA etapa y vuelta; si no, estado.yml
+          # todavía no emitió y le toca a él, no a nosotros
+          [ "$(campo fecha_chile)" = "$FECHA" ] && [ "$(campo etapa)" = "$ETAPA" ] && [ "$(campo vuelta)" = "$VUELTA" ] || {
+            echo "el último evento no es el de $ETAPA (vuelta $VUELTA): no me toca"; exit 0; }
+
+          EMITIDO=$(campo emitido_utc)
+          EDAD=$(( ( $(date -u +%s) - $(date -u -d "$EMITIDO" +%s) ) / 60 ))
+          if [ "$EDAD" -lt "$ESPERA_MIN" ]; then
+            echo "el evento tiene $EDAD min: aún en gracia (los $ESPERA_MIN del primer tramo)"; exit 0
+          fi
+
+          # ¿y si GPT ya respondió y el estado no se ha recalculado? La pieza que
+          # toca aparecería en main. El estado se recalcula con cada push, así
+          # que si la etapa sigue igual es que la pieza no llegó.
+          N=$(campo reintentos); N=${N:-0}
+
+          # PRIMER TRAMO: nadie le ha vuelto a tocar el timbre. Se reemite el
+          # evento al PR #6 con la hora de ahora, y el reloj de los 20 minutos
+          # vuelve a partir desde cero.
+          if [ "$N" -lt 1 ]; then
+            echo "$ETAPA lleva $EDAD min sin respuesta: reemito el evento (segundo aviso)"
+            if [ "$SIMULAR" = 1 ]; then echo "  reemitiría el evento al PR #6"; fi
+            hacer git checkout -q -B reintento FETCH_HEAD
+            EVENTO_TXT=$(printf '%s\n' \
+              "fecha_chile=$FECHA" \
+              "etapa=$ETAPA" \
+              "vuelta=$VUELTA" \
+              "reparar=$(campo reparar)" \
+              "pieza=$(campo pieza)" \
+              "prompt=$(campo prompt)" \
+              "estado_commit=$(campo estado_commit)" \
+              "vista=$VISTA" \
+              "emitido_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+              "reintentos=1" \
+              "motivo=GPT no respondio en $EDAD min")
+            escribir contenido/estado/ultimo-evento.txt "$EVENTO_TXT"
+            hacer git add contenido/estado/ultimo-evento.txt
+            hacer git commit -q -m "evento $FECHA: $ETAPA reemitido ($EDAD min sin respuesta)"
+            hacer git push -q -f origin reintento:automatizacion/estado
+            echo "reemitido: si en $ESPERA_MIN min más no responde, entra el suplente"
+            exit 0
+          fi
+
+          # SEGUNDO TRAMO: ya se le tocó el timbre dos veces y GPT sigue mudo.
+          # Se da por caído el día entero: plan B. No se distingue por etapa: la
+          # línea `turnos:` que se escribe abajo las cubre todas, y así el
+          # suplente no tiene que volver a decidir.
+          # Los comodines de esa línea son anchos a propósito, pero por eso
+          # `*_lista` también calza con pauta_lista, que es de
+          # SANTIAGO, y `reparar_*` con reparar_pauta, que es de Claude. El
+          # suplente las descarta leyendo prompts/suplente.md, que las nombra
+          # una por una: la lista abre la puerta, el prompt decide.
+          echo "$ETAPA lleva $EDAD min sin respuesta y ya se reemitió $N vez/veces: ACTIVO EL PLAN B (regla 20 y 20)"
+          if [ "$SIMULAR" = 1 ]; then echo "  activaría plan B y despertaría al suplente"; fi
+
+          # (i) El interruptor en main. Mientras exista con `hasta:` vigente,
+          # estado.yml y estado-clave.yml despiertan al suplente en cada etapa
+          # que calce con `turnos:`; mañana esta misma corrida lo borrará.
+          VIGENTE=$(grep -m1 '^hasta:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
+          if [ "$VIGENTE" = "$FECHA" ]; then
+            echo "el plan B de hoy ya estaba activo ($VIGENTE): no lo reescribo"
+          else
+            PLANB_TXT=$(printf '%s\n' \
+              "plan-b: activo" \
+              "hasta: $FECHA" \
+              "turnos: barrido_listo *_lista *_listo reparar_* entrega_lista pauta_aprobada investigacion_lista" \
+              "espera_reparar_min: 0" \
+              "motivo: GPT no respondio el turno $ETAPA (vuelta $VUELTA) en $EDAD min tras dos avisos" \
+              "activado: $(date -u +%Y-%m-%dT%H:%M:%SZ) por reintento.yml")
+            # mismo patrón de reintento de push que estado.yml: main se mueve
+            # solo (el estado se recalcula con cada pieza), así que se vuelve a
+            # main fresco y se reescribe encima en vez de rebasear.
+            for intento in 1 2 3; do
+              hacer git checkout -q -B main origin/main
+              hacer git fetch -q origin main
+              hacer git reset -q --hard origin/main
+              VIGENTE=$(grep -m1 '^hasta:' contenido/estado/plan-b.txt 2>/dev/null | cut -d' ' -f2- || true)
+              if [ "$VIGENTE" = "$FECHA" ]; then echo "otra corrida activó el plan B de hoy primero"; break; fi
+              escribir contenido/estado/plan-b.txt "$PLANB_TXT"
+              hacer git add contenido/estado/plan-b.txt
+              hacer git commit -q -m "plan B activado $FECHA: GPT sin responder $ETAPA [bot]"
+              if hacer git push -q origin main; then echo "plan B activado hasta $FECHA"; break; fi
+              echo "push del plan B rechazado (intento $intento de 3): main se movió, lo reintento"
+              if [ "$intento" = 3 ]; then echo "::warning::no se pudo dejar plan-b.txt en main tras tres intentos"; fi
+            done
+          fi
+
+          # (ii) Despertar al suplente para ESTE turno, que es el que se perdió.
+          # Mismo mecanismo que el bloque PLAN B de estado.yml: marca en main
+          # para no disparar dos veces la misma etapa y vuelta, y POST /fire.
+          if [ -z "$REVISION_ID" ] || [ -z "$REVISION_TOKEN" ]; then
+            echo "::warning::sin secrets CLAUDE_RUTINA_REVISION_*: el plan B queda activo, pero al suplente lo despertará estado.yml en el próximo recálculo"
+            exit 0
+          fi
+          MARCA_S="contenido/estado/ultimo-disparo-suplente.txt"
+          hacer git checkout -q -B main origin/main
+          hacer git fetch -q origin main
+          hacer git reset -q --hard origin/main
+          if [ "$(cat "$MARCA_S" 2>/dev/null)" = "$FECHA $ETAPA $VUELTA" ]; then
+            echo "suplente ya despertado para $ETAPA (vuelta $VUELTA)"
+          else
+            escribir "$MARCA_S" "$FECHA $ETAPA $VUELTA"
+            hacer git add "$MARCA_S"
+            hacer git commit -q -m "disparo al suplente $FECHA: $ETAPA (vuelta $VUELTA) [bot]"
+            hacer git push -q origin main || echo "::warning::marca del suplente no pusheada; se dispara igual"
+            BODY=$(printf '{"text":"Entender Chile, PLAN B (GPT no respondio, contenido/estado/plan-b.txt): %s, etapa %s, vuelta %s. Haz el turno de GPT como SUPLENTE segun prompts/suplente.md. La verdad es contenido/estado/%s.md."}' "$FECHA" "$ETAPA" "$VUELTA" "$FECHA")
+            URL="https://api.anthropic.com/v1/claude_code/routines/$REVISION_ID/fire"
+            if [ "$SIMULAR" = 1 ]; then
+              hacer curl -X POST "$URL"
+              echo "  despertaría al suplente para $ETAPA (vuelta $VUELTA)"
+            else
+              CODIGO=$(curl -sS -o /tmp/fire-s.json -w '%{http_code}' -X POST "$URL" \
+                -H "Authorization: Bearer $REVISION_TOKEN" \
+                -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
+                -H "anthropic-version: 2023-06-01" \
+                -H "content-type: application/json" \
+                -d "$BODY" || echo 000)
+              case "$CODIGO" in
+                2*) echo "SUPLENTE despertado por API para $ETAPA: $(head -c 200 /tmp/fire-s.json)" ;;
+                *) echo "::warning::no se pudo despertar al suplente (HTTP $CODIGO); estado.yml lo intentará en el próximo recálculo" ;;
+              esac
+            fi
+          fi
+
+      # (06-10-2026) La red del pedido de carátula. estado.yml también lo
+      # intenta, pero solo corre cuando llega una pieza: el día que el guion se
+      # aprueba a la primera puede no haber ningún push posterior, y entonces
+      # nadie vuelve a mirar si la imagen llegó. Acá sí, porque este workflow
+      # corre cada 20 minutos toda la ventana. Con la gracia de 15 minutos del
+      # script, el pedido se abre entre 15 y 35 minutos después del guion los
+      # días en que la carátula de verdad faltó, y nunca los días en que solo
+      # venía en camino, que eran todos hasta hoy.
+      - name: Si falta la carátula del día, abrir el pedido a GPT (red del de estado.yml)
+        env:
+          SIMULAR: ${{ inputs.simular && '1' || '0' }}
+        run: |
+          # el checkout de este workflow es shallow y el script necesita la
+          # fecha del COMMIT del guion para medir su edad: sin historia, el
+          # script se comporta como antes y abre el pedido igual
+          git fetch -q --deepen=200 origin main 2>/dev/null || true
+          git fetch -q origin main
+          git reset -q --hard origin/main
+          # la carátula diaria solo la usaba el video del informe, apagado el 04-11-2026 por este marcador
+          if [ -f contenido/estado/sin-video-informe.txt ]; then echo "informe en video apagado: no se pide carátula del día"; exit 0; fi
+          node scripts/pedir-caratula.js
+          git add contenido/urgente/ || true
+          git diff --cached --quiet && exit 0
+          if [ "$SIMULAR" = 1 ]; then echo "simulación: acá se abriría el pedido de carátula"; exit 0; fi
+          FECHA=$(TZ=America/Santiago date +%F)
+          git config user.name "estado-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git commit -q -m "pedido $FECHA: carátula (reintento automático) [bot]"
+          git push -q origin main || echo "::warning::el pedido de carátula no se pudo pushear; se reintenta en el próximo reintento"

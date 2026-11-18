@@ -26,3 +26,4 @@
 2026-10-21 | acuerdo-internacional-sin-tratado | Acuerdos internacionales sin tratado: qué compromete a Chile y quién controla al Gobierno
 2026-10-28 | afp-multifondos-perdidas-fondo-e | Multifondos de pensiones: quién responde cuando el saldo cae y qué puede hacer el afiliado
 2026-11-05 | rabat-rebajas-de-condena | Rebajas de condena por conducta sobresaliente: quién evaluaba, quién concedía y qué podía revisar un tribunal
+2026-11-18 | codelco-produccion-inflada | Producción inflada en Codelco: cómo se registra cobre que no se produjo y quién controla a la estatal

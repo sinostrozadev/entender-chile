@@ -197,3 +197,37 @@ acepta miniaturas de más de 2 MB.
 La que sí sigue pintando el texto es la carátula de respaldo (`MiniaturaV4`, el
 pictograma), que es la que sale cuando la ilustración no llegó. Ahí el gancho lo
 pone el código porque no hay imagen sobre la que escribirlo.
+
+## Pedidos externos: imágenes para los OTROS canales de Santiago (06-11-2026)
+
+Santiago tiene más canales de YouTube hechos con Claude (Línea Punteada,
+En Números Rojos, Bolita Lab y los que vengan) y ninguno tiene generador de
+imágenes: **el único es este canal de pedidos**. Desde hoy cualquiera de esos
+canales puede dejar un `contenido/urgente/PEDIDO-<canal>-<slug>.md` con
+`Tarea: imagen`. Se reconocen por dos cosas: la `Salida:` cae bajo
+`contenido/caratulas/externos/<canal>/`, y el pedido trae una línea
+`Canal:` que no es Entender Chile.
+
+Con un pedido externo:
+
+1. **El prompt viene ENTERO dentro del pedido**, bajo el encabezado
+   `## El prompt`. Se manda al generador tal cual, sin reinterpretar, sin
+   agregarle el clima ni nada de `prompts/caratula-pedido.txt` (ese es el
+   estilo de ESTE canal, no del que pide). Si el pedido no trae prompt, no
+   inventes uno: deja el `-NO-PUDE.md` diciendo "el pedido no trae prompt".
+2. La imagen va a la ruta EXACTA de `salida=`, en `main`, como blob binario,
+   y se comprueba entera igual que siempre (bytes y `IEND`). Si el pedido
+   pide varias variantes, nómbralas `-1.png`, `-2.png`, `-3.png` y además deja
+   la primera con el nombre exacto de `salida=`, que es lo que cierra el
+   pedido.
+3. Rigen las mismas reglas de este archivo: variantes descartadas a
+   `contenido/caratulas/descartadas/`, nunca un rostro inventado presentado
+   como una persona real, `-NO-PUDE.md` con el error literal si no puedes, y
+   el prompt usado en `<salida sin extensión>-prompt.txt`.
+4. La edición del día manda: un pedido externo se atiende, pero si estás en
+   medio de una pieza de la cadena diaria, termina la pieza y commitéala
+   antes. Los canales externos saben que deben pedir entre 09:00 y 23:00 de
+   Chile para no cruzarse con la madrugada.
+
+El procedimiento del lado de quien pide está en la skill global
+`caratulas-con-gpt` (`~/.claude/skills/`), no aquí.

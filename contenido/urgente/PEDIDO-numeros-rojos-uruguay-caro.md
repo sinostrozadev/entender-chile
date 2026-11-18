@@ -1,0 +1,45 @@
+Tarea: imagen
+Salida: contenido/caratulas/externos/numeros-rojos/2026-11-15-uruguay-caro.png
+Prompt: prompts/imagen-caratula.md
+Canal: En Números Rojos (externo, @enumerosrojos)
+Para: largo 16:9 "¿Por qué Uruguay es el país más caro de Sudamérica?" (publicado vie 2026-11-13 19:00, https://www.youtube.com/watch?v=JBZm6fouVPM). Reemplaza la miniatura de Remotion (gráfico de barras) por la fórmula del canal.
+
+# Carátula del largo (Uruguay, el país caro)
+
+## El prompt (va tal cual al generador, no se reinterpreta)
+
+Crea una carátula de YouTube para un video largo de economía explicada con datos, del canal en español "En Números Rojos" (datos abiertos, mirada latinoamericana, tono serio y claro). Misma serie visual que la carátula "CHILE IBA GANANDO" del canal: foto documental oscura, caja roja con el titular, línea de gráfico roja como firma, etiqueta de país con franja de bandera.
+
+DATOS QUE YO ENTREGO
+TITULAR (exacto, dos líneas, en mayúsculas tal como está):
+EL PAÍS
+MÁS CARO
+ETIQUETA DE PAÍS (exacta): "URUGUAY"
+
+TU TAREA
+Diseña la carátula con estas reglas fijas. No son sugerencias: son la identidad del canal.
+
+FORMATO
+16:9 horizontal, 1280x720 mínimo, PNG. El texto VA DENTRO de la imagen, exacto como se entrega (con sus tildes: PAÍS, MÁS): se publica sin retoques. Todo texto debe leerse perfecto a 160 píxeles de ancho.
+
+LA REGLA PRINCIPAL: QUE SE ENTIENDA QUIÉN EN MEDIO SEGUNDO
+Quien vea la miniatura sin leer el título debe saber al instante que es Uruguay y que es caro.
+- Fondo a sangre completa: fotografía documental real de la Rambla de Montevideo al atardecer (la costanera junto al Río de la Plata, con los edificios de la ciudad), tonos desaturados y oscuros.
+- En primer plano, a la derecha, un ticket de supermercado larguísimo en papel blanco que cae en curva, nítido (sin marcas ni nombres de tiendas legibles; las líneas del ticket son rayas grises ilegibles salvo el total, que es un rectángulo resaltado en rojo sin cifra).
+- Sobre la foto, una ETIQUETA rectangular con "URUGUAY" en mayúsculas blancas y una franja lateral con los colores de la bandera uruguaya (franjas blancas y azules con el sol dorado). La bandera va SOLO en esa franja pequeña, no como fondo.
+- Una LÍNEA DE GRÁFICO roja (#E0312B) gruesa que sube en escalera de izquierda a derecha cruzando la foto por detrás del ticket. Sin ejes, sin cifras, sin rejilla. Es la firma del canal.
+
+TITULAR
+En una CAJA ROJA (#E0312B) de bordes levemente irregulares, arriba a la izquierda, dos líneas, letra blanca enorme en sans condensada muy pesada (estilo Anton / Bebas Neue). La etiqueta URUGUAY va pegada encima o debajo de la caja. Marca pequeña "EN NÚMEROS ROJOS" en blanco abajo a la izquierda, discreta.
+
+COMPOSICIÓN
+Esquina inferior derecha LIBRE (YouTube pone ahí la duración): el ticket no debe llegar a esa esquina. Fondo oscuro y desaturado para que la caja roja, la línea y el ticket sean lo único que destaca. Nada más de texto que el titular, la etiqueta del país y la marca.
+
+PROHIBIDO
+Rostros de personas (ni reales ni inventadas). Banderas como fondo o a gran tamaño. Logos, nombres de empresas, supermercados o medios, marcas de agua. Billetes, monedas, símbolos de dólar o de peso. Cifras. Flechas gigantes, signos de exclamación, emojis, estética de collage, ilustración 3D plástica.
+
+PRUEBA FINAL
+¿Sin leer el título se entiende que es Uruguay y que ahí todo cuesta mucho? ¿El titular y la etiqueta se leen a 160 px, con las tildes correctas? ¿La esquina inferior derecha está limpia? Si algo falla, corrígelo antes de generar.
+
+RESULTADO ESPERADO
+Entrega DOS variantes (-1 y -2), 16:9, listas para YouTube: misma identidad, variando la foto (variante 1: Rambla de Montevideo al atardecer; variante 2: avenida 18 de Julio de Montevideo de noche) y la posición de la caja del titular (arriba izquierda / abajo izquierda).

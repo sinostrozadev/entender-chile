@@ -1,0 +1,27 @@
+Crea UNA carátula de YouTube para un video largo de economía explicada con datos, del canal en español "En Números Rojos" (datos abiertos, mirada latinoamericana, tono serio y claro).
+
+DATOS QUE YO ENTREGO
+TITULAR (exacto, tres líneas, en mayúsculas tal como está):
+IRLANDA
+EL PIB
+MIENTE
+
+FORMATO
+16:9 horizontal, 1280x720 o mayor, PNG. UNA sola carátula a lienzo completo: nada de paneles, mosaicos ni variantes. El texto VA DENTRO, exacto. Todo texto debe leerse perfecto a 160 píxeles de ancho.
+
+IMAGEN
+- Fondo a sangre completa: fotografía documental real de los Docklands de Dublín al atardecer: torres de vidrio de oficinas modernas a la derecha (sin logos ni nombres de empresas legibles) y, a la izquierda, casas de ladrillo rojo antiguas junto al río Liffey; tonos fríos y desaturados.
+- Dos LÍNEAS DE GRÁFICO: una roja (#E0312B) gruesa que se dispara casi vertical hacia arriba sobre las torres de vidrio, y una dorada (#F5C451) casi plana, a ras del suelo, sobre las casas de ladrillo. Sin ejes, sin cifras, sin rejilla.
+- Debajo de la palabra IRLANDA del titular, una franja fina con los colores de la bandera irlandesa (verde, blanco, naranja). La bandera va SOLO en esa franja.
+
+TITULAR
+En una CAJA ROJA (#E0312B) de bordes levemente irregulares, arriba a la izquierda, letra blanca enorme en sans condensada muy pesada (estilo Anton / Bebas Neue); IRLANDA es la palabra más grande. Marca pequeña "EN NÚMEROS ROJOS" en blanco abajo a la izquierda, discreta.
+
+COMPOSICIÓN
+Esquina inferior derecha LIBRE (duración). Fondo desaturado para que la caja roja y las líneas sean lo único saturado. Nada más de texto que el titular y la marca.
+
+PROHIBIDO
+Rostros de personas. Banderas grandes o de fondo. Logos o nombres de empresas, medios o bancos, marcas de agua, carteles legibles. Billetes, monedas, símbolos de euro o dólar. Cifras. Signos de exclamación, emojis, collage, ilustración 3D plástica.
+
+PRUEBA FINAL
+¿Sin leer el título se entiende que es Irlanda y que su PIB se disparó mientras lo de la gente no? ¿El titular se lee a 160 px? ¿La esquina inferior derecha está limpia? ¿Es UNA sola imagen? Si algo falla, corrígelo antes de generar.

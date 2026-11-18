@@ -1,0 +1,231 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-11-22-short-presupuesto-interior-educacion",
+  "titulo": "La Cámara rechazó Interior y Educación: ¿se quedan sin plata?",
+  "descripcion": "¿Qué pasa cuando la Cámara rechaza la partida de un ministerio en el Presupuesto 2027?\nInterior cayó el 10-11-2026 con un empate de 71 a 71; Educación, el 11-11-2026 con 72 a 72. Ninguno se queda sin fondos: el Senado discute y, si las cámaras no coinciden, se resuelve en comisión mixta antes del 30-11.\nFuentes: Cooperativa (10-11-2026), BioBioChile (11-11-2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#presupuesto",
+    "#congreso",
+    "#chile"
+  ],
+  "publicar": "2026-11-22T12:00",
+  "props": {
+    "gancho": {
+      "texto": "La Cámara rechazó dos partidas del Presupuesto 2027 por empate: Interior, 71 a 71, y Educación, 72 a 72. ¿Se quedan sin plata? En un minuto, cómo sigue.",
+      "rotulo": "PRESUPUESTO: 71 A 71",
+      "cifras": [
+        {
+          "texto": "71 a 71",
+          "valor": 71,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "votacion-interior-2026",
+              "paises": [
+                "SI",
+                "NO"
+              ],
+              "valores": {
+                "SI": [
+                  [
+                    2026,
+                    71
+                  ]
+                ],
+                "NO": [
+                  [
+                    2026,
+                    71
+                  ]
+                ]
+              },
+              "nombres": {
+                "SI": "A favor",
+                "NO": "En contra"
+              },
+              "fuenteTexto": "Cámara de Diputados vía Cooperativa",
+              "fuenteUrl": "https://www.cooperativa.cl/noticias/economia/presupuesto/presupuesto-camara-rechazo-partida-del-ministerio-del-interior-por/2026-11-10/192635.html",
+              "etiqueta": "Votación de Interior",
+              "unidad": "votos"
+            },
+            "operacion": "valor",
+            "pais": "SI",
+            "anio": 2026
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "barras",
+      "titulo": "Lo que reclamaron en Interior",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "ley-cholito-ptrac-2027",
+        "paises": [
+          "P2026",
+          "P2027"
+        ],
+        "valores": {
+          "P2026": [
+            [
+              2027,
+              3634
+            ]
+          ],
+          "P2027": [
+            [
+              2027,
+              514
+            ]
+          ]
+        },
+        "nombres": {
+          "P2026": "Hasta ahora",
+          "P2027": "Propuesta 2027"
+        },
+        "fuenteTexto": "Diputados en la discusión del Presupuesto 2027 (vía Cooperativa, 10-11-2026)",
+        "fuenteUrl": "https://www.cooperativa.cl/noticias/economia/presupuesto/presupuesto-camara-rechazo-partida-del-ministerio-del-interior-por/2026-11-10/192635.html",
+        "etiqueta": "Programa de la Ley Cholito",
+        "unidad": "millones de $"
+      },
+      "destacar": {
+        "pais": "P2027"
+      },
+      "formato": {
+        "decimales": 0,
+        "sufijo": " M"
+      },
+      "dice": "Cholito"
+    },
+    "escenas": [
+      {
+        "tipo": "planteamiento",
+        "texto": "Un empate no alcanza para aprobar, así que la partida cae. En Interior el reclamo fue por los recortes a Senapred y a la Ley Cholito.",
+        "visual": {
+          "tipo": "chile",
+          "regiones": [
+            "CL-VS"
+          ],
+          "puntos": [
+            {
+              "texto": "Congreso",
+              "en": [
+                -71.62,
+                -33.05
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según los diputados, el programa de la Ley Cholito baja de 3.634 a 514 millones de pesos.",
+        "cifras": [
+          {
+            "texto": "3.634",
+            "valor": 3634,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "ley-cholito-ptrac-2027",
+                "paises": [
+                  "P2026",
+                  "P2027"
+                ],
+                "valores": {
+                  "P2026": [
+                    [
+                      2027,
+                      3634
+                    ]
+                  ],
+                  "P2027": [
+                    [
+                      2027,
+                      514
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "P2026": "Hasta ahora",
+                  "P2027": "Propuesta 2027"
+                },
+                "fuenteTexto": "Diputados en la discusión del Presupuesto 2027 (vía Cooperativa, 10-11-2026)",
+                "fuenteUrl": "https://www.cooperativa.cl/noticias/economia/presupuesto/presupuesto-camara-rechazo-partida-del-ministerio-del-interior-por/2026-11-10/192635.html",
+                "etiqueta": "Programa de la Ley Cholito",
+                "unidad": "millones de $"
+              },
+              "operacion": "valor",
+              "pais": "P2026",
+              "anio": 2027
+            },
+            "tolerancia": 0.01
+          },
+          {
+            "texto": "514 millones",
+            "valor": 514,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "ley-cholito-ptrac-2027",
+                "paises": [
+                  "P2026",
+                  "P2027"
+                ],
+                "valores": {
+                  "P2026": [
+                    [
+                      2027,
+                      3634
+                    ]
+                  ],
+                  "P2027": [
+                    [
+                      2027,
+                      514
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "P2026": "Hasta ahora",
+                  "P2027": "Propuesta 2027"
+                },
+                "fuenteTexto": "Diputados en la discusión del Presupuesto 2027 (vía Cooperativa, 10-11-2026)",
+                "fuenteUrl": "https://www.cooperativa.cl/noticias/economia/presupuesto/presupuesto-camara-rechazo-partida-del-ministerio-del-interior-por/2026-11-10/192635.html",
+                "etiqueta": "Programa de la Ley Cholito",
+                "unidad": "millones de $"
+              },
+              "operacion": "valor",
+              "pais": "P2027",
+              "anio": 2027
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "giro",
+        "texto": "Pero ningún ministerio se queda sin plata. El proyecto pasa al Senado, el Gobierno puede reponer la partida, y si las cámaras no coinciden decide una comisión mixta. El plazo es el 30 de noviembre.",
+        "rotulo": {
+          "texto": "SIGUE EN EL SENADO",
+          "dice": "Senado"
+        }
+      }
+    ],
+    "remate": "Rechazar una partida no la borra: la manda de vuelta a negociar.",
+    "fuentes": [
+      {
+        "texto": "Cooperativa, rechazo de Interior (10-11-2026)",
+        "url": "https://www.cooperativa.cl/noticias/economia/presupuesto/presupuesto-camara-rechazo-partida-del-ministerio-del-interior-por/2026-11-10/192635.html"
+      },
+      {
+        "texto": "BioBioChile, rechazo de Educación (11-11-2026)",
+        "url": "https://www.biobiochile.cl/noticias/nacional/chile/2026/11/11/reves-para-el-gobierno-camara-rechaza-presupuesto-de-educacion-pese-a-promesa-de-reponer-computadores.shtml"
+      }
+    ],
+    "id": "2026-11-22-short-presupuesto-interior-educacion"
+  }
+}
