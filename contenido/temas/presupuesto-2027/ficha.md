@@ -1,7 +1,7 @@
 # La tramitación del Presupuesto 2027
 Estado: abierto
 Abierto: 2026-11-03
-Última actualización: 2026-11-16
+Última actualización: 2026-11-18
 
 ## Origen
 El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro en los informes del canal es del 26-10-2026, cuando Hacienda abrió conversaciones para destrabarlo y los rectores de las universidades estatales objetaron partidas (Diario Financiero, La Tercera, Radio Universidad de Chile y Universidad de Chile, 26-10-2026). Importa porque de esas partidas depende el gasto público del año siguiente y porque la discusión quedó cruzada por la controversia sobre el ministro de Justicia, Fernando Rabat: la oposición anunció que buscará rechazar la glosa de Justicia. El 02-11-2026 la Comisión Especial Mixta inició la votación con más de 3.800 indicaciones (La Tercera, Radio Universidad de Chile y Publimicro, 02-11-2026).
@@ -37,6 +37,7 @@ El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro e
 - 2026-11-13 | La Confech critica el financiamiento de la educación superior propuesto para 2027 (Confech, citada por Radio Universidad de Chile, 13-11-2026) | diario: 2026-11-14#la-confech-critico-el-financiamiento-de-la-educacion | sección: Además, hoy
 - 2026-11-15 | Seis asignaciones para instituciones y programas de memoria quedan reducidas a $1.000 cada una en la Comisión Mixta del Presupuesto 2027: el Museo de la Memoria tenía originalmente $2.642 millones y las seis partidas sumaban $3.903 millones antes de las indicaciones (La Tercera y BioBioChile, 11-15 noviembre 2026) | diario: 2026-11-16#el-senado-recibe-un-presupuesto-con-siete-partidas | sección: Economía
 - 2026-11-16 | El Senado recibe el Presupuesto 2027 para su segundo trámite, con los gastos variables de siete ministerios y la autorización de endeudamiento por hasta US$25.000 millones rechazados en la Cámara, y puede reponer o modificar esas partidas (Cámara de Diputadas y Diputados, 13 noviembre 2026; Senado de Chile, 16 noviembre 2026) | diario: 2026-11-16#el-senado-recibe-un-presupuesto-con-siete-partidas | sección: Economía
+- 2026-11-17 | La oposición cuestiona que el proyecto de Presupuesto 2027 no incluya una transferencia cercana a US$160 millones al fondo de protección previsional: Hacienda sostiene que el primer aporte corresponde en 2028, parlamentarios opositores afirman que debe provisionarse en 2027 y amenazan con una acusación constitucional contra el ministro Jorge Quiroz, de modo que la acusación es una amenaza política y no un procedimiento presentado, y el desacuerdo no detiene por sí solo los beneficios de la reforma previsional (Diario Financiero, Emol, La Tercera y Radio Universidad de Chile, 17 noviembre 2026) | diario: 2026-11-18#el-financiamiento-de-la-reforma-previsional-abre-una-disputa | sección: Trabajo y pensiones
 ## Qué falta por saber
 - ¿Cuándo ingresó el proyecto y cuál es el gasto total propuesto? No consta en los informes del repo.
 - ¿Qué fecha límite tiene el despacho del Presupuesto 2027? Respondida: el informe del 08-11-2026 fija el 30-11-2026 como plazo constitucional para concluir la tramitación.
@@ -63,5 +64,7 @@ El proyecto de Presupuesto 2027 se tramita en el Congreso y el primer registro e
 - ¿Aprueba el Congreso la autorización de endeudamiento por hasta US$25.000 millones que la Cámara rechazó el 13-11-2026, y con qué financia el Ejecutivo el año si no se repone?
 - ¿Qué pide exactamente la Confech sobre el financiamiento de la educación superior para 2027? El informe del 14-11-2026 consigna la crítica y no el detalle.
 - ¿Repone el Senado los $3.903 millones de las seis asignaciones de memoria que la Comisión Mixta dejó en $1.000 cada una, y con qué monto queda el Museo de la Memoria?
+- ¿Queda la transferencia cercana a US$160 millones al fondo de protección previsional en el Presupuesto 2027 que despache el Congreso, o se mantiene el criterio de Hacienda de que el primer aporte corresponde en 2028?
+- ¿Presentan los parlamentarios opositores la acusación constitucional contra el ministro Jorge Quiroz que amenazaron el 17-11-2026, y con qué capítulos? Al 18-11-2026 es una amenaza y no un libelo presentado.
 ## Publicado
 Sin publicaciones al 03-11-2026.
