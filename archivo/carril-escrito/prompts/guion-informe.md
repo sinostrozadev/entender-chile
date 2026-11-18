@@ -157,39 +157,18 @@ REGISTRO ORAL Y ANTI-PLANTILLA:
 FORMATO DE SALIDA:
 - Primera línea: "Título sugerido:" seguida de un título de una sola idea, concreto, específico del día, sin clickbait.
 - Segunda sección: "Descripción sugerida:" con dos a cuatro frases que resuman la jornada para la descripción del video de YouTube. Resume la jornada COMPLETA del informe (las tres noticias del video y, en una frase, otras dos o tres del día), porque la descripción acompaña al informe entero de la web. NO incluyas la lista de fuentes ni el enlace aquí: el sistema agrega solo, al final de la descripción, el enlace al informe completo de la web y la lista de fuentes.
-- Tercera, cuarta y quinta líneas: TRES CARÁTULAS para la noticia de portada, con este formato exacto (regla de Santiago, 20-09-2026, tras ver el tablero; reemplaza a la de 3-5 palabras del 05-09):
-
-    Carátula sugerida: ¿Y Estación Central? / Tren Melipilla, a medias
-    Carátula 2: Tren nuevo, / sin llegar al centro
-    Carátula 3: Rachas de 90 km/h / ¿Dónde pega más?
-
-  EL GANCHO NOMBRA DE QUÉ SE TRATA (23-10-2026, Santiago): "¿Quién las autorizó? / La firma decisiva" salió al aire sin decir qué se autorizó, y el espectador no tenía de qué agarrarse. Al menos una de las dos líneas tiene que traer el objeto de la noticia (qué cosa, a quién) con las palabras del informe, y si el hecho depende de un delito o de un grupo, ese dato va en el gancho o en el título, no solo en el cuerpo. Antes de escribirlo, comprueba contra el informe que lo que el gancho afirma es exactamente lo que el informe afirma.
-
-  Cada carátula son DOS líneas separadas por " / ", de MÁXIMO CUATRO PALABRAS cada una (se pintan en mayúsculas, grandes, sobre cajas: más palabras no caben). La carátula tiene que dar la RAZÓN PARA ENTRAR, no contar la conclusión: el título ya dice el hecho. Está escrita desde el espectador (qué le pasa a él, qué tiene en juego), con una tensión o una pregunta que el video responde. Las tres son enfoques distintos: la primera, una PREGUNTA; la segunda, una CONTRADICCIÓN o un giro; la tercera, una CIFRA CON REFERENCIA (solo si la cifra se entiende en un segundo sin contexto) o un segundo giro si no hay cifra. La primera es la que sale al aire; las otras dos van a la prueba A/B de YouTube. PRUEBA DEL GANCHO: si un desconocido necesita preguntarte "¿qué?" o "¿de quién?", no es gancho. Prohibido subir el gancho con indignación, morbo, daño a personas o sospecha sin fallo (rompe la revisión de monetización). Ninguna se narra: son solo para la carátula, que se genera sola.
-- Sexta línea: "Clima de carátula:" seguido de UNA de estas seis palabras, la
-  que corresponda a la noticia de portada. Esta palabra VIAJA TAL CUAL al
-  generador de la imagen (es el dato `CLIMA DE LA CARÁTULA` de
-  `prompts/caratula-pedido.txt`) y ahí define la emoción dominante de la
-  carátula, así que tiene que ser una de las seis que ese prompt reconoce, en
-  una sola palabra y sin barras:
-
-    Clima de carátula: institucional
-
-  `institucional` (leyes, votaciones, gobierno, autoridad) · `urgente`
-  (emergencia, tragedia, crisis, el instante crítico) · `economico`
-  (precios, bolsillo, mercados, trabajo) · `policial` (delito, fiscalía,
-  tribunales, investigación) · `humano` (la consecuencia sobre personas,
-  lo que le pasa a alguien) · `internacional` (fuera de Chile, geopolítica).
-  La mayoría de los días es `institucional` o `economico`, y está bien. Si no
-  escribes la línea, el sistema usa `institucional`.
-
-  Hasta el 05-10-2026 acá iban otras seis (`grave`, `cotidiano`, `bueno`,
-  `curioso`, `deporte`) que describían LUZ, no tema. El código las sigue
-  aceptando, pero no las uses: eran una segunda lista que el generador no
-  conocía y lo obligaba a traducir, que es justo lo que se quitó al dejarle el
-  prompt armado.
-
-Desde el 04-11-2026 no se pide carátula del día: el informe en video está apagado.
+- No se piden carátulas ni clima de carátula, y el guion no lleva esas líneas.
+  La carátula del día solo la usaba el video del informe, que se apagó el
+  04-11-2026 (decisión "El despegue"), y el Short no lleva miniatura: mientras
+  exista `contenido/estado/sin-video-informe.txt`, `estado.yml` ni abre el
+  pedido de la imagen, y la última carátula del día en `contenido/caratulas/`
+  es la del 04-11-2026. Pedirlas igual era pedir trabajo que nadie consume, y
+  lo que producía era intermitencia: de los seis guiones del 12 al 18-11-2026,
+  tres las escribieron (13, 14 y 16) y tres no (12, 17 y 18). Las
+  instrucciones completas no se perdieron: están dormidas en el apéndice del
+  final de este archivo y vuelven al formato el día en que ese marcador se
+  borre. La Clave sí lleva carátula, y la pide su propio prompt,
+  `prompts/guion-claves.md`, que este cambio no toca.
 
 - Después: "Guion:" y el texto narrable con las siguientes marcas, y solo estas, cada una en su propia línea:
   ## Nombre de sección [categoria]
@@ -345,3 +324,46 @@ ESTILO TIPOGRÁFICO (obligatorio en todo entregable):
 - Nunca uses la raya larga (—) ni la raya media (–). Donde caería una raya,
   usa coma, dos puntos, punto o paréntesis.
 - Los rangos se escriben con guion corto (2026-2027, 8-10) o con "a" (8 a 10).
+
+## APÉNDICE DORMIDO: las tres carátulas y el clima (fuera del formato desde el 18-11-2026)
+
+POR QUÉ ESTÁ ACÁ Y NO EN EL FORMATO. Lo que sigue estuvo vivo del 20-09-2026 al
+04-11-2026, cuando el video del informe se apagó y con él murió el único
+consumidor de la carátula del día. Desde entonces el prompt seguía pidiéndola y
+`scripts/pedir-caratula.js` ya no se despierta, porque `estado.yml` lo frena con
+`contenido/estado/sin-video-informe.txt`. Se guarda entera, y no se borra, para
+que el día que ese marcador se borre la carátula vuelva con su fórmula completa
+y no reinventada: para revivirla, estas líneas vuelven al bloque FORMATO DE
+SALIDA tal cual, numeradas después de la descripción.
+
+- Tercera, cuarta y quinta líneas: TRES CARÁTULAS para la noticia de portada, con este formato exacto (regla de Santiago, 20-09-2026, tras ver el tablero; reemplaza a la de 3-5 palabras del 05-09):
+
+    Carátula sugerida: ¿Y Estación Central? / Tren Melipilla, a medias
+    Carátula 2: Tren nuevo, / sin llegar al centro
+    Carátula 3: Rachas de 90 km/h / ¿Dónde pega más?
+
+  EL GANCHO NOMBRA DE QUÉ SE TRATA (23-10-2026, Santiago): "¿Quién las autorizó? / La firma decisiva" salió al aire sin decir qué se autorizó, y el espectador no tenía de qué agarrarse. Al menos una de las dos líneas tiene que traer el objeto de la noticia (qué cosa, a quién) con las palabras del informe, y si el hecho depende de un delito o de un grupo, ese dato va en el gancho o en el título, no solo en el cuerpo. Antes de escribirlo, comprueba contra el informe que lo que el gancho afirma es exactamente lo que el informe afirma.
+
+  Cada carátula son DOS líneas separadas por " / ", de MÁXIMO CUATRO PALABRAS cada una (se pintan en mayúsculas, grandes, sobre cajas: más palabras no caben). La carátula tiene que dar la RAZÓN PARA ENTRAR, no contar la conclusión: el título ya dice el hecho. Está escrita desde el espectador (qué le pasa a él, qué tiene en juego), con una tensión o una pregunta que el video responde. Las tres son enfoques distintos: la primera, una PREGUNTA; la segunda, una CONTRADICCIÓN o un giro; la tercera, una CIFRA CON REFERENCIA (solo si la cifra se entiende en un segundo sin contexto) o un segundo giro si no hay cifra. La primera es la que sale al aire; las otras dos van a la prueba A/B de YouTube. PRUEBA DEL GANCHO: si un desconocido necesita preguntarte "¿qué?" o "¿de quién?", no es gancho. Prohibido subir el gancho con indignación, morbo, daño a personas o sospecha sin fallo (rompe la revisión de monetización). Ninguna se narra: son solo para la carátula, que se genera sola.
+- Sexta línea: "Clima de carátula:" seguido de UNA de estas seis palabras, la
+  que corresponda a la noticia de portada. Esta palabra VIAJA TAL CUAL al
+  generador de la imagen (es el dato `CLIMA DE LA CARÁTULA` de
+  `prompts/caratula-pedido.txt`) y ahí define la emoción dominante de la
+  carátula, así que tiene que ser una de las seis que ese prompt reconoce, en
+  una sola palabra y sin barras:
+
+    Clima de carátula: institucional
+
+  `institucional` (leyes, votaciones, gobierno, autoridad) · `urgente`
+  (emergencia, tragedia, crisis, el instante crítico) · `economico`
+  (precios, bolsillo, mercados, trabajo) · `policial` (delito, fiscalía,
+  tribunales, investigación) · `humano` (la consecuencia sobre personas,
+  lo que le pasa a alguien) · `internacional` (fuera de Chile, geopolítica).
+  La mayoría de los días es `institucional` o `economico`, y está bien. Si no
+  escribes la línea, el sistema usa `institucional`.
+
+  Hasta el 05-10-2026 acá iban otras seis (`grave`, `cotidiano`, `bueno`,
+  `curioso`, `deporte`) que describían LUZ, no tema. El código las sigue
+  aceptando, pero no las uses: eran una segunda lista que el generador no
+  conocía y lo obligaba a traducir, que es justo lo que se quitó al dejarle el
+  prompt armado.

@@ -70,7 +70,10 @@ tiene flujo y render desde el 02-11-2026 y está en piloto.
       `bitacora/2026-11-16-auditoria.md`. Segunda mañana marcada
       (17-11-2026): sigue igual, verificado de nuevo hoy en
       `contenido/informes/2026-11-15.md` (línea 104 y la línea del Sernac),
-      `bitacora/2026-11-17-auditoria.md`.
+      `bitacora/2026-11-17-auditoria.md`. Tercera mañana marcada
+      (18-11-2026): sigue igual, verificado de nuevo hoy en
+      `contenido/informes/2026-11-15.md` (línea 104 y la línea 169 del
+      Sernac), `bitacora/2026-11-18-auditoria.md`.
 
 - [ ] **Redirigir la copia vieja de GitHub Pages (repo `entender-chile-web`) a
       https://entender.sinodev.cl y apagar esa publicación**, cuando el dominio
