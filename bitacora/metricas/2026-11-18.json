@@ -3,14 +3,77 @@
   "canal": {
     "suscriptores": 61,
     "vistas": 27258,
-    "videos": 231
+    "videos": 232
   },
   "videos": {
-    "XD1nkL2B5Pc": {
-      "titulo": "Personas con condenas seguían en funciones públicas, y otras",
+    "8utjNIbYeKk": {
+      "titulo": "El cobre que no salió: por qué el PIB de Chile cayó 1,1 %",
       "publicado": "2026-11-18",
       "estado": "private",
       "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 710
+    },
+    "PzaH_21YAq8": {
+      "titulo": "Desempleo: 11,8 % en Ñuble y 4,0 % en Aysén, en el mismo paí",
+      "publicado": "2026-11-18",
+      "estado": "private",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 53
+    },
+    "8f54g69SpLI": {
+      "titulo": "Congelar la bencina cuesta US$550 millones: ¿lo harías?",
+      "publicado": "2026-11-18",
+      "estado": "private",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 50
+    },
+    "IwyAnmCh7oI": {
+      "titulo": "La Cámara rechazó Interior y Educación: ¿se quedan sin plata",
+      "publicado": "2026-11-18",
+      "estado": "private",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 50
+    },
+    "MJYIoVRvkpc": {
+      "titulo": "En enero esperaban que Chile creciera 2,5 %. Hoy esperan 0 %",
+      "publicado": "2026-11-18",
+      "estado": "private",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 46
+    },
+    "WgmtB5GYv88": {
+      "titulo": "Lago Ranco pagó casi 17 veces el avalúo de un terreno",
+      "publicado": "2026-11-18",
+      "estado": "private",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 51
+    },
+    "ZkKQ-PnUyN0": {
+      "titulo": "El diésel subió 443 pesos por litro: por eso pararon los cam",
+      "publicado": "2026-11-18",
+      "estado": "private",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 48
+    },
+    "XD1nkL2B5Pc": {
+      "titulo": "Personas con condenas seguían en funciones públicas, y otras",
+      "publicado": "2026-11-18",
+      "estado": "public",
+      "vistas": 9,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 40
@@ -19,8 +82,8 @@
       "titulo": "Conductores pagarán menos por diésel desde este jueves, y ot",
       "publicado": "2026-11-17",
       "estado": "public",
-      "vistas": 110,
-      "meGusta": 0,
+      "vistas": 210,
+      "meGusta": 2,
       "comentarios": 0,
       "durSeg": 40
     },
@@ -28,7 +91,7 @@
       "titulo": "Más de ochocientos vecinos quedan aislados por las crecidas,",
       "publicado": "2026-11-16",
       "estado": "public",
-      "vistas": 688,
+      "vistas": 695,
       "meGusta": 14,
       "comentarios": 0,
       "durSeg": 39
@@ -37,7 +100,7 @@
       "titulo": "Cómo Codelco registra su producción y quién la controla",
       "publicado": "2026-11-15",
       "estado": "private",
-      "vistas": 1,
+      "vistas": 2,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 692
@@ -46,7 +109,7 @@
       "titulo": "Camioneros siguen movilizados y el Gobierno anuncia fuerza, ",
       "publicado": "2026-11-14",
       "estado": "public",
-      "vistas": 873,
+      "vistas": 871,
       "meGusta": 10,
       "comentarios": 0,
       "durSeg": 43
@@ -973,7 +1036,7 @@
       "titulo": "¿Por qué el dólar llegó hoy a su nivel más alto en año y med",
       "publicado": "2026-10-01",
       "estado": "public",
-      "vistas": 33,
+      "vistas": 35,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 43
@@ -1972,7 +2035,7 @@
       "titulo": "Clave: ¿Cómo conviven soberanía y libre navegación en un est",
       "publicado": "2026-09-03",
       "estado": "public",
-      "vistas": 95,
+      "vistas": 96,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 37
@@ -2916,16 +2979,16 @@
   "fuentes": {
     "canal": {
       "SHORTS": {
-        "vistas": 5786,
-        "minutos": 1472
+        "vistas": 5783,
+        "minutos": 1473
       },
       "YT_SEARCH": {
         "vistas": 465,
         "minutos": 106
       },
       "RELATED_VIDEO": {
-        "vistas": 103,
-        "minutos": 159
+        "vistas": 104,
+        "minutos": 160
       },
       "SUBSCRIBER": {
         "vistas": 93,
@@ -2936,7 +2999,7 @@
         "minutos": 53
       },
       "YT_OTHER_PAGE": {
-        "vistas": 54,
+        "vistas": 53,
         "minutos": 27
       },
       "NOTIFICATION": {
@@ -2948,8 +3011,8 @@
         "minutos": 10
       },
       "NO_LINK_OTHER": {
-        "vistas": 5,
-        "minutos": 1
+        "vistas": 4,
+        "minutos": 0
       },
       "PLAYLIST": {
         "vistas": 3,
@@ -2964,11 +3027,11 @@
       "HIEPv3KzCE4": {
         "fuentes": {
           "SUBSCRIBER": 20,
-          "RELATED_VIDEO": 16,
+          "RELATED_VIDEO": 17,
           "YT_SEARCH": 6,
-          "NO_LINK_OTHER": 1,
           "YT_CHANNEL": 1,
-          "PLAYLIST": 1
+          "PLAYLIST": 1,
+          "NO_LINK_OTHER": 0
         },
         "curva": {
           "p01": 91,
