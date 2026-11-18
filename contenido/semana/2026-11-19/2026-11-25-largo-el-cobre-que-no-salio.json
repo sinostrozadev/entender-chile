@@ -285,7 +285,7 @@
                 "decimales": 1,
                 "sufijo": " %"
               },
-              "dice": "Imacec"
+              "dice": "caída"
             },
             "cifras": [
               {
@@ -461,7 +461,7 @@
                 "decimales": 1,
                 "sufijo": " %"
               },
-              "dice": "retrocedió"
+              "dice": "trimestre"
             },
             "cifras": [
               {
@@ -749,6 +749,30 @@
             "rotulo": {
               "texto": "AÚN SIN DOS CAÍDAS SEGUIDAS",
               "dice": "caídas"
+            },
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Qué cambió y qué no",
+              "items": [
+                {
+                  "icono": "🗣️",
+                  "texto": "Hacienda, 11 de noviembre",
+                  "dice": "ministro"
+                },
+                {
+                  "icono": "🔄",
+                  "texto": "2.º trimestre revisado",
+                  "valor": "ya no cae",
+                  "dice": "revisadas"
+                },
+                {
+                  "icono": "❌",
+                  "texto": "Dos caídas seguidas",
+                  "valor": "no hay",
+                  "marca": "no",
+                  "dice": "ninguna"
+                }
+              ]
             }
           }
         ]
@@ -822,7 +846,7 @@
                 "decimales": 1,
                 "sufijo": " %"
               },
-              "dice": "cobre"
+              "dice": "minería"
             },
             "cifras": [
               {
@@ -973,7 +997,7 @@
                 "decimales": 1,
                 "sufijo": " %"
               },
-              "dice": "Pauta"
+              "dice": "trimestre"
             },
             "cifras": [
               {
@@ -1179,7 +1203,7 @@
                 "decimales": 1,
                 "sufijo": " %"
               },
-              "dice": "agricultura"
+              "dice": "resto"
             },
             "cifras": [
               {
@@ -1456,7 +1480,7 @@
                 "decimales": 1,
                 "sufijo": " %"
               },
-              "dice": "septiembre"
+              "dice": "Imacec"
             },
             "cifras": [
               {
@@ -1600,11 +1624,54 @@
             "rotulo": {
               "texto": "UN SECTOR, NO TODOS",
               "dice": "sector"
+            },
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Dos historias distintas",
+              "items": [
+                {
+                  "icono": "⛏️",
+                  "texto": "Mineral y mantenciones",
+                  "dice": "mineral"
+                },
+                {
+                  "icono": "🌧️",
+                  "texto": "Clima",
+                  "dice": "clima"
+                },
+                {
+                  "icono": "🏗️",
+                  "texto": "Inversión y consumo",
+                  "valor": "otra historia",
+                  "dice": "inversión"
+                }
+              ]
             }
           },
           {
             "tipo": "reenganche",
-            "texto": "Pero una economía no es solo lo que produce: también es lo que se destina a inversión, lo que se consume y lo que se exporta. Veamos la demanda: inversión, consumo y exportaciones."
+            "texto": "Pero una economía no es solo lo que produce: también es lo que se destina a inversión, lo que se consume y lo que se exporta. Veamos la demanda: inversión, consumo y exportaciones.",
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "La demanda",
+              "items": [
+                {
+                  "icono": "🏭",
+                  "texto": "Inversión",
+                  "dice": "inversión"
+                },
+                {
+                  "icono": "🛒",
+                  "texto": "Consumo",
+                  "dice": "consume"
+                },
+                {
+                  "icono": "🚢",
+                  "texto": "Exportaciones",
+                  "dice": "exporta"
+                }
+              ]
+            }
           }
         ]
       },
@@ -2078,6 +2145,29 @@
             "rotulo": {
               "texto": "INGRESO: −0,3 %",
               "dice": "ingreso"
+            },
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Por qué cayó menos el ingreso",
+              "items": [
+                {
+                  "icono": "💵",
+                  "texto": "Ingreso nacional real",
+                  "valor": "−0,3 %",
+                  "dice": "ingreso"
+                },
+                {
+                  "icono": "🔁",
+                  "texto": "Términos de intercambio",
+                  "valor": "mejores",
+                  "dice": "términos"
+                },
+                {
+                  "icono": "🚢",
+                  "texto": "Precio exportado sube más",
+                  "dice": "exporta"
+                }
+              ]
             }
           },
           {
@@ -2163,7 +2253,7 @@
                 "decimales": 1,
                 "sufijo": " %"
               },
-              "dice": "contra"
+              "dice": "desocupación"
             },
             "cifras": [
               {
@@ -3031,7 +3121,29 @@
                   "anio": 2026
                 }
               }
-            ]
+            ],
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Para cerrar el año en positivo",
+              "items": [
+                {
+                  "icono": "📅",
+                  "texto": "Año en terreno positivo",
+                  "dice": "terreno"
+                },
+                {
+                  "icono": "📈",
+                  "texto": "Cuarto trimestre",
+                  "valor": "en torno a 1,2 %",
+                  "dice": "cuarto"
+                },
+                {
+                  "icono": "⚠️",
+                  "texto": "Difícil, según La Tercera",
+                  "dice": "difícil"
+                }
+              ]
+            }
           },
           {
             "tipo": "dato",
@@ -3112,6 +3224,29 @@
             "rotulo": {
               "texto": "NO MIDE EL TAMAÑO",
               "dice": "tamaño"
+            },
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "La recesión técnica",
+              "items": [
+                {
+                  "icono": "❌",
+                  "texto": "Mide cuánto cae",
+                  "marca": "no",
+                  "dice": "mide"
+                },
+                {
+                  "icono": "✅",
+                  "texto": "Mide si cae 2 trimestres",
+                  "marca": "si",
+                  "dice": "trimestres"
+                },
+                {
+                  "icono": "📉",
+                  "texto": "Una caída grande no basta",
+                  "dice": "declara"
+                }
+              ]
             }
           },
           {
@@ -3120,7 +3255,30 @@
           },
           {
             "tipo": "significado",
-            "texto": "En resumen, qué cambió y qué no. Lo que cambió el 18 de noviembre es el dato: el tercer trimestre cayó 1,1 %, más de lo esperado, y la revisión dejó al segundo en cero. Lo que no cambia es el origen principal: el cobre, con menores leyes, mantenciones y clima. Y lo que se vive en el día a día es un mercado laboral con más desempleo y precios sobre la meta, y el desempleo venía subiendo desde antes de este dato. Esto es lo que muestran, hasta hoy, las cifras oficiales, y los datos de los próximos meses dirán hacia dónde va el año."
+            "texto": "En resumen, qué cambió y qué no. Lo que cambió el 18 de noviembre es el dato: el tercer trimestre cayó 1,1 %, más de lo esperado, y la revisión dejó al segundo en cero. Lo que no cambia es el origen principal: el cobre, con menores leyes, mantenciones y clima. Y lo que se vive en el día a día es un mercado laboral con más desempleo y precios sobre la meta, y el desempleo venía subiendo desde antes de este dato. Esto es lo que muestran, hasta hoy, las cifras oficiales, y los datos de los próximos meses dirán hacia dónde va el año.",
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Qué cambió y qué no",
+              "items": [
+                {
+                  "icono": "📊",
+                  "texto": "Cambió: el dato",
+                  "valor": "−1,1 %",
+                  "dice": "cambió"
+                },
+                {
+                  "icono": "⛏️",
+                  "texto": "No cambió: el cobre",
+                  "dice": "origen"
+                },
+                {
+                  "icono": "👷",
+                  "texto": "Más desempleo",
+                  "valor": "9,8 %",
+                  "dice": "desempleo"
+                }
+              ]
+            }
           }
         ]
       }
@@ -3175,7 +3333,7 @@
           "decimales": 1,
           "sufijo": " %"
         },
-        "dice": "casi"
+        "dice": "número"
       },
       "cifras": [
         {

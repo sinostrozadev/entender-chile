@@ -2,11 +2,14 @@
  * Valida guiones de contenido/semana/ sin renderizar ni gastar voz (lo que pide prompts/plan-semanal.md §4):
  *   npx tsx scripts/validar.mts <guion.json> [<guion.json> ...]
  * Comprueba el envoltorio y los props con el mismo schema que usan preparar-*, y los campos que necesita producir.mts
- * para subir (id igual al del archivo, publicar AAAA-MM-DDTHH:MM, título, descripción, hashtags). Sale 1 si algo falla.
+ * para subir (id igual al del archivo, publicar AAAA-MM-DDTHH:MM, título, descripción, hashtags) y, en las piezas `tesis`,
+ * el ritmo (`problemasDeRitmo`, con tiempos estimados). Las piezas `grafico` no tienen validador de ritmo. Sale 1 si algo falla.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { EnvoltorioGrafico, EnvoltorioTesis } from '../src/plantillas/comun/guion';
+import { estimarTiemposTesis, graficosTesis, planTesis, problemasDeRitmo } from '../src/plantillas/tesis/plan';
+import { completarConFixture } from '../src/plantillas/comun/graficos/fixture';
 
 const rutas = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 if (!rutas.length) { console.error('uso: npx tsx scripts/validar.mts <guion.json> [...]'); process.exit(2); }
@@ -22,6 +25,13 @@ for (const ruta of rutas) {
     else {
       const v = esquema.safeParse(crudo);
       if (!v.success) errores.push(...v.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`));
+      else if (crudo.plantilla === 'tesis') {
+        // Ritmo (mismo validador que preparar-tesis, con tiempos de voz ESTIMADOS y datos de relleno: no llama a ningún servicio).
+        // Antes solo corría en producción y un guion con esperas o citas eternas recién fallaba al producir.
+        const g = (v.data as { props: Parameters<typeof estimarTiemposTesis>[0] }).props;
+        const plan = planTesis(g, estimarTiemposTesis(g), completarConFixture(graficosTesis(g).map((x) => x.datos)));
+        errores.push(...problemasDeRitmo(plan, g).errores.map((e) => `ritmo: ${e}`));
+      }
     }
     if (crudo.id !== path.basename(ruta, '.json')) errores.push(`id "${String(crudo.id)}" no coincide con el nombre del archivo`);
     if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(String(crudo.publicar))) errores.push('"publicar" debe ser AAAA-MM-DDTHH:MM (hora de Chile)');
