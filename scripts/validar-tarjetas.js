@@ -67,13 +67,25 @@ const esClave = /guiones[\\/]claves[\\/]/.test(ruta);
 // Carátula sugerida (regla 05-09): el gancho de la miniatura lo escribe el
 // guionista; sin la línea, dia.js cae al título recortado (funciona, pero
 // pierde el gancho pensado). Avisar para que el ciclo aprenda.
-if (!lineas.some((l) => /^car[áa]tula sugerida:/i.test(l.trim().replace(/\*\*/g, "")))) {
+//
+// PERO NO SE AVISA DE ALGO QUE YA NO SE PIDE (18-11-2026). La carátula del día
+// solo la usaba el video del informe, apagado el 04-11-2026, y estado.yml ni
+// despierta a pedir-caratula.js mientras exista el marcador de abajo, así que
+// desde el 05-11-2026 este aviso era falso: la miniatura que supuestamente se
+// degradaba no existe, porque el Short no lleva miniatura. Costó atención real:
+// las revisiones del 17 y del 18-11 lo contaron como racha de seis y de ocho
+// días, y la auditoría del 18-11 tuvo que medir los guiones uno por uno para
+// mostrar que eran tres apariciones sueltas. La Clave sí lleva carátula y tiene
+// flujo propio, así que para ella el aviso sigue igual.
+const SIN_VIDEO_INFORME = "contenido/estado/sin-video-informe.txt";
+const pideCaratula = esClave || !fs.existsSync(SIN_VIDEO_INFORME);
+if (pideCaratula && !lineas.some((l) => /^car[áa]tula sugerida:/i.test(l.trim().replace(/\*\*/g, "")))) {
   avisos.push('sin línea "Carátula sugerida:": la miniatura usará el título recortado en vez de un gancho pensado (prompts/guion-informe.md y guion-claves.md la exigen desde el 05-09)');
 }
 // Carátulas v3 (20-09, solo el informe): tres ganchos de dos líneas, hasta
 // cuatro palabras por línea. Más palabras no caben en las cajas; sin " / "
 // el render parte la frase al medio a ciegas.
-if (!esClave) {
+if (!esClave && pideCaratula) {
   const cars = lineas.map((l) => l.trim().replace(/\*\*/g, "")).map((l) => l.match(/^car[áa]tula\s*(sugerida|2|3):\s*(.+)$/i)).filter(Boolean);
   if (cars.length && cars.length < 3) avisos.push(`carátulas: hay ${cars.length} y el prompt pide tres ("Carátula sugerida:", "Carátula 2:", "Carátula 3:"); sin las otras dos no hay prueba A/B`);
   for (const c of cars) {
