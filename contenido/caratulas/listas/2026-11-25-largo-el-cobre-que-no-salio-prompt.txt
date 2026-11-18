@@ -1,0 +1,33 @@
+Crea una carátula de YouTube para un video largo explicativo de economía de un canal chileno de noticias explicadas con datos oficiales. Tono serio y claro, sin alarmismo.
+
+DATOS QUE YO ENTREGO
+SUJETO (línea 1, letra enorme, mayúsculas): CHILE
+CAJA DE TENSIÓN (línea 2, dentro de una caja de color cobre, mayúsculas, exacta): CAYÓ 1,1 %
+LÍNEA PEQUEÑA (debajo de la caja, exacta): LA MINERÍA, 14,7 %
+IMAGEN HÉROE: un gráfico de dos barras, a sangre completa. Una columna cobre muy larga que cae desde una línea de cero hacia abajo (la minería) y, a su lado, una columna corta gris azulada que sube apenas sobre la línea de cero (el resto de la economía). Detrás, tenue y en gris azulado, la silueta alargada de Chile de norte a sur. Fondo azul marino casi negro.
+
+TU TAREA
+Diseña la carátula con estas reglas fijas. No son sugerencias.
+
+FORMATO
+16:9 horizontal, mínimo 1280x720, PNG. El texto VA DENTRO de la imagen, exacto como lo entrego, y debe leerse perfecto a 160 píxeles de ancho (así se ve en un teléfono).
+
+LA REGLA PRINCIPAL: QUE SE ENTIENDA QUIÉN Y QUÉ EN MEDIO SEGUNDO
+Sin leer el título del video, se entiende que es sobre CHILE y sobre una caída ligada a la minería. Por eso CHILE va escrito, grande y nombrado, y no solo sugerido por la silueta.
+
+COMPOSICIÓN
+- Imagen héroe a sangre, ocupando todo el cuadro (nada de collage ni de recortes pegados).
+- Arriba a la izquierda: CHILE en blanco roto, tipografía sans condensada muy pesada. Justo debajo, la caja cobre con CAYÓ 1,1 % en letra oscura, bordes levemente irregulares como papel recortado. Debajo de la caja, la línea pequeña LA MINERÍA, 14,7 % en blanco roto.
+- Un solo acento de color: el cobre (la columna larga y la caja). El resto, azul marino, gris azulado y blanco roto.
+- La esquina inferior derecha queda LIBRE (YouTube pone ahí la duración).
+- Marca pequeña y discreta, abajo a la izquierda: ENTENDER CHILE, en mayúsculas espaciadas.
+- Ningún otro texto, ninguna cifra extra, sin ejes ni rejilla.
+
+PROHIBIDO
+Rostros de personas, reales o inventados. Banderas como fondo. Logos, escudos, nombres de medios o de instituciones. Billetes, monedas, signos de dólar. Flechas gigantes, círculos, signos de exclamación, emojis, rojo o amarillo de tabloide, estética de collage, 3D plástico. Cualquier texto que no sea CHILE, CAYÓ 1,1 %, LA MINERÍA, 14,7 % y ENTENDER CHILE.
+
+TEXTO
+Español con tildes correctas. Sin raya larga ni media. Revisa letra por letra que CHILE, CAYÓ 1,1 % y LA MINERÍA, 14,7 % digan exactamente lo que entregué.
+
+PRUEBA FINAL ANTES DE ENTREGAR
+¿Sin leer el título se entiende que es sobre Chile y una caída por la minería? ¿Se lee todo a 160 px? ¿Hay un solo acento (cobre) y ninguna cara? ¿La esquina inferior derecha está limpia? Si algo falla, corrígelo antes de generar.
