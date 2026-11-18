@@ -1,11 +1,12 @@
 # Entender Chile: reglas del repo
 
-Canal diario de noticias chilenas en YouTube (@entenderchile), producido por
-código y publicado con gate humano. Cada madrugada corre una cadena lineal:
-GPT escribe las piezas una por una, Claude las valida antes de que exista la
-siguiente, y GitHub Actions renderiza el Short y los largos, los sube y
-republica la web. Acá van solo reglas fijas y punteros; la historia está en
-`bitacora/`.
+Canal de YouTube @entenderchile: la actualidad chilena explicada con mapas y
+gráficos en movimiento (Estrategia A desde el 19-11-2026, decisión del
+13-11-2026). Flujo de tres pasos, en `docs/FLUJO.md`: el jueves 17:30 una
+rutina de Claude escribe y verifica los guiones de la semana siguiente en
+`contenido/semana/`; su push dispara `producir.yml`, que rinde con `video/` y
+deja todo programado; métricas y una revisión diaria cierran el ciclo. Acá van
+solo reglas fijas y punteros; la historia está en `bitacora/`.
 
 ## Reglas duras para todo texto del repo
 
@@ -30,12 +31,12 @@ Estándar del 13-09-2026, detalle completo en `bitacora/README.md`.
 - **`estrategia/decisiones.md`**: las decisiones de fondo, y las de NO hacer
   algo (si no, la auditoría las vuelve a proponer cada mañana).
 - **`bitacora/AAAA-MM-DD.md`**: lo que se habló y decidió ese día, a medida
-  que ocurre. **`bitacora/AAAA-MM-DD-auditoria.md`**: el análisis de la mañana
-  y su triage HOY / AGUANTA / MIRAR, que escribe la rutina de las 05:30; la
-  sesión de día lo verifica y lo profundiza en el mismo archivo, sin pisarlo.
+  que ocurre. **`bitacora/diaria/AAAA-MM-DD.md`** y
+  **`bitacora/semanal/AAAA-MM-DD.md`**: las revisiones del flujo nuevo (la
+  semanal abre el plan del jueves y lleva la línea `DECISIÓN:` de la compuerta).
 - **No se mudan**, porque son material editorial y no tareas: `por-abrir.md`,
-  `por-verificar.md`, las marcas `PENDIENTE DE CIERRE:` de los informes y
-  `bitacora/taller.json`. Bajan a PENDIENTES solo cuando se quedan pegadas.
+  `por-verificar.md`, y las marcas `PENDIENTE DE CIERRE:` de los informes.
+  Bajan a PENDIENTES solo cuando se quedan pegadas.
   `ideas/evaluar.md` es material crudo: una idea aprobada baja a PENDIENTES.
 
 ## Quién ejecuta qué (desde el 04-11-2026)
@@ -87,9 +88,11 @@ que puede frenar o cambiar la hora desde Studio.
 | Archivo | Qué manda |
 |---|---|
 | `REGLAS-DURAS.md` | las 42 reglas numeradas (más la 26b y la 38b) con su origen. Si algo lo contradice, gana este |
-| `estrategia/decisiones.md` | las decisiones de fondo; la del 04-11-2026 ("El despegue") manda: solo explicar, Claude al mando, cierre el 31-01-2027 |
+| `estrategia/decisiones.md` | las decisiones de fondo; manda la del 13-11-2026 (Estrategia A y compuerta del 03-12-2026) sobre la del 04-11-2026 ("El despegue", Claude al mando) |
 | `bitacora/PENDIENTES.md` | la única lista viva; arranca con "EL MODELO NUEVO (01-11-2026)" |
 | `bitacora/README.md` | el estándar de dónde se anota cada cosa |
+| `docs/FLUJO.md` | el flujo de tres pasos, la tabla de horarios y qué rutinas apagar o cambiar |
+| `estrategia/limpieza-2026-11.md` | qué se retiró el 13-11-2026 y por qué |
 | `bitacora/rutinas.md` | rutinas de la nube y workflows, para no listarlos por API |
 | `prompts/contrato-archivos.md` | rutas, formatos, commits y escritura verificada |
 | `prompts/README.md` | qué prompt lee cada tarea y en qué orden corren |

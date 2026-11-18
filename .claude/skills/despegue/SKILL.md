@@ -1,9 +1,37 @@
 ---
 name: despegue
-description: El mandato de Santiago del 04-11-2026 para Entender Chile. Claude tiene libertad total para cambiar estrategia, formatos y herramientas, borrar lo que sea basura y conservar lo que ayude a despegar, con una revisión y al menos una mejora cada día, hasta monetizar y más. Usar al abrir cualquier sesión del canal, antes de decidir qué se hace hoy, y cada vez que haya que elegir entre pedir permiso y actuar.
+description: El mandato de Santiago del 04-11-2026 para Entender Chile, con la Estrategia A del 13-11-2026 (Chile en mapas y datos, flujo de 3 pasos, compuerta del 03-12-2026). Claude tiene libertad total para cambiar estrategia, formatos y herramientas, borrar lo que sea basura y conservar lo que ayude a despegar, con una revisión y al menos una mejora cada día, hasta monetizar y más. Usar al abrir cualquier sesión del canal, antes de decidir qué se hace hoy, y cada vez que haya que elegir entre pedir permiso y actuar.
 ---
 
-# Despegue: el mandato del 04-11-2026
+# Despegue: el mandato del 04-11-2026 y la Estrategia A
+
+## 0. Lo vigente desde el 13-11-2026 (manda sobre todo lo de abajo)
+
+Santiago aprobó la **Estrategia A, "Chile en mapas y datos"** (`estrategia/propuesta-2026-11.md`,
+`estrategia/decisiones.md` del 13-11-2026). Cambia el producto y la máquina:
+
+- **Producto**: un Short diario de 45 a 60 s (12:00) y un largo semanal de 10 a 12 min (miércoles 19:00),
+  con mapa o gráfico en movimiento desde el primer fotograma. Motor en `video/` (plantillas `grafico` y
+  `tesis` de En Números Rojos, mapa de Chile por regiones de la BCN, voz es-CL Lorenzo por Edge TTS con
+  Azure de respaldo). Nada de "cinco cosas", nada de fondo fijo, nada de la fecha como gancho.
+- **Flujo de 3 pasos** (`docs/FLUJO.md`): plan y guiones el jueves 17:30 (`prompts/plan-semanal.md`),
+  render y subida por push (`producir.yml`), métricas a las 06:30 y revisión diaria a las 10:30
+  (`prompts/revision-diaria.md`). Una rutina por paso, un reloj por tarea. **No se agregan relojes,
+  reintentos ni validadores Opus pieza por pieza**: si algo falla, se arregla la causa.
+- **Reglas de guion**: primera frase con sujeto y cifra; promesa antes de los 15 s (20 s en el largo);
+  fuente en voz y en pantalla; "Voz sintética" en pantalla y en la descripción; cada cifra en
+  `verificacion.md` de la semana con URL y fecha, y `video/scripts/verificar-cifras.mts` en verde; nunca
+  un delito sin situación procesal y con la defensa si existe; carátula del largo con `caratulas-con-gpt`
+  §2b.
+- **Compuerta del día 14: jueves 03-12-2026.** Siete criterios en `estrategia/decisiones.md`; 4 o más se
+  sigue, 2 o 3 una semana más con ajuste, 0 o 1 se cierra la producción de video y el cupo pasa a Línea
+  Punteada y En Números Rojos. La decisión la escribe la revisión semanal y el plan la obedece.
+- **Carril escrito en pausa** (diario web, podcast): `archivo/carril-escrito/README.md`. Se reactiva solo
+  si Santiago lo pide.
+- La rutina diaria de la §3 de abajo se reemplaza por la revisión diaria y la semanal; la "mejora del día"
+  pasa a ser **una decisión por semana** con evidencia, tomada en la revisión semanal.
+
+
 
 Santiago, el 04-11-2026, tras ver que el canal no despegó (48 suscriptores y
 23.004 vistas en 66 días y 221 videos):
@@ -65,7 +93,7 @@ cuenta, como arriba.
   audiencia primero; el YPP exige 1.000 suscriptores más 4.000 horas de largos
   o 10 millones de vistas de Shorts en 90 días (skill `monetizacion-youtube`).
 
-## 3. La rutina diaria (cada sesión, sin que nadie la pida)
+## 3. La rutina diaria (hasta el 18-11-2026; desde el 19-11 la reemplaza la §0)
 
 1. `/madrugada`: cómo salió la cadena. Lo roto se arregla hoy, por encargo.
 2. Métricas de `bitacora/metricas/FECHA.md` y `proyeccion.json`: qué subió y

@@ -1,3 +1,9 @@
+> **13-11-2026, Estrategia A:** la cadena diaria (preselección, informe, guion)
+> está en pausa (`archivo/carril-escrito/`). Ya no llegan eventos del PR #6
+> con etapas del día; solo llegan **pedidos** (`flujo=pedido`, carátulas y
+> lecturas, de este canal y de los canales hermanos). Atiéndelos como dice la
+> sección de pedidos; si llegara un evento de etapa diaria, no escribas nada.
+
 # Despachador de GPT v3: lineal, una pieza por turno, Claude valida cada una
 
 Prompt vivo de la tarea única de ChatGPT "Despachador Entender Chile",

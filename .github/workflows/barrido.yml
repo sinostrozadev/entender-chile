@@ -2,54 +2,22 @@ name: Barrido
 
 # Junta lo que publicó la prensa chilena y lo deja en contenido/barrido/.
 #
-# QUIÉN APRIETA EL BOTÓN (decidido 29-08-2026, ver bitacora/2026-08-28.md):
-# el cron de GitHub demostró atrasos de 11-12 horas y el barrido nunca llegó
-# a tiempo. El reloj ahora es una rutina de Claude en la nube (05:30 UTC,
-# puntual al minuto) que toca contenido/barrido/despertador.txt y pushea;
-# ese push dispara este workflow, y lo disparado por push funciona 30 de 30.
-# El cron de acá queda solo de red de seguridad, con --si-falta para no
-# pisar jamás un barrido ya escrito. Medido en octubre de 2026: llega entre
-# las 06:00 y las 08:30 de Chile, tarde para la edición pero útil para
-# destrabar un día muerto. La red puntual es reintento.yml, que relanza este
-# workflow por dispatch desde las 01:50.
+# Historia de los relojes (rutina, dos crons, relanzado por reintento.yml y
+# el recálculo del estado): ver este archivo en git antes del 13-11-2026.
 #
-# EL RECÁLCULO DEL ESTADO (01-11-2026): estado.yml escucha la conclusión de
-# este workflow con `workflow_run`, pero GitHub no crea ese evento cuando a
-# este lo lanzó otro workflow con GITHUB_TOKEN (es su regla contra bucles).
-# Medido en Actions: los cuatro barridos relanzados por reintento.yml (runs
-# 134, 137, 158 y 187) no encadenaron ni un "Estado del día", y los de push o
-# cron sí, todos. El 01-11 la cadena murió así en barrido_listo a las 02:12 y
-# la edición salió a las 09:45, rescatada por el cron tardío. Por eso, cuando
-# esta corrida vino de un dispatch, el último paso pide el recálculo a mano:
-# workflow_dispatch es la excepción que GITHUB_TOKEN sí puede disparar.
+# RELOJ (13-11-2026, Estrategia A, docs/FLUJO.md): UN solo reloj, este cron.
+# El barrido ya no despierta a nadie a una hora fija: es el banco de temas que
+# lee el plan semanal del jueves, así que llegar tarde no cuesta nada. La
+# rutina "Reloj del barrido" se apaga. --si-falta impide un barrido doble.
 on:
-  push:
-    branches: [main]
-    paths:
-      - "contenido/barrido/despertador.txt"
   schedule:
-    # respaldo tardío: 05:50 UTC sirve en invierno (01:50 Chile) y en verano
-    # (02:50), siempre antes de la preselección de las 03:10.
-    # DOS entradas porque el 03-09 fallaron las dos redes a la vez: el reloj
-    # de Claude murió por cuota (five_hour) y este cron llegó 4 horas tarde;
-    # una segunda cita sube la probabilidad de que alguna dispare a tiempo.
-    - cron: "50 4 * * *"
-    - cron: "20 5 * * *"
+    - cron: "50 4 * * *"   # 01:50 de Chile en verano
   workflow_dispatch:
     inputs:
       forzar:
         description: "Regenerar aunque el barrido de hoy ya exista"
         type: boolean
         default: false
-
-permissions:
-  contents: write
-  pull-requests: write
-  actions: write   # para pedir el recálculo del estado tras un dispatch
-
-concurrency:
-  group: barrido
-  cancel-in-progress: false
 
 jobs:
   barrer:
@@ -75,54 +43,3 @@ jobs:
             git -c rebase.autoStash=true pull --rebase origin main
             git push || { git -c rebase.autoStash=true pull --rebase origin main; git push; }
           }
-
-      # Canal de avisos hacia ChatGPT (diseño de Santiago, 04-09): un PR
-      # permanente (rama automatizacion/barrido-listo → main, etiqueta
-      # barrido-listo, NUNCA se fusiona). Cuando el barrido de hoy quedó
-      # publicado en main, este paso resetea la rama a main + un solo
-      # archivo (contenido/barrido/ultimo-evento.txt) y pushea; ese commit
-      # nuevo en el PR es el evento que despierta la tarea de ChatGPT.
-      # Se emite UNA vez por día (dedup por fecha_chile dentro del archivo),
-      # y si un día el paso falla, la corrida siguiente lo repara solo.
-      - name: Evento barrido listo (PR canal de avisos)
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          FECHA=$(TZ=America/Santiago date +%F)
-          git fetch origin main
-          git cat-file -e "origin/main:contenido/barrido/$FECHA.md" 2>/dev/null \
-            || { echo "El barrido de hoy no está en main: sin evento."; exit 0; }
-          if git fetch origin automatizacion/barrido-listo 2>/dev/null; then
-            git show FETCH_HEAD:contenido/barrido/ultimo-evento.txt 2>/dev/null \
-              | grep -q "fecha_chile=$FECHA" && { echo "Evento de hoy ya emitido."; exit 0; }
-          fi
-          SHA=$(git log -1 --format=%h "origin/main" -- "contenido/barrido/$FECHA.md")
-          git checkout -B automatizacion/barrido-listo origin/main
-          {
-            echo "fecha_chile=$FECHA"
-            echo "barrido_commit=$SHA"
-            echo "estado=listo"
-            echo "completado_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          } > contenido/barrido/ultimo-evento.txt
-          git add contenido/barrido/ultimo-evento.txt
-          git commit -m "evento $FECHA: barrido listo"
-          git push -f origin automatizacion/barrido-listo
-          gh pr list --head automatizacion/barrido-listo --state open --json number -q '.[0].number' | grep -q . \
-            || gh pr create --base main --head automatizacion/barrido-listo \
-                 --title "🔔 Canal de avisos: barrido listo (no fusionar)" \
-                 --label barrido-listo \
-                 --body "PR permanente. No se fusiona: cada commit nuevo aquí anuncia que el barrido del día quedó publicado en main (ver contenido/barrido/ultimo-evento.txt). Es el evento que despierta la preselección de ChatGPT."
-
-      # Un dispatch hecho por Santiago a mano sí encadena el workflow_run, y
-      # entonces el estado se recalcula dos veces: no importa, estado.yml corre
-      # en fila (concurrency) y la segunda corrida sale "sin cambios".
-      - name: Pedir el recálculo del estado (el workflow_run no encadena tras un dispatch)
-        # !cancelled(): si el paso del PR de avisos falla, el barrido igual
-        # quedó en main y el estado igual hay que recalcularlo
-        if: ${{ !cancelled() && github.event_name == 'workflow_dispatch' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh workflow run estado.yml --ref main \
-            && echo "recálculo del estado pedido" \
-            || echo "::warning::no se pudo pedir el recálculo del estado; reintento.yml lo pide si a los 10 minutos sigue sin vista"

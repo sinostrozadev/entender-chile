@@ -3,20 +3,20 @@ name: Métricas
 # Cada mañana baja las cifras del canal al repo: bitacora/metricas/FECHA.md
 # (+json para los deltas). El análisis lo hace la sesión de la mañana.
 #
-# RELOJ (regla del 31-08: el cron de GitHub no es reloj principal — nunca
-# corrió solo): lo despierta la rutina "Reloj de métricas" de Claude en la
-# nube (12:45 UTC = 08:45/09:45 Chile) pusheando el despertador; el cron
-# queda solo de red de respaldo.
+# RELOJ (13-11-2026, Estrategia A): un solo reloj, el cron de abajo. La
+# rutina "Reloj de métricas" se apaga (docs/FLUJO.md §5). El push del
+# despertador queda como botón a demanda: lo toca la revisión diaria solo si a
+# las 10:30 no encuentra la medición del día.
 on:
   push:
     branches: [main]
     paths:
       - "bitacora/metricas/despertador.txt"
   schedule:
-    # dos entradas: el 03-09 el reloj de Claude murió por cuota y el cron
-    # único es poco confiable (patrón ya aplicado en barrido.yml)
+    # UN reloj (13-11-2026, Estrategia A, docs/FLUJO.md): 09:30 UTC = 06:30 de
+    # Chile en verano. Si GitHub llega tarde da igual: la revisión diaria de
+    # las 10:30 toca bitacora/metricas/despertador.txt si no encuentra la de hoy.
     - cron: "30 9 * * *"
-    - cron: "0 11 * * *"
   workflow_dispatch:
 
 permissions:
@@ -53,8 +53,6 @@ jobs:
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
           YT_ANALYTICS_REFRESH_TOKEN: ${{ secrets.YT_ANALYTICS_REFRESH_TOKEN }}
         run: node scripts/metricas.js
-      - name: Refrescar cronograma y taller en el panel
-        run: node scripts/panel-cronograma.js
       - name: Commit
         run: |
           git config user.name "metricas-bot"
