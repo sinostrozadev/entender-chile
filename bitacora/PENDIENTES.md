@@ -447,6 +447,15 @@ que estaba aprobada.
       221, el mismo patrón de siempre. El PR #8 sigue abierto y sin
       fusionar (`state: open`, `merged: false`, `updated_at` sin cambios
       desde el 06-11-2026). `bitacora/2026-11-08-auditoria.md`.
+      **18-11: el PR #8 quedó fusionado** a las 18:06 de Chile, commit
+      `4dd2b08` en `main` (verificado con `git log`, no por el aviso de
+      GitHub). Como la corrida de Métricas es a las 05:00, ninguna medición
+      lo ha usado todavía: las del 07 al 18-11 salieron con el código viejo,
+      así que sus cero avisos no prueban nada. La primera corrida con el
+      arreglo es la del 19-11-2026 a las 05:00. Esta entrada se cierra
+      cuando esa medición exista y se pueda decir si apareció un AVISO con
+      id, un campo `perdidos` en el json, o ninguno de los dos porque la
+      API respondió completa.
 
 - [ ] **23-10, HOY: el 22-10-2026 se perdió el día completo (ni informe, ni
       video, ni podcast) porque ningún reloj de Claude disparó esa
