@@ -1,0 +1,29 @@
+Crea UNA carátula de YouTube para un video largo de geografía e historia narrada del canal en español "Línea Punteada" (mapas, fronteras y rutas contadas con calma). Misma serie visual que sus carátulas anteriores: fondo azul noche, texto grande a la izquierda, escena a la derecha, un solo acento naranja.
+
+DATOS QUE YO ENTREGO
+TITULAR (exacto, dos líneas, sin cambiar palabras ni tildes):
+IQUIQUE
+1879
+CAJA DE TENSIÓN (exacta, en mayúsculas, caja negra con texto blanco y la palabra GANÓ en naranja):
+¿QUIÉN GANÓ?
+LÍNEA SECUNDARIA (exacta):
+Un barco de madera contra un acorazado
+ELEMENTO VISUAL:
+Escena histórica pintada con realismo documental (óleo naval del siglo XIX, no fotografía moderna), ocupando el 55 % derecho: la bahía de Iquique al amanecer, con los cerros pelados del desierto de Atacama detrás. En primer plano, una pequeña corbeta de madera de tres palos, a vela y con humo de chimenea, escorada y empezando a hundirse. Frente a ella, de proa, un monitor acorazado negro de casco bajo con una sola torre de cañones y un espolón, avanzando hacia la corbeta. Humo de cañones sobre el agua. Dos etiquetas pequeñas tipo rótulo de mapa, una sobre cada barco: sobre la corbeta "CHILE" con una franja fina roja, blanca y azul debajo; sobre el acorazado "PERÚ" con una franja fina roja, blanca y roja debajo. Una línea punteada blanca curva marca la trayectoria del acorazado hacia la corbeta.
+
+FORMATO
+16:9 horizontal, 1280x720 o mayor, PNG. UNA sola carátula a lienzo completo: nada de paneles, mosaicos ni variantes. Cada barco aparece UNA sola vez. El texto VA DENTRO, exacto.
+
+IDENTIDAD DEL CANAL
+Arriba a la izquierda, marca pequeña LÍNEA PUNTEADA en mayúsculas espaciadas, grotesca pesada, con una línea punteada corta debajo.
+Paleta: fondo azul noche casi negro; mar gris azulado; cielo de amanecer apagado; UN solo acento naranja quemado (#d95926) para la palabra GANÓ y el resplandor de los cañonazos.
+TITULAR en grotesca muy pesada, blanco, cuerpo muy grande, dos líneas (IQUIQUE arriba, 1879 abajo). Debajo la CAJA DE TENSIÓN y debajo la LÍNEA SECUNDARIA pequeña.
+
+COMPOSICIÓN
+Texto en el 45 % izquierdo; la escena se funde con el fondo, sin marco. Esquina inferior derecha libre (duración).
+
+PROHIBIDO
+Personas y rostros reconocibles (ningún retrato de Prat ni de Grau; tripulación, si aparece, diminuta y sin rasgos). Banderas grandes u ondeando (solo las franjas finas de las etiquetas). Logos, nombres de medios, marcas de agua. Cualquier texto fuera de la marca, el titular, la caja, la línea secundaria y las dos etiquetas CHILE y PERÚ. Rojo de tabloide, signos de exclamación, collage. Barcos modernos.
+
+PRUEBA FINAL
+¿Se entiende en un segundo que es una batalla naval de 1879 en Iquique entre Chile y Perú, con un barco de madera contra un acorazado? ¿El titular se lee en un teléfono? ¿La esquina inferior derecha está limpia? ¿Hay un solo acento de color? ¿Es UNA sola imagen? Si algo falla, corrígelo antes de generar.
