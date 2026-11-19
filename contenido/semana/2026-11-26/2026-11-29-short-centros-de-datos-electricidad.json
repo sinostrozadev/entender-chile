@@ -1,0 +1,345 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-11-29-short-centros-de-datos-electricidad",
+  "titulo": "El Coordinador proyecta 1.207 MW para los centros de datos en 2030",
+  "descripcion": "¿Alcanza la red eléctrica chilena para los centros de datos que vienen?\nEl Coordinador Eléctrico Nacional proyecta que lo que piden los centros de datos sube de 325 MW en 2025 a 1.207 MW en 2030, un alza cercana al 270 %.\nEl cuello de botella no es generar: seis solicitudes de conexión que suman 1.420 MW recibieron respuesta desfavorable del Coordinador por falta de capacidad en las subestaciones. Una de ellas pedía 200 MW en Alto Jahuel, al sur de Santiago, y quedó fuera en 2025.\nAviso sobre la cifra: Emol publica esos 325 y 1.207 como demanda en MW y La Tercera los describe como capacidad instalada. Acá se citan como los publica Emol, atribuidos al Coordinador.\nFuentes: Emol (12-02-2026) y La Tercera, con datos del Coordinador Eléctrico Nacional.\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#centrosdedatos",
+    "#electricidad",
+    "#chile"
+  ],
+  "publicar": "2026-11-29T12:00",
+  "props": {
+    "gancho": {
+      "texto": "El Coordinador Eléctrico proyecta que los centros de datos de Chile van a pedir unos 1.200 megavatios en 2030, casi cuatro veces lo de hoy. El problema no es producir esa electricidad.",
+      "rotulo": "CUATRO VECES MÁS",
+      "cifras": [
+        {
+          "texto": "unos 1.200 megavatios",
+          "valor": 1207,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "centros-datos-demanda-mw",
+              "paises": [
+                "DEMANDA"
+              ],
+              "valores": {
+                "DEMANDA": [
+                  [
+                    2025,
+                    325
+                  ],
+                  [
+                    2030,
+                    1207
+                  ]
+                ]
+              },
+              "nombres": {
+                "DEMANDA": "Centros de datos"
+              },
+              "fuenteTexto": "Coordinador Eléctrico Nacional (vía Emol, 12-02-2026)",
+              "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/02/12/1191254/data-centers-chile.html",
+              "etiqueta": "Electricidad que piden los centros de datos",
+              "unidad": "MW"
+            },
+            "operacion": "valor",
+            "pais": "DEMANDA",
+            "anio": 2030
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-RM"
+      ],
+      "puntos": [
+        {
+          "texto": "Santiago",
+          "en": [
+            -70.65,
+            -33.44
+          ],
+          "dice": "Chile"
+        },
+        {
+          "texto": "Alto Jahuel",
+          "en": [
+            -70.7,
+            -33.72
+          ],
+          "dice": "megavatios"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "barras",
+      "titulo": "Lo que piden los centros de datos",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "centros-datos-demanda-mw",
+        "paises": [
+          "DEMANDA"
+        ],
+        "valores": {
+          "DEMANDA": [
+            [
+              2025,
+              325
+            ],
+            [
+              2030,
+              1207
+            ]
+          ]
+        },
+        "nombres": {
+          "DEMANDA": "Centros de datos"
+        },
+        "fuenteTexto": "Coordinador Eléctrico Nacional (vía Emol, 12-02-2026)",
+        "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/02/12/1191254/data-centers-chile.html",
+        "etiqueta": "Electricidad que piden los centros de datos",
+        "unidad": "MW"
+      },
+      "destacar": {
+        "pais": "DEMANDA",
+        "anio": 2030
+      },
+      "formato": {
+        "decimales": 0,
+        "sufijo": " MW"
+      }
+    },
+    "escenas": [
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "La proyección es del Coordinador Eléctrico Nacional: de 325 megavatios este año a 1.207 en 2030.",
+        "cifras": [
+          {
+            "texto": "325 megavatios",
+            "valor": 325,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "centros-datos-demanda-mw",
+                "paises": [
+                  "DEMANDA"
+                ],
+                "valores": {
+                  "DEMANDA": [
+                    [
+                      2025,
+                      325
+                    ],
+                    [
+                      2030,
+                      1207
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "DEMANDA": "Centros de datos"
+                },
+                "fuenteTexto": "Coordinador Eléctrico Nacional (vía Emol, 12-02-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/02/12/1191254/data-centers-chile.html",
+                "etiqueta": "Electricidad que piden los centros de datos",
+                "unidad": "MW"
+              },
+              "operacion": "valor",
+              "pais": "DEMANDA",
+              "anio": 2025
+            },
+            "tolerancia": 0.01
+          },
+          {
+            "texto": "1.207",
+            "valor": 1207,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "centros-datos-demanda-mw",
+                "paises": [
+                  "DEMANDA"
+                ],
+                "valores": {
+                  "DEMANDA": [
+                    [
+                      2025,
+                      325
+                    ],
+                    [
+                      2030,
+                      1207
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "DEMANDA": "Centros de datos"
+                },
+                "fuenteTexto": "Coordinador Eléctrico Nacional (vía Emol, 12-02-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/02/12/1191254/data-centers-chile.html",
+                "etiqueta": "Electricidad que piden los centros de datos",
+                "unidad": "MW"
+              },
+              "operacion": "valor",
+              "pais": "DEMANDA",
+              "anio": 2030
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "planteamiento",
+        "texto": "Pero la electricidad no es lo que falta. Seis solicitudes de conexión que suman 1.420 megavatios recibieron respuesta desfavorable, porque las subestaciones donde querían enchufarse no tienen cupo.",
+        "visual": {
+          "tipo": "iconos",
+          "titulo": "Dónde se corta",
+          "items": [
+            {
+              "icono": "⚡",
+              "texto": "Generación: alcanza",
+              "marca": "si",
+              "dice": "electricidad"
+            },
+            {
+              "icono": "🔌",
+              "texto": "Subestaciones: no",
+              "marca": "no",
+              "dice": "subestaciones"
+            }
+          ]
+        },
+        "cifras": [
+          {
+            "texto": "1.420 megavatios",
+            "valor": 1420,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "centros-datos-conexiones-rechazadas",
+                "paises": [
+                  "PEDIDO",
+                  "JAHUEL"
+                ],
+                "valores": {
+                  "PEDIDO": [
+                    [
+                      2026,
+                      1420
+                    ]
+                  ],
+                  "JAHUEL": [
+                    [
+                      2025,
+                      200
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "PEDIDO": "Seis conexiones sin cupo",
+                  "JAHUEL": "Alto Jahuel"
+                },
+                "fuenteTexto": "Coordinador Eléctrico Nacional (vía La Tercera)",
+                "fuenteUrl": "https://www.latercera.com/pulso/noticia/transmision-electrica-en-aprietos-seis-data-center-no-pueden-construirse-en-chile-porque-no-pueden-conectarse-a-la-energia/",
+                "etiqueta": "Solicitudes sin capacidad",
+                "unidad": "MW"
+              },
+              "operacion": "valor",
+              "pais": "PEDIDO",
+              "anio": 2026
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "planteamiento",
+        "texto": "Un caso: en 2025 rechazó una solicitud de 200 megavatios en Alto Jahuel, al sur de Santiago.",
+        "visual": {
+          "tipo": "chile",
+          "regiones": [
+            "CL-RM"
+          ],
+          "puntos": [
+            {
+              "texto": "Alto Jahuel",
+              "en": [
+                -70.7,
+                -33.72
+              ]
+            }
+          ]
+        },
+        "cifras": [
+          {
+            "texto": "200 megavatios",
+            "valor": 200,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "centros-datos-conexiones-rechazadas",
+                "paises": [
+                  "PEDIDO",
+                  "JAHUEL"
+                ],
+                "valores": {
+                  "PEDIDO": [
+                    [
+                      2026,
+                      1420
+                    ]
+                  ],
+                  "JAHUEL": [
+                    [
+                      2025,
+                      200
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "PEDIDO": "Seis conexiones sin cupo",
+                  "JAHUEL": "Alto Jahuel"
+                },
+                "fuenteTexto": "Coordinador Eléctrico Nacional (vía La Tercera)",
+                "fuenteUrl": "https://www.latercera.com/pulso/noticia/transmision-electrica-en-aprietos-seis-data-center-no-pueden-construirse-en-chile-porque-no-pueden-conectarse-a-la-energia/",
+                "etiqueta": "Solicitudes sin capacidad",
+                "unidad": "MW"
+              },
+              "operacion": "valor",
+              "pais": "JAHUEL",
+              "anio": 2025
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "giro",
+        "texto": "Y ahí está el problema de fondo: tender una línea de transmisión necesita permisos, terrenos y obra. No se resuelve anunciando inversión.",
+        "rotulo": {
+          "texto": "FALTA TRANSMISIÓN",
+          "dice": "transmisión"
+        }
+      }
+    ],
+    "remate": "La electricidad ya existe; lo que falta son los cables para llevarla.",
+    "fuentes": [
+      {
+        "texto": "Emol, proyección del Coordinador Eléctrico (12-02-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/02/12/1191254/data-centers-chile.html"
+      },
+      {
+        "texto": "La Tercera, seis centros de datos que no pueden conectarse",
+        "url": "https://www.latercera.com/pulso/noticia/transmision-electrica-en-aprietos-seis-data-center-no-pueden-construirse-en-chile-porque-no-pueden-conectarse-a-la-energia/"
+      }
+    ],
+    "id": "2026-11-29-short-centros-de-datos-electricidad"
+  }
+}

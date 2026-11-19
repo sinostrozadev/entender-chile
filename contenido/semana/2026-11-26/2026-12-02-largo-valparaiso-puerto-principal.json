@@ -1,0 +1,1321 @@
+{
+  "plantilla": "tesis",
+  "id": "2026-12-02-largo-valparaiso-puerto-principal",
+  "titulo": "¿Por qué Valparaíso dejó de ser el Puerto Principal?",
+  "descripcion": "¿Por qué Valparaíso dejó de ser el Puerto Principal de Chile?\nEn 2025 San Antonio movió 2,06 millones de TEU (la unidad con que se cuentan los contenedores: un contenedor de 40 pies son dos TEU), la primera vez que un puerto chileno pasa los dos millones, y quedó en torno al 80 % de su capacidad máxima, que ronda los 2,65 millones al año. Valparaíso movió más de 9,4 millones de toneladas de carga general, un 11,5 % más que en 2024, y 926.860 TEU según su propio balance anual: menos de la mitad de su vecino.\nEl relato clásico culpa al Canal de Panamá, abierto en 1914. Memoria Chilena agrega la apertura de San Antonio en 1922 y la crisis del salitre entre 1914 y 1929; el historiador Pablo Aravena discute que el canal sea el origen. Las dos versiones están en el video.\nHoy la discusión es el Puerto Exterior de San Antonio: US$ 4.450 millones, de los que el Estado pone US$ 1.950 millones, con aprobación ambiental en mayo de 2026 y la primera etapa prevista para 2036. Un estudio de Port Consultants Rotterdam encargado por el gremio portuario sostiene que no haría falta antes de 2045 y que ampliar Valparaíso es más eficiente.\nFuentes:\nMemoria Chilena, Biblioteca Nacional de Chile: https://www.memoriachilena.gob.cl/602/w3-article-639270.html\nEmol (12-01-2026): https://www.emol.com/noticias/Economia/2026/01/12/1188235/puerto-san-antonio-limite-capacidad.html\nEmol (07-07-2026): https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html\nCooperativa (26-05-2026): https://www.cooperativa.cl/noticias/pais/region-de-valparaiso/megaproyecto-de-expansion-del-puerto-de-san-antonio-logro-aprobacion/2026-05-26/215451.html\nBioBioChile (16-11-2026): https://www.biobiochile.cl/especial/bbcl-investiga/noticias/reportajes/2026/11/16/valparaiso-de-capa-caida-las-heridas-de-la-joya-del-pacifico.shtml\nDiario Financiero: https://www.df.cl/opinion/columnistas/valparaiso-y-la-nueva-frontera-minera-del-pacifico\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#valparaiso",
+    "#sanantonio",
+    "#puertos",
+    "#chile"
+  ],
+  "publicar": "2026-12-02T19:00",
+  "props": {
+    "cabecera": "VALPARAÍSO Y SAN ANTONIO · 1914-2045",
+    "estructura": "autopsia",
+    "gancho": {
+      "texto": "Mira bien esta bahía. Es agosto de 1914 y Valparaíso es el puerto que manda en el Pacífico sur: la primera escala de todo barco que viene del Atlántico por el estrecho de Magallanes. Ese mismo mes, a miles de kilómetros al norte, se abre el Canal de Panamá. ¿Cuánto tarda una ciudad en perder el lugar que le daba de comer?",
+      "rotulo": "EL PUERTO PRINCIPAL"
+    },
+    "promesa": "Al final vas a saber qué perdió Valparaíso, cuándo lo perdió y por qué hoy hay una pelea de miles de millones por dónde va el muelle grande de Chile.",
+    "indice": [
+      "El Puerto Principal",
+      "El canal y el salitre",
+      "San Antonio y su techo",
+      "La pelea por el muelle"
+    ],
+    "capitulos": [
+      {
+        "titulo": "Cuando todo pasaba por Valparaíso",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "Para entender lo que se perdió hay que mirar el mapa como lo miraban los capitanes del siglo diecinueve. Un barco que salía de Liverpool hacia la costa oeste de Sudamérica tenía un solo camino: bajar el Atlántico, cruzar el estrecho de Magallanes o el cabo de Hornos, y subir por el Pacífico. La primera ciudad grande que encontraba después de ese paso era Valparaíso. No la eligieron por la bahía: la eligieron por quedar justo donde el viaje se podía interrumpir. Y esa escala no era un detalle: un barco a vapor necesitaba carbón y agua, y después del paso no había otro lugar grande donde cargarlos.",
+            "visual": {
+              "tipo": "chile",
+              "regiones": [
+                "CL-VS",
+                "CL-MA"
+              ],
+              "puntos": [
+                {
+                  "texto": "Valparaíso",
+                  "en": [
+                    -71.62,
+                    -33.04
+                  ]
+                },
+                {
+                  "texto": "Estrecho de Magallanes",
+                  "en": [
+                    -70.91,
+                    -53.16
+                  ]
+                }
+              ]
+            },
+            "rotulo": {
+              "texto": "UNA SOLA RUTA",
+              "dice": "camino"
+            }
+          },
+          {
+            "tipo": "planteamiento",
+            "texto": "Hay un detalle de lenguaje que conviene tener presente. A Valparaíso se le dice el Puerto Principal desde hace más de un siglo, y el apodo sigue puesto después de que dejara de ser cierto en los números. Mientras el nombre seguía ahí, a 100 kilómetros al sur se levantaba un muelle en una caleta que casi no aparecía en las conversaciones sobre comercio.",
+            "visual": {
+              "tipo": "chile",
+              "regiones": [
+                "CL-VS"
+              ],
+              "puntos": [
+                {
+                  "texto": "Valparaíso",
+                  "en": [
+                    -71.62,
+                    -33.04
+                  ]
+                },
+                {
+                  "texto": "San Antonio",
+                  "en": [
+                    -71.61,
+                    -33.59
+                  ]
+                }
+              ]
+            },
+            "rotulo": {
+              "texto": "EL NOMBRE QUEDÓ",
+              "dice": "apodo"
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Y no es que Valparaíso haya dejado de funcionar. Según el Diario Financiero, en 2025 movió más de 9,4 millones de toneladas de carga general, un 11,5 por ciento más que el año anterior. Lo que perdió no es el movimiento: es el primer lugar en carga de contenedores, que es donde se juega el comercio de hoy.",
+            "grafico": {
+              "tipo": "contador",
+              "titulo": "Carga general de Valparaíso en 2025",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "valparaiso-carga-2025",
+                "paises": [
+                  "CARGA",
+                  "ALZA"
+                ],
+                "valores": {
+                  "CARGA": [
+                    [
+                      2025,
+                      9.4
+                    ]
+                  ],
+                  "ALZA": [
+                    [
+                      2025,
+                      11.5
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "CARGA": "Carga general 2025",
+                  "ALZA": "Alza sobre 2024"
+                },
+                "fuenteTexto": "Puerto Valparaíso, vía Diario Financiero (2026)",
+                "fuenteUrl": "https://www.df.cl/opinion/columnistas/valparaiso-y-la-nueva-frontera-minera-del-pacifico",
+                "etiqueta": "Carga general de Valparaíso",
+                "unidad": "millones de t"
+              },
+              "destacar": {
+                "pais": "CARGA"
+              },
+              "formato": {
+                "decimales": 1,
+                "sufijo": " M t"
+              }
+            },
+            "cifras": [
+              {
+                "texto": "9,4 millones de toneladas",
+                "valor": 9.4,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "valparaiso-carga-2025",
+                    "paises": [
+                      "CARGA",
+                      "ALZA"
+                    ],
+                    "valores": {
+                      "CARGA": [
+                        [
+                          2025,
+                          9.4
+                        ]
+                      ],
+                      "ALZA": [
+                        [
+                          2025,
+                          11.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "CARGA": "Carga general 2025",
+                      "ALZA": "Alza sobre 2024"
+                    },
+                    "fuenteTexto": "Puerto Valparaíso, vía Diario Financiero (2026)",
+                    "fuenteUrl": "https://www.df.cl/opinion/columnistas/valparaiso-y-la-nueva-frontera-minera-del-pacifico",
+                    "etiqueta": "Carga general de Valparaíso",
+                    "unidad": "millones de t"
+                  },
+                  "operacion": "valor",
+                  "pais": "CARGA",
+                  "anio": 2025
+                },
+                "tolerancia": 0.01
+              },
+              {
+                "texto": "11,5 por ciento",
+                "valor": 11.5,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "valparaiso-carga-2025",
+                    "paises": [
+                      "CARGA",
+                      "ALZA"
+                    ],
+                    "valores": {
+                      "CARGA": [
+                        [
+                          2025,
+                          9.4
+                        ]
+                      ],
+                      "ALZA": [
+                        [
+                          2025,
+                          11.5
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "CARGA": "Carga general 2025",
+                      "ALZA": "Alza sobre 2024"
+                    },
+                    "fuenteTexto": "Puerto Valparaíso, vía Diario Financiero (2026)",
+                    "fuenteUrl": "https://www.df.cl/opinion/columnistas/valparaiso-y-la-nueva-frontera-minera-del-pacifico",
+                    "etiqueta": "Carga general de Valparaíso",
+                    "unidad": "millones de t"
+                  },
+                  "operacion": "valor",
+                  "pais": "ALZA",
+                  "anio": 2025
+                },
+                "tolerancia": 0.01
+              }
+            ],
+            "rotulo": {
+              "texto": "SIGUE CRECIENDO",
+              "dice": "movimiento"
+            }
+          },
+          {
+            "tipo": "giro",
+            "texto": "Y la explicación clásica de esa pérdida no pasa por ningún puerto chileno. Pasa por una obra en otro continente, que nadie en Valparaíso podía controlar ni discutir. Es la versión que se repite desde hace cien años, y en el próximo capítulo vamos a ver quién la discute.",
+            "visual": {
+              "tipo": "mapa",
+              "destacar": [
+                "PAN",
+                "CHL"
+              ],
+              "zoom": 2,
+              "etiquetas": [
+                {
+                  "texto": "Canal de Panamá",
+                  "en": [
+                    -79.68,
+                    9.08
+                  ]
+                },
+                {
+                  "texto": "Valparaíso",
+                  "en": [
+                    -71.62,
+                    -33.04
+                  ]
+                }
+              ]
+            },
+            "rotulo": {
+              "texto": "OTRO CONTINENTE",
+              "dice": "obra"
+            }
+          }
+        ]
+      },
+      {
+        "titulo": "El canal de 1914 y la crisis del salitre",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "En 1914 se abrió el Canal de Panamá. De un día para otro, un barco que iba de Nueva York o de Liverpool hacia Valparaíso tenía un camino más corto, y ese camino no pasaba por el sur de Chile.",
+            "visual": {
+              "tipo": "foto",
+              "busqueda": "Panama Canal 1914 first transit ship Ancon",
+              "alternativas": [
+                "Panama Canal opening 1914",
+                "Panama Canal construction locks 1913"
+              ],
+              "pie": "Canal de Panamá, 1914",
+              "encuadre": "ken-burns"
+            },
+            "rotulo": {
+              "texto": "1914",
+              "dice": "abrió"
+            },
+            "sellos": [
+              {
+                "texto": "1914",
+                "dice": "otro"
+              },
+              {
+                "texto": "MÁS CORTO",
+                "dice": "corto"
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Memoria Chilena, de la Biblioteca Nacional, lo resume así: la apertura del canal desvió gran parte del comercio que circulaba por el estrecho de Magallanes. Y agrega un segundo golpe que casi nadie nombra: en 1922 se abrió al comercio el puerto de San Antonio, y eso atrajo capitales que hasta entonces estaban en Valparaíso. El competidor no apareció en los años dos mil con los contenedores. Apareció hace más de un siglo, mientras Valparaíso mantenía la vista en el canal.",
+            "grafico": {
+              "tipo": "contador",
+              "titulo": "San Antonio se abre al comercio",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "san-antonio-apertura",
+                "paises": [
+                  "APERTURA"
+                ],
+                "valores": {
+                  "APERTURA": [
+                    [
+                      1922,
+                      1922
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "APERTURA": "Año de apertura"
+                },
+                "fuenteTexto": "Memoria Chilena, Biblioteca Nacional de Chile",
+                "fuenteUrl": "https://www.memoriachilena.gob.cl/602/w3-article-639270.html",
+                "etiqueta": "Año en que San Antonio se abre al comercio",
+                "unidad": "año"
+              },
+              "destacar": {
+                "pais": "APERTURA"
+              },
+              "formato": {
+                "decimales": 0
+              }
+            },
+            "cifras": [
+              {
+                "texto": "1922",
+                "valor": 1922,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "san-antonio-apertura",
+                    "paises": [
+                      "APERTURA"
+                    ],
+                    "valores": {
+                      "APERTURA": [
+                        [
+                          1922,
+                          1922
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "APERTURA": "Año de apertura"
+                    },
+                    "fuenteTexto": "Memoria Chilena, Biblioteca Nacional de Chile",
+                    "fuenteUrl": "https://www.memoriachilena.gob.cl/602/w3-article-639270.html",
+                    "etiqueta": "Año en que San Antonio se abre al comercio",
+                    "unidad": "año"
+                  },
+                  "operacion": "valor",
+                  "pais": "APERTURA",
+                  "anio": 1922
+                },
+                "tolerancia": 0.001
+              }
+            ],
+            "rotulo": {
+              "texto": "1922: SAN ANTONIO",
+              "dice": "capitales"
+            }
+          },
+          {
+            "tipo": "planteamiento",
+            "texto": "Al mismo tiempo se cayó el negocio que llenaba las bodegas. Entre 1914 y 1929, con la Primera Guerra Mundial de por medio, el salitre chileno entró en crisis. Valparaíso no embarcaba salitre desde sus propios muelles, pero vivía del movimiento que el salitre generaba: las casas comerciales, los seguros y el crédito. Cuando el norte dejó de producir plata, el puerto del centro dejó de administrarla.",
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "De qué vivía el puerto",
+              "items": [
+                {
+                  "icono": "🏦",
+                  "texto": "Bancos y crédito",
+                  "dice": "crédito"
+                },
+                {
+                  "icono": "📜",
+                  "texto": "Seguros",
+                  "dice": "seguros"
+                },
+                {
+                  "icono": "⛵",
+                  "texto": "Casas comerciales",
+                  "dice": "comerciales"
+                }
+              ]
+            },
+            "rotulo": {
+              "texto": "1914 A 1929",
+              "dice": "crisis"
+            }
+          },
+          {
+            "tipo": "reenganche",
+            "texto": "Y hay historiadores que sostienen que esta explicación, la del canal, está mal contada."
+          },
+          {
+            "tipo": "giro",
+            "texto": "El historiador Pablo Aravena, de la Universidad de Valparaíso, cuestiona justamente eso. En un reportaje de BioBioChile del 16 de noviembre de 2026 plantea que el canal no es el origen del problema, y que la crisis de verdad empieza varias décadas después. Según su planteamiento, lo que se perdió no fue solo el empleo del muelle, sino la economía urbana que ese empleo sostenía. Esa discusión no la vamos a resolver acá, pero hay que decirla: la fecha del canal es la explicación clásica, no la única.",
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Dos explicaciones",
+              "items": [
+                {
+                  "icono": "🚢",
+                  "texto": "El canal, en 1914",
+                  "dice": "canal"
+                },
+                {
+                  "icono": "🏚️",
+                  "texto": "La ciudad, décadas después",
+                  "dice": "décadas"
+                }
+              ]
+            },
+            "rotulo": {
+              "texto": "ESTÁ DISCUTIDO",
+              "dice": "cuestiona"
+            }
+          }
+        ]
+      },
+      {
+        "titulo": "San Antonio llegó a su techo",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "Lo que vino después no fue una decisión política: fue una caja. El contenedor estandarizado cambió la pregunta que define a un puerto. Antes la pregunta era cuántos hombres y cuántas grúas tenías para bajar sacos uno por uno. Después pasó a ser otra: cuántos metros de muelle corrido tienes, cuánta profundidad, y cuánto patio plano detrás para apilar cajas. Valparaíso tiene cerros pegados al mar. San Antonio tiene planicie. Y el cambio no fue gradual: los puertos que podían recibir la caja se quedaron con la carga que crece, y los que no, pasaron a mover lo que la caja no sirve para llevar.",
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Qué le pide un portacontenedores",
+              "items": [
+                {
+                  "icono": "📏",
+                  "texto": "Muelle corrido",
+                  "dice": "muelle"
+                },
+                {
+                  "icono": "🌊",
+                  "texto": "Profundidad",
+                  "dice": "profundidad"
+                },
+                {
+                  "icono": "🧱",
+                  "texto": "Patio plano",
+                  "dice": "patio"
+                }
+              ]
+            },
+            "rotulo": {
+              "texto": "CERROS Y PLANICIE",
+              "dice": "planicie"
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Y la planicie ganó. Según Emol, en 2025 San Antonio movió 2,06 millones de TEU, que es la unidad con que se cuentan los contenedores, y fue la primera vez que un puerto chileno pasa los dos millones. El problema es el otro número de la misma nota: el sistema actual tiene un techo de 2,65 millones al año, así que el puerto quedó en torno al 80 por ciento de lo que aguanta. Le queda poco más de medio millón de margen.",
+            "grafico": {
+              "tipo": "barras",
+              "titulo": "Lo que movió y lo que aguanta",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "san-antonio-capacidad-2025",
+                "paises": [
+                  "MOVIDO",
+                  "TECHO"
+                ],
+                "valores": {
+                  "MOVIDO": [
+                    [
+                      2025,
+                      2.06
+                    ]
+                  ],
+                  "TECHO": [
+                    [
+                      2025,
+                      2.65
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "MOVIDO": "Lo que movió en 2025",
+                  "TECHO": "Su capacidad máxima"
+                },
+                "fuenteTexto": "Puerto San Antonio y Emol (12-01-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/01/12/1188235/puerto-san-antonio-limite-capacidad.html",
+                "etiqueta": "Contenedores de San Antonio",
+                "unidad": "millones de TEU"
+              },
+              "destacar": {
+                "pais": "TECHO",
+                "anio": 2025
+              },
+              "formato": {
+                "decimales": 2,
+                "sufijo": " M"
+              }
+            },
+            "cifras": [
+              {
+                "texto": "2,06 millones de TEU",
+                "valor": 2.06,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "san-antonio-capacidad-2025",
+                    "paises": [
+                      "MOVIDO",
+                      "TECHO"
+                    ],
+                    "valores": {
+                      "MOVIDO": [
+                        [
+                          2025,
+                          2.06
+                        ]
+                      ],
+                      "TECHO": [
+                        [
+                          2025,
+                          2.65
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "MOVIDO": "Lo que movió en 2025",
+                      "TECHO": "Su capacidad máxima"
+                    },
+                    "fuenteTexto": "Puerto San Antonio y Emol (12-01-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/01/12/1188235/puerto-san-antonio-limite-capacidad.html",
+                    "etiqueta": "Contenedores de San Antonio",
+                    "unidad": "millones de TEU"
+                  },
+                  "operacion": "valor",
+                  "pais": "MOVIDO",
+                  "anio": 2025
+                },
+                "tolerancia": 0.01
+              },
+              {
+                "texto": "2,65 millones",
+                "valor": 2.65,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "san-antonio-capacidad-2025",
+                    "paises": [
+                      "MOVIDO",
+                      "TECHO"
+                    ],
+                    "valores": {
+                      "MOVIDO": [
+                        [
+                          2025,
+                          2.06
+                        ]
+                      ],
+                      "TECHO": [
+                        [
+                          2025,
+                          2.65
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "MOVIDO": "Lo que movió en 2025",
+                      "TECHO": "Su capacidad máxima"
+                    },
+                    "fuenteTexto": "Puerto San Antonio y Emol (12-01-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/01/12/1188235/puerto-san-antonio-limite-capacidad.html",
+                    "etiqueta": "Contenedores de San Antonio",
+                    "unidad": "millones de TEU"
+                  },
+                  "operacion": "valor",
+                  "pais": "TECHO",
+                  "anio": 2025
+                },
+                "tolerancia": 0.01
+              }
+            ],
+            "rotulo": {
+              "texto": "AL 80 % DEL TECHO",
+              "dice": "aguanta"
+            }
+          },
+          {
+            "tipo": "planteamiento",
+            "texto": "La diferencia entre los dos puertos no es solo de tamaño: es de para qué sirve cada muelle. San Antonio concentra buena parte de la carga en contenedor de la zona central. Valparaíso quedó con una mezcla distinta, con bastante carga fraccionada y con pasajeros de crucero, que ocupan muelle y no se cuentan en TEU.",
+            "visual": {
+              "tipo": "chile",
+              "regiones": [
+                "CL-VS"
+              ],
+              "puntos": [
+                {
+                  "texto": "Valparaíso",
+                  "en": [
+                    -71.62,
+                    -33.04
+                  ]
+                },
+                {
+                  "texto": "San Antonio",
+                  "en": [
+                    -71.61,
+                    -33.59
+                  ]
+                }
+              ]
+            },
+            "rotulo": {
+              "texto": "DOS MEZCLAS",
+              "dice": "mezcla"
+            }
+          },
+          {
+            "tipo": "reenganche",
+            "texto": "Y cuando un puerto se acerca a su techo, el país tiene que decidir dónde pone el siguiente."
+          },
+          {
+            "tipo": "giro",
+            "texto": "Acá aparece el plazo, que es el dato que cambia la lectura. El proyecto que agranda San Antonio obtuvo su aprobación ambiental en mayo de 2026 y tiene su primera etapa prevista para 2036: diez años entre el permiso y el primer barco. Un muelle de este tamaño no se construye en un gobierno. Por eso lo que se discute hoy no es un problema de 2026.",
+            "visual": {
+              "tipo": "mapa",
+              "destacar": [
+                "CHL"
+              ],
+              "zoom": 5,
+              "etiquetas": [
+                {
+                  "texto": "Zona central",
+                  "en": [
+                    -71.6,
+                    -33.3
+                  ]
+                }
+              ]
+            },
+            "rotulo": {
+              "texto": "2026 A 2036",
+              "dice": "años"
+            }
+          }
+        ]
+      },
+      {
+        "titulo": "La pelea por el muelle grande",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "Hoy los dos puertos están en la misma región, a 100 kilómetros de distancia, y los dos quieren crecer. Esa es la parte que hace que esto no sea una historia de Valparaíso, sino una decisión de país: cuánta plata pública va a cada uno, y dónde queda el muelle que va a recibir los barcos de los próximos treinta años. Y las dos ampliaciones ya pasaron por la evaluación ambiental: la de Valparaíso la destrabó el Comité de Ministros después de doce años de tramitación, según el Diario Financiero. O sea, la pregunta no es si se puede. Es cuál se hace primero, y con qué plata.",
+            "visual": {
+              "tipo": "chile",
+              "regiones": [
+                "CL-VS"
+              ],
+              "puntos": [
+                {
+                  "texto": "Valparaíso",
+                  "en": [
+                    -71.62,
+                    -33.04
+                  ]
+                },
+                {
+                  "texto": "San Antonio",
+                  "en": [
+                    -71.61,
+                    -33.59
+                  ]
+                }
+              ]
+            },
+            "rotulo": {
+              "texto": "100 KILÓMETROS",
+              "dice": "kilómetros"
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "La apuesta principal se llama Puerto Exterior de San Antonio. Según Emol, la inversión total son 4.450 millones de dólares: 1.950 millones los pone el Estado, para las obras de abrigo y los accesos, y 2.500 millones los ponen privados por concesión.",
+            "grafico": {
+              "tipo": "comparacion",
+              "titulo": "Quién paga el Puerto Exterior",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "puerto-exterior-reparto",
+                "paises": [
+                  "TOTAL",
+                  "ESTADO",
+                  "PRIVADOS"
+                ],
+                "valores": {
+                  "TOTAL": [
+                    [
+                      2026,
+                      4450
+                    ]
+                  ],
+                  "ESTADO": [
+                    [
+                      2026,
+                      1950
+                    ]
+                  ],
+                  "PRIVADOS": [
+                    [
+                      2026,
+                      2500
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "TOTAL": "Inversión total",
+                  "ESTADO": "Pone el Estado",
+                  "PRIVADOS": "Ponen privados"
+                },
+                "fuenteTexto": "Puerto Exterior de San Antonio, vía Emol (07-07-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html",
+                "etiqueta": "Quién paga el Puerto Exterior",
+                "unidad": "millones de US$"
+              },
+              "destacar": {
+                "pais": "ESTADO",
+                "anio": 2026
+              },
+              "formato": {
+                "decimales": 0,
+                "prefijo": "US$ ",
+                "sufijo": " M"
+              }
+            },
+            "cifras": [
+              {
+                "texto": "4.450 millones de dólares",
+                "valor": 4450,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "puerto-exterior-reparto",
+                    "paises": [
+                      "TOTAL",
+                      "ESTADO",
+                      "PRIVADOS"
+                    ],
+                    "valores": {
+                      "TOTAL": [
+                        [
+                          2026,
+                          4450
+                        ]
+                      ],
+                      "ESTADO": [
+                        [
+                          2026,
+                          1950
+                        ]
+                      ],
+                      "PRIVADOS": [
+                        [
+                          2026,
+                          2500
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "TOTAL": "Inversión total",
+                      "ESTADO": "Pone el Estado",
+                      "PRIVADOS": "Ponen privados"
+                    },
+                    "fuenteTexto": "Puerto Exterior de San Antonio, vía Emol (07-07-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html",
+                    "etiqueta": "Quién paga el Puerto Exterior",
+                    "unidad": "millones de US$"
+                  },
+                  "operacion": "valor",
+                  "pais": "TOTAL",
+                  "anio": 2026
+                },
+                "tolerancia": 0.01
+              },
+              {
+                "texto": "1.950 millones",
+                "valor": 1950,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "puerto-exterior-reparto",
+                    "paises": [
+                      "TOTAL",
+                      "ESTADO",
+                      "PRIVADOS"
+                    ],
+                    "valores": {
+                      "TOTAL": [
+                        [
+                          2026,
+                          4450
+                        ]
+                      ],
+                      "ESTADO": [
+                        [
+                          2026,
+                          1950
+                        ]
+                      ],
+                      "PRIVADOS": [
+                        [
+                          2026,
+                          2500
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "TOTAL": "Inversión total",
+                      "ESTADO": "Pone el Estado",
+                      "PRIVADOS": "Ponen privados"
+                    },
+                    "fuenteTexto": "Puerto Exterior de San Antonio, vía Emol (07-07-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html",
+                    "etiqueta": "Quién paga el Puerto Exterior",
+                    "unidad": "millones de US$"
+                  },
+                  "operacion": "valor",
+                  "pais": "ESTADO",
+                  "anio": 2026
+                },
+                "tolerancia": 0.01
+              },
+              {
+                "texto": "2.500 millones",
+                "valor": 2500,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "puerto-exterior-reparto",
+                    "paises": [
+                      "TOTAL",
+                      "ESTADO",
+                      "PRIVADOS"
+                    ],
+                    "valores": {
+                      "TOTAL": [
+                        [
+                          2026,
+                          4450
+                        ]
+                      ],
+                      "ESTADO": [
+                        [
+                          2026,
+                          1950
+                        ]
+                      ],
+                      "PRIVADOS": [
+                        [
+                          2026,
+                          2500
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "TOTAL": "Inversión total",
+                      "ESTADO": "Pone el Estado",
+                      "PRIVADOS": "Ponen privados"
+                    },
+                    "fuenteTexto": "Puerto Exterior de San Antonio, vía Emol (07-07-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html",
+                    "etiqueta": "Quién paga el Puerto Exterior",
+                    "unidad": "millones de US$"
+                  },
+                  "operacion": "valor",
+                  "pais": "PRIVADOS",
+                  "anio": 2026
+                },
+                "tolerancia": 0.01
+              }
+            ],
+            "rotulo": {
+              "texto": "PLATA PÚBLICA",
+              "dice": "Estado"
+            }
+          },
+          {
+            "tipo": "reenganche",
+            "texto": "Y entonces apareció un informe que puso esa cuenta en duda."
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "El gremio portuario encargó un estudio a la consultora Port Consultants Rotterdam. Su conclusión, según Emol, es que no haría falta empezar a construir el Puerto Exterior antes de 2045, y que ampliar Valparaíso sale más eficiente por contenedor movido. El argumento es que el comercio cambió y que en la costa del Pacífico ya entraron terminales nuevos y grandes, como Callao, Chancay y Posorja. El plan oficial, en cambio, tiene la primera etapa funcionando en 2036.",
+            "grafico": {
+              "tipo": "comparacion",
+              "titulo": "Cuándo haría falta el muelle nuevo",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "puerto-exterior-fechas",
+                "paises": [
+                  "PLAN",
+                  "ESTUDIO"
+                ],
+                "valores": {
+                  "PLAN": [
+                    [
+                      2026,
+                      2036
+                    ]
+                  ],
+                  "ESTUDIO": [
+                    [
+                      2026,
+                      2045
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "PLAN": "Primera etapa prevista",
+                  "ESTUDIO": "Lo que dice el estudio"
+                },
+                "fuenteTexto": "Emol, informe de Port Consultants Rotterdam para Camport (07-07-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html",
+                "etiqueta": "Cuándo haría falta el muelle nuevo",
+                "unidad": "año"
+              },
+              "destacar": {
+                "pais": "ESTUDIO",
+                "anio": 2026
+              },
+              "formato": {
+                "decimales": 0
+              }
+            },
+            "cifras": [
+              {
+                "texto": "2045",
+                "valor": 2045,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "puerto-exterior-fechas",
+                    "paises": [
+                      "PLAN",
+                      "ESTUDIO"
+                    ],
+                    "valores": {
+                      "PLAN": [
+                        [
+                          2026,
+                          2036
+                        ]
+                      ],
+                      "ESTUDIO": [
+                        [
+                          2026,
+                          2045
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "PLAN": "Primera etapa prevista",
+                      "ESTUDIO": "Lo que dice el estudio"
+                    },
+                    "fuenteTexto": "Emol, informe de Port Consultants Rotterdam para Camport (07-07-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html",
+                    "etiqueta": "Cuándo haría falta el muelle nuevo",
+                    "unidad": "año"
+                  },
+                  "operacion": "valor",
+                  "pais": "ESTUDIO",
+                  "anio": 2026
+                },
+                "tolerancia": 0.001
+              },
+              {
+                "texto": "2036",
+                "valor": 2036,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "puerto-exterior-fechas",
+                    "paises": [
+                      "PLAN",
+                      "ESTUDIO"
+                    ],
+                    "valores": {
+                      "PLAN": [
+                        [
+                          2026,
+                          2036
+                        ]
+                      ],
+                      "ESTUDIO": [
+                        [
+                          2026,
+                          2045
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "PLAN": "Primera etapa prevista",
+                      "ESTUDIO": "Lo que dice el estudio"
+                    },
+                    "fuenteTexto": "Emol, informe de Port Consultants Rotterdam para Camport (07-07-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html",
+                    "etiqueta": "Cuándo haría falta el muelle nuevo",
+                    "unidad": "año"
+                  },
+                  "operacion": "valor",
+                  "pais": "PLAN",
+                  "anio": 2026
+                },
+                "tolerancia": 0.001
+              }
+            ],
+            "rotulo": {
+              "texto": "2036 O 2045",
+              "dice": "etapa"
+            }
+          },
+          {
+            "tipo": "giro",
+            "texto": "Las tres respuestas que vinieron después no rechazan la obra: discuten el momento. El Ministerio de Transportes dijo que la planificación portuaria del Estado no se basa en un solo estudio, y abrió la puerta a revisar cuándo avanzar. El presidente de la empresa portuaria de San Antonio, Sergio Merino, dijo que Valparaíso, cito, está muy estresado por la configuración que tiene. Y el gobierno regional respaldó que las dos ampliaciones avancen en paralelo.",
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Las tres respuestas",
+              "items": [
+                {
+                  "icono": "🏛️",
+                  "texto": "Transportes: lo revisa",
+                  "dice": "Transportes"
+                },
+                {
+                  "icono": "⚓",
+                  "texto": "San Antonio: insiste",
+                  "dice": "Merino"
+                },
+                {
+                  "icono": "🗺️",
+                  "texto": "La región: las dos",
+                  "dice": "paralelo"
+                }
+              ]
+            },
+            "rotulo": {
+              "texto": "DISCUTEN EL CUÁNDO",
+              "dice": "momento"
+            }
+          },
+          {
+            "tipo": "significado",
+            "texto": "Para quien vive en Chile esto se nota en algo muy concreto: buena parte de lo que llega a la zona central entra en contenedor por uno de estos dos muelles, y el costo de ese viaje va dentro del precio final. Un puerto saturado se traduce en barcos esperando, y los barcos esperando se pagan. La competencia entre San Antonio y Valparaíso no es una rivalidad de ciudades ni un asunto de orgullo regional: es la cuenta del flete de todo el país, y la pagamos todos sin verla en la boleta.",
+            "visual": {
+              "tipo": "chile",
+              "regiones": [
+                "CL-VS",
+                "CL-RM"
+              ],
+              "puntos": [
+                {
+                  "texto": "San Antonio",
+                  "en": [
+                    -71.61,
+                    -33.59
+                  ]
+                },
+                {
+                  "texto": "Santiago",
+                  "en": [
+                    -70.65,
+                    -33.44
+                  ]
+                }
+              ]
+            },
+            "rotulo": {
+              "texto": "VA EN EL PRECIO",
+              "dice": "precio"
+            }
+          }
+        ]
+      }
+    ],
+    "numeroQueNadieMira": {
+      "texto": "Y el número que nadie mira no es una cifra de plata: es un año. 2045. Ese es el plazo que el estudio del gremio portuario pone para que el muelle nuevo haga falta de verdad. El plan oficial lo quiere funcionando en 2036, nueve años antes. Nueve años de diferencia en una obra donde el Estado pone 1.950 millones de dólares. Nadie mira ese año porque no es una noticia de un día, y es lo único que decide si la obra llega temprano o llega tarde.",
+      "grafico": {
+        "tipo": "comparacion",
+        "titulo": "El plan y el estudio",
+        "datos": {
+          "fuente": "manual",
+          "indicador": "puerto-exterior-fechas",
+          "paises": [
+            "PLAN",
+            "ESTUDIO"
+          ],
+          "valores": {
+            "PLAN": [
+              [
+                2026,
+                2036
+              ]
+            ],
+            "ESTUDIO": [
+              [
+                2026,
+                2045
+              ]
+            ]
+          },
+          "nombres": {
+            "PLAN": "Primera etapa prevista",
+            "ESTUDIO": "Lo que dice el estudio"
+          },
+          "fuenteTexto": "Emol, informe de Port Consultants Rotterdam para Camport (07-07-2026)",
+          "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html",
+          "etiqueta": "Cuándo haría falta el muelle nuevo",
+          "unidad": "año"
+        },
+        "destacar": {
+          "pais": "ESTUDIO",
+          "anio": 2026
+        },
+        "formato": {
+          "decimales": 0
+        },
+        "anotaciones": [
+          {
+            "anio": 2026,
+            "texto": "el plan: 2036",
+            "dice": "oficial"
+          },
+          {
+            "anio": 2026,
+            "texto": "el estudio: 2045",
+            "dice": "diferencia"
+          }
+        ]
+      },
+      "cifras": [
+        {
+          "texto": "2045",
+          "valor": 2045,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "puerto-exterior-fechas",
+              "paises": [
+                "PLAN",
+                "ESTUDIO"
+              ],
+              "valores": {
+                "PLAN": [
+                  [
+                    2026,
+                    2036
+                  ]
+                ],
+                "ESTUDIO": [
+                  [
+                    2026,
+                    2045
+                  ]
+                ]
+              },
+              "nombres": {
+                "PLAN": "Primera etapa prevista",
+                "ESTUDIO": "Lo que dice el estudio"
+              },
+              "fuenteTexto": "Emol, informe de Port Consultants Rotterdam para Camport (07-07-2026)",
+              "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html",
+              "etiqueta": "Cuándo haría falta el muelle nuevo",
+              "unidad": "año"
+            },
+            "operacion": "valor",
+            "pais": "ESTUDIO",
+            "anio": 2026
+          },
+          "tolerancia": 0.001
+        },
+        {
+          "texto": "2036",
+          "valor": 2036,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "puerto-exterior-fechas",
+              "paises": [
+                "PLAN",
+                "ESTUDIO"
+              ],
+              "valores": {
+                "PLAN": [
+                  [
+                    2026,
+                    2036
+                  ]
+                ],
+                "ESTUDIO": [
+                  [
+                    2026,
+                    2045
+                  ]
+                ]
+              },
+              "nombres": {
+                "PLAN": "Primera etapa prevista",
+                "ESTUDIO": "Lo que dice el estudio"
+              },
+              "fuenteTexto": "Emol, informe de Port Consultants Rotterdam para Camport (07-07-2026)",
+              "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html",
+              "etiqueta": "Cuándo haría falta el muelle nuevo",
+              "unidad": "año"
+            },
+            "operacion": "valor",
+            "pais": "PLAN",
+            "anio": 2026
+          },
+          "tolerancia": 0.001
+        },
+        {
+          "texto": "1.950 millones de dólares",
+          "valor": 1950,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "puerto-exterior-reparto",
+              "paises": [
+                "TOTAL",
+                "ESTADO",
+                "PRIVADOS"
+              ],
+              "valores": {
+                "TOTAL": [
+                  [
+                    2026,
+                    4450
+                  ]
+                ],
+                "ESTADO": [
+                  [
+                    2026,
+                    1950
+                  ]
+                ],
+                "PRIVADOS": [
+                  [
+                    2026,
+                    2500
+                  ]
+                ]
+              },
+              "nombres": {
+                "TOTAL": "Inversión total",
+                "ESTADO": "Pone el Estado",
+                "PRIVADOS": "Ponen privados"
+              },
+              "fuenteTexto": "Puerto Exterior de San Antonio, vía Emol (07-07-2026)",
+              "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html",
+              "etiqueta": "Quién paga el Puerto Exterior",
+              "unidad": "millones de US$"
+            },
+            "operacion": "valor",
+            "pais": "ESTADO",
+            "anio": 2026
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "remate": "Valparaíso conserva el nombre de Puerto Principal; San Antonio se quedó con los barcos.",
+    "siguiente": "Si el muelle se decide hoy y se usa en 2036, ¿quién revisa esa cuenta en los nueve años del medio?",
+    "miniatura": {
+      "texto": "VALPARAÍSO PERDIÓ EL PRIMER LUGAR"
+    },
+    "fuentes": [
+      {
+        "texto": "Memoria Chilena, Biblioteca Nacional de Chile: el puerto de Valparaíso y su declive",
+        "url": "https://www.memoriachilena.gob.cl/602/w3-article-639270.html"
+      },
+      {
+        "texto": "Emol, San Antonio cerca de su límite de capacidad (12-01-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/01/12/1188235/puerto-san-antonio-limite-capacidad.html"
+      },
+      {
+        "texto": "Emol, el informe que cuestiona la necesidad del megapuerto (07-07-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html"
+      },
+      {
+        "texto": "Emol, el Gobierno responde al estudio (08-07-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/07/08/1205007/puerto-exterior-gobierno-pronuncia.html"
+      },
+      {
+        "texto": "Emol, el presidente de la empresa portuaria de San Antonio (11-07-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/07/11/1205335/presidente-puerto-san-antonio-debate.html"
+      },
+      {
+        "texto": "Cooperativa, aprobación ambiental del Puerto Exterior (26-05-2026)",
+        "url": "https://www.cooperativa.cl/noticias/pais/region-de-valparaiso/megaproyecto-de-expansion-del-puerto-de-san-antonio-logro-aprobacion/2026-05-26/215451.html"
+      },
+      {
+        "texto": "BioBioChile, Valparaíso de capa caída (16-11-2026)",
+        "url": "https://www.biobiochile.cl/especial/bbcl-investiga/noticias/reportajes/2026/11/16/valparaiso-de-capa-caida-las-heridas-de-la-joya-del-pacifico.shtml"
+      },
+      {
+        "texto": "BioBioChile, las dos ampliaciones en paralelo (31-07-2026)",
+        "url": "https://www.biobiochile.cl/noticias/nacional/region-de-valparaiso/2026/07/31/gore-y-ejecutivo-respaldan-que-expansiones-de-puertos-de-valparaiso-y-san-antonio-avancen-en-paralelo.shtml"
+      },
+      {
+        "texto": "Diario Financiero, la carga de Valparaíso en 2025",
+        "url": "https://www.df.cl/opinion/columnistas/valparaiso-y-la-nueva-frontera-minera-del-pacifico"
+      },
+      {
+        "texto": "Diario Financiero, el Comité de Ministros destraba la ampliación de Valparaíso",
+        "url": "https://www.df.cl/empresas/construccion/comite-de-ministros-destraba-expansion-del-puerto-de-valparaiso-tras-12"
+      }
+    ],
+    "id": "2026-12-02-largo-valparaiso-puerto-principal"
+  }
+}

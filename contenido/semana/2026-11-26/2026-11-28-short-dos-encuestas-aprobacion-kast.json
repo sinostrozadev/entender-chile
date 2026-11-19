@@ -1,0 +1,436 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-11-28-short-dos-encuestas-aprobacion-kast",
+  "titulo": "Criteria le dio 18 % a Kast y Cadem 27 %: por qué no coinciden",
+  "descripcion": "¿Cómo dos encuestas de la misma semana le dan al mismo presidente 18 % y 27 % de aprobación?\nCriteria publicó el 15-11-2026 un 18 % de aprobación y 72 % de desaprobación, su registro más bajo: panel online de 802 casos, en terreno el 12 y el 13-11-2026. Cadem, en la misma semana, marcó 27 %, dos puntos menos que en su medición anterior.\nSon encuestas distintas, con muestras y días distintos: el número de una no se resta con el de la otra. Lo que sí se compara es cada encuesta consigo misma, y las dos van hacia abajo.\nFuentes: La Tercera y Cooperativa (15-11-2026), Emol (16-11-2026 y 25-10-2026), Cooperativa (11-10-2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#encuestas",
+    "#kast",
+    "#chile"
+  ],
+  "publicar": "2026-11-28T12:00",
+  "props": {
+    "gancho": {
+      "texto": "La encuesta Criteria le dio 18 por ciento de aprobación al Presidente Kast, y Cadem 27 en la misma semana. Ninguna de las dos está equivocada.",
+      "rotulo": "DOS ENCUESTAS",
+      "cifras": [
+        {
+          "texto": "18 por ciento",
+          "valor": 18,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "aprobacion-kast-noviembre-2026",
+              "paises": [
+                "CRITERIA",
+                "CADEM"
+              ],
+              "valores": {
+                "CRITERIA": [
+                  [
+                    0,
+                    18
+                  ]
+                ],
+                "CADEM": [
+                  [
+                    0,
+                    27
+                  ]
+                ]
+              },
+              "nombres": {
+                "CRITERIA": "Criteria",
+                "CADEM": "Cadem"
+              },
+              "fuenteTexto": "Criteria y Cadem de mediados de noviembre de 2026 (vía La Tercera y Emol)",
+              "fuenteUrl": "https://www.emol.com/noticias/Nacional/2026/11/16/1217205/desplome-aprobacion-kast-debate-comitiva.html",
+              "etiqueta": "Aprobación de Kast, misma semana",
+              "unidad": "%",
+              "etiquetasX": {
+                "0": "15-11-2026"
+              }
+            },
+            "operacion": "valor",
+            "pais": "CRITERIA",
+            "anio": 0
+          },
+          "tolerancia": 0.01
+        },
+        {
+          "texto": "27",
+          "valor": 27,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "aprobacion-kast-noviembre-2026",
+              "paises": [
+                "CRITERIA",
+                "CADEM"
+              ],
+              "valores": {
+                "CRITERIA": [
+                  [
+                    0,
+                    18
+                  ]
+                ],
+                "CADEM": [
+                  [
+                    0,
+                    27
+                  ]
+                ]
+              },
+              "nombres": {
+                "CRITERIA": "Criteria",
+                "CADEM": "Cadem"
+              },
+              "fuenteTexto": "Criteria y Cadem de mediados de noviembre de 2026 (vía La Tercera y Emol)",
+              "fuenteUrl": "https://www.emol.com/noticias/Nacional/2026/11/16/1217205/desplome-aprobacion-kast-debate-comitiva.html",
+              "etiqueta": "Aprobación de Kast, misma semana",
+              "unidad": "%",
+              "etiquetasX": {
+                "0": "15-11-2026"
+              }
+            },
+            "operacion": "valor",
+            "pais": "CADEM",
+            "anio": 0
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-RM"
+      ],
+      "puntos": [
+        {
+          "texto": "La Moneda",
+          "en": [
+            -70.65,
+            -33.44
+          ],
+          "dice": "Kast"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "lineas",
+      "titulo": "Aprobación de Kast en Criteria",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "criteria-aprobacion-kast-2026",
+        "paises": [
+          "APRUEBA"
+        ],
+        "valores": {
+          "APRUEBA": [
+            [
+              0,
+              27
+            ],
+            [
+              1,
+              27
+            ],
+            [
+              2,
+              18
+            ]
+          ]
+        },
+        "nombres": {
+          "APRUEBA": "Aprobación en Criteria"
+        },
+        "fuenteTexto": "Encuesta Criteria (vía Cooperativa, Emol y La Tercera, 10 y 11-2026)",
+        "fuenteUrl": "https://www.latercera.com/politica/noticia/criteria-aprobacion-del-presidente-kast-llega-al-18-y-desaprobacion-se-ubica-en-72/",
+        "etiqueta": "Aprobación de Kast en Criteria",
+        "unidad": "%",
+        "etiquetasX": {
+          "0": "11-10-2026",
+          "1": "25-10-2026",
+          "2": "15-11-2026"
+        }
+      },
+      "destacar": {
+        "pais": "APRUEBA"
+      },
+      "formato": {
+        "decimales": 0,
+        "sufijo": " %"
+      },
+      "anotaciones": [
+        {
+          "anio": 2,
+          "texto": "15-11-2026",
+          "dice": "cayó"
+        }
+      ]
+    },
+    "escenas": [
+      {
+        "tipo": "planteamiento",
+        "texto": "Las dos preguntan a gente distinta, en días distintos y con su propia muestra. Restar un número con el otro no dice nada: no es la misma pregunta hecha a las mismas personas.",
+        "grafico": {
+          "tipo": "comparacion",
+          "titulo": "La misma semana, dos números",
+          "datos": {
+            "fuente": "manual",
+            "indicador": "aprobacion-kast-noviembre-2026",
+            "paises": [
+              "CRITERIA",
+              "CADEM"
+            ],
+            "valores": {
+              "CRITERIA": [
+                [
+                  0,
+                  18
+                ]
+              ],
+              "CADEM": [
+                [
+                  0,
+                  27
+                ]
+              ]
+            },
+            "nombres": {
+              "CRITERIA": "Criteria",
+              "CADEM": "Cadem"
+            },
+            "fuenteTexto": "Criteria y Cadem de mediados de noviembre de 2026 (vía La Tercera y Emol)",
+            "fuenteUrl": "https://www.emol.com/noticias/Nacional/2026/11/16/1217205/desplome-aprobacion-kast-debate-comitiva.html",
+            "etiqueta": "Aprobación de Kast, misma semana",
+            "unidad": "%",
+            "etiquetasX": {
+              "0": "15-11-2026"
+            }
+          },
+          "destacar": {
+            "pais": "CRITERIA",
+            "anio": 0
+          },
+          "formato": {
+            "decimales": 0,
+            "sufijo": " %"
+          }
+        },
+        "cifras": [
+          {
+            "texto": "18",
+            "valor": 18,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "aprobacion-kast-noviembre-2026",
+                "paises": [
+                  "CRITERIA",
+                  "CADEM"
+                ],
+                "valores": {
+                  "CRITERIA": [
+                    [
+                      0,
+                      18
+                    ]
+                  ],
+                  "CADEM": [
+                    [
+                      0,
+                      27
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "CRITERIA": "Criteria",
+                  "CADEM": "Cadem"
+                },
+                "fuenteTexto": "Criteria y Cadem de mediados de noviembre de 2026 (vía La Tercera y Emol)",
+                "fuenteUrl": "https://www.emol.com/noticias/Nacional/2026/11/16/1217205/desplome-aprobacion-kast-debate-comitiva.html",
+                "etiqueta": "Aprobación de Kast, misma semana",
+                "unidad": "%",
+                "etiquetasX": {
+                  "0": "15-11-2026"
+                }
+              },
+              "operacion": "valor",
+              "pais": "CRITERIA",
+              "anio": 0
+            },
+            "tolerancia": 0.01
+          },
+          {
+            "texto": "27",
+            "valor": 27,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "aprobacion-kast-noviembre-2026",
+                "paises": [
+                  "CRITERIA",
+                  "CADEM"
+                ],
+                "valores": {
+                  "CRITERIA": [
+                    [
+                      0,
+                      18
+                    ]
+                  ],
+                  "CADEM": [
+                    [
+                      0,
+                      27
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "CRITERIA": "Criteria",
+                  "CADEM": "Cadem"
+                },
+                "fuenteTexto": "Criteria y Cadem de mediados de noviembre de 2026 (vía La Tercera y Emol)",
+                "fuenteUrl": "https://www.emol.com/noticias/Nacional/2026/11/16/1217205/desplome-aprobacion-kast-debate-comitiva.html",
+                "etiqueta": "Aprobación de Kast, misma semana",
+                "unidad": "%",
+                "etiquetasX": {
+                  "0": "15-11-2026"
+                }
+              },
+              "operacion": "valor",
+              "pais": "CADEM",
+              "anio": 0
+            },
+            "tolerancia": 0.01
+          }
+        ],
+        "rotulo": {
+          "texto": "NO SE RESTAN",
+          "dice": "Restar"
+        }
+      },
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según La Tercera, en Criteria la aprobación venía en 27 por ciento a fines de octubre y cayó a 18. Esa medición es un panel online de 802 casos.",
+        "cifras": [
+          {
+            "texto": "27 por ciento",
+            "valor": 27,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "criteria-aprobacion-kast-2026",
+                "paises": [
+                  "APRUEBA"
+                ],
+                "valores": {
+                  "APRUEBA": [
+                    [
+                      0,
+                      27
+                    ],
+                    [
+                      1,
+                      27
+                    ],
+                    [
+                      2,
+                      18
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "APRUEBA": "Aprobación en Criteria"
+                },
+                "fuenteTexto": "Encuesta Criteria (vía Cooperativa, Emol y La Tercera, 10 y 11-2026)",
+                "fuenteUrl": "https://www.latercera.com/politica/noticia/criteria-aprobacion-del-presidente-kast-llega-al-18-y-desaprobacion-se-ubica-en-72/",
+                "etiqueta": "Aprobación de Kast en Criteria",
+                "unidad": "%",
+                "etiquetasX": {
+                  "0": "11-10-2026",
+                  "1": "25-10-2026",
+                  "2": "15-11-2026"
+                }
+              },
+              "operacion": "valor",
+              "pais": "APRUEBA",
+              "anio": 1
+            },
+            "tolerancia": 0.01
+          },
+          {
+            "texto": "18",
+            "valor": 18,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "criteria-aprobacion-kast-2026",
+                "paises": [
+                  "APRUEBA"
+                ],
+                "valores": {
+                  "APRUEBA": [
+                    [
+                      0,
+                      27
+                    ],
+                    [
+                      1,
+                      27
+                    ],
+                    [
+                      2,
+                      18
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "APRUEBA": "Aprobación en Criteria"
+                },
+                "fuenteTexto": "Encuesta Criteria (vía Cooperativa, Emol y La Tercera, 10 y 11-2026)",
+                "fuenteUrl": "https://www.latercera.com/politica/noticia/criteria-aprobacion-del-presidente-kast-llega-al-18-y-desaprobacion-se-ubica-en-72/",
+                "etiqueta": "Aprobación de Kast en Criteria",
+                "unidad": "%",
+                "etiquetasX": {
+                  "0": "11-10-2026",
+                  "1": "25-10-2026",
+                  "2": "15-11-2026"
+                }
+              },
+              "operacion": "valor",
+              "pais": "APRUEBA",
+              "anio": 2
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "giro",
+        "texto": "Lo que sí se puede comparar es cada encuesta con ella misma. Y ahí las dos apuntan al mismo lado: en Cadem la aprobación bajó dos puntos en su última medición.",
+        "rotulo": {
+          "texto": "MIRA LA PENDIENTE",
+          "dice": "lado"
+        }
+      }
+    ],
+    "remate": "Una encuesta sola da un número; dos encuestas seguidas dan una dirección.",
+    "fuentes": [
+      {
+        "texto": "La Tercera, Criteria del 15-11-2026",
+        "url": "https://www.latercera.com/politica/noticia/criteria-aprobacion-del-presidente-kast-llega-al-18-y-desaprobacion-se-ubica-en-72/"
+      },
+      {
+        "texto": "Emol, la caída en las dos encuestas (16-11-2026)",
+        "url": "https://www.emol.com/noticias/Nacional/2026/11/16/1217205/desplome-aprobacion-kast-debate-comitiva.html"
+      }
+    ],
+    "id": "2026-11-28-short-dos-encuestas-aprobacion-kast"
+  }
+}

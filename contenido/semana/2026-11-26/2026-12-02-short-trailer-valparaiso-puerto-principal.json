@@ -1,0 +1,216 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-12-02-short-trailer-valparaiso-puerto-principal",
+  "titulo": "Valparaíso se llama el Puerto Principal y la pelea es por otro muelle",
+  "descripcion": "¿Por qué Valparaíso dejó de ser el Puerto Principal de Chile?\nHace un siglo el puerto que mandaba en el Pacífico sur era Valparaíso. Hoy San Antonio, a 100 kilómetros al sur, movió 2,06 millones de TEU en 2025 y está en torno al 80 % de su capacidad, y la discusión es un proyecto de US$ 4.450 millones, de los que el Estado pone US$ 1.950 millones.\nVideo completo hoy a las 19:00: qué perdió Valparaíso, cuándo lo perdió y quién decide dónde va el muelle grande de Chile.\nFuentes: Memoria Chilena (Biblioteca Nacional de Chile), Emol (12-01-2026 y 07-07-2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#valparaiso",
+    "#sanantonio",
+    "#puertos"
+  ],
+  "publicar": "2026-12-02T12:00",
+  "props": {
+    "gancho": {
+      "texto": "Mira esta bahía. Es agosto de 1914 y Valparaíso es el puerto que manda en el Pacífico sur. Hoy el que mueve la carga es San Antonio, a 100 kilómetros al sur, con 2,06 millones de TEU al año.",
+      "rotulo": "¿QUÉ PASÓ, VALPARAÍSO?",
+      "cifras": [
+        {
+          "texto": "2,06 millones de TEU",
+          "valor": 2.06,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "san-antonio-capacidad-2025",
+              "paises": [
+                "MOVIDO",
+                "TECHO"
+              ],
+              "valores": {
+                "MOVIDO": [
+                  [
+                    2025,
+                    2.06
+                  ]
+                ],
+                "TECHO": [
+                  [
+                    2025,
+                    2.65
+                  ]
+                ]
+              },
+              "nombres": {
+                "MOVIDO": "Lo que movió en 2025",
+                "TECHO": "Su capacidad máxima"
+              },
+              "fuenteTexto": "Puerto San Antonio y Emol (12-01-2026)",
+              "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/01/12/1188235/puerto-san-antonio-limite-capacidad.html",
+              "etiqueta": "Contenedores de San Antonio",
+              "unidad": "millones de TEU"
+            },
+            "operacion": "valor",
+            "pais": "MOVIDO",
+            "anio": 2025
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-VS"
+      ],
+      "puntos": [
+        {
+          "texto": "Valparaíso",
+          "en": [
+            -71.62,
+            -33.04
+          ],
+          "dice": "Valparaíso"
+        },
+        {
+          "texto": "San Antonio",
+          "en": [
+            -71.61,
+            -33.59
+          ],
+          "dice": "Antonio"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "comparacion",
+      "titulo": "Lo que movió y lo que aguanta",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "san-antonio-capacidad-2025",
+        "paises": [
+          "MOVIDO",
+          "TECHO"
+        ],
+        "valores": {
+          "MOVIDO": [
+            [
+              2025,
+              2.06
+            ]
+          ],
+          "TECHO": [
+            [
+              2025,
+              2.65
+            ]
+          ]
+        },
+        "nombres": {
+          "MOVIDO": "Lo que movió en 2025",
+          "TECHO": "Su capacidad máxima"
+        },
+        "fuenteTexto": "Puerto San Antonio y Emol (12-01-2026)",
+        "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/01/12/1188235/puerto-san-antonio-limite-capacidad.html",
+        "etiqueta": "Contenedores de San Antonio",
+        "unidad": "millones de TEU"
+      },
+      "destacar": {
+        "pais": "MOVIDO",
+        "anio": 2025
+      },
+      "formato": {
+        "decimales": 2,
+        "sufijo": " M"
+      }
+    },
+    "escenas": [
+      {
+        "tipo": "planteamiento",
+        "texto": "Valparaíso sigue siendo un puerto grande y todavía se llama el Puerto Principal. Pero el primer lugar en carga de contenedores lo tiene su vecino del sur.",
+        "visual": {
+          "tipo": "chile",
+          "regiones": [
+            "CL-VS"
+          ],
+          "puntos": [
+            {
+              "texto": "Valparaíso",
+              "en": [
+                -71.62,
+                -33.04
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según Emol, con esos 2,06 millones San Antonio quedó en torno al 80 por ciento de su capacidad máxima, que es de 2,65 millones de TEU al año.",
+        "cifras": [
+          {
+            "texto": "2,65 millones",
+            "valor": 2.65,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "san-antonio-capacidad-2025",
+                "paises": [
+                  "MOVIDO",
+                  "TECHO"
+                ],
+                "valores": {
+                  "MOVIDO": [
+                    [
+                      2025,
+                      2.06
+                    ]
+                  ],
+                  "TECHO": [
+                    [
+                      2025,
+                      2.65
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "MOVIDO": "Lo que movió en 2025",
+                  "TECHO": "Su capacidad máxima"
+                },
+                "fuenteTexto": "Puerto San Antonio y Emol (12-01-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/01/12/1188235/puerto-san-antonio-limite-capacidad.html",
+                "etiqueta": "Contenedores de San Antonio",
+                "unidad": "millones de TEU"
+              },
+              "operacion": "valor",
+              "pais": "TECHO",
+              "anio": 2025
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "giro",
+        "texto": "Hoy a las siete de la tarde sale el video completo: qué perdió Valparaíso, cuándo lo perdió y quién decide dónde va el muelle grande de Chile.",
+        "rotulo": {
+          "texto": "HOY A LAS 19:00",
+          "dice": "completo"
+        }
+      }
+    ],
+    "remate": "El nombre se quedó en Valparaíso; la carga se fue al sur.",
+    "fuentes": [
+      {
+        "texto": "Emol, San Antonio cerca de su límite (12-01-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/01/12/1188235/puerto-san-antonio-limite-capacidad.html"
+      },
+      {
+        "texto": "Memoria Chilena, Biblioteca Nacional de Chile",
+        "url": "https://www.memoriachilena.gob.cl/602/w3-article-639270.html"
+      }
+    ],
+    "enlaceLargo": "2026-12-02-largo-valparaiso-puerto-principal",
+    "id": "2026-12-02-short-trailer-valparaiso-puerto-principal"
+  }
+}

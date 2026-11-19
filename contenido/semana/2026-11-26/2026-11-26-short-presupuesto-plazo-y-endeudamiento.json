@@ -1,0 +1,230 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-11-26-short-presupuesto-plazo-y-endeudamiento",
+  "titulo": "Si el Congreso no despacha el Presupuesto 2027, rige el del Presidente",
+  "descripcion": "¿Qué pasa si el Congreso no despacha la Ley de Presupuestos dentro del plazo?\nEl proyecto entró el 30-09-2026 y la Constitución da 60 días: el plazo vence el 29-11-2026. Si se vence sin despacho, rige la propuesta del Presidente tal como la presentó.\nSituación al 19-11-2026: la Cámara rechazó siete partidas y el artículo 3, que autoriza al fisco a endeudarse hasta por US$ 25.000 millones. El 18-11-2026 el Senado repuso ese artículo por 31 votos contra 10, con apoyo del PC, el PPD y la DC.\nFuentes: Cooperativa (06-10-2026), La Tercera (19-11-2026), Diario Financiero (11-2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#presupuesto2027",
+    "#congreso",
+    "#chile"
+  ],
+  "publicar": "2026-11-26T12:00",
+  "props": {
+    "gancho": {
+      "texto": "El Congreso tiene plazo hasta el 29 de noviembre para despachar el Presupuesto 2027. Si no lo hace, no manda el Congreso: manda el texto que mandó el Presidente.",
+      "rotulo": "VENCE EL 29",
+      "cifras": []
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-VS"
+      ],
+      "puntos": [
+        {
+          "texto": "Congreso, Valparaíso",
+          "en": [
+            -71.62,
+            -33.04
+          ],
+          "dice": "Congreso"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "contador",
+      "titulo": "La deuda del artículo 3",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "presupuesto-2027-endeudamiento",
+        "paises": [
+          "DEUDA"
+        ],
+        "valores": {
+          "DEUDA": [
+            [
+              2027,
+              25000
+            ]
+          ]
+        },
+        "nombres": {
+          "DEUDA": "Endeudamiento del artículo 3"
+        },
+        "fuenteTexto": "Ley de Presupuestos 2027, artículo 3 (vía Cooperativa, 06-10-2026)",
+        "fuenteUrl": "https://www.cooperativa.cl/noticias/economia/presupuesto/presupuesto-oposicion-cuestiono-solicitud-de-endeudamiento-por-25-mil/2026-10-06/080808.html",
+        "etiqueta": "Deuda que autoriza el artículo 3",
+        "unidad": "millones de US$"
+      },
+      "destacar": {
+        "pais": "DEUDA"
+      },
+      "formato": {
+        "decimales": 0,
+        "prefijo": "US$ ",
+        "sufijo": " M"
+      }
+    },
+    "escenas": [
+      {
+        "tipo": "planteamiento",
+        "texto": "El proyecto entró el 30 de septiembre y, según Cooperativa, la Constitución da sesenta días. Vencido el plazo, el texto del Presidente rige tal como lo presentó, sin los cambios que el Congreso quería.",
+        "visual": {
+          "tipo": "chile",
+          "regiones": [
+            "CL-VS"
+          ],
+          "puntos": [
+            {
+              "texto": "Congreso, Valparaíso",
+              "en": [
+                -71.62,
+                -33.04
+              ]
+            }
+          ]
+        },
+        "fuenteEnVoz": true
+      },
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "texto": "Lo que más se discute es el artículo 3, que deja al fisco endeudarse hasta por 25.000 millones de dólares. La Cámara lo rechazó y el Senado lo repuso por 31 votos contra 10.",
+        "cifras": [
+          {
+            "texto": "25.000 millones de dólares",
+            "valor": 25000,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "presupuesto-2027-endeudamiento",
+                "paises": [
+                  "DEUDA"
+                ],
+                "valores": {
+                  "DEUDA": [
+                    [
+                      2027,
+                      25000
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "DEUDA": "Endeudamiento del artículo 3"
+                },
+                "fuenteTexto": "Ley de Presupuestos 2027, artículo 3 (vía Cooperativa, 06-10-2026)",
+                "fuenteUrl": "https://www.cooperativa.cl/noticias/economia/presupuesto/presupuesto-oposicion-cuestiono-solicitud-de-endeudamiento-por-25-mil/2026-10-06/080808.html",
+                "etiqueta": "Deuda que autoriza el artículo 3",
+                "unidad": "millones de US$"
+              },
+              "operacion": "valor",
+              "pais": "DEUDA",
+              "anio": 2027
+            },
+            "tolerancia": 0.01
+          },
+          {
+            "texto": "31 votos",
+            "valor": 31,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "senado-repone-articulo-3",
+                "paises": [
+                  "AFAVOR",
+                  "CONTRA"
+                ],
+                "valores": {
+                  "AFAVOR": [
+                    [
+                      2026,
+                      31
+                    ]
+                  ],
+                  "CONTRA": [
+                    [
+                      2026,
+                      10
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "AFAVOR": "A favor de reponer",
+                  "CONTRA": "En contra"
+                },
+                "fuenteTexto": "Sala del Senado, 18-11-2026 (vía La Tercera)",
+                "fuenteUrl": "https://www.latercera.com/nacional/noticia/con-votos-del-pc-ppd-y-dc-quiroz-logra-reponer-articulo-clave-del-presupuesto-2027-que-autoriza-endeudamiento-publico/",
+                "etiqueta": "Votación en el Senado",
+                "unidad": "votos"
+              },
+              "operacion": "valor",
+              "pais": "AFAVOR",
+              "anio": 2026
+            },
+            "tolerancia": 0.01
+          },
+          {
+            "texto": "10",
+            "valor": 10,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "senado-repone-articulo-3",
+                "paises": [
+                  "AFAVOR",
+                  "CONTRA"
+                ],
+                "valores": {
+                  "AFAVOR": [
+                    [
+                      2026,
+                      31
+                    ]
+                  ],
+                  "CONTRA": [
+                    [
+                      2026,
+                      10
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "AFAVOR": "A favor de reponer",
+                  "CONTRA": "En contra"
+                },
+                "fuenteTexto": "Sala del Senado, 18-11-2026 (vía La Tercera)",
+                "fuenteUrl": "https://www.latercera.com/nacional/noticia/con-votos-del-pc-ppd-y-dc-quiroz-logra-reponer-articulo-clave-del-presupuesto-2027-que-autoriza-endeudamiento-publico/",
+                "etiqueta": "Votación en el Senado",
+                "unidad": "votos"
+              },
+              "operacion": "valor",
+              "pais": "CONTRA",
+              "anio": 2026
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "giro",
+        "texto": "Y nada se decide de una vez: lo que no se acuerde vuelve a una comisión mixta antes del plazo.",
+        "rotulo": {
+          "texto": "VA Y VUELVE",
+          "dice": "repone"
+        }
+      }
+    ],
+    "remate": "El plazo no lo pone el Gobierno ni el Congreso: lo pone la Constitución.",
+    "fuentes": [
+      {
+        "texto": "Cooperativa, endeudamiento y plazo del Presupuesto 2027 (06-10-2026)",
+        "url": "https://www.cooperativa.cl/noticias/economia/presupuesto/presupuesto-oposicion-cuestiono-solicitud-de-endeudamiento-por-25-mil/2026-10-06/080808.html"
+      },
+      {
+        "texto": "La Tercera, el Senado repone el artículo 3 (19-11-2026)",
+        "url": "https://www.latercera.com/nacional/noticia/con-votos-del-pc-ppd-y-dc-quiroz-logra-reponer-articulo-clave-del-presupuesto-2027-que-autoriza-endeudamiento-publico/"
+      }
+    ],
+    "id": "2026-11-26-short-presupuesto-plazo-y-endeudamiento"
+  }
+}

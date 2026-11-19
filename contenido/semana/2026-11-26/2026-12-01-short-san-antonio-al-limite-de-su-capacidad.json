@@ -1,0 +1,256 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-12-01-short-san-antonio-al-limite-de-su-capacidad",
+  "titulo": "San Antonio se queda sin espacio y el muelle nuevo llega en 2036",
+  "descripcion": "¿Qué pasa cuando el puerto más grande de Chile se queda sin espacio?\nEn 2025 San Antonio movió 2,06 millones de TEU (la unidad con que se cuentan los contenedores: un contenedor de 40 pies son dos TEU), su primera vez sobre los dos millones, y quedó operando en torno al 80 % de su capacidad máxima, que ronda los 2,65 millones de TEU al año.\nEl proyecto que lo agranda, el Puerto Exterior, obtuvo su aprobación ambiental en mayo de 2026 y tiene su primera etapa prevista para 2036.\nValparaíso, el otro puerto de la región, movió más de 9,4 millones de toneladas de carga general en 2025, un 11,5 % más que el año anterior, y menos de la mitad de los TEU de su vecino (926.860 según su propio balance anual).\nFuentes: Emol (12-01-2026 y 07-07-2026), Cooperativa (26-05-2026), Diario Financiero (2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#sanantonio",
+    "#valparaiso",
+    "#puertos"
+  ],
+  "publicar": "2026-12-01T12:00",
+  "props": {
+    "gancho": {
+      "texto": "Al puerto de San Antonio le queda poco más de medio millón de TEU de margen: movió 2,06 millones en 2025 y el sistema actual aguanta 2,65.",
+      "rotulo": "CASI LLENO",
+      "cifras": [
+        {
+          "texto": "2,06 millones de TEU",
+          "valor": 2.06,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "san-antonio-capacidad-2025",
+              "paises": [
+                "MOVIDO",
+                "TECHO"
+              ],
+              "valores": {
+                "MOVIDO": [
+                  [
+                    2025,
+                    2.06
+                  ]
+                ],
+                "TECHO": [
+                  [
+                    2025,
+                    2.65
+                  ]
+                ]
+              },
+              "nombres": {
+                "MOVIDO": "Lo que movió en 2025",
+                "TECHO": "Su capacidad máxima"
+              },
+              "fuenteTexto": "Puerto San Antonio y Emol (12-01-2026)",
+              "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/01/12/1188235/puerto-san-antonio-limite-capacidad.html",
+              "etiqueta": "Contenedores de San Antonio",
+              "unidad": "millones de TEU"
+            },
+            "operacion": "valor",
+            "pais": "MOVIDO",
+            "anio": 2025
+          },
+          "tolerancia": 0.01
+        },
+        {
+          "texto": "2,65 millones",
+          "valor": 2.65,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "san-antonio-capacidad-2025",
+              "paises": [
+                "MOVIDO",
+                "TECHO"
+              ],
+              "valores": {
+                "MOVIDO": [
+                  [
+                    2025,
+                    2.06
+                  ]
+                ],
+                "TECHO": [
+                  [
+                    2025,
+                    2.65
+                  ]
+                ]
+              },
+              "nombres": {
+                "MOVIDO": "Lo que movió en 2025",
+                "TECHO": "Su capacidad máxima"
+              },
+              "fuenteTexto": "Puerto San Antonio y Emol (12-01-2026)",
+              "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/01/12/1188235/puerto-san-antonio-limite-capacidad.html",
+              "etiqueta": "Contenedores de San Antonio",
+              "unidad": "millones de TEU"
+            },
+            "operacion": "valor",
+            "pais": "TECHO",
+            "anio": 2025
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-VS"
+      ],
+      "puntos": [
+        {
+          "texto": "San Antonio",
+          "en": [
+            -71.61,
+            -33.59
+          ],
+          "dice": "Antonio"
+        },
+        {
+          "texto": "Valparaíso",
+          "en": [
+            -71.62,
+            -33.04
+          ],
+          "dice": "Valparaíso"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "barras",
+      "titulo": "Lo que movió y lo que aguanta",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "san-antonio-capacidad-2025",
+        "paises": [
+          "MOVIDO",
+          "TECHO"
+        ],
+        "valores": {
+          "MOVIDO": [
+            [
+              2025,
+              2.06
+            ]
+          ],
+          "TECHO": [
+            [
+              2025,
+              2.65
+            ]
+          ]
+        },
+        "nombres": {
+          "MOVIDO": "Lo que movió en 2025",
+          "TECHO": "Su capacidad máxima"
+        },
+        "fuenteTexto": "Puerto San Antonio y Emol (12-01-2026)",
+        "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/01/12/1188235/puerto-san-antonio-limite-capacidad.html",
+        "etiqueta": "Contenedores de San Antonio",
+        "unidad": "millones de TEU"
+      },
+      "destacar": {
+        "pais": "TECHO",
+        "anio": 2025
+      },
+      "formato": {
+        "decimales": 2,
+        "sufijo": " M"
+      }
+    },
+    "escenas": [
+      {
+        "tipo": "planteamiento",
+        "texto": "Según Emol, el TEU es la unidad con que se cuentan los contenedores, y ese techo lo fija la infraestructura que ya está construida: los metros de muelle, la profundidad y el patio.",
+        "visual": {
+          "tipo": "chile",
+          "regiones": [
+            "CL-VS"
+          ],
+          "puntos": [
+            {
+              "texto": "San Antonio",
+              "en": [
+                -71.61,
+                -33.59
+              ]
+            }
+          ]
+        },
+        "fuenteEnVoz": true
+      },
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "texto": "El proyecto que lo agranda es el Puerto Exterior, y obtuvo su aprobación ambiental en mayo de 2026. Su primera etapa está prevista para 2036.",
+        "cifras": [
+          {
+            "texto": "2036",
+            "valor": 2036,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "puerto-exterior-fechas",
+                "paises": [
+                  "PLAN",
+                  "ESTUDIO"
+                ],
+                "valores": {
+                  "PLAN": [
+                    [
+                      2026,
+                      2036
+                    ]
+                  ],
+                  "ESTUDIO": [
+                    [
+                      2026,
+                      2045
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "PLAN": "Primera etapa prevista",
+                  "ESTUDIO": "Lo que dice el estudio"
+                },
+                "fuenteTexto": "Emol, informe de Port Consultants Rotterdam para Camport (07-07-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html",
+                "etiqueta": "Cuándo haría falta el muelle nuevo",
+                "unidad": "año"
+              },
+              "operacion": "valor",
+              "pais": "PLAN",
+              "anio": 2026
+            },
+            "tolerancia": 0.001
+          }
+        ]
+      },
+      {
+        "tipo": "giro",
+        "texto": "O sea: diez años entre el permiso y el primer barco. Cuando un puerto llega a su techo, la decisión tenía que estar tomada mucho antes.",
+        "rotulo": {
+          "texto": "2026 A 2036",
+          "dice": "años"
+        }
+      }
+    ],
+    "remate": "La carga llegó antes que el muelle; el muelle recién llega en 2036.",
+    "fuentes": [
+      {
+        "texto": "Emol, San Antonio cerca de su límite (12-01-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/01/12/1188235/puerto-san-antonio-limite-capacidad.html"
+      },
+      {
+        "texto": "Emol, el Puerto Exterior y su calendario (07-07-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/07/07/1204891/informe-gremio-portuario-san-antonio.html"
+      }
+    ],
+    "enlaceLargo": "2026-12-02-largo-valparaiso-puerto-principal",
+    "id": "2026-12-01-short-san-antonio-al-limite-de-su-capacidad"
+  }
+}

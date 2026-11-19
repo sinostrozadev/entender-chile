@@ -1,0 +1,200 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-11-27-short-danstar-punta-arenas-malvinas",
+  "titulo": "El Danstar reabre la ruta a las Malvinas y Argentina responde",
+  "descripcion": "¿Por qué un barco que sale de Punta Arenas termina en una disputa de soberanía ajena?\nLa naviera Easter Island confirmó el zarpe del Danstar para el 17-12-2026 hacia Puerto Argentino, que los británicos llaman Stanley: es el primer viaje comercial de esa ruta desde 2011, con 1.400 toneladas de capacidad y la mitad ya vendida.\nChile dice que no pide autorización e invoca el derecho de paso inocente. En Argentina se presentó un proyecto para decomisar embarcaciones que abastezcan las islas. Nada de eso está resuelto.\nFuentes: Diario Financiero y La Nación (14-11-2026), BioBioChile e Infobae (16-11-2026), Infobae (05-11-2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#danstar",
+    "#puntaarenas",
+    "#chile"
+  ],
+  "publicar": "2026-11-27T12:00",
+  "props": {
+    "gancho": {
+      "texto": "La naviera Easter Island confirmó que el buque chileno Danstar llevará 1.400 toneladas desde Punta Arenas a las islas Malvinas: es la primera ruta comercial de ese tramo en quince años.",
+      "rotulo": "PRIMERA EN 15 AÑOS",
+      "cifras": [
+        {
+          "texto": "1.400 toneladas",
+          "valor": 1400,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "danstar-capacidad-2026",
+              "paises": [
+                "CARGA"
+              ],
+              "valores": {
+                "CARGA": [
+                  [
+                    2026,
+                    1400
+                  ]
+                ]
+              },
+              "nombres": {
+                "CARGA": "Capacidad del Danstar"
+              },
+              "fuenteTexto": "Naviera Easter Island, vía Diario Financiero (14-11-2026)",
+              "fuenteUrl": "https://www.df.cl/regiones/magallanes/empresas/naviera-easter-island-confirma-el-primer-zarpe-del-buque-danstar-hacia-las",
+              "etiqueta": "Capacidad del viaje de diciembre",
+              "unidad": "toneladas"
+            },
+            "operacion": "valor",
+            "pais": "CARGA",
+            "anio": 2026
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-MA"
+      ],
+      "puntos": [
+        {
+          "texto": "Punta Arenas",
+          "en": [
+            -70.91,
+            -53.16
+          ],
+          "dice": "Arenas"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "contador",
+      "titulo": "Lo que puede llevar el Danstar",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "danstar-capacidad-2026",
+        "paises": [
+          "CARGA"
+        ],
+        "valores": {
+          "CARGA": [
+            [
+              2026,
+              1400
+            ]
+          ]
+        },
+        "nombres": {
+          "CARGA": "Capacidad del Danstar"
+        },
+        "fuenteTexto": "Naviera Easter Island, vía Diario Financiero (14-11-2026)",
+        "fuenteUrl": "https://www.df.cl/regiones/magallanes/empresas/naviera-easter-island-confirma-el-primer-zarpe-del-buque-danstar-hacia-las",
+        "etiqueta": "Capacidad del viaje de diciembre",
+        "unidad": "toneladas"
+      },
+      "destacar": {
+        "pais": "CARGA"
+      },
+      "formato": {
+        "decimales": 0,
+        "sufijo": " t"
+      }
+    },
+    "escenas": [
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según el Diario Financiero, la mitad de esas 1.400 toneladas ya está vendida: alimentos e insumos para las islas. El zarpe está previsto para el 17 de diciembre.",
+        "cifras": [
+          {
+            "texto": "1.400 toneladas",
+            "valor": 1400,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "danstar-capacidad-2026",
+                "paises": [
+                  "CARGA"
+                ],
+                "valores": {
+                  "CARGA": [
+                    [
+                      2026,
+                      1400
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "CARGA": "Capacidad del Danstar"
+                },
+                "fuenteTexto": "Naviera Easter Island, vía Diario Financiero (14-11-2026)",
+                "fuenteUrl": "https://www.df.cl/regiones/magallanes/empresas/naviera-easter-island-confirma-el-primer-zarpe-del-buque-danstar-hacia-las",
+                "etiqueta": "Capacidad del viaje de diciembre",
+                "unidad": "toneladas"
+              },
+              "operacion": "valor",
+              "pais": "CARGA",
+              "anio": 2026
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "planteamiento",
+        "texto": "El tramo pasa por aguas que Argentina considera propias, y ahí está el nudo: el Estado chileno dice que no corresponde pedir autorización, porque existe el derecho de paso inocente.",
+        "visual": {
+          "tipo": "mapa",
+          "destacar": [
+            "CHL",
+            "ARG",
+            "FLK"
+          ],
+          "zoom": 4,
+          "etiquetas": [
+            {
+              "texto": "Punta Arenas",
+              "en": [
+                -70.91,
+                -53.16
+              ]
+            },
+            {
+              "texto": "Puerto Argentino",
+              "en": [
+                -57.85,
+                -51.69
+              ]
+            }
+          ],
+          "flechas": [
+            {
+              "desde": "CHL",
+              "hasta": "FLK",
+              "texto": "1.400 t"
+            }
+          ],
+          "dice": "tramo"
+        }
+      },
+      {
+        "tipo": "giro",
+        "texto": "Del otro lado, Infobae informó que en el Congreso argentino se presentó un proyecto para decomisar embarcaciones que abastezcan las islas. Chile apoya históricamente el reclamo argentino de soberanía y a la vez defiende la libertad de navegación.",
+        "rotulo": {
+          "texto": "DOS POSICIONES",
+          "dice": "Chile"
+        }
+      }
+    ],
+    "remate": "El buque todavía no zarpa, y la disputa ya está en curso.",
+    "fuentes": [
+      {
+        "texto": "Diario Financiero, zarpe y carga (14-11-2026)",
+        "url": "https://www.df.cl/regiones/magallanes/empresas/naviera-easter-island-confirma-el-primer-zarpe-del-buque-danstar-hacia-las"
+      },
+      {
+        "texto": "La Nación, posición de Chile (14-11-2026)",
+        "url": "https://www.lanacion.com.ar/politica/tension-por-malvinas-despues-de-quince-anos-un-buque-chileno-partira-de-punta-arenas-hacia-las-islas-nid14112026/"
+      }
+    ],
+    "id": "2026-11-27-short-danstar-punta-arenas-malvinas"
+  }
+}

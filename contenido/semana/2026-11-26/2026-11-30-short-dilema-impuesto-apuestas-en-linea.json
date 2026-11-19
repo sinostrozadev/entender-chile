@@ -1,0 +1,241 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-11-30-short-dilema-impuesto-apuestas-en-linea",
+  "titulo": "El SII proyectó cobrar US$ 100 millones a las apuestas: ¿lo cobrarías?",
+  "descripcion": "¿Debe el Estado cobrarle impuestos a plataformas de apuestas que ninguna ley autoriza?\nEl Servicio de Impuestos Internos habilitó en 2026 un registro de IVA digital: 39 plataformas extranjeras inscritas y una recaudación proyectada sobre US$ 100 millones.\nLa Cámara aprobó con 133 votos a favor una glosa que impide al SII destinar recursos a ese mecanismo, y el 19-11-2026 el Senado rechazó por 15 votos contra 8 la indicación del Gobierno que quería borrarla. El ministro de Hacienda hizo reserva de constitucionalidad.\nEs una glosa del Presupuesto, no una ley que regule las apuestas.\nCuéntanos en los comentarios: ¿le cobras o no le cobras?\nFuentes: Cooperativa (08-09-2026), La Tercera (11-11-2026), The Clinic (19-11-2026).\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#apuestas",
+    "#impuestos",
+    "#chile"
+  ],
+  "publicar": "2026-11-30T12:00",
+  "props": {
+    "gancho": {
+      "texto": "El Servicio de Impuestos Internos proyectó cobrarle más de 100 millones de dólares a las apuestas en línea, y el Congreso votó para que no pueda gastar en cobrarlos. Acá están las dos posiciones.",
+      "rotulo": "¿LE COBRAS O NO?",
+      "cifras": [
+        {
+          "texto": "100 millones de dólares",
+          "valor": 100,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "sii-iva-apuestas-octubre-2026",
+              "paises": [
+                "IVA"
+              ],
+              "valores": {
+                "IVA": [
+                  [
+                    2026,
+                    100
+                  ]
+                ]
+              },
+              "nombres": {
+                "IVA": "IVA proyectado"
+              },
+              "fuenteTexto": "Servicio de Impuestos Internos (vía Cooperativa, 08-09-2026)",
+              "fuenteUrl": "https://www.cooperativa.cl/noticias/pais/juegos-de-azar/sii-defendio-cobro-a-apuestas-online-y-proyecto-recaudacion-inicial-de/2026-09-08/155153.html",
+              "etiqueta": "Lo que el SII proyectó cobrar",
+              "unidad": "millones de US$"
+            },
+            "operacion": "valor",
+            "pais": "IVA",
+            "anio": 2026
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-VS"
+      ],
+      "puntos": [
+        {
+          "texto": "Congreso, Valparaíso",
+          "en": [
+            -71.62,
+            -33.04
+          ],
+          "dice": "Congreso"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "barras",
+      "titulo": "El Senado dejó la glosa en pie",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "senado-glosa-apuestas-2026",
+        "paises": [
+          "MANTENER",
+          "BORRAR"
+        ],
+        "valores": {
+          "MANTENER": [
+            [
+              2026,
+              15
+            ]
+          ],
+          "BORRAR": [
+            [
+              2026,
+              8
+            ]
+          ]
+        },
+        "nombres": {
+          "MANTENER": "Mantener la glosa",
+          "BORRAR": "Borrarla"
+        },
+        "fuenteTexto": "Sala del Senado, 19-11-2026 (vía The Clinic)",
+        "fuenteUrl": "https://www.theclinic.cl/2026/11/19/presupuestos-2027-senadores-rechazan-indicacion-de-hacienda-y-apoyan-propuesta-de-diputados-udi-para-impedir-cobro-de-impuestos-a-las-casas-de-apuestas-en-linea/",
+        "etiqueta": "Votación en el Senado",
+        "unidad": "votos"
+      },
+      "destacar": {
+        "pais": "MANTENER"
+      },
+      "formato": {
+        "decimales": 0
+      }
+    },
+    "escenas": [
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según Cooperativa, hay 39 plataformas extranjeras inscritas para pagar IVA digital. El Senado dejó en pie la glosa que se lo impide, por 15 votos contra ocho.",
+        "cifras": [
+          {
+            "texto": "15 votos",
+            "valor": 15,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "senado-glosa-apuestas-2026",
+                "paises": [
+                  "MANTENER",
+                  "BORRAR"
+                ],
+                "valores": {
+                  "MANTENER": [
+                    [
+                      2026,
+                      15
+                    ]
+                  ],
+                  "BORRAR": [
+                    [
+                      2026,
+                      8
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "MANTENER": "Mantener la glosa",
+                  "BORRAR": "Borrarla"
+                },
+                "fuenteTexto": "Sala del Senado, 19-11-2026 (vía The Clinic)",
+                "fuenteUrl": "https://www.theclinic.cl/2026/11/19/presupuestos-2027-senadores-rechazan-indicacion-de-hacienda-y-apoyan-propuesta-de-diputados-udi-para-impedir-cobro-de-impuestos-a-las-casas-de-apuestas-en-linea/",
+                "etiqueta": "Votación en el Senado",
+                "unidad": "votos"
+              },
+              "operacion": "valor",
+              "pais": "MANTENER",
+              "anio": 2026
+            },
+            "tolerancia": 0.01
+          },
+          {
+            "texto": "ocho",
+            "valor": 8,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "senado-glosa-apuestas-2026",
+                "paises": [
+                  "MANTENER",
+                  "BORRAR"
+                ],
+                "valores": {
+                  "MANTENER": [
+                    [
+                      2026,
+                      15
+                    ]
+                  ],
+                  "BORRAR": [
+                    [
+                      2026,
+                      8
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "MANTENER": "Mantener la glosa",
+                  "BORRAR": "Borrarla"
+                },
+                "fuenteTexto": "Sala del Senado, 19-11-2026 (vía The Clinic)",
+                "fuenteUrl": "https://www.theclinic.cl/2026/11/19/presupuestos-2027-senadores-rechazan-indicacion-de-hacienda-y-apoyan-propuesta-de-diputados-udi-para-impedir-cobro-de-impuestos-a-las-casas-de-apuestas-en-linea/",
+                "etiqueta": "Votación en el Senado",
+                "unidad": "votos"
+              },
+              "operacion": "valor",
+              "pais": "BORRAR",
+              "anio": 2026
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "planteamiento",
+        "texto": "A favor de cobrar: son ventas reales y el Estado no tiene por qué regalar el impuesto. En contra: cobrarle a una plataforma que ninguna ley autoriza se parece a aceptarla.",
+        "visual": {
+          "tipo": "iconos",
+          "titulo": "Las dos posiciones",
+          "items": [
+            {
+              "icono": "💰",
+              "texto": "Son ventas reales",
+              "marca": "si",
+              "dice": "favor"
+            },
+            {
+              "icono": "⚖️",
+              "texto": "Ninguna ley la autoriza",
+              "marca": "no",
+              "dice": "contra"
+            }
+          ],
+          "dice": "favor"
+        }
+      },
+      {
+        "tipo": "giro",
+        "texto": "Y un detalle: esto es una glosa del Presupuesto, no una ley que regule las apuestas, y el ministro de Hacienda hizo reserva de constitucionalidad. ¿Tú le cobras o no?",
+        "rotulo": {
+          "texto": "NO ES LA LEY",
+          "dice": "glosa"
+        }
+      }
+    ],
+    "remate": "Cobrar el impuesto no autoriza el negocio, y no cobrarlo tampoco lo prohíbe.",
+    "fuentes": [
+      {
+        "texto": "Cooperativa, el SII y el IVA a las apuestas (08-09-2026)",
+        "url": "https://www.cooperativa.cl/noticias/pais/juegos-de-azar/sii-defendio-cobro-a-apuestas-online-y-proyecto-recaudacion-inicial-de/2026-09-08/155153.html"
+      },
+      {
+        "texto": "The Clinic, el Senado mantiene la glosa (19-11-2026)",
+        "url": "https://www.theclinic.cl/2026/11/19/presupuestos-2027-senadores-rechazan-indicacion-de-hacienda-y-apoyan-propuesta-de-diputados-udi-para-impedir-cobro-de-impuestos-a-las-casas-de-apuestas-en-linea/"
+      }
+    ],
+    "id": "2026-11-30-short-dilema-impuesto-apuestas-en-linea"
+  }
+}
