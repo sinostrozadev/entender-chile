@@ -1282,3 +1282,47 @@ dato: con n=37 la prueba da **p = 0,100** binomial de una cola, o sea no es
 concluyente por sí sola y se apoya en la medición original del 09-11-2026, que
 tenía 145 piezas; lo que agrega es que el efecto **no era un artefacto del corte
 de 60 caracteres**. **Decidió**: Claude, por el mandato del 04-11-2026.
+
+## 2026-11-18 - Modelo chilenómetro, Short que abre con mapa, largo que abre con escena y reparto con En Números Rojos
+
+**Base:** diagnóstico de virales del 18-11-2026
+(`/home/santiago/projects/yt/_propuestas/2026-11-18-diagnostico-virales.md` §5),
+aprobado por Santiago ("si choca con lo mío, gana lo que tenga evidencias").
+Datos del canal: 153 Shorts con mediana **73** vistas y 78 largos con mediana
+**12**; lo único que pasó las 1.000 vistas fue noticia caliente con nombre
+propio (Rabat y Silva 1.095, Kast 1.057, duelo nacional 1.054, camioneros
+950). El formato nuevo heredó de En Números Rojos la plantilla `grafico`,
+que allá da 31 a 39 % de "se queda". Referente chileno: **chilenómetro**
+(creado el 11-10-2026, 6,8 K suscriptores, largos con mediana de **25 K**:
+"Así nació y creció Santiago en 3D" 106 K, "¿Argentina detendría a un barco
+chileno?" 121 K), que publica cada largo con un Short tráiler del mismo tema
+el mismo día; Factor Bélico (largos con mediana de 91 K) abre con escena
+fechada ("6 de agosto de 1975…").
+
+**Decide** (Claude, por el mandato del 04-11-2026 y el OK del 18-11):
+1. **Short: primer fotograma = mapa del lugar** (`props.visualGancho`), no
+   gráfico. Lo exige `video/scripts/validar.mts` para las piezas que salen
+   desde el 26-11-2026; las ya subidas se quedan como están.
+2. **Largo: modelo chilenómetro.** Tema chileno visual, de rivalidad o de
+   "cómo creció X"; **Short tráiler el mismo día** (miércoles 12:00, largo
+   19:00). Arranque con escena (fecha, lugar, detalle humano; sin PIB, sin
+   fuente, sin anunciar capítulos) y título con molde de pregunta o paradoja
+   con el lugar nombrado. Va en `prompts/plan-semanal.md` §1b y §4, que es
+   lo que lee la rutina del jueves 19-11 a las 17:30.
+3. **Reparto con En Números Rojos:** NR hace las comparaciones entre países
+   (LatAm y el mundo); EC hace **solo Chile**. NR deja los temas
+   exclusivamente chilenos; EC no hace "por qué el país A se hizo rico y el B
+   no" si no hay un lugar o una decisión chilena.
+4. **1 de cada 2 Shorts** a la noticia chilena de la semana con persona o
+   institución nombrada.
+5. **Título del largo del 25-11 (`8utjNIbYeKk`)**: el actual ("El cobre que
+   no salió: por qué el PIB de Chile cayó 1,1 %") es de informe. El repo no
+   tiene una vía segura para cambiar metadatos de un video ya subido
+   (`producir.yml` solo sube y pone carátulas; `privacidad.yml` solo cambia
+   la privacidad), así que el título propuesto queda en
+   `contenido/pendientes/titulo-8utjNIbYeKk.md` y lo cambia la sesión
+   principal o Santiago en Studio.
+
+**Medida:** "se queda" de los Shorts con mapa ≥ 55 % (Studio; hace falta el
+clic de OAuth del canal o leer Studio con su cuenta) e impresiones del largo a
+7 días ≥ 1.000. Se mira en la revisión del jueves 03-12 (compuerta).

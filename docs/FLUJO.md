@@ -38,6 +38,13 @@ mantener la hora local.
  └────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
+**Cambios del 18-11-2026** (`estrategia/decisiones.md`): el Short abre con el
+mapa del lugar (`validar.mts` lo exige desde el 26-11), el largo sigue el
+modelo chilenómetro (tema chileno visual, de rivalidad o "cómo creció X",
+arranque con escena, título de pregunta o paradoja) y el Short del miércoles
+12:00 es su tráiler. EC hace solo Chile; las comparaciones entre países son de
+En Números Rojos. Todo está en `prompts/plan-semanal.md` §1b y §4.
+
 Lo que NO está en el flujo y no debe volver: relojes que pushean despertadores
 cada 20 minutos, reintentos de GPT, validación pieza por pieza, el informe
 diario de GPT, el mural de la Clave, el vigía y la auditoría. Si algo falla,

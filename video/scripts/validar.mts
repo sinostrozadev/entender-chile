@@ -33,6 +33,12 @@ for (const ruta of rutas) {
         errores.push(...problemasDeRitmo(plan, g).errores.map((e) => `ritmo: ${e}`));
       }
     }
+    // Decisión 2026-11-18 (diagnóstico de virales): el primer fotograma del Short es el MAPA del lugar, no un gráfico
+    // (la plantilla `grafico` heredada de NR daba 31-39 % "se queda"). Rige para las piezas que salen desde el 26-11.
+    if (crudo.plantilla === 'grafico' && String(crudo.publicar ?? '') >= '2026-11-26') {
+      const vg = (crudo.props as { visualGancho?: { tipo?: string } } | undefined)?.visualGancho;
+      if (!vg || !['chile', 'mapa'].includes(String(vg.tipo))) errores.push('props.visualGancho: el Short abre con el mapa del lugar (tipo "chile" con la región o los puntos; "mapa" si el lugar está fuera de Chile). Regla del 18-11-2026, prompts/plan-semanal.md §4');
+    }
     if (crudo.id !== path.basename(ruta, '.json')) errores.push(`id "${String(crudo.id)}" no coincide con el nombre del archivo`);
     if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(String(crudo.publicar))) errores.push('"publicar" debe ser AAAA-MM-DDTHH:MM (hora de Chile)');
     if (!crudo.titulo || String(crudo.titulo).length > 100) errores.push('"titulo" vacío o de más de 100 caracteres');
