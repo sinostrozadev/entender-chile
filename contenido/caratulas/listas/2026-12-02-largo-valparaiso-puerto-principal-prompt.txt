@@ -1,0 +1,33 @@
+Crea una carátula de YouTube para un video largo explicativo de un canal chileno de noticias explicadas con mapas y datos oficiales. Tono serio y claro, sin alarmismo.
+
+DATOS QUE YO ENTREGO
+SUJETO (línea 1, letra enorme, mayúsculas): VALPARAÍSO
+CAJA DE TENSIÓN (línea 2, dentro de una caja de color naranja contenedor, mayúsculas, exacta): YA NO MANDA
+LÍNEA PEQUEÑA (debajo de la caja, exacta): GANÓ SAN ANTONIO
+IMAGEN HÉROE: la costa central de Chile vista desde el mar, en picado y a sangre completa. Arriba, la bahía de Valparaíso: muelles cortos encajonados contra cerros muy empinados, casi sin patio plano detrás. Abajo y a la derecha, a cien kilómetros, San Antonio: una planicie amplia con un patio enorme de contenedores apilados en filas ordenadas, en naranja contenedor apagado. El agua en azul marino casi negro, la tierra en gris azulado. La diferencia que se tiene que entender de un vistazo es la geografía: cerros contra planicie.
+
+TU TAREA
+Diseña la carátula con estas reglas fijas. No son sugerencias.
+
+FORMATO
+16:9 horizontal, mínimo 1280x720, PNG. El texto VA DENTRO de la imagen, exacto como lo entrego, y debe leerse perfecto a 160 píxeles de ancho (así se ve en un teléfono).
+
+LA REGLA PRINCIPAL: QUE SE ENTIENDA QUIÉN Y QUÉ EN MEDIO SEGUNDO
+Sin leer el título del video, se entiende que es sobre VALPARAÍSO y que perdió algo frente a otro puerto. Por eso VALPARAÍSO va escrito, grande y nombrado, y no solo sugerido por la costa.
+
+COMPOSICIÓN
+- Imagen héroe a sangre, ocupando todo el cuadro (nada de collage ni de recortes pegados).
+- Arriba a la izquierda: VALPARAÍSO en blanco roto, tipografía sans condensada muy pesada. Justo debajo, la caja naranja contenedor con YA NO MANDA en letra oscura, bordes levemente irregulares como papel recortado. Debajo de la caja, la línea pequeña GANÓ SAN ANTONIO en blanco roto.
+- Un solo acento de color: el naranja contenedor (el patio de contenedores y la caja). Es el naranja apagado y sucio de un contenedor de carga real, no un naranja de tabloide. El resto, azul marino, gris azulado y blanco roto.
+- La esquina inferior derecha queda LIBRE (YouTube pone ahí la duración).
+- Marca pequeña y discreta, abajo a la izquierda: ENTENDER CHILE, en mayúsculas espaciadas.
+- Ningún otro texto, ninguna cifra, sin ejes ni rejilla, sin nombres de ciudades escritos sobre el mapa.
+
+PROHIBIDO
+Rostros de personas, reales o inventados. Banderas como fondo. Logos, escudos, nombres de medios, de navieras o de instituciones. Billetes, monedas, signos de dólar. Flechas gigantes, círculos, signos de exclamación, emojis, rojo o amarillo de tabloide, estética de collage, 3D plástico. Barcos de guerra. Cualquier texto que no sea VALPARAÍSO, YA NO MANDA, GANÓ SAN ANTONIO y ENTENDER CHILE.
+
+TEXTO
+Español con tildes correctas. Sin raya larga ni media. Revisa letra por letra que VALPARAÍSO, YA NO MANDA y GANÓ SAN ANTONIO digan exactamente lo que entregué.
+
+PRUEBA FINAL ANTES DE ENTREGAR
+¿Sin leer el título se entiende que es sobre Valparaíso y que otro puerto le ganó? ¿Se nota la diferencia entre cerros y planicie? ¿Se lee todo a 160 px? ¿Hay un solo acento (naranja contenedor) y ninguna cara? ¿La esquina inferior derecha está limpia? Si algo falla, corrígelo antes de generar.
