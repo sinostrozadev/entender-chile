@@ -3,9 +3,18 @@
   "canal": {
     "suscriptores": 61,
     "vistas": 27515,
-    "videos": 233
+    "videos": 234
   },
   "videos": {
+    "ZkKQ-PnUyN0": {
+      "titulo": "El diésel subió 443 pesos por litro: por eso pararon los camioneros",
+      "publicado": "2026-11-19",
+      "estado": "public",
+      "vistas": 42,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 48
+    },
     "SzvOA3sxa04": {
       "titulo": "Cómo Codelco registra su producción y quién la controla",
       "publicado": "2026-11-18",
@@ -69,20 +78,11 @@
       "comentarios": 0,
       "durSeg": 51
     },
-    "ZkKQ-PnUyN0": {
-      "titulo": "El diésel subió 443 pesos por litro: por eso pararon los camioneros",
-      "publicado": "2026-11-18",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 48
-    },
     "XD1nkL2B5Pc": {
       "titulo": "Personas con condenas seguían en funciones públicas, y otras 4 cosas de hoy #Shorts",
       "publicado": "2026-11-18",
       "estado": "public",
-      "vistas": 82,
+      "vistas": 86,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 40
@@ -91,7 +91,7 @@
       "titulo": "Conductores pagarán menos por diésel desde este jueves, y otras 4 cosas de hoy #Shorts",
       "publicado": "2026-11-17",
       "estado": "public",
-      "vistas": 238,
+      "vistas": 240,
       "meGusta": 2,
       "comentarios": 0,
       "durSeg": 40
@@ -1306,7 +1306,7 @@
       "titulo": "Muere un trabajador en Minera Escondida mientras hacía mantención #Shorts",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 484,
+      "vistas": 485,
       "meGusta": 3,
       "comentarios": 1,
       "durSeg": 42
@@ -3941,7 +3941,7 @@
         "ctr": 16.67
       },
       "3PyF0uX9pn0": {
-        "impresiones": 14,
+        "impresiones": 13,
         "clics": 0,
         "ctr": 0
       },
@@ -4608,8 +4608,8 @@
         "ctr": 0.95
       },
       "2026-11-09": {
-        "impresiones": 130,
-        "ctr": 3.08
+        "impresiones": 129,
+        "ctr": 3.1
       },
       "2026-11-10": {
         "impresiones": 122,
