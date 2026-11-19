@@ -1,0 +1,8 @@
+flujo=pedido
+tarea=imagen
+slug=ec-valparaiso-puerto-principal
+pedido=contenido/urgente/PEDIDO-ec-valparaiso-puerto-principal.md
+hallazgo=contenido/urgente/ec-valparaiso-puerto-principal.md
+salida=contenido/caratulas/listas/2026-12-02-largo-valparaiso-puerto-principal.png
+prompt=prompts/imagen-caratula.md
+emitido_utc=2026-11-19T21:32:54Z
