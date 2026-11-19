@@ -1,8 +1,8 @@
 flujo=pedido
 tarea=imagen
-slug=linea-punteada-iquique-1879
-pedido=contenido/urgente/PEDIDO-linea-punteada-iquique-1879.md
-hallazgo=contenido/urgente/linea-punteada-iquique-1879.md
-salida=contenido/caratulas/externos/linea-punteada/2026-11-29-iquique-1879.png
+slug=ec-valparaiso-puerto-principal
+pedido=contenido/urgente/PEDIDO-ec-valparaiso-puerto-principal.md
+hallazgo=contenido/urgente/ec-valparaiso-puerto-principal.md
+salida=contenido/caratulas/listas/2026-12-02-largo-valparaiso-puerto-principal.png
 prompt=prompts/imagen-caratula.md
-emitido_utc=2026-11-19T17:36:08Z
+emitido_utc=2026-11-19T21:32:54Z
