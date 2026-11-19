@@ -50,6 +50,42 @@ tiene flujo y render desde el 02-11-2026 y está en piloto.
 
 ## DEPENDEN DE SANTIAGO
 
+- [ ] **19-11, el plan semanal no puede abrir fuentes primarias: la red del
+      entorno de la nube bloquea todos los dominios.** En la rutina del plan
+      semanal del 19-11-2026 fallaron por DNS `www.puertosanantonio.com`,
+      `www.observatoriologistico.cl` y `mindicador.cl`, y el proxy de salida
+      rechazó la conexión con `connect_rejected`. O sea, la verificación del
+      paso 3 de `prompts/plan-semanal.md` quedó hecha solo con búsqueda web
+      (que sí lee la página y devuelve la cita), sin poder abrir ni el Banco
+      Central ni el INE ni mindicador.cl. Consecuencia concreta medida ese
+      día: hubo que reescribir cuatro piezas y cambiar el eje del largo porque
+      las cifras colgaban de medios que el revisor numérico no acepta, y la
+      serie de contenedores de las dos empresas portuarias quedó fuera de la
+      voz del largo (está en `contenido/semana/2026-11-26/verificacion.md`,
+      sección 6, "Lo que está verificado pero NO lo dice la voz"). Dueño:
+      Santiago, porque es la configuración de red del entorno de la nube y no
+      se cambia desde el repo. Lo mínimo que hay que permitir: `bcentral.cl`,
+      `ine.gob.cl`, `mindicador.cl`, `contraloria.cl`, `camara.cl`,
+      `senado.cl`, `puertosanantonio.com` y `puertovalparaiso.cl`.
+      Evidencia: `contenido/semana/2026-11-26/verificacion.md` líneas 7 a 28 y
+      `bitacora/semanal/2026-11-19.md`.
+
+- [ ] **19-11, el revisor numérico no acepta a las empresas portuarias del
+      Estado, y eso saca cifras verificadas del aire.** `OFICIAL` en
+      `video/scripts/verificar-cifras.mts` línea 45 no incluye
+      `puertosanantonio.com` ni `puertovalparaiso.cl`, que son empresas
+      portuarias del Estado y publican ellas mismas las series de
+      transferencia; tampoco `ex-ante.cl`, que el propio
+      `contenido/barrido/README.md` nombra como medio de investigación de
+      confianza junto a CIPER. El plan semanal del 19-11-2026 intentó
+      agregarlos y el clasificador de permisos lo bloqueó, con razón: es una
+      compuerta de calidad y no la amplía sola una rutina. Costo pagado ese
+      día: el largo del 02-12 dice "menos de la mitad de los contenedores de
+      su vecino" en vez de los 926.860 TEU de Valparaíso, que están
+      verificados. Dueño: Santiago aprueba o rechaza la ampliación de esa
+      lista; la sesión principal la aplica si la aprueba.
+
+
 - [ ] **16-11, HOY: el informe del 15-11-2026 sigue publicado en
       entender.sinodev.cl con los defectos de su única vuelta de corrección,
       que nunca se aplicó.** La cadena de esa madrugada quedó varada en

@@ -1326,3 +1326,33 @@ fechada ("6 de agosto de 1975…").
 **Medida:** "se queda" de los Shorts con mapa ≥ 55 % (Studio; hace falta el
 clic de OAuth del canal o leer Studio con su cuenta) e impresiones del largo a
 7 días ≥ 1.000. Se mira en la revisión del jueves 03-12 (compuerta).
+
+## 2026-11-19 - El Short de noticia va al conflicto abierto, nunca al cierre
+
+**Qué**: en todo Short de actualidad, el gancho dice **quién está enfrentado a
+quién y qué está en juego hoy**. Si la historia ya se resolvió, no se cuenta la
+resolución: se cuenta lo que quedó pendiente (la cuenta que alguien paga, el
+plazo que sigue corriendo, la decisión que falta). Se suma a la regla del
+09-11-2026 (el gancho nombra a la persona o institución) y no la reemplaza:
+ahora se piden las dos cosas, nombre y conflicto vivo.
+
+**Por qué**: la semana del 13 al 19-11-2026 dejó casi un experimento limpio
+sobre la misma historia, el paro de camioneros, con el mismo formato y la misma
+hora de publicación. "Camioneros siguen movilizados y el Gobierno anuncia
+fuerza" (14-11-2026) hizo **873 vistas a 72 h**; "Camioneros levantan el paro
+tras rebaja de precio del diésel" (13-11-2026) hizo **3 vistas a 72 h**. Lo
+único que cambia entre las dos piezas es el estado del conflicto. El tercer dato
+de la semana apunta igual: la crecida del 16-11-2026, hecho en curso con gente
+afectada, 695 vistas. Evidencia:
+`bitacora/metricas/2026-11-16.json`, `bitacora/metricas/2026-11-17.json` y
+`bitacora/metricas/2026-11-19.json`; cálculo en `bitacora/semanal/2026-11-19.md` §3.
+
+**Qué tan firme es**: son 3 piezas, así que esto no es una prueba estadística,
+es una regla de pauta barata de cumplir y con un caso de control inusualmente
+bueno (misma historia, días contiguos). Si en la revisión del 03-12-2026 los
+Shorts de conflicto abierto no están por sobre la mediana del resto, se vuelve a
+mirar. No se usa el "% visto" para esta comparación: con 3 vistas ese
+porcentaje mide ruido (104,9 % en el peor caso).
+
+**Decidió**: Claude, por el mandato del 04-11-2026, en la revisión semanal del
+19-11-2026.
