@@ -3,9 +3,18 @@
   "canal": {
     "suscriptores": 61,
     "vistas": 27725,
-    "videos": 234
+    "videos": 235
   },
   "videos": {
+    "WgmtB5GYv88": {
+      "titulo": "Lago Ranco pagó casi 17 veces el avalúo de un terreno",
+      "publicado": "2026-11-20",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 51
+    },
     "LhNqpfNJczk": {
       "titulo": "Valparaíso se llama el Puerto Principal y la pelea es por otro muelle",
       "publicado": "2026-11-19",
@@ -73,7 +82,7 @@
       "titulo": "El diésel subió 443 pesos por litro: por eso pararon los camioneros",
       "publicado": "2026-11-19",
       "estado": "public",
-      "vistas": 176,
+      "vistas": 177,
       "meGusta": 3,
       "comentarios": 0,
       "durSeg": 48
@@ -132,20 +141,11 @@
       "comentarios": 0,
       "durSeg": 46
     },
-    "WgmtB5GYv88": {
-      "titulo": "Lago Ranco pagó casi 17 veces el avalúo de un terreno",
-      "publicado": "2026-11-18",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 51
-    },
     "XD1nkL2B5Pc": {
       "titulo": "Personas con condenas seguían en funciones públicas, y otras 4 cosas de hoy #Shorts",
       "publicado": "2026-11-18",
       "estado": "public",
-      "vistas": 109,
+      "vistas": 108,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 40
@@ -343,7 +343,7 @@
       "titulo": "Río Maipo: tres mujeres mueren en una balsa con 13 ocupantes",
       "publicado": "2026-11-02",
       "estado": "public",
-      "vistas": 36,
+      "vistas": 37,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 249
@@ -1369,7 +1369,7 @@
       "titulo": "Muere un trabajador en Minera Escondida mientras hacía mantención #Shorts",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 485,
+      "vistas": 486,
       "meGusta": 3,
       "comentarios": 1,
       "durSeg": 42
