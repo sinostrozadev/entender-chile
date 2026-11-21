@@ -3,14 +3,23 @@
   "canal": {
     "suscriptores": 61,
     "vistas": 27848,
-    "videos": 235
+    "videos": 236
   },
   "videos": {
+    "MJYIoVRvkpc": {
+      "titulo": "En enero esperaban que Chile creciera 2,5 %. Hoy esperan 0 %",
+      "publicado": "2026-11-21",
+      "estado": "public",
+      "vistas": 4,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 46
+    },
     "WgmtB5GYv88": {
       "titulo": "Lago Ranco pagó casi 17 veces el avalúo de un terreno",
       "publicado": "2026-11-20",
       "estado": "public",
-      "vistas": 19,
+      "vistas": 20,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 51
@@ -131,15 +140,6 @@
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 50
-    },
-    "MJYIoVRvkpc": {
-      "titulo": "En enero esperaban que Chile creciera 2,5 %. Hoy esperan 0 %",
-      "publicado": "2026-11-18",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 46
     },
     "XD1nkL2B5Pc": {
       "titulo": "Personas con condenas seguían en funciones públicas, y otras 4 cosas de hoy #Shorts",
@@ -1090,7 +1090,7 @@
       "titulo": "¿Viene la primera caída del PIB en Chile desde la pandemia? #Shorts",
       "publicado": "2026-10-02",
       "estado": "public",
-      "vistas": 533,
+      "vistas": 534,
       "meGusta": 9,
       "comentarios": 4,
       "durSeg": 51
@@ -3647,7 +3647,7 @@
         "ctr": 0
       },
       "YrIUAlA4FAs": {
-        "impresiones": 36,
+        "impresiones": 37,
         "clics": 0,
         "ctr": 0
       },
@@ -3672,7 +3672,7 @@
         "ctr": 0
       },
       "ehAgHv6EYYs": {
-        "impresiones": 13,
+        "impresiones": 8,
         "clics": 0,
         "ctr": 0
       },
@@ -3727,7 +3727,7 @@
         "ctr": 0
       },
       "nvG_C4evsL8": {
-        "impresiones": 379,
+        "impresiones": 382,
         "clics": 1,
         "ctr": 0.26
       },
@@ -4042,7 +4042,7 @@
         "ctr": 0
       },
       "iJvu555lINQ": {
-        "impresiones": 21,
+        "impresiones": 22,
         "clics": 0,
         "ctr": 0
       },
