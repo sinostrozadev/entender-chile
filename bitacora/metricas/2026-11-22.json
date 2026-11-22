@@ -3,9 +3,18 @@
   "canal": {
     "suscriptores": 61,
     "vistas": 27857,
-    "videos": 236
+    "videos": 237
   },
   "videos": {
+    "IwyAnmCh7oI": {
+      "titulo": "La Cámara rechazó Interior y Educación: ¿se quedan sin plata?",
+      "publicado": "2026-11-22",
+      "estado": "public",
+      "vistas": 0,
+      "meGusta": 0,
+      "comentarios": 0,
+      "durSeg": 50
+    },
     "MJYIoVRvkpc": {
       "titulo": "En enero esperaban que Chile creciera 2,5 %. Hoy esperan 0 %",
       "publicado": "2026-11-21",
@@ -125,15 +134,6 @@
     },
     "8f54g69SpLI": {
       "titulo": "Congelar la bencina cuesta US$550 millones: ¿lo harías?",
-      "publicado": "2026-11-18",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 50
-    },
-    "IwyAnmCh7oI": {
-      "titulo": "La Cámara rechazó Interior y Educación: ¿se quedan sin plata?",
       "publicado": "2026-11-18",
       "estado": "private",
       "vistas": 0,
@@ -433,7 +433,7 @@
       "titulo": "Oposición prepara acusación constitucional contra Rabat por las rebajas de condena",
       "publicado": "2026-10-30",
       "estado": "public",
-      "vistas": 7,
+      "vistas": 8,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 232
@@ -802,7 +802,7 @@
       "titulo": "Autopista Central rebajará el TAG desde enero, y otras 4 cosas de hoy #Shorts",
       "publicado": "2026-10-13",
       "estado": "public",
-      "vistas": 300,
+      "vistas": 302,
       "meGusta": 5,
       "comentarios": 0,
       "durSeg": 44
