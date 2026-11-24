@@ -2,10 +2,19 @@
   "fecha": "2026-11-24",
   "canal": {
     "suscriptores": 61,
-    "vistas": 27922,
-    "videos": 238
+    "vistas": 27939,
+    "videos": 239
   },
   "videos": {
+    "PzaH_21YAq8": {
+      "titulo": "Desempleo: 11,8 % en Ñuble y 4,0 % en Aysén, en el mismo país",
+      "publicado": "2026-11-24",
+      "estado": "public",
+      "vistas": 96,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 53
+    },
     "8f54g69SpLI": {
       "titulo": "Congelar la bencina cuesta US$550 millones: ¿lo harías?",
       "publicado": "2026-11-23",
@@ -131,15 +140,6 @@
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 710
-    },
-    "PzaH_21YAq8": {
-      "titulo": "Desempleo: 11,8 % en Ñuble y 4,0 % en Aysén, en el mismo país",
-      "publicado": "2026-11-18",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 53
     },
     "XD1nkL2B5Pc": {
       "titulo": "Personas con condenas seguían en funciones públicas, y otras 4 cosas de hoy #Shorts",
@@ -2355,7 +2355,7 @@
       "pct": 55.8
     },
     "7lV_qn0ojp8": {
-      "vistas": 38,
+      "vistas": 39,
       "minutos": 29,
       "segProm": 98,
       "pct": 39.6
@@ -2409,10 +2409,10 @@
       "pct": 70.4
     },
     "WgmtB5GYv88": {
-      "vistas": 22,
+      "vistas": 24,
       "minutos": 10,
-      "segProm": 54,
-      "pct": 106.9
+      "segProm": 51,
+      "pct": 101.8
     },
     "FI_7V_pOlwQ": {
       "vistas": 3,
@@ -2421,10 +2421,16 @@
       "pct": 82.5
     },
     "SzvOA3sxa04": {
-      "vistas": 3,
+      "vistas": 4,
       "minutos": 8,
-      "segProm": 171,
-      "pct": 24.8
+      "segProm": 133,
+      "pct": 19.3
+    },
+    "MJYIoVRvkpc": {
+      "vistas": 24,
+      "minutos": 8,
+      "segProm": 51,
+      "pct": 111.2
     },
     "8r33QiylLD4": {
       "vistas": 48,
@@ -2552,12 +2558,6 @@
       "segProm": 31,
       "pct": 75.9
     },
-    "MJYIoVRvkpc": {
-      "vistas": 10,
-      "minutos": 2,
-      "segProm": 26,
-      "pct": 56.6
-    },
     "4rbR0MXU5eU": {
       "vistas": 8,
       "minutos": 2,
@@ -2612,17 +2612,17 @@
       "segProm": 76,
       "pct": 24.6
     },
+    "YN6hhtlles4": {
+      "vistas": 8,
+      "minutos": 1,
+      "segProm": 15,
+      "pct": 6.7
+    },
     "ZTZdBZ88YmM": {
       "vistas": 6,
       "minutos": 0,
       "segProm": 18,
       "pct": 40.9
-    },
-    "YN6hhtlles4": {
-      "vistas": 7,
-      "minutos": 0,
-      "segProm": 15,
-      "pct": 6.7
     },
     "CwM4pI30Wg4": {
       "vistas": 4,
@@ -2690,6 +2690,12 @@
       "segProm": 13,
       "pct": 3.8
     },
+    "LiJfJjb0qjg": {
+      "vistas": 8,
+      "minutos": 0,
+      "segProm": 5,
+      "pct": 11.6
+    },
     "VqkqyzQp8Ec": {
       "vistas": 1,
       "minutos": 0,
@@ -2702,12 +2708,6 @@
       "segProm": 11,
       "pct": 5.3
     },
-    "LiJfJjb0qjg": {
-      "vistas": 6,
-      "minutos": 0,
-      "segProm": 5,
-      "pct": 11.6
-    },
     "VFaoYS4Q_G0": {
       "vistas": 2,
       "minutos": 0,
@@ -2719,6 +2719,12 @@
       "minutos": 0,
       "segProm": 0,
       "pct": 0
+    },
+    "TeKnIIGAMUw": {
+      "vistas": 2,
+      "minutos": 0,
+      "segProm": 5,
+      "pct": 0.8
     },
     "1O2sYbmslnA": {
       "vistas": 2,
@@ -2822,6 +2828,12 @@
       "segProm": 0,
       "pct": 0
     },
+    "4UCpBZmp5sc": {
+      "vistas": 1,
+      "minutos": 0,
+      "segProm": 0,
+      "pct": 0
+    },
     "oZ-gCKULOO0": {
       "vistas": 2,
       "minutos": 0,
@@ -2830,12 +2842,6 @@
     },
     "i0_MPdpnh48": {
       "vistas": 2,
-      "minutos": 0,
-      "segProm": 0,
-      "pct": 0
-    },
-    "TeKnIIGAMUw": {
-      "vistas": 1,
       "minutos": 0,
       "segProm": 0,
       "pct": 0
@@ -2924,6 +2930,12 @@
       "segProm": 0,
       "pct": 0
     },
+    "IwyAnmCh7oI": {
+      "vistas": 0,
+      "minutos": 0,
+      "segProm": 0,
+      "pct": 0
+    },
     "pP-MNExXLpg": {
       "vistas": 1,
       "minutos": 0,
@@ -2940,12 +2952,12 @@
   "fuentes": {
     "canal": {
       "SHORTS": {
-        "vistas": 5934,
-        "minutos": 1471
+        "vistas": 5942,
+        "minutos": 1476
       },
       "YT_SEARCH": {
-        "vistas": 420,
-        "minutos": 97
+        "vistas": 432,
+        "minutos": 99
       },
       "RELATED_VIDEO": {
         "vistas": 86,
@@ -2956,11 +2968,11 @@
         "minutos": 60
       },
       "YT_CHANNEL": {
-        "vistas": 48,
+        "vistas": 50,
         "minutos": 42
       },
       "YT_OTHER_PAGE": {
-        "vistas": 47,
+        "vistas": 48,
         "minutos": 25
       },
       "EXT_URL": {
@@ -3234,7 +3246,7 @@
       },
       "7lV_qn0ojp8": {
         "fuentes": {
-          "YT_SEARCH": 21,
+          "YT_SEARCH": 22,
           "RELATED_VIDEO": 16,
           "YT_CHANNEL": 1,
           "NO_LINK_OTHER": 0
