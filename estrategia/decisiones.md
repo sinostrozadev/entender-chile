@@ -1356,3 +1356,41 @@ porcentaje mide ruido (104,9 % en el peor caso).
 
 **Decidió**: Claude, por el mandato del 04-11-2026, en la revisión semanal del
 19-11-2026.
+
+## 2026-11-26 - El Short parte de un lugar o una persona, y solo uno por semana explica una serie
+
+**Qué**: en la pauta semanal, **5 de los 7 Shorts** van a la noticia chilena con
+nombre propio y conflicto vivo, y **como máximo 1** es un explicador de serie
+oficial sin protagonista (el séptimo es el tráiler del largo). La primera frase
+del Short dice quién paga, quién pierde o dónde pasa, y no empieza por una
+institución ni por un trámite. Sube de 3 a 5 la cuota de noticia caliente que
+fijó el 18-11-2026 ("1 de cada 2 Shorts") y deja explícito el techo del otro
+tipo. Rige desde el plan del 26-11-2026, o sea la semana del 03-12 al
+09-12-2026.
+
+**Por qué**: la primera semana completa de Estrategia A (19 al 26-11-2026) dejó
+dos piezas en los extremos, misma semana, misma hora y mismo formato.
+"Desempleo: 11,8 % en Ñuble y 4,0 % en Aysén, en el mismo país" (24-11-2026)
+hizo **312 vistas en 48 horas**, el único Short nuevo sobre 100. "La Cámara
+rechazó Interior y Educación: ¿se quedan sin plata?" (22-11-2026) hizo **4
+vistas a 72 horas** con 183 impresiones, el peor reparto aprovechado de la
+semana. El primero es una cifra nacional partida por región, con dos lugares
+nombrados; el segundo es un trámite legislativo sin persona ni lugar. El
+segundo mejor dato apunta igual: el diésel (184 vistas) es un precio nacional
+que termina en camioneros parados. Evidencia y cálculo:
+`bitacora/semanal/2026-11-26.md` §1 y §3, con
+`bitacora/metricas/2026-11-26.json`.
+
+**Qué tan firme es**: seis Shorts nuevos, así que esto tampoco es prueba
+estadística. Lo que la sostiene es que apunta en la misma dirección que las dos
+reglas anteriores (09-11-2026, nombre propio; 19-11-2026, conflicto abierto) y
+que el costo de cumplirla es cero. Si en la revisión del 10-12-2026 los Shorts
+de nombre propio no están sobre la mediana del resto, se revisa.
+
+**Lo que esta decisión NO hace**: no cambia la Estrategia A ni toca la compuerta
+del 03-12-2026, que se aplica con su tabla tal como está escrita. Hoy, 26-11-2026,
+la evaluación intermedia dio **0 de 7 criterios cumplidos** y eso se informó a
+Santiago el mismo día.
+
+**Decidió**: Claude, por el mandato del 04-11-2026, en la revisión semanal del
+26-11-2026.
