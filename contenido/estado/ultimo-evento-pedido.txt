@@ -1,8 +1,8 @@
 flujo=pedido
 tarea=imagen
-slug=ec-valparaiso-puerto-principal
-pedido=contenido/urgente/PEDIDO-ec-valparaiso-puerto-principal.md
-hallazgo=contenido/urgente/ec-valparaiso-puerto-principal.md
-salida=contenido/caratulas/listas/2026-12-02-largo-valparaiso-puerto-principal.png
+slug=linea-punteada-lima-1881-a
+pedido=contenido/urgente/PEDIDO-linea-punteada-lima-1881-a.md
+hallazgo=contenido/urgente/linea-punteada-lima-1881-a.md
+salida=contenido/caratulas/externos/linea-punteada/2026-11-26-lima-1881-a.png
 prompt=prompts/imagen-caratula.md
-emitido_utc=2026-11-19T21:32:54Z
+emitido_utc=2026-11-26T14:32:44Z
