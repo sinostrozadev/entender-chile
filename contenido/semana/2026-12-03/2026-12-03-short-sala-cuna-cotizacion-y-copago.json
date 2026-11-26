@@ -1,0 +1,214 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-12-03-short-sala-cuna-cotizacion-y-copago",
+  "titulo": "Sala cuna universal: el 0,30 % lo paga el empleador, el copago no",
+  "descripcion": "¿Quién paga la sala cuna universal que acaba de aprobar el Congreso?\nEl Senado despachó la ley el 25-11-2026. Se financia con una cotización de 0,30 % de las remuneraciones imponibles, a cargo del empleador, rebajada desde el 0,35 % que pedía el Ejecutivo, y se compensa con una menor cotización al seguro de cesantía para no subir el costo laboral.\nDesaparece el requisito de que la empresa tenga veinte o más trabajadoras para estar obligada al beneficio, que apunta a los hijos menores de dos años de los trabajadores. Si el aporte del fondo no cubre el costo del jardín, la familia paga la diferencia, con un suplemento del Estado para los hogares de menores ingresos: el Gobierno se comprometió a presentar otra ley para ponerle tope a ese copago.\nFuentes:\nBioBioChile, despacho de la ley (25-11-2026): https://www.biobiochile.cl/noticias/nacional/chile/2026/11/25/senado-despacha-a-ley-la-sala-cuna-universal-tras-cuatro-anos-de-debate-en-el-congreso.shtml\nDiario Financiero, financiamiento (25-11-2026): https://www.df.cl/economia-y-politica/laboral-personas/sala-cuna-universal-las-claves-de-la-reforma-que-cambia-el-acceso-y\nPauta, quiénes acceden y cuándo (26-11-2026): https://www.pauta.cl/actualidad/2026/11/26/sala-cuna-universal-es-despachada-a-ley-quienes-podran-acceder-como-se-financiara-y-cuando-comenzara-a-funcionar.html\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#salacuna",
+    "#congreso",
+    "#chile"
+  ],
+  "publicar": "2026-12-03T12:00",
+  "props": {
+    "gancho": {
+      "texto": "El Congreso aprobó una cotización de 0,30 % de las remuneraciones imponibles, que pagan los empleadores, para financiar la sala cuna de los menores de dos años.",
+      "rotulo": "0,30 % LO PAGA LA EMPRESA",
+      "cifras": [
+        {
+          "texto": "un 0,30 %",
+          "valor": 0.3,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "sala-cuna-cotizacion-2026",
+              "paises": [
+                "APROBADO",
+                "PROPUESTO"
+              ],
+              "valores": {
+                "APROBADO": [
+                  [
+                    2026,
+                    0.3
+                  ]
+                ],
+                "PROPUESTO": [
+                  [
+                    2026,
+                    0.35
+                  ]
+                ]
+              },
+              "nombres": {
+                "APROBADO": "Aprobado",
+                "PROPUESTO": "Propuesta inicial"
+              },
+              "fuenteTexto": "Diario Financiero, claves de la reforma (25-11-2026)",
+              "fuenteUrl": "https://www.df.cl/economia-y-politica/laboral-personas/sala-cuna-universal-las-claves-de-la-reforma-que-cambia-el-acceso-y",
+              "etiqueta": "Cotización al Fondo de Sala Cuna",
+              "unidad": "% del sueldo"
+            },
+            "operacion": "valor",
+            "pais": "APROBADO",
+            "anio": 2026
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-VS"
+      ],
+      "titulo": "Congreso Nacional",
+      "puntos": [
+        {
+          "texto": "Valparaíso",
+          "en": [
+            -71.6256,
+            -33.0472
+          ],
+          "dice": "Congreso"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "comparacion",
+      "titulo": "Cuánto se cobra para la sala cuna",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "sala-cuna-cotizacion-2026",
+        "paises": [
+          "APROBADO",
+          "PROPUESTO"
+        ],
+        "valores": {
+          "APROBADO": [
+            [
+              2026,
+              0.3
+            ]
+          ],
+          "PROPUESTO": [
+            [
+              2026,
+              0.35
+            ]
+          ]
+        },
+        "nombres": {
+          "APROBADO": "Aprobado",
+          "PROPUESTO": "Propuesta inicial"
+        },
+        "fuenteTexto": "Diario Financiero, claves de la reforma (25-11-2026)",
+        "fuenteUrl": "https://www.df.cl/economia-y-politica/laboral-personas/sala-cuna-universal-las-claves-de-la-reforma-que-cambia-el-acceso-y",
+        "etiqueta": "Cotización al Fondo de Sala Cuna",
+        "unidad": "% del sueldo"
+      },
+      "destacar": {
+        "pais": "APROBADO"
+      },
+      "formato": {
+        "decimales": 2,
+        "sufijo": " %"
+      }
+    },
+    "escenas": [
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según el Diario Financiero, el Ejecutivo pedía 0,35 % y la tramitación lo bajó. Para que no suba el costo laboral, esa cotización se descuenta de la del seguro de cesantía.",
+        "cifras": [
+          {
+            "texto": "0,35 %",
+            "valor": 0.35,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "sala-cuna-cotizacion-2026",
+                "paises": [
+                  "APROBADO",
+                  "PROPUESTO"
+                ],
+                "valores": {
+                  "APROBADO": [
+                    [
+                      2026,
+                      0.3
+                    ]
+                  ],
+                  "PROPUESTO": [
+                    [
+                      2026,
+                      0.35
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "APROBADO": "Aprobado",
+                  "PROPUESTO": "Propuesta inicial"
+                },
+                "fuenteTexto": "Diario Financiero, claves de la reforma (25-11-2026)",
+                "fuenteUrl": "https://www.df.cl/economia-y-politica/laboral-personas/sala-cuna-universal-las-claves-de-la-reforma-que-cambia-el-acceso-y",
+                "etiqueta": "Cotización al Fondo de Sala Cuna",
+                "unidad": "% del sueldo"
+              },
+              "operacion": "valor",
+              "pais": "PROPUESTO",
+              "anio": 2026
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "planteamiento",
+        "texto": "Lo que cambia de fondo es quién tiene derecho: hasta ahora la obligación caía solo en las empresas con veinte o más trabajadoras, y ese requisito desaparece.",
+        "visual": {
+          "tipo": "iconos",
+          "titulo": "Qué cambia el fondo",
+          "items": [
+            {
+              "icono": "🏢",
+              "texto": "Regla de 20 trabajadoras",
+              "marca": "no",
+              "dice": "empresas"
+            },
+            {
+              "icono": "👶",
+              "texto": "Fondo para todos",
+              "marca": "si",
+              "dice": "fondo"
+            }
+          ]
+        }
+      },
+      {
+        "tipo": "giro",
+        "texto": "Queda un cabo sin amarrar: si el aporte del fondo no cubre el jardín, la diferencia la paga la familia, con un suplemento del Estado para los hogares de menores ingresos. El Gobierno prometió otra ley que le ponga tope.",
+        "rotulo": {
+          "texto": "LO PAGA LA FAMILIA",
+          "dice": "familia"
+        }
+      }
+    ],
+    "remate": "La ley ya está. El precio que va a pagar cada familia, todavía no.",
+    "fuentes": [
+      {
+        "texto": "BioBioChile, despacho de la ley (25-11-2026)",
+        "url": "https://www.biobiochile.cl/noticias/nacional/chile/2026/11/25/senado-despacha-a-ley-la-sala-cuna-universal-tras-cuatro-anos-de-debate-en-el-congreso.shtml"
+      },
+      {
+        "texto": "Diario Financiero, claves del financiamiento (25-11-2026)",
+        "url": "https://www.df.cl/economia-y-politica/laboral-personas/sala-cuna-universal-las-claves-de-la-reforma-que-cambia-el-acceso-y"
+      },
+      {
+        "texto": "Pauta, quiénes acceden y cuándo (26-11-2026)",
+        "url": "https://www.pauta.cl/actualidad/2026/11/26/sala-cuna-universal-es-despachada-a-ley-quienes-podran-acceder-como-se-financiara-y-cuando-comenzara-a-funcionar.html"
+      }
+    ],
+    "id": "2026-12-03-short-sala-cuna-cotizacion-y-copago"
+  }
+}

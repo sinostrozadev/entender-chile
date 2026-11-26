@@ -1,0 +1,258 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-12-07-short-pirata-gate-coquimbo-632-millones",
+  "titulo": "Coquimbo: 632 millones y 11 detenidos en el Pirata Gate",
+  "descripcion": "¿Qué investiga la Fiscalía en la Municipalidad de Coquimbo?\nLa PDI calcula un perjuicio fiscal de al menos 632 millones de pesos por contrataciones y pagos irregulares entre 2019 y 2021. El 24-11-2026 fueron detenidas 11 personas, entre ellas el exalcalde Marcelo Pereira, que encabezó el municipio entre 2016 y 2021. La Fiscalía investiga fraude al fisco, asociación criminal, lavado de activos, enriquecimiento ilícito y negociación incompatible.\nEn la formalización del 26-11-2026 la Fiscalía pidió prisión preventiva para el exalcalde y cuestionó 57,2 millones sin origen acreditado y un retiro de 230 millones en dos días. Ese día el tribunal decretó cautelares para ocho de los once imputados y fijó seis meses de investigación, con la situación del exalcalde aún sin resolver. Hay dos querellas, del Consejo de Defensa del Estado y del municipio actual. Todo lo anterior es lo que acusa la Fiscalía: nadie está condenado y la defensa del exalcalde no había hecho declaraciones públicas al cierre de este guion, el 26-11-2026.\nFuentes:\nLa Tercera, perjuicio y detenciones (25-11-2026): https://www.latercera.com/nacional/noticia/pirata-gate-pdi-detiene-a-exalcalde-de-coquimbo-y-vocalista-de-los-vikings-5-por-millonario-fraude-al-fisco/\nEmol, los once detenidos (25-11-2026): https://www.emol.com/noticias/Nacional/2026/11/25/1218140/corrupcion-coquimbo-delitos-detenidos.html\nBioBioChile, prisión preventiva pedida (26-11-2026): https://www.biobiochile.cl/noticias/nacional/region-de-coquimbo/2026/11/26/caso-pirata-gate-exalcalde-habria-retirado-230-millones-y-fiscalia-pide-prision-preventiva.shtml\nBioBioChile, cautelares y plazo (26-11-2026): https://www.biobiochile.cl/noticias/nacional/region-de-coquimbo/2026/11/26/pirata-gate-prision-preventiva-para-dos-imputados-y-arresto-nocturno-para-vocalista-de-los-vikings-5.shtml\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#coquimbo",
+    "#piratagate",
+    "#chile"
+  ],
+  "publicar": "2026-12-07T12:00",
+  "props": {
+    "gancho": {
+      "texto": "La PDI calcula un perjuicio de al menos 632 millones de pesos en la Municipalidad de Coquimbo.",
+      "rotulo": "632 MILLONES",
+      "cifras": [
+        {
+          "texto": "632 millones de pesos",
+          "valor": 632,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "pirata-gate-perjuicio-2026",
+              "paises": [
+                "PERJUICIO"
+              ],
+              "valores": {
+                "PERJUICIO": [
+                  [
+                    2026,
+                    632
+                  ]
+                ]
+              },
+              "nombres": {
+                "PERJUICIO": "Perjuicio que calcula la PDI"
+              },
+              "fuenteTexto": "La Tercera, detenciones del caso (25-11-2026)",
+              "fuenteUrl": "https://www.latercera.com/nacional/noticia/pirata-gate-pdi-detiene-a-exalcalde-de-coquimbo-y-vocalista-de-los-vikings-5-por-millonario-fraude-al-fisco/",
+              "etiqueta": "Perjuicio fiscal investigado en el municipio de Coquimbo",
+              "unidad": "millones de pesos"
+            },
+            "operacion": "valor",
+            "pais": "PERJUICIO",
+            "anio": 2026
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-CO"
+      ],
+      "titulo": "Municipalidad de Coquimbo",
+      "puntos": [
+        {
+          "texto": "Coquimbo",
+          "en": [
+            -71.34,
+            -29.95
+          ],
+          "dice": "Coquimbo"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "contador",
+      "titulo": "El perjuicio que calcula la PDI",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "pirata-gate-perjuicio-2026",
+        "paises": [
+          "PERJUICIO"
+        ],
+        "valores": {
+          "PERJUICIO": [
+            [
+              2026,
+              632
+            ]
+          ]
+        },
+        "nombres": {
+          "PERJUICIO": "Perjuicio que calcula la PDI"
+        },
+        "fuenteTexto": "La Tercera, detenciones del caso (25-11-2026)",
+        "fuenteUrl": "https://www.latercera.com/nacional/noticia/pirata-gate-pdi-detiene-a-exalcalde-de-coquimbo-y-vocalista-de-los-vikings-5-por-millonario-fraude-al-fisco/",
+        "etiqueta": "Perjuicio fiscal investigado en el municipio de Coquimbo",
+        "unidad": "millones de pesos"
+      },
+      "destacar": {
+        "pais": "PERJUICIO"
+      },
+      "formato": {
+        "decimales": 0
+      }
+    },
+    "escenas": [
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según La Tercera, la investigación apunta a contrataciones y pagos irregulares. El 24 de noviembre de 2026 fueron detenidas 11 personas, entre ellas el exalcalde Marcelo Pereira.",
+        "cifras": [
+          {
+            "texto": "632 millones",
+            "valor": 632,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pirata-gate-perjuicio-2026",
+                "paises": [
+                  "PERJUICIO"
+                ],
+                "valores": {
+                  "PERJUICIO": [
+                    [
+                      2026,
+                      632
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "PERJUICIO": "Perjuicio que calcula la PDI"
+                },
+                "fuenteTexto": "La Tercera, detenciones del caso (25-11-2026)",
+                "fuenteUrl": "https://www.latercera.com/nacional/noticia/pirata-gate-pdi-detiene-a-exalcalde-de-coquimbo-y-vocalista-de-los-vikings-5-por-millonario-fraude-al-fisco/",
+                "etiqueta": "Perjuicio fiscal investigado en el municipio de Coquimbo",
+                "unidad": "millones de pesos"
+              },
+              "operacion": "valor",
+              "pais": "PERJUICIO",
+              "anio": 2026
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "texto": "En la formalización del 26 de noviembre la Fiscalía pidió prisión preventiva para el exalcalde: cuestiona 57,2 millones sin origen acreditado y un retiro de 230 millones en dos días.",
+        "cifras": [
+          {
+            "texto": "57,2 millones",
+            "valor": 57.2,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pirata-gate-fiscalia-2026",
+                "paises": [
+                  "SIN-ORIGEN",
+                  "RETIRO"
+                ],
+                "valores": {
+                  "SIN-ORIGEN": [
+                    [
+                      2026,
+                      57.2
+                    ]
+                  ],
+                  "RETIRO": [
+                    [
+                      2026,
+                      230
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "SIN-ORIGEN": "Sin origen acreditado",
+                  "RETIRO": "Retiro en dos días"
+                },
+                "fuenteTexto": "BioBioChile, petición de prisión preventiva (26-11-2026)",
+                "fuenteUrl": "https://www.biobiochile.cl/noticias/nacional/region-de-coquimbo/2026/11/26/caso-pirata-gate-exalcalde-habria-retirado-230-millones-y-fiscalia-pide-prision-preventiva.shtml",
+                "etiqueta": "Montos que cuestiona la Fiscalía",
+                "unidad": "millones de pesos"
+              },
+              "operacion": "valor",
+              "pais": "SIN-ORIGEN",
+              "anio": 2026
+            },
+            "tolerancia": 0.01
+          },
+          {
+            "texto": "230 millones",
+            "valor": 230,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pirata-gate-fiscalia-2026",
+                "paises": [
+                  "SIN-ORIGEN",
+                  "RETIRO"
+                ],
+                "valores": {
+                  "SIN-ORIGEN": [
+                    [
+                      2026,
+                      57.2
+                    ]
+                  ],
+                  "RETIRO": [
+                    [
+                      2026,
+                      230
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "SIN-ORIGEN": "Sin origen acreditado",
+                  "RETIRO": "Retiro en dos días"
+                },
+                "fuenteTexto": "BioBioChile, petición de prisión preventiva (26-11-2026)",
+                "fuenteUrl": "https://www.biobiochile.cl/noticias/nacional/region-de-coquimbo/2026/11/26/caso-pirata-gate-exalcalde-habria-retirado-230-millones-y-fiscalia-pide-prision-preventiva.shtml",
+                "etiqueta": "Montos que cuestiona la Fiscalía",
+                "unidad": "millones de pesos"
+              },
+              "operacion": "valor",
+              "pais": "RETIRO",
+              "anio": 2026
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "giro",
+        "texto": "Ese mismo día el tribunal decretó cautelares para ocho de los once imputados y fijó seis meses de investigación, con la situación del exalcalde sin resolver. Esto es lo que acusa la Fiscalía: nadie está condenado.",
+        "rotulo": {
+          "texto": "SEIS MESES",
+          "dice": "plazo"
+        }
+      }
+    ],
+    "remate": "El cálculo son 632 millones. Quién responde por ellos se define en seis meses.",
+    "fuentes": [
+      {
+        "texto": "La Tercera, perjuicio y detenciones (25-11-2026)",
+        "url": "https://www.latercera.com/nacional/noticia/pirata-gate-pdi-detiene-a-exalcalde-de-coquimbo-y-vocalista-de-los-vikings-5-por-millonario-fraude-al-fisco/"
+      },
+      {
+        "texto": "Emol, los once detenidos (25-11-2026)",
+        "url": "https://www.emol.com/noticias/Nacional/2026/11/25/1218140/corrupcion-coquimbo-delitos-detenidos.html"
+      },
+      {
+        "texto": "BioBioChile, petición de prisión preventiva (26-11-2026)",
+        "url": "https://www.biobiochile.cl/noticias/nacional/region-de-coquimbo/2026/11/26/caso-pirata-gate-exalcalde-habria-retirado-230-millones-y-fiscalia-pide-prision-preventiva.shtml"
+      },
+      {
+        "texto": "BioBioChile, cautelares y plazo de investigación (26-11-2026)",
+        "url": "https://www.biobiochile.cl/noticias/nacional/region-de-coquimbo/2026/11/26/pirata-gate-prision-preventiva-para-dos-imputados-y-arresto-nocturno-para-vocalista-de-los-vikings-5.shtml"
+      }
+    ],
+    "id": "2026-12-07-short-pirata-gate-coquimbo-632-millones"
+  }
+}

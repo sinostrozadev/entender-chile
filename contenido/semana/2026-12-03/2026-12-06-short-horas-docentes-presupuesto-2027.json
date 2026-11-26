@@ -1,0 +1,207 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-12-06-short-horas-docentes-presupuesto-2027",
+  "titulo": "Presupuesto 2027: vuelven 40 mil horas docentes, ¿y las 43 mil?",
+  "descripcion": "¿Qué pasó con las horas de los profesores en el Presupuesto 2027?\nEl acuerdo de la comisión mixta, aprobado por la Sala de la Cámara el 25-11-2026, repone hasta 40 mil horas docentes para los servicios locales de educación pública y asegura cupos y fondos de la bonificación por retiro voluntario para cubrir las otras 43 mil.\nLas dos cifras suman las 83 mil horas del ajuste de dotación que traía el proyecto. El Colegio de Profesores tradujo ese ajuste a casi 2 mil profesores y llamó a paro nacional el 24-11-2026: esa conversión a personas es del gremio, no del Ministerio de Educación.\nFuentes:\nCámara de Diputados, acuerdo de comisión mixta (25-11-2026): https://www.camara.cl/cms/2026/11/25/camara-supera-ultimos-nudos-del-presupuesto-2027/\nPauta, paro y estimación del gremio (24-11-2026): https://www.pauta.cl/actualidad/2026/11/24/profesores-marchan-contra-recortes-en-educacion-y-advierten-posibles-despidos-y-fusion-de-cursos.html\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#presupuesto2027",
+    "#profesores",
+    "#chile"
+  ],
+  "publicar": "2026-12-06T12:00",
+  "props": {
+    "gancho": {
+      "texto": "La comisión mixta del Presupuesto 2027 repuso hasta 40 mil horas docentes para los servicios locales de educación, y dejó otras 43 mil al retiro voluntario.",
+      "rotulo": "40 MIL HORAS",
+      "cifras": [
+        {
+          "texto": "40 mil horas docentes",
+          "valor": 40000,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "horas-docentes-ppto-2027",
+              "paises": [
+                "REPUESTAS",
+                "RETIRO"
+              ],
+              "valores": {
+                "REPUESTAS": [
+                  [
+                    2027,
+                    40000
+                  ]
+                ],
+                "RETIRO": [
+                  [
+                    2027,
+                    43000
+                  ]
+                ]
+              },
+              "nombres": {
+                "REPUESTAS": "Repuestas al presupuesto",
+                "RETIRO": "Cubiertas con retiro"
+              },
+              "fuenteTexto": "Cámara de Diputados, acuerdo de comisión mixta (25-11-2026)",
+              "fuenteUrl": "https://www.camara.cl/cms/2026/11/25/camara-supera-ultimos-nudos-del-presupuesto-2027/",
+              "etiqueta": "Horas docentes de los servicios locales de educación",
+              "unidad": "horas"
+            },
+            "operacion": "valor",
+            "pais": "REPUESTAS",
+            "anio": 2027
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-RM"
+      ],
+      "titulo": "Ministerio de Educación",
+      "puntos": [
+        {
+          "texto": "Santiago",
+          "en": [
+            -70.6483,
+            -33.4425
+          ],
+          "dice": "educación"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "comparacion",
+      "titulo": "Las horas docentes del Presupuesto 2027",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "horas-docentes-ppto-2027",
+        "paises": [
+          "REPUESTAS",
+          "RETIRO"
+        ],
+        "valores": {
+          "REPUESTAS": [
+            [
+              2027,
+              40000
+            ]
+          ],
+          "RETIRO": [
+            [
+              2027,
+              43000
+            ]
+          ]
+        },
+        "nombres": {
+          "REPUESTAS": "Repuestas al presupuesto",
+          "RETIRO": "Cubiertas con retiro"
+        },
+        "fuenteTexto": "Cámara de Diputados, acuerdo de comisión mixta (25-11-2026)",
+        "fuenteUrl": "https://www.camara.cl/cms/2026/11/25/camara-supera-ultimos-nudos-del-presupuesto-2027/",
+        "etiqueta": "Horas docentes de los servicios locales de educación",
+        "unidad": "horas"
+      },
+      "destacar": {
+        "pais": "REPUESTAS"
+      },
+      "formato": {
+        "decimales": 0
+      }
+    },
+    "escenas": [
+      {
+        "tipo": "planteamiento",
+        "texto": "Las horas docentes son horas de contrato: cuando un servicio local pierde horas, lo que se ajusta son los profesores.",
+        "visual": {
+          "tipo": "iconos",
+          "titulo": "Qué es una hora docente",
+          "items": [
+            {
+              "icono": "🕐",
+              "texto": "Hora de contrato",
+              "dice": "contrato"
+            },
+            {
+              "icono": "🧑‍🏫",
+              "texto": "Profesor con dotación",
+              "dice": "profesores"
+            }
+          ]
+        }
+      },
+      {
+        "tipo": "giro",
+        "texto": "Las dos cifras suman 83 mil horas: el ajuste de dotación completo que traía el proyecto. El Colegio de Profesores lo tradujo a casi 2 mil profesores y llamó a paro el 24 de noviembre de 2026. Esa conversión a personas es del gremio, no del Ministerio.",
+        "rotulo": {
+          "texto": "83 MIL EN TOTAL",
+          "dice": "suman"
+        }
+      },
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según la Cámara de Diputados, el acuerdo asegura además cupos y fondos del retiro voluntario para cubrir las 43 mil horas que faltan.",
+        "cifras": [
+          {
+            "texto": "43 mil horas",
+            "valor": 43000,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "horas-docentes-ppto-2027",
+                "paises": [
+                  "REPUESTAS",
+                  "RETIRO"
+                ],
+                "valores": {
+                  "REPUESTAS": [
+                    [
+                      2027,
+                      40000
+                    ]
+                  ],
+                  "RETIRO": [
+                    [
+                      2027,
+                      43000
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "REPUESTAS": "Repuestas al presupuesto",
+                  "RETIRO": "Cubiertas con retiro"
+                },
+                "fuenteTexto": "Cámara de Diputados, acuerdo de comisión mixta (25-11-2026)",
+                "fuenteUrl": "https://www.camara.cl/cms/2026/11/25/camara-supera-ultimos-nudos-del-presupuesto-2027/",
+                "etiqueta": "Horas docentes de los servicios locales de educación",
+                "unidad": "horas"
+              },
+              "operacion": "valor",
+              "pais": "RETIRO",
+              "anio": 2027
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      }
+    ],
+    "remate": "Las horas volvieron al presupuesto. Quién se queda con ellas se decide en 2027.",
+    "fuentes": [
+      {
+        "texto": "Cámara de Diputados, acuerdo de comisión mixta (25-11-2026)",
+        "url": "https://www.camara.cl/cms/2026/11/25/camara-supera-ultimos-nudos-del-presupuesto-2027/"
+      },
+      {
+        "texto": "Pauta, paro y estimación del gremio (24-11-2026)",
+        "url": "https://www.pauta.cl/actualidad/2026/11/24/profesores-marchan-contra-recortes-en-educacion-y-advierten-posibles-despidos-y-fusion-de-cursos.html"
+      }
+    ],
+    "id": "2026-12-06-short-horas-docentes-presupuesto-2027"
+  }
+}

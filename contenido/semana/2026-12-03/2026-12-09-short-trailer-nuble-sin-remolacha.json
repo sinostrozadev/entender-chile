@@ -1,0 +1,197 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-12-09-short-trailer-nuble-sin-remolacha",
+  "titulo": "Iansa cierra 73 años de azúcar de remolacha chilena",
+  "descripcion": "¿Por qué Chile deja de hacer azúcar con remolacha propia?\nEl 25-11-2026 el directorio de Empresas Iansa acordó descontinuar la producción de azúcar de remolacha, el negocio con el que la empresa nació hace 73 años. La planta de Linares cerró en 2018 y la de Los Ángeles en 2020; la de San Carlos, en Ñuble, seguirá funcionando, pero refinando azúcar cruda importada.\nVideo completo hoy a las 19:00: qué pasó con las hectáreas sembradas, con los cerca de 240 agricultores que quedaron sin comprador y con las plantas que se apagaron una por una.\nFuentes:\nEmol, cierre del negocio de remolacha (25-11-2026): https://www.emol.com/noticias/Economia/2026/11/25/1218188/inansa-dejara-producir-azucar-remolacha.html\nLa Tercera, impacto en los resultados (25-11-2026): https://www.latercera.com/pulso/noticia/empresas-iansa-cierra-su-produccion-de-azucar-de-remolacha-y-preve-impacto-negativo-por-casi-us38-millones/\nCooperativa, la planta de San Carlos (25-11-2026): https://www.cooperativa.cl/noticias/economia/sectores-productivos/agricultura/iansa-anuncio-el-fin-de-su-produccion-de-azucar-de-remolacha/2026-11-25/234513.html\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#iansa",
+    "#nuble",
+    "#chile"
+  ],
+  "publicar": "2026-12-09T12:00",
+  "props": {
+    "gancho": {
+      "texto": "Iansa cerró el negocio con el que nació hace 73 años: hacer azúcar con remolacha chilena.",
+      "rotulo": "73 AÑOS",
+      "cifras": [
+        {
+          "texto": "73 años",
+          "valor": 73,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "iansa-anos-remolacha",
+              "paises": [
+                "ANOS"
+              ],
+              "valores": {
+                "ANOS": [
+                  [
+                    2026,
+                    73
+                  ]
+                ]
+              },
+              "nombres": {
+                "ANOS": "Años de azúcar de remolacha"
+              },
+              "fuenteTexto": "Emol, fin de la producción de azúcar de remolacha (25-11-2026)",
+              "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/25/1218188/inansa-dejara-producir-azucar-remolacha.html",
+              "etiqueta": "Años del negocio con el que nació Iansa",
+              "unidad": "años"
+            },
+            "operacion": "valor",
+            "pais": "ANOS",
+            "anio": 2026
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-NB",
+        "CL-BI",
+        "CL-ML"
+      ],
+      "puntos": [
+        {
+          "texto": "San Carlos",
+          "en": [
+            -71.96,
+            -36.42
+          ],
+          "dice": "azúcar"
+        },
+        {
+          "texto": "Los Ángeles",
+          "en": [
+            -72.35,
+            -37.47
+          ],
+          "dice": "remolacha"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "contador",
+      "titulo": "Lo que duró la remolacha chilena",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "iansa-anos-remolacha",
+        "paises": [
+          "ANOS"
+        ],
+        "valores": {
+          "ANOS": [
+            [
+              2026,
+              73
+            ]
+          ]
+        },
+        "nombres": {
+          "ANOS": "Años de azúcar de remolacha"
+        },
+        "fuenteTexto": "Emol, fin de la producción de azúcar de remolacha (25-11-2026)",
+        "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/25/1218188/inansa-dejara-producir-azucar-remolacha.html",
+        "etiqueta": "Años del negocio con el que nació Iansa",
+        "unidad": "años"
+      },
+      "destacar": {
+        "pais": "ANOS"
+      },
+      "formato": {
+        "decimales": 0,
+        "sufijo": " años"
+      }
+    },
+    "escenas": [
+      {
+        "tipo": "planteamiento",
+        "texto": "En 1953 la Corfo creó la Industria Azucarera Nacional para que Chile hiciera su propia azúcar, y la primera planta se levantó en Los Ángeles.",
+        "visual": {
+          "tipo": "foto",
+          "busqueda": "sugar beet harvest field",
+          "alternativas": [
+            "sugar beet roots pile",
+            "sugar beet farming"
+          ],
+          "pie": "Remolacha azucarera",
+          "dice": "raíz",
+          "encuadre": "ken-burns"
+        }
+      },
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según Emol, la planta de Linares cerró en 2018 y la de Los Ángeles en 2020, y la producción quedó en Ñuble. El 25 de noviembre de 2026 el directorio puso fin también a eso.",
+        "cifras": [
+          {
+            "texto": "73 años",
+            "valor": 73,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "iansa-anos-remolacha",
+                "paises": [
+                  "ANOS"
+                ],
+                "valores": {
+                  "ANOS": [
+                    [
+                      2026,
+                      73
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "ANOS": "Años de azúcar de remolacha"
+                },
+                "fuenteTexto": "Emol, fin de la producción de azúcar de remolacha (25-11-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/25/1218188/inansa-dejara-producir-azucar-remolacha.html",
+                "etiqueta": "Años del negocio con el que nació Iansa",
+                "unidad": "años"
+              },
+              "operacion": "valor",
+              "pais": "ANOS",
+              "anio": 2026
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "giro",
+        "texto": "La pregunta es qué pasó en el medio: con las hectáreas sembradas, con los agricultores que quedaron sin comprador y con las plantas que se apagaron una por una. Eso está en el video completo, hoy a las 19:00.",
+        "rotulo": {
+          "texto": "HOY A LAS 19:00",
+          "dice": "completo"
+        }
+      }
+    ],
+    "remate": "El azúcar va a seguir saliendo de Ñuble. La remolacha chilena, no.",
+    "enlaceLargo": "2026-12-09-largo-nuble-sin-remolacha",
+    "fuentes": [
+      {
+        "texto": "Emol, cierre del negocio de remolacha (25-11-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/11/25/1218188/inansa-dejara-producir-azucar-remolacha.html"
+      },
+      {
+        "texto": "BioBioChile, origen de la empresa en 1953 (25-11-2026)",
+        "url": "https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2026/11/25/fin-de-una-era-iansa-pone-termino-a-la-produccion-de-azucar-de-remolacha-tras-73-anos-de-historia.shtml"
+      },
+      {
+        "texto": "La Tercera, impacto de 37,8 millones de dólares (25-11-2026)",
+        "url": "https://www.latercera.com/pulso/noticia/empresas-iansa-cierra-su-produccion-de-azucar-de-remolacha-y-preve-impacto-negativo-por-casi-us38-millones/"
+      },
+      {
+        "texto": "Cooperativa, qué pasa con la planta de San Carlos (25-11-2026)",
+        "url": "https://www.cooperativa.cl/noticias/economia/sectores-productivos/agricultura/iansa-anuncio-el-fin-de-su-produccion-de-azucar-de-remolacha/2026-11-25/234513.html"
+      }
+    ],
+    "id": "2026-12-09-short-trailer-nuble-sin-remolacha"
+  }
+}

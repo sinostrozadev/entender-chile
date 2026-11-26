@@ -1,0 +1,174 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-12-04-short-ejercito-airbus-cougar",
+  "titulo": "El Ejército corta 46 mil millones con Airbus por los Cougar",
+  "descripcion": "¿Por qué el Ejército rompió el contrato que mantenía sus helicópteros?\nEl contrato, firmado en 2022 por casi 46 mil millones de pesos, cubría la mantención mayor de los helicópteros AS532 Cougar. BioBioChile Investiga informó que la división de compras del Ejército le puso término anticipado de forma unilateral y cobró garantías por 7 millones de dólares.\nEl desacuerdo es por el alcance de los trabajos del helicóptero H-284, que fue a reparación a Brasil: aparecieron trabajos que no estaban en el alcance pactado. Airbus pidió un pronunciamiento a la Contraloría sobre eso y lo obtuvo, y el término llegó igual. Ni el Ejército ni Airbus quisieron declarar.\nFuente:\nBioBioChile Investiga, término del contrato (25-11-2026): https://www.biobiochile.cl/especial/bbcl-investiga/noticias/articulos/2026/11/25/ejercito-rompe-contrato-de-casi-46-mil-millones-con-airbus-por-mantenimiento-de-sus-cougar.shtml\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#ejercito",
+    "#airbus",
+    "#chile"
+  ],
+  "publicar": "2026-12-04T12:00",
+  "props": {
+    "gancho": {
+      "texto": "El Ejército de Chile puso término anticipado a un contrato de casi 46 mil millones de pesos con Airbus para mantener sus helicópteros Cougar.",
+      "rotulo": "46 MIL MILLONES",
+      "cifras": [
+        {
+          "texto": "casi 46 mil millones de pesos",
+          "valor": 46000,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "ejercito-airbus-cougar-2026",
+              "paises": [
+                "CONTRATO"
+              ],
+              "valores": {
+                "CONTRATO": [
+                  [
+                    2026,
+                    46000
+                  ]
+                ]
+              },
+              "nombres": {
+                "CONTRATO": "Contrato de mantención"
+              },
+              "fuenteTexto": "BioBioChile Investiga (25-11-2026)",
+              "fuenteUrl": "https://www.biobiochile.cl/especial/bbcl-investiga/noticias/articulos/2026/11/25/ejercito-rompe-contrato-de-casi-46-mil-millones-con-airbus-por-mantenimiento-de-sus-cougar.shtml",
+              "etiqueta": "Contrato de mantención mayor de los Cougar",
+              "unidad": "millones de pesos"
+            },
+            "operacion": "valor",
+            "pais": "CONTRATO",
+            "anio": 2026
+          },
+          "tolerancia": 0.02
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-RM"
+      ],
+      "titulo": "Ejército de Chile",
+      "puntos": [
+        {
+          "texto": "Santiago",
+          "en": [
+            -70.6665,
+            -33.4372
+          ],
+          "dice": "Ejército"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "contador",
+      "titulo": "El contrato que el Ejército cortó",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "ejercito-airbus-cougar-2026",
+        "paises": [
+          "CONTRATO"
+        ],
+        "valores": {
+          "CONTRATO": [
+            [
+              2026,
+              46000
+            ]
+          ]
+        },
+        "nombres": {
+          "CONTRATO": "Contrato de mantención"
+        },
+        "fuenteTexto": "BioBioChile Investiga (25-11-2026)",
+        "fuenteUrl": "https://www.biobiochile.cl/especial/bbcl-investiga/noticias/articulos/2026/11/25/ejercito-rompe-contrato-de-casi-46-mil-millones-con-airbus-por-mantenimiento-de-sus-cougar.shtml",
+        "etiqueta": "Contrato de mantención mayor de los Cougar",
+        "unidad": "millones de pesos"
+      },
+      "destacar": {
+        "pais": "CONTRATO"
+      },
+      "formato": {
+        "decimales": 0
+      }
+    },
+    "escenas": [
+      {
+        "tipo": "planteamiento",
+        "texto": "El contrato se firmó en 2022 y cubría la mantención mayor de parte de la flota: la revisión profunda que devuelve al aire un helicóptero después de años de uso.",
+        "visual": {
+          "tipo": "foto",
+          "busqueda": "Eurocopter AS532 Cougar Chilean Army helicopter",
+          "alternativas": [
+            "Airbus Helicopters AS532 Cougar",
+            "Ejercito de Chile helicoptero"
+          ],
+          "pie": "Helicóptero AS532 Cougar",
+          "dice": "flota",
+          "encuadre": "ken-burns"
+        }
+      },
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según BioBioChile Investiga, la división de compras del Ejército terminó el contrato de forma unilateral y en paralelo cobró garantías por 7 millones de dólares.",
+        "cifras": [
+          {
+            "texto": "casi 46 mil millones",
+            "valor": 46000,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "ejercito-airbus-cougar-2026",
+                "paises": [
+                  "CONTRATO"
+                ],
+                "valores": {
+                  "CONTRATO": [
+                    [
+                      2026,
+                      46000
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "CONTRATO": "Contrato de mantención"
+                },
+                "fuenteTexto": "BioBioChile Investiga (25-11-2026)",
+                "fuenteUrl": "https://www.biobiochile.cl/especial/bbcl-investiga/noticias/articulos/2026/11/25/ejercito-rompe-contrato-de-casi-46-mil-millones-con-airbus-por-mantenimiento-de-sus-cougar.shtml",
+                "etiqueta": "Contrato de mantención mayor de los Cougar",
+                "unidad": "millones de pesos"
+              },
+              "operacion": "valor",
+              "pais": "CONTRATO",
+              "anio": 2026
+            },
+            "tolerancia": 0.02
+          }
+        ]
+      },
+      {
+        "tipo": "giro",
+        "texto": "El desacuerdo es por un solo helicóptero: el H-284, que fue a reparación a Brasil, y por los trabajos extra que aparecieron ahí, fuera del alcance pactado. Airbus pidió un pronunciamiento a la Contraloría y lo obtuvo. El término llegó igual, y ninguna de las dos partes quiso declarar.",
+        "rotulo": {
+          "texto": "UN HELICÓPTERO",
+          "dice": "helicóptero"
+        }
+      }
+    ],
+    "remate": "El contrato se terminó. Los helicópteros siguen esperando quién los repare.",
+    "fuentes": [
+      {
+        "texto": "BioBioChile Investiga, término del contrato (25-11-2026)",
+        "url": "https://www.biobiochile.cl/especial/bbcl-investiga/noticias/articulos/2026/11/25/ejercito-rompe-contrato-de-casi-46-mil-millones-con-airbus-por-mantenimiento-de-sus-cougar.shtml"
+      }
+    ],
+    "id": "2026-12-04-short-ejercito-airbus-cougar"
+  }
+}

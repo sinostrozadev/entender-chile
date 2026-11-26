@@ -1,0 +1,214 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-12-05-short-pensiones-de-alimentos-cuatro-anos",
+  "titulo": "Los tribunales ordenaron 3,88 billones en pensiones: ¿se pagaron?",
+  "descripcion": "¿Cuánta plata ordenaron pagar los tribunales por pensiones de alimentos y cuánta llegó?\nEl balance de los cuatro años del Registro Nacional de Deudores, presentado el 18-11-2026 por la presidenta de la Corte Suprema, Gloria Ana Chevesich, cuenta pagos ordenados por 3,88 billones de pesos entre el 18-11-2022 y el 17-11-2026: el 1,98 % del PIB de Chile.\nCasi el 79 % se cobró desde los fondos de AFP del deudor. De 728.700 inscripciones ordenadas, 376.644 siguen vigentes. El informe no dice cuánto de lo ordenado llegó efectivamente a las familias.\nFuentes:\nCooperativa, balance de cuatro años (18-11-2026): https://www.cooperativa.cl/noticias/pais/infancia/proteccion/pensiones-de-alimentos-tribunales-ordenaron-pagar-mas-de-3-88-billones/2026-11-18/124522.html\nLa Tercera, vías de cobro y PIB (18-11-2026): https://www.latercera.com/nacional/noticia/poder-judicial-ordeno-el-pago-de-38-billones-en-cuatro-anos-del-registro-nacional-de-deudores-de-pensiones-de-alimentos/\nPauta, inscripciones vigentes (19-11-2026): https://www.pauta.cl/actualidad/2026/11/19/pensiones-de-alimentos-pagos-ordenados-crecen-a-388-billones-pero-mas-de-376-mil-inscripciones-siguen-vigentes.html\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#pensionesdealimentos",
+    "#cortesuprema",
+    "#chile"
+  ],
+  "publicar": "2026-12-05T12:00",
+  "props": {
+    "gancho": {
+      "texto": "Los tribunales de familia ordenaron pagar 3,88 billones de pesos en pensiones de alimentos en cuatro años: el 1,98 % del PIB de Chile.",
+      "rotulo": "1,98 % DEL PIB",
+      "cifras": [
+        {
+          "texto": "3,88 billones de pesos",
+          "valor": 3.88,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "pensiones-alimentos-total-2026",
+              "paises": [
+                "ORDENADO"
+              ],
+              "valores": {
+                "ORDENADO": [
+                  [
+                    2026,
+                    3.88
+                  ]
+                ]
+              },
+              "nombres": {
+                "ORDENADO": "Ordenado por los tribunales"
+              },
+              "fuenteTexto": "Cooperativa, balance del Poder Judicial (18-11-2026)",
+              "fuenteUrl": "https://www.cooperativa.cl/noticias/pais/infancia/proteccion/pensiones-de-alimentos-tribunales-ordenaron-pagar-mas-de-3-88-billones/2026-11-18/124522.html",
+              "etiqueta": "Pagos ordenados entre el 18-11-2022 y el 17-11-2026",
+              "unidad": "billones de pesos"
+            },
+            "operacion": "valor",
+            "pais": "ORDENADO",
+            "anio": 2026
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-RM"
+      ],
+      "titulo": "Tribunales de familia",
+      "puntos": [
+        {
+          "texto": "Corte Suprema",
+          "en": [
+            -70.6534,
+            -33.4379
+          ],
+          "dice": "tribunales"
+        },
+        {
+          "texto": "San Miguel",
+          "en": [
+            -70.65,
+            -33.4967
+          ],
+          "dice": "familia"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "barras",
+      "titulo": "De dónde salió la plata cobrada",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "pensiones-alimentos-vias-2026",
+        "paises": [
+          "AFP",
+          "BANCO"
+        ],
+        "valores": {
+          "AFP": [
+            [
+              2026,
+              3.06
+            ]
+          ],
+          "BANCO": [
+            [
+              2026,
+              0.82
+            ]
+          ]
+        },
+        "nombres": {
+          "AFP": "Desde fondos de AFP",
+          "BANCO": "Desde cuentas bancarias"
+        },
+        "fuenteTexto": "La Tercera, balance del Poder Judicial (18-11-2026)",
+        "fuenteUrl": "https://www.latercera.com/nacional/noticia/poder-judicial-ordeno-el-pago-de-38-billones-en-cuatro-anos-del-registro-nacional-de-deudores-de-pensiones-de-alimentos/",
+        "etiqueta": "Pagos ordenados por vía de cobro, 2022 a 2026",
+        "unidad": "billones de pesos"
+      },
+      "destacar": {
+        "pais": "AFP"
+      },
+      "formato": {
+        "decimales": 2
+      }
+    },
+    "escenas": [
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según el balance que presentó la presidenta de la Corte Suprema, Gloria Ana Chevesich, casi el 79 % se cobró desde los fondos de AFP del deudor, y una parte mucho menor desde sus cuentas bancarias.",
+        "cifras": [
+          {
+            "texto": "desde los fondos de AFP",
+            "valor": 3.06,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "pensiones-alimentos-vias-2026",
+                "paises": [
+                  "AFP",
+                  "BANCO"
+                ],
+                "valores": {
+                  "AFP": [
+                    [
+                      2026,
+                      3.06
+                    ]
+                  ],
+                  "BANCO": [
+                    [
+                      2026,
+                      0.82
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "AFP": "Desde fondos de AFP",
+                  "BANCO": "Desde cuentas bancarias"
+                },
+                "fuenteTexto": "La Tercera, balance del Poder Judicial (18-11-2026)",
+                "fuenteUrl": "https://www.latercera.com/nacional/noticia/poder-judicial-ordeno-el-pago-de-38-billones-en-cuatro-anos-del-registro-nacional-de-deudores-de-pensiones-de-alimentos/",
+                "etiqueta": "Pagos ordenados por vía de cobro, 2022 a 2026",
+                "unidad": "billones de pesos"
+              },
+              "operacion": "valor",
+              "pais": "AFP",
+              "anio": 2026
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "giro",
+        "texto": "Acá está lo que el titular no dice: esa cifra es lo que los tribunales ordenaron pagar, no lo que llegó a las familias. El balance no entrega ese número.",
+        "rotulo": {
+          "texto": "ORDENADO NO ES PAGADO",
+          "dice": "ordenaron"
+        }
+      },
+      {
+        "tipo": "planteamiento",
+        "texto": "El registro funciona desde el 18 de noviembre de 2022. Desde entonces los tribunales ordenaron 728.700 inscripciones de deudores, y 376.644 siguen vigentes hoy.",
+        "visual": {
+          "tipo": "iconos",
+          "titulo": "Inscripciones del registro",
+          "items": [
+            {
+              "icono": "📋",
+              "texto": "Ordenadas",
+              "valor": "728.700",
+              "dice": "ordenaron"
+            },
+            {
+              "icono": "⏳",
+              "texto": "Vigentes",
+              "valor": "376.644",
+              "marca": "no",
+              "dice": "vigentes"
+            }
+          ]
+        }
+      }
+    ],
+    "remate": "La orden está contada hasta el último peso. Lo que llegó a cada casa, no.",
+    "fuentes": [
+      {
+        "texto": "Cooperativa, balance de cuatro años (18-11-2026)",
+        "url": "https://www.cooperativa.cl/noticias/pais/infancia/proteccion/pensiones-de-alimentos-tribunales-ordenaron-pagar-mas-de-3-88-billones/2026-11-18/124522.html"
+      },
+      {
+        "texto": "La Tercera, vías de cobro y PIB (18-11-2026)",
+        "url": "https://www.latercera.com/nacional/noticia/poder-judicial-ordeno-el-pago-de-38-billones-en-cuatro-anos-del-registro-nacional-de-deudores-de-pensiones-de-alimentos/"
+      },
+      {
+        "texto": "Pauta, inscripciones vigentes (19-11-2026)",
+        "url": "https://www.pauta.cl/actualidad/2026/11/19/pensiones-de-alimentos-pagos-ordenados-crecen-a-388-billones-pero-mas-de-376-mil-inscripciones-siguen-vigentes.html"
+      }
+    ],
+    "id": "2026-12-05-short-pensiones-de-alimentos-cuatro-anos"
+  }
+}

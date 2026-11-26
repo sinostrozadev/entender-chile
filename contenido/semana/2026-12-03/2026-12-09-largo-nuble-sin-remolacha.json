@@ -1,0 +1,1123 @@
+{
+  "plantilla": "tesis",
+  "id": "2026-12-09-largo-nuble-sin-remolacha",
+  "titulo": "¿Por qué Ñuble se queda con la planta y sin la remolacha?",
+  "descripcion": "¿Por qué Chile deja de hacer azúcar con remolacha propia después de 73 años?\nEn 1953 la Corfo creó la Industria Azucarera Nacional y levantó su primera planta en Los Ángeles. El 25-11-2026 el directorio de Empresas Iansa acordó descontinuar la producción de azúcar de remolacha chilena, con un impacto de 37,8 millones de dólares después de impuestos.\nEste video sigue la cadena completa: el cierre de Linares en 2018 con cerca de 4.000 personas afectadas, el fin de la producción en Los Ángeles en 2020, la superficie sembrada que bajó de 11.400 hectáreas en 2018-2019 a 6.284 cuatro temporadas después, los 440 contratos de 2025 y los cerca de 240 productores que quedaron sin comprador.\nLa planta de San Carlos sigue funcionando, pero refinando azúcar cruda importada. Y Ñuble llega a este cierre con 11,8 % de desocupación, la tasa más alta del país según el INE.\nFuentes:\nEmol, fin de la producción de remolacha (25-11-2026): https://www.emol.com/noticias/Economia/2026/11/25/1218188/inansa-dejara-producir-azucar-remolacha.html\nLa Tercera, hecho esencial a la CMF (25-11-2026): https://www.latercera.com/pulso/noticia/empresas-iansa-cierra-su-produccion-de-azucar-de-remolacha-y-preve-impacto-negativo-por-casi-us38-millones/\nDiario Financiero, superficie sembrada (25-11-2026): https://www.df.cl/empresas/industria/fin-de-una-era-iansa-abandona-la-produccion-de-azucar-de-remolacha-tras-73\nCooperativa, cierre de Linares (26-07-2018): https://www.cooperativa.cl/noticias/pais/region-del-maule/iansa-confirmo-cierre-de-planta-en-linares-4-000-personas-quedaran-sin/2018-07-26/170706.html\nBioBioChile, fin de la compra de remolacha (29-04-2026): https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2026/04/29/duro-golpe-para-la-industria-de-la-remolacha-iansa-anuncia-que-no-comprara-en-el-mercado-chileno.shtml\nEmol, productores sin comprador (09-06-2026): https://www.emol.com/noticias/Economia/2026/06/09/1202254/agro-desafios-2026.html\nINE, desocupación de julio-septiembre de 2026 (29-10-2026): https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026\nBioBioChile, consecuencias del cierre remolachero (25-11-2026): https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2026/11/25/golpe-al-corazon-productivo-agricola-del-pais-las-consecuencias-del-cierre-remolachero-de-iansa.shtml\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#iansa",
+    "#nuble",
+    "#remolacha",
+    "#chile"
+  ],
+  "publicar": "2026-12-09T19:00",
+  "props": {
+    "cabecera": "ÑUBLE Y LA REMOLACHA · 1953-2026",
+    "estructura": "autopsia",
+    "indice": [
+      "La fábrica de 1953",
+      "Linares y Los Ángeles",
+      "La superficie que cae",
+      "La cuenta de 2026"
+    ],
+    "gancho": {
+      "texto": "Año 1953. El Estado chileno, a través de la Corfo, crea una empresa para hacer algo que el país no hacía: su propia azúcar, con una raíz que crece en el valle central, la remolacha. La primera planta se levanta en Los Ángeles, en la región del Biobío, y el negocio es ese: comprarles remolacha a los agricultores de la zona y venderle azúcar al país, año tras año, con contrato firmado antes de la siembra. Setenta y tres años después, el 25 de noviembre de 2026, el directorio de esa misma empresa firma el acuerdo que termina con ese negocio. ¿Qué pasó en el medio?",
+      "rotulo": "AÑO 1953"
+    },
+    "promesa": "Al final vas a saber por qué se apagó la remolacha chilena, qué quedó en los campos de Maule, Ñuble y Biobío, y de dónde va a venir el azúcar que Chile consume.",
+    "capitulos": [
+      {
+        "titulo": "La fábrica que hacía azúcar chilena",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "Para entender lo que se apagó hay que mirar el mapa del valle central. La remolacha azucarera no se siembra en cualquier parte: necesita suelo plano, riego y, sobre todo, una fábrica cerca, porque la raíz es pesada y conviene molerla a poca distancia de donde se cosecha. Por eso esta industria se armó siempre igual en todo el mundo: una planta en el medio de una zona agrícola y, alrededor, los agricultores que le venden. En Chile esa zona es la franja que va del Maule al Biobío, pasando por Ñuble. Ahí se sembró remolacha durante siete décadas, y ahí está hoy lo que queda del rubro.",
+            "visual": {
+              "tipo": "chile",
+              "regiones": [
+                "CL-ML",
+                "CL-NB",
+                "CL-BI"
+              ],
+              "puntos": [
+                {
+                  "texto": "Los Ángeles",
+                  "en": [
+                    -72.35,
+                    -37.47
+                  ],
+                  "dice": "franja"
+                }
+              ],
+              "titulo": "La franja de la remolacha"
+            }
+          },
+          {
+            "tipo": "planteamiento",
+            "texto": "La remolacha azucarera es una raíz blanca, parecida a un nabo grande. No llega entera a la mesa de nadie: se muele, se le saca el jugo y de ese jugo sale el azúcar. Para el agricultor es un cultivo de contrato, y esa palabra es la que importa en toda esta historia: se siembra porque hay alguien que se compromete a comprar la cosecha, a un precio, antes de que la semilla toque la tierra. Nadie siembra una temporada completa de trabajo para después salir a buscar comprador. Sin contrato, la remolacha simplemente no se siembra.",
+            "visual": {
+              "tipo": "foto",
+              "busqueda": "sugar beet harvest roots field",
+              "alternativas": [
+                "sugar beet pile harvest",
+                "sugar beet farming tractor"
+              ],
+              "pie": "Remolacha azucarera",
+              "dice": "raíz",
+              "encuadre": "ken-burns"
+            },
+            "rotulo": {
+              "texto": "CULTIVO DE CONTRATO",
+              "dice": "contrato"
+            },
+            "sellos": [
+              {
+                "texto": "AZÚCAR",
+                "dice": "jugo"
+              },
+              {
+                "texto": "A PRECIO",
+                "dice": "precio"
+              },
+              {
+                "texto": "SIN FIRMA",
+                "dice": "Sin"
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Según Emol, ese negocio, el de hacer azúcar con remolacha chilena, duró 73 años: es el negocio con el que la empresa nació en 1953 y el que cerró en noviembre de 2026. En el medio hay plantas que abrieron, plantas que cerraron y una superficie sembrada que se fue encogiendo temporada por temporada. La historia no es un portazo: es una resta que duró décadas. Importa decirlo al principio, porque el titular de noviembre suena a decisión repentina y no lo es: cada pieza de este cierre estaba puesta con años de anticipación, a la vista de todos, en documentos públicos y en declaraciones de la propia empresa.",
+            "grafico": {
+              "tipo": "contador",
+              "titulo": "Lo que duró la remolacha chilena",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "iansa-anos-remolacha",
+                "paises": [
+                  "ANOS"
+                ],
+                "valores": {
+                  "ANOS": [
+                    [
+                      2026,
+                      73
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "ANOS": "Años de azúcar de remolacha"
+                },
+                "fuenteTexto": "Emol, fin de la producción de azúcar de remolacha (25-11-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/25/1218188/inansa-dejara-producir-azucar-remolacha.html",
+                "etiqueta": "Años del negocio con el que nació Iansa",
+                "unidad": "años"
+              },
+              "destacar": {
+                "pais": "ANOS"
+              },
+              "formato": {
+                "decimales": 0,
+                "sufijo": " años"
+              }
+            },
+            "sellos": [
+              {
+                "texto": "73 AÑOS",
+                "dice": "noviembre",
+                "animo": "triste"
+              },
+              {
+                "texto": "DÉCADAS",
+                "dice": "décadas"
+              }
+            ],
+            "cifras": [
+              {
+                "texto": "73 años",
+                "valor": 73,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "iansa-anos-remolacha",
+                    "paises": [
+                      "ANOS"
+                    ],
+                    "valores": {
+                      "ANOS": [
+                        [
+                          2026,
+                          73
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "ANOS": "Años de azúcar de remolacha"
+                    },
+                    "fuenteTexto": "Emol, fin de la producción de azúcar de remolacha (25-11-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/11/25/1218188/inansa-dejara-producir-azucar-remolacha.html",
+                    "etiqueta": "Años del negocio con el que nació Iansa",
+                    "unidad": "años"
+                  },
+                  "operacion": "valor",
+                  "pais": "ANOS",
+                  "anio": 2026
+                },
+                "tolerancia": 0.01
+              }
+            ]
+          },
+          {
+            "tipo": "giro",
+            "texto": "Y acá aparece lo que explica casi todo lo que viene. El azúcar es una materia prima que se transa en el mundo entero, y su precio no lo pone Chile: lo ponen las grandes cosechas de otros países. Cuando el azúcar importada está barata, la remolacha chilena queda cara, por buena que haya sido la temporada acá. Esa es la razón que la empresa dio en 2018, cuando cerró la planta de Linares, y es la misma que dio en 2026, cuando cerró el negocio completo: precio internacional bajo y costos propios altos. Ocho años separan esas dos frases y son casi la misma frase.",
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "La cuenta que no cierra",
+              "items": [
+                {
+                  "icono": "🌍",
+                  "texto": "Precio mundial",
+                  "marca": "no",
+                  "dice": "mundo"
+                },
+                {
+                  "icono": "💸",
+                  "texto": "Costos locales",
+                  "marca": "no",
+                  "dice": "costos"
+                }
+              ]
+            },
+            "rotulo": {
+              "texto": "EL PRECIO VIENE DE AFUERA",
+              "dice": "precio"
+            }
+          }
+        ]
+      },
+      {
+        "titulo": "Linares 2018, Los Ángeles 2020",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "El final no fue un día: fue una fila de cierres repartida en años. En julio de 2018 la empresa confirmó que cerraba su planta de Linares, en el Maule. El Gobierno de la época le pidió postergar la decisión y no lo consiguió. Y la explicación oficial de entonces ya traía las dos piezas completas: la baja sostenida del precio internacional del azúcar y la reducción de la superficie de remolacha sembrada en el país. Linares no era una planta cualquiera: era la que compraba la remolacha del Maule, y su cierre dejó a esa parte del valle fuera del negocio ocho años antes que al resto. El gremio agrícola de la zona lo dijo entonces y lo repitió en 2026: lo más grave no es la planta, es dejar de sembrar.",
+            "visual": {
+              "tipo": "chile",
+              "regiones": [
+                "CL-ML"
+              ],
+              "puntos": [
+                {
+                  "texto": "Linares",
+                  "en": [
+                    -71.6,
+                    -35.85
+                  ],
+                  "dice": "Linares"
+                }
+              ],
+              "titulo": "Linares, 2018"
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Según Cooperativa, ese cierre afectó a cerca de 4.000 personas de forma directa e indirecta: trabajadores de la planta, temporeros, transportistas y agricultores que le vendían a esa fábrica. Un año después, Emol volvió a Linares y el tema seguía siendo el mismo: el desempleo y los esfuerzos por capacitar a los afectados. Una planta de azúcar no es solo una planta: es el único comprador de un cultivo en toda su zona.",
+            "grafico": {
+              "tipo": "contador",
+              "titulo": "Afectados por el cierre de Linares",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "iansa-linares-2018",
+                "paises": [
+                  "PERSONAS"
+                ],
+                "valores": {
+                  "PERSONAS": [
+                    [
+                      2018,
+                      4000
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "PERSONAS": "Personas afectadas"
+                },
+                "fuenteTexto": "Cooperativa, cierre de la planta de Linares (26-07-2018)",
+                "fuenteUrl": "https://www.cooperativa.cl/noticias/pais/region-del-maule/iansa-confirmo-cierre-de-planta-en-linares-4-000-personas-quedaran-sin/2018-07-26/170706.html",
+                "etiqueta": "Afectados directos e indirectos por el cierre de Linares",
+                "unidad": "personas"
+              },
+              "destacar": {
+                "pais": "PERSONAS"
+              },
+              "formato": {
+                "decimales": 0
+              }
+            },
+            "sellos": [
+              {
+                "texto": "4.000",
+                "dice": "temporeros",
+                "animo": "triste"
+              }
+            ],
+            "rotulo": {
+              "texto": "UN SOLO COMPRADOR",
+              "dice": "comprador"
+            },
+            "cifras": [
+              {
+                "texto": "cerca de 4.000 personas",
+                "valor": 4000,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "iansa-linares-2018",
+                    "paises": [
+                      "PERSONAS"
+                    ],
+                    "valores": {
+                      "PERSONAS": [
+                        [
+                          2018,
+                          4000
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "PERSONAS": "Personas afectadas"
+                    },
+                    "fuenteTexto": "Cooperativa, cierre de la planta de Linares (26-07-2018)",
+                    "fuenteUrl": "https://www.cooperativa.cl/noticias/pais/region-del-maule/iansa-confirmo-cierre-de-planta-en-linares-4-000-personas-quedaran-sin/2018-07-26/170706.html",
+                    "etiqueta": "Afectados directos e indirectos por el cierre de Linares",
+                    "unidad": "personas"
+                  },
+                  "operacion": "valor",
+                  "pais": "PERSONAS",
+                  "anio": 2018
+                },
+                "tolerancia": 0.02
+              }
+            ]
+          },
+          {
+            "tipo": "reenganche",
+            "texto": "Dos años después de Linares se apagó la planta donde todo había empezado."
+          },
+          {
+            "tipo": "giro",
+            "texto": "Según Emol, la planta de Los Ángeles dejó de producir azúcar en 2020, y la producción quedó concentrada en Ñuble. O sea: la planta con la que empezó todo dejó de hacer azúcar, y el rubro quedó dependiendo de la única fábrica del país que seguía elaborando azúcar con remolacha, la de San Carlos. A partir de ahí, cualquier decisión sobre esa planta era la decisión de toda la industria.",
+            "visual": {
+              "tipo": "chile",
+              "regiones": [
+                "CL-BI",
+                "CL-NB"
+              ],
+              "puntos": [
+                {
+                  "texto": "Los Ángeles",
+                  "en": [
+                    -72.35,
+                    -37.47
+                  ],
+                  "dice": "Ángeles"
+                },
+                {
+                  "texto": "San Carlos",
+                  "en": [
+                    -71.96,
+                    -36.42
+                  ],
+                  "dice": "Carlos"
+                }
+              ],
+              "titulo": "De dos plantas a una",
+              "dice": "planta"
+            },
+            "rotulo": {
+              "texto": "QUEDA UNA PLANTA",
+              "dice": "sola"
+            }
+          }
+        ]
+      },
+      {
+        "titulo": "La superficie que se fue del valle",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "Con una sola planta comprando, el cultivo se volvió una cuenta simple para el agricultor: si el contrato que ofrece la empresa rinde menos que el maíz o que un huerto de avellanos, la remolacha no se siembra ese año. Esa decisión se puede medir, porque la superficie sembrada se cuenta cada temporada. Y la escala de lo que se perdió está en esa medición: según BioBioChile, en su mejor momento el rubro llegó a más de 60 mil hectáreas sembradas en el país, con cinco plantas funcionando. Lo que quedaba el año pasado es una fracción de eso.",
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "Lo que compite con la remolacha",
+              "items": [
+                {
+                  "icono": "🌽",
+                  "texto": "Maíz",
+                  "dice": "maíz"
+                },
+                {
+                  "icono": "🌾",
+                  "texto": "Trigo",
+                  "dice": "trigo"
+                },
+                {
+                  "icono": "🌰",
+                  "texto": "Avellano",
+                  "dice": "avellanos"
+                }
+              ]
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Según el Diario Financiero, la superficie sembrada con remolacha bajó de cerca de 11.400 hectáreas en la temporada 2018-2019 a 6.284 hectáreas cuatro temporadas después. Es casi la mitad en cuatro años, y la caída viene de antes: arranca con el cierre de Linares y sigue temporada por temporada, mientras San Carlos seguía moliendo.",
+            "grafico": {
+              "tipo": "lineas",
+              "titulo": "Hectáreas de remolacha, según el DF",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "remolacha-superficie-sembrada",
+                "paises": [
+                  "HECTAREAS"
+                ],
+                "valores": {
+                  "HECTAREAS": [
+                    [
+                      2018,
+                      11400
+                    ],
+                    [
+                      2022,
+                      6284
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "HECTAREAS": "Superficie sembrada"
+                },
+                "fuenteTexto": "Diario Financiero, cierre del negocio de remolacha (25-11-2026)",
+                "fuenteUrl": "https://www.df.cl/empresas/industria/fin-de-una-era-iansa-abandona-la-produccion-de-azucar-de-remolacha-tras-73",
+                "etiqueta": "Superficie sembrada con remolacha, según el Diario Financiero",
+                "unidad": "hectáreas"
+              },
+              "destacar": {
+                "pais": "HECTAREAS"
+              },
+              "formato": {
+                "decimales": 0
+              },
+              "dice": "superficie"
+            },
+            "cifras": [
+              {
+                "texto": "cerca de 11.400 hectáreas",
+                "valor": 11400,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "remolacha-superficie-sembrada",
+                    "paises": [
+                      "HECTAREAS"
+                    ],
+                    "valores": {
+                      "HECTAREAS": [
+                        [
+                          2018,
+                          11400
+                        ],
+                        [
+                          2022,
+                          6284
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "HECTAREAS": "Superficie sembrada"
+                    },
+                    "fuenteTexto": "Diario Financiero, cierre del negocio de remolacha (25-11-2026)",
+                    "fuenteUrl": "https://www.df.cl/empresas/industria/fin-de-una-era-iansa-abandona-la-produccion-de-azucar-de-remolacha-tras-73",
+                    "etiqueta": "Superficie sembrada con remolacha, según el Diario Financiero",
+                    "unidad": "hectáreas"
+                  },
+                  "operacion": "valor",
+                  "pais": "HECTAREAS",
+                  "anio": 2018
+                },
+                "tolerancia": 0.02
+              },
+              {
+                "texto": "6.284 hectáreas",
+                "valor": 6284,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "remolacha-superficie-sembrada",
+                    "paises": [
+                      "HECTAREAS"
+                    ],
+                    "valores": {
+                      "HECTAREAS": [
+                        [
+                          2018,
+                          11400
+                        ],
+                        [
+                          2022,
+                          6284
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "HECTAREAS": "Superficie sembrada"
+                    },
+                    "fuenteTexto": "Diario Financiero, cierre del negocio de remolacha (25-11-2026)",
+                    "fuenteUrl": "https://www.df.cl/empresas/industria/fin-de-una-era-iansa-abandona-la-produccion-de-azucar-de-remolacha-tras-73",
+                    "etiqueta": "Superficie sembrada con remolacha, según el Diario Financiero",
+                    "unidad": "hectáreas"
+                  },
+                  "operacion": "valor",
+                  "pais": "HECTAREAS",
+                  "anio": 2022
+                },
+                "tolerancia": 0.01
+              }
+            ]
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "En abril de 2026 llegó el aviso que lo cambió todo. Según BioBioChile, la empresa comunicó que no iba a comprar remolacha para la temporada 2026-2027. Ese año tenía 440 contratos con agricultores y había cosechado más de 7.700 hectáreas. Quien decidía cuántas hectáreas de remolacha se iban a sembrar en Chile no era el Ministerio ni el agricultor: era el único comprador que quedaba.",
+            "grafico": {
+              "tipo": "contador",
+              "titulo": "Contratos de remolacha en 2025",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "iansa-contratos-2025",
+                "paises": [
+                  "CONTRATOS",
+                  "COSECHADAS"
+                ],
+                "valores": {
+                  "CONTRATOS": [
+                    [
+                      2025,
+                      440
+                    ]
+                  ],
+                  "COSECHADAS": [
+                    [
+                      2025,
+                      7700
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "CONTRATOS": "Contratos con agricultores",
+                  "COSECHADAS": "Hectáreas cosechadas"
+                },
+                "fuenteTexto": "BioBioChile, fin de la compra de remolacha (29-04-2026)",
+                "fuenteUrl": "https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2026/04/29/duro-golpe-para-la-industria-de-la-remolacha-iansa-anuncia-que-no-comprara-en-el-mercado-chileno.shtml",
+                "etiqueta": "Contratos de remolacha de la temporada 2025",
+                "unidad": "contratos"
+              },
+              "destacar": {
+                "pais": "CONTRATOS"
+              },
+              "formato": {
+                "decimales": 0
+              }
+            },
+            "cifras": [
+              {
+                "texto": "440 contratos",
+                "valor": 440,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "iansa-contratos-2025",
+                    "paises": [
+                      "CONTRATOS",
+                      "COSECHADAS"
+                    ],
+                    "valores": {
+                      "CONTRATOS": [
+                        [
+                          2025,
+                          440
+                        ]
+                      ],
+                      "COSECHADAS": [
+                        [
+                          2025,
+                          7700
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "CONTRATOS": "Contratos con agricultores",
+                      "COSECHADAS": "Hectáreas cosechadas"
+                    },
+                    "fuenteTexto": "BioBioChile, fin de la compra de remolacha (29-04-2026)",
+                    "fuenteUrl": "https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2026/04/29/duro-golpe-para-la-industria-de-la-remolacha-iansa-anuncia-que-no-comprara-en-el-mercado-chileno.shtml",
+                    "etiqueta": "Contratos de remolacha de la temporada 2025",
+                    "unidad": "contratos"
+                  },
+                  "operacion": "valor",
+                  "pais": "CONTRATOS",
+                  "anio": 2025
+                },
+                "tolerancia": 0.01
+              },
+              {
+                "texto": "más de 7.700 hectáreas",
+                "valor": 7700,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "iansa-contratos-2025",
+                    "paises": [
+                      "CONTRATOS",
+                      "COSECHADAS"
+                    ],
+                    "valores": {
+                      "CONTRATOS": [
+                        [
+                          2025,
+                          440
+                        ]
+                      ],
+                      "COSECHADAS": [
+                        [
+                          2025,
+                          7700
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "CONTRATOS": "Contratos con agricultores",
+                      "COSECHADAS": "Hectáreas cosechadas"
+                    },
+                    "fuenteTexto": "BioBioChile, fin de la compra de remolacha (29-04-2026)",
+                    "fuenteUrl": "https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2026/04/29/duro-golpe-para-la-industria-de-la-remolacha-iansa-anuncia-que-no-comprara-en-el-mercado-chileno.shtml",
+                    "etiqueta": "Contratos de remolacha de la temporada 2025",
+                    "unidad": "contratos"
+                  },
+                  "operacion": "valor",
+                  "pais": "COSECHADAS",
+                  "anio": 2025
+                },
+                "tolerancia": 0.02
+              }
+            ]
+          },
+          {
+            "tipo": "reenganche",
+            "texto": "Cuando el único comprador se va, lo que queda no es una mala temporada."
+          },
+          {
+            "tipo": "giro",
+            "texto": "El ministro de Agricultura, Jaime Campos, lo dijo en mayo de 2026, según el Diario Financiero: advirtió que la decisión podía significar el término de la producción de azúcar en Chile a partir de remolacha nacional. Era el ministro del sector describiendo el escenario siete meses antes de que ocurriera. En noviembre de 2026, eso es exactamente lo que el directorio escribió en su acuerdo.",
+            "visual": {
+              "tipo": "iconos",
+              "titulo": "La advertencia de mayo",
+              "items": [
+                {
+                  "icono": "📄",
+                  "texto": "Aviso de abril",
+                  "dice": "decisión"
+                },
+                {
+                  "icono": "🏛️",
+                  "texto": "Ministerio",
+                  "dice": "ministro"
+                }
+              ],
+              "dice": "Campos"
+            },
+            "rotulo": {
+              "texto": "SIETE MESES ANTES",
+              "dice": "siete"
+            }
+          }
+        ]
+      },
+      {
+        "titulo": "La cuenta de 2026 y lo que queda",
+        "escenas": [
+          {
+            "tipo": "planteamiento",
+            "texto": "El 25 de noviembre de 2026 la empresa informó a la Comisión para el Mercado Financiero que su directorio había acordado descontinuar la producción de azúcar de remolacha. Esa frase dice menos de lo que parece y también más. La planta de San Carlos, en Ñuble, no cierra: va a seguir funcionando, pero refinando azúcar cruda importada, principalmente de caña. La fábrica queda y sigue operando, con azúcar que llega de otro continente. Lo que se termina es el cultivo, y con el cultivo se termina la parte de la cadena que estaba en el campo: la siembra, el riego, la cosecha y el flete de la raíz hasta la planta. El azúcar que sale por la puerta de San Carlos va a ser la misma; lo que entra por la otra puerta, no.",
+            "visual": {
+              "tipo": "chile",
+              "regiones": [
+                "CL-NB"
+              ],
+              "puntos": [
+                {
+                  "texto": "San Carlos",
+                  "en": [
+                    -71.96,
+                    -36.42
+                  ],
+                  "dice": "planta"
+                }
+              ],
+              "titulo": "San Carlos, Ñuble"
+            }
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Según La Tercera, el cierre le cuesta a la empresa 37,8 millones de dólares después de impuestos. Antes de impuestos, 28,6 millones de ese ajuste son propiedades, plantas, equipos y repuestos de la producción de remolacha. Esa segunda cifra es la que mide el tamaño de lo que se cierra: es el valor contable de una industria que ya no va a operar, borrado de un balance en un día.",
+            "grafico": {
+              "tipo": "comparacion",
+              "titulo": "Lo que cuesta cerrar, en millones de dólares",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "iansa-impacto-2026",
+                "paises": [
+                  "IMPACTO",
+                  "ACTIVOS"
+                ],
+                "valores": {
+                  "IMPACTO": [
+                    [
+                      2026,
+                      37.8
+                    ]
+                  ],
+                  "ACTIVOS": [
+                    [
+                      2026,
+                      28.6
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "IMPACTO": "Impacto en el resultado",
+                  "ACTIVOS": "Ajuste de activos"
+                },
+                "fuenteTexto": "La Tercera, hecho esencial a la CMF (25-11-2026)",
+                "fuenteUrl": "https://www.latercera.com/pulso/noticia/empresas-iansa-cierra-su-produccion-de-azucar-de-remolacha-y-preve-impacto-negativo-por-casi-us38-millones/",
+                "etiqueta": "Costo del cierre para la empresa",
+                "unidad": "millones de US$"
+              },
+              "destacar": {
+                "pais": "IMPACTO"
+              },
+              "formato": {
+                "decimales": 1
+              },
+              "dice": "cuesta"
+            },
+            "cifras": [
+              {
+                "texto": "37,8 millones de dólares",
+                "valor": 37.8,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "iansa-impacto-2026",
+                    "paises": [
+                      "IMPACTO",
+                      "ACTIVOS"
+                    ],
+                    "valores": {
+                      "IMPACTO": [
+                        [
+                          2026,
+                          37.8
+                        ]
+                      ],
+                      "ACTIVOS": [
+                        [
+                          2026,
+                          28.6
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "IMPACTO": "Impacto en el resultado",
+                      "ACTIVOS": "Ajuste de activos"
+                    },
+                    "fuenteTexto": "La Tercera, hecho esencial a la CMF (25-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/empresas-iansa-cierra-su-produccion-de-azucar-de-remolacha-y-preve-impacto-negativo-por-casi-us38-millones/",
+                    "etiqueta": "Costo del cierre para la empresa",
+                    "unidad": "millones de US$"
+                  },
+                  "operacion": "valor",
+                  "pais": "IMPACTO",
+                  "anio": 2026
+                },
+                "tolerancia": 0.01
+              },
+              {
+                "texto": "28,6 de esos millones",
+                "valor": 28.6,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "iansa-impacto-2026",
+                    "paises": [
+                      "IMPACTO",
+                      "ACTIVOS"
+                    ],
+                    "valores": {
+                      "IMPACTO": [
+                        [
+                          2026,
+                          37.8
+                        ]
+                      ],
+                      "ACTIVOS": [
+                        [
+                          2026,
+                          28.6
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "IMPACTO": "Impacto en el resultado",
+                      "ACTIVOS": "Ajuste de activos"
+                    },
+                    "fuenteTexto": "La Tercera, hecho esencial a la CMF (25-11-2026)",
+                    "fuenteUrl": "https://www.latercera.com/pulso/noticia/empresas-iansa-cierra-su-produccion-de-azucar-de-remolacha-y-preve-impacto-negativo-por-casi-us38-millones/",
+                    "etiqueta": "Costo del cierre para la empresa",
+                    "unidad": "millones de US$"
+                  },
+                  "operacion": "valor",
+                  "pais": "ACTIVOS",
+                  "anio": 2026
+                },
+                "tolerancia": 0.01
+              }
+            ]
+          },
+          {
+            "tipo": "reenganche",
+            "texto": "Al otro lado de esa cuenta hay gente que también está haciendo la suya."
+          },
+          {
+            "tipo": "dato",
+            "fuenteEnVoz": true,
+            "texto": "Según Emol, el aviso de abril dejó a cerca de 240 productores sin comprador. Algunos tienen una salida a la vista: la empresa Coexca ofreció en mayo comprar la producción de unas 2.500 hectáreas del Maule si los remolacheros se pasan al maíz. Pero cambiar de cultivo no es cambiar de semilla: cambian la maquinaria, el riego, los plazos y el contrato. Y no todos los suelos que servían para la remolacha sirven igual para otra cosa.",
+            "grafico": {
+              "tipo": "contador",
+              "titulo": "Productores que quedaron sin comprador",
+              "datos": {
+                "fuente": "manual",
+                "indicador": "remolacheros-sin-comprador-2026",
+                "paises": [
+                  "PRODUCTORES"
+                ],
+                "valores": {
+                  "PRODUCTORES": [
+                    [
+                      2026,
+                      240
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "PRODUCTORES": "Productores sin comprador"
+                },
+                "fuenteTexto": "Emol, el difícil 2026 del agro chileno (09-06-2026)",
+                "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/06/09/1202254/agro-desafios-2026.html",
+                "etiqueta": "Productores de remolacha que quedaron sin comprador",
+                "unidad": "productores"
+              },
+              "destacar": {
+                "pais": "PRODUCTORES"
+              },
+              "formato": {
+                "decimales": 0
+              }
+            },
+            "sellos": [
+              {
+                "texto": "2.500 HA",
+                "dice": "maíz"
+              }
+            ],
+            "rotulo": {
+              "texto": "CAMBIAR DE CULTIVO",
+              "dice": "cultivo"
+            },
+            "cifras": [
+              {
+                "texto": "cerca de 240 productores",
+                "valor": 240,
+                "calculo": {
+                  "datos": {
+                    "fuente": "manual",
+                    "indicador": "remolacheros-sin-comprador-2026",
+                    "paises": [
+                      "PRODUCTORES"
+                    ],
+                    "valores": {
+                      "PRODUCTORES": [
+                        [
+                          2026,
+                          240
+                        ]
+                      ]
+                    },
+                    "nombres": {
+                      "PRODUCTORES": "Productores sin comprador"
+                    },
+                    "fuenteTexto": "Emol, el difícil 2026 del agro chileno (09-06-2026)",
+                    "fuenteUrl": "https://www.emol.com/noticias/Economia/2026/06/09/1202254/agro-desafios-2026.html",
+                    "etiqueta": "Productores de remolacha que quedaron sin comprador",
+                    "unidad": "productores"
+                  },
+                  "operacion": "valor",
+                  "pais": "PRODUCTORES",
+                  "anio": 2026
+                },
+                "tolerancia": 0.02
+              }
+            ]
+          },
+          {
+            "tipo": "giro",
+            "texto": "El azúcar que Chile consume no desaparece: cambia de origen. La planta de San Carlos va a refinar caña importada, y el mayor exportador de azúcar del mundo es Brasil. La misma planta que molía remolacha de Ñuble va a procesar caña que llegó en barco, y el azúcar seguirá diciendo Iansa en el supermercado. Cambió el campo que la produce, no la marca del paquete.",
+            "visual": {
+              "tipo": "mapa",
+              "destacar": [
+                "BRA",
+                "CHL"
+              ],
+              "zoom": 3,
+              "flechas": [
+                {
+                  "desde": "BRA",
+                  "hasta": "CHL",
+                  "texto": "caña"
+                }
+              ],
+              "etiquetas": [
+                {
+                  "texto": "San Carlos",
+                  "en": [
+                    -71.96,
+                    -36.42
+                  ]
+                }
+              ]
+            },
+            "rotulo": {
+              "texto": "LA MISMA MARCA",
+              "dice": "marca"
+            }
+          },
+          {
+            "tipo": "significado",
+            "texto": "Para quien vive en la zona esto se nota en algo muy concreto: una temporada que no se siembra es una temporada que no contrata. La remolacha ocupaba manos en la siembra, en la cosecha y en la planta, y esas manos estaban en las tres regiones donde el cultivo existía. El cultivo no estaba repartido por todo Chile: estaba concentrado en un lugar preciso del mapa, y es ahí donde se siente completo. Ñuble, además, llega a este cierre en la peor posición posible para absorber un golpe así, y eso no es una impresión: está medido, trimestre por trimestre, por el organismo que lleva la cuenta del empleo en Chile.",
+            "visual": {
+              "tipo": "chile",
+              "regiones": [
+                "CL-NB",
+                "CL-BI",
+                "CL-ML"
+              ],
+              "titulo": "Donde estaba el cultivo"
+            }
+          }
+        ]
+      }
+    ],
+    "numeroQueNadieMira": {
+      "texto": "Y el número que nadie mira en esta historia no es de la empresa: es del INE. En el trimestre julio-septiembre de 2026, Ñuble tuvo 11,8 % de desocupación, la tasa más alta de Chile, contra 9,8 % del país. La región que pierde su cultivo de contrato es justamente la que tiene menos espacio para reubicar a la gente que ese cultivo ocupaba.",
+      "grafico": {
+        "tipo": "comparacion",
+        "titulo": "Desocupación: Ñuble y Chile",
+        "datos": {
+          "fuente": "manual",
+          "indicador": "desocupacion-nuble-jas-2026",
+          "paises": [
+            "CL-NB",
+            "CHL"
+          ],
+          "valores": {
+            "CL-NB": [
+              [
+                2026,
+                11.8
+              ]
+            ],
+            "CHL": [
+              [
+                2026,
+                9.8
+              ]
+            ]
+          },
+          "nombres": {
+            "CL-NB": "Ñuble",
+            "CHL": "Chile"
+          },
+          "fuenteTexto": "INE, Encuesta Nacional de Empleo julio-septiembre de 2026 (29-10-2026)",
+          "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+          "etiqueta": "Tasa de desocupación",
+          "unidad": "%"
+        },
+        "destacar": {
+          "pais": "CL-NB"
+        },
+        "formato": {
+          "decimales": 1,
+          "sufijo": " %"
+        }
+      },
+      "cifras": [
+        {
+          "texto": "11,8 % de desocupación",
+          "valor": 11.8,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "desocupacion-nuble-jas-2026",
+              "paises": [
+                "CL-NB",
+                "CHL"
+              ],
+              "valores": {
+                "CL-NB": [
+                  [
+                    2026,
+                    11.8
+                  ]
+                ],
+                "CHL": [
+                  [
+                    2026,
+                    9.8
+                  ]
+                ]
+              },
+              "nombres": {
+                "CL-NB": "Ñuble",
+                "CHL": "Chile"
+              },
+              "fuenteTexto": "INE, Encuesta Nacional de Empleo julio-septiembre de 2026 (29-10-2026)",
+              "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+              "etiqueta": "Tasa de desocupación",
+              "unidad": "%"
+            },
+            "operacion": "valor",
+            "pais": "CL-NB",
+            "anio": 2026
+          },
+          "tolerancia": 0.01
+        },
+        {
+          "texto": "9,8 % del país",
+          "valor": 9.8,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "desocupacion-nuble-jas-2026",
+              "paises": [
+                "CL-NB",
+                "CHL"
+              ],
+              "valores": {
+                "CL-NB": [
+                  [
+                    2026,
+                    11.8
+                  ]
+                ],
+                "CHL": [
+                  [
+                    2026,
+                    9.8
+                  ]
+                ]
+              },
+              "nombres": {
+                "CL-NB": "Ñuble",
+                "CHL": "Chile"
+              },
+              "fuenteTexto": "INE, Encuesta Nacional de Empleo julio-septiembre de 2026 (29-10-2026)",
+              "fuenteUrl": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026",
+              "etiqueta": "Tasa de desocupación",
+              "unidad": "%"
+            },
+            "operacion": "valor",
+            "pais": "CHL",
+            "anio": 2026
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "remate": "La planta de San Carlos sigue encendida. El azúcar que refina ya no crece en Ñuble.",
+    "siguiente": "Si el azúcar ahora llega de afuera, ¿qué otro cultivo chileno depende hoy de un solo comprador?",
+    "miniatura": {
+      "texto": "ÑUBLE SIN REMOLACHA"
+    },
+    "fuentes": [
+      {
+        "texto": "Emol, fin de la producción de azúcar de remolacha (25-11-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/11/25/1218188/inansa-dejara-producir-azucar-remolacha.html"
+      },
+      {
+        "texto": "BioBioChile, origen de la empresa en 1953 (25-11-2026)",
+        "url": "https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2026/11/25/fin-de-una-era-iansa-pone-termino-a-la-produccion-de-azucar-de-remolacha-tras-73-anos-de-historia.shtml"
+      },
+      {
+        "texto": "La Tercera, hecho esencial a la CMF (25-11-2026)",
+        "url": "https://www.latercera.com/pulso/noticia/empresas-iansa-cierra-su-produccion-de-azucar-de-remolacha-y-preve-impacto-negativo-por-casi-us38-millones/"
+      },
+      {
+        "texto": "Diario Financiero, superficie sembrada (25-11-2026)",
+        "url": "https://www.df.cl/empresas/industria/fin-de-una-era-iansa-abandona-la-produccion-de-azucar-de-remolacha-tras-73"
+      },
+      {
+        "texto": "Emol, Linares un año después del cierre (09-07-2019)",
+        "url": "https://www.emol.com/noticias/Economia/2019/07/09/953983/A-un-ano-del-cierre-de-la-planta-de-Iansa-en-Linares.html"
+      },
+      {
+        "texto": "Cooperativa, cierre de la planta de Linares (26-07-2018)",
+        "url": "https://www.cooperativa.cl/noticias/pais/region-del-maule/iansa-confirmo-cierre-de-planta-en-linares-4-000-personas-quedaran-sin/2018-07-26/170706.html"
+      },
+      {
+        "texto": "BioBioChile, fin de la compra de remolacha (29-04-2026)",
+        "url": "https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2026/04/29/duro-golpe-para-la-industria-de-la-remolacha-iansa-anuncia-que-no-comprara-en-el-mercado-chileno.shtml"
+      },
+      {
+        "texto": "Emol, productores sin comprador (09-06-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/06/09/1202254/agro-desafios-2026.html"
+      },
+      {
+        "texto": "Emol, oferta de reconversión al maíz (22-05-2026)",
+        "url": "https://www.emol.com/noticias/Economia/2026/05/22/1200587/empresa-coexa-comprar-remolacheros-maiz.html"
+      },
+      {
+        "texto": "Diario Financiero, advertencia del ministro Campos (05-05-2026)",
+        "url": "https://www.df.cl/empresas/industria/ministro-campos-advierte-que-decision-de-iansa-podria-significar-el"
+      },
+      {
+        "texto": "Cooperativa, qué pasa con la planta de San Carlos (25-11-2026)",
+        "url": "https://www.cooperativa.cl/noticias/economia/sectores-productivos/agricultura/iansa-anuncio-el-fin-de-su-produccion-de-azucar-de-remolacha/2026-11-25/234513.html"
+      },
+      {
+        "texto": "INE, desocupación de julio-septiembre de 2026 (29-10-2026)",
+        "url": "https://www.ine.gob.cl/sala-de-prensa/prensa/general/noticia/2026/10/29/la-tasa-de-desocupaci%C3%B3n-nacional-fue-9-8-en-el-trimestre-julio-septiembre-de-2026"
+      },
+      {
+        "texto": "BioBioChile, consecuencias del cierre remolachero (25-11-2026)",
+        "url": "https://www.biobiochile.cl/noticias/economia/negocios-y-empresas/2026/11/25/golpe-al-corazon-productivo-agricola-del-pais-las-consecuencias-del-cierre-remolachero-de-iansa.shtml"
+      },
+      {
+        "texto": "Diario Financiero, el Gobierno no logró postergar el cierre de Linares",
+        "url": "https://www.df.cl/empresas/industria/es-definitivo-pese-a-intentos-del-gobierno-iansa-confirma-cierre-de-la"
+      }
+    ],
+    "id": "2026-12-09-largo-nuble-sin-remolacha"
+  }
+}

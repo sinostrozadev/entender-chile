@@ -2,9 +2,9 @@ Tarea: imagen
 Salida: contenido/caratulas/listas/2026-12-09-largo-nuble-sin-remolacha.png
 Prompt: prompts/imagen-caratula.md
 Canal: Entender Chile (@entenderchile)
-Para: largo "¿Por qué Ñuble se queda sin su remolacha?", sale mié 2026-12-09 19:00 (id 2026-12-09-largo-nuble-sin-remolacha)
+Para: largo "¿Por qué Ñuble se queda con la planta y sin la remolacha?", sale mié 2026-12-09 19:00 (id 2026-12-09-largo-nuble-sin-remolacha)
 
-# Carátula del largo "¿Por qué Ñuble se queda sin su remolacha?" (fórmula de la skill caratulas-con-gpt §2b)
+# Carátula del largo "¿Por qué Ñuble se queda con la planta y sin la remolacha?" (fórmula de la skill caratulas-con-gpt §2b)
 
 > ESTADO (26-11-2026): escrita junto al guion, en el plan semanal del 26-11-2026. El guion pasó `validar.mts` y `verificar-cifras.mts` en verde. El tema es el fin de la producción de azúcar de remolacha chilena, acordado por el directorio de Iansa el 25-11-2026 después de 73 años, y la región donde queda la última planta es la que tiene el desempleo más alto del país.
 

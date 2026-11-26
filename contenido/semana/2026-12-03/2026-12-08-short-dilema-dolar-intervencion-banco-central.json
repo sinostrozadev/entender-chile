@@ -1,0 +1,238 @@
+{
+  "plantilla": "grafico",
+  "id": "2026-12-08-short-dilema-dolar-intervencion-banco-central",
+  "titulo": "El dólar tocó 1.046 pesos: ¿intervendrías el mercado?",
+  "descripcion": "¿Debería el Banco Central intervenir el mercado para bajar el dólar?\nEl 26-11-2026 el dólar tocó 1.046 pesos, según BioBioChile. El informe Global FX Strategy 2027 de J.P. Morgan lo proyecta en 1.100 pesos el primer trimestre de 2027, con su máximo de 1.200 en junio, y sobre los 1.000 pesos durante todo 2027.\nLa presidenta del Banco Central, Rosanna Costa, dijo el 25-11-2026 que no ve motivos para intervenir: atribuyó la caída del peso a que el cobre bajó cerca de 20 % en un mes, al dólar fuerte en el mundo y al bajo crecimiento de Chile. Intervenir significa vender reservas para bajar el precio.\nTu respuesta va en los comentarios.\nFuentes:\nBioBioChile, el dólar en 1.046 pesos (26-11-2026): https://www.biobiochile.cl/noticias/economia/actualidad-economica/2026/11/26/dolar-toco-los-1-046-por-que-subio-y-que-puede-pasar-con-los-precios-y-el-banco-central.shtml\nPauta, proyección de J.P. Morgan (26-11-2026): https://www.pauta.cl/actualidad/2026/11/26/j-p-morgan-proyecta-dolar-a-1-200-en-junio-de-2027-mientras-la-divisa-bordea-los-1-040-en-chile.html\nPauta, Rosanna Costa descarta intervenir (25-11-2026): https://www.pauta.cl/economia/2026/11/25/rosanna-costa-dice-que-el-banco-central-no-ve-motivos-para-intervenir-pese-al-alza-del-dolar.html\n\nVoz sintética generada por computador. Cada cifra lleva su fuente en pantalla.\nEntender Chile: el resumen sin gritos.",
+  "hashtags": [
+    "#dolar",
+    "#bancocentral",
+    "#chile"
+  ],
+  "publicar": "2026-12-08T12:00",
+  "props": {
+    "gancho": {
+      "texto": "El dólar tocó 1.046 pesos, y J.P. Morgan proyecta que llegue a 1.200 en junio de 2027.",
+      "rotulo": "1.046 PESOS",
+      "cifras": [
+        {
+          "texto": "1.046 pesos",
+          "valor": 1046,
+          "calculo": {
+            "datos": {
+              "fuente": "manual",
+              "indicador": "dolar-proyeccion-jpmorgan-2027",
+              "paises": [
+                "DOLAR"
+              ],
+              "valores": {
+                "DOLAR": [
+                  [
+                    0,
+                    1046
+                  ],
+                  [
+                    1,
+                    1100
+                  ],
+                  [
+                    2,
+                    1200
+                  ]
+                ]
+              },
+              "nombres": {
+                "DOLAR": "Dólar observado y proyectado"
+              },
+              "fuenteTexto": "BioBioChile (26-11-2026) el dato de hoy; Pauta (26-11-2026) la proyección",
+              "fuenteUrl": "https://www.pauta.cl/actualidad/2026/11/26/j-p-morgan-proyecta-dolar-a-1-200-en-junio-de-2027-mientras-la-divisa-bordea-los-1-040-en-chile.html",
+              "etiqueta": "Dólar en pesos: hoy y la proyección de J.P. Morgan",
+              "unidad": "pesos",
+              "etiquetasX": {
+                "0": "26-11-2026",
+                "1": "1T 2027",
+                "2": "jun 2027"
+              }
+            },
+            "operacion": "valor",
+            "pais": "DOLAR",
+            "anio": 0
+          },
+          "tolerancia": 0.01
+        }
+      ]
+    },
+    "visualGancho": {
+      "tipo": "chile",
+      "regiones": [
+        "CL-RM"
+      ],
+      "titulo": "Banco Central",
+      "puntos": [
+        {
+          "texto": "Santiago",
+          "en": [
+            -70.6519,
+            -33.442
+          ],
+          "dice": "dólar"
+        }
+      ]
+    },
+    "grafico": {
+      "tipo": "lineas",
+      "titulo": "La ruta que proyecta J.P. Morgan",
+      "datos": {
+        "fuente": "manual",
+        "indicador": "dolar-proyeccion-jpmorgan-2027",
+        "paises": [
+          "DOLAR"
+        ],
+        "valores": {
+          "DOLAR": [
+            [
+              0,
+              1046
+            ],
+            [
+              1,
+              1100
+            ],
+            [
+              2,
+              1200
+            ]
+          ]
+        },
+        "nombres": {
+          "DOLAR": "Dólar observado y proyectado"
+        },
+        "fuenteTexto": "BioBioChile (26-11-2026) el dato de hoy; Pauta (26-11-2026) la proyección",
+        "fuenteUrl": "https://www.pauta.cl/actualidad/2026/11/26/j-p-morgan-proyecta-dolar-a-1-200-en-junio-de-2027-mientras-la-divisa-bordea-los-1-040-en-chile.html",
+        "etiqueta": "Dólar en pesos: hoy y la proyección de J.P. Morgan",
+        "unidad": "pesos",
+        "etiquetasX": {
+          "0": "26-11-2026",
+          "1": "1T 2027",
+          "2": "jun 2027"
+        }
+      },
+      "destacar": {
+        "pais": "DOLAR"
+      },
+      "formato": {
+        "decimales": 0
+      }
+    },
+    "escenas": [
+      {
+        "tipo": "dato",
+        "usaGraficoPrincipal": true,
+        "fuenteEnVoz": true,
+        "texto": "Según Pauta, el informe del banco pone el dólar en 1.100 pesos el primer trimestre de 2027, con el máximo en junio, y después cediendo, pero sobre los 1.000 todo el año.",
+        "cifras": [
+          {
+            "texto": "1.100 pesos",
+            "valor": 1100,
+            "calculo": {
+              "datos": {
+                "fuente": "manual",
+                "indicador": "dolar-proyeccion-jpmorgan-2027",
+                "paises": [
+                  "DOLAR"
+                ],
+                "valores": {
+                  "DOLAR": [
+                    [
+                      0,
+                      1046
+                    ],
+                    [
+                      1,
+                      1100
+                    ],
+                    [
+                      2,
+                      1200
+                    ]
+                  ]
+                },
+                "nombres": {
+                  "DOLAR": "Dólar observado y proyectado"
+                },
+                "fuenteTexto": "BioBioChile (26-11-2026) el dato de hoy; Pauta (26-11-2026) la proyección",
+                "fuenteUrl": "https://www.pauta.cl/actualidad/2026/11/26/j-p-morgan-proyecta-dolar-a-1-200-en-junio-de-2027-mientras-la-divisa-bordea-los-1-040-en-chile.html",
+                "etiqueta": "Dólar en pesos: hoy y la proyección de J.P. Morgan",
+                "unidad": "pesos",
+                "etiquetasX": {
+                  "0": "26-11-2026",
+                  "1": "1T 2027",
+                  "2": "jun 2027"
+                }
+              },
+              "operacion": "valor",
+              "pais": "DOLAR",
+              "anio": 1
+            },
+            "tolerancia": 0.01
+          }
+        ]
+      },
+      {
+        "tipo": "planteamiento",
+        "texto": "La presidenta del Banco Central, Rosanna Costa, dio tres razones: el cobre cayó cerca de 20 % en un mes, el dólar se fortaleció en el mundo y Chile crece poco.",
+        "visual": {
+          "tipo": "iconos",
+          "titulo": "Las tres razones de Costa",
+          "items": [
+            {
+              "icono": "⛏️",
+              "texto": "Cobre",
+              "valor": "-20 % en un mes",
+              "marca": "no",
+              "dice": "cobre"
+            },
+            {
+              "icono": "💵",
+              "texto": "Dólar fuerte",
+              "dice": "mundo"
+            },
+            {
+              "icono": "📉",
+              "texto": "Crecimiento bajo",
+              "marca": "no",
+              "dice": "crece"
+            }
+          ]
+        }
+      },
+      {
+        "tipo": "giro",
+        "texto": "Costa dijo algo más: que no ve motivos para intervenir, porque el mercado está funcionando. Intervenir significa vender reservas para bajar el precio. ¿Tú lo harías? Déjalo en los comentarios.",
+        "rotulo": {
+          "texto": "SIN INTERVENIR",
+          "dice": "intervenir"
+        }
+      }
+    ],
+    "remate": "El precio lo pone el mercado. No tocarlo también es una decisión.",
+    "fuentes": [
+      {
+        "texto": "BioBioChile, el dólar en 1.046 pesos (26-11-2026)",
+        "url": "https://www.biobiochile.cl/noticias/economia/actualidad-economica/2026/11/26/dolar-toco-los-1-046-por-que-subio-y-que-puede-pasar-con-los-precios-y-el-banco-central.shtml"
+      },
+      {
+        "texto": "Pauta, proyección de J.P. Morgan (26-11-2026)",
+        "url": "https://www.pauta.cl/actualidad/2026/11/26/j-p-morgan-proyecta-dolar-a-1-200-en-junio-de-2027-mientras-la-divisa-bordea-los-1-040-en-chile.html"
+      },
+      {
+        "texto": "Pauta, Rosanna Costa descarta intervenir (25-11-2026)",
+        "url": "https://www.pauta.cl/economia/2026/11/25/rosanna-costa-dice-que-el-banco-central-no-ve-motivos-para-intervenir-pese-al-alza-del-dolar.html"
+      },
+      {
+        "texto": "BioBioChile, caída del cobre y del peso (26-11-2026)",
+        "url": "https://www.biobiochile.cl/noticias/economia/actualidad-economica/2026/11/26/peso-chileno-fue-el-cuarto-mas-devaluado-por-alza-del-dolar-y-banco-central-descarta-intervenir.shtml"
+      }
+    ],
+    "id": "2026-12-08-short-dilema-dolar-intervencion-banco-central"
+  }
+}
