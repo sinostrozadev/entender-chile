@@ -522,6 +522,21 @@ largo = {
                         "puntos": [{"texto": "Valparaíso", "en": [-71.62, -33.04]},
                                    {"texto": "Estrecho de Magallanes", "en": [-70.91, -53.16]}]},
              "rotulo": {"texto": "UNA SOLA RUTA", "dice": "camino"}},
+            # Tercera vuelta (25-11-2026): el largo rindió 9:14 con la voz real y producir.mts exige 10:00 a
+            # 12:30. Se agregan dos escenas con hechos verificados (filas "tercera vuelta" de verificacion.md).
+            {"tipo": "planteamiento",
+             "texto": ("Ese papel quedó escrito en un documento oficial. En 2003 la UNESCO declaró "
+                      "Patrimonio de la Humanidad el barrio histórico de Valparaíso, y el criterio con que "
+                      "lo inscribió se apoya en el puerto. Según su ficha, la ciudad es un testimonio de la "
+                      "fase temprana de la globalización, a fines del siglo diecinueve, cuando fue el primer "
+                      "y más importante puerto mercante de la ruta que unía el Atlántico con el Pacífico por "
+                      "el estrecho de Magallanes. Y la misma ficha sitúa ese papel entre la década de 1880 y "
+                      "la apertura del Canal de Panamá, en 1914."),
+             "visual": {"tipo": "iconos", "titulo": "La ficha de la UNESCO",
+                        "items": [{"icono": "🏛️", "texto": "Patrimonio desde 2003", "dice": "UNESCO"},
+                                  {"icono": "⚓", "texto": "Primer puerto mercante", "dice": "mercante"},
+                                  {"icono": "🚢", "texto": "Hasta el Canal de Panamá", "dice": "Panamá"}]},
+             "rotulo": {"texto": "LO DICE LA UNESCO", "dice": "globalización"}},
             {"tipo": "planteamiento",
              "texto": "Hay un detalle de lenguaje que conviene tener presente. A Valparaíso se le dice "
                       "el Puerto Principal desde hace más de un siglo, y el apodo sigue puesto después "
@@ -692,6 +707,20 @@ largo = {
              "cifras": [cifra("2045", 2045, R_FECHAS, "valor", pais="ESTUDIO", anio=2026, tol=0.001),
                         cifra("2036", 2036, R_FECHAS, "valor", pais="PLAN", anio=2026, tol=0.001)],
              "rotulo": {"texto": "2036 O 2045", "dice": "etapa"}},
+            {"tipo": "planteamiento",
+             "texto": ("Uno de esos nombres está en la misma costa y ya ofrece servicio para carga chilena. "
+                      "Chancay queda 80 kilómetros al norte de Lima, se inauguró en noviembre de 2024 y, según "
+                      "la prensa de entonces, es en un 60 por ciento de la naviera estatal china Cosco Shipping. "
+                      "En febrero de 2025 esa naviera lanzó el servicio Chancay Express: pasa cada semana por "
+                      "Iquique y lleva carga chilena hacia Asia con transbordo en Chancay. Esa es la clase de "
+                      "cambio que el estudio señala: el mapa del Pacífico ya no es el de antes. En noviembre de "
+                      "2024, Curtis Doiron, de DP World Chile, advirtió lo contrario: que pasar carga chilena por "
+                      "puertos de Perú o Ecuador podría alargar el viaje y encarecerlo."),
+             "visual": {"tipo": "mapa", "destacar": ["PER", "CHL"], "zoom": 3,
+                        "etiquetas": [{"texto": "Chancay", "en": [-77.27, -11.58]},
+                                      {"texto": "Iquique", "en": [-70.15, -20.21]},
+                                      {"texto": "San Antonio", "en": [-71.61, -33.59]}]},
+             "rotulo": {"texto": "CARGA CHILENA POR PERÚ", "dice": "Iquique"}},
             {"tipo": "giro",
              "texto": "Las tres respuestas que vinieron después no rechazan la obra: discuten el "
                       "momento. El Ministerio de Transportes dijo que la planificación portuaria del "

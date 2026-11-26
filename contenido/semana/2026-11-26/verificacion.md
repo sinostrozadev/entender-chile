@@ -203,6 +203,19 @@ medio).
 | Crisis del salitre | Entre **1914 y 1929**, por efectos de la Primera Guerra Mundial | https://www.memoriachilena.gob.cl/602/w3-article-639270.html | sin fecha de nota | 19-11-2026, buscador |
 | La explicación del canal está discutida | El historiador **Pablo Aravena** (Universidad de Valparaíso) cuestiona que el canal sea el origen del declive y sitúa el inicio de la crisis varias décadas después | https://www.biobiochile.cl/especial/bbcl-investiga/noticias/reportajes/2026/11/16/valparaiso-de-capa-caida-las-heridas-de-la-joya-del-pacifico.shtml | 16-11-2026 | 19-11-2026, buscador |
 
+### Tercera vuelta del largo (25-11-2026)
+
+`producir.yml` cortó el largo el 19-11: con la voz real duraba 9:14 y `preparar-tesis` exige 10:00 a 12:30
+(`validar.mts` no medía la duración). Se agregaron dos escenas, solo con estas filas; con la voz real queda en 10:24.
+
+| Afirmación | Dato | URL | Fecha de la fuente | Consultado |
+|---|---|---|---|---|
+| Valparaíso, Patrimonio de la Humanidad | El barrio histórico se inscribió en **2003** (27.ª sesión del Comité, decisión 27 COM 8C.41), criterio (iii) | https://whc.unesco.org/en/decisions/736 · https://whc.unesco.org/en/list/959 | 2003 | 25-11-2026, buscador |
+| La razón del criterio (iii) | "testimonio excepcional de la fase temprana de la globalización a fines del siglo XIX, cuando se convirtió en el principal puerto mercante de las rutas marítimas de la costa del Pacífico de Sudamérica"; "el primer y más importante puerto mercante … que unía el Atlántico y el Pacífico por el estrecho de Magallanes", con gran impacto "desde la década de 1880 hasta la apertura del Canal de Panamá en 1914" | https://whc.unesco.org/en/list/959 | ficha vigente | 25-11-2026, buscador |
+| Chancay | A **80 km al norte de Lima**; inaugurado el **14-11-2024**; **60 %** de Cosco Shipping (estatal china) y 40 % de la minera Volcan | https://www.biobiochile.cl/noticias/nacional/chile/2024/11/15/las-lecciones-que-debe-sacar-chile-tras-inauguracion-de-mega-puerto-peruano-de-chancay.shtml | 15-11-2024 | 25-11-2026, lectura |
+| Carga chilena por Chancay | Cosco Shipping lanzó el servicio **Chancay Express**, con recaladas **semanales en Iquique**, que une Iquique con Chancay y Shanghái | https://www.df.cl/ripe/chancay-express-ya-inicio-su-servicio-para-llevar-carga-chilena-desde | 25-02-2025 | 25-11-2026, lectura |
+| La advertencia | Curtis Doiron (DP World Chile): parte de la carga chilena podría transbordarse por puertos de Perú y Ecuador, y eso podría encarecer los costos y alargar los tiempos de tránsito | https://www.biobiochile.cl/noticias/nacional/chile/2024/11/15/las-lecciones-que-debe-sacar-chile-tras-inauguracion-de-mega-puerto-peruano-de-chancay.shtml | 15-11-2024 | 25-11-2026, lectura |
+
 ### Lo que está verificado pero NO lo dice la voz
 
 Estas cifras existen y están confirmadas, pero su única fuente son las propias
