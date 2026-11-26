@@ -1,8 +1,8 @@
 flujo=pedido
 tarea=imagen
-slug=numeros-rojos-haiti-rd-a
-pedido=contenido/urgente/PEDIDO-numeros-rojos-haiti-rd-a.md
-hallazgo=contenido/urgente/numeros-rojos-haiti-rd-a.md
-salida=contenido/caratulas/externos/numeros-rojos/2026-11-26-haiti-rd-a.png
+slug=ec-nuble-sin-remolacha
+pedido=contenido/urgente/PEDIDO-ec-nuble-sin-remolacha.md
+hallazgo=contenido/urgente/ec-nuble-sin-remolacha.md
+salida=contenido/caratulas/listas/2026-12-09-largo-nuble-sin-remolacha.png
 prompt=prompts/imagen-caratula.md
-emitido_utc=2026-11-26T21:06:34Z
+emitido_utc=2026-11-26T21:23:14Z
