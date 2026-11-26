@@ -10,6 +10,7 @@ import path from 'node:path';
 import { EnvoltorioGrafico, EnvoltorioTesis } from '../src/plantillas/comun/guion';
 import { estimarTiemposTesis, graficosTesis, planTesis, problemasDeRitmo } from '../src/plantillas/tesis/plan';
 import { completarConFixture } from '../src/plantillas/comun/graficos/fixture';
+import { RITMO } from '../src/marca/tokens';
 
 const rutas = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 if (!rutas.length) { console.error('uso: npx tsx scripts/validar.mts <guion.json> [...]'); process.exit(2); }
@@ -31,6 +32,14 @@ for (const ruta of rutas) {
         const g = (v.data as { props: Parameters<typeof estimarTiemposTesis>[0] }).props;
         const plan = planTesis(g, estimarTiemposTesis(g), completarConFixture(graficosTesis(g).map((x) => x.datos)));
         errores.push(...problemasDeRitmo(plan, g).errores.map((e) => `ritmo: ${e}`));
+        // Duración (25-11-2026): preparar-tesis corta el largo fuera de RITMO.largoMin-largoMax con la voz REAL, y la
+        // estimación sale larga: medido 9:14 real contra 10:48 estimado (Valparaíso), 10:24 contra 12:12 y 11:49 contra
+        // 12:55 (cobre) → la voz real dura 0,85 a 0,92 de lo estimado. Sin este control el largo del 02-12 pasó la
+        // validación del jueves y recién falló al producir. Se exige con el factor más desfavorable de cada lado.
+        const realBajo = plan.duracionSeg * 0.85, realAlto = plan.duracionSeg * 0.92;
+        const mmss = (s: number) => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, '0')}`;
+        if (realBajo < RITMO.largoMin) errores.push(`duración: estimada ${mmss(plan.duracionSeg)} → con la voz real puede quedar en ${mmss(realBajo)}, bajo el mínimo ${mmss(RITMO.largoMin)} de preparar-tesis. Alarga el guion (la voz real dura ~0,85 de lo estimado)`);
+        if (realAlto > RITMO.largoMax) errores.push(`duración: estimada ${mmss(plan.duracionSeg)} → con la voz real puede quedar en ${mmss(realAlto)}, sobre el máximo ${mmss(RITMO.largoMax)} de preparar-tesis. Recorta el guion`);
       }
     }
     // Decisión 2026-11-18 (diagnóstico de virales): el primer fotograma del Short es el MAPA del lugar, no un gráfico

@@ -19,6 +19,15 @@ on:
         type: boolean
         default: false
 
+# El commit del barrido escribe en main. La limpieza del 13-11 borró este bloque junto con los permisos del
+# canal de avisos, y desde la primera corrida tras fusionar (19-11) el push daba 403.
+permissions:
+  contents: write
+
+concurrency:
+  group: barrido
+  cancel-in-progress: false
+
 jobs:
   barrer:
     runs-on: ubuntu-latest
