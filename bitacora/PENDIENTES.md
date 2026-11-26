@@ -69,6 +69,17 @@ tiene flujo y render desde el 02-11-2026 y está en piloto.
       `senado.cl`, `puertosanantonio.com` y `puertovalparaiso.cl`.
       Evidencia: `contenido/semana/2026-11-26/verificacion.md` líneas 7 a 28 y
       `bitacora/semanal/2026-11-19.md`.
+      **Pasó igual el 26-11-2026, segunda semana seguida**: `mindicador.cl`
+      devolvió 403 en el proxy y `www.latercera.com` no resolvió por DNS, así
+      que el plan de la semana del 03-12 se verificó otra vez solo con
+      búsqueda web. Costo concreto de esta vez: el máximo histórico de la
+      remolacha (56.618 hectáreas en 1986/87, serie del INE recopilada por
+      Odepa) quedó fuera de la voz del largo porque la única fuente que lo
+      cita no está en la lista del revisor y no se pudo abrir Odepa para
+      confirmarlo. Suma a la lista de dominios que hay que permitir:
+      `odepa.gob.cl`, `pjud.cl`, `www.latercera.com` y `www.emol.com`.
+      Evidencia: `contenido/semana/2026-12-03/verificacion.md`, sección
+      "Método, y los dos límites que vuelven a aparecer".
 
 - [ ] **19-11, el revisor numérico no acepta a las empresas portuarias del
       Estado, y eso saca cifras verificadas del aire.** `OFICIAL` en

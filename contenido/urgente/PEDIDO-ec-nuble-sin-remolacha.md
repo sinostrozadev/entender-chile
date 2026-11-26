@@ -1,0 +1,51 @@
+Tarea: imagen
+Salida: contenido/caratulas/listas/2026-12-09-largo-nuble-sin-remolacha.png
+Prompt: prompts/imagen-caratula.md
+Canal: Entender Chile (@entenderchile)
+Para: largo "¿Por qué Ñuble se queda sin su remolacha?", sale mié 2026-12-09 19:00 (id 2026-12-09-largo-nuble-sin-remolacha)
+
+# Carátula del largo "¿Por qué Ñuble se queda sin su remolacha?" (fórmula de la skill caratulas-con-gpt §2b)
+
+> ESTADO (26-11-2026): escrita junto al guion, en el plan semanal del 26-11-2026. El guion pasó `validar.mts` y `verificar-cifras.mts` en verde. El tema es el fin de la producción de azúcar de remolacha chilena, acordado por el directorio de Iansa el 25-11-2026 después de 73 años, y la región donde queda la última planta es la que tiene el desempleo más alto del país.
+
+## El prompt (va tal cual al generador, no se reinterpreta)
+
+Crea una carátula de YouTube para un video largo explicativo de un canal chileno de noticias explicadas con mapas y datos oficiales. Tono serio y claro, sin alarmismo.
+
+DATOS QUE YO ENTREGO
+SUJETO (línea 1, letra enorme, mayúsculas): ÑUBLE
+CAJA DE TENSIÓN (línea 2, dentro de una caja de color ámbar azúcar, mayúsculas, exacta): SIN REMOLACHA
+LÍNEA PEQUEÑA (debajo de la caja, exacta): 73 AÑOS Y SE APAGA
+IMAGEN HÉROE: el valle central chileno al final de la cosecha, visto en picado y a sangre completa. En la mitad izquierda, potreros de tierra parda recién levantada con montones de raíces blancas al borde del camino. En la mitad derecha, al fondo, una planta azucarera de silos cilíndricos y una chimenea alta sin humo, apagada. Entre las dos mitades, un camino de tierra vacío, sin camiones. La luz es de tarde, baja y lateral. La paleta es tierra parda, verde apagado y gris azulado, con el ámbar azúcar solo en la caja de texto y en los montones de raíces. Lo que se tiene que entender de un vistazo es que el campo está cosechado y la fábrica está quieta.
+
+TU TAREA
+Diseña la carátula con estas reglas fijas. No son sugerencias.
+
+FORMATO
+16:9 horizontal, mínimo 1280x720, PNG. El texto VA DENTRO de la imagen, exacto como lo entrego, y debe leerse perfecto a 160 píxeles de ancho (así se ve en un teléfono).
+
+LA REGLA PRINCIPAL: QUE SE ENTIENDA QUIÉN Y QUÉ EN MEDIO SEGUNDO
+Sin leer el título del video, se entiende que es sobre ÑUBLE y que algo del campo se terminó. Por eso ÑUBLE va escrito, grande y nombrado, y no solo sugerido por el paisaje.
+
+COMPOSICIÓN
+- Imagen héroe a sangre, ocupando todo el cuadro (nada de collage ni de recortes pegados).
+- Arriba a la izquierda: ÑUBLE en blanco roto, tipografía sans condensada muy pesada. Justo debajo, la caja ámbar azúcar con SIN REMOLACHA en letra oscura, bordes levemente irregulares como papel recortado. Debajo de la caja, la línea pequeña 73 AÑOS Y SE APAGA en blanco roto.
+- Un solo acento de color: el ámbar azúcar (la caja y los montones de raíces). Es un ámbar apagado, de azúcar rubia, no un amarillo de tabloide. El resto, tierra parda, verde apagado, gris azulado y blanco roto.
+- La esquina inferior derecha queda LIBRE (YouTube pone ahí la duración).
+- Marca pequeña y discreta, abajo a la izquierda: ENTENDER CHILE, en mayúsculas espaciadas.
+- Ningún otro texto, ninguna cifra sobre la imagen, sin ejes ni rejilla, sin nombres de ciudades escritos sobre el campo.
+
+PROHIBIDO
+Rostros de personas, reales o inventados. Banderas como fondo. Logos, escudos, marcas de azúcar, nombres de empresas o de medios. Billetes, monedas, signos de dólar. Flechas gigantes, círculos, signos de exclamación, emojis, rojo o amarillo de tabloide, estética de collage, 3D plástico. Humo saliendo de la chimenea (la planta está quieta). Cualquier texto que no sea ÑUBLE, SIN REMOLACHA, 73 AÑOS Y SE APAGA y ENTENDER CHILE.
+
+TEXTO
+Español con tildes correctas. Sin raya larga ni media. Revisa letra por letra que ÑUBLE, SIN REMOLACHA y 73 AÑOS Y SE APAGA digan exactamente lo que entregué, con la Ñ bien dibujada.
+
+PRUEBA FINAL ANTES DE ENTREGAR
+¿Sin leer el título se entiende que es sobre Ñuble y que algo del campo se terminó? ¿Se nota la diferencia entre el potrero cosechado y la fábrica quieta? ¿Se lee todo a 160 px? ¿Hay un solo acento (ámbar azúcar) y ninguna cara? ¿La esquina inferior derecha está limpia? Si algo falla, corrígelo antes de generar.
+
+## Qué entrega GPT (reglas del canal de pedidos)
+1. Un PNG VÁLIDO, 16:9, mínimo 1280x720, en la ruta EXACTA de `Salida:` (rama main), subido como binario.
+2. Comprobar que llegó entero: leerlo de vuelta desde main, mismo tamaño en bytes, empieza con la firma PNG (89 50 4E 47) y termina con IEND (`producir.mts` rechaza PNG de menos de 20 KB o truncados).
+3. Dejar el prompt que usó en `contenido/caratulas/listas/2026-12-09-largo-nuble-sin-remolacha-prompt.txt`.
+4. Si no pudo: `contenido/caratulas/listas/2026-12-09-largo-nuble-sin-remolacha-NO-PUDE.md` con qué intentó y el error textual.
