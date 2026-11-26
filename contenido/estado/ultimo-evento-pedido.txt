@@ -1,8 +1,8 @@
 flujo=pedido
 tarea=imagen
-slug=linea-punteada-lima-1881-b
-pedido=contenido/urgente/PEDIDO-linea-punteada-lima-1881-b.md
-hallazgo=contenido/urgente/linea-punteada-lima-1881-b.md
-salida=contenido/caratulas/externos/linea-punteada/2026-11-26-lima-1881-b.png
+slug=linea-punteada-lima-1881-c
+pedido=contenido/urgente/PEDIDO-linea-punteada-lima-1881-c.md
+hallazgo=contenido/urgente/linea-punteada-lima-1881-c.md
+salida=contenido/caratulas/externos/linea-punteada/2026-11-26-lima-1881-c.png
 prompt=prompts/imagen-caratula.md
-emitido_utc=2026-11-26T14:33:04Z
+emitido_utc=2026-11-26T14:33:26Z
