@@ -1,0 +1,39 @@
+Tarea: imagen
+Salida: contenido/caratulas/externos/linea-punteada/2026-11-26-largo-peru-1975.png
+Prompt: prompts/imagen-caratula.md
+Canal: Línea Punteada (externo, @lineapunteada)
+Para: largo "1975: Perú tenía más tanques. ¿Por qué no hubo guerra con Chile?", dom 2026-12-06 19:00
+
+# Carátula de 1975: la guerra que no fue
+
+## El prompt (va tal cual al generador, no se reinterpreta)
+Crea UNA carátula de YouTube para un video largo de geografía e historia narrada del canal en español "Línea Punteada" (mapas, fronteras y rutas contadas con calma). Misma serie visual que sus carátulas anteriores: fondo azul noche, texto grande a la izquierda, escena a la derecha, un solo acento naranja.
+
+DATOS QUE YO ENTREGO
+TITULAR (exacto, tres líneas, sin cambiar palabras ni tildes):
+1975
+LA GUERRA
+QUE NO FUE
+CAJA DE TENSIÓN (exacta, en mayúsculas, caja negra con texto blanco y la palabra FUE en naranja):
+¿POR QUÉ NO FUE?
+LÍNEA SECUNDARIA (exacta):
+Perú y Chile, frente a frente
+ELEMENTO VISUAL:
+Fotografía documental en blanco y negro con un leve tono azul, ocupando el 55 % derecho: un único tanque de la década de 1970 (silueta genérica, sin insignias legibles) en un desierto de arena y roca, visto de tres cuartos, con el Morro de Arica como peñón al fondo bajo un cielo de amanecer apagado. Sobre el suelo, una línea punteada blanca gruesa atraviesa la escena de lado a lado marcando la frontera, delante del tanque. Dos etiquetas pequeñas tipo rótulo de mapa a cada lado de la línea punteada: a la izquierda "PERÚ" con una franja fina roja, blanca y roja debajo; a la derecha "CHILE" con una franja fina roja, blanca y azul debajo. Un solo tanque, una sola línea de frontera, un solo Morro.
+
+FORMATO
+16:9 horizontal, 1280x720 o mayor, PNG. UNA sola carátula a lienzo completo: nada de paneles, mosaicos ni variantes. El texto VA DENTRO, exacto.
+
+IDENTIDAD DEL CANAL
+Arriba a la izquierda, marca pequeña LÍNEA PUNTEADA en mayúsculas espaciadas, grotesca pesada, con una línea punteada corta debajo.
+Paleta: fondo azul noche casi negro; arena y roca desaturadas en azul grisáceo; UN solo acento naranja quemado (#d95926) para la palabra FUE de la caja y un leve resplandor en el horizonte.
+TITULAR en grotesca muy pesada, blanco, cuerpo muy grande, tres líneas (1975 arriba, LA GUERRA, QUE NO FUE). Debajo la CAJA DE TENSIÓN y debajo la LÍNEA SECUNDARIA pequeña.
+
+COMPOSICIÓN
+Texto en el 45 % izquierdo; la escena se funde con el fondo, sin marco. Esquina inferior derecha libre (duración).
+
+PROHIBIDO
+Personas y rostros reconocibles (ningún retrato de políticos ni militares; sin soldados visibles). Banderas grandes u ondeando (solo las franjas finas de las etiquetas). Logos, nombres de medios, marcas de agua, insignias o números legibles en el tanque. Cualquier texto fuera de la marca, el titular, la caja, la línea secundaria y las dos etiquetas PERÚ y CHILE. Rojo de tabloide, signos de exclamación, collage, explosiones.
+
+PRUEBA FINAL
+¿Se entiende en un segundo que es una tensión militar en la frontera Perú-Chile, con un tanque ante una línea de frontera y el Morro de Arica? ¿El titular se lee en un teléfono? ¿La esquina inferior derecha está limpia? ¿Hay un solo acento de color? ¿Es UNA sola imagen, con un solo tanque? Si algo falla, corrígelo antes de generar.
