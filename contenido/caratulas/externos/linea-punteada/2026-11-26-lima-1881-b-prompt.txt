@@ -1,0 +1,27 @@
+Crea UNA carátula de YouTube para un video largo de historia con mapas del canal en español "Línea Punteada", sobre la ocupación chilena de Lima en 1881: la capital cayó en tres días, pero la guerra en la sierra duró casi tres años más.
+
+DATOS QUE YO ENTREGO
+TEXTO IZQUIERDO (exacto, enorme, serifa dorada con borde oscuro):
+3 DÍAS
+TEXTO DERECHO (exacto, enorme, serifa blanca con borde oscuro, la cifra 3 en rojo):
+3 AÑOS
+ETIQUETA IZQUIERDA (pequeña, tipo rótulo de mapa, exacta): LIMA 1881
+ETIQUETA DERECHA (pequeña, tipo rótulo de mapa, exacta): LOS ANDES
+
+ESCENA (una sola pintura continua, sin línea divisoria dura: la costa a la izquierda se convierte en cordillera a la derecha)
+Mitad izquierda: la Plaza Mayor de Lima en 1881, con la catedral colonial y el palacio, cielo dorado de atardecer con humo suave; soldados diminutos formados en la plaza, de uniforme azul y pantalón rojo. Sobre el palacio, una bandera pequeña de tres colores (azul, blanco y rojo con una estrella).
+Mitad derecha: los Andes peruanos, enormes, fríos y azules, con nieve; en una cornisa alta, un jinete solitario de espaldas con poncho y quepis rojo, muy pequeño frente a la montaña, alejándose.
+Una LÍNEA PUNTEADA roja, como de mapa, sale de la plaza, cruza toda la imagen subiendo en zigzag y termina en el jinete.
+
+FORMATO
+16:9 horizontal, 1280x720 o mayor, PNG. UNA sola carátula a lienzo completo: nada de paneles apilados, mosaicos ni variantes. El texto VA DENTRO, exacto, sin cambiar palabras, tildes ni signos. Ningún otro texto.
+
+ESTILO
+Pintura histórica hiperrealista de fines del siglo XIX (óleo de batalla, luz de atardecer cálida, polvo y humo suaves), no fotografía moderna ni estilo de dibujo animado. Colores ricos: dorados, ocres, azul profundo de sombra. Alto contraste para que se entienda en la pantalla de un teléfono.
+
+PROHIBIDO
+Rostros reconocibles de personas reales (ningún retrato de Andrés Avelino Cáceres ni de Patricio Lynch: las figuras van de espaldas, a contraluz o con el rostro en sombra bajo el quepis). Sangre, heridos, muertos o escenas de violencia. Logos, nombres de canales o de medios, marcas de agua. Armas apuntando al espectador. Texto extra, signos de exclamación, emojis, collage. Elementos modernos (autos, edificios actuales).
+La esquina inferior derecha queda libre de texto (ahí va la duración del video).
+
+PRUEBA FINAL
+¿Se entiende en un segundo el contraste: una ciudad tomada rápido (3 DÍAS) y una persecución larguísima en la montaña (3 AÑOS)? ¿Las dos cifras se leen en un teléfono? ¿Es UNA sola imagen continua? Si algo falla, corrígelo antes de generar.
