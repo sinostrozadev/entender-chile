@@ -1,8 +1,8 @@
 flujo=pedido
 tarea=imagen
-slug=linea-punteada-lima-1881-b
-pedido=contenido/urgente/PEDIDO-linea-punteada-lima-1881-b.md
-hallazgo=contenido/urgente/linea-punteada-lima-1881-b.md
-salida=contenido/caratulas/externos/linea-punteada/2026-11-26-lima-1881-b.png
+slug=linea-punteada-largo-peru-1975
+pedido=contenido/urgente/PEDIDO-linea-punteada-largo-peru-1975.md
+hallazgo=contenido/urgente/linea-punteada-largo-peru-1975.md
+salida=contenido/caratulas/externos/linea-punteada/2026-11-26-largo-peru-1975.png
 prompt=prompts/imagen-caratula.md
-emitido_utc=2026-11-27T00:37:35Z
+emitido_utc=2026-11-27T04:42:00Z
