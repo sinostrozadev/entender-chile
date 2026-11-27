@@ -1,0 +1,8 @@
+flujo=pedido
+tarea=imagen
+slug=linea-punteada-largo-peru-1975-b
+pedido=contenido/urgente/PEDIDO-linea-punteada-largo-peru-1975-b.md
+hallazgo=contenido/urgente/linea-punteada-largo-peru-1975-b.md
+salida=contenido/caratulas/externos/linea-punteada/2026-11-27-largo-peru-1975-b.png
+prompt=prompts/imagen-caratula.md
+emitido_utc=2026-11-27T04:46:23Z
