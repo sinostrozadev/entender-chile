@@ -2,10 +2,19 @@
   "fecha": "2026-11-27",
   "canal": {
     "suscriptores": 62,
-    "vistas": 28299,
-    "videos": 241
+    "vistas": 28316,
+    "videos": 242
   },
   "videos": {
+    "GsNAjyl1Lco": {
+      "titulo": "El Danstar reabre la ruta a las Malvinas y Argentina responde",
+      "publicado": "2026-11-27",
+      "estado": "public",
+      "vistas": 12,
+      "meGusta": 1,
+      "comentarios": 0,
+      "durSeg": 52
+    },
     "wAyLZTjA6Ek": {
       "titulo": "Iansa cierra 73 años de azúcar de remolacha chilena",
       "publicado": "2026-11-26",
@@ -82,7 +91,7 @@
       "titulo": "Si el Congreso no despacha el Presupuesto 2027, rige el del Presidente",
       "publicado": "2026-11-26",
       "estado": "public",
-      "vistas": 24,
+      "vistas": 26,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 47
@@ -109,7 +118,7 @@
       "titulo": "Desempleo: 11,8 % en Ñuble y 4,0 % en Aysén, en el mismo país",
       "publicado": "2026-11-24",
       "estado": "public",
-      "vistas": 312,
+      "vistas": 314,
       "meGusta": 1,
       "comentarios": 0,
       "durSeg": 53
@@ -195,15 +204,6 @@
       "comentarios": 0,
       "durSeg": 47
     },
-    "GsNAjyl1Lco": {
-      "titulo": "El Danstar reabre la ruta a las Malvinas y Argentina responde",
-      "publicado": "2026-11-19",
-      "estado": "private",
-      "vistas": 0,
-      "meGusta": 0,
-      "comentarios": 0,
-      "durSeg": 52
-    },
     "ZkKQ-PnUyN0": {
       "titulo": "El diésel subió 443 pesos por litro: por eso pararon los camioneros",
       "publicado": "2026-11-19",
@@ -217,7 +217,7 @@
       "titulo": "Cómo Codelco registra su producción y quién la controla",
       "publicado": "2026-11-18",
       "estado": "public",
-      "vistas": 4,
+      "vistas": 6,
       "meGusta": 0,
       "comentarios": 0,
       "durSeg": 692
@@ -1450,7 +1450,7 @@
       "titulo": "Muere un trabajador en Minera Escondida mientras hacía mantención #Shorts",
       "publicado": "2026-09-23",
       "estado": "public",
-      "vistas": 491,
+      "vistas": 493,
       "meGusta": 3,
       "comentarios": 1,
       "durSeg": 42
